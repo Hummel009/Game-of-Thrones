@@ -48,7 +48,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		GOTAchievement achievement;
 		completed = true;
-		setDateCompleted(GOTDate.AegonCalendar.currentDay);
+		setDateCompleted(GOTDate.AegonCalendar.getCurrentDay());
 		Random rand = npc.getRNG();
 		List<ItemStack> dropItems = new ArrayList<>();
 		int coins = getCoinBonus();

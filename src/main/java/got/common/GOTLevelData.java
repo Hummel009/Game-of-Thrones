@@ -31,39 +31,44 @@ import java.nio.file.Files;
 import java.util.*;
 
 public class GOTLevelData {
-	public static int madePortal;
-	public static int madeGameOfThronesPortal;
-	public static int overworldPortalX;
-	public static int overworldPortalY;
-	public static int overworldPortalZ;
-	public static int gameOfThronesPortalX;
-	public static int gameOfThronesPortalY;
-	public static int gameOfThronesPortalZ;
-	public static int structuresBanned;
-	public static int waypointCooldownMax;
-	public static int waypointCooldownMin;
-	public static boolean enableAlignmentZones;
-	public static float conquestRate = 1.0f;
-	public static boolean clientside_thisServer_feastMode;
-	public static boolean clientside_thisServer_fellowshipCreation;
-	public static int clientside_thisServer_fellowshipMaxSize;
-	public static boolean clientside_thisServer_enchanting;
-	public static boolean clientside_thisServer_enchantingGOT;
-	public static boolean clientside_thisServer_strictFactionTitleRequirements;
-	public static int clientside_thisServer_customWaypointMinY;
-	public static EnumDifficulty difficulty;
-	public static boolean difficultyLock;
-	public static Map<UUID, GOTPlayerData> playerDataMap = new HashMap<>();
-	public static Map<UUID, Optional<GOTTitle.PlayerTitle>> playerTitleOfflineCacheMap = new HashMap<>();
-	public static boolean needsLoad = true;
-	public static boolean needsSave;
-	public static Random rand = new Random();
+	private static final Map<UUID, GOTPlayerData> PLAYER_DATA_MAP = new HashMap<>();
+	private static final Map<UUID, Optional<GOTTitle.PlayerTitle>> PLAYER_TITLE_OFFLINE_CACHE_MAP = new HashMap<>();
+
+	private static int madePortal;
+	private static int madeGameOfThronesPortal;
+	private static int overworldPortalX;
+	private static int overworldPortalY;
+	private static int overworldPortalZ;
+	private static int gameOfThronesPortalX;
+	private static int gameOfThronesPortalY;
+	private static int gameOfThronesPortalZ;
+	private static boolean clientSideThisServerFeastMode;
+	private static boolean clientSideThisServerFellowshipCreation;
+	private static int clientSideThisServerFellowshipMaxSize;
+	private static boolean clientSideThisServerEnchanting;
+	private static boolean clientSideThisServerEnchantingGOT;
+	private static boolean clientSideThisServerStrictFactionTitleRequirements;
+	private static int clientSideThisServerCustomWaypointMinY;
+
+	private static boolean needsLoad = true;
+
+	private static int structuresBanned;
+	private static int waypointCooldownMax;
+	private static int waypointCooldownMin;
+	private static boolean enableAlignmentZones;
+	private static float conquestRate = 1.0f;
+	private static EnumDifficulty difficulty;
+	private static boolean difficultyLock;
+	private static boolean needsSave;
+
+	private GOTLevelData() {
+	}
 
 	public static boolean anyDataNeedsSave() {
-		if (needsSave || GOTSpawnDamping.needsSave) {
+		if (needsSave || GOTSpawnDamping.isNeedsSave()) {
 			return true;
 		}
-		for (GOTPlayerData pd : playerDataMap.values()) {
+		for (GOTPlayerData pd : PLAYER_DATA_MAP.values()) {
 			if (pd.needsSave()) {
 				return true;
 			}
@@ -72,16 +77,12 @@ public class GOTLevelData {
 	}
 
 	public static void destroyAllPlayerData() {
-		playerDataMap.clear();
-	}
-
-	public static boolean enableAlignmentZones() {
-		return enableAlignmentZones;
+		PLAYER_DATA_MAP.clear();
 	}
 
 	public static Set<String> getBannedStructurePlayersUsernames() {
 		Set<String> players = new HashSet<>();
-		for (UUID uuid : playerDataMap.keySet()) {
+		for (UUID uuid : PLAYER_DATA_MAP.keySet()) {
 			String username;
 			if (getData(uuid).getStructuresBanned()) {
 				GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(uuid);
@@ -110,23 +111,23 @@ public class GOTLevelData {
 	}
 
 	public static GOTPlayerData getData(UUID player) {
-		GOTPlayerData pd = playerDataMap.get(player);
+		GOTPlayerData pd = PLAYER_DATA_MAP.get(player);
 		if (pd == null) {
 			pd = loadData(player);
-			playerTitleOfflineCacheMap.remove(player);
+			PLAYER_TITLE_OFFLINE_CACHE_MAP.remove(player);
 			if (pd == null) {
 				pd = new GOTPlayerData(player);
 			}
-			playerDataMap.put(player, pd);
+			PLAYER_DATA_MAP.put(player, pd);
 		}
 		return pd;
 	}
 
-	public static File getGOTDat() {
+	private static File getGOTDat() {
 		return new File(getOrCreateGOTDir(), "GOT.dat");
 	}
 
-	public static File getGOTPlayerDat(UUID player) {
+	private static File getGOTPlayerDat(UUID player) {
 		File playerDir = new File(getOrCreateGOTDir(), "players");
 		if (!playerDir.exists()) {
 			boolean created = playerDir.mkdirs();
@@ -169,16 +170,16 @@ public class GOTLevelData {
 	}
 
 	public static GOTTitle.PlayerTitle getPlayerTitleWithOfflineCache(UUID player) {
-		if (playerDataMap.containsKey(player)) {
-			return playerDataMap.get(player).getPlayerTitle();
+		if (PLAYER_DATA_MAP.containsKey(player)) {
+			return PLAYER_DATA_MAP.get(player).getPlayerTitle();
 		}
-		if (playerTitleOfflineCacheMap.containsKey(player)) {
-			return playerTitleOfflineCacheMap.get(player).orElse(null);
+		if (PLAYER_TITLE_OFFLINE_CACHE_MAP.containsKey(player)) {
+			return PLAYER_TITLE_OFFLINE_CACHE_MAP.get(player).orElse(null);
 		}
 		GOTPlayerData pd = loadData(player);
 		if (pd != null) {
 			GOTTitle.PlayerTitle playerTitle = pd.getPlayerTitle();
-			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(playerTitle));
+			PLAYER_TITLE_OFFLINE_CACHE_MAP.put(player, Optional.ofNullable(playerTitle));
 			return playerTitle;
 		}
 		return null;
@@ -270,7 +271,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static GOTPlayerData loadData(UUID player) {
+	private static GOTPlayerData loadData(UUID player) {
 		try {
 			NBTTagCompound nbt = loadNBTFromFile(getGOTPlayerDat(player));
 			GOTPlayerData pd = new GOTPlayerData(player);
@@ -340,14 +341,14 @@ public class GOTLevelData {
 				saveNBTToFile(GOT_dat, levelData);
 				needsSave = false;
 			}
-			for (Map.Entry<UUID, GOTPlayerData> e : playerDataMap.entrySet()) {
+			for (Map.Entry<UUID, GOTPlayerData> e : PLAYER_DATA_MAP.entrySet()) {
 				UUID player = e.getKey();
 				GOTPlayerData pd = e.getValue();
 				if (pd.needsSave()) {
 					saveData(player);
 				}
 			}
-			if (GOTSpawnDamping.needsSave) {
+			if (GOTSpawnDamping.isNeedsSave()) {
 				GOTSpawnDamping.saveAll();
 			}
 		} catch (Exception e) {
@@ -356,14 +357,14 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void saveAndClearData(UUID player) {
-		GOTPlayerData pd = playerDataMap.get(player);
+	private static void saveAndClearData(UUID player) {
+		GOTPlayerData pd = PLAYER_DATA_MAP.get(player);
 		if (pd != null) {
 			if (pd.needsSave()) {
 				saveData(player);
 			}
-			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(pd.getPlayerTitle()));
-			playerDataMap.remove(player);
+			PLAYER_TITLE_OFFLINE_CACHE_MAP.put(player, Optional.ofNullable(pd.getPlayerTitle()));
+			PLAYER_DATA_MAP.remove(player);
 			return;
 		}
 		FMLLog.severe("Attempted to clear GOT player data for %s; no data found", player);
@@ -371,7 +372,7 @@ public class GOTLevelData {
 
 	public static void saveAndClearUnusedPlayerData() {
 		Collection<UUID> clearing = new ArrayList<>();
-		for (UUID player : playerDataMap.keySet()) {
+		for (UUID player : PLAYER_DATA_MAP.keySet()) {
 			boolean foundPlayer = false;
 			for (WorldServer world : MinecraftServer.getServer().worldServers) {
 				if (world.func_152378_a(player) != null) {
@@ -388,10 +389,10 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void saveData(UUID player) {
+	private static void saveData(UUID player) {
 		try {
 			NBTTagCompound nbt = new NBTTagCompound();
-			GOTPlayerData pd = playerDataMap.get(player);
+			GOTPlayerData pd = PLAYER_DATA_MAP.get(player);
 			pd.save(nbt);
 			saveNBTToFile(getGOTPlayerDat(player), nbt);
 		} catch (Exception e) {
@@ -525,6 +526,70 @@ public class GOTLevelData {
 		}
 	}
 
+	public static void setPlayerBannedForStructures(String username, boolean flag) {
+		UUID uuid = UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
+		getData(uuid).setStructuresBanned(flag);
+	}
+
+	public static void setSavedDifficulty(EnumDifficulty d) {
+		difficulty = d;
+		markDirty();
+	}
+
+	public static void setWaypointCooldown(int max, int min) {
+		int min1 = min;
+		int max1 = Math.max(0, max);
+		min1 = Math.max(0, min1);
+		if (min1 > max1) {
+			min1 = max1;
+		}
+		waypointCooldownMax = max1;
+		waypointCooldownMin = min1;
+		markDirty();
+		if (!GOT.proxy.isClient()) {
+			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
+			for (EntityPlayerMP entityplayer : players) {
+				IMessage packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
+			}
+		}
+	}
+
+	public static int getMadePortal() {
+		return madePortal;
+	}
+
+	public static void setMadePortal(int i) {
+		madePortal = i;
+		markDirty();
+	}
+
+	public static int getMadeGameOfThronesPortal() {
+		return madeGameOfThronesPortal;
+	}
+
+	public static void setMadeGameOfThronesPortal(int i) {
+		madeGameOfThronesPortal = i;
+		markDirty();
+	}
+
+	public static int getStructuresBanned() {
+		return structuresBanned;
+	}
+
+	public static void setStructuresBanned(boolean banned) {
+		if (banned) {
+			structuresBanned = 1;
+		} else {
+			structuresBanned = 0;
+		}
+		markDirty();
+	}
+
+	public static boolean isEnableAlignmentZones() {
+		return enableAlignmentZones;
+	}
+
 	public static void setEnableAlignmentZones(boolean flag) {
 		enableAlignmentZones = flag;
 		markDirty();
@@ -537,54 +602,103 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void setMadeGameOfThronesPortal(int i) {
-		madeGameOfThronesPortal = i;
-		markDirty();
+	public static int getOverworldPortalX() {
+		return overworldPortalX;
 	}
 
-	public static void setMadePortal(int i) {
-		madePortal = i;
-		markDirty();
+	public static int getOverworldPortalY() {
+		return overworldPortalY;
 	}
 
-	public static void setPlayerBannedForStructures(String username, boolean flag) {
-		UUID uuid = UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
-		getData(uuid).setStructuresBanned(flag);
+	public static int getOverworldPortalZ() {
+		return overworldPortalZ;
 	}
 
-	public static void setSavedDifficulty(EnumDifficulty d) {
-		difficulty = d;
-		markDirty();
+	public static int getGameOfThronesPortalX() {
+		return gameOfThronesPortalX;
 	}
 
-	public static void setStructuresBanned(boolean banned) {
-		if (banned) {
-			structuresBanned = 1;
-		} else {
-			structuresBanned = 0;
-		}
-		markDirty();
+	public static void setGameOfThronesPortalX(int gameOfThronesPortalX) {
+		GOTLevelData.gameOfThronesPortalX = gameOfThronesPortalX;
 	}
 
-	public static void setWaypointCooldown(int max, int min) {
-		max = Math.max(0, max);
-		min = Math.max(0, min);
-		if (min > max) {
-			min = max;
-		}
-		waypointCooldownMax = max;
-		waypointCooldownMin = min;
-		markDirty();
-		if (!GOT.proxy.isClient()) {
-			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
-			for (EntityPlayerMP entityplayer : players) {
-				IMessage packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
-				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
-			}
-		}
+	public static int getGameOfThronesPortalY() {
+		return gameOfThronesPortalY;
 	}
 
-	public static boolean structuresBanned() {
-		return structuresBanned == 1;
+	public static void setGameOfThronesPortalY(int gameOfThronesPortalY) {
+		GOTLevelData.gameOfThronesPortalY = gameOfThronesPortalY;
+	}
+
+	public static int getGameOfThronesPortalZ() {
+		return gameOfThronesPortalZ;
+	}
+
+	public static void setGameOfThronesPortalZ(int gameOfThronesPortalZ) {
+		GOTLevelData.gameOfThronesPortalZ = gameOfThronesPortalZ;
+	}
+
+	public static boolean isClientSideThisServerFeastMode() {
+		return clientSideThisServerFeastMode;
+	}
+
+	public static void setClientSideThisServerFeastMode(boolean clientSideThisServerFeastMode) {
+		GOTLevelData.clientSideThisServerFeastMode = clientSideThisServerFeastMode;
+	}
+
+	public static boolean isClientSideThisServerFellowshipCreation() {
+		return clientSideThisServerFellowshipCreation;
+	}
+
+	public static void setClientSideThisServerFellowshipCreation(boolean clientSideThisServerFellowshipCreation) {
+		GOTLevelData.clientSideThisServerFellowshipCreation = clientSideThisServerFellowshipCreation;
+	}
+
+	public static int getClientSideThisServerFellowshipMaxSize() {
+		return clientSideThisServerFellowshipMaxSize;
+	}
+
+	public static void setClientSideThisServerFellowshipMaxSize(int clientSideThisServerFellowshipMaxSize) {
+		GOTLevelData.clientSideThisServerFellowshipMaxSize = clientSideThisServerFellowshipMaxSize;
+	}
+
+	public static boolean isClientSideThisServerEnchanting() {
+		return clientSideThisServerEnchanting;
+	}
+
+	public static void setClientSideThisServerEnchanting(boolean clientSideThisServerEnchanting) {
+		GOTLevelData.clientSideThisServerEnchanting = clientSideThisServerEnchanting;
+	}
+
+	public static boolean isClientSideThisServerEnchantingGOT() {
+		return clientSideThisServerEnchantingGOT;
+	}
+
+	public static void setClientSideThisServerEnchantingGOT(boolean clientSideThisServerEnchantingGOT) {
+		GOTLevelData.clientSideThisServerEnchantingGOT = clientSideThisServerEnchantingGOT;
+	}
+
+	public static boolean isClientSideThisServerStrictFactionTitleRequirements() {
+		return clientSideThisServerStrictFactionTitleRequirements;
+	}
+
+	public static void setClientSideThisServerStrictFactionTitleRequirements(boolean clientSideThisServerStrictFactionTitleRequirements) {
+		GOTLevelData.clientSideThisServerStrictFactionTitleRequirements = clientSideThisServerStrictFactionTitleRequirements;
+	}
+
+	public static int getClientSideThisServerCustomWaypointMinY() {
+		return clientSideThisServerCustomWaypointMinY;
+	}
+
+	public static void setClientSideThisServerCustomWaypointMinY(int clientSideThisServerCustomWaypointMinY) {
+		GOTLevelData.clientSideThisServerCustomWaypointMinY = clientSideThisServerCustomWaypointMinY;
+	}
+
+	public static boolean isNeedsLoad() {
+		return needsLoad;
+	}
+
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTLevelData.needsLoad = needsLoad;
 	}
 }

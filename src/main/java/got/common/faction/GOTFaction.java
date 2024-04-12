@@ -51,11 +51,11 @@ public enum GOTFaction {
 		factionColor = new Color(color);
 		factionDimension = dim;
 		if (factionDimension != null) {
-			factionDimension.factionList.add(this);
+			factionDimension.getFactionList().add(this);
 		}
 		factionRegion = region;
 		if (factionRegion != null) {
-			factionRegion.factionList.add(this);
+			factionRegion.getFactionList().add(this);
 			if (factionRegion.getDimension() != factionDimension) {
 				throw new IllegalArgumentException("Faction dimension region must agree with faction dimension!");
 			}
@@ -77,7 +77,7 @@ public enum GOTFaction {
 	}
 
 	public static boolean controlZonesEnabled(World world) {
-		return GOTLevelData.enableAlignmentZones() && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return GOTLevelData.isEnableAlignmentZones() && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
 
 	public static GOTFaction forID(int ID) {

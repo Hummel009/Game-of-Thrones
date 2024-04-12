@@ -132,7 +132,7 @@ public class GOTGuiHandler {
 		GuiScreen gui = event.gui;
 		int mouseX = event.mouseX;
 		int mouseY = event.mouseY;
-		if (gui instanceof GuiChat && (component = mc.ingameGUI.getChatGUI().func_146236_a(Mouse.getX(), Mouse.getY())) != null && component.getChatStyle().getChatHoverEvent() != null && (hoverevent = component.getChatStyle().getChatHoverEvent()).getAction() == GOTChatEvents.SHOW_GOT_ACHIEVEMENT) {
+		if (gui instanceof GuiChat && (component = mc.ingameGUI.getChatGUI().func_146236_a(Mouse.getX(), Mouse.getY())) != null && component.getChatStyle().getChatHoverEvent() != null && (hoverevent = component.getChatStyle().getChatHoverEvent()).getAction() == GOTChatEvents.showGotAchievement) {
 			GOTGuiAchievementHoverEvent proxyGui = new GOTGuiAchievementHoverEvent();
 			proxyGui.setWorldAndResolution(mc, gui.width, gui.height);
 			try {

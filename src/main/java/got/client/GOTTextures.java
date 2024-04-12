@@ -97,11 +97,11 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		for (int i = 0; i < colors.length; ++i) {
 			int color = colors[i];
 			if (GOTConfig.osrsMap) {
-				Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+				Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
 				if (biomeID == null) {
 					color = getMapOceanColor(true);
 				} else {
-					GOTBiome biome = GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
+					GOTBiome biome = GOTDimension.GAME_OF_THRONES.getBiomeList()[biomeID];
 					if (biome.getHeightBaseParameter() < 0.0f) {
 						color = 6453158;
 					} else if (biome.getHeightBaseParameter() > 0.8f) {

@@ -758,7 +758,7 @@ public class GOTTickHandlerClient {
 						GOTClimateType.performSeasonalChangesClientSide();
 					}
 				}
-				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && PLAYERS_IN_PORTALS.containsKey(entityplayer)) {
+				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) && PLAYERS_IN_PORTALS.containsKey(entityplayer)) {
 					List<GOTEntityPortal> portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0D, 8.0D, 8.0D));
 					boolean inPortal = false;
 					int i;
@@ -796,8 +796,8 @@ public class GOTTickHandlerClient {
 			GuiScreen guiscreen = minecraft.currentScreen;
 			if (guiscreen != null) {
 				if (guiscreen instanceof GuiMainMenu && !(lastGuiOpen instanceof GuiMainMenu)) {
-					GOTLevelData.needsLoad = true;
-					GOTTime.needsLoad = true;
+					GOTLevelData.setNeedsLoad(true);
+					GOTTime.setNeedsLoad(true);
 					GOTFellowshipData.setNeedsLoad(true);
 					GOTFactionBounties.setNeedsLoad(true);
 					GOTFactionRelations.setNeedsLoad(true);
@@ -998,12 +998,16 @@ public class GOTTickHandlerClient {
 						renderOverlay(null, 0.1F + i / 100.0F * 0.6F, mc, PORTAL_OVERLAY);
 					}
 				}
-				float mistTickF = prevMistTick + (mistTick - prevMistTick) * partialTicks;
-				mistTickF /= 80.0F;
-				float mistFactorY = (float) entityClientPlayerMP.posY / 256.0F;
-				mistFactor = mistTickF * mistFactorY;
-				if (mistFactor > 0.0F) {
-					renderOverlay(null, mistFactor * 0.75F, mc, MIST_OVERLAY);
+				if (GOTConfig.enableFrostfangsMist) {
+					float mistTickF = prevMistTick + (mistTick - prevMistTick) * partialTicks;
+					mistTickF /= 80.0F;
+					float mistFactorY = (float) entityClientPlayerMP.posY / 256.0F;
+					mistFactor = mistTickF * mistFactorY;
+					if (mistFactor > 0.0F) {
+						renderOverlay(null, mistFactor * 0.75F, mc, MIST_OVERLAY);
+					}
+				} else {
+					mistFactor = 0.0F;
 				}
 				if (frostTick > 0) {
 					float frostAlpha = frostTick / 80.0F;
@@ -1051,7 +1055,7 @@ public class GOTTickHandlerClient {
 				entityClientPlayerMP.addPotionEffect(new PotionEffect(Potion.poison.id, 20));
 				addedClientPoisonEffect = true;
 			}
-			boolean enchantingDisabled = !GOTLevelData.clientside_thisServer_enchanting && worldClient.provider instanceof GOTWorldProvider;
+			boolean enchantingDisabled = !GOTLevelData.isClientSideThisServerEnchanting() && worldClient.provider instanceof GOTWorldProvider;
 			if (event.type == RenderGameOverlayEvent.ElementType.EXPERIENCE && enchantingDisabled) {
 				event.setCanceled(true);
 				return;
@@ -1217,7 +1221,7 @@ public class GOTTickHandlerClient {
 				float promptTick = clientTick + renderTick;
 				float promptAlpha = GOTFunctions.triangleWave(promptTick, 0.5f, 1.0f, 80.0f);
 				Collection<String> message = new ArrayList<>();
-				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID && renderMenuPrompt && minecraft.currentScreen == null) {
+				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.getDimensionID() && renderMenuPrompt && minecraft.currentScreen == null) {
 					message.add(StatCollector.translateToLocal("got.gui.help1"));
 					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_RETURN.getKeyCode())));
 				}
@@ -1236,7 +1240,7 @@ public class GOTTickHandlerClient {
 					}
 					GL11.glDisable(3042);
 				}
-				if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID && minecraft.currentScreen == null && newDate > 0) {
+				if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID() && minecraft.currentScreen == null && newDate > 0) {
 					int halfMaxDate = 100;
 					float alpha;
 					if (newDate > halfMaxDate) {

@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTTickHandlerServer {
-	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();
+	public static final Map<EntityPlayer, Integer> PLAYERS_IN_PORTALS = new HashMap<>();
 
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
@@ -62,10 +62,10 @@ public class GOTTickHandlerServer {
 				if (heldItem != null && (heldItem.getItem() instanceof ItemWritableBook || heldItem.getItem() instanceof ItemEditableBook)) {
 					entityplayer.func_143004_u();
 				}
-				if (entityplayer.dimension == 0 && GOTLevelData.madePortal == 0) {
+				if (entityplayer.dimension == 0 && GOTLevelData.getMadePortal() == 0) {
 					List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, entityplayer.boundingBox.expand(16.0D, 16.0D, 16.0D));
 					for (EntityItem item : items) {
-						if (GOTLevelData.madePortal == 0 && item.getEntityItem() != null && item.getEntityItem().getItem() == Items.iron_sword && item.isBurning()) {
+						if (GOTLevelData.getMadePortal() == 0 && item.getEntityItem() != null && item.getEntityItem().getItem() == Items.iron_sword && item.isBurning()) {
 							GOTLevelData.setMadePortal(1);
 							GOTLevelData.markOverworldPortalLocation(MathHelper.floor_double(item.posX), MathHelper.floor_double(item.posY), MathHelper.floor_double(item.posZ));
 							item.setDead();
@@ -76,7 +76,7 @@ public class GOTTickHandlerServer {
 						}
 					}
 				}
-				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
+				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) && PLAYERS_IN_PORTALS.containsKey(entityplayer)) {
 					List<GOTEntityPortal> portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0D, 8.0D, 8.0D));
 					boolean inPortal = false;
 					int i;
@@ -88,19 +88,19 @@ public class GOTTickHandlerServer {
 						}
 					}
 					if (inPortal) {
-						i = playersInPortals.get(entityplayer);
+						i = PLAYERS_IN_PORTALS.get(entityplayer);
 						i++;
-						playersInPortals.put(entityplayer, i);
+						PLAYERS_IN_PORTALS.put(entityplayer, i);
 						if (i >= 100) {
 							int dimension = 0;
 							if (entityplayer.dimension == 0) {
-								dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
+								dimension = GOTDimension.GAME_OF_THRONES.getDimensionID();
 							}
 							MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayer, dimension, new GOTTeleporter(DimensionManager.getWorld(dimension), true));
-							playersInPortals.remove(entityplayer);
+							PLAYERS_IN_PORTALS.remove(entityplayer);
 						}
 					} else {
-						playersInPortals.remove(entityplayer);
+						PLAYERS_IN_PORTALS.remove(entityplayer);
 					}
 				}
 			}
@@ -114,10 +114,10 @@ public class GOTTickHandlerServer {
 			return;
 		}
 		if (event.phase == TickEvent.Phase.START && world == DimensionManager.getWorld(0)) {
-			if (GOTLevelData.needsLoad) {
+			if (GOTLevelData.isNeedsLoad()) {
 				GOTLevelData.load();
 			}
-			if (GOTTime.needsLoad) {
+			if (GOTTime.isNeedsLoad()) {
 				GOTTime.load();
 			}
 			if (GOTFellowshipData.isNeedsLoad()) {
@@ -139,7 +139,7 @@ public class GOTTickHandlerServer {
 						GOTWorldInfo lOTRWorldInfo = new GOTWorldInfo(world.getWorldInfo());
 						lOTRWorldInfo.setWorldName(prevWorldInfo.getWorldName());
 						GOTReflection.setWorldInfo(dimWorld, lOTRWorldInfo);
-						FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimensionWithFallback(dimWorld).dimensionName);
+						FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimensionWithFallback(dimWorld).getDimensionName());
 					}
 				}
 			}
@@ -181,7 +181,7 @@ public class GOTTickHandlerServer {
 				GOTTime.update();
 				GOTJaqenHgharTracker.updateCooldowns();
 			}
-			if (world == DimensionManager.getWorld(GOTDimension.GAME_OF_THRONES.dimensionID)) {
+			if (world == DimensionManager.getWorld(GOTDimension.GAME_OF_THRONES.getDimensionID())) {
 				GOTDate.update(world);
 				if (GOT.canSpawnMobs(world)) {
 					GOTSpawnerNPCs.performSpawning(world);

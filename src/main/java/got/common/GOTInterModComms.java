@@ -7,6 +7,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 
 public class GOTInterModComms {
+	private GOTInterModComms() {
+	}
+
 	public static void update() {
 		ImmutableList<FMLInterModComms.IMCMessage> messages = FMLInterModComms.fetchRuntimeMessages(GOT.instance);
 		if (!messages.isEmpty()) {

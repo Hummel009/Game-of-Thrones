@@ -39,7 +39,7 @@ public class GOTCommandAllowStructures extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length == 0) {
-			if (!GOTLevelData.structuresBanned()) {
+			if (GOTLevelData.getStructuresBanned() != 1) {
 				throw new WrongUsageException("got.command.allowStructures.alreadyAllowed");
 			}
 			GOTLevelData.setStructuresBanned(false);

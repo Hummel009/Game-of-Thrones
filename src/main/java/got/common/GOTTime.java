@@ -13,10 +13,14 @@ import java.io.File;
 import java.nio.file.Files;
 
 public class GOTTime {
-	public static int DAY_LENGTH = 48000;
-	public static long totalTime;
-	public static long worldTime;
-	public static boolean needsLoad = true;
+	public static final int DAY_LENGTH = 48000;
+	private static long totalTime;
+	private static long worldTime;
+
+	private static boolean needsLoad = true;
+
+	private GOTTime() {
+	}
 
 	public static void addWorldTime(long time) {
 		worldTime += time;
@@ -27,7 +31,7 @@ public class GOTTime {
 		worldTime = l - l % DAY_LENGTH;
 	}
 
-	public static File getTimeDat() {
+	private static File getTimeDat() {
 		return new File(GOTLevelData.getOrCreateGOTDir(), "GOTTime.dat");
 	}
 
@@ -60,10 +64,6 @@ public class GOTTime {
 		}
 	}
 
-	public static void setWorldTime(long time) {
-		worldTime = time;
-	}
-
 	public static void update() {
 		MinecraftServer server = MinecraftServer.getServer();
 		WorldServer overworld = server.worldServerForDimension(0);
@@ -78,5 +78,22 @@ public class GOTTime {
 				worldinfo.got_setWorldTime(worldTime);
 			}
 		}
+	}
+
+	public static boolean isNeedsLoad() {
+		return needsLoad;
+	}
+
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTTime.needsLoad = needsLoad;
+	}
+
+	@SuppressWarnings("unused")
+	public static long getWorldTime() {
+		return worldTime;
+	}
+
+	public static void setWorldTime(long time) {
+		worldTime = time;
 	}
 }

@@ -7,9 +7,12 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.DamageSource;
 
 public class GOTDamage {
-	public static DamageSource frost = new DamageSource("got.frost").setDamageBypassesArmor();
-	public static DamageSource poisonDrink = new DamageSource("got.poisonDrink").setDamageBypassesArmor().setMagicDamage();
-	public static DamageSource plantHurt = new DamageSource("got.plantHurt").setDamageBypassesArmor();
+	public static final DamageSource FROST = new DamageSource("got.frost").setDamageBypassesArmor();
+	public static final DamageSource POISON_DRINK = new DamageSource("got.poisonDrink").setDamageBypassesArmor().setMagicDamage();
+	public static final DamageSource PLANT_HURT = new DamageSource("got.plantHurt").setDamageBypassesArmor();
+
+	private GOTDamage() {
+	}
 
 	public static void doBurnDamage(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.BURN);

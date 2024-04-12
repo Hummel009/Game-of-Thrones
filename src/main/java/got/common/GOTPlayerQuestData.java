@@ -1,12 +1,10 @@
 package got.common;
 
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.WorldServer;
 
 public class GOTPlayerQuestData {
-	public GOTPlayerData playerData;
-	public boolean givenFirstPouches;
+	private GOTPlayerData playerData;
+	private boolean givenFirstPouches;
 
 	public GOTPlayerQuestData(GOTPlayerData pd) {
 		playerData = pd;
@@ -25,14 +23,19 @@ public class GOTPlayerQuestData {
 		givenFirstPouches = questData.getBoolean("Pouches");
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		playerData.markDirty();
-	}
-
-	public void onUpdate(EntityPlayerMP entityplayer, WorldServer world) {
 	}
 
 	public void save(NBTTagCompound questData) {
 		questData.setBoolean("Pouches", givenFirstPouches);
+	}
+
+	public GOTPlayerData getPlayerData() {
+		return playerData;
+	}
+
+	public void setPlayerData(GOTPlayerData playerData) {
+		this.playerData = playerData;
 	}
 }

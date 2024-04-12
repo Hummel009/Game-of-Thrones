@@ -25,18 +25,21 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 
 public class GOTBannerProtection {
-	public static Map<Pair<Block, Integer>, Integer> protectionBlocks = new HashMap<>();
-	public static Map<UUID, Integer> lastWarningTimes = new HashMap<>();
+	private static final Map<Pair<Block, Integer>, Integer> PROTECTION_BLOCKS = new HashMap<>();
+	private static final Map<UUID, Integer> LAST_WARNING_TIMES = new HashMap<>();
 
 	static {
 		Pair<Block, Integer> BRONZE = Pair.of(GOTBlocks.blockMetal1, 2);
 		Pair<Block, Integer> SILVER = Pair.of(GOTBlocks.blockMetal1, 3);
 		Pair<Block, Integer> GOLD = Pair.of(Blocks.gold_block, 0);
 		Pair<Block, Integer> VALYRIAN = Pair.of(GOTBlocks.blockMetal1, 4);
-		protectionBlocks.put(BRONZE, 8);
-		protectionBlocks.put(SILVER, 16);
-		protectionBlocks.put(GOLD, 32);
-		protectionBlocks.put(VALYRIAN, 64);
+		PROTECTION_BLOCKS.put(BRONZE, 8);
+		PROTECTION_BLOCKS.put(SILVER, 16);
+		PROTECTION_BLOCKS.put(GOLD, 32);
+		PROTECTION_BLOCKS.put(VALYRIAN, 64);
+	}
+
+	private GOTBannerProtection() {
 	}
 
 	public static IFilter anyBanner() {
@@ -110,7 +113,7 @@ public class GOTBannerProtection {
 
 	public static IFilter forPlayer_returnMessage(EntityPlayer entityplayer, Permission perm, IChatComponent[] protectionMessage) {
 		return new IFilter() {
-			public final IFilter internalPlayerFilter = forPlayer(entityplayer, perm);
+			private final IFilter internalPlayerFilter = forPlayer(entityplayer, perm);
 
 			@Override
 			public ProtectType protects(GOTEntityBanner banner) {
@@ -197,15 +200,11 @@ public class GOTBannerProtection {
 	}
 
 	public static int getProtectionRange(Block block, int meta) {
-		Integer i = protectionBlocks.get(Pair.of((Object) block, (Object) meta));
+		Integer i = PROTECTION_BLOCKS.get(Pair.of((Object) block, (Object) meta));
 		if (i == null) {
 			return 0;
 		}
 		return i;
-	}
-
-	public static boolean hasWarningCooldown(Entity entityplayer) {
-		return lastWarningTimes.containsKey(entityplayer.getUniqueID());
 	}
 
 	public static boolean isProtected(World world, Entity entity, IFilter protectFilter, boolean sendMessage) {
@@ -265,13 +264,9 @@ public class GOTBannerProtection {
 		return false;
 	}
 
-	public static void setWarningCooldown(Entity entityplayer) {
-		lastWarningTimes.put(entityplayer.getUniqueID(), GOTConfig.bannerWarningCooldown);
-	}
-
 	public static void updateWarningCooldowns() {
 		Collection<UUID> removes = new HashSet<>();
-		for (Map.Entry<UUID, Integer> e : lastWarningTimes.entrySet()) {
+		for (Map.Entry<UUID, Integer> e : LAST_WARNING_TIMES.entrySet()) {
 			UUID player = e.getKey();
 			int time = e.getValue();
 			time--;
@@ -281,15 +276,15 @@ public class GOTBannerProtection {
 			}
 		}
 		for (UUID player : removes) {
-			lastWarningTimes.remove(player);
+			LAST_WARNING_TIMES.remove(player);
 		}
 	}
 
 	public enum Permission {
 		FULL, DOORS, TABLES, CONTAINERS, PERSONAL_CONTAINERS, FOOD, BEDS, SWITCHES;
 
-		public int bitFlag = 1 << ordinal();
-		public String codeName = name();
+		private final int bitFlag = 1 << ordinal();
+		private final String codeName = name();
 
 		public static Permission forName(String s) {
 			for (Permission p : values()) {
@@ -298,6 +293,14 @@ public class GOTBannerProtection {
 				}
 			}
 			return null;
+		}
+
+		public int getBitFlag() {
+			return bitFlag;
+		}
+
+		public String getCodeName() {
+			return codeName;
 		}
 	}
 
@@ -312,13 +315,21 @@ public class GOTBannerProtection {
 	}
 
 	public static class FilterForPlayer implements IFilter {
-		public EntityPlayer thePlayer;
-		public Permission thePerm;
-		public boolean ignoreCreativeMode;
+		protected EntityPlayer thePlayer;
+		protected Permission thePerm;
+		protected boolean ignoreCreativeMode;
 
 		public FilterForPlayer(EntityPlayer p, Permission perm) {
 			thePlayer = p;
 			thePerm = perm;
+		}
+
+		private static boolean hasWarningCooldown(Entity entityplayer) {
+			return LAST_WARNING_TIMES.containsKey(entityplayer.getUniqueID());
+		}
+
+		private static void setWarningCooldown(Entity entityplayer) {
+			LAST_WARNING_TIMES.put(entityplayer.getUniqueID(), GOTConfig.bannerWarningCooldown);
 		}
 
 		public FilterForPlayer ignoreCreativeMode() {

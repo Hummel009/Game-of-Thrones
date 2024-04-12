@@ -210,7 +210,7 @@ public class GOTAPI {
 	 * @apiNote Adds lore to existing lore category.
 	 */
 	public static void addLoreToLoreCategory(GOTLore.LoreCategory category, GOTLore lore) {
-		category.loreList.add(lore);
+		category.getLoreList().add(lore);
 	}
 
 	/**
@@ -366,8 +366,8 @@ public class GOTAPI {
 	 * @apiNote Moves faction from one region category to the another.
 	 */
 	public static void changeDimensionRegion(GOTFaction faction, GOTDimension.DimensionRegion newRegion) {
-		faction.getFactionRegion().factionList.remove(faction);
-		newRegion.factionList.add(faction);
+		faction.getFactionRegion().getFactionList().remove(faction);
+		newRegion.getFactionList().add(faction);
 		faction.setFactionRegion(newRegion);
 	}
 
@@ -541,10 +541,10 @@ public class GOTAPI {
 		faction.setAllowPlayer(false);
 		faction.setFixedAlignment(0);
 		if (faction.getFactionDimension() != null) {
-			faction.getFactionDimension().factionList.remove(faction);
+			faction.getFactionDimension().getFactionList().remove(faction);
 		}
 		if (faction.getFactionRegion() != null) {
-			faction.getFactionRegion().factionList.remove(faction);
+			faction.getFactionRegion().getFactionList().remove(faction);
 		}
 		faction.setFactionDimension(null);
 		faction.setFactionRegion(null);
@@ -729,7 +729,7 @@ public class GOTAPI {
 	@Deprecated
 	public static void setDimensionForRegion(GOTDimension.DimensionRegion region, GOTDimension dimension) {
 		region.setDimension(dimension);
-		dimension.dimensionRegions.add(region);
+		dimension.getDimensionRegions().add(region);
 	}
 
 	/**
@@ -756,7 +756,7 @@ public class GOTAPI {
 			GOTGenLayerWorld.biomeImageData = new byte[GOTGenLayerWorld.imageWidth * GOTGenLayerWorld.imageHeight];
 			for (int i = 0; i < colors.length; ++i) {
 				int color = colors[i];
-				Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+				Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
 				if (biomeID != null) {
 					GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
 					continue;

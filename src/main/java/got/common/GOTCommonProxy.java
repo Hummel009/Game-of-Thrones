@@ -60,11 +60,11 @@ public class GOTCommonProxy implements IGuiHandler {
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
-	public static boolean testForSlotPackedGuiID(int fullID, int guiID) {
+	private static boolean testForSlotPackedGuiID(int fullID, int guiID) {
 		return (fullID & 0xFFFF) == guiID;
 	}
 
-	public static int unpackSlot(int fullID) {
+	private static int unpackSlot(int fullID) {
 		return fullID >> 16;
 	}
 
@@ -141,6 +141,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	@Override
+	@SuppressWarnings("CastConflictsWithInstanceof")
 	public Object getClientGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
 		GOTEntityNPC npc;
 		Entity entity;
@@ -187,11 +188,10 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case BOOKSHELF:
-				TileEntity bookshelf;
 				if (world.getBlock(i, j, k) == Blocks.bookshelf) {
 					world.setBlock(i, j, k, GOTBlocks.bookshelfStorage, 0, 3);
 				}
-				bookshelf = world.getTileEntity(i, j, k);
+				TileEntity bookshelf = world.getTileEntity(i, j, k);
 				if (bookshelf instanceof GOTTileEntityBookshelf) {
 					return new GOTGuiBookshelf(entityplayer.inventory, (GOTTileEntityBookshelf) bookshelf);
 				}
@@ -795,8 +795,8 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void setInPortal(EntityPlayer entityplayer) {
-		if (!GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
+		if (!GOTTickHandlerServer.PLAYERS_IN_PORTALS.containsKey(entityplayer)) {
+			GOTTickHandlerServer.PLAYERS_IN_PORTALS.put(entityplayer, 0);
 		}
 	}
 

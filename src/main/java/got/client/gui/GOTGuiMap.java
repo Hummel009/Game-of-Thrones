@@ -235,7 +235,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					openOverlayShare();
 				}
 			} else if (button == buttonConquestRegions) {
-				List<GOTDimension.DimensionRegion> regionList = GOTDimension.GAME_OF_THRONES.dimensionRegions;
+				List<GOTDimension.DimensionRegion> regionList = GOTDimension.GAME_OF_THRONES.getDimensionRegions();
 				if (!regionList.isEmpty()) {
 					int i = regionList.indexOf(currentRegion);
 					++i;
@@ -1017,7 +1017,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 			}
 			prevRegion = currentRegion = conquestViewingFaction.getFactionRegion();
-			currentFactionList = currentRegion.factionList;
+			currentFactionList = currentRegion.getFactionList();
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			LAST_VIEWED_REGIONS.put(currentRegion, conquestViewingFaction);
 			facScrollX = mapXMin;
@@ -1079,7 +1079,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	private boolean isGameOfThrones() {
-		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID;
+		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID();
 	}
 
 	private boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
@@ -2173,8 +2173,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		prevFactionIndex = currentFactionIndex;
 		if (currentRegion != prevRegion) {
 			LAST_VIEWED_REGIONS.put(prevRegion, conquestViewingFaction);
-			currentFactionList = currentRegion.factionList;
-			conquestViewingFaction = LAST_VIEWED_REGIONS.containsKey(currentRegion) ? LAST_VIEWED_REGIONS.get(currentRegion) : currentRegion.factionList.get(0);
+			currentFactionList = currentRegion.getFactionList();
+			conquestViewingFaction = LAST_VIEWED_REGIONS.containsKey(currentRegion) ? LAST_VIEWED_REGIONS.get(currentRegion) : currentRegion.getFactionList().get(0);
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			ticksUntilRequestFac = 40;
 		}

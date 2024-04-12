@@ -31,7 +31,7 @@ public class GOTBlockAsshaiThorn extends GOTBlockAsshaiPlant implements IShearab
 	@Override
 	public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
 		if (GOT.getNPCFaction(entity) != GOTFaction.ASSHAI) {
-			entity.attackEntityFrom(GOTDamage.plantHurt, 2.0f);
+			entity.attackEntityFrom(GOTDamage.PLANT_HURT, 2.0f);
 		}
 	}
 

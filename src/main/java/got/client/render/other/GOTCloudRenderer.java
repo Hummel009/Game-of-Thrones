@@ -150,7 +150,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 		}
 
 		protected float getCurrentDayValue() {
-			int day = GOTDate.AegonCalendar.currentDay;
+			int day = GOTDate.AegonCalendar.getCurrentDay();
 			long seed = day * baseSeed + day + 83025820626792L;
 			CLOUD_RAND.setSeed(seed);
 			return MathHelper.randomFloatClamp(CLOUD_RAND, minValue, maxValue);

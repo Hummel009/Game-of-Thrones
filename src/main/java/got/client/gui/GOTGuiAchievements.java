@@ -202,11 +202,11 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	}
 
 	private GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
-		List<GOTAchievement.Category> categories = currentDimension.achievementCategories;
+		List<GOTAchievement.Category> categories = currentDimension.getAchievementCategories();
 		int index = categories.indexOf(currentCategory);
 		index += i;
-		index = IntMath.mod(index, currentDimension.achievementCategories.size());
-		return currentDimension.achievementCategories.get(index);
+		index = IntMath.mod(index, currentDimension.getAchievementCategories().size());
+		return currentDimension.getAchievementCategories().get(index);
 	}
 
 	@Override
@@ -263,7 +263,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	private void updateAchievementLists() {
 		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		if (currentDimension != prevDimension) {
-			currentCategory = currentDimension.achievementCategories.get(0);
+			currentCategory = currentDimension.getAchievementCategories().get(0);
 		}
 		prevDimension = currentDimension;
 		currentCategoryTakenAchievements.clear();

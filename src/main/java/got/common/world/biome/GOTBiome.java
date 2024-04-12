@@ -280,12 +280,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 	protected GOTBiome(int i, boolean major, GOTDimension dim) {
 		super(i, false);
 		biomeDimension = dim;
-		if (biomeDimension.biomeList[i] != null) {
-			throw new IllegalArgumentException("GOT biome already exists at index " + i + " for dimension " + biomeDimension.dimensionName + '!');
+		if (biomeDimension.getBiomeList()[i] != null) {
+			throw new IllegalArgumentException("GOT biome already exists at index " + i + " for dimension " + biomeDimension.getDimensionName() + '!');
 		}
-		biomeDimension.biomeList[i] = this;
+		biomeDimension.getBiomeList()[i] = this;
 		if (major) {
-			biomeDimension.majorBiomes.add(this);
+			biomeDimension.getMajorBiomes().add(this);
 		}
 		waterColorMultiplier = BiomeColors.DEFAULT_WATER;
 		decorator = new GOTBiomeDecorator(this);
@@ -505,7 +505,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		b += northColors[2];
 		Color water = new Color(r, g, b);
 		int waterRGB = water.getRGB();
-		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
 			if (biome != null && !biome.biomeColors.hasCustomWater()) {
 				biome.biomeColors.updateWater(waterRGB);
 			}
@@ -1011,11 +1011,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 	@Override
 	public GOTBiome setColor(int color) {
 		color |= 0xFF000000;
-		Integer existingBiomeID = biomeDimension.colorsToBiomeIDs.get(color);
+		Integer existingBiomeID = biomeDimension.getColorsToBiomeIDs().get(color);
 		if (existingBiomeID != null) {
 			throw new RuntimeException("GOT biome (ID " + biomeID + ") is duplicating the color of another GOT biome (ID " + existingBiomeID + ')');
 		}
-		biomeDimension.colorsToBiomeIDs.put(color, biomeID);
+		biomeDimension.getColorsToBiomeIDs().put(color, biomeID);
 		return (GOTBiome) super.setColor(color);
 	}
 

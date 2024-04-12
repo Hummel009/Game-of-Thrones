@@ -381,7 +381,7 @@ public class GOTReplacedMethods {
 			}
 			boolean feastMode = GOTConfig.canAlwaysEat;
 			if (entityplayer.worldObj.isRemote) {
-				feastMode = GOTLevelData.clientside_thisServer_feastMode;
+				feastMode = GOTLevelData.isClientSideThisServerFeastMode();
 			}
 			return feastMode && entityplayer.ridingEntity == null;
 		}

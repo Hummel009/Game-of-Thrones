@@ -13,7 +13,7 @@ public enum GOTClimateType {
 	}
 
 	public static void performSeasonalChangesClientSide() {
-		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
 			if (biome != null && biome.climateType != null) {
 				switch (GOTDate.AegonCalendar.getSeason()) {
 					case WINTER:
@@ -131,7 +131,7 @@ public enum GOTClimateType {
 	}
 
 	public static void performSeasonalChangesServerSide() {
-		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
 			if (biome != null && biome.climateType != null) {
 				switch (GOTDate.AegonCalendar.getSeason()) {
 					case WINTER:

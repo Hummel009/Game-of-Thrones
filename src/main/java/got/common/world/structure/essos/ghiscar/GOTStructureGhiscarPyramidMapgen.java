@@ -29,7 +29,7 @@ public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 	public static void setupSpawnBiomes() {
 		if (spawnBiomes == null) {
 			spawnBiomes = new ArrayList<>();
-			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
 				boolean flag = biome instanceof GOTBiomeGhiscar;
 				if (!flag) {
 					continue;

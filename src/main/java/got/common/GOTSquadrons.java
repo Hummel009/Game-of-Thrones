@@ -6,7 +6,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StringUtils;
 
 public class GOTSquadrons {
-	public static int SQUADRON_LENGTH_MAX = 200;
+	public static final int SQUADRON_LENGTH_MAX = 200;
+
+	private GOTSquadrons() {
+	}
 
 	public static boolean areSquadronsCompatible(GOTEntityNPC npc, ItemStack itemstack) {
 		String npcSquadron = npc.hiredNPCInfo.getSquadron();
@@ -19,7 +22,7 @@ public class GOTSquadrons {
 
 	public static String checkAcceptableLength(String squadron) {
 		if (squadron != null && squadron.length() > SQUADRON_LENGTH_MAX) {
-			squadron = squadron.substring(0, SQUADRON_LENGTH_MAX);
+			return squadron.substring(0, SQUADRON_LENGTH_MAX);
 		}
 		return squadron;
 	}
@@ -42,5 +45,4 @@ public class GOTSquadrons {
 
 	public interface SquadronItem {
 	}
-
 }

@@ -8,7 +8,7 @@ import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent.*;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
 import got.GOT;
@@ -46,9 +46,9 @@ import got.common.item.weapon.GOTItemSword;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.GOTTileEntityPlate;
+import got.common.util.GOTCrashHandler;
 import got.common.util.GOTEnumDyeColor;
 import got.common.util.GOTModChecker;
-import got.common.util.GOTCrashHandler;
 import got.common.world.GOTTeleporter;
 import got.common.world.GOTWorldProvider;
 import got.common.world.GOTWorldType;
@@ -97,9 +97,6 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
 import net.minecraftforge.event.entity.player.*;
-import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
-import net.minecraftforge.event.entity.player.PlayerEvent.HarvestCheck;
-import net.minecraftforge.event.entity.player.PlayerEvent.StartTracking;
 import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
 import net.minecraftforge.event.world.*;
 import org.apache.commons.lang3.StringUtils;
@@ -107,10 +104,10 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public class GOTEventHandler {
-	public GOTItemBow proxyBowItemServer;
-	public GOTItemBow proxyBowItemClient;
+	private GOTItemBow proxyBowItemServer;
+	private GOTItemBow proxyBowItemClient;
 
-	public static void dechant(ItemStack itemstack, EntityPlayer entityplayer) {
+	private static void dechant(ItemStack itemstack, EntityPlayer entityplayer) {
 		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
 			Item item = itemstack.getItem();
 			if (!(item instanceof ItemFishingRod)) {
@@ -119,7 +116,7 @@ public class GOTEventHandler {
 		}
 	}
 
-	public static String getUsernameWithoutWebservice(UUID player) {
+	private static String getUsernameWithoutWebservice(UUID player) {
 		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
 		if (profile != null && !StringUtils.isBlank(profile.getName())) {
 			return profile.getName();
@@ -131,7 +128,7 @@ public class GOTEventHandler {
 		return player.toString();
 	}
 
-	public void cancelAttackEvent(LivingAttackEvent event) {
+	private void cancelAttackEvent(LivingAttackEvent event) {
 		event.setCanceled(true);
 		DamageSource source = event.source;
 		if (source instanceof EntityDamageSourceIndirect) {
@@ -414,7 +411,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onBreakingSpeed(BreakSpeed event) {
+	public void onBreakingSpeed(net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		Block block = event.block;
 		int meta = event.metadata;
@@ -492,7 +489,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onCrafting(ItemCraftedEvent event) {
+	public void onCrafting(PlayerEvent.ItemCraftedEvent event) {
 		EntityPlayer entityplayer = event.player;
 		ItemStack itemstack = event.crafting;
 		if (!entityplayer.worldObj.isRemote) {
@@ -527,6 +524,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("CastConflictsWithInstanceof")
 	public void onEntityInteract(EntityInteractEvent event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		World world = entityplayer.worldObj;
@@ -730,7 +728,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onHarvestCheck(HarvestCheck event) {
+	public void onHarvestCheck(net.minecraftforge.event.entity.player.PlayerEvent.HarvestCheck event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		Block block = event.block;
 		ItemStack itemstack = entityplayer.getCurrentEquippedItem();
@@ -824,7 +822,7 @@ public class GOTEventHandler {
 		if (attacker instanceof EntityCreature && !GOT.canNPCAttackEntity((EntityCreature) attacker, entity, false)) {
 			cancelAttackEvent(event);
 		}
-		if (event.source instanceof net.minecraft.util.EntityDamageSourceIndirect) {
+		if (event.source instanceof EntityDamageSourceIndirect) {
 			Entity projectile = event.source.getSourceOfDamage();
 			if (projectile instanceof EntityArrow || projectile instanceof GOTEntityCrossbowBolt || projectile instanceof GOTEntityDart) {
 				boolean wearingAllRoyce = true;
@@ -1054,7 +1052,7 @@ public class GOTEventHandler {
 			attacker = null;
 		}
 		World world = entity.worldObj;
-		if (entity instanceof EntityPlayerMP && event.source == GOTDamage.frost) {
+		if (entity instanceof EntityPlayerMP && event.source == GOTDamage.FROST) {
 			GOTDamage.doFrostDamage((EntityPlayerMP) entity);
 		}
 		if (!world.isRemote) {
@@ -1296,10 +1294,7 @@ public class GOTEventHandler {
 		}
 		if (!world.isRemote && entity.isEntityAlive()) {
 			ItemStack weapon = entity.getHeldItem();
-			boolean lanceOnFoot = false;
-			if (weapon != null && weapon.getItem() instanceof GOTItemLance && entity.ridingEntity == null) {
-				lanceOnFoot = !(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode;
-			}
+			boolean lanceOnFoot = weapon != null && weapon.getItem() instanceof GOTItemLance && entity.ridingEntity == null && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode);
 			IAttributeInstance speedAttribute = entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
 			if (speedAttribute.getModifier(GOTItemLance.LANCE_SPEED_BOOST_ID) != null) {
 				speedAttribute.removeModifier(GOTItemLance.LANCE_SPEED_BOOST);
@@ -1343,7 +1338,7 @@ public class GOTEventHandler {
 					}
 					frostChance = Math.max(frostChance, 1);
 					if (world.rand.nextInt(frostChance) == 0) {
-						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
+						entity.attackEntityFrom(GOTDamage.FROST, 1.0f);
 					}
 				}
 			}
@@ -1403,7 +1398,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onPlayerChangedDimension(PlayerChangedDimensionEvent event) {
+	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
 		EntityPlayer entityplayer = event.player;
 		if (!entityplayer.worldObj.isRemote) {
 			GOTLevelData.sendAlignmentToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
@@ -1436,13 +1431,13 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onPlayerLogin(PlayerLoggedInEvent event) {
+	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
 		EntityPlayer entityplayer = event.player;
 		World world = entityplayer.worldObj;
 		if (!world.isRemote) {
 			EntityPlayerMP entityplayermp = (EntityPlayerMP) entityplayer;
 			if (world.provider.terrainType instanceof GOTWorldType && entityplayermp.dimension == 0 && !GOTLevelData.getData(entityplayermp).getTeleportedKW()) {
-				int dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
+				int dimension = GOTDimension.GAME_OF_THRONES.getDimensionID();
 				GOTTeleporter teleporter = new GOTTeleporter(DimensionManager.getWorld(dimension), false);
 				MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayermp, dimension, teleporter);
 				GOTLevelData.getData(entityplayermp).setTeleportedKW(true);
@@ -1458,12 +1453,12 @@ public class GOTEventHandler {
 			GOTDate.sendUpdatePacket(entityplayermp, false);
 			GOTFactionRelations.sendAllRelationsTo(entityplayermp);
 			GOTPlayerData pd = GOTLevelData.getData(entityplayermp);
-			pd.updateFastTravelClockFromLastOnlineTime(entityplayermp, world);
+			pd.updateFastTravelClockFromLastOnlineTime(entityplayermp);
 		}
 	}
 
 	@SubscribeEvent
-	public void onPlayerRespawn(PlayerRespawnEvent event) {
+	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
 		EntityPlayer entityplayer = event.player;
 		World world = entityplayer.worldObj;
 		if (!world.isRemote && entityplayer instanceof EntityPlayerMP && world instanceof WorldServer) {
@@ -1471,7 +1466,7 @@ public class GOTEventHandler {
 			WorldServer worldserver = (WorldServer) world;
 			ChunkCoordinates deathPoint = GOTLevelData.getData(entityplayermp).getDeathPoint();
 			int deathDimension = GOTLevelData.getData(entityplayermp).getDeathDimension();
-			if (deathDimension == GOTDimension.GAME_OF_THRONES.dimensionID && GOTConfig.knownWorldRespawning) {
+			if (deathDimension == GOTDimension.GAME_OF_THRONES.getDimensionID() && GOTConfig.knownWorldRespawning) {
 				ChunkCoordinates bedLocation = entityplayermp.getBedLocation(entityplayermp.dimension);
 				boolean hasBed = bedLocation != null;
 				ChunkCoordinates spawnLocation;
@@ -1479,15 +1474,15 @@ public class GOTEventHandler {
 				if (hasBed) {
 					EntityPlayer.verifyRespawnCoordinates(worldserver, bedLocation, entityplayermp.isSpawnForced(entityplayermp.dimension));
 					spawnLocation = bedLocation;
-					respawnThreshold = GOTConfig.KWRBedRespawnThreshold;
+					respawnThreshold = GOTConfig.kwrBedRespawnThreshold;
 				} else {
 					spawnLocation = worldserver.getSpawnPoint();
-					respawnThreshold = GOTConfig.KWRWorldRespawnThreshold;
+					respawnThreshold = GOTConfig.kwrWorldRespawnThreshold;
 				}
 				if (deathPoint != null) {
 					boolean flag = deathPoint.getDistanceSquaredToChunkCoordinates(spawnLocation) > respawnThreshold * respawnThreshold;
 					if (flag) {
-						double randomDistance = MathHelper.getRandomIntegerInRange(worldserver.rand, GOTConfig.KWRMinRespawn, GOTConfig.KWRMaxRespawn);
+						double randomDistance = MathHelper.getRandomIntegerInRange(worldserver.rand, GOTConfig.kwrMinRespawn, GOTConfig.kwrMaxRespawn);
 						float angle = worldserver.rand.nextFloat() * 3.1415927F * 2.0F;
 						int i = deathPoint.posX + (int) (randomDistance * MathHelper.sin(angle));
 						int k = deathPoint.posZ + (int) (randomDistance * MathHelper.cos(angle));
@@ -1579,7 +1574,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onSmelting(ItemSmeltedEvent event) {
+	public void onSmelting(PlayerEvent.ItemSmeltedEvent event) {
 		EntityPlayer entityplayer = event.player;
 		ItemStack itemstack = event.smelting;
 		if (!entityplayer.worldObj.isRemote) {
@@ -1593,7 +1588,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onStartTracking(PlayerEvent.StartTracking event) {
+	public void onStartTracking(net.minecraftforge.event.entity.player.PlayerEvent.StartTracking event) {
 		if (event.target instanceof GOTEntityCart) {
 			GOTEntityCart target = (GOTEntityCart) event.target;
 			if (target.getPulling() != null) {
@@ -1607,7 +1602,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onStartTrackingEntity(StartTracking event) {
+	public void onStartTrackingEntity(net.minecraftforge.event.entity.player.PlayerEvent.StartTracking event) {
 		Entity entity = event.target;
 		EntityPlayer entityplayer = event.entityPlayer;
 		if (!entity.worldObj.isRemote && entity instanceof GOTEntityNPC) {

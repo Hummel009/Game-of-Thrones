@@ -37,7 +37,7 @@ public class GOTEntitySnowball extends GOTEntityFireball {
 	public void onImpact(MovingObjectPosition pos) {
 		if (!worldObj.isRemote) {
 			if (pos.entityHit instanceof EntityPlayerMP) {
-				pos.entityHit.attackEntityFrom(GOTDamage.frost, 6.0F);
+				pos.entityHit.attackEntityFrom(GOTDamage.FROST, 6.0F);
 				GOTDamage.doFrostDamage((EntityPlayerMP) pos.entityHit);
 			}
 			setDead();

@@ -48,12 +48,12 @@ public class GOTWorldProvider extends WorldProvider {
 	public double fogB;
 
 	public static int getGOTMoonPhase() {
-		int day = GOTDate.AegonCalendar.currentDay;
+		int day = GOTDate.AegonCalendar.getCurrentDay();
 		return IntMath.mod(day, MOON_PHASES);
 	}
 
 	public static boolean isLunarEclipse() {
-		int day = GOTDate.AegonCalendar.currentDay;
+		int day = GOTDate.AegonCalendar.getCurrentDay();
 		return getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
 	}
 
@@ -190,7 +190,7 @@ public class GOTWorldProvider extends WorldProvider {
 				chunk.getBiomeArray()[chunkZ << 4 | chunkX] = (byte) (biomeID & 0xFF);
 			}
 			GOTDimension dim = getGOTDimension();
-			return dim.biomeList[biomeID] == null ? dim.biomeList[0] : dim.biomeList[biomeID];
+			return dim.getBiomeList()[biomeID] == null ? dim.getBiomeList()[0] : dim.getBiomeList()[biomeID];
 		}
 		return worldChunkMgr.getBiomeGenAt(i, k);
 	}
@@ -220,7 +220,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public String getDimensionName() {
-		return getGOTDimension().dimensionName;
+		return getGOTDimension().getDimensionName();
 	}
 
 	@Override
@@ -270,7 +270,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public String getSaveFolder() {
-		return getGOTDimension().dimensionName;
+		return getGOTDimension().getDimensionName();
 	}
 
 	@Override
@@ -287,7 +287,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public ChunkCoordinates getSpawnPoint() {
-		return new ChunkCoordinates(GOTLevelData.gameOfThronesPortalX, GOTLevelData.gameOfThronesPortalY, GOTLevelData.gameOfThronesPortalZ);
+		return new ChunkCoordinates(GOTLevelData.getGameOfThronesPortalX(), GOTLevelData.getGameOfThronesPortalY(), GOTLevelData.getGameOfThronesPortalZ());
 	}
 
 	@Override
@@ -348,7 +348,7 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	public void registerWorldChunkManager() {
 		worldChunkMgr = new GOTWorldChunkManager(worldObj, getGOTDimension());
-		dimensionId = getGOTDimension().dimensionID;
+		dimensionId = getGOTDimension().getDimensionID();
 	}
 
 	@Override

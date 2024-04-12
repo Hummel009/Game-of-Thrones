@@ -14,18 +14,21 @@ import java.util.*;
 public enum GOTDimension {
 	GAME_OF_THRONES("GameOfThrones", 99, GOTWorldProvider.class, true, 99, EnumSet.of(DimensionRegion.EAST_ESSOS, DimensionRegion.WEST_ESSOS, DimensionRegion.WESTEROS, DimensionRegion.OTHER));
 
-	public String dimensionName;
-	public int dimensionID;
-	public Class<? extends WorldProvider> providerClass;
-	public boolean loadSpawn;
-	public GOTBiome[] biomeList = new GOTBiome[256];
-	public Map<Integer, Integer> colorsToBiomeIDs = new HashMap<>();
-	public List<GOTBiome> majorBiomes = new ArrayList<>();
-	public Collection<GOTFaction> factionList = new ArrayList<>();
-	public List<DimensionRegion> dimensionRegions = new ArrayList<>();
-	public int spawnCap;
-	public List<GOTAchievement.Category> achievementCategories = new ArrayList<>();
-	public Collection<GOTAchievement> allAchievements = new ArrayList<>();
+	private final GOTBiome[] biomeList = new GOTBiome[256];
+
+	private final Collection<GOTFaction> factionList = new ArrayList<>();
+	private final Collection<GOTAchievement> allAchievements = new ArrayList<>();
+	private final List<GOTBiome> majorBiomes = new ArrayList<>();
+	private final List<DimensionRegion> dimensionRegions = new ArrayList<>();
+	private final List<GOTAchievement.Category> achievementCategories = new ArrayList<>();
+	private final Map<Integer, Integer> colorsToBiomeIDs = new HashMap<>();
+
+	private final Class<? extends WorldProvider> providerClass;
+	private final String dimensionName;
+
+	private final boolean loadSpawn;
+	private final int dimensionID;
+	private final int spawnCap;
 
 	GOTDimension(String s, int i, Class<? extends WorldProvider> c, boolean flag, int spawns, Collection<DimensionRegion> regions) {
 		dimensionName = s;
@@ -75,16 +78,53 @@ public enum GOTDimension {
 		return StatCollector.translateToLocal(getUntranslatedDimensionName());
 	}
 
-	public String getUntranslatedDimensionName() {
+	private String getUntranslatedDimensionName() {
 		return "got.dimension." + dimensionName;
+	}
+
+	public int getDimensionID() {
+		return dimensionID;
+	}
+
+	public Map<Integer, Integer> getColorsToBiomeIDs() {
+		return colorsToBiomeIDs;
+	}
+
+	public List<GOTBiome> getMajorBiomes() {
+		return majorBiomes;
+	}
+
+	public Collection<GOTFaction> getFactionList() {
+		return factionList;
+	}
+
+	public List<DimensionRegion> getDimensionRegions() {
+		return dimensionRegions;
+	}
+
+	public int getSpawnCap() {
+		return spawnCap;
+	}
+
+	public List<GOTAchievement.Category> getAchievementCategories() {
+		return achievementCategories;
+	}
+
+	public Collection<GOTAchievement> getAllAchievements() {
+		return allAchievements;
+	}
+
+	public GOTBiome[] getBiomeList() {
+		return biomeList;
 	}
 
 	public enum DimensionRegion {
 		WESTEROS("westeros"), WEST_ESSOS("westEssos"), EAST_ESSOS("eastEssos"), OTHER("other");
 
-		public String regionName;
-		public GOTDimension dimension;
-		public List<GOTFaction> factionList = new ArrayList<>();
+		private final List<GOTFaction> factionList = new ArrayList<>();
+		private final String regionName;
+
+		private GOTDimension dimension;
 
 		DimensionRegion(String s) {
 			regionName = s;
@@ -123,6 +163,9 @@ public enum GOTDimension {
 		public String getRegionName() {
 			return StatCollector.translateToLocal("got.dimension." + dimension.dimensionName + '.' + codeName());
 		}
-	}
 
+		public List<GOTFaction> getFactionList() {
+			return factionList;
+		}
+	}
 }

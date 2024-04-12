@@ -22,6 +22,7 @@ CHANGELOG
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
 * Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 
+* Fixed bug with no-effect fields in config
 * Fixed bug with arryn conquest spawnlist
 * Fixed bug with one stone wall
 * Fixed bug with uncraftable weirwood fence

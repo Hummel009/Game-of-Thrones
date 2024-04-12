@@ -99,7 +99,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == buttonRegions) {
-				List<GOTDimension.DimensionRegion> regionList = currentDimension.dimensionRegions;
+				List<GOTDimension.DimensionRegion> regionList = currentDimension.getDimensionRegions();
 				if (!regionList.isEmpty()) {
 					int i = regionList.indexOf(currentRegion);
 					++i;
@@ -230,7 +230,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		drawTexturedModalRect(guiLeft, guiTop + PAGE_Y, 0, 0, PAGE_WIDTH, PAGE_HEIGHT);
-		if (currentRegion != null && currentDimension.dimensionRegions.size() > 1) {
+		if (currentRegion != null && currentDimension.getDimensionRegions().size() > 1) {
 			buttonRegions.displayString = currentRegion.getRegionName();
 			buttonRegions.enabled = true;
 			buttonRegions.visible = true;
@@ -535,7 +535,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevDimension = currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 		prevRegion = currentRegion = currentFaction.getFactionRegion();
-		currentFactionList = currentRegion.factionList;
+		currentFactionList = currentRegion.getFactionList();
 		prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		setCurrentScrollFromFaction();
 		if (mc.currentScreen == this) {
@@ -680,12 +680,12 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevFactionIndex = currentFactionIndex;
 		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		if (currentDimension != prevDimension) {
-			currentRegion = currentDimension.dimensionRegions.get(0);
+			currentRegion = currentDimension.getDimensionRegions().get(0);
 		}
 		if (currentRegion != prevRegion) {
 			pd.setRegionLastViewedFaction(prevRegion, currentFaction);
 			lastViewedRegions.put(prevRegion, currentFaction);
-			currentFactionList = currentRegion.factionList;
+			currentFactionList = currentRegion.getFactionList();
 			currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		}

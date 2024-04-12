@@ -20,40 +20,38 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTLore {
-	public static String newline = "\n";
-	public static String codeMetadata = "#";
-	public static String codeTitle = "title:";
-	public static String codeAuthor = "author:";
-	public static String codeCategory = "types:";
-	public static String codeCategorySeparator = ",";
-	public static String codeReward = "reward";
-	public String loreName;
-	public String loreTitle;
-	public String loreAuthor;
-	public String loreText;
-	public List<LoreCategory> loreCategories;
-	public boolean isRewardable;
+	private static final String NEW_LINE = "\n";
+	private static final String CODE_METADATA = "#";
+	private static final String CODE_TITLE = "title:";
+	private static final String CODE_AUTHOR = "author:";
+	private static final String CODE_CATEGORY = "types:";
+	private static final String CODE_CATEGORY_SEPARATOR = ",";
+	private static final String CODE_REWARD = "reward";
 
-	public GOTLore(String name, String title, String auth, String text, List<LoreCategory> categories, boolean reward) {
+	private final String loreName;
+	private final String loreTitle;
+	private final String loreAuthor;
+	private final String loreText;
+	private final boolean isRewardable;
+
+	private GOTLore(String name, String title, String auth, String text, boolean reward) {
 		loreName = name;
 		loreTitle = title;
 		loreAuthor = auth;
 		loreText = text;
-		loreCategories = categories;
 		isRewardable = reward;
 	}
 
 	public static GOTLore getMultiRandomLore(Iterable<LoreCategory> categories, Random random, boolean rewardsOnly) {
 		ArrayList<GOTLore> allLore = new ArrayList<>();
 		for (LoreCategory c : categories) {
-			for (GOTLore lore : c.loreList) {
+			for (GOTLore lore : c.getLoreList()) {
 				if (!allLore.contains(lore) && (!rewardsOnly || lore.isRewardable)) {
 					allLore.add(lore);
 				}
@@ -113,7 +111,7 @@ public class GOTLore {
 			GOTLog.getLogger().error("Failed to onInit GOT lore");
 			e.printStackTrace();
 		}
-		for (Entry<String, BufferedReader> entry : loreReaders.entrySet()) {
+		for (Map.Entry<String, BufferedReader> entry : loreReaders.entrySet()) {
 			String loreName = entry.getKey();
 			BufferedReader reader = entry.getValue();
 			try {
@@ -121,25 +119,25 @@ public class GOTLore {
 				String line;
 				String title = "";
 				String author = "";
-				ArrayList<LoreCategory> categories = new ArrayList<>();
+				Collection<LoreCategory> categories = new ArrayList<>();
 				StringBuilder text = new StringBuilder();
 				boolean reward = false;
 				while ((line = reader.readLine()) != null) {
-					if (line.startsWith(codeMetadata)) {
-						String metadata = line.substring(codeMetadata.length());
-						if (metadata.startsWith(codeTitle)) {
-							title = metadata.substring(codeTitle.length());
+					if (line.startsWith(CODE_METADATA)) {
+						String metadata = line.substring(CODE_METADATA.length());
+						if (metadata.startsWith(CODE_TITLE)) {
+							title = metadata.substring(CODE_TITLE.length());
 							continue;
 						}
-						if (metadata.startsWith(codeAuthor)) {
-							author = metadata.substring(codeAuthor.length());
+						if (metadata.startsWith(CODE_AUTHOR)) {
+							author = metadata.substring(CODE_AUTHOR.length());
 							continue;
 						}
-						if (metadata.startsWith(codeCategory)) {
-							categoryString = metadata.substring(codeCategory.length());
+						if (metadata.startsWith(CODE_CATEGORY)) {
+							categoryString = metadata.substring(CODE_CATEGORY.length());
 							while (!categoryString.isEmpty()) {
 								String categoryName;
-								int indexOf = categoryString.indexOf(codeCategorySeparator);
+								int indexOf = categoryString.indexOf(CODE_CATEGORY_SEPARATOR);
 								if (indexOf >= 0) {
 									categoryName = categoryString.substring(0, indexOf);
 									categoryString = categoryString.substring(indexOf + 1);
@@ -167,17 +165,17 @@ public class GOTLore {
 							}
 							continue;
 						}
-						if (!metadata.startsWith(codeReward)) {
+						if (!metadata.startsWith(CODE_REWARD)) {
 							continue;
 						}
 						reward = true;
 						continue;
 					}
 					text.append(line);
-					text.append(newline);
+					text.append(NEW_LINE);
 				}
 				reader.close();
-				GOTLore lore = new GOTLore(loreName, title, author, text.toString(), categories, reward);
+				GOTLore lore = new GOTLore(loreName, title, author, text.toString(), reward);
 				for (LoreCategory category : categories) {
 					category.addLore(lore);
 				}
@@ -187,14 +185,14 @@ public class GOTLore {
 			}
 		}
 		for (LoreCategory category : LoreCategory.values()) {
-			int num = category.loreList.size();
+			int num = category.getLoreList().size();
 			int numReward = 0;
-			for (GOTLore lore : category.loreList) {
+			for (GOTLore lore : category.getLoreList()) {
 				if (lore.isRewardable) {
 					++numReward;
 				}
 			}
-			GOTLog.getLogger().info("Hummel009: Category {} has loaded {} lore texts, of which {} rewardable", category.categoryName, num, numReward);
+			GOTLog.getLogger().info("Hummel009: Category {} has loaded {} lore texts, of which {} rewardable", category.getCategoryName(), num, numReward);
 		}
 		if (zip != null) {
 			try {
@@ -205,21 +203,21 @@ public class GOTLore {
 		}
 	}
 
-	public static List<String> organisePages(String loreText) {
+	private static List<String> organisePages(String loreText) {
 		List<String> loreTextPages = new ArrayList<>();
 		String remainingText = loreText;
 		ArrayList<String> splitTxtWords = new ArrayList<>();
 		while (!remainingText.isEmpty()) {
 			String part;
-			if (remainingText.startsWith(newline)) {
-				part = newline;
+			if (remainingText.startsWith(NEW_LINE)) {
+				part = NEW_LINE;
 				if (!splitTxtWords.isEmpty()) {
 					splitTxtWords.add(part);
 				}
 				remainingText = remainingText.substring(part.length());
 				continue;
 			}
-			int indexOf = remainingText.indexOf(newline);
+			int indexOf = remainingText.indexOf(NEW_LINE);
 			if (indexOf >= 0) {
 				part = remainingText.substring(0, indexOf);
 			} else {
@@ -239,7 +237,7 @@ public class GOTLore {
 				if (pageText.length() + word.length() > 256) {
 					break;
 				}
-				if (word.equals(newline)) {
+				if (word.equals(NEW_LINE)) {
 					if (currentLine.length() > 0) {
 						pageText.append(currentLine);
 						currentLine = new StringBuilder();
@@ -304,7 +302,8 @@ public class GOTLore {
 		return itemstack;
 	}
 
-	public String formatRandom(String text, Random random) {
+	private String formatRandom(String text, Random random) {
+		String text1 = text;
 		int lastIndexStart = -1;
 		do {
 			String formatted;
@@ -312,20 +311,20 @@ public class GOTLore {
 			block16:
 			{
 				String s1;
-				int indexStart = text.indexOf('{', lastIndexStart + 1);
-				int indexEnd = text.indexOf('}');
+				int indexStart = text1.indexOf('{', lastIndexStart + 1);
+				int indexEnd = text1.indexOf('}');
 				lastIndexStart = indexStart;
 				if (indexStart < 0 || indexEnd <= indexStart) {
-					break;
+					return text1;
 				}
-				unformatted = text.substring(indexStart, indexEnd + 1);
+				unformatted = text1.substring(indexStart, indexEnd + 1);
 				formatted = unformatted.substring(1, unformatted.length() - 1);
 				if (formatted.startsWith("num:")) {
 					try {
 						s1 = formatted.substring("num:".length());
-						int i1 = s1.indexOf(codeCategorySeparator);
+						int i1 = s1.indexOf(CODE_CATEGORY_SEPARATOR);
 						String s2 = s1.substring(0, i1);
-						String s3 = s1.substring(i1 + codeCategorySeparator.length());
+						String s3 = s1.substring(i1 + CODE_CATEGORY_SEPARATOR.length());
 						int min = Integer.parseInt(s2);
 						int max = Integer.parseInt(s3);
 						int number = MathHelper.getRandomIntegerInRange(random, min, max);
@@ -369,23 +368,21 @@ public class GOTLore {
 					}
 				}
 			}
-			text = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text).replaceFirst(Matcher.quoteReplacement(formatted));
+			text1 = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text1).replaceFirst(Matcher.quoteReplacement(formatted));
 		} while (true);
-		return text;
 	}
 
 	public enum LoreCategory {
 		WESTEROS("westeros"), ESSOS("essos"), YITI("yiti"), ASSHAI("asshai"), SOTHORYOS("sothoryos"), MOSSOVY("mossovy");
 
-		public static String allCode = "all";
-		public String categoryName;
-		public Collection<GOTLore> loreList = new ArrayList<>();
+		private final Collection<GOTLore> loreList = new ArrayList<>();
+		private final String categoryName;
 
 		LoreCategory(String s) {
 			categoryName = s;
 		}
 
-		public static LoreCategory forName(String s) {
+		private static LoreCategory forName(String s) {
 			for (LoreCategory r : values()) {
 				if (s.equalsIgnoreCase(r.categoryName)) {
 					return r;
@@ -394,9 +391,16 @@ public class GOTLore {
 			return null;
 		}
 
-		public void addLore(GOTLore lore) {
+		private void addLore(GOTLore lore) {
 			loreList.add(lore);
 		}
-	}
 
+		public Collection<GOTLore> getLoreList() {
+			return loreList;
+		}
+
+		private String getCategoryName() {
+			return categoryName;
+		}
+	}
 }

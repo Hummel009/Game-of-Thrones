@@ -74,8 +74,8 @@ public class GOTKeyHandler {
 		GOTDimension currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		GOTFaction currentFaction = pd.getViewingFaction();
 		GOTDimension.DimensionRegion currentRegion = currentFaction.getFactionRegion();
-		List<GOTDimension.DimensionRegion> regionList = currentDimension.dimensionRegions;
-		List<GOTFaction> factionList = currentRegion.factionList;
+		List<GOTDimension.DimensionRegion> regionList = currentDimension.getDimensionRegions();
+		List<GOTFaction> factionList = currentRegion.getFactionList();
 		if (mc.currentScreen == null && alignmentChangeTick <= 0) {
 			int i;
 			if (KEY_BINDING_RETURN.getIsKeyPressed()) {

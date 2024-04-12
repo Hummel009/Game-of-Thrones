@@ -127,7 +127,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			}
 		}
 		if (mouseOverPermission != null) {
-			String permName = StatCollector.translateToLocal("got.gui.bannerEdit.perm." + mouseOverPermission.codeName);
+			String permName = StatCollector.translateToLocal("got.gui.bannerEdit.perm." + mouseOverPermission.getCodeName());
 			fontRendererObj.drawSplitString(permName, windowX + 4, windowY + 47, PERM_WINDOW_WIDTH - PERM_WINDOW_BORDER * 2, 16777215);
 		}
 	}

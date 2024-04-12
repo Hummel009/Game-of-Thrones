@@ -21,7 +21,7 @@ public class GOTBiomeVariantStorage {
 
 	public static void clearAllVariants(World world) {
 		getDimensionChunkMap(world).clear();
-		FMLLog.info("Unloading GOT biome variants in %s", GOTDimension.getCurrentDimension(world).dimensionName);
+		FMLLog.info("Unloading GOT biome variants in %s", GOTDimension.getCurrentDimension(world).getDimensionName());
 	}
 
 	public static void clearChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {

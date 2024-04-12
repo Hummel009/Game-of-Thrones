@@ -31,7 +31,7 @@ public class GOTPotionPoisonKilling extends Potion {
 
 	@Override
 	public void performEffect(EntityLivingBase entity, int level) {
-		entity.attackEntityFrom(GOTDamage.poisonDrink, 1.0f);
+		entity.attackEntityFrom(GOTDamage.POISON_DRINK, 1.0f);
 	}
 
 	@SideOnly(Side.CLIENT)

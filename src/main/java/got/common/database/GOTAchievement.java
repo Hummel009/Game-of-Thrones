@@ -368,7 +368,7 @@ public class GOTAchievement {
 			throw new IllegalArgumentException("Duplicate ID " + id + " for GOT achievement category " + category.name());
 		}
 		category.addAchievement(this);
-		getDimension().allAchievements.add(this);
+		getDimension().getAllAchievements().add(this);
 		CONTENT.add(this);
 	}
 
@@ -804,7 +804,7 @@ public class GOTAchievement {
 	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
 		ChatComponentTranslation component = new ChatComponentTranslation(getUntranslatedTitle(entityplayer)).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + '$' + id)));
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.showGotAchievement, new ChatComponentText(category.name() + '$' + id)));
 		return component;
 	}
 
@@ -897,7 +897,7 @@ public class GOTAchievement {
 			codeName = name();
 			categoryColors = new Color(color).getColorComponents(null);
 			dimension = dim;
-			dimension.achievementCategories.add(this);
+			dimension.getAchievementCategories().add(this);
 		}
 
 		Category(GOTFaction faction) {

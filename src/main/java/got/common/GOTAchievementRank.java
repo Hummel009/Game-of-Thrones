@@ -10,8 +10,8 @@ import net.minecraft.event.HoverEvent;
 import net.minecraft.util.*;
 
 public class GOTAchievementRank extends GOTAchievement {
-	public GOTFactionRank theRank;
-	public GOTFaction theFac;
+	private final GOTFactionRank theRank;
+	private final GOTFaction theFac;
 
 	public GOTAchievementRank(GOTFactionRank rank) {
 		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.getFaction().codeName() + '_' + rank.getAlignment());
@@ -25,10 +25,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	public boolean canPlayerEarn(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		float align = pd.getAlignment(theFac);
-		if (align < 0.0f) {
-			return false;
-		}
-		return !requiresPledge() || pd.isPledgedTo(theFac);
+		return !(align < 0.0f) && (!requiresPledge() || pd.isPledgedTo(theFac));
 	}
 
 	@Override
@@ -36,7 +33,7 @@ public class GOTAchievementRank extends GOTAchievement {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		IChatComponent component = new ChatComponentTranslation(theRank.getCodeFullNameWithGender(pd)).appendText(" ").appendSibling(new ChatComponentTranslation(theRank.getAffiliationCodeName())).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(getCategory().name() + '$' + getId())));
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.showGotAchievement, new ChatComponentText(getCategory().name() + '$' + getId())));
 		return component;
 	}
 
@@ -59,13 +56,10 @@ public class GOTAchievementRank extends GOTAchievement {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		float align = pd.getAlignment(theFac);
 		float rankAlign = theRank.getAlignment();
-		if (requiresPledge() && !pd.isPledgedTo(theFac)) {
-			return false;
-		}
-		return align >= rankAlign;
+		return (!requiresPledge() || pd.isPledgedTo(theFac)) && align >= rankAlign;
 	}
 
-	public boolean requiresPledge() {
+	private boolean requiresPledge() {
 		return false;
 	}
 }

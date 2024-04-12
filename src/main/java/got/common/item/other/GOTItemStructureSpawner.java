@@ -105,7 +105,7 @@ public class GOTItemStructureSpawner extends Item {
 		if (world.isRemote) {
 			return true;
 		}
-		if (GOTLevelData.structuresBanned()) {
+		if (GOTLevelData.getStructuresBanned() == 1) {
 			entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.spawnStructure.disabled"));
 			return false;
 		}

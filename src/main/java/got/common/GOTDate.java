@@ -17,8 +17,12 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTDate {
-	public static int ticksInDay = GOTTime.DAY_LENGTH;
-	public static long prevWorldTime = -1L;
+	private static final int TICKS_IN_DAY = GOTTime.DAY_LENGTH;
+
+	private static long prevWorldTime = -1L;
+
+	private GOTDate() {
+	}
 
 	public static void loadDates(NBTTagCompound levelData) {
 		if (levelData.hasKey("Dates")) {
@@ -63,39 +67,33 @@ public class GOTDate {
 		if (prevWorldTime == -1L) {
 			prevWorldTime = worldTime;
 		}
-		if (worldTime / ticksInDay != prevWorldTime / ticksInDay) {
+		if (worldTime / TICKS_IN_DAY != prevWorldTime / TICKS_IN_DAY) {
 			setDate(AegonCalendar.currentDay + 1);
 		}
 		prevWorldTime = worldTime;
 	}
 
 	public enum Season {
-		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
-
-		public static Season[] allSeasons = {SPRING, SUMMER, AUTUMN, WINTER};
-		public String name;
-		public int seasonID;
-
-		Season(String s, int i) {
-			name = s;
-			seasonID = i;
-		}
-
+		SPRING, SUMMER, AUTUMN, WINTER
 	}
 
 	public static class AegonCalendar {
-		public static Date startDate = new Date(298, Month.JULY, 10);
-		public static int currentDay;
-		public static Map<Integer, Date> cachedDates = new HashMap<>();
+		protected static final Date START_DATE = new Date(298, Month.JULY, 10);
+		protected static final Map<Integer, Date> CACHED_DATES = new HashMap<>();
+
+		private static int currentDay;
+
+		private AegonCalendar() {
+		}
 
 		public static Date getDate() {
 			return getDate(currentDay);
 		}
 
 		public static Date getDate(int day) {
-			Date date = cachedDates.get(day);
+			Date date = CACHED_DATES.get(day);
 			if (date == null) {
-				date = startDate.copy();
+				date = START_DATE.copy();
 				if (day < 0) {
 					for (int i = 0; i < -day; ++i) {
 						date = date.decrement();
@@ -105,29 +103,33 @@ public class GOTDate {
 						date = date.increment();
 					}
 				}
-				cachedDates.put(day, date);
+				CACHED_DATES.put(day, date);
 			}
 			return date;
 		}
 
 		public static Season getSeason() {
-			return getDate().month.season;
+			return getDate().getMonth().getSeason();
 		}
 
-		public static boolean isLeapYear(int year) {
+		protected static boolean isLeapYear(int year) {
 			return year % 4 == 0 && year % 100 != 0;
+		}
+
+		public static int getCurrentDay() {
+			return currentDay;
 		}
 
 		public enum Day {
 			SUNDAY("sunday"), MONDAY("monday"), TUESDAY("tuesday"), WEDNESDAY("wednesday"), THIRSDAY("thirsday"), FRIDAY("friday"), SATURDAY("saturday");
 
-			public String name;
+			private final String name;
 
 			Day(String s) {
 				name = s;
 			}
 
-			public String getDayName() {
+			private String getDayName() {
 				return StatCollector.translateToLocal("got.date.day." + name);
 			}
 		}
@@ -135,11 +137,12 @@ public class GOTDate {
 		public enum Month {
 			JANUARY("january", 31, Season.WINTER), FEBRUARY("february", 28, Season.WINTER), MARCH("march", 31, Season.SPRING), APRIL("april", 30, Season.SPRING), MAY("may", 31, Season.SPRING), JUNE("june", 30, Season.SUMMER), JULY("july", 31, Season.SUMMER), AUGUST("august", 31, Season.SUMMER), SEPTEMBER("september", 30, Season.AUTUMN), OCTOBER("october", 31, Season.AUTUMN), NOVEMBER("november", 30, Season.AUTUMN), DECEMBER("december", 31, Season.WINTER);
 
-			public String name;
-			public int days;
-			public boolean hasWeekdayName;
-			public boolean isLeapYear;
-			public Season season;
+			private final String name;
+			private final int days;
+			private final boolean hasWeekdayName;
+			private final boolean isLeapYear;
+
+			private Season season;
 
 			Month(String s, int i, Season se) {
 				this(s, i, se, true, false);
@@ -153,32 +156,55 @@ public class GOTDate {
 				season = se;
 			}
 
-			public String getMonthName() {
+			private String getMonthName() {
 				return StatCollector.translateToLocal("got.date.month." + name);
 			}
 
-			public boolean isSingleDay() {
+			private boolean isSingleDay() {
 				return days == 1;
+			}
+
+			@SuppressWarnings("unused")
+			public Season getSeason() {
+				return season;
+			}
+
+			public void setSeason(Season season) {
+				this.season = season;
+			}
+
+			private boolean isLeapYear() {
+				return isLeapYear;
+			}
+
+			private int getDays() {
+				return days;
+			}
+
+			private boolean isHasWeekdayName() {
+				return hasWeekdayName;
 			}
 		}
 
 		public static class Date {
-			public int year;
-			public Month month;
-			public int monthDate;
-			public Day day;
+			private final int monthDate;
 
-			public Date(int y, Month m, int d) {
+			private final int year;
+			private final Month month;
+
+			private Day day;
+
+			protected Date(int y, Month m, int d) {
 				year = y;
 				month = m;
 				monthDate = d;
 			}
 
-			public Date copy() {
+			protected Date copy() {
 				return new Date(year, month, monthDate);
 			}
 
-			public Date decrement() {
+			protected Date decrement() {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;
@@ -191,11 +217,11 @@ public class GOTDate {
 						--newYear;
 					}
 					newMonth = Month.values()[monthID];
-					if (newMonth.isLeapYear && !isLeapYear(newYear)) {
+					if (newMonth.isLeapYear() && !isLeapYear(newYear)) {
 						--monthID;
 						newMonth = Month.values()[monthID];
 					}
-					newDate = newMonth.days;
+					newDate = newMonth.getDays();
 				}
 				return new Date(newYear, newMonth, newDate);
 			}
@@ -205,8 +231,8 @@ public class GOTDate {
 				return dayYear[0] + ", " + dayYear[1];
 			}
 
-			public Day getDay() {
-				if (!month.hasWeekdayName) {
+			protected Day getDay() {
+				if (!month.isHasWeekdayName()) {
 					return null;
 				}
 				if (day == null) {
@@ -214,8 +240,8 @@ public class GOTDate {
 					int monthID = month.ordinal();
 					for (int i = 0; i < monthID; ++i) {
 						Month m = Month.values()[i];
-						if (m.hasWeekdayName) {
-							yearDay += m.days;
+						if (m.isHasWeekdayName()) {
+							yearDay += m.getDays();
 						}
 					}
 					yearDay += monthDate;
@@ -227,7 +253,7 @@ public class GOTDate {
 
 			public String[] getDayAndYearNames(boolean longName) {
 				StringBuilder builder = new StringBuilder();
-				if (month.hasWeekdayName) {
+				if (month.isHasWeekdayName()) {
 					builder.append(getDay().getDayName());
 				}
 				builder.append(' ');
@@ -249,12 +275,12 @@ public class GOTDate {
 				return new String[]{dateName, yearName};
 			}
 
-			public Date increment() {
+			protected Date increment() {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;
 				++newDate;
-				if (newDate > newMonth.days) {
+				if (newDate > newMonth.getDays()) {
 					newDate = 1;
 					int monthID = newMonth.ordinal();
 					++monthID;
@@ -263,15 +289,17 @@ public class GOTDate {
 						++newYear;
 					}
 					newMonth = Month.values()[monthID];
-					if (newMonth.isLeapYear && !isLeapYear(newYear)) {
+					if (newMonth.isLeapYear() && !isLeapYear(newYear)) {
 						++monthID;
 						newMonth = Month.values()[monthID];
 					}
 				}
 				return new Date(newYear, newMonth, newDate);
 			}
+
+			public Month getMonth() {
+				return month;
+			}
 		}
-
 	}
-
 }

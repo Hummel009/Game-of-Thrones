@@ -38,9 +38,9 @@ public class GOTPacketPortalPos implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketPortalPos, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketPortalPos packet, MessageContext context) {
-			GOTLevelData.gameOfThronesPortalX = packet.portalX;
-			GOTLevelData.gameOfThronesPortalY = packet.portalY;
-			GOTLevelData.gameOfThronesPortalZ = packet.portalZ;
+			GOTLevelData.setGameOfThronesPortalX(packet.portalX);
+			GOTLevelData.setGameOfThronesPortalY(packet.portalY);
+			GOTLevelData.setGameOfThronesPortalZ(packet.portalZ);
 			return null;
 		}
 	}

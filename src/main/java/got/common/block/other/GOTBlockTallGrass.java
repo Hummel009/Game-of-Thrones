@@ -87,7 +87,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 			EntityLivingBase living;
 			boolean bootsLegs = entity instanceof EntityLivingBase && (living = (EntityLivingBase) entity).getEquipmentInSlot(1) != null && living.getEquipmentInSlot(2) != null;
 			if (!bootsLegs) {
-				entity.attackEntityFrom(GOTDamage.plantHurt, 0.25f);
+				entity.attackEntityFrom(GOTDamage.PLANT_HURT, 0.25f);
 			}
 		}
 	}

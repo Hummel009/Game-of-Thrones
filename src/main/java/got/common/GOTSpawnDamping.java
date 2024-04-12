@@ -15,13 +15,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTSpawnDamping {
-	public static Map<String, Float> spawnDamping = new HashMap<>();
-	public static String TYPE_NPC = "got_npc";
-	public static boolean needsSave = true;
+	public static final String TYPE_NPC = "got_npc";
+
+	private static final Map<String, Float> SPAWN_DAMPING = new HashMap<>();
+
+	private static boolean needsSave = true;
+
+	private GOTSpawnDamping() {
+	}
 
 	public static int getBaseSpawnCapForInfo(String type, World world) {
 		if (type.equals(TYPE_NPC)) {
-			return GOTDimension.getCurrentDimension(world).spawnCap;
+			return GOTDimension.getCurrentDimension(world).getSpawnCap();
 		}
 		EnumCreatureType creatureType = EnumCreatureType.valueOf(type);
 		return creatureType.getMaxNumberOfCreature();
@@ -31,20 +36,19 @@ public class GOTSpawnDamping {
 		return getSpawnCap(type.name(), type.getMaxNumberOfCreature(), world);
 	}
 
-	public static File getDataFile() {
+	private static File getDataFile() {
 		return new File(GOTLevelData.getOrCreateGOTDir(), "spawn_damping.dat");
 	}
 
 	public static int getNPCSpawnCap(World world) {
-		return getSpawnCap(TYPE_NPC, GOTDimension.getCurrentDimension(world).spawnCap, world);
+		return getSpawnCap(TYPE_NPC, GOTDimension.getCurrentDimension(world).getSpawnCap(), world);
 	}
 
 	public static int getSpawnCap(String type, int baseCap, int players) {
-		float stationaryPointValue;
 		float damp = getSpawnDamping(type);
 		float dampFraction = (players - 1) * damp;
 		dampFraction = MathHelper.clamp_float(dampFraction, 0.0f, 1.0f);
-		stationaryPointValue = 0.5f + damp / 2.0f;
+		float stationaryPointValue = 0.5f + damp / 2.0f;
 		if (dampFraction > stationaryPointValue) {
 			dampFraction = stationaryPointValue;
 		}
@@ -52,24 +56,23 @@ public class GOTSpawnDamping {
 		return Math.max(capPerPlayer, 1);
 	}
 
-	public static int getSpawnCap(String type, int baseCap, World world) {
+	private static int getSpawnCap(String type, int baseCap, World world) {
 		int players = world.playerEntities.size();
 		return getSpawnCap(type, baseCap, players);
 	}
 
 	public static float getSpawnDamping(String type) {
-		float f = 0.0f;
-		if (spawnDamping.containsKey(type)) {
-			f = spawnDamping.get(type);
+		if (SPAWN_DAMPING.containsKey(type)) {
+			return SPAWN_DAMPING.get(type);
 		}
-		return f;
+		return 0.0f;
 	}
 
 	public static void loadAll() {
 		try {
 			File datFile = getDataFile();
 			NBTTagCompound spawnData = GOTLevelData.loadNBTFromFile(datFile);
-			spawnDamping.clear();
+			SPAWN_DAMPING.clear();
 			if (spawnData.hasKey("Damping")) {
 				NBTTagList typeTags = spawnData.getTagList("Damping", 10);
 				for (int i = 0; i < typeTags.tagCount(); ++i) {
@@ -77,7 +80,7 @@ public class GOTSpawnDamping {
 					String type = nbt.getString("Type");
 					float damping = nbt.getFloat("Damp");
 					if (!StringUtils.isBlank(type)) {
-						spawnDamping.put(type, damping);
+						SPAWN_DAMPING.put(type, damping);
 					}
 				}
 			}
@@ -89,12 +92,12 @@ public class GOTSpawnDamping {
 		}
 	}
 
-	public static void markDirty() {
+	private static void markDirty() {
 		needsSave = true;
 	}
 
 	public static void resetAll() {
-		spawnDamping.clear();
+		SPAWN_DAMPING.clear();
 		markDirty();
 	}
 
@@ -106,7 +109,7 @@ public class GOTSpawnDamping {
 			}
 			NBTTagCompound spawnData = new NBTTagCompound();
 			NBTTagList typeTags = new NBTTagList();
-			for (Map.Entry<String, Float> e : spawnDamping.entrySet()) {
+			for (Map.Entry<String, Float> e : SPAWN_DAMPING.entrySet()) {
 				String type = e.getKey();
 				float damping = e.getValue();
 				NBTTagCompound nbt = new NBTTagCompound();
@@ -124,7 +127,11 @@ public class GOTSpawnDamping {
 	}
 
 	public static void setSpawnDamping(String type, float damping) {
-		spawnDamping.put(type, damping);
+		SPAWN_DAMPING.put(type, damping);
 		markDirty();
+	}
+
+	public static boolean isNeedsSave() {
+		return needsSave;
 	}
 }

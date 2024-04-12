@@ -24,13 +24,14 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.WorldServer;
 
 public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
-	public MinecraftServer theServer;
-	public double defaultReach = -1.0;
-	public int lastAttackTime;
-	public double lastX;
-	public double lastY;
-	public double lastZ;
-	public int floatingMountTick;
+	private final MinecraftServer theServer;
+
+	private double defaultReach = -1.0;
+	private double lastX;
+	private double lastY;
+	private double lastZ;
+	private int lastAttackTime;
+	private int floatingMountTick;
 
 	public GOTNetHandlerPlayServer(MinecraftServer server, NetworkManager nm, EntityPlayerMP entityplayer) {
 		super(server, nm, entityplayer);
@@ -178,7 +179,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 		}
 	}
 
-	public void setBlockReach() {
+	private void setBlockReach() {
 		if (defaultReach == -1.0) {
 			defaultReach = playerEntity.theItemInWorldManager.getBlockReachDistance();
 		}
@@ -190,7 +191,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 		updateAttackTime();
 	}
 
-	public void updateAttackTime() {
+	private void updateAttackTime() {
 		if (lastAttackTime > 0) {
 			--lastAttackTime;
 		}

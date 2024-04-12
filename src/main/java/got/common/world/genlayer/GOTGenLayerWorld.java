@@ -59,7 +59,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 				biomeImageData = new byte[imageWidth * imageHeight];
 				for (int i = 0; i < colors.length; ++i) {
 					int color = colors[i];
-					Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+					Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
 					if (biomeID != null) {
 						biomeImageData[i] = biomeID.byteValue();
 						continue;
@@ -131,7 +131,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 
 	public static GOTBiome getBiomeOrOcean(int mapX, int mapZ) {
 		int biomeID = mapX >= 0 && mapX < imageWidth && mapZ >= 0 && mapZ < imageHeight ? getBiomeImageID(mapX, mapZ) : GOTBiome.ocean.biomeID;
-		return GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
+		return GOTDimension.GAME_OF_THRONES.getBiomeList()[biomeID];
 	}
 
 	public static boolean loadedBiomeImage() {

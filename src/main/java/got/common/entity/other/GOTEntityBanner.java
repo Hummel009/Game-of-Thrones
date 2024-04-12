@@ -657,7 +657,7 @@ public class GOTEntityBanner extends Entity {
 			}
 			NBTTagList permTags = new NBTTagList();
 			for (GOTBannerProtection.Permission p : entry.listPermissions()) {
-				String pName = p.codeName;
+				String pName = p.getCodeName();
 				permTags.appendTag(new NBTTagString(pName));
 			}
 			playerData.setTag("Perms", permTags);
@@ -668,7 +668,7 @@ public class GOTEntityBanner extends Entity {
 		if (!defaultPermissions.isEmpty()) {
 			NBTTagList permTags = new NBTTagList();
 			for (GOTBannerProtection.Permission p : defaultPermissions) {
-				String pName = p.codeName;
+				String pName = p.getCodeName();
 				permTags.appendTag(new NBTTagString(pName));
 			}
 			nbt.setTag("DefaultPerms", permTags);

@@ -62,7 +62,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int k3 = k2 - k1 + 1;
 		int[] ints = chunkGenLayers[LAYER_BIOME].getInts(worldObj, i1, k1, i3, k3);
 		for (int l = 0; l < i3 * k3; ++l) {
-			GOTBiome biome = gotDimension.biomeList[ints[l]];
+			GOTBiome biome = gotDimension.getBiomeList()[ints[l]];
 			if (list.contains(biome)) {
 				continue;
 			}
@@ -108,7 +108,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		for (int l = 0; l < i3 * k3; ++l) {
 			int xPos = i1 + l % i3 << 2;
 			int zPos = k1 + l / i3 << 2;
-			GOTBiome biome = gotDimension.biomeList[ints[l]];
+			GOTBiome biome = gotDimension.getBiomeList()[ints[l]];
 			if (!list.contains(biome) || chunkpos != null && random.nextInt(j + 1) != 0) {
 				continue;
 			}
@@ -132,7 +132,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int[] ints = worldLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);
 		for (int l = 0; l < xSize * zSize; ++l) {
 			int biomeID = ints[l];
-			biomes[l] = gotDimension.biomeList[biomeID];
+			biomes[l] = gotDimension.getBiomeList()[biomeID];
 		}
 		return biomes;
 	}
@@ -151,7 +151,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int[] ints = chunkGenLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);
 		for (int l = 0; l < xSize * zSize; ++l) {
 			int biomeID = ints[l];
-			biomes[l] = gotDimension.biomeList[biomeID];
+			biomes[l] = gotDimension.getBiomeList()[biomeID];
 		}
 		return biomes;
 	}
@@ -275,7 +275,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int[] ints = worldLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);
 		for (int l = 0; l < xSize * zSize; ++l) {
 			int biomeID = ints[l];
-			float f = gotDimension.biomeList[biomeID].getIntRainfall() / 65536.0f;
+			float f = gotDimension.getBiomeList()[biomeID].getIntRainfall() / 65536.0f;
 			if (f > 1.0f) {
 				f = 1.0f;
 			}

@@ -11,31 +11,32 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 public class GOTJaqenHgharTracker {
-	public static Map<UUID, Integer> activeJaqenHghars = new HashMap<>();
-	public static int spawnInterval = 2400;
-	public static int spawnCooldown;
+	private static final Map<UUID, Integer> ACTIVE_JAQEN_HGHARS = new HashMap<>();
+	private static int spawnCooldown;
+
+	private GOTJaqenHgharTracker() {
+	}
 
 	public static void addNewJaqenHghar(UUID id) {
-		activeJaqenHghars.put(id, 3600);
+		ACTIVE_JAQEN_HGHARS.put(id, 3600);
 		markDirty();
 	}
 
 	public static boolean isJaqenHgharActive(UUID id) {
-		return activeJaqenHghars.containsKey(id) && activeJaqenHghars.get(id) > 0;
+		return ACTIVE_JAQEN_HGHARS.containsKey(id) && ACTIVE_JAQEN_HGHARS.get(id) > 0;
 	}
 
 	public static void load(NBTTagCompound levelData) {
-		activeJaqenHghars.clear();
+		ACTIVE_JAQEN_HGHARS.clear();
 		NBTTagList jaqenHgharsTags = levelData.getTagList("JaqenHghars", 10);
 		for (int i = 0; i < jaqenHgharsTags.tagCount(); ++i) {
 			NBTTagCompound nbt = jaqenHgharsTags.getCompoundTagAt(i);
 			try {
 				UUID id = UUID.fromString(nbt.getString("ID"));
 				int cd = nbt.getInteger("CD");
-				activeJaqenHghars.put(id, cd);
+				ACTIVE_JAQEN_HGHARS.put(id, cd);
 			} catch (Exception e) {
 				FMLLog.severe("Error loading GOT data: invalid Jaqen Hghar");
 				e.printStackTrace();
@@ -48,12 +49,12 @@ public class GOTJaqenHgharTracker {
 		}
 	}
 
-	public static void markDirty() {
+	private static void markDirty() {
 		GOTLevelData.markDirty();
 	}
 
 	public static void performSpawning(World world) {
-		if (!activeJaqenHghars.isEmpty()) {
+		if (!ACTIVE_JAQEN_HGHARS.isEmpty()) {
 			return;
 		}
 		if (!world.playerEntities.isEmpty()) {
@@ -98,7 +99,7 @@ public class GOTJaqenHgharTracker {
 
 	public static void save(NBTTagCompound levelData) {
 		NBTTagList jaqenHgharTags = new NBTTagList();
-		for (Map.Entry<UUID, Integer> e : activeJaqenHghars.entrySet()) {
+		for (Map.Entry<UUID, Integer> e : ACTIVE_JAQEN_HGHARS.entrySet()) {
 			UUID id = e.getKey();
 			int cd = e.getValue();
 			NBTTagCompound nbt = new NBTTagCompound();
@@ -111,7 +112,7 @@ public class GOTJaqenHgharTracker {
 	}
 
 	public static void setJaqenHgharActive(UUID id) {
-		activeJaqenHghars.computeIfPresent(id, (key, value) -> {
+		ACTIVE_JAQEN_HGHARS.computeIfPresent(id, (key, value) -> {
 			markDirty();
 			return 3600;
 		});
@@ -119,17 +120,17 @@ public class GOTJaqenHgharTracker {
 
 	public static void updateCooldowns() {
 		Collection<UUID> removes = new HashSet<>();
-		for (Entry<UUID, Integer> id : activeJaqenHghars.entrySet()) {
+		for (Map.Entry<UUID, Integer> id : ACTIVE_JAQEN_HGHARS.entrySet()) {
 			int cd = id.getValue();
 			cd--;
-			activeJaqenHghars.put(id.getKey(), cd);
+			ACTIVE_JAQEN_HGHARS.put(id.getKey(), cd);
 			if (cd <= 0) {
 				removes.add(id.getKey());
 			}
 		}
 		if (!removes.isEmpty()) {
 			for (UUID id : removes) {
-				activeJaqenHghars.remove(id);
+				ACTIVE_JAQEN_HGHARS.remove(id);
 			}
 			markDirty();
 		}

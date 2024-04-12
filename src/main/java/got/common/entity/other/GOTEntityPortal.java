@@ -121,7 +121,7 @@ public class GOTEntityPortal extends Entity {
 		while (portalRotation - prevPortalRotation >= 180.0f) {
 			prevPortalRotation += 360.0f;
 		}
-		if (!worldObj.isRemote && dimension != 0 && dimension != GOTDimension.GAME_OF_THRONES.dimensionID) {
+		if (!worldObj.isRemote && dimension != 0 && dimension != GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			setDead();
 		}
 		if (!worldObj.isRemote && getScale() < MAX_SCALE) {
@@ -179,7 +179,7 @@ public class GOTEntityPortal extends Entity {
 		if (!worldObj.isRemote) {
 			int dimension = 0;
 			if (entity.dimension == 0) {
-				dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
+				dimension = GOTDimension.GAME_OF_THRONES.getDimensionID();
 			}
 			GOT.transferEntityToDimension(entity, dimension, new GOTTeleporter(DimensionManager.getWorld(dimension), true));
 		}

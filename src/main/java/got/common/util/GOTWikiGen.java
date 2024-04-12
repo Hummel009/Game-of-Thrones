@@ -496,16 +496,16 @@ public class GOTWikiGen {
 				GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.WINTER;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.WINTER);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append(Lang.SEASON_WINTER).append(": ").append(biome.temperature);
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.SPRING;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SPRING);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append("&lt;br&gt;").append(Lang.SEASON_SPRING).append(": ").append(biome.temperature);
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.SUMMER;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SUMMER);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append("&lt;br&gt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.temperature);
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.AUTUMN;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.AUTUMN);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
 				}
@@ -515,20 +515,20 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.WINTER;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.WINTER);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append(Lang.SEASON_WINTER).append(": ").append(biome.rainfall);
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.SPRING;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SPRING);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append("&lt;br&gt;").append(Lang.SEASON_SPRING).append(": ").append(biome.rainfall);
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.SUMMER;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SUMMER);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append("&lt;br&gt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.rainfall);
-					GOTDate.AegonCalendar.getDate().month.season = GOTDate.Season.AUTUMN;
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.AUTUMN);
 					GOTClimateType.performSeasonalChangesServerSide();
 					sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
 				}
-				GOTDate.AegonCalendar.getDate().month.season = season;
+				GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 				sb.append(END);
 
 				sb.append(TITLE).append("Template:DB Biome-Climate");

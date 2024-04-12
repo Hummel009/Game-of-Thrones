@@ -8,7 +8,7 @@ import java.util.Collection;
 public class GOTInfo {
 	private static final Collection<String> AUTHORS = new ArrayList<>();
 
-	public static final String[] DESCRIPTION = {"§b" + StatCollector.translateToLocal("got.gui.authors") + ' ' + String.join(", ", AUTHORS) + ' ' + StatCollector.translateToLocal("got.gui.authors.others")};
+	private static final String[] DESCRIPTION;
 
 	static {
 		AUTHORS.add("Hummel009");
@@ -39,6 +39,8 @@ public class GOTInfo {
 		AUTHORS.add("Coolaga/GualaBoy");
 		AUTHORS.add("Amandil");
 		AUTHORS.add("Arbeit");
+
+		DESCRIPTION = new String[]{"§b" + StatCollector.translateToLocal("got.gui.authors") + ' ' + String.join(", ", AUTHORS) + ' ' + StatCollector.translateToLocal("got.gui.authors.others")};
 	}
 
 	private GOTInfo() {

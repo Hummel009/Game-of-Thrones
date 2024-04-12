@@ -629,8 +629,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 		if (!GOTTickHandlerClient.PLAYERS_IN_PORTALS.containsKey(entityplayer)) {
 			GOTTickHandlerClient.PLAYERS_IN_PORTALS.put(entityplayer, 0);
 		}
-		if (Minecraft.getMinecraft().isSingleplayer() && !GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
+		if (Minecraft.getMinecraft().isSingleplayer() && !GOTTickHandlerServer.PLAYERS_IN_PORTALS.containsKey(entityplayer)) {
+			GOTTickHandlerServer.PLAYERS_IN_PORTALS.put(entityplayer, 0);
 		}
 	}
 

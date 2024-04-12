@@ -30,7 +30,7 @@ public class GOTAlignmentTicker {
 
 	public static void updateAll(EntityPlayer entityplayer, boolean forceInstant) {
 		for (GOTDimension dim : GOTDimension.values()) {
-			for (GOTFaction fac : dim.factionList) {
+			for (GOTFaction fac : dim.getFactionList()) {
 				forFaction(fac).update(entityplayer, forceInstant);
 			}
 		}
