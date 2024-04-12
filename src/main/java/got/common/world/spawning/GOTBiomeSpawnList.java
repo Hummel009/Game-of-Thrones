@@ -16,6 +16,7 @@ public class GOTBiomeSpawnList {
 	private final List<GOTFactionContainer> factionContainers = new ArrayList<>();
 	private final String biomeIdentifier;
 
+	@SuppressWarnings("unused")
 	public GOTBiomeSpawnList(GOTBiome biome) {
 		this(biome.getClass().getName());
 	}

@@ -54,8 +54,8 @@ public class GOTPacketSetOption implements IMessage {
 					pd.setHideMapLocation(!flag);
 					break;
 				case 4:
-					flag = pd.getFemRankOverride();
-					pd.setFemRankOverride(!flag);
+					flag = pd.getFeminineRanks();
+					pd.setFeminineRanks(!flag);
 					break;
 				case 5:
 					flag = pd.getEnableConquestKills();

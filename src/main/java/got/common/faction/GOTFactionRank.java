@@ -54,7 +54,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public String getCodeFullNameWithGender(GOTPlayerData pd) {
-		if (pd.useFeminineRanks()) {
+		if (pd.getFeminineRanks()) {
 			return getCodeNameFem();
 		}
 		return getCodeName();
@@ -91,7 +91,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public String getFullNameWithGender(GOTPlayerData pd) {
-		if (pd.useFeminineRanks()) {
+		if (pd.getFeminineRanks()) {
 			return getDisplayFullNameFem();
 		}
 		return getDisplayFullName();
@@ -102,7 +102,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public String getShortNameWithGender(GOTPlayerData pd) {
-		if (pd.useFeminineRanks()) {
+		if (pd.getFeminineRanks()) {
 			return getDisplayNameFem();
 		}
 		return getDisplayName();

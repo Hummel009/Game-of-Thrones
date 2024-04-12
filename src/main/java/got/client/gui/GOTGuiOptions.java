@@ -45,7 +45,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		buttonAlignment.setState(!pd.getHideAlignment());
 		buttonMapLocation.setState(!pd.getHideMapLocation());
 		buttonConquest.setState(pd.getEnableConquestKills());
-		buttonFeminineRank.setState(pd.getFemRankOverride());
+		buttonFeminineRank.setState(pd.getFeminineRanks());
 		super.drawScreen(i, j, f);
 		for (GuiButton element : (List<GuiButton>) buttonList) {
 			if (element instanceof GOTGuiButtonOptions) {

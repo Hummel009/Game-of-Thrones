@@ -100,7 +100,7 @@ public class GOTPlayerData {
 	private boolean askedForJaqen;
 	private boolean checkedMenu;
 	private boolean conquestKills = true;
-	private boolean femRankOverride;
+	private boolean feminineRanks;
 	private boolean friendlyFire;
 	private boolean hideAlignment;
 	private boolean hideOnMap;
@@ -1181,12 +1181,12 @@ public class GOTPlayerData {
 		return fellowships;
 	}
 
-	public boolean getFemRankOverride() {
-		return femRankOverride;
+	public boolean getFeminineRanks() {
+		return feminineRanks;
 	}
 
-	public void setFemRankOverride(boolean flag) {
-		femRankOverride = flag;
+	public void setFeminineRanks(boolean flag) {
+		feminineRanks = flag;
 		markDirty();
 		sendOptionsPacket(4, flag);
 	}
@@ -1861,8 +1861,8 @@ public class GOTPlayerData {
 			}
 		}
 		playerTitle = null;
-		if (playerData.hasKey("PlayerTitle")) {
-			GOTTitle title = GOTTitle.forName(playerData.getString("PlayerTitle"));
+		if (playerData.hasKey("PlayerTitleID")) {
+			GOTTitle title = GOTTitle.forID(playerData.getInteger("PlayerTitleID"));
 			if (title != null) {
 				int colorCode = playerData.getInteger("PlayerTitleColor");
 				EnumChatFormatting color = GOTTitle.PlayerTitle.colorForID(colorCode);
@@ -1870,7 +1870,7 @@ public class GOTPlayerData {
 			}
 		}
 		if (playerData.hasKey("FemRankOverride")) {
-			femRankOverride = playerData.getBoolean("FemRankOverride");
+			feminineRanks = playerData.getBoolean("FemRankOverride");
 		}
 		if (playerData.hasKey("FTSince")) {
 			ftSinceTick = playerData.getInteger("FTSince");
@@ -2596,10 +2596,10 @@ public class GOTPlayerData {
 		}
 		playerData.setTag("SentMessageTypes", sentMessageTags);
 		if (playerTitle != null) {
-			playerData.setString("PlayerTitle", playerTitle.getTitle().getTitleName());
+			playerData.setInteger("PlayerTitleID", playerTitle.getTitle().getTitleID());
 			playerData.setInteger("PlayerTitleColor", playerTitle.getColor().getFormattingCode());
 		}
-		playerData.setBoolean("FemRankOverride", femRankOverride);
+		playerData.setBoolean("FemRankOverride", feminineRanks);
 		playerData.setInteger("FTSince", ftSinceTick);
 		if (uuidToMount != null) {
 			playerData.setString("MountUUID", uuidToMount.toString());
@@ -3098,17 +3098,6 @@ public class GOTPlayerData {
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			sendMiniQuestPacket((EntityPlayerMP) entityplayer, quest, false);
 		}
-	}
-
-	public boolean useFeminineRanks() {
-		if (femRankOverride) {
-			return true;
-		}
-		if (playerTitle != null) {
-			GOTTitle title = playerTitle.getTitle();
-			return title.isFeminineRank();
-		}
-		return false;
 	}
 
 	@SuppressWarnings("unused")

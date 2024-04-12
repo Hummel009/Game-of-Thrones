@@ -51,7 +51,7 @@ public class GOTPacketOptions implements IMessage {
 						GOTLevelData.getData(entityplayer).setHideMapLocation(enable);
 						break;
 					case 4:
-						GOTLevelData.getData(entityplayer).setFemRankOverride(enable);
+						GOTLevelData.getData(entityplayer).setFeminineRanks(enable);
 						break;
 					case 5:
 						GOTLevelData.getData(entityplayer).setEnableConquestKills(enable);

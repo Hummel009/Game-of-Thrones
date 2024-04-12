@@ -21,15 +21,14 @@ public class GOTTitle {
 	private final String name;
 	private final int titleID;
 
-	private boolean isHidden;
 	private TitleType titleType = TitleType.STARTER;
 	private GOTAchievement titleAchievement;
-
-	private boolean useAchievementName;
-	private UUID[] uuids;
 	private GOTFactionRank titleRank;
+	private UUID[] uuids;
 
+	private boolean isHidden;
 	private boolean isFeminineRank;
+	private boolean useAchievementName;
 
 	public GOTTitle(String s, GOTAchievement ach) {
 		this(s == null ? ach.getCodeName() : s);
@@ -61,20 +60,9 @@ public class GOTTitle {
 
 	public static GOTTitle forID(int ID) {
 		for (GOTTitle title : CONTENT) {
-			if (title.titleID != ID) {
-				continue;
+			if (title.titleID == ID) {
+				return title;
 			}
-			return title;
-		}
-		return null;
-	}
-
-	public static GOTTitle forName(String name) {
-		for (GOTTitle title : CONTENT) {
-			if (!title.name.equals(name)) {
-				continue;
-			}
-			return title;
 		}
 		return null;
 	}
@@ -144,10 +132,6 @@ public class GOTTitle {
 		return StatCollector.translateToLocal(getUntranslatedName(entityplayer));
 	}
 
-	public String getTitleName() {
-		return name;
-	}
-
 	private String getUntranslatedName(EntityPlayer entityplayer) {
 		if (useAchievementName && titleAchievement != null) {
 			return titleAchievement.getUntranslatedTitle(entityplayer);
@@ -159,10 +143,6 @@ public class GOTTitle {
 			return titleRank.getCodeName();
 		}
 		return "got.title." + name;
-	}
-
-	public boolean isFeminineRank() {
-		return titleType == TitleType.RANK && isFeminineRank;
 	}
 
 	private GOTTitle setPlayerExclusive(List<String> devs) {
