@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenDoubleFlower extends WorldGenerator {
-	public int flowerType;
+	private int flowerType;
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
@@ -28,5 +28,10 @@ public class GOTWorldGenDoubleFlower extends WorldGenerator {
 
 	public void setFlowerType(int i) {
 		flowerType = i;
+	}
+
+	@SuppressWarnings("unused")
+	public int getFlowerType() {
+		return flowerType;
 	}
 }

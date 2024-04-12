@@ -1,7 +1,6 @@
 package got.common.world.biome.sothoryos;
 
 import got.client.sound.GOTMusicRegion;
-import got.client.sound.GOTMusicRegion.Sub;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
@@ -10,10 +9,10 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement;
 import net.minecraft.init.Blocks;
@@ -26,23 +25,23 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeSothoryosBushland extends GOTBiome {
-	public WorldGenerator boulderGen = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 3);
+	private static final WorldGenerator BOULDER_GEN = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
 	public GOTBiomeSothoryosBushland(int i, boolean major) {
 		super(i, major);
 		setupExoticFauna();
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-		decorator.biomeGemFactor = 2.0f;
-		decorator.biomeOreFactor = 2.0f;
-		decorator.treesPerChunk = 0;
-		decorator.logsPerChunk = 1;
-		decorator.grassPerChunk = 16;
-		decorator.doubleGrassPerChunk = 10;
-		decorator.cornPerChunk = 4;
+		biomeVariants.add(GOTBiomeVariant.FLOWERS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		decorator.setBiomeGemFactor(2.0f);
+		decorator.setBiomeOreFactor(2.0f);
+		decorator.setTreesPerChunk(0);
+		decorator.setLogsPerChunk(1);
+		decorator.setGrassPerChunk(16);
+		decorator.setDoubleGrassPerChunk(10);
+		decorator.setCornPerChunk(4);
 		decorator.addTree(GOTTreeType.ACACIA, 300);
 		decorator.addTree(GOTTreeType.ACACIA_DEAD, 5);
 		decorator.addTree(GOTTreeType.PLUM, 5);
@@ -63,8 +62,8 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
 		decorator.addSettlement(new GOTStructureSothoryosSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 
@@ -80,7 +79,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 				for (l = 0; l < boulders; ++l) {
 					i1 = i + random.nextInt(16) + 8;
 					k1 = k + random.nextInt(16) + 8;
-					boulderGen.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
+					BOULDER_GEN.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
 				}
 			}
 			if (random.nextInt(16) == 0) {
@@ -108,7 +107,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		}
 	}
 
-	public boolean enableTermite() {
+	protected boolean enableTermite() {
 		return true;
 	}
 
@@ -123,8 +122,8 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.SOTHORYOS;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.SOTHORYOS;
 	}
 
 	@Override

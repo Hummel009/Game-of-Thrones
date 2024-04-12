@@ -14,19 +14,19 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 	public GOTBiomeMossovyMarshes(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.SWAMP_LOWLAND, 1.0f);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 		variantChance = 1.0f;
-		decorator.sandPerChunk = 0;
-		decorator.quagmirePerChunk = 1;
-		decorator.treesPerChunk = 0;
-		decorator.logsPerChunk = 3;
-		decorator.flowersPerChunk = 0;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 8;
-		decorator.canePerChunk = 10;
-		decorator.reedPerChunk = 5;
+		decorator.setSandPerChunk(0);
+		decorator.setQuagmirePerChunk(1);
+		decorator.setTreesPerChunk(0);
+		decorator.setLogsPerChunk(3);
+		decorator.setFlowersPerChunk(0);
+		decorator.setGrassPerChunk(8);
+		decorator.setDoubleGrassPerChunk(8);
+		decorator.setCanePerChunk(10);
+		decorator.setReedPerChunk(5);
 		decorator.clearSettlements();
 		decorator.clearStructures();
 		npcSpawnList.clear();
@@ -59,5 +59,4 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterMossovyMarshes;
 	}
-
 }

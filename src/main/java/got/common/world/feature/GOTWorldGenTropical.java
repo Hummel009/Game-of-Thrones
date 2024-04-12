@@ -11,12 +11,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenTropical extends WorldGenAbstractTree {
-	public int trunkWidth;
-	public int extraTrunkWidth;
-	public Block woodBlock = Blocks.log;
-	public int woodMeta = 3;
-	public Block leafBlock = Blocks.leaves;
-	public int leafMeta = 3;
+	private final Block woodBlock = Blocks.log;
+	private final Block leafBlock = Blocks.leaves;
+	private int extraTrunkWidth;
 
 	public GOTWorldGenTropical(boolean flag) {
 		super(flag);
@@ -24,7 +21,7 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		int fullWidth = 1 + extraTrunkWidth + trunkWidth * 2;
+		int fullWidth = 1 + extraTrunkWidth;
 		int height = fullWidth * MathHelper.getRandomIntegerInRange(random, 15, 20);
 		if (fullWidth > 1) {
 			height += (fullWidth - 1) * MathHelper.getRandomIntegerInRange(random, 0, 8);
@@ -44,8 +41,8 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 						++range;
 					}
 				}
-				for (int i12 = i - trunkWidth - range; i12 <= i + trunkWidth + extraTrunkWidth + range && flag; ++i12) {
-					for (int k12 = k - trunkWidth - range; k12 <= k + trunkWidth + extraTrunkWidth + range && flag; ++k12) {
+				for (int i12 = i - range; i12 <= i + extraTrunkWidth + range && flag; ++i12) {
+					for (int k12 = k - range; k12 <= k + extraTrunkWidth + range && flag; ++k12) {
 						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 							continue;
 						}
@@ -57,8 +54,8 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 				return false;
 			}
 			boolean canGrow = true;
-			for (i1 = i - trunkWidth; i1 <= i + trunkWidth + extraTrunkWidth && canGrow; ++i1) {
-				for (k1 = k - trunkWidth; k1 <= k + trunkWidth + extraTrunkWidth && canGrow; ++k1) {
+			for (i1 = i; i1 <= i + extraTrunkWidth && canGrow; ++i1) {
+				for (k1 = k; k1 <= k + extraTrunkWidth && canGrow; ++k1) {
 					Block block = world.getBlock(i1, j - 1, k1);
 					if (block.canSustainPlant(world, i1, j - 1, k1, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 						continue;
@@ -73,8 +70,8 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 				int k13;
 				int i2;
 				int k2;
-				for (i1 = i - trunkWidth; i1 <= i + trunkWidth + extraTrunkWidth; ++i1) {
-					for (k1 = k - trunkWidth; k1 <= k + trunkWidth + extraTrunkWidth; ++k1) {
+				for (i1 = i; i1 <= i + extraTrunkWidth; ++i1) {
+					for (k1 = k; k1 <= k + extraTrunkWidth; ++k1) {
 						world.getBlock(i1, j - 1, k1).onPlantGrow(world, i1, j - 1, k1, i1, j, k1);
 					}
 				}
@@ -102,7 +99,7 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 						}
 					}
 					leafRange = Math.min(leafRange, 4);
-					trunkWidthHere = trunkWidth;
+					trunkWidthHere = 0;
 					if (narrowHeight > -1 && j1 >= narrowHeight) {
 						--trunkWidthHere;
 					}
@@ -126,12 +123,14 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 							if (d > leafRange || !(block = world.getBlock(i13, j1, k13)).isReplaceable(world, i13, j1, k13) && !block.isLeaves(world, i13, j1, k13)) {
 								continue;
 							}
+							int leafMeta = 3;
 							setBlockAndNotifyAdequately(world, i13, j1, k13, leafBlock, leafMeta);
 						}
 					}
 				}
+				int woodMeta = 3;
 				for (j1 = 0; j1 < height; ++j1) {
-					trunkWidthHere = trunkWidth;
+					trunkWidthHere = 0;
 					if (narrowHeight > -1 && j + j1 >= narrowHeight) {
 						--trunkWidthHere;
 					}
@@ -159,12 +158,12 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 						}
 					}
 				}
-				for (int i14 = i - trunkWidth - 1; i14 <= i + trunkWidth + extraTrunkWidth + 1; ++i14) {
-					for (int k14 = k - trunkWidth - 1; k14 <= k + trunkWidth + extraTrunkWidth + 1; ++k14) {
+				for (int i14 = i - 1; i14 <= i + extraTrunkWidth + 1; ++i14) {
+					for (int k14 = k - 1; k14 <= k + extraTrunkWidth + 1; ++k14) {
 						int i22 = Math.abs(i14 - i);
 						int k22 = Math.abs(k14 - k);
-						i22 -= trunkWidth;
-						k22 -= trunkWidth;
+						i22 -= 0;
+						k22 -= 0;
 						if (i14 > i) {
 							i22 -= extraTrunkWidth;
 						}
@@ -188,9 +187,13 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 		return false;
 	}
 
+	@SuppressWarnings("unused")
+	public int getExtraTrunkWidth() {
+		return extraTrunkWidth;
+	}
+
 	public GOTWorldGenTropical setExtraTrunkWidth(int i) {
 		extraTrunkWidth = i;
 		return this;
 	}
-
 }

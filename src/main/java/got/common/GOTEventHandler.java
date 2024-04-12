@@ -464,7 +464,7 @@ public class GOTEventHandler {
 		ChunkCoordIntPair chunkCoords = event.chunk;
 		Chunk chunk = world.getChunkFromChunkCoords(chunkCoords.chunkXPos, chunkCoords.chunkZPos);
 		if (!world.isRemote && world.provider instanceof GOTWorldProvider) {
-			GOTBiomeVariantStorage.sendUnwatchToPlayer(world, chunk, entityplayer);
+			GOTBiomeVariantStorage.sendUnwatchToPlayer(chunk, entityplayer);
 		}
 	}
 
@@ -1665,8 +1665,8 @@ public class GOTEventHandler {
 						if (world.getBlock(i1, j1, k1).getMaterial() == Material.air) {
 							if (rand.nextInt(8) > 0) {
 								GOTBiome.GrassBlockAndMeta obj = biome.getRandomGrass(rand);
-								Block block = obj.block;
-								int meta = obj.meta;
+								Block block = obj.getBlock();
+								int meta = obj.getMeta();
 								if (block.canBlockStay(world, i1, j1, k1)) {
 									world.setBlock(i1, j1, k1, block, meta, 3);
 								}

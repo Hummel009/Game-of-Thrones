@@ -2,13 +2,11 @@ package got.common.world.biome;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.GOT;
 import got.client.sound.GOTMusicRegion;
 import got.common.GOTDimension;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.*;
-import got.common.entity.essos.GOTEntityDarkSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.GOTEntityLightSkinBandit;
 import got.common.world.GOTWorldChunkManager;
@@ -25,7 +23,7 @@ import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.biome.westeros.*;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeInvasionSpawns;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -53,20 +51,19 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
+@SuppressWarnings({"PublicField", "WeakerAccess", "unused"})
 public abstract class GOTBiome extends BiomeGenBase {
 	public static final Set<GOTBiome> CONTENT = new HashSet<>();
+	public static final int SPAWN = 600;
+	public static final int CONQUEST_SPAWN = 100;
+	public static final NoiseGeneratorPerlin BIOME_TERRAIN_NOISE = new NoiseGeneratorPerlin(new Random(1955L), 1);
+	public static final Class<?>[][] CORRECT_CREATURE_TYPE_PARAMS = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
+	public static final EnumCreatureType CREATURE_TYPE_GOT_AMBIENT = EnumHelper.addEnum(CORRECT_CREATURE_TYPE_PARAMS, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 
-	public static Class<?>[][] correctCreatureTypeParams = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
-	public static EnumCreatureType creatureType_GOTAmbient = EnumHelper.addEnum(correctCreatureTypeParams, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
-	public static NoiseGeneratorPerlin biomeTerrainNoise = new NoiseGeneratorPerlin(new Random(1955L), 1);
-	public static Random terrainRand = new Random();
-	public static float defaultVariantChance = 0.4f;
-	public static Color waterColorNorth = new Color(602979);
-	public static Color waterColorSouth = new Color(4973293);
-	public static int waterLimitNorth = -40000;
-	public static int waterLimitSouth = 160000;
-	public static int SPAWN = 600;
-	public static int CONQUEST_SPAWN = 100;
+	private static final Random TERRAIN_RAND = new Random();
+	private static final Color WATER_COLOR_NORTH = new Color(602979);
+	private static final Color WATER_COLOR_SOUTH = new Color(4973293);
+
 	public static GOTBiome alwaysWinter;
 	public static GOTBiome arryn;
 	public static GOTBiome arrynForest;
@@ -115,7 +112,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome giftOld;
 	public static GOTBiome hauntedForest;
 	public static GOTBiome ibben;
-	public static GOTBiome ibbenBeach;
 	public static GOTBiome ibbenColony;
 	public static GOTBiome ibbenColonyForest;
 	public static GOTBiome ibbenColonyHills;
@@ -254,30 +250,32 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTiTropicalForest;
 	public static GOTBiome yiTiWasteland;
 
-	public GOTBiomeDecorator decorator;
-	public int topBlockMeta;
-	public int fillerBlockMeta;
-	public float heightBaseParameter;
-	public boolean enablePodzol = true;
-	public boolean enableRocky;
-	public GOTBiomeVariantList biomeVariantsLarge = new GOTBiomeVariantList();
-	public GOTBiomeVariantList biomeVariantsSmall = new GOTBiomeVariantList();
-	public GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
-	public List<SpawnListEntry> spawnableGOTAmbientList = new ArrayList<>();
-	public GOTEventSpawner.EventChance unreliableChance;
-	public Class<? extends GOTEntityNPC> banditEntityClass;
-	public GOTBiomeInvasionSpawns invasionSpawns;
-	public BiomeColors biomeColors = new BiomeColors(this);
-	public BiomeTerrain biomeTerrain = new BiomeTerrain(this);
-	public float variantChance = 0.4f;
-	public GOTClimateType climateType;
-	public GOTDimension biomeDimension;
+	protected final GOTBiomeVariantList biomeVariants = new GOTBiomeVariantList();
+
+	private final GOTDimension biomeDimension;
+
+	protected List<SpawnListEntry> spawnableGOTAmbientList = new ArrayList<>();
+
+	protected BiomeColors biomeColors = new BiomeColors(this);
+	protected GOTBiomeDecorator decorator;
+	protected GOTBiomeInvasionSpawns invasionSpawns;
+	protected GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
+	protected Class<? extends GOTEntityNPC> banditEntityClass;
+	protected GOTEventSpawner.EventChance unreliableChance;
+
+	protected boolean enableRocky;
+	protected float variantChance = 0.4f;
+	protected int fillerBlockMeta;
+	protected int topBlockMeta;
+
+	private GOTClimateType climateType;
+	private float heightBaseParameter;
 
 	protected GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);
 	}
 
-	protected GOTBiome(int i, boolean major, GOTDimension dim) {
+	private GOTBiome(int i, boolean major, GOTDimension dim) {
 		super(i, false);
 		biomeDimension = dim;
 		if (biomeDimension.getBiomeList()[i] != null) {
@@ -320,7 +318,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		valyriaSea = new GOTBiomeValyria(146, true).setMinMaxHeight(-1.0f, 0.3f).setColor(0x0D304C).setTemperatureRainfall(0.8F, 0.8F).setBiomeName("valyriaSea");
 		valyriaVolcano = new GOTBiomeValyriaVolcano(147, true).setMinMaxHeight(2.0f, 2.0f).setColor(0xA5A5A5).setTemperatureRainfall(1.2F, 0.8F).setBiomeName("valyriaVolcano");
 
-		bleedingBeach = new GOTBiomeBleedingBeach(105, false).setClimateType(GOTClimateType.SUMMER).setColor(14403247).setMinMaxHeight(0.1f, 0.0f).setBiomeName("beach");
+		bleedingBeach = new GOTBiomeBleedingBeach(105, false).setBeachBlock(Blocks.sand, 1).setClimateType(GOTClimateType.SUMMER).setColor(14403247).setMinMaxHeight(0.1f, 0.0f).setBiomeName("beach");
 
 		alwaysWinter = new GOTBiomeAlwaysWinter(1, true).setClimateType(GOTClimateType.WINTER).setColor(0xC9DAE0).setMinMaxHeight(0.1f, 0.15f).setBiomeName("alwaysWinter");
 		arryn = new GOTBiomeArryn(3, true).setClimateType(GOTClimateType.NORMAL).setColor(0x8CBA5B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arryn");
@@ -490,10 +488,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public static void updateWaterColor(int k) {
 		int min = 0;
+		int waterLimitNorth = -40000;
+		int waterLimitSouth = 160000;
 		int max = waterLimitSouth - waterLimitNorth;
 		float latitude = (float) MathHelper.clamp_int(k - waterLimitNorth, min, max) / max;
-		float[] northColors = waterColorNorth.getColorComponents(null);
-		float[] southColors = waterColorSouth.getColorComponents(null);
+		float[] northColors = WATER_COLOR_NORTH.getColorComponents(null);
+		float[] southColors = WATER_COLOR_SOUTH.getColorComponents(null);
 		float dR = southColors[0] - northColors[0];
 		float dG = southColors[1] - northColors[1];
 		float dB = southColors[2] - northColors[2];
@@ -517,7 +517,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		int baseR = baseWater.getRed();
 		int baseG = baseWater.getGreen();
 		int baseB = baseWater.getBlue();
-		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
+		for (BiomeGenBase biome : getBiomeGenArray()) {
 			if (biome == null) {
 				continue;
 			}
@@ -530,23 +530,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
+	public BiomeColors getBiomeColors() {
+		return biomeColors;
+	}
+
 	public void addBiomeF3Info(Collection<String> info, World world, GOTBiomeVariant variant) {
 		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ';');
 		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
-	}
-
-	public void addBiomeVariant(GOTBiomeVariant v) {
-		addBiomeVariant(v, 1.0f);
-	}
-
-	public void addBiomeVariant(GOTBiomeVariant v, float f) {
-		biomeVariantsSmall.add(v, f);
-	}
-
-	public void addBiomeVariantSet(GOTBiomeVariant[] set) {
-		for (GOTBiomeVariant v : set) {
-			addBiomeVariant(v);
-		}
 	}
 
 	public boolean canSpawnHostilesInDay() {
@@ -556,11 +546,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	@Override
 	public boolean canSpawnLightningBolt() {
 		return !getEnableSnow() && super.canSpawnLightningBolt();
-	}
-
-	public void clearBiomeVariants() {
-		biomeVariantsLarge.clear();
-		biomeVariantsSmall.clear();
 	}
 
 	@Override
@@ -596,8 +581,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 			float hFactor = (height - 90) / 10.0f;
 			float thresh = 1.2f - hFactor * 0.2f;
 			thresh = Math.max(thresh, 0.0f);
-			double d12 = biomeTerrainNoise.func_151601_a(i * 0.03, k * 0.03);
-			if (d12 + biomeTerrainNoise.func_151601_a(i * 0.3, k * 0.3) > thresh) {
+			double d12 = BIOME_TERRAIN_NOISE.func_151601_a(i * 0.03, k * 0.03);
+			if (d12 + BIOME_TERRAIN_NOISE.func_151601_a(i * 0.3, k * 0.3) > thresh) {
 				if (random.nextInt(5) == 0) {
 					top = Blocks.gravel;
 				} else {
@@ -608,39 +593,37 @@ public abstract class GOTBiome extends BiomeGenBase {
 				fillerMeta = 0;
 			}
 		}
-		if (enablePodzol) {
-			boolean podzol = false;
-			if (topBlock == Blocks.grass) {
-				float trees = decorator.treesPerChunk + getTreeIncreaseChance();
-				trees = Math.max(trees, variant.treeFactor * 0.5f);
-				if (trees >= 1.0f) {
-					float thresh = 0.8f;
-					thresh -= trees * 0.15f;
-					thresh = Math.max(thresh, 0.0f);
-					double d = 0.06;
-					double randNoise = biomeTerrainNoise.func_151601_a(i * d, k * d);
-					if (randNoise > thresh) {
-						podzol = true;
-					}
-				}
-			}
-			if (podzol) {
-				terrainRand.setSeed(world.getSeed());
-				terrainRand.setSeed(terrainRand.nextLong() + i * 4668095025L + k * 1387590552L ^ world.getSeed());
-				float pdzRand = terrainRand.nextFloat();
-				if (pdzRand < 0.35f) {
-					top = Blocks.dirt;
-					topMeta = 2;
-				} else if (pdzRand < 0.5f) {
-					top = Blocks.dirt;
-					topMeta = 1;
-				} else if (pdzRand < 0.51f) {
-					top = Blocks.gravel;
-					topMeta = 0;
+		boolean podzol = false;
+		if (topBlock == Blocks.grass) {
+			float trees = decorator.getTreesPerChunk() + getTreeIncreaseChance();
+			trees = Math.max(trees, variant.getTreeFactor() * 0.5f);
+			if (trees >= 1.0f) {
+				float thresh = 0.8f;
+				thresh -= trees * 0.15f;
+				thresh = Math.max(thresh, 0.0f);
+				double d = 0.06;
+				double randNoise = BIOME_TERRAIN_NOISE.func_151601_a(i * d, k * d);
+				if (randNoise > thresh) {
+					podzol = true;
 				}
 			}
 		}
-		if (variant.hasMarsh && GOTBiomeVariant.marshNoise.func_151601_a(i * 0.1, k * 0.1) > -0.1) {
+		if (podzol) {
+			TERRAIN_RAND.setSeed(world.getSeed());
+			TERRAIN_RAND.setSeed(TERRAIN_RAND.nextLong() + i * 4668095025L + k * 1387590552L ^ world.getSeed());
+			float pdzRand = TERRAIN_RAND.nextFloat();
+			if (pdzRand < 0.35f) {
+				top = Blocks.dirt;
+				topMeta = 2;
+			} else if (pdzRand < 0.5f) {
+				top = Blocks.dirt;
+				topMeta = 1;
+			} else if (pdzRand < 0.51f) {
+				top = Blocks.gravel;
+				topMeta = 0;
+			}
+		}
+		if (variant.isHasMarsh() && GOTBiomeVariant.MARSH_NOISE.func_151601_a(i * 0.1, k * 0.1) > -0.1) {
 			for (int j = ySize - 1; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
 				if (blocks[index] == null || blocks[index].getMaterial() != Material.air) {
@@ -721,11 +704,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 		}
 		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextDouble() * 0.25);
-		generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);
-		variant.generateVariantTerrain(world, random, blocks, meta, i, k, height, this);
-	}
-
-	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
+		if (this instanceof MountainTerrain) {
+			((MountainTerrain) this).generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);
+		}
+		variant.generateVariantTerrain(blocks, meta, i, k);
 	}
 
 	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
@@ -736,28 +718,24 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public int getBaseFoliageColor(int i, int j, int k) {
-		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.proxy.getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
-		float temp = getFloatTemperature(i, j, k) + variant.tempBoost;
-		float rain = rainfall + variant.rainBoost;
+	private int getBaseFoliageColor(int i, int j, int k) {
+		float temp = getFloatTemperature(i, j, k);
+		float rain = rainfall;
 		temp = MathHelper.clamp_float(temp, 0.0f, 1.0f);
 		rain = MathHelper.clamp_float(rain, 0.0f, 1.0f);
 		return ColorizerFoliage.getFoliageColor(temp, rain);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public int getBaseGrassColor(int i, int j, int k) {
-		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.proxy.getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
-		float temp = getFloatTemperature(i, j, k) + variant.tempBoost;
-		float rain = rainfall + variant.rainBoost;
+	private int getBaseGrassColor(int i, int j, int k) {
+		float temp = getFloatTemperature(i, j, k);
+		float rain = rainfall;
 		temp = MathHelper.clamp_float(temp, 0.0f, 1.0f);
 		rain = MathHelper.clamp_float(rain, 0.0f, 1.0f);
 		return ColorizerGrass.getGrassColor(temp, rain);
 	}
 
-	public GOTAchievement getBiomeAchievement() {
-		return null;
-	}
+	public abstract GOTAchievement getBiomeAchievement();
 
 	public GOTDimension getBiomeDimension() {
 		return biomeDimension;
@@ -770,30 +748,22 @@ public abstract class GOTBiome extends BiomeGenBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBiomeFoliageColor(int i, int j, int k) {
-		return biomeColors.foliage != null ? biomeColors.foliage.getRGB() : getBaseFoliageColor(i, j, k);
+		return biomeColors.getFoliage() != null ? biomeColors.getFoliage().getRGB() : getBaseFoliageColor(i, j, k);
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBiomeGrassColor(int i, int j, int k) {
-		return biomeColors.grass != null ? biomeColors.grass.getRGB() : getBaseGrassColor(i, j, k);
+		return biomeColors.getGrass() != null ? biomeColors.getGrass().getRGB() : getBaseGrassColor(i, j, k);
 	}
 
 	public abstract GOTMusicRegion.Sub getBiomeMusic();
 
-	public BiomeTerrain getBiomeTerrain() {
-		return biomeTerrain;
+	public GOTBiomeVariantList getBiomeVariants() {
+		return biomeVariants;
 	}
 
-	public GOTBiomeVariantList getBiomeVariantsLarge() {
-		return biomeVariantsLarge;
-	}
-
-	public GOTBiomeVariantList getBiomeVariantsSmall() {
-		return biomeVariantsSmall;
-	}
-
-	public Region getBiomeWaypoints() {
+	public GOTWaypoint.Region getBiomeWaypoints() {
 		return null;
 	}
 
@@ -809,15 +779,15 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return climateType;
 	}
 
-	public GOTBiome setClimateType(GOTClimateType type) {
+	protected GOTBiome setClimateType(GOTClimateType type) {
 		climateType = type;
-		decorator.generateAgriculture = type == GOTClimateType.SUMMER;
+		decorator.setGenerateAgriculture(type == GOTClimateType.SUMMER);
 		return this;
 	}
 
 	public void getCloudColor(Vec3 clouds) {
-		if (biomeColors.clouds != null) {
-			float[] colors = biomeColors.clouds.getColorComponents(null);
+		if (biomeColors.getClouds() != null) {
+			float[] colors = biomeColors.getClouds().getColorComponents(null);
 			clouds.xCoord *= colors[0];
 			clouds.yCoord *= colors[1];
 			clouds.zCoord *= colors[2];
@@ -836,9 +806,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return fillerBlockMeta;
 	}
 
+	public void setFillerBlockMeta(int fillerBlockMeta) {
+		this.fillerBlockMeta = fillerBlockMeta;
+	}
+
 	public void getFogColor(Vec3 fog) {
-		if (biomeColors.fog != null) {
-			float[] colors = biomeColors.fog.getColorComponents(null);
+		if (biomeColors.getFog() != null) {
+			float[] colors = biomeColors.getFog().getColorComponents(null);
 			fog.xCoord *= colors[0];
 			fog.yCoord *= colors[1];
 			fog.zCoord *= colors[2];
@@ -851,6 +825,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public GOTBiomeInvasionSpawns getInvasionSpawns() {
 		return invasionSpawns;
+	}
+
+	public void setInvasionSpawns(GOTBiomeInvasionSpawns invasionSpawns) {
+		this.invasionSpawns = invasionSpawns;
 	}
 
 	public GOTBiomeSpawnList getNPCSpawnList() {
@@ -893,22 +871,16 @@ public abstract class GOTBiome extends BiomeGenBase {
 		WorldGenDoublePlant doubleFlowerGen = new WorldGenDoublePlant();
 		int i = random.nextInt(3);
 		switch (i) {
-			case 0: {
+			case 0:
 				doubleFlowerGen.func_150548_a(1);
-				break;
-			}
-			case 1: {
+				return doubleFlowerGen;
+			case 1:
 				doubleFlowerGen.func_150548_a(4);
-				break;
-			}
-			case 2: {
-				doubleFlowerGen.func_150548_a(5);
-				break;
-			}
+				return doubleFlowerGen;
 			default:
-				break;
+				doubleFlowerGen.func_150548_a(5);
+				return doubleFlowerGen;
 		}
-		return doubleFlowerGen;
 	}
 
 	public WorldGenerator getRandomWorldGenForDoubleGrass() {
@@ -920,7 +892,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random) {
 		GrassBlockAndMeta obj = getRandomGrass(random);
-		return new WorldGenTallGrass(obj.block, obj.meta);
+		return new WorldGenTallGrass(obj.getBlock(), obj.getMeta());
 	}
 
 	public GOTBezierType getRoadBlock() {
@@ -930,8 +902,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getSkyColorByTemp(float f) {
-		if (biomeColors.sky != null) {
-			return biomeColors.sky.getRGB();
+		if (biomeColors.getSky() != null) {
+			return biomeColors.getSky().getRGB();
 		}
 		return super.getSkyColorByTemp(f);
 	}
@@ -942,7 +914,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	@Override
 	public List<SpawnListEntry> getSpawnableList(EnumCreatureType creatureType) {
-		if (creatureType == creatureType_GOTAmbient) {
+		if (creatureType == CREATURE_TYPE_GOT_AMBIENT) {
 			return spawnableGOTAmbientList;
 		}
 		return super.getSpawnableList(creatureType);
@@ -950,6 +922,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public int getTopBlockMeta() {
 		return topBlockMeta;
+	}
+
+	public void setTopBlockMeta(int topBlockMeta) {
+		this.topBlockMeta = topBlockMeta;
 	}
 
 	public WorldGenAbstractTree getTreeGen(World world, Random random, int i, int k) {
@@ -967,12 +943,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return unreliableChance;
 	}
 
-	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
-		unreliableChance = c;
-	}
-
 	public float getVariantChance() {
 		return variantChance;
+	}
+
+	public void setVariantChance(float variantChance) {
+		this.variantChance = variantChance;
 	}
 
 	public GOTBezierType getWallBlock() {
@@ -984,7 +960,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public boolean hasFog() {
-		return biomeColors.foggy;
+		return biomeColors.isFoggy();
 	}
 
 	public boolean hasSky() {
@@ -999,7 +975,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return heightBaseParameter < 0.0f;
 	}
 
-	public double modifyStoneNoiseForFiller(double stoneNoise) {
+	private double modifyStoneNoiseForFiller(double stoneNoise) {
 		return stoneNoise;
 	}
 
@@ -1010,23 +986,21 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	@Override
 	public GOTBiome setColor(int color) {
-		color |= 0xFF000000;
-		Integer existingBiomeID = biomeDimension.getColorsToBiomeIDs().get(color);
+		int color1 = color;
+		color1 |= 0xFF000000;
+		Integer existingBiomeID = biomeDimension.getColorsToBiomeIDs().get(color1);
 		if (existingBiomeID != null) {
 			throw new RuntimeException("GOT biome (ID " + biomeID + ") is duplicating the color of another GOT biome (ID " + existingBiomeID + ')');
 		}
-		biomeDimension.getColorsToBiomeIDs().put(color, biomeID);
-		return (GOTBiome) super.setColor(color);
-	}
-
-	public void setDarkUnreliable() {
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
+		biomeDimension.getColorsToBiomeIDs().put(color1, biomeID);
+		return (GOTBiome) super.setColor(color1);
 	}
 
 	public GOTBiome setMinMaxHeight(float f, float f1) {
-		heightBaseParameter = f;
-		f -= 2.0f;
-		rootHeight = f + 0.2f;
+		float f2 = f;
+		heightBaseParameter = f2;
+		f2 -= 2.0f;
+		rootHeight = f2 + 0.2f;
 		heightVariation = f1 / 2.0f;
 		return this;
 	}
@@ -1037,13 +1011,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return this;
 	}
 
-	public void setupDesertFauna() {
+	protected void setupDesertFauna() {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 100, 1, 2));
 		spawnableGOTAmbientList.clear();
 	}
 
-	public void setupExoticFauna() {
+	protected void setupExoticFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 0, 10));
 		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 1, 10));
@@ -1068,7 +1042,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 20, 2, 3));
 	}
 
-	public void setupFrostFauna() {
+	protected void setupFrostFauna() {
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
@@ -1076,7 +1050,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySnowBear.class, 60, 1, 1));
 	}
 
-	public void setupJungleFauna() {
+	protected void setupJungleFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
@@ -1089,7 +1063,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 40, 2, 3));
 	}
 
-	public void setupMarshFauna() {
+	protected void setupMarshFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(GOTBlocks.deadMarshPlant, 0, 10));
 		spawnableCreatureList.clear();
@@ -1100,7 +1074,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySwan.class, 10, 1, 2));
 	}
 
-	public void setupStandardDomesticFauna() {
+	protected void setupStandardDomesticFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.red_flower, 4, 3));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 5, 3));
@@ -1125,7 +1099,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
 	}
 
-	public void setupStandardForestFauna() {
+	protected void setupStandardForestFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
@@ -1153,7 +1127,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
-	public void setupStandardPlainsFauna() {
+	protected void setupStandardPlainsFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.red_flower, 4, 3));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 5, 3));
@@ -1188,7 +1162,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
-	public void setupTaigaFauna() {
+	protected void setupTaigaFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
@@ -1208,6 +1182,26 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return 1;
 	}
 
+	public GOTBiomeSpawnList getNpcSpawnList() {
+		return npcSpawnList;
+	}
+
+	public void setNpcSpawnList(GOTBiomeSpawnList npcSpawnList) {
+		this.npcSpawnList = npcSpawnList;
+	}
+
+	public GOTBiomeDecorator getDecorator() {
+		return decorator;
+	}
+
+	public void setDecorator(GOTBiomeDecorator decorator) {
+		this.decorator = decorator;
+	}
+
+	public interface MountainTerrain {
+		void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant);
+	}
+
 	public interface Desert {
 	}
 
@@ -1218,133 +1212,102 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public static class BiomeColors {
-		public static int DEFAULT_WATER = 7186907;
-		public GOTBiome theBiome;
-		public Color grass;
-		public Color foliage;
-		public Color sky;
-		public Color clouds;
-		public Color fog;
-		public boolean foggy;
-		public boolean hasCustomWater;
+		private static final int DEFAULT_WATER = 7186907;
 
-		public BiomeColors(GOTBiome biome) {
-			theBiome = biome;
+		private final GOTBiome biome;
+
+		private Color grass;
+		private Color foliage;
+		private Color sky;
+		private Color clouds;
+		private Color fog;
+
+		private boolean foggy;
+		private boolean customWater;
+
+		private BiomeColors(GOTBiome biome) {
+			this.biome = biome;
 		}
 
 		public boolean hasCustomWater() {
-			return hasCustomWater;
+			return customWater;
 		}
 
-		public void resetClouds() {
-			clouds = null;
+		public void setWater(int rgb) {
+			biome.waterColorMultiplier = rgb;
+			if (rgb != DEFAULT_WATER) {
+				customWater = true;
+			}
 		}
 
-		public void resetFog() {
-			fog = null;
+		public void updateWater(int rgb) {
+			biome.waterColorMultiplier = rgb;
 		}
 
-		public void resetFoliage() {
-			foliage = null;
+		public Color getGrass() {
+			return grass;
 		}
 
-		public void resetGrass() {
-			grass = null;
+		public void setGrass(Color grass) {
+			this.grass = grass;
 		}
 
-		public void resetSky() {
-			sky = null;
+		public Color getFoliage() {
+			return foliage;
 		}
 
-		public void resetWater() {
-			setWater(DEFAULT_WATER);
+		public void setFoliage(Color foliage) {
+			this.foliage = foliage;
 		}
 
-		public void setClouds(int rgb) {
-			clouds = new Color(rgb);
+		public Color getSky() {
+			return sky;
 		}
 
-		public void setFog(int rgb) {
-			fog = new Color(rgb);
+		public void setSky(Color sky) {
+			this.sky = sky;
+		}
+
+		public Color getClouds() {
+			return clouds;
+		}
+
+		public void setClouds(Color clouds) {
+			this.clouds = clouds;
+		}
+
+		public Color getFog() {
+			return fog;
+		}
+
+		public void setFog(Color fog) {
+			this.fog = fog;
+		}
+
+		public boolean isFoggy() {
+			return foggy;
 		}
 
 		public void setFoggy(boolean flag) {
 			foggy = flag;
 		}
-
-		public void setFoliage(int rgb) {
-			foliage = new Color(rgb);
-		}
-
-		public void setGrass(int rgb) {
-			grass = new Color(rgb);
-		}
-
-		public void setSky(int rgb) {
-			sky = new Color(rgb);
-		}
-
-		public void setWater(int rgb) {
-			theBiome.waterColorMultiplier = rgb;
-			if (rgb != DEFAULT_WATER) {
-				hasCustomWater = true;
-			}
-		}
-
-		public void updateWater(int rgb) {
-			theBiome.waterColorMultiplier = rgb;
-		}
-	}
-
-	public static class BiomeTerrain {
-		public GOTBiome theBiome;
-		public double xzScale = -1.0;
-		public double heightStretchFactor = -1.0;
-
-		public BiomeTerrain(GOTBiome biome) {
-			theBiome = biome;
-		}
-
-		public double getHeightStretchFactor() {
-			return heightStretchFactor;
-		}
-
-		public void setHeightStretchFactor(double d) {
-			heightStretchFactor = d;
-		}
-
-		public double getXZScale() {
-			return xzScale;
-		}
-
-		public void setXZScale(double d) {
-			xzScale = d;
-		}
-
-		public boolean hasHeightStretchFactor() {
-			return heightStretchFactor != -1.0;
-		}
-
-		public boolean hasXZScale() {
-			return xzScale != -1.0;
-		}
-
-		public void resetHeightStretchFactor() {
-			heightStretchFactor = -1.0;
-		}
-
-		public void resetXZScale() {
-			xzScale = -1.0;
-		}
 	}
 
 	public static class GrassBlockAndMeta {
-		public Block block;
-		public int meta;
+		private final Block block;
+		private final int meta;
 
 		public GrassBlockAndMeta(Block b, int i) {
 			block = b;
 			meta = i;
+		}
+
+		public Block getBlock() {
+			return block;
+		}
+
+		public int getMeta() {
+			return meta;
 		}
 	}
 }

@@ -14,5 +14,4 @@ public class GOTBiomeNorthBarrows extends GOTBiomeNorth {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterNorthBarrows;
 	}
-
 }

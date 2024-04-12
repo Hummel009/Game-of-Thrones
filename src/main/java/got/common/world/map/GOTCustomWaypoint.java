@@ -23,13 +23,13 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public class GOTCustomWaypoint implements GOTAbstractWaypoint {
+	private final int mapX;
+	private final int mapY;
+	private final int xCoord;
+	private final int zCoord;
+	private final int ID;
 	private String customName;
-	private int mapX;
-	private int mapY;
-	private int xCoord;
 	private int yCoord;
-	private int zCoord;
-	private int ID;
 	private List<UUID> sharedFellowshipIDs = new ArrayList<>();
 	private UUID sharingPlayer;
 	private String sharingPlayerName;
@@ -81,8 +81,9 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static String validateCustomName(String name) {
-		if (!StringUtils.isBlank(name = StringUtils.trim(name))) {
-			return name;
+		String name1 = name;
+		if (!StringUtils.isBlank(name1 = StringUtils.trim(name1))) {
+			return name1;
 		}
 		return null;
 	}
@@ -182,9 +183,8 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 
 	@Override
 	public String getLoreText(EntityPlayer entityplayer) {
-		boolean shared;
 		boolean ownShared = !isShared() && !sharedFellowshipIDs.isEmpty();
-		shared = isShared() && sharingPlayerName != null;
+		boolean shared = isShared() && sharingPlayerName != null;
 		if (ownShared || shared) {
 			int numShared = sharedFellowshipIDs.size();
 			int numShown = 0;
@@ -275,17 +275,17 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public double getX() {
+	public double getImgX() {
 		return mapX;
 	}
 
 	@Override
-	public int getXCoord() {
+	public int getCoordX() {
 		return xCoord;
 	}
 
 	@Override
-	public double getY() {
+	public double getImgY() {
 		return mapY;
 	}
 
@@ -314,7 +314,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 				}
 			}
 			if (!foundSafe && (!blockSafe || !aboveSafe)) {
-				for (j1 = aboveSafe ? j + 1 : j + 2; j1 <= world.getHeight() - 1; ++j1) {
+				for (j1 = j + (aboveSafe ? 1 : 2); j1 <= world.getHeight() - 1; ++j1) {
 					if (!isSafeBlock(world, i, j1, k)) {
 						continue;
 					}
@@ -336,16 +336,13 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getZCoord() {
+	public int getCoordZ() {
 		return zCoord;
 	}
 
 	@Override
 	public boolean hasPlayerUnlocked(EntityPlayer entityplayer) {
-		if (isShared()) {
-			return sharedUnlocked;
-		}
-		return true;
+		return !isShared() || sharedUnlocked;
 	}
 
 	public boolean hasSharedFellowship(GOTFellowship fs) {
@@ -361,17 +358,11 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return false;
 	}
 
-	public boolean isSafeBlock(IBlockAccess world, int i, int j, int k) {
+	private boolean isSafeBlock(IBlockAccess world, int i, int j, int k) {
 		Block below = world.getBlock(i, j - 1, k);
 		Block block = world.getBlock(i, j, k);
 		Block above = world.getBlock(i, j + 1, k);
-		if (below.getMaterial().blocksMovement() && !block.isNormalCube(world, i, j, k) && !above.isNormalCube(world, i, j + 1, k)) {
-			if (block.getMaterial().isLiquid() || block.getMaterial() == Material.fire) {
-				return false;
-			}
-			return !above.getMaterial().isLiquid() && above.getMaterial() != Material.fire;
-		}
-		return false;
+		return below.getMaterial().blocksMovement() && !block.isNormalCube(world, i, j, k) && !above.isNormalCube(world, i, j + 1, k) && !block.getMaterial().isLiquid() && block.getMaterial() != Material.fire && !above.getMaterial().isLiquid() && above.getMaterial() != Material.fire;
 	}
 
 	public boolean isShared() {
@@ -402,7 +393,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		sharedUnlocked = true;
 	}
 
-	public void validateFellowshipIDs(GOTPlayerData ownerData) {
+	private void validateFellowshipIDs(GOTPlayerData ownerData) {
 		UUID ownerUUID = ownerData.getPlayerUUID();
 		Collection<UUID> removeIDs = new HashSet<>();
 		for (UUID fsID : sharedFellowshipIDs) {

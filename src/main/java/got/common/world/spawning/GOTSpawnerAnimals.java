@@ -14,18 +14,20 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.*;
 
 public class GOTSpawnerAnimals {
-	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();
-	public static Map<Integer, Integer> ticksSinceCycle = new HashMap<>();
-	public static Map<Integer, DimInfo> dimInfos = new HashMap<>();
+	private static final Set<ChunkCoordIntPair> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
+	private static final Map<Integer, Integer> TICKS_SINCE_CYCLE = new HashMap<>();
+	private static final Map<Integer, DimInfo> DIM_INFOS = new HashMap<>();
 
-	public static TypeInfo forDimAndType(World world, EnumCreatureType type) {
-		return dimInfos.computeIfAbsent(world.provider.dimensionId, k -> new DimInfo()).types.computeIfAbsent(type, k -> new TypeInfo());
+	private GOTSpawnerAnimals() {
+	}
+
+	private static TypeInfo forDimAndType(World world, EnumCreatureType type) {
+		return DIM_INFOS.computeIfAbsent(world.provider.dimensionId, k -> new DimInfo()).getTypes().computeIfAbsent(type, k -> new TypeInfo());
 	}
 
 	public static int performSpawning(WorldServer world, boolean hostiles, boolean peacefuls, boolean rareTick) {
@@ -33,22 +35,22 @@ public class GOTSpawnerAnimals {
 		if (interval > 0) {
 			int ticks = 0;
 			int dimID = world.provider.dimensionId;
-			if (ticksSinceCycle.containsKey(dimID)) {
-				ticks = ticksSinceCycle.get(dimID);
+			if (TICKS_SINCE_CYCLE.containsKey(dimID)) {
+				ticks = TICKS_SINCE_CYCLE.get(dimID);
 			}
 			ticks--;
-			ticksSinceCycle.put(dimID, ticks);
+			TICKS_SINCE_CYCLE.put(dimID, ticks);
 			if (ticks > 0) {
 				return 0;
 			}
 			ticks = interval;
-			ticksSinceCycle.put(dimID, ticks);
+			TICKS_SINCE_CYCLE.put(dimID, ticks);
 		}
 		if (!hostiles && !peacefuls) {
 			return 0;
 		}
 		int totalSpawned = 0;
-		GOTSpawnerNPCs.getSpawnableChunks(world, eligibleSpawnChunks);
+		GOTSpawnerNPCs.getSpawnableChunks(world, ELIGIBLE_SPAWN_CHUNKS);
 		ChunkCoordinates spawnPoint = world.getSpawnPoint();
 		label99:
 		for (EnumCreatureType creatureType : EnumCreatureType.values()) {
@@ -64,15 +66,15 @@ public class GOTSpawnerAnimals {
 			}
 			if (canSpawnType) {
 				int count = world.countEntities(creatureType, true);
-				int maxCount = GOTSpawnDamping.getCreatureSpawnCap(creatureType, world) * eligibleSpawnChunks.size() / 196;
+				int maxCount = GOTSpawnDamping.getCreatureSpawnCap(creatureType, world) * ELIGIBLE_SPAWN_CHUNKS.size() / 196;
 				if (count <= maxCount) {
 					int cycles = Math.max(1, interval);
 					for (int c = 0; c < cycles; c++) {
-						if (typeInfo.blockedCycles > 0) {
-							typeInfo.blockedCycles--;
+						if (typeInfo.getBlockedCycles() > 0) {
+							typeInfo.setBlockedCycles(typeInfo.getBlockedCycles() - 1);
 						} else {
 							int newlySpawned = 0;
-							List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
+							List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(ELIGIBLE_SPAWN_CHUNKS);
 							label97:
 							for (ChunkCoordIntPair chunkCoords : shuffled) {
 								ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
@@ -147,13 +149,13 @@ public class GOTSpawnerAnimals {
 								}
 							}
 							if (newlySpawned == 0) {
-								typeInfo.failedCycles++;
-								if (typeInfo.failedCycles >= 10) {
-									typeInfo.failedCycles = 0;
-									typeInfo.blockedCycles = 100;
+								typeInfo.setFailedCycles(typeInfo.getFailedCycles() + 1);
+								if (typeInfo.getFailedCycles() >= 10) {
+									typeInfo.setFailedCycles(0);
+									typeInfo.setBlockedCycles(100);
 								}
-							} else if (typeInfo.failedCycles > 0) {
-								typeInfo.failedCycles--;
+							} else if (typeInfo.getFailedCycles() > 0) {
+								typeInfo.setFailedCycles(typeInfo.getFailedCycles() - 1);
 							}
 						}
 					}
@@ -166,7 +168,7 @@ public class GOTSpawnerAnimals {
 	public static void worldGenSpawnAnimals(World world, GOTBiome biome, GOTBiomeVariant variant, int i, int k, Random rand) {
 		int spawnRange = 16;
 		int spawnFuzz = 5;
-		List<SpawnListEntry> spawnList = biome.getSpawnableList(EnumCreatureType.creature);
+		List<BiomeGenBase.SpawnListEntry> spawnList = biome.getSpawnableList(EnumCreatureType.creature);
 		if (!spawnList.isEmpty()) {
 			while (rand.nextFloat() < biome.getSpawningChance()) {
 				BiomeGenBase.SpawnListEntry spawnEntry = (BiomeGenBase.SpawnListEntry) WeightedRandom.getRandomItem(world.rand, spawnList);
@@ -211,12 +213,32 @@ public class GOTSpawnerAnimals {
 		}
 	}
 
-	public static class DimInfo {
-		public Map<EnumCreatureType, TypeInfo> types = new EnumMap<>(EnumCreatureType.class);
+	private static class DimInfo {
+		private final Map<EnumCreatureType, TypeInfo> types = new EnumMap<>(EnumCreatureType.class);
+
+		protected Map<EnumCreatureType, TypeInfo> getTypes() {
+			return types;
+		}
 	}
 
-	public static class TypeInfo {
-		public int failedCycles;
-		public int blockedCycles;
+	private static class TypeInfo {
+		private int failedCycles;
+		private int blockedCycles;
+
+		protected int getBlockedCycles() {
+			return blockedCycles;
+		}
+
+		protected void setBlockedCycles(int blockedCycles) {
+			this.blockedCycles = blockedCycles;
+		}
+
+		protected int getFailedCycles() {
+			return failedCycles;
+		}
+
+		protected void setFailedCycles(int failedCycles) {
+			this.failedCycles = failedCycles;
+		}
 	}
 }

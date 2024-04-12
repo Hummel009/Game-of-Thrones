@@ -12,12 +12,10 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenRedwood extends WorldGenAbstractTree {
-	public int trunkWidth;
-	public int extraTrunkWidth;
-	public Block woodBlock = GOTBlocks.wood8;
-	public int woodMeta = 1;
-	public Block leafBlock = GOTBlocks.leaves8;
-	public int leafMeta = 1;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood8;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves8;
+	private int trunkWidth;
+	private int extraTrunkWidth;
 
 	public GOTWorldGenRedwood(boolean flag) {
 		super(flag);
@@ -127,10 +125,12 @@ public class GOTWorldGenRedwood extends WorldGenAbstractTree {
 							if (d > leafRange || !(block = world.getBlock(i13, j1, k13)).isReplaceable(world, i13, j1, k13) && !block.isLeaves(world, i13, j1, k13)) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i13, j1, k13, leafBlock, leafMeta);
+							int leafMeta = 1;
+							setBlockAndNotifyAdequately(world, i13, j1, k13, LEAF_BLOCK, leafMeta);
 						}
 					}
 				}
+				int woodMeta = 1;
 				for (j1 = 0; j1 < height; ++j1) {
 					trunkWidthHere = trunkWidth;
 					if (narrowHeight > -1 && j + j1 >= narrowHeight) {
@@ -156,7 +156,7 @@ public class GOTWorldGenRedwood extends WorldGenAbstractTree {
 							if (!isReplaceable(world, i3, j3, k3)) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i3, j3, k3, woodBlock, woodMeta);
+							setBlockAndNotifyAdequately(world, i3, j3, k3, WOOD_BLOCK, woodMeta);
 						}
 					}
 				}
@@ -177,7 +177,7 @@ public class GOTWorldGenRedwood extends WorldGenAbstractTree {
 						}
 						int rootY = j + fullWidth / 2 + random.nextInt(2 + fullWidth / 2);
 						while (world.getBlock(i14, rootY, k14).isReplaceable(world, i14, rootY, k14)) {
-							setBlockAndNotifyAdequately(world, i14, rootY, k14, woodBlock, woodMeta | 0xC);
+							setBlockAndNotifyAdequately(world, i14, rootY, k14, WOOD_BLOCK, woodMeta | 0xC);
 							world.getBlock(i14, rootY - 1, k14).onPlantGrow(world, i14, rootY - 1, k14, i14, rootY, k14);
 							rootY--;
 						}
@@ -197,5 +197,15 @@ public class GOTWorldGenRedwood extends WorldGenAbstractTree {
 	public GOTWorldGenRedwood setTrunkWidth(int i) {
 		trunkWidth = i;
 		return this;
+	}
+
+	@SuppressWarnings("unused")
+	public int getTrunkWidth() {
+		return trunkWidth;
+	}
+
+	@SuppressWarnings("unused")
+	public int getExtraTrunkWidth() {
+		return extraTrunkWidth;
 	}
 }

@@ -12,13 +12,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenPalm extends WorldGenAbstractTree {
-	public Block woodBlock;
-	public int woodMeta;
-	public Block leafBlock;
-	public int leafMeta;
-	public boolean hasDates;
-	public int minHeight = 5;
-	public int maxHeight = 8;
+	private final Block woodBlock;
+	private final int woodMeta;
+	private final Block leafBlock;
+	private final int leafMeta;
+	private boolean hasDates;
+	private int minHeight = 5;
+	private int maxHeight = 8;
 
 	public GOTWorldGenPalm(boolean flag, Block b, int m, Block b1, int m1) {
 		super(flag);
@@ -89,10 +89,9 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 			int branchLength = 5;
 			for (int l = 1; l <= branchLength; ++l) {
 				if (Math.floor(sinY * l) == Math.floor(sinY * (l - 1))) {
-					boolean cosOrSin;
 					double dCos = Math.floor(Math.abs(cos * l)) - Math.floor(Math.abs(cos * (l - 1)));
 					double dSin = Math.floor(Math.abs(sin * l)) - Math.floor(Math.abs(sin * (l - 1)));
-					cosOrSin = (dCos = Math.abs(dCos)) == (dSin = Math.abs(dSin)) ? random.nextBoolean() : dCos > dSin;
+					boolean cosOrSin = (dCos = Math.abs(dCos)) == (dSin = Math.abs(dSin)) ? random.nextBoolean() : dCos > dSin;
 					if (cosOrSin) {
 						i1 = (int) (i1 + Math.signum(cos));
 					} else {

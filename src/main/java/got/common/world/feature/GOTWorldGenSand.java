@@ -10,9 +10,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenSand extends WorldGenerator {
-	public Block sandBlock;
-	public int radius;
-	public int heightRadius;
+	private final Block sandBlock;
+	private final int radius;
+	private final int heightRadius;
 
 	public GOTWorldGenSand(Block b, int r, int hr) {
 		sandBlock = b;

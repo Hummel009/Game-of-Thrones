@@ -3,7 +3,7 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
@@ -15,18 +15,18 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 	public GOTBiomeIsleOfFaces(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FLOWERS, 1.0f);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WEIRWOOD, 10);
-		decorator.treesPerChunk = 1;
-		decorator.flowersPerChunk = 20;
-		decorator.doubleFlowersPerChunk = 12;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 3;
+		decorator.setTreesPerChunk(1);
+		decorator.setFlowersPerChunk(20);
+		decorator.setDoubleFlowersPerChunk(12);
+		decorator.setGrassPerChunk(8);
+		decorator.setDoubleGrassPerChunk(3);
 		addFlower(Blocks.red_flower, 0, 80);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.RIVERLANDS;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.RIVERLANDS;
 	}
 
 	@Override

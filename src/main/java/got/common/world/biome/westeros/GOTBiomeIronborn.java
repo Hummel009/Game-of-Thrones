@@ -2,10 +2,9 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornSettlement;
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornWatchfort;
 
@@ -17,12 +16,12 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 		super(i, major);
 		decorator.addSettlement(new GOTStructureIronbornSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureIronbornWatchfort(false), 800);
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 4).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		Collection<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 	}
 
@@ -32,7 +31,7 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.IRONBORN;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IRONBORN;
 	}
 }

@@ -8,8 +8,8 @@ public class GOTBiomeSothoryosFrost extends GOTBiomeSothoryosTaiga {
 	public GOTBiomeSothoryosFrost(int i, boolean major) {
 		super(i, major);
 		setupFrostFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		topBlock = Blocks.snow;
 	}
 

@@ -3,9 +3,6 @@ package got.common.world.genlayer;
 import net.minecraft.world.World;
 
 public class GOTGenLayerRiver extends GOTGenLayer {
-	public static int RANDOM_RIVER = 1;
-	public static int MAP_RIVER = 2;
-
 	public GOTGenLayerRiver(long l, GOTGenLayer layer) {
 		super(l);
 		gotParent = layer;

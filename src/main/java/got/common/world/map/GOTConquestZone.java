@@ -9,16 +9,17 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTConquestZone {
-	public static List<GOTFaction> allPlayableFacs;
+	private static List<GOTFaction> allPlayableFacs;
 
-	private int gridX;
-	private int gridZ;
+	private final int gridX;
+	private final int gridZ;
+
 	private boolean isDummyZone;
+	private boolean isLoaded = true;
+	private boolean clientSide;
 	private float[] conquestStrengths;
 	private long lastChangeTime;
 	private long isEmptyKey;
-	private boolean isLoaded = true;
-	private boolean clientSide;
 
 	public GOTConquestZone(int i, int k) {
 		gridX = i;
@@ -59,7 +60,7 @@ public class GOTConquestZone {
 		setConquestStrength(fac, str + add, world);
 	}
 
-	public float calcTimeStrReduction(long worldTime) {
+	private float calcTimeStrReduction(long worldTime) {
 		int dl = (int) (worldTime - lastChangeTime);
 		float s = dl / 20.0f;
 		float graceCap = 3600.0f;
@@ -138,7 +139,7 @@ public class GOTConquestZone {
 		return isEmptyKey == 0L;
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		if (isLoaded && !clientSide) {
 			GOTConquestGrid.markZoneDirty(this);
 		}
@@ -156,15 +157,16 @@ public class GOTConquestZone {
 	}
 
 	public void setConquestStrengthRaw(GOTFaction fac, float str) {
+		float str1 = str;
 		if (!fac.isPlayableAlignmentFaction()) {
 			return;
 		}
-		if (str < 0.0f) {
-			str = 0.0f;
+		if (str1 < 0.0f) {
+			str1 = 0.0f;
 		}
 		int index = allPlayableFacs.indexOf(fac);
-		conquestStrengths[index] = str;
-		if (str == 0.0f) {
+		conquestStrengths[index] = str1;
+		if (str1 == 0.0f) {
 			isEmptyKey &= ~(1L << index);
 		} else {
 			isEmptyKey |= 1L << index;
@@ -182,7 +184,7 @@ public class GOTConquestZone {
 		return "GOTConquestZone: " + gridX + ", " + gridZ;
 	}
 
-	public void updateAllOtherFactions(GOTFaction fac, World world) {
+	private void updateAllOtherFactions(GOTFaction fac, World world) {
 		for (int i = 0; i < conquestStrengths.length; ++i) {
 			GOTFaction otherFac = allPlayableFacs.get(i);
 			if (otherFac == fac || conquestStrengths[i] <= 0.0f) {

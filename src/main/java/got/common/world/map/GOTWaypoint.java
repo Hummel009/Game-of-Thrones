@@ -19,13 +19,14 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	HOARFROST_HILL(Region.NORTH, GOTFaction.NIGHT_WATCH, 703, 634), HOGG_HALL(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 772, 1522), HOJDBAATAR(Region.JOGOS, GOTFaction.JOGOS, 3655, 1654), HOLLARD_CASTLE(Region.CROWNLANDS, GOTFaction.CROWNLANDS, 842, 1565), HOLLOW_HILL(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 634, 1545), HOLYHALL(Region.REACH, GOTFaction.REACH, 493, 1759), HONEYHOLT(Region.REACH, GOTFaction.REACH, 369, 1919), HORNOTH(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 1940, 1504), HORNVALE(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 491, 1547), HORNWOOD(Region.NORTH, GOTFaction.NORTH, 792, 955), HORN_HILL(Region.REACH, GOTFaction.REACH, 464, 1894), HUIJI(Region.YI_TI, GOTFaction.YI_TI, 3443, 2459), HULL(Region.DRANGONSTONE, GOTFaction.DRAGONSTONE, 914, 1548), IBBISH(Region.DOTHRAKI, GOTFaction.IBBEN, 2803, 1244), IB_NOR(Region.IBBEN, GOTFaction.IBBEN, 2803, 897), IB_SAR(Region.IBBEN, GOTFaction.IBBEN, 2918, 1161), ICEMARK(Region.NORTH, GOTFaction.NIGHT_WATCH, 713, 632), IRONOAKS(Region.ARRYN, GOTFaction.ARRYN, 881, 1369), IRONRATH(Region.NORTH, GOTFaction.NORTH, 607, 810), IRON_HOLT(Region.IRONBORN, GOTFaction.IRONBORN, 355, 1359), ISLE_OF_FACES(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 711, 1509), ISLE_OF_WHIPS(Region.YI_TI, GOTFaction.YI_TI, 3102, 2435), IVY_HALL(Region.REACH, GOTFaction.REACH, 603, 1679), JIANMEN(Region.YI_TI, GOTFaction.YI_TI, 3299, 1860), JINQI(Region.YI_TI, GOTFaction.YI_TI, 3611, 2377), KADAR(Region.MOSSOVY, GOTFaction.MOSSOVY, 4644, 1272), KANDUU_BET(Region.MOSSOVY, GOTFaction.MOSSOVY, 4878, 1607), KARHOLD(Region.NORTH, GOTFaction.NORTH, 933, 806), KARIMAGAR(Region.QARTH, GOTFaction.QARTH, 2681, 3454), KAYAKAYANAYA(Region.JOGOS, GOTFaction.JOGOS, 3069, 1603), KAYCE(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 321, 1552), KINGSGRAVE(Region.DORNE, GOTFaction.DORNE, 607, 1935), KINGSHOUSE(Region.NORTH, GOTFaction.NORTH, 977, 667), KINGS_LANDING(Region.CROWNLANDS, GOTFaction.CROWNLANDS, 771, 1631), KOHURU(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1576, 3981), KOJ(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1100, 2596), KORKUNUCHTUU(Region.MOSSOVY, GOTFaction.MOSSOVY, 4527, 1122), KOSRAK(Region.LHAZAR, GOTFaction.LHAZAR, 2557, 1949), KRAZAAJ_HAS(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2490, 1846), KUJRUK(Region.MOSSOVY, GOTFaction.MOSSOVY, 4269, 1205), KUURULGAN(Region.MOSSOVY, GOTFaction.MOSSOVY, 4829, 1199), KYTH(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 1911, 1457), K_DATH(Region.ASSHAI, GOTFaction.ASSHAI, 3934, 1816), LANNISPORT(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 375, 1578), LAST_HEARTH(Region.NORTH, GOTFaction.NORTH, 776, 738), LAST_LAMENT(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1112, 2494), LEMONWOOD(Region.DORNE, GOTFaction.DORNE, 929, 2069), LENG_MA(Region.YI_TI, GOTFaction.YI_TI, 3545, 2543), LENG_YI(Region.YI_TI, GOTFaction.YI_TI, 3551, 2418), LESSER_MORAQ(Region.YI_TI, GOTFaction.YI_TI, 2783, 2600), LHAZOSH(Region.LHAZAR, GOTFaction.LHAZAR, 2469, 2029), LITTLE_VALYRIA(Region.FREE, GOTFaction.VOLANTIS, 1679, 2041), LIZARD_HEAD(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1422, 2811), LIZHAO(Region.YI_TI, GOTFaction.YI_TI, 3670, 2144), LONELY_LIGHT(Region.IRONBORN, GOTFaction.IRONBORN, 41, 1330), LONGBOW_HALL(Region.ARRYN, GOTFaction.ARRYN, 932, 1307), LONGTABLE(Region.REACH, GOTFaction.REACH, 583, 1768), LORATH(Region.FREE, GOTFaction.LORATH, 1344, 1300), LORDSPORT(Region.IRONBORN, GOTFaction.IRONBORN, 356, 1371), LORD_HEWETTS_TOWN(Region.REACH, GOTFaction.REACH, 374, 1782), LOTUS_POINT(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1123, 2558), LUNGMEN(Region.YI_TI, GOTFaction.YI_TI, 3718, 1897), LYS(Region.FREE, GOTFaction.LYS, 1202, 2052), MAIDENPOOL(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 813, 1501), MANJIN(Region.YI_TI, GOTFaction.YI_TI, 3446, 2192), MANTARYS(Region.FREE, GOTFaction.VOLANTIS, 1872, 2010), MANTICORE_ISLES(Region.SOTHORYOS, GOTFaction.SOTHORYOS, 3502, 2778), MARAHAI(Region.YI_TI, GOTFaction.YI_TI, 3272, 2704), MARSHES(Region.ULTHOS, GOTFaction.ULTHOS, 4578, 3758), MATAHAU(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1794, 3310), MATAO(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1663, 3561), MAUNGA(Region.SOTHORYOS, GOTFaction.SOTHORYOS, 2308, 3700), MEEREEN(Region.GHISCAR, GOTFaction.GHISCAR, 2256, 1951), MHYSA_FAER(Region.VALYRIA, GOTFaction.UNALIGNED, 1764, 2466), MISTWOOD(Region.STORMLANDS, GOTFaction.STORMLANDS, 922, 1862), MOAT_KAILIN(Region.NORTH, GOTFaction.NORTH, 647, 1109), MOLETOWN(Region.NORTH, GOTFaction.NIGHT_WATCH, 765, 645), MORMONTS_KEEP(Region.NORTH, GOTFaction.NORTH, 491, 727), MORNE(Region.STORMLANDS, GOTFaction.STORMLANDS, 991, 1767), MOROSH(Region.DOTHRAKI, GOTFaction.LORATH, 1912, 1278), MYR(Region.FREE, GOTFaction.MYR, 1262, 1842), MYRE_CASTLE(Region.IRONBORN, GOTFaction.IRONBORN, 433, 1359), NAATH(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1718, 2795), NAGGAS_HILL(Region.IRONBORN, GOTFaction.IRONBORN, 307, 1316), NEFER(Region.MOSSOVY, GOTFaction.MOSSOVY, 3680, 1583), NEW_BARREL(Region.REACH, GOTFaction.REACH, 623, 1754), NEW_GHIS(Region.GHISCAR, GOTFaction.GHISCAR, 2228, 2430), NEW_IBBISH(Region.DOTHRAKI, GOTFaction.IBBEN, 2692, 1181), NGAHERE(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1579, 3830), NGARARA(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1707, 3452), NIGHTFORT(Region.NORTH, GOTFaction.NIGHT_WATCH, 723, 630), NIGHTSONG(Region.STORMLANDS, GOTFaction.STORMLANDS, 588, 1875), NIGHT_KING(Region.ICE, GOTFaction.WHITE_WALKER, 613, 314, true), NINESTARS(Region.ARRYN, GOTFaction.ARRYN, 921, 1358), NORTH_FORESTS(Region.ULTHOS, GOTFaction.ULTHOS, 4121, 3090), NORVOS(Region.FREE, GOTFaction.NORVOS, 1423, 1492), NYMDUU_OOZ(Region.MOSSOVY, GOTFaction.MOSSOVY, 5012, 1485), NY_SAR(Region.FREE, GOTFaction.NORVOS, 1433, 1650), OAKENSHIELD(Region.NORTH, GOTFaction.NIGHT_WATCH, 763, 632), OLDCASTLE(Region.NORTH, GOTFaction.NORTH, 757, 1138), OLDSTONES(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 615, 1358), OLDTOWN(Region.REACH, GOTFaction.REACH, 393, 1948), OLD_ANCHOR(Region.ARRYN, GOTFaction.ARRYN, 949, 1349), OLD_GHIS(Region.GHISCAR, GOTFaction.GHISCAR, 2194, 2296), OLD_OAK(Region.REACH, GOTFaction.REACH, 375, 1756), OMBORU(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1257, 2699), ORKWOOD(Region.IRONBORN, GOTFaction.IRONBORN, 379, 1299), OROS(Region.VALYRIA, GOTFaction.UNALIGNED, 1830, 2262), OXCROSS(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 401, 1554), PARCHMENTS(Region.STORMLANDS, GOTFaction.STORMLANDS, 946, 1702), PEARL_PALACE(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1101, 2609), PEBBLE(Region.ARRYN, GOTFaction.ARRYN, 884, 1200), PEBBLETON(Region.IRONBORN, GOTFaction.IRONBORN, 331, 1342), PENNYTREE(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 606, 1418), PENTOS(Region.CROWNLANDS, GOTFaction.PENTOS, 1180, 1625), PEREKI(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1698, 3406), PINGBEI(Region.YI_TI, GOTFaction.YI_TI, 3763, 1911), PINGJIANG(Region.YI_TI, GOTFaction.YI_TI, 3527, 1863), PINKMAIDEN_CASTLE(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 553, 1526), PINNU(Region.YI_TI, GOTFaction.YI_TI, 3476, 1858), PLANKY_TOWN(Region.DORNE, GOTFaction.DORNE, 916, 2055), PLUMWOOD(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 508, 1438), PODDINGFIELD(Region.STORMLANDS, GOTFaction.STORMLANDS, 676, 1844), PORT_MORAQ(Region.YI_TI, GOTFaction.YI_TI, 3003, 2711), PORT_OF_IBBEN(Region.IBBEN, GOTFaction.IBBEN, 2725, 1028), PORT_YHOS(Region.QARTH, GOTFaction.QARTH, 2557, 2282), PYKE(Region.IRONBORN, GOTFaction.IRONBORN, 354, 1381), QARKASH(Region.QARTH, GOTFaction.QARTH, 2716, 2258), QARTH(Region.QARTH, GOTFaction.QARTH, 2874, 2294), QOHOR(Region.FREE, GOTFaction.QOHOR, 1646, 1617), QUEENSCROWN(Region.NORTH, GOTFaction.NIGHT_WATCH, 739, 676), QUEENSGATE(Region.NORTH, GOTFaction.NIGHT_WATCH, 743, 630), RAENYS(Region.OCEAN, GOTFaction.UNALIGNED, 15, 3064), RAIN_HOUSE(Region.STORMLANDS, GOTFaction.STORMLANDS, 982, 1821), RAMSEY_TOWER(Region.NORTH, GOTFaction.NORTH, 809, 937), RAMSGATE(Region.NORTH, GOTFaction.NORTH, 857, 1037), RATHYLAR(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 1888, 1568), RAUMATI(Region.SOTHORYOS, GOTFaction.SOTHORYOS, 2250, 3257), RAVENTREE_HALL(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 605, 1400), REDFORT(Region.ARRYN, GOTFaction.ARRYN, 873, 1414), RED_FLOWER_VALE(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1310, 2786), RED_FORESTS(Region.ULTHOS, GOTFaction.ULTHOS, 4182, 3935), RED_HAVEN(Region.IRONBORN, GOTFaction.IRONBORN, 339, 1378), RED_LAKE(Region.REACH, GOTFaction.REACH, 433, 1711), RHYOS(Region.VALYRIA, GOTFaction.UNALIGNED, 1737, 2182), RILLWATER_CROSSING(Region.NORTH, GOTFaction.NORTH, 411, 984), RIMEGATE(Region.NORTH, GOTFaction.NIGHT_WATCH, 793, 633), RING(Region.REACH, GOTFaction.REACH, 664, 1665), RIVERRUN(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 586, 1435), RIVERSPRING(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 568, 1579), ROOKS_REST(Region.CROWNLANDS, GOTFaction.CROWNLANDS, 863, 1532), ROSBY(Region.CROWNLANDS, GOTFaction.CROWNLANDS, 804, 1605), RUNESTONE(Region.ARRYN, GOTFaction.ARRYN, 980, 1373), RYAMSPORT(Region.REACH, GOTFaction.REACH, 307, 2066), RYSWELLS_CASTLE(Region.NORTH, GOTFaction.NORTH, 426, 1043), SAATH(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 1857, 1338), SABLE_HALL(Region.NORTH, GOTFaction.NIGHT_WATCH, 783, 633), SALTCLIFFE(Region.IRONBORN, GOTFaction.IRONBORN, 285, 1370), SALTPANS(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 796, 1472), SALT_SHORE(Region.DORNE, GOTFaction.DORNE, 816, 2083), SAMYRIANA(Region.JOGOS, GOTFaction.JOGOS, 3026, 1850), SANDSTONE(Region.DORNE, GOTFaction.DORNE, 574, 2044), SARHOY(Region.FREE, GOTFaction.VOLANTIS, 1567, 2091), SARSFIELD(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 443, 1524), SAR_MELL(Region.FREE, GOTFaction.VOLANTIS, 1546, 2042), SATHAR(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2270, 1625), SEAGARD(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 574, 1322), SEALSKIN_POINT(Region.IRONBORN, GOTFaction.IRONBORN, 288, 1291), SEAWORTH_CASTLE(Region.STORMLANDS, GOTFaction.STORMLANDS, 906, 1831),
 	SELHORYS(Region.FREE, GOTFaction.VOLANTIS, 1496, 1938), SENTINEL_STAND(Region.NORTH, GOTFaction.NIGHT_WATCH, 673, 645), SEVENSTREAMS(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 629, 1335), SHADOW_TOWER(Region.NORTH, GOTFaction.NIGHT_WATCH, 664, 649), SHANDYSTONE(Region.DORNE, GOTFaction.DORNE, 939, 2044), SHARP_POINT(Region.DRANGONSTONE, GOTFaction.DRAGONSTONE, 939, 1596), SHATTERSTONE(Region.IRONBORN, GOTFaction.IRONBORN, 317, 1307), SHYLUUN_UUSU(Region.MOSSOVY, GOTFaction.MOSSOVY, 4453, 1425), SILVERHILL(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 487, 1605), SISTERTON(Region.ARRYN, GOTFaction.ARRYN, 789, 1176), SI_QO(Region.YI_TI, GOTFaction.YI_TI, 3269, 2266), SKANE(Region.NORTH, GOTFaction.NORTH, 910, 586), SKIRLING_PASS(Region.ICE, GOTFaction.WILDLING, 578, 543), SKYREACH(Region.DORNE, GOTFaction.DORNE, 616, 1960), SMITHYTON(Region.REACH, GOTFaction.REACH, 708, 1700), SNAKEWOOD(Region.ARRYN, GOTFaction.ARRYN, 873, 1294), SOUTHSHIELD(Region.REACH, GOTFaction.REACH, 377, 1805), SOUTH_POINT(Region.SOTHORYOS, GOTFaction.SOTHORYOS, 2204, 4132), SOUTH_TAIGA(Region.ULTHOS, GOTFaction.ULTHOS, 4503, 4289), SOUTH_ULTHOS(Region.ULTHOS, GOTFaction.ULTHOS, 4701, 3951), SPARR_CASTLE(Region.IRONBORN, GOTFaction.IRONBORN, 306, 1351), SPICETOWN(Region.DRANGONSTONE, GOTFaction.DRAGONSTONE, 897, 1556), SPIDER(Region.AMOGUS, GOTFaction.HOSTILE, 4473, 4244, true), SPOTTSWOOD(Region.DORNE, GOTFaction.DORNE, 965, 1995), STANDFAST(Region.REACH, GOTFaction.REACH, 477, 1701), STARFALL(Region.DORNE, GOTFaction.DORNE, 503, 1999), STARFISH_HARBOR(Region.REACH, GOTFaction.REACH, 291, 2054), STARPIKE(Region.REACH, GOTFaction.REACH, 509, 1871), STOKEWORTH(Region.CROWNLANDS, GOTFaction.CROWNLANDS, 809, 1586), STONEDANCE(Region.DRANGONSTONE, GOTFaction.DRAGONSTONE, 946, 1621), STONEDOOR(Region.NORTH, GOTFaction.NIGHT_WATCH, 693, 637), STONEHELM(Region.STORMLANDS, GOTFaction.STORMLANDS, 809, 1858), STONEHOUSE(Region.IRONBORN, GOTFaction.IRONBORN, 324, 1313), STONETREE_CASTLE(Region.IRONBORN, GOTFaction.IRONBORN, 399, 1341), STONEY_SEPT(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 649, 1564), STONE_HEDGE(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 629, 1428), STORMS_END(Region.STORMLANDS, GOTFaction.STORMLANDS, 897, 1784), STRONGSONG(Region.ARRYN, GOTFaction.ARRYN, 776, 1314), STYGAI(Region.ASSHAI, GOTFaction.ASSHAI, 3829, 2729), SUMMERHALL(Region.STORMLANDS, GOTFaction.STORMLANDS, 781, 1795), SUNDERLY(Region.IRONBORN, GOTFaction.IRONBORN, 307, 1371), SUNHOUSE(Region.REACH, GOTFaction.REACH, 417, 2060), SUNSPEAR(Region.DORNE, GOTFaction.DORNE, 977, 2049), SUUDAN_KORKUU(Region.MOSSOVY, GOTFaction.MOSSOVY, 4525, 1731), SUU_NYM(Region.MOSSOVY, GOTFaction.MOSSOVY, 4513, 1519), SWEETPORT_SOUND(Region.DRANGONSTONE, GOTFaction.DRAGONSTONE, 924, 1618), SWEET_LOTUS_VALE(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1144, 2871), TAKUTAI(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1907, 3235), TALL_TREES_TOWN(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1159, 2586), TARBECK_HALL(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 414, 1476), TASHTOO(Region.MOSSOVY, GOTFaction.MOSSOVY, 3763, 1450), TAURANGA(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1626, 3695), TAWNEY_CASTLE(Region.IRONBORN, GOTFaction.IRONBORN, 387, 1312), TELYRIA(Region.VALYRIA, GOTFaction.UNALIGNED, 1868, 2169), TEN_TOWERS(Region.IRONBORN, GOTFaction.IRONBORN, 435, 1317), TERIMAN(Region.QARTH, GOTFaction.QARTH, 3058, 3654), THE_EYRIE(Region.ARRYN, GOTFaction.ARRYN, 830, 1354), THE_LONG_BARROW(Region.NORTH, GOTFaction.NIGHT_WATCH, 803, 632), THE_PAPS(Region.ARRYN, GOTFaction.ARRYN, 962, 1190), THE_TOR(Region.DORNE, GOTFaction.DORNE, 813, 1980), THE_TORCHES(Region.NORTH, GOTFaction.NIGHT_WATCH, 813, 630), THREE_EYED_RAVEN_CAVE(Region.ICE, GOTFaction.WILDLING, 670, 489), THREE_TOWERS(Region.REACH, GOTFaction.REACH, 351, 1998), TIQUI(Region.YI_TI, GOTFaction.YI_TI, 3308, 2112), TOLOS(Region.FREE, GOTFaction.VOLANTIS, 1953, 2072), TORRHENS_SQUARE(Region.NORTH, GOTFaction.NORTH, 532, 970), TORTURERS_DEEP(Region.DORNE, GOTFaction.DORNE, 1082, 1990), TOWER_OF_GLIMMERING(Region.IRONBORN, GOTFaction.IRONBORN, 413, 1329), TOWER_OF_JOY(Region.STORMLANDS, GOTFaction.STORMLANDS, 604, 1909), TRADER_TOWN(Region.YI_TI, GOTFaction.YI_TI, 3379, 1865), TUDBURY_HOLL(Region.STORMLANDS, GOTFaction.STORMLANDS, 875, 1915), TUMBLETON(Region.REACH, GOTFaction.REACH, 698, 1676), TURRANI(Region.YI_TI, GOTFaction.YI_TI, 3539, 2621), TWINS_LEFT(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 600, 1289), TWINS_RIGHT(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 605, 1289), TYRIA(Region.VALYRIA, GOTFaction.UNALIGNED, 1817, 2319), TYROSH(Region.FREE, GOTFaction.TYROSH, 1099, 1880), ULOS(Region.ASSHAI, GOTFaction.ULTHOS, 4134, 2688), UPLANDS(Region.REACH, GOTFaction.REACH, 433, 1944), VAES_ATHJIKHARI(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2228, 1524), VAES_DIAF(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2248, 1776), VAES_DOTHRAK(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2666, 1525), VAES_EFE(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2607, 1770), VAES_GORQOYI(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 1920, 1620), VAES_GRADDAKH(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 1963, 1314), VAES_JINI(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2839, 1822), VAES_KHADOKH(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 1761, 1595), VAES_KHEWO(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2027, 1635), VAES_LEISI(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2442, 1284), VAES_LEQSE(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2260, 1576), VAES_MEJHAH(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2570, 1826), VAES_ORVIK(Region.QARTH, GOTFaction.QARTH, 2574, 2239), VAES_QOSAR(Region.QARTH, GOTFaction.QARTH, 2791, 2205), VAES_SHIROSI(Region.QARTH, GOTFaction.QARTH, 2638, 2218), VAES_TOLORRO(Region.QARTH, GOTFaction.QARTH, 2681, 2158), VAHAR(Region.YI_TI, GOTFaction.YI_TI, 2808, 2533), VAIBEI(Region.YI_TI, GOTFaction.YI_TI, 3504, 1978), VAITH(Region.DORNE, GOTFaction.DORNE, 741, 2044), VALYRIAN_ROAD(Region.FREE, GOTFaction.VOLANTIS, 1619, 1991), VALYSAR(Region.FREE, GOTFaction.VOLANTIS, 1502, 2007), VELOS(Region.VALYRIA, GOTFaction.UNALIGNED, 2028, 2214), VICTARION_LANDING(Region.IRONBORN, GOTFaction.IRONBORN, 586, 1114, true), VINETOWN(Region.REACH, GOTFaction.REACH, 322, 2084), VISENYA(Region.OCEAN, GOTFaction.UNALIGNED, 26, 3063), VOJJOR_SAMVI(Region.DOTHRAKI, GOTFaction.DOTHRAKI, 2155, 1653), VOLANTIS(Region.FREE, GOTFaction.VOLANTIS, 1569, 2056), VOLMARK(Region.IRONBORN, GOTFaction.IRONBORN, 423, 1349), VOLON_THERYS(Region.FREE, GOTFaction.VOLANTIS, 1539, 2044), VULTURES_ROOST(Region.DORNE, GOTFaction.DORNE, 672, 1888), WALANO(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1208, 2609), WATER_GARDENS(Region.DORNE, GOTFaction.DORNE, 963, 2054), WAYFARERS_REST(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 606, 1493), WEEPING_TOWN(Region.STORMLANDS, GOTFaction.STORMLANDS, 904, 1911), WESTWATCH(Region.NORTH, GOTFaction.NIGHT_WATCH, 658, 651), WHISPERS(Region.CROWNLANDS, GOTFaction.CROWNLANDS, 956, 1506), WHITEGROVE(Region.REACH, GOTFaction.REACH, 480, 1860), WHITETREE(Region.ICE, GOTFaction.WILDLING, 746, 620), WHITEWALLS(Region.RIVERLANDS, GOTFaction.RIVERLANDS, 742, 1491), WHITE_HARBOUR(Region.NORTH, GOTFaction.NORTH, 723, 1071), WHITE_MOUNTAINS(Region.ULTHOS, GOTFaction.ULTHOS, 3664, 3289), WICKENDEN(Region.ARRYN, GOTFaction.ARRYN, 874, 1472), WIDOWS_WATCH(Region.NORTH, GOTFaction.NORTH, 963, 1053), WINTERFELL(Region.NORTH, GOTFaction.NORTH, 649, 872), WITCH_ISLE(Region.ARRYN, GOTFaction.ARRYN, 1029, 1380), WOODSWATCH(Region.NORTH, GOTFaction.NIGHT_WATCH, 773, 633), WUDE(Region.YI_TI, GOTFaction.YI_TI, 3578, 1869), WUSHENG(Region.YI_TI, GOTFaction.YI_TI, 3629, 1877), WYL(Region.DORNE, GOTFaction.DORNE, 733, 1900), WYNDHALL(Region.WESTERLANDS, GOTFaction.WESTERLANDS, 461, 1417), XON(Region.SUMMER_ISLANDS, GOTFaction.SUMMER_ISLANDS, 1218, 2894), YEEN(Region.SOTHORYOS, GOTFaction.SOTHORYOS, 2196, 2833), YIBIN(Region.YI_TI, GOTFaction.YI_TI, 3648, 2086), YIN(Region.YI_TI, GOTFaction.YI_TI, 3289, 2463), YRONWOOD(Region.DORNE, GOTFaction.DORNE, 693, 1964), YUNKAI(Region.GHISCAR, GOTFaction.GHISCAR, 2192, 2004), YUNNAN(Region.YI_TI, GOTFaction.YI_TI, 3816, 2341), ZABHAD(Region.YI_TI, GOTFaction.YI_TI, 3069, 2773), ZAMETTAR(Region.GHISCAR, GOTFaction.GHISCAR, 2148, 2725), ZHENGUO(Region.YI_TI, GOTFaction.YI_TI, 3674, 1886);
 
+	private final Region region;
+	private final double imgX;
+	private final double imgY;
+	private final int coordX;
+	private final int coordZ;
+
 	private GOTFaction faction;
-	private Region region;
 	private boolean isHidden;
-	private double imgX;
-	private double imgY;
-	private int xCoord;
-	private int zCoord;
 
 	GOTWaypoint(Region r, GOTFaction f, double x, double y) {
 		this(r, f, x, y, false);
@@ -33,28 +34,13 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 
 	GOTWaypoint(Region r, GOTFaction f, double x, double y, boolean hide) {
 		region = r;
-		region.waypoints.add(this);
+		region.getWaypoints().add(this);
 		faction = f;
 		imgX = x;
 		imgY = y;
-		xCoord = mapToWorldX(x);
-		zCoord = mapToWorldZ(y);
+		coordX = mapToWorldX(x);
+		coordZ = mapToWorldZ(y);
 		isHidden = hide;
-	}
-
-	public static GOTAbstractWaypoint createAnonymousWaypoint(double targetX, double targetY) {
-		double minDistance = Double.POSITIVE_INFINITY;
-		GOTWaypoint closestWaypoint = null;
-
-		for (GOTWaypoint waypoint : values()) {
-			double distance = Math.sqrt(Math.pow(waypoint.imgX - targetX, 2) + Math.pow(waypoint.imgY - targetY, 2));
-			if (distance < minDistance) {
-				minDistance = distance;
-				closestWaypoint = waypoint;
-			}
-		}
-
-		return new GOTWaypointInfo(closestWaypoint, targetX - closestWaypoint.imgX, targetY - closestWaypoint.imgY, 0);
 	}
 
 	public static List<GOTAbstractWaypoint> listAllWaypoints() {
@@ -62,15 +48,15 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static int mapToWorldR(double r) {
-		return (int) Math.round(r * GOTGenLayerWorld.scale);
+		return (int) Math.round(r * GOTGenLayerWorld.SCALE);
 	}
 
 	public static int mapToWorldX(double x) {
-		return (int) Math.round((x - GOTGenLayerWorld.ORIGIN_X + 0.5) * GOTGenLayerWorld.scale);
+		return (int) Math.round((x - GOTGenLayerWorld.ORIGIN_X + 0.5) * GOTGenLayerWorld.SCALE);
 	}
 
 	public static int mapToWorldZ(double z) {
-		return (int) Math.round((z - GOTGenLayerWorld.ORIGIN_Z + 0.5) * GOTGenLayerWorld.scale);
+		return (int) Math.round((z - GOTGenLayerWorld.ORIGIN_Z + 0.5) * GOTGenLayerWorld.SCALE);
 	}
 
 	public static Region regionForID(int id) {
@@ -104,15 +90,15 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static int worldToMapR(double r) {
-		return (int) Math.round(r / GOTGenLayerWorld.scale);
+		return (int) Math.round(r / GOTGenLayerWorld.SCALE);
 	}
 
 	public static int worldToMapX(double x) {
-		return (int) Math.round(x / GOTGenLayerWorld.scale - 0.5 + GOTGenLayerWorld.ORIGIN_X);
+		return (int) Math.round(x / GOTGenLayerWorld.SCALE - 0.5 + GOTGenLayerWorld.ORIGIN_X);
 	}
 
 	public static int worldToMapZ(double z) {
-		return (int) Math.round(z / GOTGenLayerWorld.scale - 0.5 + GOTGenLayerWorld.ORIGIN_Z);
+		return (int) Math.round(z / GOTGenLayerWorld.SCALE - 0.5 + GOTGenLayerWorld.ORIGIN_Z);
 	}
 
 	@Override
@@ -176,17 +162,17 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public double getX() {
+	public double getImgX() {
 		return imgX;
 	}
 
 	@Override
-	public int getXCoord() {
-		return xCoord;
+	public int getCoordX() {
+		return coordX;
 	}
 
 	@Override
-	public double getY() {
+	public double getImgY() {
 		return imgY;
 	}
 
@@ -201,8 +187,8 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getZCoord() {
-		return zCoord;
+	public int getCoordZ() {
+		return coordZ;
 	}
 
 	@Override
@@ -235,10 +221,10 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		return pd.getAlignment(faction) >= 0.0f;
 	}
 
-	public boolean isConquered(EntityPlayer entityplayer) {
+	private boolean isConquered(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		World world = entityplayer.worldObj;
-		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(xCoord, zCoord);
+		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(coordX, coordZ);
 		GOTFaction pledgeFac = pd.getPledgeFaction();
 		return pledgeFac != null && zone.getConquestStrength(pledgeFac, world) >= 500.0f;
 	}
@@ -246,7 +232,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	public boolean isConquestUnlockable(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		World world = entityplayer.worldObj;
-		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(xCoord, zCoord);
+		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(coordX, coordZ);
 		GOTFaction pledgeFac = pd.getPledgeFaction();
 		return pledgeFac != null && pledgeFac.isBadRelation(faction) && GOTConquestGrid.getConquestEffectIn(world, zone, pledgeFac) == GOTConquestGrid.ConquestEffective.EFFECTIVE;
 	}
@@ -260,13 +246,18 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		isHidden = hidden;
 	}
 
-	public boolean isUnlockedByConquest(EntityPlayer entityplayer) {
+	private boolean isUnlockedByConquest(EntityPlayer entityplayer) {
 		return !isCompatibleAlignment(entityplayer) && isConquestUnlockable(entityplayer) && isConquered(entityplayer);
 	}
 
+	@SuppressWarnings("InnerClassFieldHidesOuterClassField")
 	public enum Region {
 		AMOGUS, ARRYN, ASSHAI, CROWNLANDS, DORNE, DOTHRAKI, DRANGONSTONE, FREE, GHISCAR, IBBEN, ICE, IRONBORN, JOGOS, LHAZAR, MOSSOVY, NORTH, OCEAN, QARTH, REACH, RIVERLANDS, SOTHORYOS, STORMLANDS, SUMMER_ISLANDS, ULTHOS, VALYRIA, WESTERLANDS, YI_TI;
 
-		private Collection<GOTWaypoint> waypoints = new ArrayList<>();
+		private final Collection<GOTWaypoint> waypoints = new ArrayList<>();
+
+		private Collection<GOTWaypoint> getWaypoints() {
+			return waypoints;
+		}
 	}
 }

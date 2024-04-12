@@ -3,14 +3,13 @@ package got.common.world.spawning;
 import cpw.mods.fml.common.FMLLog;
 import got.common.database.GOTInvasions;
 import got.common.world.biome.GOTBiome;
-import got.common.world.spawning.GOTEventSpawner.EventChance;
 
 import java.util.*;
 
 public class GOTBiomeInvasionSpawns {
-	public GOTBiome theBiome;
-	public Map<GOTEventSpawner.EventChance, List<GOTInvasions>> invasionsByChance = new EnumMap<>(EventChance.class);
-	public Collection<GOTInvasions> registeredInvasions = new ArrayList<>();
+	private final Map<GOTEventSpawner.EventChance, List<GOTInvasions>> invasionsByChance = new EnumMap<>(GOTEventSpawner.EventChance.class);
+	private final Collection<GOTInvasions> registeredInvasions = new ArrayList<>();
+	private final GOTBiome theBiome;
 
 	public GOTBiomeInvasionSpawns(GOTBiome biome) {
 		theBiome = biome;
@@ -38,5 +37,9 @@ public class GOTBiomeInvasionSpawns {
 		}
 		invasionsByChance.put(chance, chanceList);
 		return chanceList;
+	}
+
+	public Collection<GOTInvasions> getRegisteredInvasions() {
+		return registeredInvasions;
 	}
 }

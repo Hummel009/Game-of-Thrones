@@ -92,7 +92,7 @@ public class GOT {
 		map.put("mobs", GOTEntity.id);
 		map.put("structures", GOTStructure.id);
 		map.put("biomes", GOTBiome.CONTENT.size());
-		map.put("beziers", GOTBeziers.id);
+		map.put("beziers", GOTBeziers.CONTENT.size());
 		map.put("waypoints", GOTWaypoint.values().length);
 		map.put("factions", GOTFaction.values().length);
 		map.put("items", GOTItems.CONTENT.size());

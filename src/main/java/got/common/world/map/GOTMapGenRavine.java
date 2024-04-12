@@ -11,7 +11,7 @@ import net.minecraft.world.gen.MapGenRavine;
 import java.util.Random;
 
 public class GOTMapGenRavine extends MapGenRavine {
-	private float[] ravineNoise = new float[1024];
+	private final float[] ravineNoise = new float[1024];
 
 	@Override
 	public void digBlock(Block[] data, int index, int i, int j, int k, int chunkX, int chunkZ, boolean topBlock) {
@@ -41,18 +41,25 @@ public class GOTMapGenRavine extends MapGenRavine {
 
 	@Override
 	public void func_151540_a(long seed, int chunkX, int chunkZ, Block[] blocks, double d, double d1, double d2, float f, float ravineAngle, float f2, int intPar1, int intPar2, double increase) {
+		int intPar21 = intPar2;
+		double d3 = d;
+		double d15 = d1;
+		double d21 = d2;
+		float f21 = f2;
+		float ravineAngle1 = ravineAngle;
+		int intPar11 = intPar1;
 		Random random = new Random(seed);
 		double chunkCentreX = chunkX * 16 + 8;
 		double chunkCentreZ = chunkZ * 16 + 8;
 		float f3 = 0.0f;
 		float f4 = 0.0f;
-		if (intPar2 <= 0) {
+		if (intPar21 <= 0) {
 			int j1 = range * 16 - 16;
-			intPar2 = j1 - random.nextInt(j1 / 4);
+			intPar21 = j1 - random.nextInt(j1 / 4);
 		}
 		boolean flag = false;
-		if (intPar1 == -1) {
-			intPar1 = intPar2 / 2;
+		if (intPar11 == -1) {
+			intPar11 = intPar21 / 2;
 			flag = true;
 		}
 		float f5 = 1.0f;
@@ -62,39 +69,39 @@ public class GOTMapGenRavine extends MapGenRavine {
 			}
 			ravineNoise[k1] = f5 * f5;
 		}
-		while (intPar1 < intPar2) {
-			double d6 = 1.5 + MathHelper.sin(intPar1 * 3.1415927f / intPar2) * f * 1.0f;
+		while (intPar11 < intPar21) {
+			double d6 = 1.5 + MathHelper.sin(intPar11 * 3.1415927f / intPar21) * f * 1.0f;
 			double d7 = d6 * increase;
 			d6 *= random.nextFloat() * 0.25 + 0.75;
 			d7 *= random.nextFloat() * 0.25 + 0.75;
-			float f6 = MathHelper.cos(f2);
-			float f7 = MathHelper.sin(f2);
-			d += MathHelper.cos(ravineAngle) * f6;
-			d1 += f7;
-			d2 += MathHelper.sin(ravineAngle) * f6;
-			f2 *= 0.7f;
-			f2 += f4 * 0.05f;
-			ravineAngle += f3 * 0.05f;
+			float f6 = MathHelper.cos(f21);
+			float f7 = MathHelper.sin(f21);
+			d3 += MathHelper.cos(ravineAngle1) * f6;
+			d15 += f7;
+			d21 += MathHelper.sin(ravineAngle1) * f6;
+			f21 *= 0.7f;
+			f21 += f4 * 0.05f;
+			ravineAngle1 += f3 * 0.05f;
 			f4 *= 0.8f;
 			f3 *= 0.5f;
 			f4 += (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 2.0f;
 			f3 += (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 4.0f;
 			if (flag || random.nextInt(4) != 0) {
-				double d8 = d - chunkCentreX;
-				double d9 = d2 - chunkCentreZ;
-				double d10 = intPar2 - intPar1;
+				double d8 = d3 - chunkCentreX;
+				double d9 = d21 - chunkCentreZ;
+				double d10 = intPar21 - intPar11;
 				double d11 = f + 2.0f + 16.0f;
 				if (d8 * d8 + d9 * d9 - d10 * d10 > d11 * d11) {
 					return;
 				}
-				if (d >= chunkCentreX - 16.0 - d6 * 2.0 && d2 >= chunkCentreZ - 16.0 - d6 * 2.0 && d <= chunkCentreX + 16.0 + d6 * 2.0 && d2 <= chunkCentreZ + 16.0 + d6 * 2.0) {
+				if (d3 >= chunkCentreX - 16.0 - d6 * 2.0 && d21 >= chunkCentreZ - 16.0 - d6 * 2.0 && d3 <= chunkCentreX + 16.0 + d6 * 2.0 && d21 <= chunkCentreZ + 16.0 + d6 * 2.0) {
 					int i1;
-					int xMin = MathHelper.floor_double(d - d6) - chunkX * 16 - 1;
-					int xMax = MathHelper.floor_double(d + d6) - chunkX * 16 + 1;
-					int yMin = MathHelper.floor_double(d1 - d7) - 1;
-					int yMax = MathHelper.floor_double(d1 + d7) + 1;
-					int zMin = MathHelper.floor_double(d2 - d6) - chunkZ * 16 - 1;
-					int zMax = MathHelper.floor_double(d2 + d6) - chunkZ * 16 + 1;
+					int xMin = MathHelper.floor_double(d3 - d6) - chunkX * 16 - 1;
+					int xMax = MathHelper.floor_double(d3 + d6) - chunkX * 16 + 1;
+					int yMin = MathHelper.floor_double(d15 - d7) - 1;
+					int yMax = MathHelper.floor_double(d15 + d7) + 1;
+					int zMin = MathHelper.floor_double(d21 - d6) - chunkZ * 16 - 1;
+					int zMax = MathHelper.floor_double(d21 + d6) - chunkZ * 16 + 1;
 					xMin = Math.max(xMin, 0);
 					xMax = Math.min(xMax, 16);
 					yMin = Math.max(yMin, 1);
@@ -124,18 +131,18 @@ public class GOTMapGenRavine extends MapGenRavine {
 					}
 					if (!isWater) {
 						for (i1 = xMin; i1 < xMax; ++i1) {
-							double d12 = (i1 + chunkX * 16 + 0.5 - d) / d6;
+							double d12 = (i1 + chunkX * 16 + 0.5 - d3) / d6;
 							for (int k1 = zMin; k1 < zMax; ++k1) {
-								double d13 = (k1 + chunkZ * 16 + 0.5 - d2) / d6;
+								double d13 = (k1 + chunkZ * 16 + 0.5 - d21) / d6;
 								int blockIndex = (i1 * 16 + k1) * 256 + yMax;
 								boolean topBlock = false;
 								if (d12 * d12 + d13 * d13 >= 1.0) {
 									continue;
 								}
 								for (int j1 = yMax - 1; j1 >= yMin; --j1) {
-									double d14 = (j1 + 0.5 - d1) / d7;
+									double d14 = (j1 + 0.5 - d15) / d7;
 									if ((d12 * d12 + d13 * d13) * ravineNoise[j1] + d14 * d14 / 6.0 < 1.0) {
-										if (isTopBlock(blocks, blockIndex, i1, j1, k1, chunkX, chunkZ)) {
+										if (isTopBlock(blocks, blockIndex, i1, k1, chunkX, chunkZ)) {
 											topBlock = true;
 										}
 										digBlock(blocks, blockIndex, i1, j1, k1, chunkX, chunkZ, topBlock);
@@ -150,11 +157,11 @@ public class GOTMapGenRavine extends MapGenRavine {
 					}
 				}
 			}
-			++intPar1;
+			++intPar11;
 		}
 	}
 
-	public boolean isTopBlock(Block[] data, int index, int i, int j, int k, int chunkX, int chunkZ) {
+	private boolean isTopBlock(Block[] data, int index, int i, int k, int chunkX, int chunkZ) {
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + chunkX * 16, k + chunkZ * 16);
 		return data[index] == biome.topBlock;
 	}

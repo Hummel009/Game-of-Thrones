@@ -2,6 +2,7 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
@@ -11,20 +12,21 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeEssosMountains extends GOTBiomeEssos {
+public class GOTBiomeEssosMountains extends GOTBiomeEssos implements GOTBiome.MountainTerrain {
 	public GOTBiomeEssosMountains(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
-		clearBiomeVariants();
-		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 		enableRocky = true;
-		decorator.biomeOreFactor = 2.0f;
-		decorator.biomeGemFactor = 2.0f;
-		decorator.doubleFlowersPerChunk = 0;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 1;
-		decorator.grassPerChunk = 4;
+		decorator.setBiomeOreFactor(2.0f);
+		decorator.setBiomeGemFactor(2.0f);
+		decorator.setDoubleFlowersPerChunk(0);
+		decorator.setDoubleGrassPerChunk(1);
+		decorator.setFlowersPerChunk(1);
+		decorator.setGrassPerChunk(4);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
 	}

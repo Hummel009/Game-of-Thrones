@@ -2,11 +2,10 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanSettlement;
 
 import java.util.ArrayList;
@@ -16,24 +15,24 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 	public GOTBiomeArrynMountainsFoothills(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		decorator.treesPerChunk = 2;
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		decorator.setTreesPerChunk(2);
+		decorator.setGrassPerChunk(6);
+		decorator.setDoubleGrassPerChunk(1);
+		decorator.setFlowersPerChunk(3);
+		decorator.setDoubleFlowersPerChunk(1);
 		decorator.addSettlement(new GOTStructureHillmanSettlement(this, 1.0f));
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_CIVILIAN, 4).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		Collection<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		Collection<SpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
 	}
 
@@ -43,13 +42,12 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ARRYN;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ARRYN;
 	}
 
 	@Override
 	public float getTreeIncreaseChance() {
 		return 0.75f;
 	}
-
 }

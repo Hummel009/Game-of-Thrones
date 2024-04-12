@@ -1,7 +1,7 @@
 package got.common.world.biome.other;
 
 import got.client.sound.GOTMusicRegion;
-import got.client.sound.GOTMusicRegion.Sub;
+import got.common.database.GOTAchievement;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTEventSpawner;
 
@@ -11,7 +11,12 @@ public class GOTBiomeRiver extends GOTBiome {
 		spawnableCreatureList.clear();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return null;
 	}
 
 	@Override

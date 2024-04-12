@@ -26,8 +26,13 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	private int stage;
 	private boolean movedOn;
 
-	public GOTMiniQuestWelcome(GOTPlayerData pd, GOTEntityJaqenHghar gandalf) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTMiniQuestWelcome(GOTPlayerData pd) {
 		super(pd);
+	}
+
+	public GOTMiniQuestWelcome(GOTPlayerData pd, GOTEntityJaqenHghar gandalf) {
+		this(pd);
 		setNPCInfo(gandalf);
 		setSpeechBankStart("");
 		speechBankProgress = "";

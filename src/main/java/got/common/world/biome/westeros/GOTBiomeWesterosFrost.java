@@ -3,7 +3,7 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 
@@ -11,9 +11,9 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 	public GOTBiomeWesterosFrost(int i, boolean major) {
 		super(i, major);
 		setupFrostFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.clearTrees();
 		decorator.clearStructures();
 		topBlock = Blocks.snow;
@@ -26,8 +26,8 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ICE;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ICE;
 	}
 
 	@Override
@@ -49,5 +49,4 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 	public int getWallTop() {
 		return 150;
 	}
-
 }

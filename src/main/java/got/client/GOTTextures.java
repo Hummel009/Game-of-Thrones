@@ -110,7 +110,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 						color = 6575407;
 					} else if (biome instanceof GOTBiomeSothoryosHell) {
 						color = 3290677;
-					} else if (biome.decorator.treesPerChunk > 1) {
+					} else if (biome.getDecorator().getTreesPerChunk() > 1) {
 						color = 2775058;
 					} else if (biome.temperature < 0.3f) {
 						if (biome.temperature < 0.2f) {
@@ -208,10 +208,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		int mtX = 0;
 		int mtY = 0;
 		int mtW = 20;
-		double mtMinU = (double) (mtX - mtW) / GOTGenLayerWorld.imageWidth;
-		double mtMaxU = (double) (mtX + mtW) / GOTGenLayerWorld.imageWidth;
-		double mtMinV = (double) (mtY - mtW) / GOTGenLayerWorld.imageHeight;
-		double mtMaxV = (double) (mtY + mtW) / GOTGenLayerWorld.imageHeight;
+		double mtMinU = (double) (mtX - mtW) / GOTGenLayerWorld.getImageWidth();
+		double mtMaxU = (double) (mtX + mtW) / GOTGenLayerWorld.getImageWidth();
+		double mtMinV = (double) (mtY - mtW) / GOTGenLayerWorld.getImageHeight();
+		double mtMaxV = (double) (mtY + mtW) / GOTGenLayerWorld.getImageHeight();
 		if (minU <= mtMaxU && maxU >= mtMinU && minV <= mtMaxV && maxV >= mtMinV) {
 			GL11.glDisable(3553);
 			int oceanColor = getMapOceanColor(sepia);

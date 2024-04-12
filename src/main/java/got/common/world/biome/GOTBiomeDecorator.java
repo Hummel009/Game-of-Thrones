@@ -22,60 +22,70 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBiomeDecorator {
-	public World worldObj;
-	public Random rand;
-	public int chunkX;
-	public int chunkZ;
-	public GOTBiome biome;
-	public List<OreGenerant> biomeSoils = new ArrayList<>();
-	public Collection<OreGenerant> biomeOres = new ArrayList<>();
-	public Collection<OreGenerant> biomeGems = new ArrayList<>();
-	public float biomeOreFactor = 1.0f;
-	public float biomeGemFactor = 0.5f;
-	public WorldGenerator clayGen = new GOTWorldGenSand(Blocks.clay, 5, 1);
-	public WorldGenerator sandGen = new GOTWorldGenSand(Blocks.sand, 7, 2);
-	public WorldGenerator whiteSandGen = new GOTWorldGenSand(GOTBlocks.whiteSand, 7, 2);
-	public WorldGenerator quagmireGen = new GOTWorldGenSand(GOTBlocks.quagmire, 7, 2);
-	public WorldGenerator surfaceGravelGen = new GOTWorldGenSurfaceGravel();
-	public WorldGenerator flowerGen = new GOTWorldGenBiomeFlowers();
-	public WorldGenerator logGen = new GOTWorldGenLogs();
-	public WorldGenerator caneGen = new WorldGenReed();
-	public WorldGenerator reedGen = new GOTWorldGenReeds(GOTBlocks.reeds);
-	public WorldGenerator dryReedGen = new GOTWorldGenReeds(GOTBlocks.driedReeds);
-	public WorldGenerator cornGen = new GOTWorldGenCorn();
-	public WorldGenerator waterlilyGen = new WorldGenWaterlily();
-	public WorldGenerator stalactiteGen = new GOTWorldGenStalactites(GOTBlocks.stalactite);
-	public WorldGenerator cactusGen = new WorldGenCactus();
-	public int sandPerChunk = 4;
-	public int clayPerChunk = 3;
-	public int quagmirePerChunk;
-	public int treesPerChunk;
-	public int logsPerChunk;
-	public int flowersPerChunk = 2;
-	public int doubleFlowersPerChunk;
-	public int grassPerChunk = 1;
-	public int doubleGrassPerChunk;
-	public int deadBushPerChunk;
-	public int waterlilyPerChunk;
-	public int canePerChunk;
-	public int reedPerChunk = 1;
-	public float dryReedChance = 0.1f;
-	public int cornPerChunk;
-	public int cactiPerChunk;
-	public boolean generateAgriculture;
-	public boolean whiteSand;
-	public Collection<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
-	public Random structureRand = new Random();
-	public Collection<Structure> structures = new ArrayList<>();
-	public Collection<GOTStructureBaseSettlement> settlements = new ArrayList<>();
-	public Collection<GOTStructureBaseSettlement> fixedSettlements = new ArrayList<>();
+	private final Collection<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
+	private final Collection<GOTStructureBaseSettlement> settlements = new ArrayList<>();
+	private final Collection<GOTStructureBaseSettlement> fixedSettlements = new ArrayList<>();
+	private final Collection<OreGenerant> biomeOres = new ArrayList<>();
+	private final Collection<OreGenerant> biomeGems = new ArrayList<>();
+	private final Collection<Structure> structures = new ArrayList<>();
+
+	private final List<OreGenerant> biomeSoils = new ArrayList<>();
+
+	private final WorldGenerator sandGen = new GOTWorldGenSand(Blocks.sand, 7, 2);
+	private final WorldGenerator whiteSandGen = new GOTWorldGenSand(GOTBlocks.whiteSand, 7, 2);
+	private final WorldGenerator quagmireGen = new GOTWorldGenSand(GOTBlocks.quagmire, 7, 2);
+	private final WorldGenerator surfaceGravelGen = new GOTWorldGenSurfaceGravel();
+	private final WorldGenerator flowerGen = new GOTWorldGenBiomeFlowers();
+	private final WorldGenerator logGen = new GOTWorldGenLogs();
+	private final WorldGenerator caneGen = new WorldGenReed();
+	private final WorldGenerator reedGen = new GOTWorldGenReeds(GOTBlocks.reeds);
+	private final WorldGenerator dryReedGen = new GOTWorldGenReeds(GOTBlocks.driedReeds);
+	private final WorldGenerator cornGen = new GOTWorldGenCorn();
+	private final WorldGenerator waterlilyGen = new WorldGenWaterlily();
+	private final WorldGenerator cactusGen = new WorldGenCactus();
+
+	private final GOTBiome biome;
+
+	private final Random structureRand = new Random();
+
+	private WorldGenerator clayGen = new GOTWorldGenSand(Blocks.clay, 5, 1);
+	private WorldGenerator stalactiteGen = new GOTWorldGenStalactites(GOTBlocks.stalactite);
+
+	private Random rand;
+
+	private World worldObj;
+
+	private boolean generateAgriculture;
+	private boolean whiteSand;
+
+	private float biomeOreFactor = 1.0f;
+	private float biomeGemFactor = 0.5f;
+	private float dryReedChance = 0.1f;
+
+	private int sandPerChunk = 4;
+	private int clayPerChunk = 3;
+	private int quagmirePerChunk;
+	private int treesPerChunk;
+	private int logsPerChunk;
+	private int flowersPerChunk = 2;
+	private int doubleFlowersPerChunk;
+	private int grassPerChunk = 1;
+	private int doubleGrassPerChunk;
+	private int deadBushPerChunk;
+	private int waterlilyPerChunk;
+	private int canePerChunk;
+	private int reedPerChunk = 1;
+	private int cornPerChunk;
+	private int cactiPerChunk;
+	private int chunkX;
+	private int chunkZ;
 
 	public GOTBiomeDecorator(GOTBiome gotbiome) {
 		biome = gotbiome;
 		addDefaultOres();
 	}
 
-	public void addDefaultOres() {
+	private void addDefaultOres() {
 		addSoil(new WorldGenMinable(Blocks.dirt, 32), 40.0f, 0, 256);
 		addSoil(new WorldGenMinable(Blocks.gravel, 32), 20.0f, 0, 256);
 		addSoil(new WorldGenMinable(GOTBlocks.rock, 0, 12, Blocks.stone), 30.0f, 0, 10);
@@ -155,12 +165,10 @@ public class GOTBiomeDecorator {
 		treeTypes.clear();
 	}
 
-	public void decorate() {
+	private void decorate() {
 		int k;
 		int k2;
 		int i;
-		int l;
-		int k3;
 		int k4;
 		int l2;
 		int j2;
@@ -168,7 +176,6 @@ public class GOTBiomeDecorator {
 		int l3;
 		int k5;
 		int l4;
-		int i3;
 		int l5;
 		int j3;
 		int j4;
@@ -180,7 +187,7 @@ public class GOTBiomeDecorator {
 		int k7;
 		GOTBiomeVariant biomeVariant = ((GOTWorldChunkManager) worldObj.getWorldChunkManager()).getBiomeVariantAt(chunkX + 8, chunkZ + 8);
 		generateOres();
-		biomeVariant.decorateVariant(worldObj, rand, chunkX, chunkZ, biome);
+		biomeVariant.decorateVariant(worldObj, rand, chunkX, chunkZ);
 		if (biome instanceof GOTBiomeAlwaysWinter) {
 			stalactiteGen = new GOTWorldGenStalactites(GOTBlocks.stalactiteIce);
 		} else if (biome instanceof GOTBiomeYeen) {
@@ -216,7 +223,7 @@ public class GOTBiomeDecorator {
 			k6 = chunkZ + rand.nextInt(16) + 8;
 			surfaceGravelGen.generate(worldObj, rand, i4, 0, k6);
 		}
-		if (!biomeVariant.disableStructures && Math.abs(chunkX) > 32 && Math.abs(chunkZ) > 32) {
+		if (!biomeVariant.isDisableStructures() && Math.abs(chunkX) > 32 && Math.abs(chunkZ) > 32) {
 			long seed = chunkX * 1879267L ^ chunkZ * 67209689L;
 			seed = seed * seed * 5829687L + seed * 2876L;
 			structureRand.setSeed(seed);
@@ -225,11 +232,11 @@ public class GOTBiomeDecorator {
 			boolean linkerNear = GOTBeziers.isBezierNear(chunkX + 8, chunkZ + 8, 16, GOTBeziers.Type.LINKER) >= 0.0f;
 			if (!roadNear && !wallNear && !linkerNear && !anyFixedSettlementsAt(worldObj, chunkX, chunkZ)) {
 				for (Structure randomstructure : structures) {
-					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
+					if (structureRand.nextInt(randomstructure.getChunkChance()) == 0) {
 						int i6 = chunkX + rand.nextInt(16) + 8;
 						k2 = chunkZ + rand.nextInt(16) + 8;
 						j5 = worldObj.getTopSolidOrLiquidBlock(i6, k2);
-						randomstructure.structureGen.generate(worldObj, rand, i6, j5, k2);
+						randomstructure.getStructureGen().generate(worldObj, rand, i6, j5, k2);
 					}
 				}
 			}
@@ -238,7 +245,7 @@ public class GOTBiomeDecorator {
 			}
 		}
 		int trees = getVariantTreesPerChunk(biomeVariant);
-		if (rand.nextFloat() < biome.getTreeIncreaseChance() * biomeVariant.treeFactor) {
+		if (rand.nextFloat() < biome.getTreeIncreaseChance() * biomeVariant.getTreeFactor()) {
 			++trees;
 		}
 		for (l4 = 0; l4 < trees; ++l4) {
@@ -271,7 +278,7 @@ public class GOTBiomeDecorator {
 			logGen.generate(worldObj, rand, i9, worldObj.getHeightValue(i9, k9), k9);
 		}
 		int flowers = flowersPerChunk;
-		flowers = Math.round(flowers * biomeVariant.flowerFactor);
+		flowers = Math.round(flowers * biomeVariant.getFlowerFactor());
 		for (int l8 = 0; l8 < flowers; ++l8) {
 			int i11 = chunkX + rand.nextInt(16) + 8;
 			int j8 = rand.nextInt(128);
@@ -279,7 +286,7 @@ public class GOTBiomeDecorator {
 			flowerGen.generate(worldObj, rand, i11, j8, k10);
 		}
 		int doubleFlowers = doubleFlowersPerChunk;
-		doubleFlowers = Math.round(doubleFlowers * biomeVariant.flowerFactor);
+		doubleFlowers = Math.round(doubleFlowers * biomeVariant.getFlowerFactor());
 		for (int l9 = 0; l9 < doubleFlowers; ++l9) {
 			int i12 = chunkX + rand.nextInt(16) + 8;
 			j5 = rand.nextInt(128);
@@ -288,7 +295,7 @@ public class GOTBiomeDecorator {
 			doubleFlowerGen.generate(worldObj, rand, i12, j5, k4);
 		}
 		int grasses = grassPerChunk;
-		grasses = Math.round(grasses * biomeVariant.grassFactor);
+		grasses = Math.round(grasses * biomeVariant.getGrassFactor());
 		for (l3 = 0; l3 < grasses; ++l3) {
 			i5 = chunkX + rand.nextInt(16) + 8;
 			j3 = rand.nextInt(128);
@@ -297,7 +304,7 @@ public class GOTBiomeDecorator {
 			grassGen.generate(worldObj, rand, i5, j3, k11);
 		}
 		int doubleGrasses = doubleGrassPerChunk;
-		doubleGrasses = Math.round(doubleGrasses * biomeVariant.grassFactor);
+		doubleGrasses = Math.round(doubleGrasses * biomeVariant.getGrassFactor());
 		for (l7 = 0; l7 < doubleGrasses; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			int j9 = rand.nextInt(128);
@@ -312,10 +319,9 @@ public class GOTBiomeDecorator {
 			new WorldGenDeadBush(Blocks.deadbush).generate(worldObj, rand, i2, j10, k13);
 		}
 		for (l7 = 0; l7 < waterlilyPerChunk; ++l7) {
-			int j11;
 			i2 = chunkX + rand.nextInt(16) + 8;
 			int k14 = chunkZ + rand.nextInt(16) + 8;
-			j11 = rand.nextInt(128);
+			int j11 = rand.nextInt(128);
 			waterlilyGen.generate(worldObj, rand, i2, j11, k14);
 		}
 		for (l7 = 0; l7 < canePerChunk; ++l7) {
@@ -331,10 +337,9 @@ public class GOTBiomeDecorator {
 			caneGen.generate(worldObj, rand, i2, j2, k18);
 		}
 		for (l7 = 0; l7 < reedPerChunk; ++l7) {
-			int j13;
 			i2 = chunkX + rand.nextInt(16) + 8;
 			k5 = chunkZ + rand.nextInt(16) + 8;
-			j13 = rand.nextInt(128);
+			int j13 = rand.nextInt(128);
 			if (rand.nextFloat() < dryReedChance) {
 				dryReedGen.generate(worldObj, rand, i2, j13, k5);
 				continue;
@@ -377,14 +382,6 @@ public class GOTBiomeDecorator {
 			k5 = chunkZ + rand.nextInt(16) + 8;
 			new WorldGenFlowers(GOTBlocks.cucumberPlant).generate(worldObj, rand, i5, j3, k5);
 		}
-		if (biomeVariant.boulderGen != null && rand.nextInt(biomeVariant.boulderChance) == 0) {
-			int boulders = MathHelper.getRandomIntegerInRange(rand, 1, biomeVariant.boulderMax);
-			for (l = 0; l < boulders; ++l) {
-				i3 = chunkX + rand.nextInt(16) + 8;
-				k3 = chunkZ + rand.nextInt(16) + 8;
-				biomeVariant.boulderGen.generate(worldObj, rand, i3, worldObj.getHeightValue(i3, k3), k3);
-			}
-		}
 	}
 
 	public void decorate(World world, Random random, int i, int k) {
@@ -399,25 +396,26 @@ public class GOTBiomeDecorator {
 		}
 	}
 
-	public void generateOres() {
+	private void generateOres() {
 		float f;
 		for (OreGenerant soil : biomeSoils) {
-			genStandardOre(soil.oreChance, soil.oreGen, soil.minHeight, soil.maxHeight);
+			genStandardOre(soil.getOreChance(), soil.getOreGen(), soil.getMinHeight(), soil.getMaxHeight());
 		}
 		for (OreGenerant ore : biomeOres) {
-			f = ore.oreChance * biomeOreFactor;
-			genStandardOre(f, ore.oreGen, ore.minHeight, ore.maxHeight);
+			f = ore.getOreChance() * biomeOreFactor;
+			genStandardOre(f, ore.getOreGen(), ore.getMinHeight(), ore.getMaxHeight());
 		}
 		for (OreGenerant gem : biomeGems) {
-			f = gem.oreChance * biomeGemFactor;
-			genStandardOre(f, gem.oreGen, gem.minHeight, gem.maxHeight);
+			f = gem.getOreChance() * biomeGemFactor;
+			genStandardOre(f, gem.getOreGen(), gem.getMinHeight(), gem.getMaxHeight());
 		}
 	}
 
-	public void genStandardOre(float ores, WorldGenerator oreGen, int minHeight, int maxHeight) {
-		while (ores > 0.0f) {
-			boolean generate = ores >= 1.0f || rand.nextFloat() < ores;
-			ores -= 1.0f;
+	private void genStandardOre(float ores, WorldGenerator oreGen, int minHeight, int maxHeight) {
+		float ores1 = ores;
+		while (ores1 > 0.0f) {
+			boolean generate = ores1 >= 1.0f || rand.nextFloat() < ores1;
+			ores1 -= 1.0f;
 			if (!generate) {
 				continue;
 			}
@@ -438,14 +436,14 @@ public class GOTBiomeDecorator {
 			return GOTTreeType.OAK;
 		}
 		WeightedRandom.Item item = WeightedRandom.getRandomItem(random, treeTypes);
-		return ((GOTTreeType.WeightedTreeType) item).treeType;
+		return ((GOTTreeType.WeightedTreeType) item).getTreeType();
 	}
 
 	public GOTTreeType getRandomTreeForVariant(Random random, GOTBiomeVariant variant) {
-		if (variant.treeTypes.isEmpty()) {
+		if (variant.getTreeTypes().isEmpty()) {
 			return getRandomTree(random);
 		}
-		float f = variant.variantTreeChance;
+		float f = variant.getVariantTreeChance();
 		if (random.nextFloat() < f) {
 			return variant.getRandomTree(random);
 		}
@@ -454,34 +452,263 @@ public class GOTBiomeDecorator {
 
 	public int getVariantTreesPerChunk(GOTBiomeVariant variant) {
 		int trees = treesPerChunk;
-		if (variant.treeFactor > 1.0f) {
+		if (variant.getTreeFactor() > 1.0f) {
 			trees = Math.max(trees, 1);
 		}
-		return Math.round(trees * variant.treeFactor);
+		return Math.round(trees * variant.getTreeFactor());
+	}
+
+	public Collection<OreGenerant> getBiomeOres() {
+		return biomeOres;
+	}
+
+	public Collection<OreGenerant> getBiomeGems() {
+		return biomeGems;
+	}
+
+	public List<OreGenerant> getBiomeSoils() {
+		return biomeSoils;
+	}
+
+	@SuppressWarnings("unused")
+	public float getBiomeOreFactor() {
+		return biomeOreFactor;
+	}
+
+	public void setBiomeOreFactor(float biomeOreFactor) {
+		this.biomeOreFactor = biomeOreFactor;
+	}
+
+	@SuppressWarnings("unused")
+	public float getBiomeGemFactor() {
+		return biomeGemFactor;
+	}
+
+	public void setBiomeGemFactor(float biomeGemFactor) {
+		this.biomeGemFactor = biomeGemFactor;
+	}
+
+	@SuppressWarnings("unused")
+	public WorldGenerator getClayGen() {
+		return clayGen;
+	}
+
+	public void setClayGen(WorldGenerator clayGen) {
+		this.clayGen = clayGen;
+	}
+
+	@SuppressWarnings("unused")
+	public int getSandPerChunk() {
+		return sandPerChunk;
+	}
+
+	public void setSandPerChunk(int sandPerChunk) {
+		this.sandPerChunk = sandPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getClayPerChunk() {
+		return clayPerChunk;
+	}
+
+	public void setClayPerChunk(int clayPerChunk) {
+		this.clayPerChunk = clayPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getQuagmirePerChunk() {
+		return quagmirePerChunk;
+	}
+
+	public void setQuagmirePerChunk(int quagmirePerChunk) {
+		this.quagmirePerChunk = quagmirePerChunk;
+	}
+
+	public int getTreesPerChunk() {
+		return treesPerChunk;
+	}
+
+	public void setTreesPerChunk(int treesPerChunk) {
+		this.treesPerChunk = treesPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getLogsPerChunk() {
+		return logsPerChunk;
+	}
+
+	public void setLogsPerChunk(int logsPerChunk) {
+		this.logsPerChunk = logsPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getFlowersPerChunk() {
+		return flowersPerChunk;
+	}
+
+	public void setFlowersPerChunk(int flowersPerChunk) {
+		this.flowersPerChunk = flowersPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getDoubleFlowersPerChunk() {
+		return doubleFlowersPerChunk;
+	}
+
+	public void setDoubleFlowersPerChunk(int doubleFlowersPerChunk) {
+		this.doubleFlowersPerChunk = doubleFlowersPerChunk;
+	}
+
+	public int getGrassPerChunk() {
+		return grassPerChunk;
+	}
+
+	public void setGrassPerChunk(int grassPerChunk) {
+		this.grassPerChunk = grassPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getDoubleGrassPerChunk() {
+		return doubleGrassPerChunk;
+	}
+
+	public void setDoubleGrassPerChunk(int doubleGrassPerChunk) {
+		this.doubleGrassPerChunk = doubleGrassPerChunk;
+	}
+
+	public boolean isWhiteSand() {
+		return whiteSand;
+	}
+
+	public void setWhiteSand(boolean whiteSand) {
+		this.whiteSand = whiteSand;
+	}
+
+	public Collection<Structure> getStructures() {
+		return structures;
+	}
+
+	public Collection<GOTTreeType.WeightedTreeType> getTreeTypes() {
+		return treeTypes;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isGenerateAgriculture() {
+		return generateAgriculture;
+	}
+
+	public void setGenerateAgriculture(boolean generateAgriculture) {
+		this.generateAgriculture = generateAgriculture;
+	}
+
+	@SuppressWarnings("unused")
+	public int getCactiPerChunk() {
+		return cactiPerChunk;
+	}
+
+	public void setCactiPerChunk(int cactiPerChunk) {
+		this.cactiPerChunk = cactiPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getCornPerChunk() {
+		return cornPerChunk;
+	}
+
+	public void setCornPerChunk(int cornPerChunk) {
+		this.cornPerChunk = cornPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public float getDryReedChance() {
+		return dryReedChance;
+	}
+
+	public void setDryReedChance(float dryReedChance) {
+		this.dryReedChance = dryReedChance;
+	}
+
+	@SuppressWarnings("unused")
+	public int getReedPerChunk() {
+		return reedPerChunk;
+	}
+
+	public void setReedPerChunk(int reedPerChunk) {
+		this.reedPerChunk = reedPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getCanePerChunk() {
+		return canePerChunk;
+	}
+
+	public void setCanePerChunk(int canePerChunk) {
+		this.canePerChunk = canePerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getWaterlilyPerChunk() {
+		return waterlilyPerChunk;
+	}
+
+	public void setWaterlilyPerChunk(int waterlilyPerChunk) {
+		this.waterlilyPerChunk = waterlilyPerChunk;
+	}
+
+	@SuppressWarnings("unused")
+	public int getDeadBushPerChunk() {
+		return deadBushPerChunk;
+	}
+
+	public void setDeadBushPerChunk(int deadBushPerChunk) {
+		this.deadBushPerChunk = deadBushPerChunk;
 	}
 
 	public static class OreGenerant {
-		public WorldGenMinable oreGen;
-		public float oreChance;
-		public int minHeight;
-		public int maxHeight;
+		private final WorldGenMinable oreGen;
+		private final float oreChance;
+		private final int minHeight;
+		private final int maxHeight;
 
-		public OreGenerant(WorldGenMinable gen, float f, int min, int max) {
+		protected OreGenerant(WorldGenMinable gen, float f, int min, int max) {
 			oreGen = gen;
 			oreChance = f;
 			minHeight = min;
 			maxHeight = max;
 		}
-	}
 
-	public static class Structure {
-		public WorldGenerator structureGen;
-		public int chunkChance;
+		public int getMaxHeight() {
+			return maxHeight;
+		}
 
-		public Structure(WorldGenerator w, int i) {
-			structureGen = w;
-			chunkChance = i;
+		public int getMinHeight() {
+			return minHeight;
+		}
+
+		public float getOreChance() {
+			return oreChance;
+		}
+
+		public WorldGenMinable getOreGen() {
+			return oreGen;
 		}
 	}
 
+	public static class Structure {
+		private final WorldGenerator structureGen;
+		private final int chunkChance;
+
+		protected Structure(WorldGenerator w, int i) {
+			structureGen = w;
+			chunkChance = i;
+		}
+
+		public WorldGenerator getStructureGen() {
+			return structureGen;
+		}
+
+		protected int getChunkChance() {
+			return chunkChance;
+		}
+	}
 }

@@ -28,31 +28,36 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTChunkProvider implements IChunkProvider {
-	public World worldObj;
-	public Random rand;
-	public BiomeGenBase[] biomesForGeneration;
-	public GOTBiomeVariant[] variantsForGeneration;
-	public int biomeSampleRadius;
-	public int biomeSampleWidth;
-	public NoiseGeneratorOctaves noiseGen1;
-	public NoiseGeneratorOctaves noiseGen2;
-	public NoiseGeneratorOctaves noiseGen3;
-	public NoiseGeneratorOctaves noiseGen5;
-	public NoiseGeneratorOctaves noiseGen6;
-	public NoiseGeneratorOctaves stoneNoiseGen;
-	public double[] noise1;
-	public double[] noise2;
-	public double[] noise3;
-	public double[] noise5;
-	public double[] noise6;
-	public double[] stoneNoise = new double[256];
-	public double[] heightNoise;
-	public float[] biomeHeightNoise;
-	public double[] blockHeightNoiseArray;
-	public GOTMapGenCaves caveGenerator = new GOTMapGenCaves();
-	public MapGenBase ravineGenerator = new GOTMapGenRavine();
-	public MapGenStructure ghiscarPyramid = new GOTStructureGhiscarPyramidMapgen();
-	public MapGenStructure sothoryosPyramid = new GOTStructureGhiscarPyramidMapgen();
+	private final MapGenStructure ghiscarPyramid = new GOTStructureGhiscarPyramidMapgen();
+	private final MapGenStructure sothoryosPyramid = new GOTStructureGhiscarPyramidMapgen();
+	private final GOTMapGenCaves caveGenerator = new GOTMapGenCaves();
+	private final MapGenBase ravineGenerator = new GOTMapGenRavine();
+
+	private final NoiseGeneratorOctaves noiseGen1;
+	private final NoiseGeneratorOctaves noiseGen2;
+	private final NoiseGeneratorOctaves noiseGen3;
+	private final NoiseGeneratorOctaves noiseGen5;
+	private final NoiseGeneratorOctaves noiseGen6;
+	private final NoiseGeneratorOctaves stoneNoiseGen;
+
+	private final World worldObj;
+	private final Random rand;
+
+	private final int biomeSampleRadius;
+	private final int biomeSampleWidth;
+	private final float[] biomeHeightNoise;
+
+	private BiomeGenBase[] biomesForGeneration;
+	private GOTBiomeVariant[] variantsForGeneration;
+
+	private double[] noise1;
+	private double[] noise2;
+	private double[] noise3;
+	private double[] noise5;
+	private double[] noise6;
+	private double[] stoneNoise = new double[256];
+	private double[] heightNoise;
+	private double[] blockHeightNoiseArray;
 
 	public GOTChunkProvider(World world, long seed) {
 		worldObj = world;
@@ -88,7 +93,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		return null;
 	}
 
-	public void generateTerrain(int i, int j, Block[] blocks, ChunkFlags chunkFlags) {
+	private void generateTerrain(int i, int j, Block[] blocks) {
 		GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
 		int byte0 = 4;
 		int byte1 = 32;
@@ -97,7 +102,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		int l = byte0 + 1;
 		biomesForGeneration = chunkManager.getBiomesForGeneration(biomesForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth);
 		variantsForGeneration = chunkManager.getVariantsChunkGen(variantsForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth, biomesForGeneration);
-		heightNoise = initializeHeightNoise(heightNoise, i * byte0, 0, j * byte0, k, byte3, l, chunkFlags);
+		heightNoise = initializeHeightNoise(heightNoise, i * byte0, 0, j * byte0, k, byte3, l);
 		blockHeightNoiseArray = new double[blocks.length];
 		for (int i1 = 0; i1 < byte0; ++i1) {
 			for (int j1 = 0; j1 < byte0; ++j1) {
@@ -151,20 +156,13 @@ public class GOTChunkProvider implements IChunkProvider {
 		return biome == null ? null : biome.getSpawnableList(creatureType);
 	}
 
-	public double[] initializeHeightNoise(double[] noise, int i, int j, int k, int xSize, int ySize, int zSize, ChunkFlags chunkFlags) {
-		if (noise == null) {
-			noise = new double[xSize * ySize * zSize];
+	private double[] initializeHeightNoise(double[] noise, int i, int j, int k, int xSize, int ySize, int zSize) {
+		double[] noise4 = noise;
+		if (noise4 == null) {
+			noise4 = new double[xSize * ySize * zSize];
 		}
 		double xzNoiseScale = 400.0;
 		double heightStretch = 6.0;
-		int noiseCentralIndex = (xSize - 1) / 2 + biomeSampleRadius + ((zSize - 1) / 2 + biomeSampleRadius) * (xSize + biomeSampleWidth);
-		GOTBiome noiseCentralBiome = (GOTBiome) biomesForGeneration[noiseCentralIndex];
-		if (noiseCentralBiome.getBiomeTerrain().hasXZScale()) {
-			xzNoiseScale = noiseCentralBiome.getBiomeTerrain().getXZScale();
-		}
-		if (noiseCentralBiome.getBiomeTerrain().hasHeightStretchFactor()) {
-			heightStretch *= noiseCentralBiome.getBiomeTerrain().getHeightStretchFactor();
-		}
 		noise5 = noiseGen5.generateNoiseOctaves(noise5, i, k, xSize, zSize, 1.121, 1.121, 0.5);
 		noise6 = noiseGen6.generateNoiseOctaves(noise6, i, k, xSize, zSize, 200.0, 200.0, 0.5);
 		noise3 = noiseGen3.generateNoiseOctaves(noise3, i, j, k, xSize, ySize, zSize, 684.412 / xzNoiseScale, 2.0E-4, 684.412 / xzNoiseScale);
@@ -174,7 +172,6 @@ public class GOTChunkProvider implements IChunkProvider {
 		int noiseIndex = 0;
 		for (int i1 = 0; i1 < xSize; ++i1) {
 			for (int k1 = 0; k1 < zSize; ++k1) {
-				double heightNoise;
 				int xPos = i + i1 << 2;
 				int zPos = k + k1 << 2;
 				float totalBaseHeight = 0.0f;
@@ -186,24 +183,22 @@ public class GOTChunkProvider implements IChunkProvider {
 				int centreBiomeIndex = i1 + biomeSampleRadius + (k1 + biomeSampleRadius) * (xSize + biomeSampleWidth);
 				BiomeGenBase centreBiome = biomesForGeneration[centreBiomeIndex];
 				GOTBiomeVariant centreVariant = variantsForGeneration[centreBiomeIndex];
-				float centreHeight = centreBiome.rootHeight + centreVariant.getHeightBoostAt(xPos += 2, zPos += 2);
-				if (centreVariant.absoluteHeight) {
-					centreHeight = centreVariant.getHeightBoostAt(xPos, zPos);
+				float centreHeight = centreBiome.rootHeight + centreVariant.getHeightBoost();
+				if (centreVariant.isAbsoluteHeight()) {
+					centreHeight = centreVariant.getHeightBoost();
 				}
 				for (int i2 = -biomeSampleRadius; i2 <= biomeSampleRadius; ++i2) {
 					for (int k2 = -biomeSampleRadius; k2 <= biomeSampleRadius; ++k2) {
 						int biomeIndex = i1 + i2 + biomeSampleRadius + (k1 + k2 + biomeSampleRadius) * (xSize + biomeSampleWidth);
 						BiomeGenBase biome = biomesForGeneration[biomeIndex];
 						GOTBiomeVariant variant = variantsForGeneration[biomeIndex];
-						int xPosHere = xPos + (i2 << 2);
-						int zPosHere = zPos + (k2 << 2);
-						float baseHeight = biome.rootHeight + variant.getHeightBoostAt(xPosHere, zPosHere);
-						float heightVariation = biome.heightVariation * variant.hillFactor;
-						if (variant.absoluteHeight) {
-							baseHeight = variant.getHeightBoostAt(xPosHere, zPosHere);
-							heightVariation = variant.hillFactor;
+						float baseHeight = biome.rootHeight + variant.getHeightBoost();
+						float heightVariation = biome.heightVariation * variant.getHillFactor();
+						if (variant.isAbsoluteHeight()) {
+							baseHeight = variant.getHeightBoost();
+							heightVariation = variant.getHillFactor();
 						}
-						float hillFactor = variant.hillFactor;
+						float hillFactor = variant.getHillFactor();
 						float baseHeightPlus = baseHeight + 2.0f;
 						if (baseHeightPlus == 0.0f) {
 							baseHeightPlus = 0.001f;
@@ -219,7 +214,7 @@ public class GOTChunkProvider implements IChunkProvider {
 						totalVariantHillFactor += hillFactor;
 						float flatBiomeHeight = biome.rootHeight;
 						boolean isWater = ((GOTBiome) biome).isWateryBiome();
-						if (variant.absoluteHeight && variant.absoluteHeightLevel < 0.0f) {
+						if (variant.isAbsoluteHeight() && variant.getAbsoluteHeightLevel() < 0.0f) {
 							isWater = true;
 						}
 						if (isWater) {
@@ -234,7 +229,6 @@ public class GOTChunkProvider implements IChunkProvider {
 				float avgFlatBiomeHeight = totalFlatBiomeHeight / biomeCount;
 				float avgVariantHillFactor = totalVariantHillFactor / biomeCount;
 				if (GOTFixedStructures.hasMapFeatures(worldObj)) {
-					float mountain;
 					float roadNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.ROAD);
 					if (roadNear >= 0.0f) {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * roadNear;
@@ -250,7 +244,7 @@ public class GOTChunkProvider implements IChunkProvider {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * linkerNear;
 						avgHeightVariation *= linkerNear;
 					}
-					mountain = GOTMountains.getTotalHeightBoost(xPos, zPos);
+					float mountain = GOTMountains.getTotalHeightBoost(xPos, zPos);
 					if (mountain > 0.005f) {
 						avgBaseHeight += mountain;
 						float mtnV = 0.2f;
@@ -262,7 +256,7 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (avgHeightVariation == 0.0f) {
 					avgHeightVariation = 0.001f;
 				}
-				heightNoise = noise6[noiseIndexXZ] / 8000.0;
+				double heightNoise = noise6[noiseIndexXZ] / 8000.0;
 				if (heightNoise < 0.0) {
 					heightNoise = -heightNoise * 0.3;
 				}
@@ -300,12 +294,12 @@ public class GOTChunkProvider implements IChunkProvider {
 						double var40 = (j1 - (ySize - 4)) / 3.0f;
 						totalNoise = totalNoise * (1.0 - var40) + -10.0 * var40;
 					}
-					noise[noiseIndex] = totalNoise;
+					noise4[noiseIndex] = totalNoise;
 					++noiseIndex;
 				}
 			}
 		}
-		return noise;
+		return noise4;
 	}
 
 	@Override
@@ -385,7 +379,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		Block[] blocks = new Block[65536];
 		byte[] metadata = new byte[65536];
 		ChunkFlags chunkFlags = new ChunkFlags();
-		generateTerrain(i, k, blocks, chunkFlags);
+		generateTerrain(i, k, blocks);
 		biomesForGeneration = chunkManager.loadBlockGeneratorData(biomesForGeneration, i * 16, k * 16, 16, 16);
 		variantsForGeneration = chunkManager.getBiomeVariants(variantsForGeneration, i * 16, k * 16, 16, 16);
 		replaceBlocksForBiome(i, k, blocks, metadata, biomesForGeneration, variantsForGeneration, chunkFlags);
@@ -420,11 +414,11 @@ public class GOTChunkProvider implements IChunkProvider {
 		}
 		byte[] variants = new byte[256];
 		for (int l = 0; l < variants.length; ++l) {
-			variants[l] = (byte) variantsForGeneration[l].variantID;
+			variants[l] = (byte) variantsForGeneration[l].getVariantID();
 		}
 		GOTBiomeVariantStorage.setChunkBiomeVariants(worldObj, chunk, variants);
 		chunk.generateSkylightMap();
-		GOTFixedStructures.nanoTimeElapsed = 0L;
+		GOTFixedStructures.setNanoTimeElapsed(0L);
 		return chunk;
 	}
 
@@ -434,7 +428,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		sothoryosPyramid.func_151539_a(this, worldObj, i, k, null);
 	}
 
-	public void replaceBlocksForBiome(int i, int k, Block[] blocks, byte[] metadata, BiomeGenBase[] biomeArray, GOTBiomeVariant[] variantArray, ChunkFlags chunkFlags) {
+	private void replaceBlocksForBiome(int i, int k, Block[] blocks, byte[] metadata, BiomeGenBase[] biomeArray, GOTBiomeVariant[] variantArray, ChunkFlags chunkFlags) {
 		double d = 0.03125;
 		stoneNoise = stoneNoiseGen.generateNoiseOctaves(stoneNoise, i * 16, k * 16, 0, 16, 16, 1, d * 2.0, d * 2.0, d * 2.0);
 		int ySize = blocks.length / 256;
@@ -461,7 +455,7 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (!GOTFixedStructures.hasMapFeatures(worldObj)) {
 					continue;
 				}
-				chunkFlags.bezierFlags[xzIndex] = GOTBezierGenerator.generateBezier(worldObj, rand, x, z, biome, blocks, metadata, blockHeightNoiseArray);
+				chunkFlags.getBezierFlags()[xzIndex] = GOTBezierGenerator.generateBezier(worldObj, rand, x, z, biome, blocks, metadata, blockHeightNoiseArray);
 				int lavaHeight = GOTMountains.getLavaHeight(x, z);
 				if (lavaHeight <= 0) {
 					continue;
@@ -489,8 +483,10 @@ public class GOTChunkProvider implements IChunkProvider {
 	}
 
 	public static class ChunkFlags {
-		public boolean isSettlement;
-		public boolean[] bezierFlags = new boolean[256];
-	}
+		private final boolean[] bezierFlags = new boolean[256];
 
+		public boolean[] getBezierFlags() {
+			return bezierFlags;
+		}
+	}
 }

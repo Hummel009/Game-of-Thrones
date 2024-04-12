@@ -10,8 +10,8 @@ import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 
 public class GOTTeleporter extends Teleporter {
-	public WorldServer world;
-	public boolean makeRingPortal;
+	private final WorldServer world;
+	private final boolean makeRingPortal;
 
 	public GOTTeleporter(WorldServer worldserver, boolean flag) {
 		super(worldserver);
@@ -25,8 +25,8 @@ public class GOTTeleporter extends Teleporter {
 		int i;
 		int j;
 		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
-			i = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getXCoord();
-			k = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getZCoord();
+			i = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getCoordX();
+			k = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getCoordZ();
 			j = GOT.getTrueTopBlock(world, i, k);
 		} else {
 			i = GOTLevelData.getOverworldPortalX();

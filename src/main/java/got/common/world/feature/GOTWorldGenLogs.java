@@ -42,10 +42,7 @@ public class GOTWorldGenLogs extends WorldGenerator {
 		return true;
 	}
 
-	public boolean isSuitablePositionForLog(IBlockAccess world, int i, int j, int k) {
-		if (!world.getBlock(i, j - 1, k).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
-			return false;
-		}
-		return world.getBlock(i, j, k).isReplaceable(world, i, j, k);
+	private boolean isSuitablePositionForLog(IBlockAccess world, int i, int j, int k) {
+		return world.getBlock(i, j - 1, k).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) && world.getBlock(i, j, k).isReplaceable(world, i, j, k);
 	}
 }

@@ -11,16 +11,14 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenVolcanoCrater extends WorldGenerator {
-	public int minWidth = 5;
-	public int maxWidth = 15;
-	public int heightCheck = 8;
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (!GOTStructureBase.isSurfaceStatic(world, i, j - 1, k) && world.getBlock(i, j - 1, k) != Blocks.stone) {
 			return false;
 		}
+		int maxWidth = 15;
+		int minWidth = 5;
 		int craterWidth = MathHelper.getRandomIntegerInRange(random, minWidth, maxWidth);
 		int highestHeight = j;
 		int lowestHeight = j;
@@ -40,6 +38,7 @@ public class GOTWorldGenVolcanoCrater extends WorldGenerator {
 				lowestHeight = heightValue;
 			}
 		}
+		int heightCheck = 8;
 		if (highestHeight - lowestHeight > heightCheck) {
 			return false;
 		}

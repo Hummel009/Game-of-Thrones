@@ -29,8 +29,9 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTFixer;
 import got.common.world.map.GOTWaypoint;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTFactionContainer;
 import got.common.world.spawning.GOTSpawnEntry;
+import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.GOTStructureRegistry;
 import net.minecraft.block.Block;
@@ -347,8 +348,8 @@ public class GOTWikiGen {
 					sb.append("\n| ").append(getStructureName(strClass)).append(" = ").append(Lang.STRUCTURE_BIOMES);
 					next:
 					for (GOTBiome biome : BIOMES) {
-						for (GOTBiomeDecorator.Structure structure : biome.decorator.structures) {
-							if (structure.structureGen.getClass() == strClass) {
+						for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+							if (structure.getStructureGen().getClass() == strClass) {
 								sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 								continue next;
 							}
@@ -365,14 +366,14 @@ public class GOTWikiGen {
 					sb.append("\n| ").append(mineral).append(" = ").append(Lang.MINERAL_BIOMES);
 					next:
 					for (GOTBiome biome : BIOMES) {
-						Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-						oreGenerants.addAll(biome.decorator.biomeOres);
-						oreGenerants.addAll(biome.decorator.biomeGems);
+						Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().getBiomeSoils());
+						oreGenerants.addAll(biome.getDecorator().getBiomeOres());
+						oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 						for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
-							Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
-							int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
+							Block block = GOTReflection.getOreBlock(oreGenerant.getOreGen());
+							int meta = GOTReflection.getOreMeta(oreGenerant.getOreGen());
 							if (getBlockMetaName(block, meta).equals(mineral) || getBlockName(block).equals(mineral)) {
-								sb.append("\n* ").append(getBiomeLink(biome)).append(" (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append('-').append(oreGenerant.maxHeight).append(");");
+								sb.append("\n* ").append(getBiomeLink(biome)).append(" (").append(oreGenerant.getOreChance()).append("%; Y: ").append(oreGenerant.getMinHeight()).append('-').append(oreGenerant.getMaxHeight()).append(");");
 								continue next;
 							}
 						}
@@ -389,15 +390,15 @@ public class GOTWikiGen {
 					Collection<GOTBiome> biomesVariantTree = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
-						for (GOTTreeType.WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
-							if (weightedTreeType.treeType == tree) {
+						for (GOTTreeType.WeightedTreeType weightedTreeType : biome.getDecorator().getTreeTypes()) {
+							if (weightedTreeType.getTreeType() == tree) {
 								biomesTree.add(biome);
 								continue next;
 							}
 						}
-						for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
-							for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.variant.treeTypes) {
-								if (weightedTreeType.treeType == tree) {
+						for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
+							for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
+								if (weightedTreeType.getTreeType() == tree) {
 									biomesVariantTree.add(biome);
 									continue next;
 								}
@@ -424,13 +425,13 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template:DB Biome-SpawnNPC");
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
-					List<GOTBiomeSpawnList.FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
+					List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 					if (facContainers.isEmpty()) {
 						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_SPAWN);
 					} else {
-						Collection<GOTBiomeSpawnList.FactionContainer> spawnContainers = new ArrayList<>();
-						for (GOTBiomeSpawnList.FactionContainer facContainer : facContainers) {
-							if (facContainer.baseWeight > 0) {
+						Collection<GOTFactionContainer> spawnContainers = new ArrayList<>();
+						for (GOTFactionContainer facContainer : facContainers) {
+							if (facContainer.getBaseWeight() > 0) {
 								spawnContainers.add(facContainer);
 							}
 						}
@@ -439,9 +440,9 @@ public class GOTWikiGen {
 							sb.append(Lang.BIOME_CONQUEST_ONLY);
 						} else {
 							sb.append(Lang.BIOME_HAS_SPAWN);
-							for (GOTBiomeSpawnList.FactionContainer facContainer : spawnContainers) {
-								for (GOTBiomeSpawnList.SpawnListContainer container : facContainer.spawnLists) {
-									for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
+							for (GOTFactionContainer facContainer : spawnContainers) {
+								for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
+									for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
 										sb.append("\n* ").append(getEntityLink(entry.entityClass)).append("; ");
 									}
 								}
@@ -454,13 +455,13 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template:DB Biome-ConquestNPC");
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
-					List<GOTBiomeSpawnList.FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
+					List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 					if (facContainers.isEmpty()) {
 						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_CONQUEST);
 					} else {
-						Collection<GOTBiomeSpawnList.FactionContainer> conqestContainers = new ArrayList<>();
-						for (GOTBiomeSpawnList.FactionContainer facContainer : facContainers) {
-							if (facContainer.baseWeight <= 0) {
+						Collection<GOTFactionContainer> conqestContainers = new ArrayList<>();
+						for (GOTFactionContainer facContainer : facContainers) {
+							if (facContainer.getBaseWeight() <= 0) {
 								conqestContainers.add(facContainer);
 							}
 						}
@@ -470,10 +471,10 @@ public class GOTWikiGen {
 						} else {
 							sb.append(Lang.BIOME_HAS_CONQUEST);
 							EnumSet<GOTFaction> conquestFactions = EnumSet.noneOf(GOTFaction.class);
-							for (GOTBiomeSpawnList.FactionContainer facContainer : conqestContainers) {
+							for (GOTFactionContainer facContainer : conqestContainers) {
 								next:
-								for (GOTBiomeSpawnList.SpawnListContainer container : facContainer.spawnLists) {
-									for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
+								for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
+									for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
 										Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 										if (entity instanceof GOTEntityNPC) {
 											GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
@@ -569,11 +570,11 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
-					if (biome.getBiomeVariantsSmall().variantList.isEmpty()) {
+					if (biome.getBiomeVariants().getVariantList().isEmpty()) {
 						sb.append(Lang.BIOME_NO_VARIANTS);
 					} else {
-						for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
-							sb.append("\n* ").append(getBiomeVariantName(variantBucket.variant)).append(';');
+						for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
+							sb.append("\n* ").append(getBiomeVariantName(variantBucket.getVariant())).append(';');
 						}
 					}
 				}
@@ -583,13 +584,13 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
-					if (biome.getInvasionSpawns().registeredInvasions.isEmpty()) {
+					if (biome.getInvasionSpawns().getRegisteredInvasions().isEmpty()) {
 						sb.append(Lang.BIOME_NO_INVASIONS);
 					} else {
 						sb.append(Lang.BIOME_HAS_INVASIONS);
 						EnumSet<GOTFaction> invasionFactions = EnumSet.noneOf(GOTFaction.class);
 						next:
-						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
+						for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
 							for (GOTInvasions.InvasionSpawnEntry entry : invasion.getInvasionMobs()) {
 								Entity entity = CLASS_TO_OBJ.get(entry.getEntityClass());
 								if (entity instanceof GOTEntityNPC) {
@@ -642,13 +643,13 @@ public class GOTWikiGen {
 				for (GOTBiome biome : BIOMES) {
 					EnumSet<GOTTreeType> trees = EnumSet.noneOf(GOTTreeType.class);
 					Map<GOTTreeType, GOTBiomeVariant> additionalTrees = new EnumMap<>(GOTTreeType.class);
-					for (GOTTreeType.WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
-						trees.add(weightedTreeType.treeType);
+					for (GOTTreeType.WeightedTreeType weightedTreeType : biome.getDecorator().getTreeTypes()) {
+						trees.add(weightedTreeType.getTreeType());
 					}
-					for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
-						for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.variant.treeTypes) {
-							if (!trees.contains(weightedTreeType.treeType)) {
-								additionalTrees.put(weightedTreeType.treeType, variantBucket.variant);
+					for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
+						for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
+							if (!trees.contains(weightedTreeType.getTreeType())) {
+								additionalTrees.put(weightedTreeType.getTreeType(), variantBucket.getVariant());
 							}
 						}
 					}
@@ -678,7 +679,7 @@ public class GOTWikiGen {
 					entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 					entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 					entries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-					entries.addAll(biome.getSpawnableList(GOTBiome.creatureType_GOTAmbient));
+					entries.addAll(biome.getSpawnableList(GOTBiome.CREATURE_TYPE_GOT_AMBIENT));
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 					if (entries.isEmpty()) {
 						sb.append(Lang.BIOME_NO_ANIMALS);
@@ -699,16 +700,16 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_HAS_MINERALS);
-					Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-					oreGenerants.addAll(biome.decorator.biomeOres);
-					oreGenerants.addAll(biome.decorator.biomeGems);
+					Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().getBiomeSoils());
+					oreGenerants.addAll(biome.getDecorator().getBiomeOres());
+					oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 					for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
-						Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
-						int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
+						Block block = GOTReflection.getOreBlock(oreGenerant.getOreGen());
+						int meta = GOTReflection.getOreMeta(oreGenerant.getOreGen());
 						if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-							sb.append("\n* [[").append(getBlockMetaName(block, meta)).append("]] (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append('-').append(oreGenerant.maxHeight).append(");");
+							sb.append("\n* [[").append(getBlockMetaName(block, meta)).append("]] (").append(oreGenerant.getOreChance()).append("%; Y: ").append(oreGenerant.getMinHeight()).append('-').append(oreGenerant.getMaxHeight()).append(");");
 						} else {
-							sb.append("\n* [[").append(getBlockName(block)).append("]] (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append('-').append(oreGenerant.maxHeight).append(");");
+							sb.append("\n* [[").append(getBlockName(block)).append("]] (").append(oreGenerant.getOreChance()).append("%; Y: ").append(oreGenerant.getMinHeight()).append('-').append(oreGenerant.getMaxHeight()).append(");");
 						}
 					}
 				}
@@ -730,12 +731,12 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
-					if (biome.decorator.structures.isEmpty()) {
+					if (biome.getDecorator().getStructures().isEmpty()) {
 						sb.append(Lang.BIOME_NO_STRUCTURES);
 					} else {
 						sb.append(Lang.BIOME_HAS_STRUCTURES);
-						for (GOTBiomeDecorator.Structure structure : biome.decorator.structures) {
-							sb.append("\n* [[").append(getStructureName(structure.structureGen.getClass())).append("]];");
+						for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+							sb.append("\n* [[").append(getStructureName(structure.getStructureGen().getClass())).append("]];");
 						}
 					}
 				}
@@ -762,7 +763,7 @@ public class GOTWikiGen {
 					Collection<GOTBiome> invasionBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
-						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
+						for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
 							for (GOTInvasions.InvasionSpawnEntry entry : invasion.getInvasionMobs()) {
 								Entity entity = CLASS_TO_OBJ.get(entry.getEntityClass());
 								if (entity instanceof GOTEntityNPC && fac == ((GOTEntityNPC) entity).getFaction()) {
@@ -790,18 +791,18 @@ public class GOTWikiGen {
 					Collection<GOTBiome> spawnBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
-						List<GOTBiomeSpawnList.FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
+						List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 						if (!facContainers.isEmpty()) {
-							Collection<GOTBiomeSpawnList.FactionContainer> spawnContainers = new ArrayList<>();
-							for (GOTBiomeSpawnList.FactionContainer facContainer : facContainers) {
-								if (facContainer.baseWeight > 0) {
+							Collection<GOTFactionContainer> spawnContainers = new ArrayList<>();
+							for (GOTFactionContainer facContainer : facContainers) {
+								if (facContainer.getBaseWeight() > 0) {
 									spawnContainers.add(facContainer);
 								}
 							}
 							if (!spawnContainers.isEmpty()) {
-								for (GOTBiomeSpawnList.FactionContainer facContainer : spawnContainers) {
-									for (GOTBiomeSpawnList.SpawnListContainer container : facContainer.spawnLists) {
-										for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
+								for (GOTFactionContainer facContainer : spawnContainers) {
+									for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
+										for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
 											Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 											if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
 												spawnBiomes.add(biome);
@@ -832,18 +833,18 @@ public class GOTWikiGen {
 					Collection<GOTBiome> conquestBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
-						List<GOTBiomeSpawnList.FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
+						List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 						if (!facContainers.isEmpty()) {
-							Collection<GOTBiomeSpawnList.FactionContainer> conquestContainers = new ArrayList<>();
-							for (GOTBiomeSpawnList.FactionContainer facContainer : facContainers) {
-								if (facContainer.baseWeight <= 0) {
+							Collection<GOTFactionContainer> conquestContainers = new ArrayList<>();
+							for (GOTFactionContainer facContainer : facContainers) {
+								if (facContainer.getBaseWeight() <= 0) {
 									conquestContainers.add(facContainer);
 								}
 							}
 							if (!conquestContainers.isEmpty()) {
-								for (GOTBiomeSpawnList.FactionContainer facContainer : conquestContainers) {
-									for (GOTBiomeSpawnList.SpawnListContainer container : facContainer.spawnLists) {
-										for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
+								for (GOTFactionContainer facContainer : conquestContainers) {
+									for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
+										for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
 											Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 											if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
 												conquestBiomes.add(biome);
@@ -1109,18 +1110,18 @@ public class GOTWikiGen {
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 						spawnEntries.addAll(biome.getSpawnableGOTAmbientList());
-						for (GOTBiomeSpawnList.FactionContainer facContainer : biome.getNPCSpawnList().factionContainers) {
-							if (facContainer.baseWeight > 0) {
-								for (GOTBiomeSpawnList.SpawnListContainer container : facContainer.spawnLists) {
-									spawnEntries.addAll(container.spawnList.getSpawnList());
+						for (GOTFactionContainer facContainer : biome.getNPCSpawnList().getFactionContainers()) {
+							if (facContainer.getBaseWeight() > 0) {
+								for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
+									spawnEntries.addAll(container.getSpawnList().getSpawnEntries());
 								}
 							} else {
-								for (GOTBiomeSpawnList.SpawnListContainer container : facContainer.spawnLists) {
-									conquestEntries.addAll(container.spawnList.getSpawnList());
+								for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
+									conquestEntries.addAll(container.getSpawnList().getSpawnEntries());
 								}
 							}
 						}
-						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
+						for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
 							invasionEntries.addAll(invasion.getInvasionMobs());
 						}
 						for (BiomeGenBase.SpawnListEntry entry : spawnEntries) {
@@ -1477,7 +1478,7 @@ public class GOTWikiGen {
 				for (Map.Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : CLASS_TO_WP.entrySet()) {
 					sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ").append(entityEntry.getValue().getDisplayName());
 				}
-				for (Map.Entry<GOTAbstractWaypoint, GOTStructureBaseSettlement> entry : GOTFixer.spawners.entrySet()) {
+				for (Map.Entry<GOTAbstractWaypoint, GOTStructureBaseSettlement> entry : GOTFixer.SPAWNERS.entrySet()) {
 					GOTStructureBaseSettlement spawner = entry.getValue();
 					spawner.addLegendaryNPCs(world);
 					for (GOTFixer.SpawnInfo info : spawner.spawnInfos) {
@@ -1530,7 +1531,7 @@ public class GOTWikiGen {
 	}
 
 	private static String getBiomeVariantName(GOTBiomeVariant variant) {
-		return StatCollector.translateToLocal("got.variant." + variant.variantName + ".name");
+		return StatCollector.translateToLocal("got.variant." + variant.getVariantName() + ".name");
 	}
 
 	private static String getBlockMetaName(Block block, int meta) {
@@ -1619,11 +1620,11 @@ public class GOTWikiGen {
 
 	private static void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
 		for (GOTBiome biome : biomes) {
-			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-			oreGenerants.addAll(biome.decorator.biomeOres);
-			oreGenerants.addAll(biome.decorator.biomeGems);
+			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().getBiomeSoils());
+			oreGenerants.addAll(biome.getDecorator().getBiomeOres());
+			oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 			for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
-				WorldGenMinable gen = oreGenerant.oreGen;
+				WorldGenMinable gen = oreGenerant.getOreGen();
 				Block block = GOTReflection.getOreBlock(gen);
 				int meta = GOTReflection.getOreMeta(gen);
 				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
@@ -1697,8 +1698,8 @@ public class GOTWikiGen {
 
 	private static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
 		for (GOTBiome biome : biomes) {
-			for (GOTBiomeDecorator.Structure structure : biome.decorator.structures) {
-				structures.add(structure.structureGen.getClass());
+			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+				structures.add(structure.getStructureGen().getClass());
 			}
 		}
 	}

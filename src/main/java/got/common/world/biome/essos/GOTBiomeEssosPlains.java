@@ -6,10 +6,10 @@ import got.common.world.spawning.GOTEventSpawner;
 public abstract class GOTBiomeEssosPlains extends GOTBiomeEssos {
 	protected GOTBiomeEssosPlains(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 0.5f);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-		decorator.grassPerChunk = 256;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.SAVANNAH_BAOBAB, 0.5f);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		decorator.setGrassPerChunk(256);
 	}
 }

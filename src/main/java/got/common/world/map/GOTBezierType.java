@@ -8,7 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import java.util.Random;
 
 public abstract class GOTBezierType {
-	public static GOTBezierType WALL_IBBEN = new GOTBezierType() {
+	public static final GOTBezierType WALL_IBBEN = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes = {new BezierBlock(GOTBlocks.woodBeamV1, 1), new BezierBlock(GOTBlocks.wood4, 2), new BezierBlock(GOTBlocks.woodBeam4, 2)};
@@ -16,7 +16,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType WALL_ICE = new GOTBezierType() {
+	public static final GOTBezierType WALL_ICE = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes = {new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(Blocks.packed_ice, 0), new BezierBlock(Blocks.packed_ice, 0), new BezierBlock(Blocks.snow, 0)};
@@ -24,15 +24,14 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType WALL_YITI = new GOTBezierType() {
+	public static final GOTBezierType WALL_YITI = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			return new BezierBlock(GOTBlocks.cobblebrick, 0);
 		}
 	};
 
-	public static GOTBezierType PATH_ASSHAI = new GOTBezierType() {
-
+	public static final GOTBezierType PATH_ASSHAI = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			if (slab) {
@@ -42,8 +41,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType PATH_COBBLE = new GOTBezierType() {
-
+	public static final GOTBezierType PATH_COBBLE = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
@@ -56,8 +54,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType PATH_DIRTY = new GOTBezierType() {
-
+	public static final GOTBezierType PATH_DIRTY = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
@@ -70,8 +67,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType PATH_PAVING = new GOTBezierType() {
-
+	public static final GOTBezierType PATH_PAVING = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			if (slab) {
@@ -81,29 +77,27 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType PATH_SANDY = new GOTBezierType() {
-
+	public static final GOTBezierType PATH_SANDY = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
 				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.slabSingleDirt, 0), new BezierBlock(GOTBlocks.slabSingleDirt, 1), new BezierBlock(GOTBlocks.slabSingleSand, 0), new BezierBlock(GOTBlocks.slabSingle4, 0), new BezierBlock(GOTBlocks.slabSingle7, 1), new BezierBlock(GOTBlocks.slabSingle4, 7)};
 			} else {
-				blockTypes = new BezierBlock[]{new BezierBlock(Blocks.dirt, 1), new BezierBlock(GOTBlocks.dirtPath, 0), top ? new BezierBlock(Blocks.sand, 0) : new BezierBlock(Blocks.sandstone, 0), new BezierBlock(GOTBlocks.brick1, 15), new BezierBlock(GOTBlocks.brick3, 11), new BezierBlock(GOTBlocks.pillar1, 5)};
+				blockTypes = new BezierBlock[]{new BezierBlock(Blocks.dirt, 1), new BezierBlock(GOTBlocks.dirtPath, 0), new BezierBlock(top ? Blocks.sand : Blocks.sandstone, 0), new BezierBlock(GOTBlocks.brick1, 15), new BezierBlock(GOTBlocks.brick3, 11), new BezierBlock(GOTBlocks.pillar1, 5)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
 	};
 
-	public static GOTBezierType PATH_SNOWY = new GOTBezierType() {
+	public static final GOTBezierType PATH_SNOWY = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			return new BezierBlock(Blocks.snow, 0);
 		}
 	};
 
-	public static GOTBezierType PATH_SOTHORYOS = new GOTBezierType() {
-
+	public static final GOTBezierType PATH_SOTHORYOS = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
@@ -116,8 +110,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType TOWN_ASSHAI = new GOTBezierType() {
-
+	public static final GOTBezierType TOWN_ASSHAI = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
@@ -130,8 +123,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType TOWN_YITI = new GOTBezierType() {
-
+	public static final GOTBezierType TOWN_YITI = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
@@ -144,7 +136,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	protected GOTBezierType() {
+	private GOTBezierType() {
 	}
 
 	public abstract BezierBlock getBlock(Random var1, BiomeGenBase var2, boolean var3, boolean var4);
@@ -159,30 +151,43 @@ public abstract class GOTBezierType {
 
 	public GOTBezierType setHasFlowers(boolean flag) {
 		GOTBezierType baseRoad = this;
-		return new GOTBezierType() {
+		return new CustomBezierType(baseRoad, flag);
+	}
+
+	public interface BridgeType {
+		BridgeType DEFAULT = new BridgeType() {
 
 			@Override
-			public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-				return baseRoad.getBlock(rand, biome, top, slab);
+			public BezierBlock getBlock(boolean slab) {
+				if (slab) {
+					return new BezierBlock(Blocks.wooden_slab, 0);
+				}
+				return new BezierBlock(Blocks.planks, 0);
 			}
 
 			@Override
-			public float getRepair() {
-				return baseRoad.getRepair();
+			public BezierBlock getEdge() {
+				return new BezierBlock(GOTBlocks.woodBeamV1, 0);
 			}
 
 			@Override
-			public boolean hasFlowers() {
-				return flag;
+			public BezierBlock getFence() {
+				return new BezierBlock(Blocks.fence, 0);
 			}
 		};
+
+		BezierBlock getBlock(boolean var2);
+
+		BezierBlock getEdge();
+
+		BezierBlock getFence();
 	}
 
 	public static class BezierBlock {
-		private Block block;
-		private int meta;
+		private final Block block;
+		private final int meta;
 
-		public BezierBlock(Block b, int i) {
+		protected BezierBlock(Block b, int i) {
 			block = b;
 			meta = i;
 		}
@@ -196,56 +201,28 @@ public abstract class GOTBezierType {
 		}
 	}
 
-	public abstract static class BridgeType {
-		public static BridgeType DEFAULT = new BridgeType() {
+	private static class CustomBezierType extends GOTBezierType {
+		private final GOTBezierType baseRoad;
+		private final boolean flag;
 
-			@Override
-			public BezierBlock getBlock(Random rand, boolean slab) {
-				if (slab) {
-					return new BezierBlock(Blocks.wooden_slab, 0);
-				}
-				return new BezierBlock(Blocks.planks, 0);
-			}
-
-			@Override
-			public BezierBlock getEdge(Random rand) {
-				return new BezierBlock(GOTBlocks.woodBeamV1, 0);
-			}
-
-			@Override
-			public BezierBlock getFence(Random rand) {
-				return new BezierBlock(Blocks.fence, 0);
-			}
-		};
-		public static BridgeType CHARRED = new BridgeType() {
-
-			@Override
-			public BezierBlock getBlock(Random rand, boolean slab) {
-				if (slab) {
-					return new BezierBlock(GOTBlocks.woodSlabSingle1, 3);
-				}
-				return new BezierBlock(GOTBlocks.planks1, 3);
-			}
-
-			@Override
-			public BezierBlock getEdge(Random rand) {
-				return new BezierBlock(GOTBlocks.woodBeam1, 3);
-			}
-
-			@Override
-			public BezierBlock getFence(Random rand) {
-				return new BezierBlock(GOTBlocks.fence, 3);
-			}
-		};
-
-		protected BridgeType() {
+		private CustomBezierType(GOTBezierType baseRoad, boolean flag) {
+			this.baseRoad = baseRoad;
+			this.flag = flag;
 		}
 
-		public abstract BezierBlock getBlock(Random var1, boolean var2);
+		@Override
+		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
+			return baseRoad.getBlock(rand, biome, top, slab);
+		}
 
-		public abstract BezierBlock getEdge(Random var1);
+		@Override
+		public float getRepair() {
+			return baseRoad.getRepair();
+		}
 
-		public abstract BezierBlock getFence(Random var1);
-
+		@Override
+		public boolean hasFlowers() {
+			return flag;
+		}
 	}
 }

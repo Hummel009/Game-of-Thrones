@@ -64,8 +64,12 @@ import java.util.*;
 import static got.common.world.map.GOTCoordConverter.toEssosTownGate;
 
 public class GOTFixer {
-	public static Map<GOTAbstractWaypoint, GOTStructureBaseSettlement> spawners = new HashMap<>();
-	public static Collection<GOTStructureBaseSettlement> locations = new HashSet<>();
+	public static final Map<GOTAbstractWaypoint, GOTStructureBaseSettlement> SPAWNERS = new HashMap<>();
+
+	private static final Collection<GOTStructureBaseSettlement> LOCATIONS = new HashSet<>();
+
+	private GOTFixer() {
+	}
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
 		GOTWaypoint[] forts = {GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5};
@@ -868,24 +872,24 @@ public class GOTFixer {
 			}
 		}.type(GOTStructureGhiscarSettlement.Type.TOWN, 6), GOTWaypoint.YUNKAI.info(-0.5, toEssosTownGate(0.0, false), Dir.EAST));
 
-		for (GOTStructureBaseSettlement location : locations) {
+		for (GOTStructureBaseSettlement location : LOCATIONS) {
 			for (GOTBiome biome : GOTBiome.CONTENT) {
-				biome.decorator.addFixedSettlement(location);
+				biome.getDecorator().addFixedSettlement(location);
 			}
 		}
 
-		locations.clear();
+		LOCATIONS.clear();
 	}
 
-	public static void registerLocation(GOTStructureBaseSettlement settlement, GOTAbstractWaypoint... wps) {
+	private static void registerLocation(GOTStructureBaseSettlement settlement, GOTAbstractWaypoint... wps) {
 		settlement.affix(wps);
-		locations.add(settlement);
+		LOCATIONS.add(settlement);
 	}
 
-	public static void registerSpawner(GOTStructureBaseSettlement spawner, GOTAbstractWaypoint wp) {
+	private static void registerSpawner(GOTStructureBaseSettlement spawner, GOTAbstractWaypoint wp) {
 		spawner.affix(wp);
-		locations.add(spawner);
-		spawners.put(wp, spawner);
+		LOCATIONS.add(spawner);
+		SPAWNERS.put(wp, spawner);
 	}
 
 	public enum Dir {
@@ -893,11 +897,11 @@ public class GOTFixer {
 	}
 
 	public static class SpawnInfo {
-		private GOTEntityNPC npc;
-		private int i;
-		private int k;
+		private final GOTEntityNPC npc;
+		private final int i;
+		private final int k;
 
-		public SpawnInfo(GOTEntityNPC npc, int i, int k) {
+		protected SpawnInfo(GOTEntityNPC npc, int i, int k) {
 			this.npc = npc;
 			this.i = i;
 			this.k = k;

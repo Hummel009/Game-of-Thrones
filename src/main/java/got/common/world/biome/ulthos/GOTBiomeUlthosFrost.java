@@ -10,8 +10,8 @@ public class GOTBiomeUlthosFrost extends GOTBiomeUlthosTaiga {
 	public GOTBiomeUlthosFrost(int i, boolean major) {
 		super(i, major);
 		setupFrostFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		topBlock = Blocks.snow;
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBlizzard.class, 40, 3, 3));
 	}

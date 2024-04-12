@@ -3,7 +3,7 @@ package got.common.world.genlayer;
 import net.minecraft.world.World;
 
 public class GOTGenLayerNarrowRivers extends GOTGenLayer {
-	public int maxRange;
+	private final int maxRange;
 
 	public GOTGenLayerNarrowRivers(long l, GOTGenLayer layer, int r) {
 		super(l);

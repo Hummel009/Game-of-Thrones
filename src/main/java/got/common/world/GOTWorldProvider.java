@@ -8,8 +8,8 @@ import got.client.render.other.GOTCloudRenderer;
 import got.client.render.other.GOTSkyRenderer;
 import got.client.render.other.GOTWeatherRenderer;
 import got.common.*;
-import got.common.util.GOTModChecker;
 import got.common.util.GOTCrashHandler;
+import got.common.util.GOTModChecker;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.other.GOTBiomeOcean;
@@ -17,7 +17,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.StatCollector;
@@ -31,21 +30,16 @@ import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.common.ForgeModContainer;
 
 public class GOTWorldProvider extends WorldProvider {
-	public static int MOON_PHASES = 8;
+	public static final int MOON_PHASES = 8;
+
 	@SideOnly(Side.CLIENT)
-	public IRenderHandler gotSkyRenderer;
+	private IRenderHandler gotSkyRenderer;
+
 	@SideOnly(Side.CLIENT)
-	public IRenderHandler gotCloudRenderer;
+	private IRenderHandler gotCloudRenderer;
+
 	@SideOnly(Side.CLIENT)
-	public IRenderHandler gotWeatherRenderer;
-	public boolean spawnHostiles = true;
-	public boolean spawnPeacefuls = true;
-	public double cloudsR;
-	public double cloudsG;
-	public double cloudsB;
-	public double fogR;
-	public double fogG;
-	public double fogB;
+	private IRenderHandler gotWeatherRenderer;
 
 	public static int getGOTMoonPhase() {
 		int day = GOTDate.AegonCalendar.getCurrentDay();
@@ -74,17 +68,14 @@ public class GOTWorldProvider extends WorldProvider {
 	public boolean canBlockFreeze(int i, int j, int k, boolean isBlockUpdate) {
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeOcean) {
-			return GOTBiomeOcean.isFrozen(i, k) && canFreezeIgnoreTemp(i, j, k, isBlockUpdate);
+			return GOTBiomeOcean.isFrozen(k) && canFreezeIgnoreTemp(i, j, k, isBlockUpdate);
 		}
 		boolean standardColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
-		if (standardColdBiome || altitudeColdBiome) {
-			return worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
-		}
-		return false;
+		return (standardColdBiome || altitudeColdBiome) && worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
 	}
 
-	public boolean canFreezeIgnoreTemp(int i, int j, int k, boolean isBlockUpdate) {
+	private boolean canFreezeIgnoreTemp(int i, int j, int k, boolean isBlockUpdate) {
 		Block block;
 		if (j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && ((block = worldObj.getBlock(i, j, k)) == Blocks.water || block == Blocks.flowing_water) && worldObj.getBlockMetadata(i, j, k) == 0) {
 			if (!isBlockUpdate) {
@@ -109,21 +100,15 @@ public class GOTWorldProvider extends WorldProvider {
 	public boolean canSnowAt(int i, int j, int k, boolean checkLight) {
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeOcean) {
-			return GOTBiomeOcean.isFrozen(i, k) && canSnowIgnoreTemp(i, j, k, checkLight);
+			return GOTBiomeOcean.isFrozen(k) && canSnowIgnoreTemp(i, j, k, checkLight);
 		}
 		boolean standardColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
-		if (standardColdBiome || altitudeColdBiome) {
-			return worldObj.canSnowAtBody(i, j, k, checkLight);
-		}
-		return false;
+		return (standardColdBiome || altitudeColdBiome) && worldObj.canSnowAtBody(i, j, k, checkLight);
 	}
 
-	public boolean canSnowIgnoreTemp(int i, int j, int k, boolean checkLight) {
-		if (!checkLight) {
-			return true;
-		}
-		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && worldObj.getBlock(i, j, k).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
+	private boolean canSnowIgnoreTemp(int i, int j, int k, boolean checkLight) {
+		return !checkLight || j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && worldObj.getBlock(i, j, k).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
 	}
 
 	@Override
@@ -148,9 +133,9 @@ public class GOTWorldProvider extends WorldProvider {
 		int i = (int) mc.renderViewEntity.posX;
 		int k = (int) mc.renderViewEntity.posZ;
 		Vec3 clouds = super.drawClouds(f);
-		cloudsB = 0.0;
-		cloudsG = 0.0;
-		cloudsR = 0.0;
+		double cloudsB = 0.0;
+		double cloudsG = 0.0;
+		double cloudsR = 0.0;
 		GameSettings settings = mc.gameSettings;
 		int[] ranges = ForgeModContainer.blendRanges;
 		int distance = 0;
@@ -190,7 +175,7 @@ public class GOTWorldProvider extends WorldProvider {
 				chunk.getBiomeArray()[chunkZ << 4 | chunkX] = (byte) (biomeID & 0xFF);
 			}
 			GOTDimension dim = getGOTDimension();
-			return dim.getBiomeList()[biomeID] == null ? dim.getBiomeList()[0] : dim.getBiomeList()[biomeID];
+			return dim.getBiomeList()[dim.getBiomeList()[biomeID] == null ? 0 : biomeID];
 		}
 		return worldChunkMgr.getBiomeGenAt(i, k);
 	}
@@ -230,9 +215,9 @@ public class GOTWorldProvider extends WorldProvider {
 		int i = (int) mc.renderViewEntity.posX;
 		int k = (int) mc.renderViewEntity.posZ;
 		Vec3 fog = super.getFogColor(f, f1);
-		fogB = 0.0;
-		fogG = 0.0;
-		fogR = 0.0;
+		double fogB = 0.0;
+		double fogG = 0.0;
+		double fogR = 0.0;
 		GameSettings settings = mc.gameSettings;
 		int[] ranges = ForgeModContainer.blendRanges;
 		int distance = 0;
@@ -304,7 +289,7 @@ public class GOTWorldProvider extends WorldProvider {
 		return StatCollector.translateToLocalFormatted("got.dimension.enter", getGOTDimension().getDimensionName());
 	}
 
-	public float[] handleFinalFogColors(EntityLivingBase viewer, double tick, float[] rgb) {
+	public float[] handleFinalFogColors(float[] rgb) {
 		return rgb;
 	}
 

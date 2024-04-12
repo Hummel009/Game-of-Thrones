@@ -4,11 +4,8 @@ import com.google.common.math.IntMath;
 import net.minecraft.world.World;
 
 public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
-	public static int FLAG_LAKE = 1;
-	public static int FLAG_JUNGLE = 2;
-	public static int FLAG_MANGROVE = 4;
-	public int zoomScale;
-	public int lakeFlags;
+	private final int zoomScale;
+	private int lakeFlags;
 
 	public GOTGenLayerBiomeVariantsLake(long l, GOTGenLayer layer, int i) {
 		super(l);
@@ -20,7 +17,7 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 		return (param & flag) == flag;
 	}
 
-	public static int setFlag(int param, int flag) {
+	private static int setFlag(int param, int flag) {
 		return param | flag;
 	}
 
@@ -30,9 +27,8 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 		int[] ints = GOTIntCache.get(world).getIntArray(xSize * zSize);
 		for (int k1 = 0; k1 < zSize; ++k1) {
 			for (int i1 = 0; i1 < xSize; ++i1) {
-				int baseInt;
 				initChunkSeed(i + i1, k + k1);
-				baseInt = baseInts == null ? 0 : baseInts[i1 + k1 * xSize];
+				int baseInt = baseInts == null ? 0 : baseInts[i1 + k1 * xSize];
 				if (getFlag(lakeFlags, 1) && nextInt(30 * zoomScale * zoomScale * zoomScale) == 2) {
 					baseInt = setFlag(baseInt, 1);
 				}
@@ -53,5 +49,10 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 			lakeFlags = setFlag(lakeFlags, f);
 		}
 		return this;
+	}
+
+	@SuppressWarnings("unused")
+	public int getLakeFlags() {
+		return lakeFlags;
 	}
 }

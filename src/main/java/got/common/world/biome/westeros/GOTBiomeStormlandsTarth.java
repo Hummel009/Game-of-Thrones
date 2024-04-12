@@ -16,5 +16,4 @@ public class GOTBiomeStormlandsTarth extends GOTBiomeStormlands {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterTarth;
 	}
-
 }

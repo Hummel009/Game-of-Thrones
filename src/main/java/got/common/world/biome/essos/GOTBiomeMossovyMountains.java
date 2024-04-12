@@ -2,6 +2,7 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
@@ -13,20 +14,21 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
+public class GOTBiomeMossovyMountains extends GOTBiomeMossovy implements GOTBiome.MountainTerrain {
 	public GOTBiomeMossovyMountains(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
-		clearBiomeVariants();
-		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 		enableRocky = true;
-		decorator.doubleFlowersPerChunk = 0;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 1;
-		decorator.grassPerChunk = 4;
-		decorator.biomeOreFactor = 2.0f;
-		decorator.biomeGemFactor = 2.0f;
+		decorator.setDoubleFlowersPerChunk(0);
+		decorator.setDoubleGrassPerChunk(1);
+		decorator.setFlowersPerChunk(1);
+		decorator.setGrassPerChunk(4);
+		decorator.setBiomeOreFactor(2.0f);
+		decorator.setBiomeGemFactor(2.0f);
 		decorator.clearSettlements();
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
@@ -35,8 +37,6 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int i1;
-		int k1;
 		int i12;
 		int j1;
 		int l;
@@ -49,8 +49,8 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 			lavaGen.generate(world, random, i12, j1, k13);
 		}
 		random.nextInt(1);
-		i1 = i + random.nextInt(16) + 8;
-		k1 = k + random.nextInt(16) + 8;
+		int i1 = i + random.nextInt(16) + 8;
+		int k1 = k + random.nextInt(16) + 8;
 		j1 = world.getHeightValue(i1, k1);
 		new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
 	}
@@ -97,5 +97,4 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterMossovyMountains;
 	}
-
 }

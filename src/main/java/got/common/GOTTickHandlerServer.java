@@ -129,7 +129,7 @@ public class GOTTickHandlerServer {
 			if (GOTFactionRelations.isNeedsLoad()) {
 				GOTFactionRelations.load();
 			}
-			if (GOTConquestGrid.needsLoad) {
+			if (GOTConquestGrid.isNeedsLoad()) {
 				GOTConquestGrid.loadAllZones();
 			}
 			for (WorldServer dimWorld : MinecraftServer.getServer().worldServers) {

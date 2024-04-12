@@ -1,7 +1,6 @@
 package got.common.world.biome.westeros;
 
 import got.client.sound.GOTMusicRegion;
-import got.client.sound.GOTMusicRegion.Sub;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -11,23 +10,23 @@ public abstract class GOTBiomeWesteros extends GOTBiome {
 	protected GOTBiomeWesteros(int i, boolean major) {
 		super(i, major);
 		setupStandardPlainsFauna();
-		addBiomeVariant(GOTBiomeVariant.FOREST);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.1f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.1f);
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
+		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LARCH, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_OLIVE, 0.1f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_ALMOND, 0.1f);
+		decorator.setGrassPerChunk(6);
+		decorator.setDoubleGrassPerChunk(1);
+		decorator.setFlowersPerChunk(3);
+		decorator.setDoubleFlowersPerChunk(1);
 		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 1000);
 		decorator.addTree(GOTTreeType.OAK_TALLER, 12);

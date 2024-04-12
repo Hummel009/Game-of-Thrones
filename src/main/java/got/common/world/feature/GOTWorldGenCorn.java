@@ -1,13 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not onInit the following classes:
- *  net.minecraft.block.Block
- *  net.minecraft.block.material.Material
- *  net.minecraft.world.IBlockAccess
- *  net.minecraft.world.World
- *  net.minecraft.world.gen.feature.WorldGenerator
- */
 package got.common.world.feature;
 
 import got.common.database.GOTBlocks;

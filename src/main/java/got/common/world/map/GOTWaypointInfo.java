@@ -4,10 +4,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTWaypointInfo implements GOTAbstractWaypoint {
-	private double shiftX;
-	private double shiftY;
-	private int rotation;
-	private GOTWaypoint waypoint;
+	private final GOTWaypoint waypoint;
+
+	private final double shiftX;
+	private final double shiftY;
+	private final int rotation;
 
 	public GOTWaypointInfo(GOTWaypoint waypoint, double shiftX, double shiftY, int rotation) {
 		this.shiftX = shiftX;
@@ -62,18 +63,18 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public double getX() {
-		return waypoint.getX() + shiftX;
+	public double getImgX() {
+		return waypoint.getImgX() + shiftX;
 	}
 
 	@Override
-	public int getXCoord() {
-		return GOTWaypoint.mapToWorldX(waypoint.getX() + shiftX);
+	public int getCoordX() {
+		return GOTWaypoint.mapToWorldX(waypoint.getImgX() + shiftX);
 	}
 
 	@Override
-	public double getY() {
-		return waypoint.getY() + shiftY;
+	public double getImgY() {
+		return waypoint.getImgY() + shiftY;
 	}
 
 	@Override
@@ -87,8 +88,8 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getZCoord() {
-		return GOTWaypoint.mapToWorldZ(waypoint.getY() + shiftY);
+	public int getCoordZ() {
+		return GOTWaypoint.mapToWorldZ(waypoint.getImgY() + shiftY);
 	}
 
 	@Override

@@ -10,11 +10,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenBoulder extends WorldGenerator {
-	public Block id;
-	public int meta;
-	public int minWidth;
-	public int maxWidth;
-	public int heightCheck = 3;
+	private final Block id;
+	private final int meta;
+	private final int minWidth;
+	private final int maxWidth;
+	private int heightCheck = 3;
 
 	public GOTWorldGenBoulder(Block i, int j, int k, int l) {
 		super(false);
@@ -83,5 +83,10 @@ public class GOTWorldGenBoulder extends WorldGenerator {
 	public GOTWorldGenBoulder setHeightCheck(int i) {
 		heightCheck = i;
 		return this;
+	}
+
+	@SuppressWarnings("unused")
+	public int getHeightCheck() {
+		return heightCheck;
 	}
 }

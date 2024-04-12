@@ -3,7 +3,7 @@ package got.common.world.genlayer;
 import net.minecraft.world.World;
 
 public class GOTGenLayerBiomeVariants extends GOTGenLayer {
-	public static int RANDOM_MAX = 10000;
+	public static final int RANDOM_MAX = 10000;
 
 	public GOTGenLayerBiomeVariants(long l) {
 		super(l);

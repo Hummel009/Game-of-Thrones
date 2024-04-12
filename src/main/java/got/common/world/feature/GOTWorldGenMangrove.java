@@ -11,10 +11,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenMangrove extends WorldGenAbstractTree {
-	public Block woodID = GOTBlocks.wood3;
-	public int woodMeta = 3;
-	public Block leafID = GOTBlocks.leaves3;
-	public int leafMeta = 3;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood3;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves3;
 
 	public GOTWorldGenMangrove(boolean flag) {
 		super(flag);
@@ -25,7 +23,6 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 		int height = 6 + random.nextInt(5);
 		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
-			boolean canGrow;
 			for (int j1 = j; j1 <= j + 1 + height; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -47,7 +44,7 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 				return false;
 			}
 			Block below = world.getBlock(i, j - 1, k);
-			canGrow = below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) || below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, Blocks.deadbush);
+			boolean canGrow = below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) || below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, Blocks.deadbush);
 			if (canGrow) {
 				int j1;
 				world.getBlock(i, j - 1, k).onPlantGrow(world, i, j - 1, k, i, j, k);
@@ -65,7 +62,8 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 							if (Math.abs(i2) == leafRange && Math.abs(k2) == leafRange && (random.nextInt(2) == 0 || j2 == 0) || !block.canBeReplacedByLeaves(world, i1, j1, k1)) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i1, j1, k1, leafID, leafMeta);
+							int leafMeta = 3;
+							setBlockAndNotifyAdequately(world, i1, j1, k1, LEAF_BLOCK, leafMeta);
 							if (random.nextInt(8) == 0 && world.getBlock(i1 - 1, j1, k1).isAir(world, i1 - 1, j1, k1)) {
 								growVines(world, random, i1 - 1, j1, k1, 8);
 							}
@@ -82,12 +80,13 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 						}
 					}
 				}
+				int woodMeta = 3;
 				for (j1 = 0; j1 < height; ++j1) {
 					Block block = world.getBlock(i, j + j1, k);
 					if (!block.isReplaceable(world, i, j + j1, k) && !block.isLeaves(world, i, j + j1, k)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i, j + j1, k, woodID, woodMeta);
+					setBlockAndNotifyAdequately(world, i, j + j1, k, WOOD_BLOCK, woodMeta);
 				}
 				for (int i1 = i - 1; i1 <= i + 1; ++i1) {
 					for (int k1 = k - 1; k1 <= k + 1; ++k1) {
@@ -102,7 +101,7 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 						int xWay = Integer.signum(i2);
 						int zWay = Integer.signum(k2);
 						while (world.getBlock(rootX, rootY, k1).isReplaceable(world, rootX, rootY, rootZ)) {
-							setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodID, woodMeta | 0xC);
+							setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, WOOD_BLOCK, woodMeta | 0xC);
 							world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
 							--rootY;
 							if (random.nextInt(3) > 0) {
@@ -118,14 +117,15 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growVines(World world, Random random, int i, int j, int k, int meta) {
-		setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
+	private void growVines(World world, Random random, int i, int j, int k, int meta) {
+		int j1 = j;
+		setBlockAndNotifyAdequately(world, i, j1, k, Blocks.vine, meta);
 		int vines = 0;
-		--j;
-		while (world.getBlock(i, j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(3)) {
-			setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
+		--j1;
+		while (world.getBlock(i, j1, k).isAir(world, i, j1, k) && vines < 2 + random.nextInt(3)) {
+			setBlockAndNotifyAdequately(world, i, j1, k, Blocks.vine, meta);
 			++vines;
-			--j;
+			--j1;
 		}
 	}
 }

@@ -4,22 +4,22 @@ import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 public class GOTBiomeLongSummer extends GOTBiomeEssos {
 	public GOTBiomeLongSummer(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		decorator.treesPerChunk = 0;
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
+		decorator.setTreesPerChunk(0);
+		decorator.setGrassPerChunk(6);
+		decorator.setDoubleGrassPerChunk(1);
+		decorator.setFlowersPerChunk(3);
+		decorator.setDoubleFlowersPerChunk(1);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
@@ -33,8 +33,8 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.VALYRIA;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VALYRIA;
 	}
 
 	@Override

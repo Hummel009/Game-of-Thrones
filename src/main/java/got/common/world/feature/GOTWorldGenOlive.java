@@ -12,13 +12,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenOlive extends WorldGenAbstractTree {
-	public int minHeight = 4;
-	public int maxHeight = 5;
-	public Block woodBlock = GOTBlocks.wood6;
-	public int woodMeta = 3;
-	public Block leafBlock = GOTBlocks.leaves6;
-	public int leafMeta = 3;
-	public int extraTrunk;
+	private Block woodBlock = GOTBlocks.wood6;
+	private Block leafBlock = GOTBlocks.leaves6;
+	private int woodMeta = 3;
+	private int leafMeta = 3;
+	private int minHeight = 4;
+	private int maxHeight = 5;
+	private int extraTrunk;
 
 	public GOTWorldGenOlive(boolean flag) {
 		super(flag);
@@ -74,8 +74,7 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 					}
 				}
 				for (j1 = leafStart; j1 <= leafTop; ++j1) {
-					int leafRange;
-					leafRange = j1 == leafTop ? 2 : j1 == leafStart ? 1 : 3;
+					int leafRange = j1 == leafTop ? 2 : j1 == leafStart ? 1 : 3;
 					for (int i13 = i - leafRange; i13 <= i + extraTrunk + leafRange; ++i13) {
 						for (int k13 = k - leafRange; k13 <= k + extraTrunk + leafRange; ++k13) {
 							Block block;

@@ -4,7 +4,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.layer.GenLayer;
 
 public abstract class GOTGenLayer extends GenLayer {
-	public GOTGenLayer gotParent;
+	protected GOTGenLayer gotParent;
 
 	protected GOTGenLayer(long l) {
 		super(l);

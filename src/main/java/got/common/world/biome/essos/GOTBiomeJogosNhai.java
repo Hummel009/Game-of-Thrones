@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.structure.essos.jogos.GOTStructureJogosSettlement;
 
 public class GOTBiomeJogosNhai extends GOTBiomeEssosPlains {
@@ -16,7 +16,7 @@ public class GOTBiomeJogosNhai extends GOTBiomeEssosPlains {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.JOGOS;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.JOGOS;
 	}
 }

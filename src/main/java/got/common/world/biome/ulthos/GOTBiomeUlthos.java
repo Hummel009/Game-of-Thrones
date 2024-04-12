@@ -1,14 +1,13 @@
 package got.common.world.biome.ulthos;
 
 import got.client.sound.GOTMusicRegion;
-import got.client.sound.GOTMusicRegion.Sub;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenBoulder;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -18,23 +17,23 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTBiomeUlthos extends GOTBiome {
-	public WorldGenerator boulderGen = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 3);
+	private static final WorldGenerator BOULDER_GEN = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
 	public GOTBiomeUlthos(int i, boolean major) {
 		super(i, major);
 		setupExoticFauna();
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-		decorator.biomeGemFactor = 3.0f;
-		decorator.biomeOreFactor = 3.0f;
-		decorator.treesPerChunk = 0;
-		decorator.logsPerChunk = 1;
-		decorator.grassPerChunk = 16;
-		decorator.doubleGrassPerChunk = 10;
-		decorator.cornPerChunk = 4;
+		biomeVariants.add(GOTBiomeVariant.FLOWERS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
+		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		decorator.setBiomeGemFactor(3.0f);
+		decorator.setBiomeOreFactor(3.0f);
+		decorator.setTreesPerChunk(0);
+		decorator.setLogsPerChunk(1);
+		decorator.setGrassPerChunk(16);
+		decorator.setDoubleGrassPerChunk(10);
+		decorator.setCornPerChunk(4);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_OAK_DEAD, 20);
 		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 1500);
@@ -59,7 +58,7 @@ public class GOTBiomeUlthos extends GOTBiome {
 				for (l = 0; l < boulders; ++l) {
 					i1 = i + random.nextInt(16) + 8;
 					k1 = k + random.nextInt(16) + 8;
-					boulderGen.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
+					BOULDER_GEN.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
 				}
 			}
 			if (random.nextInt(16) == 0) {
@@ -98,11 +97,11 @@ public class GOTBiomeUlthos extends GOTBiome {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ULTHOS;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ULTHOS;
 	}
 
-	public boolean isBushland() {
+	protected boolean isBushland() {
 		return true;
 	}
 }

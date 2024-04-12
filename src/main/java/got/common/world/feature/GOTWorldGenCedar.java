@@ -12,13 +12,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenCedar extends WorldGenAbstractTree {
-	public Block woodBlock = GOTBlocks.wood4;
-	public int woodMeta = 2;
-	public Block leafBlock = GOTBlocks.leaves4;
-	public int leafMeta = 2;
-	public int minHeight = 10;
-	public int maxHeight = 16;
-	public boolean hangingLeaves;
+	private Block woodBlock = GOTBlocks.wood4;
+	private Block leafBlock = GOTBlocks.leaves4;
+	private int woodMeta = 2;
+	private int leafMeta = 2;
+	private int minHeight = 10;
+	private int maxHeight = 16;
+	private boolean hangingLeaves;
 
 	public GOTWorldGenCedar(boolean flag) {
 		super(flag);
@@ -152,7 +152,7 @@ public class GOTWorldGenCedar extends WorldGenAbstractTree {
 		return this;
 	}
 
-	public void spawnLeaves(World world, Random random, int i, int j, int k, int leafRange) {
+	private void spawnLeaves(World world, Random random, int i, int j, int k, int leafRange) {
 		int leafRangeSq = leafRange * leafRange;
 		for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {
 			for (int k1 = k - leafRange; k1 <= k + leafRange; ++k1) {

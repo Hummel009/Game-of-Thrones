@@ -44,8 +44,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		mapRenderer.setSepia(true);
 		mapRenderer.setMapX(GOTWaypoint.worldToMapX(x));
 		mapRenderer.setMapY(GOTWaypoint.worldToMapZ(z));
-		double dx = theWaypoint.getX() - mapRenderer.getMapX();
-		double dy = theWaypoint.getY() - mapRenderer.getMapY();
+		double dx = theWaypoint.getImgX() - mapRenderer.getMapX();
+		double dy = theWaypoint.getImgY() - mapRenderer.getMapY();
 		double distSq = dx * dx + dy * dy;
 		double dist = Math.sqrt(distSq);
 		mapScaleFactor = dist / 100.0;
@@ -109,7 +109,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 
 	@Override
 	public void updateScreen() {
-		if (!chunkLoaded && GOTClientProxy.doesClientChunkExist(mc.theWorld, theWaypoint.getXCoord(), theWaypoint.getZCoord())) {
+		if (!chunkLoaded && GOTClientProxy.doesClientChunkExist(mc.theWorld, theWaypoint.getCoordX(), theWaypoint.getCoordZ())) {
 			chunkLoaded = true;
 		}
 		if (!playedSound) {
@@ -127,8 +127,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 			}
 		} else {
 			double dy;
-			double dx = theWaypoint.getX() - mapRenderer.getMapX();
-			double distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.getMapY()) * dy;
+			double dx = theWaypoint.getImgX() - mapRenderer.getMapX();
+			double distSq = dx * dx + (dy = theWaypoint.getImgY() - mapRenderer.getMapY()) * dy;
 			double dist = Math.sqrt(distSq);
 			if (dist <= mapScaleFactor) {
 				reachedWP = true;

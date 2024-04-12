@@ -14,15 +14,14 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class GOTWorldGenWillow extends WorldGenAbstractTree {
-	public Block woodBlock = GOTBlocks.wood6;
-	public int woodMeta = 1;
-	public Block leafBlock = GOTBlocks.leaves6;
-	public int leafMeta = 1;
-	public int minHeight = 8;
-	public int maxHeight = 13;
-	public boolean needsWater;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood6;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves6;
+	private static final int WOOD_META = 1;
+	private static final int LEAF_META = 1;
+	private boolean needsWater;
 
 	public GOTWorldGenWillow(boolean flag) {
 		super(flag);
@@ -31,6 +30,8 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		Block below;
+		int maxHeight = 13;
+		int minHeight = 8;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		boolean flag = true;
 		if (j >= 1 && height + 1 <= 256) {
@@ -97,13 +98,13 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 				if (random.nextFloat() < Math.abs(sin)) {
 					k1 = (int) (k1 + Math.signum(sin));
 				}
-				setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta);
+				setBlockAndNotifyAdequately(world, i1, j1, k1, WOOD_BLOCK, WOOD_META);
 			}
 			spawnLeafCluster(world, random, i1, j1, k1);
 			vineGrows.add(new ChunkCoordinates(i1, j1, k1));
 		}
 		for (int j1 = 0; j1 < height; ++j1) {
-			setBlockAndNotifyAdequately(world, i, j + j1, k, woodBlock, woodMeta);
+			setBlockAndNotifyAdequately(world, i, j + j1, k, WOOD_BLOCK, WOOD_META);
 			if (j1 != height - 1) {
 				continue;
 			}
@@ -119,7 +120,7 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 				}
 				int rootY = j + 1 + random.nextInt(2);
 				while (world.getBlock(i1, rootY, k1).isReplaceable(world, i1, rootY, k1)) {
-					setBlockAndNotifyAdequately(world, i1, rootY, k1, woodBlock, woodMeta | 0xC);
+					setBlockAndNotifyAdequately(world, i1, rootY, k1, WOOD_BLOCK, WOOD_META | 0xC);
 					world.getBlock(i1, rootY - 1, k1).onPlantGrow(world, i1, rootY - 1, k1, i1, rootY, k1);
 					--rootY;
 				}
@@ -131,14 +132,15 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 		return true;
 	}
 
-	public void growVines(World world, Random random, int i, int j, int k, int meta) {
-		setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.willowVines, meta);
+	private void growVines(World world, Random random, int i, int j, int k, int meta) {
+		int j1 = j;
+		setBlockAndNotifyAdequately(world, i, j1, k, GOTBlocks.willowVines, meta);
 		int vines = 0;
-		--j;
-		while (world.getBlock(i, j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(4)) {
-			setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.willowVines, meta);
+		--j1;
+		while (world.getBlock(i, j1, k).isAir(world, i, j1, k) && vines < 2 + random.nextInt(4)) {
+			setBlockAndNotifyAdequately(world, i, j1, k, GOTBlocks.willowVines, meta);
 			++vines;
-			--j;
+			--j1;
 		}
 	}
 
@@ -147,7 +149,7 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 		return this;
 	}
 
-	public void spawnLeafCluster(World world, Random random, int i, int j, int k) {
+	private void spawnLeafCluster(World world, Random random, int i, int j, int k) {
 		int leafRange = 3;
 		int leafRangeSq = leafRange * leafRange;
 		int leafRangeSqLess = (int) ((leafRange - 0.5) * (leafRange - 0.5));
@@ -159,17 +161,18 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 					int j2 = j1 - j;
 					int k2 = k1 - k;
 					int dist = i2 * i2 + j2 * j2 + k2 * k2;
-					int taxicab = Math.abs(i2) + Math.abs(j2) + Math.abs(k2);
+					//noinspection StreamToLoop
+					int taxicab = IntStream.of(i2, j2, k2).map(Math::abs).sum();
 					if (dist >= leafRangeSqLess && (dist >= leafRangeSq || random.nextInt(3) != 0) || taxicab > 4 || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i1, j1, k1, leafBlock, leafMeta);
+					setBlockAndNotifyAdequately(world, i1, j1, k1, LEAF_BLOCK, LEAF_META);
 				}
 			}
 		}
 	}
 
-	public void spawnVineCluster(World world, Random random, int i, int j, int k) {
+	private void spawnVineCluster(World world, Random random, int i, int j, int k) {
 		int leafRange = 3;
 		int leafRangeSq = leafRange * leafRange;
 		for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {
@@ -184,7 +187,7 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 					}
 					Block block = world.getBlock(i1, j1, k1);
 					int meta = world.getBlockMetadata(i1, j1, k1);
-					if (block != leafBlock || meta != leafMeta) {
+					if (block != LEAF_BLOCK || meta != LEAF_META) {
 						continue;
 					}
 					int vineChance = 2;

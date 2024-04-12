@@ -10,11 +10,11 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
-	public boolean isNatural;
-	public Block woodBlock;
-	public int woodMeta;
-	public Block leafBlock;
-	public int leafMeta;
+	private final boolean isNatural;
+	private final Block woodBlock;
+	private final int woodMeta;
+	private final Block leafBlock;
+	private final int leafMeta;
 
 	public GOTWorldGenDesertTrees(boolean flag, Block b1, int m1, Block b2, int m2) {
 		super(flag);
@@ -28,7 +28,6 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		Block below;
-		boolean isSoil;
 		int height = 3 + random.nextInt(3);
 		boolean flag = true;
 		if (!isNatural) {
@@ -54,7 +53,7 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 				flag = false;
 			}
 		}
-		isSoil = (below = world.getBlock(i, j - 1, k)).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) || isNatural && (below == Blocks.sand || below == Blocks.stone);
+		boolean isSoil = (below = world.getBlock(i, j - 1, k)).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) || isNatural && (below == Blocks.sand || below == Blocks.stone);
 		if (!isSoil) {
 			flag = false;
 		}
@@ -73,21 +72,17 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 				}
 				if (random.nextInt(3) != 0) {
 					switch (branch) {
-						case 0: {
+						case 0:
 							--i1;
 							break;
-						}
-						case 1: {
+						case 1:
 							++k1;
 							break;
-						}
-						case 2: {
+						case 2:
 							++i1;
 							break;
-						}
-						case 3: {
+						case 3:
 							--k1;
-						}
 					}
 				}
 				if (!isReplaceable(world, i1, j1, k1)) {

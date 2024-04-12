@@ -258,7 +258,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		BiomeGenBase biome = getBiome(world, 0, 0);
 		if (biome instanceof GOTBiome) {
 			GOTBiome.GrassBlockAndMeta gbm = ((GOTBiome) biome).getRandomGrass(random);
-			return new ItemStack(gbm.block, 1, gbm.meta);
+			return new ItemStack(gbm.getBlock(), 1, gbm.getMeta());
 		}
 		return new ItemStack(Blocks.tallgrass, 1, 1);
 	}

@@ -6,12 +6,11 @@ public class GOTBiomeLorathForest extends GOTBiomeLorath {
 	public GOTBiomeLorathForest(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		decorator.treesPerChunk = 10;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		decorator.setTreesPerChunk(10);
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}
-
 }

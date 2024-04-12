@@ -11,5 +11,4 @@ public class GOTBiomeSkagos extends GOTBiomeNorthWild {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterSkagos;
 	}
-
 }

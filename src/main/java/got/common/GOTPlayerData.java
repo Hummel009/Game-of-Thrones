@@ -931,8 +931,8 @@ public class GOTPlayerData {
 				}
 			}
 			entitiesToTransport.removeAll(removes);
-			int i = waypoint.getXCoord();
-			int k = waypoint.getZCoord();
+			int i = waypoint.getCoordX();
+			int k = waypoint.getCoordZ();
 			world.theChunkProviderServer.provideChunk(i >> 4, k >> 4);
 			int j = waypoint.getYCoord(world, i, k);
 			Entity playerMount = entityplayer.ridingEntity;
@@ -1515,7 +1515,7 @@ public class GOTPlayerData {
 		int baseMin = GOTLevelData.getWaypointCooldownMin();
 		int baseMax = GOTLevelData.getWaypointCooldownMax();
 		int useCount = getWPUseCount(wp);
-		double dist = entityplayer.getDistance(wp.getXCoord() + 0.5D, wp.getYCoordSaved(), wp.getZCoord() + 0.5D);
+		double dist = entityplayer.getDistance(wp.getCoordX() + 0.5D, wp.getYCoordSaved(), wp.getCoordZ() + 0.5D);
 		double time = baseMin;
 		double added = (baseMax - baseMin) * Math.pow(0.9D, useCount);
 		time += added;

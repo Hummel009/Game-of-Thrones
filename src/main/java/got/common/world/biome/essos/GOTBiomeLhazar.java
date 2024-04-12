@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.structure.essos.lhazar.GOTStructureLhazarSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
@@ -18,7 +18,7 @@ public class GOTBiomeLhazar extends GOTBiomeEssosPlains {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.LHAZAR;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.LHAZAR;
 	}
 }

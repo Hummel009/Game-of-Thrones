@@ -6,5 +6,4 @@ public class GOTBiomeSothoryosDesertCold extends GOTBiomeSothoryosDesert {
 		npcSpawnList.clear();
 		spawnableCreatureList.clear();
 	}
-
 }

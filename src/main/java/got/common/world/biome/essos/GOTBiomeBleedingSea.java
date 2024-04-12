@@ -19,5 +19,4 @@ public class GOTBiomeBleedingSea extends GOTBiomeJogosNhai {
 	public boolean getEnableRiver() {
 		return false;
 	}
-
 }

@@ -16,8 +16,11 @@ import net.minecraft.world.chunk.Chunk;
 import java.util.*;
 
 public class GOTBiomeVariantStorage {
-	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMap = new EnumMap<>(GOTDimension.class);
-	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMapClient = new EnumMap<>(GOTDimension.class);
+	private static final Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> CHUNK_VARIANT_MAP = new EnumMap<>(GOTDimension.class);
+	private static final Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> CHUNK_VARIANT_MAP_CLIENT = new EnumMap<>(GOTDimension.class);
+
+	private GOTBiomeVariantStorage() {
+	}
 
 	public static void clearAllVariants(World world) {
 		getDimensionChunkMap(world).clear();
@@ -32,17 +35,17 @@ public class GOTBiomeVariantStorage {
 		return getChunkBiomeVariants(world, getChunkKey(chunk));
 	}
 
-	public static byte[] getChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
+	private static byte[] getChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
 		return getDimensionChunkMap(world).get(chunk);
 	}
 
-	public static ChunkCoordIntPair getChunkKey(Chunk chunk) {
+	private static ChunkCoordIntPair getChunkKey(Chunk chunk) {
 		return new ChunkCoordIntPair(chunk.xPosition, chunk.zPosition);
 	}
 
-	public static Map<ChunkCoordIntPair, byte[]> getDimensionChunkMap(World world) {
+	private static Map<ChunkCoordIntPair, byte[]> getDimensionChunkMap(World world) {
 		GOTDimension dim;
-		Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> sourcemap = !world.isRemote ? chunkVariantMap : chunkVariantMapClient;
+		Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> sourcemap = world.isRemote ? CHUNK_VARIANT_MAP_CLIENT : CHUNK_VARIANT_MAP;
 		Map<ChunkCoordIntPair, byte[]> map = sourcemap.get(dim = GOTDimension.getCurrentDimension(world));
 		if (map == null) {
 			map = new HashMap<>();
@@ -99,7 +102,7 @@ public class GOTBiomeVariantStorage {
 		}
 	}
 
-	public static void sendUnwatchToPlayer(World world, Chunk chunk, EntityPlayerMP entityplayer) {
+	public static void sendUnwatchToPlayer(Chunk chunk, EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketBiomeVariantsUnwatch(chunk.xPosition, chunk.zPosition);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}

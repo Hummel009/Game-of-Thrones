@@ -9,10 +9,10 @@ public class GOTBiomeSothoryosTaiga extends GOTBiomeSothoryosForest {
 	public GOTBiomeSothoryosTaiga(int i, boolean major) {
 		super(i, major);
 		setupTaigaFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
 		fillerBlock = Blocks.snow;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.PINE, 20);

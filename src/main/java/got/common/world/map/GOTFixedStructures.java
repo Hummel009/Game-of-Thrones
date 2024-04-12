@@ -8,9 +8,10 @@ import net.minecraft.world.World;
 public enum GOTFixedStructures {
 	NIGHT_KING(613, 314);
 
-	public static long nanoTimeElapsed;
-	private int xCoord;
-	private int zCoord;
+	private static long nanoTimeElapsed;
+
+	private final int xCoord;
+	private final int zCoord;
 
 	GOTFixedStructures(double x, double z) {
 		xCoord = GOTWaypoint.mapToWorldX(x);
@@ -25,14 +26,13 @@ public enum GOTFixedStructures {
 			if (GOTMountains.mountainAt(x, z)) {
 				mountainNear = true;
 			}
-			structureNear = structureNear(world, x, z, 256);
+			structureNear = structureNear(x, z, 256);
 			if (!structureNear) {
 				for (GOTWaypoint wp : GOTWaypoint.values()) {
 					double dz;
-					double range;
-					double dx = x - wp.getXCoord();
-					double distSq = dx * dx + (dz = z - wp.getZCoord()) * dz;
-					range = 256.0;
+					double dx = x - wp.getCoordX();
+					double distSq = dx * dx + (dz = z - wp.getCoordZ()) * dz;
+					double range = 256.0;
 					if (distSq >= range * range) {
 						continue;
 					}
@@ -53,23 +53,20 @@ public enum GOTFixedStructures {
 	}
 
 	public static boolean fixedAt(int i, int k, GOTAbstractWaypoint waypoint) {
-		int x = GOTWaypoint.mapToWorldX(waypoint.getX());
-		int z = GOTWaypoint.mapToWorldZ(waypoint.getY());
+		int x = GOTWaypoint.mapToWorldX(waypoint.getImgX());
+		int z = GOTWaypoint.mapToWorldZ(waypoint.getImgY());
 		return fixedAtfixedAtMapImageCoords(i, k, x, z);
 	}
 
-	public static boolean fixedAtfixedAtMapImageCoords(int i, int k, int x, int z) {
+	private static boolean fixedAtfixedAtMapImageCoords(int i, int k, int x, int z) {
 		return i >> 4 == x >> 4 && k >> 4 == z >> 4;
 	}
 
 	public static boolean hasMapFeatures(World world) {
-		if (!GOTConfig.generateMapFeatures) {
-			return false;
-		}
-		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return GOTConfig.generateMapFeatures && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
 
-	public static boolean structureNear(World world, int x, int z, int range) {
+	public static boolean structureNear(int x, int z, int range) {
 		for (GOTFixedStructures str : values()) {
 			double dx = x - str.xCoord;
 			double dz = z - str.zCoord;
@@ -81,6 +78,15 @@ public enum GOTFixedStructures {
 			return true;
 		}
 		return false;
+	}
+
+	@SuppressWarnings("unused")
+	private static long getNanoTimeElapsed() {
+		return nanoTimeElapsed;
+	}
+
+	public static void setNanoTimeElapsed(long nanoTimeElapsed) {
+		GOTFixedStructures.nanoTimeElapsed = nanoTimeElapsed;
 	}
 
 	public double distanceSqTo(EntityLivingBase entity) {

@@ -30,18 +30,19 @@ import java.util.Map;
 import java.util.Random;
 
 public class GOTWorldChunkManager extends WorldChunkManager {
-	public static int LAYER_BIOME;
-	public static int LAYER_VARIANTS_LARGE = 1;
-	public static int LAYER_VARIANTS_SMALL = 2;
-	public static int LAYER_VARIANTS_LAKES = 3;
-	public static int LAYER_VARIANTS_RIVERS = 4;
-	public World worldObj;
-	public GOTDimension gotDimension;
-	public GOTGenLayer[] chunkGenLayers;
-	public GOTGenLayer[] worldLayers;
-	public BiomeCache biomeCache;
-	public Map<GOTStructureBaseSettlement, GOTSettlementPositionCache> settlementCacheMap = new HashMap<>();
-	public Map<MapGenStructure, GOTSettlementPositionCache> structureCacheMap = new HashMap<>();
+	private static final GOTBiomeVariantList EMPTY_LIST = new GOTBiomeVariantList();
+	private static final int LAYER_BIOME = 0;
+
+	private final Map<GOTStructureBaseSettlement, GOTSettlementPositionCache> settlementCacheMap = new HashMap<>();
+	private final Map<MapGenStructure, GOTSettlementPositionCache> structureCacheMap = new HashMap<>();
+
+	private final BiomeCache biomeCache;
+	private final World worldObj;
+
+	private final GOTDimension gotDimension;
+
+	private GOTGenLayer[] chunkGenLayers;
+	private GOTGenLayer[] worldLayers;
 
 	public GOTWorldChunkManager(World world, GOTDimension dim) {
 		worldObj = world;
@@ -80,7 +81,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int k3 = k2 - k1 + 1;
 		BiomeGenBase[] biomes = getBiomesForGeneration(null, i1, k1, i3, k3);
 		for (GOTBiomeVariant v : getVariantsChunkGen(null, i1, k1, i3, k3, biomes)) {
-			if (v.hillFactor > 1.0f || v.treeFactor > 1.0f || v.disableSettlements || v.absoluteHeight && v.absoluteHeightLevel < 0.0f) {
+			if (v.getHillFactor() > 1.0f || v.getTreeFactor() > 1.0f || v.isDisableSettlements() || v.isAbsoluteHeight() && v.getAbsoluteHeightLevel() < 0.0f) {
 				return false;
 			}
 		}
@@ -120,21 +121,22 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 
 	@Override
 	public BiomeGenBase[] getBiomeGenAt(BiomeGenBase[] biomes, int i, int k, int xSize, int zSize, boolean useCache) {
+		BiomeGenBase[] bms = biomes;
 		GOTIntCache.get(worldObj).resetIntCache();
-		if (biomes == null || biomes.length < xSize * zSize) {
-			biomes = new BiomeGenBase[xSize * zSize];
+		if (bms == null || bms.length < xSize * zSize) {
+			bms = new BiomeGenBase[xSize * zSize];
 		}
 		if (useCache && xSize == 16 && zSize == 16 && (i & 0xF) == 0 && (k & 0xF) == 0) {
 			BiomeGenBase[] cachedBiomes = biomeCache.getCachedBiomes(i, k);
-			System.arraycopy(cachedBiomes, 0, biomes, 0, 16 * 16);
-			return biomes;
+			System.arraycopy(cachedBiomes, 0, bms, 0, 16 * 16);
+			return bms;
 		}
 		int[] ints = worldLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);
 		for (int l = 0; l < xSize * zSize; ++l) {
 			int biomeID = ints[l];
-			biomes[l] = gotDimension.getBiomeList()[biomeID];
+			bms[l] = gotDimension.getBiomeList()[biomeID];
 		}
-		return biomes;
+		return bms;
 	}
 
 	@Override
@@ -144,16 +146,17 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 
 	@Override
 	public BiomeGenBase[] getBiomesForGeneration(BiomeGenBase[] biomes, int i, int k, int xSize, int zSize) {
+		BiomeGenBase[] biomes1 = biomes;
 		GOTIntCache.get(worldObj).resetIntCache();
-		if (biomes == null || biomes.length < xSize * zSize) {
-			biomes = new BiomeGenBase[xSize * zSize];
+		if (biomes1 == null || biomes1.length < xSize * zSize) {
+			biomes1 = new BiomeGenBase[xSize * zSize];
 		}
 		int[] ints = chunkGenLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);
 		for (int l = 0; l < xSize * zSize; ++l) {
 			int biomeID = ints[l];
-			biomes[l] = gotDimension.getBiomeList()[biomeID];
+			biomes1[l] = gotDimension.getBiomeList()[biomeID];
 		}
-		return biomes;
+		return biomes1;
 	}
 
 	public GOTBiomeVariant getBiomeVariantAt(int i, int k) {
@@ -178,7 +181,8 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		return getBiomeVariantsFromLayers(variants, i, k, xSize, zSize, null, false);
 	}
 
-	public GOTBiomeVariant[] getBiomeVariantsFromLayers(GOTBiomeVariant[] variants, int i, int k, int xSize, int zSize, BiomeGenBase[] biomeSource, boolean isChunkGeneration) {
+	private GOTBiomeVariant[] getBiomeVariantsFromLayers(GOTBiomeVariant[] variants, int i, int k, int xSize, int zSize, BiomeGenBase[] biomeSource, boolean isChunkGeneration) {
+		GOTBiomeVariant[] variants1 = variants;
 		GOTIntCache.get(worldObj).resetIntCache();
 		BiomeGenBase[] biomes = new BiomeGenBase[xSize * zSize];
 		if (biomeSource != null) {
@@ -191,13 +195,17 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 				}
 			}
 		}
-		if (variants == null || variants.length < xSize * zSize) {
-			variants = new GOTBiomeVariant[xSize * zSize];
+		if (variants1 == null || variants1.length < xSize * zSize) {
+			variants1 = new GOTBiomeVariant[xSize * zSize];
 		}
 		GOTGenLayer[] sourceGenLayers = isChunkGeneration ? chunkGenLayers : worldLayers;
+		int LAYER_VARIANTS_LARGE = 1;
 		GOTGenLayer variantsLarge = sourceGenLayers[LAYER_VARIANTS_LARGE];
+		int LAYER_VARIANTS_SMALL = 2;
 		GOTGenLayer variantsSmall = sourceGenLayers[LAYER_VARIANTS_SMALL];
+		int LAYER_VARIANTS_LAKES = 3;
 		GOTGenLayer variantsLakes = sourceGenLayers[LAYER_VARIANTS_LAKES];
+		int LAYER_VARIANTS_RIVERS = 4;
 		GOTGenLayer variantsRivers = sourceGenLayers[LAYER_VARIANTS_RIVERS];
 		int[] variantsLargeInts = variantsLarge.getInts(worldObj, i, k, xSize, zSize);
 		int[] variantsSmallInts = variantsSmall.getInts(worldObj, i, k, xSize, zSize);
@@ -218,7 +226,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 				boolean[] flags = GOTFixedStructures._mountainNear_structureNear(worldObj, xPos, zPos);
 				boolean mountainNear = flags[0];
 				boolean structureNear = flags[1];
-				boolean fixedSettlementNear = biome.decorator.anyFixedSettlementsAt(worldObj, xPos, zPos);
+				boolean fixedSettlementNear = biome.getDecorator().anyFixedSettlementsAt(worldObj, xPos, zPos);
 				if (fixedSettlementNear) {
 					variant = GOTBiomeVariant.STEPPE;
 				} else {
@@ -226,8 +234,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 						float variantChance = biome.getVariantChance();
 						if (variantChance > 0.0f) {
 							for (int pass = 0; pass <= 1; ++pass) {
-								GOTBiomeVariantList variantList;
-								variantList = pass == 0 ? biome.getBiomeVariantsLarge() : biome.getBiomeVariantsSmall();
+								GOTBiomeVariantList variantList = pass == 0 ? EMPTY_LIST : biome.getBiomeVariants();
 								if (variantList.isEmpty()) {
 									continue;
 								}
@@ -260,17 +267,18 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 						variant = GOTBiomeVariant.RIVER;
 					}
 				}
-				variants[index] = variant;
+				variants1[index] = variant;
 			}
 		}
-		return variants;
+		return variants1;
 	}
 
 	@Override
 	public float[] getRainfall(float[] rainfall, int i, int k, int xSize, int zSize) {
+		float[] rainfall1 = rainfall;
 		GOTIntCache.get(worldObj).resetIntCache();
-		if (rainfall == null || rainfall.length < xSize * zSize) {
-			rainfall = new float[xSize * zSize];
+		if (rainfall1 == null || rainfall1.length < xSize * zSize) {
+			rainfall1 = new float[xSize * zSize];
 		}
 		int[] ints = worldLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);
 		for (int l = 0; l < xSize * zSize; ++l) {
@@ -279,9 +287,9 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 			if (f > 1.0f) {
 				f = 1.0f;
 			}
-			rainfall[l] = f;
+			rainfall1[l] = f;
 		}
-		return rainfall;
+		return rainfall1;
 	}
 
 	public GOTSettlementPositionCache getSettlementCache(GOTStructureBaseSettlement settlement) {
@@ -310,7 +318,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		return getBiomeGenAt(biomes, i, k, xSize, zSize, true);
 	}
 
-	public void setupGenLayers() {
+	private void setupGenLayers() {
 		int i;
 		long seed = worldObj.getSeed() + 1954L;
 		chunkGenLayers = GOTGenLayerWorld.createWorld(gotDimension, worldObj.getWorldInfo().getTerrainType());

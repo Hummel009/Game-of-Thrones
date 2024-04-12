@@ -18,10 +18,7 @@ import got.common.quest.GOTMiniQuestFactory;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.genlayer.GOTGenLayerWorld;
-import got.common.world.map.GOTBeziers;
-import got.common.world.map.GOTMapLabels;
-import got.common.world.map.GOTMountains;
-import got.common.world.map.GOTWaypoint;
+import got.common.world.map.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -383,10 +380,28 @@ public class GOTAPI {
 	 * @apiNote Should be used at the FMLInitializationEvent or later.
 	 */
 	public static void clearBezierDataBase() {
-		GOTBeziers.allBeziers.clear();
-		GOTBeziers.roadPointDatabase = new GOTBeziers.BezierPointDatabase();
-		GOTBeziers.wallPointDatabase = new GOTBeziers.BezierPointDatabase();
-		GOTBeziers.linkerPointDatabase = new GOTBeziers.BezierPointDatabase();
+		GOTBeziers.CONTENT.clear();
+		GOTBeziers.setRoadPointDatabase(new GOTBeziers.BezierPointDatabase());
+		GOTBeziers.setWallPointDatabase(new GOTBeziers.BezierPointDatabase());
+		GOTBeziers.setLinkerPointDatabase(new GOTBeziers.BezierPointDatabase());
+	}
+
+	/**
+	 * @apiNote Creates waypoint at needed X, Z (pixel coords on map.png)
+	 */
+	public static GOTAbstractWaypoint createAnonymousWaypoint(double targetX, double targetY) {
+		double minDistance = Double.POSITIVE_INFINITY;
+		GOTWaypoint closestWaypoint = null;
+
+		for (GOTWaypoint waypoint : GOTWaypoint.values()) {
+			double distance = Math.sqrt(Math.pow(waypoint.getImgX() - targetX, 2) + Math.pow(waypoint.getImgY() - targetY, 2));
+			if (distance < minDistance) {
+				minDistance = distance;
+				closestWaypoint = waypoint;
+			}
+		}
+
+		return new GOTWaypointInfo(closestWaypoint, targetX - closestWaypoint.getImgX(), targetY - closestWaypoint.getImgY(), 0);
 	}
 
 	/**
@@ -750,19 +765,19 @@ public class GOTAPI {
 	public static void setServerMapImage(ResourceLocation res) {
 		BufferedImage img = getImage(getInputStream(res));
 		if (img != null) {
-			GOTGenLayerWorld.imageWidth = img.getWidth();
-			GOTGenLayerWorld.imageHeight = img.getHeight();
-			int[] colors = img.getRGB(0, 0, GOTGenLayerWorld.imageWidth, GOTGenLayerWorld.imageHeight, null, 0, GOTGenLayerWorld.imageWidth);
-			GOTGenLayerWorld.biomeImageData = new byte[GOTGenLayerWorld.imageWidth * GOTGenLayerWorld.imageHeight];
+			GOTGenLayerWorld.setImageWidth(img.getWidth());
+			GOTGenLayerWorld.setImageHeight(img.getHeight());
+			int[] colors = img.getRGB(0, 0, GOTGenLayerWorld.getImageWidth(), GOTGenLayerWorld.getImageHeight(), null, 0, GOTGenLayerWorld.getImageWidth());
+			GOTGenLayerWorld.setBiomeImageData(new byte[GOTGenLayerWorld.getImageWidth() * GOTGenLayerWorld.getImageHeight()]);
 			for (int i = 0; i < colors.length; ++i) {
 				int color = colors[i];
 				Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
 				if (biomeID != null) {
-					GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
+					GOTGenLayerWorld.getBiomeImageData()[i] = (byte) biomeID.intValue();
 					continue;
 				}
-				GOTLog.getLogger().error("Found unknown biome on map: {} at location: {}, {}", Integer.toHexString(color), i % GOTGenLayerWorld.imageWidth, i / GOTGenLayerWorld.imageWidth);
-				GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
+				GOTLog.getLogger().error("Found unknown biome on map: {} at location: {}, {}", Integer.toHexString(color), i % GOTGenLayerWorld.getImageWidth(), i / GOTGenLayerWorld.getImageWidth());
+				GOTGenLayerWorld.getBiomeImageData()[i] = (byte) GOTBiome.ocean.biomeID;
 			}
 		}
 	}

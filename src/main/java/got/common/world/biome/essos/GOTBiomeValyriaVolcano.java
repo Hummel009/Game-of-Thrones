@@ -15,14 +15,12 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		super(i, major);
 		topBlock = Blocks.stone;
 		fillerBlock = Blocks.stone;
-		decorator.treesPerChunk = 0;
+		decorator.setTreesPerChunk(0);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreValyrian, 3), 2.0f, 0, 16);
 	}
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int i1;
-		int k1;
 		int i12;
 		int j1;
 		int l;
@@ -35,8 +33,8 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 			lavaGen.generate(world, random, i12, j1, k13);
 		}
 		random.nextInt(1);
-		i1 = i + random.nextInt(16) + 8;
-		k1 = k + random.nextInt(16) + 8;
+		int i1 = i + random.nextInt(16) + 8;
+		int k1 = k + random.nextInt(16) + 8;
 		j1 = world.getHeightValue(i1, k1);
 		new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
 	}
@@ -50,5 +48,4 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 	public boolean getEnableRiver() {
 		return false;
 	}
-
 }

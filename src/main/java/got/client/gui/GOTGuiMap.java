@@ -693,8 +693,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float biomePosZ = posY + (j - mapYMin - (float) mapHeight / 2) / zoomScale;
 				int biomePosX_int = MathHelper.floor_double(biomePosX);
 				GOTBiome biome = GOTGenLayerWorld.getBiomeOrOcean(biomePosX_int, MathHelper.floor_double(biomePosZ));
-				mouseXCoord = Math.round((biomePosX - GOTGenLayerWorld.ORIGIN_X) * GOTGenLayerWorld.scale);
-				mouseZCoord = Math.round((biomePosZ - GOTGenLayerWorld.ORIGIN_Z) * GOTGenLayerWorld.scale);
+				mouseXCoord = Math.round((biomePosX - GOTGenLayerWorld.ORIGIN_X) * GOTGenLayerWorld.SCALE);
+				mouseZCoord = Math.round((biomePosZ - GOTGenLayerWorld.ORIGIN_Z) * GOTGenLayerWorld.SCALE);
 				String biomeName = biome.getBiomeDisplayName();
 				String coords = StatCollector.translateToLocalFormatted("got.gui.map.coords", mouseXCoord, mouseZCoord);
 				String teleport = StatCollector.translateToLocalFormatted("got.gui.map.tp", GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_MAP_TELEPORT.getKeyCode()));
@@ -1035,18 +1035,18 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int zMax = zoneBorders[3];
 			float x = (xMin + xMax) / 2.0f;
 			float z = (zMin + zMax) / 2.0f;
-			posX = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
-			posY = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
+			posX = x / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_X;
+			posY = z / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_Z;
 			int zoneWidth = xMax - xMin;
 			int zoneHeight = zMax - zMin;
-			double mapZoneWidth = (double) zoneWidth / GOTGenLayerWorld.scale;
-			double mapZoneHeight = (double) zoneHeight / GOTGenLayerWorld.scale;
+			double mapZoneWidth = (double) zoneWidth / GOTGenLayerWorld.SCALE;
+			double mapZoneHeight = (double) zoneHeight / GOTGenLayerWorld.SCALE;
 			int zoomPowerWidth = MathHelper.floor_double(Math.log(mapWidth / mapZoneWidth) / Math.log(2.0));
 			int zoomPowerHeight = MathHelper.floor_double(Math.log(mapHeight / mapZoneHeight) / Math.log(2.0));
 			prevZoomPower = zoomPower = Math.min(zoomPowerWidth, zoomPowerHeight);
 		} else if (mc.thePlayer != null) {
-			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_X;
-			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_Z;
+			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_X;
+			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_Z;
 		}
 		prevPosX = posX;
 		prevPosY = posY;
@@ -1244,7 +1244,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float[] pos;
 				boolean unlocked = waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
-				if (isWaypointVisible(waypoint) && (!hidden || unlocked) && (distToWP = Math.sqrt((dx = (pos = transformCoords(waypoint.getXCoord(), waypoint.getZCoord()))[0] - i) * dx + (dy = pos[1] - j) * dy)) <= 5.0 && distToWP <= distanceSelectedWP) {
+				if (isWaypointVisible(waypoint) && (!hidden || unlocked) && (distToWP = Math.sqrt((dx = (pos = transformCoords(waypoint.getCoordX(), waypoint.getCoordZ()))[0] - i) * dx + (dy = pos[1] - j) * dy)) <= 5.0 && distToWP <= distanceSelectedWP) {
 					selectedWaypoint = waypoint;
 					distanceSelectedWP = distToWP;
 				}
@@ -1335,7 +1335,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			bezierZoomlerp = 1.0f;
 		}
 		if (bezierZoomlerp > 0.0f) {
-			for (GOTBeziers bezier : GOTBeziers.allBeziers) {
+			for (GOTBeziers bezier : GOTBeziers.CONTENT) {
 				int interval = Math.round(400.0f / zoomScaleStable);
 				interval = Math.max(interval, 1);
 				for (int i = 0; i < bezier.getBezierPoints().length; i += interval) {
@@ -1565,12 +1565,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		int mapYMax_W = mapYMax;
 		float mapScaleX = mapWidth / zoomScale;
 		float mapScaleY = mapHeight / zoomScale;
-		double minU = (double) (posX - mapScaleX / 2.0f) / GOTGenLayerWorld.imageWidth;
-		double maxU = (double) (posX + mapScaleX / 2.0f) / GOTGenLayerWorld.imageWidth;
-		double minV = (double) (posY - mapScaleY / 2.0f) / GOTGenLayerWorld.imageHeight;
-		double maxV = (double) (posY + mapScaleY / 2.0f) / GOTGenLayerWorld.imageHeight;
+		double minU = (double) (posX - mapScaleX / 2.0f) / GOTGenLayerWorld.getImageWidth();
+		double maxU = (double) (posX + mapScaleX / 2.0f) / GOTGenLayerWorld.getImageWidth();
+		double minV = (double) (posY - mapScaleY / 2.0f) / GOTGenLayerWorld.getImageHeight();
+		double maxV = (double) (posY + mapScaleY / 2.0f) / GOTGenLayerWorld.getImageHeight();
 		if (minU < 0.0) {
-			mapXMin_W = mapXMin + (int) Math.round((0.0 - minU) * GOTGenLayerWorld.imageWidth * zoomScale);
+			mapXMin_W = mapXMin + (int) Math.round((0.0 - minU) * GOTGenLayerWorld.getImageWidth() * zoomScale);
 			minU = 0.0;
 			if (maxU < 0.0) {
 				maxU = 0.0;
@@ -1578,7 +1578,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		if (maxU > 1.0) {
-			mapXMax_W = mapXMax - (int) Math.round((maxU - 1.0) * GOTGenLayerWorld.imageWidth * zoomScale);
+			mapXMax_W = mapXMax - (int) Math.round((maxU - 1.0) * GOTGenLayerWorld.getImageWidth() * zoomScale);
 			maxU = 1.0;
 			if (minU > 1.0) {
 				minU = 1.0;
@@ -1586,7 +1586,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		if (minV < 0.0) {
-			mapYMin_W = mapYMin + (int) Math.round((0.0 - minV) * GOTGenLayerWorld.imageHeight * zoomScale);
+			mapYMin_W = mapYMin + (int) Math.round((0.0 - minV) * GOTGenLayerWorld.getImageHeight() * zoomScale);
 			minV = 0.0;
 			if (maxV < 0.0) {
 				maxV = 0.0;
@@ -1594,7 +1594,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		if (maxV > 1.0) {
-			mapYMax_W = mapYMax - (int) Math.round((maxV - 1.0) * GOTGenLayerWorld.imageHeight * zoomScale);
+			mapYMax_W = mapYMax - (int) Math.round((maxV - 1.0) * GOTGenLayerWorld.getImageHeight() * zoomScale);
 			maxV = 1.0;
 			if (minV > 1.0) {
 				minV = 1.0;
@@ -1832,7 +1832,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				boolean unlocked = mc.thePlayer != null && waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
 				if ((isWaypointVisible(waypoint) || overrideToggles) && (!hidden || unlocked)) {
-					float[] pos = transformCoords(waypoint.getXCoord(), waypoint.getZCoord());
+					float[] pos = transformCoords(waypoint.getCoordX(), waypoint.getCoordZ());
 					float x = pos[0];
 					float y = pos[1];
 					int clip = 200;
@@ -1900,8 +1900,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	private void renderWaypointTooltip(GOTAbstractWaypoint waypoint, boolean selected) {
 		String name = waypoint.getDisplayName();
-		int wpX = waypoint.getXCoord();
-		int wpZ = waypoint.getZCoord();
+		int wpX = waypoint.getCoordX();
+		int wpZ = waypoint.getCoordZ();
 		int wpY = waypoint.getYCoordSaved();
 		String coords = wpY >= 0 ? StatCollector.translateToLocalFormatted("got.gui.map.coordsY", wpX, wpY, wpZ) : StatCollector.translateToLocalFormatted("got.gui.map.coords", wpX, wpZ);
 		String loreText = waypoint.getLoreText(mc.thePlayer);
@@ -2150,8 +2150,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	private float[] transformCoords(float x, float z) {
-		float x1 = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
-		float z1 = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
+		float x1 = x / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_X;
+		float z1 = z / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_Z;
 		return transformMapCoords(x1, z1);
 	}
 

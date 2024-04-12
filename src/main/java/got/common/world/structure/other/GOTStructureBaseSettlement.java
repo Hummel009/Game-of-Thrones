@@ -50,7 +50,7 @@ public abstract class GOTStructureBaseSettlement {
 
 	public void affix(GOTAbstractWaypoint... wps) {
 		for (GOTAbstractWaypoint wp : wps) {
-			LocationInfo loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getInstance());
+			LocationInfo loc = new LocationInfo(wp.getCoordX(), wp.getCoordZ(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getInstance());
 			fixedLocations.add(loc);
 		}
 	}
@@ -278,7 +278,7 @@ public abstract class GOTStructureBaseSettlement {
 				if (!anythingNear) {
 					anythingNear = GOTMountains.mountainNear(i1, k1, diagRange);
 					if (!anythingNear) {
-						anythingNear = GOTFixedStructures.structureNear(world, i1, k1, diagRange);
+						anythingNear = GOTFixedStructures.structureNear(i1, k1, diagRange);
 					}
 				}
 				if (!anythingNear) {

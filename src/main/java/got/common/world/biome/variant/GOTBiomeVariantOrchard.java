@@ -1,7 +1,6 @@
 package got.common.world.biome.variant;
 
 import com.google.common.math.IntMath;
-import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBeziers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -13,14 +12,14 @@ import java.util.Random;
 
 public class GOTBiomeVariantOrchard extends GOTBiomeVariant {
 	public GOTBiomeVariantOrchard(int i, String s) {
-		super(i, s, GOTBiomeVariant.VariantScale.SMALL);
+		super(i, s);
 		setHeight(0.0f, 0.4f);
 		setTrees(0.0f);
 		disableSettlements();
 	}
 
 	@Override
-	public void decorateVariant(World world, Random random, int i, int k, GOTBiome biome) {
+	public void decorateVariant(World world, Random random, int i, int k) {
 		for (int i1 : new int[]{i + 3, i + 11}) {
 			int k1 = k + 8;
 			int j1 = world.getHeightValue(i1, k1);
@@ -30,7 +29,7 @@ public class GOTBiomeVariantOrchard extends GOTBiomeVariant {
 	}
 
 	@Override
-	public void generateVariantTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int height, GOTBiome biome) {
+	public void generateVariantTerrain(Block[] blocks, byte[] meta, int i, int k) {
 		int chunkX = i & 0xF;
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;

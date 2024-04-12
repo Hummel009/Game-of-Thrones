@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTGenLayerClassicBiomes extends GOTGenLayer {
-	public GOTDimension dimension;
+	private final GOTDimension dimension;
 
 	public GOTGenLayerClassicBiomes(long l, GOTGenLayer layer, GOTDimension dim) {
 		super(l);

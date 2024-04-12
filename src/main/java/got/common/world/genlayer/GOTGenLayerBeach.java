@@ -6,9 +6,11 @@ import got.common.world.biome.other.GOTBiomeBeach;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import java.util.stream.IntStream;
+
 public class GOTGenLayerBeach extends GOTGenLayer {
-	public GOTDimension dimension;
-	public BiomeGenBase targetBiome;
+	private final GOTDimension dimension;
+	private final BiomeGenBase targetBiome;
 
 	public GOTGenLayerBeach(long l, GOTGenLayer layer, GOTDimension dim, BiomeGenBase target) {
 		super(l);
@@ -32,9 +34,10 @@ public class GOTGenLayerBeach extends GOTGenLayer {
 					int biome2 = biomes[i1 + 1 + 1 + (k1 + 1) * (xSize + 2)];
 					int biome3 = biomes[i1 + 1 - 1 + (k1 + 1) * (xSize + 2)];
 					int biome4 = biomes[i1 + 1 + (k1 + 1 + 1) * (xSize + 2)];
-					if (biome1 == targetBiome.biomeID || biome2 == targetBiome.biomeID || biome3 == targetBiome.biomeID || biome4 == targetBiome.biomeID) {
+					//noinspection StreamToLoop
+					if (IntStream.of(biome1, biome2, biome3, biome4).anyMatch(j -> j == targetBiome.biomeID)) {
 						if (!(biome instanceof GOTBiomeBeach)) {
-							newBiomeID = biome.decorator.whiteSand ? GOTBiome.beachWhite.biomeID : nextInt(20) == 0 ? GOTBiome.beachGravel.biomeID : GOTBiome.beach.biomeID;
+							newBiomeID = (biome.getDecorator().isWhiteSand() ? GOTBiome.beachWhite : nextInt(20) == 0 ? GOTBiome.beachGravel : GOTBiome.beach).biomeID;
 						}
 					}
 				}

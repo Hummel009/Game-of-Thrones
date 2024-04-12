@@ -18,16 +18,16 @@ import java.util.Random;
 public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBiome.Desert {
 	public GOTBiomeCannibalSands(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
 		variantChance = 0.3f;
-		decorator.deadBushPerChunk = 2;
-		decorator.treesPerChunk = 0;
-		decorator.logsPerChunk = 1;
-		decorator.grassPerChunk = 16;
-		decorator.doubleGrassPerChunk = 10;
+		decorator.setDeadBushPerChunk(2);
+		decorator.setTreesPerChunk(0);
+		decorator.setLogsPerChunk(1);
+		decorator.setGrassPerChunk(16);
+		decorator.setDoubleGrassPerChunk(10);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
@@ -80,8 +80,8 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBio
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
-		double d1 = biomeTerrainNoise.func_151601_a(i * 0.07, k * 0.07);
-		double d2 = biomeTerrainNoise.func_151601_a(i * 0.4, k * 0.4);
+		double d1 = BIOME_TERRAIN_NOISE.func_151601_a(i * 0.07, k * 0.07);
+		double d2 = BIOME_TERRAIN_NOISE.func_151601_a(i * 0.4, k * 0.4);
 		d2 *= 0.6;
 		if (d1 + d2 > 0.7) {
 			topBlock = Blocks.grass;

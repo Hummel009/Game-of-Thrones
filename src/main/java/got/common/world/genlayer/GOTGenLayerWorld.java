@@ -21,19 +21,18 @@ import java.util.zip.ZipFile;
 public class GOTGenLayerWorld extends GOTGenLayer {
 	public static final int ORIGIN_X = 653;
 	public static final int ORIGIN_Z = 870;
-	public static int scalePower = 7;
-	public static byte[] biomeImageData;
-	public static int scale = IntMath.pow(2, 7);
-	public static int imageWidth;
-	public static int imageHeight;
-	public static String imageName;
+	public static final int SCALE = IntMath.pow(2, 7);
+
+	private static byte[] biomeImageData;
+	private static int imageWidth;
+	private static int imageHeight;
 
 	public GOTGenLayerWorld() {
 		super(0L);
 		if (!loadedBiomeImage()) {
 			try {
 				BufferedImage biomeImage = null;
-				imageName = "assets/got/textures/map/map.png";
+				String imageName = "assets/got/textures/map/map.png";
 				ModContainer mc = GOT.getModContainer();
 				if (mc.getSource().isFile()) {
 					ZipFile zip = new ZipFile(mc.getSource());
@@ -124,7 +123,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		return new GOTGenLayer[]{biomes, variants, variantsSmall, lakes, rivers};
 	}
 
-	public static int getBiomeImageID(int x, int z) {
+	private static int getBiomeImageID(int x, int z) {
 		int index = z * imageWidth + x;
 		return biomeImageData[index] & 0xFF;
 	}
@@ -136,6 +135,30 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 
 	public static boolean loadedBiomeImage() {
 		return biomeImageData != null;
+	}
+
+	public static int getImageHeight() {
+		return imageHeight;
+	}
+
+	public static void setImageHeight(int imageHeight) {
+		GOTGenLayerWorld.imageHeight = imageHeight;
+	}
+
+	public static int getImageWidth() {
+		return imageWidth;
+	}
+
+	public static void setImageWidth(int imageWidth) {
+		GOTGenLayerWorld.imageWidth = imageWidth;
+	}
+
+	public static byte[] getBiomeImageData() {
+		return biomeImageData;
+	}
+
+	public static void setBiomeImageData(byte[] biomeImageData) {
+		GOTGenLayerWorld.biomeImageData = biomeImageData;
 	}
 
 	@Override

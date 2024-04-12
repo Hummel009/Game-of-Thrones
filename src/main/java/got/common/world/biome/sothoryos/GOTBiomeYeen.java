@@ -3,10 +3,9 @@ package got.common.world.biome.sothoryos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -17,23 +16,23 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
-	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
-	public NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
-	public NoiseGeneratorPerlin noiseObsidianGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
+	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
+	private static final NoiseGeneratorPerlin NOISE_GRAVEL = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
+	private static final NoiseGeneratorPerlin NOISE_OBSIDIAN_GRAVEL = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
 	public GOTBiomeYeen(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
+		biomeVariants.clear();
 		spawnableCreatureList.clear();
-		decorator.treesPerChunk = 0;
-		decorator.flowersPerChunk = 0;
-		decorator.doubleFlowersPerChunk = 0;
-		decorator.doubleGrassPerChunk = 0;
-		decorator.canePerChunk = 0;
+		decorator.setTreesPerChunk(0);
+		decorator.setFlowersPerChunk(0);
+		decorator.setDoubleFlowersPerChunk(0);
+		decorator.setDoubleGrassPerChunk(0);
+		decorator.setCanePerChunk(0);
 		biomeColors.setFoggy(true);
 		npcSpawnList.clear();
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 
@@ -43,12 +42,12 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
-		double d1 = noiseDirt.func_151601_a(i * 0.09, k * 0.09);
-		double d2 = noiseDirt.func_151601_a(i * 0.6, k * 0.6);
-		double d3 = noiseGravel.func_151601_a(i * 0.09, k * 0.09);
-		double d4 = noiseGravel.func_151601_a(i * 0.6, k * 0.6);
-		double d5 = noiseObsidianGravel.func_151601_a(i * 0.09, k * 0.09);
-		if (d5 + noiseObsidianGravel.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
+		double d1 = NOISE_DIRT.func_151601_a(i * 0.09, k * 0.09);
+		double d2 = NOISE_DIRT.func_151601_a(i * 0.6, k * 0.6);
+		double d3 = NOISE_GRAVEL.func_151601_a(i * 0.09, k * 0.09);
+		double d4 = NOISE_GRAVEL.func_151601_a(i * 0.6, k * 0.6);
+		double d5 = NOISE_OBSIDIAN_GRAVEL.func_151601_a(i * 0.09, k * 0.09);
+		if (d5 + NOISE_OBSIDIAN_GRAVEL.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
 			topBlock = GOTBlocks.obsidianGravel;
 			topBlockMeta = 0;
 		} else if (d3 + d4 > 0.6) {
@@ -69,5 +68,4 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterYeen;
 	}
-
 }

@@ -12,14 +12,14 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
-	public int minHeight;
-	public int maxHeight;
-	public int trunkWidth;
-	public boolean hasRoots = true;
-	public Block woodBlock = GOTBlocks.wood9;
-	public int woodMeta;
-	public Block leafBlock = GOTBlocks.leaves9;
-	public int leafMeta;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood9;
+	private static final int WOOD_META = 0;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves9;
+	private static final int LEAF_META = 0;
+
+	private final int minHeight;
+	private final int maxHeight;
+	private final int trunkWidth;
 
 	public GOTWorldGenDragonblood(boolean flag, int i, int j, int k) {
 		super(flag);
@@ -74,7 +74,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 			for (j1 = 0; j1 < height; ++j1) {
 				for (int i13 = i - trunkWidth; i13 <= i + trunkWidth; ++i13) {
 					for (int k13 = k - trunkWidth; k13 <= k + trunkWidth; ++k13) {
-						setBlockAndNotifyAdequately(world, i13, j + j1, k13, woodBlock, woodMeta);
+						setBlockAndNotifyAdequately(world, i13, j + j1, k13, WOOD_BLOCK, WOOD_META);
 					}
 				}
 			}
@@ -104,7 +104,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 						if (!(block = world.getBlock(i14, j12, k14)).isReplaceable(world, i14, j12, k14) && !block.isWood(world, i14, j12, k14) && !block.isLeaves(world, i14, j12, k14)) {
 							break;
 						}
-						setBlockAndNotifyAdequately(world, i14, j12, k14, woodBlock, woodMeta | 0xC);
+						setBlockAndNotifyAdequately(world, i14, j12, k14, WOOD_BLOCK, WOOD_META | 0xC);
 					}
 					growLeafCanopy(world, random, i14, j12, k14);
 				}
@@ -120,7 +120,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 					}
 					int rootY = j + random.nextInt(2 + trunkWidth);
 					while (world.getBlock(i1, rootY, k15).isReplaceable(world, i1, rootY, k15)) {
-						setBlockAndNotifyAdequately(world, i1, rootY, k15, woodBlock, woodMeta | 0xC);
+						setBlockAndNotifyAdequately(world, i1, rootY, k15, WOOD_BLOCK, WOOD_META | 0xC);
 						world.getBlock(i1, rootY - 1, k15).onPlantGrow(world, i1, rootY - 1, k15, i1, rootY, k15);
 						--rootY;
 					}
@@ -131,7 +131,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growLeafCanopy(World world, Random random, int i, int j, int k) {
+	private void growLeafCanopy(World world, Random random, int i, int j, int k) {
 		int j1;
 		int leafStart = j + 2;
 		int leafTop = j + 4;
@@ -143,10 +143,9 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 			for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {
 				for (int k1 = k - leafRange; k1 <= k + leafRange; ++k1) {
 					int k2;
-					boolean grow;
 					int i2 = Math.abs(i1 - i);
 					int dist = i2 * i2 + (k2 = Math.abs(k1 - k)) * k2;
-					grow = dist < leafRangeSq;
+					boolean grow = dist < leafRangeSq;
 					if (i2 == leafRange - 1 || k2 == leafRange - 1) {
 						grow = grow && random.nextInt(4) > 0;
 					}
@@ -159,7 +158,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 						if (!block.isReplaceable(world, i1, j3, k1) && !block.isLeaves(world, i1, j3, k1)) {
 							continue;
 						}
-						setBlockAndNotifyAdequately(world, i1, j3, k1, leafBlock, leafMeta);
+						setBlockAndNotifyAdequately(world, i1, j3, k1, LEAF_BLOCK, LEAF_META);
 					}
 				}
 			}
@@ -174,7 +173,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 					if ((i2 != 0 || k2 != 0) && (i2 != k2 || i2 != j2) && (i2 != 0 && k2 != 0 || i2 != j2 + 1 && k2 != j2 + 1) || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta | 0xC);
+					setBlockAndNotifyAdequately(world, i1, j1, k1, WOOD_BLOCK, WOOD_META | 0xC);
 				}
 			}
 		}

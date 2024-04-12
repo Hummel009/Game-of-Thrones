@@ -8,9 +8,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenSeaBlock extends WorldGenerator {
-	public Block theBlock;
-	public int theMeta;
-	public int tries;
+	private final Block theBlock;
+	private final int theMeta;
+	private final int tries;
 
 	public GOTWorldGenSeaBlock(Block block, int i, int t) {
 		theBlock = block;

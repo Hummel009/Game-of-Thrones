@@ -3,14 +3,14 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.GOTBiome;
+import got.common.entity.essos.GOTEntityDarkSkinBandit;
 import got.common.world.biome.essos.GOTBiomeEssos;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneSettlement;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneWatchfort;
@@ -21,31 +21,31 @@ import java.util.Collection;
 public class GOTBiomeDorne extends GOTBiomeEssos {
 	public GOTBiomeDorne(int i, boolean major) {
 		super(i, major);
-		setDarkUnreliable();
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
 		decorator.addSettlement(new GOTStructureDorneSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureDorneWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 4).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(8).add(c0);
-		Collection<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		Collection<SpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-		Collection<SpawnListContainer> c3 = new ArrayList<>();
-		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 5));
+		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
+		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN / 5));
 		npcSpawnList.newFactionList(2).add(c3);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
@@ -61,8 +61,8 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.DORNE;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DORNE;
 	}
 
 	@Override

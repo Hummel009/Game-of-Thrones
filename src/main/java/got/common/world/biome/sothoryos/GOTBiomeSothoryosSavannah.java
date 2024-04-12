@@ -6,11 +6,11 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 	public GOTBiomeSothoryosSavannah(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 0.5f);
-		decorator.grassPerChunk = 256;
-		decorator.logsPerChunk = 0;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.SAVANNAH_BAOBAB, 0.5f);
+		decorator.setGrassPerChunk(256);
+		decorator.setLogsPerChunk(0);
 	}
 
 	@Override

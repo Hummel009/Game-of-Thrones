@@ -11,20 +11,20 @@ public class GOTBiomeSothoryosJungle extends GOTBiomeSothoryosBushland {
 	public GOTBiomeSothoryosJungle(int i, boolean major) {
 		super(i, major);
 		setupJungleFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.MOUNTAIN, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
 		topBlock = GOTBlocks.mudGrass;
 		fillerBlock = GOTBlocks.mud;
-		decorator.treesPerChunk = 40;
-		decorator.flowersPerChunk = 4;
-		decorator.doubleFlowersPerChunk = 4;
-		decorator.grassPerChunk = 15;
-		decorator.doubleGrassPerChunk = 10;
-		decorator.canePerChunk = 5;
-		decorator.cornPerChunk = 10;
-		decorator.logsPerChunk = 0;
+		decorator.setTreesPerChunk(40);
+		decorator.setFlowersPerChunk(4);
+		decorator.setDoubleFlowersPerChunk(4);
+		decorator.setGrassPerChunk(15);
+		decorator.setDoubleGrassPerChunk(10);
+		decorator.setCanePerChunk(5);
+		decorator.setCornPerChunk(10);
+		decorator.setLogsPerChunk(0);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.JUNGLE, 1000);
 		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 500);
@@ -44,5 +44,4 @@ public class GOTBiomeSothoryosJungle extends GOTBiomeSothoryosBushland {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterSothoryosJungle;
 	}
-
 }

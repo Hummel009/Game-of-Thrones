@@ -22,17 +22,17 @@ public interface GOTAbstractWaypoint {
 
 	double getShiftY();
 
-	double getX();
+	double getImgX();
 
-	int getXCoord();
+	int getCoordX();
 
-	double getY();
+	double getImgY();
 
 	int getYCoord(World world, int i, int k);
 
 	int getYCoordSaved();
 
-	int getZCoord();
+	int getCoordZ();
 
 	boolean hasPlayerUnlocked(EntityPlayer entityplayer);
 
@@ -41,8 +41,8 @@ public interface GOTAbstractWaypoint {
 	enum WaypointLockState {
 		STANDARD_LOCKED(0, 200), STANDARD_UNLOCKED(4, 200), STANDARD_UNLOCKED_CONQUEST(8, 200), CUSTOM_LOCKED(0, 204), CUSTOM_UNLOCKED(4, 204), SHARED_CUSTOM_LOCKED(0, 208), SHARED_CUSTOM_UNLOCKED(4, 208);
 
-		private int iconU;
-		private int iconV;
+		private final int iconU;
+		private final int iconV;
 
 		WaypointLockState(int u, int v) {
 			iconU = u;

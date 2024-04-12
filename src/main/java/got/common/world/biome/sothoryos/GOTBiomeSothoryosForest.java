@@ -15,17 +15,17 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
-	public static NoiseGeneratorPerlin noisePaths1 = new NoiseGeneratorPerlin(new Random(22L), 1);
-	public static NoiseGeneratorPerlin noisePaths2 = new NoiseGeneratorPerlin(new Random(11L), 1);
+	private static final NoiseGeneratorPerlin NOISE_PATHS_1 = new NoiseGeneratorPerlin(new Random(22L), 1);
+	private static final NoiseGeneratorPerlin NOISE_PATHS_2 = new NoiseGeneratorPerlin(new Random(11L), 1);
 
 	public GOTBiomeSothoryosForest(int i, boolean major) {
 		super(i, major);
-		decorator.treesPerChunk = 10;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
-		decorator.grassPerChunk = 4;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.cornPerChunk = 10;
+		decorator.setTreesPerChunk(10);
+		decorator.setFlowersPerChunk(3);
+		decorator.setDoubleFlowersPerChunk(1);
+		decorator.setGrassPerChunk(4);
+		decorator.setDoubleGrassPerChunk(1);
+		decorator.setCornPerChunk(10);
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}
@@ -36,7 +36,7 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 		if (isForest()) {
 			GOTBiomeVariant variant = ((GOTWorldChunkManager) world.getWorldChunkManager()).getBiomeVariantAt(i + 8, k + 8);
 			int grasses = 12;
-			grasses = Math.round(grasses * variant.grassFactor);
+			grasses = Math.round(grasses * variant.getGrassFactor());
 			for (int l = 0; l < grasses; ++l) {
 				int i1 = i + random.nextInt(16) + 8;
 				int j1 = random.nextInt(128);
@@ -48,7 +48,7 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 				grassGen.generate(world, random, i1, j1, k1);
 			}
 			int doubleGrasses = 4;
-			doubleGrasses = Math.round(doubleGrasses * variant.grassFactor);
+			doubleGrasses = Math.round(doubleGrasses * variant.getGrassFactor());
 			for (int l = 0; l < doubleGrasses; ++l) {
 				int i1 = i + random.nextInt(16) + 8;
 				int j1 = random.nextInt(128);
@@ -72,8 +72,8 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
 		if (isForest()) {
-			double d1 = noisePaths1.func_151601_a(i * 0.008, k * 0.008);
-			double d2 = noisePaths2.func_151601_a(i * 0.008, k * 0.008);
+			double d1 = NOISE_PATHS_1.func_151601_a(i * 0.008, k * 0.008);
+			double d2 = NOISE_PATHS_2.func_151601_a(i * 0.008, k * 0.008);
 			if (d1 > 0.0 && d1 < 0.1 || d2 > 0.0 && d2 < 0.1) {
 				topBlock = GOTBlocks.dirtPath;
 				topBlockMeta = 1;
@@ -109,7 +109,7 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 		return super.getRandomWorldGenForDoubleGrass();
 	}
 
-	public boolean isForest() {
+	protected boolean isForest() {
 		return true;
 	}
 }

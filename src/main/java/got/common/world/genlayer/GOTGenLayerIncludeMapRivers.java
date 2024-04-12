@@ -3,8 +3,8 @@ package got.common.world.genlayer;
 import net.minecraft.world.World;
 
 public class GOTGenLayerIncludeMapRivers extends GOTGenLayer {
-	public GOTGenLayer riverLayer;
-	public GOTGenLayer mapRiverLayer;
+	private final GOTGenLayer riverLayer;
+	private final GOTGenLayer mapRiverLayer;
 
 	public GOTGenLayerIncludeMapRivers(long l, GOTGenLayer rivers, GOTGenLayer mapRivers) {
 		super(l);

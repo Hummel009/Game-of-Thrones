@@ -8,15 +8,26 @@ public class GOTSpawnEntry extends BiomeGenBase.SpawnListEntry {
 	}
 
 	public static class Instance {
-		public GOTSpawnEntry spawnEntry;
-		public int spawnChance;
-		public boolean isConquestSpawn;
+		private final GOTSpawnEntry spawnEntry;
+		private final int spawnChance;
+		private final boolean isConquestSpawn;
 
 		public Instance(GOTSpawnEntry entry, int chance, boolean conquest) {
 			spawnEntry = entry;
 			spawnChance = chance;
 			isConquestSpawn = conquest;
 		}
-	}
 
+		public GOTSpawnEntry getSpawnEntry() {
+			return spawnEntry;
+		}
+
+		public int getSpawnChance() {
+			return spawnChance;
+		}
+
+		public boolean isConquestSpawn() {
+			return isConquestSpawn;
+		}
+	}
 }

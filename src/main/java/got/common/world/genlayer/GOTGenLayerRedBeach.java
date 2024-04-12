@@ -6,9 +6,11 @@ import got.common.world.biome.essos.GOTBiomeBleedingBeach;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import java.util.stream.IntStream;
+
 public class GOTGenLayerRedBeach extends GOTGenLayer {
-	public GOTDimension dimension;
-	public BiomeGenBase targetBiome;
+	private final GOTDimension dimension;
+	private final BiomeGenBase targetBiome;
 
 	public GOTGenLayerRedBeach(long l, GOTGenLayer layer, GOTDimension dim, BiomeGenBase target) {
 		super(l);
@@ -32,7 +34,8 @@ public class GOTGenLayerRedBeach extends GOTGenLayer {
 					int biome2 = biomes[i1 + 1 + 1 + (k1 + 1) * (xSize + 2)];
 					int biome3 = biomes[i1 + 1 - 1 + (k1 + 1) * (xSize + 2)];
 					int biome4 = biomes[i1 + 1 + (k1 + 1 + 1) * (xSize + 2)];
-					if (biome1 == targetBiome.biomeID || biome2 == targetBiome.biomeID || biome3 == targetBiome.biomeID || biome4 == targetBiome.biomeID) {
+					//noinspection StreamToLoop
+					if (IntStream.of(biome1, biome2, biome3, biome4).anyMatch(j -> j == targetBiome.biomeID)) {
 						if (!(biome instanceof GOTBiomeBleedingBeach)) {
 							newBiomeID = GOTBiome.bleedingBeach.biomeID;
 						}

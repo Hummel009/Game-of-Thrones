@@ -12,12 +12,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenFir extends WorldGenAbstractTree {
-	public Block woodBlock = GOTBlocks.wood4;
-	public int woodMeta = 3;
-	public Block leafBlock = GOTBlocks.leaves4;
-	public int leafMeta = 3;
-	public int minHeight = 6;
-	public int maxHeight = 13;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood4;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves4;
 
 	public GOTWorldGenFir(boolean flag) {
 		super(flag);
@@ -26,6 +22,8 @@ public class GOTWorldGenFir extends WorldGenAbstractTree {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		Block below;
+		int maxHeight = 13;
+		int minHeight = 6;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		boolean flag = true;
 		if (j >= 1 && height + 2 <= 256) {
@@ -67,15 +65,16 @@ public class GOTWorldGenFir extends WorldGenAbstractTree {
 					if (i2 + Math.abs(k1 - k) > leafRange || !block.isReplaceable(world, i1, leafLevel, k1) && !block.isLeaves(world, i1, leafLevel, k1)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i1, leafLevel, k1, leafBlock, leafMeta);
+					int leafMeta = 3;
+					setBlockAndNotifyAdequately(world, i1, leafLevel, k1, LEAF_BLOCK, leafMeta);
 				}
 			}
 			--leafLevel;
 		}
 		for (int j1 = 0; j1 < height; ++j1) {
-			setBlockAndNotifyAdequately(world, i, j + j1, k, woodBlock, woodMeta);
+			int woodMeta = 3;
+			setBlockAndNotifyAdequately(world, i, j + j1, k, WOOD_BLOCK, woodMeta);
 		}
 		return true;
 	}
-
 }

@@ -16,8 +16,8 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 	public GOTBiomeReachArbor(int i, boolean major) {
 		super(i, major);
 		setupStandardDomesticFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.VINEYARD, 8.0f);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.VINEYARD, 8.0f);
 	}
 
 	@Override
@@ -27,8 +27,7 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		boolean vineyard;
-		vineyard = variant == GOTBiomeVariant.VINEYARD;
+		boolean vineyard = variant == GOTBiomeVariant.VINEYARD;
 		boolean roadNear = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD);
 		if (vineyard && !roadNear) {
 			for (int j = 128; j >= 0; --j) {
@@ -47,10 +46,10 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 					blocks[index] = Blocks.farmland;
 					meta[index] = 0;
 					int h = 2;
-					if (biomeTerrainNoise.func_151601_a(i, k) > 0.0) {
+					if (BIOME_TERRAIN_NOISE.func_151601_a(i, k) > 0.0) {
 						++h;
 					}
-					boolean red = biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d) > 0.0;
+					boolean red = BIOME_TERRAIN_NOISE.func_151601_a(i * (d = 0.01), k * d) > 0.0;
 					Block vineBlock = red ? GOTBlocks.grapevineRed : GOTBlocks.grapevineWhite;
 					for (int j1 = 1; j1 <= h; ++j1) {
 						blocks[index + j1] = vineBlock;

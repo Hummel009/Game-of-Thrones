@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenReeds extends WorldGenerator {
-	public Block reedBlock;
+	private final Block reedBlock;
 
 	public GOTWorldGenReeds(Block block) {
 		reedBlock = block;

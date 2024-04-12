@@ -8,11 +8,9 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
-	public static int MAX_PIXEL_RANGE = 4;
-	public GOTDimension dimension;
+	private final GOTDimension dimension;
 
 	public GOTGenLayerRemoveMapRivers(long l, GOTGenLayer biomes, GOTDimension dim) {
 		super(l);
@@ -22,16 +20,15 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 
 	@Override
 	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
-		int maxRange = MAX_PIXEL_RANGE;
-		int[] biomes = gotParent.getInts(world, i - maxRange, k - maxRange, xSize + maxRange * 2, zSize + maxRange * 2);
+		int[] biomes = gotParent.getInts(world, i - 4, k - 4, xSize + 4 * 2, zSize + 4 * 2);
 		int[] ints = GOTIntCache.get(world).getIntArray(xSize * zSize);
 		for (int k1 = 0; k1 < zSize; ++k1) {
 			for (int i1 = 0; i1 < xSize; ++i1) {
 				initChunkSeed(i + i1, k + k1);
-				int biomeID = biomes[i1 + maxRange + (k1 + maxRange) * (xSize + maxRange * 2)];
+				int biomeID = biomes[i1 + 4 + (k1 + 4) * (xSize + 4 * 2)];
 				if (biomeID == GOTBiome.river.biomeID) {
 					int replaceID = -1;
-					for (int range = 1; range <= maxRange; ++range) {
+					for (int range = 1; range <= 4; ++range) {
 						int id;
 						int subBiomeID;
 						int count;
@@ -40,7 +37,7 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 						for (int k2 = k1 - range; k2 <= k1 + range; ++k2) {
 							for (int i2 = i1 - range; i2 <= i1 + range; ++i2) {
 								GOTBiome subBiome;
-								if (Math.abs(i2 - i1) != range && Math.abs(k2 - k1) != range || (subBiome = dimension.getBiomeList()[subBiomeID = biomes[i2 + maxRange + (k2 + maxRange) * (xSize + maxRange * 2)]]) == GOTBiome.river) {
+								if (Math.abs(i2 - i1) != range && Math.abs(k2 - k1) != range || (subBiome = dimension.getBiomeList()[subBiomeID = biomes[i2 + 4 + (k2 + 4) * (xSize + 4 * 2)]]) == GOTBiome.river) {
 									continue;
 								}
 								boolean wateryAdjacent = subBiome.isWateryBiome() && range == 1;
@@ -62,14 +59,14 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 						}
 						ArrayList<Integer> maxCountBiomes = new ArrayList<>();
 						int maxCount = 0;
-						for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
+						for (Map.Entry<Integer, Integer> e : priorityMap.entrySet()) {
 							count = e.getValue();
 							if (count <= maxCount) {
 								continue;
 							}
 							maxCount = count;
 						}
-						for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
+						for (Map.Entry<Integer, Integer> e : priorityMap.entrySet()) {
 							id = e.getKey();
 							count = e.getValue();
 							if (count != maxCount) {

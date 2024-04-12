@@ -20,7 +20,7 @@ public class GOTControlZone {
 	}
 
 	public GOTControlZone(GOTAbstractWaypoint wp, int r) {
-		this(wp.getX(), wp.getY(), r);
+		this(wp.getImgX(), wp.getImgY(), r);
 	}
 
 	public boolean inZone(double x, double z, int extraMapRange) {

@@ -3,10 +3,12 @@ package got.common.world.biome;
 import got.common.GOTDate;
 import got.common.GOTDimension;
 
+import java.awt.*;
+
 public enum GOTClimateType {
 	WINTER(false), COLD(false), COLD_AZ(true), SUMMER(false), SUMMER_AZ(true), NORMAL(false), NORMAL_AZ(true);
 
-	public boolean altitudeZone;
+	private final boolean altitudeZone;
 
 	GOTClimateType(boolean zone) {
 		altitudeZone = zone;
@@ -14,114 +16,116 @@ public enum GOTClimateType {
 
 	public static void performSeasonalChangesClientSide() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
-			if (biome != null && biome.climateType != null) {
+			if (biome != null && biome.getClimateType() != null) {
+				GOTClimateType climateType = biome.getClimateType();
+
 				switch (GOTDate.AegonCalendar.getSeason()) {
 					case WINTER:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
 							case NORMAL:
 							case NORMAL_AZ:
-								biome.biomeColors.setGrass(0xffffff);
-								biome.biomeColors.setSky(4212300);
-								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(new Color(0xffffff));
+								biome.getBiomeColors().setSky(new Color(4212300));
+								biome.getBiomeColors().setFog(new Color(6188664));
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case SUMMER:
 							case SUMMER_AZ:
-								biome.biomeColors.resetGrass();
-								biome.biomeColors.setSky(11653858);
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(null);
+								biome.getBiomeColors().setSky(new Color(11653858));
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case WINTER:
-								biome.biomeColors.setGrass(0xffffff);
-								biome.biomeColors.setSky(4212300);
-								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setFoggy(true);
+								biome.getBiomeColors().setGrass(new Color(0xffffff));
+								biome.getBiomeColors().setSky(new Color(4212300));
+								biome.getBiomeColors().setFog(new Color(6188664));
+								biome.getBiomeColors().setFoggy(true);
 								break;
 						}
 						break;
 					case SPRING:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
 							case NORMAL:
 							case NORMAL_AZ:
-								biome.biomeColors.resetGrass();
-								biome.biomeColors.setSky(11653858);
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(null);
+								biome.getBiomeColors().setSky(new Color(11653858));
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case SUMMER:
 							case SUMMER_AZ:
-								biome.biomeColors.resetGrass();
-								biome.biomeColors.resetSky();
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(null);
+								biome.getBiomeColors().setSky(null);
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case WINTER:
-								biome.biomeColors.setGrass(0xffffff);
-								biome.biomeColors.setSky(4212300);
-								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setFoggy(true);
+								biome.getBiomeColors().setGrass(new Color(0xffffff));
+								biome.getBiomeColors().setSky(new Color(4212300));
+								biome.getBiomeColors().setFog(new Color(6188664));
+								biome.getBiomeColors().setFoggy(true);
 								break;
 						}
 						break;
 					case SUMMER:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
-								biome.biomeColors.resetGrass();
-								biome.biomeColors.setSky(11653858);
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(null);
+								biome.getBiomeColors().setSky(new Color(11653858));
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case NORMAL:
 							case NORMAL_AZ:
-								biome.biomeColors.resetGrass();
-								biome.biomeColors.resetSky();
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(null);
+								biome.getBiomeColors().setSky(null);
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case SUMMER:
 							case SUMMER_AZ:
-								biome.biomeColors.setGrass(14538086);
-								biome.biomeColors.setSky(15592678);
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(new Color(14538086));
+								biome.getBiomeColors().setSky(new Color(15592678));
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case WINTER:
-								biome.biomeColors.setGrass(0xffffff);
-								biome.biomeColors.setSky(4212300);
-								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setFoggy(true);
+								biome.getBiomeColors().setGrass(new Color(0xffffff));
+								biome.getBiomeColors().setSky(new Color(4212300));
+								biome.getBiomeColors().setFog(new Color(6188664));
+								biome.getBiomeColors().setFoggy(true);
 								break;
 						}
 						break;
 					case AUTUMN:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
 							case NORMAL:
 							case NORMAL_AZ:
-								biome.biomeColors.setGrass(0xd09f4d);
-								biome.biomeColors.setSky(11653858);
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(true);
+								biome.getBiomeColors().setGrass(new Color(0xd09f4d));
+								biome.getBiomeColors().setSky(new Color(11653858));
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(true);
 								break;
 							case SUMMER:
 							case SUMMER_AZ:
-								biome.biomeColors.resetGrass();
-								biome.biomeColors.resetSky();
-								biome.biomeColors.resetFog();
-								biome.biomeColors.setFoggy(false);
+								biome.getBiomeColors().setGrass(null);
+								biome.getBiomeColors().setSky(null);
+								biome.getBiomeColors().setFog(null);
+								biome.getBiomeColors().setFoggy(false);
 								break;
 							case WINTER:
-								biome.biomeColors.setGrass(0xffffff);
-								biome.biomeColors.setSky(4212300);
-								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setFoggy(true);
+								biome.getBiomeColors().setGrass(new Color(0xffffff));
+								biome.getBiomeColors().setSky(new Color(4212300));
+								biome.getBiomeColors().setFog(new Color(6188664));
+								biome.getBiomeColors().setFoggy(true);
 								break;
 						}
 						break;
@@ -132,10 +136,12 @@ public enum GOTClimateType {
 
 	public static void performSeasonalChangesServerSide() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
-			if (biome != null && biome.climateType != null) {
+			if (biome != null && biome.getClimateType() != null) {
+				GOTClimateType climateType = biome.getClimateType();
+
 				switch (GOTDate.AegonCalendar.getSeason()) {
 					case WINTER:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
 							case NORMAL:
@@ -150,7 +156,7 @@ public enum GOTClimateType {
 						}
 						break;
 					case SPRING:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
 							case NORMAL:
@@ -167,7 +173,7 @@ public enum GOTClimateType {
 						}
 						break;
 					case SUMMER:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
 							case NORMAL_AZ:
@@ -186,7 +192,7 @@ public enum GOTClimateType {
 						}
 						break;
 					case AUTUMN:
-						switch (biome.climateType) {
+						switch (climateType) {
 							case COLD:
 							case COLD_AZ:
 							case NORMAL:

@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenStreams extends WorldGenerator {
-	public Block liquidBlock;
+	private final Block liquidBlock;
 
 	public GOTWorldGenStreams(Block block) {
 		liquidBlock = block;
@@ -56,7 +56,7 @@ public class GOTWorldGenStreams extends WorldGenerator {
 		return true;
 	}
 
-	public boolean isRock(IBlockAccess world, int i, int j, int k) {
+	private boolean isRock(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		return block == Blocks.stone || block == Blocks.sandstone || block == GOTBlocks.rock;
 	}

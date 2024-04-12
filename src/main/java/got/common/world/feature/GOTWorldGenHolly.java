@@ -10,11 +10,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenHolly extends WorldGenAbstractTree {
-	public int extraTrunkWidth;
-	public Block woodBlock = GOTBlocks.wood2;
-	public int woodMeta = 2;
-	public Block leafBlock = GOTBlocks.leaves2;
-	public int leafMeta = 2;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood2;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves2;
+	private int extraTrunkWidth;
 
 	public GOTWorldGenHolly(boolean flag) {
 		super(flag);
@@ -127,7 +125,8 @@ public class GOTWorldGenHolly extends WorldGenAbstractTree {
 							if (!isReplaceable(world, i + i13, j + j1, k + k13)) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i + i13, j + j1, k + k13, woodBlock, woodMeta);
+							int woodMeta = 2;
+							setBlockAndNotifyAdequately(world, i + i13, j + j1, k + k13, WOOD_BLOCK, woodMeta);
 						}
 					}
 				}
@@ -137,10 +136,11 @@ public class GOTWorldGenHolly extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growLeaves(World world, int i, int j, int k) {
+	private void growLeaves(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		if (block.isReplaceable(world, i, j, k) || block.isLeaves(world, i, j, k)) {
-			setBlockAndNotifyAdequately(world, i, j, k, leafBlock, leafMeta);
+			int leafMeta = 2;
+			setBlockAndNotifyAdequately(world, i, j, k, LEAF_BLOCK, leafMeta);
 		}
 	}
 

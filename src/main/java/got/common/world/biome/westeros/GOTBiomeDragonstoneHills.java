@@ -7,14 +7,14 @@ public class GOTBiomeDragonstoneHills extends GOTBiomeDragonstone {
 	public GOTBiomeDragonstoneHills(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		decorator.treesPerChunk = 10;
-		decorator.flowersPerChunk = 6;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 2;
-		decorator.whiteSand = true;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		decorator.setTreesPerChunk(10);
+		decorator.setFlowersPerChunk(6);
+		decorator.setGrassPerChunk(8);
+		decorator.setDoubleGrassPerChunk(2);
+		decorator.setWhiteSand(true);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 300);

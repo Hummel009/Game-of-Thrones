@@ -32,12 +32,15 @@ import java.util.Random;
 import java.util.Set;
 
 public class GOTEventSpawner {
-	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();
+	private static final Set<ChunkCoordIntPair> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
+
+	private GOTEventSpawner() {
+	}
 
 	public static void performSpawning(World world) {
 		if (world.getTotalWorldTime() % 20L == 0L) {
-			GOTSpawnerNPCs.getSpawnableChunksWithPlayerInRange(world, eligibleSpawnChunks, 32);
-			List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
+			GOTSpawnerNPCs.getSpawnableChunksWithPlayerInRange(world, ELIGIBLE_SPAWN_CHUNKS, 32);
+			List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(ELIGIBLE_SPAWN_CHUNKS);
 			spawnBandits(world, shuffled);
 			if (GOTConfig.enableInvasions) {
 				spawnInvasions(world, shuffled);
@@ -46,7 +49,7 @@ public class GOTEventSpawner {
 		GOTJaqenHgharTracker.performSpawning(world);
 	}
 
-	public static void spawnBandits(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
+	private static void spawnBandits(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0:
 		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
@@ -60,7 +63,7 @@ public class GOTEventSpawner {
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
 			Class<? extends GOTEntityNPC> banditClass = gotbiome.getBanditEntityClass();
-			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
+			double chance = gotbiome.getUnreliableChance().getChancesPerSecondPerChunk()[16];
 			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
 			}
@@ -92,7 +95,7 @@ public class GOTEventSpawner {
 	}
 
 	@SuppressWarnings("Convert2Lambda")
-	public static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
+	private static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0:
 		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
@@ -111,7 +114,7 @@ public class GOTEventSpawner {
 					continue;
 				}
 				GOTInvasions invasionType = invList.get(rand.nextInt(invList.size()));
-				double chance = invChance.chancesPerSecondPerChunk[16];
+				double chance = invChance.getChancesPerSecondPerChunk()[16];
 				if (!world.isDaytime() && GOTWorldProvider.isLunarEclipse()) {
 					chance *= 5.0;
 				}
@@ -120,10 +123,7 @@ public class GOTEventSpawner {
 					@Override
 					public boolean isEntityApplicable(Entity entity) {
 						EntityPlayer entityplayer;
-						if (entity instanceof EntityPlayer && (entityplayer = (EntityPlayer) entity).isEntityAlive() && !entityplayer.capabilities.isCreativeMode) {
-							return GOTLevelData.getData(entityplayer).getAlignment(invasionType.getInvasionFaction()) < 0.0f;
-						}
-						return false;
+						return entity instanceof EntityPlayer && (entityplayer = (EntityPlayer) entity).isEntityAlive() && !entityplayer.capabilities.isCreativeMode && GOTLevelData.getData(entityplayer).getAlignment(invasionType.getInvasionFaction()) < 0.0f;
 					}
 				}).isEmpty()) {
 					continue;
@@ -154,18 +154,17 @@ public class GOTEventSpawner {
 	public enum EventChance {
 		NEVER(0.0f, 0), RARE(0.1f, 3600), UNCOMMON(0.3f, 3600), COMMON(0.9f, 3600);
 
-		public double chancePerSecond;
-		public double[] chancesPerSecondPerChunk;
+		private final double[] chancesPerSecondPerChunk;
 
 		EventChance(float prob, int s) {
-			chancePerSecond = getChance(prob, s);
+			double chancePerSecond = getChance(prob, s);
 			chancesPerSecondPerChunk = new double[64];
-			for (int i = 0; i < chancesPerSecondPerChunk.length; ++i) {
-				chancesPerSecondPerChunk[i] = getChance(chancePerSecond, i);
+			for (int i = 0; i < getChancesPerSecondPerChunk().length; ++i) {
+				getChancesPerSecondPerChunk()[i] = getChance(chancePerSecond, i);
 			}
 		}
 
-		public static double getChance(double prob, int trials) {
+		private static double getChance(double prob, int trials) {
 			if (prob == 0.0 || trials == 0) {
 				return 0.0;
 			}
@@ -174,6 +173,9 @@ public class GOTEventSpawner {
 			d = Math.pow(d, 1.0 / trials);
 			return 1.0 - d;
 		}
-	}
 
+		private double[] getChancesPerSecondPerChunk() {
+			return chancesPerSecondPerChunk;
+		}
+	}
 }

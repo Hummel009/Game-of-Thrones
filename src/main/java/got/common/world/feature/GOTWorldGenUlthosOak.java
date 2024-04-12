@@ -12,17 +12,15 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
-	public int minHeight;
-	public int maxHeight;
-	public int trunkWidth;
-	public boolean isMirky;
-	public boolean restrictions = true;
-	public boolean isDead;
-	public boolean hasRoots = true;
-	public Block woodBlock = GOTBlocks.wood1;
-	public int woodMeta = 2;
-	public Block leafBlock = GOTBlocks.leaves1;
-	public int leafMeta = 2;
+	private final int minHeight;
+	private final int maxHeight;
+	private final int trunkWidth;
+	private final boolean isMirky;
+	private boolean isDead;
+	private Block woodBlock = GOTBlocks.wood1;
+	private int woodMeta = 2;
+	private Block leafBlock = GOTBlocks.leaves1;
+	private int leafMeta = 2;
 
 	public GOTWorldGenUlthosOak(boolean flag, int i, int j, int k, boolean mirk) {
 		super(flag);
@@ -36,48 +34,45 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		boolean flag = true;
+		boolean restrictions = true;
 		if (!restrictions || j >= 1 && j + height + 5 <= 256) {
 			int k1;
 			int i1;
 			int j1;
 			int i12;
-			if (restrictions) {
-				for (j1 = j; j1 <= j + height + 5; ++j1) {
-					int range = trunkWidth + 1;
-					if (j1 == j) {
-						range = trunkWidth;
-					}
-					if (j1 >= j + height + 2) {
-						range = trunkWidth + 2;
-					}
-					for (i12 = i - range; i12 <= i + range && flag; ++i12) {
-						for (int k12 = k - range; k12 <= k + range && flag; ++k12) {
-							if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
-								continue;
-							}
-							flag = false;
-						}
-					}
+			for (j1 = j; j1 <= j + height + 5; ++j1) {
+				int range = trunkWidth + 1;
+				if (j1 == j) {
+					range = trunkWidth;
 				}
-				for (i1 = i - trunkWidth; i1 <= i + trunkWidth && flag; ++i1) {
-					for (k1 = k - trunkWidth; k1 <= k + trunkWidth && flag; ++k1) {
-						Block block = world.getBlock(i1, j - 1, k1);
-						boolean isSoil = block.canSustainPlant(world, i1, j - 1, k1, ForgeDirection.UP, (IPlantable) Blocks.sapling);
-						if (isSoil) {
+				if (j1 >= j + height + 2) {
+					range = trunkWidth + 2;
+				}
+				for (i12 = i - range; i12 <= i + range && flag; ++i12) {
+					for (int k12 = k - range; k12 <= k + range && flag; ++k12) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 							continue;
 						}
 						flag = false;
 					}
 				}
-				if (!flag) {
-					return false;
+			}
+			for (i1 = i - trunkWidth; i1 <= i + trunkWidth && flag; ++i1) {
+				for (k1 = k - trunkWidth; k1 <= k + trunkWidth && flag; ++k1) {
+					Block block = world.getBlock(i1, j - 1, k1);
+					boolean isSoil = block.canSustainPlant(world, i1, j - 1, k1, ForgeDirection.UP, (IPlantable) Blocks.sapling);
+					if (isSoil) {
+						continue;
+					}
+					flag = false;
 				}
 			}
-			if (restrictions) {
-				for (i1 = i - trunkWidth; i1 <= i + trunkWidth; ++i1) {
-					for (k1 = k - trunkWidth; k1 <= k + trunkWidth; ++k1) {
-						world.getBlock(i1, j - 1, k1).onPlantGrow(world, i1, j - 1, k1, i1, j, k1);
-					}
+			if (!flag) {
+				return false;
+			}
+			for (i1 = i - trunkWidth; i1 <= i + trunkWidth; ++i1) {
+				for (k1 = k - trunkWidth; k1 <= k + trunkWidth; ++k1) {
+					world.getBlock(i1, j - 1, k1).onPlantGrow(world, i1, j - 1, k1, i1, j, k1);
 				}
 			}
 			for (j1 = 0; j1 < height; ++j1) {
@@ -120,59 +115,57 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 			} else {
 				growLeafCanopy(world, random, i, j + height - 1, k);
 			}
-			if (hasRoots) {
-				int roots = 4 + random.nextInt(5 * trunkWidth + 1);
-				for (int l = 0; l < roots; ++l) {
-					i12 = i;
-					int j14 = j + 1 + random.nextInt(trunkWidth * 2 + 1);
-					int k15 = k;
-					int xDirection = 0;
-					int zDirection = 0;
-					int rootLength = 1 + random.nextInt(4);
+			int roots = 4 + random.nextInt(5 * trunkWidth + 1);
+			for (int l = 0; l < roots; ++l) {
+				i12 = i;
+				int j14 = j + 1 + random.nextInt(trunkWidth * 2 + 1);
+				int k15 = k;
+				int xDirection = 0;
+				int zDirection = 0;
+				int rootLength = 1 + random.nextInt(4);
+				if (random.nextBoolean()) {
 					if (random.nextBoolean()) {
-						if (random.nextBoolean()) {
-							i12 -= trunkWidth + 1;
-							xDirection = -1;
-						} else {
-							i12 += trunkWidth + 1;
-							xDirection = 1;
-						}
-						k15 -= trunkWidth + 1;
-						k15 += random.nextInt(trunkWidth * 2 + 2);
-					} else {
-						if (random.nextBoolean()) {
-							k15 -= trunkWidth + 1;
-							zDirection = -1;
-						} else {
-							k15 += trunkWidth + 1;
-							zDirection = 1;
-						}
 						i12 -= trunkWidth + 1;
-						i12 += random.nextInt(trunkWidth * 2 + 2);
+						xDirection = -1;
+					} else {
+						i12 += trunkWidth + 1;
+						xDirection = 1;
 					}
-					for (int l1 = 0; l1 < rootLength; ++l1) {
-						int rootBlocks = 0;
-						int j2 = j14;
-						while (!world.getBlock(i12, j2, k15).isOpaqueCube()) {
-							setBlockAndNotifyAdequately(world, i12, j2, k15, woodBlock, woodMeta | 0xC);
-							world.getBlock(i12, j2 - 1, k15).onPlantGrow(world, i12, j2 - 1, k15, i12, j2, k15);
-							rootBlocks++;
-							if (rootBlocks > 5) {
-								break;
-							}
-							--j2;
+					k15 -= trunkWidth + 1;
+					k15 += random.nextInt(trunkWidth * 2 + 2);
+				} else {
+					if (random.nextBoolean()) {
+						k15 -= trunkWidth + 1;
+						zDirection = -1;
+					} else {
+						k15 += trunkWidth + 1;
+						zDirection = 1;
+					}
+					i12 -= trunkWidth + 1;
+					i12 += random.nextInt(trunkWidth * 2 + 2);
+				}
+				for (int l1 = 0; l1 < rootLength; ++l1) {
+					int rootBlocks = 0;
+					int j2 = j14;
+					while (!world.getBlock(i12, j2, k15).isOpaqueCube()) {
+						setBlockAndNotifyAdequately(world, i12, j2, k15, woodBlock, woodMeta | 0xC);
+						world.getBlock(i12, j2 - 1, k15).onPlantGrow(world, i12, j2 - 1, k15, i12, j2, k15);
+						rootBlocks++;
+						if (rootBlocks > 5) {
+							break;
 						}
-						--j14;
-						if (random.nextBoolean()) {
-							if (xDirection == -1) {
-								i12--;
-							} else if (xDirection == 1) {
-								i12++;
-							} else if (zDirection == -1) {
-								k15--;
-							} else {
-								k15++;
-							}
+						--j2;
+					}
+					--j14;
+					if (random.nextBoolean()) {
+						if (xDirection == -1) {
+							i12--;
+						} else if (xDirection == 1) {
+							i12++;
+						} else if (zDirection == -1) {
+							k15--;
+						} else {
+							k15++;
 						}
 					}
 				}
@@ -182,7 +175,7 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growLeafCanopy(World world, Random random, int i, int j, int k) {
+	private void growLeafCanopy(World world, Random random, int i, int j, int k) {
 		int j1;
 		int leafStart = j + 2;
 		int leafTop = j + 5;
@@ -195,10 +188,9 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 				for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {
 					for (int k1 = k - leafRange; k1 <= k + leafRange; ++k1) {
 						int k2;
-						boolean grow;
 						int i2 = Math.abs(i1 - i);
 						int dist = i2 * i2 + (k2 = Math.abs(k1 - k)) * k2;
-						grow = dist < leafRangeSq;
+						boolean grow = dist < leafRangeSq;
 						if (i2 == leafRange - 1 || k2 == leafRange - 1) {
 							grow = grow && random.nextInt(4) > 0;
 						}
@@ -252,18 +244,19 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 		}
 	}
 
-	public void growVines(World world, Random random, int i, int j, int k, int meta) {
-		setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.mirkVines, meta);
+	private void growVines(World world, Random random, int i, int j, int k, int meta) {
+		int j1 = j;
+		setBlockAndNotifyAdequately(world, i, j1, k, GOTBlocks.mirkVines, meta);
 		int length = 4 + random.nextInt(8);
-		--j;
-		while (world.isAirBlock(i, j, k) && length > 0) {
-			setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.mirkVines, meta);
+		--j1;
+		while (world.isAirBlock(i, j1, k) && length > 0) {
+			setBlockAndNotifyAdequately(world, i, j1, k, GOTBlocks.mirkVines, meta);
 			--length;
-			--j;
+			--j1;
 		}
 	}
 
-	public GOTWorldGenUlthosOak setBlocks(Block b1, int m1, Block b2, int m2) {
+	private GOTWorldGenUlthosOak setBlocks(Block b1, int m1, Block b2, int m2) {
 		woodBlock = b1;
 		woodMeta = m1;
 		leafBlock = b2;

@@ -27,8 +27,8 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			GL11.glEnable(3008);
 			GL11.glEnable(3042);
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-			double x = GOTWaypoint.KINGS_LANDING.getX();
-			double y = GOTWaypoint.KINGS_LANDING.getY();
+			double x = GOTWaypoint.KINGS_LANDING.getImgX();
+			double y = GOTWaypoint.KINGS_LANDING.getImgY();
 			mapRenderer.setPrevMapX(x);
 			mapRenderer.setMapX(x);
 			mapRenderer.setPrevMapY(y);

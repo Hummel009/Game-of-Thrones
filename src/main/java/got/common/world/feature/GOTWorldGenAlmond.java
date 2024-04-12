@@ -12,12 +12,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenAlmond extends WorldGenAbstractTree {
-	public int minHeight = 4;
-	public int maxHeight = 5;
-	public Block woodBlock = GOTBlocks.wood7;
-	public int woodMeta = 3;
-	public Block leafBlock = GOTBlocks.leaves7;
-	public int leafMeta = 3;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood7;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves7;
 
 	public GOTWorldGenAlmond(boolean flag) {
 		super(flag);
@@ -25,6 +21,8 @@ public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
+		int maxHeight = 5;
+		int minHeight = 4;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		int leafStart = j + height - 3;
 		int leafTop = j + height;
@@ -60,10 +58,9 @@ public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 				below = world.getBlock(i, j - 1, k);
 				below.onPlantGrow(world, i, j - 1, k, i, j, k);
 				for (j1 = leafStart; j1 <= leafTop; ++j1) {
-					int leafRange;
 					int maxRange = 2;
 					int j2 = leafTop - j1;
-					leafRange = j2 == 0 ? 1 : j2 == 1 ? 2 : j2 == 2 ? 3 : 1;
+					int leafRange = j2 == 0 ? 1 : j2 == 1 ? 2 : j2 == 2 ? 3 : 1;
 					for (int i1 = i - maxRange; i1 <= i + maxRange; ++i1) {
 						for (int k1 = k - maxRange; k1 <= k + maxRange; ++k1) {
 							Block block;
@@ -71,7 +68,8 @@ public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 							if (i2 + Math.abs(k1 - k) > leafRange || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i1, j1, k1, leafBlock, leafMeta);
+							int leafMeta = 3;
+							setBlockAndNotifyAdequately(world, i1, j1, k1, LEAF_BLOCK, leafMeta);
 						}
 					}
 				}
@@ -80,7 +78,8 @@ public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 					if (!block.isReplaceable(world, i, j1, k) && !block.isLeaves(world, i, j1, k)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i, j1, k, woodBlock, woodMeta);
+					int woodMeta = 3;
+					setBlockAndNotifyAdequately(world, i, j1, k, WOOD_BLOCK, woodMeta);
 				}
 				return true;
 			}

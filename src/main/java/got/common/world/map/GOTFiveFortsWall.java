@@ -10,17 +10,13 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTFiveFortsWall extends GOTStructureBase {
-	private int centreX;
-	private int centreZ;
-	private int radius = 100;
-	private int radiusSq = radius * radius;
-	private int wallTop = 100;
-	private int gateTop = wallTop - 18;
+	private final int centreX;
+	private final int centreZ;
 
 	public GOTFiveFortsWall(boolean flag, GOTAbstractWaypoint waypoint) {
 		super(flag);
-		centreX = waypoint.getXCoord();
-		centreZ = waypoint.getZCoord();
+		centreX = waypoint.getCoordX();
+		centreZ = waypoint.getCoordZ();
 	}
 
 	@Override
@@ -38,13 +34,14 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 					boolean gate = roadNear >= 0.0f;
 					boolean fences = false;
 					boolean wallEdge = circleDist > 0.025;
+					int wallTop = 100;
 					for (int j1 = wallTop; j1 > 0; --j1) {
 						if (fences) {
 							setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.fence, 3);
 						} else {
 							setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.brick1, 0);
 							if (wallEdge && j1 == wallTop) {
-								setBlockAndMetadata(world, i1, j1 + 1, k1, GOTBlocks.wallStone1, 1);
+								setBlockAndMetadata(world, i1, wallTop + 1, k1, GOTBlocks.wallStone1, 1);
 							}
 						}
 						Block below = getBlock(world, i1, j1 - 1, k1);
@@ -62,6 +59,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 							}
 							continue block1;
 						}
+						int gateTop = wallTop - 18;
 						int lerpGateTop = gateBottom + Math.round((gateTop - gateBottom) * MathHelper.sqrt_float(1.0f - roadNear));
 						if (j1 != lerpGateTop) {
 							continue;
@@ -92,10 +90,12 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 		return z;
 	}
 
-	public double isPosInWall(int i, int k) {
+	private double isPosInWall(int i, int k) {
 		int dx = i - centreX;
 		int dz = k - centreZ;
 		int distSq = dx * dx + dz * dz;
+		int radius = 100;
+		int radiusSq = radius * radius;
 		return Math.abs(distSq / (1.5 * radiusSq) - 1.0);
 	}
 

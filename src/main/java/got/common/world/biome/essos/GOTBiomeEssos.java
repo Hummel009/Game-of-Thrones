@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.client.sound.GOTMusicRegion;
-import got.client.sound.GOTMusicRegion.Sub;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -9,7 +9,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.feature.GOTWorldGenSand;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.structure.other.GOTStructureBurntHouse;
 import got.common.world.structure.other.GOTStructureRottenHouse;
 import got.common.world.structure.other.GOTStructureRuinedHouse;
@@ -23,30 +23,30 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTBiomeEssos extends GOTBiome {
-	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(8359286029006L), 1);
-	public static NoiseGeneratorPerlin noiseSand = new NoiseGeneratorPerlin(new Random(473689270272L), 1);
-	public static NoiseGeneratorPerlin noiseRedSand = new NoiseGeneratorPerlin(new Random(3528569078920702727L), 1);
+	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(8359286029006L), 1);
+	private static final NoiseGeneratorPerlin NOISE_SAND = new NoiseGeneratorPerlin(new Random(473689270272L), 1);
+	private static final NoiseGeneratorPerlin NOISE_RED_SAND = new NoiseGeneratorPerlin(new Random(3528569078920702727L), 1);
 
 	public GOTBiomeEssos(int i, boolean major) {
 		super(i, major);
 		setupExoticFauna();
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.FOREST);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LEMON, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIME, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_CEDAR, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_CYPRESS, 0.2f);
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 2;
-		decorator.flowersPerChunk = 1;
-		decorator.doubleFlowersPerChunk = 1;
-		decorator.cactiPerChunk = 1;
-		decorator.cornPerChunk = 4;
+		biomeVariants.add(GOTBiomeVariant.FLOWERS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LEMON, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_LIME, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_CEDAR, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_CYPRESS, 0.2f);
+		decorator.setGrassPerChunk(8);
+		decorator.setDoubleGrassPerChunk(2);
+		decorator.setFlowersPerChunk(1);
+		decorator.setDoubleFlowersPerChunk(1);
+		decorator.setCactiPerChunk(1);
+		decorator.setCornPerChunk(4);
 		if (!disableNoise()) {
-			decorator.clayGen = new GOTWorldGenSand(GOTBlocks.redClay, 5, 1);
+			decorator.setClayGen(new GOTWorldGenSand(GOTBlocks.redClay, 5, 1));
 			decorator.addSoil(new WorldGenMinable(GOTBlocks.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
 		}
 		decorator.addTree(GOTTreeType.ACACIA, 300);
@@ -75,7 +75,7 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
 	}
 
-	public boolean disableNoise() {
+	protected boolean disableNoise() {
 		return true;
 	}
 
@@ -86,14 +86,14 @@ public class GOTBiomeEssos extends GOTBiome {
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
 		if (!disableNoise()) {
-			double d1 = noiseDirt.func_151601_a(i * 0.002, k * 0.002);
-			double d2 = noiseDirt.func_151601_a(i * 0.07, k * 0.07);
-			double d3 = noiseDirt.func_151601_a(i * 0.25, k * 0.25);
-			double d4 = noiseSand.func_151601_a(i * 0.002, k * 0.002);
-			double d5 = noiseSand.func_151601_a(i * 0.07, k * 0.07);
-			double d6 = noiseSand.func_151601_a(i * 0.25, k * 0.25);
-			double d7 = noiseRedSand.func_151601_a(i * 0.002, k * 0.002);
-			if (d7 + noiseRedSand.func_151601_a(i * 0.07, k * 0.07) + noiseRedSand.func_151601_a(i * 0.25, k * 0.25) > 0.9) {
+			double d1 = NOISE_DIRT.func_151601_a(i * 0.002, k * 0.002);
+			double d2 = NOISE_DIRT.func_151601_a(i * 0.07, k * 0.07);
+			double d3 = NOISE_DIRT.func_151601_a(i * 0.25, k * 0.25);
+			double d4 = NOISE_SAND.func_151601_a(i * 0.002, k * 0.002);
+			double d5 = NOISE_SAND.func_151601_a(i * 0.07, k * 0.07);
+			double d6 = NOISE_SAND.func_151601_a(i * 0.25, k * 0.25);
+			double d7 = NOISE_RED_SAND.func_151601_a(i * 0.002, k * 0.002);
+			if (d7 + NOISE_RED_SAND.func_151601_a(i * 0.07, k * 0.07) + NOISE_RED_SAND.func_151601_a(i * 0.25, k * 0.25) > 0.9) {
 				topBlock = Blocks.sand;
 				topBlockMeta = 1;
 				fillerBlock = topBlock;
@@ -118,13 +118,18 @@ public class GOTBiomeEssos extends GOTBiome {
 	}
 
 	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return null;
+	}
+
+	@Override
 	public GOTMusicRegion.Sub getBiomeMusic() {
 		return GOTMusicRegion.ESSOS.getSubregion(biomeName);
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.FREE;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.FREE;
 	}
 
 	@Override

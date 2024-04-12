@@ -13,5 +13,4 @@ public class GOTBiomeUlthosDesertCold extends GOTBiomeUlthosDesert {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterUlthosDesertCold;
 	}
-
 }

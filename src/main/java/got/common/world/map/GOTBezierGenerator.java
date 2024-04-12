@@ -11,6 +11,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import java.util.Random;
 
 public class GOTBezierGenerator {
+	private GOTBezierGenerator() {
+	}
+
 	public static boolean generateBezier(World world, Random rand, int i, int k, GOTBiome biome, Block[] blocks, byte[] metadata, double[] heightNoise) {
 		int chunkX = i & 0xF;
 		int chunkZ = k & 0xF;
@@ -77,10 +80,10 @@ public class GOTBezierGenerator {
 				break;
 			}
 			if (bridge) {
-				GOTBezierType.BezierBlock bridgeBlock = bridgeType.getBlock(rand, false);
-				GOTBezierType.BezierBlock bridgeBlockSlab = bridgeType.getBlock(rand, true);
-				GOTBezierType.BezierBlock bridgeEdge = bridgeType.getEdge(rand);
-				GOTBezierType.BezierBlock bridgeFence = bridgeType.getFence(rand);
+				GOTBezierType.BezierBlock bridgeBlock = bridgeType.getBlock(false);
+				GOTBezierType.BezierBlock bridgeBlockSlab = bridgeType.getBlock(true);
+				GOTBezierType.BezierBlock bridgeEdge = bridgeType.getEdge();
+				GOTBezierType.BezierBlock bridgeFence = bridgeType.getFence();
 				boolean fence = isFenceAt(i, k);
 				int index2 = xzIndex * ySize + roadTop;
 				if (fence) {
@@ -102,7 +105,6 @@ public class GOTBezierGenerator {
 							metadata[pillarIndex] = (byte) bridgeEdge.getMeta();
 						}
 					} else {
-						int support;
 						blocks[index2] = bridgeEdge.getBlock();
 						metadata[index2] = (byte) bridgeEdge.getMeta();
 						int indexUpper = index2 + 1;
@@ -113,7 +115,7 @@ public class GOTBezierGenerator {
 							blocks[indexLower2] = bridgeEdge.getBlock();
 							metadata[indexLower2] = (byte) bridgeEdge.getMeta();
 						}
-						support = bridgeBase + 2;
+						int support = bridgeBase + 2;
 						if (roadTop - 1 > support) {
 							int indexSupport = xzIndex * ySize + support;
 							blocks[indexSupport] = bridgeFence.getBlock();
@@ -205,11 +207,11 @@ public class GOTBezierGenerator {
 		return false;
 	}
 
-	public static boolean isBridgeEdgePillar(int i, int k) {
+	private static boolean isBridgeEdgePillar(int i, int k) {
 		return GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD) && isFenceAt(i, k) && isPillarAt(i, k);
 	}
 
-	public static boolean isFenceAt(int i, int k) {
+	private static boolean isFenceAt(int i, int k) {
 		for (int i1 = -1; i1 <= 1; ++i1) {
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				if (i1 == 0 && k1 == 0 || GOTBeziers.isBezierAt(i + i1, k + k1, GOTBeziers.Type.ROAD)) {
@@ -221,12 +223,9 @@ public class GOTBezierGenerator {
 		return false;
 	}
 
-	public static boolean isPillarAt(int i, int k) {
+	private static boolean isPillarAt(int i, int k) {
 		int pRange = 8;
 		int xmod = IntMath.mod(i, pRange);
-		if (IntMath.mod(xmod + IntMath.mod(k, pRange), pRange) == 0) {
-			return !isBridgeEdgePillar(i + 1, k - 1) && !isBridgeEdgePillar(i + 1, k + 1);
-		}
-		return false;
+		return IntMath.mod(xmod + IntMath.mod(k, pRange), pRange) == 0 && !isBridgeEdgePillar(i + 1, k - 1) && !isBridgeEdgePillar(i + 1, k + 1);
 	}
 }

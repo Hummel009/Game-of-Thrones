@@ -2,6 +2,7 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenAsshaiMoss;
 import net.minecraft.block.Block;
@@ -13,19 +14,19 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
-	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(389502092662L), 1);
-	public static NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(1379468206L), 1);
+public class GOTBiomeShadowMountains extends GOTBiomeShadowLand implements GOTBiome.MountainTerrain {
+	private static final NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(389502092662L), 1);
+	private static final NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(1379468206L), 1);
 
 	public GOTBiomeShadowMountains(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
-		decorator.biomeOreFactor = 2.0f;
-		decorator.biomeGemFactor = 2.0f;
-		decorator.flowersPerChunk = 0;
-		decorator.grassPerChunk = 1;
-		decorator.dryReedChance = 1.0f;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.MOUNTAIN, 1.0f);
+		decorator.setBiomeOreFactor(2.0f);
+		decorator.setBiomeGemFactor(2.0f);
+		decorator.setFlowersPerChunk(0);
+		decorator.setGrassPerChunk(1);
+		decorator.setDryReedChance(1.0f);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
 	}
@@ -54,7 +55,7 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 				decorator.genTree(world, random, i12, j12, k12);
 			}
 		}
-		if (decorator.grassPerChunk > 0) {
+		if (decorator.getGrassPerChunk() > 0) {
 			if (random.nextInt(20) == 0) {
 				for (l = 0; l < 6; ++l) {
 					i12 = i + random.nextInt(6) + 8;

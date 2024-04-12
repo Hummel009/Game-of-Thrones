@@ -7,18 +7,17 @@ import java.util.*;
 import static got.common.world.map.GOTCoordConverter.*;
 
 public class GOTBeziers {
-	public static Collection<GOTBeziers> allBeziers = new ArrayList<>();
+	public static final Collection<GOTBeziers> CONTENT = new ArrayList<>();
 
-	public static BezierPointDatabase linkerPointDatabase = new BezierPointDatabase();
-	public static BezierPointDatabase roadPointDatabase = new BezierPointDatabase();
-	public static BezierPointDatabase wallPointDatabase = new BezierPointDatabase();
+	private static BezierPointDatabase linkerPointDatabase = new BezierPointDatabase();
+	private static BezierPointDatabase roadPointDatabase = new BezierPointDatabase();
+	private static BezierPointDatabase wallPointDatabase = new BezierPointDatabase();
 
-	public static int id;
+	private final Collection<BezierPoint> endpoints = new ArrayList<>();
 
 	private BezierPoint[] bezierPoints;
-	private Collection<BezierPoint> endpoints = new ArrayList<>();
 
-	public GOTBeziers(BezierPoint... ends) {
+	private GOTBeziers(BezierPoint... ends) {
 		Collections.addAll(endpoints, ends);
 	}
 
@@ -42,8 +41,8 @@ public class GOTBeziers {
 				break;
 		}
 		for (BezierPoint point : points) {
-			double dx = point.x - x;
-			double dz = point.z - z;
+			double dx = point.getX() - x;
+			double dz = point.getZ() - z;
 			double distSq = dx * dx + dz * dz;
 			if (distSq >= widthSq) {
 				continue;
@@ -62,7 +61,7 @@ public class GOTBeziers {
 	}
 
 	public static void onInit() {
-		allBeziers.clear();
+		CONTENT.clear();
 
 		roadPointDatabase = new BezierPointDatabase();
 		wallPointDatabase = new BezierPointDatabase();
@@ -419,16 +418,16 @@ public class GOTBeziers {
 		registerLinker(GOTWaypoint.FU_NING.info(toYiTiTown(1.0) + 0.1, 0.1));
 	}
 
-	public static void registerBezier(Type type, Object... waypoints) {
+	private static void registerBezier(Type type, Object... waypoints) {
 		ArrayList<BezierPoint> points = new ArrayList<>();
 		for (Object obj : waypoints) {
 			if (obj instanceof GOTAbstractWaypoint) {
 				GOTAbstractWaypoint wp = (GOTAbstractWaypoint) obj;
-				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true));
+				points.add(new BezierPoint(wp.getCoordX(), wp.getCoordZ()));
 			} else if (obj instanceof double[]) {
 				double[] coords = (double[]) obj;
 				if (coords.length == 2) {
-					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
+					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1])));
 					continue;
 				}
 				throw new IllegalArgumentException("Coords length must be 2!");
@@ -437,23 +436,22 @@ public class GOTBeziers {
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
 		GOTBeziers[] beziers = BezierCurves.getSplines(array, type);
 		if (type != Type.LINKER) {
-			allBeziers.addAll(Arrays.asList(beziers));
+			CONTENT.addAll(Arrays.asList(beziers));
 		}
-		id++;
 	}
 
-	public static void registerLinker(GOTAbstractWaypoint to) {
+	private static void registerLinker(GOTAbstractWaypoint to) {
 		registerBezier(Type.LINKER, to.getInstance(), to);
 	}
 
-	public static void registerLinker(GOTAbstractWaypoint to, boolean xAxis) {
+	private static void registerLinker(GOTAbstractWaypoint to, boolean xAxis) {
 		GOTWaypoint from = to.getInstance();
-		double fromX = from.getX();
-		double fromY = from.getY();
+		double fromX = from.getImgX();
+		double fromY = from.getImgY();
 		double shiftX = to.getShiftX();
 		double shiftY = to.getShiftY();
-		double toX = to.getX();
-		double toY = to.getY();
+		double toX = to.getImgX();
+		double toY = to.getImgY();
 		if (xAxis) {
 			double halfway = Math.min(Math.abs(shiftX / 2.0), 0.1) * (fromX < toX ? -1 : 1);
 			registerBezier(Type.LINKER, from, from.info(shiftX + halfway, shiftY));
@@ -463,6 +461,33 @@ public class GOTBeziers {
 			registerBezier(Type.LINKER, from, from.info(shiftX, shiftY + halfway));
 			registerBezier(Type.LINKER, from.info(shiftX, shiftY + halfway), to);
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public static BezierPointDatabase getLinkerPointDatabase() {
+		return linkerPointDatabase;
+	}
+
+	public static void setLinkerPointDatabase(BezierPointDatabase linkerPointDatabase) {
+		GOTBeziers.linkerPointDatabase = linkerPointDatabase;
+	}
+
+	@SuppressWarnings("unused")
+	public static BezierPointDatabase getRoadPointDatabase() {
+		return roadPointDatabase;
+	}
+
+	public static void setRoadPointDatabase(BezierPointDatabase roadPointDatabase) {
+		GOTBeziers.roadPointDatabase = roadPointDatabase;
+	}
+
+	@SuppressWarnings("unused")
+	public static BezierPointDatabase getWallPointDatabase() {
+		return wallPointDatabase;
+	}
+
+	public static void setWallPointDatabase(BezierPointDatabase wallPointDatabase) {
+		GOTBeziers.wallPointDatabase = wallPointDatabase;
 	}
 
 	public BezierPoint[] getBezierPoints() {
@@ -477,10 +502,10 @@ public class GOTBeziers {
 		ROAD, WALL, LINKER
 	}
 
-	public static class BezierCurves {
-		public static int bezierLengthFactor = 1;
+	private static class BezierCurves {
+		protected static int bezierLengthFactor = 1;
 
-		public static BezierPoint bezier(BezierPoint a, BezierPoint b, BezierPoint c, BezierPoint d, double t) {
+		protected static BezierPoint bezier(BezierPoint a, BezierPoint b, BezierPoint c, BezierPoint d, double t) {
 			BezierPoint ab = lerp(a, b, t);
 			BezierPoint bc = lerp(b, c, t);
 			BezierPoint cd = lerp(c, d, t);
@@ -489,7 +514,7 @@ public class GOTBeziers {
 			return lerp(abbc, bccd, t);
 		}
 
-		public static double[][] getControlPoints(double[] src) {
+		protected static double[][] getControlPoints(double[] src) {
 			int i;
 			int length = src.length - 1;
 			double[] p1 = new double[length];
@@ -528,20 +553,20 @@ public class GOTBeziers {
 			return new double[][]{p1, p2};
 		}
 
-		public static GOTBeziers[] getSplines(BezierPoint[] waypoints, Type type) {
+		protected static GOTBeziers[] getSplines(BezierPoint[] waypoints, Type type) {
 			if (waypoints.length == 2) {
 				BezierPoint p1 = waypoints[0];
 				BezierPoint p2 = waypoints[1];
 				GOTBeziers bezier = new GOTBeziers(p1, p2);
-				double dx = p2.x - p1.x;
-				double dz = p2.z - p1.z;
+				double dx = p2.getX() - p1.getX();
+				double dz = p2.getZ() - p1.getZ();
 				int bezierLength = (int) Math.round(Math.sqrt(dx * dx + dz * dz));
 				int points = bezierLength * bezierLengthFactor;
 				bezier.bezierPoints = new BezierPoint[points];
 				for (int l = 0; l < points; ++l) {
 					BezierPoint point;
 					double t = (double) l / points;
-					bezier.getBezierPoints()[l] = point = new BezierPoint(p1.x + dx * t, p1.z + dz * t, false);
+					bezier.getBezierPoints()[l] = point = new BezierPoint(p1.getX() + dx * t, p1.getZ() + dz * t);
 					switch (type) {
 						case ROAD:
 							roadPointDatabase.add(point);
@@ -560,8 +585,8 @@ public class GOTBeziers {
 			double[] x = new double[length];
 			double[] z = new double[length];
 			for (int i = 0; i < length; ++i) {
-				x[i] = waypoints[i].x;
-				z[i] = waypoints[i].z;
+				x[i] = waypoints[i].getX();
+				z[i] = waypoints[i].getZ();
 			}
 			double[][] controlX = getControlPoints(x);
 			double[][] controlZ = getControlPoints(z);
@@ -569,8 +594,8 @@ public class GOTBeziers {
 			BezierPoint[] controlPoints1 = new BezierPoint[controlPoints];
 			BezierPoint[] controlPoints2 = new BezierPoint[controlPoints];
 			for (int i = 0; i < controlPoints; ++i) {
-				BezierPoint p1 = new BezierPoint(controlX[0][i], controlZ[0][i], false);
-				BezierPoint p2 = new BezierPoint(controlX[1][i], controlZ[1][i], false);
+				BezierPoint p1 = new BezierPoint(controlX[0][i], controlZ[0][i]);
+				BezierPoint p2 = new BezierPoint(controlX[1][i], controlZ[1][i]);
 				controlPoints1[i] = p1;
 				controlPoints2[i] = p2;
 			}
@@ -582,8 +607,8 @@ public class GOTBeziers {
 				BezierPoint cp1 = controlPoints1[i];
 				BezierPoint cp2 = controlPoints2[i];
 				beziers[i] = bezier = new GOTBeziers(p1, p2);
-				double dx = p2.x - p1.x;
-				double dz = p2.z - p1.z;
+				double dx = p2.getX() - p1.getX();
+				double dz = p2.getZ() - p1.getZ();
 				int bezierLength = (int) Math.round(Math.sqrt(dx * dx + dz * dz));
 				int points = bezierLength * bezierLengthFactor;
 				bezier.bezierPoints = new BezierPoint[points];
@@ -607,22 +632,20 @@ public class GOTBeziers {
 			return beziers;
 		}
 
-		public static BezierPoint lerp(BezierPoint a, BezierPoint b, double t) {
-			double x = a.x + (b.x - a.x) * t;
-			double z = a.z + (b.z - a.z) * t;
-			return new BezierPoint(x, z, false);
+		protected static BezierPoint lerp(BezierPoint a, BezierPoint b, double t) {
+			double x = a.getX() + (b.getX() - a.getX()) * t;
+			double z = a.getZ() + (b.getZ() - a.getZ()) * t;
+			return new BezierPoint(x, z);
 		}
 	}
 
 	public static class BezierPoint {
-		private double x;
-		private double z;
-		private boolean isWaypoint;
+		private final double x;
+		private final double z;
 
-		public BezierPoint(double i, double j, boolean flag) {
+		protected BezierPoint(double i, double j) {
 			x = i;
 			z = j;
-			isWaypoint = flag;
 		}
 
 		public double getX() {
@@ -632,19 +655,14 @@ public class GOTBeziers {
 		public double getZ() {
 			return z;
 		}
-
-		public boolean isWaypoint() {
-			return isWaypoint;
-		}
 	}
 
 	public static class BezierPointDatabase {
-		public static int COORD_LOOKUP_SIZE = 1000;
-		private Map<Pair<Integer, Integer>, List<BezierPoint>> pointMap = new HashMap<>();
+		private final Map<Pair<Integer, Integer>, List<BezierPoint>> pointMap = new HashMap<>();
 
-		public void add(BezierPoint point) {
-			int x = (int) Math.round(point.x / 1000.0);
-			int z = (int) Math.round(point.z / 1000.0);
+		protected void add(BezierPoint point) {
+			int x = (int) Math.round(point.getX() / 1000.0);
+			int z = (int) Math.round(point.getZ() / 1000.0);
 			int overlap = 1;
 			for (int i = -overlap; i <= overlap; ++i) {
 				for (int k = -overlap; k <= overlap; ++k) {
@@ -655,7 +673,7 @@ public class GOTBeziers {
 			}
 		}
 
-		public List<BezierPoint> getBezierList(int xKey, int zKey, boolean addToMap) {
+		protected List<BezierPoint> getBezierList(int xKey, int zKey, boolean addToMap) {
 			Pair<Integer, Integer> key = Pair.of(xKey, zKey);
 			List<BezierPoint> list = pointMap.get(key);
 			if (list == null) {
@@ -667,7 +685,7 @@ public class GOTBeziers {
 			return list;
 		}
 
-		public List<BezierPoint> getPointsForCoords(int x, int z) {
+		protected List<BezierPoint> getPointsForCoords(int x, int z) {
 			int x1 = x / 1000;
 			int z1 = z / 1000;
 			return getBezierList(x1, z1, false);

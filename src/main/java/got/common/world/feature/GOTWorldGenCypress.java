@@ -11,11 +11,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenCypress extends WorldGenAbstractTree {
-	public int extraTrunkWidth;
-	public Block woodBlock = GOTBlocks.wood6;
-	public int woodMeta = 2;
-	public Block leafBlock = GOTBlocks.leaves6;
-	public int leafMeta = 2;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood6;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves6;
+	private int extraTrunkWidth;
 
 	public GOTWorldGenCypress(boolean flag) {
 		super(flag);
@@ -91,12 +89,11 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 					if (j1 >= height - 2 || j1 <= leafStop + leafStopHeight) {
 						for (i13 = -1; i13 <= 1 + extraTrunkWidth; ++i13) {
 							for (k13 = -1; k13 <= 1 + extraTrunkWidth; ++k13) {
-								int k2;
 								int i2 = i13;
 								if (i2 > 0) {
 									i2 -= extraTrunkWidth;
 								}
-								k2 = k13;
+								int k2 = k13;
 								if (k2 > 0) {
 									k2 -= extraTrunkWidth;
 								}
@@ -121,7 +118,8 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 							if (!isReplaceable(world, i + i13, j + j1, k + k13)) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i + i13, j + j1, k + k13, woodBlock, woodMeta);
+							int woodMeta = 2;
+							setBlockAndNotifyAdequately(world, i + i13, j + j1, k + k13, WOOD_BLOCK, woodMeta);
 						}
 					}
 				}
@@ -131,10 +129,11 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growLeaves(World world, int i, int j, int k) {
+	private void growLeaves(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		if (block.isReplaceable(world, i, j, k) || block.isLeaves(world, i, j, k)) {
-			setBlockAndNotifyAdequately(world, i, j, k, leafBlock, leafMeta);
+			int leafMeta = 2;
+			setBlockAndNotifyAdequately(world, i, j, k, LEAF_BLOCK, leafMeta);
 		}
 	}
 

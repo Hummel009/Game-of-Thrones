@@ -802,7 +802,7 @@ public class GOTTickHandlerClient {
 					GOTFactionBounties.setNeedsLoad(true);
 					GOTFactionRelations.setNeedsLoad(true);
 					GOTDate.resetWorldTimeInMenu();
-					GOTConquestGrid.needsLoad = true;
+					GOTConquestGrid.setNeedsLoad(true);
 					GOTSpeechClient.clearAll();
 					GOTAttackTiming.reset();
 					GOTGuiMenu.resetLastMenuScreen();
@@ -824,7 +824,7 @@ public class GOTTickHandlerClient {
 		WorldProvider provider = worldClient.provider;
 		if (provider instanceof GOTWorldProvider) {
 			float[] rgb = {event.red, event.green, event.blue};
-			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(event.entity, event.renderPartialTicks, rgb);
+			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(rgb);
 			event.red = rgb[0];
 			event.green = rgb[1];
 			event.blue = rgb[2];

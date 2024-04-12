@@ -8,9 +8,9 @@ import got.common.world.spawning.GOTEventSpawner;
 public class GOTBiomeGiftOld extends GOTBiomeGiftNew {
 	public GOTBiomeGiftOld(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		decorator.treesPerChunk = -1;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		decorator.setTreesPerChunk(-1);
 		decorator.clearSettlements();
 		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);
 		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);

@@ -7,13 +7,14 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTIntCache {
-	public static GOTIntCache SERVER = new GOTIntCache();
-	public static GOTIntCache CLIENT = new GOTIntCache();
-	public int intCacheSize = 256;
-	public List<int[]> freeSmallArrays = new ArrayList<>();
-	public Collection<int[]> inUseSmallArrays = new ArrayList<>();
-	public List<int[]> freeLargeArrays = new ArrayList<>();
-	public Collection<int[]> inUseLargeArrays = new ArrayList<>();
+	private static final GOTIntCache SERVER = new GOTIntCache();
+	private static final GOTIntCache CLIENT = new GOTIntCache();
+
+	private final Collection<int[]> inUseSmallArrays = new ArrayList<>();
+	private final Collection<int[]> inUseLargeArrays = new ArrayList<>();
+	private final List<int[]> freeSmallArrays = new ArrayList<>();
+	private final List<int[]> freeLargeArrays = new ArrayList<>();
+	private int intCacheSize = 256;
 
 	public static GOTIntCache get(World world) {
 		if (!world.isRemote) {

@@ -11,11 +11,11 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
-	public Block woodBlock;
-	public int woodMeta;
-	public Block leafBlock;
-	public int leafMeta;
-	public boolean restrictions = true;
+	private final Block woodBlock;
+	private final int woodMeta;
+	private final Block leafBlock;
+	private final int leafMeta;
+	private boolean restrictions = true;
 
 	public GOTWorldGenPartyTrees(Block block, int i, Block block1, int j) {
 		super(false);

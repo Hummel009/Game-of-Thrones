@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeVariantList {
-	public float totalWeight;
-	public Collection<VariantBucket> variantList = new ArrayList<>();
+	private final Collection<VariantBucket> variantList = new ArrayList<>();
+
+	private float totalWeight;
 
 	public void add(GOTBiomeVariant v, float f) {
 		variantList.add(new VariantBucket(v, totalWeight, totalWeight + f));
@@ -18,18 +19,19 @@ public class GOTBiomeVariantList {
 	}
 
 	public GOTBiomeVariant get(float index) {
-		if (index < 0.0f) {
-			index = 0.0f;
+		float v = index;
+		if (v < 0.0f) {
+			v = 0.0f;
 		}
-		if (index >= 1.0f) {
-			index = 0.9999f;
+		if (v >= 1.0f) {
+			v = 0.9999f;
 		}
-		float f = index * totalWeight;
+		float f = v * totalWeight;
 		for (VariantBucket bucket : variantList) {
-			if (f < bucket.min || f >= bucket.max) {
+			if (f < bucket.getMin() || f >= bucket.getMax()) {
 				continue;
 			}
-			return bucket.variant;
+			return bucket.getVariant();
 		}
 		return null;
 	}
@@ -38,16 +40,31 @@ public class GOTBiomeVariantList {
 		return totalWeight == 0.0f;
 	}
 
-	public static class VariantBucket {
-		public GOTBiomeVariant variant;
-		public float min;
-		public float max;
+	public Collection<VariantBucket> getVariantList() {
+		return variantList;
+	}
 
-		public VariantBucket(GOTBiomeVariant v, float f0, float f1) {
+	public static class VariantBucket {
+		private final GOTBiomeVariant variant;
+		private final float min;
+		private final float max;
+
+		protected VariantBucket(GOTBiomeVariant v, float f0, float f1) {
 			variant = v;
 			min = f0;
 			max = f1;
 		}
-	}
 
+		public GOTBiomeVariant getVariant() {
+			return variant;
+		}
+
+		protected float getMin() {
+			return min;
+		}
+
+		protected float getMax() {
+			return max;
+		}
+	}
 }

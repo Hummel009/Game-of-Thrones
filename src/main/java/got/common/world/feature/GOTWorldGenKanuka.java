@@ -13,19 +13,19 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTWorldGenKanuka extends WorldGenAbstractTree {
-	public int minHeight;
-	public int maxHeight;
-	public int trunkWidth;
-	public Block woodBlock = GOTBlocks.wood9;
-	public int woodMeta = 1;
-	public Block leafBlock = GOTBlocks.leaves9;
-	public int leafMeta = 1;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood9;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves9;
+	private static final int WOOD_META = 1;
+	private static final int LEAF_META = 1;
+	private final int minHeight;
+	private final int maxHeight;
+	private final int trunkWidth;
 
 	public GOTWorldGenKanuka(boolean flag) {
 		this(flag, 5, 12, 0);
 	}
 
-	public GOTWorldGenKanuka(boolean flag, int i, int j, int k) {
+	private GOTWorldGenKanuka(boolean flag, int i, int j, int k) {
 		super(flag);
 		minHeight = i;
 		maxHeight = j;
@@ -106,7 +106,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 							if (pass != 1) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta | 0xC);
+							setBlockAndNotifyAdequately(world, i1, j1, k1, WOOD_BLOCK, WOOD_META | 0xC);
 							trunkCoords.add(new int[]{i1, j1, k1});
 						}
 					}
@@ -149,7 +149,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 						if (!(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isWood(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 							break;
 						}
-						setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta | 0xC);
+						setBlockAndNotifyAdequately(world, i1, j1, k1, WOOD_BLOCK, WOOD_META | 0xC);
 					}
 					growLeafCanopy(world, random, i1, j1, k1);
 				}
@@ -159,7 +159,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growLeafCanopy(World world, Random random, int i, int j, int k) {
+	private void growLeafCanopy(World world, Random random, int i, int j, int k) {
 		int leafHeight = 2;
 		int maxRange = 1 + random.nextInt(3);
 		for (int j1 = 0; j1 < leafHeight; ++j1) {
@@ -173,13 +173,13 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 					if (dist > leafRange || !(block = world.getBlock(i1, j2, k1)).isReplaceable(world, i1, j2, k1) && !block.isLeaves(world, i1, j2, k1)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i1, j2, k1, leafBlock, leafMeta);
+					setBlockAndNotifyAdequately(world, i1, j2, k1, LEAF_BLOCK, LEAF_META);
 				}
 			}
 		}
 		Block block = world.getBlock(i, j, k);
 		if (block.isReplaceable(world, i, j, k) || block.isLeaves(world, i, j, k)) {
-			setBlockAndNotifyAdequately(world, i, j, k, woodBlock, woodMeta | 0xC);
+			setBlockAndNotifyAdequately(world, i, j, k, WOOD_BLOCK, WOOD_META | 0xC);
 		}
 	}
 }

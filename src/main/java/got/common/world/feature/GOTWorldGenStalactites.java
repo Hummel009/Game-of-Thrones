@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenStalactites extends WorldGenerator {
-	public Block stalactiteBlock;
+	private final Block stalactiteBlock;
 
 	public GOTWorldGenStalactites(Block block) {
 		stalactiteBlock = block;

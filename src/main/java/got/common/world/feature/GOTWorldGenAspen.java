@@ -12,13 +12,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenAspen extends WorldGenAbstractTree {
-	public Block woodBlock = GOTBlocks.wood7;
-	public int woodMeta;
-	public Block leafBlock = GOTBlocks.leaves7;
-	public int leafMeta;
-	public int minHeight = 8;
-	public int maxHeight = 15;
-	public int extraTrunk;
+	private Block woodBlock = GOTBlocks.wood7;
+	private Block leafBlock = GOTBlocks.leaves7;
+	private int minHeight = 8;
+	private int maxHeight = 15;
+	private int woodMeta;
+	private int leafMeta;
+	private int extraTrunk;
 
 	public GOTWorldGenAspen(boolean flag) {
 		super(flag);

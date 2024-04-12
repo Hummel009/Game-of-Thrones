@@ -2,9 +2,8 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTSpawnListContainer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,11 +13,11 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearSettlements();
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		Collection<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 	}
 
@@ -26,5 +25,4 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterYiTiWasteland;
 	}
-
 }

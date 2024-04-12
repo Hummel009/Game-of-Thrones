@@ -48,8 +48,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			currentWPIndex = 0;
 		}
 		GOTWaypoint wp = WAYPOINT_ROUTE.get(currentWPIndex);
-		double x = wp.getX();
-		double y = wp.getY();
+		double x = wp.getImgX();
+		double y = wp.getImgY();
 		mapRenderer.setMapX(x);
 		mapRenderer.setMapY(y);
 		mapRenderer.setPrevMapX(x);
@@ -180,8 +180,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		super.updateScreen();
 		mapRenderer.updateTick();
 		GOTWaypoint wp = WAYPOINT_ROUTE.get(currentWPIndex);
-		double dx = wp.getX() - mapRenderer.getMapX();
-		double dy = wp.getY() - mapRenderer.getMapY();
+		double dx = wp.getImgX() - mapRenderer.getMapX();
+		double dy = wp.getImgY() - mapRenderer.getMapY();
 		double distSq = dx * dx + dy * dy;
 		double dist = Math.sqrt(distSq);
 		if (dist <= 12.0f) {

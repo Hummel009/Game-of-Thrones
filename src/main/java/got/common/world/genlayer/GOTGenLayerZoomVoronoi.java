@@ -3,9 +3,6 @@ package got.common.world.genlayer;
 import net.minecraft.world.World;
 
 public class GOTGenLayerZoomVoronoi extends GOTGenLayer {
-	public int zoomScale = 1024;
-	public double zoomDivisor = zoomScale - 0.5;
-
 	public GOTGenLayerZoomVoronoi(long seed, GOTGenLayer layer) {
 		super(seed);
 		gotParent = layer;
@@ -13,8 +10,10 @@ public class GOTGenLayerZoomVoronoi extends GOTGenLayer {
 
 	@Override
 	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
-		int i1 = (i -= 2) >> 2;
-		int k1 = (k -= 2) >> 2;
+		int i5 = i;
+		int k5 = k;
+		int i1 = (i5 -= 2) >> 2;
+		int k1 = (k5 -= 2) >> 2;
 		int xSizeZoom = (xSize >> 2) + 2;
 		int zSizeZoom = (zSize >> 2) + 2;
 		int[] variants = gotParent.getInts(world, i1, k1, xSizeZoom, zSizeZoom);
@@ -28,6 +27,8 @@ public class GOTGenLayerZoomVoronoi extends GOTGenLayer {
 			for (i3 = 0; i3 < xSizeZoom - 1; ++i3) {
 				double d0 = 3.6;
 				initChunkSeed((long) i3 + i1 << 2, (long) k3 + k1 << 2);
+				int zoomScale = 1024;
+				double zoomDivisor = zoomScale - 0.5;
 				double d00_a = nextInt(zoomScale) / zoomDivisor * d0;
 				double d00_b = nextInt(zoomScale) / zoomDivisor * d0;
 				initChunkSeed((long) i3 + i1 + 1 << 2, (long) k3 + k1 << 2);
@@ -73,7 +74,7 @@ public class GOTGenLayerZoomVoronoi extends GOTGenLayer {
 		}
 		int[] zoomedInts = GOTIntCache.get(world).getIntArray(xSize * zSize);
 		for (int k3 = 0; k3 < zSize; ++k3) {
-			System.arraycopy(ints, (k3 + (k & 3)) * i2 + (i & 3), zoomedInts, k3 * xSize, xSize);
+			System.arraycopy(ints, (k3 + (k5 & 3)) * i2 + (i5 & 3), zoomedInts, k3 * xSize, xSize);
 		}
 		return zoomedInts;
 	}

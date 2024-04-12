@@ -4,8 +4,8 @@ import got.common.world.biome.GOTBiome;
 import net.minecraft.world.World;
 
 public class GOTGenLayerBiomeSubtypes extends GOTGenLayer {
-	public GOTGenLayer biomeLayer;
-	public GOTGenLayer variantsLayer;
+	private final GOTGenLayer biomeLayer;
+	private final GOTGenLayer variantsLayer;
 
 	public GOTGenLayerBiomeSubtypes(long l, GOTGenLayer biomes, GOTGenLayer subtypes) {
 		super(l);

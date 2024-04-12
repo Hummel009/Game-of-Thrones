@@ -10,15 +10,15 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import java.util.Random;
 
 public class GOTBiomeLorathMaze extends GOTBiomeLorath {
-	public static NoiseGeneratorPerlin noisePaths1 = new NoiseGeneratorPerlin(new Random(22L), 1);
-	public static NoiseGeneratorPerlin noisePaths2 = new NoiseGeneratorPerlin(new Random(11L), 1);
+	private static final NoiseGeneratorPerlin NOISE_PATHS_1 = new NoiseGeneratorPerlin(new Random(22L), 1);
+	private static final NoiseGeneratorPerlin NOISE_PATHS_2 = new NoiseGeneratorPerlin(new Random(11L), 1);
 
 	public GOTBiomeLorathMaze(int i, boolean major) {
 		super(i, major);
 		topBlock = Blocks.stone;
 		fillerBlock = Blocks.stone;
-		clearBiomeVariants();
-		decorator.treesPerChunk = 0;
+		biomeVariants.clear();
+		decorator.setTreesPerChunk(0);
 		decorator.clearSettlements();
 		invasionSpawns.clearInvasions();
 		npcSpawnList.clear();
@@ -49,8 +49,8 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
-		double d1 = noisePaths1.func_151601_a(i * 0.008, k * 0.008);
-		double d2 = noisePaths2.func_151601_a(i * 0.008, k * 0.008);
+		double d1 = NOISE_PATHS_1.func_151601_a(i * 0.008, k * 0.008);
+		double d2 = NOISE_PATHS_2.func_151601_a(i * 0.008, k * 0.008);
 		if (d1 > 0.0 && d1 < 0.1 || d2 > 0.0 && d2 < 0.1) {
 			topBlock = Blocks.grass;
 			fillerBlock = Blocks.dirt;
@@ -59,5 +59,4 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 		topBlock = topBlock_pre;
 		topBlockMeta = topBlockMeta_pre;
 	}
-
 }

@@ -23,8 +23,7 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
 			for (int j1 = j; j1 <= j + 1 + height && flag; ++j1) {
-				int range;
-				range = j1 - j < trunkBaseHeight ? 0 : leafWidth;
+				int range = j1 - j < trunkBaseHeight ? 0 : leafWidth;
 				for (int i1 = i - range; i1 <= i + range && flag; ++i1) {
 					for (int k1 = k - range; k1 <= k + range && flag; ++k1) {
 						if (j1 >= 0 && j1 < 256) {

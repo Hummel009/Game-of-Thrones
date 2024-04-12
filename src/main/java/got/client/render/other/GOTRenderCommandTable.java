@@ -26,8 +26,8 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		GL11.glDisable(2896);
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) d + 0.5f, (float) d1 + 1.1f, (float) d2 + 0.5f);
-		float posX = Math.round(viewerX / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_X;
-		float posY = Math.round(viewerZ / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_Z;
+		float posX = Math.round(viewerX / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_X;
+		float posY = Math.round(viewerZ / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_Z;
 		int viewportWidth = 400;
 		viewportWidth = (int) Math.round(viewportWidth * Math.pow(2.0, zoomExp));
 		double radius = 0.9;
@@ -36,21 +36,21 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		if (minX < 0.0f) {
 			posX = (float) viewportWidth / 2;
 		}
-		if (maxX >= GOTGenLayerWorld.imageWidth) {
-			posX = GOTGenLayerWorld.imageWidth - (float) viewportWidth / 2;
+		if (maxX >= GOTGenLayerWorld.getImageWidth()) {
+			posX = GOTGenLayerWorld.getImageWidth() - (float) viewportWidth / 2;
 		}
 		float minY = posY - (float) viewportWidth / 2;
 		float maxY = posY + (float) viewportWidth / 2;
 		if (minY < 0.0f) {
 			posY = (float) viewportWidth / 2;
 		}
-		if (maxY >= GOTGenLayerWorld.imageHeight) {
-			posY = GOTGenLayerWorld.imageHeight - (float) viewportWidth / 2;
+		if (maxY >= GOTGenLayerWorld.getImageHeight()) {
+			posY = GOTGenLayerWorld.getImageHeight() - (float) viewportWidth / 2;
 		}
-		double minU = (double) (posX - viewportWidth / 2) / GOTGenLayerWorld.imageWidth;
-		double maxU = (double) (posX + viewportWidth / 2) / GOTGenLayerWorld.imageWidth;
-		double minV = (double) (posY - viewportWidth / 2) / GOTGenLayerWorld.imageHeight;
-		double maxV = (double) (posY + viewportWidth / 2) / GOTGenLayerWorld.imageHeight;
+		double minU = (double) (posX - viewportWidth / 2) / GOTGenLayerWorld.getImageWidth();
+		double maxU = (double) (posX + viewportWidth / 2) / GOTGenLayerWorld.getImageWidth();
+		double minV = (double) (posY - viewportWidth / 2) / GOTGenLayerWorld.getImageHeight();
+		double maxV = (double) (posY + viewportWidth / 2) / GOTGenLayerWorld.getImageHeight();
 		GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GOTTextures.drawMap(true, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV, 1.0f);

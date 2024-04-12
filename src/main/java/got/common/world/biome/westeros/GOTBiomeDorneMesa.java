@@ -14,15 +14,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
-	public byte[] clayMeta;
-	public long seed;
-	public NoiseGeneratorPerlin noise1;
-	public NoiseGeneratorPerlin noise2;
-	public NoiseGeneratorPerlin noise3;
+	private byte[] clayMeta;
+	private long seed;
+	private NoiseGeneratorPerlin noise1;
+	private NoiseGeneratorPerlin noise2;
+	private NoiseGeneratorPerlin noise3;
 
 	public GOTBiomeDorneMesa(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
+		biomeVariants.clear();
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
 		fillerBlock = Blocks.stained_hardened_clay;
@@ -42,10 +42,8 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 			noise2 = new NoiseGeneratorPerlin(random1, 1);
 		}
 		seed = world.getSeed();
-		int g;
-		int l;
-		g = i & 15;
-		l = k & 15;
+		int g = i & 15;
+		int l = k & 15;
 		Block block = Blocks.stained_hardened_clay;
 		Block block2 = fillerBlock;
 		int i1 = (int) (stoneNoise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
@@ -80,7 +78,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 									b0 = 16;
 									if (l1 >= 64 && l1 <= 127) {
 										if (!flag1) {
-											b0 = levelGenerator(i, l1, k);
+											b0 = levelGenerator(i, l1);
 										}
 									} else {
 										b0 = 1;
@@ -108,7 +106,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 								blocks[i2] = Blocks.stained_hardened_clay;
 								meta[i2] = 1;
 							} else {
-								b0 = levelGenerator(i, l1, k);
+								b0 = levelGenerator(i, l1);
 								if (b0 < 16) {
 									blocks[i2] = Blocks.stained_hardened_clay;
 									meta[i2] = b0;
@@ -125,7 +123,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		}
 	}
 
-	public void generateNoise(long n) {
+	private void generateNoise(long n) {
 		clayMeta = new byte[64];
 		Arrays.fill(clayMeta, (byte) 16);
 		Random random = new Random(n);
@@ -188,7 +186,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		return GOTAchievement.enterDorneMesa;
 	}
 
-	public byte levelGenerator(int a, int b, int c) {
+	private byte levelGenerator(int a, int b) {
 		int l = (int) Math.round(noise3.func_151601_a(a * 1.0D / 512.0D, a * 1.0D / 512.0D) * 2.0D);
 		return clayMeta[(b + l + 64) % 64];
 	}

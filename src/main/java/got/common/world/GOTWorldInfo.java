@@ -4,8 +4,8 @@ import net.minecraft.world.storage.DerivedWorldInfo;
 import net.minecraft.world.storage.WorldInfo;
 
 public class GOTWorldInfo extends DerivedWorldInfo {
-	public long gotTotalTime;
-	public long gotWorldTime;
+	private long gotTotalTime;
+	private long gotWorldTime;
 
 	public GOTWorldInfo(WorldInfo worldinfo) {
 		super(worldinfo);
@@ -28,5 +28,4 @@ public class GOTWorldInfo extends DerivedWorldInfo {
 	public void got_setWorldTime(long time) {
 		gotWorldTime = time;
 	}
-
 }

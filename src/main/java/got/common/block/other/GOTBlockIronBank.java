@@ -1,8 +1,11 @@
 package got.common.block.other;
 
-import got.common.GOTCommonProxy;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import got.common.database.GOTGuiId;
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemCoin;
+import got.common.network.GOTPacketClientsideGUI;
+import got.common.network.GOTPacketHandler;
 import got.common.util.GOTItemStackMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -29,9 +32,10 @@ public class GOTBlockIronBank extends GOTBlockForgeBase {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			GOTCommonProxy.sendClientsideGUI((EntityPlayerMP) player, 4, 0, 0, 0);
+			IMessage packet = new GOTPacketClientsideGUI(GOTGuiId.IRON_BANK.ordinal(), i, j, k);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		return true;
 	}

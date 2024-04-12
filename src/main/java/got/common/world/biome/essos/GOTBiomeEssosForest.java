@@ -5,10 +5,10 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 public class GOTBiomeEssosForest extends GOTBiomeEssos {
 	public GOTBiomeEssosForest(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		decorator.treesPerChunk = 10;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
+		decorator.setTreesPerChunk(10);
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}

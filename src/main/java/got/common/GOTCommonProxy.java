@@ -2,7 +2,6 @@ package got.common;
 
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.client.gui.*;
 import got.common.block.other.GOTBlockFlowerPot;
@@ -16,9 +15,7 @@ import got.common.faction.GOTFaction;
 import got.common.inventory.*;
 import got.common.item.other.GOTItemCracker;
 import got.common.item.other.GOTItemPouch;
-import got.common.network.GOTPacketClientsideGUI;
 import got.common.network.GOTPacketFellowshipAcceptInviteResult;
-import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMenuPrompt;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.*;
@@ -32,7 +29,6 @@ import net.minecraft.client.gui.inventory.GuiDispenser;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityMinecartContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.AnimalChest;
 import net.minecraft.inventory.ContainerChest;
@@ -53,11 +49,6 @@ import java.util.UUID;
 public class GOTCommonProxy implements IGuiHandler {
 	public static int packGuiIDWithSlot(int guiID, int slotNo) {
 		return guiID | slotNo << 16;
-	}
-
-	public static void sendClientsideGUI(EntityPlayerMP entityplayer, int guiID, int x, int y, int z) {
-		IMessage packet = new GOTPacketClientsideGUI(guiID, x, y, z);
-		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	private static boolean testForSlotPackedGuiID(int fullID, int guiID) {

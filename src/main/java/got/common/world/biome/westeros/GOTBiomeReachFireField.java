@@ -12,11 +12,11 @@ public class GOTBiomeReachFireField extends GOTBiomeReach {
 	public GOTBiomeReachFireField(int i, boolean major) {
 		super(i, major);
 		setupStandardDomesticFauna();
-		decorator.treesPerChunk = 0;
-		decorator.flowersPerChunk = 20;
-		decorator.doubleFlowersPerChunk = 12;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 3;
+		decorator.setTreesPerChunk(0);
+		decorator.setFlowersPerChunk(20);
+		decorator.setDoubleFlowersPerChunk(12);
+		decorator.setGrassPerChunk(8);
+		decorator.setDoubleGrassPerChunk(3);
 		addFlower(Blocks.red_flower, 0, 80);
 	}
 

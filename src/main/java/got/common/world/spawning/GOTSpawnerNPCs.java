@@ -30,11 +30,13 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.*;
 
 public class GOTSpawnerNPCs {
-	public static int expectedChunks = 196;
-	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();
-	public static Map<Integer, Integer> ticksSinceCycle = new HashMap<>();
+	private static final Set<ChunkCoordIntPair> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
+	private static final Map<Integer, Integer> TICKS_SINCE_CYCLE = new HashMap<>();
 
-	public static boolean canNPCSpawnAtLocation(IBlockAccess world, int i, int j, int k) {
+	private GOTSpawnerNPCs() {
+	}
+
+	private static boolean canNPCSpawnAtLocation(IBlockAccess world, int i, int j, int k) {
 		if (!World.doesBlockHaveSolidTopSurface(world, i, j - 1, k)) {
 			return false;
 		}
@@ -44,7 +46,7 @@ public class GOTSpawnerNPCs {
 		return spawnBlock && block != Blocks.bedrock && !world.getBlock(i, j, k).isNormalCube() && !world.getBlock(i, j, k).getMaterial().isLiquid() && !world.getBlock(i, j + 1, k).isNormalCube();
 	}
 
-	public static int countNPCs(World world) {
+	private static int countNPCs(World world) {
 		int count = 0;
 		for (Object element : world.loadedEntityList) {
 			Entity entity = (Entity) element;
@@ -63,7 +65,7 @@ public class GOTSpawnerNPCs {
 		return getRandomSpawningPointInChunk(world, i, k);
 	}
 
-	public static ChunkPosition getRandomSpawningPointInChunk(World world, int i, int k) {
+	private static ChunkPosition getRandomSpawningPointInChunk(World world, int i, int k) {
 		if (!world.getChunkProvider().chunkExists(i, k)) {
 			return null;
 		}
@@ -74,7 +76,7 @@ public class GOTSpawnerNPCs {
 		return new ChunkPosition(i1, j, k1);
 	}
 
-	public static GOTSpawnEntry.Instance getRandomSpawnListEntry(World world, int i, int j, int k) {
+	private static GOTSpawnEntry.Instance getRandomSpawnListEntry(World world, int i, int k) {
 		GOTBiomeSpawnList spawnlist = null;
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (biome instanceof GOTBiome && world.provider instanceof GOTWorldProvider) {
@@ -84,7 +86,7 @@ public class GOTSpawnerNPCs {
 			spawnlist = gotbiome.getNPCSpawnList();
 		}
 		if (spawnlist != null) {
-			return spawnlist.getRandomSpawnEntry(world.rand, world, i, j, k);
+			return spawnlist.getRandomSpawnEntry(world.rand, world, i, k);
 		}
 		return null;
 	}
@@ -141,26 +143,26 @@ public class GOTSpawnerNPCs {
 		if (interval > 0) {
 			int ticks = 0;
 			int dimID = world.provider.dimensionId;
-			if (ticksSinceCycle.containsKey(dimID)) {
-				ticks = ticksSinceCycle.get(dimID);
+			if (TICKS_SINCE_CYCLE.containsKey(dimID)) {
+				ticks = TICKS_SINCE_CYCLE.get(dimID);
 			}
 			ticks--;
-			ticksSinceCycle.put(dimID, ticks);
+			TICKS_SINCE_CYCLE.put(dimID, ticks);
 			if (ticks > 0) {
 				return;
 			}
 			ticks = interval;
-			ticksSinceCycle.put(dimID, ticks);
+			TICKS_SINCE_CYCLE.put(dimID, ticks);
 		}
-		getSpawnableChunks(world, eligibleSpawnChunks);
+		getSpawnableChunks(world, ELIGIBLE_SPAWN_CHUNKS);
 		ChunkCoordinates spawnPoint = world.getSpawnPoint();
 		int totalSpawnCount = countNPCs(world);
-		int maxSpawnCount = GOTSpawnDamping.getNPCSpawnCap(world) * eligibleSpawnChunks.size() / 196;
+		int maxSpawnCount = GOTSpawnDamping.getNPCSpawnCap(world) * ELIGIBLE_SPAWN_CHUNKS.size() / 196;
 		if (totalSpawnCount <= maxSpawnCount) {
 			int cycles = Math.max(1, interval);
 			block2:
 			for (int c = 0; c < cycles; ++c) {
-				List<ChunkCoordIntPair> shuffled = shuffle(eligibleSpawnChunks);
+				List<ChunkCoordIntPair> shuffled = shuffle(ELIGIBLE_SPAWN_CHUNKS);
 				for (ChunkCoordIntPair chunkCoords : shuffled) {
 					int i;
 					int j;
@@ -179,14 +181,14 @@ public class GOTSpawnerNPCs {
 						int yRange = 0;
 						int rangeP1 = range + 1;
 						int yRangeP1 = yRange + 1;
-						GOTSpawnEntry.Instance spawnEntryInstance = getRandomSpawnListEntry(world, i1, j1, k1);
+						GOTSpawnEntry.Instance spawnEntryInstance = getRandomSpawnListEntry(world, i1, k1);
 						if (spawnEntryInstance == null) {
 							continue;
 						}
-						GOTSpawnEntry spawnEntry = spawnEntryInstance.spawnEntry;
-						boolean isConquestSpawn = spawnEntryInstance.isConquestSpawn;
+						GOTSpawnEntry spawnEntry = spawnEntryInstance.getSpawnEntry();
+						boolean isConquestSpawn = spawnEntryInstance.isConquestSpawn();
 						int spawnCount = MathHelper.getRandomIntegerInRange(world.rand, spawnEntry.minGroupCount, spawnEntry.maxGroupCount);
-						int chance = spawnEntryInstance.spawnChance;
+						int chance = spawnEntryInstance.getSpawnChance();
 						if (chance != 0 && world.rand.nextInt(chance) != 0) {
 							continue;
 						}
@@ -200,7 +202,6 @@ public class GOTSpawnerNPCs {
 							float f5;
 							float f3;
 							float f;
-							Event.Result canSpawn;
 							EntityLiving entity;
 							if (!world.blockExists(i1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1), j1 += world.rand.nextInt(yRangeP1) - world.rand.nextInt(yRangeP1), k1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1)) || !canNPCSpawnAtLocation(world, i1, j1, k1) || world.getClosestPlayer(f = i1 + 0.5f, f1 = j1, f2 = k1 + 0.5f, 24.0) != null || (f3 = f - spawnPoint.posX) * f3 + (f4 = f1 - spawnPoint.posY) * f4 + (f5 = f2 - spawnPoint.posZ) * f5 < 576.0f) {
 								continue;
@@ -216,7 +217,7 @@ public class GOTSpawnerNPCs {
 								GOTEntityNPC npc = (GOTEntityNPC) entity;
 								npc.setConquestSpawning(true);
 							}
-							canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, f1, f2);
+							Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, f1, f2);
 							if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !entity.getCanSpawnHere())) {
 								continue;
 							}

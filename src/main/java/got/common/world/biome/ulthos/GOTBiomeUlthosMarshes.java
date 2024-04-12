@@ -2,10 +2,9 @@ package got.common.world.biome.ulthos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTSpawnListContainer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,22 +13,22 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest {
 	public GOTBiomeUlthosMarshes(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.SWAMP_LOWLAND, 1.0f);
 		variantChance = 1.0f;
-		decorator.sandPerChunk = 0;
-		decorator.quagmirePerChunk = 1;
-		decorator.treesPerChunk = 0;
-		decorator.logsPerChunk = 2;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 8;
-		decorator.flowersPerChunk = 0;
-		decorator.canePerChunk = 10;
-		decorator.reedPerChunk = 2;
-		decorator.dryReedChance = 1.0f;
+		decorator.setSandPerChunk(0);
+		decorator.setQuagmirePerChunk(1);
+		decorator.setTreesPerChunk(0);
+		decorator.setLogsPerChunk(2);
+		decorator.setGrassPerChunk(8);
+		decorator.setDoubleGrassPerChunk(8);
+		decorator.setFlowersPerChunk(0);
+		decorator.setCanePerChunk(10);
+		decorator.setReedPerChunk(2);
+		decorator.setDryReedChance(1.0f);
 		npcSpawnList.clear();
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 

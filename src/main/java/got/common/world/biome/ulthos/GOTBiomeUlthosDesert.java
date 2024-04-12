@@ -7,7 +7,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -23,19 +23,19 @@ public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Des
 	public GOTBiomeUlthosDesert(int i, boolean major) {
 		super(i, major);
 		setupDesertFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
 		variantChance = 0.3f;
-		decorator.grassPerChunk = 5;
-		decorator.cactiPerChunk = 2;
-		decorator.deadBushPerChunk = 2;
+		decorator.setGrassPerChunk(5);
+		decorator.setCactiPerChunk(2);
+		decorator.setDeadBushPerChunk(2);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 
@@ -83,8 +83,8 @@ public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Des
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
-		double d1 = biomeTerrainNoise.func_151601_a(i * 0.07, k * 0.07);
-		double d2 = biomeTerrainNoise.func_151601_a(i * 0.4, k * 0.4);
+		double d1 = BIOME_TERRAIN_NOISE.func_151601_a(i * 0.07, k * 0.07);
+		double d2 = BIOME_TERRAIN_NOISE.func_151601_a(i * 0.4, k * 0.4);
 		d2 *= 0.6;
 		if (d1 + d2 > 0.7) {
 			topBlock = Blocks.grass;

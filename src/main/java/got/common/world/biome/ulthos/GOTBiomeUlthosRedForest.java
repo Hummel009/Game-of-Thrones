@@ -32,5 +32,4 @@ public class GOTBiomeUlthosRedForest extends GOTBiomeUlthosForest {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterUlthosRedForest;
 	}
-
 }

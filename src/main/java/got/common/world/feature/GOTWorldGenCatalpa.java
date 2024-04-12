@@ -12,12 +12,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
-	public int minHeight = 10;
-	public int maxHeight = 14;
-	public Block woodBlock = GOTBlocks.wood1;
-	public int woodMeta = 1;
-	public Block leafBlock = GOTBlocks.leaves1;
-	public int leafMeta = 1;
+	private static final Block WOOD_BLOCK = GOTBlocks.wood1;
+	private static final Block LEAF_BLOCK = GOTBlocks.leaves1;
 
 	public GOTWorldGenCatalpa(boolean flag) {
 		super(flag);
@@ -25,6 +21,8 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
+		int maxHeight = 14;
+		int minHeight = 10;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		int leafMin = j + (int) (height * 0.6f);
 		boolean flag = true;
@@ -59,6 +57,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 				below = world.getBlock(i, j - 1, k);
 				below.onPlantGrow(world, i, j - 1, k, i, j, k);
 				int deg = 0;
+				int woodMeta = 1;
 				for (j1 = j + height; j1 >= leafMin; --j1) {
 					int branches = 1 + random.nextInt(2);
 					for (int b = 0; b < branches; ++b) {
@@ -85,13 +84,13 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 							if (!(block = world.getBlock(i1, j2, k1)).isReplaceable(world, i1, j2, k1) && !block.isWood(world, i1, j2, k1) && !block.isLeaves(world, i1, j2, k1)) {
 								break;
 							}
-							setBlockAndNotifyAdequately(world, i1, j2, k1, woodBlock, woodMeta | 0xC);
+							setBlockAndNotifyAdequately(world, i1, j2, k1, WOOD_BLOCK, woodMeta | 0xC);
 						}
 						growLeafCanopy(world, random, i1, j2, k1);
 					}
 				}
 				for (j1 = j; j1 < j + height; ++j1) {
-					setBlockAndNotifyAdequately(world, i, j1, k, woodBlock, woodMeta);
+					setBlockAndNotifyAdequately(world, i, j1, k, WOOD_BLOCK, woodMeta);
 				}
 				for (int i1 = i - 1; i1 <= i + 1; ++i1) {
 					for (int k1 = k - 1; k1 <= k + 1; ++k1) {
@@ -102,7 +101,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 						}
 						int rootY = j + random.nextInt(2);
 						while (world.getBlock(i1, rootY, k1).isReplaceable(world, i1, rootY, k1)) {
-							setBlockAndNotifyAdequately(world, i1, rootY, k1, woodBlock, woodMeta | 0xC);
+							setBlockAndNotifyAdequately(world, i1, rootY, k1, WOOD_BLOCK, woodMeta | 0xC);
 							world.getBlock(i1, rootY - 1, k1).onPlantGrow(world, i1, rootY - 1, k1, i1, rootY, k1);
 							--rootY;
 						}
@@ -114,7 +113,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growLeafCanopy(World world, Random random, int i, int j, int k) {
+	private void growLeafCanopy(World world, Random random, int i, int j, int k) {
 		int leafStart = j - 1;
 		int leafTop = j + 2;
 		int maxRange = 3 + random.nextInt(2);
@@ -124,24 +123,23 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 			int leafRangeSq = leafRange * leafRange;
 			for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {
 				for (int k1 = k - leafRange; k1 <= k + leafRange; ++k1) {
-					boolean grow;
 					Block block;
 					int i2 = Math.abs(i1 - i);
 					int k2 = Math.abs(k1 - k);
 					int j2 = Math.abs(j1 - j);
 					int dSq = i2 * i2 + k2 * k2;
 					int dCh = i2 + j2 + k2;
-					grow = dSq < leafRangeSq && dCh <= 4;
+					boolean grow = dSq < leafRangeSq && dCh <= 4;
 					if (i2 == leafRange - 1 || k2 == leafRange - 1) {
 						grow = grow && random.nextInt(4) != 0;
 					}
 					if (!grow || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i1, j1, k1, leafBlock, leafMeta);
+					int leafMeta = 1;
+					setBlockAndNotifyAdequately(world, i1, j1, k1, LEAF_BLOCK, leafMeta);
 				}
 			}
 		}
 	}
-
 }

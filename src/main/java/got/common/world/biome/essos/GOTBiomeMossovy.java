@@ -2,11 +2,10 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovySettlement;
 
 import java.util.ArrayList;
@@ -15,13 +14,13 @@ import java.util.Collection;
 public class GOTBiomeMossovy extends GOTBiomeEssosCold {
 	public GOTBiomeMossovy(int i, boolean major) {
 		super(i, major);
-		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
+		biomeVariants.add(GOTBiomeVariant.FOREST_PINE, 0.2f);
 		decorator.addSettlement(new GOTStructureMossovySettlement(this, 1.0f));
-		Collection<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		Collection<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(GOTBiome.SPAWN));
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c1);
 	}
 
@@ -31,7 +30,7 @@ public class GOTBiomeMossovy extends GOTBiomeEssosCold {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.MOSSOVY;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.MOSSOVY;
 	}
 }

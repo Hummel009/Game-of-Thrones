@@ -496,13 +496,13 @@ public class GOTSpawnList {
 		YITI_MILITARY = new GOTSpawnList(YITI_MILITARY_L);
 	}
 
-	private final List<GOTSpawnEntry> spawnList;
+	private final List<GOTSpawnEntry> spawnEntries;
 
 	private GOTFaction discoveredFaction;
 
 	@SuppressWarnings("WeakerAccess")
 	public GOTSpawnList(List<GOTSpawnEntry> entries) {
-		spawnList = entries;
+		spawnEntries = entries;
 	}
 
 	public GOTFaction getListCommonFaction(World world) {
@@ -510,7 +510,7 @@ public class GOTSpawnList {
 			return discoveredFaction;
 		}
 		GOTFaction commonFaction = null;
-		for (GOTSpawnEntry entry : spawnList) {
+		for (GOTSpawnEntry entry : spawnEntries) {
 			Class<? extends GOTEntityNPC> entityClass = entry.entityClass;
 			if (GOTEntityNPC.class.isAssignableFrom(entityClass)) {
 				try {
@@ -539,10 +539,10 @@ public class GOTSpawnList {
 	}
 
 	public GOTSpawnEntry getRandomSpawnEntry(Random rand) {
-		return (GOTSpawnEntry) WeightedRandom.getRandomItem(rand, spawnList);
+		return (GOTSpawnEntry) WeightedRandom.getRandomItem(rand, spawnEntries);
 	}
 
-	public List<GOTSpawnEntry> getSpawnList() {
-		return spawnList;
+	public List<GOTSpawnEntry> getSpawnEntries() {
+		return spawnEntries;
 	}
 }
