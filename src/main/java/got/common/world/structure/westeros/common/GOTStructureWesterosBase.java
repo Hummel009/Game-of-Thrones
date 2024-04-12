@@ -15,7 +15,6 @@ import got.common.entity.westeros.riverlands.*;
 import got.common.entity.westeros.stormlands.*;
 import got.common.entity.westeros.westerlands.*;
 import got.common.item.other.GOTItemBanner;
-import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.util.GOTReflection;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.structure.other.GOTStructureBase;
@@ -41,7 +40,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.*;
 
 public abstract class GOTStructureWesterosBase extends GOTStructureBase {
-	public static final Map<Kingdom, BannerType> BANNERS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, GOTItemBanner.BannerType> BANNERS = new EnumMap<>(Kingdom.class);
 	public static final Map<Kingdom, Block> TABLES = new EnumMap<>(Kingdom.class);
 	public static final Map<Kingdom, Class<? extends Entity>> ARCHERS = new EnumMap<>(Kingdom.class);
 	public static final Map<Kingdom, Class<? extends Entity>> BARTENDERS = new EnumMap<>(Kingdom.class);
@@ -278,7 +277,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	protected Block trapdoorBlock;
 	protected Block brickCarved;
 	protected int brickCarvedMeta;
-	protected BannerType bannerType;
+	protected GOTItemBanner.BannerType bannerType;
 	protected Kingdom kingdom;
 
 	protected GOTStructureWesterosBase(boolean flag) {
@@ -335,7 +334,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public BannerType getBanner() {
+	public GOTItemBanner.BannerType getBanner() {
 		return BANNERS.get(kingdom);
 	}
 

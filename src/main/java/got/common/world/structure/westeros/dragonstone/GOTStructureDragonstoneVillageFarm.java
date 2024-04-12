@@ -2,6 +2,7 @@ package got.common.world.structure.westeros.dragonstone;
 
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
+@SuppressWarnings("AbstractClassNeverImplemented")
 public abstract class GOTStructureDragonstoneVillageFarm extends GOTStructureWesterosVillageFarm {
 	protected GOTStructureDragonstoneVillageFarm(boolean flag) {
 		super(flag);

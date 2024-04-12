@@ -48,11 +48,10 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 		}
 		for (i1 = -10; i1 <= 5; ++i1) {
 			for (int k13 = -3; k13 <= 4; ++k13) {
-				boolean corner;
 				for (j12 = 2; j12 <= 8; ++j12) {
 					setAir(world, i1, j12, k13);
 				}
-				corner = (i1 == -10 || i1 == 5) && (k13 == -3 || k13 == 4);
+				boolean corner = (i1 == -10 || i1 == 5) && (k13 == -3 || k13 == 4);
 				if (corner) {
 					for (j1 = 1; (j1 >= 1 || !isOpaque(world, i1, j1, k13)) && getY(j1) >= 0; --j1) {
 						setBlockAndMetadata(world, i1, j1, k13, rockSlabDoubleBlock, rockSlabDoubleMeta);

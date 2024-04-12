@@ -141,8 +141,7 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 		int[] i15 = {-2, 2};
 		k1 = i15.length;
 		for (i2 = 0; i2 < k1; ++i2) {
-			int i13;
-			i13 = i15[i2];
+			int i13 = i15[i2];
 			for (int k13 : new int[]{-2, 2}) {
 				setBlockAndMetadata(world, i13, 13, k13 - 1, brickStairBlock, 6);
 				setBlockAndMetadata(world, i13, 13, k13 + 1, brickStairBlock, 7);

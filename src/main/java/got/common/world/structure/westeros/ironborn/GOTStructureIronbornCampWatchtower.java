@@ -31,7 +31,6 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int randomWood;
 		int k1;
 		int i1;
 		int i12;
@@ -49,7 +48,7 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 				}
 			}
 		}
-		randomWood = random.nextInt(4);
+		int randomWood = random.nextInt(4);
 		if (randomWood == 0) {
 			woodBlock = Blocks.log;
 			woodMeta = 0;

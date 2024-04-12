@@ -186,7 +186,6 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			for (int i = -61; i <= 61; ++i) {
 				for (int k = -61; k <= 61; ++k) {
 					int dSq;
-					GOTStructureSummerPalisade palisade;
 					int i1 = Math.abs(i);
 					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
 						continue;
@@ -194,7 +193,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 					if (random.nextBoolean()) {
 						continue;
 					}
-					palisade = new GOTStructureSummerPalisadeRuined(false);
+					GOTStructureSummerPalisade palisade = new GOTStructureSummerPalisadeRuined(false);
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}
@@ -302,12 +301,11 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			for (int i = -61; i <= 61; ++i) {
 				for (int k = -61; k <= 61; ++k) {
 					int dSq;
-					GOTStructureSummerPalisade palisade;
 					int i1 = Math.abs(i);
 					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
 						continue;
 					}
-					palisade = new GOTStructureSummerPalisade(false);
+					GOTStructureSummerPalisade palisade = new GOTStructureSummerPalisade(false);
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}

@@ -173,8 +173,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 			int[] k14 = {-1, 16};
 			j13 = k14.length;
 			for (beam = 0; beam < j13; ++beam) {
-				int k15;
-				k15 = k14[beam];
+				int k15 = k14[beam];
 				if (i22 >= 3 || k15 != -1) {
 					setBlockAndMetadata(world, i13, 1, k15, plank2SlabBlock, plank2SlabMeta | 8);
 				}

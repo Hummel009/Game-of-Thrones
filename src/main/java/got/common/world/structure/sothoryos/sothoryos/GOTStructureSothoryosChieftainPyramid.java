@@ -133,8 +133,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 		int[] k13 = {-4, 4};
 		j12 = k13.length;
 		for (int i3 = 0; i3 < j12; ++i3) {
-			int i13;
-			i13 = k13[i3];
+			int i13 = k13[i3];
 			for (int j14 = 5; j14 <= 7; ++j14) {
 				setBlockAndMetadata(world, i13, j14, -4, brickBlock, brickMeta);
 				setBlockAndMetadata(world, i13, j14, -2, brickBlock, brickMeta);

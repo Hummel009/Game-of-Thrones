@@ -2,6 +2,7 @@ package got.common.world.structure.westeros.riverlands;
 
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
+@SuppressWarnings("AbstractClassNeverImplemented")
 public abstract class GOTStructureRiverlandsVillageFarm extends GOTStructureWesterosVillageFarm {
 	protected GOTStructureRiverlandsVillageFarm(boolean flag) {
 		super(flag);

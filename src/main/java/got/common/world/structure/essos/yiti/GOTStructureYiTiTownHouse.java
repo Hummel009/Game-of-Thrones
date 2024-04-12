@@ -150,7 +150,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 				int j12 = 5 + l2;
 				setBlockAndMetadata(world, -3 + l2, j12, k131, roofStairBlock, 1);
 				setBlockAndMetadata(world, 3 - l2, j12, k131, roofStairBlock, 0);
-				if (l2 <= 0) {
+				if (l2 == 0) {
 					continue;
 				}
 				setBlockAndMetadata(world, -3 + l2, j12 - 1, k131, roofStairBlock, 4);

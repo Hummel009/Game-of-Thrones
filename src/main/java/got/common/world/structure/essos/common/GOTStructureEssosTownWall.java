@@ -19,7 +19,6 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int i1 = -leftExtent; i1 <= rightExtent; ++i1) {
-			int pillarOffset;
 			int k3;
 			int j1;
 			int k1 = 0;
@@ -38,7 +37,7 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 			setBlockAndMetadata(world, i1, 5, k1 + 1, stoneBlock, stoneMeta);
 			setBlockAndMetadata(world, i1, 5, k1 + 2, brickBlock, brickMeta);
 			setBlockAndMetadata(world, i1, 6, k1 + 2, fenceBlock, fenceMeta);
-			pillarOffset = centrePillar ? IntMath.mod(i1, 4) : IntMath.mod(i1 + 2, 4);
+			int pillarOffset = IntMath.mod(centrePillar ? i1 : i1 + 2, 4);
 			switch (pillarOffset) {
 				case 0:
 					k3 = k1 - 1;

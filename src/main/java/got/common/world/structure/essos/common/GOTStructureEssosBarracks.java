@@ -1,6 +1,5 @@
 package got.common.world.structure.essos.common;
 
-import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.world.World;
 

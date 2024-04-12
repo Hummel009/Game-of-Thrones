@@ -2,6 +2,7 @@ package got.common.world.structure.westeros.reach;
 
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
+@SuppressWarnings("AbstractClassNeverImplemented")
 public abstract class GOTStructureReachVillageFarm extends GOTStructureWesterosVillageFarm {
 	protected GOTStructureReachVillageFarm(boolean flag) {
 		super(flag);

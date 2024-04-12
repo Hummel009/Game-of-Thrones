@@ -182,8 +182,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 3, 3, 9, plankStairBlock, 5);
 		for (i1 = -5; i1 <= 5; ++i1) {
 			int l;
-			int avoidBeam;
-			avoidBeam = IntMath.mod(i1, 4) == 0 ? 1 : 0;
+			int avoidBeam = IntMath.mod(i1, 4) == 0 ? 1 : 0;
 			if (avoidBeam == 0) {
 				setBlockAndMetadata(world, i1, 4, 0, roofStairBlock, 2);
 				setBlockAndMetadata(world, i1, 4, 9, roofStairBlock, 3);

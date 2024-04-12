@@ -113,8 +113,8 @@ public class GOTStructureMossovyOffice extends GOTStructureMossovyBase {
 		placePlate(world, random, 0, 6, -4, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
 		placePlate(world, random, -6, 6, -2, GOTBlocks.plate, GOTFoods.WESTEROS);
 		placePlate(world, random, 5, 6, 1, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
-		setBlockAndMetadata(world, 5, 6, 2, GOTStructureMossovyBase.getRandomPieBlock(random), 0);
-		setBlockAndMetadata(world, -3, 6, 2, GOTStructureMossovyBase.getRandomPieBlock(random), 0);
+		setBlockAndMetadata(world, 5, 6, 2, getRandomPieBlock(random), 0);
+		setBlockAndMetadata(world, -3, 6, 2, getRandomPieBlock(random), 0);
 		setBlockAndMetadata(world, 6, 1, -1, GOTBlocks.strawBed, 2);
 		setBlockAndMetadata(world, 6, 1, -2, GOTBlocks.strawBed, 10);
 		setBlockAndMetadata(world, 6, 1, 1, GOTBlocks.strawBed, 0);

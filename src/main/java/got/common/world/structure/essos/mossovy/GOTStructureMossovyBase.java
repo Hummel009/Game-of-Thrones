@@ -58,16 +58,13 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 	public static Block getRandomPieBlock(Random random) {
 		int i = random.nextInt(3);
 		switch (i) {
-			case 0:
-				return GOTBlocks.appleCrumble;
 			case 1:
 				return GOTBlocks.cherryPie;
 			case 2:
 				return GOTBlocks.berryPie;
 			default:
-				break;
+				return GOTBlocks.appleCrumble;
 		}
-		return GOTBlocks.appleCrumble;
 	}
 
 	public ItemStack getRandomBreeWeapon(Random random) {

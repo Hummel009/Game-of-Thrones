@@ -91,7 +91,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		plantFlower(world, random, -8, 6, 1);
 		plantFlower(world, random, 8, 6, 1);
 		placeChest(world, random, -5, 1, -3, 3, GOTChestContents.MOSSOVY);
-		setBlockAndMetadata(world, -6, 2, -3, GOTStructureMossovyBase.getRandomPieBlock(random), 0);
+		setBlockAndMetadata(world, -6, 2, -3, getRandomPieBlock(random), 0);
 		placeBarrel(world, random, -6, 2, 1, 4, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -4, 2, 4, 2, GOTFoods.WESTEROS_DRINK);
 		placeFoodOrDrink(world, random, 6, 2, -3);

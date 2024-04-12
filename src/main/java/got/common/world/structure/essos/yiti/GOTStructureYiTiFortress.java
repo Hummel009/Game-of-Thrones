@@ -238,8 +238,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		int[] i19 = {-12, 9};
 		j1 = i19.length;
 		for (j12 = 0; j12 < j1; ++j12) {
-			int i17;
-			i17 = i19[j12];
+			int i17 = i19[j12];
 			for (int k15 : new int[]{-12, 9}) {
 				setBlockAndMetadata(world, i17 + 1, 8, k15, brickStairBlock, 0);
 				setBlockAndMetadata(world, i17 + 2, 8, k15, brickStairBlock, 1);
@@ -626,9 +625,8 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		for (j16 = 0; j16 < k1; ++j16) {
 			int i110 = j3[j16];
 			for (int l = 0; l <= 4; ++l) {
-				int k15;
 				int j18 = 1 + l;
-				k15 = 6 + l;
+				int k15 = 6 + l;
 				for (i2 = i110 - 1; i2 <= i110 + 1; ++i2) {
 					setBlockAndMetadata(world, i2, j18, k15, brickStairBlock, 2);
 					for (int j2 = j18 - 1; j2 >= 1 && !isOpaque(world, i2, j2, k15); --j2) {
@@ -680,8 +678,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
 		int soldiers = 4 + random.nextInt(4);
 		for (int l = 0; l < soldiers; ++l) {
-			GOTEntityYiTiSoldier soldier;
-			soldier = random.nextInt(3) == 0 ? new GOTEntityYiTiSoldierCrossbower(world) : new GOTEntityYiTiSoldier(world);
+			GOTEntityYiTiSoldier soldier = random.nextInt(3) == 0 ? new GOTEntityYiTiSoldierCrossbower(world) : new GOTEntityYiTiSoldier(world);
 			if (random.nextInt(3) == 0) {
 				soldier = new GOTEntityYiTiSamurai(world);
 			}

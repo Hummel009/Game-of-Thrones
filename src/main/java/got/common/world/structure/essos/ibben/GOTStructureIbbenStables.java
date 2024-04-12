@@ -50,9 +50,6 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 		}
 		for (int i13 = -7; i13 <= 7; ++i13) {
 			for (k1 = 0; k1 <= 26; ++k1) {
-				int dz;
-				int hayDist;
-				int dx;
 				i2 = Math.abs(i13);
 				k2 = IntMath.mod(k1, 4);
 				if (k1 <= 12) {
@@ -189,9 +186,9 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 				if (random.nextInt(3) == 0) {
 					plantTallGrass(world, random, i13, 1, k1);
 				}
-				dx = i13;
-				dz = k1 - 20;
-				hayDist = 1 + random.nextInt(3);
+				int dx = i13;
+				int dz = k1 - 20;
+				int hayDist = 1 + random.nextInt(3);
 				if (dx * dx + dz * dz < hayDist * hayDist && random.nextInt(3) != 0) {
 					int hayHeight = 1 + random.nextInt(3);
 					for (int j13 = 1; j13 <= hayHeight; ++j13) {

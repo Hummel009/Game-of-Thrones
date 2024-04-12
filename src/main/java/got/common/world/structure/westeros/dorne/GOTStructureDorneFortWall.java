@@ -2,6 +2,7 @@ package got.common.world.structure.westeros.dorne;
 
 import got.common.world.structure.westeros.common.GOTStructureWesterosFortWall;
 
+@SuppressWarnings("AbstractClassNeverImplemented")
 public abstract class GOTStructureDorneFortWall extends GOTStructureWesterosFortWall {
 	protected GOTStructureDorneFortWall(boolean flag) {
 		super(flag);

@@ -133,7 +133,7 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 		placeWallBanner(world, -8, 4, 0, GOTItemBanner.BannerType.HILLMEN, 1);
 		placeWallBanner(world, 8, 4, 0, GOTItemBanner.BannerType.HILLMEN, 3);
 		GOTEntityBearRug rug = new GOTEntityBearRug(world);
-		GOTEntityBear.BearType[] bearTypes = {GOTEntityBear.BearType.LIGHT, GOTEntityBear.BearType.DARK, GOTEntityBear.BearType.BLACK};
+		GOTEntityBear.BearType[] bearTypes = GOTEntityBear.BearType.values();
 		rug.setRugType(bearTypes[random.nextInt(bearTypes.length)]);
 		placeRug(rug, world, -5, 1, -4, -45.0f);
 		GOTEntityHillmanWarlord warlord = new GOTEntityHillmanWarlord(world);

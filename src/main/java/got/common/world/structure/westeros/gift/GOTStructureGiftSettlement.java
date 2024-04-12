@@ -7,10 +7,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.Abandoned;
-import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.CastleBlack;
-import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.EastWatch;
-import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.ShadowTower;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -61,18 +57,18 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			switch (type) {
 				case CASTLE_BLACK:
 					addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-					addStructure(new CastleBlack(false), -4, 25, 1, true);
+					addStructure(new GOTStructureGiftCastle.CastleBlack(false), -4, 25, 1, true);
 					break;
 				case SHADOW_TOWER:
 					addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-					addStructure(new ShadowTower(false), 0, 20, 0, true);
+					addStructure(new GOTStructureGiftCastle.ShadowTower(false), 0, 20, 0, true);
 					break;
 				case EAST_WATCH:
-					addStructure(new EastWatch(false), 0, 50, 0, true);
+					addStructure(new GOTStructureGiftCastle.EastWatch(false), 0, 50, 0, true);
 					break;
 				case ABANDONED:
 					addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
-					addStructure(new Abandoned(false), 0, 20, 0, true);
+					addStructure(new GOTStructureGiftCastle.Abandoned(false), 0, 20, 0, true);
 					break;
 				case VILLAGE:
 					setupVillage(random);

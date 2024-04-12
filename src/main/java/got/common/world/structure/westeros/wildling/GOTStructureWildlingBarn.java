@@ -175,8 +175,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 			int[] k14 = {-1, 16};
 			j13 = k14.length;
 			for (beam = 0; beam < j13; ++beam) {
-				int k15;
-				k15 = k14[beam];
+				int k15 = k14[beam];
 				if (i22 >= 3 || k15 != -1) {
 					setBlockAndMetadata(world, i14, 1, k15, plankSlabBlock, plankSlabMeta | 8);
 				}

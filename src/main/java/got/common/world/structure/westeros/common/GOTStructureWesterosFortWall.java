@@ -24,11 +24,10 @@ public abstract class GOTStructureWesterosFortWall extends GOTStructureWesterosB
 		}
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
 			int j1;
-			boolean pillar;
 			int i2 = Math.abs(i1);
 			int k1 = 0;
 			findSurface(world, i1, k1);
-			pillar = i2 % 3 == 0;
+			boolean pillar = i2 % 3 == 0;
 			if (pillar) {
 				for (j1 = 4; (j1 >= 1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					setBlockAndMetadata(world, i1, j1, k1, pillar2Block, pillar2Meta);

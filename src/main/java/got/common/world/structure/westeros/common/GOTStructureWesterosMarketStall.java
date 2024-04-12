@@ -1,7 +1,6 @@
 package got.common.world.structure.westeros.common;
 
 import got.common.entity.other.GOTEntityNPC;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 import java.util.Random;

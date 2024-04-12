@@ -24,11 +24,10 @@ public abstract class GOTStructureEssosFortWall extends GOTStructureEssosBase {
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
 			int j1;
 			int j12;
-			boolean beam;
 			int i2 = Math.abs(i1);
 			int k1 = 0;
 			findSurface(world, i1, k1);
-			beam = i2 % 4 == 2;
+			boolean beam = i2 % 4 == 2;
 			if (beam) {
 				for (j1 = 6; (j1 >= 1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					setBlockAndMetadata(world, i1, j1, k1, woodBeamBlock, woodBeamMeta);

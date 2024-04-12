@@ -53,9 +53,8 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		}
 		for (int i13 = -10; i13 <= 10; ++i13) {
 			for (int k13 = -10; k13 <= 10; ++k13) {
-				int k2;
 				int i2 = Math.abs(i13);
-				k2 = Math.abs(k13);
+				int k2 = Math.abs(k13);
 				if (i2 * i2 + k2 * k2 >= 100) {
 					continue;
 				}
@@ -162,8 +161,7 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.NOMAD_DRINK);
 			} else {
-				Block plateBlock;
-				plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
+				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

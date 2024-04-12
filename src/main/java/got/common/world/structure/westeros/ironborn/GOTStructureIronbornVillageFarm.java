@@ -2,6 +2,7 @@ package got.common.world.structure.westeros.ironborn;
 
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
+@SuppressWarnings("AbstractClassNeverImplemented")
 public abstract class GOTStructureIronbornVillageFarm extends GOTStructureWesterosVillageFarm {
 	protected GOTStructureIronbornVillageFarm(boolean flag) {
 		super(flag);

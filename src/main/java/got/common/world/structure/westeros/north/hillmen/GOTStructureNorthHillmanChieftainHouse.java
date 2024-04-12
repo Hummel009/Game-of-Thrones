@@ -136,8 +136,7 @@ public class GOTStructureNorthHillmanChieftainHouse extends GOTStructureBase {
 		int[] i15 = {-2, 2};
 		k14 = i15.length;
 		for (j14 = 0; j14 < k14; ++j14) {
-			int i14;
-			i14 = i15[j14];
+			int i14 = i15[j14];
 			for (j15 = 1; j15 <= 3; ++j15) {
 				setBlockAndMetadata(world, i14, j15, -4, plankBlock, plankMeta);
 				setBlockAndMetadata(world, i14, j15, -5, woodBlock, woodMeta);

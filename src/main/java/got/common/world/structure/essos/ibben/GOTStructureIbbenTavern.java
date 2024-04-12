@@ -63,12 +63,11 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		}
 		for (i13 = -8; i13 <= 8; ++i13) {
 			for (k1 = 0; k1 <= 28; ++k1) {
-				boolean stairSide;
 				for (j13 = 1; j13 <= 11; ++j13) {
 					setAir(world, i13, j13, k1);
 				}
 				boolean corner = Math.abs(i13) == 8 && (k1 == 0 || k1 == 28);
-				stairSide = Math.abs(i13) == 3 && k1 == 0;
+				boolean stairSide = Math.abs(i13) == 3 && k1 == 0;
 				if (corner || stairSide) {
 					for (j14 = 1; (j14 >= 1 || !isOpaque(world, i13, j14, k1)) && getY(j14) >= 0; --j14) {
 						setBlockAndMetadata(world, i13, j14, k1, rockSlabDoubleBlock, rockSlabDoubleMeta);

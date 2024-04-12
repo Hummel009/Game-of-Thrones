@@ -18,7 +18,6 @@ public class GOTStructureWesterosFortWallCorner extends GOTStructureWesterosBase
 		for (int l = -8; l <= 8; ++l) {
 			int j1;
 			int k1;
-			boolean pillar;
 			int i1;
 			if (l >= 0) {
 				i1 = l / 2;
@@ -28,7 +27,7 @@ public class GOTStructureWesterosFortWallCorner extends GOTStructureWesterosBase
 				k1 = Math.abs(l) / 2;
 			}
 			findSurface(world, i1, k1);
-			pillar = Math.abs(l) == 3;
+			boolean pillar = Math.abs(l) == 3;
 			if (pillar) {
 				for (j1 = 4; (j1 >= 1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					setBlockAndMetadata(world, i1, j1, k1, pillar2Block, pillar2Meta);
