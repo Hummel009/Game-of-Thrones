@@ -15,14 +15,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
-	protected Block woodBlock;
-	protected int woodMeta;
-	protected Block plankBlock;
-	protected int plankMeta;
-	protected Block fenceBlock;
-	protected int fenceMeta;
-	protected Block stairBlock;
-	protected Block trapdoorBlock;
+	private Block woodBlock;
+	private int woodMeta;
 
 	public GOTStructureGoldenCampWatchtower(boolean flag) {
 		super(flag);
@@ -48,6 +42,12 @@ public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 			}
 		}
 		int randomWood = random.nextInt(4);
+		Block trapdoorBlock;
+		Block stairBlock;
+		int fenceMeta;
+		Block fenceBlock;
+		int plankMeta;
+		Block plankBlock;
 		if (randomWood == 0) {
 			woodBlock = Blocks.log;
 			woodMeta = 0;
@@ -202,7 +202,7 @@ public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 		return true;
 	}
 
-	public void generateSupportPillar(World world, int i, int j, int k) {
+	private void generateSupportPillar(World world, int i, int j, int k) {
 		int j1 = j;
 		while (!isOpaque(world, i, j1, k) && getY(j1) >= 0) {
 			setBlockAndMetadata(world, i, j1, k, woodBlock, woodMeta);

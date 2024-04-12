@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
-	public boolean generateRoom = true;
+	private boolean generateRoom = true;
 
 	public GOTStructureWesterosTower(boolean flag) {
 		super(flag);
@@ -188,5 +188,14 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 		respawner.setSpawnRanges(2, -2, 2, 16);
 		placeNPCRespawner(respawner, world, 0, 9, 0);
 		return true;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isGenerateRoom() {
+		return generateRoom;
+	}
+
+	public void setGenerateRoom(boolean generateRoom) {
+		this.generateRoom = generateRoom;
 	}
 }

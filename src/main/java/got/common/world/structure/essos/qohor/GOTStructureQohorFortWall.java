@@ -3,6 +3,7 @@ package got.common.world.structure.essos.qohor;
 import got.common.world.structure.essos.common.GOTStructureEssosFortWall;
 
 public class GOTStructureQohorFortWall extends GOTStructureEssosFortWall {
+	@SuppressWarnings("unused")
 	public GOTStructureQohorFortWall(boolean flag) {
 		super(flag);
 		city = City.QOHOR;
@@ -12,14 +13,6 @@ public class GOTStructureQohorFortWall extends GOTStructureEssosFortWall {
 		public Long(boolean flag) {
 			super(flag);
 			isLong = true;
-			city = City.QOHOR;
-		}
-	}
-
-	public static class Short extends GOTStructureEssosFortWall.Short {
-		public Short(boolean flag) {
-			super(flag);
-			isLong = false;
 			city = City.QOHOR;
 		}
 	}

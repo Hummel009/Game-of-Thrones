@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTStructureSummerMarket extends GOTStructureSummerBase {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class};
+	private static final Class<? extends GOTStructureBase>[] STALLS = new Class[]{Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class};
 
 	public GOTStructureSummerMarket(boolean flag) {
 		super(flag);
@@ -101,7 +101,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		placeAnimalJar(world, -2, 3, -2, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 6, 3, 1, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeSkull(world, random, 2, 4, -5);
-		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
+		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(STALLS));
 		while (stallClasses.size() > 4) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}
@@ -172,8 +172,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		return true;
 	}
 
-	public static class Baker extends GOTStructureBase {
-		public Baker(boolean flag) {
+	private static class Baker extends GOTStructureBase {
+		protected Baker(boolean flag) {
 			super(flag);
 		}
 
@@ -193,8 +193,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Blacksmith extends GOTStructureBase {
-		public Blacksmith(boolean flag) {
+	private static class Blacksmith extends GOTStructureBase {
+		protected Blacksmith(boolean flag) {
 			super(flag);
 		}
 
@@ -213,8 +213,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Brewer extends GOTStructureBase {
-		public Brewer(boolean flag) {
+	private static class Brewer extends GOTStructureBase {
+		protected Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -232,8 +232,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Butcher extends GOTStructureBase {
-		public Butcher(boolean flag) {
+	private static class Butcher extends GOTStructureBase {
+		protected Butcher(boolean flag) {
 			super(flag);
 		}
 
@@ -254,8 +254,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Farmer extends GOTStructureBase {
-		public Farmer(boolean flag) {
+	private static class Farmer extends GOTStructureBase {
+		protected Farmer(boolean flag) {
 			super(flag);
 		}
 
@@ -274,7 +274,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			return true;
 		}
 
-		public ItemStack getRandomFarmFood(Random random) {
+		protected ItemStack getRandomFarmFood(Random random) {
 			ItemStack[] items = {new ItemStack(GOTItems.orange), new ItemStack(GOTItems.lemon), new ItemStack(GOTItems.lime), new ItemStack(Items.carrot), new ItemStack(Items.potato), new ItemStack(GOTItems.lettuce), new ItemStack(GOTItems.turnip)};
 			ItemStack ret = items[random.nextInt(items.length)].copy();
 			ret.stackSize = 1 + random.nextInt(3);
@@ -282,8 +282,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Fish extends GOTStructureBase {
-		public Fish(boolean flag) {
+	private static class Fish extends GOTStructureBase {
+		protected Fish(boolean flag) {
 			super(flag);
 		}
 
@@ -303,8 +303,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Florist extends GOTStructureBase {
-		public Florist(boolean flag) {
+	private static class Florist extends GOTStructureBase {
+		protected Florist(boolean flag) {
 			super(flag);
 		}
 
@@ -321,8 +321,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Goldsmith extends GOTStructureBase {
-		public Goldsmith(boolean flag) {
+	private static class Goldsmith extends GOTStructureBase {
+		protected Goldsmith(boolean flag) {
 			super(flag);
 		}
 
@@ -342,8 +342,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Lumber extends GOTStructureBase {
-		public Lumber(boolean flag) {
+	private static class Lumber extends GOTStructureBase {
+		protected Lumber(boolean flag) {
 			super(flag);
 		}
 
@@ -365,8 +365,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Mason extends GOTStructureBase {
-		public Mason(boolean flag) {
+	private static class Mason extends GOTStructureBase {
+		protected Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -386,8 +386,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Miner extends GOTStructureBase {
-		public Miner(boolean flag) {
+	private static class Miner extends GOTStructureBase {
+		protected Miner(boolean flag) {
 			super(flag);
 		}
 

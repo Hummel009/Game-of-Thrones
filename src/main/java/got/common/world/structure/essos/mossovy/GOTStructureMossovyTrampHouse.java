@@ -1,16 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not onInit the following classes:
- *  net.minecraft.block.Block
- *  net.minecraft.block.BlockDoublePlant
- *  net.minecraft.block.BlockGrass
- *  net.minecraft.block.BlockLeaves
- *  net.minecraft.block.BlockSlab
- *  net.minecraft.entity.EntityCreature
- *  net.minecraft.init.Blocks
- *  net.minecraft.world.World
- */
 package got.common.world.structure.essos.mossovy;
 
 import got.common.database.GOTBlocks;
@@ -25,8 +12,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
-	public String fixedName;
-
 	public GOTStructureMossovyTrampHouse(boolean flag) {
 		super(flag);
 	}
@@ -236,10 +221,5 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
 		}
 		return true;
-	}
-
-	public GOTStructureMossovyTrampHouse setRuffianName(String name) {
-		fixedName = name;
-		return this;
 	}
 }

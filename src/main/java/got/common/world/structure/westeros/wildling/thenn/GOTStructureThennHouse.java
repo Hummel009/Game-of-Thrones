@@ -14,19 +14,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureThennHouse extends GOTStructureBase {
-	protected Block woodBlock;
-	protected int woodMeta;
-	protected Block plankBlock;
-	protected int plankMeta;
-	protected Block slabBlock;
-	protected int slabMeta;
-	protected Block stairBlock;
-	protected Block fenceBlock;
-	protected int fenceMeta;
-	protected Block doorBlock;
-	protected Block floorBlock;
-	protected int floorMeta;
-	public boolean isBlacksmith;
+	private boolean isBlacksmith;
 
 	public GOTStructureThennHouse(boolean flag) {
 		super(flag);
@@ -60,18 +48,16 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 				}
 			}
 		}
-		woodBlock = Blocks.log;
-		woodMeta = 1;
-		plankBlock = Blocks.planks;
-		plankMeta = 1;
-		slabBlock = Blocks.wooden_slab;
-		slabMeta = 1;
-		stairBlock = Blocks.spruce_stairs;
-		fenceBlock = Blocks.fence;
-		fenceMeta = 0;
-		doorBlock = GOTBlocks.doorSpruce;
-		floorBlock = Blocks.stained_hardened_clay;
-		floorMeta = 15;
+		Block woodBlock = Blocks.log;
+		int woodMeta = 1;
+		Block plankBlock = Blocks.planks;
+		int plankMeta = 1;
+		Block slabBlock = Blocks.wooden_slab;
+		int slabMeta = 1;
+		Block stairBlock = Blocks.spruce_stairs;
+		Block doorBlock = GOTBlocks.doorSpruce;
+		Block floorBlock = Blocks.stained_hardened_clay;
+		int floorMeta = 15;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -6; k1 <= 6; ++k1) {
 				for (j1 = 1; j1 <= 7; ++j1) {

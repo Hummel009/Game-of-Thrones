@@ -80,7 +80,7 @@ public class GOTStructureSothoryosWatchtower extends GOTStructureSothoryosHouse 
 		return 2;
 	}
 
-	public void placeWoodBase(World world, int i, int k, boolean ladder) {
+	private void placeWoodBase(World world, int i, int k, boolean ladder) {
 		for (int j = 7; (j == 7 || !isOpaque(world, i, j, k)) && getY(j) >= 0; --j) {
 			if (ladder) {
 				setBlockAndMetadata(world, i, j, k, woodBlock, woodMeta);

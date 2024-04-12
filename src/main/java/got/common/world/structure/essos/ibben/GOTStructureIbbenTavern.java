@@ -15,9 +15,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
-	public String[] meadHallName;
-	public String[] meadNameSign;
-	public String meadNameNPC;
+	private String[] meadNameSign;
 
 	public GOTStructureIbbenTavern(boolean flag) {
 		super(flag);
@@ -449,8 +447,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		meadHallName = GOTNames.getTavernName(random);
+		String[] meadHallName = GOTNames.getTavernName(random);
 		meadNameSign = new String[]{"", meadHallName[0], meadHallName[1], ""};
-		meadNameNPC = meadHallName[0] + ' ' + meadHallName[1];
 	}
 }

@@ -115,7 +115,7 @@ public class GOTStructureAsshaiAltar extends GOTStructureAsshaiBase {
 		return true;
 	}
 
-	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(4) == 0) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 7);
 		} else {
@@ -123,7 +123,7 @@ public class GOTStructureAsshaiAltar extends GOTStructureAsshaiBase {
 		}
 	}
 
-	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextInt(4) == 0) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickCracked, meta);
 		} else {

@@ -6,9 +6,9 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
-	public boolean centrePillar;
-	public int leftExtent;
-	public int rightExtent;
+	protected boolean centrePillar;
+	protected int leftExtent;
+	protected int rightExtent;
 
 	protected GOTStructureEssosTownWall(boolean flag) {
 		super(flag);

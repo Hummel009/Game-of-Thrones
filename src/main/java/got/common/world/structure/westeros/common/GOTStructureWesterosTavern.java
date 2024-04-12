@@ -23,10 +23,9 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
-	public String[] tavernName;
-	public String[] tavernNameSign;
-	public boolean isKingsLanding;
-	public boolean isCrossroads;
+	private String[] tavernNameSign;
+	protected boolean isKingsLanding;
+	protected boolean isCrossroads;
 
 	public GOTStructureWesterosTavern(boolean flag) {
 		super(flag);
@@ -783,7 +782,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		return true;
 	}
 
-	public void placeMugOrPlate(World world, Random random, int i, int j, int k) {
+	private void placeMugOrPlate(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
 		} else {
@@ -795,7 +794,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		bedBlock = Blocks.bed;
-		tavernName = GOTNames.getTavernName(random);
+		String[] tavernName = GOTNames.getTavernName(random);
 		tavernNameSign = new String[]{"", tavernName[0], tavernName[1], ""};
 	}
 }

@@ -36,12 +36,12 @@ public abstract class GOTStructureJogosBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public ItemStack getRandomNomadWeapon(Random random) {
+	protected ItemStack getRandomNomadWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.nomadBattleaxe), new ItemStack(GOTItems.nomadSword), new ItemStack(GOTItems.nomadSpear)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
-	public void laySandBase(World world, int i, int j, int k) {
+	protected void laySandBase(World world, int i, int j, int k) {
 		setBlockAndMetadata(world, i, j, k, Blocks.grass, 0);
 		int j1 = j - 1;
 		while (getY(j1) >= 0 && !isOpaque(world, i, j1, k)) {

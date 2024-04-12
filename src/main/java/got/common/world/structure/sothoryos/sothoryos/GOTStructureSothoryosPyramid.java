@@ -22,8 +22,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTStructureSothoryosPyramid extends GOTStructureBase {
-	public static int RADIUS = 60;
-	public boolean isGolden;
+	public static final int RADIUS = 60;
+
+	private boolean isGolden;
 
 	public GOTStructureSothoryosPyramid(boolean flag) {
 		super(flag);
@@ -470,7 +471,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		return true;
 	}
 
-	public void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale, boolean traps) {
+	private void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale, boolean traps) {
 		int i3 = i;
 		int k3 = k;
 		int xr = (maze.getSizeX() - 1) / 2;
@@ -522,7 +523,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		}
 	}
 
-	public void placeDartTrap(World world, Random random, int i, int j, int k, int meta) {
+	private void placeDartTrap(World world, Random random, int i, int j, int k, int meta) {
 		Block dartTrapBlock = GOTBlocks.sarbacaneTrap;
 		if (isGolden) {
 			dartTrapBlock = GOTBlocks.sarbacaneTrapGold;
@@ -545,7 +546,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		}
 	}
 
-	public void placePyramidBanner(World world, int i, int j, int k) {
+	private void placePyramidBanner(World world, int i, int j, int k) {
 		setBlockAndMetadata(world, i, j - 1, k, Blocks.gold_block, 0);
 		for (int j1 = 0; j1 <= 3; ++j1) {
 			setAir(world, i, j + j1, k);
@@ -553,7 +554,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		placeBanner(world, i, j, k, GOTItemBanner.BannerType.SOTHORYOS, 0, true, 64);
 	}
 
-	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (isGolden) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 3);
 			return;
@@ -569,7 +570,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		}
 	}
 
-	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (isGolden) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSothoryosBrickGold, meta);
 			return;

@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureLhazarTownWall extends GOTStructureLhazarBase {
-	public boolean isTall;
+	private boolean isTall;
 
 	public GOTStructureLhazarTownWall(boolean flag) {
 		super(flag);

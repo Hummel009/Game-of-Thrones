@@ -4,6 +4,7 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFar
 
 @SuppressWarnings("AbstractClassNeverImplemented")
 public abstract class GOTStructureArrynVillageFarm extends GOTStructureWesterosVillageFarm {
+	@SuppressWarnings("unused")
 	protected GOTStructureArrynVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.ARRYN;

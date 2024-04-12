@@ -16,8 +16,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureYiTiSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -44,10 +44,10 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		private Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -67,10 +67,10 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					setupFort(random);
 					break;
 				case GATE:
-					setupGate(random);
+					setupGate();
 					break;
 				case GATE_ROAD:
-					setupGateRoad(random);
+					setupGateRoad();
 					break;
 				case TOWER:
 					addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
@@ -78,7 +78,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public GOTStructureBase getOtherSettlementStructure(Random random) {
+		protected GOTStructureBase getOtherSettlementStructure(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureYiTiStables(false);
 			}
@@ -125,7 +125,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomVillageFarm(Random random) {
+		protected GOTStructureBase getRandomVillageFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureYiTiVillageFarm.Animals(false);
 			}
@@ -139,7 +139,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			return block == GOTBlocks.slabSingleDirt && meta == 5 || block == GOTBlocks.dirtPath && meta == 2;
 		}
 
-		public void setupFort(Random random) {
+		protected void setupFort(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -221,12 +221,12 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureYiTiLamp(false), lampX, lampZ, 2, false);
 		}
 
-		public void setupGate(Random random) {
+		protected void setupGate() {
 			addStructure(new GOTStructureYiTiFortress(false), 0, 20, 0, true);
 			addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
 		}
 
-		public void setupGateRoad(Random random) {
+		protected void setupGateRoad() {
 			addStructure(new GOTStructureYiTiFortress(false), -4, 25, 1, true);
 			addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
 		}
@@ -242,7 +242,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupTown(Random random) {
+		protected void setupTown(Random random) {
 			int marketZ;
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -377,7 +377,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureYiTiLamp(false), lampX, lampZ, 2, false);
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -440,5 +440,13 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
+		}
 	}
 }

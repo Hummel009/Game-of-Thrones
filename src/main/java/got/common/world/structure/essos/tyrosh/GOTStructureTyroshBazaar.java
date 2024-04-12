@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class};
+	private static final Class<? extends GOTStructureBase>[] STALLS = new Class[]{Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class};
 
 	public GOTStructureTyroshBazaar(boolean flag) {
 		super(flag);
@@ -23,11 +23,11 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 
 	@Override
 	public Class<? extends GOTStructureBase>[] getStallClasses() {
-		return stalls;
+		return STALLS;
 	}
 
-	public static class Baker extends GOTStructureBase {
-		public Baker(boolean flag) {
+	private static class Baker extends GOTStructureBase {
+		protected Baker(boolean flag) {
 			super(flag);
 		}
 
@@ -46,8 +46,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Blacksmith extends GOTStructureBase {
-		public Blacksmith(boolean flag) {
+	private static class Blacksmith extends GOTStructureBase {
+		protected Blacksmith(boolean flag) {
 			super(flag);
 		}
 
@@ -63,8 +63,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Brewer extends GOTStructureBase {
-		public Brewer(boolean flag) {
+	private static class Brewer extends GOTStructureBase {
+		protected Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -83,8 +83,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Butcher extends GOTStructureBase {
-		public Butcher(boolean flag) {
+	private static class Butcher extends GOTStructureBase {
+		protected Butcher(boolean flag) {
 			super(flag);
 		}
 
@@ -101,8 +101,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Farmer extends GOTStructureBase {
-		public Farmer(boolean flag) {
+	private static class Farmer extends GOTStructureBase {
+		protected Farmer(boolean flag) {
 			super(flag);
 		}
 
@@ -120,8 +120,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Fish extends GOTStructureBase {
-		public Fish(boolean flag) {
+	private static class Fish extends GOTStructureBase {
+		protected Fish(boolean flag) {
 			super(flag);
 		}
 
@@ -138,8 +138,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Florist extends GOTStructureBase {
-		public Florist(boolean flag) {
+	private static class Florist extends GOTStructureBase {
+		protected Florist(boolean flag) {
 			super(flag);
 		}
 
@@ -161,8 +161,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Goldsmith extends GOTStructureBase {
-		public Goldsmith(boolean flag) {
+	private static class Goldsmith extends GOTStructureBase {
+		protected Goldsmith(boolean flag) {
 			super(flag);
 		}
 
@@ -181,8 +181,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Lumber extends GOTStructureBase {
-		public Lumber(boolean flag) {
+	private static class Lumber extends GOTStructureBase {
+		protected Lumber(boolean flag) {
 			super(flag);
 		}
 
@@ -200,8 +200,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Mason extends GOTStructureBase {
-		public Mason(boolean flag) {
+	private static class Mason extends GOTStructureBase {
+		protected Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -218,8 +218,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		}
 	}
 
-	public static class Miner extends GOTStructureBase {
-		public Miner(boolean flag) {
+	private static class Miner extends GOTStructureBase {
+		protected Miner(boolean flag) {
 			super(flag);
 		}
 

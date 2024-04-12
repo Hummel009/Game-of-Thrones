@@ -15,8 +15,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureSummerSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -43,10 +43,10 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		private Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -60,7 +60,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 					setupVillage(random);
 					break;
 				case FORT:
-					setupFortress(random);
+					setupFortress();
 					break;
 				case RUINED_VILLAGE:
 					setupRuinedVillage(random);
@@ -99,7 +99,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomHouse(Random random) {
+		protected GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureSummerSmithy(false);
 			}
@@ -114,7 +114,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		public void setupFortress(Random random) {
+		protected void setupFortress() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -213,7 +213,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -312,6 +312,15 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 					addStructure(palisade, i, k, 0);
 				}
 			}
+		}
+
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
 		}
 	}
 }

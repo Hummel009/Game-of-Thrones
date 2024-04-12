@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureGiftCastle extends GOTStructureGiftBase {
-	public GOTStructureGiftCastle(boolean flag) {
+	protected GOTStructureGiftCastle(boolean flag) {
 		super(flag);
 	}
 
@@ -528,7 +528,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		return true;
 	}
 
-	public void spawnLegendaryMobs(World world) {
+	protected void spawnLegendaryMobs(World world) {
 	}
 
 	public static class Abandoned extends GOTStructureGiftCastle {

@@ -18,8 +18,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureLhazarSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -46,13 +46,13 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
-		public int numOuterHouses;
-		public boolean townWall = true;
-		public int rTownTower = 90;
+		private Type type;
+		protected boolean forcedType;
+		protected int numOuterHouses;
+		protected boolean townWall = true;
+		protected int rTownTower = 90;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -96,14 +96,14 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomFarm(Random random) {
+		protected GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureLhazarFarm(false);
 			}
 			return new GOTStructureLhazarPasture(false);
 		}
 
-		public GOTStructureBase getRandomHouse(Random random) {
+		protected GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureLhazarSmithy(false);
 			}
@@ -117,7 +117,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			return block == GOTBlocks.slabSingleDirt && (meta == 1 || meta == 0) || block == GOTBlocks.slabSingleGravel && meta == 0 || block == GOTBlocks.dirtPath && meta == 0 || block == Blocks.dirt && meta == 1 || block == Blocks.gravel && meta == 0;
 		}
 
-		public void setupFort(Random random) {
+		protected void setupFort(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -155,7 +155,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			numOuterHouses = MathHelper.getRandomIntegerInRange(random, 5, 8);
 		}
 
-		public void setupTown(Random random) {
+		protected void setupTown(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -259,7 +259,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -332,5 +332,13 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
+		}
 	}
 }

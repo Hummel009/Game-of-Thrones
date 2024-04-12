@@ -420,7 +420,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 14, 18, Blocks.torch, 3);
 		GOTStructureWesterosTower beaconTower = getTower(notifyChanges);
 		beaconTower.setRestrictions(false);
-		beaconTower.generateRoom = false;
+		beaconTower.setGenerateRoom(false);
 
 		int beaconX = 0;
 		int beaconY = 12;
@@ -443,7 +443,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		return true;
 	}
 
-	public void placeBarredWindowOnX(World world, int i, int j, int k) {
+	private void placeBarredWindowOnX(World world, int i, int j, int k) {
 		for (int i1 = -1; i1 <= 1; ++i1) {
 			for (int j1 = 0; j1 <= 1; ++j1) {
 				setBlockAndMetadata(world, i + i1, j + j1, k, barsBlock, 0);
@@ -451,7 +451,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		}
 	}
 
-	public void placeBarredWindowOnZ(World world, int i, int j, int k) {
+	private void placeBarredWindowOnZ(World world, int i, int j, int k) {
 		for (int k1 = -1; k1 <= 1; ++k1) {
 			for (int j1 = 0; j1 <= 1; ++j1) {
 				setBlockAndMetadata(world, i, j + j1, k + k1, barsBlock, 0);
@@ -459,7 +459,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		}
 	}
 
-	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(10) == 0) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, i, j, k, brickMossyBlock, brickMossyMeta);
@@ -471,7 +471,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		}
 	}
 
-	public void placeRandomSlab(World world, Random random, int i, int j, int k, boolean inverted) {
+	private void placeRandomSlab(World world, Random random, int i, int j, int k, boolean inverted) {
 		int flag = inverted ? 8 : 0;
 		if (random.nextInt(10) == 0) {
 			if (random.nextBoolean()) {
@@ -484,7 +484,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		}
 	}
 
-	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextInt(10) == 0) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, i, j, k, brickMossyStairBlock, meta);
@@ -496,7 +496,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		}
 	}
 
-	public void placeRandomWall(World world, Random random, int i, int j, int k) {
+	private void placeRandomWall(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(10) == 0) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, i, j, k, brickMossyWallBlock, brickMossyWallMeta);

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
-	public boolean issKingsLanding;
+	protected boolean issKingsLanding;
 
 	public GOTStructureWesterosSmithy(boolean flag) {
 		super(flag);

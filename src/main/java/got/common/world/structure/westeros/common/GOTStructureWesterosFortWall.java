@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureWesterosFortWall extends GOTStructureWesterosBase {
-	public boolean isRight;
+	protected boolean isRight;
 
 	protected GOTStructureWesterosFortWall(boolean flag) {
 		super(flag);

@@ -98,7 +98,7 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 		return true;
 	}
 
-	public Class<? extends GOTStructureBase>[] getStallClasses() {
+	protected Class<? extends GOTStructureBase>[] getStallClasses() {
 		return null;
 	}
 }

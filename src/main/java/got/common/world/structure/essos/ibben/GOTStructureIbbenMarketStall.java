@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase {
-	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Goldsmith.class, Miner.class, Blacksmith.class, Farmer.class, Lumber.class, Mason.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Florist.class};
+	private static final Class<? extends GOTStructureBase>[] STALLS = new Class[]{Goldsmith.class, Miner.class, Blacksmith.class, Farmer.class, Lumber.class, Mason.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Florist.class};
 
 	protected GOTStructureIbbenMarketStall(boolean flag) {
 		super(flag);
@@ -18,7 +18,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
 		try {
-			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
+			Class<? extends GOTStructureBase> cls = STALLS[random.nextInt(STALLS.length)];
 			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,7 +26,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public abstract GOTEntityIbbenMan createTrader(World var1);
+	protected abstract GOTEntityIbbenMan createTrader(World var1);
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -105,10 +105,10 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		return true;
 	}
 
-	public abstract void generateRoof(World var1, Random var2, int var3, int var4, int var5);
+	protected abstract void generateRoof(World var1, Random var2, int var3, int var4, int var5);
 
-	public static class Baker extends GOTStructureIbbenMarketStall {
-		public Baker(boolean flag) {
+	private static class Baker extends GOTStructureIbbenMarketStall {
+		protected Baker(boolean flag) {
 			super(flag);
 		}
 
@@ -128,8 +128,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Blacksmith extends GOTStructureIbbenMarketStall {
-		public Blacksmith(boolean flag) {
+	private static class Blacksmith extends GOTStructureIbbenMarketStall {
+		protected Blacksmith(boolean flag) {
 			super(flag);
 		}
 
@@ -149,8 +149,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Brewer extends GOTStructureIbbenMarketStall {
-		public Brewer(boolean flag) {
+	private static class Brewer extends GOTStructureIbbenMarketStall {
+		protected Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -170,8 +170,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Butcher extends GOTStructureIbbenMarketStall {
-		public Butcher(boolean flag) {
+	private static class Butcher extends GOTStructureIbbenMarketStall {
+		protected Butcher(boolean flag) {
 			super(flag);
 		}
 
@@ -190,8 +190,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Farmer extends GOTStructureIbbenMarketStall {
-		public Farmer(boolean flag) {
+	private static class Farmer extends GOTStructureIbbenMarketStall {
+		protected Farmer(boolean flag) {
 			super(flag);
 		}
 
@@ -210,8 +210,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Fish extends GOTStructureIbbenMarketStall {
-		public Fish(boolean flag) {
+	private static class Fish extends GOTStructureIbbenMarketStall {
+		protected Fish(boolean flag) {
 			super(flag);
 		}
 
@@ -234,8 +234,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Florist extends GOTStructureIbbenMarketStall {
-		public Florist(boolean flag) {
+	private static class Florist extends GOTStructureIbbenMarketStall {
+		protected Florist(boolean flag) {
 			super(flag);
 		}
 
@@ -255,8 +255,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Goldsmith extends GOTStructureIbbenMarketStall {
-		public Goldsmith(boolean flag) {
+	private static class Goldsmith extends GOTStructureIbbenMarketStall {
+		protected Goldsmith(boolean flag) {
 			super(flag);
 		}
 
@@ -276,8 +276,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Lumber extends GOTStructureIbbenMarketStall {
-		public Lumber(boolean flag) {
+	private static class Lumber extends GOTStructureIbbenMarketStall {
+		protected Lumber(boolean flag) {
 			super(flag);
 		}
 
@@ -297,8 +297,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Mason extends GOTStructureIbbenMarketStall {
-		public Mason(boolean flag) {
+	private static class Mason extends GOTStructureIbbenMarketStall {
+		protected Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -319,8 +319,8 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Miner extends GOTStructureIbbenMarketStall {
-		public Miner(boolean flag) {
+	private static class Miner extends GOTStructureIbbenMarketStall {
+		protected Miner(boolean flag) {
 			super(flag);
 		}
 

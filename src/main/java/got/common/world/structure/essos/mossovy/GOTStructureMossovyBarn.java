@@ -14,7 +14,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		super(flag);
 	}
 
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
+	private static EntityAnimal getRandomAnimal(World world, Random random) {
 		int animal = random.nextInt(4);
 		switch (animal) {
 			case 0:
@@ -138,7 +138,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		return true;
 	}
 
-	public void spawnAnimal(World world, Random random, int i, int j, int k) {
+	private void spawnAnimal(World world, Random random, int i, int j, int k) {
 		int animals = 2;
 		for (int l = 0; l < animals; ++l) {
 			EntityAnimal animal = getRandomAnimal(world, random);

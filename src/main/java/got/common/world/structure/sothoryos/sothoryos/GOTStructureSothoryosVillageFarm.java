@@ -12,11 +12,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse {
-	public Block cropBlock;
-	public int cropMeta;
-	public Item seedItem;
-	public boolean melon;
-
 	public GOTStructureSothoryosVillageFarm(boolean flag) {
 		super(flag);
 	}
@@ -29,6 +24,10 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 			return false;
 		}
 		int randomCrop = random.nextInt(8);
+		boolean melon;
+		Item seedItem;
+		int cropMeta;
+		Block cropBlock;
 		switch (randomCrop) {
 			case 0:
 			case 1:

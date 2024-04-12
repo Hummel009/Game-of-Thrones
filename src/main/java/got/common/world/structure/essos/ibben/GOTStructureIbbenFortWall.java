@@ -5,8 +5,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureIbbenFortWall extends GOTStructureIbbenBase {
-	public int xMin;
-	public int xMax;
+	private final int xMin;
+	private final int xMax;
 
 	public GOTStructureIbbenFortWall(boolean flag) {
 		this(flag, -4, 4);

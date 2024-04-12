@@ -12,13 +12,9 @@ import java.util.Random;
 public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 	protected Block brickBlock;
 	protected int brickMeta;
-	protected Block brickSlabBlock;
-	protected int brickSlabMeta;
 	protected Block brickStairBlock;
 	protected Block brickWallBlock;
 	protected int brickWallMeta;
-	protected Block brick2Block;
-	protected int brick2Meta;
 	protected Block woodBlock;
 	protected int woodMeta;
 	protected Block plankBlock;
@@ -57,11 +53,11 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public boolean canUseRedBrick() {
+	protected boolean canUseRedBrick() {
 		return true;
 	}
 
-	public ItemStack getRandomlhazarWeapon(Random random) {
+	protected ItemStack getRandomlhazarWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarDagger), new ItemStack(GOTItems.lhazarSpear), new ItemStack(GOTItems.lhazarClub)};
 		return items[random.nextInt(items.length)].copy();
 	}
@@ -72,22 +68,16 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 		if (canUseRedBrick() && random.nextInt(3) == 0) {
 			brickBlock = GOTBlocks.brick3;
 			brickMeta = 13;
-			brickSlabBlock = GOTBlocks.slabSingle7;
-			brickSlabMeta = 2;
 			brickStairBlock = GOTBlocks.stairsSandstoneBrickRed;
 			brickWallBlock = GOTBlocks.wallStone3;
 			brickWallMeta = 4;
 		} else {
 			brickBlock = GOTBlocks.brick1;
 			brickMeta = 15;
-			brickSlabBlock = GOTBlocks.slabSingle4;
-			brickSlabMeta = 0;
 			brickStairBlock = GOTBlocks.stairsSandstoneBrick;
 			brickWallBlock = GOTBlocks.wallStone1;
 			brickWallMeta = 15;
 		}
-		brick2Block = GOTBlocks.brick3;
-		brick2Meta = 13;
 		if (random.nextInt(5) == 0) {
 			woodBlock = GOTBlocks.wood9;
 			woodMeta = 0;

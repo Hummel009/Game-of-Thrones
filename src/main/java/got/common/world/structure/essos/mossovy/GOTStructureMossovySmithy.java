@@ -94,7 +94,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		return true;
 	}
 
-	public ItemStack[] getDisplayArmorOrNull(World world, Random random) {
+	private ItemStack[] getDisplayArmorOrNull(World world, Random random) {
 		if (random.nextBoolean()) {
 			GOTEntityMossovyWitcher armorGuard = new GOTEntityMossovyWitcher(world);
 			armorGuard.onSpawnWithEgg(null);
@@ -103,7 +103,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		return null;
 	}
 
-	public ItemStack getDisplayWeaponOrNull(Random random) {
+	private ItemStack getDisplayWeaponOrNull(Random random) {
 		return random.nextBoolean() ? getRandomBreeWeapon(random) : null;
 	}
 }

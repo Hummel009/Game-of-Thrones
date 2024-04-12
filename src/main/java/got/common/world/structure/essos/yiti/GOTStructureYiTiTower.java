@@ -11,11 +11,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
-	public boolean enableDoor = true;
-	public boolean frontLadder;
-	public boolean backLadder;
-	public boolean leftLadder;
-	public boolean rightLadder;
+	private boolean enableDoor = true;
+	private boolean backLadder;
+	private boolean leftLadder;
+	private boolean rightLadder;
 
 	public GOTStructureYiTiTower(boolean flag) {
 		super(flag);
@@ -197,10 +196,6 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -1, 12, 2, Blocks.torch, 2);
 		setBlockAndMetadata(world, 1, 12, 2, Blocks.torch, 1);
 		setBlockAndMetadata(world, 2, 12, 1, Blocks.torch, 4);
-		if (frontLadder) {
-			setBlockAndMetadata(world, 0, 11, -2, fenceGateBlock, 0);
-			placeSideLadder(world, 0, 10, -3, 2);
-		}
 		if (backLadder) {
 			setBlockAndMetadata(world, 0, 11, 2, fenceGateBlock, 2);
 			placeSideLadder(world, 0, 10, 3, 3);
@@ -227,7 +222,7 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		return true;
 	}
 
-	public void placeSideLadder(World world, int i, int j, int k, int meta) {
+	private void placeSideLadder(World world, int i, int j, int k, int meta) {
 		int j1 = j;
 		while (!isOpaque(world, i, j1, k) && getY(j1) >= 0) {
 			setBlockAndMetadata(world, i, j1, k, Blocks.ladder, meta);
@@ -237,11 +232,6 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 
 	public GOTStructureYiTiTower setBackLadder() {
 		backLadder = true;
-		return this;
-	}
-
-	public GOTStructureYiTiTower setFrontLadder() {
-		frontLadder = true;
 		return this;
 	}
 

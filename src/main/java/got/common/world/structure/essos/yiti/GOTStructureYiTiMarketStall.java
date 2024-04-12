@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
-	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
+	private static final Class<? extends GOTStructureBase>[] STALLS = new Class[]{Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
 
 	protected GOTStructureYiTiMarketStall(boolean flag) {
 		super(flag);
@@ -18,7 +18,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
 		try {
-			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
+			Class<? extends GOTStructureBase> cls = STALLS[random.nextInt(STALLS.length)];
 			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,7 +26,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public abstract GOTEntityYiTiMan createTrader(World var1);
+	protected abstract GOTEntityYiTiMan createTrader(World var1);
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -74,7 +74,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 				} else if (i2 == 2 || k2 == 2) {
 					setBlockAndMetadata(world, i1, 3, k1, GOTBlocks.reedBars, 0);
 				}
-				generateRoof(world, random, i1, 4, k1);
+				generateRoof(world, i1, 4, k1);
 			}
 		}
 		for (i1 = -1; i1 <= 1; ++i1) {
@@ -93,10 +93,10 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		return true;
 	}
 
-	public abstract void generateRoof(World var1, Random var2, int var3, int var4, int var5);
+	protected abstract void generateRoof(World var1, int var3, int var4, int var5);
 
-	public static class Baker extends GOTStructureYiTiMarketStall {
-		public Baker(boolean flag) {
+	private static class Baker extends GOTStructureYiTiMarketStall {
+		protected Baker(boolean flag) {
 			super(flag);
 		}
 
@@ -106,7 +106,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int k2 = Math.abs(k1);
 			if (k2 % 2 == 0) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 1);
@@ -116,8 +116,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Blacksmith extends GOTStructureYiTiMarketStall {
-		public Blacksmith(boolean flag) {
+	private static class Blacksmith extends GOTStructureYiTiMarketStall {
+		protected Blacksmith(boolean flag) {
 			super(flag);
 		}
 
@@ -127,7 +127,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
 			if (i2 == Math.abs(k1)) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 15);
@@ -137,8 +137,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Brewer extends GOTStructureYiTiMarketStall {
-		public Brewer(boolean flag) {
+	private static class Brewer extends GOTStructureYiTiMarketStall {
+		protected Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -148,7 +148,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
 			if (i2 % 2 == 0) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
@@ -158,8 +158,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Butcher extends GOTStructureYiTiMarketStall {
-		public Butcher(boolean flag) {
+	private static class Butcher extends GOTStructureYiTiMarketStall {
+		protected Butcher(boolean flag) {
 			super(flag);
 		}
 
@@ -169,7 +169,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
 			int k2 = Math.abs(k1);
 			if (i2 == 2 || k2 == 2) {
@@ -182,8 +182,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Farmer extends GOTStructureYiTiMarketStall {
-		public Farmer(boolean flag) {
+	private static class Farmer extends GOTStructureYiTiMarketStall {
+		protected Farmer(boolean flag) {
 			super(flag);
 		}
 
@@ -193,7 +193,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int k2;
 			int i2 = Math.abs(i1);
 			if (IntMath.mod(i2 + (k2 = Math.abs(k1)), 2) == 0) {
@@ -208,8 +208,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Fish extends GOTStructureYiTiMarketStall {
-		public Fish(boolean flag) {
+	private static class Fish extends GOTStructureYiTiMarketStall {
+		protected Fish(boolean flag) {
 			super(flag);
 		}
 
@@ -219,7 +219,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
 			int k2 = Math.abs(k1);
 			if (i2 % 2 == 0) {
@@ -234,8 +234,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Florist extends GOTStructureYiTiMarketStall {
-		public Florist(boolean flag) {
+	private static class Florist extends GOTStructureYiTiMarketStall {
+		protected Florist(boolean flag) {
 			super(flag);
 		}
 
@@ -245,7 +245,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			if (IntMath.mod(i1, 2) == 0 && IntMath.mod(k1, 2) == 0) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 15);
 			} else {
@@ -254,8 +254,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Gold extends GOTStructureYiTiMarketStall {
-		public Gold(boolean flag) {
+	private static class Gold extends GOTStructureYiTiMarketStall {
+		protected Gold(boolean flag) {
 			super(flag);
 		}
 
@@ -265,13 +265,13 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 4);
 		}
 	}
 
-	public static class Lumber extends GOTStructureYiTiMarketStall {
-		public Lumber(boolean flag) {
+	private static class Lumber extends GOTStructureYiTiMarketStall {
+		protected Lumber(boolean flag) {
 			super(flag);
 		}
 
@@ -281,7 +281,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
 			int k2 = Math.abs(k1);
 			if ((i2 == 2 || k2 == 2) && IntMath.mod(i2 + k2, 2) == 0) {
@@ -292,8 +292,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Mason extends GOTStructureYiTiMarketStall {
-		public Mason(boolean flag) {
+	private static class Mason extends GOTStructureYiTiMarketStall {
+		protected Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -303,7 +303,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
 			int k2 = Math.abs(k1);
 			if (i2 == 2 || k2 == 2 || i2 != 1 && k2 != 1) {
@@ -314,8 +314,8 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	public static class Miner extends GOTStructureYiTiMarketStall {
-		public Miner(boolean flag) {
+	private static class Miner extends GOTStructureYiTiMarketStall {
+		protected Miner(boolean flag) {
 			super(flag);
 		}
 
@@ -325,7 +325,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+		public void generateRoof(World world, int i1, int j1, int k1) {
 			if (IntMath.mod(i1, 2) == 0 && IntMath.mod(k1, 2) == 0) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 15);
 			} else {

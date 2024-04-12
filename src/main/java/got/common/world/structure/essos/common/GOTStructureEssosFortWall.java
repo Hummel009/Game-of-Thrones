@@ -5,7 +5,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureEssosFortWall extends GOTStructureEssosBase {
-	public boolean isLong;
+	protected boolean isLong;
 
 	protected GOTStructureEssosFortWall(boolean flag) {
 		super(flag);
@@ -71,12 +71,4 @@ public abstract class GOTStructureEssosFortWall extends GOTStructureEssosBase {
 			isLong = true;
 		}
 	}
-
-	public static class Short extends GOTStructureEssosFortWall {
-		public Short(boolean flag) {
-			super(flag);
-			isLong = false;
-		}
-	}
-
 }

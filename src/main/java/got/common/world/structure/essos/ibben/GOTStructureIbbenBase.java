@@ -19,7 +19,6 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	protected int rockSlabMeta;
 	protected Block rockSlabDoubleBlock;
 	protected int rockSlabDoubleMeta;
-	protected Block rockStairBlock;
 	protected Block rockWallBlock;
 	protected int rockWallMeta;
 	protected Block brickBlock;
@@ -31,13 +30,8 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	protected int brickWallMeta;
 	protected Block brickCarvedBlock;
 	protected int brickCarvedMeta;
-	protected Block pillarBlock;
-	protected int pillarMeta;
 	protected Block cobbleBlock;
 	protected int cobbleMeta;
-	protected Block cobbleSlabBlock;
-	protected int cobbleSlabMeta;
-	protected Block cobbleStairBlock;
 	protected Block logBlock;
 	protected int logMeta;
 	protected Block plankBlock;
@@ -51,8 +45,6 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	protected Block woodBeamBlock;
 	protected int woodBeamMeta;
 	protected Block doorBlock;
-	protected Block log2Block;
-	protected int log2Meta;
 	protected Block plank2Block;
 	protected int plank2Meta;
 	protected Block plank2SlabBlock;
@@ -60,7 +52,6 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	protected Block plank2StairBlock;
 	protected Block fence2Block;
 	protected int fence2Meta;
-	protected Block fenceGate2Block;
 	protected Block woodBeam2Block;
 	protected int woodBeam2Meta;
 	protected Block woodBeamRohanBlock;
@@ -87,7 +78,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public Block getRandomCakeBlock(Random random) {
+	protected Block getRandomCakeBlock(Random random) {
 		int i = random.nextInt(3);
 		switch (i) {
 			case 0:
@@ -99,12 +90,12 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		}
 	}
 
-	public ItemStack getRandomWeapon(Random random) {
+	protected ItemStack getRandomWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.stoneSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironDaggerPoisoned)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
-	public boolean oneWoodType() {
+	protected boolean oneWoodType() {
 		return false;
 	}
 
@@ -116,7 +107,6 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		rockSlabMeta = 1;
 		rockSlabDoubleBlock = GOTBlocks.slabDouble2;
 		rockSlabDoubleMeta = 1;
-		rockStairBlock = GOTBlocks.stairsRhyolite;
 		rockWallBlock = GOTBlocks.wallStone1;
 		rockWallMeta = 8;
 		brickBlock = GOTBlocks.brick1;
@@ -128,13 +118,8 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		brickWallMeta = 6;
 		brickCarvedBlock = GOTBlocks.brick5;
 		brickCarvedMeta = 3;
-		pillarBlock = GOTBlocks.pillar1;
-		pillarMeta = 8;
 		cobbleBlock = Blocks.cobblestone;
 		cobbleMeta = 0;
-		cobbleSlabBlock = Blocks.stone_slab;
-		cobbleSlabMeta = 3;
-		cobbleStairBlock = Blocks.stone_stairs;
 		int randomWood = random.nextInt(6);
 		switch (randomWood) {
 			case 0:
@@ -201,6 +186,9 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 				break;
 		}
 		int randomWood2 = random.nextInt(4);
+		Block fenceGate2Block;
+		int log2Meta;
+		Block log2Block;
 		if (randomWood2 == 0 || randomWood2 == 1 || randomWood2 == 2) {
 			log2Block = Blocks.log;
 			log2Meta = 1;

@@ -169,7 +169,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 		return true;
 	}
 
-	public int getBelowTop(IBlockAccess world, int i, int j, int k) {
+	private int getBelowTop(IBlockAccess world, int i, int j, int k) {
 		int j1 = j;
 		while (!isOpaque(world, i, j1, k) && getY(j1) >= 0) {
 			--j1;

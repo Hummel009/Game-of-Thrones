@@ -19,8 +19,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureDorneSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -47,10 +47,10 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		private Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -64,7 +64,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 					setupTown(random);
 					break;
 				case FORT:
-					setupCastle(random);
+					setupCastle();
 					break;
 				case VILLAGE:
 					setupVillage(random);
@@ -103,7 +103,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomFarm(Random random) {
+		protected GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureDorneVillageFarm.Animals(false);
@@ -113,7 +113,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureDorneVillageFarm.Tree(false);
 		}
 
-		public GOTStructureBase getRandomHouse(Random random) {
+		protected GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -128,31 +128,31 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureDorneHouse(false);
 		}
 
-		public GOTStructureDorneTownWall getWallCentre(boolean flag) {
+		protected GOTStructureDorneTownWall getWallCentre(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -5, 5);
 		}
 
-		public GOTStructureDorneTownWall getWallLeft(boolean flag) {
+		protected GOTStructureDorneTownWall getWallLeft(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -9, 6);
 		}
 
-		public GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
+		protected GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 6, -5, 6);
 		}
 
-		public GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
+		protected GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -5, 6);
 		}
 
-		public GOTStructureDorneTownWall getWallRight(boolean flag) {
+		protected GOTStructureDorneTownWall getWallRight(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 9);
 		}
 
-		public GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
+		protected GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 6, -6, 5);
 		}
 
-		public GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
+		protected GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 5);
 		}
 
@@ -163,7 +163,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return block == Blocks.dirt && meta == 1 || block == GOTBlocks.dirtPath && meta == 0 || block == GOTBlocks.brick1 && meta == 15 || block == GOTBlocks.brick3 && meta == 11 || block == GOTBlocks.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 1 || block == GOTBlocks.slabSingleSand && meta == 0 || block == GOTBlocks.slabSingle4 && meta == 0 || block == GOTBlocks.slabSingle7 && meta == 1 || block == GOTBlocks.slabSingle4 && meta == 7;
 		}
 
-		public void setupCastle(Random random) {
+		protected void setupCastle() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -236,7 +236,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupTown(Random random) {
+		protected void setupTown(Random random) {
 			int l;
 			int wallX;
 			boolean outerTavern = random.nextBoolean();
@@ -461,7 +461,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(getWallRightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -564,6 +564,14 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
+		}
 	}
 
 }

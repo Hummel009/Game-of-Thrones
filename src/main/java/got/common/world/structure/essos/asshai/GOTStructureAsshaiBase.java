@@ -46,9 +46,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	protected Block rockBlock;
 	protected Block doorBlock;
 	protected Block fenceGateBlock;
-	protected Block cropBlock;
 	protected int rockMeta;
-	protected int cropMeta;
 	protected Block wallBlock;
 	protected int wallMeta;
 	protected Block cobbleBlock;
@@ -64,7 +62,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public ItemStack getFramedItem(Random random) {
+	protected ItemStack getFramedItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiBow), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiHammer), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiSword)};
 		return items[random.nextInt(items.length)].copy();
 	}
@@ -81,8 +79,6 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		doorBlock = GOTBlocks.doorCharred;
 		rockBlock = GOTBlocks.rock;
 		rockMeta = 0;
-		cropBlock = GOTBlocks.asshaiFlower;
-		cropMeta = 0;
 		brickBlock = GOTBlocks.brick1;
 		brickMeta = 0;
 		brickSlabBlock = GOTBlocks.slabSingle1;

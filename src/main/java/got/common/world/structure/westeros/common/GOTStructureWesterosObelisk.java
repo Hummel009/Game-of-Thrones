@@ -83,7 +83,7 @@ public class GOTStructureWesterosObelisk extends GOTStructureWesterosBase {
 		return true;
 	}
 
-	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(4) == 0) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, i, j, k, brickMossyBlock, brickMossyMeta);
@@ -95,7 +95,7 @@ public class GOTStructureWesterosObelisk extends GOTStructureWesterosBase {
 		}
 	}
 
-	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextInt(4) == 0) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, i, j, k, brickMossyStairBlock, meta);

@@ -12,7 +12,7 @@ public class GOTStructureSummerPasture extends GOTStructureSummerBase {
 		super(flag);
 	}
 
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
+	private static EntityAnimal getRandomAnimal(World world, Random random) {
 		int animal = random.nextInt(5);
 		switch (animal) {
 			case 0:

@@ -17,7 +17,8 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 		super(flag);
 	}
 
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
+	@SuppressWarnings("JavaExistingMethodCanBeUsed")
+	private static EntityAnimal getRandomAnimal(World world, Random random) {
 		int animal = random.nextInt(4);
 		switch (animal) {
 			case 0:

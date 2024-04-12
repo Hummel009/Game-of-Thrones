@@ -200,7 +200,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		return true;
 	}
 
-	public void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
+	private void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.ESSOS_DRINK);

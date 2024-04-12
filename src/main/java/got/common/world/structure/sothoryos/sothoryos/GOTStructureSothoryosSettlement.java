@@ -11,8 +11,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureSothoryosSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -39,10 +39,10 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		protected Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -78,7 +78,7 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 			}
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			int smithyPos = random.nextInt(4);
 			addStructure(new GOTStructureSothoryosChieftainPyramid(false), 0, -11, 0, true);
 			addStructure(new GOTStructureSothoryosVillageTree(false), 0, -16, 2);

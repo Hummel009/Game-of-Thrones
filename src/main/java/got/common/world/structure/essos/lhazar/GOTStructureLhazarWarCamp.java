@@ -182,7 +182,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		return true;
 	}
 
-	public void placelhazarArmor(World world, Random random, int i, int j, int k, int meta) {
+	private void placelhazarArmor(World world, Random random, int i, int j, int k, int meta) {
 		ItemStack[] armor = random.nextInt(3) != 0 ? new ItemStack[]{null, null, null, null} : new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)};
 		placeArmorStand(world, i, j, k, meta, armor);
 	}

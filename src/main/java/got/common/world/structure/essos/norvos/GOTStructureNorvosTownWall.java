@@ -3,6 +3,7 @@ package got.common.world.structure.essos.norvos;
 import got.common.world.structure.essos.common.GOTStructureEssosTownWall;
 
 public class GOTStructureNorvosTownWall extends GOTStructureEssosTownWall {
+	@SuppressWarnings("unused")
 	public GOTStructureNorvosTownWall(boolean flag) {
 		super(flag);
 		city = City.NORVOS;

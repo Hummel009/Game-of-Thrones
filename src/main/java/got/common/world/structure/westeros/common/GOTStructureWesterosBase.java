@@ -40,21 +40,21 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.*;
 
 public abstract class GOTStructureWesterosBase extends GOTStructureBase {
-	public static final Map<Kingdom, GOTItemBanner.BannerType> BANNERS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Block> TABLES = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> ARCHERS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> BARTENDERS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> CAPTAINS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> FARMERS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> FARMHANDS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> MEN = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> SMITHS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends Entity>> SOLDIERS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Class<? extends WorldGenerator>> TOWERS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, Block> CHESTS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, GOTChestContents> CHEST_CONTENTS = new EnumMap<>(Kingdom.class);
-	public static final Set<Kingdom> KINGDOMS_WITH_MAESTERS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.REACH, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS, Kingdom.NORTH);
-	public static final Set<Kingdom> KINGDOMS_WITH_SEPTONS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS);
+	private static final Map<Kingdom, GOTItemBanner.BannerType> BANNERS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Block> TABLES = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> ARCHERS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> BARTENDERS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> CAPTAINS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> FARMERS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> FARMHANDS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> MEN = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> SMITHS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends Entity>> SOLDIERS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Class<? extends WorldGenerator>> TOWERS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, Block> CHESTS = new EnumMap<>(Kingdom.class);
+	private static final Map<Kingdom, GOTChestContents> CHEST_CONTENTS = new EnumMap<>(Kingdom.class);
+	private static final Set<Kingdom> KINGDOMS_WITH_MAESTERS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.REACH, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS, Kingdom.NORTH);
+	private static final Set<Kingdom> KINGDOMS_WITH_SEPTONS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS);
 
 	static {
 		ARCHERS.put(Kingdom.ARRYN, GOTEntityArrynSoldierArcher.class);
@@ -284,7 +284,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public static GOTTreeType getRandomNorthernTree(Random random) {
+	protected static GOTTreeType getRandomNorthernTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.SPRUCE);
 		treeList.add(GOTTreeType.SPRUCE_THIN);
@@ -294,7 +294,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public static GOTTreeType getRandomSouthernTree(Random random) {
+	protected static GOTTreeType getRandomSouthernTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.ACACIA);
 		treeList.add(GOTTreeType.ALMOND);
@@ -314,7 +314,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public static GOTTreeType getRandomStandardTree(Random random) {
+	protected static GOTTreeType getRandomStandardTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.OAK);
 		treeList.add(GOTTreeType.OAK_TALLER);
@@ -334,88 +334,88 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public GOTItemBanner.BannerType getBanner() {
+	private GOTItemBanner.BannerType getBanner() {
 		return BANNERS.get(kingdom);
 	}
 
-	public GOTEntityNPC getBartender(World world) {
+	protected GOTEntityNPC getBartender(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(BARTENDERS.get(kingdom), world);
 	}
 
-	public GOTEntityNPC getBlacksmith(World world) {
+	protected GOTEntityNPC getBlacksmith(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(SMITHS.get(kingdom), world);
 	}
 
-	public GOTEntityNPC getCaptain(World world) {
+	protected GOTEntityNPC getCaptain(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(CAPTAINS.get(kingdom), world);
 	}
 
-	public Block getChest() {
+	protected Block getChest() {
 		return CHESTS.get(kingdom);
 	}
 
-	public GOTChestContents getChestContents() {
+	protected GOTChestContents getChestContents() {
 		return CHEST_CONTENTS.get(kingdom);
 	}
 
-	public GOTEntityNPC getFarmer(World world) {
+	protected GOTEntityNPC getFarmer(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(FARMERS.get(kingdom), world);
 	}
 
-	public GOTEntityNPC getFarmhand(World world) {
+	protected GOTEntityNPC getFarmhand(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(FARMHANDS.get(kingdom), world);
 	}
 
-	public ItemStack getFramedItem(Random random) {
+	protected ItemStack getFramedItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.westerosSpear), new ItemStack(GOTItems.westerosBow), new ItemStack(Items.arrow), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.ironCrossbow), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
-	public GOTEntityNPC getMan(World world) {
+	protected GOTEntityNPC getMan(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(MEN.get(kingdom), world);
 	}
 
-	public GOTEntityNPC getSoldier(World world) {
+	protected GOTEntityNPC getSoldier(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(SOLDIERS.get(kingdom), world);
 	}
 
-	public GOTEntityNPC getSoldierArcher(World world) {
+	protected GOTEntityNPC getSoldierArcher(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(ARCHERS.get(kingdom), world);
 	}
 
-	public Block getTable() {
+	private Block getTable() {
 		return TABLES.get(kingdom);
 	}
 
-	public GOTStructureWesterosTower getTower(boolean notifyChanges) {
+	protected GOTStructureWesterosTower getTower(boolean notifyChanges) {
 		return (GOTStructureWesterosTower) GOTReflection.newStructure(TOWERS.get(kingdom), notifyChanges);
 	}
 
-	public boolean hasDarkSkinPeople() {
+	protected boolean hasDarkSkinPeople() {
 		return kingdom == Kingdom.DORNE;
 	}
 
-	public boolean hasGranite() {
+	private boolean hasGranite() {
 		return kingdom == Kingdom.CROWNLANDS_RED;
 	}
 
-	public boolean hasMaester() {
+	protected boolean hasMaester() {
 		return KINGDOMS_WITH_MAESTERS.contains(kingdom);
 	}
 
-	public boolean hasNorthernWood() {
+	protected boolean hasNorthernWood() {
 		return kingdom == Kingdom.NORTH;
 	}
 
-	public boolean hasSandstone() {
+	private boolean hasSandstone() {
 		return kingdom == Kingdom.DORNE;
 	}
 
-	public boolean hasSepton() {
+	protected boolean hasSepton() {
 		return KINGDOMS_WITH_SEPTONS.contains(kingdom);
 	}
 
-	public boolean hasSouthernWood() {
+	protected boolean hasSouthernWood() {
 		return kingdom == Kingdom.DORNE;
 	}
 

@@ -6,10 +6,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWesterosTownWall extends GOTStructureWesterosBase {
-	public int xMin;
-	public int xMax;
-	public int xMinInner;
-	public int xMaxInner;
+	private final int xMin;
+	private final int xMax;
+	private final int xMinInner;
+	private final int xMaxInner;
 
 	public GOTStructureWesterosTownWall(boolean flag, int x0, int x1) {
 		this(flag, x0, x1, x0, x1);

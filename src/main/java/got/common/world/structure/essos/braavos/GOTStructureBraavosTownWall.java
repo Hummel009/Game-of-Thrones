@@ -3,6 +3,7 @@ package got.common.world.structure.essos.braavos;
 import got.common.world.structure.essos.common.GOTStructureEssosTownWall;
 
 public class GOTStructureBraavosTownWall extends GOTStructureEssosTownWall {
+	@SuppressWarnings("unused")
 	public GOTStructureBraavosTownWall(boolean flag) {
 		super(flag);
 		city = City.BRAAVOS;

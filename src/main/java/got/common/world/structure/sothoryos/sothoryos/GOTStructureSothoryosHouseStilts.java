@@ -163,7 +163,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 		return 5;
 	}
 
-	public void placeStilt(World world, int i, int k, boolean ladder) {
+	private void placeStilt(World world, int i, int k, boolean ladder) {
 		for (int j = 3; (j == 3 || !isOpaque(world, i, j, k)) && getY(j) >= 0; --j) {
 			setBlockAndMetadata(world, i, j, k, woodBlock, woodMeta);
 			setGrassToDirt(world, i, j - 1, k);

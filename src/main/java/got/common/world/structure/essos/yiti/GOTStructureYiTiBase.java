@@ -1,7 +1,6 @@
 package got.common.world.structure.essos.yiti;
 
 import got.common.database.GOTBlocks;
-import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -25,14 +24,10 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 	protected int brickCarvedMeta;
 	protected Block brickFloweryBlock;
 	protected int brickFloweryMeta;
-	protected Block brickFlowerySlabBlock;
-	protected int brickFlowerySlabMeta;
 	protected Block brickGoldBlock;
 	protected int brickGoldMeta;
 	protected Block brickRedBlock;
 	protected int brickRedMeta;
-	protected Block brickRedSlabBlock;
-	protected int brickRedSlabMeta;
 	protected Block brickRedStairBlock;
 	protected Block brickRedWallBlock;
 	protected int brickRedWallMeta;
@@ -70,35 +65,24 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 	protected Block cropBlock;
 	protected int cropMeta;
 	protected Item seedItem;
-	protected Block thatchBlock;
-	protected int thatchMeta;
-	protected Block thatchSlabBlock;
-	protected int thatchSlabMeta;
-	protected Block thatchStairBlock;
 	protected GOTItemBanner.BannerType bannerType;
-	protected GOTChestContents chestContents;
 
 	protected GOTStructureYiTiBase(boolean flag) {
 		super(flag);
 	}
 
-	public ItemStack getFramedItem(Random random) {
+	protected ItemStack getFramedItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.yitiHelmet), new ItemStack(GOTItems.yitiChestplate), new ItemStack(GOTItems.yitiLeggings), new ItemStack(GOTItems.yitiBoots), new ItemStack(GOTItems.yitiHelmetSamurai), new ItemStack(GOTItems.yitiChestplateSamurai), new ItemStack(GOTItems.yitiLeggingsSamurai), new ItemStack(GOTItems.yitiBootsSamurai), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.goldRing)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
-	public ItemStack getWeaponItem(Random random) {
+	protected ItemStack getWeaponItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiDaggerPoisoned), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiPolearm), new ItemStack(GOTItems.yitiPike)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	@Override
 	public void setupRandomBlocks(Random random) {
-		thatchBlock = GOTBlocks.thatch;
-		thatchMeta = 1;
-		thatchSlabBlock = GOTBlocks.slabSingleThatch;
-		thatchSlabMeta = 1;
-		thatchStairBlock = GOTBlocks.stairsReed;
 		brickBlock = GOTBlocks.brick5;
 		brickMeta = 11;
 		brickSlabBlock = GOTBlocks.slabSingle12;
@@ -110,14 +94,10 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 		brickCarvedMeta = 12;
 		brickFloweryBlock = GOTBlocks.brick5;
 		brickFloweryMeta = 15;
-		brickFlowerySlabBlock = GOTBlocks.slabSingle12;
-		brickFlowerySlabMeta = 3;
 		brickGoldBlock = GOTBlocks.brick6;
 		brickGoldMeta = 0;
 		brickRedBlock = GOTBlocks.brick6;
 		brickRedMeta = 1;
-		brickRedSlabBlock = GOTBlocks.slabSingle12;
-		brickRedSlabMeta = 5;
 		brickRedStairBlock = GOTBlocks.stairsYiTiBrickRed;
 		brickRedWallBlock = GOTBlocks.wallStone4;
 		brickRedWallMeta = 13;
@@ -283,7 +263,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 		bannerType = GOTItemBanner.BannerType.YITI;
 	}
 
-	public boolean useTownBlocks() {
+	protected boolean useTownBlocks() {
 		return false;
 	}
 }

@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureYiTiLighthouse extends GOTStructureBase {
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int i1;
@@ -319,7 +318,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 		return true;
 	}
 
-	public void placeBrickSupports(World world, Random random, int i, int k) {
+	private void placeBrickSupports(World world, Random random, int i, int k) {
 		int j = 0;
 		while (!isOpaque(world, i, j, k) && getY(j) >= 0) {
 			placeRandomBrick(world, random, i, j, k);
@@ -328,7 +327,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 		}
 	}
 
-	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(4) == 0) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 7);
 		} else {
@@ -336,7 +335,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 		}
 	}
 
-	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextInt(6) == 0) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickCracked, meta);
 		} else {

@@ -308,7 +308,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 		return true;
 	}
 
-	public boolean isValidGatePos(IBlockAccess world, int i, int j, int k) {
+	private boolean isValidGatePos(IBlockAccess world, int i, int j, int k) {
 		return isOpaque(world, i, j - 1, k) && isAir(world, i, j, k) && isAir(world, i, j + 1, k);
 	}
 }

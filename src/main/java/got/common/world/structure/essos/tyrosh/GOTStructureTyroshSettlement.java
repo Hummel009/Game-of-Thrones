@@ -19,8 +19,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureTyroshSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -47,10 +47,10 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		private Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -64,7 +64,7 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 					setupVillage(random);
 					break;
 				case TOWN:
-					setupTown(random);
+					setupTown();
 					break;
 				case FORT:
 					setupFort(random);
@@ -126,14 +126,14 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomFarm(Random random) {
+		protected GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureTyroshFarm(false);
 			}
 			return new GOTStructureTyroshPasture(false);
 		}
 
-		public GOTStructureBase getRandomHouse(Random random) {
+		protected GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureTyroshSmithy(false);
 			}
@@ -150,7 +150,7 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			return (block == Blocks.dirt || block == Blocks.sand) && meta == 1 || block == Blocks.sand && meta == 0;
 		}
 
-		public void placeChampionRespawner() {
+		protected void placeChampionRespawner() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -162,11 +162,11 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			}, 0, 0, 0);
 		}
 
-		public void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		protected void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass(GOTEntityTyroshMan.class);
 		}
 
-		public void setupFort(Random random) {
+		protected void setupFort(Random random) {
 			int k;
 			int i;
 			int r;
@@ -252,7 +252,7 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupTown(Random random) {
+		protected void setupTown() {
 			int k;
 			int i;
 			int r;
@@ -415,7 +415,7 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -507,10 +507,18 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		protected void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClasses(GOTEntityTyroshSoldier.class, GOTEntityTyroshSoldierArcher.class);
 		}
 
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
+		}
 	}
 
 }

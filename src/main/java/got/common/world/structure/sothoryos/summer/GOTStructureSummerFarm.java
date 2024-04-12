@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureSummerFarm extends GOTStructureSummerBase {
-	public Block crop1Block;
-	public Item seed1;
-	public Block crop2Block;
-	public Item seed2;
+	private Block crop1Block;
+	private Item seed1;
+	private Block crop2Block;
+	private Item seed2;
 
 	public GOTStructureSummerFarm(boolean flag) {
 		super(flag);

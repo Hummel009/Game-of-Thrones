@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureIbbenVillageGarden extends GOTStructureIbbenBase {
-	public Block leafBlock;
-	public int leafMeta;
+	private Block leafBlock;
+	private int leafMeta;
 
 	public GOTStructureIbbenVillageGarden(boolean flag) {
 		super(flag);

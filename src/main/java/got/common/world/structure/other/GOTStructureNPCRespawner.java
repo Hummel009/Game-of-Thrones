@@ -19,5 +19,5 @@ public abstract class GOTStructureNPCRespawner extends GOTStructureBase {
 		return true;
 	}
 
-	public abstract void setupRespawner(GOTEntityNPCRespawner var1);
+	protected abstract void setupRespawner(GOTEntityNPCRespawner var1);
 }

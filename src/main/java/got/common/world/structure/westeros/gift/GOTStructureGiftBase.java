@@ -7,7 +7,6 @@ import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.util.Random;
@@ -15,18 +14,11 @@ import java.util.Random;
 public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	protected Block brickBlock;
 	protected int brickMeta;
-	protected Block brickSlabBlock;
-	protected int brickSlabMeta;
 	protected Block brickStairBlock;
 	protected Block brickWallBlock;
 	protected int brickWallMeta;
-	protected Block brickCarvedBlock;
-	protected int brickCarvedMeta;
 	protected Block cobbleBlock;
 	protected int cobbleMeta;
-	protected Block cobbleSlabBlock;
-	protected int cobbleSlabMeta;
-	protected Block cobbleStairBlock;
 	protected Block logBlock;
 	protected int logMeta;
 	protected Block plankBlock;
@@ -54,7 +46,6 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	protected Block cropBlock;
 	protected Block gateBlock;
 	protected int cropMeta;
-	protected Item seedItem;
 	protected GOTItemBanner.BannerType bannerType;
 	protected boolean isAbandoned;
 
@@ -62,7 +53,7 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public ItemStack getRangerFramedItem(Random random) {
+	protected ItemStack getRangerFramedItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow)};
 		return items[random.nextInt(items.length)].copy();
 	}
@@ -71,19 +62,12 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	public void setupRandomBlocks(Random random) {
 		brickBlock = GOTBlocks.cobblebrick;
 		brickMeta = 0;
-		brickSlabBlock = Blocks.stone_slab;
-		brickSlabMeta = 5;
 		brickStairBlock = Blocks.stone_brick_stairs;
 		brickWallBlock = GOTBlocks.wallStoneV;
 		brickWallMeta = 1;
-		brickCarvedBlock = GOTBlocks.cobblebrick;
-		brickCarvedMeta = 0;
 		gateBlock = GOTBlocks.gateIronBars;
 		cobbleBlock = Blocks.cobblestone;
 		cobbleMeta = 0;
-		cobbleSlabBlock = Blocks.stone_slab;
-		cobbleSlabMeta = 3;
-		cobbleStairBlock = Blocks.stone_stairs;
 		logBlock = Blocks.log;
 		logMeta = 1;
 		plankBlock = Blocks.planks;
@@ -116,34 +100,28 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		if (random.nextBoolean()) {
 			cropBlock = Blocks.wheat;
 			cropMeta = 7;
-			seedItem = Items.wheat_seeds;
 		} else {
 			int randomCrop = random.nextInt(5);
 			switch (randomCrop) {
 				case 0:
 					cropBlock = Blocks.carrots;
 					cropMeta = 7;
-					seedItem = Items.carrot;
 					break;
 				case 1:
 					cropBlock = Blocks.potatoes;
 					cropMeta = 7;
-					seedItem = Items.potato;
 					break;
 				case 2:
 					cropBlock = GOTBlocks.lettuceCrop;
 					cropMeta = 7;
-					seedItem = GOTItems.lettuce;
 					break;
 				case 3:
 					cropBlock = GOTBlocks.leekCrop;
 					cropMeta = 7;
-					seedItem = GOTItems.leek;
 					break;
 				default:
 					cropBlock = GOTBlocks.turnipCrop;
 					cropMeta = 7;
-					seedItem = GOTItems.turnip;
 					break;
 			}
 		}

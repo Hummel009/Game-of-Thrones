@@ -1,14 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not onInit the following classes:
- *  net.minecraft.block.Block
- *  net.minecraft.block.BlockLeaves
- *  net.minecraft.entity.EntityCreature
- *  net.minecraft.init.Blocks
- *  net.minecraft.item.ItemStack
- *  net.minecraft.world.World
- */
 package got.common.world.structure.essos.mossovy;
 
 import got.common.database.GOTBlocks;
@@ -27,8 +16,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
-	public String[] tavernName;
-	public String[] tavernNameSign;
+	private String[] tavernNameSign;
 
 	public GOTStructureMossovyInn(boolean flag) {
 		super(flag);
@@ -146,7 +134,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		return true;
 	}
 
-	public void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
+	private void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
@@ -166,7 +154,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		bedBlock = Blocks.bed;
-		tavernName = GOTNames.getTavernName(random);
+		String[] tavernName = GOTNames.getTavernName(random);
 		tavernNameSign = new String[]{"", tavernName[0], tavernName[1], ""};
 	}
 }

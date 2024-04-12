@@ -9,19 +9,21 @@ import net.minecraft.world.gen.structure.StructureComponent;
 import java.util.Random;
 
 public class GOTStructureSothoryosPyramidComponent extends StructureComponent {
-	public static GOTStructureBase pyramidGen = new GOTStructureSothoryosPyramid(false).setRestrictions(false);
-	public static Random pyramidRand = new Random();
-	public int posX;
-	public int posY = -1;
-	public int posZ;
-	public int direction;
+	private static final GOTStructureBase PYRAMID_GEN = new GOTStructureSothoryosPyramid(false).setRestrictions(false);
+	private static final Random PYRAMID_RAND = new Random();
 
-	public long pyramidSeed = -1L;
+	private int posX;
+	private int posY = -1;
+	private int posZ;
+	private int direction;
 
+	private long pyramidSeed = -1L;
+
+	@SuppressWarnings("unused")
 	public GOTStructureSothoryosPyramidComponent() {
 	}
 
-	public GOTStructureSothoryosPyramidComponent(World world, int l, Random random, int i, int k) {
+	public GOTStructureSothoryosPyramidComponent(int l, Random random, int i, int k) {
 		super(l);
 		int r = GOTStructureSothoryosPyramid.RADIUS + 5;
 		boundingBox = new StructureBoundingBox(i - r, 0, k - r, i + r, 255, k + r);
@@ -38,9 +40,9 @@ public class GOTStructureSothoryosPyramidComponent extends StructureComponent {
 		if (pyramidSeed == -1L) {
 			pyramidSeed = random.nextLong();
 		}
-		pyramidGen.setStructureBB(structureBoundingBox);
-		pyramidRand.setSeed(pyramidSeed);
-		pyramidGen.generate(world, pyramidRand, posX, posY, posZ, direction);
+		PYRAMID_GEN.setStructureBB(structureBoundingBox);
+		PYRAMID_RAND.setSeed(pyramidSeed);
+		PYRAMID_GEN.generate(world, PYRAMID_RAND, posX, posY, posZ, direction);
 		return true;
 	}
 

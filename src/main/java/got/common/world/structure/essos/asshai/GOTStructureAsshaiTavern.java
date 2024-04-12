@@ -13,8 +13,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
-	public String[] tavernName;
-	public String[] tavernNameSign;
+	private String[] tavernNameSign;
 
 	public GOTStructureAsshaiTavern(boolean flag) {
 		super(flag);
@@ -756,7 +755,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		return true;
 	}
 
-	public void placeMugOrPlate(World world, Random random, int i, int j, int k) {
+	private void placeMugOrPlate(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
 		} else {
@@ -767,7 +766,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		tavernName = GOTNames.getTavernName(random);
+		String[] tavernName = GOTNames.getTavernName(random);
 		tavernNameSign = new String[]{"", tavernName[0], tavernName[1], ""};
 	}
 }

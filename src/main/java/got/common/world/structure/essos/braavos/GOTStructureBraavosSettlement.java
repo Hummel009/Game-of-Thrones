@@ -17,8 +17,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureBraavosSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -45,10 +45,10 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		private Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -62,16 +62,12 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 					setupVillage(random);
 					break;
 				case TOWN:
-					setupTown(random);
+					setupTown();
 					break;
 				case FORT:
 					setupFort(random);
 					break;
 			}
-		}
-
-		public GOTStructureBase getBarracks(Random random) {
-			return new GOTStructureBraavosBarracks(false);
 		}
 
 		@Override
@@ -128,14 +124,14 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomFarm(Random random) {
+		protected GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureBraavosFarm(false);
 			}
 			return new GOTStructureBraavosPasture(false);
 		}
 
-		public GOTStructureBase getRandomHouse(Random random) {
+		protected GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureBraavosSmithy(false);
 			}
@@ -150,7 +146,7 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		public void placeChampionRespawner() {
+		protected void placeChampionRespawner() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -162,11 +158,11 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			}, 0, 0, 0);
 		}
 
-		public void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		protected void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass(GOTEntityBraavosMan.class);
 		}
 
-		public void setupFort(Random random) {
+		protected void setupFort(Random random) {
 			int k;
 			int i;
 			int r;
@@ -252,7 +248,7 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupTown(Random random) {
+		protected void setupTown() {
 			int k;
 			int i;
 			int r;
@@ -415,7 +411,7 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -507,8 +503,17 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		protected void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClasses(GOTEntityBraavosSoldier.class, GOTEntityBraavosSoldierArcher.class);
+		}
+
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
 		}
 	}
 }

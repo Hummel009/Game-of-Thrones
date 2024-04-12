@@ -95,15 +95,15 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		addBlockMetaAliasOption(alias, block, -1);
 	}
 
-	public void addBlockMetaAliasOption(String alias, Block block, int meta) {
+	protected void addBlockMetaAliasOption(String alias, Block block, int meta) {
 		scanAliases.computeIfAbsent(alias, k -> new BlockAliasPool()).addEntry(1, block, meta);
 	}
 
-	public void associateBlockAlias(String alias, Block block) {
+	protected void associateBlockAlias(String alias, Block block) {
 		addBlockAliasOption(alias, block);
 	}
 
-	public void associateBlockMetaAlias(String alias, Block block, int meta) {
+	protected void associateBlockMetaAlias(String alias, Block block, int meta) {
 		addBlockMetaAliasOption(alias, block, meta);
 	}
 
@@ -117,7 +117,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		GOTChestContents.fillChest(world, random, i2, j1, k2, contents, amount);
 	}
 
-	public void findSurface(World world, int i, int k) {
+	protected void findSurface(World world, int i, int k) {
 		int j = 8;
 		while (getY(j) >= 0) {
 			if (isSurface(world, i, j, k)) {
@@ -237,7 +237,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return world.getBlock(i2, j1, k2);
 	}
 
-	public ItemStack getRandomFlower(World world, Random random) {
+	protected ItemStack getRandomFlower(World world, Random random) {
 		BiomeGenBase biome = getBiome(world, 0, 0);
 		if (biome instanceof GOTBiome) {
 			BiomeGenBase.FlowerEntry fe = ((GOTBiome) biome).getRandomFlower(random);
@@ -258,11 +258,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return new ItemStack(Blocks.tallgrass, 1, 1);
 	}
 
-	public int getRotationMode() {
+	protected int getRotationMode() {
 		return rotationMode;
 	}
 
-	public TileEntity getTileEntity(IBlockAccess world, int i, int j, int k) {
+	protected TileEntity getTileEntity(IBlockAccess world, int i, int j, int k) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);
@@ -272,7 +272,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return world.getTileEntity(i2, j1, k2);
 	}
 
-	public int getTopBlock(World world, int i, int k) {
+	protected int getTopBlock(World world, int i, int k) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		if (!isInSBB(i2, 0, k2)) {
@@ -315,7 +315,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public boolean isAir(IBlockAccess world, int i, int j, int k) {
+	protected boolean isAir(IBlockAccess world, int i, int j, int k) {
 		return getBlock(world, i, j, k).getMaterial() == Material.air;
 	}
 
@@ -323,7 +323,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return sbb == null || sbb.isVecInside(i, j, k);
 	}
 
-	public boolean isOpaque(IBlockAccess world, int i, int j, int k) {
+	protected boolean isOpaque(IBlockAccess world, int i, int j, int k) {
 		return getBlock(world, i, j, k).isOpaqueCube();
 	}
 
@@ -331,11 +331,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return getBlock(world, i, j, k).isReplaceable(world, getX(i, k), getY(j), getZ(i, k));
 	}
 
-	public boolean isSideSolid(IBlockAccess world, int i, int j, int k, ForgeDirection side) {
+	protected boolean isSideSolid(IBlockAccess world, int i, int j, int k, ForgeDirection side) {
 		return getBlock(world, i, j, k).isSideSolid(world, getX(i, k), getY(j), getZ(i, k), side);
 	}
 
-	public boolean isSurface(World world, int i, int j, int k) {
+	protected boolean isSurface(World world, int i, int j, int k) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);
@@ -380,7 +380,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placeArmorStand(World world, int i, int j, int k, int direction, ItemStack[] armor) {
+	protected void placeArmorStand(World world, int i, int j, int k, int direction, ItemStack[] armor) {
 		setBlockAndMetadata(world, i, j, k, GOTBlocks.armorStand, direction);
 		setBlockAndMetadata(world, i, j + 1, k, GOTBlocks.armorStand, direction | 4);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
@@ -430,11 +430,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		world.spawnEntityInWorld(banner);
 	}
 
-	public void placeBarrel(World world, Random random, int i, int j, int k, int meta, GOTFoods foodList) {
+	protected void placeBarrel(World world, Random random, int i, int j, int k, int meta, GOTFoods foodList) {
 		placeBarrel(world, random, i, j, k, meta, foodList.getRandomBrewableDrink(random));
 	}
 
-	public void placeBarrel(World world, Random random, int i, int j, int k, int meta, ItemStack drink) {
+	protected void placeBarrel(World world, Random random, int i, int j, int k, int meta, ItemStack drink) {
 		ItemStack drink1 = drink;
 		setBlockAndMetadata(world, i, j, k, GOTBlocks.barrel, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
@@ -454,24 +454,24 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		setBlockAndMetadata(world, i, j + 1, k, GOTBlocks.fuse, 1);
 	}
 
-	public void placeChest(World world, Random random, int i, int j, int k, Block chest, int meta, GOTChestContents contents) {
+	protected void placeChest(World world, Random random, int i, int j, int k, Block chest, int meta, GOTChestContents contents) {
 		placeChest(world, random, i, j, k, chest, meta, contents, -1);
 	}
 
-	public void placeChest(World world, Random random, int i, int j, int k, Block chest, int meta, GOTChestContents contents, int amount) {
+	protected void placeChest(World world, Random random, int i, int j, int k, Block chest, int meta, GOTChestContents contents, int amount) {
 		setBlockAndMetadata(world, i, j, k, chest, meta);
 		fillChest(world, random, i, j, k, contents, amount);
 	}
 
-	public void placeChest(World world, Random random, int i, int j, int k, int meta, GOTChestContents contents) {
+	protected void placeChest(World world, Random random, int i, int j, int k, int meta, GOTChestContents contents) {
 		placeChest(world, random, i, j, k, meta, contents, -1);
 	}
 
-	public void placeChest(World world, Random random, int i, int j, int k, int meta, GOTChestContents contents, int amount) {
+	protected void placeChest(World world, Random random, int i, int j, int k, int meta, GOTChestContents contents, int amount) {
 		placeChest(world, random, i, j, k, Blocks.chest, meta, contents, amount);
 	}
 
-	public void placeFlowerPot(World world, int i, int j, int k, ItemStack itemstack) {
+	protected void placeFlowerPot(World world, int i, int j, int k, ItemStack itemstack) {
 		boolean vanilla = itemstack == null || itemstack.getItem() == Item.getItemFromBlock(Blocks.cactus);
 		if (vanilla) {
 			setBlockAndMetadata(world, i, j, k, Blocks.flower_pot, 0);
@@ -498,7 +498,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placeKebabStand(World world, Random random, int i, int j, int k, Block block, int meta) {
+	protected void placeKebabStand(World world, Random random, int i, int j, int k, Block block, int meta) {
 		setBlockAndMetadata(world, i, j, k, block, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityKebabStand) {
@@ -508,11 +508,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placeMug(World world, Random random, int i, int j, int k, int meta, GOTFoods foodList) {
+	protected void placeMug(World world, Random random, int i, int j, int k, int meta, GOTFoods foodList) {
 		placeMug(world, random, i, j, k, meta, foodList.getRandomPlaceableDrink(random), foodList);
 	}
 
-	public void placeMug(World world, Random random, int i, int j, int k, int meta, ItemStack drink, GOTFoods foodList) {
+	protected void placeMug(World world, Random random, int i, int j, int k, int meta, ItemStack drink, GOTFoods foodList) {
 		placeMug(world, random, i, j, k, meta, drink, foodList.getPlaceableDrinkVessels());
 	}
 
@@ -542,7 +542,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placeNPCRespawner(GOTEntityNPCRespawner entity, World world, int i, int j, int k) {
+	protected void placeNPCRespawner(GOTEntityNPCRespawner entity, World world, int i, int j, int k) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);
@@ -553,7 +553,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		world.spawnEntityInWorld(entity);
 	}
 
-	public void placePlate(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList) {
+	protected void placePlate(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList) {
 		placePlateList(world, random, i, j, k, plateBlock, foodList, false);
 	}
 
@@ -569,7 +569,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placePlateItem(World world, Random random, int i, int j, int k, Block plateBlock, ItemStack foodItem, boolean certain) {
+	protected void placePlateItem(World world, Random random, int i, int j, int k, Block plateBlock, ItemStack foodItem, boolean certain) {
 		placePlateDo(world, random, i, j, k, plateBlock, foodItem, certain);
 	}
 
@@ -581,7 +581,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		placePlateItem(world, random, i, j, k, plateBlock, food, certain);
 	}
 
-	public void placePlateWithCertainty(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList) {
+	protected void placePlateWithCertainty(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList) {
 		placePlateList(world, random, i, j, k, plateBlock, foodList, true);
 	}
 
@@ -618,7 +618,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		world.spawnEntityInWorld(rug);
 	}
 
-	public void placeSign(World world, int i, int j, int k, Block block, int meta, String[] text) {
+	protected void placeSign(World world, int i, int j, int k, Block block, int meta, String[] text) {
 		setBlockAndMetadata(world, i, j, k, block, meta);
 		TileEntity te = getTileEntity(world, i, j, k);
 		if (te instanceof TileEntitySign) {
@@ -627,7 +627,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placeSkull(World world, int i, int j, int k, int dir) {
+	protected void placeSkull(World world, int i, int j, int k, int dir) {
 		int dir1 = dir;
 		setBlockAndMetadata(world, i, j, k, Blocks.skull, 1);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
@@ -639,11 +639,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placeSkull(World world, Random random, int i, int j, int k) {
+	protected void placeSkull(World world, Random random, int i, int j, int k) {
 		placeSkull(world, i, j, k, random.nextInt(16));
 	}
 
-	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class<? extends Entity> entityClass, GOTChestContents contents) {
+	protected void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class<? extends Entity> entityClass, GOTChestContents contents) {
 		placeSpawnerChest(world, random, i, j, k, block, meta, entityClass, contents, -1);
 	}
 
@@ -658,7 +658,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void placeWallBanner(World world, int i, int j, int k, GOTItemBanner.BannerType bt, int direction) {
+	protected void placeWallBanner(World world, int i, int j, int k, GOTItemBanner.BannerType bt, int direction) {
 		int direction1 = direction;
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
@@ -674,7 +674,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		world.spawnEntityInWorld(banner);
 	}
 
-	public void placeWeaponRack(World world, int i, int j, int k, int meta, ItemStack weapon) {
+	protected void placeWeaponRack(World world, int i, int j, int k, int meta, ItemStack weapon) {
 		setBlockAndMetadata(world, i, j, k, GOTBlocks.weaponRack, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityWeaponRack) {
@@ -685,7 +685,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void plantFlower(World world, Random random, int i, int j, int k) {
+	protected void plantFlower(World world, Random random, int i, int j, int k) {
 		ItemStack itemstack = getRandomFlower(world, random);
 		setBlockAndMetadata(world, i, j, k, Block.getBlockFromItem(itemstack.getItem()), itemstack.getItemDamage());
 	}
@@ -931,7 +931,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return meta;
 	}
 
-	public void setAir(World world, int i, int j, int k) {
+	protected void setAir(World world, int i, int j, int k) {
 		setBlockAndMetadata(world, i, j, k, Blocks.air, 0);
 	}
 
@@ -987,7 +987,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		setOriginAndRotation(world, i, j, k, rotation, shift, 0);
 	}
 
-	public void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift, int shiftX) {
+	protected void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift, int shiftX) {
 		int j1 = j;
 		int i1 = i;
 		int k1 = k;
@@ -1039,7 +1039,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		this.shouldFindSurface = shouldFindSurface;
 	}
 
-	public void spawnItemFrame(World world, int i, int j, int k, int direction, ItemStack itemstack) {
+	protected void spawnItemFrame(World world, int i, int j, int k, int direction, ItemStack itemstack) {
 		int direction1 = direction;
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
@@ -1070,7 +1070,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		world.spawnEntityInWorld(entity);
 	}
 
-	public void spawnNPCAndSetHome(EntityCreature entity, World world, int i, int j, int k, int homeDistance) {
+	protected void spawnNPCAndSetHome(EntityCreature entity, World world, int i, int j, int k, int homeDistance) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);

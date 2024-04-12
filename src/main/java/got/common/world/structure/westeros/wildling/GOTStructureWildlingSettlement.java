@@ -23,8 +23,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureWildlingSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -51,10 +51,10 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		private Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -65,13 +65,13 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			super.addSettlementStructures(random);
 			switch (type) {
 				case HARDHOME:
-					setupHardhome(random);
+					setupHardhome();
 					break;
 				case VILLAGE:
-					setupVillage(random);
+					setupVillage();
 					break;
 				case THENN:
-					setupThenn(random);
+					setupThenn();
 					break;
 				case CRASTER:
 					addStructure(new GOTStructureWildlingKeep(false), -7, 0, 2, true);
@@ -114,7 +114,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			return block == Blocks.snow || block == Blocks.ice;
 		}
 
-		public void setupHardhome(Random random) {
+		protected void setupHardhome() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -196,7 +196,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private void setupThenn(Random random) {
+		private void setupThenn() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -243,7 +243,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -288,6 +288,15 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 				}
 				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
 			}
+		}
+
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
 		}
 	}
 }

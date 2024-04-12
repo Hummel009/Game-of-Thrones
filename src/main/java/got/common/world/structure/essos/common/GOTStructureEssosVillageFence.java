@@ -6,8 +6,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureEssosVillageFence extends GOTStructureEssosBase {
-	public int leftExtent;
-	public int rightExtent;
+	private int leftExtent;
+	private int rightExtent;
 
 	public GOTStructureEssosVillageFence(boolean flag) {
 		super(flag);

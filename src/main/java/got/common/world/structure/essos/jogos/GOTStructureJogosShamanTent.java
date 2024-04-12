@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Mason.class, Brewer.class, Miner.class, Armourer.class};
+	private static final Class<? extends GOTStructureBase>[] STALLS = new Class[]{Mason.class, Brewer.class, Miner.class, Armourer.class};
 
 	public GOTStructureJogosShamanTent(boolean flag) {
 		super(flag);
@@ -80,7 +80,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		placeAnimalJar(world, -4, 4, 5, GOTBlocks.birdCage, 2, new GOTEntityBird(world));
 		placeAnimalJar(world, -4, 5, -1, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 0, 5, 5, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
-		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
+		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(STALLS));
 		while (stallClasses.size() > 3) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}
@@ -97,8 +97,8 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		return true;
 	}
 
-	public static class Armourer extends GOTStructureBase {
-		public Armourer(boolean flag) {
+	private static class Armourer extends GOTStructureBase {
+		protected Armourer(boolean flag) {
 			super(flag);
 		}
 
@@ -113,8 +113,8 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		}
 	}
 
-	public static class Brewer extends GOTStructureBase {
-		public Brewer(boolean flag) {
+	private static class Brewer extends GOTStructureBase {
+		protected Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -134,8 +134,8 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		}
 	}
 
-	public static class Mason extends GOTStructureBase {
-		public Mason(boolean flag) {
+	private static class Mason extends GOTStructureBase {
+		protected Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -158,8 +158,8 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		}
 	}
 
-	public static class Miner extends GOTStructureBase {
-		public Miner(boolean flag) {
+	private static class Miner extends GOTStructureBase {
+		protected Miner(boolean flag) {
 			super(flag);
 		}
 

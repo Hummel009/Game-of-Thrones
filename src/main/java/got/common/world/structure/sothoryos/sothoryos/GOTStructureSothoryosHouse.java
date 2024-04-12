@@ -72,16 +72,16 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 		return true;
 	}
 
-	public abstract int getOffset();
+	protected abstract int getOffset();
 
-	public void layFoundation(World world, int i, int k) {
+	protected void layFoundation(World world, int i, int k) {
 		for (int j = 0; (j == 0 || !isOpaque(world, i, j, k)) && getY(j) >= 0; --j) {
 			setBlockAndMetadata(world, i, j, k, brickBlock, brickMeta);
 			setGrassToDirt(world, i, j - 1, k);
 		}
 	}
 
-	public void placeSothoryosFlowerPot(World world, int i, int j, int k, Random random) {
+	protected void placeSothoryosFlowerPot(World world, int i, int j, int k, Random random) {
 		ItemStack plant;
 		if (random.nextInt(3) == 0) {
 			plant = getRandomFlower(world, random);
@@ -111,7 +111,7 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 		placeFlowerPot(world, i, j, k, plant);
 	}
 
-	public void placeSothoryosTorch(World world, int i, int j, int k) {
+	protected void placeSothoryosTorch(World world, int i, int j, int k) {
 		setBlockAndMetadata(world, i, j, k, GOTBlocks.sothoryosDoubleTorch, 0);
 		setBlockAndMetadata(world, i, j + 1, k, GOTBlocks.sothoryosDoubleTorch, 1);
 	}
@@ -176,7 +176,7 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 		plateBlock = GOTBlocks.woodPlate;
 	}
 
-	public boolean useStoneBrick() {
+	protected boolean useStoneBrick() {
 		return false;
 	}
 }

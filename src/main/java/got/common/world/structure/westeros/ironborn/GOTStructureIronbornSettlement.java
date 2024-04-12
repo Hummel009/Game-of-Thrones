@@ -17,8 +17,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
-	public Type type;
-	public boolean forcedType;
+	private Type type;
+	private boolean forcedType;
 
 	public GOTStructureIronbornSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -45,10 +45,10 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		public Type type;
-		public boolean forcedType;
+		private Type type;
+		protected boolean forcedType;
 
-		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -62,7 +62,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 					setupTown(random);
 					break;
 				case FORT:
-					setupCastle(random);
+					setupCastle();
 					break;
 				case VILLAGE:
 					setupVillage(random);
@@ -98,7 +98,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomFarm(Random random) {
+		protected GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureIronbornVillageFarm.Animals(false);
@@ -108,7 +108,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureIronbornVillageFarm.Tree(false);
 		}
 
-		public GOTStructureBase getRandomHouse(Random random) {
+		protected GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -128,7 +128,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		public void setupCamp(Random random) {
+		protected void setupCamp(Random random) {
 			addStructure(new GOTStructureIronbornCampWatchtower(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -181,7 +181,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureIronbornCampTent(false), farmX - farmSize, farmZ, 3);
 		}
 
-		public void setupCastle(Random random) {
+		protected void setupCastle() {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -254,7 +254,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupTown(Random random) {
+		protected void setupTown(Random random) {
 			int l;
 			int wallX;
 			boolean outerTavern = random.nextBoolean();
@@ -479,7 +479,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		public void setupVillage(Random random) {
+		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -580,6 +580,15 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			if (random.nextBoolean()) {
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
 			}
+		}
+
+		@SuppressWarnings("unused")
+		public Type getType() {
+			return type;
+		}
+
+		public void setType(Type type) {
+			this.type = type;
 		}
 	}
 }

@@ -154,7 +154,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		return true;
 	}
 
-	public void placeSummerArmor(World world, Random random, int i, int j, int k, int meta) {
+	private void placeSummerArmor(World world, Random random, int i, int j, int k, int meta) {
 		ItemStack[] arritemStack;
 		if (random.nextInt(3) == 0) {
 			ItemStack[] arritemStack3 = new ItemStack[4];

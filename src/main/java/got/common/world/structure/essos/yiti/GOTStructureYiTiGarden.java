@@ -8,8 +8,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
-	public Block leafBlock;
-	public int leafMeta;
+	private Block leafBlock;
+	private int leafMeta;
 
 	public GOTStructureYiTiGarden(boolean flag) {
 		super(flag);

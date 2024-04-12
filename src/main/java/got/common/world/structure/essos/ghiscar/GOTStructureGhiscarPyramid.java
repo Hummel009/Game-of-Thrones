@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureGhiscarPyramid extends GOTStructureBase {
-	public static int RADIUS = 60;
+	public static final int RADIUS = 60;
 
 	public GOTStructureGhiscarPyramid(boolean flag) {
 		super(flag);
@@ -436,7 +436,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		return true;
 	}
 
-	public void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale) {
+	private void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale) {
 		int i3 = i;
 		int k3 = k;
 		int xr = (maze.getSizeX() - 1) / 2;
@@ -467,7 +467,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		}
 	}
 
-	public void placePyramidBanner(World world, int i, int j, int k) {
+	private void placePyramidBanner(World world, int i, int j, int k) {
 		setBlockAndMetadata(world, i, j - 1, k, Blocks.gold_block, 0);
 		for (int j1 = 0; j1 <= 3; ++j1) {
 			setAir(world, i, j + j1, k);
@@ -475,7 +475,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		placeBanner(world, i, j, k, GOTItemBanner.BannerType.GHISCAR, 0, true, 64);
 	}
 
-	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick3, 11);
 		} else {
@@ -483,7 +483,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		}
 	}
 
-	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextBoolean()) {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSandstoneBrickCracked, meta);
 		} else {

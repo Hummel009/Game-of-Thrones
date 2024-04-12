@@ -72,7 +72,7 @@ public abstract class GOTStructureBaseSettlement {
 		return instance;
 	}
 
-	public abstract AbstractInstance createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5, Collection<GOTFixer.SpawnInfo> spawnInfos);
+	protected abstract AbstractInstance createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5, Collection<GOTFixer.SpawnInfo> spawnInfos);
 
 	public void generateCompleteSettlementInstance(AbstractInstance instance, World world, int i, int k) {
 		instance.setupSettlementStructures();

@@ -6,11 +6,11 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
-	public int xMin;
-	public int xMax;
-	public boolean isCentre;
+	private final int xMin;
+	private final int xMax;
+	private final boolean isCentre;
 
-	public GOTStructureYiTiTownWall(boolean flag, int x0, int x1, boolean c) {
+	private GOTStructureYiTiTownWall(boolean flag, int x0, int x1, boolean c) {
 		super(flag);
 		xMin = x0;
 		xMax = x1;

@@ -14,8 +14,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
-	public String[] tavernName;
-	public String[] tavernNameSign;
+	private String[] tavernNameSign;
 
 	public GOTStructureYiTiTavern(boolean flag) {
 		super(flag);
@@ -605,7 +604,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		return true;
 	}
 
-	public void placeTable(World world, Random random, int i1, int i2, int j, int k1, int k2) {
+	private void placeTable(World world, Random random, int i1, int i2, int j, int k1, int k2) {
 		for (int i = i1; i <= i2; ++i) {
 			for (int k = k1; k <= k2; ++k) {
 				setBlockAndMetadata(world, i, j, k, plankBlock, plankMeta);
@@ -625,7 +624,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		bedBlock = GOTBlocks.strawBed;
-		tavernName = GOTNames.getTavernName(random);
+		String[] tavernName = GOTNames.getTavernName(random);
 		tavernNameSign = new String[]{"", tavernName[0], tavernName[1], ""};
 	}
 }

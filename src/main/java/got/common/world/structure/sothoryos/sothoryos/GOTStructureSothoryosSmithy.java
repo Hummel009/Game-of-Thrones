@@ -112,7 +112,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		return 6;
 	}
 
-	public ItemStack getRandomSothoryosWeapon(Random random) {
+	private ItemStack getRandomSothoryosWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.sothoryosSword), new ItemStack(GOTItems.sothoryosDagger), new ItemStack(GOTItems.sothoryosSpear), new ItemStack(GOTItems.sothoryosPike), new ItemStack(GOTItems.sothoryosHammer), new ItemStack(GOTItems.sothoryosBattleaxe)};
 		return items[random.nextInt(items.length)].copy();
 	}

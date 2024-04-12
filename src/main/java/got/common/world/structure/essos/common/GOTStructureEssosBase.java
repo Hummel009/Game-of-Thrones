@@ -29,20 +29,20 @@ import net.minecraft.world.World;
 import java.util.*;
 
 public abstract class GOTStructureEssosBase extends GOTStructureBase {
-	public static final Map<City, GOTItemBanner.BannerType> BANNERS = new EnumMap<>(City.class);
-	public static final Map<City, Block> TABLES = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> ARCHERS = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> BARTENDERS = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> CAPTAINS = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> FARMERS = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> FARMHANDS = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> MEN = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> SMITHS = new EnumMap<>(City.class);
-	public static final Map<City, Class<? extends Entity>> SOLDIERS = new EnumMap<>(City.class);
-	public static final Map<City, GOTChestContents> CHEST_CONTENTS = new EnumMap<>(City.class);
-	public static final Map<City, Block> CHESTS = new EnumMap<>(City.class);
-	public static final Set<City> NORTHERN_TREE_CITIES = EnumSet.of(City.BRAAVOS, City.LORATH, City.NORVOS, City.QOHOR);
-	public static final Set<City> SANDSTONE_CITIES = EnumSet.of(City.GHISCAR, City.QARTH, City.PENTOS);
+	private static final Map<City, GOTItemBanner.BannerType> BANNERS = new EnumMap<>(City.class);
+	private static final Map<City, Block> TABLES = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> ARCHERS = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> BARTENDERS = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> CAPTAINS = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> FARMERS = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> FARMHANDS = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> MEN = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> SMITHS = new EnumMap<>(City.class);
+	private static final Map<City, Class<? extends Entity>> SOLDIERS = new EnumMap<>(City.class);
+	private static final Map<City, GOTChestContents> CHEST_CONTENTS = new EnumMap<>(City.class);
+	private static final Map<City, Block> CHESTS = new EnumMap<>(City.class);
+	private static final Set<City> NORTHERN_TREE_CITIES = EnumSet.of(City.BRAAVOS, City.LORATH, City.NORVOS, City.QOHOR);
+	private static final Set<City> SANDSTONE_CITIES = EnumSet.of(City.GHISCAR, City.QARTH, City.PENTOS);
 
 	static {
 		ARCHERS.put(City.BRAAVOS, GOTEntityBraavosSoldierArcher.class);
@@ -237,7 +237,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public static GOTTreeType getRandomSouthernTree(Random random) {
+	protected static GOTTreeType getRandomSouthernTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.ACACIA);
 		treeList.add(GOTTreeType.ALMOND);
@@ -257,7 +257,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public static GOTTreeType getRandomStandardTree(Random random) {
+	protected static GOTTreeType getRandomStandardTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.OAK);
 		treeList.add(GOTTreeType.OAK_TALLER);
@@ -277,43 +277,43 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public GOTItemBanner.BannerType getBannerType() {
+	private GOTItemBanner.BannerType getBannerType() {
 		return BANNERS.get(city);
 	}
 
-	public GOTEntityNPC getBartender(World world) {
+	protected GOTEntityNPC getBartender(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(BARTENDERS.get(city), world);
 	}
 
-	public GOTEntityNPC getBlacksmith(World world) {
+	protected GOTEntityNPC getBlacksmith(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(SMITHS.get(city), world);
 	}
 
-	public GOTChestContents getChestContents() {
+	protected GOTChestContents getChestContents() {
 		return CHEST_CONTENTS.get(city);
 	}
 
-	public Block getChest() {
+	protected Block getChest() {
 		return CHESTS.get(city);
 	}
 
-	public GOTEntityNPC getFarmer(World world) {
+	protected GOTEntityNPC getFarmer(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(FARMERS.get(city), world);
 	}
 
-	public GOTEntityNPC getFarmhand(World world) {
+	protected GOTEntityNPC getFarmhand(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(FARMHANDS.get(city), world);
 	}
 
-	public GOTEntityNPC getGeneral(World world) {
+	protected GOTEntityNPC getGeneral(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(CAPTAINS.get(city), world);
 	}
 
-	public GOTEntityNPC getMan(World world) {
+	protected GOTEntityNPC getMan(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(MEN.get(city), world);
 	}
 
-	public ItemStack getRandomItem(Random random) {
+	protected ItemStack getRandomItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
 		return items[random.nextInt(items.length)].copy();
 	}
@@ -323,35 +323,35 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return items[random.nextInt(items.length)].copy();
 	}
 
-	public GOTEntityNPC getSoldier(World world) {
+	protected GOTEntityNPC getSoldier(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(SOLDIERS.get(city), world);
 	}
 
-	public GOTEntityNPC getSoldierArcher(World world) {
+	protected GOTEntityNPC getSoldierArcher(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(ARCHERS.get(city), world);
 	}
 
-	public Block getTable() {
+	private Block getTable() {
 		return TABLES.get(city);
 	}
 
-	public boolean hasDarkSkinPeople() {
+	protected boolean hasDarkSkinPeople() {
 		return city == City.GHISCAR;
 	}
 
-	public boolean hasMonotypeWood() {
+	protected boolean hasMonotypeWood() {
 		return false;
 	}
 
-	public boolean hasNorthernWood() {
+	protected boolean hasNorthernWood() {
 		return NORTHERN_TREE_CITIES.contains(city);
 	}
 
-	public boolean hasRedSandstone() {
+	protected boolean hasRedSandstone() {
 		return true;
 	}
 
-	public boolean hasSandstone() {
+	protected boolean hasSandstone() {
 		return SANDSTONE_CITIES.contains(city);
 	}
 

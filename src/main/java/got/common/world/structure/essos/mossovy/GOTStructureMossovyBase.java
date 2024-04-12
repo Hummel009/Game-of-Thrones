@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -27,8 +26,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 	protected int floorMeta;
 	protected Block stoneWallBlock;
 	protected int stoneWallMeta;
-	protected Block woodBlock;
-	protected int woodMeta;
 	protected Block plankBlock;
 	protected int plankMeta;
 	protected Block plankSlabBlock;
@@ -55,7 +52,7 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public static Block getRandomPieBlock(Random random) {
+	protected static Block getRandomPieBlock(Random random) {
 		int i = random.nextInt(3);
 		switch (i) {
 			case 1:
@@ -67,27 +64,9 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 		}
 	}
 
-	public ItemStack getRandomBreeWeapon(Random random) {
+	protected ItemStack getRandomBreeWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(Items.iron_sword), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.rollingPin)};
 		return items[random.nextInt(items.length)].copy();
-	}
-
-	public ItemStack getRandomTavernItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.rollingPin), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(Items.bow), new ItemStack(Items.wooden_axe), new ItemStack(Items.fishing_rod), new ItemStack(Items.feather)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
-	public void placeRandomFloor(World world, Random random, int i, int j, int k) {
-		float randFloor = random.nextFloat();
-		if (randFloor < 0.25f) {
-			setBlockAndMetadata(world, i, j, k, Blocks.grass, 0);
-		} else if (randFloor < 0.5f) {
-			setBlockAndMetadata(world, i, j, k, Blocks.dirt, 1);
-		} else if (randFloor < 0.75f) {
-			setBlockAndMetadata(world, i, j, k, Blocks.gravel, 0);
-		} else {
-			setBlockAndMetadata(world, i, j, k, GOTBlocks.dirtPath, 0);
-		}
 	}
 
 	@Override
@@ -159,8 +138,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				beamMeta = 1;
 				break;
 			case 4:
-				woodBlock = GOTBlocks.wood4;
-				woodMeta = 0;
 				plankBlock = GOTBlocks.planks2;
 				plankMeta = 0;
 				plankSlabBlock = GOTBlocks.woodSlabSingle3;
@@ -173,8 +150,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				beamMeta = 0;
 				break;
 			case 5:
-				woodBlock = GOTBlocks.wood3;
-				woodMeta = 0;
 				plankBlock = GOTBlocks.planks1;
 				plankMeta = 12;
 				plankSlabBlock = GOTBlocks.woodSlabSingle2;
@@ -187,8 +162,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				beamMeta = 0;
 				break;
 			case 6:
-				woodBlock = GOTBlocks.wood7;
-				woodMeta = 0;
 				plankBlock = GOTBlocks.planks2;
 				plankMeta = 12;
 				plankSlabBlock = GOTBlocks.woodSlabSingle4;

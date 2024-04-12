@@ -10,7 +10,7 @@ public abstract class GOTStructureWesterosMarketStall extends GOTStructureWester
 		super(flag);
 	}
 
-	public abstract GOTEntityNPC createTrader(World var1);
+	protected abstract GOTEntityNPC createTrader(World var1);
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -58,7 +58,7 @@ public abstract class GOTStructureWesterosMarketStall extends GOTStructureWester
 					setBlockAndMetadata(world, i1, 1, k1, plankBlock, plankMeta);
 					setBlockAndMetadata(world, i1, 3, k1, fenceBlock, fenceMeta);
 				}
-				generateRoof(world, random, i1, 4, k1);
+				generateRoof(world, i1, 4, k1);
 			}
 		}
 		setBlockAndMetadata(world, -2, 1, 0, fenceGateBlock, 1);
@@ -69,5 +69,5 @@ public abstract class GOTStructureWesterosMarketStall extends GOTStructureWester
 		return true;
 	}
 
-	public abstract void generateRoof(World var1, Random var2, int var3, int var4, int var5);
+	protected abstract void generateRoof(World var1, int var3, int var4, int var5);
 }
