@@ -23,14 +23,14 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureHillmanSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-		return new Instance(this, world, i, k, random, loc, filler, spawnInfos);
+	public GOTStructureBaseSettlement.AbstractInstance createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+		return new Instance(world, i, k, random, loc, spawnInfos);
 	}
 
-	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureHillmanSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
 
-		public Instance(GOTStructureHillmanSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-			super(settlement, world, i, k, random, loc, filler, spawnInfos);
+		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+			super(world, i, k, random, loc, spawnInfos);
 		}
 
 		@Override

@@ -90,10 +90,10 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockMetaAlias("TABLE", tableBlock, 0);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
-		addBlockMetaAliasOption("PATH", 5, Blocks.grass, 0);
-		addBlockMetaAliasOption("PATH", 5, Blocks.dirt, 1);
-		addBlockMetaAliasOption("PATH", 5, GOTBlocks.dirtPath, 0);
-		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
+		addBlockMetaAliasOption("PATH", Blocks.grass, 0);
+		addBlockMetaAliasOption("PATH", Blocks.dirt, 1);
+		addBlockMetaAliasOption("PATH", GOTBlocks.dirtPath, 0);
+		addBlockMetaAliasOption("PATH", Blocks.cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
 		for (i13 = 3; i13 <= 6; ++i13) {

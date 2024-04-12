@@ -49,12 +49,12 @@ public class GOTItemStructureSpawner extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		GOTStructureRegistry.StructureColorInfo info = GOTStructureRegistry.structureItemSpawners.get(itemstack.getItemDamage());
+		GOTStructureRegistry.StructureColorInfo info = GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.get(itemstack.getItemDamage());
 		if (info != null) {
 			if (pass == 0) {
-				return info.colorBackground;
+				return info.getColorBackground();
 			}
-			return info.colorForeground;
+			return info.getColorForeground();
 		}
 		return 16777215;
 	}
@@ -62,9 +62,9 @@ public class GOTItemStructureSpawner extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamageForRenderPass(int i, int pass) {
-		GOTStructureRegistry.StructureColorInfo info = GOTStructureRegistry.structureItemSpawners.get(i);
+		GOTStructureRegistry.StructureColorInfo info = GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.get(i);
 		if (info != null) {
-			if (info.isSettlement) {
+			if (info.isSettlement()) {
 				if (pass == 0) {
 					return iconSettlementBase;
 				}
@@ -92,11 +92,11 @@ public class GOTItemStructureSpawner extends Item {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (GOTStructureRegistry.StructureColorInfo info : GOTStructureRegistry.structureItemSpawners.values()) {
-			if (info.isHidden) {
+		for (GOTStructureRegistry.StructureColorInfo info : GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.values()) {
+			if (info.isHidden()) {
 				continue;
 			}
-			list.add(new ItemStack(item, 1, info.spawnedID));
+			list.add(new ItemStack(item, 1, info.getSpawnedID()));
 		}
 	}
 
@@ -139,7 +139,7 @@ public class GOTItemStructureSpawner extends Item {
 	}
 
 	private boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
-		if (!GOTStructureRegistry.structureItemSpawners.containsKey(id)) {
+		if (!GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.containsKey(id)) {
 			return false;
 		}
 		GOTStructureRegistry.IStructureProvider strProvider = GOTStructureRegistry.getStructureForID(id);

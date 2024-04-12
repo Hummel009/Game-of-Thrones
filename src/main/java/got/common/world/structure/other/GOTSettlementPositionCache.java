@@ -6,14 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTSettlementPositionCache {
-	public static int MAX_SIZE = 20000;
-	public Map<ChunkCoordIntPair, LocationInfo> cacheMap = new HashMap<>();
+	private final Map<ChunkCoordIntPair, LocationInfo> cacheMap = new HashMap<>();
 
-	public void clearCache() {
+	private void clearCache() {
 		cacheMap.clear();
 	}
 
-	public ChunkCoordIntPair getChunkKey(int chunkX, int chunkZ) {
+	private ChunkCoordIntPair getChunkKey(int chunkX, int chunkZ) {
 		return new ChunkCoordIntPair(chunkX, chunkZ);
 	}
 

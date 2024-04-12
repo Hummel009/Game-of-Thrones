@@ -69,15 +69,15 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			}
 		}
 		loadStrScan("lhazar_bazaar");
-		addBlockMetaAliasOption("BRICK", 6, brickBlock, brickMeta);
-		addBlockMetaAliasOption("BRICK", 2, GOTBlocks.brick3, 11);
-		addBlockMetaAliasOption("BRICK", 8, Blocks.sandstone, 0);
-		addBlockAliasOption("BRICK_STAIR", 6, brickStairBlock);
-		addBlockAliasOption("BRICK_STAIR", 2, GOTBlocks.stairsSandstoneBrickCracked);
-		addBlockAliasOption("BRICK_STAIR", 8, Blocks.sandstone_stairs);
-		addBlockMetaAliasOption("BRICK_WALL", 6, brickWallBlock, brickWallMeta);
-		addBlockMetaAliasOption("BRICK_WALL", 2, GOTBlocks.wallStone3, 3);
-		addBlockMetaAliasOption("BRICK_WALL", 8, GOTBlocks.wallStoneV, 4);
+		addBlockMetaAliasOption("BRICK", brickBlock, brickMeta);
+		addBlockMetaAliasOption("BRICK", GOTBlocks.brick3, 11);
+		addBlockMetaAliasOption("BRICK", Blocks.sandstone, 0);
+		addBlockAliasOption("BRICK_STAIR", brickStairBlock);
+		addBlockAliasOption("BRICK_STAIR", GOTBlocks.stairsSandstoneBrickCracked);
+		addBlockAliasOption("BRICK_STAIR", Blocks.sandstone_stairs);
+		addBlockMetaAliasOption("BRICK_WALL", brickWallBlock, brickWallMeta);
+		addBlockMetaAliasOption("BRICK_WALL", GOTBlocks.wallStone3, 3);
+		addBlockMetaAliasOption("BRICK_WALL", GOTBlocks.wallStoneV, 4);
 		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
 		associateBlockMetaAlias("PLANK_SLAB", plankSlabBlock, plankSlabMeta);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
@@ -87,9 +87,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("BEAM2", beam2Block, beam2Meta);
 		associateBlockMetaAlias("BEAM2|4", beam2Block, beam2Meta | 4);
 		associateBlockMetaAlias("BEAM2|8", beam2Block, beam2Meta | 8);
-		addBlockMetaAliasOption("GROUND", 10, Blocks.sand, 0);
-		addBlockMetaAliasOption("GROUND", 3, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 2, GOTBlocks.dirtPath, 0);
+		addBlockMetaAliasOption("GROUND", Blocks.sand, 0);
+		addBlockMetaAliasOption("GROUND", Blocks.dirt, 1);
+		addBlockMetaAliasOption("GROUND", GOTBlocks.dirtPath, 0);
 		associateBlockMetaAlias("WOOL", Blocks.wool, 14);
 		associateBlockMetaAlias("CARPET", Blocks.carpet, 14);
 		associateBlockMetaAlias("WOOL2", Blocks.wool, 15);

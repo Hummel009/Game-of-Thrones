@@ -26,13 +26,13 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureGoldenCamp> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-		return new Instance(this, world, i, k, random, loc, filler, spawnInfos);
+	public GOTStructureBaseSettlement.AbstractInstance createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+		return new Instance(world, i, k, random, loc, spawnInfos);
 	}
 
-	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGoldenCamp> {
-		public Instance(GOTStructureGoldenCamp settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-			super(settlement, world, i, k, random, loc, filler, spawnInfos);
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		public Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+			super(world, i, k, random, loc, spawnInfos);
 		}
 
 		@Override

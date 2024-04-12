@@ -15,42 +15,37 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public abstract class GOTStructureBaseSettlement {
-	public static Random settlementRand = new Random();
-	public static double SQRT2 = 1.4142135623730951;
-	public GOTBiome settlementBiome;
-	public List<BiomeGenBase> spawnBiomes;
-	public float spawnChance;
-	public int settlementChunkRadius;
-	public int fixedSettlementChunkRadius;
-	public Collection<LocationInfo> fixedLocations = new ArrayList<>();
-	public Collection<GOTFixer.SpawnInfo> spawnInfos = new ArrayList<>();
+	private static final Random SETTLEMENT_RAND = new Random();
+
+	private final Collection<LocationInfo> fixedLocations = new ArrayList<>();
+	private final List<BiomeGenBase> spawnBiomes;
+
+	protected float spawnChance;
+	protected int settlementChunkRadius;
+	protected int fixedSettlementChunkRadius;
 
 	protected GOTStructureBaseSettlement(GOTBiome biome) {
-		settlementBiome = biome;
 		spawnBiomes = new ArrayList<>();
-		spawnBiomes.add(settlementBiome);
+		spawnBiomes.add(biome);
 	}
 
-	public static boolean hasFixedSettlements(World world) {
+	private static boolean hasFixedSettlements(World world) {
 		boolean disableMap = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTClassic;
 		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
 		return !disableMap && !disableLocations;
 	}
 
-	public static void seedSettlementRand(World world, int i, int k) {
+	private static void seedSettlementRand(World world, int i, int k) {
 		long seed = i * 6890360793007L + k * 456879569029062L + world.getWorldInfo().getSeed() + 274893855L;
-		settlementRand.setSeed(seed);
+		SETTLEMENT_RAND.setSeed(seed);
 	}
 
 	public void affix(GOTAbstractWaypoint... wps) {
 		for (GOTAbstractWaypoint wp : wps) {
-			LocationInfo loc = new LocationInfo(wp.getCoordX(), wp.getCoordZ(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getInstance());
+			LocationInfo loc = new LocationInfo(wp.getCoordX(), wp.getCoordZ(), wp.getRotation()).setFixedLocation();
 			fixedLocations.add(loc);
 		}
 	}
@@ -62,8 +57,8 @@ public abstract class GOTStructureBaseSettlement {
 		int checkRange = fixedSettlementChunkRadius + 1;
 		checkRange <<= 4;
 		for (LocationInfo loc : fixedLocations) {
-			int dx = Math.abs(loc.posX - i);
-			int dz = Math.abs(loc.posZ - k);
+			int dx = Math.abs(loc.getPosX() - i);
+			int dz = Math.abs(loc.getPosZ() - k);
 			if (dx <= checkRange && dz <= checkRange) {
 				return true;
 			}
@@ -71,15 +66,15 @@ public abstract class GOTStructureBaseSettlement {
 		return false;
 	}
 
-	public AbstractInstance<?> createAndSetupSettlementInstance(World world, int i, int k, Random random, LocationInfo location) {
-		AbstractInstance<?> instance = createSettlementInstance(world, i, k, random, location, () -> addLegendaryNPCs(world), spawnInfos);
+	public AbstractInstance createAndSetupSettlementInstance(World world, int i, int k, Random random, LocationInfo location) {
+		AbstractInstance instance = createSettlementInstance(world, i, k, random, location, getLegendaryNPCs(world));
 		instance.setupBaseAndSettlementProperties();
 		return instance;
 	}
 
-	public abstract AbstractInstance<?> createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos);
+	public abstract AbstractInstance createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5, Collection<GOTFixer.SpawnInfo> spawnInfos);
 
-	public void generateCompleteSettlementInstance(AbstractInstance<?> instance, World world, int i, int k) {
+	public void generateCompleteSettlementInstance(AbstractInstance instance, World world, int i, int k) {
 		instance.setupSettlementStructures();
 		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
 		for (int i1 = -checkRange; i1 <= checkRange; ++i1) {
@@ -92,25 +87,25 @@ public abstract class GOTStructureBaseSettlement {
 	}
 
 	public void generateInChunk(World world, int i, int k) {
-		List<AbstractInstance<?>> settlements = getNearbySettlementsAtPosition(world, i, k);
-		for (AbstractInstance<?> instance : settlements) {
+		List<AbstractInstance> settlements = getNearbySettlementsAtPosition(world, i, k);
+		for (AbstractInstance instance : settlements) {
 			instance.setupSettlementStructures();
 			generateInstanceInChunk(instance, world, i, k);
 		}
 	}
 
-	public void generateInstanceInChunk(AbstractInstance<?> instance, World world, int i, int k) {
+	private void generateInstanceInChunk(AbstractInstance instance, World world, int i, int k) {
 		for (int i1 = i; i1 <= i + 15; ++i1) {
 			for (int k1 = k; k1 <= k + 15; ++k1) {
 				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i1, k1);
-				Object[] pathData = getHeight_getPath_isSlab(instance, world, i1, k1, biome);
+				Object[] pathData = getHeight_getPath_isSlab(instance, world, i1, k1);
 				GOTBezierType pathType = (GOTBezierType) pathData[1];
 				if (pathType != null) {
 					int j1 = (Integer) pathData[0];
 					boolean isSlab = (Boolean) pathData[2];
 					instance.setupWorldPositionSeed(i1, k1);
-					GOTBezierType.BezierBlock bezierblock = pathType.getBlock(instance.instanceRand, biome, true, isSlab);
-					GOTBezierType.BezierBlock bezierblockSolid = pathType.getBlock(instance.instanceRand, biome, false, false);
+					GOTBezierType.BezierBlock bezierblock = pathType.getBlock(instance.getRandom(), biome, true, isSlab);
+					GOTBezierType.BezierBlock bezierblockSolid = pathType.getBlock(instance.getRandom(), biome, false, false);
 					world.setBlock(i1, j1, k1, bezierblock.getBlock(), bezierblock.getMeta(), 2);
 					world.setBlock(i1, j1 - 1, k1, bezierblockSolid.getBlock(), bezierblockSolid.getMeta(), 2);
 					Block above = world.getBlock(i1, j1 + 1, k1);
@@ -119,8 +114,8 @@ public abstract class GOTStructureBaseSettlement {
 					}
 				}
 				instance.setupWorldPositionSeed(i1, k1);
-				for (StructureInfo struct : instance.structures) {
-					int[] coords = instance.getWorldCoords(struct.posX, struct.posZ);
+				for (StructureInfo struct : instance.getStructures()) {
+					int[] coords = instance.getWorldCoords(struct.getPosX(), struct.getPosZ());
 					if (i1 != coords[0] || k1 != coords[1]) {
 						continue;
 					}
@@ -133,21 +128,21 @@ public abstract class GOTStructureBaseSettlement {
 					if (j1 <= minHeight) {
 						continue;
 					}
-					struct.structure.generate(world, instance.instanceRand, i1, j1, k1, instance.getStructureRotation(struct.rotation));
+					struct.getStructure().generate(world, instance.getRandom(), i1, j1, k1, instance.getStructureRotation(struct.getRotation()));
 				}
 			}
 		}
 	}
 
-	public Object[] getHeight_getPath_isSlab(AbstractInstance<?> instance, World world, int i, int k, BiomeGenBase biome) {
+	private Object[] getHeight_getPath_isSlab(AbstractInstance instance, World world, int i, int k) {
 		instance.setupWorldPositionSeed(i, k);
 		int[] coords = instance.getRelativeCoords(i, k);
 		int i1 = coords[0];
 		int k1 = coords[1];
-		GOTBezierType bezier = instance.getPath(instance.instanceRand, i1, k1);
+		GOTBezierType bezier = instance.getPath(instance.getRandom(), i1, k1);
 		boolean isPath = false;
 		boolean isSlab = false;
-		int j1 = getTopTerrainBlock(world, i, k, biome, true);
+		int j1 = getTopTerrainBlock(world, i, k, true);
 		if (bezier != null && j1 > 0 && GOTStructureBase.isSurfaceStatic(world, i, j1, k)) {
 			isPath = true;
 			int slabRange = 1;
@@ -158,7 +153,7 @@ public abstract class GOTStructureBaseSettlement {
 					int j2;
 					int i3 = i + i2;
 					int k3 = k + k2;
-					if (i2 == 0 && k2 == 0 || (j2 = getTopTerrainBlock(world, i3, k3, biome, true)) <= 0 || j2 >= j1) {
+					if (i2 == 0 && k2 == 0 || (j2 = getTopTerrainBlock(world, i3, k3, true)) <= 0 || j2 >= j1) {
 						continue;
 					}
 					slabArray.set(i2, k2, j2);
@@ -184,8 +179,8 @@ public abstract class GOTStructureBaseSettlement {
 		return ret;
 	}
 
-	public List<AbstractInstance<?>> getNearbySettlements(World world, int chunkX, int chunkZ) {
-		List<AbstractInstance<?>> settlements = new ArrayList<>();
+	private List<AbstractInstance> getNearbySettlements(World world, int chunkX, int chunkZ) {
+		List<AbstractInstance> settlements = new ArrayList<>();
 		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
 		for (int i = chunkX - checkRange; i <= chunkX + checkRange; ++i) {
 			for (int k = chunkZ - checkRange; k <= chunkZ + checkRange; ++k) {
@@ -196,27 +191,27 @@ public abstract class GOTStructureBaseSettlement {
 					continue;
 				}
 				if (loc.isFixedLocation()) {
-					centreX = loc.posX;
-					centreZ = loc.posZ;
+					centreX = loc.getPosX();
+					centreZ = loc.getPosZ();
 				} else {
 					centreX = (i << 4) + 8;
 					centreZ = (k << 4) + 8;
 				}
 				seedSettlementRand(world, centreX, centreZ);
-				AbstractInstance<?> instance = createAndSetupSettlementInstance(world, centreX, centreZ, settlementRand, loc);
+				AbstractInstance instance = createAndSetupSettlementInstance(world, centreX, centreZ, SETTLEMENT_RAND, loc);
 				settlements.add(instance);
 			}
 		}
 		return settlements;
 	}
 
-	public List<AbstractInstance<?>> getNearbySettlementsAtPosition(World world, int i, int k) {
+	private List<AbstractInstance> getNearbySettlementsAtPosition(World world, int i, int k) {
 		int chunkX = i >> 4;
 		int chunkZ = k >> 4;
 		return getNearbySettlements(world, chunkX, chunkZ);
 	}
 
-	public int getTopTerrainBlock(World world, int i, int k, BiomeGenBase biome, boolean acceptSlab) {
+	private int getTopTerrainBlock(World world, int i, int k, boolean acceptSlab) {
 		int j = world.getTopSolidOrLiquidBlock(i, k) - 1;
 		while (!world.getBlock(i, j + 1, k).getMaterial().isLiquid()) {
 			Block block = world.getBlock(i, j, k);
@@ -233,7 +228,7 @@ public abstract class GOTStructureBaseSettlement {
 		return -1;
 	}
 
-	public LocationInfo isSettlementCentre(World world, int chunkX, int chunkZ) {
+	private LocationInfo isSettlementCentre(World world, int chunkX, int chunkZ) {
 		GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) world.getWorldChunkManager();
 		GOTSettlementPositionCache cache = worldChunkMgr.getSettlementCache(this);
 		LocationInfo cacheLocation = cache.getLocationAt(chunkX, chunkZ);
@@ -242,8 +237,8 @@ public abstract class GOTStructureBaseSettlement {
 		}
 		if (hasFixedSettlements(world)) {
 			for (LocationInfo loc : fixedLocations) {
-				int locChunkX = loc.posX >> 4;
-				int locChunkZ = loc.posZ >> 4;
+				int locChunkX = loc.getPosX() >> 4;
+				int locChunkZ = loc.getPosZ() >> 4;
 				if (chunkX == locChunkX && chunkZ == locChunkZ) {
 					return cache.markResult(chunkX, chunkZ, loc);
 				}
@@ -260,8 +255,8 @@ public abstract class GOTStructureBaseSettlement {
 		seedSettlementRand(world, i2, k2);
 		i2 *= gridScale;
 		k2 *= gridScale;
-		i2 += MathHelper.getRandomIntegerInRange(settlementRand, -1, 1);
-		if (chunkX == i2 && chunkZ == k2 + MathHelper.getRandomIntegerInRange(settlementRand, -1, 1)) {
+		i2 += MathHelper.getRandomIntegerInRange(SETTLEMENT_RAND, -1, 1);
+		if (chunkX == i2 && chunkZ == k2 + MathHelper.getRandomIntegerInRange(SETTLEMENT_RAND, -1, 1)) {
 			int i1 = chunkX * 16 + 8;
 			int k1 = chunkZ * 16 + 8;
 			int settlementRange = settlementChunkRadius * 16;
@@ -269,7 +264,8 @@ public abstract class GOTStructureBaseSettlement {
 			if (variant == GOTBiomeVariant.STEPPE) {
 				spawnChance = 0.0f;
 			}
-			if (settlementRand.nextFloat() < spawnChance) {
+			if (SETTLEMENT_RAND.nextFloat() < spawnChance) {
+				double SQRT2 = 1.4142135623730951;
 				int diagRange = (int) Math.round((settlementRange + 8) * SQRT2);
 				boolean isRoadNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.ROAD) >= 0.0f;
 				boolean isWallNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.LINKER) >= 0.0f;
@@ -284,7 +280,7 @@ public abstract class GOTStructureBaseSettlement {
 				if (!anythingNear) {
 					seedSettlementRand(world, i1, k1);
 					LocationInfo loc = LocationInfo.RANDOM_GEN_HERE;
-					createAndSetupSettlementInstance(world, i1, k1, settlementRand, loc);
+					createAndSetupSettlementInstance(world, i1, k1, SETTLEMENT_RAND, loc);
 					if (worldChunkMgr.areBiomesViable(i1, k1, settlementRange, spawnBiomes) && worldChunkMgr.areVariantsSuitableSettlement(i1, k1, settlementRange)) {
 						return cache.markResult(chunkX, chunkZ, loc);
 					}
@@ -294,49 +290,37 @@ public abstract class GOTStructureBaseSettlement {
 		return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 	}
 
-	public void addLegendaryNPCs(World world) {
+	public Collection<GOTFixer.SpawnInfo> getLegendaryNPCs(World world) {
+		return Collections.emptyList();
 	}
 
-	public GOTStructureBase getSpecialStructure() {
-		return null;
-	}
+	public abstract static class AbstractInstance {
+		protected final LocationInfo locationInfo;
 
-	public abstract static class AbstractInstance<V extends GOTStructureBaseSettlement> {
-		public final LocationInfo locationInfo;
-		public GOTBiome instanceSettlementBiome;
-		public World theWorld;
-		public Random instanceRand;
-		public long instanceRandSeed;
-		public int centreX;
-		public int centreZ;
-		public int rotationMode;
-		public Collection<StructureInfo> structures = new ArrayList<>();
-		public Runnable filler;
-		public Collection<GOTFixer.SpawnInfo> spawnInfos;
+		private final Collection<StructureInfo> structures = new ArrayList<>();
+		private final Random random;
 
-		protected AbstractInstance(V settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable f, Collection<GOTFixer.SpawnInfo> spawn) {
-			instanceSettlementBiome = settlement.settlementBiome;
-			theWorld = world;
-			instanceRand = new Random();
-			instanceRandSeed = random.nextLong();
+		protected Collection<GOTFixer.SpawnInfo> spawnInfos;
+		protected World world;
+		protected long randomSeed;
+		protected int centreX;
+		protected int centreZ;
+		protected int rotationMode;
+
+		protected AbstractInstance(World world, int i, int k, Random random, LocationInfo locationInfo, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+			this.world = world;
+			this.random = new Random();
+			this.spawnInfos = spawnInfos;
+			this.locationInfo = locationInfo;
+			randomSeed = random.nextLong();
 			centreX = i;
 			centreZ = k;
-			locationInfo = loc;
-			filler = f;
-			spawnInfos = spawn;
 		}
 
 		public void addSettlementStructures(Random var1) {
-			filler.run();
-			spawnInfos.forEach((info) -> addStructure(new GOTStructureBase(false) {
-				@Override
-				public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-					setOriginAndRotation(world, i, j, k, rotation, 0);
-					spawnLegendaryNPC(info.getNPC(), world, 0, 2, 0);
-					return true;
-				}
-			}, info.getI(), info.getK(), 0, true));
-			spawnInfos.clear();
+			for (GOTFixer.SpawnInfo info : spawnInfos) {
+				addStructure(new SpawnerStructure(info), info.getI(), info.getK(), 0, true);
+			}
 		}
 
 		public void addStructure(GOTStructureBase structure, int x, int z, int r) {
@@ -344,70 +328,62 @@ public abstract class GOTStructureBaseSettlement {
 		}
 
 		public void addStructure(GOTStructureBase structure, int x, int z, int r, boolean force) {
-			structure.settlementInstance = this;
-			structure.restrictions = !force;
+			structure.setSettlementInstance(this);
+			structure.setRestrictions(!force);
 			if (force) {
-				structure.shouldFindSurface = true;
+				structure.setShouldFindSurface(true);
 			}
 			structures.add(new StructureInfo(structure, x, z, r));
 		}
 
 		public abstract GOTBezierType getPath(Random var1, int var2, int var3);
 
-		public int[] getRelativeCoords(int xWorld, int zWorld) {
+		protected int[] getRelativeCoords(int xWorld, int zWorld) {
 			int xRel = 0;
 			int zRel = 0;
 			switch (rotationMode) {
-				case 0: {
+				case 0:
 					xRel = centreX - xWorld;
 					zRel = centreZ - zWorld;
 					break;
-				}
-				case 1: {
+				case 1:
 					xRel = centreZ - zWorld;
 					zRel = xWorld - centreX;
 					break;
-				}
-				case 2: {
+				case 2:
 					xRel = xWorld - centreX;
 					zRel = zWorld - centreZ;
 					break;
-				}
-				case 3: {
+				case 3:
 					xRel = zWorld - centreZ;
 					zRel = centreX - xWorld;
-				}
 			}
 			return new int[]{xRel, zRel};
 		}
 
-		public int getStructureRotation(int r) {
+		protected int getStructureRotation(int r) {
 			return (r + rotationMode + 2) % 4;
 		}
 
-		public int[] getWorldCoords(int xRel, int zRel) {
+		protected int[] getWorldCoords(int xRel, int zRel) {
 			int xWorld = centreX;
 			int zWorld = centreZ;
 			switch (rotationMode) {
-				case 0: {
+				case 0:
 					xWorld = centreX - xRel;
 					zWorld = centreZ - zRel;
 					break;
-				}
-				case 1: {
+				case 1:
 					xWorld = centreX + zRel;
 					zWorld = centreZ - xRel;
 					break;
-				}
-				case 2: {
+				case 2:
 					xWorld = centreX + xRel;
 					zWorld = centreZ + zRel;
 					break;
-				}
-				case 3: {
+				case 3:
 					xWorld = centreX - zRel;
 					zWorld = centreZ + xRel;
-				}
 			}
 			return new int[]{xWorld, zWorld};
 		}
@@ -418,49 +394,88 @@ public abstract class GOTStructureBaseSettlement {
 			rotationMode = i;
 		}
 
-		public void setupBaseAndSettlementProperties() {
+		protected void setupBaseAndSettlementProperties() {
 			setupSettlementSeed();
-			rotationMode = locationInfo.isFixedLocation() ? (locationInfo.rotation + 2) % 4 : instanceRand.nextInt(4);
-			setupSettlementProperties(instanceRand);
+			rotationMode = locationInfo.isFixedLocation() ? (locationInfo.getRotation() + 2) % 4 : random.nextInt(4);
+			setupSettlementProperties(random);
 		}
 
 		public abstract void setupSettlementProperties(Random var1);
 
-		public void setupSettlementSeed() {
-			long seed = centreX * 580682095692076767L + centreZ * 12789948968296726L + theWorld.getWorldInfo().getSeed() + 49920968939865L;
-			instanceRand.setSeed(seed + instanceRandSeed);
+		protected void setupSettlementSeed() {
+			long seed = centreX * 580682095692076767L + centreZ * 12789948968296726L + world.getWorldInfo().getSeed() + 49920968939865L;
+			random.setSeed(seed + randomSeed);
 		}
 
-		public void setupSettlementStructures() {
+		protected void setupSettlementStructures() {
 			setupSettlementSeed();
 			structures.clear();
-			addSettlementStructures(instanceRand);
+			addSettlementStructures(random);
 		}
 
-		public void setupWorldPositionSeed(int i, int k) {
+		protected void setupWorldPositionSeed(int i, int k) {
 			setupSettlementSeed();
 			int[] coords = getRelativeCoords(i, k);
 			int i1 = coords[0];
 			int k1 = coords[1];
-			long seed1 = instanceRand.nextLong();
-			long seed2 = instanceRand.nextLong();
-			long seed = i1 * seed1 + k1 * seed2 ^ theWorld.getWorldInfo().getSeed();
-			instanceRand.setSeed(seed);
+			long seed1 = random.nextLong();
+			long seed2 = random.nextLong();
+			long seed = i1 * seed1 + k1 * seed2 ^ world.getWorldInfo().getSeed();
+			random.setSeed(seed);
+		}
+
+		protected Random getRandom() {
+			return random;
+		}
+
+		protected Collection<StructureInfo> getStructures() {
+			return structures;
+		}
+
+		private static class SpawnerStructure extends GOTStructureBase {
+			private final GOTFixer.SpawnInfo info;
+
+			private SpawnerStructure(GOTFixer.SpawnInfo info) {
+				super(false);
+				this.info = info;
+			}
+
+			@Override
+			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+				setOriginAndRotation(world, i, j, k, rotation, 0);
+				spawnLegendaryNPC(info.getNPC(), world, 0, 2, 0);
+				return true;
+			}
 		}
 	}
 
-	public static class StructureInfo {
-		public GOTStructureBase structure;
-		public int posX;
-		public int posZ;
-		public int rotation;
+	private static class StructureInfo {
+		private final GOTStructureBase structure;
+		private final int posX;
+		private final int posZ;
+		private final int rotation;
 
-		public StructureInfo(GOTStructureBase s, int x, int z, int r) {
+		private StructureInfo(GOTStructureBase s, int x, int z, int r) {
 			structure = s;
 			posX = x;
 			posZ = z;
 			rotation = r;
 		}
-	}
 
+		private int getPosX() {
+			return posX;
+		}
+
+		private int getPosZ() {
+			return posZ;
+		}
+
+		private GOTStructureBase getStructure() {
+			return structure;
+		}
+
+		private int getRotation() {
+			return rotation;
+		}
+	}
 }

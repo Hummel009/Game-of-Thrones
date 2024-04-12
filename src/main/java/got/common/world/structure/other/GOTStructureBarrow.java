@@ -9,11 +9,11 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureBarrow extends GOTStructureBase {
-	public GOTStructureBase ruins = new GOTStructureStoneRuin.RuinStone(3, 3);
+	private static final GOTStructureBase RUINS = new GOTStructureStoneRuin.RuinStone(3, 3);
 
 	public GOTStructureBarrow(boolean flag) {
 		super(flag);
-		ruins.restrictions = false;
+		RUINS.setRestrictions(false);
 	}
 
 	@Override
@@ -146,11 +146,11 @@ public class GOTStructureBarrow extends GOTStructureBase {
 		int rX = 0;
 		int rY = height + 1;
 		int rZ = 0;
-		ruins.generate(world, random, getX(rX, rZ), getY(rY), getZ(rX, rZ), getRotationMode());
+		RUINS.generate(world, random, getX(rX, rZ), getY(rY), getZ(rX, rZ), getRotationMode());
 		return true;
 	}
 
-	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			setBlockAndMetadata(world, i, j, k, Blocks.stone, 0);
 		} else if (random.nextInt(3) > 0) {

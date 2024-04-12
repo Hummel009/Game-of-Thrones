@@ -104,11 +104,11 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		associateBlockMetaAlias("ROOF_SLAB", roofSlabBlock, roofSlabMeta);
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
-		addBlockMetaAliasOption("GROUND", 1, Blocks.gravel, 0);
-		addBlockMetaAliasOption("GROUND", 1, Blocks.grass, 0);
-		addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 1, GOTBlocks.dirtPath, 0);
-		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTBlocks.thatchFloor, 0);
+		addBlockMetaAliasOption("GROUND", Blocks.gravel, 0);
+		addBlockMetaAliasOption("GROUND", Blocks.grass, 0);
+		addBlockMetaAliasOption("GROUND", Blocks.dirt, 1);
+		addBlockMetaAliasOption("GROUND", GOTBlocks.dirtPath, 0);
+		addBlockMetaAliasOption("THATCH_FLOOR", GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("THATCH_FLOOR", 0.15f);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);

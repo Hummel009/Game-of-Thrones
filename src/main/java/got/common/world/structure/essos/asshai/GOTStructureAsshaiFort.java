@@ -75,9 +75,9 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta | 4);
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta | 8);
-		addBlockMetaAliasOption("GROUND", 6, rockBlock, rockMeta);
-		addBlockMetaAliasOption("GROUND", 2, GOTBlocks.asshaiDirt, 0);
-		addBlockMetaAliasOption("GROUND", 2, GOTBlocks.basaltGravel, 0);
+		addBlockMetaAliasOption("GROUND", rockBlock, rockMeta);
+		addBlockMetaAliasOption("GROUND", GOTBlocks.asshaiDirt, 0);
+		addBlockMetaAliasOption("GROUND", GOTBlocks.basaltGravel, 0);
 		associateBlockAlias("GATE_IRON", gateBlock);
 		associateBlockAlias("GATE_STANDARD", gateBlock);
 		associateBlockMetaAlias("BARS", barsBlock, 0);

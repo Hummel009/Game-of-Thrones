@@ -23,12 +23,12 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureTower> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-		return new Instance(this, world, i, k, random, loc, filler, spawnInfos);
+	public GOTStructureBaseSettlement.AbstractInstance createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+		return new Instance(world, i, k, random, loc, spawnInfos);
 	}
 
 	public static class GOTStructureTowerBase extends GOTStructureWesterosBase {
-		public GOTStructureTowerBase(boolean flag) {
+		protected GOTStructureTowerBase(boolean flag) {
 			super(flag);
 		}
 
@@ -339,7 +339,7 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 			return true;
 		}
 
-		public void placeBrickSupports(World world, Random random, int i, int k) {
+		protected void placeBrickSupports(World world, Random random, int i, int k) {
 			int j = 0;
 			while (!isOpaque(world, i, j, k) && getY(j) >= 0) {
 				placeRandomBrick(world, random, i, j, k);
@@ -348,7 +348,7 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+		protected void placeRandomBrick(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(4) == 0) {
 				setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 3);
 			} else {
@@ -356,7 +356,7 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+		protected void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 			if (random.nextInt(6) == 0) {
 				setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsAndesiteBrickCracked, meta);
 			} else {
@@ -365,9 +365,9 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 		}
 	}
 
-	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureTower> {
-		public Instance(GOTStructureTower settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-			super(settlement, world, i, k, random, loc, filler, spawnInfos);
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+			super(world, i, k, random, loc, spawnInfos);
 		}
 
 		@Override
@@ -390,5 +390,4 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 		public void setupSettlementProperties(Random random) {
 		}
 	}
-
 }

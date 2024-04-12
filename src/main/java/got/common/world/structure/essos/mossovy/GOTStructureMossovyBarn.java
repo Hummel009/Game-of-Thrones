@@ -91,10 +91,10 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		associateBlockMetaAlias("ROOF_SLAB", roofSlabBlock, roofSlabMeta);
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
-		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTBlocks.thatchFloor, 0);
+		addBlockMetaAliasOption("THATCH_FLOOR", GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("THATCH_FLOOR", 0.2f);
-		addBlockMetaAliasOption("GROUND", 13, Blocks.grass, 0);
-		addBlockMetaAliasOption("GROUND", 7, Blocks.cobblestone, 0);
+		addBlockMetaAliasOption("GROUND", Blocks.grass, 0);
+		addBlockMetaAliasOption("GROUND", Blocks.cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
 		for (i12 = -1; i12 <= 1; ++i12) {

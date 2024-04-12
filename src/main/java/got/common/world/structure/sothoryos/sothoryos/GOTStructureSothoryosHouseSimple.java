@@ -66,8 +66,8 @@ public class GOTStructureSothoryosHouseSimple extends GOTStructureSothoryosHouse
 		associateBlockMetaAlias("ROOF_SLAB_INV", thatchSlabBlock, thatchSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", thatchStairBlock);
 		associateBlockMetaAlias("WALL", Blocks.stained_hardened_clay, 12);
-		addBlockMetaAliasOption("GROUND", 10, floorBlock, floorMeta);
-		addBlockMetaAliasOption("GROUND", 10, GOTBlocks.mud, 0);
+		addBlockMetaAliasOption("GROUND", floorBlock, floorMeta);
+		addBlockMetaAliasOption("GROUND", GOTBlocks.mud, 0);
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, -2, 1, 1, bedBlock, 0);
 		setBlockAndMetadata(world, -2, 1, 2, bedBlock, 8);

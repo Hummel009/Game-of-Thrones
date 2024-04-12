@@ -2,7 +2,6 @@ package got.common.world.structure.other;
 
 import cpw.mods.fml.common.FMLLog;
 import got.common.faction.GOTFaction;
-import got.common.world.structure.GOTStructure;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -13,14 +12,18 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class GOTStructureRegistry {
-	public static Map<Integer, IStructureProvider> idToClassMapping = new HashMap<>();
-	public static Map<Integer, String> idToStringMapping = new HashMap<>();
-	public static Map<Integer, StructureColorInfo> structureItemSpawners = new LinkedHashMap<>();
-	public static Map<Class<? extends WorldGenerator>, String> classToNameMapping = new HashMap<>();
-	public static Map<Class<? extends WorldGenerator>, GOTFaction> classToFactionMapping = new HashMap<>();
+	public static final Map<Integer, StructureColorInfo> STRUCTURE_ITEM_SPAWNERS = new LinkedHashMap<>();
+	public static final Map<Class<? extends WorldGenerator>, String> CLASS_TO_NAME_MAPPING = new HashMap<>();
+	public static final Map<Class<? extends WorldGenerator>, GOTFaction> CLASS_TO_FACTION_MAPPING = new HashMap<>();
+
+	private static final Map<Integer, IStructureProvider> ID_TO_CLASS_MAPPING = new HashMap<>();
+	private static final Map<Integer, String> ID_TO_STRING_MAPPING = new HashMap<>();
+
+	private GOTStructureRegistry() {
+	}
 
 	public static String getNameFromID(int ID) {
-		return idToStringMapping.get(ID);
+		return ID_TO_STRING_MAPPING.get(ID);
 	}
 
 	public static int getRotationFromPlayer(EntityPlayer entityplayer) {
@@ -28,26 +31,22 @@ public class GOTStructureRegistry {
 	}
 
 	public static IStructureProvider getStructureForID(int ID) {
-		return idToClassMapping.get(ID);
-	}
-
-	public static void onInit() {
-		GOTStructure.onInit();
+		return ID_TO_CLASS_MAPPING.get(ID);
 	}
 
 	public static void register(int id, Class<? extends WorldGenerator> strClass, GOTFaction faction) {
 		String name = strClass.getSimpleName();
 		String cut = name.replace("GOTStructure", "");
 		registerStructure(id, strClass, cut, faction.getEggColor(), faction.getEggColor(), false);
-		classToNameMapping.put(strClass, cut);
-		classToFactionMapping.put(strClass, faction);
+		CLASS_TO_NAME_MAPPING.put(strClass, cut);
+		CLASS_TO_FACTION_MAPPING.put(strClass, faction);
 	}
 
 	public static void register(int id, Class<? extends WorldGenerator> strClass, int color) {
 		String name = strClass.getSimpleName();
 		String cut = name.replace("GOTStructure", "");
 		registerStructure(id, strClass, cut, color, color, false);
-		classToNameMapping.put(strClass, cut);
+		CLASS_TO_NAME_MAPPING.put(strClass, cut);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -56,7 +55,7 @@ public class GOTStructureRegistry {
 
 			@Override
 			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
+				GOTStructureBaseSettlement.AbstractInstance instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
 				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
 				properties.apply(instance);
 				settlement.generateCompleteSettlementInstance(instance, world, i, k);
@@ -76,12 +75,12 @@ public class GOTStructureRegistry {
 		registerSettlement(id, settlement, name, color, color, properties);
 	}
 
-	public static void registerSettlement(int id, GOTStructureBaseSettlement settlement, String name, int colorBG, int colorFG, ISettlementProperties<GOTStructureBaseSettlement.AbstractInstance<?>> properties) {
+	private static void registerSettlement(int id, GOTStructureBaseSettlement settlement, String name, int colorBG, int colorFG, ISettlementProperties<GOTStructureBaseSettlement.AbstractInstance> properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
 			@Override
 			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
+				GOTStructureBaseSettlement.AbstractInstance instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
 				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
 				properties.apply(instance);
 				settlement.generateCompleteSettlementInstance(instance, world, i, k);
@@ -96,7 +95,7 @@ public class GOTStructureRegistry {
 		registerStructure(id, strProvider, name, colorBG, colorFG, false);
 	}
 
-	public static void registerStructure(int id, Class<? extends WorldGenerator> strClass, String name, int colorBG, int colorFG, boolean hide) {
+	private static void registerStructure(int id, Class<? extends WorldGenerator> strClass, String name, int colorBG, int colorFG, boolean hide) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
 			@Override
@@ -110,8 +109,8 @@ public class GOTStructureRegistry {
 				}
 				if (generator instanceof GOTStructureBase) {
 					GOTStructureBase strGen = (GOTStructureBase) generator;
-					strGen.restrictions = false;
-					strGen.usingPlayer = entityplayer;
+					strGen.setRestrictions(false);
+					strGen.setUsingPlayer(entityplayer);
 					return strGen.generate(world, world.rand, i, j, k, strGen.usingPlayerRotation());
 				}
 				return false;
@@ -125,10 +124,10 @@ public class GOTStructureRegistry {
 		registerStructure(id, strProvider, name, colorBG, colorFG, hide);
 	}
 
-	public static void registerStructure(int id, IStructureProvider str, String name, int colorBG, int colorFG, boolean hide) {
-		idToClassMapping.put(id, str);
-		idToStringMapping.put(id, name);
-		structureItemSpawners.put(id, new StructureColorInfo(id, colorBG, colorFG, str.isSettlement(), hide));
+	private static void registerStructure(int id, IStructureProvider str, String name, int colorBG, int colorFG, boolean hide) {
+		ID_TO_CLASS_MAPPING.put(id, str);
+		ID_TO_STRING_MAPPING.put(id, name);
+		STRUCTURE_ITEM_SPAWNERS.put(id, new StructureColorInfo(id, colorBG, colorFG, str.isSettlement(), hide));
 	}
 
 	public interface ISettlementProperties<V> {
@@ -142,19 +141,38 @@ public class GOTStructureRegistry {
 	}
 
 	public static class StructureColorInfo {
-		public int spawnedID;
-		public int colorBackground;
-		public int colorForeground;
-		public boolean isSettlement;
-		public boolean isHidden;
+		private final int spawnedID;
+		private final int colorBackground;
+		private final int colorForeground;
+		private final boolean isSettlement;
+		private final boolean isHidden;
 
-		public StructureColorInfo(int i, int colorBG, int colorFG, boolean vill, boolean hide) {
+		protected StructureColorInfo(int i, int colorBG, int colorFG, boolean vill, boolean hide) {
 			spawnedID = i;
 			colorBackground = colorBG;
 			colorForeground = colorFG;
 			isSettlement = vill;
 			isHidden = hide;
 		}
-	}
 
+		public int getSpawnedID() {
+			return spawnedID;
+		}
+
+		public int getColorBackground() {
+			return colorBackground;
+		}
+
+		public int getColorForeground() {
+			return colorForeground;
+		}
+
+		public boolean isSettlement() {
+			return isSettlement;
+		}
+
+		public boolean isHidden() {
+			return isHidden;
+		}
+	}
 }

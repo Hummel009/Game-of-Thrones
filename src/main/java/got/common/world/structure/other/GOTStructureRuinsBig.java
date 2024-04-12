@@ -19,12 +19,12 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuinsBig> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-		return new Instance(this, world, i, k, random, loc, filler, spawnInfos);
+	public GOTStructureBaseSettlement.AbstractInstance createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+		return new Instance(world, i, k, random, loc, spawnInfos);
 	}
 
 	public static class GOTStructureHarrenhal extends GOTStructureBase {
-		public GOTStructureHarrenhal() {
+		protected GOTStructureHarrenhal() {
 			super(false);
 		}
 
@@ -175,9 +175,9 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 		}
 	}
 
-	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuinsBig> {
-		public Instance(GOTStructureRuinsBig settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
-			super(settlement, world, i, k, random, loc, filler, spawnInfos);
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+			super(world, i, k, random, loc, spawnInfos);
 		}
 
 		@Override
@@ -204,5 +204,4 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 		public void setupSettlementProperties(Random random) {
 		}
 	}
-
 }

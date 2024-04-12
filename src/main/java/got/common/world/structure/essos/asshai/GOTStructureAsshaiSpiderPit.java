@@ -122,7 +122,7 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		associateBlockMetaAlias("WOOL", plankBlock, plankMeta);
 		associateBlockAlias("GROUND", rockBlock);
 		associateBlockAlias("GROUND_SLAB", brickSlabBlock);
-		addBlockMetaAliasOption("GROUND_COVER", 1, GOTBlocks.thatchFloor, 0);
+		addBlockMetaAliasOption("GROUND_COVER", GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("GROUND_COVER", 0.25f);
 		associateBlockMetaAlias("BARS", barsBlock, 0);
 		associateBlockAlias("GATE_ORC", gateBlock);

@@ -162,582 +162,739 @@ public class GOTFixer {
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityAddamMarbrand(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.ASHEMARK);
 
 		registerSpawner(new GOTStructureAsshaiSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityAsshaiArchmag(world), 0, 0));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.ASSHAI.info(0, 0.8, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityKraznysMoNakloz(world), -1, 0));
 				spawnInfos.add(new SpawnInfo(new GOTEntityMissandei(world), -1, -1));
 				spawnInfos.add(new SpawnInfo(new GOTEntityGreyWorm(world), -1, 1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureGhiscarSettlement.Type.TOWN, 6), GOTWaypoint.ASTAPOR.info(-0.5, toEssosTownGate(0.0, false), Dir.EAST));
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityQuentenBanefort(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.BANEFORT);
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBarbreyDustin(world), 0, 3));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.SMALL_TOWN, 6), GOTWaypoint.BARROWTOWN);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBaelorBlacktyde(world), -2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.BLACKTYDE);
 
 		registerSpawner(new GOTStructureBraavosSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityTychoNestoris(world), 0, 1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureBraavosSettlement.Type.TOWN, 6), GOTWaypoint.BRAAVOS.info(toEssosTownGate(0.0, true), -0.5, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGarlanTyrell(world), 2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.FORT, 3), GOTWaypoint.BRIGHTWATER_KEEP);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityTywinLannister(world), 2, 0));
 				spawnInfos.add(new SpawnInfo(new GOTEntityQyburn(world), -2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.CASTERLY_ROCK, 3), GOTWaypoint.CASTERLY_ROCK.info(-0.4, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructureDragonstoneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityArdrianCeltigar(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDragonstoneSettlement.Type.FORT, 3), GOTWaypoint.CLAW_ISLE);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGregorClegane.GregorCleganeAlive(world), 2, 0));
 				spawnInfos.add(new SpawnInfo(new GOTEntityPolliver(world), -2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.CLEGANES_KEEP);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHarysSwyft(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.CORNFIELD);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityLyleCrakehall(world), 2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.CRAKEHALL.info(-0.5, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructureDragonstoneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityStannisBaratheon(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityDavosSeaworth(world), 2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityMelisandra(world), -2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityShireenBaratheon(world), 2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntitySelyseBaratheon(world), 0, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityMatthosSeaworth(world), 0, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDragonstoneSettlement.Type.FORT, 3), GOTWaypoint.DRAGONSTONE);
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRamsayBolton(world), 2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityRooseBolton(world), -2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.DREADFORT.info(0, -0.4));
 
 		registerSpawner(new GOTStructureDragonstoneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMonfordVelaryon(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityAuraneWaters(world), 2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDragonstoneSettlement.Type.FORT, 3), GOTWaypoint.DRIFTMARK);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityDunstanDrumm(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityAndrikTheUnsmilling(world), -2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.DRUMM_CASTLE);
 
 		registerSpawner(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntitySelwynTarth(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureStormlandsSettlement.Type.FORT, 3), GOTWaypoint.EVENFALL_HALL);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntitySebastonFarman(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.FAIRCASTLE);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityForleyPrester(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.FEASTFIRES);
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMathisRowan(world), 2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.FORT, 3), GOTWaypoint.GOLDENGROVE);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityLeoLefford(world), 2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.GOLDEN_TOOTH.info(-0.1, -0.5));
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMoribaldChester(world), 2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.FORT, 3), GOTWaypoint.GREENSHIELD);
 
 		registerSpawner(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityEldonEstermont(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureStormlandsSettlement.Type.FORT, 3), GOTWaypoint.GREENSTONE);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHarrasHarlaw(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.GREY_GARDEN);
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHowlandReed(world), 0, 5));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.VILLAGE, 6), GOTWaypoint.GREYWATER_WATCH);
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGeroldGrafton(world), 3, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.TOWN, 6), GOTWaypoint.GULLTOWN);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGoroldGoodbrother(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.HAMMERHORN);
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityLynCorbray(world), 2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.HEARTS_HOME);
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHarmenUller(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.HELLHOLT);
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMaceTyrell(world), 2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityOlennaTyrell(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityMargaeryTyrell(world), 2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityWillasTyrell(world), -2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.HIGHGARDEN, 3), GOTWaypoint.HIGHGARDEN.info(0.5, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGeroldDayne(world), 2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.HIGH_HERMITAGE.info(0.5, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureTower(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityLeytonHightower(world), 0, -5));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.HIGHTOWER_LITEHOUSE);
 
 		registerSpawner(new GOTStructureJogosSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityTugarKhan(world), 0, 3));
+				return spawnInfos;
 			}
 		}.type(GOTStructureJogosSettlement.Type.BIG, 5), GOTWaypoint.HOJDBAATAR);
 
 		registerSpawner(new GOTStructureEmptySettlement() {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBericDondarrion.BericDondarrionLife1(world), 3, 0));
 				spawnInfos.add(new SpawnInfo(new GOTEntityThoros(world), 0, 3));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.HOLLOW_HILL);
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRandyllTarly(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.FORT, 3), GOTWaypoint.HORN_HILL);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityTytosBrax(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.HORNVALE);
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHarroldHardyng(world), 0, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityAnyaWaynwood(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.IRONOAKS);
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRickardKarstark(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.KARHOLD.info(0.4, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntitySansaStark(world), 0, 5));
 				spawnInfos.add(new SpawnInfo(new GOTEntityShae(world), 0, 6));
 				spawnInfos.add(new SpawnInfo(new GOTEntityYoren(world), 0, 4));
+				return spawnInfos;
 			}
 		}.type(GOTStructureCrownlandsSettlement.Type.KINGS_LANDING, 6), GOTWaypoint.KINGS_LANDING.info(0.9, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityKevanLannister(world), 0, 4));
 				spawnInfos.add(new SpawnInfo(new GOTEntityDavenLannister(world), 0, -4));
 				spawnInfos.add(new SpawnInfo(new GOTEntityAmoryLorch(world), 4, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureWesterlandsSettlement.Type.TOWN, 6), GOTWaypoint.LANNISPORT.info(-0.8, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityJohnUmber(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.LAST_HEARTH);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGylbertFarwynd(world), -2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.LONELY_LIGHT);
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGilwoodHunter(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.LONGBOW_HALL);
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityOrtonMerryweather(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.FORT, 3), GOTWaypoint.LONGTABLE);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityDagmer(world), 0, 3));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.TOWN, 6), GOTWaypoint.LORDSPORT);
 
 		registerSpawner(new GOTStructureLysSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntitySalladhorSaan(world), 0, -1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureLysSettlement.Type.TOWN, 6), GOTWaypoint.LYS);
 
 		registerSpawner(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityWilliamMooton(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.MAIDENPOOL.info(0, -0.5));
 
 		registerSpawner(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHizdahrZoLoraq(world), -1, -1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureGhiscarSettlement.Type.TOWN, 6), GOTWaypoint.MEEREEN.info(toEssosTownGate(0.0, true), -0.5, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMaegeMormont(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.MORMONTS_KEEP);
 
 		registerSpawner(new GOTStructureMyrSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHarryStrickland(world), -1, -1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureMyrSettlement.Type.TOWN, 6), GOTWaypoint.MYR.info(-0.5, toEssosTownGate(0.0, false), Dir.EAST));
 
 		registerSpawner(new GOTStructureEmptySettlement() {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityAeronGreyjoy(world), 0, 2));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.NAGGAS_HILL);
 
 		registerSpawner(new GOTStructureEmptySettlement(2) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityNightKing(world), 0, 0));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.NIGHT_KING);
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntitySymondTempleton(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.NINESTARS);
 
 		registerSpawner(new GOTStructureNorvosSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMellario(world), 0, 1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorvosSettlement.Type.TOWN, 6), GOTWaypoint.NORVOS.info(toEssosTownGate(0.0, true), -0.5, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityEbrose(world), 0, 5));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.TOWN, 6), GOTWaypoint.OLDTOWN.info(-1.1, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructurePentosSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityIllyrioMopatis(world), 3, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructurePentosSettlement.Type.TOWN, 6), GOTWaypoint.PENTOS.info(-0.5, toEssosTownGate(0.0, false), Dir.EAST));
 
 		registerSpawner(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityClementPiper(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.PINKMAIDEN_CASTLE);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBalonGreyjoy(world), 2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityYaraGreyjoy(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityTheonGreyjoy.TheonGreyjoyNormal(world), -2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.PYKE);
 
 		registerSpawner(new GOTStructureQarthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityXaroXhoanDaxos(world), 3, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureQarthSettlement.Type.TOWN, 6), GOTWaypoint.QARTH.info(toEssosTownGate(0.0, false), 0.5));
 
 		registerSpawner(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityTytosBlackwood(world), 2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.RAVENTREE_HALL);
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHortonRedfort(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.REDFORT);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityErikIronmaker(world), -2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.TOWN, 6), GOTWaypoint.RED_HAVEN);
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityQuennRoxton(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.FORT, 3), GOTWaypoint.RING.info(0, -0.5));
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRodrikRyswell(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.RYSWELLS_CASTLE.info(-0.5, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBryndenTully(world), 2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityEdmureTully(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityHosterTully(world), 2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityRodrikCassel(world), -2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityCatelynStark(world), 2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.RIVERRUN.info(0, -0.4));
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityYohnRoyce(world), 2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.RUNESTONE);
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityQuentynQorgyle(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.SANDSTONE);
 
 		registerSpawner(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityJasonMallister(world), 0, 3));
+				return spawnInfos;
 			}
 		}.type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.SEAGARD.info(-0.1, -0.5));
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityCleyCerwyn(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.CASTLE_CERWYN.info(-0.4, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityFranklynFowler(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.SKYREACH.info(0, 0.5, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureEmptySettlement() {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHummel009(world), 0, 0));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.SPIDER);
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBericDayne(world), -2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.STARFALL.info(0, 0.6, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityPaxterRedwyne(world), 0, 5));
+				return spawnInfos;
 			}
 		}.type(GOTStructureReachSettlement.Type.TOWN, 6), GOTWaypoint.STARFISH_HARBOR);
 
 		registerSpawner(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityJonosBracken(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.STONE_HEDGE.info(0, -0.4));
 
 		registerSpawner(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityGulianSwann(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureStormlandsSettlement.Type.FORT, 3), GOTWaypoint.STONEHELM);
 
 		registerSpawner(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRenlyBaratheon(world), 2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityLorasTyrell(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityBrienneTarth(world), -2, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureStormlandsSettlement.Type.FORT, 3), GOTWaypoint.STORMS_END.info(0, 0.5, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBenedarBelmore(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.STRONGSONG);
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityOberynMartell(world), 3, 0));
 				spawnInfos.add(new SpawnInfo(new GOTEntityDoranMartell(world), 0, 3));
 				spawnInfos.add(new SpawnInfo(new GOTEntityEllaryaSand(world), 3, 3));
@@ -745,100 +902,126 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityTrystaneMartell(world), -3, 0));
 				spawnInfos.add(new SpawnInfo(new GOTEntityArianneMartell(world), -3, 3));
 				spawnInfos.add(new SpawnInfo(new GOTEntityManfreyMartell(world), -3, -3));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDorneSettlement.Type.TOWN, 6), GOTWaypoint.SUNSPEAR);
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRodrikHarlaw(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.TEN_TOWERS);
 
 		registerSpawner(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRobinArryn(world), 0, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityLysaArryn(world), -2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.THE_EYRIE.info(0, -0.4));
 
 		registerSpawner(new GOTStructureEmptySettlement() {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityThreeEyedRaven(world), 0, 5));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.THREE_EYED_RAVEN_CAVE);
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityHelmanTallhart(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.TORRHENS_SQUARE.info(-0.4, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructureTower(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBlackWalderFrey(world), 0, -15));
 				spawnInfos.add(new SpawnInfo(new GOTEntityLotharFrey(world), 0, -15));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.TWINS_LEFT);
 
 		registerSpawner(new GOTStructureTower(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityWalderFrey(world), 0, -15));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.TWINS_RIGHT);
 
 		registerSpawner(new GOTStructureTyroshSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityJonConnington(world), 0, -1));
 				spawnInfos.add(new SpawnInfo(new GOTEntityYoungGriff(world), 0, -1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureTyroshSettlement.Type.TOWN, 6), GOTWaypoint.TYROSH);
 
 		registerSpawner(new GOTStructureDothrakiSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityDaenerysTargaryen(world), 0, 3));
 				spawnInfos.add(new SpawnInfo(new GOTEntityJorahMormont(world), 0, 3));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDothrakiSettlement.Type.BIG, 5), GOTWaypoint.VAES_EFE);
 
 		registerSpawner(new GOTStructureVolantisSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMoqorro(world), -1, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureVolantisSettlement.Type.TOWN, 6), GOTWaypoint.VOLANTIS.info(toEssosTownGate(0.0, false) - 0.2, 0.6));
 
 		registerSpawner(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityMaronVolmark(world), -2, -2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.VOLMARK);
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityWymanManderly(world), 0, 5));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.TOWN, 6), GOTWaypoint.WHITE_HARBOUR.info(0.8, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureEmptySettlement() {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBenjenStark(world).setIsRider(true), 0, 5));
+				return spawnInfos;
 			}
 		}, GOTWaypoint.WHITETREE);
 
 		registerSpawner(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityRobbStark(world), 2, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityHodor(world), -2, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityAryaStark(world), 2, -2));
@@ -846,29 +1029,36 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityRickonStark(world), 0, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityLuwin(world), 0, -2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityOsha(world), 2, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.WINTERFELL.info(-0.5, -0.1, Dir.WEST));
 
 		registerSpawner(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityBuGai(world), 12, 0));
+				return spawnInfos;
 			}
 		}.type(GOTStructureYiTiSettlement.Type.TOWN, 7), GOTWaypoint.YIN.info(0, 1, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityQuentynMartell(world), 0, 2));
 				spawnInfos.add(new SpawnInfo(new GOTEntityAndersYronwood(world), 0, 2));
+				return spawnInfos;
 			}
 		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.YRONWOOD.info(0.5, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
-			public void addLegendaryNPCs(World world) {
+			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
+				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityDaarioNaharis(world), -1, 0));
 				spawnInfos.add(new SpawnInfo(new GOTEntityRazdalMoEraz(world), -1, 1));
+				return spawnInfos;
 			}
 		}.type(GOTStructureGhiscarSettlement.Type.TOWN, 6), GOTWaypoint.YUNKAI.info(-0.5, toEssosTownGate(0.0, false), Dir.EAST));
 

@@ -1,38 +1,33 @@
 package got.common.world.structure.other;
 
-import got.common.world.map.GOTWaypoint;
-
 public class LocationInfo {
-	public static LocationInfo RANDOM_GEN_HERE = new LocationInfo(0, 0, 0, "RANDOM_GEN");
-	public static LocationInfo SPAWNED_BY_PLAYER = new LocationInfo(0, 0, 0, "PLAYER_SPAWNED");
-	public static LocationInfo NONE_HERE = new LocationInfo(0, 0, 0, "NONE") {
-
+	public static final LocationInfo RANDOM_GEN_HERE = new LocationInfo(0, 0, 0);
+	public static final LocationInfo SPAWNED_BY_PLAYER = new LocationInfo(0, 0, 0);
+	public static final LocationInfo NONE_HERE = new LocationInfo(0, 0, 0) {
 		@Override
 		public boolean isPresent() {
 			return false;
 		}
 	};
-	public int posX;
-	public int posZ;
-	public int rotation;
-	public String name;
-	public boolean isFixedLocation;
-	public GOTWaypoint associatedWaypoint;
 
-	public LocationInfo(int x, int z, int r, String s) {
+	private final int posX;
+	private final int posZ;
+	private final int rotation;
+
+	private boolean isFixedLocation;
+
+	public LocationInfo(int x, int z, int r) {
 		posX = x;
 		posZ = z;
 		rotation = r;
-		name = s;
 	}
 
 	public boolean isFixedLocation() {
 		return isFixedLocation;
 	}
 
-	public LocationInfo setFixedLocation(GOTWaypoint wp) {
+	public LocationInfo setFixedLocation() {
 		isFixedLocation = true;
-		associatedWaypoint = wp;
 		return this;
 	}
 
@@ -40,4 +35,15 @@ public class LocationInfo {
 		return true;
 	}
 
+	public int getPosX() {
+		return posX;
+	}
+
+	public int getPosZ() {
+		return posZ;
+	}
+
+	public int getRotation() {
+		return rotation;
+	}
 }

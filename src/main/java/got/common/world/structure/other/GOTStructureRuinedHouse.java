@@ -8,17 +8,17 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureRuinedHouse extends GOTStructureBase {
-	public Block woodBlock = Blocks.log;
-	public int woodMeta;
-	public Block plankBlock = Blocks.planks;
-	public int plankMeta;
-	public Block fenceBlock = Blocks.fence;
-	public int fenceMeta;
-	public Block stairBlock = Blocks.oak_stairs;
-	public Block stoneBlock = Blocks.cobblestone;
-	public int stoneMeta;
-	public Block stoneVariantBlock = Blocks.mossy_cobblestone;
-	public int stoneVariantMeta;
+	protected Block woodBlock = Blocks.log;
+	protected int woodMeta;
+	protected Block plankBlock = Blocks.planks;
+	protected int plankMeta;
+	protected Block fenceBlock = Blocks.fence;
+	protected int fenceMeta;
+	protected Block stairBlock = Blocks.oak_stairs;
+	protected Block stoneBlock = Blocks.cobblestone;
+	protected int stoneMeta;
+	protected Block stoneVariantBlock = Blocks.mossy_cobblestone;
+	protected int stoneVariantMeta;
 
 	public GOTStructureRuinedHouse(boolean flag) {
 		super(flag);
@@ -109,7 +109,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 		return true;
 	}
 
-	public void placeRandomGroundBlock(World world, Random random, int i, int j, int k) {
+	private void placeRandomGroundBlock(World world, Random random, int i, int j, int k) {
 		int l = random.nextInt(4);
 		switch (l) {
 			case 0:
@@ -129,7 +129,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 		}
 	}
 
-	public void placeRandomWall(World world, Random random, int i, int j, int k, boolean northToSouth) {
+	private void placeRandomWall(World world, Random random, int i, int j, int k, boolean northToSouth) {
 		if (random.nextInt(12) == 0 || isAir(world, i, j - 1, k)) {
 			return;
 		}
@@ -145,8 +145,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 				setBlockAndMetadata(world, i, j, k, woodBlock, woodMeta | (northToSouth ? 8 : 4));
 				break;
 			case 3:
-				int upsideDown;
-				upsideDown = random.nextBoolean() ? 4 : 0;
+				int upsideDown = random.nextBoolean() ? 4 : 0;
 				if (northToSouth) {
 					setBlockAndMetadata(world, i, j, k, stairBlock, random.nextInt(2) | upsideDown);
 				} else {
@@ -158,7 +157,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 		}
 	}
 
-	public void placeRandomWallOrStone(World world, Random random, int i, int j, int k) {
+	private void placeRandomWallOrStone(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(12) == 0 || isAir(world, i, j - 1, k)) {
 			return;
 		}
@@ -181,7 +180,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 		}
 	}
 
-	public void placeWoodPillar(World world, Random random, int i, int j, int k) {
+	private void placeWoodPillar(World world, Random random, int i, int j, int k) {
 		for (int j1 = j; j1 <= j + 4; ++j1) {
 			setBlockAndMetadata(world, i, j1, k, woodBlock, woodMeta);
 			if (random.nextInt(4) == 0 && j1 >= j + 2) {

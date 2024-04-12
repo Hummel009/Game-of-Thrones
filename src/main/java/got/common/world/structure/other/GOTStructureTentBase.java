@@ -11,13 +11,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import java.util.Random;
 
 public abstract class GOTStructureTentBase extends GOTStructureBase {
-	public Block tentBlock;
-	public int tentMeta;
-	public Block fenceBlock;
-	public int fenceMeta;
-	public Block tableBlock;
-	public GOTChestContents chestContents;
-	public boolean isCaptain;
+	protected Block tentBlock;
+	protected int tentMeta;
+	protected Block fenceBlock;
+	protected int fenceMeta;
+	protected Block tableBlock;
+
+	protected GOTChestContents chestContents;
 
 	protected GOTStructureTentBase(boolean flag) {
 		super(flag);
@@ -45,10 +45,9 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 		for (i1 = -2; i1 <= 2; ++i1) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
-					int randomGround;
 					biome = getBiome(world, i1, k1);
+					int randomGround = random.nextInt(3);
 					if (biome instanceof GOTBiomeShadowLand) {
-						randomGround = random.nextInt(3);
 						switch (randomGround) {
 							case 0:
 								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.rock, 0);
@@ -63,7 +62,6 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 								break;
 						}
 					} else {
-						randomGround = random.nextInt(3);
 						switch (randomGround) {
 							case 0:
 								if (j1 == 0) {
@@ -104,34 +102,15 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 			setBlockAndMetadata(world, 0, j13, -3, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 0, j13, 3, fenceBlock, fenceMeta);
 		}
-		if (isCaptain) {
-			placeBigTorch(world, -1, 1, -3);
-			placeBigTorch(world, 1, 1, -3);
-			placeBigTorch(world, -1, 1, 3);
-			placeBigTorch(world, 1, 1, 3);
-		} else {
-			setBlockAndMetadata(world, -1, 2, -3, Blocks.torch, 2);
-			setBlockAndMetadata(world, 1, 2, -3, Blocks.torch, 1);
-			setBlockAndMetadata(world, -1, 2, 3, Blocks.torch, 2);
-			setBlockAndMetadata(world, 1, 2, 3, Blocks.torch, 1);
-		}
+		setBlockAndMetadata(world, -1, 2, -3, Blocks.torch, 2);
+		setBlockAndMetadata(world, 1, 2, -3, Blocks.torch, 1);
+		setBlockAndMetadata(world, -1, 2, 3, Blocks.torch, 2);
+		setBlockAndMetadata(world, 1, 2, 3, Blocks.torch, 1);
 		if (random.nextBoolean()) {
-			if (isCaptain) {
-				setBlockAndMetadata(world, -1, 1, 0, GOTBlocks.alloyForge, 4);
-				setGrassToDirt(world, -1, 0, 0);
-				setBlockAndMetadata(world, -1, 1, -1, fenceBlock, fenceMeta);
-				setBlockAndMetadata(world, -1, 1, 1, fenceBlock, fenceMeta);
-			} else {
-				setBlockAndMetadata(world, -1, 1, -1, Blocks.crafting_table, 0);
-				setGrassToDirt(world, -1, 0, -1);
-				setBlockAndMetadata(world, -1, 1, 1, tableBlock, 0);
-				setGrassToDirt(world, -1, 0, 1);
-			}
-		} else if (isCaptain) {
-			setBlockAndMetadata(world, 1, 1, 0, GOTBlocks.alloyForge, 5);
-			setGrassToDirt(world, 1, 0, 0);
-			setBlockAndMetadata(world, 1, 1, -1, fenceBlock, fenceMeta);
-			setBlockAndMetadata(world, 1, 1, 1, fenceBlock, fenceMeta);
+			setBlockAndMetadata(world, -1, 1, -1, Blocks.crafting_table, 0);
+			setGrassToDirt(world, -1, 0, -1);
+			setBlockAndMetadata(world, -1, 1, 1, tableBlock, 0);
+			setGrassToDirt(world, -1, 0, 1);
 		} else {
 			placeChest(world, random, 1, 1, 0, 5, chestContents);
 			setBlockAndMetadata(world, 1, 1, -1, Blocks.crafting_table, 0);

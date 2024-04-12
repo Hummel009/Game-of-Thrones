@@ -1075,7 +1075,7 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					Collection<Class<? extends WorldGenerator>> facStructures = new ArrayList<>();
-					for (Map.Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.classToFactionMapping.entrySet()) {
+					for (Map.Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.CLASS_TO_FACTION_MAPPING.entrySet()) {
 						if (entry.getValue() == fac) {
 							facStructures.add(entry.getKey());
 						}
@@ -1480,11 +1480,10 @@ public class GOTWikiGen {
 				}
 				for (Map.Entry<GOTAbstractWaypoint, GOTStructureBaseSettlement> entry : GOTFixer.SPAWNERS.entrySet()) {
 					GOTStructureBaseSettlement spawner = entry.getValue();
-					spawner.addLegendaryNPCs(world);
-					for (GOTFixer.SpawnInfo info : spawner.spawnInfos) {
+					spawner.getLegendaryNPCs(world);
+					for (GOTFixer.SpawnInfo info : spawner.getLegendaryNPCs(world)) {
 						sb.append("\n| ").append(getEntityPagename(info.getNPC().getClass())).append(" = ").append(entry.getKey().getDisplayName());
 					}
-					spawner.spawnInfos.clear();
 				}
 				sb.append(END);
 				sb.append("\n</mediawiki>");
@@ -1597,7 +1596,7 @@ public class GOTWikiGen {
 	}
 
 	private static String getStructureName(Class<? extends WorldGenerator> structureClass) {
-		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.classToNameMapping.get(structureClass) + ".name");
+		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name");
 	}
 
 	private static String getTreeName(GOTTreeType tree) {

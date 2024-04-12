@@ -86,8 +86,8 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockAlias("FENCE_GATE", fenceGateBlock);
-		addBlockMetaAliasOption("FLOOR", 10, Blocks.stained_hardened_clay, 7);
-		addBlockMetaAliasOption("FLOOR", 10, GOTBlocks.mud, 0);
+		addBlockMetaAliasOption("FLOOR", Blocks.stained_hardened_clay, 7);
+		addBlockMetaAliasOption("FLOOR", GOTBlocks.mud, 0);
 		associateBlockMetaAlias("WALL", Blocks.stained_hardened_clay, 12);
 		associateBlockMetaAlias("ROOF", thatchBlock, thatchMeta);
 		associateBlockMetaAlias("ROOF_SLAB", thatchSlabBlock, thatchSlabMeta);

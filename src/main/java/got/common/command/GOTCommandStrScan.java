@@ -180,8 +180,8 @@ public class GOTCommandStrScan extends CommandBase {
 							} else {
 								step = new GOTStructureScan.ScanStep(i1, j1, k1, block, meta);
 							}
-							step.fillDown = fillBelow;
-							step.findLowest = findLowest;
+							step.setFillDown(fillBelow);
+							step.setFindLowest(findLowest);
 							scan.addScanStep(step);
 						}
 					}

@@ -71,9 +71,9 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockMetaAlias("TABLE", tableBlock, 0);
-		addBlockMetaAliasOption("PATH", 5, Blocks.dirt, 1);
-		addBlockMetaAliasOption("PATH", 5, GOTBlocks.dirtPath, 0);
-		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
+		addBlockMetaAliasOption("PATH", Blocks.dirt, 1);
+		addBlockMetaAliasOption("PATH", GOTBlocks.dirtPath, 0);
+		addBlockMetaAliasOption("PATH", Blocks.cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, -2, 1, 3, bedBlock, 3);

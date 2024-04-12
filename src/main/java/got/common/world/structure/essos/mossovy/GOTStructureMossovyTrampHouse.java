@@ -98,14 +98,14 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		}
 		loadStrScan("mossovy_ruffian_house");
 		associateBlockMetaAlias("BRICK", brickBlock, brickMeta);
-		addBlockMetaAliasOption("COBBLE", 3, Blocks.cobblestone, 0);
-		addBlockMetaAliasOption("COBBLE", 1, Blocks.mossy_cobblestone, 0);
-		addBlockMetaAliasOption("COBBLE_SLAB_INV", 3, Blocks.stone_slab, 11);
-		addBlockMetaAliasOption("COBBLE_SLAB_INV", 1, GOTBlocks.slabSingleV, 12);
-		addBlockAliasOption("COBBLE_STAIR", 3, Blocks.stone_stairs);
-		addBlockAliasOption("COBBLE_STAIR", 1, GOTBlocks.stairsCobblestoneMossy);
-		addBlockMetaAliasOption("COBBLE_WALL", 3, Blocks.cobblestone_wall, 0);
-		addBlockMetaAliasOption("COBBLE_WALL", 1, Blocks.cobblestone_wall, 1);
+		addBlockMetaAliasOption("COBBLE", Blocks.cobblestone, 0);
+		addBlockMetaAliasOption("COBBLE", Blocks.mossy_cobblestone, 0);
+		addBlockMetaAliasOption("COBBLE_SLAB_INV", Blocks.stone_slab, 11);
+		addBlockMetaAliasOption("COBBLE_SLAB_INV", GOTBlocks.slabSingleV, 12);
+		addBlockAliasOption("COBBLE_STAIR", Blocks.stone_stairs);
+		addBlockAliasOption("COBBLE_STAIR", GOTBlocks.stairsCobblestoneMossy);
+		addBlockMetaAliasOption("COBBLE_WALL", Blocks.cobblestone_wall, 0);
+		addBlockMetaAliasOption("COBBLE_WALL", Blocks.cobblestone_wall, 1);
 		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
 		associateBlockMetaAlias("PLANK_SLAB", plankSlabBlock, plankSlabMeta);
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
@@ -123,17 +123,17 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockMetaAlias("TABLE", tableBlock, 0);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
-		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTBlocks.thatchFloor, 0);
+		addBlockMetaAliasOption("THATCH_FLOOR", GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("THATCH_FLOOR", 0.2f);
-		addBlockMetaAliasOption("LEAF_FLOOR", 1, GOTBlocks.fallenLeaves1, 0);
+		addBlockMetaAliasOption("LEAF_FLOOR", GOTBlocks.fallenLeaves1, 0);
 		setBlockAliasChance("LEAF_FLOOR", 0.3f);
-		addBlockMetaAliasOption("WEB", 1, Blocks.web, 0);
+		addBlockMetaAliasOption("WEB", Blocks.web, 0);
 		setBlockAliasChance("WEB", 0.3f);
-		addBlockMetaAliasOption("PATH", 10, Blocks.grass, 0);
-		addBlockMetaAliasOption("PATH", 10, Blocks.dirt, 1);
-		addBlockMetaAliasOption("PATH", 10, GOTBlocks.dirtPath, 0);
-		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
-		addBlockMetaAliasOption("PATH", 5, Blocks.mossy_cobblestone, 0);
+		addBlockMetaAliasOption("PATH", Blocks.grass, 0);
+		addBlockMetaAliasOption("PATH", Blocks.dirt, 1);
+		addBlockMetaAliasOption("PATH", GOTBlocks.dirtPath, 0);
+		addBlockMetaAliasOption("PATH", Blocks.cobblestone, 0);
+		addBlockMetaAliasOption("PATH", Blocks.mossy_cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
 		for (i13 = 4; i13 <= 6; ++i13) {

@@ -419,7 +419,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -2, 14, 18, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 14, 18, Blocks.torch, 3);
 		GOTStructureWesterosTower beaconTower = getTower(notifyChanges);
-		beaconTower.restrictions = false;
+		beaconTower.setRestrictions(false);
 		beaconTower.generateRoom = false;
 
 		int beaconX = 0;

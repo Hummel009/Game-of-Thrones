@@ -15,27 +15,27 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTStructureScan {
-	public static String strscanFormat = ".strscan";
-	public static Map<String, GOTStructureScan> allLoadedScans = new HashMap<>();
-	public String scanName;
-	public Collection<ScanStepBase> scanSteps = new ArrayList<>();
-	public Collection<GOTScanAlias> aliases = new ArrayList<>();
+	private static final Map<String, GOTStructureScan> ALL_LOADED_SCANS = new HashMap<>();
+	private static final String STRSCAN_FORMAT = ".strscan";
+
+	private final Collection<ScanStepBase> scanSteps = new ArrayList<>();
+	private final Collection<GOTScanAlias> aliases = new ArrayList<>();
+	private final String scanName;
 
 	public GOTStructureScan(String name) {
 		scanName = name;
 	}
 
 	public static GOTStructureScan getScanByName(String name) {
-		return allLoadedScans.get(name);
+		return ALL_LOADED_SCANS.get(name);
 	}
 
 	public static void onInit() {
-		allLoadedScans.clear();
+		ALL_LOADED_SCANS.clear();
 		Map<String, BufferedReader> scanNamesAndReaders = new HashMap<>();
 		ZipFile zip = null;
 		try {
@@ -47,11 +47,11 @@ public class GOTStructureScan {
 					String path;
 					ZipEntry entry = entries.nextElement();
 					String s = entry.getName();
-					if (!s.startsWith(path = "assets/got/strscan/") || !s.endsWith(strscanFormat)) {
+					if (!s.startsWith(path = "assets/got/strscan/") || !s.endsWith(STRSCAN_FORMAT)) {
 						continue;
 					}
 					s = s.substring(path.length());
-					int i = s.indexOf(strscanFormat);
+					int i = s.indexOf(STRSCAN_FORMAT);
 					try {
 						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8));
@@ -67,9 +67,9 @@ public class GOTStructureScan {
 				for (File subfile : subfiles) {
 					String s = subfile.getPath();
 					s = s.substring(scanDir.getPath().length() + 1);
-					int i = (s = s.replace(File.separator, "/")).indexOf(strscanFormat);
+					int i = (s = s.replace(File.separator, "/")).indexOf(STRSCAN_FORMAT);
 					if (i < 0) {
-						FMLLog.severe("Failed to onInit GOT structure scan " + s + " from MCP folder - not in " + strscanFormat + " format");
+						FMLLog.severe("Failed to onInit GOT structure scan " + s + " from MCP folder - not in " + STRSCAN_FORMAT + " format");
 						continue;
 					}
 					try {
@@ -86,7 +86,7 @@ public class GOTStructureScan {
 			FMLLog.severe("Failed to onInit GOT structure scans");
 			e.printStackTrace();
 		}
-		for (Entry<String, BufferedReader> strName : scanNamesAndReaders.entrySet()) {
+		for (Map.Entry<String, BufferedReader> strName : scanNamesAndReaders.entrySet()) {
 			BufferedReader reader = strName.getValue();
 			int curLine = 0;
 			try {
@@ -179,15 +179,15 @@ public class GOTStructureScan {
 						}
 					}
 					if (step != null) {
-						step.fillDown = fillDown;
-						step.findLowest = findLowest;
-						step.lineNumber = curLine;
+						step.setFillDown(fillDown);
+						step.setFindLowest(findLowest);
+						step.setLineNumber(curLine);
 						scan.addScanStep(step);
 						continue;
 					}
 					throw new IllegalArgumentException("Invalid scan instruction on line " + curLine);
 				}
-				allLoadedScans.put(scan.scanName, scan);
+				ALL_LOADED_SCANS.put(scan.scanName, scan);
 			} catch (Exception e) {
 				FMLLog.severe("Failed to onInit GOT structure scan " + strName.getKey() + ": error on line " + curLine);
 				e.printStackTrace();
@@ -210,7 +210,7 @@ public class GOTStructureScan {
 				GOTLog.getLogger().info("GOTStructureScan: directory wasn't created");
 			}
 		}
-		File scanFile = new File(dir, scan.scanName + strscanFormat);
+		File scanFile = new File(dir, scan.scanName + STRSCAN_FORMAT);
 		try {
 			if (!scanFile.exists()) {
 				boolean created = scanFile.createNewFile();
@@ -226,36 +226,36 @@ public class GOTStructureScan {
 				writer.println();
 			}
 			for (ScanStepBase e : scan.scanSteps) {
-				writer.print(e.x);
+				writer.print(e.getX());
 				writer.print('.');
-				writer.print(e.y);
-				if (e.fillDown) {
+				writer.print(e.getY());
+				if (e.isFillDown()) {
 					writer.print('v');
 				}
 				writer.print('.');
-				writer.print(e.z);
+				writer.print(e.getZ());
 				writer.print('.');
 				if (e instanceof ScanStep) {
 					ScanStep step = (ScanStep) e;
 					writer.print('"');
-					String blockName = Block.blockRegistry.getNameForObject(step.block);
+					String blockName = Block.blockRegistry.getNameForObject(step.getBlock());
 					if (blockName.startsWith("minecraft:")) {
 						blockName = blockName.substring("minecraft:".length());
 					}
 					writer.print(blockName);
 					writer.print('"');
 					writer.print('.');
-					writer.print(step.meta);
+					writer.print(step.getMeta());
 					writer.println();
 					continue;
 				}
 				if (e instanceof ScanStepBlockAlias) {
 					ScanStepBlockAlias step = (ScanStepBlockAlias) e;
 					writer.print('#');
-					writer.print(step.alias);
+					writer.print(step.getAlias());
 					writer.print('#');
 					writer.print('.');
-					writer.print(step.meta);
+					writer.print(step.getMeta());
 					writer.println();
 					continue;
 				}
@@ -264,7 +264,7 @@ public class GOTStructureScan {
 				}
 				ScanStepBlockMetaAlias step = (ScanStepBlockMetaAlias) e;
 				writer.print('~');
-				writer.print(step.alias);
+				writer.print(step.getAlias());
 				writer.print('~');
 				writer.println();
 			}
@@ -281,9 +281,9 @@ public class GOTStructureScan {
 		scanSteps.add(e);
 	}
 
-	public void includeAlias(GOTScanAlias alias) {
+	private void includeAlias(GOTScanAlias alias) {
 		for (GOTScanAlias existingAlias : aliases) {
-			if (!existingAlias.name.equals(alias.name)) {
+			if (!existingAlias.getName().equals(alias.getName())) {
 				continue;
 			}
 			return;
@@ -295,9 +295,13 @@ public class GOTStructureScan {
 		includeAlias(new GOTScanAlias(alias, type));
 	}
 
+	public Collection<ScanStepBase> getScanSteps() {
+		return scanSteps;
+	}
+
 	public static class ScanStep extends ScanStepBase {
-		public Block block;
-		public int meta;
+		private final Block block;
+		private final int meta;
 
 		public ScanStep(int _x, int _y, int _z, Block _block, int _meta) {
 			super(_x, _y, _z);
@@ -324,15 +328,24 @@ public class GOTStructureScan {
 		public boolean hasAlias() {
 			return false;
 		}
+
+		protected Block getBlock() {
+			return block;
+		}
+
+		protected int getMeta() {
+			return meta;
+		}
 	}
 
 	public abstract static class ScanStepBase {
-		public int x;
-		public int y;
-		public int z;
-		public boolean fillDown;
-		public boolean findLowest;
-		public int lineNumber;
+		private final int x;
+		private final int y;
+		private final int z;
+
+		private boolean fillDown;
+		private boolean findLowest;
+		private int lineNumber;
 
 		protected ScanStepBase(int _x, int _y, int _z) {
 			x = _x;
@@ -347,11 +360,48 @@ public class GOTStructureScan {
 		public abstract int getMeta(int var1);
 
 		public abstract boolean hasAlias();
+
+		@SuppressWarnings("unused")
+		public int getLineNumber() {
+			return lineNumber;
+		}
+
+		protected void setLineNumber(int lineNumber) {
+			this.lineNumber = lineNumber;
+		}
+
+		public int getY() {
+			return y;
+		}
+
+		public int getZ() {
+			return z;
+		}
+
+		public int getX() {
+			return x;
+		}
+
+		public boolean isFillDown() {
+			return fillDown;
+		}
+
+		public void setFillDown(boolean fillDown) {
+			this.fillDown = fillDown;
+		}
+
+		public boolean isFindLowest() {
+			return findLowest;
+		}
+
+		public void setFindLowest(boolean findLowest) {
+			this.findLowest = findLowest;
+		}
 	}
 
 	public static class ScanStepBlockAlias extends ScanStepBase {
-		public String alias;
-		public int meta;
+		private final String alias;
+		private final int meta;
 
 		public ScanStepBlockAlias(int _x, int _y, int _z, String _alias, int _meta) {
 			super(_x, _y, _z);
@@ -378,10 +428,14 @@ public class GOTStructureScan {
 		public boolean hasAlias() {
 			return true;
 		}
+
+		protected int getMeta() {
+			return meta;
+		}
 	}
 
 	public static class ScanStepBlockMetaAlias extends ScanStepBase {
-		public String alias;
+		private final String alias;
 
 		public ScanStepBlockMetaAlias(int _x, int _y, int _z, String _alias) {
 			super(_x, _y, _z);
@@ -410,7 +464,7 @@ public class GOTStructureScan {
 	}
 
 	public static class ScanStepSkull extends ScanStepBase {
-		public ScanStepSkull(int _x, int _y, int _z) {
+		protected ScanStepSkull(int _x, int _y, int _z) {
 			super(_x, _y, _z);
 		}
 
@@ -434,5 +488,4 @@ public class GOTStructureScan {
 			return false;
 		}
 	}
-
 }

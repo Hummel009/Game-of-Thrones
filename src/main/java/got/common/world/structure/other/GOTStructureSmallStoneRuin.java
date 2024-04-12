@@ -11,15 +11,13 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureSmallStoneRuin extends GOTStructureBase {
-	public Block brickBlock;
-	public int brickMeta;
-	public Block plankBlock;
-	public int plankMeta;
-	public Block plankSlabBlock;
-	public int plankSlabMeta;
-	public Block woodBeamBlock;
-	public int woodBeamMeta;
-	public Block barsBlock;
+	private Block plankBlock;
+	private int plankMeta;
+	private Block plankSlabBlock;
+	private int plankSlabMeta;
+	private Block woodBeamBlock;
+	private int woodBeamMeta;
+	private Block barsBlock;
 
 	public GOTStructureSmallStoneRuin(boolean flag) {
 		super(flag);
@@ -28,8 +26,8 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		RuinType ruinType = RuinType.getRandomType(random);
-		setOriginAndRotation(world, i, j, k, rotation, ruinType.centreShift);
-		int radius = ruinType.checkRadius;
+		setOriginAndRotation(world, i, j, k, rotation, ruinType.getCentreShift());
+		int radius = ruinType.getCheckRadius();
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -52,8 +50,8 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 			}
 		}
 		if (ruinType == RuinType.COLUMN) {
-			brickBlock = Blocks.stonebrick;
-			brickMeta = 0;
+			Block brickBlock = Blocks.stonebrick;
+			int brickMeta = 0;
 			layFoundation(world, 0, 0, 0, brickBlock, brickMeta);
 			layFoundation(world, -1, 0, 0, brickBlock, brickMeta);
 			layFoundation(world, 1, 0, 0, brickBlock, brickMeta);
@@ -845,7 +843,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 		return true;
 	}
 
-	public boolean isSuitableSpawnBlock(World world, int i, int k) {
+	private boolean isSuitableSpawnBlock(World world, int i, int k) {
 		int j = getTopBlock(world, i, k);
 		if (!isSurface(world, i, j - 1, k)) {
 			return false;
@@ -854,21 +852,21 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 		return !above.getMaterial().isLiquid();
 	}
 
-	public void layFoundation(World world, int i, int j, int k, Block block, int meta) {
+	private void layFoundation(World world, int i, int j, int k, Block block, int meta) {
 		for (int j1 = j; (j1 >= 0 || !isOpaque(world, i, j1, k)) && getY(j1) >= 0; j1--) {
 			setBlockAndMetadata(world, i, j1, k, block, meta);
 			setGrassToDirt(world, i, j1 - 1, k);
 		}
 	}
 
-	public void layFoundationRandomStoneBrick(World world, Random random, int i, int j, int k) {
+	private void layFoundationRandomStoneBrick(World world, Random random, int i, int j, int k) {
 		for (int j1 = j; (j1 >= 0 || !isOpaque(world, i, j1, k)) && getY(j1) >= 0; j1--) {
 			placeRandomStoneBrick(world, random, i, j1, k);
 			setGrassToDirt(world, i, j1 - 1, k);
 		}
 	}
 
-	public void placeRandomStoneBrick(World world, Random random, int i, int j, int k) {
+	private void placeRandomStoneBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(4) == 0) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, i, j, k, Blocks.stonebrick, 1);
@@ -883,16 +881,24 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 	public enum RuinType {
 		COLUMN(0, 1), ROOM(3, 2), BAR_TOWER(3, 2), PIT_MINE(0, 2), PLINTH(0, 3), RUBBLE(0, 0), QUARRY(0, 7), OBELISK(0, 5), WELL(0, 2), TURRET(5, 4), WALLS(0, 3), SHRINE(0, 4), BRICK_HOUSE(0, 5);
 
-		public int centreShift;
-		public int checkRadius;
+		private final int centreShift;
+		private final int checkRadius;
 
 		RuinType(int i, int j) {
 			centreShift = i;
 			checkRadius = j;
 		}
 
-		public static RuinType getRandomType(Random random) {
+		private static RuinType getRandomType(Random random) {
 			return values()[random.nextInt(values().length)];
+		}
+
+		private int getCentreShift() {
+			return centreShift;
+		}
+
+		private int getCheckRadius() {
+			return checkRadius;
 		}
 	}
 }
