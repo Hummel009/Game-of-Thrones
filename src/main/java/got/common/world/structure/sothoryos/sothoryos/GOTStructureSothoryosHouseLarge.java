@@ -113,8 +113,7 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 			}
 			int[] j16 = {-2, 1};
 			int k14 = j16.length;
-			for (int j14 = 0; j14 < k14; ++j14) {
-				int k13 = j16[j14];
+			for (int k13 : j16) {
 				setBlockAndMetadata(world, i14, 1, k13, brickBlock, brickMeta);
 				setBlockAndMetadata(world, i14, 1, k13 + 1, brickBlock, brickMeta);
 				if (random.nextInt(3) == 0) {
