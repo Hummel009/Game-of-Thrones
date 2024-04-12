@@ -15,14 +15,14 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
-	public Block woodBlock;
-	public int woodMeta;
-	public Block plankBlock;
-	public int plankMeta;
-	public Block fenceBlock;
-	public int fenceMeta;
-	public Block stairBlock;
-	public Block trapdoorBlock;
+	protected Block woodBlock;
+	protected int woodMeta;
+	protected Block plankBlock;
+	protected int plankMeta;
+	protected Block fenceBlock;
+	protected int fenceMeta;
+	protected Block stairBlock;
+	protected Block trapdoorBlock;
 
 	public GOTStructureGoldenCampWatchtower(boolean flag) {
 		super(flag);

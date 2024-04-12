@@ -12,27 +12,27 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureHillmanBase extends GOTStructureBase {
-	public Block floorBlock;
-	public int floorMeta;
-	public Block woodBlock;
-	public int woodMeta;
-	public Block plankBlock;
-	public int plankMeta;
-	public Block plankSlabBlock;
-	public int plankSlabMeta;
-	public Block plankStairBlock;
-	public Block fenceBlock;
-	public int fenceMeta;
-	public Block fenceGateBlock;
-	public Block doorBlock;
-	public Block roofBlock;
-	public int roofMeta;
-	public Block roofSlabBlock;
-	public int roofSlabMeta;
-	public Block roofStairBlock;
-	public Block barsBlock;
-	public int barsMeta;
-	public Block bedBlock;
+	protected Block floorBlock;
+	protected int floorMeta;
+	protected Block woodBlock;
+	protected int woodMeta;
+	protected Block plankBlock;
+	protected int plankMeta;
+	protected Block plankSlabBlock;
+	protected int plankSlabMeta;
+	protected Block plankStairBlock;
+	protected Block fenceBlock;
+	protected int fenceMeta;
+	protected Block fenceGateBlock;
+	protected Block doorBlock;
+	protected Block roofBlock;
+	protected int roofMeta;
+	protected Block roofSlabBlock;
+	protected int roofSlabMeta;
+	protected Block roofStairBlock;
+	protected Block barsBlock;
+	protected int barsMeta;
+	protected Block bedBlock;
 
 	protected GOTStructureHillmanBase(boolean flag) {
 		super(flag);

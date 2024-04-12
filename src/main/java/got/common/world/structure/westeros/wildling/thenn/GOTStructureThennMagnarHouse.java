@@ -12,18 +12,18 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureThennMagnarHouse extends GOTStructureBase {
-	public Block woodBlock;
-	public int woodMeta;
-	public Block plankBlock;
-	public int plankMeta;
-	public Block slabBlock;
-	public int slabMeta;
-	public Block stairBlock;
-	public Block fenceBlock;
-	public int fenceMeta;
-	public Block doorBlock;
-	public Block floorBlock;
-	public int floorMeta;
+	protected Block woodBlock;
+	protected int woodMeta;
+	protected Block plankBlock;
+	protected int plankMeta;
+	protected Block slabBlock;
+	protected int slabMeta;
+	protected Block stairBlock;
+	protected Block fenceBlock;
+	protected int fenceMeta;
+	protected Block doorBlock;
+	protected Block floorBlock;
+	protected int floorMeta;
 
 	public GOTStructureThennMagnarHouse(boolean flag) {
 		super(flag);

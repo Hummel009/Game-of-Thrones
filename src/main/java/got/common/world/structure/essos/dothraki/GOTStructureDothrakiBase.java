@@ -11,26 +11,26 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
-	public Block tentBlock;
-	public int tentMeta;
-	public Block tent2Block;
-	public int tent2Meta;
-	public Block carpetBlock;
-	public int carpetMeta;
-	public Block carpet2Block;
-	public int carpet2Meta;
-	public Block plankBlock;
-	public int plankMeta;
-	public Block plankSlabBlock;
-	public int plankSlabMeta;
-	public Block plankStairBlock;
-	public Block fenceBlock;
-	public int fenceMeta;
-	public Block fenceGateBlock;
-	public Block beamBlock;
-	public int beamMeta;
-	public Block bedBlock;
-	public Block trapdoorBlock;
+	protected Block tentBlock;
+	protected int tentMeta;
+	protected Block tent2Block;
+	protected int tent2Meta;
+	protected Block carpetBlock;
+	protected int carpetMeta;
+	protected Block carpet2Block;
+	protected int carpet2Meta;
+	protected Block plankBlock;
+	protected int plankMeta;
+	protected Block plankSlabBlock;
+	protected int plankSlabMeta;
+	protected Block plankStairBlock;
+	protected Block fenceBlock;
+	protected int fenceMeta;
+	protected Block fenceGateBlock;
+	protected Block beamBlock;
+	protected int beamMeta;
+	protected Block bedBlock;
+	protected Block trapdoorBlock;
 
 	protected GOTStructureDothrakiBase(boolean flag) {
 		super(flag);
