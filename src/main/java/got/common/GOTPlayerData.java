@@ -3139,11 +3139,11 @@ public class GOTPlayerData {
 			return new CWPSharedKey(player, id);
 		}
 
-		public UUID getSharingPlayer() {
+		protected UUID getSharingPlayer() {
 			return sharingPlayer;
 		}
 
-		public int getWaypointID() {
+		protected int getWaypointID() {
 			return waypointID;
 		}
 	}
