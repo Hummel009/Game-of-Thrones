@@ -252,7 +252,7 @@ public class GOTItemBanner extends Item {
 			bannerID = i;
 			bannerName = s;
 			faction = f;
-			faction.addFactionBanner(this);
+			faction.getFactionBanners().add(this);
 		}
 
 		public static BannerType forID(int ID) {

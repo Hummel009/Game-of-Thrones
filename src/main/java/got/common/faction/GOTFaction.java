@@ -209,101 +209,101 @@ public enum GOTFaction {
 		GOTFactionRelations.setRelations(WILDLING, DRAGONSTONE, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(WILDLING, IBBEN, GOTFactionRelations.Relation.FRIEND);
 
-		ARRYN.addControlZone(new GOTControlZone(851, 1335, 191));
-		ASSHAI.addControlZone(new GOTControlZone(3914, 2135, 765));
-		ASSHAI.addControlZone(new GOTControlZone(4466, 1677, 660));
-		ASSHAI.addControlZone(new GOTControlZone(4604, 2283, 210));
-		ASSHAI.addControlZone(new GOTControlZone(4940, 1442, 300));
+		ARRYN.controlZones.add(new GOTControlZone(851, 1335, 191));
+		ASSHAI.controlZones.add(new GOTControlZone(3914, 2135, 765));
+		ASSHAI.controlZones.add(new GOTControlZone(4466, 1677, 660));
+		ASSHAI.controlZones.add(new GOTControlZone(4604, 2283, 210));
+		ASSHAI.controlZones.add(new GOTControlZone(4940, 1442, 300));
 		ASSHAI.approvesWarCrimes = true;
-		BRAAVOS.addControlZone(new GOTControlZone(1297, 1708, 543));
-		CROWNLANDS.addControlZone(new GOTControlZone(703, 1416, 550));
+		BRAAVOS.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		CROWNLANDS.controlZones.add(new GOTControlZone(703, 1416, 550));
 		CROWNLANDS.approvesWarCrimes = true;
-		DORNE.addControlZone(new GOTControlZone(718, 1867, 334));
-		DOTHRAKI.addControlZone(new GOTControlZone(1828, 1694, 454));
-		DOTHRAKI.addControlZone(new GOTControlZone(2177, 1661, 394));
-		DOTHRAKI.addControlZone(new GOTControlZone(2642, 1995, 325));
-		DOTHRAKI.addControlZone(new GOTControlZone(2648, 1586, 429));
+		DORNE.controlZones.add(new GOTControlZone(718, 1867, 334));
+		DOTHRAKI.controlZones.add(new GOTControlZone(1828, 1694, 454));
+		DOTHRAKI.controlZones.add(new GOTControlZone(2177, 1661, 394));
+		DOTHRAKI.controlZones.add(new GOTControlZone(2642, 1995, 325));
+		DOTHRAKI.controlZones.add(new GOTControlZone(2648, 1586, 429));
 		DOTHRAKI.approvesWarCrimes = true;
-		DRAGONSTONE.addControlZone(new GOTControlZone(703, 1416, 550));
-		DRAGONSTONE.addControlZone(new GOTControlZone(764, 608, 133));
+		DRAGONSTONE.controlZones.add(new GOTControlZone(703, 1416, 550));
+		DRAGONSTONE.controlZones.add(new GOTControlZone(764, 608, 133));
 		DRAGONSTONE.approvesWarCrimes = true;
-		GHISCAR.addControlZone(new GOTControlZone(1069, 1952, 94));
-		GHISCAR.addControlZone(new GOTControlZone(2144, 2375, 530));
-		GHISCAR.addControlZone(new GOTControlZone(GOTWaypoint.BARTER_BEACH, 200));
-		GHISCAR.addControlZone(new GOTControlZone(GOTWaypoint.GOGOSSOS, 200));
-		GHISCAR.addControlZone(new GOTControlZone(GOTWaypoint.GOROSH, 200));
-		GHISCAR.addControlZone(new GOTControlZone(GOTWaypoint.NEW_GHIS, 200));
-		GHISCAR.addControlZone(new GOTControlZone(GOTWaypoint.ZAMETTAR, 200));
+		GHISCAR.controlZones.add(new GOTControlZone(1069, 1952, 94));
+		GHISCAR.controlZones.add(new GOTControlZone(2144, 2375, 530));
+		GHISCAR.controlZones.add(new GOTControlZone(GOTWaypoint.BARTER_BEACH, 200));
+		GHISCAR.controlZones.add(new GOTControlZone(GOTWaypoint.GOGOSSOS, 200));
+		GHISCAR.controlZones.add(new GOTControlZone(GOTWaypoint.GOROSH, 200));
+		GHISCAR.controlZones.add(new GOTControlZone(GOTWaypoint.NEW_GHIS, 200));
+		GHISCAR.controlZones.add(new GOTControlZone(GOTWaypoint.ZAMETTAR, 200));
 		GHISCAR.approvesWarCrimes = true;
-		HILL_TRIBES.addControlZone(new GOTControlZone(851, 1335, 191));
+		HILL_TRIBES.controlZones.add(new GOTControlZone(851, 1335, 191));
 		HILL_TRIBES.approvesWarCrimes = true;
 		HOSTILE.approvesWarCrimes = true;
-		IBBEN.addControlZone(new GOTControlZone(2038, 1332, 180));
-		IBBEN.addControlZone(new GOTControlZone(2400, 1168, 355));
-		IBBEN.addControlZone(new GOTControlZone(2879, 1099, 404));
-		IBBEN.addControlZone(new GOTControlZone(3441, 1272, 345));
-		IBBEN.addControlZone(new GOTControlZone(3849, 1337, 345));
-		IRONBORN.addControlZone(new GOTControlZone(1069, 1952, 94));
-		IRONBORN.addControlZone(new GOTControlZone(513, 1102, 348));
-		IRONBORN.addControlZone(new GOTControlZone(623, 1519, 280));
+		IBBEN.controlZones.add(new GOTControlZone(2038, 1332, 180));
+		IBBEN.controlZones.add(new GOTControlZone(2400, 1168, 355));
+		IBBEN.controlZones.add(new GOTControlZone(2879, 1099, 404));
+		IBBEN.controlZones.add(new GOTControlZone(3441, 1272, 345));
+		IBBEN.controlZones.add(new GOTControlZone(3849, 1337, 345));
+		IRONBORN.controlZones.add(new GOTControlZone(1069, 1952, 94));
+		IRONBORN.controlZones.add(new GOTControlZone(513, 1102, 348));
+		IRONBORN.controlZones.add(new GOTControlZone(623, 1519, 280));
 		IRONBORN.approvesWarCrimes = true;
-		JOGOS.addControlZone(new GOTControlZone(3088, 2508, 430));
-		JOGOS.addControlZone(new GOTControlZone(3809, 1955, 1005));
+		JOGOS.controlZones.add(new GOTControlZone(3088, 2508, 430));
+		JOGOS.controlZones.add(new GOTControlZone(3809, 1955, 1005));
 		JOGOS.approvesWarCrimes = true;
-		LHAZAR.addControlZone(new GOTControlZone(2507, 2002, 269));
-		LORATH.addControlZone(new GOTControlZone(1297, 1708, 543));
-		LORATH.addControlZone(new GOTControlZone(1905, 1307, 112));
-		LYS.addControlZone(new GOTControlZone(1297, 1708, 543));
-		MOSSOVY.addControlZone(new GOTControlZone(3914, 2135, 765));
-		MOSSOVY.addControlZone(new GOTControlZone(4466, 1677, 660));
-		MOSSOVY.addControlZone(new GOTControlZone(4604, 2283, 210));
-		MOSSOVY.addControlZone(new GOTControlZone(4940, 1442, 300));
-		MYR.addControlZone(new GOTControlZone(1297, 1708, 543));
-		NIGHT_WATCH.addControlZone(new GOTControlZone(757, 573, 267));
-		NORTH.addControlZone(new GOTControlZone(749, 1111, 605));
-		NORVOS.addControlZone(new GOTControlZone(1297, 1708, 543));
-		PENTOS.addControlZone(new GOTControlZone(1297, 1708, 543));
-		QARTH.addControlZone(new GOTControlZone(2144, 2375, 530));
-		QARTH.addControlZone(new GOTControlZone(GOTWaypoint.BATARGAS, 200));
-		QARTH.addControlZone(new GOTControlZone(GOTWaypoint.KARIMAGAR, 200));
-		QARTH.addControlZone(new GOTControlZone(GOTWaypoint.TERIMAN, 200));
-		QOHOR.addControlZone(new GOTControlZone(1297, 1708, 543));
-		REACH.addControlZone(new GOTControlZone(401, 1939, 183));
-		REACH.addControlZone(new GOTControlZone(619, 1624, 300));
-		RIVERLANDS.addControlZone(new GOTControlZone(703, 1416, 550));
-		SOTHORYOS.addControlZone(new GOTControlZone(2264, 3542, 1050));
-		SOTHORYOS.addControlZone(new GOTControlZone(3352, 3555, 570));
-		STORMLANDS.addControlZone(new GOTControlZone(687, 1600, 404));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(1714, 2516, 777));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.ATAAHUA, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.HAUAURU, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.KOHURU, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.MATAHAU, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.MATAO, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.NGAHERE, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.NGARARA, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.PEREKI, 200));
-		SUMMER_ISLANDS.addControlZone(new GOTControlZone(GOTWaypoint.TAURANGA, 200));
-		TYROSH.addControlZone(new GOTControlZone(1297, 1708, 543));
-		ULTHOS.addControlZone(new GOTControlZone(3175, 3599, 570));
-		ULTHOS.addControlZone(new GOTControlZone(4100, 3517, 1109));
+		LHAZAR.controlZones.add(new GOTControlZone(2507, 2002, 269));
+		LORATH.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		LORATH.controlZones.add(new GOTControlZone(1905, 1307, 112));
+		LYS.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		MOSSOVY.controlZones.add(new GOTControlZone(3914, 2135, 765));
+		MOSSOVY.controlZones.add(new GOTControlZone(4466, 1677, 660));
+		MOSSOVY.controlZones.add(new GOTControlZone(4604, 2283, 210));
+		MOSSOVY.controlZones.add(new GOTControlZone(4940, 1442, 300));
+		MYR.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		NIGHT_WATCH.controlZones.add(new GOTControlZone(757, 573, 267));
+		NORTH.controlZones.add(new GOTControlZone(749, 1111, 605));
+		NORVOS.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		PENTOS.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		QARTH.controlZones.add(new GOTControlZone(2144, 2375, 530));
+		QARTH.controlZones.add(new GOTControlZone(GOTWaypoint.BATARGAS, 200));
+		QARTH.controlZones.add(new GOTControlZone(GOTWaypoint.KARIMAGAR, 200));
+		QARTH.controlZones.add(new GOTControlZone(GOTWaypoint.TERIMAN, 200));
+		QOHOR.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		REACH.controlZones.add(new GOTControlZone(401, 1939, 183));
+		REACH.controlZones.add(new GOTControlZone(619, 1624, 300));
+		RIVERLANDS.controlZones.add(new GOTControlZone(703, 1416, 550));
+		SOTHORYOS.controlZones.add(new GOTControlZone(2264, 3542, 1050));
+		SOTHORYOS.controlZones.add(new GOTControlZone(3352, 3555, 570));
+		STORMLANDS.controlZones.add(new GOTControlZone(687, 1600, 404));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(1714, 2516, 777));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.ATAAHUA, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.HAUAURU, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.KOHURU, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.MATAHAU, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.MATAO, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.NGAHERE, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.NGARARA, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.PEREKI, 200));
+		SUMMER_ISLANDS.controlZones.add(new GOTControlZone(GOTWaypoint.TAURANGA, 200));
+		TYROSH.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		ULTHOS.controlZones.add(new GOTControlZone(3175, 3599, 570));
+		ULTHOS.controlZones.add(new GOTControlZone(4100, 3517, 1109));
 		ULTHOS.approvesWarCrimes = true;
-		VOLANTIS.addControlZone(new GOTControlZone(1297, 1708, 543));
-		VOLANTIS.addControlZone(new GOTControlZone(1904, 2146, 554));
+		VOLANTIS.controlZones.add(new GOTControlZone(1297, 1708, 543));
+		VOLANTIS.controlZones.add(new GOTControlZone(1904, 2146, 554));
 		VOLANTIS.approvesWarCrimes = true;
-		WESTERLANDS.addControlZone(new GOTControlZone(703, 1416, 550));
+		WESTERLANDS.controlZones.add(new GOTControlZone(703, 1416, 550));
 		WESTERLANDS.approvesWarCrimes = true;
-		WHITE_WALKER.addControlZone(new GOTControlZone(360, 297, 240));
-		WHITE_WALKER.addControlZone(new GOTControlZone(494, 551, 206));
-		WHITE_WALKER.addControlZone(new GOTControlZone(546, 245, 191));
-		WHITE_WALKER.addControlZone(new GOTControlZone(667, 239, 186));
-		WHITE_WALKER.addControlZone(new GOTControlZone(696, 504, 207));
-		WHITE_WALKER.addControlZone(new GOTControlZone(757, 573, 267));
+		WHITE_WALKER.controlZones.add(new GOTControlZone(360, 297, 240));
+		WHITE_WALKER.controlZones.add(new GOTControlZone(494, 551, 206));
+		WHITE_WALKER.controlZones.add(new GOTControlZone(546, 245, 191));
+		WHITE_WALKER.controlZones.add(new GOTControlZone(667, 239, 186));
+		WHITE_WALKER.controlZones.add(new GOTControlZone(696, 504, 207));
+		WHITE_WALKER.controlZones.add(new GOTControlZone(757, 573, 267));
 		WHITE_WALKER.approvesWarCrimes = true;
-		WILDLING.addControlZone(new GOTControlZone(757, 573, 267));
+		WILDLING.controlZones.add(new GOTControlZone(757, 573, 267));
 		WILDLING.approvesWarCrimes = true;
-		YI_TI.addControlZone(new GOTControlZone(3088, 2508, 430));
-		YI_TI.addControlZone(new GOTControlZone(3809, 1955, 1005));
+		YI_TI.controlZones.add(new GOTControlZone(3088, 2508, 430));
+		YI_TI.controlZones.add(new GOTControlZone(3809, 1955, 1005));
 		for (GOTFaction fac : values()) {
 			if (fac != WHITE_WALKER && fac != UNALIGNED && fac != HOSTILE) {
 				fac.addRank(10.0f, "guest").makeTitle().makeAchievement();
@@ -314,10 +314,6 @@ public enum GOTFaction {
 			}
 		}
 		WHITE_WALKER.addSpecialRank(1000.0f, "king").setPledgeRank().makeTitle().makeAchievement();
-	}
-
-	private void addControlZone(GOTControlZone zone) {
-		controlZones.add(zone);
 	}
 
 	private GOTFactionRank addRank(float alignment, String name) {
@@ -448,11 +444,7 @@ public enum GOTFaction {
 	}
 
 	public List<GOTControlZone> getControlZones() {
-		return new ArrayList<>(controlZones);
-	}
-
-	public void clearControlZones() {
-		controlZones.clear();
+		return controlZones;
 	}
 
 	public int getFactionColor() {
@@ -710,14 +702,10 @@ public enum GOTFaction {
 	}
 
 	public List<GOTFactionRank> getRanksSortedDescending() {
-		return new ArrayList<>(ranksSortedDescending);
-	}
-
-	public void addFactionBanner(GOTItemBanner.BannerType bannerType) {
-		factionBanners.add(bannerType);
+		return ranksSortedDescending;
 	}
 
 	public Collection<GOTItemBanner.BannerType> getFactionBanners() {
-		return new ArrayList<>(factionBanners);
+		return factionBanners;
 	}
 }

@@ -543,6 +543,6 @@ public class GOTSpawnList {
 	}
 
 	public List<GOTSpawnEntry> getSpawnList() {
-		return new ArrayList<>(spawnList);
+		return spawnList;
 	}
 }

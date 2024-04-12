@@ -291,7 +291,7 @@ public enum GOTInvasions {
 	}
 
 	public Collection<InvasionSpawnEntry> getInvasionMobs() {
-		return new ArrayList<>(invasionMobs);
+		return invasionMobs;
 	}
 
 	public static class InvasionSpawnEntry extends WeightedRandom.Item {

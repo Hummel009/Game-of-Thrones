@@ -367,7 +367,7 @@ public class GOTAchievement {
 			}
 			throw new IllegalArgumentException("Duplicate ID " + id + " for GOT achievement category " + category.name());
 		}
-		category.addAchievement(this);
+		category.getList().add(this);
 		getDimension().getAllAchievements().add(this);
 		CONTENT.add(this);
 	}
@@ -925,12 +925,8 @@ public class GOTAchievement {
 			return nextRankAchID;
 		}
 
-		public void addAchievement(GOTAchievement achievement) {
-			list.add(achievement);
-		}
-
 		public Collection<GOTAchievement> getList() {
-			return new ArrayList<>(list);
+			return list;
 		}
 
 		public GOTDimension getDimension() {

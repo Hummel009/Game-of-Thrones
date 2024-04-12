@@ -548,7 +548,7 @@ public class GOTAPI {
 		}
 		faction.setFactionDimension(null);
 		faction.setFactionRegion(null);
-		faction.clearControlZones();
+		faction.getControlZones().clear();
 	}
 
 	/**
