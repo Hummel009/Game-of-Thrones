@@ -609,7 +609,7 @@ public class GOTTickHandlerClient {
 					GOTVersionChecker.checkForUpdates();
 				}
 				if (!isGamePaused(minecraft)) {
-					GOTSingletonFactory.getMiniquestTracker().update(entityplayer);
+					GOTClientFactory.getMiniquestTracker().update(entityplayer);
 					GOTAlignmentTicker.updateAll(entityplayer, false);
 					WATCHED_INVASION.tick();
 					if (GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer)) {
@@ -718,7 +718,7 @@ public class GOTTickHandlerClient {
 					if (minecraft.gameSettings.particleSetting < 2) {
 						spawnEnvironmentFX(entityplayer, world);
 					}
-					GOTSingletonFactory.getEffectRenderer().updateEffects();
+					GOTClientFactory.getEffectRenderer().updateEffects();
 					if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
 						float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
 						drunkenness /= 20.0F;
@@ -734,7 +734,7 @@ public class GOTTickHandlerClient {
 					if (newDate > 0) {
 						newDate--;
 					}
-					GOTSingletonFactory.getAmbienceTicker().updateAmbience(world, entityplayer);
+					GOTClientFactory.getAmbienceTicker().updateAmbience(world, entityplayer);
 					if (world.getTotalWorldTime() % 20L == 0L) {
 						GOTClimateType.performSeasonalChangesServerSide();
 						GOTClimateType.performSeasonalChangesClientSide();
@@ -764,7 +764,7 @@ public class GOTTickHandlerClient {
 					}
 				}
 			}
-			GOTSingletonFactory.getMusicHandler().update();
+			GOTClientFactory.getMusicHandler().update();
 			if (GOTConfig.displayMusicTrack) {
 				GOTMusicTrack nowPlaying = GOTMusicTicker.getCurrentTrack();
 				if (nowPlaying != lastTrack) {
@@ -1284,9 +1284,9 @@ public class GOTTickHandlerClient {
 					}
 				}
 			}
-			GOTSingletonFactory.getNotificationDisplay().updateWindow();
+			GOTClientFactory.getNotificationDisplay().updateWindow();
 			if (GOTConfig.enableQuestTracker && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
-				GOTSingletonFactory.getMiniquestTracker().drawTracker(minecraft, entityplayer);
+				GOTClientFactory.getMiniquestTracker().drawTracker(minecraft, entityplayer);
 			}
 		}
 	}
@@ -1298,7 +1298,7 @@ public class GOTTickHandlerClient {
 		GOTRenderNorthernLights.render(mc, mc.theWorld, f);
 		mc.entityRenderer.enableLightmap(f);
 		RenderHelper.disableStandardItemLighting();
-		GOTSingletonFactory.getEffectRenderer().renderParticles(mc.renderViewEntity, f);
+		GOTClientFactory.getEffectRenderer().renderParticles(mc.renderViewEntity, f);
 		mc.entityRenderer.disableLightmap(f);
 		if (Minecraft.isGuiEnabled() && mc.entityRenderer.debugViewDirection == 0) {
 			mc.mcProfiler.startSection("gotSpeech");
@@ -1310,7 +1310,7 @@ public class GOTTickHandlerClient {
 	@SubscribeEvent
 	public void onWorldLoad(WorldEvent.Load event) {
 		if (event.world instanceof WorldClient) {
-			GOTSingletonFactory.getEffectRenderer().clearEffectsAndSetWorld();
+			GOTClientFactory.getEffectRenderer().clearEffectsAndSetWorld();
 		}
 	}
 

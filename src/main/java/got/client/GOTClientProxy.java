@@ -29,7 +29,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTConquestZone;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -160,7 +159,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void cancelItemHighlight() {
-		GOTSingletonFactory.getTickHandlerClient().setCancelItemHighlight(true);
+		GOTClientFactory.getTickHandlerClient().setCancelItemHighlight(true);
 	}
 
 	@Override
@@ -223,7 +222,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void displayNewDate() {
-		GOTSingletonFactory.getTickHandlerClient().updateDate();
+		GOTClientFactory.getTickHandlerClient().updateDate();
 	}
 
 	@Override
@@ -434,7 +433,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void onInit() {
-		GOTSingletonFactory.onInit();
+		GOTClientFactory.onInit();
+
 		GOTTextures.onInit();
 		GOTRender.onInit();
 
@@ -525,7 +525,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarved.class, new GOTRenderSignCarved());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarvedValyrian.class, new GOTRenderSignCarvedValyrian());
 
-		GOTSingletonFactory.getThirdPersonViewer().init();
+		GOTClientFactory.getThirdPersonViewer().init();
 	}
 
 	@Override
@@ -549,29 +549,29 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void postInit() {
-		GOTSingletonFactory.postInit();
+		GOTClientFactory.postInit();
 	}
 
 	@Override
 	public void preInit() {
 		System.setProperty("fml.skipFirstTextureLoad", "false");
 
-		GOTSingletonFactory.preInit();
+		GOTClientFactory.preInit();
 	}
 
 	@Override
 	public void queueAchievement(GOTAchievement achievement) {
-		GOTSingletonFactory.getNotificationDisplay().queueAchievement(achievement);
+		GOTClientFactory.getNotificationDisplay().queueAchievement(achievement);
 	}
 
 	@Override
 	public void queueConquestNotification(GOTFaction fac, float conq, boolean isCleansing) {
-		GOTSingletonFactory.getNotificationDisplay().queueConquest(fac, conq, isCleansing);
+		GOTClientFactory.getNotificationDisplay().queueConquest(fac, conq, isCleansing);
 	}
 
 	@Override
 	public void queueFellowshipNotification(IChatComponent message) {
-		GOTSingletonFactory.getNotificationDisplay().queueFellowshipNotification(message);
+		GOTClientFactory.getNotificationDisplay().queueFellowshipNotification(message);
 	}
 
 	@Override
@@ -630,7 +630,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void setTrackedQuest(GOTMiniQuest quest) {
-		GOTSingletonFactory.getMiniquestTracker().setTrackedQuest(quest);
+		GOTClientFactory.getMiniquestTracker().setTrackedQuest(quest);
 	}
 
 	@Override
@@ -642,12 +642,12 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void showBurnOverlay() {
-		GOTSingletonFactory.getTickHandlerClient().onBurnDamage();
+		GOTClientFactory.getTickHandlerClient().onBurnDamage();
 	}
 
 	@Override
 	public void showFrostOverlay() {
-		GOTSingletonFactory.getTickHandlerClient().onFrostDamage();
+		GOTClientFactory.getTickHandlerClient().onFrostDamage();
 	}
 
 	@Override
@@ -673,7 +673,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 				return;
 			}
 			if ("angry".equals(type)) {
-				GOTSingletonFactory.getEffectRenderer().addEffect(new GOTEntityAngryFX(worldClient, d, d1, d2, d3, d4, d5));
+				GOTClientFactory.getEffectRenderer().addEffect(new GOTEntityAngryFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("chill".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityChillFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("largeStone".equals(type)) {
@@ -709,15 +709,15 @@ public class GOTClientProxy extends GOTCommonProxy {
 				if (texIndices != null) {
 					if (type.indexOf('_') > -1) {
 						int age = Integer.parseInt(type.substring(type.indexOf('_') + 1));
-						GOTSingletonFactory.getEffectRenderer().addEffect(new GOTEntityLeafFX(worldClient, d, d1, d2, d3, d4, d5, texIndices, age));
+						GOTClientFactory.getEffectRenderer().addEffect(new GOTEntityLeafFX(worldClient, d, d1, d2, d3, d4, d5, texIndices, age));
 					} else {
-						GOTSingletonFactory.getEffectRenderer().addEffect(new GOTEntityLeafFX(worldClient, d, d1, d2, d3, d4, d5, texIndices));
+						GOTClientFactory.getEffectRenderer().addEffect(new GOTEntityLeafFX(worldClient, d, d1, d2, d3, d4, d5, texIndices));
 					}
 				}
 			} else if ("marshFlame".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityMarshFlameFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("marshLight".equals(type)) {
-				GOTSingletonFactory.getEffectRenderer().addEffect(new GOTEntityMarshLightFX(worldClient, d, d1, d2, d3, d4, d5));
+				GOTClientFactory.getEffectRenderer().addEffect(new GOTEntityMarshLightFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("ulthosWater".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX(worldClient, d, d1, d2, d3, d4, d5, GOTBiome.ulthosForest.getWaterColorMultiplier()));
 			} else if ("asshaiTorch".equals(type)) {
@@ -725,9 +725,9 @@ public class GOTClientProxy extends GOTCommonProxy {
 			} else if ("asshaiWater".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX(worldClient, d, d1, d2, d3, d4, d5, GOTBiome.shadowLand.getWaterColorMultiplier()));
 			} else if ("pickpocket".equals(type)) {
-				GOTSingletonFactory.getEffectRenderer().addEffect(new GOTEntityPickpocketFX(worldClient, d, d1, d2, d3, d4, d5));
+				GOTClientFactory.getEffectRenderer().addEffect(new GOTEntityPickpocketFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("pickpocketFail".equals(type)) {
-				GOTSingletonFactory.getEffectRenderer().addEffect(new GOTEntityPickpocketFailFX(worldClient, d, d1, d2, d3, d4, d5));
+				GOTClientFactory.getEffectRenderer().addEffect(new GOTEntityPickpocketFailFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("wave".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityWaveFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("whiteSmoke".equals(type)) {
@@ -740,15 +740,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public void testReflection(World world) {
 		super.testReflection(world);
 		GOTReflectionClient.testAll(Minecraft.getMinecraft());
-	}
-
-	@Override
-	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
-		if (world.isRemote) {
-			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
-		} else {
-			super.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, pouchSlot);
-		}
 	}
 
 	@Override

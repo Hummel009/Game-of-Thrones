@@ -1,7 +1,10 @@
 package got;
 
 import com.google.common.base.CaseFormat;
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -43,7 +46,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.*;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.time.LocalDate;
@@ -376,18 +378,7 @@ public class GOT {
 	public void preInit(FMLPreInitializationEvent event) {
 		GOTLog.findLogger();
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
-
-		GOTTickHandlerServer tickHandler = new GOTTickHandlerServer();
-		FMLCommonHandler.instance().bus().register(tickHandler);
-
-		GOTEventHandler eventHandler = new GOTEventHandler();
-		FMLCommonHandler.instance().bus().register(eventHandler);
-		MinecraftForge.EVENT_BUS.register(eventHandler);
-		MinecraftForge.TERRAIN_GEN_BUS.register(eventHandler);
-
-		IFuelHandler fuelHandler = new GOTFuelHandler();
-		GameRegistry.registerFuelHandler(fuelHandler);
+		GOTCommonFactory.preInit();
 
 		worldTypeGOT = new GOTWorldType("got");
 		worldTypeGOTEmpty = new GOTWorldType("gotEmpty");

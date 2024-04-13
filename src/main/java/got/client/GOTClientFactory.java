@@ -16,7 +16,7 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraftforge.common.MinecraftForge;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class GOTSingletonFactory {
+public class GOTClientFactory {
 	private static GOTAmbience ambienceTicker;
 	private static GOTArmorModels armorModels;
 	private static GOTEffectRenderer effectRenderer;
@@ -30,8 +30,9 @@ public class GOTSingletonFactory {
 	private static GOTSwingHandler swingHandler;
 	private static GOTThirdPersonViewer thirdPersonViewer;
 	private static GOTTickHandlerClient tickHandlerClient;
+	private static GOTTextures textures;
 
-	private GOTSingletonFactory() {
+	private GOTClientFactory() {
 	}
 
 	public static void preInit() {
@@ -77,6 +78,11 @@ public class GOTSingletonFactory {
 		IResourceManager resourceManager = mc.getResourceManager();
 		EventBus forgeBus = MinecraftForge.EVENT_BUS;
 		EventBus fmlBus = FMLCommonHandler.instance().bus();
+
+		textures = GOTTextures.INSTANCE;
+		textures.onResourceManagerReload(resourceManager);
+		((IReloadableResourceManager) resourceManager).registerReloadListener(textures);
+		forgeBus.register(textures);
 
 		effectRenderer = GOTEffectRenderer.INSTANCE;
 
@@ -148,5 +154,9 @@ public class GOTSingletonFactory {
 
 	public static GOTTickHandlerClient getTickHandlerClient() {
 		return tickHandlerClient;
+	}
+
+	public static GOTTextures getTextures() {
+		return textures;
 	}
 }

@@ -2,6 +2,7 @@ package got.common.tileentity;
 
 import com.mojang.authlib.GameProfile;
 import got.GOT;
+import got.common.GOTCommonFactory;
 import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
@@ -193,7 +194,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		allRecipeLists.add(CraftingManager.getInstance().getRecipeList());
 		EntityPlayer player = getProxyPlayer();
 		for (GOTBlockCraftingTable table : GOTBlockCraftingTable.ALL_CRAFTING_TABLES) {
-			Object container = GOT.proxy.getServerGuiElement(table.getGuiId().ordinal(), player, worldObj, 0, 0, 0);
+			Object container = GOTCommonFactory.getGuiHandler().getServerGuiElement(table.getGuiId().ordinal(), player, worldObj, 0, 0, 0);
 			if (container instanceof GOTContainerCraftingTable) {
 				GOTContainerCraftingTable containerTable = (GOTContainerCraftingTable) container;
 				allRecipeLists.add(containerTable.getRecipeList());

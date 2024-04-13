@@ -38,7 +38,12 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTTickHandlerServer {
+	public static final GOTTickHandlerServer INSTANCE = new GOTTickHandlerServer();
+
 	public static final Map<EntityPlayer, Integer> PLAYERS_IN_PORTALS = new HashMap<>();
+
+	private GOTTickHandlerServer() {
+	}
 
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {

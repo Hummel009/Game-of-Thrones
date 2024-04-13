@@ -104,8 +104,13 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public class GOTEventHandler {
+	public static final GOTEventHandler INSTANCE = new GOTEventHandler();
+
 	private GOTItemBow proxyBowItemServer;
 	private GOTItemBow proxyBowItemClient;
+
+	private GOTEventHandler() {
+	}
 
 	private static void dechant(ItemStack itemstack, EntityPlayer entityplayer) {
 		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
@@ -1391,7 +1396,7 @@ public class GOTEventHandler {
 		if (minecart instanceof EntityMinecartChest && itemstack != null && itemstack.getItem() instanceof GOTItemPouch) {
 			if (!world.isRemote) {
 				int pouchSlot = entityplayer.inventory.currentItem;
-				entityplayer.openGui(GOT.instance, GOTCommonProxy.packGuiIDWithSlot(GOTGuiId.POUCH_MINECART.ordinal(), pouchSlot), world, minecart.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.instance, GOTGuiHandler.packGuiIDWithSlot(GOTGuiId.POUCH_MINECART.ordinal(), pouchSlot), world, minecart.getEntityId(), 0, 0);
 			}
 			event.setCanceled(true);
 		}

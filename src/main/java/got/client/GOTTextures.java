@@ -16,13 +16,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.*;
-import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.opengl.GL11;
 
 import javax.imageio.ImageIO;
@@ -35,6 +33,7 @@ import java.util.Map;
 public class GOTTextures implements IResourceManagerReloadListener {
 	public static final ResourceLocation OVERLAY_TEXTURE = new ResourceLocation("got:textures/map/mapOverlay.png");
 	public static final ResourceLocation OSRS_TEXTURE = new ResourceLocation("got:textures/map/osrs.png");
+	public static final GOTTextures INSTANCE = new GOTTextures();
 
 	private static final Minecraft MC = Minecraft.getMinecraft();
 
@@ -52,6 +51,9 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	private static ResourceLocation mapTexture;
 	private static ResourceLocation sepiaMapTexture;
+
+	private GOTTextures() {
+	}
 
 	public static int computeAverageFactionPageColor(ResourceLocation texture, int u0, int v0, int u1, int v1) {
 		if (!AVERAGED_PAGE_COLORS.containsKey(texture)) {
@@ -385,14 +387,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static void onInit() {
-		IResourceManager resMgr = MC.getResourceManager();
 		TextureManager texMgr = MC.getTextureManager();
-		GOTTextures textures = new GOTTextures();
-		textures.onResourceManagerReload(resMgr);
-		((IReloadableResourceManager) resMgr).registerReloadListener(textures);
-		MinecraftForge.EVENT_BUS.register(textures);
 		TextureMap texMapBlocks = (TextureMap) texMgr.getTexture(TextureMap.locationBlocksTexture);
 		TextureMap texMapItems = (TextureMap) texMgr.getTexture(TextureMap.locationItemsTexture);
+		GOTTextures textures = GOTClientFactory.getTextures();
 		textures.preTextureStitch(new TextureStitchEvent.Pre(texMapBlocks));
 		textures.preTextureStitch(new TextureStitchEvent.Pre(texMapItems));
 	}

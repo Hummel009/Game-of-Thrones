@@ -89,7 +89,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 	public void updateRenderer() {
 		super.updateRenderer();
 		if (Minecraft.isGuiEnabled()) {
-			float wight = GOTSingletonFactory.getTickHandlerClient().getWightLookFactor();
+			float wight = GOTClientFactory.getTickHandlerClient().getWightLookFactor();
 			float hand = GOTReflectionClient.getHandFOV(this);
 			GOTReflectionClient.setHandFOV(this, hand + wight * 0.3f);
 		}

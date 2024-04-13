@@ -9,6 +9,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 public class GOTFuelHandler implements IFuelHandler {
+	public static final GOTFuelHandler INSTANCE = new GOTFuelHandler();
+
+	private GOTFuelHandler() {
+	}
+
 	@Override
 	public int getBurnTime(ItemStack itemstack) {
 		Item item = itemstack.getItem();
