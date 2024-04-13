@@ -68,13 +68,13 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		return compatibleOtherSpecial || !(other instanceof GOTEnchantmentWeaponSpecial) || ((GOTEnchantmentWeaponSpecial) other).compatibleOtherSpecial;
 	}
 
-	public GOTEnchantmentWeaponSpecial setCompatibleOtherSpecial(boolean compatibleOtherSpecial) {
-		this.compatibleOtherSpecial = compatibleOtherSpecial;
-		return this;
-	}
-
 	@SuppressWarnings("unused")
 	public boolean isCompatibleOtherSpecial() {
 		return compatibleOtherSpecial;
+	}
+
+	public GOTEnchantmentWeaponSpecial setCompatibleOtherSpecial(boolean compatibleOtherSpecial) {
+		this.compatibleOtherSpecial = compatibleOtherSpecial;
+		return this;
 	}
 }

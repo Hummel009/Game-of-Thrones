@@ -15,11 +15,10 @@ public class GOTEffectRenderer {
 	public static final GOTEffectRenderer INSTANCE = new GOTEffectRenderer();
 
 	private final Minecraft mc = Minecraft.getMinecraft();
+	private List<EntityFX>[] particleLayers = new List[0];
 
 	private GOTEffectRenderer() {
 	}
-
-	private List<EntityFX>[] particleLayers = new List[0];
 
 	public void addEffect(EntityFX entityfx) {
 		List<EntityFX> layerList;

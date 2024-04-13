@@ -42,8 +42,6 @@ public class GOTKeyHandler {
 
 	private static int alignmentChangeTick;
 
-	private final GOTPacketDragonControl dcm = new GOTPacketDragonControl();
-
 	static {
 		ClientRegistry.registerKeyBinding(KEY_BINDING_MENU);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_MAP_TELEPORT);
@@ -56,6 +54,8 @@ public class GOTKeyHandler {
 		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_DOWN);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_CARGO_CART);
 	}
+
+	private final GOTPacketDragonControl dcm = new GOTPacketDragonControl();
 
 	public static void update() {
 		if (alignmentChangeTick > 0) {

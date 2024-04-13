@@ -18,6 +18,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTBlockBirdCage extends GOTBlockAnimalJar {
+	protected String[] cageTypes;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] sideIcons;
 
@@ -26,8 +28,6 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon[] baseIcons;
-
-	protected String[] cageTypes;
 
 	public GOTBlockBirdCage() {
 		super(Material.glass);

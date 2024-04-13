@@ -14,10 +14,10 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public abstract class GOTBlockPlanksBase extends Block {
+	protected String[] plankTypes;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] plankIcons;
-
-	protected String[] plankTypes;
 
 	protected GOTBlockPlanksBase() {
 		super(Material.wood);

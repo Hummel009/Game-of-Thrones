@@ -18,10 +18,10 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
+	protected String[] saplingNames;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] saplingIcons;
-
-	protected String[] saplingNames;
 
 	protected GOTBlockSaplingBase() {
 		float f = 0.4f;

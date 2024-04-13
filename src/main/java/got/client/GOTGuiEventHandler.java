@@ -72,10 +72,10 @@ public class GOTGuiEventHandler {
 		COIN_COUNT_EXCLUDED_INV_TYPES.add(InventoryCraftResult.class);
 	}
 
+	private int descScrollIndex = -1;
+
 	private GOTGuiEventHandler() {
 	}
-
-	private int descScrollIndex = -1;
 
 	private GuiButton getDifficultyButton(Iterable<GuiButton> buttons) {
 		for (GuiButton obj : buttons) {

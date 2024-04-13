@@ -133,11 +133,10 @@ public class GOTTickHandlerClient {
 	private int musicTrackTick;
 	private ItemStack lastHighlightedItemstack;
 	private String highlightedItemstackName;
+	private boolean cancelItemHighlight;
 
 	private GOTTickHandlerClient() {
 	}
-
-	private boolean cancelItemHighlight;
 
 	public static void drawAlignmentText(FontRenderer f, int x, int y, String s, float alphaF) {
 		drawBorderedText(f, x, y, s, 16772620, alphaF);

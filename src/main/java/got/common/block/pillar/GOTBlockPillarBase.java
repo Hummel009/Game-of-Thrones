@@ -15,6 +15,8 @@ import net.minecraft.world.IBlockAccess;
 import java.util.List;
 
 public abstract class GOTBlockPillarBase extends Block {
+	protected String[] pillarNames;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] pillarFaceIcons;
 
@@ -29,8 +31,6 @@ public abstract class GOTBlockPillarBase extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon[] pillarSideBottomIcons;
-
-	protected String[] pillarNames;
 
 	protected GOTBlockPillarBase() {
 		this(Material.rock);

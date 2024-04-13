@@ -15,13 +15,13 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
+	protected String[] woodNames;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] sideIcons;
 
 	@SideOnly(Side.CLIENT)
 	private IIcon[] topIcons;
-
-	protected String[] woodNames;
 
 	protected GOTBlockWoodBeam() {
 		super(Material.wood);

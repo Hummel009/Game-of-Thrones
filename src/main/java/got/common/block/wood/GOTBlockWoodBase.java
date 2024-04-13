@@ -13,10 +13,10 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public abstract class GOTBlockWoodBase extends BlockLog {
+	protected String[] woodNames;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[][] woodIcons;
-
-	protected String[] woodNames;
 
 	protected GOTBlockWoodBase() {
 		setHardness(2.0f);

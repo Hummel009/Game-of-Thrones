@@ -22,12 +22,12 @@ import java.util.List;
 public abstract class GOTBlockLeavesBase extends BlockLeaves {
 	private static final Collection<Block> ALL_LEAF_BLOCKS = new ArrayList<>();
 
+	protected String[] leafNames;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[][] leafIcons;
 
 	private String vanillaTextureName;
-
-	protected String[] leafNames;
 
 	protected GOTBlockLeavesBase() {
 		this(false, null);

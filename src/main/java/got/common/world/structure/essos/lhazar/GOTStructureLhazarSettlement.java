@@ -47,9 +47,9 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
 		private final boolean forcedType;
-		private int numOuterHouses;
 		private final boolean townWall = true;
 		private final int rTownTower = 90;
+		private int numOuterHouses;
 		private Type type;
 
 		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {

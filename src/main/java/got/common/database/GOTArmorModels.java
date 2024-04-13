@@ -26,10 +26,10 @@ import java.util.Map;
 public class GOTArmorModels {
 	public static final GOTArmorModels INSTANCE = new GOTArmorModels();
 
+	private final Map<ModelBiped, Map<Item, ModelBiped>> specialArmorModels = new HashMap<>();
+
 	private GOTArmorModels() {
 	}
-
-	private final Map<ModelBiped, Map<Item, ModelBiped>> specialArmorModels = new HashMap<>();
 
 	public void copyBoxRotations(ModelRenderer target, ModelRenderer src) {
 		target.rotationPointX = src.rotationPointX;
