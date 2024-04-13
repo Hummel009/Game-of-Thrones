@@ -55,8 +55,8 @@ import org.lwjgl.opengl.GL11;
 import java.util.*;
 
 @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
-public class GOTGuiHandler {
-	public static final GOTGuiHandler INSTANCE = new GOTGuiHandler();
+public class GOTGuiEventHandler {
+	public static final GOTGuiEventHandler INSTANCE = new GOTGuiEventHandler();
 
 	private static final RenderItem itemRenderer = new RenderItem();
 	private static final Collection<Class<? extends Container>> COIN_COUNT_EXCLUDED_CONTAINERS = new HashSet<>();
@@ -72,7 +72,7 @@ public class GOTGuiHandler {
 		COIN_COUNT_EXCLUDED_INV_TYPES.add(InventoryCraftResult.class);
 	}
 
-	private GOTGuiHandler() {
+	private GOTGuiEventHandler() {
 	}
 
 	private int descScrollIndex = -1;

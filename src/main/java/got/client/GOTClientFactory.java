@@ -20,7 +20,7 @@ public class GOTClientFactory {
 	private static GOTAmbience ambienceTicker;
 	private static GOTArmorModels armorModels;
 	private static GOTEffectRenderer effectRenderer;
-	private static GOTGuiHandler guiHandler;
+	private static GOTGuiEventHandler guiEventHandler;
 	private static GOTGuiMiniquestTracker miniquestTracker;
 	private static GOTGuiNotificationDisplay notificationDisplay;
 	private static GOTItemRendererManager itemRendererManager;
@@ -60,9 +60,9 @@ public class GOTClientFactory {
 		fmlBus.register(ambienceTicker);
 		forgeBus.register(ambienceTicker);
 
-		guiHandler = GOTGuiHandler.INSTANCE;
-		fmlBus.register(guiHandler);
-		forgeBus.register(guiHandler);
+		guiEventHandler = GOTGuiEventHandler.INSTANCE;
+		fmlBus.register(guiEventHandler);
+		forgeBus.register(guiEventHandler);
 
 		itemRendererManager = GOTItemRendererManager.INSTANCE;
 		itemRendererManager.onResourceManagerReload(resourceManager);
@@ -116,8 +116,8 @@ public class GOTClientFactory {
 		return effectRenderer;
 	}
 
-	public static GOTGuiHandler getGuiHandler() {
-		return guiHandler;
+	public static GOTGuiEventHandler getGuiEventHandler() {
+		return guiEventHandler;
 	}
 
 	public static GOTGuiMiniquestTracker getMiniquestTracker() {
