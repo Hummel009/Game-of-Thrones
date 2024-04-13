@@ -39,7 +39,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
-		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(getEntityFaction()) >= 100.0f) {
+		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(entityFaction) >= 100.0f) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			List<GOTMiniQuest> active = pd.getActiveMiniQuests();
 			for (GOTMiniQuest quest : active) {
@@ -55,7 +55,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	protected void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		GOTPlayerData pd = getPlayerData();
+		GOTPlayerData pd = playerData;
 		pd.addCompletedBountyQuest();
 		int bComplete = pd.getCompletedBountyQuests();
 		boolean specialReward = bComplete > 0 && bComplete % 5 == 0;
@@ -211,8 +211,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			EntityPlayer slainPlayer = (EntityPlayer) entity;
 			GOTPlayerData slainPlayerData = GOTLevelData.getData(slainPlayer);
 			killed = true;
-			GOTFactionBounties.forFaction(getEntityFaction()).forPlayer(slainPlayer).recordBountyKilled();
-			updateQuest();
+			GOTFactionBounties.forFaction(entityFaction).forPlayer(slainPlayer).recordBountyKilled();
+			playerData.updateMiniQuest(this);
 			GOTFaction highestFaction = getPledgeOrHighestAlignmentFaction(slainPlayer, 100.0f);
 			if (highestFaction != null) {
 				float curAlignment = slainPlayerData.getAlignment(highestFaction);
@@ -222,14 +222,14 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				}
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.bountyKill");
 				slainPlayerData.addAlignment(slainPlayer, source, highestFaction, entityplayer);
-				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.bountyKilled1", entityplayer.getCommandSenderName(), getEntityFaction().factionName());
+				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.bountyKilled1", entityplayer.getCommandSenderName(), entityFaction.factionName());
 				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.bountyKilled2", highestFaction.factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainMsg2.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainPlayer.addChatMessage(slainMsg1);
 				slainPlayer.addChatMessage(slainMsg2);
 			}
-			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), getEntityFaction().factionName());
+			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), entityFaction.factionName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			for (ICommandSender otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == slainPlayer) {
@@ -251,23 +251,23 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(killerBonus, "got.alignment.killedHunter");
 				killerData.addAlignment(killer, source, killerHighestFaction, entityplayer);
 			}
-			float curAlignment = (pd = getPlayerData()).getAlignment(getEntityFaction());
+			float curAlignment = (pd = playerData).getAlignment(entityFaction);
 			if (curAlignment > 100.0f) {
 				float alignmentLoss = getKilledAlignmentPenalty();
 				if (curAlignment + alignmentLoss < 100.0f) {
 					alignmentLoss = -(curAlignment - 100.0f);
 				}
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.killedByBounty");
-				pd.addAlignment(entityplayer, source, getEntityFaction(), killer);
+				pd.addAlignment(entityplayer, source, entityFaction, killer);
 				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.killedByBounty1", killer.getCommandSenderName());
-				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.killedByBounty2", getEntityFaction().factionName());
+				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.killedByBounty2", entityFaction.factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainMsg2.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				entityplayer.addChatMessage(slainMsg1);
 				entityplayer.addChatMessage(slainMsg2);
 			}
 			killedByBounty = true;
-			updateQuest();
+			playerData.updateMiniQuest(this);
 			killerData.addAchievement(GOTAchievement.killHuntingPlayer);
 			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.killedByBounty", entityplayer.getCommandSenderName(), killer.getCommandSenderName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
@@ -282,9 +282,9 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public void onPlayerTick() {
-		if (isActive() && !killed && !bountyClaimedByOther && GOTFactionBounties.forFaction(getEntityFaction()).forPlayer(targetID).recentlyBountyKilled()) {
+		if (isActive() && !killed && !bountyClaimedByOther && GOTFactionBounties.forFaction(entityFaction).forPlayer(targetID).recentlyBountyKilled()) {
 			bountyClaimedByOther = true;
-			updateQuest();
+			playerData.updateMiniQuest(this);
 		}
 	}
 

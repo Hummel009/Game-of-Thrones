@@ -23,23 +23,23 @@ import java.util.List;
 public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	private static final String SPEECHBANK = "legendary/jaqen_quest";
 
-	private int stage;
 	private boolean movedOn;
+	private int stage;
 
 	@SuppressWarnings("WeakerAccess")
 	public GOTMiniQuestWelcome(GOTPlayerData pd) {
 		super(pd);
 	}
 
-	public GOTMiniQuestWelcome(GOTPlayerData pd, GOTEntityJaqenHghar gandalf) {
+	public GOTMiniQuestWelcome(GOTPlayerData pd, GOTEntityJaqenHghar jaqen) {
 		this(pd);
-		setNPCInfo(gandalf);
-		setSpeechBankStart("");
+		setNPCInfo(jaqen);
+		speechBankStart = "";
 		speechBankProgress = "";
 		speechBankComplete = "";
-		setSpeechBankTooMany("");
-		setQuoteStart(GOTSpeech.getSpeechAtLine(SPEECHBANK, 2));
-		setQuoteComplete(GOTSpeech.getSpeechAtLine(SPEECHBANK, 12));
+		speechBankTooMany = "";
+		quoteStart = GOTSpeech.getSpeechAtLine(SPEECHBANK, 2);
+		quoteComplete = GOTSpeech.getSpeechAtLine(SPEECHBANK, 12);
 	}
 
 	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
@@ -112,7 +112,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	@Override
 	public String getQuestFailure() {
 		if (movedOn) {
-			return StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.movedOn", getEntityName());
+			return StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.movedOn", entityName);
 		}
 		return super.getQuestFailure();
 	}
@@ -170,35 +170,35 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 2:
 				if (event instanceof GOTMiniQuestEvent.OpenRedBook) {
 					stage = 3;
-					updateQuest();
+					playerData.updateMiniQuest(this);
 					updateJaqenHghar();
 				}
 				break;
 			case 5:
 				if (event instanceof GOTMiniQuestEvent.ViewMap) {
 					stage = 6;
-					updateQuest();
+					playerData.updateMiniQuest(this);
 					updateJaqenHghar();
 				}
 				break;
 			case 8:
 				if (event instanceof GOTMiniQuestEvent.CycleAlignment) {
 					stage = 9;
-					updateQuest();
+					playerData.updateMiniQuest(this);
 					updateJaqenHghar();
 				}
 				break;
 			case 9:
 				if (event instanceof GOTMiniQuestEvent.CycleAlignmentRegion) {
 					stage = 10;
-					updateQuest();
+					playerData.updateMiniQuest(this);
 					updateJaqenHghar();
 				}
 				break;
 			case 11:
 				if (event instanceof GOTMiniQuestEvent.ViewFactions) {
 					stage = 12;
-					updateQuest();
+					playerData.updateMiniQuest(this);
 					updateJaqenHghar();
 				}
 				break;
@@ -225,9 +225,9 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 				dropItems.clear();
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 2;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 2:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
@@ -236,16 +236,16 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 3:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 5);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 4;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 4:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 5;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 5:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
@@ -254,16 +254,16 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 6:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 7);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 7;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 7:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 8;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 8:
 			case 9:
@@ -273,9 +273,9 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 10:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 11;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 11:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
@@ -284,9 +284,9 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 12:
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 10);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 13;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 13:
 				if (!pd.getQuestData().getGivenFirstPouches()) {
@@ -299,13 +299,13 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 				dropItems.clear();
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 11);
 				sendQuoteSpeech(entityplayer, npc, line);
-				getQuotesStages().add(line);
+				quotesStages.add(line);
 				stage = 14;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				break;
 			case 14:
 				stage = 15;
-				updateQuest();
+				playerData.updateMiniQuest(this);
 				complete(entityplayer, npc);
 				break;
 			default:
@@ -323,9 +323,9 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public void onPlayerTick() {
-		if (!GOTJaqenHgharTracker.isJaqenHgharActive(getEntityUUID())) {
+		if (!GOTJaqenHgharTracker.isJaqenHgharActive(entityUUID)) {
 			movedOn = true;
-			updateQuest();
+			playerData.updateMiniQuest(this);
 		}
 	}
 
@@ -341,14 +341,14 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		super.start(entityplayer, npc);
 		String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 3);
 		sendQuoteSpeech(entityplayer, npc, line);
-		getQuotesStages().add(line);
+		quotesStages.add(line);
 		stage = 1;
-		updateQuest();
+		playerData.updateMiniQuest(this);
 		updateJaqenHghar();
 	}
 
 	private void updateJaqenHghar() {
-		GOTJaqenHgharTracker.setJaqenHgharActive(getEntityUUID());
+		GOTJaqenHgharTracker.setJaqenHgharActive(entityUUID);
 	}
 
 	@Override

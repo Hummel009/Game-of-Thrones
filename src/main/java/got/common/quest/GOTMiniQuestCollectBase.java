@@ -85,10 +85,10 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 			complete(entityplayer, npc);
 			break;
 		}
-		if (amountGiven > prevAmountGiven && !isCompleted()) {
-			updateQuest();
+		if (amountGiven > prevAmountGiven && !completed) {
+			playerData.updateMiniQuest(this);
 		}
-		if (!isCompleted()) {
+		if (!completed) {
 			sendProgressSpeechbank(entityplayer, npc);
 		}
 	}

@@ -48,7 +48,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		GOTAchievement achievement;
 		completed = true;
-		setDateCompleted(GOTDate.AegonCalendar.getCurrentDay());
+		dateCompleted = GOTDate.AegonCalendar.getCurrentDay();
 		Random rand = npc.getRNG();
 		List<ItemStack> dropItems = new ArrayList<>();
 		int coins = getCoinBonus();
@@ -59,7 +59,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					coins *= MathHelper.getRandomIntegerInRange(rand, 2, 5);
 				}
 			}
-			setCoinsRewarded(coins = Math.max(coins, 1));
+			coins = Math.max(coins, 1);
+			coinsRewarded = coins;
 			int coinsRemain = coins;
 			for (int l = GOTItemCoin.VALUES.length - 1; l >= 0; --l) {
 				int coinValue = GOTItemCoin.VALUES[l];
@@ -78,24 +79,24 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		if (!rewardItemTable.isEmpty()) {
 			ItemStack item = rewardItemTable.get(rand.nextInt(rewardItemTable.size()));
 			dropItems.add(item.copy());
-			getItemsRewarded().add(item.copy());
+			itemsRewarded.add(item.copy());
 		}
 		if (canRewardVariousExtraItems()) {
 			GOTLore lore;
-			if (rand.nextInt(10) == 0 && getQuestGroup() != null && !getQuestGroup().getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(getQuestGroup().getLoreCategories(), rand, true)) != null) {
+			if (rand.nextInt(10) == 0 && questGroup != null && !questGroup.getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(questGroup.getLoreCategories(), rand, true)) != null) {
 				ItemStack loreBook = lore.createLoreBook(rand);
 				dropItems.add(loreBook.copy());
-				getItemsRewarded().add(loreBook.copy());
+				itemsRewarded.add(loreBook.copy());
 			}
 			if (rand.nextInt(15) == 0) {
 				ItemStack modItem = GOTItemModifierTemplate.getRandomCommonTemplate(rand);
 				dropItems.add(modItem.copy());
-				getItemsRewarded().add(modItem.copy());
+				itemsRewarded.add(modItem.copy());
 			}
 			if (npc instanceof GOTEntityQohorBlacksmith && rand.nextInt(10) == 0) {
 				ItemStack mithrilBook = new ItemStack(GOTItems.valyrianBook);
 				dropItems.add(mithrilBook.copy());
-				getItemsRewarded().add(mithrilBook.copy());
+				itemsRewarded.add(mithrilBook.copy());
 			}
 		}
 		if (!dropItems.isEmpty()) {
@@ -106,23 +107,23 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				npc.entityDropItem(pouch, 0.0f);
 				ItemStack pouchCopy = pouch.copy();
 				pouchCopy.setTagCompound(null);
-				getItemsRewarded().add(pouchCopy);
+				itemsRewarded.add(pouchCopy);
 			}
 			npc.dropItemList(dropItems);
 		}
-		if (isWillHire()) {
+		if (willHire) {
 			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringAlignment);
 			tradeEntry.setTask(GOTHiredNPCInfo.Task.WARRIOR);
-			npc.hiredNPCInfo.hireUnit(entityplayer, false, getEntityFaction(), tradeEntry, null, npc.ridingEntity);
-			setWasHired(true);
+			npc.hiredNPCInfo.hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
+			wasHired = true;
 		}
 		if (isLegendary) {
 			npc.hiredNPCInfo.isActive = true;
 		}
-		updateQuest();
+		playerData.updateMiniQuest(this);
 		playerData.completeMiniQuest(this);
 		sendCompletedSpeech(entityplayer, npc);
-		if (getQuestGroup() != null && (achievement = getQuestGroup().getAchievement()) != null) {
+		if (questGroup != null && (achievement = questGroup.getAchievement()) != null) {
 			playerData.addAchievement(achievement);
 		}
 	}
@@ -172,7 +173,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
-		return IPickpocketable.Helper.isPickpocketed(itemstack) && getEntityUUID().equals(IPickpocketable.Helper.getWanterID(itemstack));
+		return IPickpocketable.Helper.isPickpocketed(itemstack) && entityUUID.equals(IPickpocketable.Helper.getWanterID(itemstack));
 	}
 
 	@Override
@@ -195,14 +196,14 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				boolean anyoneNoticed = noticed = rand.nextInt(success ? 3 : 4) == 0;
 				if (success) {
 					ItemStack picked = GOTChestContents.TREASURE.getOneItem(rand, true);
-					IPickpocketable.Helper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, getEntityUUID());
+					IPickpocketable.Helper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, entityUUID);
 					entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, picked);
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.chat.pickpocket.success", picked.stackSize, picked.getDisplayName(), npc.getNPCName())));
 					npc.playSound("got:event.trade", 0.5f, 1.0f + (rand.nextFloat() - rand.nextFloat()) * 0.1f);
 					npc.playSound("mob.horse.leather", 0.5f, 1.0f);
 					spawnPickingFX("pickpocket", 1.0, npc);
 					pickpocketedEntityIDs.add(id);
-					updateQuest();
+					playerData.updateMiniQuest(this);
 					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.steal);
 				} else {
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.GOLD + StatCollector.translateToLocalFormatted("got.chat.pickpocket.missed", npc.getNPCName())));

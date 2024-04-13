@@ -35,7 +35,7 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
 		if (killCount < killTarget && GOT.getNPCFaction(entity) == killFaction) {
 			++killCount;
-			updateQuest();
+			playerData.updateMiniQuest(this);
 		}
 	}
 

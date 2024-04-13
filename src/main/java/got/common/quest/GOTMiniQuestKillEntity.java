@@ -37,7 +37,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
 		if (killCount < killTarget && entityType.isAssignableFrom(entity.getClass())) {
 			++killCount;
-			updateQuest();
+			playerData.updateMiniQuest(this);
 		}
 	}
 

@@ -51,38 +51,41 @@ public abstract class GOTMiniQuest {
 		registerQuestType("Pickpocket", GOTMiniQuestPickpocket.class);
 	}
 
-	private final Collection<ItemStack> itemsRewarded = new ArrayList<>();
-	private final List<String> quotesStages = new ArrayList<>();
-
+	protected final Collection<ItemStack> itemsRewarded = new ArrayList<>();
+	protected final List<String> quotesStages = new ArrayList<>();
 	protected List<ItemStack> rewardItemTable = new ArrayList<>();
+
 	protected GOTPlayerData playerData;
 	protected String entityNameFull;
 	protected String speechBankProgress;
 	protected String speechBankComplete;
-	protected float rewardFactor = 1.0f;
-	protected float hiringAlignment;
+	protected String entityName;
+	protected String speechBankStart;
+	protected String speechBankTooMany;
+	protected String quoteStart;
+	protected String quoteComplete;
+	protected UUID entityUUID;
+
+	protected GOTMiniQuestFactory questGroup;
+	protected GOTFaction entityFaction;
+
 	protected boolean completed;
 	protected boolean isLegendary;
+	protected boolean wasHired;
+	protected boolean willHire;
+	protected float rewardFactor = 1.0f;
+	protected float hiringAlignment;
+	protected int dateCompleted;
+	protected int coinsRewarded;
 
 	private Pair<ChunkCoordinates, Integer> lastLocation;
-	private GOTMiniQuestFactory questGroup;
-	private GOTFaction entityFaction;
-	private UUID questUUID;
-	private UUID entityUUID;
-	private String entityName;
-	private String speechBankStart;
-	private String speechBankTooMany;
-	private String quoteStart;
-	private String quoteComplete;
 	private GOTBiome biomeGiven;
+	private UUID questUUID;
+
+	private boolean entityDead;
+	private float alignmentRewarded;
 	private int questColor;
 	private int dateGiven;
-	private int dateCompleted;
-	private int coinsRewarded;
-	private float alignmentRewarded;
-	private boolean wasHired;
-	private boolean willHire;
-	private boolean entityDead;
 
 	protected GOTMiniQuest(GOTPlayerData pd) {
 		playerData = pd;
@@ -218,7 +221,7 @@ public abstract class GOTMiniQuest {
 		if (isLegendary) {
 			npc.hiredNPCInfo.isActive = true;
 		}
-		updateQuest();
+		playerData.updateMiniQuest(this);
 		playerData.completeMiniQuest(this);
 		sendCompletedSpeech(entityplayer, npc);
 		if (questGroup != null && (achievement = questGroup.getAchievement()) != null) {
@@ -252,19 +255,7 @@ public abstract class GOTMiniQuest {
 
 	public abstract String getObjectiveInSpeech();
 
-	protected GOTPlayerData getPlayerData() {
-		return playerData;
-	}
-
-	public void setPlayerData(GOTPlayerData pd) {
-		playerData = pd;
-	}
-
 	public abstract String getProgressedObjectiveInSpeech();
-
-	public int getQuestColor() {
-		return questColor;
-	}
 
 	public float[] getQuestColorComponents() {
 		return new Color(questColor).getColorComponents(null);
@@ -290,10 +281,6 @@ public abstract class GOTMiniQuest {
 
 	public boolean isActive() {
 		return !completed && !isFailed();
-	}
-
-	public boolean isCompleted() {
-		return completed;
 	}
 
 	public boolean isFailed() {
@@ -421,7 +408,7 @@ public abstract class GOTMiniQuest {
 
 	public void setEntityDead() {
 		entityDead = true;
-		updateQuest();
+		playerData.updateMiniQuest(this);
 	}
 
 	protected void setNPCInfo(GOTEntityNPC npc) {
@@ -432,8 +419,101 @@ public abstract class GOTMiniQuest {
 		questColor = npc.getMiniquestColor();
 	}
 
+	public GOTFaction getEntityFaction() {
+		return entityFaction;
+	}
+
+	public UUID getQuestUUID() {
+		return questUUID;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public UUID getEntityUUID() {
+		return entityUUID;
+	}
+
 	protected boolean shouldRandomiseCoinReward() {
 		return true;
+	}
+
+	public String getSpeechBankTooMany() {
+		return speechBankTooMany;
+	}
+
+	public GOTPlayerData getPlayerData() {
+		return playerData;
+	}
+
+	public void setPlayerData(GOTPlayerData playerData) {
+		this.playerData = playerData;
+	}
+
+	public boolean isWillHire() {
+		return willHire;
+	}
+
+	public Collection<ItemStack> getItemsRewarded() {
+		return itemsRewarded;
+	}
+
+	public boolean isWasHired() {
+		return wasHired;
+	}
+
+	public List<String> getQuotesStages() {
+		return quotesStages;
+	}
+
+	public int getDateCompleted() {
+		return dateCompleted;
+	}
+
+	public String getQuoteComplete() {
+		return quoteComplete;
+	}
+
+	public float getAlignmentRewarded() {
+		return alignmentRewarded;
+	}
+
+	public int getCoinsRewarded() {
+		return coinsRewarded;
+	}
+
+	public int getDateGiven() {
+		return dateGiven;
+	}
+
+	public GOTBiome getBiomeGiven() {
+		return biomeGiven;
+	}
+
+	public String getEntityName() {
+		return entityName;
+	}
+
+	@SuppressWarnings("unused")
+	public GOTMiniQuestFactory getQuestGroup() {
+		return questGroup;
+	}
+
+	public void setQuestGroup(GOTMiniQuestFactory questGroup) {
+		this.questGroup = questGroup;
+	}
+
+	public String getQuoteStart() {
+		return quoteStart;
+	}
+
+	public String getSpeechBankStart() {
+		return speechBankStart;
+	}
+
+	public int getQuestColor() {
+		return questColor;
 	}
 
 	public void start(EntityPlayer entityplayer, GOTEntityNPC npc) {
@@ -463,12 +543,8 @@ public abstract class GOTMiniQuest {
 		lastLocation = Pair.of(coords, dim);
 		boolean sendUpdate = prevCoords == null || coords.getDistanceSquaredToChunkCoordinates(prevCoords) > 256.0;
 		if (sendUpdate) {
-			updateQuest();
+			playerData.updateMiniQuest(this);
 		}
-	}
-
-	protected void updateQuest() {
-		playerData.updateMiniQuest(this);
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {
@@ -539,114 +615,6 @@ public abstract class GOTMiniQuest {
 		}
 	}
 
-	public boolean isWillHire() {
-		return willHire;
-	}
-
-	protected void setWillHire(boolean willHire) {
-		this.willHire = willHire;
-	}
-
-	public boolean isWasHired() {
-		return wasHired;
-	}
-
-	protected void setWasHired(boolean wasHired) {
-		this.wasHired = wasHired;
-	}
-
-	public float getAlignmentRewarded() {
-		return alignmentRewarded;
-	}
-
-	public int getCoinsRewarded() {
-		return coinsRewarded;
-	}
-
-	protected void setCoinsRewarded(int coinsRewarded) {
-		this.coinsRewarded = coinsRewarded;
-	}
-
-	public int getDateCompleted() {
-		return dateCompleted;
-	}
-
-	protected void setDateCompleted(int dateCompleted) {
-		this.dateCompleted = dateCompleted;
-	}
-
-	public int getDateGiven() {
-		return dateGiven;
-	}
-
-	public GOTBiome getBiomeGiven() {
-		return biomeGiven;
-	}
-
-	public String getQuoteComplete() {
-		return quoteComplete;
-	}
-
-	protected void setQuoteComplete(String quoteComplete) {
-		this.quoteComplete = quoteComplete;
-	}
-
-	public String getQuoteStart() {
-		return quoteStart;
-	}
-
-	protected void setQuoteStart(String quoteStart) {
-		this.quoteStart = quoteStart;
-	}
-
-	public String getSpeechBankTooMany() {
-		return speechBankTooMany;
-	}
-
-	protected void setSpeechBankTooMany(String speechBankTooMany) {
-		this.speechBankTooMany = speechBankTooMany;
-	}
-
-	public String getSpeechBankStart() {
-		return speechBankStart;
-	}
-
-	protected void setSpeechBankStart(String speechBankStart) {
-		this.speechBankStart = speechBankStart;
-	}
-
-	public String getEntityName() {
-		return entityName;
-	}
-
-	public UUID getEntityUUID() {
-		return entityUUID;
-	}
-
-	public UUID getQuestUUID() {
-		return questUUID;
-	}
-
-	public GOTFaction getEntityFaction() {
-		return entityFaction;
-	}
-
-	protected GOTMiniQuestFactory getQuestGroup() {
-		return questGroup;
-	}
-
-	public void setQuestGroup(GOTMiniQuestFactory questGroup) {
-		this.questGroup = questGroup;
-	}
-
-	public List<String> getQuotesStages() {
-		return quotesStages;
-	}
-
-	public Collection<ItemStack> getItemsRewarded() {
-		return itemsRewarded;
-	}
-
 	public abstract static class QuestFactoryBase<Q extends GOTMiniQuest> {
 		protected GOTMiniQuestFactory questFactoryGroup;
 		protected String questName;
@@ -662,20 +630,20 @@ public abstract class GOTMiniQuest {
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			Q quest = newQuestInstance(getQuestClass(), null);
 			if (quest != null) {
-				quest.setQuestGroup(questFactoryGroup);
+				quest.questGroup = questFactoryGroup;
 				String pathName = "miniquest/" + questFactoryGroup.getBaseName() + '/';
 				String pathNameBaseSpeech = "miniquest/" + questFactoryGroup.getBaseSpeechGroup().getBaseName() + '/';
 				String questPathName = pathName + questName + '_';
-				quest.setSpeechBankStart(questPathName + "start");
+				quest.speechBankStart = questPathName + "start";
 				quest.speechBankProgress = questPathName + "progress";
 				quest.speechBankComplete = questPathName + "complete";
-				quest.setSpeechBankTooMany(pathNameBaseSpeech + "_tooMany");
+				quest.speechBankTooMany = pathNameBaseSpeech + "_tooMany";
 				quest.isLegendary = isLegendary;
-				quest.setQuoteStart(GOTSpeech.getRandomSpeech(quest.getSpeechBankStart()));
-				quest.setQuoteComplete(GOTSpeech.getRandomSpeech(quest.speechBankComplete));
+				quest.quoteStart = GOTSpeech.getRandomSpeech(quest.speechBankStart);
+				quest.quoteComplete = GOTSpeech.getRandomSpeech(quest.speechBankComplete);
 				quest.setNPCInfo(npc);
 				quest.rewardFactor = rewardFactor;
-				quest.setWillHire(willHire);
+				quest.willHire = willHire;
 				quest.hiringAlignment = hiringAlignment;
 				return quest;
 			}
