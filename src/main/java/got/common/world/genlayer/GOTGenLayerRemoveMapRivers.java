@@ -40,7 +40,7 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 								if (Math.abs(i2 - i1) != range && Math.abs(k2 - k1) != range || (subBiome = dimension.getBiomeList()[subBiomeID = biomes[i2 + 4 + (k2 + 4) * (xSize + 4 * 2)]]) == GOTBiome.river) {
 									continue;
 								}
-								boolean wateryAdjacent = subBiome.isWateryBiome() && range == 1;
+								boolean wateryAdjacent = subBiome.getHeightBaseParameter() < 0.0f && range == 1;
 								HashMap<Integer, Integer> srcMap = wateryAdjacent ? viableBiomesWateryAdjacent : viableBiomes;
 								int count2 = 0;
 								if (srcMap.containsKey(subBiomeID)) {

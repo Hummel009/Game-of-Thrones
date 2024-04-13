@@ -29,7 +29,7 @@ public class GOTGenLayerRedBeach extends GOTGenLayer {
 				int biomeID = biomes[i1 + 1 + (k1 + 1) * (xSize + 2)];
 				GOTBiome biome = dimension.getBiomeList()[biomeID];
 				int newBiomeID = biomeID;
-				if (biomeID != targetBiome.biomeID && !biome.isWateryBiome()) {
+				if (biomeID != targetBiome.biomeID && biome.getHeightBaseParameter() >= 0.0f) {
 					int biome1 = biomes[i1 + 1 + (k1 + 1 - 1) * (xSize + 2)];
 					int biome2 = biomes[i1 + 1 + 1 + (k1 + 1) * (xSize + 2)];
 					int biome3 = biomes[i1 + 1 - 1 + (k1 + 1) * (xSize + 2)];

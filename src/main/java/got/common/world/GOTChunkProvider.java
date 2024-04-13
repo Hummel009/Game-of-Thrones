@@ -213,7 +213,7 @@ public class GOTChunkProvider implements IChunkProvider {
 						totalHeightNoise += heightNoise2;
 						totalVariantHillFactor += hillFactor;
 						float flatBiomeHeight = biome.rootHeight;
-						boolean isWater = ((GOTBiome) biome).isWateryBiome();
+						boolean isWater = ((GOTBiome) biome).getHeightBaseParameter() < 0.0f;
 						if (variant.isAbsoluteHeight() && variant.getAbsoluteHeightLevel() < 0.0f) {
 							isWater = true;
 						}
