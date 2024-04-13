@@ -17,10 +17,11 @@ import java.util.List;
 public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] sideIcons;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] topIcons;
 
-	private String[] woodNames;
+	protected String[] woodNames;
 
 	protected GOTBlockWoodBeam() {
 		super(Material.wood);
@@ -72,14 +73,5 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 			topIcons[i] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_top");
 			sideIcons[i] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_side");
 		}
-	}
-
-	@SuppressWarnings("unused")
-	protected String[] getWoodNames() {
-		return woodNames;
-	}
-
-	protected void setWoodNames(String... s) {
-		woodNames = s;
 	}
 }

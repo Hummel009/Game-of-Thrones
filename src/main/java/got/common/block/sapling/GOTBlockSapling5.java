@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class GOTBlockSapling5 extends GOTBlockSaplingBase {
 	public GOTBlockSapling5() {
-		setSaplingNames("pine", "lemon", "orange", "lime");
+		saplingNames = new String[]{"pine", "lemon", "orange", "lime"};
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public class GOTEnchantmentLooting extends GOTEnchantment {
 	public GOTEnchantmentLooting(String s, int level) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.TOOL, GOTEnchantmentType.MELEE});
 		lootLevel = level;
-		setValueModifier(1.0F + lootLevel);
+		valueModifier = 1.0F + lootLevel;
 	}
 
 	@Override

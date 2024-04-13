@@ -46,7 +46,7 @@ import java.util.List;
 import java.util.*;
 import java.util.regex.Pattern;
 
-public class GOTGuiMap extends GOTGuiMenuBase {
+public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	public static final ResourceLocation MAP_ICONS_TEXTURE = new ResourceLocation("got:textures/map/mapScreen.png");
 
 	private static final ResourceLocation CONQUEST_TEXTURE = new ResourceLocation("got:textures/map/conquest.png");
@@ -996,8 +996,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	@Override
 	public void initGui() {
-		setSizeX(256);
-		ySize = 256;
+		sizeX = 256;
+		sizeY = 256;
 		super.initGui();
 		if (fullscreen) {
 			int midX = width / 2;

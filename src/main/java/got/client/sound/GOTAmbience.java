@@ -235,7 +235,7 @@ public class GOTAmbience {
 			field_147666_i = ISound.AttenuationType.NONE;
 		}
 
-		protected AmbientSoundNoAttentuation calcAmbientVolume(EntityPlayer entityplayer, int maxRange) {
+		private AmbientSoundNoAttentuation calcAmbientVolume(EntityPlayer entityplayer, int maxRange) {
 			float distFr = (float) entityplayer.getDistance(xPosF, yPosF, zPosF);
 			distFr /= maxRange;
 			distFr = Math.min(distFr, 1.0f);

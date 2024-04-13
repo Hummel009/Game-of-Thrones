@@ -11,7 +11,7 @@ public class GOTEnchantmentMeleeReach extends GOTEnchantment {
 	public GOTEnchantmentMeleeReach(String s, float reach) {
 		super(s, GOTEnchantmentType.MELEE);
 		reachFactor = reach;
-		setValueModifier(reachFactor);
+		valueModifier = reachFactor;
 	}
 
 	@Override

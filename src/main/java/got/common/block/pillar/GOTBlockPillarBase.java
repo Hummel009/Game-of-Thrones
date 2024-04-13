@@ -30,7 +30,7 @@ public abstract class GOTBlockPillarBase extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] pillarSideBottomIcons;
 
-	private String[] pillarNames;
+	protected String[] pillarNames;
 
 	protected GOTBlockPillarBase() {
 		this(Material.rock);
@@ -116,14 +116,5 @@ public abstract class GOTBlockPillarBase extends Block {
 			pillarSideMiddleIcons[i] = iconregister.registerIcon(s + "_side_middle");
 			pillarSideBottomIcons[i] = iconregister.registerIcon(s + "_side_bottom");
 		}
-	}
-
-	@SuppressWarnings("unused")
-	protected String[] getPillarNames() {
-		return pillarNames;
-	}
-
-	protected void setPillarNames(String... names) {
-		pillarNames = names;
 	}
 }

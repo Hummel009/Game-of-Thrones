@@ -133,15 +133,14 @@ public class GOTCloudRenderer extends IRenderHandler {
 	}
 
 	private static class CloudProperty {
-		protected long baseSeed;
-		protected float currentDayValue;
-		protected float value;
-		protected float prevValue;
-		protected float minValue;
-		protected float maxValue;
-		protected float interval;
+		private final float minValue;
+		private final float maxValue;
+		private final float interval;
+		private final long baseSeed;
+		private float value;
+		private float prevValue;
 
-		protected CloudProperty(long l, float min, float max, float i) {
+		private CloudProperty(long l, float min, float max, float i) {
 			baseSeed = l;
 			value = -1.0f;
 			minValue = min;
@@ -149,23 +148,23 @@ public class GOTCloudRenderer extends IRenderHandler {
 			interval = i;
 		}
 
-		protected float getCurrentDayValue() {
+		private float getCurrentDayValue() {
 			int day = GOTDate.AegonCalendar.getCurrentDay();
 			long seed = day * baseSeed + day + 83025820626792L;
 			CLOUD_RAND.setSeed(seed);
 			return MathHelper.randomFloatClamp(CLOUD_RAND, minValue, maxValue);
 		}
 
-		protected float getValue(float f) {
+		private float getValue(float f) {
 			return prevValue + (value - prevValue) * f;
 		}
 
-		protected void reset() {
+		private void reset() {
 			value = -1.0f;
 		}
 
-		protected void update() {
-			currentDayValue = getCurrentDayValue();
+		private void update() {
+			float currentDayValue = getCurrentDayValue();
 			if (value == -1.0f) {
 				prevValue = value = currentDayValue;
 			} else {
@@ -180,5 +179,4 @@ public class GOTCloudRenderer extends IRenderHandler {
 			}
 		}
 	}
-
 }

@@ -15,6 +15,7 @@ public class GOTConfig {
 	private static final String CATEGORY_GUI = "3_gui";
 	private static final String CATEGORY_ENVIRONMENT = "4_environment";
 	private static final String CATEGORY_MISC = "5_misc";
+
 	public static String languageCode = "ru";
 	public static boolean allowBannerProtection;
 	public static boolean allowBountyQuests;
@@ -69,6 +70,7 @@ public class GOTConfig {
 	public static boolean strictFactionTitleRequirements;
 	public static boolean trackingQuestRight;
 	public static boolean walkerFireDamage;
+
 	public static int kwrBedRespawnThreshold;
 	public static int kwrMaxRespawn;
 	public static int kwrMinRespawn;
@@ -88,6 +90,7 @@ public class GOTConfig {
 	public static int musicIntervalMin;
 	public static int playerDataClearingInterval;
 	public static int preventTraderKidnap;
+
 	private static Configuration config;
 
 	private GOTConfig() {

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GOTBlockBrick2 extends GOTBlockBrickBase {
 	public GOTBlockBrick2() {
-		setBrickNames("granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "basalt_carved", "basalt_westeros", "granite", "granite", "granite", "granite");
+		brickNames = new String[]{"granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "basalt_carved", "basalt_westeros", "granite", "granite", "granite", "granite"};
 	}
 
 	@SideOnly(Side.CLIENT)

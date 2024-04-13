@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class GOTGuiMenu extends GOTGuiScreenBase {
 	public static final ResourceLocation MENU_ICONS_TEXTURE = new ResourceLocation("got:textures/gui/menu_icons.png");
 
-	private static Class<? extends GOTGuiMenuWBBase> lastMenuScreen;
+	private static Class<? extends GOTGuiMenuBase> lastMenuScreen;
 
 	private boolean sentCheckPacket;
 
@@ -47,7 +47,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 
 	@Override
 	public void actionPerformed(GuiButton button) {
-		GOTGuiMenuWBBase screen;
+		GOTGuiMenuBase screen;
 		if (button.enabled && button instanceof GOTGuiButtonMenu && (screen = ((GOTGuiButtonMenu) button).openMenu()) != null) {
 			mc.displayGuiScreen(screen);
 			lastMenuScreen = screen.getClass();

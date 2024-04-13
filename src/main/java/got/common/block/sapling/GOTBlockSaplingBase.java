@@ -21,7 +21,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] saplingIcons;
 
-	private String[] saplingNames;
+	protected String[] saplingNames;
 
 	protected GOTBlockSaplingBase() {
 		float f = 0.4f;
@@ -121,15 +121,6 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		for (int i = 0; i < saplingNames.length; ++i) {
 			saplingIcons[i] = iconregister.registerIcon(getTextureName() + '_' + saplingNames[i]);
 		}
-	}
-
-	@SuppressWarnings("unused")
-	protected String[] getSaplingNames() {
-		return saplingNames;
-	}
-
-	protected void setSaplingNames(String... s) {
-		saplingNames = s;
 	}
 
 	@Override

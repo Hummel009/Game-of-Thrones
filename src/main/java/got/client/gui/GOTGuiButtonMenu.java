@@ -7,10 +7,10 @@ import net.minecraft.client.multiplayer.WorldClient;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonMenu extends GuiButton {
-	private final Class<? extends GOTGuiMenuWBBase> menuScreenClass;
+	private final Class<? extends GOTGuiMenuBase> menuScreenClass;
 	private final int menuKeyCode;
 
-	public GOTGuiButtonMenu(int i, int x, int y, Class<? extends GOTGuiMenuWBBase> cls, String s, int key) {
+	public GOTGuiButtonMenu(int i, int x, int y, Class<? extends GOTGuiMenuBase> cls, String s, int key) {
 		super(i, x, y, 32, 32, s);
 		menuScreenClass = cls;
 		menuKeyCode = key;
@@ -35,7 +35,7 @@ public class GOTGuiButtonMenu extends GuiButton {
 		}
 	}
 
-	public GOTGuiMenuWBBase openMenu() {
+	public GOTGuiMenuBase openMenu() {
 		try {
 			return menuScreenClass.getConstructor().newInstance();
 		} catch (Exception e) {

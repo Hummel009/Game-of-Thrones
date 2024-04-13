@@ -7,12 +7,12 @@ public class GOTEnchantmentSilkTouch extends GOTEnchantment {
 	@SuppressWarnings("unused")
 	public GOTEnchantmentSilkTouch(String s) {
 		super(s, GOTEnchantmentType.TOOL);
-		setValueModifier(3.0F);
+		valueModifier = 3.0F;
 	}
 
 	@Override
 	public String getDescription(ItemStack itemstack) {
-		return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc");
+		return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc");
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public abstract class GOTBlockPlanksBase extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] plankIcons;
 
-	private String[] plankTypes;
+	protected String[] plankTypes;
 
 	protected GOTBlockPlanksBase() {
 		super(Material.wood);
@@ -58,14 +58,5 @@ public abstract class GOTBlockPlanksBase extends Block {
 		for (int i = 0; i < plankTypes.length; ++i) {
 			plankIcons[i] = iconregister.registerIcon(getTextureName() + '_' + plankTypes[i]);
 		}
-	}
-
-	@SuppressWarnings("unused")
-	protected String[] getPlankTypes() {
-		return plankTypes;
-	}
-
-	protected void setPlankTypes(String... types) {
-		plankTypes = types;
 	}
 }

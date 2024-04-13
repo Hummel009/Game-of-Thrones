@@ -222,15 +222,15 @@ public class GOTFactionRelations {
 	}
 
 	public static class FactionPair {
-		protected GOTFaction fac1;
-		protected GOTFaction fac2;
+		private final GOTFaction fac1;
+		private final GOTFaction fac2;
 
 		public FactionPair(GOTFaction f1, GOTFaction f2) {
 			fac1 = f1;
 			fac2 = f2;
 		}
 
-		protected static FactionPair readFromNBT(NBTTagCompound nbt) {
+		private static FactionPair readFromNBT(NBTTagCompound nbt) {
 			GOTFaction f1 = GOTFaction.forName(nbt.getString("FacPair1"));
 			GOTFaction f2 = GOTFaction.forName(nbt.getString("FacPair2"));
 			if (f1 != null && f2 != null) {
@@ -268,7 +268,7 @@ public class GOTFactionRelations {
 			return upper << 16 | lower;
 		}
 
-		protected void writeToNBT(NBTTagCompound nbt) {
+		private void writeToNBT(NBTTagCompound nbt) {
 			nbt.setString("FacPair1", fac1.codeName());
 			nbt.setString("FacPair2", fac2.codeName());
 		}

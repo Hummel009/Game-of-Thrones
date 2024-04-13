@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.List;
 
-public class GOTGuiOptions extends GOTGuiMenuWBBase {
+public class GOTGuiOptions extends GOTGuiMenuBase {
 	private GOTGuiButtonOptions buttonFriendlyFire;
 	private GOTGuiButtonOptions buttonHiredDeathMessages;
 	private GOTGuiButtonOptions buttonAlignment;
@@ -57,8 +57,8 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 	@Override
 	public void initGui() {
 		super.initGui();
-		guiTop = (height - ySize) / 2 + 10;
-		int buttonX = guiLeft + xSize / 2 - 100;
+		guiTop = (height - sizeY) / 2 + 10;
+		int buttonX = guiLeft + sizeX / 2 - 100;
 		int buttonY = guiTop + 40;
 		buttonFriendlyFire = new GOTGuiButtonOptions(0, buttonX, buttonY, 200, 20, "got.gui.options.friendlyFire");
 		buttonList.add(buttonFriendlyFire);

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class GOTGuiAchievements extends GOTGuiMenuBase {
+public class GOTGuiAchievements extends GOTGuiMenuBaseReturn {
 	public static final ResourceLocation ICONS_TEXTURE = new ResourceLocation("got:textures/gui/achievements/icons.png");
 
 	private static final ResourceLocation PAGE_TEXTURE = new ResourceLocation("got:textures/gui/achievements/page.png");
@@ -145,14 +145,14 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(PAGE_TEXTURE);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, getSizeX(), ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, sizeX, sizeY);
 		String categoryName = currentCategory.getDisplayName();
 		categoryName = StatCollector.translateToLocalFormatted("got.gui.achievements.category", categoryName, currentCategoryTakenCount, currentCategoryTakenCount + currentCategoryUntakenCount);
-		drawCenteredString(categoryName, guiLeft + getSizeX() / 2, guiTop + 28, 8019267);
+		drawCenteredString(categoryName, guiLeft + sizeX / 2, guiTop + 28, 8019267);
 		buttonCategoryPrev.setButtonCategory(getCategoryAtRelativeIndex(-1));
 		buttonCategoryNext.setButtonCategory(getCategoryAtRelativeIndex(1));
 		super.drawScreen(i, j, f);
-		int catScrollCentre = guiLeft + getSizeX() / 2;
+		int catScrollCentre = guiLeft + sizeX / 2;
 		int catScrollX = catScrollCentre - 76;
 		int catScrollY = guiTop + 13;
 		mc.getTextureManager().bindTexture(ICONS_TEXTURE);
@@ -237,7 +237,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 
 	@Override
 	public void initGui() {
-		setSizeX(220);
+		sizeX = 220;
 		super.initGui();
 		buttonCategoryPrev = new GOTGuiButtonAchievements(0, true, guiLeft + 14, guiTop + 13);
 		buttonList.add(buttonCategoryPrev);

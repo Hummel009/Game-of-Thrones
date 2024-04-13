@@ -25,7 +25,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.*;
 import java.util.stream.Stream;
 
-public class GOTGuiFactions extends GOTGuiMenuWBBase {
+public class GOTGuiFactions extends GOTGuiMenuBase {
 	public static final ResourceLocation FACTIONS_TEXTURE = new ResourceLocation("got:textures/gui/factions.png");
 
 	private static final ResourceLocation FACTIONS_TEXTURE_FULL = new ResourceLocation("got:textures/gui/factions_full.png");
@@ -77,12 +77,12 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	private boolean isUnpledging;
 
 	public GOTGuiFactions() {
-		xSize = PAGE_WIDTH;
+		sizeX = PAGE_WIDTH;
 		currentScroll = 0.0f;
 		isScrolling = false;
 		scrollBarWidth = 240;
 		scrollBarHeight = 14;
-		scrollBarX = xSize / 2 - scrollBarWidth / 2;
+		scrollBarX = sizeX / 2 - scrollBarWidth / 2;
 		scrollBarY = 180;
 		scrollBarBorder = 1;
 		scrollWidgetWidth = 17;
@@ -241,7 +241,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		if (currentFaction != null) {
 			float alignment = isOtherPlayer && playerAlignmentMap != null ? playerAlignmentMap.get(currentFaction) : clientPD.getAlignment(currentFaction);
-			int x = guiLeft + xSize / 2;
+			int x = guiLeft + sizeX / 2;
 			int y = guiTop;
 			GOTTickHandlerClient.renderAlignmentBar(alignment, currentFaction, x, y, true, false, true, true);
 			String s = currentFaction.factionSubtitle();
@@ -513,11 +513,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	@Override
 	public void initGui() {
 		super.initGui();
-		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2 + 20;
-		buttonRegions = new GOTGuiButton(0, guiLeft + xSize / 2 + 5, guiTop + 200, 120, 20, "");
+		guiLeft = (width - sizeX) / 2;
+		guiTop = (height - sizeY) / 2 + 20;
+		buttonRegions = new GOTGuiButton(0, guiLeft + sizeX / 2 + 5, guiTop + 200, 120, 20, "");
 		buttonList.add(buttonRegions);
-		goBack = new GOTGuiButton(0, guiLeft + xSize / 2 - 125, guiTop + 200, 120, 20, StatCollector.translateToLocal("got.gui.menuButton"));
+		goBack = new GOTGuiButton(0, guiLeft + sizeX / 2 - 125, guiTop + 200, 120, 20, StatCollector.translateToLocal("got.gui.menuButton"));
 		buttonList.add(goBack);
 		buttonPagePrev = new GOTGuiButtonFactionsPage(1, guiLeft + 8, guiTop + PAGE_Y + 104, false);
 		buttonList.add(buttonPagePrev);

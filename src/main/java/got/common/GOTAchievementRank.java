@@ -17,8 +17,8 @@ public class GOTAchievementRank extends GOTAchievement {
 		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.getFaction().codeName() + '_' + rank.getAlignment());
 		theRank = rank;
 		theFac = theRank.getFaction();
+		isSpecial = true;
 		setRequiresAlly(theFac);
-		setSpecial();
 	}
 
 	@Override

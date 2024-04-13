@@ -13,24 +13,21 @@ public class GOTEnchantmentProtectionFall extends GOTEnchantmentProtectionSpecia
 
 	@Override
 	protected int calcIntProtection() {
-		float f = getProtectLevel() * (getProtectLevel() + 1) / 2.0F;
+		float f = protectLevel * (protectLevel + 1) / 2.0F;
 		return 3 + MathHelper.floor_float(f);
 	}
 
 	@Override
-	@SuppressWarnings("unused")
 	public String getDescription(ItemStack itemstack) {
 		return StatCollector.translateToLocalFormatted("got.enchant.protectFall.desc", formatAdditiveInt(calcIntProtection()));
 	}
 
 	@Override
-	@SuppressWarnings("unused")
 	public boolean isCompatibleWithOtherProtection() {
 		return true;
 	}
 
 	@Override
-	@SuppressWarnings("unused")
 	public boolean protectsAgainst(DamageSource source) {
 		return source == DamageSource.fall;
 	}

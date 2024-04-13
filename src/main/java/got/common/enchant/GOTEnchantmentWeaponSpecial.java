@@ -20,8 +20,8 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	@SuppressWarnings("unused")
 	public GOTEnchantmentWeaponSpecial(String s) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER});
-		setValueModifier(3.0F);
-		setBypassAnvilLimit();
+		valueModifier = 3.0F;
+		bypassAnvilLimit = true;
 	}
 
 	public static void doChillAttack(EntityLivingBase entity) {
@@ -52,10 +52,10 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	@Override
 	public String getDescription(ItemStack itemstack) {
 		if (GOTWeaponStats.isMeleeWeapon(itemstack)) {
-			return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc.melee");
+			return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.melee");
 		}
 
-		return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc.ranged");
+		return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.ranged");
 	}
 
 	@Override
@@ -68,9 +68,13 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		return compatibleOtherSpecial || !(other instanceof GOTEnchantmentWeaponSpecial) || ((GOTEnchantmentWeaponSpecial) other).compatibleOtherSpecial;
 	}
 
-	@SuppressWarnings("unused")
-	public GOTEnchantmentWeaponSpecial setCompatibleOtherSpecial() {
-		compatibleOtherSpecial = true;
+	public GOTEnchantmentWeaponSpecial setCompatibleOtherSpecial(boolean compatibleOtherSpecial) {
+		this.compatibleOtherSpecial = compatibleOtherSpecial;
 		return this;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isCompatibleOtherSpecial() {
+		return compatibleOtherSpecial;
 	}
 }

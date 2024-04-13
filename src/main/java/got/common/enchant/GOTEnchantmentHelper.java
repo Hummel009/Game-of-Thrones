@@ -31,9 +31,7 @@ public class GOTEnchantmentHelper {
 		if (keepBanes) {
 			List<GOTEnchantment> list = getEnchantList(itemstack);
 			for (GOTEnchantment ench : list) {
-				if (!ench.persistsReforge()) {
-					removeEnchant(itemstack, ench);
-				}
+				removeEnchant(itemstack, ench);
 			}
 		} else {
 			clearEnchantsAndProgress(itemstack);
@@ -57,7 +55,7 @@ public class GOTEnchantmentHelper {
 
 		Collection<WeightedRandomEnchant> applicable = new ArrayList<>();
 		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
-			if (ench.canApply(itemstack, true) && (!ench.isSkilful() || skilful)) {
+			if (ench.canApply(itemstack, true) && (!ench.getSkilful() || skilful)) {
 				int weight = ench.getEnchantWeight();
 				if (weight > 0) {
 					if (skilful) {
@@ -311,7 +309,7 @@ public class GOTEnchantmentHelper {
 		List<GOTEnchantment> enchants = getEnchantList(itemstack);
 		for (GOTEnchantment ench : enchants) {
 			value *= ench.getValueModifier();
-			if (ench.isSkilful()) {
+			if (ench.getSkilful()) {
 				value *= 1.5F;
 			}
 		}

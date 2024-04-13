@@ -27,14 +27,14 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] baseIcons;
 
-	private String[] cageTypes;
+	protected String[] cageTypes;
 
 	public GOTBlockBirdCage() {
 		super(Material.glass);
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 		setHardness(0.5f);
 		setStepSound(soundTypeMetal);
-		setCageTypes("bronze", "iron", "silver", "gold");
+		cageTypes = new String[]{"bronze", "iron", "silver", "gold"};
 	}
 
 	public static boolean isSameBirdCage(IBlockAccess world, int i, int j, int k, int i1, int j1, int k1) {
@@ -101,14 +101,5 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 			topIcons[i] = iconregister.registerIcon(getTextureName() + '_' + cageTypes[i] + "_top");
 			baseIcons[i] = iconregister.registerIcon(getTextureName() + '_' + cageTypes[i] + "_base");
 		}
-	}
-
-	@SuppressWarnings("unused")
-	protected String[] getCageTypes() {
-		return cageTypes;
-	}
-
-	protected void setCageTypes(String... s) {
-		cageTypes = s;
 	}
 }

@@ -3,12 +3,12 @@ package got.common.enchant;
 import net.minecraft.util.DamageSource;
 
 public abstract class GOTEnchantmentProtectionSpecial extends GOTEnchantment {
-	private final int protectLevel;
+	protected final int protectLevel;
 
 	protected GOTEnchantmentProtectionSpecial(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
 		protectLevel = level;
-		setValueModifier((2.0F + protectLevel) / 2.0F);
+		valueModifier = (2.0F + protectLevel) / 2.0F;
 	}
 
 	protected GOTEnchantmentProtectionSpecial(String s, int level) {

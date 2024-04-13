@@ -10,7 +10,7 @@ public class GOTEnchantmentDurability extends GOTEnchantment {
 	public GOTEnchantmentDurability(String s, float f) {
 		super(s, GOTEnchantmentType.BREAKABLE);
 		durabilityFactor = f;
-		setValueModifier(durabilityFactor);
+		valueModifier = durabilityFactor;
 	}
 
 	@Override

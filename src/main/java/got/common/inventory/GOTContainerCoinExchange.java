@@ -219,7 +219,8 @@ public class GOTContainerCoinExchange extends Container {
 	}
 
 	public class InventoryCoinExchangeSlot extends InventoryBasic {
-		protected InventoryCoinExchangeSlot(int i) {
+		@SuppressWarnings("WeakerAccess")
+		public InventoryCoinExchangeSlot(int i) {
 			super("coinExchange", true, i);
 		}
 

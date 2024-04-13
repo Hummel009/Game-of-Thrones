@@ -33,7 +33,6 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	@SideOnly(Side.CLIENT)
 	private IIcon glowingIcon;
 
-
 	public GOTItemSword(Item.ToolMaterial material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);

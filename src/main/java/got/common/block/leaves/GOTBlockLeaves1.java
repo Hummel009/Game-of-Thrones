@@ -5,15 +5,20 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTBlocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Random;
 
 public class GOTBlockLeaves1 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves1() {
-		setLeafNames("ibbinia", "catalpa", "ulthos", "ulthos_red");
-		setSeasonal(false, true, false, false);
+		leafNames = new String[]{"ibbinia", "catalpa", "ulthos", "ulthos_red"};
+	}
+
+	@Override
+	protected void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune) {
 	}
 
 	@Override

@@ -12,13 +12,13 @@ import net.minecraft.util.StatCollector;
 import java.util.List;
 
 public class GOTItemRobes extends GOTItemArmor {
+	public GOTItemRobes(int slot) {
+		this(GOTMaterial.ROBES, slot);
+	}
+
 	protected GOTItemRobes(ArmorMaterial material, int slot) {
 		super(material, slot);
 		setCreativeTab(GOTCreativeTabs.TAB_MISC);
-	}
-
-	public GOTItemRobes(int slot) {
-		this(GOTMaterial.ROBES, slot);
 	}
 
 	public static boolean areRobesDyed(ItemStack itemstack) {

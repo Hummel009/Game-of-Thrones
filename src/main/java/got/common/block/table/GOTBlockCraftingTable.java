@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBlockCraftingTable extends Block {
+public abstract class GOTBlockCraftingTable extends Block {
 	public static final Collection<GOTBlockCraftingTable> ALL_CRAFTING_TABLES = new ArrayList<>();
 
 	private final GOTFaction faction;

@@ -14,7 +14,7 @@ public class GOTBlockBrick1 extends GOTBlockBrickBase {
 	private IIcon iconIbbenSide;
 
 	public GOTBlockBrick1() {
-		setBrickNames("basalt", "andesite", "andesite_mossy", "andesite_cracked", "rhyolite", "andesite_carved", "basalt", "basalt_cracked", "basalt", "basalt", "basalt", "basalt", "basalt", "basalt", "diorite", "sandstone");
+		brickNames = new String[]{"basalt", "andesite", "andesite_mossy", "andesite_cracked", "rhyolite", "andesite_carved", "basalt", "basalt_cracked", "basalt", "basalt", "basalt", "basalt", "basalt", "basalt", "diorite", "sandstone"};
 	}
 
 	@SideOnly(Side.CLIENT)

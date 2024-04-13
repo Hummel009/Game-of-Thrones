@@ -19,14 +19,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class GOTBlockLeavesBase extends BlockLeaves {
+public abstract class GOTBlockLeavesBase extends BlockLeaves {
 	private static final Collection<Block> ALL_LEAF_BLOCKS = new ArrayList<>();
 
 	@SideOnly(Side.CLIENT)
 	private IIcon[][] leafIcons;
 
-	private String[] leafNames;
 	private String vanillaTextureName;
+
+	protected String[] leafNames;
 
 	protected GOTBlockLeavesBase() {
 		this(false, null);
@@ -66,8 +67,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		}
 	}
 
-	protected void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune) {
-	}
+	protected abstract void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune);
 
 	protected int calcFortuneModifiedDropChance(int baseChance, int fortune) {
 		int chance = baseChance;
@@ -157,22 +157,6 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 			IIcon fast = iconregister.registerIcon(getTextureName() + '_' + leafNames[i] + "_fast");
 			leafIcons[i][0] = fancy;
 			leafIcons[i][1] = fast;
-		}
-	}
-
-	@SuppressWarnings("unused")
-	public String[] getLeafNames() {
-		return leafNames;
-	}
-
-	protected void setLeafNames(String... s) {
-		leafNames = s;
-		setSeasonal(new boolean[s.length]);
-	}
-
-	protected void setSeasonal(boolean... b) {
-		if (b.length != leafNames.length) {
-			throw new IllegalArgumentException("Leaf seasons length must match number of types");
 		}
 	}
 }

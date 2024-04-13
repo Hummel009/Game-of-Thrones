@@ -50,7 +50,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class AddMember extends OnePlayerUpdate {
-		protected GOTTitle.PlayerTitle playerTitle;
+		private GOTTitle.PlayerTitle playerTitle;
 
 		@SuppressWarnings("unused")
 		public AddMember() {
@@ -84,7 +84,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ChangeIcon extends GOTPacketFellowshipPartialUpdate {
-		protected ItemStack fellowshipIcon;
+		private ItemStack fellowshipIcon;
 
 		@SuppressWarnings("unused")
 		public ChangeIcon() {
@@ -173,7 +173,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class RemoveAdmin extends OnePlayerUpdate {
-		protected boolean isAdminned;
+		private boolean isAdminned;
 
 		@SuppressWarnings("unused")
 		public RemoveAdmin() {
@@ -226,7 +226,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class Rename extends GOTPacketFellowshipPartialUpdate {
-		protected String fellowshipName;
+		private String fellowshipName;
 
 		public Rename() {
 		}
@@ -263,7 +263,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class SetAdmin extends OnePlayerUpdate {
-		protected boolean isAdminned;
+		private boolean isAdminned;
 
 		@SuppressWarnings("unused")
 		public SetAdmin() {
@@ -297,7 +297,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class SetOwner extends OnePlayerUpdate {
-		protected boolean isOwned;
+		private boolean isOwned;
 
 		@SuppressWarnings("unused")
 		public SetOwner() {
@@ -331,7 +331,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ToggleHiredFriendlyFire extends GOTPacketFellowshipPartialUpdate {
-		protected boolean preventHiredFF;
+		private boolean preventHiredFF;
 
 		@SuppressWarnings("unused")
 		public ToggleHiredFriendlyFire() {
@@ -365,7 +365,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class TogglePvp extends GOTPacketFellowshipPartialUpdate {
-		protected boolean preventPVP;
+		private boolean preventPVP;
 
 		@SuppressWarnings("unused")
 		public TogglePvp() {
@@ -399,7 +399,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ToggleShowMap extends GOTPacketFellowshipPartialUpdate {
-		protected boolean showMapLocations;
+		private boolean showMapLocations;
 
 		@SuppressWarnings("unused")
 		public ToggleShowMap() {
@@ -433,7 +433,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class UpdatePlayerTitle extends OnePlayerUpdate {
-		protected GOTTitle.PlayerTitle playerTitle;
+		private GOTTitle.PlayerTitle playerTitle;
 
 		@SuppressWarnings("unused")
 		public UpdatePlayerTitle() {

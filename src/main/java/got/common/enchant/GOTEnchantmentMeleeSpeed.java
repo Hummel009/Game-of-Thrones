@@ -11,7 +11,7 @@ public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
 	public GOTEnchantmentMeleeSpeed(String s, float speed) {
 		super(s, GOTEnchantmentType.MELEE);
 		speedFactor = speed;
-		setValueModifier(speedFactor);
+		valueModifier = speedFactor;
 	}
 
 	@Override

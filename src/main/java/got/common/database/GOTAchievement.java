@@ -342,7 +342,8 @@ public class GOTAchievement {
 	private final String name;
 	private final int id;
 
-	private boolean isSpecial;
+	protected boolean isSpecial;
+
 	private boolean isBiomeAchievement;
 	private GOTTitle achievementTitle;
 
@@ -839,10 +840,6 @@ public class GOTAchievement {
 		allyFactions.addAll(Arrays.asList(f));
 	}
 
-	protected void setSpecial() {
-		isSpecial = true;
-	}
-
 	public Category getCategory() {
 		return category;
 	}
@@ -864,14 +861,9 @@ public class GOTAchievement {
 		return isBiomeAchievement;
 	}
 
-	public GOTAchievement setBiomeAchievement() {
+	private GOTAchievement setBiomeAchievement() {
 		isBiomeAchievement = true;
 		return this;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isSpecial() {
-		return isSpecial;
 	}
 
 	@SuppressWarnings("unused")

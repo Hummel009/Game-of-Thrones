@@ -125,9 +125,9 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	private class NotificationAchievement extends Notification {
-		protected GOTAchievement achievement;
+		private final GOTAchievement achievement;
 
-		protected NotificationAchievement(GOTAchievement ach) {
+		private NotificationAchievement(GOTAchievement ach) {
 			achievement = ach;
 		}
 
@@ -161,11 +161,11 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	private class NotificationConquest extends Notification {
-		protected GOTFaction conqFac;
-		protected float conqValue;
-		protected boolean isCleansing;
+		private final GOTFaction conqFac;
+		private final float conqValue;
+		private final boolean isCleansing;
 
-		protected NotificationConquest(GOTFaction fac, float conq, boolean clean) {
+		private NotificationConquest(GOTFaction fac, float conq, boolean clean) {
 			conqFac = fac;
 			conqValue = conq;
 			isCleansing = clean;
@@ -193,9 +193,9 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	private class NotificationFellowship extends Notification {
-		protected IChatComponent message;
+		private final IChatComponent message;
 
-		protected NotificationFellowship(IChatComponent msg) {
+		private NotificationFellowship(IChatComponent msg) {
 			message = msg;
 		}
 
@@ -216,5 +216,4 @@ public class GOTGuiNotificationDisplay extends Gui {
 			mc.fontRenderer.drawSplitString(message.getFormattedText(), x, y, 152, 8019267);
 		}
 	}
-
 }

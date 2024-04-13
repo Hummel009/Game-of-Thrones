@@ -11,9 +11,9 @@ public class GOTEnchantmentRangedDamage extends GOTEnchantment {
 		super(s, GOTEnchantmentType.RANGED_LAUNCHER);
 		damageFactor = damage;
 		if (damageFactor > 1.0F) {
-			setValueModifier(damageFactor * 2.0F);
+			valueModifier = damageFactor * 2.0F;
 		} else {
-			setValueModifier(damageFactor);
+			valueModifier = damageFactor;
 		}
 	}
 

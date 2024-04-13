@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.*;
 
 public class GOTFactionBounties {
-	private static final Map<GOTFaction, GOTFactionBounties> factionBountyMap = new EnumMap<>(GOTFaction.class);
+	private static final Map<GOTFaction, GOTFactionBounties> FACTION_BOUNTY_MAP = new EnumMap<>(GOTFaction.class);
 
 	private static boolean needsLoad = true;
 
@@ -29,7 +29,7 @@ public class GOTFactionBounties {
 	}
 
 	public static boolean anyDataNeedsSave() {
-		for (GOTFactionBounties fb : factionBountyMap.values()) {
+		for (GOTFactionBounties fb : FACTION_BOUNTY_MAP.values()) {
 			if (!fb.needsSave) {
 				continue;
 			}
@@ -39,13 +39,13 @@ public class GOTFactionBounties {
 	}
 
 	public static GOTFactionBounties forFaction(GOTFaction fac) {
-		GOTFactionBounties bounties = factionBountyMap.get(fac);
+		GOTFactionBounties bounties = FACTION_BOUNTY_MAP.get(fac);
 		if (bounties == null) {
 			bounties = loadFaction(fac);
 			if (bounties == null) {
 				bounties = new GOTFactionBounties(fac);
 			}
-			factionBountyMap.put(fac, bounties);
+			FACTION_BOUNTY_MAP.put(fac, bounties);
 		}
 		return bounties;
 	}
@@ -74,7 +74,7 @@ public class GOTFactionBounties {
 
 	public static void loadAll() {
 		try {
-			factionBountyMap.clear();
+			FACTION_BOUNTY_MAP.clear();
 			needsLoad = false;
 			saveAll();
 		} catch (Exception e) {
@@ -102,7 +102,7 @@ public class GOTFactionBounties {
 
 	public static void saveAll() {
 		try {
-			for (GOTFactionBounties fb : factionBountyMap.values()) {
+			for (GOTFactionBounties fb : FACTION_BOUNTY_MAP.values()) {
 				if (!fb.needsSave) {
 					continue;
 				}
@@ -127,7 +127,7 @@ public class GOTFactionBounties {
 	}
 
 	public static void updateAll() {
-		for (GOTFactionBounties fb : factionBountyMap.values()) {
+		for (GOTFactionBounties fb : FACTION_BOUNTY_MAP.values()) {
 			fb.update();
 		}
 	}
@@ -201,14 +201,14 @@ public class GOTFactionBounties {
 	}
 
 	public static class PlayerData {
+		private final Collection<KillRecord> killRecords = new ArrayList<>();
+		private final GOTFactionBounties bountyList;
 		private final UUID playerID;
 
-		protected GOTFactionBounties bountyList;
-		protected String username;
-		protected Collection<KillRecord> killRecords = new ArrayList<>();
-		protected int recentBountyKilled;
+		private String username;
+		private int recentBountyKilled;
 
-		protected PlayerData(GOTFactionBounties b, UUID id) {
+		private PlayerData(GOTFactionBounties b, UUID id) {
 			bountyList = b;
 			playerID = id;
 		}
@@ -234,11 +234,11 @@ public class GOTFactionBounties {
 			return killRecords.size();
 		}
 
-		protected void markDirty() {
+		private void markDirty() {
 			bountyList.markDirty();
 		}
 
-		protected void readFromNBT(NBTTagCompound nbt) {
+		private void readFromNBT(NBTTagCompound nbt) {
 			killRecords.clear();
 			if (nbt.hasKey("KillRecords")) {
 				NBTTagList recordTags = nbt.getTagList("KillRecords", 10);
@@ -266,11 +266,11 @@ public class GOTFactionBounties {
 			markDirty();
 		}
 
-		protected boolean shouldSave() {
+		private boolean shouldSave() {
 			return !killRecords.isEmpty() || recentBountyKilled > 0;
 		}
 
-		protected void update() {
+		private void update() {
 			boolean minorChanges = false;
 			if (recentBountyKilled > 0) {
 				--recentBountyKilled;
@@ -292,7 +292,7 @@ public class GOTFactionBounties {
 			}
 		}
 
-		protected void writeToNBT(NBTTagCompound nbt) {
+		private void writeToNBT(NBTTagCompound nbt) {
 			NBTTagList recordTags = new NBTTagList();
 			for (KillRecord kr : killRecords) {
 				NBTTagCompound killData = new NBTTagCompound();

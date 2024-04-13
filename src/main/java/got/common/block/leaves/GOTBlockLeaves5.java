@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class GOTBlockLeaves5 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves5() {
-		setLeafNames("pine", "lemon", "orange", "lime");
+		leafNames = new String[]{"pine", "lemon", "orange", "lime"};
 	}
 
 	@Override

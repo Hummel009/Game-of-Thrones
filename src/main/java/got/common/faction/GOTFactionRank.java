@@ -148,7 +148,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return faction;
 	}
 
-	public static final class Dummy extends GOTFactionRank {
+	public static class Dummy extends GOTFactionRank {
 		private Dummy(String s) {
 			super(null, 0.0f, s);
 		}

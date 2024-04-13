@@ -30,10 +30,10 @@ import java.util.*;
 
 public class GOTConquestGrid {
 	private static final int MAP_GRID_SCALE = IntMath.pow(2, 3);
-	private static final Map<GridCoordPair, GOTConquestZone> zoneMap = new HashMap<>();
-	private static final GOTConquestZone dummyZone = new GOTConquestZone(-999, -999).setDummyZone();
-	private static final Collection<GridCoordPair> dirtyZones = new HashSet<>();
-	private static final Map<GridCoordPair, List<GOTFaction>> cachedZoneFactions = new HashMap<>();
+	private static final Map<GridCoordPair, GOTConquestZone> ZONE_MAP = new HashMap<>();
+	private static final GOTConquestZone DUMMY_ZONE = new GOTConquestZone(-999, -999).setDummyZone();
+	private static final Collection<GridCoordPair> DIRTY_ZONES = new HashSet<>();
+	private static final Map<GridCoordPair, List<GOTFaction>> CACHED_ZONE_FACTIONS = new HashMap<>();
 
 	private static boolean needsLoad = true;
 
@@ -41,7 +41,7 @@ public class GOTConquestGrid {
 	}
 
 	public static boolean anyChangedZones() {
-		return !dirtyZones.isEmpty();
+		return !DIRTY_ZONES.isEmpty();
 	}
 
 	public static ConquestViewableQuery canPlayerViewConquest(EntityPlayer entityplayer, GOTFaction fac) {
@@ -158,7 +158,7 @@ public class GOTConquestGrid {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			new GOTGenLayerWorld();
 		}
-		List<GOTFaction> cachedFacs = cachedZoneFactions.get(gridCoords = GridCoordPair.forZone(zone));
+		List<GOTFaction> cachedFacs = CACHED_ZONE_FACTIONS.get(gridCoords = GridCoordPair.forZone(zone));
 		if (cachedFacs == null) {
 			GOTBiome biome;
 			cachedFacs = new ArrayList<>();
@@ -188,7 +188,7 @@ public class GOTConquestGrid {
 					continue block2;
 				}
 			}
-			cachedZoneFactions.put(gridCoords, cachedFacs);
+			CACHED_ZONE_FACTIONS.put(gridCoords, cachedFacs);
 		}
 		if (cachedFacs.contains(theFaction)) {
 			return ConquestEffective.EFFECTIVE;
@@ -218,17 +218,17 @@ public class GOTConquestGrid {
 
 	private static GOTConquestZone getZoneByGridCoords(int i, int k) {
 		if (i < 0 || i >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.getImageWidth() / MAP_GRID_SCALE) || k < 0 || k >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.getImageHeight() / MAP_GRID_SCALE)) {
-			return dummyZone;
+			return DUMMY_ZONE;
 		}
 		GridCoordPair key = new GridCoordPair(i, k);
-		GOTConquestZone zone = zoneMap.get(key);
+		GOTConquestZone zone = ZONE_MAP.get(key);
 		if (zone == null) {
 			File zoneDat = getZoneDat(key);
 			zone = loadZoneFromFile(zoneDat);
 			if (zone == null) {
 				zone = new GOTConquestZone(i, k);
 			}
-			zoneMap.put(key, zone);
+			ZONE_MAP.put(key, zone);
 		}
 		return zone;
 	}
@@ -254,8 +254,8 @@ public class GOTConquestGrid {
 
 	public static void loadAllZones() {
 		try {
-			zoneMap.clear();
-			dirtyZones.clear();
+			ZONE_MAP.clear();
+			DIRTY_ZONES.clear();
 			File dir = getConquestDir();
 			if (dir.exists()) {
 				for (File zoneDat : dir.listFiles()) {
@@ -264,11 +264,11 @@ public class GOTConquestGrid {
 						continue;
 					}
 					GridCoordPair key = GridCoordPair.forZone(zone);
-					zoneMap.put(key, zone);
+					ZONE_MAP.put(key, zone);
 				}
 			}
 			needsLoad = false;
-			FMLLog.info("Hummel009: Loaded %s conquest zones", zoneMap.size());
+			FMLLog.info("Hummel009: Loaded %s conquest zones", ZONE_MAP.size());
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT conquest zones");
 			e.printStackTrace();
@@ -295,8 +295,8 @@ public class GOTConquestGrid {
 
 	public static void markZoneDirty(GOTConquestZone zone) {
 		GridCoordPair key = GridCoordPair.forZone(zone);
-		if (zoneMap.containsKey(key)) {
-			dirtyZones.add(key);
+		if (ZONE_MAP.containsKey(key)) {
+			DIRTY_ZONES.add(key);
 		}
 	}
 
@@ -313,8 +313,8 @@ public class GOTConquestGrid {
 	public static void saveChangedZones() {
 		try {
 			Collection<GridCoordPair> removes = new HashSet<>();
-			for (GridCoordPair key : dirtyZones) {
-				GOTConquestZone zone = zoneMap.get(key);
+			for (GridCoordPair key : DIRTY_ZONES) {
+				GOTConquestZone zone = ZONE_MAP.get(key);
 				if (zone == null) {
 					continue;
 				}
@@ -324,9 +324,9 @@ public class GOTConquestGrid {
 				}
 				removes.add(key);
 			}
-			dirtyZones.clear();
+			DIRTY_ZONES.clear();
 			for (GridCoordPair key : removes) {
-				zoneMap.remove(key);
+				ZONE_MAP.remove(key);
 			}
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT conquest zones");
@@ -354,7 +354,7 @@ public class GOTConquestGrid {
 	}
 
 	public static void sendConquestGridTo(EntityPlayerMP entityplayer, GOTFaction fac) {
-		IMessage pkt = new GOTPacketConquestGrid(fac, zoneMap.values(), entityplayer.worldObj);
+		IMessage pkt = new GOTPacketConquestGrid(fac, ZONE_MAP.values(), entityplayer.worldObj);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(pkt, entityplayer);
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (fac == pd.getPledgeFaction()) {
@@ -367,7 +367,7 @@ public class GOTConquestGrid {
 		if (conquestEnabled(world) && (srv = MinecraftServer.getServer()) != null) {
 			int tick = srv.getTickCounter();
 			int interval = 6000;
-			for (GOTConquestZone zone : zoneMap.values()) {
+			for (GOTConquestZone zone : ZONE_MAP.values()) {
 				if (zone.isEmpty() || IntMath.mod(tick, interval) != IntMath.mod(zone.hashCode(), interval)) {
 					continue;
 				}

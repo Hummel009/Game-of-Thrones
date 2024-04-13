@@ -16,6 +16,7 @@ import java.util.List;
 public abstract class GOTBlockBrickBase extends Block {
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] brickIcons;
+
 	protected String[] brickNames;
 
 	protected GOTBlockBrickBase() {
@@ -57,14 +58,5 @@ public abstract class GOTBlockBrickBase extends Block {
 		for (int i = 0; i < brickNames.length; ++i) {
 			brickIcons[i] = iconregister.registerIcon(getTextureName() + '_' + brickNames[i]);
 		}
-	}
-
-	@SuppressWarnings("unused")
-	protected String[] getBrickNames() {
-		return brickNames;
-	}
-
-	protected void setBrickNames(String... names) {
-		brickNames = names;
 	}
 }

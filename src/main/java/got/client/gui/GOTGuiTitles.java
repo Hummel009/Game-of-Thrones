@@ -18,7 +18,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
-public class GOTGuiTitles extends GOTGuiMenuWBBase {
+public class GOTGuiTitles extends GOTGuiMenuBase {
 	private static final int COLOR_BOX_WIDTH = 8;
 	private static final int SCROLL_BAR_WIDTH = 11;
 	private static final int SCROLL_BAR_HEIGHT = 144;
@@ -65,9 +65,9 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		String titleName = currentTitle == null ? StatCollector.translateToLocal("got.gui.titles.currentTitle.none") : currentTitle.getTitle().getDisplayName(mc.thePlayer);
 		EnumChatFormatting currentColor = currentTitle == null ? EnumChatFormatting.WHITE : currentTitle.getColor();
 		titleName = currentColor + titleName + EnumChatFormatting.RESET;
-		drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.titles.currentTitle", titleName), guiLeft + xSize / 2, guiTop, 16777215);
+		drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.titles.currentTitle", titleName), guiLeft + sizeX / 2, guiTop, 16777215);
 		displayedTitleInfo.clear();
-		int titleX = guiLeft + xSize / 2;
+		int titleX = guiLeft + sizeX / 2;
 		int titleY = guiTop + 30;
 		int yIncrement = 12;
 		drawVerticalLine(titleX - 70, titleY - 1, titleY + yIncrement * 12, -1711276033);
@@ -106,7 +106,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		displayedColorBoxes.clear();
 		if (selectedTitle != null) {
 			String title = selectedColor + selectedTitle.getDisplayName(mc.thePlayer);
-			drawCenteredString(title, guiLeft + xSize / 2, guiTop + 185, 16777215);
+			drawCenteredString(title, guiLeft + sizeX / 2, guiTop + 185, 16777215);
 			Collection<EnumChatFormatting> colorCodes = new ArrayList<>();
 			for (EnumChatFormatting ecf : EnumChatFormatting.values()) {
 				if (ecf.isColor()) {
@@ -114,7 +114,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 				}
 			}
 			int colorBoxGap = 4;
-			int colorX = guiLeft + xSize / 2 - (COLOR_BOX_WIDTH * colorCodes.size() + colorBoxGap * (colorCodes.size() - 1)) / 2;
+			int colorX = guiLeft + sizeX / 2 - (COLOR_BOX_WIDTH * colorCodes.size() + colorBoxGap * (colorCodes.size() - 1)) / 2;
 			int colorY = guiTop + 200;
 			for (EnumChatFormatting code : colorCodes) {
 				int color = GOTReflectionClient.getFormattingColor(code);
@@ -174,15 +174,15 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 
 	@Override
 	public void initGui() {
-		xSize = 256;
+		sizeX = 256;
 		super.initGui();
-		guiLeft = (width - xSize) / 2 + 100;
-		guiTop = (height - ySize) / 2 + 20;
-		selectButton = new GOTGuiButton(0, guiLeft + xSize / 2 - 290, guiTop + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.select"));
+		guiLeft = (width - sizeX) / 2 + 100;
+		guiTop = (height - sizeY) / 2 + 20;
+		selectButton = new GOTGuiButton(0, guiLeft + sizeX / 2 - 290, guiTop + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.select"));
 		buttonList.add(selectButton);
-		removeButton = new GOTGuiButton(1, guiLeft + xSize / 2 - 200, guiTop + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.remove"));
+		removeButton = new GOTGuiButton(1, guiLeft + sizeX / 2 - 200, guiTop + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.remove"));
 		buttonList.add(removeButton);
-		goBack = new GOTGuiButton(2, guiLeft + xSize / 2 - 290, guiTop + 120, 170, 20, StatCollector.translateToLocal("got.gui.menuButton"));
+		goBack = new GOTGuiButton(2, guiLeft + sizeX / 2 - 290, guiTop + 120, 170, 20, StatCollector.translateToLocal("got.gui.menuButton"));
 		buttonList.add(goBack);
 		updateScreen();
 	}

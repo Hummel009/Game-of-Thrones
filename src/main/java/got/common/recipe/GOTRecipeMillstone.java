@@ -86,7 +86,7 @@ public class GOTRecipeMillstone {
 		private final ItemStack resultItem;
 		private final float chance;
 
-		protected MillstoneResult(ItemStack itemstack, float f) {
+		private MillstoneResult(ItemStack itemstack, float f) {
 			resultItem = itemstack;
 			chance = f;
 		}

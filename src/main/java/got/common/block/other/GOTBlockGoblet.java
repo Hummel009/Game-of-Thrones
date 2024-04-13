@@ -6,7 +6,7 @@ import got.common.database.GOTBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 
-public class GOTBlockGoblet extends GOTBlockMug {
+public abstract class GOTBlockGoblet extends GOTBlockMug {
 	protected GOTBlockGoblet() {
 		super(2.5f, 9.0f);
 		setStepSound(soundTypeMetal);
@@ -47,5 +47,4 @@ public class GOTBlockGoblet extends GOTBlockMug {
 			return Blocks.planks.getIcon(i, 0);
 		}
 	}
-
 }

@@ -70,13 +70,4 @@ public abstract class GOTBlockOreStorageBase extends Block {
 			oreStorageIcons[i] = iconregister.registerIcon(getTextureName() + '_' + oreStorageNames[i]);
 		}
 	}
-
-	@SuppressWarnings("unused")
-	public String[] getOreStorageNames() {
-		return oreStorageNames;
-	}
-
-	protected void setOreStorageNames(String... names) {
-		oreStorageNames = names;
-	}
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
-public class GOTGuiLanguages extends GOTGuiMenuWBBase {
+public class GOTGuiLanguages extends GOTGuiMenuBase {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -68,7 +68,7 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 		String s1 = StatCollector.translateToLocal("got.gui.languages");
 		fontRendererObj.drawString(s1, guiLeft + 100 - fontRendererObj.getStringWidth(s1) / 2, guiTop + 10, 16777215);
 		String s2 = StatCollector.translateToLocal("got.gui.languages.guide1") + ' ' + GOT.LANGUAGES + StatCollector.translateToLocal("got.gui.languages.guide2");
-		int x = guiLeft + xSize / 2;
+		int x = guiLeft + sizeX / 2;
 		int y = guiTop + 40;
 		for (Object element : fontRendererObj.listFormattedStringToWidth(s2, 220)) {
 			s2 = (String) element;
@@ -86,8 +86,8 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 	@Override
 	public void initGui() {
 		super.initGui();
-		guiTop = (height - ySize) / 2 + 10;
-		int buttonX = guiLeft + xSize / 2 - 100;
+		guiTop = (height - sizeY) / 2 + 10;
+		int buttonX = guiLeft + sizeX / 2 - 100;
 		int buttonY = guiTop + 40;
 
 		GOTGuiButton openFolder = new GOTGuiButton(1, buttonX, buttonY + 100, 200, 20, StatCollector.translateToLocal("got.gui.openFolder"));

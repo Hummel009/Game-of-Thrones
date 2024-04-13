@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.List;
 
-public class GOTGuiCapes extends GOTGuiMenuWBBase {
+public class GOTGuiCapes extends GOTGuiMenuBase {
 	private static final ModelBiped PLAYER_MODEL = new ModelBiped();
 
 	private static int currentCapeTypeID;
@@ -127,7 +127,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		GL11.glDisable(3553);
 		OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		int x = guiLeft + xSize / 2;
+		int x = guiLeft + sizeX / 2;
 		int y = guiTop + 145;
 		String s = currentCape.getCapeName();
 		drawCenteredString(s, x, y, 16777215);
@@ -154,23 +154,23 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 	@Override
 	public void initGui() {
 		super.initGui();
-		guiLeft = (width - xSize) / 2 + 100;
-		guiTop = (height - ySize) / 2;
-		modelX = guiLeft + xSize / 2;
+		guiLeft = (width - sizeX) / 2 + 100;
+		guiTop = (height - sizeY) / 2;
+		modelX = guiLeft + sizeX / 2;
 		modelY = guiTop + 40;
-		capeLeft = new GOTGuiButtonArrows(0, true, guiLeft + xSize / 2 - 64, guiTop + 207);
+		capeLeft = new GOTGuiButtonArrows(0, true, guiLeft + sizeX / 2 - 64, guiTop + 207);
 		buttonList.add(capeLeft);
-		capeSelect = new GOTGuiButton(1, guiLeft + xSize / 2 - 40, guiTop + 195, 80, 20, StatCollector.translateToLocal("got.gui.capes.select"));
+		capeSelect = new GOTGuiButton(1, guiLeft + sizeX / 2 - 40, guiTop + 195, 80, 20, StatCollector.translateToLocal("got.gui.capes.select"));
 		buttonList.add(capeSelect);
-		capeRight = new GOTGuiButtonArrows(2, false, guiLeft + xSize / 2 + 44, guiTop + 207);
+		capeRight = new GOTGuiButtonArrows(2, false, guiLeft + sizeX / 2 + 44, guiTop + 207);
 		buttonList.add(capeRight);
-		capeRemove = new GOTGuiButton(3, guiLeft + xSize / 2 - 40, guiTop + 219, 80, 20, StatCollector.translateToLocal("got.gui.capes.remove"));
+		capeRemove = new GOTGuiButton(3, guiLeft + sizeX / 2 - 40, guiTop + 219, 80, 20, StatCollector.translateToLocal("got.gui.capes.remove"));
 		buttonList.add(capeRemove);
-		changeCategory = new GOTGuiButton(4, guiLeft + xSize / 2 - 290, guiTop + 90, 160, 20, "");
+		changeCategory = new GOTGuiButton(4, guiLeft + sizeX / 2 - 290, guiTop + 90, 160, 20, "");
 		buttonList.add(changeCategory);
-		goBack = new GOTGuiButton(5, guiLeft + xSize / 2 - 290, guiTop + 150, 160, 20, StatCollector.translateToLocal("got.gui.menuButton"));
+		goBack = new GOTGuiButton(5, guiLeft + sizeX / 2 - 290, guiTop + 150, 160, 20, StatCollector.translateToLocal("got.gui.menuButton"));
 		buttonList.add(goBack);
-		goToShield = new GOTGuiButton(6, guiLeft + xSize / 2 - 290, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.shields"));
+		goToShield = new GOTGuiButton(6, guiLeft + sizeX / 2 - 290, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.shields"));
 		buttonList.add(goToShield);
 
 		GOTCapes equippedCape = getPlayerEquippedCape();

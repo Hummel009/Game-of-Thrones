@@ -17,7 +17,7 @@ import java.util.List;
 
 public class GOTBlockMetal extends GOTBlockOreStorageBase implements GOTConnectedBlock {
 	public GOTBlockMetal() {
-		setOreStorageNames("copper", "tin", "bronze", "silver", "valyrian", "copper", "copper", "copper", "copper", "copper", "copper", "copper", "copper", "sulfur", "saltpeter", "copper");
+		oreStorageNames = new String[]{"copper", "tin", "bronze", "silver", "valyrian", "copper", "copper", "copper", "copper", "copper", "copper", "copper", "copper", "sulfur", "saltpeter", "copper"};
 	}
 
 	@Override

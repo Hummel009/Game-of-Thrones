@@ -98,8 +98,8 @@ public class GOTAPI {
 		Class<?>[] classArr = {Integer.TYPE, String.class, GOTFaction.class};
 		Object[] args = {id, bannerName, faction};
 		GOTItemBanner.BannerType banner = EnumHelper.addEnum(GOTItemBanner.BannerType.class, enumName, classArr, args);
-		GOTItemBanner.BannerType.bannerForID.put(banner.getBannerID(), banner);
-		GOTItemBanner.BannerType.bannerTypes.add(banner);
+		GOTItemBanner.BannerType.BANNER_FOR_ID.put(banner.getBannerID(), banner);
+		GOTItemBanner.BannerType.BANNER_TYPES.add(banner);
 		return banner;
 	}
 

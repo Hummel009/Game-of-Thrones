@@ -10,7 +10,7 @@ public class GOTEnchantmentRangedKnockback extends GOTEnchantment {
 	public GOTEnchantmentRangedKnockback(String s, int i) {
 		super(s, GOTEnchantmentType.RANGED_LAUNCHER);
 		knockback = i;
-		setValueModifier((knockback + 2) / 2.0F);
+		valueModifier = (knockback + 2) / 2.0F;
 	}
 
 	@Override

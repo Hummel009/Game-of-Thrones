@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class GOTBlockLeaves4 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves4() {
-		setLeafNames("chestnut", "baobab", "cedar", "fir");
+		leafNames = new String[]{"chestnut", "baobab", "cedar", "fir"};
 	}
 
 	@Override

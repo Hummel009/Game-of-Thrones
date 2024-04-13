@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class GOTItemWaterPlant extends ItemBlock {
+public abstract class GOTItemWaterPlant extends ItemBlock {
 	protected GOTItemWaterPlant(Block block) {
 		super(block);
 	}

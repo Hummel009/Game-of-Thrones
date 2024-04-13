@@ -1,4 +1,4 @@
-package got.common.block.other;
+package got.common.block.brick;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockSmoothStoneV extends GOTBlockSmoothStoneBase {
 	public GOTBlockSmoothStoneV() {
-		setBrickNames("stone");
+		brickNames = new String[]{"stone"};
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
 

@@ -51,7 +51,7 @@ public class GOTItemCrossbow extends ItemBow {
 			bolt.setFire(100);
 		}
 		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
-			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
+			if (!ench.getApplyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
 				continue;
 			}
 			GOTEnchantmentHelper.setProjectileEnchantment(bolt, ench);

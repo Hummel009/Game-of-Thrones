@@ -13,9 +13,9 @@ public class GOTEnchantmentDamage extends GOTEnchantment {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE});
 		baseDamageBoost = boost;
 		if (baseDamageBoost >= 0.0F) {
-			setValueModifier((7.0F + baseDamageBoost * 5.0F) / 7.0F);
+			valueModifier = (7.0F + baseDamageBoost * 5.0F) / 7.0F;
 		} else {
-			setValueModifier((7.0F + baseDamageBoost) / 7.0F);
+			valueModifier = (7.0F + baseDamageBoost) / 7.0F;
 		}
 	}
 

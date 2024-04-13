@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class GOTBlockLeavesFruit extends GOTBlockLeavesBase {
 	public GOTBlockLeavesFruit() {
-		setLeafNames("apple", "pear", "cherry", "mango");
+		leafNames = new String[]{"apple", "pear", "cherry", "mango"};
 	}
 
 	@Override

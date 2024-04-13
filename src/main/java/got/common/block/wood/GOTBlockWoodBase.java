@@ -16,7 +16,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 	@SideOnly(Side.CLIENT)
 	private IIcon[][] woodIcons;
 
-	private String[] woodNames;
+	protected String[] woodNames;
 
 	protected GOTBlockWoodBase() {
 		setHardness(2.0f);
@@ -56,14 +56,5 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 			woodIcons[i][0] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_top");
 			woodIcons[i][1] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_side");
 		}
-	}
-
-	@SuppressWarnings("unused")
-	protected String[] getWoodNames() {
-		return woodNames;
-	}
-
-	protected void setWoodNames(String... s) {
-		woodNames = s;
 	}
 }

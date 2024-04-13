@@ -10,7 +10,7 @@ public class GOTEnchantmentToolSpeed extends GOTEnchantment {
 	public GOTEnchantmentToolSpeed(String s, float speed) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.TOOL, GOTEnchantmentType.SHEARS});
 		speedFactor = speed;
-		setValueModifier(speedFactor);
+		valueModifier = speedFactor;
 	}
 
 	@Override

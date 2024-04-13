@@ -2,12 +2,19 @@ package got.common.block.leaves;
 
 import got.common.database.GOTBlocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Random;
 
 public class GOTBlockLeaves2 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves2() {
-		setLeafNames("aramant", "beech", "holly", "banana");
+		leafNames = new String[]{"aramant", "beech", "holly", "banana"};
+	}
+
+	@Override
+	protected void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune) {
 	}
 
 	@Override

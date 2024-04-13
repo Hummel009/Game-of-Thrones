@@ -645,12 +645,12 @@ public class GOTContainerAnvil extends Container {
 					}
 					int numOutputMods = 0;
 					for (GOTEnchantment mod : outputMods) {
-						if (mod.bypassAnvilLimit()) {
+						if (mod.getBypassAnvilLimit()) {
 							continue;
 						}
 						++numOutputMods;
 					}
-					if (!combinerMod.bypassAnvilLimit() && numOutputMods >= maxMods) {
+					if (!combinerMod.getBypassAnvilLimit() && numOutputMods >= maxMods) {
 						canApply = false;
 					}
 					if (!canApply) {

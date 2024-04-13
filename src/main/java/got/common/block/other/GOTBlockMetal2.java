@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GOTBlockMetal2 extends GOTBlockOreStorageBase {
 	public GOTBlockMetal2() {
-		setOreStorageNames("gilded_iron", "gilded_iron", "gilded_iron", "salt", "alloy_steel");
+		oreStorageNames = new String[]{"gilded_iron", "gilded_iron", "gilded_iron", "salt", "alloy_steel"};
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GOTBlockPillar2 extends GOTBlockPillarBase {
 	public GOTBlockPillar2() {
-		setPillarNames("labradorite", "chalk", "stone", "brick", "stone", "stone", "stone", "stone", "yiti", "yiti_red", "stone", "sothoryos_gold", "sothoryos_obsidian", "stone", "stone");
+		pillarNames = new String[]{"labradorite", "chalk", "stone", "brick", "stone", "stone", "stone", "stone", "yiti", "yiti_red", "stone", "sothoryos_gold", "sothoryos_obsidian", "stone", "stone"};
 	}
 
 	@SideOnly(Side.CLIENT)

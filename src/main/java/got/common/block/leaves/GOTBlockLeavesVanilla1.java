@@ -3,14 +3,21 @@ package got.common.block.leaves;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTBlockLeavesVanilla1 extends GOTBlockLeavesBase {
 	public GOTBlockLeavesVanilla1() {
 		super(true, "got:leaves_v1");
-		setLeafNames("oak", "spruce", "birch", "jungle");
-		setSeasonal(true, false, true, false);
+		leafNames = new String[]{"oak", "spruce", "birch", "jungle"};
+	}
+
+	@Override
+	protected void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune) {
 	}
 
 	@SideOnly(Side.CLIENT)

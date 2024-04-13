@@ -2,6 +2,6 @@ package got.common.block.wbeam;
 
 public class GOTBlockWoodBeamV2 extends GOTBlockWoodBeam {
 	public GOTBlockWoodBeamV2() {
-		setWoodNames("acacia", "dark_oak");
+		woodNames = new String[]{"acacia", "dark_oak"};
 	}
 }

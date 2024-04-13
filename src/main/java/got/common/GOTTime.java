@@ -14,6 +14,7 @@ import java.nio.file.Files;
 
 public class GOTTime {
 	public static final int DAY_LENGTH = 48000;
+
 	private static long totalTime;
 	private static long worldTime;
 

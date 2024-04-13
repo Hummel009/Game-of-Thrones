@@ -122,9 +122,8 @@ public class GOTCommandDragon extends CommandBase {
 		void modify(GOTEntityDragon dragon);
 	}
 
-	public static class LifeStageModifier implements EntityModifier {
-
-		protected GOTDragonLifeStage lifeStage;
+	private static class LifeStageModifier implements EntityModifier {
+		private final GOTDragonLifeStage lifeStage;
 
 		LifeStageModifier(GOTDragonLifeStage lifeStage) {
 			this.lifeStage = lifeStage;
@@ -140,9 +139,8 @@ public class GOTCommandDragon extends CommandBase {
 		}
 	}
 
-	public static class TameModifier implements EntityModifier {
-
-		protected EntityPlayerMP player;
+	private static class TameModifier implements EntityModifier {
+		private final EntityPlayerMP player;
 
 		TameModifier(EntityPlayerMP player) {
 			this.player = player;

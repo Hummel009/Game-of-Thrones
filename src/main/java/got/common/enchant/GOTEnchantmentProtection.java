@@ -9,19 +9,19 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentProtection extends GOTEnchantment {
 	private final int protectLevel;
 
+	@SuppressWarnings("unused")
+	public GOTEnchantmentProtection(String s, int level) {
+		this(s, GOTEnchantmentType.ARMOR, level);
+	}
+
 	private GOTEnchantmentProtection(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
 		protectLevel = level;
 		if (protectLevel >= 0) {
-			setValueModifier((2.0F + protectLevel) / 2.0F);
+			valueModifier = (2.0F + protectLevel) / 2.0F;
 		} else {
-			setValueModifier((4.0F + protectLevel) / 4.0F);
+			valueModifier = (4.0F + protectLevel) / 4.0F;
 		}
-	}
-
-	@SuppressWarnings("unused")
-	public GOTEnchantmentProtection(String s, int level) {
-		this(s, GOTEnchantmentType.ARMOR, level);
 	}
 
 	@Override
