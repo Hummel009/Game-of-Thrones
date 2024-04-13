@@ -261,7 +261,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBaseReturn {
 	}
 
 	private void updateAchievementLists() {
-		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
+		currentDimension = GOTDimension.GAME_OF_THRONES;
 		if (currentDimension != prevDimension) {
 			currentCategory = currentDimension.getAchievementCategories().get(0);
 		}

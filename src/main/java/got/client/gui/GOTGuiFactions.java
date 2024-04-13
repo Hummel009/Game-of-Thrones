@@ -171,7 +171,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		if (!isPledging && !isUnpledging) {
 			buttonPagePrev.enabled = currentPage.prev() != null;
 			buttonPageNext.enabled = currentPage.next() != null;
-			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableAlignmentFaction() && GOTDimension.getCurrentDimension(mc.theWorld) == currentFaction.getFactionDimension();
+			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableAlignmentFaction() && currentFaction.getFactionDimension() == GOTDimension.GAME_OF_THRONES;
 			buttonFactionMap.visible = buttonFactionMap.enabled;
 			if (!GOTFaction.controlZonesEnabled(mc.theWorld)) {
 				buttonFactionMap.enabled = false;
@@ -532,7 +532,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		buttonPledgeRevoke = new GOTGuiButtonPledge(this, 6, guiLeft + PAGE_WIDTH / 2 - 16, guiTop + PAGE_Y + PAGE_HEIGHT - 50, "");
 		buttonList.add(buttonPledgeRevoke);
 		buttonPledgeRevoke.setBroken(true);
-		prevDimension = currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
+		prevDimension = currentDimension = GOTDimension.GAME_OF_THRONES;
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 		prevRegion = currentRegion = currentFaction.getFactionRegion();
 		currentFactionList = currentRegion.getFactionList();
@@ -678,7 +678,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 			currentFaction = currentFactionList.get(currentFactionIndex);
 		}
 		prevFactionIndex = currentFactionIndex;
-		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
+		currentDimension = GOTDimension.GAME_OF_THRONES;
 		if (currentDimension != prevDimension) {
 			currentRegion = currentDimension.getDimensionRegions().get(0);
 		}

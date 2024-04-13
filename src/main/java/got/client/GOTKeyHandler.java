@@ -24,6 +24,8 @@ import java.util.Map;
 
 @SuppressWarnings("WeakerAccess")
 public class GOTKeyHandler {
+	public static final GOTKeyHandler INSTANCE = new GOTKeyHandler();
+
 	public static final KeyBinding KEY_BINDING_MENU = new KeyBinding("Menu", 38, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_MAP_TELEPORT = new KeyBinding("Map Teleport", 50, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_FAST_TRAVEL = new KeyBinding("Fast Travel", 33, "Game of Thrones");
@@ -42,7 +44,7 @@ public class GOTKeyHandler {
 
 	private final GOTPacketDragonControl dcm = new GOTPacketDragonControl();
 
-	public GOTKeyHandler() {
+	static {
 		ClientRegistry.registerKeyBinding(KEY_BINDING_MENU);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_MAP_TELEPORT);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_FAST_TRAVEL);
@@ -71,7 +73,7 @@ public class GOTKeyHandler {
 		boolean usedAlignmentKeys = false;
 		boolean skippedHelp = false;
 		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
-		GOTDimension currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
+		GOTDimension currentDimension = GOTDimension.GAME_OF_THRONES;
 		GOTFaction currentFaction = pd.getViewingFaction();
 		GOTDimension.DimensionRegion currentRegion = currentFaction.getFactionRegion();
 		List<GOTDimension.DimensionRegion> regionList = currentDimension.getDimensionRegions();
@@ -133,7 +135,7 @@ public class GOTKeyHandler {
 	}
 
 	@SubscribeEvent
-	public void MouseInputEvent(InputEvent.MouseInputEvent event) {
+	public void onMouseInput(InputEvent.MouseInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
 	}
 

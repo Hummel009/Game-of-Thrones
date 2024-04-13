@@ -337,20 +337,20 @@ public class GOTPlayerData {
 							biomes++;
 						}
 					}
-					if (biomes >= 10) {
-						addAchievement(GOTAchievement.travel10);
-					}
 					if (biomes >= 20) {
 						addAchievement(GOTAchievement.travel20);
-					}
-					if (biomes >= 30) {
-						addAchievement(GOTAchievement.travel30);
 					}
 					if (biomes >= 40) {
 						addAchievement(GOTAchievement.travel40);
 					}
-					if (biomes >= 50) {
-						gotAchievement = GOTAchievement.travel50;
+					if (biomes >= 60) {
+						addAchievement(GOTAchievement.travel60);
+					}
+					if (biomes >= 80) {
+						addAchievement(GOTAchievement.travel80);
+					}
+					if (biomes >= 100) {
+						gotAchievement = GOTAchievement.travel100;
 						continue;
 					}
 				}
@@ -2027,7 +2027,7 @@ public class GOTPlayerData {
 	public void onUpdate(EntityPlayerMP entityplayer, WorldServer world) {
 		pdTick++;
 		GOTDimension.DimensionRegion currentRegion = viewingFaction.getFactionRegion();
-		GOTDimension currentDim = GOTDimension.getCurrentDimensionWithFallback(world);
+		GOTDimension currentDim = GOTDimension.GAME_OF_THRONES;
 		if (currentRegion.getDimension() != currentDim) {
 			currentRegion = currentDim.getDimensionRegions().get(0);
 			setViewingFaction(getRegionLastViewedFaction(currentRegion));

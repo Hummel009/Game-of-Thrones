@@ -59,7 +59,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 	@Override
 	public void drawScreen(int i, int j, float f) {
 		drawDefaultBackground();
-		String title = StatCollector.translateToLocalFormatted("got.gui.menu", GOTDimension.getCurrentDimension(mc.theWorld).getDimensionName());
+		String title = StatCollector.translateToLocalFormatted("got.gui.menu", GOTDimension.GAME_OF_THRONES.getTranslatedDimensionName());
 		fontRendererObj.drawStringWithShadow(title, width / 2 - fontRendererObj.getStringWidth(title) / 2, height / 2 - 80, 16777215);
 		super.drawScreen(i, j, f);
 		for (Object obj : buttonList) {

@@ -174,7 +174,7 @@ public class GOTWorldProvider extends WorldProvider {
 				biomeID = biomegenbase.biomeID;
 				chunk.getBiomeArray()[chunkZ << 4 | chunkX] = (byte) (biomeID & 0xFF);
 			}
-			GOTDimension dim = getGOTDimension();
+			GOTDimension dim = GOTDimension.GAME_OF_THRONES;
 			return dim.getBiomeList()[dim.getBiomeList()[biomeID] == null ? 0 : biomeID];
 		}
 		return worldChunkMgr.getBiomeGenAt(i, k);
@@ -200,12 +200,12 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public String getDepartMessage() {
-		return StatCollector.translateToLocalFormatted("got.dimension.exit", getGOTDimension().getDimensionName());
+		return StatCollector.translateToLocalFormatted("got.dimension.exit", GOTDimension.GAME_OF_THRONES.getTranslatedDimensionName());
 	}
 
 	@Override
 	public String getDimensionName() {
-		return getGOTDimension().getDimensionName();
+		return GOTDimension.GAME_OF_THRONES.getDimensionName();
 	}
 
 	@Override
@@ -244,10 +244,6 @@ public class GOTWorldProvider extends WorldProvider {
 		return Vec3.createVectorHelper(fogR, fogG, fogB);
 	}
 
-	public GOTDimension getGOTDimension() {
-		return GOTDimension.GAME_OF_THRONES;
-	}
-
 	@Override
 	public int getMoonPhase(long time) {
 		return getGOTMoonPhase();
@@ -255,7 +251,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public String getSaveFolder() {
-		return getGOTDimension().getDimensionName();
+		return GOTDimension.GAME_OF_THRONES.getDimensionName();
 	}
 
 	@Override
@@ -286,7 +282,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public String getWelcomeMessage() {
-		return StatCollector.translateToLocalFormatted("got.dimension.enter", getGOTDimension().getDimensionName());
+		return StatCollector.translateToLocalFormatted("got.dimension.enter", GOTDimension.GAME_OF_THRONES.getTranslatedDimensionName());
 	}
 
 	public float[] handleFinalFogColors(float[] rgb) {
@@ -332,8 +328,8 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public void registerWorldChunkManager() {
-		worldChunkMgr = new GOTWorldChunkManager(worldObj, getGOTDimension());
-		dimensionId = getGOTDimension().getDimensionID();
+		worldChunkMgr = new GOTWorldChunkManager(worldObj, GOTDimension.GAME_OF_THRONES);
+		dimensionId = GOTDimension.GAME_OF_THRONES.getDimensionID();
 	}
 
 	@Override

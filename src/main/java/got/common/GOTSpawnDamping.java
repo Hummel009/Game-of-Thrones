@@ -24,9 +24,9 @@ public class GOTSpawnDamping {
 	private GOTSpawnDamping() {
 	}
 
-	public static int getBaseSpawnCapForInfo(String type, World world) {
+	public static int getBaseSpawnCapForInfo(String type) {
 		if (type.equals(TYPE_NPC)) {
-			return GOTDimension.getCurrentDimension(world).getSpawnCap();
+			return GOTDimension.GAME_OF_THRONES.getSpawnCap();
 		}
 		EnumCreatureType creatureType = EnumCreatureType.valueOf(type);
 		return creatureType.getMaxNumberOfCreature();
@@ -41,7 +41,7 @@ public class GOTSpawnDamping {
 	}
 
 	public static int getNPCSpawnCap(World world) {
-		return getSpawnCap(TYPE_NPC, GOTDimension.getCurrentDimension(world).getSpawnCap(), world);
+		return getSpawnCap(TYPE_NPC, GOTDimension.GAME_OF_THRONES.getSpawnCap(), world);
 	}
 
 	public static int getSpawnCap(String type, int baseCap, int players) {

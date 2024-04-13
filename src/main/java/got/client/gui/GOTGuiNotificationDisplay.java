@@ -20,16 +20,17 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class GOTGuiNotificationDisplay extends Gui {
+	public static final GOTGuiNotificationDisplay INSTANCE = new GOTGuiNotificationDisplay();
+
 	private static final RenderItem RENDER_ITEM = new RenderItem();
 
-	private final Minecraft mc;
+	private final Minecraft mc = Minecraft.getMinecraft();
 	private final Collection<Notification> notifications = new ArrayList<>();
 	private final Collection<Notification> notificationsToRemove = new HashSet<>();
 
 	private int windowWidth;
 
-	public GOTGuiNotificationDisplay() {
-		mc = Minecraft.getMinecraft();
+	private GOTGuiNotificationDisplay() {
 	}
 
 	public void queueAchievement(GOTAchievement achievement) {

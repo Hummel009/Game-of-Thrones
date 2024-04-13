@@ -12,13 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTEffectRenderer {
-	private final Minecraft mc;
+	public static final GOTEffectRenderer INSTANCE = new GOTEffectRenderer();
+
+	private final Minecraft mc = Minecraft.getMinecraft();
+
+	private GOTEffectRenderer() {
+	}
 
 	private List<EntityFX>[] particleLayers = new List[0];
-
-	public GOTEffectRenderer(Minecraft minecraft) {
-		mc = minecraft;
-	}
 
 	public void addEffect(EntityFX entityfx) {
 		List<EntityFX> layerList;

@@ -8,29 +8,22 @@ import got.common.item.other.GOTItemAnimalJar;
 import got.common.item.weapon.GOTItemBow;
 import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSword;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
+	public static final GOTItemRendererManager INSTANCE = new GOTItemRendererManager();
+
 	private static final Collection<GOTRenderLargeItem> LARGE_ITEM_RENDERERS = new ArrayList<>();
 
-	public static void preInit() {
-		Minecraft mc = Minecraft.getMinecraft();
-		IResourceManager resMgr = mc.getResourceManager();
-		IResourceManagerReloadListener reloadListener = new GOTItemRendererManager();
-		reloadListener.onResourceManagerReload(resMgr);
-		((IReloadableResourceManager) resMgr).registerReloadListener(reloadListener);
-		MinecraftForge.EVENT_BUS.register(reloadListener);
+	private GOTItemRendererManager() {
 	}
 
 	@Override

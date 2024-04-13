@@ -12,16 +12,21 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.GameSettings;
 
 public class GOTThirdPersonViewer {
+	public static final GOTThirdPersonViewer INSTANCE = new GOTThirdPersonViewer();
+
 	private static final String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
 
 	private final Minecraft mc = Minecraft.getMinecraft();
-	private final float defaultThirdPersonDistance;
 
+	private float defaultThirdPersonDistance;
 	private int noticeTicks;
 	private boolean ridingDragonPrev;
 	private boolean ridingMammothPrev;
 
-	public GOTThirdPersonViewer() {
+	private GOTThirdPersonViewer() {
+	}
+
+	public void init() {
 		defaultThirdPersonDistance = getThirdPersonDistance();
 	}
 

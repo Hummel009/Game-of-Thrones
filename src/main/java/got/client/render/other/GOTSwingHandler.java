@@ -1,6 +1,5 @@
 package got.client.render.other;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.client.GOTAttackTiming;
@@ -12,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
 import java.util.ArrayList;
@@ -21,14 +19,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTSwingHandler {
+	public static final GOTSwingHandler INSTANCE = new GOTSwingHandler();
+
 	private static final Map<EntityLivingBase, SwingTime> ENTITY_SWINGS = new HashMap<>();
 	private static final float SWING_FACTOR = 0.8f;
-
-	@SuppressWarnings("unused")
-	public GOTSwingHandler() {
-		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {

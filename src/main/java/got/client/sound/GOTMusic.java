@@ -23,7 +23,6 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.sound.PlaySoundEvent17;
-import net.minecraftforge.common.MinecraftForge;
 import org.apache.commons.io.input.BOMInputStream;
 
 import java.io.*;
@@ -33,6 +32,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTMusic implements IResourceManagerReloadListener {
+	public static final GOTMusic INSTANCE = new GOTMusic();
+
 	private static final String MUSIC_RESOURCE_PATH = "musicpacks";
 	private static final Collection<GOTMusicTrack> ALL_TRACKS = new ArrayList<>();
 	private static final Map<GOTMusicRegion.Sub, GOTRegionTrackPool> REGION_TRACKS = new HashMap<>();
@@ -41,9 +42,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	private static File musicDir;
 	private static boolean initSubregions;
 
-	public GOTMusic() {
-		((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(this);
-		MinecraftForge.EVENT_BUS.register(this);
+	private GOTMusic() {
 	}
 
 	public static void addTrackToRegions(GOTMusicTrack track) {

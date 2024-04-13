@@ -73,7 +73,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 					float damping = GOTSpawnDamping.getSpawnDamping(type);
 					int players = world.playerEntities.size();
 					int expectedChunks = 196;
-					int baseCap = GOTSpawnDamping.getBaseSpawnCapForInfo(type, world);
+					int baseCap = GOTSpawnDamping.getBaseSpawnCapForInfo(type);
 					int cap = GOTSpawnDamping.getSpawnCap(type, baseCap, players);
 					int capXPlayers = cap * players;
 					IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.command.spawnDamping.calc", dim, dimName, type, damping, players, expectedChunks, cap, baseCap, capXPlayers);

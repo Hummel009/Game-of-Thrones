@@ -139,7 +139,7 @@ public class GOTTickHandlerServer {
 						GOTWorldInfo lOTRWorldInfo = new GOTWorldInfo(world.getWorldInfo());
 						lOTRWorldInfo.setWorldName(prevWorldInfo.getWorldName());
 						GOTReflection.setWorldInfo(dimWorld, lOTRWorldInfo);
-						FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimensionWithFallback(dimWorld).getDimensionName());
+						FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.GAME_OF_THRONES.getDimensionName());
 					}
 				}
 			}

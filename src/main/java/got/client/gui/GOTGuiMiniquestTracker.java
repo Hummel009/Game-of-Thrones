@@ -17,12 +17,17 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiMiniquestTracker extends Gui {
+	public static final GOTGuiMiniquestTracker INSTANCE = new GOTGuiMiniquestTracker();
+
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/quest/tracker.png");
 	private static final RenderItem RENDER_ITEM = new RenderItem();
 
 	private GOTMiniQuest trackedQuest;
 	private boolean holdingComplete;
 	private int completeTime;
+
+	private GOTGuiMiniquestTracker() {
+	}
 
 	public void drawTracker(Minecraft mc, EntityPlayer entityplayer) {
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);

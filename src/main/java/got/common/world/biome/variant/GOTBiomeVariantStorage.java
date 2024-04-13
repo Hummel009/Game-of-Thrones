@@ -24,7 +24,7 @@ public class GOTBiomeVariantStorage {
 
 	public static void clearAllVariants(World world) {
 		getDimensionChunkMap(world).clear();
-		FMLLog.info("Unloading GOT biome variants in %s", GOTDimension.getCurrentDimension(world).getDimensionName());
+		FMLLog.info("Unloading GOT biome variants in %s", GOTDimension.GAME_OF_THRONES.getDimensionName());
 	}
 
 	public static void clearChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
@@ -46,7 +46,7 @@ public class GOTBiomeVariantStorage {
 	private static Map<ChunkCoordIntPair, byte[]> getDimensionChunkMap(World world) {
 		GOTDimension dim;
 		Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> sourcemap = world.isRemote ? CHUNK_VARIANT_MAP_CLIENT : CHUNK_VARIANT_MAP;
-		Map<ChunkCoordIntPair, byte[]> map = sourcemap.get(dim = GOTDimension.getCurrentDimension(world));
+		Map<ChunkCoordIntPair, byte[]> map = sourcemap.get(dim = GOTDimension.GAME_OF_THRONES);
 		if (map == null) {
 			map = new HashMap<>();
 			sourcemap.put(dim, map);

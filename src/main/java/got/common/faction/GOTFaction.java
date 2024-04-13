@@ -619,7 +619,7 @@ public enum GOTFaction {
 	}
 
 	private boolean isFactionDimension(World world) {
-		return world.provider instanceof GOTWorldProvider && ((GOTWorldProvider) world.provider).getGOTDimension() == factionDimension;
+		return world.provider instanceof GOTWorldProvider && factionDimension == GOTDimension.GAME_OF_THRONES;
 	}
 
 	public boolean isGoodRelation(GOTFaction other) {

@@ -1177,16 +1177,16 @@ got.achievement.KILL_THEON_GREYJOY.desc=Eziyet Theon Greyjoy
 got.achievement.KILL_THEON_GREYJOY.title=Bu sadece bir sosis
 got.achievement.TRADE.desc=Biriyle ticaret yapmak
 got.achievement.TRADE.title=Bir iş kurmak
-got.achievement.TRAVEL10.desc=10 biyomu ziyaret edin
-got.achievement.TRAVEL10.title=Gezgin ben
-got.achievement.TRAVEL20.desc=20 biyomu ziyaret edin
-got.achievement.TRAVEL20.title=Gezgin II
-got.achievement.TRAVEL30.desc=30 biyomu ziyaret edin
-got.achievement.TRAVEL30.title=Gezgin III
-got.achievement.TRAVEL40.desc=40 biyomu ziyaret edin
-got.achievement.TRAVEL40.title=Gezgin IV
-got.achievement.TRAVEL50.desc=50 biyomu ziyaret edin
-got.achievement.TRAVEL50.title=Gezgin V
+got.achievement.TRAVEL20.desc≠Visit 20 biomes
+got.achievement.TRAVEL20.title≠Traveller I
+got.achievement.TRAVEL40.desc≠Visit 40 biomes
+got.achievement.TRAVEL40.title≠Traveller II
+got.achievement.TRAVEL60.desc≠Visit 60 biomes
+got.achievement.TRAVEL60.title≠Traveller III
+got.achievement.TRAVEL80.desc≠Visit 80 biomes
+got.achievement.TRAVEL80.title≠Traveller IV
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc=Gereksiz ekipman
 got.achievement.UNSMELT.title=Kullanım
 got.achievement.USE_CROSSBOW.desc=Kundaklı Yay Kullan

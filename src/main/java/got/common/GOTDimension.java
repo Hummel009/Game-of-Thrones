@@ -5,7 +5,6 @@ import got.common.faction.GOTFaction;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.DimensionManager;
 
@@ -51,22 +50,6 @@ public enum GOTDimension {
 		return null;
 	}
 
-	public static GOTDimension getCurrentDimension(World world) {
-		WorldProvider provider;
-		if (world != null && (provider = world.provider) instanceof GOTWorldProvider) {
-			return ((GOTWorldProvider) provider).getGOTDimension();
-		}
-		return GAME_OF_THRONES;
-	}
-
-	public static GOTDimension getCurrentDimensionWithFallback(World world) {
-		GOTDimension dim = getCurrentDimension(world);
-		if (dim == null) {
-			return GAME_OF_THRONES;
-		}
-		return dim;
-	}
-
 	public static void onInit() {
 		for (GOTDimension dim : values()) {
 			DimensionManager.registerProviderType(dim.dimensionID, dim.providerClass, dim.loadSpawn);
@@ -75,6 +58,10 @@ public enum GOTDimension {
 	}
 
 	public String getDimensionName() {
+		return dimensionName;
+	}
+
+	public String getTranslatedDimensionName() {
 		return StatCollector.translateToLocal(getUntranslatedDimensionName());
 	}
 

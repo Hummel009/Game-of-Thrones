@@ -1,18 +1,18 @@
 package got.client;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
 import got.client.effect.GOTEntityDeadMarshFace;
-import got.client.gui.*;
+import got.client.gui.GOTGuiMap;
+import got.client.gui.GOTGuiMenu;
+import got.client.gui.GOTGuiMessage;
 import got.client.model.GOTModelCompass;
 import got.client.render.other.GOTCloudRenderer;
 import got.client.render.other.GOTNPCRendering;
 import got.client.render.other.GOTRenderNorthernLights;
-import got.client.sound.GOTAmbience;
 import got.client.sound.GOTMusicTicker;
 import got.client.sound.GOTMusicTrack;
 import got.common.*;
@@ -77,7 +77,6 @@ import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import org.lwjgl.opengl.GL11;
@@ -85,6 +84,8 @@ import org.lwjgl.opengl.GL11;
 import java.util.*;
 
 public class GOTTickHandlerClient {
+	public static final GOTTickHandlerClient INSTANCE = new GOTTickHandlerClient();
+
 	public static final Map<EntityPlayer, Integer> PLAYERS_IN_PORTALS = new HashMap<>();
 	public static final GOTInvasionStatus WATCHED_INVASION = new GOTInvasionStatus();
 
@@ -101,11 +102,6 @@ public class GOTTickHandlerClient {
 	private static float renderTick;
 	private static boolean anyWightsViewed;
 	private static boolean renderMenuPrompt;
-
-	private static GOTGuiMiniquestTracker miniquestTracker;
-	private static GOTGuiNotificationDisplay notificationDisplay;
-
-	private final GOTAmbience ambienceTicker;
 
 	private GuiScreen lastGuiOpen;
 	private int mistTick;
@@ -138,16 +134,10 @@ public class GOTTickHandlerClient {
 	private ItemStack lastHighlightedItemstack;
 	private String highlightedItemstackName;
 
-	private boolean cancelItemHighlight;
-
-	@SuppressWarnings("unused")
-	public GOTTickHandlerClient() {
-		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
-		ambienceTicker = new GOTAmbience();
-		notificationDisplay = new GOTGuiNotificationDisplay();
-		miniquestTracker = new GOTGuiMiniquestTracker();
+	private GOTTickHandlerClient() {
 	}
+
+	private boolean cancelItemHighlight;
 
 	public static void drawAlignmentText(FontRenderer f, int x, int y, String s, float alphaF) {
 		drawBorderedText(f, x, y, s, 16772620, alphaF);
@@ -372,14 +362,6 @@ public class GOTTickHandlerClient {
 
 	public static void setRenderMenuPrompt(boolean renderMenuPrompt) {
 		GOTTickHandlerClient.renderMenuPrompt = renderMenuPrompt;
-	}
-
-	public static GOTGuiMiniquestTracker getMiniquestTracker() {
-		return miniquestTracker;
-	}
-
-	public static GOTGuiNotificationDisplay getNotificationDisplay() {
-		return notificationDisplay;
 	}
 
 	@SubscribeEvent
@@ -627,7 +609,7 @@ public class GOTTickHandlerClient {
 					GOTVersionChecker.checkForUpdates();
 				}
 				if (!isGamePaused(minecraft)) {
-					miniquestTracker.update(entityplayer);
+					GOTSingletonFactory.getMiniquestTracker().update(entityplayer);
 					GOTAlignmentTicker.updateAll(entityplayer, false);
 					WATCHED_INVASION.tick();
 					if (GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer)) {
@@ -736,7 +718,7 @@ public class GOTTickHandlerClient {
 					if (minecraft.gameSettings.particleSetting < 2) {
 						spawnEnvironmentFX(entityplayer, world);
 					}
-					GOTClientProxy.getCustomEffectRenderer().updateEffects();
+					GOTSingletonFactory.getEffectRenderer().updateEffects();
 					if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
 						float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
 						drunkenness /= 20.0F;
@@ -752,7 +734,7 @@ public class GOTTickHandlerClient {
 					if (newDate > 0) {
 						newDate--;
 					}
-					ambienceTicker.updateAmbience(world, entityplayer);
+					GOTSingletonFactory.getAmbienceTicker().updateAmbience(world, entityplayer);
 					if (world.getTotalWorldTime() % 20L == 0L) {
 						GOTClimateType.performSeasonalChangesServerSide();
 						GOTClimateType.performSeasonalChangesClientSide();
@@ -782,7 +764,7 @@ public class GOTTickHandlerClient {
 					}
 				}
 			}
-			GOTClientProxy.getMusicHandler().update();
+			GOTSingletonFactory.getMusicHandler().update();
 			if (GOTConfig.displayMusicTrack) {
 				GOTMusicTrack nowPlaying = GOTMusicTicker.getCurrentTrack();
 				if (nowPlaying != lastTrack) {
@@ -1302,9 +1284,9 @@ public class GOTTickHandlerClient {
 					}
 				}
 			}
-			notificationDisplay.updateWindow();
+			GOTSingletonFactory.getNotificationDisplay().updateWindow();
 			if (GOTConfig.enableQuestTracker && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
-				miniquestTracker.drawTracker(minecraft, entityplayer);
+				GOTSingletonFactory.getMiniquestTracker().drawTracker(minecraft, entityplayer);
 			}
 		}
 	}
@@ -1313,12 +1295,10 @@ public class GOTTickHandlerClient {
 	public void onRenderWorldLast(RenderWorldLastEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		float f = event.partialTicks;
-		if (GOTDimension.getCurrentDimension(mc.theWorld) == GOTDimension.GAME_OF_THRONES) {
-			GOTRenderNorthernLights.render(mc, mc.theWorld, f);
-		}
+		GOTRenderNorthernLights.render(mc, mc.theWorld, f);
 		mc.entityRenderer.enableLightmap(f);
 		RenderHelper.disableStandardItemLighting();
-		GOTClientProxy.getCustomEffectRenderer().renderParticles(mc.renderViewEntity, f);
+		GOTSingletonFactory.getEffectRenderer().renderParticles(mc.renderViewEntity, f);
 		mc.entityRenderer.disableLightmap(f);
 		if (Minecraft.isGuiEnabled() && mc.entityRenderer.debugViewDirection == 0) {
 			mc.mcProfiler.startSection("gotSpeech");
@@ -1330,7 +1310,7 @@ public class GOTTickHandlerClient {
 	@SubscribeEvent
 	public void onWorldLoad(WorldEvent.Load event) {
 		if (event.world instanceof WorldClient) {
-			GOTClientProxy.getCustomEffectRenderer().clearEffectsAndSetWorld();
+			GOTSingletonFactory.getEffectRenderer().clearEffectsAndSetWorld();
 		}
 	}
 

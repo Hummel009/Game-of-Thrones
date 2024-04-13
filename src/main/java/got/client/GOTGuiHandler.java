@@ -2,7 +2,6 @@ package got.client;
 
 import com.google.common.collect.Lists;
 import cpw.mods.fml.client.GuiModList;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -50,7 +49,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
@@ -58,6 +56,8 @@ import java.util.*;
 
 @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 public class GOTGuiHandler {
+	public static final GOTGuiHandler INSTANCE = new GOTGuiHandler();
+
 	private static final RenderItem itemRenderer = new RenderItem();
 	private static final Collection<Class<? extends Container>> COIN_COUNT_EXCLUDED_CONTAINERS = new HashSet<>();
 	private static final Collection<Class<? extends GuiContainer>> COIN_COUNT_EXCLUDED_GU_IS = new HashSet<>();
@@ -72,14 +72,10 @@ public class GOTGuiHandler {
 		COIN_COUNT_EXCLUDED_INV_TYPES.add(InventoryCraftResult.class);
 	}
 
-	private int descScrollIndex;
-
-	@SuppressWarnings("unused")
-	public GOTGuiHandler() {
-		descScrollIndex = -1;
-		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
+	private GOTGuiHandler() {
 	}
+
+	private int descScrollIndex = -1;
 
 	private GuiButton getDifficultyButton(Iterable<GuiButton> buttons) {
 		for (GuiButton obj : buttons) {
@@ -143,7 +139,7 @@ public class GOTGuiHandler {
 				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));
 				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
 				IChatComponent name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
-				IChatComponent subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
+				IChatComponent subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getTranslatedDimensionName(), category.getDisplayName());
 				subtitle.getChatStyle().setItalic(true);
 				String desc = achievement.getDescription();
 				List<String> list = Lists.newArrayList(name.getFormattedText(), subtitle.getFormattedText());

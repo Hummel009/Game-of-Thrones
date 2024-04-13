@@ -1177,16 +1177,16 @@ got.achievement.KILL_THEON_GREYJOY.desc=Torment Theon Greyjoy
 got.achievement.KILL_THEON_GREYJOY.title=É só uma salsicha
 got.achievement.TRADE.desc=Negocie com alguém
 got.achievement.TRADE.title=Começar um negócio
-got.achievement.TRAVEL10.desc≠Visit 10 biomes
-got.achievement.TRAVEL10.title≠Traveller I
 got.achievement.TRAVEL20.desc≠Visit 20 biomes
-got.achievement.TRAVEL20.title≠Traveller II
-got.achievement.TRAVEL30.desc≠Visit 30 biomes
-got.achievement.TRAVEL30.title≠Traveller III
+got.achievement.TRAVEL20.title≠Traveller I
 got.achievement.TRAVEL40.desc≠Visit 40 biomes
-got.achievement.TRAVEL40.title≠Traveller IV
-got.achievement.TRAVEL50.desc≠Visit 50 biomes
-got.achievement.TRAVEL50.title≠Traveller V
+got.achievement.TRAVEL40.title≠Traveller II
+got.achievement.TRAVEL60.desc≠Visit 60 biomes
+got.achievement.TRAVEL60.title≠Traveller III
+got.achievement.TRAVEL80.desc≠Visit 80 biomes
+got.achievement.TRAVEL80.title≠Traveller IV
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc≠Unsmelt unneeded equipment
 got.achievement.UNSMELT.title≠Util
 got.achievement.USE_CROSSBOW.desc≠Use a crossbow

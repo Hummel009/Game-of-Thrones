@@ -1177,16 +1177,16 @@ got.achievement.KILL_THEON_GREYJOY.desc=Torment Theon Greyjoy
 got.achievement.KILL_THEON_GREYJOY.title=To tylko kiełbasa
 got.achievement.TRADE.desc=Handluj z kimś
 got.achievement.TRADE.title=Otworzyć biznes
-got.achievement.TRAVEL10.desc=Odwiedź 10 różnych regionów Gry o tron
-got.achievement.TRAVEL10.title=Podróżnik I
-got.achievement.TRAVEL20.desc=Odwiedź 20 różnych regionów Gry o tron
-got.achievement.TRAVEL20.title=Podróżnik II
-got.achievement.TRAVEL30.desc=Odwiedź 30 różnych regionów Gry o tron
-got.achievement.TRAVEL30.title=Podróżnik III
-got.achievement.TRAVEL40.desc=Odwiedź 40 różnych regionów Gry o tron
-got.achievement.TRAVEL40.title=Podróżnik IV
-got.achievement.TRAVEL50.desc=Odwiedź 50 różnych regionów Gry o tron
-got.achievement.TRAVEL50.title=Podróżnik V
+got.achievement.TRAVEL20.desc≠Visit 20 biomes
+got.achievement.TRAVEL20.title≠Traveller I
+got.achievement.TRAVEL40.desc≠Visit 40 biomes
+got.achievement.TRAVEL40.title≠Traveller II
+got.achievement.TRAVEL60.desc≠Visit 60 biomes
+got.achievement.TRAVEL60.title≠Traveller III
+got.achievement.TRAVEL80.desc≠Visit 80 biomes
+got.achievement.TRAVEL80.title≠Traveller IV
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc=Roztop przedmiot w tyglu
 got.achievement.UNSMELT.title=Dekonstruowanie
 got.achievement.USE_CROSSBOW.desc=Użyj kuszy
