@@ -78,8 +78,8 @@ public class GOTDate {
 	}
 
 	public static class AegonCalendar {
-		protected static final Date START_DATE = new Date(298, Month.JULY, 10);
-		protected static final Map<Integer, Date> CACHED_DATES = new HashMap<>();
+		private static final Date START_DATE = new Date(298, Month.JULY, 10);
+		private static final Map<Integer, Date> CACHED_DATES = new HashMap<>();
 
 		private static int currentDay;
 
@@ -110,10 +110,6 @@ public class GOTDate {
 
 		public static Season getSeason() {
 			return getDate().getMonth().getSeason();
-		}
-
-		protected static boolean isLeapYear(int year) {
-			return year % 4 == 0 && year % 100 != 0;
 		}
 
 		public static int getCurrentDay() {
@@ -194,17 +190,21 @@ public class GOTDate {
 
 			private Day day;
 
-			protected Date(int y, Month m, int d) {
+			private Date(int y, Month m, int d) {
 				year = y;
 				month = m;
 				monthDate = d;
 			}
 
-			protected Date copy() {
+			private static boolean isLeapYear(int year) {
+				return year % 4 == 0 && year % 100 != 0;
+			}
+
+			private Date copy() {
 				return new Date(year, month, monthDate);
 			}
 
-			protected Date decrement() {
+			private Date decrement() {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;
@@ -231,7 +231,7 @@ public class GOTDate {
 				return dayYear[0] + ", " + dayYear[1];
 			}
 
-			protected Day getDay() {
+			private Day getDay() {
 				if (!month.isHasWeekdayName()) {
 					return null;
 				}
@@ -275,7 +275,7 @@ public class GOTDate {
 				return new String[]{dateName, yearName};
 			}
 
-			protected Date increment() {
+			private Date increment() {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;

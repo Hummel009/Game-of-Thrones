@@ -315,9 +315,10 @@ public class GOTBannerProtection {
 	}
 
 	public static class FilterForPlayer implements IFilter {
-		protected EntityPlayer thePlayer;
-		protected Permission thePerm;
-		protected boolean ignoreCreativeMode;
+		private final EntityPlayer thePlayer;
+		private final Permission thePerm;
+
+		private boolean ignoreCreativeMode;
 
 		public FilterForPlayer(EntityPlayer p, Permission perm) {
 			thePlayer = p;

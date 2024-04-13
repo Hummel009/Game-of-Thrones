@@ -3124,15 +3124,15 @@ public class GOTPlayerData {
 			waypointID = id;
 		}
 
-		protected static CWPSharedKey keyFor(UUID player, int id) {
+		private static CWPSharedKey keyFor(UUID player, int id) {
 			return new CWPSharedKey(player, id);
 		}
 
-		protected UUID getSharingPlayer() {
+		private UUID getSharingPlayer() {
 			return sharingPlayer;
 		}
 
-		protected int getWaypointID() {
+		private int getWaypointID() {
 			return waypointID;
 		}
 	}
