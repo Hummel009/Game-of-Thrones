@@ -75,9 +75,12 @@ import got.common.entity.westeros.wildling.thenn.*;
 import got.common.faction.GOTFaction;
 
 public class GOTEntity {
-	public static int id;
+	private GOTEntity() {
+	}
 
+	@SuppressWarnings("UnusedAssignment")
 	public static void preInit() {
+		int id = 0;
 		GOTEntityRegistry.register(GOTEntityBison.class, id++, 7488812);
 		GOTEntityRegistry.register(GOTEntityBear.class, id++, 7492416);
 		GOTEntityRegistry.register(GOTEntityBird.class, id++, 7451872);
@@ -983,6 +986,5 @@ public class GOTEntity {
 		GOTEntityRegistry.registerHidden(GOTEntitySnowball.class, id++, 64, 1, true);
 
 		GOTEntityRegistry.registerHidden(GOTEntityHummel009.class, id++);
-
 	}
 }

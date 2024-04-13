@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost implements GOTBiome.MountainTerrain {
+public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost implements GOTBiome.Mountains {
 	public GOTBiomeFrostfangs(int i, boolean major) {
 		super(i, major);
 		biomeVariants.clear();

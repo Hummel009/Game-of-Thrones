@@ -27,7 +27,6 @@ import net.minecraft.world.storage.WorldInfo;
 import org.apache.logging.log4j.Level;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
@@ -62,8 +61,8 @@ public class GOTReflection {
 				privateField.setAccessible(true);
 				return (float) privateField.get(item);
 			}
-		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
-			e2.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return 0.0f;
 	}
@@ -120,8 +119,8 @@ public class GOTReflection {
 				privateField.setAccessible(true);
 				return (Block) privateField.get(ore);
 			}
-		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
-			e2.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -133,8 +132,8 @@ public class GOTReflection {
 				privateField.setAccessible(true);
 				return (int) privateField.get(ore);
 			}
-		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
-			e2.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return 0;
 	}
@@ -143,11 +142,11 @@ public class GOTReflection {
 		try {
 			return ReflectionHelper.getPrivateValue(classToAccess, null, ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldName));
 		} catch (ReflectionHelper.UnableToFindFieldException | ReflectionHelper.UnableToAccessFieldException |
-		         NullPointerException e) {
+		         NullPointerException e1) {
 			try {
 				return (T) classToAccess.getDeclaredField(fieldName);
-			} catch (NoSuchFieldException | SecurityException e1) {
-				e1.printStackTrace();
+			} catch (Exception e2) {
+				e2.printStackTrace();
 			}
 		}
 		return null;
@@ -181,8 +180,8 @@ public class GOTReflection {
 				privateField.setAccessible(true);
 				return (Item.ToolMaterial) privateField.get(item);
 			}
-		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
-			e2.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -214,8 +213,7 @@ public class GOTReflection {
 		try {
 			Class<World>[] param = new Class[]{World.class};
 			return entityClass.getDeclaredConstructor(param).newInstance(world);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
-		         InvocationTargetException | NoSuchMethodException | SecurityException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -225,8 +223,7 @@ public class GOTReflection {
 		try {
 			Class<Boolean>[] param = new Class[]{boolean.class};
 			return structureClass.getDeclaredConstructor(param).newInstance(bool);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
-		         InvocationTargetException | NoSuchMethodException | SecurityException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeArrynMountains extends GOTBiomeArryn implements GOTBiome.MountainTerrain {
+public class GOTBiomeArrynMountains extends GOTBiomeArryn implements GOTBiome.Mountains {
 	public GOTBiomeArrynMountains(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();

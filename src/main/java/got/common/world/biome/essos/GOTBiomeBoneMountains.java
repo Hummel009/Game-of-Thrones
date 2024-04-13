@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeBoneMountains extends GOTBiomeDothrakiSea implements GOTBiome.MountainTerrain {
+public class GOTBiomeBoneMountains extends GOTBiomeDothrakiSea implements GOTBiome.Mountains {
 	public GOTBiomeBoneMountains(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();

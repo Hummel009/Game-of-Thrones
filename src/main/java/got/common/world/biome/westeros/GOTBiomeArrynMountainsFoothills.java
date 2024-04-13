@@ -45,9 +45,4 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 	public GOTWaypoint.Region getBiomeWaypoints() {
 		return GOTWaypoint.Region.ARRYN;
 	}
-
-	@Override
-	public float getTreeIncreaseChance() {
-		return 0.75f;
-	}
 }

@@ -245,7 +245,7 @@ public class GOTBiomeDecorator {
 			}
 		}
 		int trees = getVariantTreesPerChunk(biomeVariant);
-		if (rand.nextFloat() < biome.getTreeIncreaseChance() * biomeVariant.getTreeFactor()) {
+		if (rand.nextFloat() < 0.1f * biomeVariant.getTreeFactor()) {
 			++trees;
 		}
 		for (l4 = 0; l4 < trees; ++l4) {

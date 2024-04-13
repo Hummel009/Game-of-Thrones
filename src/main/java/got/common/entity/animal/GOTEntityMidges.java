@@ -89,7 +89,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		int id = GOTEntityRegistry.getEntityID(this);
-		if (id > 0 && GOTEntityRegistry.spawnEggs.containsKey(id)) {
+		if (id > 0 && GOTEntityRegistry.SPAWN_EGGS.containsKey(id)) {
 			return new ItemStack(GOTItems.spawnEgg, 1, id);
 		}
 		return null;

@@ -3,36 +3,26 @@ package got.common.entity.other;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import got.GOT;
 import got.common.faction.GOTFaction;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 import java.util.*;
 
 public class GOTEntityRegistry {
-	public static Map<Integer, SpawnEggInfo> spawnEggs = new LinkedHashMap<>();
-	public static Map<String, Integer> stringToIDMapping = new HashMap<>();
-	public static Map<Integer, String> IDToStringMapping = new HashMap<>();
-	public static Map<Class<? extends Entity>, String> classToNameMapping = new HashMap<>();
-	public static Map<Class<? extends Entity>, Integer> classToIDMapping = new HashMap<>();
-	public static Map<Class<? extends Entity>, GOTFaction> classToFactionMapping = new HashMap<>();
-	public static Collection<Class<? extends Entity>> entitySet = new HashSet<>();
+	public static final Collection<Class<? extends Entity>> CONTENT = new HashSet<>();
 
-	public static Entity createEntityByClass(Class<? extends Entity> entityClass, World world) {
-		Entity entity = null;
-		try {
-			entity = entityClass.getConstructor(World.class).newInstance(world);
-		} catch (Exception exception) {
-			exception.printStackTrace();
-		}
-		return entity;
-	}
+	public static final Map<Integer, SpawnEggInfo> SPAWN_EGGS = new LinkedHashMap<>();
+	public static final Map<Class<? extends Entity>, String> CLASS_TO_NAME_MAPPING = new HashMap<>();
+	public static final Map<Class<? extends Entity>, GOTFaction> CLASS_TO_FACTION_MAPPING = new HashMap<>();
+
+	private static final Map<String, Integer> STRING_TO_ID_MAPPING = new HashMap<>();
+	private static final Map<Integer, String> ID_TO_STRING_MAPPING = new HashMap<>();
+	private static final Map<Class<? extends Entity>, Integer> CLASS_TO_ID_MAPPING = new HashMap<>();
 
 	public static Set<String> getAllEntityNames() {
-		return Collections.unmodifiableSet(stringToIDMapping.keySet());
+		return Collections.unmodifiableSet(STRING_TO_ID_MAPPING.keySet());
 	}
 
 	public static Class<? extends Entity> getClassFromString(String name) {
@@ -40,18 +30,14 @@ public class GOTEntityRegistry {
 	}
 
 	public static int getEntityID(Entity entity) {
-		return getEntityIDFromClass(entity.getClass());
-	}
-
-	public static int getEntityIDFromClass(Class<? extends Entity> entityClass) {
-		return classToIDMapping.get(entityClass);
+		return CLASS_TO_ID_MAPPING.get(entity.getClass());
 	}
 
 	public static int getIDFromString(String name) {
-		if (!stringToIDMapping.containsKey(name)) {
+		if (!STRING_TO_ID_MAPPING.containsKey(name)) {
 			return 0;
 		}
-		return stringToIDMapping.get(name);
+		return STRING_TO_ID_MAPPING.get(name);
 	}
 
 	public static String getStringFromClass(Class<? extends Entity> entityClass) {
@@ -59,20 +45,20 @@ public class GOTEntityRegistry {
 	}
 
 	public static String getStringFromID(int id) {
-		return IDToStringMapping.get(id);
+		return ID_TO_STRING_MAPPING.get(id);
 	}
 
 	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
-		entitySet.add(entityClass);
-		spawnEggs.put(id, new SpawnEggInfo(id, faction.getEggColor(), faction.getEggColor()));
-		classToFactionMapping.put(entityClass, faction);
+		CONTENT.add(entityClass);
+		SPAWN_EGGS.put(id, new SpawnEggInfo(id, faction.getEggColor(), faction.getEggColor()));
+		CLASS_TO_FACTION_MAPPING.put(entityClass, faction);
 	}
 
 	public static void register(Class<? extends Entity> entityClass, int id, int color) {
 		registerHidden(entityClass, id, 80, 3, true);
-		entitySet.add(entityClass);
-		spawnEggs.put(id, new SpawnEggInfo(id, color, color));
+		CONTENT.add(entityClass);
+		SPAWN_EGGS.put(id, new SpawnEggInfo(id, color, color));
 	}
 
 	public static void registerHidden(Class<? extends Entity> entityClass, int id) {
@@ -84,34 +70,46 @@ public class GOTEntityRegistry {
 		String cut = name.replace("GOTEntity", "");
 		EntityRegistry.registerModEntity(entityClass, cut, id, GOT.instance, updateRange, updateFreq, sendVelocityUpdates);
 		String fullName = (String) EntityList.classToStringMapping.get(entityClass);
-		stringToIDMapping.put(fullName, id);
-		IDToStringMapping.put(id, fullName);
-		classToIDMapping.put(entityClass, id);
-		classToNameMapping.put(entityClass, cut);
+		STRING_TO_ID_MAPPING.put(fullName, id);
+		ID_TO_STRING_MAPPING.put(id, fullName);
+		CLASS_TO_ID_MAPPING.put(entityClass, id);
+		CLASS_TO_NAME_MAPPING.put(entityClass, cut);
 	}
 
 	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
-		entitySet.add(entityClass);
-		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.getEggColor()));
-		classToFactionMapping.put(entityClass, faction);
+		CONTENT.add(entityClass);
+		SPAWN_EGGS.put(id, new SpawnEggInfo(id, 9605778, faction.getEggColor()));
+		CLASS_TO_FACTION_MAPPING.put(entityClass, faction);
 	}
 
-	public void getSubItems(Item item, CreativeTabs tab, Collection<ItemStack> list) {
-		for (GOTEntityRegistry.SpawnEggInfo info : spawnEggs.values()) {
-			list.add(new ItemStack(item, 1, info.spawnedID));
+	public void getSubItems(Item item, Collection<ItemStack> list) {
+		for (GOTEntityRegistry.SpawnEggInfo info : SPAWN_EGGS.values()) {
+			list.add(new ItemStack(item, 1, info.getSpawnedID()));
 		}
 	}
 
 	public static class SpawnEggInfo {
-		public int spawnedID;
-		public int primaryColor;
-		public int secondaryColor;
+		private final int spawnedID;
+		private final int primaryColor;
+		private final int secondaryColor;
 
 		public SpawnEggInfo(int i, int j, int k) {
 			spawnedID = i;
 			primaryColor = j;
 			secondaryColor = k;
+		}
+
+		public int getSpawnedID() {
+			return spawnedID;
+		}
+
+		public int getPrimaryColor() {
+			return primaryColor;
+		}
+
+		public int getSecondaryColor() {
+			return secondaryColor;
 		}
 	}
 }

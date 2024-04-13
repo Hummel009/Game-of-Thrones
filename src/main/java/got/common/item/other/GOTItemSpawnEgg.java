@@ -33,7 +33,7 @@ public class GOTItemSpawnEgg extends Item {
 	}
 
 	public static Entity spawnCreature(World world, int id, double d, double d1, double d2) {
-		if (!GOTEntityRegistry.spawnEggs.containsKey(id)) {
+		if (!GOTEntityRegistry.SPAWN_EGGS.containsKey(id)) {
 			return null;
 		}
 		String entityName = GOTEntityRegistry.getStringFromID(id);
@@ -53,8 +53,8 @@ public class GOTItemSpawnEgg extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int i) {
-		GOTEntityRegistry.SpawnEggInfo info = GOTEntityRegistry.spawnEggs.get(itemstack.getItemDamage());
-		return info != null ? i == 0 ? info.primaryColor : info.secondaryColor : 16777215;
+		GOTEntityRegistry.SpawnEggInfo info = GOTEntityRegistry.SPAWN_EGGS.get(itemstack.getItemDamage());
+		return info != null ? i == 0 ? info.getPrimaryColor() : info.getSecondaryColor() : 16777215;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -77,8 +77,8 @@ public class GOTItemSpawnEgg extends Item {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
-			list.add(new ItemStack(item, 1, info.spawnedID));
+		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.SPAWN_EGGS.values()) {
+			list.add(new ItemStack(item, 1, info.getSpawnedID()));
 		}
 	}
 

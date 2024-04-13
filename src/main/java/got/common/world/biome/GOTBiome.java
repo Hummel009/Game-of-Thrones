@@ -539,10 +539,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
 	}
 
-	public boolean canSpawnHostilesInDay() {
-		return false;
-	}
-
 	@Override
 	public boolean canSpawnLightningBolt() {
 		return !getEnableSnow() && super.canSpawnLightningBolt();
@@ -570,8 +566,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
 		int seaLevel = 63;
-		double stoneNoiseFiller = modifyStoneNoiseForFiller(stoneNoise);
-		int fillerDepthBase = (int) (stoneNoiseFiller / 4.0 + 5.0 + random.nextDouble() * 0.25);
+		int fillerDepthBase = (int) (stoneNoise / 4.0 + 5.0 + random.nextDouble() * 0.25);
 		int fillerDepth = -1;
 		Block top = topBlock;
 		byte topMeta = (byte) topBlockMeta;
@@ -595,7 +590,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 		boolean podzol = false;
 		if (topBlock == Blocks.grass) {
-			float trees = decorator.getTreesPerChunk() + getTreeIncreaseChance();
+			float trees = decorator.getTreesPerChunk() + 0.1f;
 			trees = Math.max(trees, variant.getTreeFactor() * 0.5f);
 			if (trees >= 1.0f) {
 				float thresh = 0.8f;
@@ -704,8 +699,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 		}
 		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextDouble() * 0.25);
-		if (this instanceof MountainTerrain) {
-			((MountainTerrain) this).generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);
+		if (this instanceof Mountains) {
+			((Mountains) this).generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);
 		}
 		variant.generateVariantTerrain(blocks, meta, i, k);
 	}
@@ -794,10 +789,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
-	public boolean getEnableRain() {
-		return enableRain;
-	}
-
 	public boolean getEnableRiver() {
 		return true;
 	}
@@ -829,10 +820,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public void setInvasionSpawns(GOTBiomeInvasionSpawns invasionSpawns) {
 		this.invasionSpawns = invasionSpawns;
-	}
-
-	public GOTBiomeSpawnList getNPCSpawnList() {
-		return npcSpawnList;
 	}
 
 	public BiomeGenBase.FlowerEntry getRandomFlower(Random random) {
@@ -935,10 +922,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return tree.create(false, random);
 	}
 
-	public float getTreeIncreaseChance() {
-		return 0.1f;
-	}
-
 	public GOTEventSpawner.EventChance getUnreliableChance() {
 		return unreliableChance;
 	}
@@ -957,26 +940,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public int getWallTop() {
 		return 0;
-	}
-
-	public boolean hasFog() {
-		return biomeColors.isFoggy();
-	}
-
-	public boolean hasSky() {
-		return true;
-	}
-
-	public boolean isRiver() {
-		return false;
-	}
-
-	public boolean isWateryBiome() {
-		return heightBaseParameter < 0.0f;
-	}
-
-	private double modifyStoneNoiseForFiller(double stoneNoise) {
-		return stoneNoise;
 	}
 
 	@Override
@@ -1186,19 +1149,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return npcSpawnList;
 	}
 
-	public void setNpcSpawnList(GOTBiomeSpawnList npcSpawnList) {
-		this.npcSpawnList = npcSpawnList;
-	}
-
 	public GOTBiomeDecorator getDecorator() {
 		return decorator;
 	}
 
-	public void setDecorator(GOTBiomeDecorator decorator) {
-		this.decorator = decorator;
-	}
-
-	public interface MountainTerrain {
+	public interface Mountains {
 		void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant);
 	}
 

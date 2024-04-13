@@ -670,7 +670,6 @@ public class GOTTickHandlerClient {
 						prevSunGlare = sunGlare;
 						MovingObjectPosition look = viewer.rayTrace(10000.0D, renderTick);
 						boolean lookingAtSky = look == null || look.typeOfHit == MovingObjectPosition.MovingObjectType.MISS;
-						boolean biomeHasSun = !(biome instanceof GOTBiome) || ((GOTBiome) biome).hasSky();
 						float sunYaw = 90.0F;
 						float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0F));
 						float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0F));
@@ -687,7 +686,7 @@ public class GOTTickHandlerClient {
 						float bQ = (brightness - brightnessThreshold) / (1.0F - brightnessThreshold);
 						bQ = Math.max(bQ, 0.0F);
 						float maxGlare = cQ * bQ;
-						if (maxGlare > 0.0F && lookingAtSky && !world.isRaining() && biomeHasSun) {
+						if (maxGlare > 0.0F && lookingAtSky && !world.isRaining()) {
 							if (sunGlare < maxGlare) {
 								sunGlare += 0.1F * maxGlare;
 								sunGlare = Math.min(sunGlare, maxGlare);
@@ -1093,27 +1092,20 @@ public class GOTTickHandlerClient {
 	@SubscribeEvent
 	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
-		EntityLivingBase viewer = event.entity;
 		WorldClient worldClient = mc.theWorld;
 		WorldProvider provider = worldClient.provider;
-		int i = MathHelper.floor_double(viewer.posX);
-		int k = MathHelper.floor_double(viewer.posZ);
-		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldClient, i, k);
 		float farPlane = event.farPlaneDistance;
 		int fogMode = event.fogMode;
 		if (provider instanceof GOTWorldProvider) {
-			GOTBiome gotbiome = (GOTBiome) biome;
 			float[] fogStartEnd = ((GOTWorldProvider) provider).modifyFogIntensity(farPlane, fogMode);
 			float fogStart = fogStartEnd[0];
 			float fogEnd = fogStartEnd[1];
-			if (gotbiome.getEnableRain() || gotbiome.getEnableSnow()) {
-				float rain = prevRainFactor + (rainFactor - prevRainFactor) * renderTick;
-				if (rain > 0.0F) {
-					float rainOpacityStart = 0.95F;
-					float rainOpacityEnd = 0.2F;
-					fogStart -= fogStart * rain * rainOpacityStart;
-					fogEnd -= fogEnd * rain * rainOpacityEnd;
-				}
+			float rain = prevRainFactor + (rainFactor - prevRainFactor) * renderTick;
+			if (rain > 0.0F) {
+				float rainOpacityStart = 0.95F;
+				float rainOpacityEnd = 0.2F;
+				fogStart -= fogStart * rain * rainOpacityStart;
+				fogEnd -= fogEnd * rain * rainOpacityEnd;
 			}
 			if (mistFactor > 0.0F) {
 				float mistOpacityStart = 0.95F;

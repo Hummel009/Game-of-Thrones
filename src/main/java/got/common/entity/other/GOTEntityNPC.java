@@ -473,10 +473,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			return 1.0f;
 		}
 		if (!isConquestSpawning || !conquestSpawnIgnoresDarkness()) {
-			BiomeGenBase biome;
-			if (spawnsInDarkness && (biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k)) instanceof GOTBiome && ((GOTBiome) biome).canSpawnHostilesInDay()) {
-				return 1.0f;
-			}
 			if (spawnsInDarkness) {
 				return 0.5f - worldObj.getLightBrightness(i, j, k);
 			}
@@ -642,7 +638,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		int id = GOTEntityRegistry.getEntityID(this);
-		if (GOTEntityRegistry.spawnEggs.containsKey(id)) {
+		if (GOTEntityRegistry.SPAWN_EGGS.containsKey(id)) {
 			return new ItemStack(GOTItems.spawnEgg, 1, id);
 		}
 		return null;
@@ -660,12 +656,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (isNPCPersistent || hiredNPCInfo.isActive) {
 			return 0;
 		}
-		int multiplier = 1;
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
 		if (biome instanceof GOTBiome) {
-			multiplier = ((GOTBiome) biome).spawnCountMultiplier();
+			return ((GOTBiome) biome).spawnCountMultiplier();
 		}
-		return multiplier;
+		return 1;
 	}
 
 	public String getSpeechBank(EntityPlayer entityplayer) {
@@ -755,13 +750,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isValidLightLevelForDarkSpawn() {
-		BiomeGenBase biome;
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(boundingBox.minY);
 		int k = MathHelper.floor_double(posZ);
-		if (spawnsInDarkness && (biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k)) instanceof GOTBiome && ((GOTBiome) biome).canSpawnHostilesInDay()) {
-			return true;
-		}
 		if (worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) > rand.nextInt(32)) {
 			return false;
 		}

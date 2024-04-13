@@ -71,7 +71,7 @@ public class GOTSkyRenderer extends IRenderHandler {
 		int k = MathHelper.floor_double(mc.renderViewEntity.posZ);
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (biome instanceof GOTBiome && renderSkyFeatures) {
-			renderSkyFeatures = ((GOTBiome) biome).hasSky();
+			renderSkyFeatures = true;
 		}
 		GL11.glDisable(3553);
 		Vec3 skyColor = world.getSkyColor(mc.renderViewEntity, partialTicks);

@@ -7,11 +7,11 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class GOTStructureRegistry {
+	public static final Collection<Class<? extends WorldGenerator>> CONTENT = new HashSet<>();
+
 	public static final Map<Integer, StructureColorInfo> STRUCTURE_ITEM_SPAWNERS = new LinkedHashMap<>();
 	public static final Map<Class<? extends WorldGenerator>, String> CLASS_TO_NAME_MAPPING = new HashMap<>();
 	public static final Map<Class<? extends WorldGenerator>, GOTFaction> CLASS_TO_FACTION_MAPPING = new HashMap<>();
@@ -40,6 +40,7 @@ public class GOTStructureRegistry {
 		registerStructure(id, strClass, cut, faction.getEggColor(), faction.getEggColor(), false);
 		CLASS_TO_NAME_MAPPING.put(strClass, cut);
 		CLASS_TO_FACTION_MAPPING.put(strClass, faction);
+		CONTENT.add(strClass);
 	}
 
 	public static void register(int id, Class<? extends WorldGenerator> strClass, int color) {
@@ -47,6 +48,7 @@ public class GOTStructureRegistry {
 		String cut = name.replace("GOTStructure", "");
 		registerStructure(id, strClass, cut, color, color, false);
 		CLASS_TO_NAME_MAPPING.put(strClass, cut);
+		CONTENT.add(strClass);
 	}
 
 	@SuppressWarnings("rawtypes")

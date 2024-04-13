@@ -97,6 +97,7 @@ import got.common.entity.westeros.wildling.thenn.GOTEntityThenn;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennArcher;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennBerserker;
 import got.common.faction.GOTFaction;
+import got.common.util.GOTReflection;
 import got.common.world.spawning.GOTSpawnEntry;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
@@ -514,7 +515,7 @@ public class GOTSpawnList {
 			Class<? extends GOTEntityNPC> entityClass = entry.entityClass;
 			if (GOTEntityNPC.class.isAssignableFrom(entityClass)) {
 				try {
-					GOTEntityNPC npc = (GOTEntityNPC) GOTEntityRegistry.createEntityByClass(entityClass, world);
+					GOTEntityNPC npc = (GOTEntityNPC) GOTReflection.newEntity(entityClass, world);
 					GOTFaction fac = npc.getFaction();
 					if (commonFaction == null) {
 						commonFaction = fac;

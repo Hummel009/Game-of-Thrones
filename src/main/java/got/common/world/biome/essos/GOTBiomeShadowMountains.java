@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeShadowMountains extends GOTBiomeShadowLand implements GOTBiome.MountainTerrain {
+public class GOTBiomeShadowMountains extends GOTBiomeShadowLand implements GOTBiome.Mountains {
 	private static final NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(389502092662L), 1);
 	private static final NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(1379468206L), 1);
 

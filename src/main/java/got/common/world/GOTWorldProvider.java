@@ -121,7 +121,7 @@ public class GOTWorldProvider extends WorldProvider {
 	public boolean doesXZShowFog(int i, int k) {
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiome) {
-			return ((GOTBiome) biome).hasFog();
+			return ((GOTBiome) biome).getBiomeColors().isFoggy();
 		}
 		return super.doesXZShowFog(i, k);
 	}

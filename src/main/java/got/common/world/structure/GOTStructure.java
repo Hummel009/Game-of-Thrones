@@ -50,13 +50,12 @@ import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagnarHouse;
 
 public class GOTStructure {
-	@SuppressWarnings("PublicField")
-	public static int id;
-
 	private GOTStructure() {
 	}
 
+	@SuppressWarnings("UnusedAssignment")
 	public static void onInit() {
+		int id = 0;
 		GOTStructureRegistry.register(id++, GOTStructureWesterosTownTrees.class, 9605778);
 		GOTStructureRegistry.register(id++, GOTStructureBarrow.class, 9605778);
 		GOTStructureRegistry.register(id++, GOTStructureRuinedHouse.class, 9605778);

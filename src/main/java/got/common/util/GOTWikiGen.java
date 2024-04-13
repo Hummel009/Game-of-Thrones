@@ -425,7 +425,7 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template:DB Biome-SpawnNPC");
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
-					List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
+					List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
 					if (facContainers.isEmpty()) {
 						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_SPAWN);
 					} else {
@@ -455,7 +455,7 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template:DB Biome-ConquestNPC");
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
-					List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
+					List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
 					if (facContainers.isEmpty()) {
 						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_CONQUEST);
 					} else {
@@ -686,7 +686,7 @@ public class GOTWikiGen {
 					} else {
 						sb.append(Lang.BIOME_HAS_ANIMALS);
 						for (BiomeGenBase.SpawnListEntry entry : entries) {
-							if (GOTEntityRegistry.classToNameMapping.containsKey(entry.entityClass)) {
+							if (GOTEntityRegistry.CLASS_TO_NAME_MAPPING.containsKey(entry.entityClass)) {
 								sb.append("\n* ").append(getEntityLink(entry.entityClass)).append(';');
 							} else {
 								sb.append("\n* ").append(getEntityVanillaName(entry.entityClass)).append(';');
@@ -791,7 +791,7 @@ public class GOTWikiGen {
 					Collection<GOTBiome> spawnBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
-						List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
+						List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
 						if (!facContainers.isEmpty()) {
 							Collection<GOTFactionContainer> spawnContainers = new ArrayList<>();
 							for (GOTFactionContainer facContainer : facContainers) {
@@ -833,7 +833,7 @@ public class GOTWikiGen {
 					Collection<GOTBiome> conquestBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
-						List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
+						List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
 						if (!facContainers.isEmpty()) {
 							Collection<GOTFactionContainer> conquestContainers = new ArrayList<>();
 							for (GOTFactionContainer facContainer : facContainers) {
@@ -1110,7 +1110,7 @@ public class GOTWikiGen {
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 						spawnEntries.addAll(biome.getSpawnableGOTAmbientList());
-						for (GOTFactionContainer facContainer : biome.getNPCSpawnList().getFactionContainers()) {
+						for (GOTFactionContainer facContainer : biome.getNpcSpawnList().getFactionContainers()) {
 							if (facContainer.getBaseWeight() > 0) {
 								for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
 									spawnEntries.addAll(container.getSpawnList().getSpawnEntries());
@@ -1555,7 +1555,7 @@ public class GOTWikiGen {
 	}
 
 	private static String getEntityName(Class<? extends Entity> entityClass) {
-		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.classToNameMapping.get(entityClass) + ".name");
+		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.CLASS_TO_NAME_MAPPING.get(entityClass) + ".name");
 	}
 
 	private static String getEntityPagename(Class<? extends Entity> entityClass) {
@@ -1604,7 +1604,7 @@ public class GOTWikiGen {
 	}
 
 	private static void searchForEntities(World world) {
-		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+		for (Class<? extends Entity> entityClass : GOTEntityRegistry.CONTENT) {
 			CLASS_TO_OBJ.put(entityClass, GOTReflection.newEntity(entityClass, world));
 		}
 	}
@@ -1645,7 +1645,7 @@ public class GOTWikiGen {
 					continue next;
 				}
 			}
-			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+			for (Class<? extends Entity> entityClass : GOTEntityRegistry.CONTENT) {
 				if (preName.equals(getEntityName(entityClass))) {
 					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ')');
 					continue next;
@@ -1657,7 +1657,7 @@ public class GOTWikiGen {
 
 	private static void searchForPagenamesEntity(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
 		next:
-		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+		for (Class<? extends Entity> entityClass : GOTEntityRegistry.CONTENT) {
 			String preName = getEntityName(entityClass);
 			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {
@@ -1685,7 +1685,7 @@ public class GOTWikiGen {
 					continue next;
 				}
 			}
-			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+			for (Class<? extends Entity> entityClass : GOTEntityRegistry.CONTENT) {
 				if (preName.equals(getEntityName(entityClass))) {
 					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ')');
 					continue next;
