@@ -73,6 +73,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		return compatibleOtherSpecial;
 	}
 
+	@SuppressWarnings("unused")
 	public GOTEnchantmentWeaponSpecial setCompatibleOtherSpecial(boolean compatibleOtherSpecial) {
 		this.compatibleOtherSpecial = compatibleOtherSpecial;
 		return this;

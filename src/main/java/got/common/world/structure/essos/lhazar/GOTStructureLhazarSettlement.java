@@ -47,8 +47,6 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
 		private final boolean forcedType;
-		private final boolean townWall = true;
-		private final int rTownTower = 90;
 		private int numOuterHouses;
 		private Type type;
 
@@ -177,7 +175,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureLhazarSmithy(false), -k - 6, -i, 2, true);
 				addStructure(new GOTStructureLhazarTavern(false), -k - 6, i, 0, true);
 			}
-			int xzTownTower = (int) (rTownTower / 1.4142135623730951);
+			int xzTownTower = (int) (90 / 1.4142135623730951);
 			addStructure(new GOTStructureLhazarTower(false), -xzTownTower, -xzTownTower + 4, 2, true);
 			addStructure(new GOTStructureLhazarTower(false), xzTownTower, -xzTownTower + 4, 2, true);
 			addStructure(new GOTStructureLhazarTower(false), -xzTownTower, xzTownTower - 4, 0, true);
@@ -202,7 +200,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3;
 				}
-				int l = rTownTower - 6;
+				int l = 90 - 6;
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
 				if (random.nextInt(3) == 0) {
@@ -211,23 +209,21 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				}
 				addStructure(getRandomFarm(random), i, k, r);
 			}
-			if (townWall) {
-				int rSq = 9604;
-				int rMax = 99;
-				int rSqMax = rMax * rMax;
-				for (int i = -98; i <= 98; ++i) {
-					for (int k = -98; k <= 98; ++k) {
-						int dSq;
-						int i1 = Math.abs(i);
-						if (i1 <= 6 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
-							continue;
-						}
-						GOTStructureLhazarTownWall wall = new GOTStructureLhazarTownWall(false);
-						if (i1 == 7 && k < 0) {
-							wall.setTall();
-						}
-						addStructure(wall, i, k, 0);
+			int rSq = 9604;
+			int rMax = 99;
+			int rSqMax = rMax * rMax;
+			for (int i = -98; i <= 98; ++i) {
+				for (int k = -98; k <= 98; ++k) {
+					int dSq;
+					int i1 = Math.abs(i);
+					if (i1 <= 6 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
+						continue;
 					}
+					GOTStructureLhazarTownWall wall = new GOTStructureLhazarTownWall(false);
+					if (i1 == 7 && k < 0) {
+						wall.setTall();
+					}
+					addStructure(wall, i, k, 0);
 				}
 			}
 		}

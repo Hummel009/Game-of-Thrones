@@ -443,6 +443,7 @@ public abstract class GOTMiniQuest {
 		return speechBankTooMany;
 	}
 
+	@SuppressWarnings("unused")
 	public GOTPlayerData getPlayerData() {
 		return playerData;
 	}

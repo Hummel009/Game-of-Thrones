@@ -135,7 +135,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public abstract boolean generate(World var1, Random var2, int var3, int var4, int var5, int var6);
 
-	public void generateStrScan(World world, Random random, int i, int j, int k) {
+	protected void generateStrScan(World world, Random random, int i, int j, int k) {
 		for (int pass = 0; pass <= 1; ++pass) {
 			for (GOTStructureScan.ScanStepBase step : currentStrScan.getScanSteps()) {
 				int i1 = i - step.getX();
@@ -227,7 +227,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return GOTCrashHandler.getBiomeGenForCoords(world, i2, k2);
 	}
 
-	public Block getBlock(IBlockAccess world, int i, int j, int k) {
+	protected Block getBlock(IBlockAccess world, int i, int j, int k) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);
@@ -281,7 +281,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return world.getTopSolidOrLiquidBlock(i2, k2) - originY;
 	}
 
-	public int getX(int x, int z) {
+	protected int getX(int x, int z) {
 		switch (rotationMode) {
 			case 0:
 				return originX - x;
@@ -296,11 +296,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public int getY(int y) {
+	protected int getY(int y) {
 		return originY + y;
 	}
 
-	public int getZ(int x, int z) {
+	protected int getZ(int x, int z) {
 		switch (rotationMode) {
 			case 0:
 				return originZ + z;
@@ -353,7 +353,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		entity.setLeashedToEntity(leash, true);
 	}
 
-	public void loadStrScan(String name) {
+	protected void loadStrScan(String name) {
 		currentStrScan = GOTStructureScan.getScanByName(name);
 		if (currentStrScan == null) {
 			GOTLog.getLogger().error("Hummel009: Structure Scan for name {} does not exist!!!", name);
@@ -695,7 +695,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		setBlockAndMetadata(world, i, j, k, Block.getBlockFromItem(itemstack.getItem()), itemstack.getItemDamage());
 	}
 
-	public int rotateMeta(Block block, int meta) {
+	protected int rotateMeta(Block block, int meta) {
 		if (block instanceof BlockRotatedPillar) {
 			int i = meta & 3;
 			int j = meta & 0xC;
@@ -959,7 +959,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		scanAliasChances.put(alias, chance);
 	}
 
-	public void setBlockAndMetadata(World world, int i, int j, int k, Block block, int meta) {
+	protected void setBlockAndMetadata(World world, int i, int j, int k, Block block, int meta) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);
@@ -973,7 +973,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public void setGrassToDirt(World world, int i, int j, int k) {
+	protected void setGrassToDirt(World world, int i, int j, int k) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);
@@ -983,7 +983,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		world.getBlock(i2, j1, k2).onPlantGrow(world, i2, j1, k2, i2, j1, k2);
 	}
 
-	public void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift) {
+	protected void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift) {
 		setOriginAndRotation(world, i, j, k, rotation, shift, 0);
 	}
 
@@ -1055,7 +1055,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		world.spawnEntityInWorld(frame);
 	}
 
-	public void spawnLegendaryNPC(EntityCreature entity, World world, int i, int j, int k) {
+	protected void spawnLegendaryNPC(EntityCreature entity, World world, int i, int j, int k) {
 		int i2 = getX(i, k);
 		int k2 = getZ(i, k);
 		int j1 = getY(j);
