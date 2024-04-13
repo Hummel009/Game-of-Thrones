@@ -44,11 +44,11 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
+		private boolean palisade;
 		private Type type;
-		protected boolean forcedType;
-		protected boolean palisade;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -102,14 +102,14 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		protected GOTStructureBase getRandomFarm(Random random) {
+		private GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextInt(3) == 0) {
 				return new GOTStructureIbbenVillagePasture(false);
 			}
 			return new GOTStructureIbbenVillageFarm(false);
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(4) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -129,7 +129,7 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		protected void setupFort() {
+		private void setupFort() {
 			int wallX;
 			int l;
 			int wallZ;
@@ -190,7 +190,7 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			palisade = random.nextBoolean();
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new GOTStructureIbbenTavern(false), 0, 2, 0, true);
 			addStructure(new StructureRespawner2(), 0, 0, 0);
 			addStructure(new StructureRespawner3(), 0, 0, 0);

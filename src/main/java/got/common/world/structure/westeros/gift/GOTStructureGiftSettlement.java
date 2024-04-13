@@ -42,10 +42,10 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -93,7 +93,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(3) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -120,7 +120,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			addStructure(new StructureRespawner2(), 0, 0, 0);
 			addStructure(new GOTStructureGiftWell(false), 0, -2, 0, true);

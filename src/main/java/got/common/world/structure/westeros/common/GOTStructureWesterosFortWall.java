@@ -62,5 +62,4 @@ public abstract class GOTStructureWesterosFortWall extends GOTStructureWesterosB
 			isRight = true;
 		}
 	}
-
 }

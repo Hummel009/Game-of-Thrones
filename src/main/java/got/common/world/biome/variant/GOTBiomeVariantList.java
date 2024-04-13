@@ -49,7 +49,7 @@ public class GOTBiomeVariantList {
 		private final float min;
 		private final float max;
 
-		protected VariantBucket(GOTBiomeVariant v, float f0, float f1) {
+		private VariantBucket(GOTBiomeVariant v, float f0, float f1) {
 			variant = v;
 			min = f0;
 			max = f1;
@@ -59,11 +59,11 @@ public class GOTBiomeVariantList {
 			return variant;
 		}
 
-		protected float getMin() {
+		private float getMin() {
 			return min;
 		}
 
-		protected float getMax() {
+		private float getMax() {
 			return max;
 		}
 	}

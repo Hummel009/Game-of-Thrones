@@ -46,13 +46,13 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
+		private int numOuterHouses;
+		private final boolean townWall = true;
+		private final int rTownTower = 90;
 		private Type type;
-		protected boolean forcedType;
-		protected int numOuterHouses;
-		protected boolean townWall = true;
-		protected int rTownTower = 90;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -96,14 +96,14 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		protected GOTStructureBase getRandomFarm(Random random) {
+		private GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureLhazarFarm(false);
 			}
 			return new GOTStructureLhazarPasture(false);
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureLhazarSmithy(false);
 			}
@@ -117,7 +117,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			return block == GOTBlocks.slabSingleDirt && (meta == 1 || meta == 0) || block == GOTBlocks.slabSingleGravel && meta == 0 || block == GOTBlocks.dirtPath && meta == 0 || block == Blocks.dirt && meta == 1 || block == Blocks.gravel && meta == 0;
 		}
 
-		protected void setupFort(Random random) {
+		private void setupFort(Random random) {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			addStructure(new GOTStructureLhazarWarCamp(false), 0, -15, 0, true);
 			int towerX = 36;
@@ -146,7 +146,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			numOuterHouses = MathHelper.getRandomIntegerInRange(random, 5, 8);
 		}
 
-		protected void setupTown(Random random) {
+		private void setupTown(Random random) {
 			addStructure(new StructureRespawner2(), 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				for (int k1 : new int[]{-40, 40}) {
@@ -232,7 +232,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new StructureRespawner4(), 0, 0, 0);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new GOTStructureLhazarTotem(false), 0, -2, 0, true);

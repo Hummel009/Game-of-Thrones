@@ -45,10 +45,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -114,7 +114,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			return null;
 		}
 
-		protected GOTStructureBase getRandomFarm(Random random) {
+		private GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureCrownlandsVillageFarm.Animals(false);
@@ -124,7 +124,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			return new GOTStructureCrownlandsVillageFarm.Tree(false);
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -144,7 +144,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			return false;
 		}
 
-		protected void setupCastle() {
+		private void setupCastle() {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			for (int i1 : new int[]{-20, 20}) {
 				for (int k1 : new int[]{-20, 20}) {
@@ -394,7 +394,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		protected void setupRedCastle() {
+		private void setupRedCastle() {
 			addStructure(new GOTStructureWesterosFortress(false).setGranite(), 0, 12, 2, true);
 			addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, -37, 0, true);
 			addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -11, -37, 0, true);
@@ -443,7 +443,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			}
 		}
 
-		protected void setupTown(Random random) {
+		private void setupTown(Random random) {
 			int l;
 			int wallX;
 			addStructure(new StructureRespawner6(), 0, 0, 0);
@@ -645,7 +645,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner8(), 0, 0, 0);
 			addStructure(new StructureRespawner9(), 0, 0, 0);

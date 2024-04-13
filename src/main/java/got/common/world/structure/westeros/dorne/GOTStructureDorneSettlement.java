@@ -47,10 +47,10 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -103,7 +103,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		protected GOTStructureBase getRandomFarm(Random random) {
+		private GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureDorneVillageFarm.Animals(false);
@@ -113,7 +113,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureDorneVillageFarm.Tree(false);
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -128,31 +128,31 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureDorneHouse(false);
 		}
 
-		protected GOTStructureDorneTownWall getWallCentre(boolean flag) {
+		private GOTStructureDorneTownWall getWallCentre(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -5, 5);
 		}
 
-		protected GOTStructureDorneTownWall getWallLeft(boolean flag) {
+		private GOTStructureDorneTownWall getWallLeft(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -9, 6);
 		}
 
-		protected GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
+		private GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 6, -5, 6);
 		}
 
-		protected GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
+		private GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -5, 6);
 		}
 
-		protected GOTStructureDorneTownWall getWallRight(boolean flag) {
+		private GOTStructureDorneTownWall getWallRight(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 9);
 		}
 
-		protected GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
+		private GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 6, -6, 5);
 		}
 
-		protected GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
+		private GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 5);
 		}
 
@@ -163,7 +163,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return block == Blocks.dirt && meta == 1 || block == GOTBlocks.dirtPath && meta == 0 || block == GOTBlocks.brick1 && meta == 15 || block == GOTBlocks.brick3 && meta == 11 || block == GOTBlocks.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 1 || block == GOTBlocks.slabSingleSand && meta == 0 || block == GOTBlocks.slabSingle4 && meta == 0 || block == GOTBlocks.slabSingle7 && meta == 1 || block == GOTBlocks.slabSingle4 && meta == 7;
 		}
 
-		protected void setupCastle() {
+		private void setupCastle() {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			for (int i1 : new int[]{-20, 20}) {
 				for (int k1 : new int[]{-20, 20}) {
@@ -218,7 +218,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupTown(Random random) {
+		private void setupTown(Random random) {
 			int l;
 			int wallX;
 			boolean outerTavern = random.nextBoolean();
@@ -425,7 +425,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(getWallRightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);
@@ -603,5 +603,4 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 	}
-
 }

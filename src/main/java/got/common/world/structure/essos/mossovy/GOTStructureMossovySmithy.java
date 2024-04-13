@@ -84,7 +84,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		placeArmorStand(world, 1, 1, 1, 3, getDisplayArmorOrNull(world, random));
 		placeWeaponRack(world, 1, 2, 3, 2, getDisplayWeaponOrNull(random));
 		placeWeaponRack(world, 3, 2, 3, 2, getDisplayWeaponOrNull(random));
-		placeWeaponRack(world, 0, 3, -5, 6, getRandomBreeWeapon(random));
+		placeWeaponRack(world, 0, 3, -5, 6, getRandomWeapon(random));
 		placeWeaponRack(world, -2, 3, -2, 4, getDisplayWeaponOrNull(random));
 		placeMug(world, random, -2, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -3, 2, 1, 3, GOTFoods.WESTEROS_DRINK);
@@ -104,6 +104,6 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 	}
 
 	private ItemStack getDisplayWeaponOrNull(Random random) {
-		return random.nextBoolean() ? getRandomBreeWeapon(random) : null;
+		return random.nextBoolean() ? getRandomWeapon(random) : null;
 	}
 }

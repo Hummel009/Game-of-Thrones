@@ -39,10 +39,10 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		protected Type type;
-		protected boolean forcedType;
+		private final boolean forcedType;
+		private Type type;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -78,7 +78,7 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 			}
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			int smithyPos = random.nextInt(4);
 			addStructure(new GOTStructureSothoryosChieftainPyramid(false), 0, -11, 0, true);
 			addStructure(new GOTStructureSothoryosVillageTree(false), 0, -16, 2);

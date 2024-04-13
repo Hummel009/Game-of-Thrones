@@ -8,7 +8,10 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureBaseSettlement;
+import got.common.world.structure.other.GOTStructureHayBales;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.world.World;
 
 import java.util.Collection;
@@ -29,7 +32,7 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos) {
 			super(world, i, k, random, loc, spawnInfos);
 		}
 

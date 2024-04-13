@@ -503,9 +503,8 @@ public class GOTBeziers {
 	}
 
 	private static class BezierCurves {
-		protected static int bezierLengthFactor = 1;
 
-		protected static BezierPoint bezier(BezierPoint a, BezierPoint b, BezierPoint c, BezierPoint d, double t) {
+		private static BezierPoint bezier(BezierPoint a, BezierPoint b, BezierPoint c, BezierPoint d, double t) {
 			BezierPoint ab = lerp(a, b, t);
 			BezierPoint bc = lerp(b, c, t);
 			BezierPoint cd = lerp(c, d, t);
@@ -514,7 +513,7 @@ public class GOTBeziers {
 			return lerp(abbc, bccd, t);
 		}
 
-		protected static double[][] getControlPoints(double[] src) {
+		private static double[][] getControlPoints(double[] src) {
 			int i;
 			int length = src.length - 1;
 			double[] p1 = new double[length];
@@ -553,7 +552,8 @@ public class GOTBeziers {
 			return new double[][]{p1, p2};
 		}
 
-		protected static GOTBeziers[] getSplines(BezierPoint[] waypoints, Type type) {
+		private static GOTBeziers[] getSplines(BezierPoint[] waypoints, Type type) {
+			int bezierLengthFactor = 1;
 			if (waypoints.length == 2) {
 				BezierPoint p1 = waypoints[0];
 				BezierPoint p2 = waypoints[1];
@@ -632,7 +632,7 @@ public class GOTBeziers {
 			return beziers;
 		}
 
-		protected static BezierPoint lerp(BezierPoint a, BezierPoint b, double t) {
+		private static BezierPoint lerp(BezierPoint a, BezierPoint b, double t) {
 			double x = a.getX() + (b.getX() - a.getX()) * t;
 			double z = a.getZ() + (b.getZ() - a.getZ()) * t;
 			return new BezierPoint(x, z);
@@ -643,7 +643,7 @@ public class GOTBeziers {
 		private final double x;
 		private final double z;
 
-		protected BezierPoint(double i, double j) {
+		private BezierPoint(double i, double j) {
 			x = i;
 			z = j;
 		}
@@ -660,7 +660,7 @@ public class GOTBeziers {
 	public static class BezierPointDatabase {
 		private final Map<Pair<Integer, Integer>, List<BezierPoint>> pointMap = new HashMap<>();
 
-		protected void add(BezierPoint point) {
+		private void add(BezierPoint point) {
 			int x = (int) Math.round(point.getX() / 1000.0);
 			int z = (int) Math.round(point.getZ() / 1000.0);
 			int overlap = 1;
@@ -673,7 +673,7 @@ public class GOTBeziers {
 			}
 		}
 
-		protected List<BezierPoint> getBezierList(int xKey, int zKey, boolean addToMap) {
+		private List<BezierPoint> getBezierList(int xKey, int zKey, boolean addToMap) {
 			Pair<Integer, Integer> key = Pair.of(xKey, zKey);
 			List<BezierPoint> list = pointMap.get(key);
 			if (list == null) {
@@ -685,7 +685,7 @@ public class GOTBeziers {
 			return list;
 		}
 
-		protected List<BezierPoint> getPointsForCoords(int x, int z) {
+		private List<BezierPoint> getPointsForCoords(int x, int z) {
 			int x1 = x / 1000;
 			int z1 = z / 1000;
 			return getBezierList(x1, z1, false);

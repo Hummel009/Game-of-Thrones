@@ -44,10 +44,10 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -97,7 +97,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			return null;
 		}
 
-		protected GOTStructureBase getRandomFarm(Random random) {
+		private GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureRiverlandsVillageFarm.Animals(false);
@@ -107,7 +107,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			return new GOTStructureRiverlandsVillageFarm.Tree(false);
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -127,7 +127,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			return false;
 		}
 
-		protected void setupCastle() {
+		private void setupCastle() {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			for (int i1 : new int[]{-20, 20}) {
 				for (int k1 : new int[]{-20, 20}) {
@@ -182,7 +182,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			}
 		}
 
-		protected void setupTown(Random random) {
+		private void setupTown(Random random) {
 			int l;
 			int wallX;
 			boolean outerTavern = random.nextBoolean();
@@ -389,7 +389,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);

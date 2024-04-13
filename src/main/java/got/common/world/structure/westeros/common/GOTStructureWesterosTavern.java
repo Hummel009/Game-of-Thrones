@@ -23,9 +23,9 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
-	private String[] tavernNameSign;
 	protected boolean isKingsLanding;
 	protected boolean isCrossroads;
+	private String[] tavernNameSign;
 
 	public GOTStructureWesterosTavern(boolean flag) {
 		super(flag);

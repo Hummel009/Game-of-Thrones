@@ -44,10 +44,10 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -123,14 +123,14 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		protected GOTStructureBase getRandomFarm(Random random) {
+		private GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureQohorFarm(false);
 			}
 			return new GOTStructureQohorPasture(false);
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureQohorSmithy(false);
 			}
@@ -145,15 +145,15 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		protected void placeChampionRespawner() {
+		private void placeChampionRespawner() {
 			addStructure(new StructureRespawner(), 0, 0, 0);
 		}
 
-		protected void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		private void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass(GOTEntityQohorMan.class);
 		}
 
-		protected void setupFort(Random random) {
+		private void setupFort(Random random) {
 			int k;
 			int i;
 			int r;
@@ -239,7 +239,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupTown() {
+		private void setupTown() {
 			int k;
 			int i;
 			int r;
@@ -402,7 +402,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -494,7 +494,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		private void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass(GOTEntityQohorGuard.class);
 		}
 

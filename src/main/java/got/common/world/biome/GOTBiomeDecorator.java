@@ -670,7 +670,7 @@ public class GOTBiomeDecorator {
 		private final int minHeight;
 		private final int maxHeight;
 
-		protected OreGenerant(WorldGenMinable gen, float f, int min, int max) {
+		private OreGenerant(WorldGenMinable gen, float f, int min, int max) {
 			oreGen = gen;
 			oreChance = f;
 			minHeight = min;
@@ -698,7 +698,7 @@ public class GOTBiomeDecorator {
 		private final WorldGenerator structureGen;
 		private final int chunkChance;
 
-		protected Structure(WorldGenerator w, int i) {
+		private Structure(WorldGenerator w, int i) {
 			structureGen = w;
 			chunkChance = i;
 		}
@@ -707,7 +707,7 @@ public class GOTBiomeDecorator {
 			return structureGen;
 		}
 
-		protected int getChunkChance() {
+		private int getChunkChance() {
 			return chunkChance;
 		}
 	}

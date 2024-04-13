@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class GOTStructureGiftCastle extends GOTStructureGiftBase {
+public abstract class GOTStructureGiftCastle extends GOTStructureGiftBase {
 	protected GOTStructureGiftCastle(boolean flag) {
 		super(flag);
 	}
@@ -528,13 +528,16 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		return true;
 	}
 
-	protected void spawnLegendaryMobs(World world) {
-	}
+	protected abstract void spawnLegendaryMobs(World world);
 
 	public static class Abandoned extends GOTStructureGiftCastle {
 		public Abandoned(boolean flag) {
 			super(flag);
 			isAbandoned = true;
+		}
+
+		@Override
+		protected void spawnLegendaryMobs(World world) {
 		}
 	}
 

@@ -17,11 +17,6 @@ public class GOTSpawnListContainer {
 		return conq > -1.0f;
 	}
 
-	public GOTSpawnListContainer setSpawnChance(int i) {
-		spawnChance = i;
-		return this;
-	}
-
 	public int getWeight() {
 		return weight;
 	}
@@ -32,5 +27,10 @@ public class GOTSpawnListContainer {
 
 	public int getSpawnChance() {
 		return spawnChance;
+	}
+
+	public GOTSpawnListContainer setSpawnChance(int i) {
+		spawnChance = i;
+		return this;
 	}
 }

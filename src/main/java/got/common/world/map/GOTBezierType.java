@@ -187,7 +187,7 @@ public abstract class GOTBezierType {
 		private final Block block;
 		private final int meta;
 
-		protected BezierBlock(Block b, int i) {
+		private BezierBlock(Block b, int i) {
 			block = b;
 			meta = i;
 		}

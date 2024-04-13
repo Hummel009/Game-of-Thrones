@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
-	protected GOTStructureYiTiVillageFarm(boolean flag) {
+	private GOTStructureYiTiVillageFarm(boolean flag) {
 		super(flag);
 	}
 
@@ -101,7 +101,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 		}
 
 		@SuppressWarnings("JavaExistingMethodCanBeUsed")
-		protected static EntityAnimal getRandomAnimal(World world, Random random) {
+		private static EntityAnimal getRandomAnimal(World world, Random random) {
 			int animal = random.nextInt(4);
 			switch (animal) {
 				case 0:
@@ -210,7 +210,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			super(flag);
 		}
 
-		protected static GOTTreeType getRandomTree(Random random) {
+		private static GOTTreeType getRandomTree(Random random) {
 			ArrayList<GOTTreeType> treeList = new ArrayList<>();
 			treeList.add(GOTTreeType.BEECH);
 			treeList.add(GOTTreeType.BEECH_LARGE);

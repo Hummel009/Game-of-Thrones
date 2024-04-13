@@ -47,10 +47,10 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -135,14 +135,14 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		protected GOTStructureBase getRandomFarm(Random random) {
+		private GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureQarthFarm(false);
 			}
 			return new GOTStructureQarthPasture(false);
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureQarthSmithy(false);
 			}
@@ -159,15 +159,15 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			return block == Blocks.dirt && meta == 1 || block == GOTBlocks.dirtPath && meta == 0 || block == GOTBlocks.brick1 && meta == 15 || block == GOTBlocks.brick3 && meta == 11 || block == GOTBlocks.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 1 || block == GOTBlocks.slabSingleSand && meta == 0 || block == GOTBlocks.slabSingle4 && meta == 0 || block == GOTBlocks.slabSingle7 && meta == 1 || block == GOTBlocks.slabSingle4 && meta == 7;
 		}
 
-		protected void placeChampionRespawner() {
+		private void placeChampionRespawner() {
 			addStructure(new StructureRespawner(), 0, 0, 0);
 		}
 
-		protected void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		private void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass(GOTEntityQarthMan.class);
 		}
 
-		protected void setupFort(Random random) {
+		private void setupFort(Random random) {
 			int k;
 			int i;
 			int r;
@@ -253,7 +253,7 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupTown() {
+		private void setupTown() {
 			int k;
 			int i;
 			int r;
@@ -416,7 +416,7 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -508,7 +508,7 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		private void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass(GOTEntityQarthGuard.class);
 		}
 

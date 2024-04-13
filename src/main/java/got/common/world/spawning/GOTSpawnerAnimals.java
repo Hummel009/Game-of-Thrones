@@ -216,7 +216,7 @@ public class GOTSpawnerAnimals {
 	private static class DimInfo {
 		private final Map<EnumCreatureType, TypeInfo> types = new EnumMap<>(EnumCreatureType.class);
 
-		protected Map<EnumCreatureType, TypeInfo> getTypes() {
+		private Map<EnumCreatureType, TypeInfo> getTypes() {
 			return types;
 		}
 	}
@@ -225,19 +225,19 @@ public class GOTSpawnerAnimals {
 		private int failedCycles;
 		private int blockedCycles;
 
-		protected int getBlockedCycles() {
+		private int getBlockedCycles() {
 			return blockedCycles;
 		}
 
-		protected void setBlockedCycles(int blockedCycles) {
+		private void setBlockedCycles(int blockedCycles) {
 			this.blockedCycles = blockedCycles;
 		}
 
-		protected int getFailedCycles() {
+		private int getFailedCycles() {
 			return failedCycles;
 		}
 
-		protected void setFailedCycles(int failedCycles) {
+		private void setFailedCycles(int failedCycles) {
 			this.failedCycles = failedCycles;
 		}
 	}

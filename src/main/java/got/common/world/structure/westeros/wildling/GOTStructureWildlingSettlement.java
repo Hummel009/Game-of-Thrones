@@ -12,7 +12,10 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureBaseSettlement;
+import got.common.world.structure.other.GOTStructureHayBales;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.LocationInfo;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagnarHouse;
 import net.minecraft.block.Block;
@@ -51,10 +54,10 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -114,7 +117,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			return block == Blocks.snow || block == Blocks.ice;
 		}
 
-		protected void setupHardhome() {
+		private void setupHardhome() {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			int spawnerX = 60;
 			for (int i1 : new int[]{-spawnerX, spawnerX}) {
@@ -207,7 +210,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupVillage() {
+		private void setupVillage() {
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);
 			int pathEnd = 68;

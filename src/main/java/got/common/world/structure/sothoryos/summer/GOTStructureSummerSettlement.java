@@ -43,10 +43,10 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
+		private final boolean forcedType;
 		private Type type;
-		protected boolean forcedType;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -99,7 +99,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		protected GOTStructureBase getRandomHouse(Random random) {
+		private GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureSummerSmithy(false);
 			}
@@ -114,7 +114,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		protected void setupFortress() {
+		private void setupFortress() {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			addStructure(new GOTStructureSummerFort(false), 0, -12, 0, true);
 			addStructure(new GOTStructureSummerTower(false), -24, -24, 0, true);
@@ -204,7 +204,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new StructureRespawner2(), 0, 0, 0);
 			addStructure(new StructureRespawner3(), 0, 0, 0);
 			if (random.nextBoolean()) {

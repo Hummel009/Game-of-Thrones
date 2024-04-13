@@ -6,7 +6,10 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureBaseSettlement;
+import got.common.world.structure.other.GOTStructureHayBales;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -42,10 +45,10 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
-		protected Type type;
-		protected boolean forcedType;
+		private final boolean forcedType;
+		private Type type;
 
-		protected Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+		private Instance(World world, int i, int k, Random random, LocationInfo loc, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
 			super(world, i, k, random, loc, spawnInfos);
 			type = t;
 			forcedType = b;
@@ -99,7 +102,7 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		protected void setupVillage(Random random) {
+		private void setupVillage(Random random) {
 			addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			addStructure(new StructureRespawner2(), 0, 0, 0);

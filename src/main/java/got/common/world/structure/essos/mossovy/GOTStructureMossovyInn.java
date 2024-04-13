@@ -102,10 +102,10 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		placeFoodOrDrink(world, random, -6, 6, -3);
 		placeFoodOrDrink(world, random, 5, 6, 4);
 		placeFoodOrDrink(world, random, -5, 6, 4);
-		placeWeaponRack(world, -3, 7, -1, 5, getRandomBreeWeapon(random));
-		placeWeaponRack(world, 3, 7, -1, 7, getRandomBreeWeapon(random));
-		placeWeaponRack(world, -3, 7, 2, 5, getRandomBreeWeapon(random));
-		placeWeaponRack(world, 3, 7, 2, 7, getRandomBreeWeapon(random));
+		placeWeaponRack(world, -3, 7, -1, 5, getRandomWeapon(random));
+		placeWeaponRack(world, 3, 7, -1, 7, getRandomWeapon(random));
+		placeWeaponRack(world, -3, 7, 2, 5, getRandomWeapon(random));
+		placeWeaponRack(world, 3, 7, 2, 7, getRandomWeapon(random));
 		setBlockAndMetadata(world, 5, 5, 0, bedBlock, 1);
 		setBlockAndMetadata(world, 6, 5, 0, bedBlock, 9);
 		setBlockAndMetadata(world, -5, 5, 0, bedBlock, 3);

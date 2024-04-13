@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
-	protected boolean issKingsLanding;
+	protected boolean isKingsLanding;
 
 	public GOTStructureWesterosSmithy(boolean flag) {
 		super(flag);
@@ -160,7 +160,7 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 		setAir(world, -3, 5, 10);
 
 		setAir(world, -3, 5, 10);
-		if (issKingsLanding) {
+		if (isKingsLanding) {
 			spawnNPCAndSetHome(new GOTEntityTobhoMott(world), world, 0, 1, 6, 4);
 			spawnNPCAndSetHome(new GOTEntityGendryBaratheon(world), world, 0, 1, 6, 4);
 		} else {

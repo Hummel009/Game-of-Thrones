@@ -119,7 +119,7 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		placeMug(world, random, 0, 2, 7, 3, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -1, 2, 7, 2, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, -3, 1, 7, 4, GOTChestContents.MOSSOVY);
-		placeWeaponRack(world, 0, 2, 3, 6, getRandomBreeWeapon(random));
+		placeWeaponRack(world, 0, 2, 3, 6, getRandomWeapon(random));
 		GOTEntityMossovyMan stabler = new GOTEntityMossovyMan(world);
 		spawnNPCAndSetHome(stabler, world, 0, 1, -1, 16);
 		spawnHorse(world, random, -6, 1, -2);
