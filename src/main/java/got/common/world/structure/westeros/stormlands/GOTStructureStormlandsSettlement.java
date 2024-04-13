@@ -542,5 +542,4 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 			this.type = type;
 		}
 	}
-
 }

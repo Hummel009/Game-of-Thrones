@@ -27,8 +27,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Baker extends GOTStructureArrynMarketStall {
-		protected Baker(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Baker extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Baker(boolean flag) {
 			super(flag);
 		}
 
@@ -48,8 +50,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Blacksmith extends GOTStructureArrynMarketStall {
-		protected Blacksmith(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Blacksmith extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Blacksmith(boolean flag) {
 			super(flag);
 		}
 
@@ -69,8 +73,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Brewer extends GOTStructureArrynMarketStall {
-		protected Brewer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Brewer extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -90,8 +96,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Butcher extends GOTStructureArrynMarketStall {
-		protected Butcher(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Butcher extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Butcher(boolean flag) {
 			super(flag);
 		}
 
@@ -114,8 +122,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Farmer extends GOTStructureArrynMarketStall {
-		protected Farmer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Farmer extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Farmer(boolean flag) {
 			super(flag);
 		}
 
@@ -140,8 +150,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Fish extends GOTStructureArrynMarketStall {
-		protected Fish(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Fish extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Fish(boolean flag) {
 			super(flag);
 		}
 
@@ -166,8 +178,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Flowers extends GOTStructureArrynMarketStall {
-		protected Flowers(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Flowers extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Flowers(boolean flag) {
 			super(flag);
 		}
 
@@ -187,8 +201,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Goldsmith extends GOTStructureArrynMarketStall {
-		protected Goldsmith(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Goldsmith extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Goldsmith(boolean flag) {
 			super(flag);
 		}
 
@@ -208,8 +224,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Lumber extends GOTStructureArrynMarketStall {
-		protected Lumber(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Lumber extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Lumber(boolean flag) {
 			super(flag);
 		}
 
@@ -230,8 +248,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Mason extends GOTStructureArrynMarketStall {
-		protected Mason(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Mason extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -252,8 +272,10 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	private static class Miner extends GOTStructureArrynMarketStall {
-		protected Miner(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Miner extends GOTStructureArrynMarketStall {
+		@SuppressWarnings("WeakerAccess")
+		public Miner(boolean flag) {
 			super(flag);
 		}
 

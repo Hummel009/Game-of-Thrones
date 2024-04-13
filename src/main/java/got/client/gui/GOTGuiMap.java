@@ -1902,7 +1902,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		String name = waypoint.getDisplayName();
 		int wpX = waypoint.getCoordX();
 		int wpZ = waypoint.getCoordZ();
-		int wpY = waypoint.getYCoordSaved();
+		int wpY = waypoint.getCoordYSaved();
 		String coords = wpY >= 0 ? StatCollector.translateToLocalFormatted("got.gui.map.coordsY", wpX, wpY, wpZ) : StatCollector.translateToLocalFormatted("got.gui.map.coords", wpX, wpZ);
 		String loreText = waypoint.getLoreText(mc.thePlayer);
 		float guiScale = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight).getScaleFactor();

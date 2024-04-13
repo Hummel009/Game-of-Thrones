@@ -537,5 +537,4 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			this.type = type;
 		}
 	}
-
 }

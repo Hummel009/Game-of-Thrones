@@ -529,5 +529,4 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

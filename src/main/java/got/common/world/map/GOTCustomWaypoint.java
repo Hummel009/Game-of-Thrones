@@ -290,7 +290,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getYCoord(World world, int i, int k) {
+	public int getCoordY(World world, int i, int k) {
 		int j = yCoord;
 		if (j < 0) {
 			yCoord = GOT.getTrueTopBlock(world, i, k);
@@ -331,7 +331,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getYCoordSaved() {
+	public int getCoordYSaved() {
 		return yCoord;
 	}
 

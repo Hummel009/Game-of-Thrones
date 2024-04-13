@@ -225,5 +225,4 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 			return true;
 		}
 	}
-
 }

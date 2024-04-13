@@ -520,5 +520,4 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

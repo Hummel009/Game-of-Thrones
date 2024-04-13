@@ -28,9 +28,9 @@ public interface GOTAbstractWaypoint {
 
 	double getImgY();
 
-	int getYCoord(World world, int i, int k);
+	int getCoordY(World world, int i, int k);
 
-	int getYCoordSaved();
+	int getCoordYSaved();
 
 	int getCoordZ();
 

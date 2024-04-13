@@ -533,5 +533,4 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

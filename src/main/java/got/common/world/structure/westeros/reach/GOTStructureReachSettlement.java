@@ -539,5 +539,4 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

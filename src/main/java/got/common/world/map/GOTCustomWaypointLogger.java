@@ -37,7 +37,7 @@ public class GOTCustomWaypointLogger {
 			File logFile;
 			File dupeLogDir;
 			LocalDateTime date = LocalDateTime.now();
-			StringBuilder logLine = new StringBuilder(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", MONTH_DATE_FORMAT.format(date), TIME_FORMAT.format(date), function, entityplayer.getCommandSenderName(), entityplayer.getPersistentID(), cwp.getCodeName(), cwp.getCoordX(), cwp.getYCoordSaved(), cwp.getCoordZ(), cwp.isShared(), cwp.isShared() ? cwp.getSharingPlayerName() : "N/A", cwp.isShared() ? cwp.getSharingPlayerID() : "N/A"));
+			StringBuilder logLine = new StringBuilder(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", MONTH_DATE_FORMAT.format(date), TIME_FORMAT.format(date), function, entityplayer.getCommandSenderName(), entityplayer.getPersistentID(), cwp.getCodeName(), cwp.getCoordX(), cwp.getCoordYSaved(), cwp.getCoordZ(), cwp.isShared(), cwp.isShared() ? cwp.getSharingPlayerName() : "N/A", cwp.isShared() ? cwp.getSharingPlayerID() : "N/A"));
 			if (cwp.isShared()) {
 				List<UUID> fsIDs = cwp.getSharedFellowshipIDs();
 				for (UUID id : fsIDs) {

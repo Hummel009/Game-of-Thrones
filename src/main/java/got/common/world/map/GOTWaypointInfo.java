@@ -78,13 +78,13 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getYCoord(World world, int i, int k) {
-		return waypoint.getYCoord(world, i, k);
+	public int getCoordY(World world, int i, int k) {
+		return waypoint.getCoordY(world, i, k);
 	}
 
 	@Override
-	public int getYCoordSaved() {
-		return waypoint.getYCoordSaved();
+	public int getCoordYSaved() {
+		return waypoint.getCoordYSaved();
 	}
 
 	@Override

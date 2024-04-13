@@ -934,7 +934,7 @@ public class GOTPlayerData {
 			int i = waypoint.getCoordX();
 			int k = waypoint.getCoordZ();
 			world.theChunkProviderServer.provideChunk(i >> 4, k >> 4);
-			int j = waypoint.getYCoord(world, i, k);
+			int j = waypoint.getCoordY(world, i, k);
 			Entity playerMount = entityplayer.ridingEntity;
 			entityplayer.mountEntity(null);
 			entityplayer.setPositionAndUpdate(i + 0.5D, j, k + 0.5D);
@@ -1515,7 +1515,7 @@ public class GOTPlayerData {
 		int baseMin = GOTLevelData.getWaypointCooldownMin();
 		int baseMax = GOTLevelData.getWaypointCooldownMax();
 		int useCount = getWPUseCount(wp);
-		double dist = entityplayer.getDistance(wp.getCoordX() + 0.5D, wp.getYCoordSaved(), wp.getCoordZ() + 0.5D);
+		double dist = entityplayer.getDistance(wp.getCoordX() + 0.5D, wp.getCoordYSaved(), wp.getCoordZ() + 0.5D);
 		double time = baseMin;
 		double added = (baseMax - baseMin) * Math.pow(0.9D, useCount);
 		time += added;

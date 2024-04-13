@@ -177,12 +177,12 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getYCoord(World world, int i, int k) {
+	public int getCoordY(World world, int i, int k) {
 		return GOT.getTrueTopBlock(world, i, k);
 	}
 
 	@Override
-	public int getYCoordSaved() {
+	public int getCoordYSaved() {
 		return 64;
 	}
 

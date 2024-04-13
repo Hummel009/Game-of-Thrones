@@ -520,5 +520,4 @@ public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

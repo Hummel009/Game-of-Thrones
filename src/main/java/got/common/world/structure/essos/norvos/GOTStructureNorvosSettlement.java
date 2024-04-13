@@ -519,5 +519,4 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

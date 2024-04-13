@@ -520,5 +520,4 @@ public class GOTStructureLorathSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

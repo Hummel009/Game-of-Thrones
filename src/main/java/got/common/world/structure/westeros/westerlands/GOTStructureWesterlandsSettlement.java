@@ -539,5 +539,4 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			this.type = type;
 		}
 	}
-
 }

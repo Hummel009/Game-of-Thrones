@@ -490,5 +490,4 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSandstoneBrick, meta);
 		}
 	}
-
 }

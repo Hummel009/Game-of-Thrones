@@ -134,8 +134,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		return true;
 	}
 
-	private static class Baker extends GOTStructureBase {
-		protected Baker(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Baker extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Baker(boolean flag) {
 			super(flag);
 		}
 
@@ -153,8 +155,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Blacksmith extends GOTStructureBase {
-		protected Blacksmith(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Blacksmith extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Blacksmith(boolean flag) {
 			super(flag);
 		}
 
@@ -171,8 +175,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Brewer extends GOTStructureBase {
-		protected Brewer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Brewer extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -190,8 +196,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Butcher extends GOTStructureBase {
-		protected Butcher(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Butcher extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Butcher(boolean flag) {
 			super(flag);
 		}
 
@@ -208,8 +216,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Farmer extends GOTStructureBase {
-		protected Farmer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Farmer extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Farmer(boolean flag) {
 			super(flag);
 		}
 
@@ -226,8 +236,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Fish extends GOTStructureBase {
-		protected Fish(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Fish extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Fish(boolean flag) {
 			super(flag);
 		}
 
@@ -245,8 +257,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Goldsmith extends GOTStructureBase {
-		protected Goldsmith(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Goldsmith extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Goldsmith(boolean flag) {
 			super(flag);
 		}
 
@@ -262,8 +276,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Lumber extends GOTStructureBase {
-		protected Lumber(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Lumber extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Lumber(boolean flag) {
 			super(flag);
 		}
 
@@ -280,8 +296,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Mason extends GOTStructureBase {
-		protected Mason(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Mason extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -298,8 +316,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 	}
 
-	private static class Miner extends GOTStructureBase {
-		protected Miner(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Miner extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Miner(boolean flag) {
 			super(flag);
 		}
 
@@ -315,5 +335,4 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			return true;
 		}
 	}
-
 }

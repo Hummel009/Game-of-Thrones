@@ -172,8 +172,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		return true;
 	}
 
-	private static class Baker extends GOTStructureBase {
-		protected Baker(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Baker extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Baker(boolean flag) {
 			super(flag);
 		}
 
@@ -193,8 +195,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Blacksmith extends GOTStructureBase {
-		protected Blacksmith(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Blacksmith extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Blacksmith(boolean flag) {
 			super(flag);
 		}
 
@@ -213,8 +217,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Brewer extends GOTStructureBase {
-		protected Brewer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Brewer extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -232,8 +238,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Butcher extends GOTStructureBase {
-		protected Butcher(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Butcher extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Butcher(boolean flag) {
 			super(flag);
 		}
 
@@ -254,8 +262,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Farmer extends GOTStructureBase {
-		protected Farmer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Farmer extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Farmer(boolean flag) {
 			super(flag);
 		}
 
@@ -274,7 +284,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			return true;
 		}
 
-		protected ItemStack getRandomFarmFood(Random random) {
+		private ItemStack getRandomFarmFood(Random random) {
 			ItemStack[] items = {new ItemStack(GOTItems.orange), new ItemStack(GOTItems.lemon), new ItemStack(GOTItems.lime), new ItemStack(Items.carrot), new ItemStack(Items.potato), new ItemStack(GOTItems.lettuce), new ItemStack(GOTItems.turnip)};
 			ItemStack ret = items[random.nextInt(items.length)].copy();
 			ret.stackSize = 1 + random.nextInt(3);
@@ -282,8 +292,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Fish extends GOTStructureBase {
-		protected Fish(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Fish extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Fish(boolean flag) {
 			super(flag);
 		}
 
@@ -303,8 +315,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Florist extends GOTStructureBase {
-		protected Florist(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Florist extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Florist(boolean flag) {
 			super(flag);
 		}
 
@@ -321,8 +335,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Goldsmith extends GOTStructureBase {
-		protected Goldsmith(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Goldsmith extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Goldsmith(boolean flag) {
 			super(flag);
 		}
 
@@ -342,8 +358,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Lumber extends GOTStructureBase {
-		protected Lumber(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Lumber extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Lumber(boolean flag) {
 			super(flag);
 		}
 
@@ -365,8 +383,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Mason extends GOTStructureBase {
-		protected Mason(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Mason extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -386,8 +406,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	private static class Miner extends GOTStructureBase {
-		protected Miner(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Miner extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Miner(boolean flag) {
 			super(flag);
 		}
 
@@ -406,5 +428,4 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			return true;
 		}
 	}
-
 }

@@ -538,5 +538,4 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 			this.type = type;
 		}
 	}
-
 }

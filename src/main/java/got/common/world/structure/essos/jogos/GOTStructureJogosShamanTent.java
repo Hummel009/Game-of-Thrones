@@ -97,8 +97,10 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		return true;
 	}
 
-	private static class Armourer extends GOTStructureBase {
-		protected Armourer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Armourer extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Armourer(boolean flag) {
 			super(flag);
 		}
 
@@ -113,8 +115,10 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		}
 	}
 
-	private static class Brewer extends GOTStructureBase {
-		protected Brewer(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Brewer extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Brewer(boolean flag) {
 			super(flag);
 		}
 
@@ -134,8 +138,10 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		}
 	}
 
-	private static class Mason extends GOTStructureBase {
-		protected Mason(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Mason extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Mason(boolean flag) {
 			super(flag);
 		}
 
@@ -158,8 +164,10 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		}
 	}
 
-	private static class Miner extends GOTStructureBase {
-		protected Miner(boolean flag) {
+	@SuppressWarnings("WeakerAccess")
+	public static class Miner extends GOTStructureBase {
+		@SuppressWarnings("WeakerAccess")
+		public Miner(boolean flag) {
 			super(flag);
 		}
 
@@ -178,5 +186,4 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 			return true;
 		}
 	}
-
 }

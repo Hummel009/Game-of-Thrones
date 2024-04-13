@@ -515,5 +515,4 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

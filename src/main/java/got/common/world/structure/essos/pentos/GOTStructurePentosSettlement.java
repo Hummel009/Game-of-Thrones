@@ -520,5 +520,4 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

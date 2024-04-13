@@ -516,5 +516,4 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 	}
-
 }

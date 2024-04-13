@@ -585,5 +585,4 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSothoryosBrick, meta);
 		}
 	}
-
 }
