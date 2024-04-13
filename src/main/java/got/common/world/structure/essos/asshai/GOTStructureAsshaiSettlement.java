@@ -43,38 +43,11 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 			int k1;
 			int houseZ;
 			boolean outerTavern = random.nextBoolean();
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityAsshaiMan.class);
-					spawner.setCheckRanges(80, -12, 12, 100);
-					spawner.setSpawnRanges(60, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityRedPriest.class, GOTEntityAsshaiAlchemist.class);
-					spawner.setCheckRanges(80, -12, 12, 10);
-					spawner.setSpawnRanges(60, -6, 6, 64);
-					spawner.setSpawnInterval(1);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner1(), 0, 0, 0);
+			addStructure(new StructureRespawner2(), 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				for (int k12 : new int[]{-40, 40}) {
-					addStructure(new GOTStructureNPCRespawner(false) {
-
-						@Override
-						public void setupRespawner(GOTEntityNPCRespawner spawner) {
-							spawner.setSpawnClass(GOTEntityAsshaiWarrior.class);
-							spawner.setCheckRanges(40, -12, 12, 16);
-							spawner.setSpawnRanges(20, -6, 6, 64);
-							spawner.setBlockEnemySpawnRange(60);
-						}
-					}, i1, k12, 0);
+					addStructure(new StructureRespawner3(), i1, k12, 0);
 				}
 			}
 			addStructure(new GOTStructureAsshaiFort(false), -5, 21, 2, true);
@@ -205,6 +178,48 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityAsshaiMan.class);
+				spawner.setCheckRanges(80, -12, 12, 100);
+				spawner.setSpawnRanges(60, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityRedPriest.class, GOTEntityAsshaiAlchemist.class);
+				spawner.setCheckRanges(80, -12, 12, 10);
+				spawner.setSpawnRanges(60, -6, 6, 64);
+				spawner.setSpawnInterval(1);
+			}
+		}
+
+		private static class StructureRespawner3 extends GOTStructureNPCRespawner {
+			private StructureRespawner3() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityAsshaiWarrior.class);
+				spawner.setCheckRanges(40, -12, 12, 16);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
 		}
 	}
 }

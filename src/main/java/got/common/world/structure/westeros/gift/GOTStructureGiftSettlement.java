@@ -121,24 +121,8 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 		}
 
 		protected void setupVillage(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityGiftMan.class);
-					spawner.setCheckRanges(40, -12, 12, 30);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityGiftGuard.class);
-					spawner.setCheckRanges(40, -12, 12, 12);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner1(), 0, 0, 0);
+			addStructure(new StructureRespawner2(), 0, 0, 0);
 			addStructure(new GOTStructureGiftWell(false), 0, -2, 0, true);
 			int lampX = 8;
 			for (int i : new int[]{-lampX, lampX}) {
@@ -211,6 +195,32 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 
 		public void setType(Type type) {
 			this.type = type;
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityGiftMan.class);
+				spawner.setCheckRanges(40, -12, 12, 30);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityGiftGuard.class);
+				spawner.setCheckRanges(40, -12, 12, 12);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+			}
 		}
 	}
 }

@@ -39,16 +39,7 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
 			addStructure(new GOTStructureGoldenCampWatchtower(false), 0, -4, 0, true);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityGoldenWarrior.class, GOTEntityGoldenSpearman.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner(), 0, 0, 0);
 			addStructure(new GOTStructureGoldenCampTent(false), -21, 0, 1);
 			addStructure(new GOTStructureGoldenCampTent(false), 0, -21, 2);
 			addStructure(new GOTStructureGoldenCampTent(false), 21, 0, 3);
@@ -116,6 +107,20 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
+		}
+
+		private static class StructureRespawner extends GOTStructureNPCRespawner {
+			private StructureRespawner() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityGoldenWarrior.class, GOTEntityGoldenSpearman.class);
+				spawner.setCheckRanges(40, -12, 12, 40);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
 		}
 	}
 }

@@ -147,15 +147,7 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 		}
 
 		protected void placeChampionRespawner() {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityVolantisSoldier.class);
-					spawner.setCheckRanges(60, -12, 12, 4);
-					spawner.setSpawnRanges(24, -6, 6, 32);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner(), 0, 0, 0);
 		}
 
 		protected void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
@@ -514,6 +506,19 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 
 		public void setType(Type type) {
 			this.type = type;
+		}
+
+		private static class StructureRespawner extends GOTStructureNPCRespawner {
+			private StructureRespawner() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityVolantisSoldier.class);
+				spawner.setCheckRanges(60, -12, 12, 4);
+				spawner.setSpawnRanges(24, -6, 6, 32);
+			}
 		}
 	}
 }

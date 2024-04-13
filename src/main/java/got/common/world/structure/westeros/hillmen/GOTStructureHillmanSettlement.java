@@ -36,26 +36,8 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityHillman.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityHillmanWarrior.class, GOTEntityHillmanArcher.class);
-					spawner.setCheckRanges(40, -12, 12, 16);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner1(), 0, 0, 0);
+			addStructure(new StructureRespawner2(), 0, 0, 0);
 			int pathEnd = 68;
 			int pathSide = 7;
 			int centreSide = 19;
@@ -101,6 +83,34 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityHillman.class);
+				spawner.setCheckRanges(40, -12, 12, 40);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityHillmanWarrior.class, GOTEntityHillmanArcher.class);
+				spawner.setCheckRanges(40, -12, 12, 16);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
 		}
 	}
 }

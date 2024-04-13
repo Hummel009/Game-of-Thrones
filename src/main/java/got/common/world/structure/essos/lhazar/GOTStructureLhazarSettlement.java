@@ -118,16 +118,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 		}
 
 		protected void setupFort(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityLhazarMan.class);
-					spawner.setCheckRanges(40, -12, 12, 16);
-					spawner.setSpawnRanges(24, -6, 6, 32);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner1(), 0, 0, 0);
 			addStructure(new GOTStructureLhazarWarCamp(false), 0, -15, 0, true);
 			int towerX = 36;
 			addStructure(new GOTStructureLhazarTower(false), -towerX, -towerX + 4, 2, true);
@@ -156,28 +147,10 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 		}
 
 		protected void setupTown(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityLhazarMan.class);
-					spawner.setCheckRanges(80, -12, 12, 100);
-					spawner.setSpawnRanges(40, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner2(), 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				for (int k1 : new int[]{-40, 40}) {
-					addStructure(new GOTStructureNPCRespawner(false) {
-
-						@Override
-						public void setupRespawner(GOTEntityNPCRespawner spawner) {
-							spawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
-							spawner.setCheckRanges(64, -12, 12, 20);
-							spawner.setSpawnRanges(20, -6, 6, 64);
-							spawner.setBlockEnemySpawnRange(64);
-						}
-					}, i1, k1, 0);
+					addStructure(new StructureRespawner3(), i1, k1, 0);
 				}
 			}
 			addStructure(new GOTStructureLhazarPyramid(false), 0, -11, 0, true);
@@ -260,26 +233,8 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 		}
 
 		protected void setupVillage(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityLhazarMan.class);
-					spawner.setCheckRanges(64, -12, 12, 24);
-					spawner.setSpawnRanges(32, -6, 6, 32);
-					spawner.setBlockEnemySpawnRange(64);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
-					spawner.setCheckRanges(64, -12, 12, 12);
-					spawner.setSpawnRanges(32, -6, 6, 32);
-					spawner.setBlockEnemySpawnRange(64);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner4(), 0, 0, 0);
+			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new GOTStructureLhazarTotem(false), 0, -2, 0, true);
 			addStructure(new GOTStructureLhazarTavern(false), 0, 24, 0, true);
 			for (int h = 0; h < numOuterHouses; ++h) {
@@ -339,6 +294,76 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 		public void setType(Type type) {
 			this.type = type;
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityLhazarMan.class);
+				spawner.setCheckRanges(40, -12, 12, 16);
+				spawner.setSpawnRanges(24, -6, 6, 32);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityLhazarMan.class);
+				spawner.setCheckRanges(80, -12, 12, 100);
+				spawner.setSpawnRanges(40, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner3 extends GOTStructureNPCRespawner {
+			private StructureRespawner3() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
+				spawner.setCheckRanges(64, -12, 12, 20);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(64);
+			}
+		}
+
+		private static class StructureRespawner4 extends GOTStructureNPCRespawner {
+			private StructureRespawner4() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityLhazarMan.class);
+				spawner.setCheckRanges(64, -12, 12, 24);
+				spawner.setSpawnRanges(32, -6, 6, 32);
+				spawner.setBlockEnemySpawnRange(64);
+			}
+		}
+
+		private static class StructureRespawner5 extends GOTStructureNPCRespawner {
+			private StructureRespawner5() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
+				spawner.setCheckRanges(64, -12, 12, 12);
+				spawner.setSpawnRanges(32, -6, 6, 32);
+				spawner.setBlockEnemySpawnRange(64);
+			}
 		}
 	}
 }

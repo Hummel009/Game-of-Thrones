@@ -59,49 +59,13 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 			super.addSettlementStructures(random);
 			if (type == Type.SMALL) {
 				numOuterHouses = 6;
-				addStructure(new GOTStructureNPCRespawner(false) {
-
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClass(GOTEntityDothraki.class);
-						spawner.setCheckRanges(64, -12, 12, 24);
-						spawner.setSpawnRanges(32, -6, 6, 32);
-						spawner.setBlockEnemySpawnRange(40);
-					}
-				}, 0, 0, 0);
-				addStructure(new GOTStructureNPCRespawner(false) {
-
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClasses(GOTEntityDothraki.class, GOTEntityDothrakiArcher.class);
-						spawner.setCheckRanges(64, -12, 12, 12);
-						spawner.setSpawnRanges(32, -6, 6, 32);
-						spawner.setBlockEnemySpawnRange(40);
-					}
-				}, 0, 0, 0);
+				addStructure(new StructureRespawner1(), 0, 0, 0);
+				addStructure(new StructureRespawner2(), 0, 0, 0);
 				addStructure(new GOTStructureDothrakiTentLarge(false), 0, -8, 0, true);
 			} else if (type == Type.BIG) {
 				numOuterHouses = 13;
-				addStructure(new GOTStructureNPCRespawner(false) {
-
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClass(GOTEntityDothraki.class);
-						spawner.setCheckRanges(80, -12, 12, 50);
-						spawner.setSpawnRanges(40, -8, 8, 40);
-						spawner.setBlockEnemySpawnRange(60);
-					}
-				}, 0, 0, 0);
-				addStructure(new GOTStructureNPCRespawner(false) {
-
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClasses(GOTEntityDothraki.class, GOTEntityDothrakiArcher.class);
-						spawner.setCheckRanges(80, -12, 12, 24);
-						spawner.setSpawnRanges(40, -8, 8, 40);
-						spawner.setBlockEnemySpawnRange(60);
-					}
-				}, 0, 0, 0);
+				addStructure(new StructureRespawner3(), 0, 0, 0);
+				addStructure(new StructureRespawner4(), 0, 0, 0);
 				addStructure(new GOTStructureDothrakiWell(false), 0, 0, 0, true);
 				addStructure(new GOTStructureDothrakiKhalTent(false), 0, 14, 0, true);
 				addStructure(new GOTStructureDothrakiKhalinTent(false), 0, -14, 2, true);
@@ -164,6 +128,62 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 		public void setType(Type type) {
 			this.type = type;
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityDothraki.class);
+				spawner.setCheckRanges(64, -12, 12, 24);
+				spawner.setSpawnRanges(32, -6, 6, 32);
+				spawner.setBlockEnemySpawnRange(40);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityDothraki.class, GOTEntityDothrakiArcher.class);
+				spawner.setCheckRanges(64, -12, 12, 12);
+				spawner.setSpawnRanges(32, -6, 6, 32);
+				spawner.setBlockEnemySpawnRange(40);
+			}
+		}
+
+		private static class StructureRespawner3 extends GOTStructureNPCRespawner {
+			private StructureRespawner3() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityDothraki.class);
+				spawner.setCheckRanges(80, -12, 12, 50);
+				spawner.setSpawnRanges(40, -8, 8, 40);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner4 extends GOTStructureNPCRespawner {
+			private StructureRespawner4() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityDothraki.class, GOTEntityDothrakiArcher.class);
+				spawner.setCheckRanges(80, -12, 12, 24);
+				spawner.setSpawnRanges(40, -8, 8, 40);
+				spawner.setBlockEnemySpawnRange(60);
+			}
 		}
 	}
 }

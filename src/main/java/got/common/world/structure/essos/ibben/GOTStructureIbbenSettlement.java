@@ -136,16 +136,7 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			int farmX;
 			int l2;
 			addStructure(new GOTStructureIbbenFortress(false), 0, -13, 0, true);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityIbbenWarrior.class, GOTEntityIbbenArcher.class);
-					spawner.setCheckRanges(40, -12, 12, 30);
-					spawner.setSpawnRanges(32, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner1(), 0, 0, 0);
 			addStructure(new GOTStructureIbbenGatehouse(false), 0, -53, 0, true);
 			int towerX = 46;
 			for (int i1 : new int[]{-towerX, towerX}) {
@@ -201,36 +192,9 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureIbbenTavern(false), 0, 2, 0, true);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityIbbenMan.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityIbbenWarlord.class);
-					spawner.setCheckRanges(2, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityIbbenWarrior.class);
-					spawner.setCheckRanges(40, -12, 12, 16);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner2(), 0, 0, 0);
+			addStructure(new StructureRespawner3(), 0, 0, 0);
+			addStructure(new StructureRespawner4(), 0, 0, 0);
 			int houses = 20;
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
@@ -327,6 +291,62 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 		public void setType(Type type) {
 			this.type = type;
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClasses(GOTEntityIbbenWarrior.class, GOTEntityIbbenArcher.class);
+				spawner.setCheckRanges(40, -12, 12, 30);
+				spawner.setSpawnRanges(32, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityIbbenMan.class);
+				spawner.setCheckRanges(40, -12, 12, 40);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner3 extends GOTStructureNPCRespawner {
+			private StructureRespawner3() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityIbbenWarlord.class);
+				spawner.setCheckRanges(2, -12, 12, 40);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner4 extends GOTStructureNPCRespawner {
+			private StructureRespawner4() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityIbbenWarrior.class);
+				spawner.setCheckRanges(40, -12, 12, 16);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
 		}
 	}
 }

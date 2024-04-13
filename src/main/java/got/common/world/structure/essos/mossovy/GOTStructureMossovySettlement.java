@@ -101,26 +101,8 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 
 		protected void setupVillage(Random random) {
 			addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityMossovyMan.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityMossovyWitcher.class);
-					spawner.setCheckRanges(40, -12, 12, 16);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner1(), 0, 0, 0);
+			addStructure(new StructureRespawner2(), 0, 0, 0);
 			addStructure(new GOTStructureMossovyOffice(false), -21, 0, 1);
 			addStructure(new GOTStructureMossovyBarn(false), 0, -21, 2);
 			addStructure(new GOTStructureMossovySmithy(false), 21, 0, 3);
@@ -174,6 +156,34 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyTrampHouse(false), farmZ - farmSize, -farmX, 3);
 			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
 			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityMossovyMan.class);
+				spawner.setCheckRanges(40, -12, 12, 40);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass(GOTEntityMossovyWitcher.class);
+				spawner.setCheckRanges(40, -12, 12, 16);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawnRange(60);
+			}
 		}
 	}
 }
