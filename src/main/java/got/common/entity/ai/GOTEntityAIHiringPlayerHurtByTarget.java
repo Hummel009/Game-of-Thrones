@@ -7,9 +7,10 @@ import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAIHiringPlayerHurtByTarget extends EntityAITarget {
-	public GOTEntityNPC theNPC;
-	public EntityLivingBase theTarget;
-	public int playerRevengeTimer;
+	private final GOTEntityNPC theNPC;
+
+	private EntityLivingBase theTarget;
+	private int playerRevengeTimer;
 
 	public GOTEntityAIHiringPlayerHurtByTarget(GOTEntityNPC entity) {
 		super(entity, false);
@@ -28,10 +29,7 @@ public class GOTEntityAIHiringPlayerHurtByTarget extends EntityAITarget {
 		}
 		theTarget = entityplayer.getAITarget();
 		int i = entityplayer.func_142015_aE();
-		if (i == playerRevengeTimer) {
-			return false;
-		}
-		return GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
+		return i != playerRevengeTimer && GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
 	}
 
 	@Override

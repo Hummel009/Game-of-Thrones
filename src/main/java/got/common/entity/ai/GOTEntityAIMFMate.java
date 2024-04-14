@@ -12,11 +12,12 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTEntityAIMFMate extends EntityAIBase {
-	public GOTEntityAnimalMF theAnimal;
-	public World theWorld;
-	public GOTEntityAnimalMF targetMate;
-	public int breeding;
-	public double moveSpeed;
+	private final GOTEntityAnimalMF theAnimal;
+	private final World theWorld;
+	private final double moveSpeed;
+
+	private GOTEntityAnimalMF targetMate;
+	private int breeding;
 
 	public GOTEntityAIMFMate(GOTEntityAnimalMF animal, double d) {
 		theAnimal = animal;
@@ -30,7 +31,7 @@ public class GOTEntityAIMFMate extends EntityAIBase {
 		return targetMate.isEntityAlive() && targetMate.isInLove() && breeding < 60;
 	}
 
-	public GOTEntityAnimalMF findMate() {
+	private GOTEntityAnimalMF findMate() {
 		float searchRadius = 8.0f;
 		Class<? extends GOTEntityAnimalMF> mateClass = theAnimal.getAnimalMFBaseClass();
 		List<? extends GOTEntityAnimalMF> entities = theWorld.getEntitiesWithinAABB(mateClass, theAnimal.boundingBox.expand(searchRadius, searchRadius, searchRadius));
@@ -44,7 +45,7 @@ public class GOTEntityAIMFMate extends EntityAIBase {
 		return null;
 	}
 
-	public void procreate() {
+	private void procreate() {
 		EntityAgeable babyAnimal = theAnimal.createChild(targetMate);
 		if (babyAnimal != null) {
 			theAnimal.setGrowingAge(6000);

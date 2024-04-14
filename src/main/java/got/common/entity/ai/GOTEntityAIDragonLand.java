@@ -6,9 +6,9 @@ import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIDragonLand extends EntityAIBase {
+	private final GOTEntityDragon dragon;
 
-	public GOTEntityDragon dragon;
-	public Vec3 landTarget;
+	private Vec3 landTarget;
 
 	public GOTEntityAIDragonLand(GOTEntityDragon dragon) {
 		this.dragon = dragon;

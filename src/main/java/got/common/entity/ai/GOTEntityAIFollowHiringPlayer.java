@@ -8,14 +8,15 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
-	public GOTEntityNPC theNPC;
-	public EntityPlayer theHiringPlayer;
-	public double moveSpeed;
-	public int followTick;
-	public float maxNearDist;
-	public float minFollowDist;
-	public boolean avoidsWater;
-	public EntityLiving bannerBearerTarget;
+	private final GOTEntityNPC theNPC;
+	private final double moveSpeed;
+	private final float maxNearDist;
+	private final float minFollowDist;
+
+	private EntityLiving bannerBearerTarget;
+	private EntityPlayer theHiringPlayer;
+	private boolean avoidsWater;
+	private int followTick;
 
 	public GOTEntityAIFollowHiringPlayer(GOTEntityNPC entity) {
 		theNPC = entity;
@@ -53,10 +54,7 @@ public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
 			return false;
 		}
 		theHiringPlayer = entityplayer;
-		if (!theNPC.hiredNPCInfo.shouldFollowPlayer()) {
-			return false;
-		}
-		return theNPC.getDistanceSqToEntity(entityplayer) >= minFollowDist * minFollowDist;
+		return theNPC.hiredNPCInfo.shouldFollowPlayer() && theNPC.getDistanceSqToEntity(entityplayer) >= minFollowDist * minFollowDist;
 	}
 
 	@Override

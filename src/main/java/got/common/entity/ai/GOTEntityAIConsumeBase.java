@@ -8,11 +8,13 @@ import net.minecraft.item.ItemStack;
 import java.util.Random;
 
 public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
-	public GOTEntityNPC theEntity;
-	public Random rand;
-	public GOTFoods foodPool;
-	public int chanceToConsume;
-	public int consumeTick;
+	private final int chanceToConsume;
+
+	protected GOTEntityNPC theEntity;
+	protected Random rand;
+	protected GOTFoods foodPool;
+
+	private int consumeTick;
 
 	protected GOTEntityAIConsumeBase(GOTEntityNPC entity, GOTFoods foods, int chance) {
 		theEntity = entity;
@@ -22,16 +24,16 @@ public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 		setMutexBits(3);
 	}
 
-	public abstract void consume();
+	protected abstract void consume();
 
 	@Override
 	public boolean continueExecuting() {
 		return consumeTick > 0 && theEntity.getHeldItem() != null && theEntity.getAttackTarget() == null;
 	}
 
-	public abstract ItemStack createConsumable();
+	protected abstract ItemStack createConsumable();
 
-	public int getConsumeTime() {
+	protected int getConsumeTime() {
 		return 32;
 	}
 
@@ -44,17 +46,14 @@ public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 		consumeTick = 0;
 	}
 
-	public boolean shouldConsume() {
+	protected boolean shouldConsume() {
 		boolean needsHeal = theEntity.getHealth() < theEntity.getMaxHealth();
 		return needsHeal && rand.nextInt(chanceToConsume / 4) == 0 || rand.nextInt(chanceToConsume) == 0;
 	}
 
 	@Override
 	public boolean shouldExecute() {
-		if (theEntity.isChild() || theEntity.getAttackTarget() != null || theEntity.npcItemsInv.getIsEating()) {
-			return false;
-		}
-		return shouldConsume();
+		return !theEntity.isChild() && theEntity.getAttackTarget() == null && !theEntity.npcItemsInv.getIsEating() && shouldConsume();
 	}
 
 	@Override
@@ -65,7 +64,7 @@ public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 		consumeTick = getConsumeTime();
 	}
 
-	public abstract void updateConsumeTick(int var1);
+	protected abstract void updateConsumeTick(int var1);
 
 	@Override
 	public void updateTask() {

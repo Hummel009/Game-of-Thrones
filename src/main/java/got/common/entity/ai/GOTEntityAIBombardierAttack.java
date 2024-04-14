@@ -12,12 +12,13 @@ import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.world.World;
 
 public class GOTEntityAIBombardierAttack extends EntityAIBase {
-	public World worldObj;
-	public GOTEntityYiTiBombardier attacker;
-	public EntityLivingBase entityTarget;
-	public double moveSpeed;
-	public PathEntity entityPathEntity;
-	public int rePathDelay;
+	private final World worldObj;
+	private final GOTEntityYiTiBombardier attacker;
+	private final double moveSpeed;
+
+	private EntityLivingBase entityTarget;
+	private PathEntity entityPathEntity;
+	private int rePathDelay;
 
 	public GOTEntityAIBombardierAttack(GOTEntityYiTiBombardier entity, double speed) {
 		attacker = entity;

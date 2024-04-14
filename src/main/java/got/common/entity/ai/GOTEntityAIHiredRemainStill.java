@@ -5,7 +5,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIHiredRemainStill extends EntityAIBase {
-	public GOTEntityNPC theNPC;
+	private final GOTEntityNPC theNPC;
 
 	public GOTEntityAIHiredRemainStill(GOTEntityNPC entity) {
 		theNPC = entity;
@@ -14,10 +14,7 @@ public class GOTEntityAIHiredRemainStill extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (!theNPC.hiredNPCInfo.isActive || theNPC.isInWater() || !theNPC.onGround) {
-			return false;
-		}
-		return theNPC.hiredNPCInfo.isHalted() && (theNPC.getAttackTarget() == null || !theNPC.getAttackTarget().isEntityAlive());
+		return theNPC.hiredNPCInfo.isActive && !theNPC.isInWater() && theNPC.onGround && theNPC.hiredNPCInfo.isHalted() && (theNPC.getAttackTarget() == null || !theNPC.getAttackTarget().isEntityAlive());
 	}
 
 	@Override

@@ -13,9 +13,10 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityAIAsshaiShadowbinderUseStaff extends EntityAIBase {
-	public GOTEntityAsshaiShadowbinder wizard;
-	public int attackTick;
-	public World theWorld;
+	private final GOTEntityAsshaiShadowbinder wizard;
+	private final World theWorld;
+
+	private int attackTick;
 
 	public GOTEntityAIAsshaiShadowbinderUseStaff(GOTEntityAsshaiShadowbinder shadowbinder) {
 		wizard = shadowbinder;

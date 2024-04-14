@@ -7,11 +7,12 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.world.World;
 
 public class GOTEntityAINPCMate extends EntityAIBase {
-	public GOTEntityNPC theNPC;
-	public World theWorld;
-	public GOTEntityNPC theSpouse;
-	public int spawnBabyDelay;
-	public double moveSpeed;
+	private final GOTEntityNPC theNPC;
+	private final World theWorld;
+	private final double moveSpeed;
+
+	private GOTEntityNPC theSpouse;
+	private int spawnBabyDelay;
 
 	public GOTEntityAINPCMate(GOTEntityNPC npc, double d) {
 		theNPC = npc;
@@ -40,7 +41,7 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 		return theSpouse != null && theNPC.getDistanceToEntity(theSpouse) < 16.0 && theSpouse.familyInfo.children < 3 && theSpouse.familyInfo.getAge() == 0;
 	}
 
-	public void spawnBaby() {
+	private void spawnBaby() {
 		GOTEntityNPC baby = (GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(theNPC.familyInfo.marriageEntityClass), theWorld);
 		GOTEntityNPC maleParent = theNPC.familyInfo.isMale() ? theNPC : theSpouse;
 		GOTEntityNPC femaleParent = theNPC.familyInfo.isMale() ? theSpouse : theNPC;

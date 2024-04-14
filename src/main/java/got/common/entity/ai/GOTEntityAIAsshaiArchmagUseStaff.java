@@ -13,9 +13,10 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
-	public GOTEntityAsshaiArchmag wizard;
-	public int attackTick;
-	public World theWorld;
+	private final GOTEntityAsshaiArchmag wizard;
+	private final World theWorld;
+
+	private int attackTick;
 
 	public GOTEntityAIAsshaiArchmagUseStaff(GOTEntityAsshaiArchmag archmag) {
 		wizard = archmag;

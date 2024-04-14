@@ -7,25 +7,24 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.BitSet;
 
 public abstract class GOTEntityAIDragonRide extends EntityAIBase {
-
-	public GOTEntityDragon dragon;
-	public EntityPlayer rider;
+	protected GOTEntityDragon dragon;
+	protected EntityPlayer rider;
 
 	protected GOTEntityAIDragonRide(GOTEntityDragon dragon) {
 		this.dragon = dragon;
 		setMutexBits(0xffffffff);
 	}
 
-	public boolean getControlFlag(int index) {
+	private boolean getControlFlag(int index) {
 		BitSet controlFlags = dragon.getControlFlags();
 		return controlFlags != null && controlFlags.get(index);
 	}
 
-	public boolean isFlyDown() {
+	protected boolean isFlyDown() {
 		return getControlFlag(1);
 	}
 
-	public boolean isFlyUp() {
+	protected boolean isFlyUp() {
 		return getControlFlag(0);
 	}
 

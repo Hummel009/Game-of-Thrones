@@ -8,13 +8,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearestAttackableTargetBasic {
-	public IBandit taskOwnerAsBandit;
+	private final IBandit taskOwnerAsBandit;
 
+	@SuppressWarnings("unused")
 	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag) {
 		super(entity, targetClass, chance, flag);
 		taskOwnerAsBandit = (IBandit) entity;
 	}
 
+	@SuppressWarnings("unused")
 	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag, IEntitySelector selector) {
 		super(entity, targetClass, chance, flag, selector);
 		taskOwnerAsBandit = (IBandit) entity;
@@ -22,10 +24,7 @@ public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearest
 
 	@Override
 	public boolean isPlayerSuitableTarget(EntityPlayer entityplayer) {
-		if (IBandit.Helper.canStealFromPlayerInv(taskOwnerAsBandit, entityplayer)) {
-			return false;
-		}
-		return super.isPlayerSuitableTarget(entityplayer);
+		return !IBandit.Helper.canStealFromPlayerInv(taskOwnerAsBandit, entityplayer) && super.isPlayerSuitableTarget(entityplayer);
 	}
 
 	@Override
@@ -35,9 +34,6 @@ public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearest
 
 	@Override
 	public boolean shouldExecute() {
-		if (!taskOwnerAsBandit.getBanditInventory().isEmpty()) {
-			return false;
-		}
-		return super.shouldExecute();
+		return taskOwnerAsBandit.getBanditInventory().isEmpty() && super.shouldExecute();
 	}
 }

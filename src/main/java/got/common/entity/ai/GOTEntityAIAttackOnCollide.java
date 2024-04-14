@@ -14,15 +14,16 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityAIAttackOnCollide extends EntityAIBase {
-	public World worldObj;
-	public EntityCreature theOwner;
-	public EntityLivingBase attackTarget;
-	public int attackTick;
-	public double moveSpeed;
-	public boolean sightNotRequired;
-	public PathEntity entityPathEntity;
-	public int pathCheckTimer;
-	public boolean avoidsWater;
+	private final World worldObj;
+	private final EntityCreature theOwner;
+	private final double moveSpeed;
+	private final boolean sightNotRequired;
+	private final boolean avoidsWater;
+
+	private EntityLivingBase attackTarget;
+	private PathEntity entityPathEntity;
+	private int attackTick;
+	private int pathCheckTimer;
 
 	public GOTEntityAIAttackOnCollide(EntityCreature entity, double speed, boolean flag) {
 		theOwner = entity;
@@ -48,7 +49,7 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 		return !theOwner.getNavigator().noPath();
 	}
 
-	public PathEntity getPathEntity() {
+	private PathEntity getPathEntity() {
 		if (theOwner.ridingEntity != null) {
 			return worldObj.getPathEntityToEntity(theOwner, attackTarget, theOwner.getNavigator().getPathSearchRange(), true, theOwner.getNavigator().getCanBreakDoors(), theOwner.getNavigator().getAvoidsWater(), false);
 		}
@@ -87,7 +88,7 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 		pathCheckTimer = 0;
 	}
 
-	public void updateLookAndPathing() {
+	private void updateLookAndPathing() {
 		theOwner.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0f, 30.0f);
 		if (theOwner.riddenByEntity instanceof EntityLiving) {
 			theOwner.riddenByEntity.rotationYaw = theOwner.rotationYaw;
@@ -107,12 +108,11 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		ItemStack weapon;
 		updateLookAndPathing();
 		if (attackTick > 0) {
 			--attackTick;
 		}
-		weapon = theOwner.getHeldItem();
+		ItemStack weapon = theOwner.getHeldItem();
 		if (weapon != null && weapon.getItem() instanceof GOTItemSpear && attackTick <= 0 && theOwner instanceof GOTEntityNPC) {
 			GOTEntityNPC theNPC = (GOTEntityNPC) theOwner;
 			ItemStack spearBackup = theNPC.npcItemsInv.getSpearBackup();

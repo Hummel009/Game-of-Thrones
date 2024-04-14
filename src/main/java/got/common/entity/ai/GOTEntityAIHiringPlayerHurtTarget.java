@@ -7,9 +7,10 @@ import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAIHiringPlayerHurtTarget extends EntityAITarget {
-	public GOTEntityNPC theNPC;
-	public EntityLivingBase theTarget;
-	public int playerLastAttackerTime;
+	private final GOTEntityNPC theNPC;
+
+	private EntityLivingBase theTarget;
+	private int playerLastAttackerTime;
 
 	public GOTEntityAIHiringPlayerHurtTarget(GOTEntityNPC entity) {
 		super(entity, false);
@@ -28,10 +29,7 @@ public class GOTEntityAIHiringPlayerHurtTarget extends EntityAITarget {
 		}
 		theTarget = entityplayer.getLastAttacker();
 		int i = entityplayer.getLastAttackerTime();
-		if (i == playerLastAttackerTime) {
-			return false;
-		}
-		return GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
+		return i != playerLastAttackerTime && GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
 	}
 
 	@Override

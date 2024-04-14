@@ -11,11 +11,12 @@ import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
-	public GOTNPCMount theHorse;
-	public EntityCreature livingHorse;
-	public double speed;
-	public PathEntity entityPathEntity;
-	public int pathCheckTimer;
+	private final GOTNPCMount theHorse;
+	private final EntityCreature livingHorse;
+
+	private PathEntity entityPathEntity;
+	private double speed;
+	private int pathCheckTimer;
 
 	public GOTEntityAIHorseMoveToRiderTarget(GOTNPCMount horse) {
 		theHorse = horse;
@@ -64,10 +65,9 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		boolean aimingBow;
 		GOTEntityNPC rider = (GOTEntityNPC) livingHorse.riddenByEntity;
 		EntityLivingBase riderTarget = rider.getAttackTarget();
-		aimingBow = rider.isAimingRanged() && livingHorse.getEntitySenses().canSee(riderTarget);
+		boolean aimingBow = rider.isAimingRanged() && livingHorse.getEntitySenses().canSee(riderTarget);
 		if (!aimingBow) {
 			livingHorse.getLookHelper().setLookPositionWithEntity(riderTarget, 30.0f, 30.0f);
 			rider.rotationYaw = livingHorse.rotationYaw;

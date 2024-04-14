@@ -16,18 +16,19 @@ import java.util.Comparator;
 import java.util.List;
 
 public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
-	public Class<? extends Entity> targetClass;
-	public int targetChance;
-	public TargetSorter targetSorter;
-	public IEntitySelector targetSelector;
-	public EntityLivingBase targetEntity;
+	private final Class<? extends Entity> targetClass;
+	private final int targetChance;
+	private final TargetSorter targetSorter;
+	private final IEntitySelector targetSelector;
+
+	private EntityLivingBase targetEntity;
 
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight) {
 		this(entity, cls, chance, checkSight, false, null);
 	}
 
 	@SuppressWarnings("Convert2Lambda")
-	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
+	private GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
 		super(entity, checkSight, nearby);
 		targetClass = cls;
 		targetChance = chance;
@@ -39,26 +40,23 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			public boolean isEntityApplicable(Entity testEntity) {
 				if (testEntity instanceof EntityLivingBase) {
 					EntityLivingBase testEntityLiving = (EntityLivingBase) testEntity;
-					if (selector != null && !selector.isEntityApplicable(testEntityLiving)) {
-						return false;
-					}
-					return isSuitableTarget(testEntityLiving, false);
+					return (selector == null || selector.isEntityApplicable(testEntityLiving)) && isSuitableTarget(testEntityLiving, false);
 				}
 				return false;
 			}
 		};
 	}
 
-	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, IEntitySelector selector) {
+	protected GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, IEntitySelector selector) {
 		this(entity, cls, chance, checkSight, false, selector);
 	}
 
-	public boolean isPlayerSuitableAlignmentTarget(EntityPlayer entityplayer) {
+	protected boolean isPlayerSuitableAlignmentTarget(EntityPlayer entityplayer) {
 		float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOT.getNPCFaction(taskOwner));
 		return alignment < 0.0f;
 	}
 
-	public boolean isPlayerSuitableTarget(EntityPlayer entityplayer) {
+	protected boolean isPlayerSuitableTarget(EntityPlayer entityplayer) {
 		return isPlayerSuitableAlignmentTarget(entityplayer);
 	}
 
@@ -71,10 +69,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			if (entity instanceof EntityPlayer) {
 				return isPlayerSuitableTarget((EntityPlayer) entity);
 			}
-			if (entity instanceof GOTEntityLightSkinBandit) {
-				return taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;
-			}
-			return true;
+			return !(entity instanceof GOTEntityLightSkinBandit) || taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;
 		}
 		return false;
 	}
@@ -112,7 +107,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 	}
 
 	public static class TargetSorter implements Comparator<Entity> {
-		public EntityLivingBase theNPC;
+		protected EntityLivingBase theNPC;
 
 		public TargetSorter(EntityLivingBase entity) {
 			theNPC = entity;
@@ -120,13 +115,12 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 
 		@Override
 		public int compare(Entity e1, Entity e2) {
-			double d2;
 			double d1 = distanceMetricSq(e1);
-			d2 = distanceMetricSq(e2);
+			double d2 = distanceMetricSq(e2);
 			return Double.compare(d1, d2);
 		}
 
-		public double distanceMetricSq(Entity target) {
+		protected double distanceMetricSq(Entity target) {
 			double dSq = theNPC.getDistanceSqToEntity(target);
 			double avg = 12.0;
 			double avgSq = avg * avg;
@@ -144,5 +138,4 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			return dSq + dupesSq;
 		}
 	}
-
 }

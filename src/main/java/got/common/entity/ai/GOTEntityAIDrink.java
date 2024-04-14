@@ -65,10 +65,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 
 	@Override
 	public boolean shouldConsume() {
-		if (theEntity.isDrunkard() && rand.nextInt(100) == 0) {
-			return true;
-		}
-		return super.shouldConsume();
+		return theEntity.isDrunkard() && rand.nextInt(100) == 0 || super.shouldConsume();
 	}
 
 	@Override
@@ -77,5 +74,4 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 			theEntity.playSound("random.drink", 0.5f, rand.nextFloat() * 0.1f + 0.9f);
 		}
 	}
-
 }

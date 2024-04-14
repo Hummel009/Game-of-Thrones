@@ -11,13 +11,15 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTEntityAIBurningPanic extends EntityAIBase {
-	public EntityCreature theEntity;
-	public World theWorld;
-	public double speed;
-	public double randPosX;
-	public double randPosY;
-	public double randPosZ;
-	public boolean avoidsWater;
+	private final EntityCreature theEntity;
+	private final World theWorld;
+	private final double speed;
+
+	private double randPosX;
+	private double randPosY;
+	private double randPosZ;
+
+	private boolean avoidsWater;
 
 	public GOTEntityAIBurningPanic(EntityCreature entity, double d) {
 		theEntity = entity;
@@ -31,7 +33,7 @@ public class GOTEntityAIBurningPanic extends EntityAIBase {
 		return theEntity.isBurning() && theEntity.getAttackTarget() == null && !theEntity.getNavigator().noPath();
 	}
 
-	public Vec3 findWaterLocation() {
+	private Vec3 findWaterLocation() {
 		Random random = theEntity.getRNG();
 		for (int l = 0; l < 32; ++l) {
 			int j;

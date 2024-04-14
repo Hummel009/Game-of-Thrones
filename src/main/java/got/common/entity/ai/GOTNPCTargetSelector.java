@@ -3,7 +3,7 @@ package got.common.entity.ai;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo.Task;
+import got.common.entity.other.GOTHiredNPCInfo;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -11,8 +11,8 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTNPCTargetSelector implements IEntitySelector {
-	public EntityLiving owner;
-	public GOTFaction ownerFaction;
+	private final EntityLiving owner;
+	private final GOTFaction ownerFaction;
 
 	public GOTNPCTargetSelector(EntityLiving entity) {
 		owner = entity;
@@ -42,7 +42,7 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 				EntityPlayer hiringPlayer = null;
 				if (owner instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) owner;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.hiredTask != Task.FARMER) {
+					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.hiredTask != GOTHiredNPCInfo.Task.FARMER) {
 						hiringPlayer = npc.hiredNPCInfo.getHiringPlayer();
 					}
 				}

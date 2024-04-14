@@ -9,15 +9,16 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
-	public GOTNPCMount theHorse;
-	public EntityCreature livingHorse;
-	public EntityPlayer theHiringPlayer;
-	public double moveSpeed;
-	public int followTick;
-	public float maxNearDist;
-	public float minFollowDist;
-	public boolean avoidsWater;
-	public boolean initSpeed;
+	private final GOTNPCMount theHorse;
+	private final EntityCreature livingHorse;
+	private final float maxNearDist;
+	private final float minFollowDist;
+
+	private EntityPlayer theHiringPlayer;
+	private boolean avoidsWater;
+	private boolean initSpeed;
+	private double moveSpeed;
+	private int followTick;
 
 	public GOTEntityAIHorseFollowHiringPlayer(GOTNPCMount entity) {
 		theHorse = entity;

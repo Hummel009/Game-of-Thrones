@@ -8,12 +8,12 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityAIDragonDragonMate extends EntityAIBase {
+	private final GOTEntityDragon dragon;
+	private final World theWorld;
+	private final double speed;
 
-	public GOTEntityDragon dragon;
-	public GOTEntityDragon dragonMate;
-	public World theWorld;
-	public int spawnBabyDelay;
-	public double speed;
+	private GOTEntityDragon dragonMate;
+	private int spawnBabyDelay;
 
 	public GOTEntityAIDragonDragonMate(GOTEntityDragon dragon, double speed) {
 		this.dragon = dragon;
@@ -27,7 +27,7 @@ public class GOTEntityAIDragonDragonMate extends EntityAIBase {
 		return dragonMate.isEntityAlive() && dragonMate.isInLove() && spawnBabyDelay < 60;
 	}
 
-	public GOTEntityDragon getNearbyMate() {
+	private GOTEntityDragon getNearbyMate() {
 		double range = 12;
 		List<GOTEntityDragon> nearbyEntities = theWorld.getEntitiesWithinAABB(GOTEntityDragon.class, dragon.boundingBox.expand(range, range, range));
 
@@ -55,7 +55,7 @@ public class GOTEntityAIDragonDragonMate extends EntityAIBase {
 		return dragonMate != null;
 	}
 
-	public void spawnBaby() {
+	private void spawnBaby() {
 		GOTEntityDragon dragonBaby = (GOTEntityDragon) dragon.createChild(dragonMate);
 
 		if (dragonBaby != null) {

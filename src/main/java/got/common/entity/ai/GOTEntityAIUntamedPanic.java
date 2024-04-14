@@ -7,11 +7,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIUntamedPanic extends EntityAIBase {
-	public GOTEntityNPCRideable theMount;
-	public double speed;
-	public double targetX;
-	public double targetY;
-	public double targetZ;
+	private final GOTEntityNPCRideable theMount;
+	private final double speed;
+
+	private double targetX;
+	private double targetY;
+	private double targetZ;
 
 	public GOTEntityAIUntamedPanic(GOTEntityNPCRideable mount, double d) {
 		theMount = mount;

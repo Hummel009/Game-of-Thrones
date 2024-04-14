@@ -10,17 +10,17 @@ import net.minecraft.util.Vec3;
 import java.util.Random;
 
 public class GOTEntityAIRangedAttack extends EntityAIBase {
-	public EntityLiving theOwner;
-	public IRangedAttackMob theOwnerRanged;
-	public EntityLivingBase attackTarget;
-	public int rangedAttackTime = -1;
-	public double moveSpeed;
-	public double moveSpeedFlee = 1.5;
-	public int repathDelay;
-	public int attackTimeMin;
-	public int attackTimeMax;
-	public float attackRange;
-	public float attackRangeSq;
+	private final EntityLiving theOwner;
+	private final IRangedAttackMob theOwnerRanged;
+	private final double moveSpeed;
+	private final float attackRange;
+	private final float attackRangeSq;
+	private final int attackTimeMin;
+	private final int attackTimeMax;
+
+	private EntityLivingBase attackTarget;
+	private int rangedAttackTime = -1;
+	private int repathDelay;
 
 	public GOTEntityAIRangedAttack(IRangedAttackMob entity, double speed, int time, float range) {
 		this(entity, speed, time, time, range);
@@ -91,6 +91,7 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 			if (theOwner.getDistanceSqToEntity(attackTarget) < 25.0) {
 				Vec3 vec = findPositionAwayFrom(theOwner, attackTarget, 8, 16);
 				if (vec != null) {
+					double moveSpeedFlee = 1.5;
 					theOwner.getNavigator().tryMoveToXYZ(vec.xCoord, vec.yCoord, vec.zCoord, moveSpeedFlee);
 				}
 			} else if (repathDelay >= 20) {

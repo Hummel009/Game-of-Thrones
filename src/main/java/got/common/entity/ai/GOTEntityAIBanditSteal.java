@@ -7,7 +7,6 @@ import got.common.item.other.GOTItemCoin;
 import got.common.item.other.GOTItemGem;
 import got.common.item.other.GOTItemPouch;
 import got.common.item.other.GOTItemRing;
-import got.common.recipe.GOTRecipe;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -21,13 +20,14 @@ import java.util.Collections;
 import java.util.List;
 
 public class GOTEntityAIBanditSteal extends EntityAIBase {
-	public IBandit theBandit;
-	public GOTEntityNPC theBanditAsNPC;
-	public EntityPlayer targetPlayer;
-	public EntityPlayer prevTargetPlayer;
-	public double speed;
-	public int chaseTimer;
-	public int rePathDelay;
+	private final IBandit theBandit;
+	private final GOTEntityNPC theBanditAsNPC;
+	private final double speed;
+
+	private EntityPlayer targetPlayer;
+	private EntityPlayer prevTargetPlayer;
+	private int chaseTimer;
+	private int rePathDelay;
 
 	public GOTEntityAIBanditSteal(IBandit bandit, double d) {
 		theBandit = bandit;
@@ -38,13 +38,10 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (targetPlayer == null || !targetPlayer.isEntityAlive() || targetPlayer.capabilities.isCreativeMode || !IBandit.Helper.canStealFromPlayerInv(theBandit, targetPlayer)) {
-			return false;
-		}
-		return chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
+		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && IBandit.Helper.canStealFromPlayerInv(theBandit, targetPlayer) && chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
 	}
 
-	public int getRandomTheftAmount(ItemStack itemstack) {
+	private int getRandomTheftAmount() {
 		return MathHelper.getRandomIntegerInRange(theBanditAsNPC.getRNG(), 1, 8);
 	}
 
@@ -87,7 +84,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		chaseTimer = 600;
 	}
 
-	public void steal() {
+	private void steal() {
 		InventoryPlayer inv = targetPlayer.inventory;
 		int thefts = MathHelper.getRandomIntegerInRange(theBanditAsNPC.getRNG(), 1, theBandit.getMaxThefts());
 		boolean stolenSomething = false;
@@ -118,9 +115,9 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 	}
 
-	public boolean stealItem(IInventory inv, int slot) {
+	private boolean stealItem(IInventory inv, int slot) {
 		ItemStack playerItem = inv.getStackInSlot(slot);
-		int theft = getRandomTheftAmount(playerItem);
+		int theft = getRandomTheftAmount();
 		if (theft > playerItem.stackSize) {
 			theft = playerItem.stackSize;
 		}
@@ -144,7 +141,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 	}
 
 	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
-	public boolean tryStealItem(InventoryPlayer inv) {
+	private boolean tryStealItem(InventoryPlayer inv) {
 		return tryStealItem_do(inv, new BanditItemFilter() {
 
 			@Override
@@ -155,7 +152,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 	}
 
 	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
-	public boolean tryStealItem(InventoryPlayer inv, Class<? extends Item> itemclass) {
+	private boolean tryStealItem(InventoryPlayer inv, Class<? extends Item> itemclass) {
 		return tryStealItem_do(inv, new BanditItemFilter() {
 
 			@Override
@@ -165,24 +162,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		});
 	}
 
-	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
-	public boolean tryStealItem(InventoryPlayer inv, Iterable<ItemStack> itemList) {
-		return tryStealItem_do(inv, new BanditItemFilter() {
-
-			@Override
-			public boolean isApplicable(ItemStack itemstack) {
-				for (ItemStack listItem : itemList) {
-					if (!GOTRecipe.checkItemEquals(listItem, itemstack)) {
-						continue;
-					}
-					return true;
-				}
-				return false;
-			}
-		});
-	}
-
-	public boolean tryStealItem_do(InventoryPlayer inv, BanditItemFilter filter) {
+	private boolean tryStealItem_do(InventoryPlayer inv, BanditItemFilter filter) {
 		Integer[] inventorySlots = new Integer[inv.mainInventory.length];
 		for (int l = 0; l < inventorySlots.length; ++l) {
 			inventorySlots[l] = l;
@@ -216,8 +196,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 	}
 
-	public interface BanditItemFilter {
+	private interface BanditItemFilter {
 		boolean isApplicable(ItemStack var1);
 	}
-
 }

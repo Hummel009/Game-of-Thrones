@@ -11,11 +11,12 @@ import net.minecraft.util.Vec3;
 import java.util.List;
 
 public class GOTEntityAIBanditFlee extends EntityAIBase {
-	public IBandit theBandit;
-	public GOTEntityNPC theBanditAsNPC;
-	public double speed;
-	public double range;
-	public EntityPlayer targetPlayer;
+	private final IBandit theBandit;
+	private final GOTEntityNPC theBanditAsNPC;
+	private final double speed;
+	private final double range;
+
+	private EntityPlayer targetPlayer;
 
 	public GOTEntityAIBanditFlee(IBandit bandit, double d) {
 		theBandit = bandit;
@@ -27,13 +28,10 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (targetPlayer == null || !targetPlayer.isEntityAlive() || targetPlayer.capabilities.isCreativeMode) {
-			return false;
-		}
-		return theBanditAsNPC.getAttackTarget() == null && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < range * range;
+		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && theBanditAsNPC.getAttackTarget() == null && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < range * range;
 	}
 
-	public EntityPlayer findNearestPlayer() {
+	private EntityPlayer findNearestPlayer() {
 		List<EntityPlayer> players = theBanditAsNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theBanditAsNPC.boundingBox.expand(range, range, range));
 		double distance = range;
 		EntityPlayer ret = null;

@@ -7,14 +7,14 @@ import net.minecraft.entity.EntityLivingBase;
 import java.util.List;
 
 public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTargetBasic {
-	public GOTEntityDothraki theDothraki;
+	private final GOTEntityDothraki theDothraki;
 
 	public GOTEntityAIDothrakiSkirmish(GOTEntityDothraki dothraki, boolean flag) {
 		super(dothraki, GOTEntityDothraki.class, 0, flag, null);
 		theDothraki = dothraki;
 	}
 
-	public boolean canDothrakiSkirmish(EntityLivingBase entity) {
+	private boolean canDothrakiSkirmish(EntityLivingBase entity) {
 		if (entity instanceof GOTEntityDothraki) {
 			GOTEntityDothraki mob = (GOTEntityDothraki) entity;
 			return theDothraki.familyInfo.isMale() && theDothraki.familyInfo.age >= 0 && mob.familyInfo.isMale() && mob.familyInfo.age >= 0 && !mob.isTrader() && !mob.hiredNPCInfo.isActive && mob.ridingEntity == null && mob.canDothrakiSkirmish();

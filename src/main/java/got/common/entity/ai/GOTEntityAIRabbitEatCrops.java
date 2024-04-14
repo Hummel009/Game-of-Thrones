@@ -12,15 +12,17 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTEntityAIRabbitEatCrops extends EntityAIBase {
-	public GOTEntityRabbit theRabbit;
-	public double xPos;
-	public double yPos;
-	public double zPos;
-	public double moveSpeed;
-	public World theWorld;
-	public int pathingTick;
-	public int eatingTick;
-	public int rePathDelay;
+	private final GOTEntityRabbit theRabbit;
+	private final double moveSpeed;
+	private final World theWorld;
+
+	private double xPos;
+	private double yPos;
+	private double zPos;
+
+	private int pathingTick;
+	private int eatingTick;
+	private int rePathDelay;
 
 	public GOTEntityAIRabbitEatCrops(GOTEntityRabbit rabbit, double d) {
 		theRabbit = rabbit;
@@ -29,7 +31,7 @@ public class GOTEntityAIRabbitEatCrops extends EntityAIBase {
 		setMutexBits(1);
 	}
 
-	public boolean canEatBlock(int i, int j, int k) {
+	private boolean canEatBlock(int i, int j, int k) {
 		Block block = theWorld.getBlock(i, j, k);
 		return block instanceof BlockCrops && !theRabbit.anyFarmhandsNearby(i, j, k);
 	}
@@ -48,7 +50,7 @@ public class GOTEntityAIRabbitEatCrops extends EntityAIBase {
 		return false;
 	}
 
-	public Vec3 findCropsLocation() {
+	private Vec3 findCropsLocation() {
 		Random random = theRabbit.getRNG();
 		for (int l = 0; l < 32; ++l) {
 			int j;

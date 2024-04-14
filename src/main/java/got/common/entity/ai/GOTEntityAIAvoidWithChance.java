@@ -4,9 +4,9 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 
 public class GOTEntityAIAvoidWithChance extends EntityAIAvoidEntity {
-	public EntityCreature theEntity;
-	public float chance;
-	public String soundEffect;
+	private final EntityCreature theEntity;
+	private final float chance;
+	private final String soundEffect;
 
 	public GOTEntityAIAvoidWithChance(EntityCreature entity, Class<?> avoidClass, float f, double d, double d1, float c) {
 		this(entity, avoidClass, f, d, d1, c, null);

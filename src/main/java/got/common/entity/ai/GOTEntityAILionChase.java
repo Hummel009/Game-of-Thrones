@@ -12,11 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTEntityAILionChase extends EntityAIBase {
-	public GOTEntityLionBase theLion;
-	public EntityCreature targetEntity;
-	public double speed;
-	public int chaseTimer;
-	public int lionRePathDelay;
+	private final GOTEntityLionBase theLion;
+	private final double speed;
+
+	private EntityCreature targetEntity;
+	private int chaseTimer;
+	private int lionRePathDelay;
 
 	public GOTEntityAILionChase(GOTEntityLionBase lion, double d) {
 		theLion = lion;

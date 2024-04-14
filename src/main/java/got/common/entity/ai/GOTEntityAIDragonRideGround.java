@@ -5,9 +5,7 @@ import net.minecraft.init.Items;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIDragonRideGround extends GOTEntityAIDragonRide {
-
-	public static float PLAYER_SPEED = 0.98f;
-	public double speed;
+	private final double speed;
 
 	public GOTEntityAIDragonRideGround(GOTEntityDragon dragon, double speed) {
 		super(dragon);
@@ -23,6 +21,7 @@ public class GOTEntityAIDragonRideGround extends GOTEntityAIDragonRide {
 	public void updateTask() {
 		super.updateTask();
 
+		float PLAYER_SPEED = 0.98f;
 		float speedX = rider.moveForward / PLAYER_SPEED;
 		float speedY = rider.moveStrafing / PLAYER_SPEED;
 

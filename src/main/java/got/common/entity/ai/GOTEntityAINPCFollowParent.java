@@ -4,10 +4,11 @@ import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.ai.EntityAIBase;
 
 public class GOTEntityAINPCFollowParent extends EntityAIBase {
-	public GOTEntityNPC theNPC;
-	public GOTEntityNPC parentNPC;
-	public double moveSpeed;
-	public int followTick;
+	private final GOTEntityNPC theNPC;
+	private final double moveSpeed;
+
+	private GOTEntityNPC parentNPC;
+	private int followTick;
 
 	public GOTEntityAINPCFollowParent(GOTEntityNPC npc, double d) {
 		theNPC = npc;

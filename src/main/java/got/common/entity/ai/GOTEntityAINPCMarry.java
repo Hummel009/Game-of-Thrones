@@ -14,11 +14,12 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityAINPCMarry extends EntityAIBase {
-	public GOTEntityNPC theNPC;
-	public World theWorld;
-	public GOTEntityNPC theSpouse;
-	public int marryDelay;
-	public double moveSpeed;
+	private final GOTEntityNPC theNPC;
+	private final World theWorld;
+	private final double moveSpeed;
+
+	private GOTEntityNPC theSpouse;
+	private int marryDelay;
 
 	public GOTEntityAINPCMarry(GOTEntityNPC npc, double d) {
 		theNPC = npc;
@@ -32,9 +33,8 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 		return theSpouse != null && theSpouse.isEntityAlive() && theNPC.familyInfo.canMarryNPC(theSpouse) && theSpouse.familyInfo.canMarryNPC(theNPC);
 	}
 
-	public void marry() {
+	private void marry() {
 		int maxChildren;
-		EntityPlayer ringPlayerSpouse;
 		theNPC.familyInfo.spouseUniqueID = theSpouse.getUniqueID();
 		theSpouse.familyInfo.spouseUniqueID = theNPC.getUniqueID();
 		theNPC.setCurrentItemOrArmor(0, null);
@@ -52,7 +52,7 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 			GOTLevelData.getData(ringPlayer).addAlignment(ringPlayer, GOTAlignmentValues.MARRIAGE_BONUS, theNPC.getFaction(), theNPC);
 
 		}
-		ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
+		EntityPlayer ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
 		if (ringPlayerSpouse != null) {
 			GOTLevelData.getData(ringPlayerSpouse).addAlignment(ringPlayerSpouse, GOTAlignmentValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
 			GOTLevelData.getData(ringPlayer).addAchievement(GOTAchievement.marry);

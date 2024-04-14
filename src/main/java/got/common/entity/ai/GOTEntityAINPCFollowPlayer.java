@@ -8,11 +8,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.List;
 
 public class GOTEntityAINPCFollowPlayer extends EntityAIBase {
-	public GOTEntityNPC entityFollowing;
-	public EntityPlayer playerToFollow;
-	public float range;
-	public double speed;
-	public int followDelay;
+	private final GOTEntityNPC entityFollowing;
+	private final float range;
+	private final double speed;
+
+	private EntityPlayer playerToFollow;
+	private int followDelay;
 
 	public GOTEntityAINPCFollowPlayer(GOTEntityNPC npc, float f, double d) {
 		entityFollowing = npc;

@@ -7,12 +7,12 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.AxisAlignedBB;
 
 public class GOTEntityAIDragonWatchLiving extends EntityAIBase {
+	private final GOTEntityDragon dragon;
+	private final float maxDist;
+	private final float watchChance;
 
-	public GOTEntityDragon dragon;
-	public Entity watchedEntity;
-	public float maxDist;
-	public int watchTicks;
-	public float watchChance;
+	private Entity watchedEntity;
+	private int watchTicks;
 
 	public GOTEntityAIDragonWatchLiving(GOTEntityDragon dragon, float maxDist, float watchChance) {
 		this.dragon = dragon;
@@ -23,10 +23,7 @@ public class GOTEntityAIDragonWatchLiving extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (!watchedEntity.isEntityAlive() || dragon.getDistanceSqToEntity(watchedEntity) > maxDist * maxDist) {
-			return false;
-		}
-		return watchTicks > 0;
+		return watchedEntity.isEntityAlive() && !(dragon.getDistanceSqToEntity(watchedEntity) > maxDist * maxDist) && watchTicks > 0;
 	}
 
 	@Override

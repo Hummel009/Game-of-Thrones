@@ -14,13 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
-	public GOTEntityNPC theNPC;
-	public double farSpeed;
-	public double nearSpeed;
-	public Entity closestLivingEntity;
-	public float distanceFromEntity;
-	public PathEntity entityPathEntity;
-	public PathNavigate entityPathNavigate;
+	private final PathNavigate entityPathNavigate;
+	private final GOTEntityNPC theNPC;
+	private final double farSpeed;
+	private final double nearSpeed;
+	private final float distanceFromEntity;
+
+	private Entity closestLivingEntity;
+	private PathEntity entityPathEntity;
 
 	public GOTEntityAINPCAvoidEvilPlayer(GOTEntityNPC npc, float f, double d, double d1) {
 		theNPC = npc;

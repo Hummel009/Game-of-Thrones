@@ -4,8 +4,7 @@ import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.entity.ai.EntityAITargetNonTamed;
 
 public class GOTEntityAIDragonHunt extends EntityAITargetNonTamed {
-
-	public GOTEntityDragon dragon;
+	private final GOTEntityDragon dragon;
 
 	public GOTEntityAIDragonHunt(GOTEntityDragon dragon, Class<?> clazz, int par3, boolean par4) {
 		super(dragon, clazz, par3, par4);

@@ -7,8 +7,8 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;
 
 public class GOTEntityAIHiredHorseRemainStill extends EntityAIBase {
-	public GOTNPCMount theHorse;
-	public EntityCreature livingHorse;
+	private final GOTNPCMount theHorse;
+	private final EntityCreature livingHorse;
 
 	public GOTEntityAIHiredHorseRemainStill(GOTNPCMount entity) {
 		theHorse = entity;
@@ -26,10 +26,7 @@ public class GOTEntityAIHiredHorseRemainStill extends EntityAIBase {
 			return false;
 		}
 		GOTEntityNPC ridingNPC = (GOTEntityNPC) rider;
-		if (!ridingNPC.hiredNPCInfo.isActive || livingHorse.isInWater() || !livingHorse.onGround) {
-			return false;
-		}
-		return ridingNPC.hiredNPCInfo.isHalted() && (ridingNPC.getAttackTarget() == null || !ridingNPC.getAttackTarget().isEntityAlive());
+		return ridingNPC.hiredNPCInfo.isActive && !livingHorse.isInWater() && livingHorse.onGround && ridingNPC.hiredNPCInfo.isHalted() && (ridingNPC.getAttackTarget() == null || !ridingNPC.getAttackTarget().isEntityAlive());
 	}
 
 	@Override

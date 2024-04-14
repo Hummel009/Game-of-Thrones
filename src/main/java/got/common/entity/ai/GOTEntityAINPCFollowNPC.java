@@ -7,10 +7,11 @@ import net.minecraft.entity.ai.EntityAIBase;
 import java.util.List;
 
 public class GOTEntityAINPCFollowNPC extends EntityAIBase {
-	public GOTEntityNPC entityFollowing;
-	public GOTEntityNPC entityToFollow;
-	public Class<? extends Entity> entityClassToFollow;
-	public int followDelay;
+	private final Class<? extends Entity> entityClassToFollow;
+	private final GOTEntityNPC entityFollowing;
+
+	private GOTEntityNPC entityToFollow;
+	private int followDelay;
 
 	public GOTEntityAINPCFollowNPC(GOTEntityNPC npc, Class<? extends Entity> target) {
 		entityFollowing = npc;
@@ -20,10 +21,7 @@ public class GOTEntityAINPCFollowNPC extends EntityAIBase {
 	@Override
 	public boolean continueExecuting() {
 		double distanceSq = entityFollowing.getDistanceSqToEntity(entityToFollow);
-		if (!entityToFollow.isEntityAlive()) {
-			return false;
-		}
-		return distanceSq >= 9.0 && distanceSq <= 256.0;
+		return entityToFollow.isEntityAlive() && distanceSq >= 9.0 && distanceSq <= 256.0;
 	}
 
 	@Override

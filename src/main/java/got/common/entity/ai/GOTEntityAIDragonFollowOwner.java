@@ -8,16 +8,16 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityAIDragonFollowOwner extends EntityAIBase {
+	private final GOTEntityDragon dragon;
+	private final PathNavigate nav;
+	private final World world;
+	private final double speed;
+	private final float maxDist;
+	private final float minDist;
 
-	public GOTEntityDragon dragon;
-	public EntityLivingBase owner;
-	public World world;
-	public double speed;
-	public PathNavigate nav;
-	public int updateTicks;
-	public float maxDist;
-	public float minDist;
-	public boolean avoidWater;
+	private EntityLivingBase owner;
+	private int updateTicks;
+	private boolean avoidWater;
 
 	public GOTEntityAIDragonFollowOwner(GOTEntityDragon dragon, double speed, float minDist, float maxDist) {
 		this.dragon = dragon;

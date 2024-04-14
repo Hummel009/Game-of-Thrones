@@ -7,13 +7,14 @@ import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIFlee extends EntityAIBase {
-	public EntityCreature theEntity;
-	public double speed;
-	public double attackerX;
-	public double attackerY;
-	public double attackerZ;
-	public int timer;
-	public boolean firstPath;
+	private final EntityCreature theEntity;
+	private final double speed;
+
+	private boolean firstPath;
+	private double attackerX;
+	private double attackerY;
+	private double attackerZ;
+	private int timer;
 
 	public GOTEntityAIFlee(EntityCreature entity, double d) {
 		theEntity = entity;

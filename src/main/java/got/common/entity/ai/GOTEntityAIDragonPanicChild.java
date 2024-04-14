@@ -4,8 +4,7 @@ import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.entity.ai.EntityAIPanic;
 
 public class GOTEntityAIDragonPanicChild extends EntityAIPanic {
-
-	public GOTEntityDragon dragon;
+	private final GOTEntityDragon dragon;
 
 	public GOTEntityAIDragonPanicChild(GOTEntityDragon dragon, double speed) {
 		super(dragon, speed);

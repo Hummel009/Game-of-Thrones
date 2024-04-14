@@ -5,7 +5,6 @@ import got.common.entity.dragon.GOTDragonFlightWaypoint;
 import got.common.entity.dragon.GOTEntityDragon;
 
 public class GOTEntityAIDragonCatchOwnerAir extends GOTEntityAIDragonCatchOwner {
-
 	public GOTEntityAIDragonCatchOwnerAir(GOTEntityDragon dragon) {
 		super(dragon);
 	}
