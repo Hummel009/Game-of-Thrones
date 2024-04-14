@@ -1,7 +1,6 @@
 package got.common.entity.dragon;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -19,17 +18,10 @@ public enum GOTDragonLifeStage {
 	}
 
 	public static List<String> getLifeStageNames() {
-		List<GOTDragonLifeStage> stages = getLifeStages();
 		List<String> names = new ArrayList<>();
-		for (GOTDragonLifeStage s : stages) {
+		for (GOTDragonLifeStage s : values()) {
 			names.add(s.name().toLowerCase(Locale.ROOT));
 		}
 		return names;
-	}
-
-	private static List<GOTDragonLifeStage> getLifeStages() {
-		List<GOTDragonLifeStage> stages = new ArrayList<>();
-		Collections.addAll(stages, values());
-		return stages;
 	}
 }
