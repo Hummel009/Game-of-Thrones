@@ -31,6 +31,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		super(pd);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTMiniQuestWelcome(GOTPlayerData pd, GOTEntityJaqenHghar jaqen) {
 		this(pd);
 		setNPCInfo(jaqen);

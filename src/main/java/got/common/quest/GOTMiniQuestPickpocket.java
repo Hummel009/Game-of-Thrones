@@ -33,6 +33,7 @@ import java.util.*;
 public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	private final Collection<UUID> pickpocketedEntityIDs = new HashSet<>();
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTMiniQuestPickpocket(GOTPlayerData pd) {
 		super(pd);
 	}
@@ -317,6 +318,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		protected int minTarget;
 		protected int maxTarget;
 
+		@SuppressWarnings("WeakerAccess")
 		public QFPickpocket(String name) {
 			super(name);
 		}

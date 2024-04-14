@@ -15,6 +15,7 @@ import java.util.Random;
 public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 	private ItemStack collectItem;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTMiniQuestCollect(GOTPlayerData pd) {
 		super(pd);
 	}
@@ -106,10 +107,12 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		protected int minTarget;
 		protected int maxTarget;
 
+		@SuppressWarnings("WeakerAccess")
 		public QFCollect() {
 			super("collect");
 		}
 
+		@SuppressWarnings("WeakerAccess")
 		public QFCollect(String name) {
 			super(name);
 		}
