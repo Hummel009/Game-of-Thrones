@@ -9,10 +9,10 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class GOTDragonLifeStageHelper extends GOTDragonHelper {
-	public GOTDragonLifeStage lifeStagePrev;
-	public GOTDragonScaleModifier scaleModifier = new GOTDragonScaleModifier();
-	public int eggWiggleX;
-	public int eggWiggleZ;
+	private GOTDragonLifeStage lifeStagePrev;
+	private final GOTDragonScaleModifier scaleModifier = new GOTDragonScaleModifier();
+	private int eggWiggleX;
+	private int eggWiggleZ;
 
 	public GOTDragonLifeStageHelper(GOTEntityDragon dragon) {
 		super(dragon);
@@ -33,7 +33,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		return eggWiggleZ;
 	}
 
-	public GOTDragonLifeStage getLifeStage() {
+	private GOTDragonLifeStage getLifeStage() {
 		int age = dragon.getGrowingAge();
 		if (age >= GOTDragonLifeStage.ADULT.ageLimit) {
 			return GOTDragonLifeStage.ADULT;
@@ -92,7 +92,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		updateScale();
 	}
 
-	public void onNewLifeStage(GOTDragonLifeStage lifeStage, GOTDragonLifeStage prevLifeStage) {
+	private void onNewLifeStage(GOTDragonLifeStage lifeStage, GOTDragonLifeStage prevLifeStage) {
 		GOTLog.getLogger().trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
 
 		if (dragon.isClient()) {
@@ -125,7 +125,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		}
 	}
 
-	public void playEggCrackEffect() {
+	private void playEggCrackEffect() {
 		int bx = (int) Math.round(dragon.posX - 0.5);
 		int by = (int) Math.round(dragon.posY);
 		int bz = (int) Math.round(dragon.posZ - 0.5);
@@ -151,7 +151,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		dragon.setDead();
 	}
 
-	public void updateEgg() {
+	private void updateEgg() {
 		if (!isEgg()) {
 			return;
 		}
@@ -187,7 +187,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		rand.nextDouble();
 	}
 
-	public void updateLifeStage() {
+	private void updateLifeStage() {
 
 		GOTDragonLifeStage lifeStage = getLifeStage();
 		if (lifeStagePrev != lifeStage) {
@@ -196,7 +196,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		}
 	}
 
-	public void updateScale() {
+	private void updateScale() {
 		dragon.setScalePublic(getScale());
 	}
 }

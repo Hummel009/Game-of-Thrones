@@ -1,25 +1,19 @@
 package got.common.entity.dragon;
 
-import got.common.util.GOTCrashHandler;
 import got.common.util.GOTLog;
-import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class GOTDragonBreedHelper extends GOTDragonHelper {
-	public static int BLOCK_RANGE = 2;
-	public static String NBT_BREED = "Breed";
-	public static String NBT_BREED_POINTS = "breedPoints";
-	public static String DEFAULT_BREED = "body";
-	public GOTDragonBreedRegistry registry = GOTDragonBreedRegistry.getInstance();
-	public int dataIndex;
-	public Map<GOTDragonBreed, AtomicInteger> breedPoints = new HashMap<>();
+	private static final String NBT_BREED = "Breed";
+	private static final String NBT_BREED_POINTS = "breedPoints";
+	private static final String DEFAULT_BREED = "body";
+	private final GOTDragonBreedRegistry registry = GOTDragonBreedRegistry.getInstance();
+	private final int dataIndex;
+	private final Map<GOTDragonBreed, AtomicInteger> breedPoints = new HashMap<>();
 
 	public GOTDragonBreedHelper(GOTEntityDragon dragon, int dataIndex) {
 		super(dragon);
@@ -40,7 +34,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 
 		GOTDragonBreed breed = registry.getBreedByName(breedName);
 		if (breed == null) {
-			breed = registry.getBreedByName(DEFAULT_BREED);
+			return registry.getBreedByName(DEFAULT_BREED);
 		}
 
 		return breed;
@@ -62,9 +56,6 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 			return;
 		}
 
-		oldBreed.onDisable(dragon);
-		newBreed.onEnable(dragon);
-
 		dataWatcher.updateObject(dataIndex, newBreed.getName());
 	}
 
@@ -74,16 +65,9 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 	}
 
 	@Override
-	public void onDeath() {
-		getBreed().onDeath(dragon);
-	}
-
-	@Override
 	public void onLivingUpdate() {
 		GOTDragonBreed currentBreed = getBreed();
-
 		if (dragon.isEgg()) {
-
 			if (dragon.isClient() && dragon.ticksExisted % 2 == 0 && !currentBreed.getName().equals(DEFAULT_BREED)) {
 				double px = dragon.posX + (rand.nextDouble() - 0.5);
 				double py = dragon.posY + (rand.nextDouble() - 0.5);
@@ -92,32 +76,6 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 			}
 
 			if (dragon.isServer() && dragon.ticksExisted % 20 == 0) {
-
-				int bx = MathHelper.floor_double(dragon.posX);
-				int by = MathHelper.floor_double(dragon.posY);
-				int bz = MathHelper.floor_double(dragon.posZ);
-
-				for (int xn = -BLOCK_RANGE; xn <= BLOCK_RANGE; xn++) {
-					for (int zn = -BLOCK_RANGE; zn <= BLOCK_RANGE; zn++) {
-						for (int yn = -BLOCK_RANGE; yn <= BLOCK_RANGE; yn++) {
-							Block block = dragon.worldObj.getBlock(bx + xn, by + yn, bz + zn);
-							for (Entry<GOTDragonBreed, AtomicInteger> breed : breedPoints.entrySet()) {
-								if (breed.getKey().isHabitatBlock(block)) {
-									breed.getValue().incrementAndGet();
-								}
-							}
-						}
-					}
-				}
-				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(dragon.worldObj, bx, bz);
-				for (Entry<GOTDragonBreed, AtomicInteger> breed : breedPoints.entrySet()) {
-					if (breed.getKey().isHabitatBiome(biome)) {
-						breed.getValue().incrementAndGet();
-					}
-					if (breed.getKey().isHabitatEnvironment(dragon)) {
-						breed.getValue().addAndGet(3);
-					}
-				}
 				GOTDragonBreed newBreed = null;
 				int maxPoints = 0;
 				for (Map.Entry<GOTDragonBreed, AtomicInteger> breedPoint : breedPoints.entrySet()) {
@@ -132,8 +90,6 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 				}
 			}
 		}
-
-		currentBreed.onUpdate(dragon);
 	}
 
 	@Override

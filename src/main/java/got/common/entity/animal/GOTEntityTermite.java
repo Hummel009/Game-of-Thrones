@@ -23,9 +23,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityTermite extends EntityMob {
-	public static int maxFuseTime = 20;
-	public static float explosionSize = 2.0f;
-	public int fuseTime;
+	private int fuseTime;
 
 	public GOTEntityTermite(World world) {
 		super(world);
@@ -58,8 +56,9 @@ public class GOTEntityTermite extends EntityMob {
 		return false;
 	}
 
-	public void explode() {
+	private void explode() {
 		if (!worldObj.isRemote) {
+			float explosionSize = 2.0f;
 			worldObj.createExplosion(this, posX, posY, posZ, explosionSize, GOT.canGrief(worldObj));
 			setDead();
 		}
@@ -136,6 +135,7 @@ public class GOTEntityTermite extends EntityMob {
 					--fuseTime;
 				}
 			}
+			int maxFuseTime = 20;
 			fuseTime = Math.min(Math.max(fuseTime, 0), maxFuseTime);
 		}
 	}

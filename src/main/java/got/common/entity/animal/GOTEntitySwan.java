@@ -7,7 +7,7 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.util.GOTCrashHandler;
-import got.common.world.biome.GOTBiome.ImmuneToFrost;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -24,29 +24,25 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature, ImmuneToFrost {
-	public static Random violenceRand = new Random();
-	public float flapPhase;
-	public float flapPower;
-	public float prevFlapPower;
-	public float prevFlapPhase;
-	public float flapAccel = 1.0f;
-	public int peckTime;
-	public int peckLength;
-	public int timeUntilHiss;
-	public boolean assignedAttackOrFlee;
-	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
-	public EntityAIBase fleeAI = new EntityAIPanic(this, 1.8);
+public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature, GOTBiome.ImmuneToFrost {
+	private static final Random VIOLENCE_RAND = new Random();
 
-	@SuppressWarnings("Convert2Lambda")
-	public IEntitySelector swanAttackRange = new IEntitySelector() {
+	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
+	private final EntityAIBase fleeAI = new EntityAIPanic(this, 1.8);
 
-		@Override
-		public boolean isEntityApplicable(Entity entity) {
-			return entity instanceof EntityLivingBase && entity.isEntityAlive() && getDistanceSqToEntity(entity) < 16.0;
-		}
-	};
+	private float flapPhase;
+	private float flapPower;
+	private float prevFlapPower;
+	private float prevFlapPhase;
+	private float flapAccel = 1.0f;
 
+	private int peckTime;
+	private int peckLength;
+	private int timeUntilHiss;
+
+	private boolean assignedAttackOrFlee;
+
+	@SuppressWarnings("unused")
 	public GOTEntitySwan(World world) {
 		super(world);
 		setSize(0.5f, 0.7f);
@@ -57,6 +53,16 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 		tasks.addTask(3, new EntityAIWatchClosest(this, EntityLivingBase.class, 10.0f, 0.05f));
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
+
+		@SuppressWarnings("Convert2Lambda")
+		IEntitySelector swanAttackRange = new IEntitySelector() {
+
+			@Override
+			public boolean isEntityApplicable(Entity entity) {
+				return entity instanceof EntityLivingBase && entity.isEntityAlive() && getDistanceSqToEntity(entity) < 16.0;
+			}
+		};
+
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, swanAttackRange));
 	}
 
@@ -163,10 +169,10 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 		return true;
 	}
 
-	public boolean isViolentSwan() {
+	private boolean isViolentSwan() {
 		long seed = getUniqueID().getLeastSignificantBits();
-		violenceRand.setSeed(seed);
-		return violenceRand.nextBoolean();
+		VIOLENCE_RAND.setSeed(seed);
+		return VIOLENCE_RAND.nextBoolean();
 	}
 
 	@Override
@@ -233,4 +239,19 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 		}
 	}
 
+	public float getFlapPhase() {
+		return flapPhase;
+	}
+
+	public float getFlapPower() {
+		return flapPower;
+	}
+
+	public float getPrevFlapPower() {
+		return prevFlapPower;
+	}
+
+	public float getPrevFlapPhase() {
+		return prevFlapPhase;
+	}
 }

@@ -7,11 +7,11 @@ import java.util.Map;
 
 public class GOTDragonBreedRegistry {
 
-	public static GOTDragonBreedRegistry instance;
+	private static GOTDragonBreedRegistry instance;
 
-	public Map<String, GOTDragonBreed> breeds = new HashMap<>();
+	private final Map<String, GOTDragonBreed> breeds = new HashMap<>();
 
-	public GOTDragonBreedRegistry() {
+	private GOTDragonBreedRegistry() {
 		add(new GOTDragonBreed("body", "body", 0x2d6e00));
 	}
 
@@ -23,7 +23,7 @@ public class GOTDragonBreedRegistry {
 		return instance;
 	}
 
-	public void add(GOTDragonBreed breed) {
+	private void add(GOTDragonBreed breed) {
 		breeds.put(breed.getName(), breed);
 	}
 

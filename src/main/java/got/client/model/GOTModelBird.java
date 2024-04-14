@@ -58,7 +58,7 @@ public class GOTModelBird extends ModelBase {
 		if (bird.isBirdStill()) {
 			body.rotateAngleX = -0.17453292519943295f;
 			head.rotateAngleX = 0.3490658503988659f;
-			wingRight.rotateAngleZ = bird.flapTime > 0 ? 1.5707963267948966f + MathHelper.cos(f2 * 1.5f) * 0.5235987755982988f : 0.5235987755982988f;
+			wingRight.rotateAngleZ = bird.getFlapTime() > 0 ? 1.5707963267948966f + MathHelper.cos(f2 * 1.5f) * 0.5235987755982988f : 0.5235987755982988f;
 			wingLeft.rotateAngleZ = -wingRight.rotateAngleZ;
 			legRight.rotateAngleX = legLeft.rotateAngleX = -body.rotateAngleX;
 			legRight.rotateAngleX += MathHelper.cos(f * 0.6662f) * f1;

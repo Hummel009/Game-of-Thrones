@@ -53,8 +53,8 @@ public class GOTRenderBird extends RenderLiving {
 	@Override
 	public float handleRotationFloat(EntityLivingBase entity, float f) {
 		GOTEntityBird bird = (GOTEntityBird) entity;
-		if (bird.isBirdStill() && bird.flapTime > 0) {
-			return bird.flapTime - f;
+		if (bird.isBirdStill() && bird.getFlapTime() > 0) {
+			return bird.getFlapTime() - f;
 		}
 		return super.handleRotationFloat(entity, f);
 	}

@@ -13,7 +13,7 @@ public class GOTDragonParticleHelper extends GOTDragonHelper {
 		}
 	}
 
-	public void spawnBodyParticle(String effect) {
+	private void spawnBodyParticle(String effect) {
 		double ox;
 		double oy;
 		double oz;
@@ -50,7 +50,7 @@ public class GOTDragonParticleHelper extends GOTDragonHelper {
 		spawnBodyParticles(effect, 32);
 	}
 
-	public void spawnBodyParticles(String effect, int baseAmount) {
+	private void spawnBodyParticles(String effect, int baseAmount) {
 		int amount = (int) (baseAmount * dragon.getScale());
 		for (int i = 0; i < amount; i++) {
 			spawnBodyParticle(effect);

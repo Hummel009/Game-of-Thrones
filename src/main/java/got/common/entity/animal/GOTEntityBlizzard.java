@@ -15,9 +15,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.ImmuneToFrost {
-	public float heightOffset = 0.5F;
-	public int heightOffsetUpdateTime;
-	public int firingState;
+	private float heightOffset = 0.5F;
+	private int heightOffsetUpdateTime;
+	private int firingState;
 
 	public GOTEntityBlizzard(World world) {
 		super(world);
@@ -150,7 +150,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 		super.onLivingUpdate();
 	}
 
-	public void setInAttackMode(boolean flag) {
+	private void setInAttackMode(boolean flag) {
 		byte b0 = dataWatcher.getWatchableObjectByte(16);
 		if (flag) {
 			b0 = (byte) (b0 | 1);

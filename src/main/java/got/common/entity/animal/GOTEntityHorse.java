@@ -11,8 +11,8 @@ import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTEntityUtils;
 import got.common.entity.other.GOTNPCMount;
 import got.common.item.other.GOTItemMountArmor;
-import got.common.util.GOTReflection;
 import got.common.util.GOTCrashHandler;
+import got.common.util.GOTReflection;
 import got.common.world.biome.essos.GOTBiomeDothrakiSea;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -34,11 +34,12 @@ import net.minecraft.world.biome.BiomeGenBase;
 import java.util.List;
 
 public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
-	public boolean isMoving;
-	public ItemStack prevMountArmor;
-	public EntityAIBase attackAI;
-	public EntityAIBase panicAI;
-	public boolean prevIsChild = true;
+	private final EntityAIBase attackAI;
+	private final EntityAIBase panicAI;
+
+	private ItemStack prevMountArmor;
+	private boolean isMoving;
+	private boolean prevIsChild = true;
 
 	public GOTEntityHorse(World world) {
 		super(world);
@@ -54,16 +55,13 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		}
 	}
 
-	public static boolean isLab(GOTEntityHorse horse) {
+	private static boolean isLab(GOTEntityHorse horse) {
 		return horse.hasCustomNameTag() && "игорь".equalsIgnoreCase(horse.getCustomNameTag());
 	}
 
 	@Override
 	public boolean allowLeashing() {
-		if (getBelongsToNPC()) {
-			return false;
-		}
-		return super.allowLeashing();
+		return !getBelongsToNPC() && super.allowLeashing();
 	}
 
 	@Override
@@ -101,15 +99,15 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		return getBelongsToNPC() && riddenByEntity == null;
 	}
 
-	public double clampChildHealth(double health) {
+	protected double clampChildHealth(double health) {
 		return MathHelper.clamp_double(health, 12.0, 48.0);
 	}
 
-	public double clampChildJump(double jump) {
+	protected double clampChildJump(double jump) {
 		return MathHelper.clamp_double(jump, 0.3, 1.0);
 	}
 
-	public double clampChildSpeed(double speed) {
+	protected double clampChildSpeed(double speed) {
 		return MathHelper.clamp_double(speed, 0.08, 0.45);
 	}
 
@@ -135,7 +133,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		return child;
 	}
 
-	public EntityAIBase createMountAttackAI() {
+	protected EntityAIBase createMountAttackAI() {
 		return null;
 	}
 
@@ -188,10 +186,9 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		return false;
 	}
 
-	public double getChildAttribute(EntityAgeable parent, EntityAgeable otherParent, IAttribute stat, double variance) {
-		double val2;
+	private double getChildAttribute(EntityAgeable parent, EntityAgeable otherParent, IAttribute stat, double variance) {
 		double val1 = parent.getEntityAttribute(stat).getBaseValue();
-		val2 = otherParent.getEntityAttribute(stat).getBaseValue();
+		double val2 = otherParent.getEntityAttribute(stat).getBaseValue();
 		if (val1 <= val2) {
 			return MathHelper.getRandomDoubleInRange(rand, val1 - variance, val2 + variance);
 		}
@@ -210,15 +207,15 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		return StatCollector.translateToLocal("entity." + s + ".name");
 	}
 
-	public boolean getMountable() {
+	private boolean getMountable() {
 		return dataWatcher.getWatchableObjectByte(26) == 1;
 	}
 
-	public void setMountable(boolean flag) {
+	private void setMountable(boolean flag) {
 		dataWatcher.updateObject(26, flag ? (byte) 1 : 0);
 	}
 
-	public ItemStack getMountArmor() {
+	protected ItemStack getMountArmor() {
 		int ID = dataWatcher.getWatchableObjectInt(27);
 		byte meta = dataWatcher.getWatchableObjectByte(28);
 		return new ItemStack(Item.getItemById(ID), 1, meta);
@@ -324,15 +321,15 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		return false;
 	}
 
-	public boolean isMountEnraged() {
+	private boolean isMountEnraged() {
 		return dataWatcher.getWatchableObjectByte(29) == 1;
 	}
 
-	public void setMountEnraged(boolean flag) {
+	private void setMountEnraged(boolean flag) {
 		dataWatcher.updateObject(29, flag ? (byte) 1 : 0);
 	}
 
-	public boolean isMountHostile() {
+	protected boolean isMountHostile() {
 		return false;
 	}
 
@@ -366,7 +363,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		super.onDeath(damagesource);
 	}
 
-	public void onGOTHorseSpawn() {
+	protected void onGOTHorseSpawn() {
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
@@ -442,17 +439,18 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		IEntityLivingData data1 = data;
 		if (!worldObj.isRemote) {
-			data = super.onSpawnWithEgg(data);
+			data1 = super.onSpawnWithEgg(data1);
 			onGOTHorseSpawn();
 			setHealth(getMaxHealth());
-			return data;
+			return data1;
 		}
 		int j = rand.nextInt(7);
 		int k = rand.nextInt(5);
 		int i = j | k << 8;
 		setHorseVariant(i);
-		return data;
+		return data1;
 	}
 
 	@Override
@@ -496,12 +494,12 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		setHorseTamed(true);
 	}
 
-	public void setChestedForWorldGen() {
+	protected void setChestedForWorldGen() {
 		setChested(true);
 		GOTReflection.setupHorseInv(this);
 	}
 
-	public void setMountArmorWatched(ItemStack itemstack) {
+	private void setMountArmorWatched(ItemStack itemstack) {
 		if (itemstack == null) {
 			dataWatcher.updateObject(27, 0);
 			dataWatcher.updateObject(28, (byte) 0);

@@ -8,7 +8,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteBison extends GOTEntityBison {
-	public GOTEntityWhiteBison(World world) {
+	private GOTEntityWhiteBison(World world) {
 		super(world);
 	}
 
@@ -18,7 +18,7 @@ public class GOTEntityWhiteBison extends GOTEntityBison {
 	}
 
 	@Override
-	public void dropHornItem(boolean flag, int i) {
+	public void dropHornItem() {
 		dropItem(GOTItems.whiteBisonHorn, 1);
 	}
 

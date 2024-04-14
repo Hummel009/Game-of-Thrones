@@ -19,7 +19,7 @@ public class GOTRenderButterfly extends RenderLiving {
 	public GOTRenderButterfly() {
 		super(new GOTModelButterfly(), 0.2f);
 		for (GOTEntityButterfly.ButterflyType t : GOTEntityButterfly.ButterflyType.values()) {
-			BUTTERFLY_TEXTURES.put(t, GOTRandomSkins.loadSkinsList("got:textures/entity/animal/butterfly/" + t.textureDir));
+			BUTTERFLY_TEXTURES.put(t, GOTRandomSkins.loadSkinsList("got:textures/entity/animal/butterfly/" + t.getTextureDir()));
 		}
 	}
 
@@ -46,8 +46,8 @@ public class GOTRenderButterfly extends RenderLiving {
 	@Override
 	public float handleRotationFloat(EntityLivingBase entity, float f) {
 		GOTEntityButterfly butterfly = (GOTEntityButterfly) entity;
-		if (butterfly.isButterflyStill() && butterfly.flapTime > 0) {
-			return butterfly.flapTime - f;
+		if (butterfly.isButterflyStill() && butterfly.getFlapTime() > 0) {
+			return butterfly.getFlapTime() - f;
 		}
 		return super.handleRotationFloat(entity, f);
 	}

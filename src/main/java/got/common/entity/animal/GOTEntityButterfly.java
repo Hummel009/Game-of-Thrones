@@ -27,8 +27,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.UUID;
 
 public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
-	public ChunkCoordinates currentFlightTarget;
-	public int flapTime;
+	private ChunkCoordinates currentFlightTarget;
+	private int flapTime;
 
 	public GOTEntityButterfly(World world) {
 		super(world);
@@ -103,20 +103,17 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		return ButterflyType.values()[i];
 	}
 
-	public void setButterflyType(ButterflyType type) {
+	private void setButterflyType(ButterflyType type) {
 		setButterflyType(type.ordinal());
 	}
 
-	public void setButterflyType(int i) {
+	private void setButterflyType(int i) {
 		dataWatcher.updateObject(16, (byte) i);
 	}
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			return GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);
-		}
-		return false;
+		return super.getCanSpawnHere() && GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);
 	}
 
 	@Override
@@ -133,13 +130,13 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
-	public void setButterflyStill(boolean flag) {
+	private void setButterflyStill(boolean flag) {
 		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
@@ -152,7 +149,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		} else {
 			setButterflyType(ButterflyType.COMMON);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override
@@ -236,14 +233,21 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		nbt.setBoolean("ButterflyStill", isButterflyStill());
 	}
 
+	public int getFlapTime() {
+		return flapTime;
+	}
+
 	public enum ButterflyType {
 		ULTHOS("ulthos"), QOHOR("qohor"), COMMON("common"), SOTHORYOS("sothoryos");
 
-		public String textureDir;
+		private final String textureDir;
 
 		ButterflyType(String s) {
 			textureDir = s;
 		}
-	}
 
+		public String getTextureDir() {
+			return textureDir;
+		}
+	}
 }

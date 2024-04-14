@@ -15,7 +15,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityGemsbok extends EntityAnimal {
-	public GOTEntityGemsbok(World world) {
+	protected GOTEntityGemsbok(World world) {
 		super(world);
 		setSize(0.9f, 1.4f);
 		getNavigator().setAvoidsWater(true);
@@ -68,7 +68,7 @@ public class GOTEntityGemsbok extends EntityAnimal {
 		return "got:deer.death";
 	}
 
-	public float getGemsbokSoundPitch() {
+	protected float getGemsbokSoundPitch() {
 		return 0.8f;
 	}
 
@@ -96,5 +96,4 @@ public class GOTEntityGemsbok extends EntityAnimal {
 	public boolean isAIEnabled() {
 		return true;
 	}
-
 }

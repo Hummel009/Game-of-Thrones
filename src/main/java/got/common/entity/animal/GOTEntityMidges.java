@@ -18,11 +18,12 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature {
-	public ChunkCoordinates currentFlightTarget;
-	public EntityPlayer playerTarget;
-	public Midge[] midges;
+	private final Midge[] midges;
 
-	public GOTEntityMidges(World world) {
+	private ChunkCoordinates currentFlightTarget;
+	private EntityPlayer playerTarget;
+
+	private GOTEntityMidges(World world) {
 		super(world);
 		setSize(2.0f, 2.0f);
 		renderDistanceWeight = 0.5;
@@ -80,10 +81,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(posY);
 		int k = MathHelper.floor_double(posZ);
-		if (j < 62) {
-			return false;
-		}
-		return worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock && super.getCanSpawnHere();
+		return j >= 62 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock && super.getCanSpawnHere();
 	}
 
 	@Override
@@ -129,9 +127,8 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 			playSound("got:midges.swarm", getSoundVolume(), getSoundPitch());
 		}
 		if (!worldObj.isRemote && isEntityAlive()) {
-			int chance;
 			boolean inMidgewater = GOTCrashHandler.getBiomeGenForCoords(worldObj, MathHelper.floor_double(posX), MathHelper.floor_double(posZ)) instanceof GOTBiomeNeck;
-			chance = inMidgewater ? 100 : 500;
+			int chance = inMidgewater ? 100 : 500;
 			if (rand.nextInt(chance) == 0) {
 				double range = inMidgewater ? 16.0 : 24.0;
 				int threshold = inMidgewater ? 6 : 5;
@@ -166,14 +163,13 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 			if (closestPlayer != null && rand.nextInt(7) == 0) {
 				playerTarget = closestPlayer;
 			} else {
-				int height;
 				int i = (int) posX + rand.nextInt(7) - rand.nextInt(7);
 				int j = (int) posY + rand.nextInt(4) - rand.nextInt(3);
 				int k = (int) posZ + rand.nextInt(7) - rand.nextInt(7);
 				if (j < 1) {
 					j = 1;
 				}
-				height = worldObj.getTopSolidOrLiquidBlock(i, k);
+				int height = worldObj.getTopSolidOrLiquidBlock(i, k);
 				if (j > height + 8) {
 					j = height + 8;
 				}
@@ -199,38 +195,69 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 	public void updateFallState(double d, boolean flag) {
 	}
 
-	public class Midge {
-		public float midge_posX;
-		public float midge_posY;
-		public float midge_posZ;
-		public float midge_prevPosX;
-		public float midge_prevPosY;
-		public float midge_prevPosZ;
-		public float midge_initialPosX;
-		public float midge_initialPosY;
-		public float midge_initialPosZ;
-		public float midge_rotation;
-		public int midgeTick;
-		public int maxMidgeTick = 80;
-
-		public Midge() {
-			midge_initialPosX = midge_posX = -1.0f + rand.nextFloat() * 2.0f;
-			midge_initialPosY = midge_posY = rand.nextFloat() * 2.0f;
-			midge_initialPosZ = midge_posZ = -1.0f + rand.nextFloat() * 2.0f;
-			midge_rotation = rand.nextFloat() * 360.0f;
-			midgeTick = rand.nextInt(maxMidgeTick);
-		}
-
-		public void update() {
-			midge_prevPosX = midge_posX;
-			midge_prevPosY = midge_posY;
-			midge_prevPosZ = midge_posZ;
-			++midgeTick;
-			if (midgeTick > maxMidgeTick) {
-				midgeTick = 0;
-			}
-			midge_posY = midge_initialPosY + 0.5f * MathHelper.sin(midgeTick / 6.2831855f);
-		}
+	public Midge[] getMidges() {
+		return midges;
 	}
 
+	public class Midge {
+		private static final int MAX_MIDGE_TICK = 80;
+		private final float midgeInitialPosY;
+		private final float midgeRotation;
+		private final float midgePosX;
+		private final float midgePosZ;
+
+		private float midgePrevPosX;
+		private float midgePrevPosY;
+		private float midgePrevPosZ;
+		private float midgePosY;
+		private int midgeTick;
+
+		protected Midge() {
+			midgePosX = -1.0F + rand.nextFloat() * 2.0F;
+			midgePosY = rand.nextFloat() * 2.0F;
+			midgePosZ = -1.0F + rand.nextFloat() * 2.0F;
+			midgeInitialPosY = midgePosY = rand.nextFloat() * 2.0f;
+			midgeRotation = rand.nextFloat() * 360.0f;
+			midgeTick = rand.nextInt(MAX_MIDGE_TICK);
+		}
+
+		protected void update() {
+			midgePrevPosX = midgePosX;
+			midgePrevPosY = midgePosY;
+			midgePrevPosZ = midgePosZ;
+			++midgeTick;
+			if (midgeTick > MAX_MIDGE_TICK) {
+				midgeTick = 0;
+			}
+			midgePosY = midgeInitialPosY + 0.5f * MathHelper.sin(midgeTick / 6.2831855f);
+		}
+
+		public float getMidgePosX() {
+			return midgePosX;
+		}
+
+		public float getMidgePosY() {
+			return midgePosY;
+		}
+
+		public float getMidgePosZ() {
+			return midgePosZ;
+		}
+
+		public float getMidgePrevPosX() {
+			return midgePrevPosX;
+		}
+
+		public float getMidgePrevPosY() {
+			return midgePrevPosY;
+		}
+
+		public float getMidgePrevPosZ() {
+			return midgePrevPosZ;
+		}
+
+		public float getMidgeRotation() {
+			return midgeRotation;
+		}
+	}
 }

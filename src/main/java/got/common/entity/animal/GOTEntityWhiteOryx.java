@@ -10,9 +10,7 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTEntityWhiteOryx extends GOTEntityGemsbok implements GOTRandomSkinEntity {
-	public static float ORYX_SCALE = 0.9f;
-
-	public GOTEntityWhiteOryx(World world) {
+	private GOTEntityWhiteOryx(World world) {
 		super(world);
 		setSize(width * 0.9f, height * 0.9f);
 	}

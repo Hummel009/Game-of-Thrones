@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTAmbientSpawnChecks {
+	private GOTAmbientSpawnChecks() {
+	}
+
 	public static boolean canSpawn(EntityLiving entity, int xzRange, int yRange, int attempts, int required, Material... materials) {
 		int k;
 		int j;

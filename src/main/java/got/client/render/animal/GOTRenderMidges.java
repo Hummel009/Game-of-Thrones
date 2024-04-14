@@ -33,10 +33,10 @@ public class GOTRenderMidges extends RenderLiving {
 		bindEntityTexture(entity);
 		mainModel.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		GOTEntityMidges midges = (GOTEntityMidges) entity;
-		for (GOTEntityMidges.Midge midge : midges.midges) {
+		for (GOTEntityMidges.Midge midge : midges.getMidges()) {
 			GL11.glPushMatrix();
-			GL11.glTranslatef(midge.midge_prevPosX + (midge.midge_posX - midge.midge_prevPosX) * renderTick, midge.midge_prevPosY + (midge.midge_posY - midge.midge_prevPosY) * renderTick, midge.midge_prevPosZ + (midge.midge_posZ - midge.midge_prevPosZ) * renderTick);
-			GL11.glRotatef(midge.midge_rotation, 0.0f, 1.0f, 0.0f);
+			GL11.glTranslatef(midge.getMidgePrevPosX() + (midge.getMidgePosX() - midge.getMidgePrevPosX()) * renderTick, midge.getMidgePrevPosY() + (midge.getMidgePosY() - midge.getMidgePrevPosY()) * renderTick, midge.getMidgePrevPosZ() + (midge.getMidgePosZ() - midge.getMidgePrevPosZ()) * renderTick);
+			GL11.glRotatef(midge.getMidgeRotation(), 0.0f, 1.0f, 0.0f);
 			GL11.glScalef(0.2f, 0.2f, 0.2f);
 			mainModel.render(entity, f, f1, f2, f3, f4, f5);
 			GL11.glPopMatrix();

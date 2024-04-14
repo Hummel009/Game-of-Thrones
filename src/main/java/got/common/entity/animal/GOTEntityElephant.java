@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityElephant extends GOTEntityHorse {
-	public GOTEntityElephant(World world) {
+	private GOTEntityElephant(World world) {
 		super(world);
 		setSize(1.5f, 3.6f);
 	}

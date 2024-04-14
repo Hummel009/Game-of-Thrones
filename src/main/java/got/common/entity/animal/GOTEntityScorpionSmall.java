@@ -134,7 +134,7 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 		return dataWatcher.getWatchableObjectInt(19);
 	}
 
-	public void setStrikeTime(int i) {
+	private void setStrikeTime(int i) {
 		dataWatcher.updateObject(19, i);
 	}
 
@@ -155,10 +155,7 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 
 	@Override
 	public boolean isPotionApplicable(PotionEffect effect) {
-		if (effect.getPotionID() == Potion.poison.id) {
-			return false;
-		}
-		return super.isPotionApplicable(effect);
+		return effect.getPotionID() != Potion.poison.id && super.isPotionApplicable(effect);
 	}
 
 	@Override

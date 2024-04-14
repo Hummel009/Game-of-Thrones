@@ -1,20 +1,15 @@
 package got.common.entity.dragon;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.util.DamageSource;
-import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.Collection;
 import java.util.HashSet;
 
 public class GOTDragonBreed {
-	public String name;
-	public String skin;
-	public int color;
-	public Collection<String> immunities = new HashSet<>();
-	public Collection<Block> breedBlocks = new HashSet<>();
-	public Collection<BiomeGenBase> biomes = new HashSet<>();
+	private final Collection<String> immunities = new HashSet<>();
+	private final String name;
+	private final String skin;
+	private final int color;
 
 	public GOTDragonBreed(String name, String skin, int color) {
 		this.name = name;
@@ -25,20 +20,8 @@ public class GOTDragonBreed {
 		addImmunity(DamageSource.cactus);
 	}
 
-	public void addHabitatBiome(BiomeGenBase biome) {
-		biomes.add(biome);
-	}
-
-	public void addHabitatBlock(Block block) {
-		breedBlocks.add(block);
-	}
-
-	public void addImmunity(DamageSource dmg) {
+	private void addImmunity(DamageSource dmg) {
 		immunities.add(dmg.damageType);
-	}
-
-	public int getColor() {
-		return color;
 	}
 
 	public float getColorB() {
@@ -53,25 +36,6 @@ public class GOTDragonBreed {
 		return (color >> 16 & 0xFF) / 255.0f;
 	}
 
-	public EnumCreatureAttribute getCreatureAttribute() {
-		return EnumCreatureAttribute.UNDEFINED;
-	}
-
-	public String getDeathSound(GOTEntityDragon dragon) {
-		return "got.mob.enderdragon.death";
-	}
-
-	public String getHurtSound(GOTEntityDragon dragon) {
-		return "mob.enderdragon.hit";
-	}
-
-	public String getLivingSound(GOTEntityDragon dragon) {
-		if (dragon.getRNG().nextInt(3) == 0) {
-			return "mob.enderdragon.growl";
-		}
-		return "got.mob.enderdragon.breathe";
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -80,36 +44,8 @@ public class GOTDragonBreed {
 		return skin;
 	}
 
-	public boolean isHabitatBiome(BiomeGenBase biome) {
-		return biomes.contains(biome);
-	}
-
-	public boolean isHabitatBlock(Block block) {
-		return breedBlocks.contains(block);
-	}
-
-	public boolean isHabitatEnvironment(GOTEntityDragon dragon) {
-		return false;
-	}
-
 	public boolean isImmuneToDamage(DamageSource dmg) {
-		if (immunities.isEmpty()) {
-			return false;
-		}
-
-		return immunities.contains(dmg.damageType);
-	}
-
-	public void onDeath(GOTEntityDragon dragon) {
-	}
-
-	public void onDisable(GOTEntityDragon dragon) {
-	}
-
-	public void onEnable(GOTEntityDragon dragon) {
-	}
-
-	public void onUpdate(GOTEntityDragon dragon) {
+		return !immunities.isEmpty() && immunities.contains(dmg.damageType);
 	}
 
 	@Override

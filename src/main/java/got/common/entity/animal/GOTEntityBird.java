@@ -44,14 +44,15 @@ import java.util.List;
 import java.util.UUID;
 
 public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, AnimalJarUpdater, GOTBiome.ImmuneToFrost {
-	public ChunkCoordinates currentFlightTarget;
-	public int flightTargetTime;
-	public int flapTime;
-	public GOTEntityInventory birdInv = new GOTEntityInventory("BirdItems", this, 9);
-	public EntityItem stealTargetItem;
-	public EntityPlayer stealTargetPlayer;
-	public int stolenTime;
-	public boolean stealingCrops;
+	private final GOTEntityInventory birdInv = new GOTEntityInventory("BirdItems", this, 9);
+
+	private ChunkCoordinates currentFlightTarget;
+	private EntityItem stealTargetItem;
+	private EntityPlayer stealTargetPlayer;
+	private int flapTime;
+	private int flightTargetTime;
+	private int stolenTime;
+	private boolean stealingCrops;
 
 	public GOTEntityBird(World world) {
 		super(world);
@@ -87,7 +88,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return false;
 	}
 
-	public boolean canBirdSit() {
+	private boolean canBirdSit() {
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(posY);
 		int k = MathHelper.floor_double(posZ);
@@ -96,11 +97,11 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return block.getBlocksMovement(worldObj, i, j, k) && below.isSideSolid(worldObj, i, j - 1, k, ForgeDirection.UP);
 	}
 
-	public boolean canBirdSpawnHere() {
+	protected boolean canBirdSpawnHere() {
 		return GOTAmbientSpawnChecks.canSpawn(this, 8, 12, 40, 4, Material.leaves);
 	}
 
-	public void cancelFlight() {
+	private void cancelFlight() {
 		currentFlightTarget = null;
 		flightTargetTime = 0;
 		stealTargetItem = null;
@@ -113,7 +114,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return super.canDespawn();
 	}
 
-	public boolean canStealCrops(int i, int j, int k) {
+	private boolean canStealCrops(int i, int j, int k) {
 		Block block = worldObj.getBlock(i, j, k);
 		if (block instanceof BlockCrops) {
 			return true;
@@ -125,15 +126,15 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return false;
 	}
 
-	public boolean canStealItem(EntityItem entity) {
+	private boolean canStealItem(EntityItem entity) {
 		return entity.isEntityAlive() && isStealable(entity.getEntityItem());
 	}
 
-	public boolean canStealItems() {
-		return getBirdType().canSteal;
+	protected boolean canStealItems() {
+		return getBirdType().isCanSteal();
 	}
 
-	public boolean canStealPlayer(EntityPlayer entityplayer) {
+	private boolean canStealPlayer(EntityPlayer entityplayer) {
 		if (entityplayer.capabilities.isCreativeMode || !entityplayer.isEntityAlive()) {
 			return false;
 		}
@@ -171,7 +172,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		}
 	}
 
-	public void eatCropBlock(int i, int j, int k) {
+	private void eatCropBlock(int i, int j, int k) {
 		Block block = worldObj.getBlock(i, j, k);
 		if (block instanceof GOTBlockBerryBush) {
 			int meta = worldObj.getBlockMetadata(i, j, k);
@@ -194,10 +195,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	public String getBirdTextureDir() {
-		return getBirdType().textureDir;
+		return getBirdType().getTextureDir();
 	}
 
-	public BirdType getBirdType() {
+	private BirdType getBirdType() {
 		byte i = dataWatcher.getWatchableObjectByte(16);
 		if (i < 0 || i >= BirdType.values().length) {
 			i = 0;
@@ -205,20 +206,17 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return BirdType.values()[i];
 	}
 
-	public void setBirdType(BirdType type) {
+	protected void setBirdType(BirdType type) {
 		setBirdType(type.ordinal());
 	}
 
-	public void setBirdType(int i) {
+	private void setBirdType(int i) {
 		dataWatcher.updateObject(16, (byte) i);
 	}
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			return canBirdSpawnHere();
-		}
-		return false;
+		return super.getCanSpawnHere() && canBirdSpawnHere();
 	}
 
 	@Override
@@ -230,7 +228,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return "got:bird.hurt";
 	}
 
-	public double getDistanceSqToFlightTarget() {
+	private double getDistanceSqToFlightTarget() {
 		double d = currentFlightTarget.posX + 0.5;
 		double d1 = currentFlightTarget.posY + 0.5;
 		double d2 = currentFlightTarget.posZ + 0.5;
@@ -246,7 +244,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return "got:bird.hurt";
 	}
 
-	public ChunkCoordinates getItemFlightTarget(EntityItem entity) {
+	private ChunkCoordinates getItemFlightTarget(EntityItem entity) {
 		int i = MathHelper.floor_double(entity.posX);
 		int j = MathHelper.floor_double(entity.boundingBox.minY);
 		int k = MathHelper.floor_double(entity.posZ);
@@ -267,7 +265,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
-	public ChunkCoordinates getPlayerFlightTarget(EntityPlayer entityplayer) {
+	private ChunkCoordinates getPlayerFlightTarget(EntityPlayer entityplayer) {
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int j = MathHelper.floor_double(entityplayer.boundingBox.minY + 1.0);
 		int k = MathHelper.floor_double(entityplayer.posZ);
@@ -279,7 +277,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return 1.0f;
 	}
 
-	public List<Integer> getStealablePlayerSlots(EntityPlayer entityplayer) {
+	private List<Integer> getStealablePlayerSlots(EntityPlayer entityplayer) {
 		List<Integer> slots = new ArrayList<>();
 		for (int i = 0; i <= 8; ++i) {
 			ItemStack itemstack;
@@ -295,7 +293,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return getEquipmentInSlot(4);
 	}
 
-	public void setStolenItem(ItemStack itemstack) {
+	private void setStolenItem(ItemStack itemstack) {
 		setCurrentItemOrArmor(4, itemstack);
 	}
 
@@ -318,11 +316,11 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
-	public void setBirdStill(boolean flag) {
+	private void setBirdStill(boolean flag) {
 		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 
-	public boolean isStealable(ItemStack itemstack) {
+	protected boolean isStealable(ItemStack itemstack) {
 		BirdType type = getBirdType();
 		Item item = itemstack.getItem();
 		if (type == BirdType.COMMON) {
@@ -331,13 +329,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		if (type == BirdType.CROW) {
 			return item instanceof ItemFood || GOT.isOreNameEqual(itemstack, "bone");
 		}
-		if (type == BirdType.MAGPIE) {
-			return GOTValuableItems.canMagpieSteal(itemstack);
-		}
-		return false;
+		return type == BirdType.MAGPIE && GOTValuableItems.canMagpieSteal(itemstack);
 	}
 
-	public boolean isValidFlightTarget(ChunkCoordinates coords) {
+	private boolean isValidFlightTarget(ChunkCoordinates coords) {
 		int i = coords.posX;
 		int j = coords.posY;
 		int k = coords.posZ;
@@ -348,7 +343,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return false;
 	}
 
-	public void newFlight() {
+	private void newFlight() {
 		flightTargetTime = 0;
 	}
 
@@ -363,7 +358,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
@@ -380,7 +375,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		} else {
 			setBirdType(BirdType.COMMON);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override
@@ -409,10 +404,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	@Override
 	public void playLivingSound() {
-		boolean sound = true;
-		if (!worldObj.isDaytime()) {
-			sound = rand.nextInt(20) == 0;
-		}
+		boolean sound = worldObj.isDaytime() || rand.nextInt(20) == 0;
 		if (sound) {
 			super.playLivingSound();
 		}
@@ -487,9 +479,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 				}
 			}
 			if (stealTargetItem != null || stealTargetPlayer != null) {
-				if (birdInv.isFull() || currentFlightTarget == null || !isValidFlightTarget(currentFlightTarget)) {
-					cancelFlight();
-				} else if (stealTargetItem != null && !canStealItem(stealTargetItem) || stealTargetPlayer != null && !canStealPlayer(stealTargetPlayer)) {
+				if (birdInv.isFull() || currentFlightTarget == null || !isValidFlightTarget(currentFlightTarget) || stealTargetItem != null && !canStealItem(stealTargetItem) || stealTargetPlayer != null && !canStealPlayer(stealTargetPlayer)) {
 					cancelFlight();
 				} else {
 					if (stealTargetItem != null) {
@@ -631,16 +621,27 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		stolenTime = nbt.getShort("StealTime");
 	}
 
+	public int getFlapTime() {
+		return flapTime;
+	}
+
 	public enum BirdType {
 		COMMON("common", true), CROW("crow", true), MAGPIE("magpie", true), SOTHORYOS("sothoryos", true);
 
-		public String textureDir;
-		public boolean canSteal;
+		private final String textureDir;
+		private final boolean canSteal;
 
 		BirdType(String s, boolean flag) {
 			textureDir = s;
 			canSteal = flag;
 		}
-	}
 
+		private String getTextureDir() {
+			return textureDir;
+		}
+
+		private boolean isCanSteal() {
+			return canSteal;
+		}
+	}
 }

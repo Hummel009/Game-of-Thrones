@@ -6,11 +6,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.Random;
 
 public class GOTDragonHelper {
-	public GOTEntityDragon dragon;
-	public DataWatcher dataWatcher;
-	public Random rand;
+	protected GOTEntityDragon dragon;
+	protected DataWatcher dataWatcher;
+	protected Random rand;
 
-	public GOTDragonHelper(GOTEntityDragon dragon) {
+	protected GOTDragonHelper(GOTEntityDragon dragon) {
 		this.dragon = dragon;
 		dataWatcher = dragon.getDataWatcher();
 		rand = dragon.getRNG();

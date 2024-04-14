@@ -72,8 +72,8 @@ public class GOTModelSwan extends ModelBase {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		float tick = GOTTickHandlerClient.getRenderTick();
 		GOTEntitySwan swan = (GOTEntitySwan) entity;
-		float f6 = swan.prevFlapPhase + (swan.flapPhase - swan.prevFlapPhase) * tick;
-		float f7 = swan.prevFlapPower + (swan.flapPower - swan.prevFlapPower) * tick;
+		float f6 = swan.getPrevFlapPhase() + (swan.getFlapPhase() - swan.getPrevFlapPhase()) * tick;
+		float f7 = swan.getPrevFlapPower() + (swan.getFlapPower() - swan.getPrevFlapPower()) * tick;
 		float flapping = (MathHelper.sin(f6) + 1.0f) * f7;
 		neck.rotateAngleX = -0.20943951023931956f;
 		neck.rotateAngleX += f4 / 57.295776f * 0.4f;

@@ -18,17 +18,14 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityFlamingo extends EntityAnimal {
-	public static int NECK_TIME = 20;
-	public static int FISHING_TIME = 160;
-	public static int FISHING_TIME_TOTAL = 200;
-	public boolean field_753_a;
-	public float field_752_b;
-	public float destPos;
-	public float field_757_d;
-	public float field_756_e;
-	public float field_755_h = 5.0f;
+	private float destPos;
+	private float coef1;
+	private float coef2;
+	private float coef3;
 
-	public GOTEntityFlamingo(World world) {
+	private float coef4 = 5.0f;
+
+	private GOTEntityFlamingo(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(false);
@@ -94,7 +91,7 @@ public class GOTEntityFlamingo extends EntityAnimal {
 		return Items.feather;
 	}
 
-	public int getFishingTick() {
+	private int getFishingTick() {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
@@ -134,8 +131,8 @@ public class GOTEntityFlamingo extends EntityAnimal {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		field_756_e = field_752_b;
-		field_757_d = destPos;
+		coef1 = coef2;
+		coef3 = destPos;
 		destPos = (float) (destPos + (onGround || inWater ? -1 : 4) * 0.3);
 		if (destPos < 0.0f) {
 			destPos = 0.0f;
@@ -143,14 +140,14 @@ public class GOTEntityFlamingo extends EntityAnimal {
 		if (destPos > 1.0f) {
 			destPos = 1.0f;
 		}
-		if (!onGround && !inWater && field_755_h < 1.0f) {
-			field_755_h = 1.0f;
+		if (!onGround && !inWater && coef4 < 1.0f) {
+			coef4 = 1.0f;
 		}
-		field_755_h = (float) (field_755_h * 0.9);
+		coef4 = (float) (coef4 * 0.9);
 		if (!onGround && !inWater && motionY < 0.0) {
 			motionY *= 0.6;
 		}
-		field_752_b += field_755_h * 2.0f;
+		coef2 += coef4 * 2.0f;
 		if (!worldObj.isRemote && !isChild() && !isInLove() && getFishingTickCur() == 0 && rand.nextInt(600) == 0 && worldObj.getBlock(MathHelper.floor_double(posX), MathHelper.floor_double(boundingBox.minY), MathHelper.floor_double(posZ)) == Blocks.water) {
 			setFishingTick(200, 200);
 		}
@@ -172,8 +169,24 @@ public class GOTEntityFlamingo extends EntityAnimal {
 		}
 	}
 
-	public void setFishingTick(int pre, int cur) {
+	private void setFishingTick(int pre, int cur) {
 		int i = pre << 16 | cur & 0xFFFF;
 		dataWatcher.updateObject(16, i);
+	}
+
+	public float getCoef1() {
+		return coef1;
+	}
+
+	public float getCoef2() {
+		return coef2;
+	}
+
+	public float getCoef3() {
+		return coef3;
+	}
+
+	public float getDestPos() {
+		return destPos;
 	}
 }

@@ -21,13 +21,14 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneToFrost {
-	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);
-	public EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
-	public EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
-	public int hostileTick;
-	public boolean prevIsChild = true;
+	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);
+	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
+	private final EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
 
-	public GOTEntitySnowBear(World world) {
+	private int hostileTick;
+	private boolean prevIsChild = true;
+
+	private GOTEntitySnowBear(World world) {
 		super(world);
 		setSize(2.1f, 2.35f);
 		getNavigator().setAvoidsWater(true);
@@ -77,7 +78,7 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 		return flag;
 	}
 
-	public void becomeAngryAt(EntityLivingBase entity) {
+	private void becomeAngryAt(EntityLivingBase entity) {
 		setAttackTarget(entity);
 		hostileTick = 200;
 	}
@@ -131,10 +132,7 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (isHostile()) {
-			return false;
-		}
-		return super.interact(entityplayer);
+		return !isHostile() && super.interact(entityplayer);
 	}
 
 	@Override
@@ -147,37 +145,41 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 		return itemstack.getItem() == Items.fish;
 	}
 
-	public boolean isHostile() {
+	private boolean isHostile() {
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
-	public void setHostile(boolean flag) {
+	private void setHostile(boolean flag) {
 		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override
 	public void onLivingUpdate() {
-		boolean isChild;
-		EntityLivingBase entity;
-		if (!worldObj.isRemote && (isChild = isChild()) != prevIsChild) {
-			if (isChild) {
-				tasks.removeTask(attackAI);
-				tasks.addTask(2, panicAI);
-				targetTasks.removeTask(targetNearAI);
-			} else {
-				tasks.removeTask(panicAI);
-				if (hostileTick > 0) {
-					tasks.addTask(1, attackAI);
-					targetTasks.addTask(1, targetNearAI);
-				} else {
+		if (!worldObj.isRemote) {
+			boolean isChild = isChild();
+			if (isChild != prevIsChild) {
+				if (isChild) {
 					tasks.removeTask(attackAI);
+					tasks.addTask(2, panicAI);
 					targetTasks.removeTask(targetNearAI);
+				} else {
+					tasks.removeTask(panicAI);
+					if (hostileTick > 0) {
+						tasks.addTask(1, attackAI);
+						targetTasks.addTask(1, targetNearAI);
+					} else {
+						tasks.removeTask(attackAI);
+						targetTasks.removeTask(targetNearAI);
+					}
 				}
 			}
 		}
 		super.onLivingUpdate();
-		if (!worldObj.isRemote && getAttackTarget() != null && (!(entity = getAttackTarget()).isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode)) {
-			setAttackTarget(null);
+		if (!worldObj.isRemote && getAttackTarget() != null) {
+			EntityLivingBase entity = getAttackTarget();
+			if (!entity.isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
+				setAttackTarget(null);
+			}
 		}
 		if (!worldObj.isRemote) {
 			if (hostileTick > 0 && getAttackTarget() == null) {
@@ -188,6 +190,7 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 				resetInLove();
 			}
 		}
+		prevIsChild = isChild();
 	}
 
 	@Override

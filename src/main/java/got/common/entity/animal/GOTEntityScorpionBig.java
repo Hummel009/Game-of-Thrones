@@ -23,8 +23,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBiome.ImmuneToHeat {
-	public float scorpionWidth = -1.0f;
-	public float scorpionHeight;
+	private float scorpionWidth = -1.0f;
+	private float scorpionHeight;
 
 	protected GOTEntityScorpionBig(World world) {
 		super(world);
@@ -127,15 +127,15 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		return "mob.spider.say";
 	}
 
-	public int getRandomScorpionScale() {
+	private int getRandomScorpionScale() {
 		return rand.nextInt(3);
 	}
 
-	public int getScorpionScale() {
+	private int getScorpionScale() {
 		return dataWatcher.getWatchableObjectByte(18);
 	}
 
-	public void setScorpionScale(int i) {
+	private void setScorpionScale(int i) {
 		dataWatcher.updateObject(18, (byte) i);
 	}
 
@@ -147,7 +147,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		return dataWatcher.getWatchableObjectInt(19);
 	}
 
-	public void setStrikeTime(int i) {
+	private void setStrikeTime(int i) {
 		dataWatcher.updateObject(19, i);
 	}
 
@@ -168,10 +168,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 
 	@Override
 	public boolean isPotionApplicable(PotionEffect effect) {
-		if (effect.getPotionID() == Potion.poison.id) {
-			return false;
-		}
-		return super.isPotionApplicable(effect);
+		return effect.getPotionID() != Potion.poison.id && super.isPotionApplicable(effect);
 	}
 
 	@Override
@@ -191,7 +188,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		getEntityAttribute(npcAttackDamage).setBaseValue(2.0 + getScorpionScale());
 	}
 
-	public void rescaleScorpion(float f) {
+	private void rescaleScorpion(float f) {
 		super.setSize(scorpionWidth * f, scorpionHeight * f);
 	}
 
@@ -210,5 +207,4 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		super.writeEntityToNBT(nbt);
 		nbt.setByte("ScorpionScale", (byte) getScorpionScale());
 	}
-
 }

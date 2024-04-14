@@ -8,14 +8,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.Locale;
 
 public class GOTDragonReproductionHelper extends GOTDragonHelper {
-	public static String NBT_BREEDER = "HatchedBy";
-	public static String NBT_REPRODUCED = "HasReproduced";
-	public static String NBT_REPRO_COUNT = "ReproductionCount";
+	private static final String NBT_BREEDER = "HatchedBy";
+	private static final String NBT_REPRO_COUNT = "ReproductionCount";
 
-	public static byte REPRO_LIMIT = 2;
-
-	public int dataIndexBreeder;
-	public int dataIndexReproduced;
+	private final int dataIndexBreeder;
+	private final int dataIndexReproduced;
 
 	public GOTDragonReproductionHelper(GOTEntityDragon dragon, int dataIndexBreeder, int dataIndexReproCount) {
 		super(dragon);
@@ -27,7 +24,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		dataWatcher.addObject(dataIndexReproCount, 0);
 	}
 
-	public void addReproduced() {
+	private void addReproduced() {
 		setReproCount(getReproCount() + 1);
 	}
 
@@ -39,13 +36,11 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 
 		GOTEntityDragon dragonMate = (GOTEntityDragon) mate;
 
-		if (!dragonMate.isTamed() || !dragonMate.getReproductionHelper().canReproduce()) {
-			return false;
-		}
-		return dragon.isInLove() && dragonMate.isInLove();
+		return dragonMate.isTamed() && dragonMate.getReproductionHelper().canReproduce() && dragon.isInLove() && dragonMate.isInLove();
 	}
 
 	public boolean canReproduce() {
+		byte REPRO_LIMIT = 2;
 		return getReproCount() < REPRO_LIMIT;
 	}
 
@@ -94,7 +89,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		return baby;
 	}
 
-	public String fixChildName(String nameOld) {
+	private String fixChildName(String nameOld) {
 		if (nameOld == null || nameOld.isEmpty()) {
 			return nameOld;
 		}
@@ -112,7 +107,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		return nameNew;
 	}
 
-	public String getBreederName() {
+	private String getBreederName() {
 		return dataWatcher.getWatchableObjectString(dataIndexBreeder);
 	}
 
@@ -121,11 +116,11 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		dataWatcher.updateObject(dataIndexBreeder, breederName);
 	}
 
-	public int getReproCount() {
+	private int getReproCount() {
 		return dataWatcher.getWatchableObjectInt(dataIndexReproduced);
 	}
 
-	public void setReproCount(int reproCount) {
+	private void setReproCount(int reproCount) {
 		GOTLog.getLogger().trace("setReproCount({})", reproCount);
 		dataWatcher.updateObject(dataIndexReproduced, reproCount);
 	}
@@ -135,6 +130,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		setBreederName(nbt.getString(NBT_BREEDER));
 
 		int reproCount = 0;
+		String NBT_REPRODUCED = "HasReproduced";
 		if (nbt.hasKey(NBT_REPRO_COUNT)) {
 			reproCount = nbt.getInteger(NBT_REPRO_COUNT);
 		} else if (nbt.getBoolean(NBT_REPRODUCED)) {

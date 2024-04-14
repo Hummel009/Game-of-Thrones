@@ -4,7 +4,7 @@ import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.util.GOTCrashHandler;
-import got.common.world.biome.GOTBiome.ImmuneToFrost;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,11 +20,11 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity, ImmuneToFrost {
-	public static int swimTargetTimeMax = 200;
-	public ChunkCoordinates currentSwimTarget;
-	public int swimTargetTime;
+public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
+	private ChunkCoordinates currentSwimTarget;
+	private int swimTargetTime;
 
+	@SuppressWarnings("unused")
 	public GOTEntityFish(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);
@@ -64,7 +64,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		dataWatcher.addObject(16, (byte) 0);
 	}
 
-	public double getDistanceSqToSwimTarget() {
+	private double getDistanceSqToSwimTarget() {
 		double d = currentSwimTarget.posX + 0.5;
 		double d1 = currentSwimTarget.posY + 0.5;
 		double d2 = currentSwimTarget.posZ + 0.5;
@@ -72,10 +72,10 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	}
 
 	public String getFishTextureDir() {
-		return getFishType().textureDir;
+		return getFishType().getTextureDir();
 	}
 
-	public FishType getFishType() {
+	private FishType getFishType() {
 		byte i = dataWatcher.getWatchableObjectByte(16);
 		if (i < 0 || i >= FishType.values().length) {
 			i = 0;
@@ -83,11 +83,11 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		return FishType.values()[i];
 	}
 
-	public void setFishType(FishType type) {
+	private void setFishType(FishType type) {
 		setFishType(type.ordinal());
 	}
 
-	public void setFishType(int i) {
+	private void setFishType(int i) {
 		dataWatcher.updateObject(16, (byte) i);
 	}
 
@@ -102,7 +102,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		return worldObj.isMaterialInBB(boundingBox.expand(d, d, d), Material.water);
 	}
 
-	public boolean isValidSwimTarget(int i, int j, int k) {
+	private boolean isValidSwimTarget(int i, int j, int k) {
 		return worldObj.getBlock(i, j, k).getMaterial() == Material.water;
 	}
 
@@ -119,7 +119,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
 		GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
@@ -130,7 +130,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		} else {
 			setFishType(FishType.COMMON);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override
@@ -194,11 +194,14 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	public enum FishType {
 		COMMON("common"), SALMON("salmon"), CLOWNFISH("clownfish");
 
-		public String textureDir;
+		private final String textureDir;
 
 		FishType(String s) {
 			textureDir = s;
 		}
-	}
 
+		private String getTextureDir() {
+			return textureDir;
+		}
+	}
 }

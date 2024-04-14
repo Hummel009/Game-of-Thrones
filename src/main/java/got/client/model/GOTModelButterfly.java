@@ -28,7 +28,7 @@ public class GOTModelButterfly extends ModelBase {
 		if (butterfly.isButterflyStill()) {
 			body.setRotationPoint(0.0f, 24.0f, 0.0f);
 			body.rotateAngleX = 1.5707964f;
-			rightWing.rotateAngleY = butterfly.flapTime > 0 ? MathHelper.cos(f2 * 1.3f) * 3.1415927f * 0.25f : 0.31415927f;
+			rightWing.rotateAngleY = butterfly.getFlapTime() > 0 ? MathHelper.cos(f2 * 1.3f) * 3.1415927f * 0.25f : 0.31415927f;
 		} else {
 			body.setRotationPoint(0.0f, 8.0f, 0.0f);
 			body.rotateAngleX = 0.7853982f + MathHelper.cos(f2 * 0.1f) * 0.15f;

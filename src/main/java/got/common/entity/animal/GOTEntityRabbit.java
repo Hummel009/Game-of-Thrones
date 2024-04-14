@@ -30,14 +30,14 @@ import java.util.List;
 import java.util.UUID;
 
 public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
-	public static String fleeSound = "got:rabbit.flee";
-
+	@SuppressWarnings("unused")
 	public GOTEntityRabbit(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIFlee(this, 2.0));
+		String fleeSound = "got:rabbit.flee";
 		tasks.addTask(2, new GOTEntityAIAvoidWithChance(this, EntityPlayer.class, 4.0f, 1.3, 1.5, 0.05f, fleeSound));
 		tasks.addTask(2, new GOTEntityAIAvoidWithChance(this, GOTEntityNPC.class, 4.0f, 1.3, 1.5, 0.05f, fleeSound));
 		tasks.addTask(3, new GOTEntityAIRabbitEatCrops(this, 1.2));

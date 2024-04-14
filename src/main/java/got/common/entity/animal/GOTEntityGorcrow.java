@@ -5,7 +5,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 
 public class GOTEntityGorcrow extends GOTEntityBird {
-	public static float GORCROW_SCALE = 1.4f;
+	public static final float GORCROW_SCALE = 1.4f;
 
 	public GOTEntityGorcrow(World world) {
 		super(world);
@@ -30,8 +30,8 @@ public class GOTEntityGorcrow extends GOTEntityBird {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setBirdType(GOTEntityBird.BirdType.CROW);
-		return data;
+		return data1;
 	}
 }

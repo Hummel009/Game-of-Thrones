@@ -24,13 +24,14 @@ import java.util.List;
 import java.util.Locale;
 
 public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditions, GOTBiome.ImmuneToFrost {
-	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.7, false);
-	public EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
-	public EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
-	public int hostileTick;
-	public boolean prevIsChild = true;
+	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.7, false);
+	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
+	private final EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
 
-	public GOTEntityBear(World world) {
+	private int hostileTick;
+	private boolean prevIsChild = true;
+
+	private GOTEntityBear(World world) {
 		super(world);
 		setSize(1.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
@@ -80,13 +81,13 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		return flag;
 	}
 
-	public void becomeAngryAt(EntityLivingBase entity) {
+	private void becomeAngryAt(EntityLivingBase entity) {
 		setAttackTarget(entity);
 		hostileTick = 200;
 	}
 
 	@Override
-	public boolean canWorldGenSpawnAt(int i, int j, int k, GOTBiome biome, GOTBiomeVariant variant) {
+	public boolean canWorldGenSpawnAt(GOTBiome biome, GOTBiomeVariant variant) {
 		int trees = biome.getDecorator().getVariantTreesPerChunk(variant);
 		return trees >= 1;
 	}
@@ -130,7 +131,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		return BearType.forID(i);
 	}
 
-	public void setBearType(BearType t) {
+	private void setBearType(BearType t) {
 		dataWatcher.updateObject(18, (byte) t.bearID);
 	}
 
@@ -139,11 +140,10 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		WorldChunkManager worldChunkMgr = worldObj.getWorldChunkManager();
 		if (worldChunkMgr instanceof GOTWorldChunkManager) {
 			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
 			GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 			GOTBiomeVariant variant = ((GOTWorldChunkManager) worldChunkMgr).getBiomeVariantAt(i, k);
-			return super.getCanSpawnHere() && canWorldGenSpawnAt(i, j, k, biome, variant);
+			return super.getCanSpawnHere() && canWorldGenSpawnAt(biome, variant);
 		}
 		return super.getCanSpawnHere();
 	}
@@ -180,10 +180,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (isHostile()) {
-			return false;
-		}
-		return super.interact(entityplayer);
+		return !isHostile() && super.interact(entityplayer);
 	}
 
 	@Override
@@ -196,66 +193,72 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		return itemstack.getItem() == Items.fish;
 	}
 
-	public boolean isHostile() {
+	private boolean isHostile() {
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
-	public void setHostile(boolean flag) {
+	private void setHostile(boolean flag) {
 		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override
 	public void onLivingUpdate() {
-		boolean isChild;
-		EntityLivingBase entity;
-		if (!worldObj.isRemote && (isChild = isChild()) != prevIsChild) {
-			if (isChild) {
-				tasks.removeTask(attackAI);
-				tasks.addTask(2, panicAI);
-				targetTasks.removeTask(targetNearAI);
-			} else {
-				tasks.removeTask(panicAI);
-				if (hostileTick > 0) {
-					tasks.addTask(1, attackAI);
-					targetTasks.addTask(1, targetNearAI);
-				} else {
+		if (!worldObj.isRemote) {
+			boolean isChild = isChild();
+			if (isChild != prevIsChild) {
+				if (isChild) {
 					tasks.removeTask(attackAI);
+					tasks.addTask(2, panicAI);
 					targetTasks.removeTask(targetNearAI);
+				} else {
+					tasks.removeTask(panicAI);
+					if (hostileTick > 0) {
+						tasks.addTask(1, attackAI);
+						targetTasks.addTask(1, targetNearAI);
+					} else {
+						tasks.removeTask(attackAI);
+						targetTasks.removeTask(targetNearAI);
+					}
 				}
 			}
 		}
 		super.onLivingUpdate();
-		if (!worldObj.isRemote && getAttackTarget() != null && (!(entity = getAttackTarget()).isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode)) {
-			setAttackTarget(null);
+		if (!worldObj.isRemote && getAttackTarget() != null) {
+			EntityLivingBase entity = getAttackTarget();
+			if (!entity.isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
+				setAttackTarget(null);
+			}
 		}
 		if (!worldObj.isRemote) {
 			if (hostileTick > 0 && getAttackTarget() == null) {
-				--hostileTick;
+				hostileTick--;
 			}
 			setHostile(hostileTick > 0);
 			if (isHostile()) {
 				resetInLove();
 			}
 		}
+		prevIsChild = isChild();
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		if (data == null) {
-			data = new BearGroupSpawnData();
-			((BearGroupSpawnData) data).numSpawned = 1;
-		} else if (data instanceof BearGroupSpawnData) {
-			BearGroupSpawnData bgsd = (BearGroupSpawnData) data;
-			if (bgsd.numSpawned >= 1 && rand.nextBoolean()) {
+		IEntityLivingData data1 = data;
+		data1 = super.onSpawnWithEgg(data1);
+		if (data1 == null) {
+			data1 = new BearGroupSpawnData();
+			((BearGroupSpawnData) data1).setNumSpawned(1);
+		} else if (data1 instanceof BearGroupSpawnData) {
+			BearGroupSpawnData bgsd = (BearGroupSpawnData) data1;
+			if (bgsd.getNumSpawned() >= 1 && rand.nextBoolean()) {
 				setGrowingAge(-24000);
 			}
-			++bgsd.numSpawned;
+			bgsd.setNumSpawned(bgsd.getNumSpawned() + 1);
 		}
 		if (rand.nextInt(1000) == 0) {
 			setCustomNameTag("Vladimir Putin");
 		}
-		return data;
+		return data1;
 	}
 
 	@Override
@@ -277,7 +280,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 	public enum BearType {
 		LIGHT(0), DARK(1), BLACK(2);
 
-		public int bearID;
+		public final int bearID;
 
 		BearType(int i) {
 			bearID = i;
@@ -306,9 +309,15 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		}
 	}
 
-	public static class BearGroupSpawnData implements IEntityLivingData {
-		public int numSpawned;
+	private static class BearGroupSpawnData implements IEntityLivingData {
+		private int numSpawned;
 
+		private int getNumSpawned() {
+			return numSpawned;
+		}
+
+		private void setNumSpawned(int numSpawned) {
+			this.numSpawned = numSpawned;
+		}
 	}
-
 }

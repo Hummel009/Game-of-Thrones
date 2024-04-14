@@ -46,5 +46,5 @@ public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome
 		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
-	public abstract boolean isMale();
+	protected abstract boolean isMale();
 }

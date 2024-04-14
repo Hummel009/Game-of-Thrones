@@ -16,20 +16,18 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public abstract class GOTEntityFlyingTameable extends EntityTameable implements GOTBiome.ImmuneToFrost {
-	public static int IN_AIR_THRESH = 10;
-	public static IAttribute MOVE_SPEED_AIR = new RangedAttribute("generic.movementSpeedAir", 1.5, 0.0, Double.MAX_VALUE).setDescription("Movement Speed Air").setShouldWatch(true);
-	public static int INDEX_FLYING = 18;
-	public static String[] ENTITYAITASKS_TICKRATE = {"tickRate", "field_75779_e"};
-	public static int INDEX_CAN_FLY = 19;
-	public static String NBT_FLYING = "Flying";
-	public static String NBT_CAN_FLY = "CanFly";
-	public EntityAITasks airTasks;
-	public GOTDragonFlightWaypoint waypoint;
-	public double airSpeedHorizonal = 1.5;
-	public double airSpeedVertical;
-	public float yawAdd;
-	public int yawSpeed = 30;
-	public int inAirTicks;
+	protected static IAttribute MOVE_SPEED_AIR = new RangedAttribute("generic.movementSpeedAir", 1.5, 0.0, Double.MAX_VALUE).setDescription("Movement Speed Air").setShouldWatch(true);
+	private static final int INDEX_FLYING = 18;
+	private static final String[] ENTITYAITASKS_TICKRATE = {"tickRate", "field_75779_e"};
+	private static final int INDEX_CAN_FLY = 19;
+	private static final String NBT_FLYING = "Flying";
+	private static final String NBT_CAN_FLY = "CanFly";
+	protected EntityAITasks airTasks;
+	private final GOTDragonFlightWaypoint waypoint;
+	private double airSpeedHorizonal = 1.5;
+	private double airSpeedVertical;
+	private float yawAdd;
+	private int inAirTicks;
 
 	protected GOTEntityFlyingTameable(World world) {
 		super(world);
@@ -67,17 +65,17 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		return waypoint;
 	}
 
-	public boolean isAirAIEnabled() {
+	private boolean isAirAIEnabled() {
 		return isFlying();
 	}
 
-	public boolean isCanFly() {
+	private boolean isCanFly() {
 		return (dataWatcher.getWatchableObjectByte(INDEX_CAN_FLY) & 1) != 0;
 	}
 
 	public void setCanFly(boolean canFly) {
 		GOTLog.getLogger().trace("setCanFly({})", canFly);
-		dataWatcher.updateObject(INDEX_CAN_FLY, canFly ? (byte) 1 : (byte) 0);
+		dataWatcher.updateObject(INDEX_CAN_FLY, (byte) (canFly ? 1 : 0));
 	}
 
 	public boolean isClient() {
@@ -88,11 +86,11 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		return (dataWatcher.getWatchableObjectByte(INDEX_FLYING) & 1) != 0;
 	}
 
-	public void setFlying(boolean flying) {
-		dataWatcher.updateObject(INDEX_FLYING, flying ? (byte) 1 : (byte) 0);
+	private void setFlying(boolean flying) {
+		dataWatcher.updateObject(INDEX_FLYING, (byte) (flying ? 1 : 0));
 	}
 
-	public boolean isGroundAIEnabled() {
+	protected boolean isGroundAIEnabled() {
 		return !isFlying();
 	}
 
@@ -128,6 +126,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 				inAirTicks++;
 			}
 
+			int IN_AIR_THRESH = 10;
 			setFlying(inAirTicks > IN_AIR_THRESH);
 		}
 
@@ -142,7 +141,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		}
 	}
 
-	public void onUpdateFlyingClient() {
+	private void onUpdateFlyingClient() {
 		if (newPosRotationIncrements > 0) {
 			double px = posX + (newPosX - posX) / newPosRotationIncrements;
 			double py = posY + (newPosY - posY) / newPosRotationIncrements;
@@ -158,7 +157,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		}
 	}
 
-	public void onUpdateFlyingServer() {
+	private void onUpdateFlyingServer() {
 		float friction = 0;
 		if (!waypoint.isNear()) {
 			double deltaX = waypoint.posX - posX;
@@ -172,6 +171,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 			double motionHypot = Math.hypot(motionX, motionZ) + 1;
 			double newYaw = Math.toDegrees(Math.PI * 2 - Math.atan2(deltaX, deltaZ));
 			double yawDelta = GOTModelDragonAnimaton.normDeg(newYaw - rotationYaw);
+			int yawSpeed = 30;
 			yawDelta = GOTModelDragonAnimaton.clamp(yawDelta, -yawSpeed, yawSpeed);
 			yawAdd *= 0.8f;
 			yawAdd += (float) (yawDelta * (0.7 / motionHypot));
@@ -236,7 +236,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		this.airSpeedVertical = airSpeedVertical;
 	}
 
-	public void setTasksEnabled(EntityAITasks tasks, boolean flag) {
+	private void setTasksEnabled(EntityAITasks tasks, boolean flag) {
 		ReflectionHelper.setPrivateValue(EntityAITasks.class, tasks, flag ? 3 : Integer.MAX_VALUE, ENTITYAITASKS_TICKRATE);
 	}
 

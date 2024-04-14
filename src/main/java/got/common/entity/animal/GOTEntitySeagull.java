@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntitySeagull extends GOTEntityBird {
-	public static float SEAGULL_SCALE = 1.4f;
+	public static final float SEAGULL_SCALE = 1.4f;
 
-	public GOTEntitySeagull(World world) {
+	private GOTEntitySeagull(World world) {
 		super(world);
 		setSize(width * SEAGULL_SCALE, height * SEAGULL_SCALE);
 	}
@@ -55,16 +55,13 @@ public class GOTEntitySeagull extends GOTEntityBird {
 	@Override
 	public boolean isStealable(ItemStack itemstack) {
 		Item item = itemstack.getItem();
-		if (item == Items.fish || item == Items.cooked_fished) {
-			return true;
-		}
-		return super.isStealable(itemstack);
+		return item == Items.fish || item == Items.cooked_fished || super.isStealable(itemstack);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setBirdType(GOTEntityBird.BirdType.COMMON);
-		return data;
+		return data1;
 	}
 }

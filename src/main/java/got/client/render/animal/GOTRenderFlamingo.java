@@ -24,8 +24,8 @@ public class GOTRenderFlamingo extends RenderLiving {
 	@Override
 	public float handleRotationFloat(EntityLivingBase entity, float f) {
 		GOTEntityFlamingo flamingo = (GOTEntityFlamingo) entity;
-		float f1 = flamingo.field_756_e + (flamingo.field_752_b - flamingo.field_756_e) * f;
-		float f2 = flamingo.field_757_d + (flamingo.destPos - flamingo.field_757_d) * f;
+		float f1 = flamingo.getCoef1() + (flamingo.getCoef2() - flamingo.getCoef1()) * f;
+		float f2 = flamingo.getCoef3() + (flamingo.getDestPos() - flamingo.getCoef3()) * f;
 		return (MathHelper.sin(f1) + 1.0f) * f2;
 	}
 }

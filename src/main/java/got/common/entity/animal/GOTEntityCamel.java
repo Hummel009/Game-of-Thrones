@@ -86,10 +86,7 @@ public class GOTEntityCamel extends GOTEntityHorse implements GOTBiome.ImmuneToH
 
 	@Override
 	public boolean isMountArmorValid(ItemStack itemstack) {
-		if (itemstack != null && itemstack.getItem() == Item.getItemFromBlock(Blocks.carpet)) {
-			return true;
-		}
-		return super.isMountArmorValid(itemstack);
+		return itemstack != null && itemstack.getItem() == Item.getItemFromBlock(Blocks.carpet) || super.isMountArmorValid(itemstack);
 	}
 
 	@Override

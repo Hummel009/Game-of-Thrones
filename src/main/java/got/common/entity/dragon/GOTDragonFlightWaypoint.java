@@ -5,16 +5,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 
 public class GOTDragonFlightWaypoint {
-
-	public static String NBT_WAYPOINT_X = "Waypoint-X";
-	public static String NBT_WAYPOINT_Y = "Waypoint-Y";
-	public static String NBT_WAYPOINT_Z = "Waypoint-Z";
+	private static final String NBT_WAYPOINT_X = "Waypoint-X";
+	private static final String NBT_WAYPOINT_Y = "Waypoint-Y";
+	private static final String NBT_WAYPOINT_Z = "Waypoint-Z";
 
 	public int posX;
 	public int posY;
 	public int posZ;
 
-	public Entity entity;
+	private final Entity entity;
 
 	public GOTDragonFlightWaypoint(Entity entity) {
 		this.entity = entity;
@@ -26,15 +25,15 @@ public class GOTDragonFlightWaypoint {
 		posZ = (int) entity.posZ;
 	}
 
-	public double getDeltaX() {
+	private double getDeltaX() {
 		return posX - entity.posX;
 	}
 
-	public double getDeltaY() {
+	private double getDeltaY() {
 		return posY - entity.posY;
 	}
 
-	public double getDeltaZ() {
+	private double getDeltaZ() {
 		return posZ - entity.posZ;
 	}
 
@@ -42,7 +41,7 @@ public class GOTDragonFlightWaypoint {
 		return Math.sqrt(getDistanceSquare());
 	}
 
-	public double getDistanceSquare() {
+	private double getDistanceSquare() {
 		double deltaX = getDeltaX();
 		double deltaY = getDeltaY();
 		double deltaZ = getDeltaZ();

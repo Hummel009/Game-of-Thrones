@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneToFrost {
-	public GOTEntityMammoth(World world) {
+	private GOTEntityMammoth(World world) {
 		super(world);
 		setSize(2.0f, 5.0f);
 	}
@@ -106,10 +106,6 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 		return "got:mammoth.hurt";
 	}
 
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killMammoth;
-	}
-
 	@Override
 	public String getLivingSound() {
 		return "got:mammoth.grunt";
@@ -149,9 +145,7 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 		EntityPlayer entityplayer;
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			entityplayer = (EntityPlayer) damagesource.getEntity();
-			if (getKillAchievement() != null) {
-				GOTLevelData.getData(entityplayer).addAchievement(getKillAchievement());
-			}
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killMammoth);
 		}
 	}
 

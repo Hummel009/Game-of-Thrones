@@ -25,16 +25,15 @@ import java.util.List;
 import java.util.UUID;
 
 public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
-	public EntityAIBase attackAI;
-	public EntityAIBase panicAI;
-	public boolean prevIsChild = true;
-	public float bisonWidth;
-	public float bisonHeight;
+	private final EntityAIBase attackAI;
+	private final EntityAIBase panicAI;
 
-	public GOTEntityBison(World world) {
+	private boolean prevIsChild = true;
+
+	protected GOTEntityBison(World world) {
 		super(world);
-		bisonWidth = 1.5f;
-		bisonHeight = 1.7f;
+		float bisonWidth = 1.5f;
+		float bisonHeight = 1.7f;
 		setSize(bisonWidth, bisonHeight);
 		EntityAITasks.EntityAITaskEntry panic = GOTEntityUtils.removeAITask(this, EntityAIPanic.class);
 		tasks.addTask(panic.priority, panic.action);
@@ -77,7 +76,7 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 		return flag;
 	}
 
-	public EntityAIBase createBisonAttackAI() {
+	private EntityAIBase createBisonAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.7, true);
 	}
 
@@ -100,10 +99,10 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 			}
 			dropItem(Items.beef, 1);
 		}
-		dropHornItem(flag, i);
+		dropHornItem();
 	}
 
-	public void dropHornItem(boolean flag, int i) {
+	protected void dropHornItem() {
 		dropItem(GOTItems.horn, 1);
 	}
 
@@ -161,17 +160,14 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (isBisonEnraged()) {
-			return false;
-		}
-		return super.interact(entityplayer);
+		return !isBisonEnraged() && super.interact(entityplayer);
 	}
 
 	public boolean isBisonEnraged() {
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
-	public void setBisonEnraged(boolean flag) {
+	private void setBisonEnraged(boolean flag) {
 		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
