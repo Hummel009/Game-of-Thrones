@@ -21,6 +21,7 @@ public class GOTEntityAIBurningPanic extends EntityAIBase {
 
 	private boolean avoidsWater;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIBurningPanic(EntityCreature entity, double d) {
 		theEntity = entity;
 		theWorld = theEntity.worldObj;

@@ -7,6 +7,7 @@ import net.minecraft.util.Vec3;
 public class GOTEntityAIDragonRideGround extends GOTEntityAIDragonRide {
 	private final double speed;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIDragonRideGround(GOTEntityDragon dragon, double speed) {
 		super(dragon);
 		this.speed = speed;

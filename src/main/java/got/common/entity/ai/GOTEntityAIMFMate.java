@@ -19,6 +19,7 @@ public class GOTEntityAIMFMate extends EntityAIBase {
 	private GOTEntityAnimalMF targetMate;
 	private int breeding;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIMFMate(GOTEntityAnimalMF animal, double d) {
 		theAnimal = animal;
 		theWorld = animal.worldObj;

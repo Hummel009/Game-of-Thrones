@@ -18,6 +18,7 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 	private double speed;
 	private int pathCheckTimer;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIHorseMoveToRiderTarget(GOTNPCMount horse) {
 		theHorse = horse;
 		livingHorse = (EntityCreature) theHorse;

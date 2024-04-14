@@ -22,10 +22,12 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 	private int rangedAttackTime = -1;
 	private int repathDelay;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIRangedAttack(IRangedAttackMob entity, double speed, int time, float range) {
 		this(entity, speed, time, time, range);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIRangedAttack(IRangedAttackMob entity, double speed, int min, int max, float range) {
 		theOwnerRanged = entity;
 		theOwner = (EntityLiving) entity;

@@ -5,6 +5,7 @@ import net.minecraft.init.Items;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIDragonRideAir extends GOTEntityAIDragonRide {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIDragonRideAir(GOTEntityDragon dragon) {
 		super(dragon);
 	}

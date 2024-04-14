@@ -7,6 +7,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
 public class GOTEntityAIEat extends GOTEntityAIConsumeBase {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIEat(GOTEntityNPC entity, GOTFoods foods, int chance) {
 		super(entity, foods, chance);
 	}

@@ -54,6 +54,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	private int rePathDelay;
 	private boolean harvestingSolidBlock;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIFarm(GOTFarmhand npc, double d, float f) {
 		theEntity = (GOTEntityNPC) npc;
 		theEntityFarmer = npc;

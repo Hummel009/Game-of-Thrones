@@ -15,6 +15,7 @@ public class GOTEntityAIDragonDragonMate extends EntityAIBase {
 	private GOTEntityDragon dragonMate;
 	private int spawnBabyDelay;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIDragonDragonMate(GOTEntityDragon dragon, double speed) {
 		this.dragon = dragon;
 		this.speed = speed;

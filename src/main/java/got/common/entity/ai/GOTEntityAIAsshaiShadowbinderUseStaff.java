@@ -18,6 +18,7 @@ public class GOTEntityAIAsshaiShadowbinderUseStaff extends EntityAIBase {
 
 	private int attackTick;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIAsshaiShadowbinderUseStaff(GOTEntityAsshaiShadowbinder shadowbinder) {
 		wizard = shadowbinder;
 		theWorld = wizard.worldObj;

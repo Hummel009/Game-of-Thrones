@@ -14,6 +14,7 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 	private GOTEntityNPC theSpouse;
 	private int spawnBabyDelay;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAINPCMate(GOTEntityNPC npc, double d) {
 		theNPC = npc;
 		theWorld = npc.worldObj;

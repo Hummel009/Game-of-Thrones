@@ -16,6 +16,7 @@ public class GOTEntityAIFlee extends EntityAIBase {
 	private double attackerZ;
 	private int timer;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIFlee(EntityCreature entity, double d) {
 		theEntity = entity;
 		speed = d;

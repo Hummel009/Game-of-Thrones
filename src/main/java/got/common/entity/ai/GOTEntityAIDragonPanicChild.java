@@ -6,6 +6,7 @@ import net.minecraft.entity.ai.EntityAIPanic;
 public class GOTEntityAIDragonPanicChild extends EntityAIPanic {
 	private final GOTEntityDragon dragon;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIDragonPanicChild(GOTEntityDragon dragon, double speed) {
 		super(dragon, speed);
 		this.dragon = dragon;

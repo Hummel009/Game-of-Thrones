@@ -19,6 +19,7 @@ public class GOTEntityAILionChase extends EntityAIBase {
 	private int chaseTimer;
 	private int lionRePathDelay;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAILionChase(GOTEntityLionBase lion, double d) {
 		theLion = lion;
 		speed = d;

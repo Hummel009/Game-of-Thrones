@@ -7,6 +7,7 @@ import got.common.item.other.GOTItemPipe;
 import net.minecraft.item.ItemStack;
 
 public class GOTEntityAISmoke extends GOTEntityAIConsumeBase {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAISmoke(GOTEntityNPC entity, int chance) {
 		super(entity, null, chance);
 	}

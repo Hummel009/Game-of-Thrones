@@ -10,6 +10,7 @@ public class GOTEntityAINPCFollowParent extends EntityAIBase {
 	private GOTEntityNPC parentNPC;
 	private int followTick;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAINPCFollowParent(GOTEntityNPC npc, double d) {
 		theNPC = npc;
 		moveSpeed = d;

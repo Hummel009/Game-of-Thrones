@@ -10,6 +10,7 @@ public class GOTEntityAIDragonLand extends EntityAIBase {
 
 	private Vec3 landTarget;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAIDragonLand(GOTEntityDragon dragon) {
 		this.dragon = dragon;
 	}

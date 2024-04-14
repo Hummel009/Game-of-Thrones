@@ -23,6 +23,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 
 	private EntityLivingBase targetEntity;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight) {
 		this(entity, cls, chance, checkSight, false, null);
 	}
