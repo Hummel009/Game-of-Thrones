@@ -1,9 +1,21 @@
-package got.common.entity.dragon;
+package got.common.entity.dragon.helper;
+
+import got.common.entity.dragon.GOTEntityDragon;
+import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTDragonParticleHelper extends GOTDragonHelper {
-
 	public GOTDragonParticleHelper(GOTEntityDragon dragon) {
 		super(dragon);
+	}
+
+	@Override
+	public void applyEntityAttributes() {
+
+	}
+
+	@Override
+	public void onDeath() {
+
 	}
 
 	@Override
@@ -11,6 +23,18 @@ public class GOTDragonParticleHelper extends GOTDragonHelper {
 		if (dragon.isClient() && !dragon.isEgg() && dragon.deathTime < dragon.getMaxDeathTime() - 20) {
 			spawnBodyParticles("cloud", 4);
 		}
+	}
+
+	@Override
+	public void onLivingUpdate() {
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound nbt) {
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound nbt) {
 	}
 
 	private void spawnBodyParticle(String effect) {

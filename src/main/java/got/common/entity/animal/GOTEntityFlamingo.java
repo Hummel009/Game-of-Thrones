@@ -25,7 +25,8 @@ public class GOTEntityFlamingo extends EntityAnimal {
 
 	private float coef4 = 5.0f;
 
-	private GOTEntityFlamingo(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityFlamingo(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(false);

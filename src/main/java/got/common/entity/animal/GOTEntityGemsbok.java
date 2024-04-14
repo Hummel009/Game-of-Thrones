@@ -15,7 +15,8 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityGemsbok extends EntityAnimal {
-	protected GOTEntityGemsbok(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityGemsbok(World world) {
 		super(world);
 		setSize(0.9f, 1.4f);
 		getNavigator().setAvoidsWater(true);

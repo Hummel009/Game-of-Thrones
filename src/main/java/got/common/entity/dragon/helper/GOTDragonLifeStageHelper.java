@@ -1,5 +1,8 @@
-package got.common.entity.dragon;
+package got.common.entity.dragon.helper;
 
+import got.common.entity.dragon.GOTDragonLifeStage;
+import got.common.entity.dragon.GOTDragonScaleModifier;
+import got.common.entity.dragon.GOTEntityDragon;
 import got.common.util.GOTLog;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -7,10 +10,12 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTDragonLifeStageHelper extends GOTDragonHelper {
-	private GOTDragonLifeStage lifeStagePrev;
 	private final GOTDragonScaleModifier scaleModifier = new GOTDragonScaleModifier();
+
+	private GOTDragonLifeStage lifeStagePrev;
 	private int eggWiggleX;
 	private int eggWiggleZ;
 
@@ -35,13 +40,13 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 	private GOTDragonLifeStage getLifeStage() {
 		int age = dragon.getGrowingAge();
-		if (age >= GOTDragonLifeStage.ADULT.ageLimit) {
+		if (age >= GOTDragonLifeStage.ADULT.getAgeLimit()) {
 			return GOTDragonLifeStage.ADULT;
 		}
-		if (age >= GOTDragonLifeStage.JUVENILE.ageLimit) {
+		if (age >= GOTDragonLifeStage.JUVENILE.getAgeLimit()) {
 			return GOTDragonLifeStage.JUVENILE;
 		}
-		if (age >= GOTDragonLifeStage.HATCHLING.ageLimit) {
+		if (age >= GOTDragonLifeStage.HATCHLING.getAgeLimit()) {
 			return GOTDragonLifeStage.HATCHLING;
 		}
 		return GOTDragonLifeStage.EGG;
@@ -49,17 +54,16 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 	public void setLifeStage(GOTDragonLifeStage lifeStage) {
 		GOTLog.getLogger().trace("setLifeStage({})", lifeStage);
-		dragon.setGrowingAge(lifeStage.ageLimit);
+		dragon.setGrowingAge(lifeStage.getAgeLimit());
 		updateLifeStage();
 	}
 
 	public float getScale() {
-
 		if (isEgg()) {
 			return 0.9f / GOTEntityDragon.BASE_WIDTH;
 		}
 
-		return 1 - dragon.getGrowingAge() / (float) GOTDragonLifeStage.EGG.ageLimit;
+		return 1 - dragon.getGrowingAge() / (float) GOTDragonLifeStage.EGG.getAgeLimit();
 	}
 
 	public boolean isAdult() {
@@ -74,10 +78,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		return getLifeStage() == GOTDragonLifeStage.HATCHLING;
 	}
 
-	public boolean isJuvenile() {
-		return getLifeStage() == GOTDragonLifeStage.JUVENILE;
-	}
-
 	@Override
 	public void onDeath() {
 		if (dragon.isClient() && isEgg()) {
@@ -86,10 +86,22 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 	}
 
 	@Override
+	public void onDeathUpdate() {
+	}
+
+	@Override
 	public void onLivingUpdate() {
 		updateLifeStage();
 		updateEgg();
 		updateScale();
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound nbt) {
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound nbt) {
 	}
 
 	private void onNewLifeStage(GOTDragonLifeStage lifeStage, GOTDragonLifeStage prevLifeStage) {
@@ -158,8 +170,8 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 		int age = dragon.getGrowingAge();
 
-		int eggAge = GOTDragonLifeStage.EGG.ageLimit;
-		int hatchAge = GOTDragonLifeStage.HATCHLING.ageLimit;
+		int eggAge = GOTDragonLifeStage.EGG.getAgeLimit();
+		int hatchAge = GOTDragonLifeStage.HATCHLING.getAgeLimit();
 		float chance = (age - eggAge) / (float) (hatchAge - eggAge);
 
 		if (chance > 0.66f) {
@@ -188,7 +200,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 	}
 
 	private void updateLifeStage() {
-
 		GOTDragonLifeStage lifeStage = getLifeStage();
 		if (lifeStagePrev != lifeStage) {
 			onNewLifeStage(lifeStage, lifeStagePrev);

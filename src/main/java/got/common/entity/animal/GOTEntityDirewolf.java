@@ -28,7 +28,8 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 	private int hostileTick;
 	private boolean prevIsChild = true;
 
-	private GOTEntityDirewolf(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityDirewolf(World world) {
 		super(world);
 		setSize(0.9F, 1.1F);
 		getNavigator().setAvoidsWater(true);

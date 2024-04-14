@@ -30,7 +30,8 @@ public class GOTEntityBeaver extends EntityAnimal implements GOTBiome.ImmuneToFr
 	private int hostileTick;
 	private boolean prevIsChild = true;
 
-	private GOTEntityBeaver(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityBeaver(World world) {
 		super(world);
 		setSize(1.05f, 1.35f);
 		getNavigator().setAvoidsWater(true);

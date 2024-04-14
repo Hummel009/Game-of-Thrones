@@ -23,7 +23,8 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 	private ChunkCoordinates currentFlightTarget;
 	private EntityPlayer playerTarget;
 
-	private GOTEntityMidges(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityMidges(World world) {
 		super(world);
 		setSize(2.0f, 2.0f);
 		renderDistanceWeight = 0.5;

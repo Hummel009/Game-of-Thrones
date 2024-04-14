@@ -9,11 +9,12 @@ public class GOTDragonFlightWaypoint {
 	private static final String NBT_WAYPOINT_Y = "Waypoint-Y";
 	private static final String NBT_WAYPOINT_Z = "Waypoint-Z";
 
-	public int posX;
-	public int posY;
-	public int posZ;
-
+	@SuppressWarnings("FieldHasSetterButNoGetter")
 	private final Entity entity;
+
+	private int posX;
+	private int posY;
+	private int posZ;
 
 	public GOTDragonFlightWaypoint(Entity entity) {
 		this.entity = entity;
@@ -79,5 +80,21 @@ public class GOTDragonFlightWaypoint {
 		nbt.setInteger(NBT_WAYPOINT_X, posX);
 		nbt.setInteger(NBT_WAYPOINT_Y, posY);
 		nbt.setInteger(NBT_WAYPOINT_Z, posZ);
+	}
+
+	public int getPosX() {
+		return posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
+
+	public int getPosZ() {
+		return posZ;
 	}
 }

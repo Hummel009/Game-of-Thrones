@@ -17,8 +17,14 @@ import java.util.Locale;
 public class GOTCommandDragon extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
-		if (args.length == 1) {
-			return getListOfStringsMatchingLastWord(args, "stage adult", "tame");
+		switch (args.length) {
+			case 1:
+				return getListOfStringsMatchingLastWord(args, "stage", "tame");
+			case 2:
+				if ("stage".equals(args[0])) {
+					List<String> list = GOTDragonLifeStage.getLifeStageNames();
+					return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+				}
 		}
 		return Collections.emptyList();
 	}

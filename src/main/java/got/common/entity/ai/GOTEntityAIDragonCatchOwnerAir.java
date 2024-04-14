@@ -17,7 +17,7 @@ public class GOTEntityAIDragonCatchOwnerAir extends GOTEntityAIDragonCatchOwner 
 		double dist = wp.getDistance();
 		double yOfs = GOTModelDragonAnimaton.clamp(dist, 0, 64);
 
-		wp.posY -= (int) yOfs;
+		wp.setPosY(wp.getPosY() - (int) yOfs);
 
 		if (wp.isNear()) {
 			owner.mountEntity(dragon);

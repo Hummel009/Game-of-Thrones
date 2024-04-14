@@ -31,7 +31,8 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 	private int hostileTick;
 	private boolean prevIsChild = true;
 
-	private GOTEntityBear(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityBear(World world) {
 		super(world);
 		setSize(1.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);

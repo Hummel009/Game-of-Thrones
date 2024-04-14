@@ -1,5 +1,6 @@
-package got.common.entity.dragon;
+package got.common.entity.dragon.helper;
 
+import got.common.entity.dragon.GOTEntityDragon;
 import got.common.util.GOTLog;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -121,6 +122,22 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 	private void setReproCount(int reproCount) {
 		GOTLog.getLogger().trace("setReproCount({})", reproCount);
 		dataWatcher.updateObject(dataIndexReproduced, reproCount);
+	}
+
+	@Override
+	public void applyEntityAttributes() {
+	}
+
+	@Override
+	public void onDeath() {
+	}
+
+	@Override
+	public void onDeathUpdate() {
+	}
+
+	@Override
+	public void onLivingUpdate() {
 	}
 
 	@Override

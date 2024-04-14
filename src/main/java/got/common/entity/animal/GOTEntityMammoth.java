@@ -21,7 +21,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneToFrost {
-	private GOTEntityMammoth(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityMammoth(World world) {
 		super(world);
 		setSize(2.0f, 5.0f);
 	}

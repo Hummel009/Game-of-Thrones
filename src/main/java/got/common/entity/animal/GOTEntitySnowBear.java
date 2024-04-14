@@ -28,7 +28,8 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 	private int hostileTick;
 	private boolean prevIsChild = true;
 
-	private GOTEntitySnowBear(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntitySnowBear(World world) {
 		super(world);
 		setSize(2.1f, 2.35f);
 		getNavigator().setAvoidsWater(true);

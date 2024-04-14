@@ -2,7 +2,7 @@ package got.common.item.weapon;
 
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.dragon.GOTEntityFlyingTameable;
+import got.common.entity.dragon.GOTEntityDragon;
 import got.common.entity.other.GOTEntityNPCRideable;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
@@ -46,7 +46,7 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 		if (!world.isRemote) {
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(64, 64, 64));
 			for (EntityLivingBase entity : entities) {
-				if (entity != user && (!(entity instanceof EntityHorse) || !((EntityHorse) entity).isTame()) && (!(entity instanceof GOTEntityFlyingTameable) || !((EntityTameable) entity).isTamed()) && (!(entity instanceof EntityTameable) || !((EntityTameable) entity).isTamed()) && (!(entity instanceof GOTEntityNPCRideable) || !((GOTEntityNPCRideable) entity).isNPCTamed())) {
+				if (entity != user && (!(entity instanceof EntityHorse) || !((EntityHorse) entity).isTame()) && (!(entity instanceof GOTEntityDragon) || !((EntityTameable) entity).isTamed()) && (!(entity instanceof EntityTameable) || !((EntityTameable) entity).isTamed()) && (!(entity instanceof GOTEntityNPCRideable) || !((GOTEntityNPCRideable) entity).isNPCTamed())) {
 					entity.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", entity, user).setMagicDamage().setDamageBypassesArmor().setDamageAllowedInCreativeMode(), 5);
 					if (GOT.canNPCAttackEntity((EntityCreature) user, entity, false)) {
 						world.addWeatherEffect(new EntityLightningBolt(world, entity.posX, entity.posY, entity.posZ));

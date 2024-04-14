@@ -12,7 +12,8 @@ import java.util.List;
 public class GOTEntitySeagull extends GOTEntityBird {
 	public static final float SEAGULL_SCALE = 1.4f;
 
-	private GOTEntitySeagull(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntitySeagull(World world) {
 		super(world);
 		setSize(width * SEAGULL_SCALE, height * SEAGULL_SCALE);
 	}

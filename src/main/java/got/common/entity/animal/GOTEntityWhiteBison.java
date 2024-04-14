@@ -8,7 +8,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteBison extends GOTEntityBison {
-	private GOTEntityWhiteBison(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityWhiteBison(World world) {
 		super(world);
 	}
 

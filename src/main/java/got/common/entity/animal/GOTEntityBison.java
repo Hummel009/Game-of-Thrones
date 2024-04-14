@@ -30,7 +30,8 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 
 	private boolean prevIsChild = true;
 
-	protected GOTEntityBison(World world) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityBison(World world) {
 		super(world);
 		float bisonWidth = 1.5f;
 		float bisonHeight = 1.7f;

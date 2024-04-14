@@ -16,12 +16,15 @@ CHANGELOG
 * Improved roads & walls code
 * Improved GUI opening code
 * Improved unit costs
+* Improved dragon command tab completion
 
+* Optimized dragon code
 * Optimized lots of client-size things
 
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
 * Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 
+* Fixed bug with dragon size
 * Fixed bug with broken title system
 * Fixed bug with caves under settelements
 * Fixed bug with no-effect fields in config
