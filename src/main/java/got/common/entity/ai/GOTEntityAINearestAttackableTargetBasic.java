@@ -27,8 +27,8 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		this(entity, cls, chance, checkSight, false, null);
 	}
 
-	@SuppressWarnings("Convert2Lambda")
-	private GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
+	@SuppressWarnings({"Convert2Lambda", "WeakerAccess"})
+	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
 		super(entity, checkSight, nearby);
 		targetClass = cls;
 		targetChance = chance;
@@ -47,7 +47,8 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		};
 	}
 
-	protected GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, IEntitySelector selector) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, IEntitySelector selector) {
 		this(entity, cls, chance, checkSight, false, selector);
 	}
 

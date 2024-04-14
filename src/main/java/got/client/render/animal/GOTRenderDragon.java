@@ -1,8 +1,6 @@
 package got.client.render.animal;
 
 import got.client.model.GOTModelDragon;
-import got.common.entity.dragon.GOTDragonBreed;
-import got.common.entity.dragon.GOTDragonBreedRegistry;
 import got.common.entity.dragon.GOTDragonLifeStageHelper;
 import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -14,23 +12,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.lwjgl.opengl.GL11.*;
 
 public class GOTRenderDragon extends RenderLiving {
-	private static final Map<GOTDragonBreed, GOTModelDragon> STAGES = new HashMap<>();
 	private static final ResourceLocation DISSOLVE = new ResourceLocation("got:textures/entity/animal/dragon/dissolve.png");
 	private static final ResourceLocation EGG_TEXTURE = new ResourceLocation("got:textures/entity/animal/dragon/egg.obj");
 	private static final IModelCustom EGG = AdvancedModelLoader.loadModel(EGG_TEXTURE);
-
-	static {
-		STAGES.clear();
-		for (GOTDragonBreed breed : GOTDragonBreedRegistry.getInstance().getBreeds()) {
-			STAGES.put(breed, new GOTModelDragon(breed));
-		}
-	}
 
 	private GOTModelDragon model;
 
@@ -41,7 +28,7 @@ public class GOTRenderDragon extends RenderLiving {
 	@Override
 	public void doRender(EntityLiving entity, double x, double y, double z, float yaw, float partialTicks) {
 		GOTEntityDragon dragon = (GOTEntityDragon) entity;
-		setModel(dragon.getBreed());
+		mainModel = renderPassModel = model = new GOTModelDragon();
 		passSpecialRenderSuper(dragon, x, y, z);
 		if (dragon.isEgg()) {
 			doRenderEgg(dragon, x, y, z, partialTicks);
@@ -142,9 +129,5 @@ public class GOTRenderDragon extends RenderLiving {
 	@SuppressWarnings("unused")
 	public GOTModelDragon getModel() {
 		return model;
-	}
-
-	private void setModel(GOTDragonBreed breed) {
-		mainModel = renderPassModel = model = STAGES.get(breed);
 	}
 }

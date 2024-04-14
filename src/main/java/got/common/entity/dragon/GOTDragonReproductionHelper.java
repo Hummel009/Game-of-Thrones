@@ -82,8 +82,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 			baby.setCustomNameTag(babyName);
 		}
 
-		baby.getBreedHelper().inheritBreed(parent1, parent2);
-
 		parent1.getReproductionHelper().addReproduced();
 		parent2.getReproductionHelper().addReproduced();
 		return baby;

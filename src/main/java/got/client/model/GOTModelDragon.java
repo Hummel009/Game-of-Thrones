@@ -1,6 +1,5 @@
 package got.client.model;
 
-import got.common.entity.dragon.GOTDragonBreed;
 import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
@@ -26,7 +25,6 @@ public class GOTModelDragon extends ModelBase {
 	private final GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
 	private final GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
 	private final GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
-	private final GOTDragonBreed breed;
 
 	private GOTModelDragonPart body;
 	private GOTModelDragonPart head;
@@ -55,14 +53,13 @@ public class GOTModelDragon extends ModelBase {
 	private float pitch;
 	private float size;
 
-	public GOTModelDragon(GOTDragonBreed breed) {
+	public GOTModelDragon() {
 		textureWidth = 256;
 		textureHeight = 256;
 		bodyTexture = new ResourceLocation("got:textures/entity/animal/dragon/body.png");
 		glowTexture = new ResourceLocation("got:textures/entity/animal/dragon/glow.png");
 		saddleTexture = new ResourceLocation("got:textures/entity/animal/dragon/saddle.png");
 		eggTexture = new ResourceLocation("got:textures/entity/animal/dragon/egg.png");
-		this.breed = breed;
 		setTextureOffset("body.body", 0, 0);
 		setTextureOffset("body.scale", 0, 32);
 		setTextureOffset("head.nostril", 48, 0);
@@ -146,9 +143,6 @@ public class GOTModelDragon extends ModelBase {
 	}
 
 	private void buildLeg(boolean hind) {
-
-		boolean skeleton = "ghost".equals(breed.getName());
-
 		float baseLength = 26;
 		String baseName = hind ? "hind" : "fore";
 
@@ -156,7 +150,7 @@ public class GOTModelDragon extends ModelBase {
 		float thighPosY = 18;
 		float thighPosZ = 4;
 
-		int thighThick = 9 - (skeleton ? 2 : 0);
+		int thighThick = 9;
 		int thighLength = (int) (baseLength * (hind ? 0.9f : 0.77f));
 
 		if (hind) {
@@ -193,7 +187,7 @@ public class GOTModelDragon extends ModelBase {
 		float footPosY = crusLength + crusOfs / 2.0f;
 		float footPosZ = 0;
 
-		int footWidth = crusThick + 2 + (skeleton ? 2 : 0);
+		int footWidth = crusThick + 2;
 		int footHeight = 4;
 		int footLength = (int) (baseLength * (hind ? 0.67f : 0.34f));
 
@@ -265,11 +259,9 @@ public class GOTModelDragon extends ModelBase {
 		GOTModelDragonPart tailScaleMiddle = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, 0);
 		GOTModelDragonPart tailScaleRight = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, -scaleRotZ);
 
-		boolean fire = "fire".equals(breed.getName());
-
-		tailScaleMiddle.showModel = !fire;
-		tailScaleLeft.showModel = fire;
-		tailScaleRight.showModel = fire;
+		tailScaleMiddle.showModel = true;
+		tailScaleLeft.showModel = false;
+		tailScaleRight.showModel = false;
 
 		buildTailHorn(false);
 		buildTailHorn(true);
@@ -302,7 +294,7 @@ public class GOTModelDragon extends ModelBase {
 		horn.setRotationPoint(hornPosX, hornOfs, hornPosZ);
 		horn.setAngles(hornRotX, hornRotY, hornRotZ);
 		horn.isHidden = true;
-		horn.showModel = "water".equals(breed.getName());
+		horn.showModel = false;
 
 		if (mirror) {
 			tailHornLeft = horn;

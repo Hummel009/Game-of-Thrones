@@ -32,14 +32,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTEntityDragon extends GOTEntityFlyingTameable {
-	public static float BASE_WIDTH = 4;
+	public static final float BASE_WIDTH = 4;
+
 	private static final Item FAVORITE_FOOD = Items.fish;
 	private static final int INDEX_SADDLED = 20;
 	private static final String NBT_SADDLED = "Saddle";
-	public static String[] DATAWATCHER_WATCHEDOBJECTS = {"watchedObjects", "field_75695_b"};
-	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = {"executingTaskEntries", "field_75780_b"};
 	private static final String[] ENTITYLIVING_BODYHELPER = {"bodyHelper", "field_70762_j"};
-	public static String[] GUIMAINMENU_SPLASHTEXT = {"splashText", "field_73975_c"};
+
 	private Map<Class<? extends GOTDragonHelper>, GOTDragonHelper> helpers;
 	private GOTModelDragonAnimaton animator;
 	private BitSet controlFlags;
@@ -108,21 +107,12 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		ItemStack itemStack = player.getCurrentEquippedItem();
 
 		return itemStack != null && itemStack.getItem() == item;
-
-	}
-
-	public static boolean hasEquippedFood(EntityPlayer player) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		return itemStack != null && itemStack.getItem() instanceof ItemFood;
-
 	}
 
 	private static boolean hasEquippedUsable(EntityPlayer player) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
 
 		return itemStack != null && itemStack.getItemUseAction() != EnumAction.none;
-
 	}
 
 	private void addHelper(GOTDragonHelper helper) {
@@ -183,13 +173,14 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource src, float par2) {
-		if (isInvulnerableTo(src)) {
+	public boolean attackEntityFrom(DamageSource damagesource, float amount) {
+		if (damagesource == DamageSource.inFire || damagesource == DamageSource.onFire || damagesource == DamageSource.lava || damagesource == DamageSource.inWall || damagesource == DamageSource.drown || damagesource == DamageSource.starve || damagesource == DamageSource.cactus || damagesource == DamageSource.fall || damagesource == DamageSource.anvil || damagesource == DamageSource.fallingBlock) {
 			return false;
 		}
+
 		aiSit.setSitting(false);
 
-		return super.attackEntityFrom(src, par2);
+		return super.attackEntityFrom(damagesource, amount);
 	}
 
 	@Override
@@ -209,7 +200,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	@Override
 	public boolean canRenderOnFire() {
-		return super.canRenderOnFire() && !getBreedHelper().getBreed().isImmuneToDamage(DamageSource.inFire);
+		return false;
 	}
 
 	@Override
@@ -229,8 +220,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public void entityInit() {
 		super.entityInit();
 		dataWatcher.addObject(INDEX_SADDLED, (byte) 0);
-		int INDEX_BREED = 22;
-		addHelper(new GOTDragonBreedHelper(this, INDEX_BREED));
 		addHelper(new GOTDragonLifeStageHelper(this));
 		int INDEX_REPRO_COUNT = 23;
 		int INDEX_BREEDER = 21;
@@ -247,18 +236,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	private boolean getBooleanData(int index) {
 		return (dataWatcher.getWatchableObjectByte(index) & 1) != 0;
-	}
-
-	public GOTDragonBreed getBreed() {
-		return getBreedHelper().getBreed();
-	}
-
-	public void setBreed(GOTDragonBreed breed) {
-		getBreedHelper().setBreed(breed);
-	}
-
-	public GOTDragonBreedHelper getBreedHelper() {
-		return getHelper(GOTDragonBreedHelper.class);
 	}
 
 	@Override
@@ -461,11 +438,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	public boolean isHatchling() {
 		return getLifeStageHelper().isHatchling();
-	}
-
-	private boolean isInvulnerableTo(DamageSource src) {
-		Entity srcEnt = src.getEntity();
-		return srcEnt != null && (srcEnt == this || srcEnt == riddenByEntity) || "drown".equals(src.damageType) && isEgg() || getBreed().isImmuneToDamage(src);
 	}
 
 	public boolean isJuvenile() {
