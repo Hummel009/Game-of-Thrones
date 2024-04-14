@@ -54,6 +54,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	private int stolenTime;
 	private boolean stealingCrops;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityBird(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);

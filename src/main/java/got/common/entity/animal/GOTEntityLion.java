@@ -4,6 +4,7 @@ import got.common.item.other.GOTItemLionRug;
 import net.minecraft.world.World;
 
 public class GOTEntityLion extends GOTEntityLionBase {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityLion(World world) {
 		super(world);
 	}

@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 public class GOTEntityTermite extends EntityMob {
 	private int fuseTime;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityTermite(World world) {
 		super(world);
 		setSize(0.4f, 0.4f);

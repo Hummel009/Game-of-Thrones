@@ -16,6 +16,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityCamel extends GOTEntityHorse implements GOTBiome.ImmuneToHeat {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityCamel(World world) {
 		super(world);
 		setSize(1.6f, 1.8f);

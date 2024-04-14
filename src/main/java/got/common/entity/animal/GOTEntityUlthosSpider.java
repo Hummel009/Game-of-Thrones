@@ -6,6 +6,7 @@ import got.common.faction.GOTFaction;
 import net.minecraft.world.World;
 
 public class GOTEntityUlthosSpider extends GOTEntitySpiderBase {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityUlthosSpider(World world) {
 		super(world);
 		spawnsInDarkness = false;

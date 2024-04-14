@@ -11,6 +11,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityGiraffe extends GOTEntityHorse {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityGiraffe(World world) {
 		super(world);
 		setSize(1.7f, 4.0f);

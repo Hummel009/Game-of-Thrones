@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiraffeRug extends GOTEntityRugBase {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityGiraffeRug(World world) {
 		super(world);
 		setSize(2.0f, 0.3f);

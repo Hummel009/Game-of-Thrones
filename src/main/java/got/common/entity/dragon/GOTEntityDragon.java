@@ -67,6 +67,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 	private float yawAdd;
 	private int inAirTicks;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityDragon(World world) {
 		super(world);
 		waypoint = new GOTDragonFlightWaypoint(this);

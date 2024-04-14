@@ -7,6 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntityBearRug extends GOTEntityRugBase {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityBearRug(World world) {
 		super(world);
 		setSize(1.8f, 0.3f);

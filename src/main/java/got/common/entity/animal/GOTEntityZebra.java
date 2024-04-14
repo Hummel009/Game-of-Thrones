@@ -9,6 +9,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTEntityZebra extends GOTEntityHorse {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityZebra(World world) {
 		super(world);
 	}

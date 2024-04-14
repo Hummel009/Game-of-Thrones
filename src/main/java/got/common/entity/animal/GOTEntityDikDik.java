@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTEntityDikDik extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityDikDik(World world) {
 		super(world);
 		setSize(0.6f, 1.0f);

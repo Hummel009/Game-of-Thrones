@@ -19,6 +19,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	private int heightOffsetUpdateTime;
 	private int firingState;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityBlizzard(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);

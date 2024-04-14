@@ -15,6 +15,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityCrocodile(World world) {
 		super(world);
 		canBeMarried = false;

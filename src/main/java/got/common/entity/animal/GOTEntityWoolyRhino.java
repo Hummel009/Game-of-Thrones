@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityWoolyRhino extends GOTEntityHorse implements GOTBiome.ImmuneToFrost {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityWoolyRhino(World world) {
 		super(world);
 		setSize(1.7f, 1.9f);

@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 public class GOTEntityGorcrow extends GOTEntityBird {
 	public static final float GORCROW_SCALE = 1.4f;
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityGorcrow(World world) {
 		super(world);
 		setSize(width * GORCROW_SCALE, height * GORCROW_SCALE);

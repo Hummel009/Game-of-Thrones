@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityRhino extends GOTEntityHorse {
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityRhino(World world) {
 		super(world);
 		setSize(1.7f, 1.9f);
