@@ -8,8 +8,6 @@ CHANGELOG
 + Added one forgotten dirtPath:2 recipe
 + Added crafts for stone chest, sandstone chest and replaced the craft of reeds chest with new one.
 
-* Moved zero coords of the world closer to Winterfell
-
 * Improved sound and volume of a few animals
 * Improved fixed structures system (more clear, optimized and stable)
 * Improved road-to-settlemen's-gate system
@@ -21,6 +19,8 @@ CHANGELOG
 * Optimized dragon code
 * Optimized lots of client-size things
 
+* Moved zero coords of the world closer to Winterfell
+* Now a few animals that were giving alignment after death won't give it because of bad balance
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
 * Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 
