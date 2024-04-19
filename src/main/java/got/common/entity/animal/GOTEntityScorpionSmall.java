@@ -84,11 +84,6 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
 			int i = MathHelper.floor_double(posX);

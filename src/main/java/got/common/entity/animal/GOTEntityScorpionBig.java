@@ -87,11 +87,6 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
 			int i = MathHelper.floor_double(posX);

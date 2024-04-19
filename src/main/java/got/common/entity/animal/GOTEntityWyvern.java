@@ -87,11 +87,6 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 10.0f;
-	}
-
-	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
 			int i = MathHelper.floor_double(posX);
