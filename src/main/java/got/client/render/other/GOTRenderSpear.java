@@ -28,7 +28,6 @@ public class GOTRenderSpear extends Render {
 		}
 		GL11.glRotatef(-135.0f, 0.0f, 0.0f, 1.0f);
 		GL11.glTranslatef(0.0f, -1.0f, 0.0f);
-
 		ItemStack itemstack = spear.getProjectileItem();
 		IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(itemstack, IItemRenderer.ItemRenderType.EQUIPPED);
 		if (customRenderer != null) {

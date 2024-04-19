@@ -33,7 +33,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/quest/questBook.png");
 
 	private static final ResourceLocation GUI_TEXTURE_MINIQUESTS = new ResourceLocation("got:textures/gui/quest/questBook_miniquests.png");
-	private static final RenderItem RENDER_ITEM = new RenderItem();
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
 	private static final int X_SIZE = 420;
 	private static final int Y_SIZE = 256;
@@ -57,27 +57,32 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	private static final int DIARY_X = X_SIZE / 2 - PAGE_BORDER - PAGE_WIDTH / 2 - DIARY_WIDTH / 2;
 	private static final int DIARY_Y = Y_SIZE / 2 - DIARY_HEIGHT / 2 - 1;
 
-	private static boolean viewCompleted;
 	private static Page page;
+
+	private static boolean viewCompleted;
 
 	private final Map<GOTMiniQuest, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
 
-	private int guiLeft;
-	private int guiTop;
-	private boolean wasMouseDown;
-	private int lastMouseY;
-	private boolean isScrolling;
-	private float currentScroll;
-	private boolean mouseInDiary;
-	private boolean isDiaryScrolling;
-	private float diaryScroll;
-	private GOTMiniQuest selectedMiniquest;
 	private GOTMiniQuest deletingMiniquest;
-	private int trackTicks;
-	private GuiButton buttonViewActive;
-	private GuiButton buttonViewCompleted;
+	private GOTMiniQuest selectedMiniquest;
+
 	private GuiButton buttonQuestDelete;
 	private GuiButton buttonQuestDeleteCancel;
+	private GuiButton buttonViewActive;
+	private GuiButton buttonViewCompleted;
+
+	private boolean isDiaryScrolling;
+	private boolean isScrolling;
+	private boolean mouseInDiary;
+	private boolean wasMouseDown;
+
+	private float currentScroll;
+	private float diaryScroll;
+
+	private int guiLeft;
+	private int guiTop;
+	private int lastMouseY;
+	private int trackTicks;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -514,7 +519,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		GL11.glEnable(2896);
 		GL11.glEnable(2884);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), quest.getQuestIcon(), questX + 149, questY + 24);
+		ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), quest.getQuestIcon(), questX + 149, questY + 24);
 		GL11.glDisable(2896);
 		GL11.glEnable(3008);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -569,7 +574,6 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 
 	private enum Page {
 		MINIQUESTS("miniquests");
-
 		private final String name;
 
 		Page(String s) {

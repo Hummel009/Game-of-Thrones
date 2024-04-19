@@ -18,10 +18,10 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 	private static final ResourceLocation STAND_TEXTURE = new ResourceLocation("got:textures/model/armor_stand.png");
-	private static final ModelBase STAND_MODEL = new GOTModelArmorStand();
 	private static final ModelBiped MODEL_BIPED_MAIN = new ModelBiped(0.0f);
 	private static final ModelBiped MODEL_BIPED_1 = new ModelBiped(1.0f);
 	private static final ModelBiped MODEL_BIPED_2 = new ModelBiped(0.5f);
+	private static final ModelBase STAND_MODEL = new GOTModelArmorStand();
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {

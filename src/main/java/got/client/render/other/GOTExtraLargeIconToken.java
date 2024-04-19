@@ -4,6 +4,7 @@ import net.minecraft.util.IIcon;
 
 class GOTExtraLargeIconToken {
 	private final String name;
+
 	private IIcon icon;
 
 	GOTExtraLargeIconToken(String s) {

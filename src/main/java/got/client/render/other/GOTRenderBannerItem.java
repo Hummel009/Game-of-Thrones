@@ -10,7 +10,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBannerItem implements IItemRenderer {
-	private static final GOTModelBanner model = new GOTModelBanner();
+	private static final GOTModelBanner MODEL = new GOTModelBanner();
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {
@@ -33,10 +33,10 @@ public class GOTRenderBannerItem implements IItemRenderer {
 		GL11.glScalef(1.0f, -1.0f, 1.0f);
 		GOTItemBanner.BannerType bannerType = GOTItemBanner.getBannerType(itemstack);
 		textureManager.bindTexture(GOTRenderBanner.STAND_TEXTURE);
-		model.renderPost(0.0625f);
-		model.renderLowerPost(0.0625f);
+		MODEL.renderPost(0.0625f);
+		MODEL.renderLowerPost(0.0625f);
 		textureManager.bindTexture(GOTRenderBanner.getBannerTexture(bannerType));
-		model.renderBanner(0.0625f);
+		MODEL.renderBanner(0.0625f);
 	}
 
 	@Override

@@ -25,7 +25,8 @@ public class GOTRenderSkullStaff implements IItemRenderer {
 			staff.render(f5);
 		}
 	};
-	private static final ResourceLocation staffTexture = new ResourceLocation("got:textures/model/skull_staff.png");
+
+	private static final ResourceLocation STAFF_TEXTURE = new ResourceLocation("got:textures/model/skull_staff.png");
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {
@@ -34,7 +35,7 @@ public class GOTRenderSkullStaff implements IItemRenderer {
 
 	@Override
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
-		Minecraft.getMinecraft().getTextureManager().bindTexture(staffTexture);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(STAFF_TEXTURE);
 		if (type == IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON) {
 			GL11.glRotatef(-70.0f, 0.0f, 0.0f, 1.0f);
 			GL11.glTranslatef(-0.5f, 0.0f, -0.5f);

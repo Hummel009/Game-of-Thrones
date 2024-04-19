@@ -6,9 +6,11 @@ import net.minecraft.util.ResourceLocation;
 import java.util.*;
 
 public class GOTMusicTrack extends PositionedSound {
-	private final String filename;
-	private final Map<GOTMusicRegion, GOTTrackRegionInfo> regions = new EnumMap<>(GOTMusicRegion.class);
 	private final List<String> authors = new ArrayList<>();
+	private final Map<GOTMusicRegion, GOTTrackRegionInfo> regions = new EnumMap<>(GOTMusicRegion.class);
+
+	private final String filename;
+
 	private String title;
 
 	public GOTMusicTrack(String s) {
@@ -117,6 +119,4 @@ public class GOTMusicTrack extends PositionedSound {
 			return weight;
 		}
 	}
-
 }
-

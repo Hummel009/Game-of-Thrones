@@ -39,7 +39,6 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	private final String folderName;
 	private final Collection<GOTExtraLargeIconToken> extraTokens = new ArrayList<>();
 	private final float largeIconScale;
-
 	private IIcon largeIcon;
 
 	private GOTRenderLargeItem(Item item, String dir, float f) {

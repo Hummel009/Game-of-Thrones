@@ -15,7 +15,6 @@ import java.util.Random;
 
 public class GOTMusicTicker {
 	private static GOTMusicTrack currentTrack;
-
 	private static boolean wasPlayingMenu = true;
 	private static int timing = 100;
 

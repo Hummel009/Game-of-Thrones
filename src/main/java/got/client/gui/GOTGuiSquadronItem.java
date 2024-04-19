@@ -15,14 +15,16 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/squadronItem.png");
+
 	private static final int X_SIZE = 200;
 	private static final int Y_SIZE = 120;
 
+	private GuiTextField squadronNameField;
+	private GuiButton buttonDone;
+	private ItemStack theItem;
+
 	private int guiLeft;
 	private int guiTop;
-	private GuiButton buttonDone;
-	private GuiTextField squadronNameField;
-	private ItemStack theItem;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

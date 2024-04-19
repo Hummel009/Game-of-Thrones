@@ -20,9 +20,10 @@ public class GOTGuiMiniquestTracker extends Gui {
 	public static final GOTGuiMiniquestTracker INSTANCE = new GOTGuiMiniquestTracker();
 
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/quest/tracker.png");
-	private static final RenderItem RENDER_ITEM = new RenderItem();
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
 	private GOTMiniQuest trackedQuest;
+
 	private boolean holdingComplete;
 	private int completeTime;
 
@@ -85,7 +86,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 				GL11.glEnable(2896);
 				GL11.glEnable(2884);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), itemstack, iconX, iconY);
+				ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), itemstack, iconX, iconY);
 				GL11.glDisable(2896);
 			}
 		}

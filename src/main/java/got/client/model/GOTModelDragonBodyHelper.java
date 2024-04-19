@@ -7,8 +7,9 @@ public class GOTModelDragonBodyHelper extends EntityBodyHelper {
 	private static final int TURN_TICKS_LIMIT = 20;
 
 	private final GOTEntityDragon dragon;
-	private int turnTicks;
+
 	private float prevRotationYawHead;
+	private int turnTicks;
 
 	public GOTModelDragonBodyHelper(GOTEntityDragon dragon) {
 		super(dragon);
@@ -20,9 +21,7 @@ public class GOTModelDragonBodyHelper extends EntityBodyHelper {
 		double deltaX = dragon.posX - dragon.prevPosX;
 		double deltaY = dragon.posZ - dragon.prevPosZ;
 		double dist = deltaX * deltaX + deltaY * deltaY;
-
 		float yawSpeed = 90;
-
 		if (dragon.isFlying() || dist > 0.0001) {
 			dragon.renderYawOffset = dragon.rotationYaw;
 			dragon.rotationYawHead = GOTModelDragonAnimaton.updateRotation(dragon.renderYawOffset, dragon.rotationYawHead, yawSpeed);
@@ -30,20 +29,16 @@ public class GOTModelDragonBodyHelper extends EntityBodyHelper {
 			turnTicks = 0;
 			return;
 		}
-
 		double yawDiff = Math.abs(dragon.rotationYawHead - prevRotationYawHead);
-
 		if (dragon.isSitting() || yawDiff > 15) {
 			turnTicks = 0;
 			prevRotationYawHead = dragon.rotationYawHead;
 		} else {
 			turnTicks++;
-
 			if (turnTicks > TURN_TICKS_LIMIT) {
 				yawSpeed = Math.max(1 - (float) (turnTicks - TURN_TICKS_LIMIT) / TURN_TICKS_LIMIT, 0) * 75;
 			}
 		}
-
 		dragon.renderYawOffset = GOTModelDragonAnimaton.updateRotation(dragon.rotationYawHead, dragon.renderYawOffset, yawSpeed);
 	}
 }

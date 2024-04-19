@@ -1,8 +1,8 @@
 package got.client.render.animal;
 
 import got.client.model.GOTModelDragon;
-import got.common.entity.dragon.helper.GOTDragonLifeStageHelper;
 import got.common.entity.dragon.GOTEntityDragon;
+import got.common.entity.dragon.helper.GOTDragonLifeStageHelper;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;

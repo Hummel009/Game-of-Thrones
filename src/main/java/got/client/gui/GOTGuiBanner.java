@@ -38,27 +38,32 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 
 	private final GOTEntityBanner theBanner;
 
-	private int guiLeft;
-	private int guiTop;
-	private GuiButton buttonMode;
+	private GOTBannerProtection.Permission mouseOverPermission;
 	private GOTGuiButtonBanner buttonSelfProtection;
-	private GuiButton buttonAddSlot;
-	private GuiButton buttonRemoveSlot;
 	private GOTGuiButtonBanner buttonDefaultPermissions;
 	private GuiTextField alignmentField;
-	private GuiTextField[] allowedPlayers = {};
-	private boolean[] invalidUsernames = {};
-	private boolean[] validatedUsernames = {};
-	private boolean[] checkUsernames = {};
-	private float currentScroll;
+	private GuiButton buttonMode;
+	private GuiButton buttonAddSlot;
+	private GuiButton buttonRemoveSlot;
+
+	private GuiTextField[] allowedPlayers = new GuiTextField[]{};
+
+	private boolean[] invalidUsernames = new boolean[]{};
+	private boolean[] validatedUsernames = new boolean[]{};
+	private boolean[] checkUsernames = new boolean[]{};
+
+	private boolean defaultPermissionsOpen;
 	private boolean isScrolling;
 	private boolean wasMouseDown;
+
+	private float currentScroll;
+
 	private int permissionsMouseoverIndex = -1;
 	private int permissionsMouseoverY = -1;
 	private int permissionsOpenIndex = -1;
 	private int permissionsOpenY = -1;
-	private GOTBannerProtection.Permission mouseOverPermission;
-	private boolean defaultPermissionsOpen;
+	private int guiLeft;
+	private int guiTop;
 
 	public GOTGuiBanner(GOTEntityBanner banner) {
 		theBanner = banner;
@@ -179,7 +184,6 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 					int permIconX = 3;
 					int permIconY = 0;
-
 					int permX = textBox.xPosition + textBox.width + permIconX;
 					int permY = textBox.yPosition + permIconY;
 					int permIconWidth = 10;

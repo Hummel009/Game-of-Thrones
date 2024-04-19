@@ -86,7 +86,6 @@ public class GOTGuiTrade extends GuiContainer {
 					drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22, 4210752);
 				}
 			}
-
 		}
 		for (l = 0; l < containerTrade.getTradeInvSell().getSizeInventory(); ++l) {
 			GOTSlotTrade slotSell = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.getTradeInvSell(), l);

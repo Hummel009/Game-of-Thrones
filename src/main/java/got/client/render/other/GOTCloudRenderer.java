@@ -23,6 +23,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 	private static final CloudProperty CLOUD_OPACITY = new CloudProperty(233591206262L, 0.1f, 1.0f, 0.001f);
 	private static final CloudProperty CLOUD_SPEED = new CloudProperty(6283905602629L, 0.0f, 0.5f, 0.001f);
 	private static final CloudProperty CLOUD_ANGLE = new CloudProperty(360360635650636L, 0.0f, 6.2831855f, 0.01f);
+
 	private static final Random CLOUD_RAND = new Random();
 
 	private static double cloudPosXPre;

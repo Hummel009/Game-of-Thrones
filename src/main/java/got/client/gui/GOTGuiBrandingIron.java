@@ -16,14 +16,16 @@ import org.lwjgl.opengl.GL11;
 public class GOTGuiBrandingIron extends GOTGuiScreenBase {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/brandingIron.png");
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
+
 	private static final int X_SIZE = 200;
 	private static final int Y_SIZE = 132;
 
+	private GuiTextField brandNameField;
+	private GuiButton buttonDone;
+	private ItemStack theItem;
+
 	private int guiLeft;
 	private int guiTop;
-	private GuiButton buttonDone;
-	private GuiTextField brandNameField;
-	private ItemStack theItem;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

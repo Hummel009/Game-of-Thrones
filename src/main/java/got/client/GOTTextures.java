@@ -33,6 +33,7 @@ import java.util.Map;
 public class GOTTextures implements IResourceManagerReloadListener {
 	public static final ResourceLocation OVERLAY_TEXTURE = new ResourceLocation("got:textures/map/mapOverlay.png");
 	public static final ResourceLocation OSRS_TEXTURE = new ResourceLocation("got:textures/map/osrs.png");
+
 	public static final GOTTextures INSTANCE = new GOTTextures();
 
 	private static final Minecraft MC = Minecraft.getMinecraft();
@@ -41,6 +42,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	private static final ResourceLocation PARTICLE_TEXTURES = new ResourceLocation("textures/particle/particles.png");
 	private static final ResourceLocation NEW_WATER_PARTICLES = new ResourceLocation("got:textures/misc/waterParticles.png");
+
 	private static final Map<ResourceLocation, ResourceLocation> EYES_TEXTURES = new HashMap<>();
 	private static final Map<ResourceLocation, Integer> AVERAGED_PAGE_COLORS = new HashMap<>();
 
@@ -438,6 +440,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("WeakerAccess")
 	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 0) {

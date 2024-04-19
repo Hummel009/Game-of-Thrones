@@ -20,17 +20,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTGuiMainMenu extends GuiMainMenu {
-	private static final ResourceLocation TITLE_TEXTURE = new ResourceLocation("textures/gui/title/minecraft.png");
-	private static final ResourceLocation MENU_OVERLAY = new ResourceLocation("got:textures/gui/menu_overlay.png");
 	private static final List<GOTWaypoint> WAYPOINT_ROUTE = new ArrayList<>();
 
-	private static boolean isFirstMenu = true;
+	private static final ResourceLocation TITLE_TEXTURE = new ResourceLocation("textures/gui/title/minecraft.png");
+	private static final ResourceLocation MENU_OVERLAY = new ResourceLocation("got:textures/gui/menu_overlay.png");
 
 	private static GOTGuiRendererMap mapRenderer;
-	private static int currentWPIndex;
+
+	private static boolean isFirstMenu = true;
 	private static float mapSpeed;
 	private static float mapVelX;
 	private static float mapVelY;
+	private static int currentWPIndex;
 
 	private final GOTGuiMap mapGui;
 

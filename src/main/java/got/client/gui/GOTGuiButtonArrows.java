@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonArrows extends GuiButton {
 	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/gui/widgets.png");
+
 	private final boolean leftOrRight;
 
 	public GOTGuiButtonArrows(int i, boolean flag, int j, int k) {

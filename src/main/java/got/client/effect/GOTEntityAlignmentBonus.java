@@ -8,11 +8,10 @@ import net.minecraft.world.World;
 
 public class GOTEntityAlignmentBonus extends Entity {
 	private final String name;
+	private final GOTAlignmentBonusMap factionBonusMap;
 	private final GOTFaction mainFaction;
 	private final float prevMainAlignment;
-	private final GOTAlignmentBonusMap factionBonusMap;
 	private final float conquestBonus;
-
 	private int particleAge;
 	private int particleMaxAge;
 

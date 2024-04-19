@@ -141,7 +141,7 @@ public class GOTArmorModels {
 			map.put(GOTItems.renlyHelmet, new GOTModelDeerHelmet(1.0f));
 			map.put(GOTItems.robertHelmet, new GOTModelDeerHelmet(1.0f));
 			map.put(GOTItems.sandorHelmet, new GOTModelSandorHelmet(1.0f));
-			map.put(GOTItems.leatherHat, new GOTModelLeatherHat());
+			map.put(GOTItems.leatherHat, new GOTModelLeatherHat(0.0f));
 			map.put(GOTItems.lhazarHelmetLion, new GOTModelSandorHelmet(1.0f));
 			map.put(GOTItems.northHelmet, new GOTModelNorthHelmet(1.0f));
 			map.put(GOTItems.partyHat, new GOTModelPartyHat(0.6f));
@@ -150,7 +150,7 @@ public class GOTArmorModels {
 			map.put(GOTItems.reachguardHelmet, new GOTModelReachHelmet(1.0f));
 			map.put(GOTItems.robesBoots, new GOTModelRobes(1.0f));
 			map.put(GOTItems.robesChestplate, new GOTModelRobes(1.0f));
-			map.put(GOTItems.robesHelmet, new GOTModelTurban());
+			map.put(GOTItems.robesHelmet, new GOTModelTurban(0.0f));
 			map.put(GOTItems.robesLeggings, new GOTModelRobes(0.5f));
 			map.put(GOTItems.royceHelmet, new GOTModelRoyceHelmet(1.0f));
 			map.put(GOTItems.sothoryosHelmetChieftain, new GOTModelDeerHelmet(1.0f));

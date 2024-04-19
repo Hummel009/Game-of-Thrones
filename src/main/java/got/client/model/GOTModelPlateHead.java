@@ -17,8 +17,9 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelPlateHead extends GOTModelHuman {
-	private final RenderBlocks blockRenderer = new RenderBlocks();
-	private final GOTTileEntityPlate plateTE = new GOTTileEntityPlate();
+	private static final RenderBlocks BLOCK_RENDERER = new RenderBlocks();
+	private static final GOTTileEntityPlate PLATE_TE = new GOTTileEntityPlate();
+
 	private Block plateBlock;
 
 	@Override
@@ -35,15 +36,15 @@ public class GOTModelPlateHead extends GOTModelHuman {
 		GL11.glTranslatef(0.0f, 1.0f - bipedHead.rotationPointY / 16.0f, 0.0f);
 		GL11.glTranslatef(0.0f, fallOffset * 0.5f, 0.0f);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		GOTRenderBlocks.renderEntityPlate(plateBlock, blockRenderer);
+		GOTRenderBlocks.renderEntityPlate(plateBlock, BLOCK_RENDERER);
 		if (entity instanceof EntityLivingBase && (heldItem = ((EntityLivingBase) entity).getHeldItem()) != null && GOTTileEntityPlate.isValidFoodItem(heldItem)) {
 			ItemStack heldItemMinusOne = heldItem.copy();
 			--heldItemMinusOne.stackSize;
 			if (heldItemMinusOne.stackSize > 0) {
-				plateTE.setFoodItem(heldItemMinusOne);
-				plateTE.setPlateFallInfo(fallingInfo);
-				TileEntityRendererDispatcher.instance.renderTileEntityAt(plateTE, -0.5, -0.5, -0.5, tick);
-				plateTE.setPlateFallInfo(null);
+				PLATE_TE.setFoodItem(heldItemMinusOne);
+				PLATE_TE.setPlateFallInfo(fallingInfo);
+				TileEntityRendererDispatcher.instance.renderTileEntityAt(PLATE_TE, -0.5, -0.5, -0.5, tick);
+				PLATE_TE.setPlateFallInfo(null);
 				GL11.glDisable(2884);
 			}
 		}

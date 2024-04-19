@@ -26,23 +26,25 @@ public class GOTGuiCapes extends GOTGuiMenuBase {
 		PLAYER_MODEL.isChild = false;
 	}
 
-	private int modelX;
-	private int modelY;
-	private float modelRotation;
-	private float modelRotationPrev;
-	private int isMouseDown;
-	private int mouseX;
-	private int mouseY;
-	private int prevMouseX;
-	private GOTCapes.CapeType currentCapeType;
-	private GOTCapes currentCape;
 	private GuiButton capeLeft;
 	private GuiButton capeRight;
 	private GuiButton capeSelect;
 	private GuiButton capeRemove;
 	private GuiButton goToShield;
-
 	private GuiButton changeCategory;
+
+	private GOTCapes.CapeType currentCapeType;
+	private GOTCapes currentCape;
+
+	private float modelRotation;
+	private float modelRotationPrev;
+
+	private int isMouseDown;
+	private int prevMouseX;
+	private int modelX;
+	private int modelY;
+	private int mouseX;
+	private int mouseY;
 
 	public GOTGuiCapes() {
 		modelRotationPrev = modelRotation = -140.0f;
@@ -172,7 +174,6 @@ public class GOTGuiCapes extends GOTGuiMenuBase {
 		buttonList.add(goBack);
 		goToShield = new GOTGuiButton(6, guiLeft + sizeX / 2 - 290, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.shields"));
 		buttonList.add(goToShield);
-
 		GOTCapes equippedCape = getPlayerEquippedCape();
 		if (equippedCape != null) {
 			currentCapeTypeID = equippedCape.getCapeType().ordinal();

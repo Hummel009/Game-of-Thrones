@@ -5,7 +5,8 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.util.StatCollector;
 
 public abstract class GOTGuiMenuBaseReturn extends GOTGuiMenuBase {
-	protected static final RenderItem RENDER_ITEM = new RenderItem();
+	protected static final RenderItem ITEM_RENDERER = new RenderItem();
+
 	protected GuiButton buttonMenuReturn;
 
 	@Override

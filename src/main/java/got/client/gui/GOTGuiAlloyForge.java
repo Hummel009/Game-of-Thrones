@@ -10,6 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTGuiAlloyForge extends GuiContainer {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/forge.png");
+
 	private final GOTTileEntityAlloyForge theForge;
 
 	public GOTGuiAlloyForge(InventoryPlayer inv, GOTTileEntityAlloyForge forge) {

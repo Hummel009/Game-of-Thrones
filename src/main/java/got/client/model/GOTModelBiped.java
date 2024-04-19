@@ -7,6 +7,7 @@ import net.minecraft.util.MathHelper;
 
 public class GOTModelBiped extends ModelBiped {
 	private boolean setup;
+
 	private float base_bodyRotateX;
 	private float base_armX;
 	private float base_armY;

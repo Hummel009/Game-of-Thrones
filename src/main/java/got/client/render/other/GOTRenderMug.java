@@ -28,13 +28,15 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 	private static final ResourceLocation BOTTLE_TEXTURE = new ResourceLocation("got:textures/model/glass_bottle.png");
 	private static final ResourceLocation HORN_TEXTURE = new ResourceLocation("got:textures/model/ale_horn.png");
 	private static final ResourceLocation HORN_GOLD_TEXTURE = new ResourceLocation("got:textures/model/ale_horn_gold.png");
+
+	private static final GOTModelAleHorn HORN_MODEL = new GOTModelAleHorn();
+	private static final RenderBlocks BLOCK_RENDERER = new RenderBlocks();
+
 	private static final ModelBase MUGOTEL = new GOTModelMug();
 	private static final ModelBase GOBLET_MODEL = new GOTModelGoblet();
 	private static final ModelBase SKULL_MODEL = new GOTModelSkullCup();
 	private static final ModelBase GLASS_MODEL = new GOTModelWineGlass();
 	private static final ModelBase BOTTLE_MODEL = new GOTModelGlassBottle();
-	private static final GOTModelAleHorn HORN_MODEL = new GOTModelAleHorn();
-	private static final RenderBlocks RENDER_BLOCKS = new RenderBlocks();
 
 	private void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
 		double yMin1 = yMin;
@@ -49,9 +51,9 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		yMax1 *= scale;
 		GL11.glPushMatrix();
 		GL11.glTranslatef(dxz, -0.5f, dxz);
-		RENDER_BLOCKS.setOverrideBlockTexture(icon);
-		GOTRenderBlocks.renderStandardInvBlock(RENDER_BLOCKS, GOTBlocks.mug, xzMin += edge, yMax1 - edge, xzMin, xzMax -= edge, yMin1 + edge, xzMax);
-		RENDER_BLOCKS.clearOverrideBlockTexture();
+		BLOCK_RENDERER.setOverrideBlockTexture(icon);
+		GOTRenderBlocks.renderStandardInvBlock(BLOCK_RENDERER, GOTBlocks.mug, xzMin += edge, yMax1 - edge, xzMin, xzMax -= edge, yMin1 + edge, xzMax);
+		BLOCK_RENDERER.clearOverrideBlockTexture();
 		GL11.glPopMatrix();
 	}
 

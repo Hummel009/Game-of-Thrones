@@ -10,9 +10,10 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
+	private static final ModelBiped MODEL = new GOTModelHuman(0.6f, false);
+
 	private final String path;
 	private final String outfit;
-	private final ModelBiped model = new GOTModelHuman(0.6f, false);
 
 	public GOTRenderFactionNPCLayered(String texture) {
 		super(new GOTModelHuman(), 0.5f);
@@ -49,7 +50,7 @@ public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
 	public int shouldRenderPass(EntityLiving entity, int pass, float f) {
 		GOTEntityNPC legend = (GOTEntityNPC) entity;
 		if (pass == 0 && legend.getEquipmentInSlot(4) == null || pass == 1 && legend.getEquipmentInSlot(3) == null) {
-			setRenderPassModel(model);
+			setRenderPassModel(MODEL);
 			bindTexture(getSecondLayerTexture());
 			return 1;
 		}

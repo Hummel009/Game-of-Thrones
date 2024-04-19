@@ -29,6 +29,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 	public static final ResourceLocation FACTIONS_TEXTURE = new ResourceLocation("got:textures/gui/factions.png");
 
 	private static final ResourceLocation FACTIONS_TEXTURE_FULL = new ResourceLocation("got:textures/gui/factions_full.png");
+
 	private static final int PAGE_Y = 46;
 	private static final int PAGE_WIDTH = 256;
 	private static final int PAGE_HEIGHT = 128;
@@ -37,14 +38,17 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 	private static final int PAGE_MAP_Y = 22;
 	private static final int PAGE_MAP_SIZE = 80;
 
+	private static List<GOTFaction> currentFactionList;
+
+	private static Page currentPage = Page.FRONT;
 	private static GOTDimension currentDimension;
 	private static GOTDimension prevDimension;
 	private static GOTDimension.DimensionRegion currentRegion;
 	private static GOTDimension.DimensionRegion prevRegion;
-	private static List<GOTFaction> currentFactionList;
-	private static Page currentPage = Page.FRONT;
 
 	private final GOTGuiMap mapDrawGui;
+	private final GOTGuiScrollPane scrollPaneAlliesEnemies;
+
 	private final int scrollBarWidth;
 	private final int scrollBarHeight;
 	private final int scrollBarX;
@@ -52,29 +56,35 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 	private final int scrollBarBorder;
 	private final int scrollWidgetWidth;
 	private final int scrollWidgetHeight;
-	private final GOTGuiScrollPane scrollPaneAlliesEnemies;
 	private final int scrollAlliesEnemiesX;
 
-	private int currentFactionIndex;
-	private int prevFactionIndex;
+	private List<Object> currentAlliesEnemies;
+	private Map<GOTFaction, Float> playerAlignmentMap;
+
 	private GOTFaction currentFaction;
+
 	private GuiButton buttonRegions;
 	private GuiButton buttonPagePrev;
 	private GuiButton buttonPageNext;
 	private GuiButton buttonFactionMap;
+
 	private GOTGuiButtonPledge buttonPledge;
 	private GOTGuiButtonPledge buttonPledgeConfirm;
 	private GOTGuiButtonPledge buttonPledgeRevoke;
-	private float currentScroll;
+
+	private String otherPlayerName;
+
 	private boolean isScrolling;
 	private boolean wasMouseDown;
-	private int numDisplayedAlliesEnemies;
-	private List<Object> currentAlliesEnemies;
 	private boolean isOtherPlayer;
-	private String otherPlayerName;
-	private Map<GOTFaction, Float> playerAlignmentMap;
 	private boolean isPledging;
 	private boolean isUnpledging;
+
+	private float currentScroll;
+
+	private int numDisplayedAlliesEnemies;
+	private int currentFactionIndex;
+	private int prevFactionIndex;
 
 	public GOTGuiFactions() {
 		sizeX = PAGE_WIDTH;
@@ -315,7 +325,6 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 						fontRendererObj.drawString(alignmentInfo, x, y, 8019267);
 						String alignmentString = GOTAlignmentValues.formatAlignForDisplay(alignment);
 						GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x + fontRendererObj.getStringWidth(alignmentInfo) + 5, y, alignmentString, 1.0f);
-
 						x = guiLeft + pageBorderLeft;
 						GOTFactionRank curRank = currentFaction.getRank(alignment);
 						String rankName = curRank.getFullNameWithGender(clientPD);

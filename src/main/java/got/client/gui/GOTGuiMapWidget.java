@@ -4,15 +4,15 @@ import net.minecraft.util.StatCollector;
 
 public class GOTGuiMapWidget {
 	private final String name;
+
 	private final int xPos;
 	private final int yPos;
 	private final int texUBase;
 	private final int texVBase;
 	private final int width;
 
-	private int texVIndex;
-
 	private boolean visible = true;
+	private int texVIndex;
 
 	public GOTGuiMapWidget(int x, int y, int w, String s, int u, int v) {
 		xPos = x;

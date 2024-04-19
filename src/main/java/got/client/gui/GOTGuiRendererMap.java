@@ -18,6 +18,7 @@ public class GOTGuiRendererMap {
 	private double mapX;
 	private double prevMapY;
 	private double mapY;
+
 	private float zoomExp;
 	private float zoomStable;
 

@@ -19,18 +19,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderCamel extends RenderLiving {
+	private static final Map<String, ResourceLocation> COLORED_CARPET_TEXTURES = new HashMap<>();
+
 	private static final ResourceLocation CAMEL_TEXTURE = new ResourceLocation("got:textures/entity/animal/camel/camel.png");
 	private static final ResourceLocation SADDLE_TEXTURE = new ResourceLocation("got:textures/entity/animal/camel/saddle.png");
 	private static final ResourceLocation CARPET_BASE = new ResourceLocation("got:textures/entity/animal/camel/carpet_base.png");
 	private static final ResourceLocation CARPET_OVERLAY = new ResourceLocation("got:textures/entity/animal/camel/carpet_overlay.png");
-	private static final Map<String, ResourceLocation> COLORED_CARPET_TEXTURES = new HashMap<>();
 
-	private final GOTModelCamel modelSaddle = new GOTModelCamel(0.5f);
-	private final GOTModelCamel modelCarpet = new GOTModelCamel(0.55f);
+	private static final GOTModelCamel MODEL_SADDLE = new GOTModelCamel(0.5f);
+	private static final GOTModelCamel MODEL_CARPET = new GOTModelCamel(0.55f);
 
 	public GOTRenderCamel() {
 		super(new GOTModelCamel(), 0.5f);
-		setRenderPassModel(modelSaddle);
+		setRenderPassModel(MODEL_SADDLE);
 	}
 
 	private static ResourceLocation getColoredCarpetTexture(int carpetRGB) {
@@ -99,12 +100,12 @@ public class GOTRenderCamel extends RenderLiving {
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
 		GOTEntityCamel camel = (GOTEntityCamel) entity;
 		if (pass == 0 && camel.isMountSaddled()) {
-			setRenderPassModel(modelSaddle);
+			setRenderPassModel(MODEL_SADDLE);
 			bindTexture(SADDLE_TEXTURE);
 			return 1;
 		}
 		if (pass == 1 && camel.isCamelWearingCarpet()) {
-			setRenderPassModel(modelCarpet);
+			setRenderPassModel(MODEL_CARPET);
 			int color = camel.getCamelCarpetColor();
 			ResourceLocation carpet = getColoredCarpetTexture(color);
 			bindTexture(carpet);

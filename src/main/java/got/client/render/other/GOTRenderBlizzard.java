@@ -10,7 +10,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderBlizzard extends RenderLiving {
 	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/ulthos/blizzard.png");
-
 	private int f;
 
 	public GOTRenderBlizzard() {
@@ -35,12 +34,10 @@ public class GOTRenderBlizzard extends RenderLiving {
 
 	private void doRender(GOTEntityBlizzard entity, double d1, double d2, double d3, float d4, float d5) {
 		int i = ((ModelBlaze) mainModel).func_78104_a();
-
 		if (i != f) {
 			f = i;
 			mainModel = new ModelBlaze();
 		}
-
 		super.doRender(entity, d1, d2, d3, d4, d5);
 	}
 

@@ -49,11 +49,13 @@ import java.util.regex.Pattern;
 public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	public static final ResourceLocation MAP_ICONS_TEXTURE = new ResourceLocation("got:textures/map/mapScreen.png");
 
-	private static final ResourceLocation CONQUEST_TEXTURE = new ResourceLocation("got:textures/map/conquest.png");
-	private static final ItemStack QUEST_BOOK_ICON = new ItemStack(GOTItems.questBook);
 	private static final Map<GOTDimension.DimensionRegion, GOTFaction> LAST_VIEWED_REGIONS = new EnumMap<>(GOTDimension.DimensionRegion.class);
 	private static final Map<UUID, PlayerLocationInfo> PLAYER_LOCATIONS = new HashMap<>();
 	private static final Collection<GOTGuiMapWidget> MAP_WIDGETS = new ArrayList<>();
+
+	private static final ResourceLocation CONQUEST_TEXTURE = new ResourceLocation("got:textures/map/conquest.png");
+	private static final ItemStack QUEST_BOOK_ICON = new ItemStack(GOTItems.questBook);
+
 	private static final int FAC_SCROLL_WIDTH = 240;
 	private static final int FAC_SCROLL_HEIGHT = 14;
 	private static final int FAC_SCROLL_WIDGET_WIDTH = 17;
@@ -61,9 +63,14 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 
 	private static boolean showWP = true;
 	private static boolean showCWP = true;
+	private static boolean fullscreen = true;
 	private static boolean showHiddenSWP;
 
-	private static boolean fullscreen = true;
+	private static List<GOTFaction> currentFactionList;
+
+	private static GOTDimension.DimensionRegion currentRegion;
+	private static GOTDimension.DimensionRegion prevRegion;
+
 	private static int mapWidth;
 	private static int mapHeight;
 	private static int mapXMin;
@@ -71,13 +78,11 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	private static int mapYMin;
 	private static int mapYMax;
 	private static int zoomPower;
-	private static GOTDimension.DimensionRegion currentRegion;
-	private static GOTDimension.DimensionRegion prevRegion;
-	private static List<GOTFaction> currentFactionList;
 
-	private final Map<GOTFaction, List<GOTConquestZone>> facConquestGrids = new EnumMap<>(GOTFaction.class);
 	private final Set<GOTFaction> requestedFacGrids = EnumSet.noneOf(GOTFaction.class);
 	private final Set<GOTFaction> receivedFacGrids = EnumSet.noneOf(GOTFaction.class);
+	private final Map<GOTFaction, List<GOTConquestZone>> facConquestGrids = new EnumMap<>(GOTFaction.class);
+
 	private final GOTGuiScrollPane scrollPaneWPShares = new GOTGuiScrollPane(9, 8);
 
 	private GOTGuiMapWidget widgetAddCWP;
@@ -94,60 +99,66 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	private GOTGuiMapWidget widgetShareCWP;
 	private GOTGuiMapWidget widgetHideSWP;
 	private GOTGuiMapWidget widgetUnhideSWP;
-	private float posX;
-	private float posY;
-	private int isMouseButtonDown;
-	private int prevMouseX;
-	private int prevMouseY;
-	private boolean isMouseWithinMap;
-	private int mouseXCoord;
-	private int mouseZCoord;
-	private float posXMove;
-	private float posYMove;
-	private float prevPosX;
-	private float prevPosY;
-	private int prevZoomPower = zoomPower;
-	private float zoomScale;
-	private float zoomScaleStable;
-	private float zoomExp;
-	private int zoomTicks;
+
+	private List<UUID> displayedWPShareList;
+
+	private GOTFaction conquestViewingFaction;
+	private GOTFaction controlZoneFaction;
+
 	private GOTAbstractWaypoint selectedWaypoint;
-	private boolean hasOverlay;
-	private String[] overlayLines;
-	private GuiButton buttonOverlayFunction;
+	private GOTFellowshipClient mouseOverRemoveSharedFellowship;
+	private GOTGuiFellowships fellowshipDrawGUI;
 	private GuiTextField nameWPTextField;
+	private GuiButton buttonConquestRegions;
+	private GuiButton buttonOverlayFunction;
+
+	private String[] overlayLines;
+
+	private boolean enableZoomOutWPFading = true;
 	private boolean creatingWaypoint;
 	private boolean creatingWaypointNew;
 	private boolean deletingWaypoint;
+	private boolean hasControlZones;
+	private boolean hasOverlay;
+	private boolean isConquestGrid;
+	private boolean isFacScrolling;
+	private boolean isMouseWithinMap;
+	private boolean isPlayerOp;
+	private boolean loadingConquestGrid;
+	private boolean mouseControlZone;
+	private boolean mouseControlZoneReduced;
+	private boolean mouseInFacScroll;
 	private boolean renamingWaypoint;
 	private boolean sharingWaypoint;
 	private boolean sharingWaypointNew;
-	private GOTGuiFellowships fellowshipDrawGUI;
-	private GOTFellowshipClient mouseOverRemoveSharedFellowship;
-	private List<UUID> displayedWPShareList;
-	private int displayedWPShares;
-	private int tickCounter;
-	private boolean hasControlZones;
-	private GOTFaction controlZoneFaction;
-	private boolean mouseControlZone;
-	private boolean mouseControlZoneReduced;
-	private boolean isConquestGrid;
-	private boolean loadingConquestGrid;
-	private int ticksUntilRequestFac = 40;
-	private float highestViewedConqStr;
-	private int currentFactionIndex;
-	private int prevFactionIndex;
-	private GOTFaction conquestViewingFaction;
-	private float currentFacScroll;
-	private boolean isFacScrolling;
 	private boolean wasMouseDown;
-	private boolean mouseInFacScroll;
+
+	private float currentFacScroll;
+	private float highestViewedConqStr;
+	private float posX;
+	private float posXMove;
+	private float posY;
+	private float posYMove;
+	private float prevPosX;
+	private float prevPosY;
+	private float zoomExp;
+	private float zoomScale;
+	private float zoomScaleStable;
+
+	private int currentFactionIndex;
+	private int displayedWPShares;
 	private int facScrollX;
 	private int facScrollY;
-	private GuiButton buttonConquestRegions;
-
-	private boolean isPlayerOp;
-	private boolean enableZoomOutWPFading = true;
+	private int isMouseButtonDown;
+	private int mouseXCoord;
+	private int mouseZCoord;
+	private int prevFactionIndex;
+	private int prevMouseX;
+	private int prevMouseY;
+	private int tickCounter;
+	private int ticksUntilRequestFac = 40;
+	private int zoomTicks;
+	private int prevZoomPower = zoomPower;
 
 	@SuppressWarnings("ResultOfObjectAllocationIgnored")
 	public GOTGuiMap() {
@@ -171,7 +182,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	}
 
 	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
-		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
+		int[] ret = new int[]{mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
 		mapWidth = w;
 		mapHeight = h;
 		mapXMin = xmin;
@@ -1681,7 +1692,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glEnable(2896);
 				GL11.glEnable(2884);
-				RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), QUEST_BOOK_ICON, iconX - iconWidthHalf, iconY - iconWidthHalf);
+				ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), QUEST_BOOK_ICON, iconX - iconWidthHalf, iconY - iconWidthHalf);
 				GL11.glDisable(2896);
 				GL11.glEnable(3008);
 				GL11.glScalef(invScale, invScale, invScale);

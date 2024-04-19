@@ -13,6 +13,7 @@ public class GOTGuiBookshelf extends GuiContainer {
 
 	private final IInventory playerInv;
 	private final IInventory shelfInv;
+
 	private final int inventoryRows;
 
 	public GOTGuiBookshelf(IInventory player, GOTTileEntityBookshelf shelf) {

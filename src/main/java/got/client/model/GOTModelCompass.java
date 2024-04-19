@@ -9,7 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelCompass extends ModelBase {
-	public static final GOTModelCompass COMPASS_MODEL = new GOTModelCompass();
+	public static final GOTModelCompass INSTANCE = new GOTModelCompass();
+
 	private static final ResourceLocation COMPASS_TEXTURE = new ResourceLocation("got:textures/misc/compass.png");
 
 	private final ModelRenderer compass;

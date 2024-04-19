@@ -10,6 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTGuiArmorStand extends GuiContainer {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/armor_stand.png");
+
 	private final GOTTileEntityArmorStand theArmorStand;
 
 	public GOTGuiArmorStand(InventoryPlayer inv, GOTTileEntityArmorStand armorStand) {

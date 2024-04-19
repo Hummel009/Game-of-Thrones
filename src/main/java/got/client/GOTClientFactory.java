@@ -40,35 +40,27 @@ public class GOTClientFactory {
 		IResourceManager resourceManager = mc.getResourceManager();
 		EventBus forgeBus = MinecraftForge.EVENT_BUS;
 		EventBus fmlBus = FMLCommonHandler.instance().bus();
-
 		renderPlayer = GOTRenderPlayer.INSTANCE;
 		fmlBus.register(renderPlayer);
 		forgeBus.register(renderPlayer);
-
 		swingHandler = GOTSwingHandler.INSTANCE;
 		fmlBus.register(swingHandler);
 		forgeBus.register(swingHandler);
-
 		tickHandlerClient = GOTTickHandlerClient.INSTANCE;
 		fmlBus.register(tickHandlerClient);
 		forgeBus.register(tickHandlerClient);
-
 		miniquestTracker = GOTGuiMiniquestTracker.INSTANCE;
 		notificationDisplay = GOTGuiNotificationDisplay.INSTANCE;
-
 		ambienceTicker = GOTAmbience.INSTANCE;
 		fmlBus.register(ambienceTicker);
 		forgeBus.register(ambienceTicker);
-
 		guiEventHandler = GOTGuiEventHandler.INSTANCE;
 		fmlBus.register(guiEventHandler);
 		forgeBus.register(guiEventHandler);
-
 		itemRendererManager = GOTItemRendererManager.INSTANCE;
 		itemRendererManager.onResourceManagerReload(resourceManager);
 		((IReloadableResourceManager) resourceManager).registerReloadListener(itemRendererManager);
 		forgeBus.register(itemRendererManager);
-
 		armorModels = GOTArmorModels.INSTANCE;
 		forgeBus.register(armorModels);
 	}
@@ -78,17 +70,13 @@ public class GOTClientFactory {
 		IResourceManager resourceManager = mc.getResourceManager();
 		EventBus forgeBus = MinecraftForge.EVENT_BUS;
 		EventBus fmlBus = FMLCommonHandler.instance().bus();
-
 		textures = GOTTextures.INSTANCE;
 		textures.onResourceManagerReload(resourceManager);
 		((IReloadableResourceManager) resourceManager).registerReloadListener(textures);
 		forgeBus.register(textures);
-
 		effectRenderer = GOTEffectRenderer.INSTANCE;
-
 		thirdPersonViewer = GOTThirdPersonViewer.INSTANCE;
 		fmlBus.register(thirdPersonViewer);
-
 		keyHandler = GOTKeyHandler.INSTANCE;
 		fmlBus.register(keyHandler);
 	}
@@ -98,7 +86,6 @@ public class GOTClientFactory {
 		IResourceManager resourceManager = mc.getResourceManager();
 		EventBus forgeBus = MinecraftForge.EVENT_BUS;
 		EventBus fmlBus = FMLCommonHandler.instance().bus();
-
 		musicHandler = GOTMusic.INSTANCE;
 		((IReloadableResourceManager) resourceManager).registerReloadListener(musicHandler);
 		forgeBus.register(musicHandler);

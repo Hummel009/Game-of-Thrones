@@ -152,7 +152,6 @@ public class GOTRenderPlayer {
 				GL11.glEnable(3042);
 				GL11.glBlendFunc(770, 771);
 				GL11.glAlphaFunc(516, 0.003921569f);
-
 				Minecraft mc = Minecraft.getMinecraft();
 				ResourceLocation capeTexture = cape.getCapeTexture();
 				GL11.glPushMatrix();
@@ -165,7 +164,6 @@ public class GOTRenderPlayer {
 				mc.getTextureManager().bindTexture(capeTexture);
 				event.renderer.modelBipedMain.renderCloak(0.0625f);
 				GL11.glPopMatrix();
-
 				GL11.glDisable(3042);
 				GL11.glAlphaFunc(516, 0.1f);
 				GL11.glPopMatrix();

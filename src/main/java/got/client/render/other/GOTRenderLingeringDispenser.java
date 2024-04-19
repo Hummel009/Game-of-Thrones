@@ -16,7 +16,6 @@ public class GOTRenderLingeringDispenser implements IBehaviorDispenseItem {
 	}
 
 	private static class MyBehaviorProjectileDispense extends BehaviorProjectileDispense {
-
 		private final ItemStack stack;
 
 		private MyBehaviorProjectileDispense(ItemStack stack) {

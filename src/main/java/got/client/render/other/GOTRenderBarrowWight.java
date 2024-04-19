@@ -14,7 +14,7 @@ public class GOTRenderBarrowWight extends GOTRenderBiped {
 	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/westeros/shadow.png");
 
 	public GOTRenderBarrowWight() {
-		super(new GOTModelWight(), 0.0f);
+		super(new GOTModelWight(0.0f), 0.0f);
 	}
 
 	@Override

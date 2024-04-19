@@ -214,7 +214,7 @@ public class GOTConnectedTextures {
 
 	public static IIcon getConnectedIconItem(GOTConnectedBlock block, int meta) {
 		String blockName = block.getConnectedName(meta);
-		boolean[][] flags = {{false, false, false}, {false, true, false}, {false, false, false}};
+		boolean[][] flags = new boolean[][]{new boolean[]{false, false, false}, new boolean[]{false, true, false}, new boolean[]{false, false, false}};
 		return getConnectedIcon(blockName, flags, false);
 	}
 
@@ -288,14 +288,13 @@ public class GOTConnectedTextures {
 
 	private enum IconElement {
 		BASE("base", 0), SIDE_LEFT("left", 1), SIDE_RIGHT("right", 1), SIDE_TOP("top", 1), SIDE_BOTTOM("bottom", 1), CORNER_TOPLEFT("top_left", 2), CORNER_TOPRIGHT("top_right", 2), CORNER_BOTTOMLEFT("bottom_left", 2), CORNER_BOTTOMRIGHT("bottom_right", 2), INVCORNER_TOPLEFT("top_left_inv", 2), INVCORNER_TOPRIGHT("top_right_inv", 2), INVCORNER_BOTTOMLEFT("bottom_left_inv", 2), INVCORNER_BOTTOMRIGHT("bottom_right_inv", 2);
-
 		private static final Map<Integer, Set<IconElement>> allCombos;
 		private static final Comparator<IconElement> comparator;
 
 		static {
 			allCombos = new HashMap<>();
 			Collection<Set<IconElement>> permutations = new ArrayList<>();
-			boolean[] trueOrFalse = {false, true};
+			boolean[] trueOrFalse = new boolean[]{false, true};
 			for (int i = 0; i < 8192; i++) {
 				boolean base = trueOrFalse[i & 1];
 				boolean left = trueOrFalse[i >> 1 & 1];

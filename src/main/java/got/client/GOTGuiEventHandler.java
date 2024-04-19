@@ -58,13 +58,14 @@ import java.util.*;
 public class GOTGuiEventHandler {
 	public static final GOTGuiEventHandler INSTANCE = new GOTGuiEventHandler();
 
-	private static final RenderItem itemRenderer = new RenderItem();
 	private static final Collection<Class<? extends Container>> COIN_COUNT_EXCLUDED_CONTAINERS = new HashSet<>();
 	private static final Collection<Class<? extends GuiContainer>> COIN_COUNT_EXCLUDED_GU_IS = new HashSet<>();
 	private static final Collection<Class<? extends IInventory>> COIN_COUNT_EXCLUDED_INV_TYPES = new HashSet<>();
 	private static final Collection<String> COIN_COUNT_EXCLUDED_CONTAINERS_CLS_NAMES = new HashSet<>();
 	private static final Collection<String> COIN_COUNT_EXCLUDED_GU_IS_CLS_NAMES = new HashSet<>();
 	private static final Collection<String> COIN_COUNT_EXCLUDED_INV_TYPES_CLS_NAMES = new HashSet<>();
+
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
 	static {
 		COIN_COUNT_EXCLUDED_GU_IS.add(GuiContainerCreative.class);
@@ -273,7 +274,7 @@ public class GOTGuiEventHandler {
 						GL11.glPushMatrix();
 						GL11.glTranslatef(0.0F, 0.0F, 500.0F);
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-						itemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), new ItemStack(GOTItems.coin), x, y);
+						ITEM_RENDERER.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), new ItemStack(GOTItems.coin), x, y);
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 						GL11.glDisable(2896);
 						mc.fontRenderer.drawString(sCoins, x + 16 + 2, y + (16 - mc.fontRenderer.FONT_HEIGHT + 2) / 2, 16777215);

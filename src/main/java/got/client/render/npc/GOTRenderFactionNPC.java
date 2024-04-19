@@ -43,7 +43,7 @@ public class GOTRenderFactionNPC extends GOTRenderBiped {
 	public void renderModel(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.renderModel(entity, f, f1, f2, f3, f4, f5);
 		if (entity instanceof GOTEntityShryke || entity instanceof GOTEntityAsshaiAlchemist || entity instanceof GOTEntityAsshaiArchmag || entity instanceof GOTEntityIfekevron) {
-			ResourceLocation eyes = GOTTextures.getEyesTexture(getEntityTexture(entity), new int[][]{{9, 12}, {13, 12}}, 2, 1);
+			ResourceLocation eyes = GOTTextures.getEyesTexture(getEntityTexture(entity), new int[][]{new int[]{9, 12}, new int[]{13, 12}}, 2, 1);
 			GOTGlowingEyes.renderGlowingEyes(entity, eyes, eyesModel, f, f1, f2, f3, f4, f5);
 		}
 	}

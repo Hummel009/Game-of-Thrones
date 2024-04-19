@@ -23,7 +23,6 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		float r = (colour >> 16 & 255) / 255.0F;
 		float g = (colour >> 8 & 255) / 255.0F;
 		float b = (colour & 255) / 255.0F;
-
 		colour(r, g, b);
 	}
 
@@ -68,28 +67,23 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		if (!(entity instanceof GOTEntityLingeringPotion)) {
 			return;
 		}
-
 		ItemStack stack = ((GOTEntityLingeringPotion) entity).getStack();
 		if (stack == null || stack.getItem() == null) {
 			return;
 		}
-
 		int passes;
 		if (stack.getItem().requiresMultipleRenderPasses()) {
 			passes = stack.getItem().getRenderPasses(0);
 		} else {
 			passes = 1;
 		}
-
 		pushMatrix();
 		translate(x, y, z);
 		enableRescaleNormal();
 		scale(0.5F, 0.5F, 0.5F);
 		bindEntityTexture(entity);
-
 		for (int pass = 0; pass < passes; pass++) {
 			IIcon icon = stack.getItem().getIcon(stack, pass);
-
 			if (icon != null) {
 				pushMatrix();
 				colour(stack.getItem().getColorFromItemStack(stack, pass));
@@ -97,7 +91,6 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 				popMatrix();
 			}
 		}
-
 		colour(1, 1, 1);
 		disableRescaleNormal();
 		popMatrix();
@@ -105,12 +98,10 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 
 	private void renderIcon(IIcon icon) {
 		Tessellator tessellator = Tessellator.instance;
-
 		float minU = icon.getMinU();
 		float maxU = icon.getMaxU();
 		float minV = icon.getMinV();
 		float maxV = icon.getMaxV();
-
 		rotate(180.0F - renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 		rotate(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 		tessellator.startDrawingQuads();

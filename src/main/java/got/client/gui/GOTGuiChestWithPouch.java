@@ -13,6 +13,7 @@ public class GOTGuiChestWithPouch extends GuiContainer {
 
 	private final IInventory pouchInv;
 	private final IInventory chestInv;
+
 	private final int chestRows;
 	private final int pouchRows;
 

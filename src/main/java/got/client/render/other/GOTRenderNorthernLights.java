@@ -24,28 +24,33 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class GOTRenderNorthernLights {
-	private static final Random RAND = new Random();
-	private static final Random DATE_RAND = new Random();
-	private static final AuroraCycle WAVE_0 = new AuroraCycle(4.0f, 0.01f, 0.9f);
-	private static final AuroraCycle GLOW_0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
 	private static final Collection<AuroraCycle> WAVE_OSCILLATIONS = new ArrayList<>();
 	private static final Collection<AuroraCycle> GLOW_OSCILLATIONS = new ArrayList<>();
 
-	private static int nlTick;
-	private static int currentNightNum;
-	private static float brightnessTonight;
-	private static float maxNorthTonight;
-	private static float minNorthTonight;
-	private static int rainingTick;
-	private static int rainingTickPrev;
-	private static boolean atNightKing;
-	private static int nightKingChange;
+	private static final AuroraCycle WAVE_0 = new AuroraCycle(4.0f, 0.01f, 0.9f);
+	private static final AuroraCycle GLOW_0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
+
+	private static final Random RAND = new Random();
+	private static final Random DATE_RAND = new Random();
+
 	private static float[] colorTopCurrent;
 	private static float[] colorMidCurrent;
 	private static float[] colorBottomCurrent;
 	private static float[] colorTopNext;
 	private static float[] colorMidNext;
 	private static float[] colorBottomNext;
+
+	private static boolean atNightKing;
+
+	private static float brightnessTonight;
+	private static float maxNorthTonight;
+	private static float minNorthTonight;
+
+	private static int nlTick;
+	private static int currentNightNum;
+	private static int rainingTick;
+	private static int rainingTickPrev;
+	private static int nightKingChange;
 	private static int colorChangeTime;
 	private static int colorChangeTick;
 	private static int timeUntilColorChange;

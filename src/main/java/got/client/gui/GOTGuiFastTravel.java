@@ -18,23 +18,29 @@ import java.util.List;
 public class GOTGuiFastTravel extends GOTGuiScreenBase {
 	private static final ResourceLocation FT_SOUND = new ResourceLocation("got:event.fastTravel");
 
-	private final float zoomBase;
-	private final double mapScaleFactor;
-	private final GOTGuiMap mapGui;
-	private final GOTGuiRendererMap mapRenderer;
 	private final GOTAbstractWaypoint theWaypoint;
+
+	private final GOTGuiRendererMap mapRenderer;
+	private final GOTGuiMap mapGui;
+
 	private final String message;
 
-	private int tickCounter;
+	private final double mapScaleFactor;
+	private final float zoomBase;
+
+	private boolean reachedWP;
 	private boolean chunkLoaded;
 	private boolean playedSound;
-	private float currentZoom;
-	private float prevZoom;
 	private boolean finishedZoomIn;
+
 	private double mapSpeed;
 	private double mapVelX;
 	private double mapVelY;
-	private boolean reachedWP;
+
+	private float currentZoom;
+	private float prevZoom;
+
+	private int tickCounter;
 
 	public GOTGuiFastTravel(GOTAbstractWaypoint waypoint, int x, int z) {
 		theWaypoint = waypoint;

@@ -19,10 +19,11 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 
 	private static final int Y_SIZE = 220;
 
+	protected GOTEntityNPC theNPC;
+
 	protected int xSize = 200;
 	protected int guiLeft;
 	protected int guiTop;
-	protected GOTEntityNPC theNPC;
 	protected int page;
 
 	protected GOTGuiHiredNPC(GOTEntityNPC npc) {

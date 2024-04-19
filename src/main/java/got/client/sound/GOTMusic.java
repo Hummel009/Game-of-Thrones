@@ -34,9 +34,10 @@ import java.util.zip.ZipFile;
 public class GOTMusic implements IResourceManagerReloadListener {
 	public static final GOTMusic INSTANCE = new GOTMusic();
 
-	private static final String MUSIC_RESOURCE_PATH = "musicpacks";
 	private static final Collection<GOTMusicTrack> ALL_TRACKS = new ArrayList<>();
 	private static final Map<GOTMusicRegion.Sub, GOTRegionTrackPool> REGION_TRACKS = new HashMap<>();
+
+	private static final String MUSIC_RESOURCE_PATH = "musicpacks";
 	private static final Random MUSIC_RAND = new Random();
 
 	private static File musicDir;

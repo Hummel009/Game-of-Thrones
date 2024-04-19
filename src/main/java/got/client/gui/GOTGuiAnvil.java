@@ -42,11 +42,11 @@ public class GOTGuiAnvil extends GuiContainer {
 	}
 
 	private final GOTContainerAnvil theAnvil;
-	private ItemStack prevItemStack;
-	private GuiButton buttonReforge;
-	private GuiButton buttonEngraveOwner;
 
 	private GuiTextField textFieldRename;
+	private GuiButton buttonReforge;
+	private GuiButton buttonEngraveOwner;
+	private ItemStack prevItemStack;
 
 	public GOTGuiAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		super(new GOTContainerAnvil(entityplayer, npc));

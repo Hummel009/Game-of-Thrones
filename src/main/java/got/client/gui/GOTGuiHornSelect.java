@@ -16,6 +16,7 @@ import java.util.List;
 public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/horn_select.png");
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
+
 	private static final int X_SIZE = 176;
 	private static final int Y_SIZE = 256;
 

@@ -10,9 +10,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
-	private static final ModelBase UNSMELTERY_MODEL = new GOTModelUnsmeltery();
 	private static final ResourceLocation IDLE_TEXTURE = new ResourceLocation("got:textures/model/unsmeltery/idle.png");
 	private static final ResourceLocation ACTIVE_TEXTURE = new ResourceLocation("got:textures/model/unsmeltery/active.png");
+
+	private final ModelBase unsmelteryModel = new GOTModelUnsmeltery();
 
 	public void renderInvUnsmeltery() {
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
@@ -54,7 +55,7 @@ public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
 		} else {
 			bindTexture(IDLE_TEXTURE);
 		}
-		UNSMELTERY_MODEL.render(null, rocking, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		unsmelteryModel.render(null, rocking, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 		GL11.glPopMatrix();
 	}
 }

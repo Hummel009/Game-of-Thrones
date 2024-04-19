@@ -30,14 +30,16 @@ public class GOTGuiTitles extends GOTGuiMenuBase {
 	private final Map<GOTTitle, Pair<Boolean, Pair<Integer, Integer>>> displayedTitleInfo = new HashMap<>();
 	private final Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new EnumMap<>(EnumChatFormatting.class);
 
+	private EnumChatFormatting selectedColor = EnumChatFormatting.WHITE;
+
 	private GOTTitle.PlayerTitle currentTitle;
 	private GOTTitle selectedTitle;
-	private EnumChatFormatting selectedColor = EnumChatFormatting.WHITE;
 	private GuiButton selectButton;
 	private GuiButton removeButton;
-	private float currentScroll;
+
 	private boolean isScrolling;
 	private boolean wasMouseDown;
+	private float currentScroll;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

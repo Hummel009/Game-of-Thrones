@@ -23,7 +23,8 @@ import java.util.Random;
 
 public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/quest/miniquest.png");
-	private static final RenderItem RENDER_ITEM = new RenderItem();
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
+
 	private static final int X_SIZE = 256;
 	private static final int Y_SIZE = 200;
 
@@ -31,21 +32,26 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	private final GOTEntityNPC theNPC;
 	private final Random rand;
 
-	private String description;
-	private int openTick;
-	private int guiLeft;
-	private int guiTop;
+	private NPCAction npcAction;
+
 	private GuiButton buttonAccept;
 	private GuiButton buttonDecline;
+
+	private String description;
+
 	private boolean sentClosePacket;
-	private NPCAction npcAction;
-	private int actionTick;
-	private int actionTime;
+
 	private float actionSlow;
 	private float headYaw;
 	private float prevHeadYaw;
 	private float headPitch;
 	private float prevHeadPitch;
+
+	private int openTick;
+	private int guiLeft;
+	private int guiTop;
+	private int actionTick;
+	private int actionTime;
 
 	public GOTGuiMiniquestOffer(GOTMiniQuest quest, GOTEntityNPC npc) {
 		theMiniQuest = quest;
@@ -103,8 +109,8 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		int iconW = 16;
 		int iconB = 6;
 		int iconY = objY + fontRendererObj.FONT_HEIGHT / 2 - iconW / 2;
-		RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + X_SIZE / 2 - objWidth / 2 - iconW - iconB, iconY);
-		RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + X_SIZE / 2 + objWidth / 2 + iconB, iconY);
+		ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + X_SIZE / 2 - objWidth / 2 - iconW - iconB, iconY);
+		ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + X_SIZE / 2 + objWidth / 2 + iconB, iconY);
 		GL11.glDisable(2896);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		super.drawScreen(i, j, f);
@@ -301,9 +307,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 
 	private enum NPCAction {
 		TALKING(1.0f), SHAKING(0.1f), LOOKING(0.3f), LOOKING_UP(0.4f);
-
 		private static float totalWeight = -1.0f;
-
 		private final float weight;
 
 		NPCAction(float f) {
@@ -333,5 +337,4 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			return weight;
 		}
 	}
-
 }

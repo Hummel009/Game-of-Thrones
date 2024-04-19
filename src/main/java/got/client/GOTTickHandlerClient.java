@@ -87,6 +87,7 @@ public class GOTTickHandlerClient {
 	public static final GOTTickHandlerClient INSTANCE = new GOTTickHandlerClient();
 
 	public static final Map<EntityPlayer, Integer> PLAYERS_IN_PORTALS = new HashMap<>();
+
 	public static final GOTInvasionStatus WATCHED_INVASION = new GOTInvasionStatus();
 
 	private static final ResourceLocation PORTAL_OVERLAY = new ResourceLocation("got:textures/misc/frost_overlay.png");
@@ -95,30 +96,39 @@ public class GOTTickHandlerClient {
 	private static final ResourceLocation BURN_OVERLAY = new ResourceLocation("got:textures/misc/burn_overlay.png");
 	private static final ResourceLocation WIGHT_OVERLAY = new ResourceLocation("got:textures/misc/wight.png");
 
-	private static final float[] FROST_RGB_MIDDLE = {0.4F, 0.46F, 0.74F};
-	private static final float[] FROST_RGB_EDGE = {1.0F, 1.0F, 1.0F};
+	private static final float[] FROST_RGB_MIDDLE = new float[]{0.4F, 0.46F, 0.74F};
+	private static final float[] FROST_RGB_EDGE = new float[]{1.0F, 1.0F, 1.0F};
 
-	private static int clientTick;
-	private static float renderTick;
 	private static boolean anyWightsViewed;
+	private static int clientTick;
 	private static boolean renderMenuPrompt;
+	private static float renderTick;
+
+	private GOTMusicTrack lastTrack;
 
 	private GuiScreen lastGuiOpen;
-	private int mistTick;
-	private int prevMistTick;
+	private ItemStack lastHighlightedItemstack;
+	private String highlightedItemstackName;
+
+	private boolean firstAlignmentRender = true;
+	private boolean wasShowingBannerRepossessMessage;
+	private boolean addedClientPoisonEffect;
+	private boolean cancelItemHighlight;
+
 	private float mistFactor;
 	private float sunGlare;
 	private float prevSunGlare;
 	private float rainFactor;
 	private float prevRainFactor;
+
+	private int mistTick;
+	private int prevMistTick;
 	private int alignmentXBase;
 	private int alignmentYBase;
 	private int alignmentXCurrent;
 	private int alignmentYCurrent;
 	private int alignmentXPrev;
 	private int alignmentYPrev;
-	private boolean firstAlignmentRender = true;
-	private boolean wasShowingBannerRepossessMessage;
 	private int bannerRepossessDisplayTick;
 	private int frostTick;
 	private int burnTick;
@@ -128,12 +138,7 @@ public class GOTTickHandlerClient {
 	private int wightLookTick;
 	private int prevWightNearTick;
 	private int wightNearTick;
-	private boolean addedClientPoisonEffect;
-	private GOTMusicTrack lastTrack;
 	private int musicTrackTick;
-	private ItemStack lastHighlightedItemstack;
-	private String highlightedItemstackName;
-	private boolean cancelItemHighlight;
 
 	private GOTTickHandlerClient() {
 	}
@@ -803,7 +808,7 @@ public class GOTTickHandlerClient {
 		WorldClient worldClient = mc.theWorld;
 		WorldProvider provider = worldClient.provider;
 		if (provider instanceof GOTWorldProvider) {
-			float[] rgb = {event.red, event.green, event.blue};
+			float[] rgb = new float[]{event.red, event.green, event.blue};
 			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(rgb);
 			event.red = rgb[0];
 			event.green = rgb[1];
@@ -1165,7 +1170,7 @@ public class GOTTickHandlerClient {
 						GL11.glTranslatef(compassX, compassY, 0.0F);
 						float rotation = entityplayer.prevRotationYaw + (entityplayer.rotationYaw - entityplayer.prevRotationYaw) * event.renderTickTime;
 						rotation = 180.0F - rotation;
-						GOTModelCompass.COMPASS_MODEL.render(1.0F, rotation);
+						GOTModelCompass.INSTANCE.render(1.0F, rotation);
 						GL11.glPopMatrix();
 						if (GOTConfig.compassExtraInfo) {
 							GL11.glPushMatrix();

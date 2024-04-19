@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFallingFireJar extends RenderFallingBlock {
-	private static final RenderBlocks RENDER_BLOCKS = new RenderBlocks();
+	private static final RenderBlocks BLOCK_RENDERER = new RenderBlocks();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -28,11 +28,11 @@ public class GOTRenderFallingFireJar extends RenderFallingBlock {
 				GL11.glTranslatef((float) d, (float) d1, (float) d2);
 				bindEntityTexture(entity);
 				GL11.glDisable(2896);
-				RENDER_BLOCKS.blockAccess = world;
+				BLOCK_RENDERER.blockAccess = world;
 				Tessellator tessellator = Tessellator.instance;
 				tessellator.startDrawingQuads();
 				tessellator.setTranslation(-i - 0.5f, -j - 0.5f, -k - 0.5f);
-				RENDER_BLOCKS.renderBlockByRenderType(block, i, j, k);
+				BLOCK_RENDERER.renderBlockByRenderType(block, i, j, k);
 				tessellator.setTranslation(0.0, 0.0, 0.0);
 				tessellator.draw();
 				GL11.glEnable(2896);

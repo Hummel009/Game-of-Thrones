@@ -16,8 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTDrinkIcons {
-	private static final Map<String, BufferedImage> vesselIcons = new HashMap<>();
-	private static final Map<Item, BufferedImage> liquidIcons = new HashMap<>();
+	private static final Map<String, BufferedImage> VESSEL_ICONS = new HashMap<>();
+	private static final Map<Item, BufferedImage> LIQUID_ICONS = new HashMap<>();
 
 	private GOTDrinkIcons() {
 	}
@@ -28,17 +28,17 @@ public class GOTDrinkIcons {
 		TextureMap textureMap = (TextureMap) iconregister;
 		String baseIconName = itemName.substring("got:".length());
 		try {
-			BufferedImage vesselIcon = vesselIcons.get(vessel);
+			BufferedImage vesselIcon = VESSEL_ICONS.get(vessel);
 			if (vesselIcon == null) {
 				ResourceLocation res = new ResourceLocation("got:textures/items/drink_" + vessel + ".png");
 				vesselIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());
-				vesselIcons.put(vessel, vesselIcon);
+				VESSEL_ICONS.put(vessel, vesselIcon);
 			}
-			BufferedImage liquidIcon = liquidIcons.get(item);
+			BufferedImage liquidIcon = LIQUID_ICONS.get(item);
 			if (liquidIcon == null) {
 				ResourceLocation res = new ResourceLocation("got:textures/items/" + baseIconName + "_liquid.png");
 				liquidIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());
-				liquidIcons.put(item, liquidIcon);
+				LIQUID_ICONS.put(item, liquidIcon);
 			}
 			String iconName = "got:textures/items/" + baseIconName + '_' + vessel;
 			int iconWidth = vesselIcon.getWidth();

@@ -11,8 +11,9 @@ import java.util.List;
 public class GOTGuiButtonPledge extends GuiButton {
 	private final GOTGuiFactions parentGUI;
 
-	private boolean isBroken;
 	private List<String> displayLines;
+
+	private boolean isBroken;
 
 	public GOTGuiButtonPledge(GOTGuiFactions gui, int i, int x, int y, String s) {
 		super(i, x, y, 32, 32, s);

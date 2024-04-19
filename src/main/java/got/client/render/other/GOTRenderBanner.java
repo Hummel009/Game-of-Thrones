@@ -23,8 +23,8 @@ public class GOTRenderBanner extends Render {
 	public static final ResourceLocation STAND_TEXTURE = new ResourceLocation("got:textures/banner/stand.png");
 
 	private static final Map<GOTItemBanner.BannerType, ResourceLocation> BANNER_TEXTURES = new EnumMap<>(GOTItemBanner.BannerType.class);
-	private static final GOTModelBanner MODEL = new GOTModelBanner();
 	private static final ICamera BANNER_FRUSTUM = new Frustrum();
+	private static final GOTModelBanner MODEL = new GOTModelBanner();
 
 	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
 		ResourceLocation r = BANNER_TEXTURES.get(type);

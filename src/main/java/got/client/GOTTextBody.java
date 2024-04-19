@@ -8,8 +8,11 @@ import java.util.List;
 
 public class GOTTextBody {
 	private static final String LINEBREAK = "<BR>";
+
 	private final List<TextColor> list = new ArrayList<>();
+
 	private final int defaultColor;
+
 	private int textWidth;
 
 	public GOTTextBody(int c) {
@@ -107,7 +110,6 @@ public class GOTTextBody {
 
 	private static class TextColor {
 		private final int color;
-
 		private String text;
 
 		private TextColor(String s, int c) {
@@ -127,5 +129,4 @@ public class GOTTextBody {
 			this.text = text;
 		}
 	}
-
 }

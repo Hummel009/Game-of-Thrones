@@ -22,6 +22,7 @@ public class GOTSwingHandler {
 	public static final GOTSwingHandler INSTANCE = new GOTSwingHandler();
 
 	private static final Map<EntityLivingBase, SwingTime> ENTITY_SWINGS = new HashMap<>();
+
 	private static final float SWING_FACTOR = 0.8f;
 
 	@SubscribeEvent

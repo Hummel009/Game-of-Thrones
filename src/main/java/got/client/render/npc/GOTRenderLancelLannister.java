@@ -27,7 +27,6 @@ public abstract class GOTRenderLancelLannister extends GOTRenderBiped {
 	}
 
 	public static class Normal extends GOTRenderLancelLannister {
-
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
 			return TEXTURE_NORMAL;
@@ -35,7 +34,6 @@ public abstract class GOTRenderLancelLannister extends GOTRenderBiped {
 	}
 
 	public static class Religious extends GOTRenderLancelLannister {
-
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
 			return TEXTURE_RELIGIOUS;

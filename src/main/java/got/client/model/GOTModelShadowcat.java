@@ -20,7 +20,6 @@ public class GOTModelShadowcat extends ModelBase {
 	public GOTModelShadowcat() {
 		textureWidth = 64;
 		textureHeight = 64;
-
 		head = new ModelRenderer(this, 0, 0);
 		head.addBox(-3.0F, -4.0F, -7.0F, 6, 5, 4);
 		head.setRotationPoint(0.0F, 10.0F, -7.5F);

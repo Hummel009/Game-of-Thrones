@@ -9,13 +9,15 @@ public class GOTGuiSlider extends GuiButton {
 	private final String baseDisplayString;
 
 	private String overrideStateString;
+
 	private boolean valueOnly;
+	private boolean dragging;
+
+	private float sliderValue = 1.0f;
+
 	private int numberDigits;
 	private int minValue;
 	private int maxValue;
-	private float sliderValue = 1.0f;
-
-	private boolean dragging;
 
 	public GOTGuiSlider(int id, int x, int y, int width, int height, String s) {
 		super(id, x, y, width, height, s);

@@ -15,15 +15,15 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTAttackTiming {
-	private static final Minecraft MC = Minecraft.getMinecraft();
 	private static final ResourceLocation METER_TEXTURE = new ResourceLocation("got:textures/gui/attackMeter.png");
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
+	private static final Minecraft MC = Minecraft.getMinecraft();
+
+	private static ItemStack attackItem;
 
 	private static int attackTime;
 	private static int prevAttackTime;
 	private static int fullAttackTime;
-
-	private static ItemStack attackItem;
 	private static int lastCheckTick = -1;
 
 	private GOTAttackTiming() {

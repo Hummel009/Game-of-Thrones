@@ -13,10 +13,12 @@ import net.minecraft.util.ResourceLocation;
 import java.util.*;
 
 public class GOTRandomSkins implements IResourceManagerReloadListener {
-	private static final Random RANDOM = new Random();
-	private static final Minecraft MC = Minecraft.getMinecraft();
 	private static final Map<String, GOTRandomSkins> ALL_RANDOM_SKINS = new HashMap<>();
+	private static final Minecraft MC = Minecraft.getMinecraft();
+	private static final Random RANDOM = new Random();
+
 	private final String skinPath;
+
 	private List<ResourceLocation> skins;
 
 	private GOTRandomSkins(String path, boolean register) {

@@ -13,8 +13,8 @@ import org.lwjgl.opengl.GL11;
 public class GOTGuiHiredWarriorInventory extends GuiContainer {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/npc/hiredWarrior.png");
 
-	private final GOTEntityNPC theNPC;
 	private final GOTContainerHiredWarriorInventory containerInv;
+	private final GOTEntityNPC theNPC;
 
 	public GOTGuiHiredWarriorInventory(InventoryPlayer inv, GOTEntityNPC entity) {
 		super(new GOTContainerHiredWarriorInventory(inv, entity));

@@ -22,21 +22,27 @@ public class GOTGuiAchievements extends GOTGuiMenuBaseReturn {
 
 	private static GOTDimension currentDimension;
 	private static GOTDimension prevDimension;
+
 	private static GOTAchievement.Category currentCategory;
-	private final ArrayList<GOTAchievement> currentCategoryTakenAchievements = new ArrayList<>();
-	private final ArrayList<GOTAchievement> currentCategoryUntakenAchievements = new ArrayList<>();
-	private int currentCategoryTakenCount;
-	private int currentCategoryUntakenCount;
+
+	private final List<GOTAchievement> currentCategoryTakenAchievements = new ArrayList<>();
+	private final List<GOTAchievement> currentCategoryUntakenAchievements = new ArrayList<>();
+
 	private GOTGuiButtonAchievements buttonCategoryPrev;
 	private GOTGuiButtonAchievements buttonCategoryNext;
-	private float currentScroll;
+
+	private boolean wasInCategoryScrollBar;
 	private boolean isScrolling;
 	private boolean wasMouseDown;
+
+	private float currentScroll;
+
+	private int currentCategoryTakenCount;
+	private int currentCategoryUntakenCount;
 	private int catScrollAreaX0;
 	private int catScrollAreaX1;
 	private int catScrollAreaY0;
 	private int catScrollAreaY1;
-	private boolean wasInCategoryScrollBar;
 	private int prevMouseX;
 	private int mouseX;
 	private int mouseY;
@@ -83,7 +89,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBaseReturn {
 			int iconTop = guiTop + offset + 3;
 			GL11.glEnable(2896);
 			GL11.glEnable(2884);
-			RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.getIcon(), iconLeft, iconTop);
+			ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.getIcon(), iconLeft, iconTop);
 			GL11.glDisable(2896);
 			if (!hasAchievement) {
 				GL11.glPushMatrix();

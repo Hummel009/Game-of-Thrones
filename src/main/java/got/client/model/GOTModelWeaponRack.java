@@ -9,6 +9,7 @@ public class GOTModelWeaponRack extends ModelBase {
 	private final ModelRenderer stand;
 	private final ModelRenderer holder;
 	private final ModelRenderer holderUpperParts;
+
 	private boolean onWall;
 
 	public GOTModelWeaponRack() {

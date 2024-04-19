@@ -38,17 +38,20 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	private final GOTHireableBase theUnitTrader;
 	private final GOTFaction traderFaction;
 
-	private GOTUnitTradeEntries trades;
-	private int currentTradeEntryIndex;
-	private GOTEntityNPC currentDisplayedMob;
-	private EntityLiving currentDisplayedMount;
-	private float screenXSize;
-	private float screenYSize;
 	private GOTGuiUnitTradeButton buttonHire;
 	private GOTGuiUnitTradeButton buttonLeftUnit;
 	private GOTGuiUnitTradeButton buttonRightUnit;
-
+	private GOTUnitTradeEntries trades;
 	private GuiTextField squadronNameField;
+
+	private GOTEntityNPC currentDisplayedMob;
+	private EntityLiving currentDisplayedMount;
+
+	private float screenXSize;
+	private float screenYSize;
+
+	private int currentTradeEntryIndex;
+
 
 	protected GOTGuiHireBase(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		super(new GOTContainerUnitTrade(entityplayer, trader, world));

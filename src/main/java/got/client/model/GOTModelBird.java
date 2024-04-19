@@ -8,7 +8,6 @@ import net.minecraft.util.MathHelper;
 
 public class GOTModelBird extends ModelBase {
 	private final ModelRenderer head;
-
 	private final ModelRenderer body = new ModelRenderer(this, 0, 7);
 	private final ModelRenderer wingRight;
 	private final ModelRenderer wingLeft;

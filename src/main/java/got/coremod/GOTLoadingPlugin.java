@@ -2,8 +2,6 @@ package got.coremod;
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("all")
@@ -18,9 +16,7 @@ public class GOTLoadingPlugin implements IFMLLoadingPlugin {
 
 	@Override
 	public String[] getASMTransformerClass() {
-		List<String> classes = new ArrayList<>();
-		classes.add(GOTClassTransformer.class.getName());
-		return classes.toArray(new String[0]);
+		return new String[]{GOTClassTransformer.class.getName()};
 	}
 
 	@Override

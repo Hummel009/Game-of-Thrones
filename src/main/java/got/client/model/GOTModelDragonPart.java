@@ -11,6 +11,8 @@ import static org.lwjgl.opengl.GL11.*;
 public class GOTModelDragonPart extends ModelRenderer {
 	private final ModelBase base;
 
+	private boolean compiled;
+
 	private float renderScaleX = 1;
 	private float renderScaleY = 1;
 	private float renderScaleZ = 1;
@@ -18,7 +20,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 	private float preRotateAngleY;
 	private float preRotateAngleZ;
 
-	private boolean compiled;
 	private int displayList;
 
 	public GOTModelDragonPart(ModelBase base, String name) {
@@ -31,7 +32,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 		part.mirror = mirror;
 		part.addBox(name, xOfs, yOfs, zOfs, width, length, height);
 		addChild(part);
-
 		return part;
 	}
 
@@ -50,9 +50,7 @@ public class GOTModelDragonPart extends ModelRenderer {
 		if (isHidden || !showModel) {
 			return;
 		}
-
 		glTranslatef(rotationPointX * scale, rotationPointY * scale, rotationPointZ * scale);
-
 		if (preRotateAngleZ != 0) {
 			glRotatef(GOTModelDragonAnimaton.toDegrees(preRotateAngleZ), 0, 0, 1);
 		}
@@ -62,7 +60,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 		if (preRotateAngleX != 0) {
 			glRotatef(GOTModelDragonAnimaton.toDegrees(preRotateAngleX), 1, 0, 0);
 		}
-
 		if (rotateAngleZ != 0) {
 			glRotatef(GOTModelDragonAnimaton.toDegrees(rotateAngleZ), 0, 0, 1);
 		}
@@ -72,7 +69,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 		if (rotateAngleX != 0) {
 			glRotatef(GOTModelDragonAnimaton.toDegrees(rotateAngleX), 1, 0, 0);
 		}
-
 		if (renderScaleX != 0 || renderScaleY != 0 || renderScaleZ != 0) {
 			glScalef(renderScaleX, renderScaleY, renderScaleZ);
 		}
@@ -91,11 +87,8 @@ public class GOTModelDragonPart extends ModelRenderer {
 		if (!compiled) {
 			compDisplayList(scale);
 		}
-
 		glPushMatrix();
-
 		postRender(scale);
-
 		glCallList(displayList);
 		if (childModels != null) {
 			for (Object obj : childModels) {
@@ -109,7 +102,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 		rotateAngleX = x;
 		rotateAngleY = y;
 		rotateAngleZ = z;
-
 		return this;
 	}
 

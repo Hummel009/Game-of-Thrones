@@ -27,22 +27,25 @@ public class GOTGuiShields extends GOTGuiMenuBase {
 		PLAYER_MODEL.isChild = false;
 	}
 
-	private int modelX;
-	private int modelY;
-	private float modelRotation = -140.0f;
-	private float modelRotationPrev = -140.0f;
-	private int isMouseDown;
-	private int mouseX;
-	private int mouseY;
-	private int prevMouseX;
 	private GOTShields.ShieldType currentShieldType;
 	private GOTShields currentShield;
+
 	private GuiButton shieldLeft;
 	private GuiButton shieldRight;
 	private GuiButton shieldSelect;
 	private GuiButton shieldRemove;
 	private GuiButton goToCape;
 	private GuiButton changeCategory;
+
+	private float modelRotation = -140.0f;
+	private float modelRotationPrev = -140.0f;
+
+	private int prevMouseX;
+	private int isMouseDown;
+	private int modelX;
+	private int modelY;
+	private int mouseX;
+	private int mouseY;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

@@ -18,10 +18,52 @@ public class GOTModelGiant extends ModelBase {
 	private final ModelRenderer leftLeg;
 	private final ModelRenderer woodenClub;
 	private final ModelRenderer woodenClubSpikes;
+
 	private boolean isOutiftModel;
 
 	public GOTModelGiant() {
 		this(0.0f);
+	}
+
+	public GOTModelGiant(float f, int i) {
+		this(f);
+		isOutiftModel = true;
+		switch (i) {
+			case 0:
+				head.showModel = true;
+				body.showModel = true;
+				rightArm.showModel = true;
+				leftArm.showModel = true;
+				rightLeg.showModel = false;
+				leftLeg.showModel = false;
+				break;
+			case 1:
+				head.showModel = false;
+				body.showModel = false;
+				rightArm.showModel = false;
+				leftArm.showModel = false;
+				rightLeg.showModel = true;
+				leftLeg.showModel = true;
+				break;
+			case 2:
+				head.showModel = true;
+				body.showModel = false;
+				rightArm.showModel = false;
+				leftArm.showModel = false;
+				rightLeg.showModel = false;
+				leftLeg.showModel = false;
+				break;
+			case 3:
+				head.showModel = false;
+				body.showModel = true;
+				rightArm.showModel = true;
+				leftArm.showModel = true;
+				rightLeg.showModel = false;
+				leftLeg.showModel = false;
+				break;
+			default:
+				break;
+		}
 	}
 
 	private GOTModelGiant(float f) {
@@ -78,47 +120,6 @@ public class GOTModelGiant extends ModelBase {
 		woodenClubSpikes.setRotationPoint(-12.0f, -23.0f, 0.0f);
 	}
 
-	public GOTModelGiant(float f, int i) {
-		this(f);
-		isOutiftModel = true;
-		switch (i) {
-			case 0:
-				head.showModel = true;
-				body.showModel = true;
-				rightArm.showModel = true;
-				leftArm.showModel = true;
-				rightLeg.showModel = false;
-				leftLeg.showModel = false;
-				break;
-			case 1:
-				head.showModel = false;
-				body.showModel = false;
-				rightArm.showModel = false;
-				leftArm.showModel = false;
-				rightLeg.showModel = true;
-				leftLeg.showModel = true;
-				break;
-			case 2:
-				head.showModel = true;
-				body.showModel = false;
-				rightArm.showModel = false;
-				leftArm.showModel = false;
-				rightLeg.showModel = false;
-				leftLeg.showModel = false;
-				break;
-			case 3:
-				head.showModel = false;
-				body.showModel = true;
-				rightArm.showModel = true;
-				leftArm.showModel = true;
-				rightLeg.showModel = false;
-				leftLeg.showModel = false;
-				break;
-			default:
-				break;
-		}
-	}
-
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
@@ -171,7 +172,6 @@ public class GOTModelGiant extends ModelBase {
 		leftArm.rotationPointY = -23.0f;
 		head.rotateAngleY = f3 / 57.295776f;
 		head.rotateAngleX = f4 / 57.295776f;
-
 		rightArm.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 2.0f * f1 * 0.5f;
 		leftArm.rotateAngleX = MathHelper.cos(f * 0.6662f) * 2.0f * f1 * 0.5f;
 		if (entity instanceof GOTEntityGiantBase) {

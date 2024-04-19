@@ -13,10 +13,12 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
+	private static final ModelBiped MODEL = new GOTModelHuman(0.6f, false);
+
 	private final String name;
+
 	private final boolean enableCape;
 	private final float height;
-	private final ModelBiped model = new GOTModelHuman(0.6f, false);
 
 	public GOTRenderLegendaryNPCLayered(String texture) {
 		super(new GOTModelHuman(), 0.5f);
@@ -81,7 +83,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 	public int shouldRenderPass(EntityLiving entity, int pass, float f) {
 		GOTEntityNPC legend = (GOTEntityNPC) entity;
 		if (pass == 0 && legend.getEquipmentInSlot(4) == null || pass == 1 && legend.getEquipmentInSlot(3) == null) {
-			setRenderPassModel(model);
+			setRenderPassModel(MODEL);
 			bindTexture(getSecondLayerTexture());
 			return 1;
 		}

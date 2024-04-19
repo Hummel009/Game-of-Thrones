@@ -24,6 +24,7 @@ public class GOTGuiBarrel extends GuiContainer {
 	private final GOTTileEntityBarrel theBarrel;
 
 	private GuiButton brewingButton;
+
 	private float brewAnim = -1.0f;
 
 	public GOTGuiBarrel(InventoryPlayer inv, GOTTileEntityBarrel barrel) {

@@ -17,8 +17,8 @@ import java.util.Map;
 
 public class GOTRenderChest extends TileEntitySpecialRenderer {
 	private static final Map<String, ResourceLocation> CHEST_TEXTURES = new HashMap<>();
-	private static final ModelChest CHEST_MODEL = new ModelChest();
 	private static final GOTTileEntityChest ITEM_ENTITY = new GOTTileEntityChest();
+	private static final ModelChest CHEST_MODEL = new ModelChest();
 
 	private static ResourceLocation getChestTexture(String s) {
 		ResourceLocation r = CHEST_TEXTURES.get(s);

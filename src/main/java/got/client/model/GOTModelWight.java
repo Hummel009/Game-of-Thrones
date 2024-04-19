@@ -4,11 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelWight extends GOTModelBiped {
-	public GOTModelWight() {
-		this(0.0f);
-	}
-
-	private GOTModelWight(float f) {
+	public GOTModelWight(float f) {
 		super(f);
 		textureWidth = 64;
 		textureHeight = 64;

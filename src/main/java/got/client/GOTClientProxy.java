@@ -434,14 +434,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void onInit() {
 		GOTClientFactory.onInit();
-
 		GOTTextures.onInit();
 		GOTRender.onInit();
-
 		for (Map.Entry<Class<? extends Entity>, Render> cl : GOTRender.RENDERS.entrySet()) {
 			RenderingRegistry.registerEntityRenderingHandler(cl.getKey(), cl.getValue());
 		}
-
 		beaconRenderID = RenderingRegistry.getNextAvailableRenderId();
 		barrelRenderID = RenderingRegistry.getNextAvailableRenderId();
 		bombRenderID = RenderingRegistry.getNextAvailableRenderId();
@@ -475,7 +472,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 		trapdoorRenderID = RenderingRegistry.getNextAvailableRenderId();
 		plantainRenderID = RenderingRegistry.getNextAvailableRenderId();
 		leavesRenderID = RenderingRegistry.getNextAvailableRenderId();
-
 		RenderingRegistry.registerBlockHandler(plantainRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(leavesRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(beaconRenderID, new GOTRenderBlocks(true));
@@ -509,7 +505,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 		RenderingRegistry.registerBlockHandler(ropeRenderID, new GOTRenderBlocks(false));
 		RenderingRegistry.registerBlockHandler(chainRenderID, new GOTRenderBlocks(false));
 		RenderingRegistry.registerBlockHandler(trapdoorRenderID, new GOTRenderBlocks(true));
-
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityBeacon.class, new GOTRenderBeacon());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityPlate.class, new GOTRenderPlateFood());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySpawnerChest.class, new GOTRenderSpawnerChest());
@@ -524,7 +519,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityKebabStand.class, new GOTRenderKebabStand());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarved.class, new GOTRenderSignCarved());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarvedValyrian.class, new GOTRenderSignCarvedValyrian());
-
 		GOTClientFactory.getThirdPersonViewer().init();
 	}
 
@@ -555,7 +549,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void preInit() {
 		System.setProperty("fml.skipFirstTextureLoad", "false");
-
 		GOTClientFactory.preInit();
 	}
 

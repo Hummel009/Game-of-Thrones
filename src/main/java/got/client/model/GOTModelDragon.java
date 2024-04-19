@@ -17,11 +17,12 @@ public class GOTModelDragon extends ModelBase {
 	private static final int HEAD_OFS = -16;
 
 	private final ResourceLocation eggTexture;
-
 	private final ResourceLocation bodyTexture;
 	private final ResourceLocation glowTexture;
 	private final ResourceLocation saddleTexture;
+
 	private final GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
+
 	private final GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
 	private final GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
 	private final GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
@@ -46,12 +47,12 @@ public class GOTModelDragon extends ModelBase {
 	private GOTModelDragonPart wingArm;
 	private GOTModelDragonPart wingForearm;
 
-	private int renderPass = -1;
 	private float offsetX;
 	private float offsetY;
 	private float offsetZ;
 	private float pitch;
 	private float size;
+	private int renderPass = -1;
 
 	public GOTModelDragon() {
 		textureWidth = 256;
@@ -100,7 +101,6 @@ public class GOTModelDragon extends ModelBase {
 		body.addBox("body", -12, 0, -16, 24, 24, 64);
 		body.addBox("scale", -1, -6, 10, 2, 6, 12);
 		body.addBox("scale", -1, -6, 30, 2, 6, 12);
-
 		back = body.addChildBox("scale", -1, -6, -10, 2, 6, 12);
 	}
 
@@ -120,22 +120,17 @@ public class GOTModelDragon extends ModelBase {
 	private void buildHorn(boolean mirror) {
 		int hornThick = 3;
 		int hornLength = 12;
-
 		float hornOfs = -(hornThick / 2.0f);
-
 		float hornPosX = -5;
 		float hornPosY = -8;
 		float hornPosZ = 0;
-
 		float hornRotX = GOTModelDragonAnimaton.toRadians(30);
 		float hornRotY = GOTModelDragonAnimaton.toRadians(-30);
 		float hornRotZ = 0;
-
 		if (mirror) {
 			hornPosX *= -1;
 			hornRotY *= -1;
 		}
-
 		head.mirror = mirror;
 		GOTModelDragonPart horn = head.addChildBox("horn", hornOfs, hornOfs, hornOfs, hornThick, hornThick, hornLength);
 		horn.setRotationPoint(hornPosX, hornPosY, hornPosZ);
@@ -145,76 +140,57 @@ public class GOTModelDragon extends ModelBase {
 	private void buildLeg(boolean hind) {
 		float baseLength = 26;
 		String baseName = hind ? "hind" : "fore";
-
 		float thighPosX = -11;
 		float thighPosY = 18;
 		float thighPosZ = 4;
-
 		int thighThick = 9;
 		int thighLength = (int) (baseLength * (hind ? 0.9f : 0.77f));
-
 		if (hind) {
 			thighThick++;
 			thighPosY -= 5;
 		}
-
 		float thighOfs = -(thighThick / 2.0f);
-
 		GOTModelDragonPart thigh = new GOTModelDragonPart(this, baseName + "thigh");
 		thigh.setRotationPoint(thighPosX, thighPosY, thighPosZ);
 		thigh.addBox("main", thighOfs, thighOfs, thighOfs, thighThick, thighLength, thighThick);
-
 		float crusPosX = 0;
 		float crusPosY = thighLength + thighOfs;
 		float crusPosZ = 0;
-
 		int crusThick = thighThick - 2;
 		int crusLength = (int) (baseLength * (hind ? 0.7f : 0.8f));
-
 		if (hind) {
 			crusThick--;
 			crusLength -= 2;
 		}
-
 		float crusOfs = -(crusThick / 2.0f);
-
 		GOTModelDragonPart crus = new GOTModelDragonPart(this, baseName + "crus");
 		crus.setRotationPoint(crusPosX, crusPosY, crusPosZ);
 		crus.addBox("main", crusOfs, crusOfs, crusOfs, crusThick, crusLength, crusThick);
 		thigh.addChild(crus);
-
 		float footPosX = 0;
 		float footPosY = crusLength + crusOfs / 2.0f;
 		float footPosZ = 0;
-
 		int footWidth = crusThick + 2;
 		int footHeight = 4;
 		int footLength = (int) (baseLength * (hind ? 0.67f : 0.34f));
-
 		float footOfsX = -(footWidth / 2.0f);
 		float footOfsY = -(footHeight / 2.0f);
 		float footOfsZ = footLength * -0.75f;
-
 		GOTModelDragonPart foot = new GOTModelDragonPart(this, baseName + "foot");
 		foot.setRotationPoint(footPosX, footPosY, footPosZ);
 		foot.addBox("main", footOfsX, footOfsY, footOfsZ, footWidth, footHeight, footLength);
 		crus.addChild(foot);
-
 		int toeLength = (int) (baseLength * (hind ? 0.27f : 0.33f));
-
 		float toePosX = 0;
 		float toePosY = 0;
 		float toePosZ = footOfsZ - footOfsY / 2.0f;
-
 		float toeOfsX = -(footWidth / 2.0f);
 		float toeOfsY = -(footHeight / 2.0f);
 		float toeOfsZ = -toeLength;
-
 		GOTModelDragonPart toe = new GOTModelDragonPart(this, baseName + "toe");
 		toe.setRotationPoint(toePosX, toePosY, toePosZ);
 		toe.addBox("main", toeOfsX, toeOfsY, toeOfsZ, footWidth, footHeight, toeLength);
 		foot.addChild(toe);
-
 		if (hind) {
 			hindthigh = thigh;
 			hindcrus = crus;
@@ -231,7 +207,6 @@ public class GOTModelDragon extends ModelBase {
 	private void buildLegs() {
 		buildLeg(false);
 		buildLeg(true);
-
 		for (int i = 0; i < 4; i++) {
 			if (i % 2 == 0) {
 				thighProxy[i] = new GOTModelDragonPartProxy(forethigh);
@@ -245,7 +220,6 @@ public class GOTModelDragon extends ModelBase {
 		neck = new GOTModelDragonPart(this, "neck");
 		neck.addBox("box", -5, -5, -5, NECK_SIZE, NECK_SIZE, NECK_SIZE);
 		neckScale = neck.addChildBox("scale", -1, -7, -3, 2, 4, 6);
-
 		for (int i = 0; i < neckProxy.length; i++) {
 			neckProxy[i] = new GOTModelDragonPartProxy(neck);
 		}
@@ -258,14 +232,11 @@ public class GOTModelDragon extends ModelBase {
 		GOTModelDragonPart tailScaleLeft = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, scaleRotZ);
 		GOTModelDragonPart tailScaleMiddle = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, 0);
 		GOTModelDragonPart tailScaleRight = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, -scaleRotZ);
-
 		tailScaleMiddle.showModel = true;
 		tailScaleLeft.showModel = false;
 		tailScaleRight.showModel = false;
-
 		buildTailHorn(false);
 		buildTailHorn(true);
-
 		for (int i = 0; i < tailProxy.length; i++) {
 			tailProxy[i] = new GOTModelDragonPartProxy(tail);
 		}
@@ -274,28 +245,22 @@ public class GOTModelDragon extends ModelBase {
 	private void buildTailHorn(boolean mirror) {
 		int hornThick = 3;
 		int hornLength = 32;
-
 		float hornOfs = -(hornThick / 2.0f);
-
 		float hornPosX = 0;
 		float hornPosZ = TAIL_SIZE / 2.0f;
-
 		float hornRotX = GOTModelDragonAnimaton.toRadians(-15);
 		float hornRotY = GOTModelDragonAnimaton.toRadians(-145);
 		float hornRotZ = 0;
-
 		if (mirror) {
 			hornPosX *= -1;
 			hornRotY *= -1;
 		}
-
 		tail.mirror = mirror;
 		GOTModelDragonPart horn = tail.addChildBox("horn", hornOfs, hornOfs, hornOfs, hornThick, hornThick, hornLength);
 		horn.setRotationPoint(hornPosX, hornOfs, hornPosZ);
 		horn.setAngles(hornRotX, hornRotY, hornRotZ);
 		horn.isHidden = true;
 		horn.showModel = false;
-
 		if (mirror) {
 			tailHornLeft = horn;
 		} else {
@@ -309,12 +274,10 @@ public class GOTModelDragon extends ModelBase {
 		wingArm.setRenderScale(1.1f);
 		wingArm.addBox("bone", -28, -3, -3, 28, 6, 6);
 		wingArm.addBox("skin", -28, 0, 2, 28, 0, 24);
-
 		wingForearm = new GOTModelDragonPart(this, "wingforearm");
 		wingForearm.setRotationPoint(-28, 0, 0);
 		wingForearm.addBox("bone", -48, -2, -2, 48, 4, 4);
 		wingArm.addChild(wingForearm);
-
 		wingFinger[0] = buildWingFinger(false);
 		wingFinger[1] = buildWingFinger(false);
 		wingFinger[2] = buildWingFinger(false);
@@ -331,7 +294,6 @@ public class GOTModelDragon extends ModelBase {
 			finger.addBox("skin", -70, 0, 1, 70, 0, 48);
 		}
 		wingForearm.addChild(finger);
-
 		return finger;
 	}
 
@@ -350,9 +312,7 @@ public class GOTModelDragon extends ModelBase {
 		animator.setLook(lookYaw, lookPitch);
 		animator.setTicksExisted(ticksExisted);
 		animator.animate(this);
-
 		size = dragon.getScale();
-
 		renderModel(scale);
 	}
 
@@ -362,7 +322,6 @@ public class GOTModelDragon extends ModelBase {
 
 	private void renderHead(float scale) {
 		float headScale = 1.4f / (size + 0.4f);
-
 		head.setRenderScale(headScale);
 		head.render(scale);
 	}
@@ -370,18 +329,13 @@ public class GOTModelDragon extends ModelBase {
 	private void renderLegs(float scale) {
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_BACK);
-
 		for (int i = 0; i < thighProxy.length; i++) {
 			thighProxy[i].render(scale);
-
 			if (i == 1) {
-
 				glScalef(-1, 1, 1);
-
 				glCullFace(GL_FRONT);
 			}
 		}
-
 		glCullFace(GL_BACK);
 		glDisable(GL_CULL_FACE);
 	}
@@ -390,7 +344,6 @@ public class GOTModelDragon extends ModelBase {
 		glPushMatrix();
 		glTranslatef(offsetX, offsetY, offsetZ);
 		glRotatef(-pitch, 1, 0, 0);
-
 		if (renderPass == 0) {
 			renderBody(scale);
 		} else {
@@ -401,7 +354,6 @@ public class GOTModelDragon extends ModelBase {
 			renderTail(scale);
 			renderWings(scale);
 		}
-
 		glPopMatrix();
 	}
 
@@ -423,15 +375,11 @@ public class GOTModelDragon extends ModelBase {
 		glCullFace(GL_FRONT);
 		for (int i = 0; i < 2; i++) {
 			wingArm.render(scale);
-
 			if (i == 0) {
-
 				glScalef(-1, 1, 1);
-
 				glCullFace(GL_BACK);
 			}
 		}
-
 		glDisable(GL_CULL_FACE);
 		glPopMatrix();
 	}

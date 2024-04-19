@@ -9,11 +9,7 @@ import org.lwjgl.opengl.GL11;
 public class GOTModelTurban extends GOTModelRobes {
 	private final ModelRenderer ornament;
 
-	public GOTModelTurban() {
-		this(0.0f);
-	}
-
-	private GOTModelTurban(float f) {
+	public GOTModelTurban(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);

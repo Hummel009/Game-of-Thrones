@@ -3,10 +3,6 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelHarpy extends GOTModelBiped {
-	public GOTModelHarpy() {
-		this(0.0f);
-	}
-
 	public GOTModelHarpy(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);

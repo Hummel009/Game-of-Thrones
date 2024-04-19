@@ -35,51 +35,62 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 	private final List<GOTFellowshipClient> allFellowshipsOther = new ArrayList<>();
 	private final List<GOTFellowshipClient> allFellowshipInvites = new ArrayList<>();
 	private final Collection<GOTGuiButtonFsOption> orderedFsOptionButtons = new ArrayList<>();
+
 	private final int scrollBarX = sizeX + 2 + 1;
+
 	private final GOTGuiScrollPane scrollPaneLeading = new GOTGuiScrollPane(SCROLL_WIDGET_WIDTH, SCROLL_WIDGET_HEIGHT);
 	private final GOTGuiScrollPane scrollPaneOther = new GOTGuiScrollPane(SCROLL_WIDGET_WIDTH, SCROLL_WIDGET_HEIGHT);
 	private final GOTGuiScrollPane scrollPaneMembers = new GOTGuiScrollPane(SCROLL_WIDGET_WIDTH, SCROLL_WIDGET_HEIGHT);
 	private final GOTGuiScrollPane scrollPaneInvites = new GOTGuiScrollPane(SCROLL_WIDGET_WIDTH, SCROLL_WIDGET_HEIGHT);
 
 	private Page page = Page.LIST;
+
+	private GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult acceptInviteResult;
+
 	private GOTFellowshipClient mouseOverFellowship;
 	private GOTFellowshipClient viewingFellowship;
+
+	private GOTGuiButtonFsOption buttonInvitePlayer;
+	private GOTGuiButtonFsOption buttonDisband;
+	private GOTGuiButtonFsOption buttonSetIcon;
+	private GOTGuiButtonFsOption buttonRename;
+	private GOTGuiButtonFsOption buttonPVP;
+	private GOTGuiButtonFsOption buttonHiredFF;
+	private GOTGuiButtonFsOption buttonMapShow;
+
+	private GuiTextField textFieldName;
+	private GuiTextField textFieldPlayer;
+	private GuiTextField textFieldRename;
+
+	private GuiButton buttonCreate;
+	private GuiButton buttonCreateThis;
+	private GuiButton buttonInviteThis;
+	private GuiButton buttonDisbandThis;
+	private GuiButton buttonLeave;
+	private GuiButton buttonLeaveThis;
+	private GuiButton buttonRemove;
+	private GuiButton buttonTransfer;
+	private GuiButton buttonRenameThis;
+	private GuiButton buttonBack;
+	private GuiButton buttonInvites;
+	private GuiButton buttonOp;
+	private GuiButton buttonDeop;
+
 	private UUID mouseOverPlayer;
-	private boolean mouseOverPlayerRemove;
-	private boolean mouseOverPlayerOp;
-	private boolean mouseOverPlayerDeop;
-	private boolean mouseOverPlayerTransfer;
 	private UUID removingPlayer;
 	private UUID oppingPlayer;
 	private UUID deoppingPlayer;
 	private UUID transferringPlayer;
+
+	private String acceptInviteResultFellowshipName;
+
+	private boolean mouseOverPlayerRemove;
+	private boolean mouseOverPlayerOp;
+	private boolean mouseOverPlayerDeop;
+	private boolean mouseOverPlayerTransfer;
 	private boolean mouseOverInviteAccept;
 	private boolean mouseOverInviteReject;
-	private GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult acceptInviteResult;
-	private String acceptInviteResultFellowshipName;
-	private GuiButton buttonCreate;
-	private GuiButton buttonCreateThis;
-	private GOTGuiButtonFsOption buttonInvitePlayer;
-	private GuiButton buttonInviteThis;
-	private GOTGuiButtonFsOption buttonDisband;
-	private GuiButton buttonDisbandThis;
-	private GuiButton buttonLeave;
-	private GuiButton buttonLeaveThis;
-	private GOTGuiButtonFsOption buttonSetIcon;
-	private GuiButton buttonRemove;
-	private GuiButton buttonTransfer;
-	private GOTGuiButtonFsOption buttonRename;
-	private GuiButton buttonRenameThis;
-	private GuiButton buttonBack;
-	private GuiButton buttonInvites;
-	private GOTGuiButtonFsOption buttonPVP;
-	private GOTGuiButtonFsOption buttonHiredFF;
-	private GOTGuiButtonFsOption buttonMapShow;
-	private GuiButton buttonOp;
-	private GuiButton buttonDeop;
-	private GuiTextField textFieldName;
-	private GuiTextField textFieldPlayer;
-	private GuiTextField textFieldRename;
+
 	private int displayedFellowshipsLeading;
 	private int displayedFellowshipsOther;
 	private int displayedMembers;
@@ -331,7 +342,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glPushMatrix();
 			GL11.glScalef(scale, scale, 1.0F);
-			RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), fsIcon, Math.round(x / scale), Math.round(y / scale));
+			ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), fsIcon, Math.round(x / scale), Math.round(y / scale));
 			GL11.glPopMatrix();
 			GL11.glDisable(2896);
 		}

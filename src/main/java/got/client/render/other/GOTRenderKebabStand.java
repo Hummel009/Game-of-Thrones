@@ -12,8 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
-	private static final GOTModelKebabStand STAND_MODEL = new GOTModelKebabStand();
 	private static final Map<String, ResourceLocation> STAND_TEXTURES = new HashMap<>();
+
+	private static final GOTModelKebabStand STAND_MODEL = new GOTModelKebabStand();
 	private static final ResourceLocation RAW_TEXTURE = new ResourceLocation("got:textures/model/kebab/raw.png");
 	private static final ResourceLocation COOKED_TEXTURE = new ResourceLocation("got:textures/model/kebab/cooked.png");
 

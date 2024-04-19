@@ -4,11 +4,12 @@ import got.client.GOTKeyHandler;
 import net.minecraft.client.gui.GuiButton;
 
 public abstract class GOTGuiMenuBase extends GOTGuiScreenBase {
+	protected GuiButton goBack;
+
 	protected int sizeX = 200;
 	protected int sizeY = 256;
 	protected int guiLeft;
 	protected int guiTop;
-	protected GuiButton goBack;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

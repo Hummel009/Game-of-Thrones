@@ -23,7 +23,6 @@ import java.util.Map;
 public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IResourceManagerReloadListener {
 	private final Map<IIcon, Integer> iconAverageColors = new HashMap<>();
 	private final Map<IIcon, Integer> iconContrastColors = new HashMap<>();
-
 	private BufferedImage cachedBlockAtlasImage;
 
 	private int averageIconColor(IIcon icon) {

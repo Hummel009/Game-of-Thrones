@@ -11,18 +11,19 @@ public class GOTGuiScrollPane {
 	private final int scrollWidgetWidth;
 	private final int scrollWidgetHeight;
 
-	private int barColor;
-	private int widgetColor;
-	private float currentScroll;
 	private boolean isScrolling;
 	private boolean wasMouseDown;
+	private boolean hasScrollBar;
+	private boolean mouseOver;
 
+	private float currentScroll;
+
+	private int barColor;
+	private int widgetColor;
 	private int scrollBarX0;
 	private int paneX0;
 	private int paneY0;
 	private int paneY1;
-	private boolean hasScrollBar;
-	private boolean mouseOver;
 
 	public GOTGuiScrollPane(int ww, int wh) {
 		scrollWidgetWidth = ww;

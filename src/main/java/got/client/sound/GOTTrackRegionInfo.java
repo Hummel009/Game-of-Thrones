@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTTrackRegionInfo {
-	private final GOTMusicRegion region;
 	private final List<String> subregions = new ArrayList<>();
 	private final List<GOTMusicCategory> categories = new ArrayList<>();
+
+	private final GOTMusicRegion region;
 
 	private double weight;
 

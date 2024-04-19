@@ -14,10 +14,11 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 
 	private final GOTEntityNPCRespawner theSpawner;
 
-	private int guiLeft;
-	private int guiTop;
+	private GOTGuiButtonOptions buttonMounts;
+
 	private GuiTextField textSpawnClass1;
 	private GuiTextField textSpawnClass2;
+
 	private GOTGuiSlider sliderCheckHorizontal;
 	private GOTGuiSlider sliderCheckVerticalMin;
 	private GOTGuiSlider sliderCheckVerticalMax;
@@ -27,12 +28,15 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 	private GOTGuiSlider sliderSpawnVerticalMin;
 	private GOTGuiSlider sliderSpawnVerticalMax;
 	private GOTGuiSlider sliderHomeRange;
-	private GOTGuiButtonOptions buttonMounts;
 	private GOTGuiSlider sliderSpawnIntervalM;
 	private GOTGuiSlider sliderSpawnIntervalS;
 	private GOTGuiSlider sliderNoPlayerRange;
+
 	private GuiButton buttonDestroy;
+
 	private boolean destroySpawner;
+	private int guiLeft;
+	private int guiTop;
 
 	public GOTGuiNPCRespawner(GOTEntityNPCRespawner entity) {
 		theSpawner = entity;

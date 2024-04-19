@@ -22,11 +22,12 @@ import java.util.HashSet;
 public class GOTGuiNotificationDisplay extends Gui {
 	public static final GOTGuiNotificationDisplay INSTANCE = new GOTGuiNotificationDisplay();
 
-	private static final RenderItem RENDER_ITEM = new RenderItem();
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
-	private final Minecraft mc = Minecraft.getMinecraft();
 	private final Collection<Notification> notifications = new ArrayList<>();
 	private final Collection<Notification> notificationsToRemove = new HashSet<>();
+
+	private final Minecraft mc = Minecraft.getMinecraft();
 
 	private int windowWidth;
 
@@ -144,7 +145,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 			GL11.glEnable(32826);
 			GL11.glEnable(2903);
 			GL11.glEnable(2896);
-			RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.getIcon(), x, y);
+			ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.getIcon(), x, y);
 			GL11.glDisable(2896);
 			GL11.glDepthMask(true);
 			GL11.glEnable(2929);

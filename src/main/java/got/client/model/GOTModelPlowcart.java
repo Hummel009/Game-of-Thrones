@@ -7,8 +7,9 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelPlowcart extends ModelBase {
-	private final ModelRenderer axis;
 	private final ModelRenderer[] triangle = new ModelRenderer[3];
+
+	private final ModelRenderer axis;
 	private final ModelRenderer shaft;
 	private final ModelRenderer shaftConnector;
 	private final ModelRenderer plowShaftUpper;

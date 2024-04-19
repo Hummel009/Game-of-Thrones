@@ -22,9 +22,10 @@ public class GOTGuiEditSign extends GuiScreen {
 
 	private final GOTTileEntitySign tileSign;
 
+	private GuiButton buttonDone;
+
 	private int updateCounter;
 	private int editLine;
-	private GuiButton buttonDone;
 
 	public GOTGuiEditSign(GOTTileEntitySign sign) {
 		tileSign = sign;

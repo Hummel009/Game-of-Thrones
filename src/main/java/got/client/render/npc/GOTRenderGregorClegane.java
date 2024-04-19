@@ -17,7 +17,7 @@ public abstract class GOTRenderGregorClegane extends GOTRenderBiped {
 	private static final ResourceLocation TEXTURE_ALIVE = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_1.png");
 	private static final ResourceLocation TEXTURE_DEAD = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_2.png");
 
-	private final ModelBiped model = new GOTModelHuman(0.6f, false);
+	private static final ModelBiped MODEL = new GOTModelHuman(0.6f, false);
 
 	protected GOTRenderGregorClegane() {
 		super(new GOTModelHuman(), 0.5f);
@@ -43,7 +43,7 @@ public abstract class GOTRenderGregorClegane extends GOTRenderBiped {
 	public int shouldRenderPass(EntityLiving entity, int pass, float f) {
 		GOTEntityNPC legend = (GOTEntityNPC) entity;
 		if (pass == 0 && legend.getEquipmentInSlot(4) == null || pass == 1 && legend.getEquipmentInSlot(3) == null) {
-			setRenderPassModel(model);
+			setRenderPassModel(MODEL);
 			bindTexture(ARMOR);
 			return 1;
 		}
@@ -51,7 +51,6 @@ public abstract class GOTRenderGregorClegane extends GOTRenderBiped {
 	}
 
 	public static class Alive extends GOTRenderGregorClegane {
-
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
 			return TEXTURE_ALIVE;
@@ -59,7 +58,6 @@ public abstract class GOTRenderGregorClegane extends GOTRenderBiped {
 	}
 
 	public static class Dead extends GOTRenderGregorClegane {
-
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
 			return TEXTURE_DEAD;

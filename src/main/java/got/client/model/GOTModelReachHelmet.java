@@ -7,10 +7,6 @@ import net.minecraft.util.MathHelper;
 public class GOTModelReachHelmet extends GOTModelBiped {
 	private final ModelRenderer[] manes;
 
-	public GOTModelReachHelmet() {
-		this(0.0f);
-	}
-
 	public GOTModelReachHelmet(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);

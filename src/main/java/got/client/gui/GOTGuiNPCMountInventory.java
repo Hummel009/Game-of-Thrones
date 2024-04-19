@@ -14,7 +14,9 @@ public class GOTGuiNPCMountInventory extends GuiContainer {
 
 	private final IInventory thePlayerInv;
 	private final IInventory theMountInv;
+
 	private final GOTEntityNPCRideable theMount;
+
 	private float mouseX;
 	private float mouseY;
 

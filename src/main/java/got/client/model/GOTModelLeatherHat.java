@@ -12,13 +12,10 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTModelLeatherHat extends GOTModelBiped {
 	private static final ItemStack FEATHER = new ItemStack(Items.feather);
+
 	private ItemStack hatItem;
 
-	public GOTModelLeatherHat() {
-		this(0.0f);
-	}
-
-	private GOTModelLeatherHat(float f) {
+	public GOTModelLeatherHat(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);

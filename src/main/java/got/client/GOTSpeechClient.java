@@ -54,7 +54,6 @@ public class GOTSpeechClient {
 
 	public static class TimedSpeech {
 		private final String speech;
-
 		private int time;
 
 		private TimedSpeech(String s, int i) {

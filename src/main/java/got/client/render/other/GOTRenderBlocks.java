@@ -81,7 +81,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = posX + 0.5;
 			double d5 = j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -176,7 +176,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = 0.0;
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -230,7 +230,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = 0.0;
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -290,7 +290,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = posX + 0.5;
 			double d5 = j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -754,7 +754,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double maxV = icon.getInterpolatedV(intMinV + zSize);
 			double x2 = xSizeD / 2.0;
 			double z2 = zSizeD / 2.0;
-			Vec3[] vecs = {Vec3.createVectorHelper(-x2, 0.0, -z2), Vec3.createVectorHelper(-x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, -z2)};
+			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(-x2, 0.0, -z2), Vec3.createVectorHelper(-x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, -z2)};
 			for (Vec3 vec2 : vecs) {
 				vec2.rotateAroundY(rotation);
 				vec2.xCoord += posX;

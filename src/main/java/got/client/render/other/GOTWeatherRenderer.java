@@ -20,11 +20,13 @@ import org.lwjgl.opengl.GL11;
 import java.util.Random;
 
 public class GOTWeatherRenderer extends IRenderHandler {
-	private static final ResourceLocation rainTexture = new ResourceLocation("got:textures/weather/rain.png");
-	private static final ResourceLocation snowTexture = new ResourceLocation("got:textures/weather/snow.png");
-	private static final ResourceLocation ashTexture = new ResourceLocation("got:textures/weather/ash.png");
-	private static final ResourceLocation sandstormTexture = new ResourceLocation("got:textures/weather/sandstorm.png");
-	private final Random rand = new Random();
+	private static final ResourceLocation RAIN_TEXTURE = new ResourceLocation("got:textures/weather/rain.png");
+	private static final ResourceLocation SNOW_TEXTURE = new ResourceLocation("got:textures/weather/snow.png");
+	private static final ResourceLocation ASH_TEXTURE = new ResourceLocation("got:textures/weather/ash.png");
+	private static final ResourceLocation SANDSTORM_TEXTURE = new ResourceLocation("got:textures/weather/sandstorm.png");
+
+	private static final Random RAND = new Random();
+
 	private float[] rainXCoords;
 	private float[] rainYCoords;
 
@@ -105,7 +107,7 @@ public class GOTWeatherRenderer extends IRenderHandler {
 						if (l1 == i2) {
 							continue;
 						}
-						rand.setSeed((long) i1 * i1 * 3121 + i1 * 45238971L ^ (long) l * l * 418711 + l * 13761L);
+						RAND.setSeed((long) i1 * i1 * 3121 + i1 * 45238971L ^ (long) l * l * 418711 + l * 13761L);
 						float f9 = biomegenbase.getFloatTemperature(i1, l1, l);
 						if (ashy) {
 							if (b1 != 1) {
@@ -113,12 +115,12 @@ public class GOTWeatherRenderer extends IRenderHandler {
 									tessellator.draw();
 								}
 								b1 = 1;
-								mc.getTextureManager().bindTexture(ashTexture);
+								mc.getTextureManager().bindTexture(ASH_TEXTURE);
 								tessellator.startDrawingQuads();
 							}
 							f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
-							f16 = rand.nextFloat() * 0.3f + f5 * 0.003f * (float) rand.nextGaussian();
-							f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
+							f16 = RAND.nextFloat() * 0.3f + f5 * 0.003f * (float) RAND.nextGaussian();
+							f11 = RAND.nextFloat() + f5 * (float) RAND.nextGaussian() * 0.001f;
 							d4 = i1 + 0.5f - entitylivingbase.posX;
 							d5 = l + 0.5f - entitylivingbase.posZ;
 							f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
@@ -139,12 +141,12 @@ public class GOTWeatherRenderer extends IRenderHandler {
 									tessellator.draw();
 								}
 								b1 = 1;
-								mc.getTextureManager().bindTexture(sandstormTexture);
+								mc.getTextureManager().bindTexture(SANDSTORM_TEXTURE);
 								tessellator.startDrawingQuads();
 							}
 							f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
-							f16 = f5 * (0.07f + (float) rand.nextGaussian() * 0.01f);
-							f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
+							f16 = f5 * (0.07f + (float) RAND.nextGaussian() * 0.01f);
+							f11 = RAND.nextFloat() + f5 * (float) RAND.nextGaussian() * 0.001f;
 							d4 = i1 + 0.5f - entitylivingbase.posX;
 							d5 = l + 0.5f - entitylivingbase.posZ;
 							f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
@@ -165,10 +167,10 @@ public class GOTWeatherRenderer extends IRenderHandler {
 									tessellator.draw();
 								}
 								b1 = 0;
-								mc.getTextureManager().bindTexture(rainTexture);
+								mc.getTextureManager().bindTexture(RAIN_TEXTURE);
 								tessellator.startDrawingQuads();
 							}
-							f10 = ((rendererUpdateCount + i1 * i1 * 3121 + i1 * 45238971 + l * l * 418711 + l * 13761 & 0x1F) + partialTicks) / 32.0f * (3.0f + rand.nextFloat());
+							f10 = ((rendererUpdateCount + i1 * i1 * 3121 + i1 * 45238971 + l * l * 418711 + l * 13761 & 0x1F) + partialTicks) / 32.0f * (3.0f + RAND.nextFloat());
 							double d3 = i1 + 0.5f - entitylivingbase.posX;
 							d4 = l + 0.5f - entitylivingbase.posZ;
 							float f12 = MathHelper.sqrt_double(d3 * d3 + d4 * d4) / b0;
@@ -188,12 +190,12 @@ public class GOTWeatherRenderer extends IRenderHandler {
 								tessellator.draw();
 							}
 							b1 = 1;
-							mc.getTextureManager().bindTexture(snowTexture);
+							mc.getTextureManager().bindTexture(SNOW_TEXTURE);
 							tessellator.startDrawingQuads();
 						}
 						f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
-						f16 = rand.nextFloat() + f5 * 0.01f * (float) rand.nextGaussian();
-						f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
+						f16 = RAND.nextFloat() + f5 * 0.01f * (float) RAND.nextGaussian();
+						f11 = RAND.nextFloat() + f5 * (float) RAND.nextGaussian() * 0.001f;
 						d4 = i1 + 0.5f - entitylivingbase.posX;
 						d5 = l + 0.5f - entitylivingbase.posZ;
 						f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;

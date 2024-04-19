@@ -15,6 +15,7 @@ public class GOTAlignmentTicker {
 
 	private float oldAlign;
 	private float newAlign;
+
 	private int moveTick;
 	private int prevMoveTick;
 	private int flashTick;
@@ -25,7 +26,10 @@ public class GOTAlignmentTicker {
 	}
 
 	public static GOTAlignmentTicker forFaction(GOTFaction fac) {
-		return ALL_FACTION_TICKERS.computeIfAbsent(fac, GOTAlignmentTicker::new);
+		if (!ALL_FACTION_TICKERS.containsKey(fac)) {
+			ALL_FACTION_TICKERS.put(fac, new GOTAlignmentTicker(fac));
+		}
+		return ALL_FACTION_TICKERS.get(fac);
 	}
 
 	public static void updateAll(EntityPlayer entityplayer, boolean forceInstant) {

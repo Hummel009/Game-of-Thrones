@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderThrownRock extends Render {
-	private static final RenderBlocks RENDER_BLOCKS = new RenderBlocks();
+	private static final RenderBlocks BLOCK_RENDERER = new RenderBlocks();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -27,7 +27,7 @@ public class GOTRenderThrownRock extends Render {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		bindEntityTexture(entity);
-		RENDER_BLOCKS.renderBlockAsItem(Blocks.stone, 0, 1.0f);
+		BLOCK_RENDERER.renderBlockAsItem(Blocks.stone, 0, 1.0f);
 		GL11.glPopMatrix();
 		GL11.glEnable(2884);
 		GL11.glDisable(32826);

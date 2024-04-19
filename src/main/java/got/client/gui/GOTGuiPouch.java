@@ -15,6 +15,7 @@ public class GOTGuiPouch extends GuiContainer {
 	public static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/gui/pouch.png");
 
 	private final GOTContainerPouch thePouch;
+
 	private final int pouchRows;
 
 	private GuiTextField theGuiTextField;

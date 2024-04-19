@@ -14,14 +14,13 @@ import net.minecraft.client.settings.GameSettings;
 public class GOTThirdPersonViewer {
 	public static final GOTThirdPersonViewer INSTANCE = new GOTThirdPersonViewer();
 
-	private static final String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
+	private static final String[] ENTITYRENDERER_THIRDPERSONDISTANCE = new String[]{"thirdPersonDistance", "field_78490_B"};
+	private static final Minecraft MC = Minecraft.getMinecraft();
 
-	private final Minecraft mc = Minecraft.getMinecraft();
-
-	private float defaultThirdPersonDistance;
-	private int noticeTicks;
 	private boolean ridingDragonPrev;
 	private boolean ridingMammothPrev;
+	private float defaultThirdPersonDistance;
+	private int noticeTicks;
 
 	private GOTThirdPersonViewer() {
 	}
@@ -31,30 +30,26 @@ public class GOTThirdPersonViewer {
 	}
 
 	private float getThirdPersonDistance() {
-		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
+		return ReflectionHelper.getPrivateValue(EntityRenderer.class, MC.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	private void setThirdPersonDistance(float thirdPersonDistance) {
-		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
+		ReflectionHelper.setPrivateValue(EntityRenderer.class, MC.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	@SubscribeEvent
 	public void onTick(TickEvent.ClientTickEvent evt) {
-		if (evt.phase != TickEvent.Phase.START || mc.thePlayer == null) {
+		if (evt.phase != TickEvent.Phase.START || MC.thePlayer == null) {
 			return;
 		}
-
-		boolean ridingDragon = mc.thePlayer.ridingEntity instanceof GOTEntityDragon;
-		boolean ridingMammoth = mc.thePlayer.ridingEntity instanceof GOTEntityMammoth || mc.thePlayer.ridingEntity instanceof GOTEntityElephant;
-
+		boolean ridingDragon = MC.thePlayer.ridingEntity instanceof GOTEntityDragon;
+		boolean ridingMammoth = MC.thePlayer.ridingEntity instanceof GOTEntityMammoth || MC.thePlayer.ridingEntity instanceof GOTEntityElephant;
 		if (ridingMammoth && !ridingMammothPrev) {
 			setThirdPersonDistance(9);
 		} else if (!ridingMammoth && ridingMammothPrev) {
 			setThirdPersonDistance(defaultThirdPersonDistance);
 		}
-
 		ridingMammothPrev = ridingMammoth;
-
 		if (ridingDragon && !ridingDragonPrev) {
 			setThirdPersonDistance(6);
 			noticeTicks = 70;
@@ -65,14 +60,12 @@ public class GOTThirdPersonViewer {
 			if (noticeTicks > 0) {
 				noticeTicks--;
 			}
-
 			if (noticeTicks == 1) {
 				String keyUpName = GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_DRAGON_UP.getKeyCode());
 				String keyDownName = GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_DRAGON_DOWN.getKeyCode());
-				mc.ingameGUI.func_110326_a(I18n.format("dragon.mountNotice", keyUpName, keyDownName), false);
+				MC.ingameGUI.func_110326_a(I18n.format("dragon.mountNotice", keyUpName, keyDownName), false);
 			}
 		}
-
 		ridingDragonPrev = ridingDragon;
 	}
 }

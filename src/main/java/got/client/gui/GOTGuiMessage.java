@@ -12,15 +12,16 @@ import java.util.regex.Pattern;
 
 public class GOTGuiMessage extends GOTGuiScreenBase {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/message.png");
+
 	private static final int X_SIZE = 240;
 	private static final int Y_SIZE = 160;
 
 	private final GOTGuiMessageTypes type;
+	private GuiButton buttonDismiss;
 
+	private int buttonTimer = 60;
 	private int guiLeft;
 	private int guiTop;
-	private GuiButton buttonDismiss;
-	private int buttonTimer = 60;
 
 	public GOTGuiMessage(GOTGuiMessageTypes t) {
 		type = t;
@@ -55,7 +56,6 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 		}
 		String s = StatCollector.translateToLocal("got.gui.message.notDisplayedAgain");
 		drawCenteredString(s, guiLeft + X_SIZE / 2, guiTop + Y_SIZE - border / 2 - fontRendererObj.FONT_HEIGHT, 9666921);
-
 		if (buttonTimer > 0) {
 			--buttonTimer;
 		}
