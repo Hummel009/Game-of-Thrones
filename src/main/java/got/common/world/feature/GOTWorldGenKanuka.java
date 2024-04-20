@@ -17,23 +17,15 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 	private static final Block LEAF_BLOCK = GOTBlocks.leaves9;
 	private static final int WOOD_META = 1;
 	private static final int LEAF_META = 1;
-	private final int minHeight;
-	private final int maxHeight;
-	private final int trunkWidth;
 
 	public GOTWorldGenKanuka(boolean flag) {
-		this(flag, 5, 12, 0);
-	}
-
-	private GOTWorldGenKanuka(boolean flag, int i, int j, int k) {
 		super(flag);
-		minHeight = i;
-		maxHeight = j;
-		trunkWidth = k;
 	}
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
+		int minHeight = 5;
+		int maxHeight = 12;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		float trunkAngleY = (float) Math.toRadians(90.0f - MathHelper.randomFloatClamp(random, 0.0f, 35.0f));
 		float trunkAngle = random.nextFloat() * 3.1415927f * 2.0f;
@@ -43,6 +35,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 		float trunkSin = MathHelper.sin(trunkAngle) * trunkYCos;
 		boolean flag = true;
 		if (j >= 1 && j + height + 3 <= 256) {
+			int trunkWidth = 0;
 			for (int j1 = j; j1 <= j + height + 3; ++j1) {
 				int range = trunkWidth + 1;
 				if (j1 == j) {
@@ -118,7 +111,6 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 				int deg = 0;
 				while (deg < 360) {
 					int degIncr = MathHelper.getRandomIntegerInRange(random, 70, 150);
-					degIncr -= trunkWidth * 10;
 					degIncr = Math.max(degIncr, 20);
 					float angle = (float) Math.toRadians(deg += degIncr);
 					float cos = MathHelper.cos(angle);

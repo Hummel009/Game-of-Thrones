@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTBiomeVariant {
 	public static final GOTBiomeVariant[] ALL_VARIANTS = new GOTBiomeVariant[256];
 
@@ -66,6 +66,7 @@ public class GOTBiomeVariant {
 	private boolean disableStructures;
 	private boolean disableSettlements;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTBiomeVariant(int i, String s) {
 		if (ALL_VARIANTS[i] != null) {
 			throw new IllegalArgumentException("got Biome variant already exists at index " + i);

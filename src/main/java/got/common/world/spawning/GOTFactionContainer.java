@@ -18,7 +18,7 @@ public class GOTFactionContainer {
 	private GOTFaction theFaction;
 	private float conquestSensitivity = 1.0f;
 
-	GOTFactionContainer(GOTBiomeSpawnList biomeList, int w) {
+	public GOTFactionContainer(GOTBiomeSpawnList biomeList, int w) {
 		parent = biomeList;
 		baseWeight = w;
 	}

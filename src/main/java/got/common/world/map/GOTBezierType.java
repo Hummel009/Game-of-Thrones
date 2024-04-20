@@ -136,7 +136,8 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	private GOTBezierType() {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	protected GOTBezierType() {
 	}
 
 	public abstract BezierBlock getBlock(Random var1, BiomeGenBase var2, boolean var3, boolean var4);
@@ -187,7 +188,8 @@ public abstract class GOTBezierType {
 		private final Block block;
 		private final int meta;
 
-		private BezierBlock(Block b, int i) {
+		@SuppressWarnings({"WeakerAccess", "unused"})
+		public BezierBlock(Block b, int i) {
 			block = b;
 			meta = i;
 		}

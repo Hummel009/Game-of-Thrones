@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTBiomeDecorator {
 	private final Collection<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
 	private final Collection<GOTStructureBaseSettlement> settlements = new ArrayList<>();
@@ -470,7 +471,6 @@ public class GOTBiomeDecorator {
 		return biomeSoils;
 	}
 
-	@SuppressWarnings("unused")
 	public float getBiomeOreFactor() {
 		return biomeOreFactor;
 	}
@@ -479,7 +479,6 @@ public class GOTBiomeDecorator {
 		this.biomeOreFactor = biomeOreFactor;
 	}
 
-	@SuppressWarnings("unused")
 	public float getBiomeGemFactor() {
 		return biomeGemFactor;
 	}
@@ -488,7 +487,6 @@ public class GOTBiomeDecorator {
 		this.biomeGemFactor = biomeGemFactor;
 	}
 
-	@SuppressWarnings("unused")
 	public WorldGenerator getClayGen() {
 		return clayGen;
 	}
@@ -497,7 +495,6 @@ public class GOTBiomeDecorator {
 		this.clayGen = clayGen;
 	}
 
-	@SuppressWarnings("unused")
 	public int getSandPerChunk() {
 		return sandPerChunk;
 	}
@@ -506,7 +503,6 @@ public class GOTBiomeDecorator {
 		this.sandPerChunk = sandPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getClayPerChunk() {
 		return clayPerChunk;
 	}
@@ -515,7 +511,6 @@ public class GOTBiomeDecorator {
 		this.clayPerChunk = clayPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getQuagmirePerChunk() {
 		return quagmirePerChunk;
 	}
@@ -532,7 +527,6 @@ public class GOTBiomeDecorator {
 		this.treesPerChunk = treesPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getLogsPerChunk() {
 		return logsPerChunk;
 	}
@@ -541,7 +535,6 @@ public class GOTBiomeDecorator {
 		this.logsPerChunk = logsPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getFlowersPerChunk() {
 		return flowersPerChunk;
 	}
@@ -550,7 +543,6 @@ public class GOTBiomeDecorator {
 		this.flowersPerChunk = flowersPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getDoubleFlowersPerChunk() {
 		return doubleFlowersPerChunk;
 	}
@@ -567,7 +559,6 @@ public class GOTBiomeDecorator {
 		this.grassPerChunk = grassPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getDoubleGrassPerChunk() {
 		return doubleGrassPerChunk;
 	}
@@ -592,7 +583,6 @@ public class GOTBiomeDecorator {
 		return treeTypes;
 	}
 
-	@SuppressWarnings("unused")
 	public boolean isGenerateAgriculture() {
 		return generateAgriculture;
 	}
@@ -601,7 +591,6 @@ public class GOTBiomeDecorator {
 		this.generateAgriculture = generateAgriculture;
 	}
 
-	@SuppressWarnings("unused")
 	public int getCactiPerChunk() {
 		return cactiPerChunk;
 	}
@@ -610,7 +599,6 @@ public class GOTBiomeDecorator {
 		this.cactiPerChunk = cactiPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getCornPerChunk() {
 		return cornPerChunk;
 	}
@@ -619,7 +607,6 @@ public class GOTBiomeDecorator {
 		this.cornPerChunk = cornPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public float getDryReedChance() {
 		return dryReedChance;
 	}
@@ -628,7 +615,6 @@ public class GOTBiomeDecorator {
 		this.dryReedChance = dryReedChance;
 	}
 
-	@SuppressWarnings("unused")
 	public int getReedPerChunk() {
 		return reedPerChunk;
 	}
@@ -637,7 +623,6 @@ public class GOTBiomeDecorator {
 		this.reedPerChunk = reedPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getCanePerChunk() {
 		return canePerChunk;
 	}
@@ -646,7 +631,6 @@ public class GOTBiomeDecorator {
 		this.canePerChunk = canePerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getWaterlilyPerChunk() {
 		return waterlilyPerChunk;
 	}
@@ -655,7 +639,6 @@ public class GOTBiomeDecorator {
 		this.waterlilyPerChunk = waterlilyPerChunk;
 	}
 
-	@SuppressWarnings("unused")
 	public int getDeadBushPerChunk() {
 		return deadBushPerChunk;
 	}

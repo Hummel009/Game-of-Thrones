@@ -13,16 +13,16 @@ public enum GOTMountains {
 		this(x, z, h, r, 0);
 	}
 
+	GOTMountains(GOTAbstractWaypoint waypoint, float h, int r) {
+		this(waypoint.getImgX(), waypoint.getImgY(), h, r, 0);
+	}
+
 	GOTMountains(double x, double z, float h, int r, int l) {
 		xCoord = GOTWaypoint.mapToWorldX(x);
 		zCoord = GOTWaypoint.mapToWorldZ(z);
 		height = h;
 		range = r;
 		lavaRange = l;
-	}
-
-	GOTMountains(GOTAbstractWaypoint waypoint, float h, int r) {
-		this(waypoint.getImgX(), waypoint.getImgY(), h, r, 0);
 	}
 
 	public static int getLavaHeight(int x, int z) {

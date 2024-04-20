@@ -250,7 +250,6 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		return !isCompatibleAlignment(entityplayer) && isConquestUnlockable(entityplayer) && isConquered(entityplayer);
 	}
 
-	@SuppressWarnings("InnerClassFieldHidesOuterClassField")
 	public enum Region {
 		AMOGUS, ARRYN, ASSHAI, CROWNLANDS, DORNE, DOTHRAKI, DRANGONSTONE, FREE, GHISCAR, IBBEN, ICE, IRONBORN, JOGOS, LHAZAR, MOSSOVY, NORTH, OCEAN, QARTH, REACH, RIVERLANDS, SOTHORYOS, STORMLANDS, SUMMER_ISLANDS, ULTHOS, VALYRIA, WESTERLANDS, YI_TI;
 
