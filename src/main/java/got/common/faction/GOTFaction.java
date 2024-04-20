@@ -44,6 +44,14 @@ public enum GOTFaction {
 		this(0, null, null, false, registry, alignment, null);
 	}
 
+	GOTFaction(int color, GOTDimension.DimensionRegion region, GOTMapRegion mapInfo) {
+		this(color, GOTDimension.GAME_OF_THRONES, region, mapInfo);
+	}
+
+	GOTFaction(int color, GOTDimension dim, GOTDimension.DimensionRegion region, GOTMapRegion mapInfo) {
+		this(color, dim, region, true, true, Integer.MIN_VALUE, mapInfo);
+	}
+
 	GOTFaction(int color, GOTDimension dim, GOTDimension.DimensionRegion region, boolean player, boolean registry, int alignment, GOTMapRegion mapInfo) {
 		allowPlayer = player;
 		eggColor = color;
@@ -66,14 +74,6 @@ public enum GOTFaction {
 		if (mapInfo != null) {
 			factionMapInfo = mapInfo;
 		}
-	}
-
-	GOTFaction(int color, GOTDimension dim, GOTDimension.DimensionRegion region, GOTMapRegion mapInfo) {
-		this(color, dim, region, true, true, Integer.MIN_VALUE, mapInfo);
-	}
-
-	GOTFaction(int color, GOTDimension.DimensionRegion region, GOTMapRegion mapInfo) {
-		this(color, GOTDimension.GAME_OF_THRONES, region, mapInfo);
 	}
 
 	public static boolean controlZonesEnabled(World world) {
