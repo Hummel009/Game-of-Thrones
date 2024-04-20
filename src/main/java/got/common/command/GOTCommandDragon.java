@@ -47,7 +47,6 @@ public class GOTCommandDragon extends CommandBase {
 					minPlayerDist = playerDist;
 				}
 			}
-
 			if (closestEntity == null) {
 				throw new CommandException("got.command.dragon.nodragons");
 			}
@@ -62,7 +61,6 @@ public class GOTCommandDragon extends CommandBase {
 					if (!(entity instanceof GOTEntityDragon)) {
 						continue;
 					}
-
 					modifier.modify((GOTEntityDragon) entity);
 				}
 			}
@@ -90,7 +88,6 @@ public class GOTCommandDragon extends CommandBase {
 		if (params.length < 1 || params[0].isEmpty()) {
 			throw new WrongUsageException(getCommandUsage(sender));
 		}
-
 		boolean global = "global".equalsIgnoreCase(params[params.length - 1]);
 
 		String command = params[0];
@@ -98,7 +95,6 @@ public class GOTCommandDragon extends CommandBase {
 			if (params.length < 2) {
 				throw new WrongUsageException(getCommandUsage(sender));
 			}
-
 			GOTDragonLifeStage lifeStage = null;
 			String parameter = params[1].toUpperCase(Locale.ROOT);
 
@@ -109,7 +105,6 @@ public class GOTCommandDragon extends CommandBase {
 					throw new SyntaxErrorException();
 				}
 			}
-
 			EntityModifier modifier = new LifeStageModifier(lifeStage);
 			appyModifier(sender, modifier, global);
 		} else if ("tame".equals(command)) {

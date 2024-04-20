@@ -75,5 +75,4 @@ public class GOTTileEntityWeaponRack extends TileEntity {
 			nbt.setTag("WeaponItem", weaponItem.writeToNBT(new NBTTagCompound()));
 		}
 	}
-
 }

@@ -264,5 +264,4 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 			super(inv, world, i, j, k, GOTRecipe.YITI, GOTBlocks.tableYiTi);
 		}
 	}
-
 }

@@ -78,11 +78,9 @@ public abstract class GOTEntityFireball extends Entity {
 			accelerationY = motionY * 0.1D;
 			accelerationZ = motionZ * 0.1D;
 		}
-
 		if (p_70097_1_.getEntity() instanceof EntityLivingBase) {
 			shootingEntity = (EntityLivingBase) p_70097_1_.getEntity();
 		}
-
 		return true;
 	}
 
@@ -146,10 +144,8 @@ public abstract class GOTEntityFireball extends Entity {
 					if (ticksAlive == 600) {
 						setDead();
 					}
-
 					return;
 				}
-
 				inGround = false;
 				motionX *= rand.nextFloat() * 0.2F;
 				motionY *= rand.nextFloat() * 0.2F;
@@ -159,7 +155,6 @@ public abstract class GOTEntityFireball extends Entity {
 			} else {
 				++ticksInAir;
 			}
-
 			Vec3 vec3 = Vec3.createVectorHelper(posX, posY, posZ);
 			Vec3 vec31 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
 			MovingObjectPosition movingobjectposition = worldObj.rayTraceBlocks(vec3, vec31);
@@ -169,7 +164,6 @@ public abstract class GOTEntityFireball extends Entity {
 			if (movingobjectposition != null) {
 				vec31 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
 			}
-
 			Entity entity = null;
 			List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
 			double d0 = 0.0D;
@@ -191,15 +185,12 @@ public abstract class GOTEntityFireball extends Entity {
 					}
 				}
 			}
-
 			if (entity != null) {
 				movingobjectposition = new MovingObjectPosition(entity);
 			}
-
 			if (movingobjectposition != null) {
 				onImpact(movingobjectposition);
 			}
-
 			posX += motionX;
 			posY += motionY;
 			posZ += motionZ;
@@ -208,19 +199,15 @@ public abstract class GOTEntityFireball extends Entity {
 
 			for (rotationPitch = (float) (Math.atan2(f1, motionY) * 180.0D / Math.PI) - 90.0F; rotationPitch - prevRotationPitch < -180.0F; prevRotationPitch -= 360.0F) {
 			}
-
 			while (rotationPitch - prevRotationPitch >= 180.0F) {
 				prevRotationPitch += 360.0F;
 			}
-
 			while (rotationYaw - prevRotationYaw < -180.0F) {
 				prevRotationYaw -= 360.0F;
 			}
-
 			while (rotationYaw - prevRotationYaw >= 180.0F) {
 				prevRotationYaw += 360.0F;
 			}
-
 			rotationPitch = prevRotationPitch + (rotationPitch - prevRotationPitch) * 0.2F;
 			rotationYaw = prevRotationYaw + (rotationYaw - prevRotationYaw) * 0.2F;
 			float f2 = getMotionFactor();
@@ -230,10 +217,8 @@ public abstract class GOTEntityFireball extends Entity {
 					float f3 = 0.25F;
 					worldObj.spawnParticle("bubble", posX - motionX * f3, posY - motionY * f3, posZ - motionZ * f3, motionX, motionY, motionZ);
 				}
-
 				f2 = 0.8F;
 			}
-
 			motionX += accelerationX;
 			motionY += accelerationY;
 			motionZ += accelerationZ;

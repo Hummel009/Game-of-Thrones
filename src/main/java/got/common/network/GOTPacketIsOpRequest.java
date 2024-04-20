@@ -26,5 +26,4 @@ public class GOTPacketIsOpRequest implements IMessage {
 			return null;
 		}
 	}
-
 }

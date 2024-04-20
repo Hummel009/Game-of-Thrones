@@ -138,10 +138,7 @@ public class GOTEntityTraderRespawn extends Entity {
 
 	@Override
 	public boolean hitByEntity(Entity entity) {
-		if (entity instanceof EntityPlayer) {
-			return attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
-		}
-		return false;
+		return entity instanceof EntityPlayer && attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
 	}
 
 	public boolean isSpawnImminent() {

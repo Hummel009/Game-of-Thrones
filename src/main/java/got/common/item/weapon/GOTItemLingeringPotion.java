@@ -45,7 +45,6 @@ public class GOTItemLingeringPotion extends ItemPotion {
 		if (stack.getItemDamage() == 0) {
 			return;
 		}
-
 		List<PotionEffect> effects = getEffects(stack);
 		HashMultimap<String, AttributeModifier> attributes = HashMultimap.create();
 
@@ -65,14 +64,12 @@ public class GOTItemLingeringPotion extends ItemPotion {
 						attributes.put(entry.getKey().getAttributeUnlocalizedName(), attributemodifier1);
 					}
 				}
-
 				if (potioneffect.getAmplifier() > 0) {
 					s1 = s1 + ' ' + StatCollector.translateToLocal("potion.potency." + potioneffect.getAmplifier()).trim();
 				}
 				if (potioneffect.getDuration() > 20) {
 					s1 = s1 + " (" + Potion.getDurationString(potioneffect) + ')';
 				}
-
 				if (potion.isBadEffect()) {
 					list.add(EnumChatFormatting.RED + s1);
 				} else {
@@ -80,7 +77,6 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				}
 			}
 		}
-
 		if (!attributes.isEmpty()) {
 			list.add("");
 			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
@@ -95,7 +91,6 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				} else {
 					d1 = attributemodifier2.getAmount() * 100.0D;
 				}
-
 				if (d0 > 0.0D) {
 					list.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("attribute.modifier.plus." + attributemodifier2.getOperation(), ItemStack.field_111284_a.format(d1), StatCollector.translateToLocal("attribute.name." + entry1.getKey())));
 				} else if (d0 < 0.0D) {
@@ -124,7 +119,6 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				effects.add(e);
 			}
 		}
-
 		return effects;
 	}
 
@@ -143,7 +137,6 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				list.add(potioneffect);
 			}
 		}
-
 		return list;
 	}
 
@@ -212,13 +205,11 @@ public class GOTItemLingeringPotion extends ItemPotion {
 		if (!player.capabilities.isCreativeMode) {
 			stack.stackSize--;
 		}
-
 		world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(new GOTEntityLingeringPotion(world, player, stack));
 		}
-
 		return stack;
 	}
 
@@ -228,5 +219,4 @@ public class GOTItemLingeringPotion extends ItemPotion {
 		super.registerIcons(reg);
 		bottle = reg.registerIcon(getIconString() + "_bottle_lingering");
 	}
-
 }

@@ -80,7 +80,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<AddMember> {
 		}
-
 	}
 
 	public static class ChangeIcon extends GOTPacketFellowshipPartialUpdate {
@@ -130,7 +129,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<ChangeIcon> {
 		}
-
 	}
 
 	private abstract static class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
@@ -203,7 +201,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<RemoveAdmin> {
 		}
-
 	}
 
 	public static class RemoveMember extends OnePlayerUpdate {
@@ -222,7 +219,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<RemoveMember> {
 		}
-
 	}
 
 	public static class Rename extends GOTPacketFellowshipPartialUpdate {
@@ -259,7 +255,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<Rename> {
 		}
-
 	}
 
 	public static class SetAdmin extends OnePlayerUpdate {
@@ -293,7 +288,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<SetAdmin> {
 		}
-
 	}
 
 	public static class SetOwner extends OnePlayerUpdate {
@@ -327,7 +321,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<SetOwner> {
 		}
-
 	}
 
 	public static class ToggleHiredFriendlyFire extends GOTPacketFellowshipPartialUpdate {
@@ -361,7 +354,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<ToggleHiredFriendlyFire> {
 		}
-
 	}
 
 	public static class TogglePvp extends GOTPacketFellowshipPartialUpdate {
@@ -395,7 +387,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<TogglePvp> {
 		}
-
 	}
 
 	public static class ToggleShowMap extends GOTPacketFellowshipPartialUpdate {
@@ -429,7 +420,6 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<ToggleShowMap> {
 		}
-
 	}
 
 	public static class UpdatePlayerTitle extends OnePlayerUpdate {

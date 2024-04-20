@@ -42,7 +42,6 @@ public class GOTEntityAIMFMate extends EntityAIBase {
 				return entity;
 			}
 		}
-
 		return null;
 	}
 

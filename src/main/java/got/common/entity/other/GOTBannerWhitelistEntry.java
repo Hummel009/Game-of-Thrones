@@ -2,7 +2,6 @@ package got.common.entity.other;
 
 import com.mojang.authlib.GameProfile;
 import got.common.GOTBannerProtection;
-import got.common.GOTBannerProtection.Permission;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -11,7 +10,7 @@ import java.util.Set;
 
 public class GOTBannerWhitelistEntry {
 	public GameProfile profile;
-	public Set<Permission> perms = EnumSet.noneOf(Permission.class);
+	public Set<GOTBannerProtection.Permission> perms = EnumSet.noneOf(GOTBannerProtection.Permission.class);
 
 	public GOTBannerWhitelistEntry(GameProfile p) {
 		profile = p;
@@ -21,7 +20,7 @@ public class GOTBannerWhitelistEntry {
 	}
 
 	public static List<GOTBannerProtection.Permission> static_decodePermBitFlags(int i) {
-		List<Permission> decoded = new ArrayList<>();
+		List<GOTBannerProtection.Permission> decoded = new ArrayList<>();
 		for (GOTBannerProtection.Permission p : GOTBannerProtection.Permission.values()) {
 			if ((i & p.getBitFlag()) == 0) {
 				continue;
@@ -31,7 +30,7 @@ public class GOTBannerWhitelistEntry {
 		return decoded;
 	}
 
-	public static int static_encodePermBitFlags(Iterable<Permission> permList) {
+	public static int static_encodePermBitFlags(Iterable<GOTBannerProtection.Permission> permList) {
 		int i = 0;
 		for (GOTBannerProtection.Permission p : permList) {
 			i |= p.getBitFlag();
@@ -76,7 +75,7 @@ public class GOTBannerWhitelistEntry {
 		addPermission(GOTBannerProtection.Permission.FULL);
 	}
 
-	public void setPermissions(Iterable<Permission> perms) {
+	public void setPermissions(Iterable<GOTBannerProtection.Permission> perms) {
 		clearPermissions();
 		for (GOTBannerProtection.Permission p : perms) {
 			addPermission(p);

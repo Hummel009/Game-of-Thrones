@@ -2,7 +2,6 @@ package got.common.entity.other;
 
 import com.mojang.authlib.GameProfile;
 import got.common.GOTBannerProtection;
-import got.common.GOTBannerProtection.Permission;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTItems;
@@ -45,7 +44,7 @@ public class GOTEntityBanner extends Entity {
 	public boolean selfProtection = true;
 	public float alignmentProtection = ALIGNMENT_PROTECTION_MIN;
 	public GOTBannerWhitelistEntry[] allowedPlayers = new GOTBannerWhitelistEntry[WHITELIST_DEFAULT];
-	public Set<Permission> defaultPermissions = EnumSet.noneOf(Permission.class);
+	public Set<GOTBannerProtection.Permission> defaultPermissions = EnumSet.noneOf(GOTBannerProtection.Permission.class);
 	public boolean clientside_playerHasPermission;
 
 	public GOTEntityBanner(World world) {
@@ -97,10 +96,7 @@ public class GOTEntityBanner extends Entity {
 
 	public boolean canPlayerEditBanner(EntityPlayer entityplayer) {
 		GameProfile owner = getPlacingPlayer();
-		if (owner != null && owner.getId() != null && entityplayer.getUniqueID().equals(owner.getId())) {
-			return true;
-		}
-		return !structureProtection && MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile()) && entityplayer.capabilities.isCreativeMode;
+		return owner != null && owner.getId() != null && entityplayer.getUniqueID().equals(owner.getId()) || !structureProtection && MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile()) && entityplayer.capabilities.isCreativeMode;
 	}
 
 	public boolean clientside_playerHasPermissionInSurvival() {
@@ -308,10 +304,7 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public boolean isSelfProtection() {
-		if (!GOTConfig.allowSelfProtectingBanners) {
-			return false;
-		}
-		return selfProtection;
+		return GOTConfig.allowSelfProtectingBanners && selfProtection;
 	}
 
 	public void setSelfProtection(boolean flag) {
@@ -410,7 +403,7 @@ public class GOTEntityBanner extends Entity {
 				if (playerData.hasKey("FellowshipID")) {
 					String fellowshipIDString = playerData.getString("FellowshipID");
 					fsID = UUID.fromString(fellowshipIDString);
-					GOTFellowshipProfile fellowshipProfile = new GOTFellowshipProfile( fsID, "");
+					GOTFellowshipProfile fellowshipProfile = new GOTFellowshipProfile(fsID, "");
 					if (fellowshipProfile.getFellowship() != null) {
 						profile = fellowshipProfile;
 					}
@@ -550,7 +543,7 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public void setDefaultPermissions(Iterable<Permission> perms) {
+	public void setDefaultPermissions(Iterable<GOTBannerProtection.Permission> perms) {
 		defaultPermissions.clear();
 		for (GOTBannerProtection.Permission p : perms) {
 			if (p == GOTBannerProtection.Permission.FULL) {
@@ -587,19 +580,19 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public void whitelistFellowship(int index, GOTFellowship fs, Iterable<Permission> perms) {
+	public void whitelistFellowship(int index, GOTFellowship fs, Iterable<GOTBannerProtection.Permission> perms) {
 		if (isValidFellowship(fs)) {
 			whitelistPlayer(index, new GOTFellowshipProfile(fs.getFellowshipID(), ""), perms);
 		}
 	}
 
 	public void whitelistPlayer(int index, GameProfile profile) {
-		Collection<Permission> defaultPerms = new ArrayList<>();
+		Collection<GOTBannerProtection.Permission> defaultPerms = new ArrayList<>();
 		defaultPerms.add(GOTBannerProtection.Permission.FULL);
 		whitelistPlayer(index, profile, defaultPerms);
 	}
 
-	public void whitelistPlayer(int index, GameProfile profile, Iterable<Permission> perms) {
+	public void whitelistPlayer(int index, GameProfile profile, Iterable<GOTBannerProtection.Permission> perms) {
 		if (index < 0 || index >= allowedPlayers.length) {
 			return;
 		}

@@ -404,7 +404,6 @@ public class GOT {
 		for (Map.Entry<String, Integer> entry : info.entrySet()) {
 			GOTLog.getLogger().info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
 		}
-
 		proxy.postInit();
 	}
 
@@ -484,11 +483,9 @@ public class GOT {
 			command.add(new GOTCommandAllowStructures());
 			command.add(new GOTCommandAdminHideMap());
 		}
-
 		for (CommandBase element : command) {
 			event.registerServerCommand(element);
 		}
-
 		proxy.testReflection(world);
 	}
 }

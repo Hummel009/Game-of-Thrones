@@ -261,5 +261,4 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 			}
 		}
 	}
-
 }

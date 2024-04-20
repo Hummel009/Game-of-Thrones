@@ -109,7 +109,6 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 				world.setBlockMetadataWithNotify(i, j, k, 4, 2);
 				break;
 		}
-
 		if (itemstack.hasDisplayName()) {
 			((GOTTileEntityAlloyForge) world.getTileEntity(i, j, k)).setSpecialForgeName(itemstack.getDisplayName());
 		}

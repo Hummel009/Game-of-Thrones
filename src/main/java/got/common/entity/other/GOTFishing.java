@@ -132,5 +132,4 @@ public class GOTFishing {
 			fishedItem = item;
 		}
 	}
-
 }

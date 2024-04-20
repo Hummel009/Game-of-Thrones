@@ -368,7 +368,6 @@ public class GOTReplacedMethods {
 			}
 			return GOTReflection.canPistonPushBlock(block, world, i, j, k, flag);
 		}
-
 	}
 
 	public static class Player {

@@ -37,10 +37,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer && GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forPlayer((EntityPlayer) damagesource.getEntity()), true)) {
-			return false;
-		}
-		return super.attackEntityFrom(damagesource, f);
+		return (worldObj.isRemote || !(damagesource.getEntity() instanceof EntityPlayer) || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forPlayer((EntityPlayer) damagesource.getEntity()), true)) && super.attackEntityFrom(damagesource, f);
 	}
 
 	@Override

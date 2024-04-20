@@ -32,5 +32,4 @@ public interface IBandit {
 			return new GOTInventoryNPC("BanditInventory", bandit.getBanditAsNPC(), bandit.getMaxThefts());
 		}
 	}
-
 }

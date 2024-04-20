@@ -13,15 +13,15 @@ public enum GOTDragonLifeStage {
 		this.ageLimit = ageLimit;
 	}
 
-	public int getAgeLimit() {
-		return ageLimit;
-	}
-
 	public static List<String> getLifeStageNames() {
 		List<String> names = new ArrayList<>();
 		for (GOTDragonLifeStage s : values()) {
 			names.add(s.name().toLowerCase(Locale.ROOT));
 		}
 		return names;
+	}
+
+	public int getAgeLimit() {
+		return ageLimit;
 	}
 }

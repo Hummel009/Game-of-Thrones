@@ -33,7 +33,6 @@ public class GOTBlockOre extends Block {
 			if (this == GOTBlocks.oreGlowstone) {
 				amountXp = MathHelper.getRandomIntegerInRange(world.rand, 0, 2);
 			}
-
 			if (this == GOTBlocks.oreSulfur || this == GOTBlocks.oreSaltpeter) {
 				amountXp = MathHelper.getRandomIntegerInRange(world.rand, 0, 2);
 			}

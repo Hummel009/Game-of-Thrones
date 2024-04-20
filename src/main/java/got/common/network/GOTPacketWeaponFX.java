@@ -75,7 +75,6 @@ public class GOTPacketWeaponFX implements IMessage {
 							d5 += entity.posZ - entity.lastTickPosZ;
 							GOT.proxy.spawnParticle("chill", x, d1, z, d3, d4, d5);
 						}
-
 						break;
 					case INFERNAL:
 						for (int i = 0; i < 20; i++) {

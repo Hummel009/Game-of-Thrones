@@ -28,7 +28,6 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		if (entity instanceof EntityPlayerMP) {
 			GOTDamage.doFrostDamage((EntityPlayerMP) entity);
 		}
-
 		int duration = 5;
 		entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 1));
 
@@ -54,7 +53,6 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		if (GOTWeaponStats.isMeleeWeapon(itemstack)) {
 			return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.melee");
 		}
-
 		return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.ranged");
 	}
 

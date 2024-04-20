@@ -65,5 +65,4 @@ public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost implements GOTBiom
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterFrostfangs;
 	}
-
 }

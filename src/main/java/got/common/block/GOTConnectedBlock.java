@@ -19,5 +19,4 @@ public interface GOTConnectedBlock {
 			return otherBlock == block && meta == otherMeta;
 		}
 	}
-
 }

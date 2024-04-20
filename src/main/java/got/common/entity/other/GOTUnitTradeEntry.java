@@ -196,10 +196,7 @@ public class GOTUnitTradeEntry {
 			if (this == NONE) {
 				return true;
 			}
-			if (this == FACTION) {
-				return pd.isPledgedTo(fac);
-			}
-			return false;
+			return this == FACTION && pd.isPledgedTo(fac);
 		}
 
 		public String getCommandReqText(GOTFaction fac) {
@@ -209,5 +206,4 @@ public class GOTUnitTradeEntry {
 			return StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.pledge." + name(), fac.factionName());
 		}
 	}
-
 }

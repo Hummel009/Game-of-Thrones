@@ -1061,7 +1061,6 @@ public class GOTTradeEntries {
 				}
 			}
 		}
-
 		return null;
 	}
 
@@ -1070,7 +1069,6 @@ public class GOTTradeEntries {
 		if (numTrades > tradeEntries.length) {
 			numTrades = tradeEntries.length;
 		}
-
 		GOTTradeEntry[] tempTrades = new GOTTradeEntry[tradeEntries.length];
 		System.arraycopy(tradeEntries, 0, tempTrades, 0, tradeEntries.length);
 		List<GOTTradeEntry> tempTradesAsList = Arrays.asList(tempTrades);
@@ -1087,26 +1085,22 @@ public class GOTTradeEntries {
 				tradeItem.setItemDamage(tradeCostI);
 				tradeCost *= GOTItemMug.getFoodStrength(tradeItem);
 			}
-
 			if (drinkVessels != null && GOTItemMug.isItemFullDrink(tradeItem)) {
 				GOTItemMug.Vessel v = drinkVessels[random.nextInt(drinkVessels.length)];
 				GOTItemMug.setVessel(tradeItem, v, true);
 				tradeCost += v.getExtraPrice();
 			}
-
 			if (GOTConfig.enchantingGOT && tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
 				boolean skilful = random.nextInt(3) == 0;
 				GOTEnchantmentHelper.applyRandomEnchantments(tradeItem, random, skilful, false);
 				tradeCost *= GOTEnchantmentHelper.calcTradeValueFactor(tradeItem);
 			}
-
 			tradeCost *= MathHelper.randomFloatClamp(random, 0.75F, 1.25F);
 			tradeCost = Math.max(tradeCost, 1.0F);
 			tradeCostI = Math.round(tradeCost);
 			tradeCostI = Math.max(tradeCostI, 1);
 			trades[i] = new GOTTradeEntry(tradeItem, tradeCostI);
 		}
-
 		return trades;
 	}
 

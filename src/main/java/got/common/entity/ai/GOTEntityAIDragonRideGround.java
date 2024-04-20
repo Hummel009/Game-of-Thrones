@@ -29,7 +29,6 @@ public class GOTEntityAIDragonRideGround extends GOTEntityAIDragonRide {
 		if (GOTEntityDragon.hasEquipped(rider, Items.carrot_on_a_stick)) {
 			speedX = 1;
 		}
-
 		float speedPlayer = Math.max(Math.abs(speedX), Math.abs(speedY));
 
 		Vec3 look = rider.getLookVec();
@@ -38,11 +37,9 @@ public class GOTEntityAIDragonRideGround extends GOTEntityAIDragonRide {
 		if (dir != 0) {
 			look.rotateAroundY((float) Math.PI * dir);
 		}
-
 		if (speedPlayer > 0) {
 			dragon.getMoveHelper().setMoveTo(dragon.posX + look.xCoord, dragon.posY, dragon.posZ + look.zCoord, speed * speedPlayer);
 		}
-
 		if (isFlyUp()) {
 			dragon.liftOff();
 		}

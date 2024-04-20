@@ -220,7 +220,6 @@ public enum GOTMiniQuestFactory {
 			kingdom.getKey().addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(kingdom.getValue()), 70, 100));
 			kingdom.getKey().addQuest(new GOTMiniQuestBounty.QFBounty<>());
 		}
-
 		for (Map.Entry<GOTMiniQuestFactory, GOTFaction> city : cities.entrySet()) {
 			city.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.date), 8, 15).setRewardFactor(2.0f));
 			city.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.deerCooked), 5, 10).setRewardFactor(1.5f));
@@ -285,7 +284,6 @@ public enum GOTMiniQuestFactory {
 			city.getKey().addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(city.getValue()), 70, 100));
 			city.getKey().addQuest(new GOTMiniQuestBounty.QFBounty<>());
 		}
-
 		ASSHAI.addQuest(new GOTMiniQuestBounty.QFBounty<>());
 		ASSHAI.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.asshaiFlower), 6, 15).setRewardFactor(1.0f));
 		ASSHAI.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.bottlePoison), 6, 15).setRewardFactor(1.0f));

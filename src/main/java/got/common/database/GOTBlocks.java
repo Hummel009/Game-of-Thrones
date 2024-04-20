@@ -1291,7 +1291,6 @@ public class GOTBlocks {
 				Blocks.fire.setFireInfo(block, 60, 100);
 			}
 		}
-
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);

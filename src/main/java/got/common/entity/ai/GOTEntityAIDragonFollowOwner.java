@@ -51,7 +51,6 @@ public class GOTEntityAIDragonFollowOwner extends EntityAIBase {
 		if (ownerCurrent == null || dragon.isSitting() || dragon.getDistanceSqToEntity(ownerCurrent) < minDist * minDist) {
 			return false;
 		}
-
 		owner = ownerCurrent;
 		return true;
 	}

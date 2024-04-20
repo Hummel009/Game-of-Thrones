@@ -37,7 +37,6 @@ public class GOTEntityAIDragonDragonMate extends EntityAIBase {
 				return nearbyDragon;
 			}
 		}
-
 		return null;
 	}
 

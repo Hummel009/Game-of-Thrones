@@ -94,7 +94,6 @@ public class GOTJaqenHgharTracker {
 				}
 			}
 		}
-
 	}
 
 	public static void save(NBTTagCompound levelData) {

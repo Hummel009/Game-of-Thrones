@@ -361,7 +361,6 @@ public class GOTClassTransformer implements IClassTransformer {
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
 		}
-
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
 		return writer.toByteArray();
@@ -984,7 +983,6 @@ public class GOTClassTransformer implements IClassTransformer {
 				break;
 			}
 		}
-
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
 		return writer.toByteArray();
@@ -1032,7 +1030,6 @@ public class GOTClassTransformer implements IClassTransformer {
 					System.out.println("Hummel009: Patched method " + method.name);
 				}
 			}
-
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);

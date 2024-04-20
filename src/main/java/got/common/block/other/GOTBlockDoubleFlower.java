@@ -186,5 +186,4 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 			doublePlantTopIcons[i] = iconregister.registerIcon(getTextureName() + '_' + FLOWER_NAMES[i] + "_top");
 		}
 	}
-
 }

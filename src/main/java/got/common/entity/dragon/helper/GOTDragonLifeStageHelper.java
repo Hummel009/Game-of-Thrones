@@ -62,7 +62,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		if (isEgg()) {
 			return 0.9f / GOTEntityDragon.BASE_WIDTH;
 		}
-
 		return 1 - dragon.getGrowingAge() / (float) GOTDragonLifeStage.EGG.getAgeLimit();
 	}
 
@@ -121,7 +120,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 				dragon.setPathToEntity(null);
 				dragon.setAttackTarget(null);
 			}
-
 			IAttributeInstance healthAttrib = dragon.getEntityAttribute(SharedMonsterAttributes.maxHealth);
 			IAttributeInstance damageAttrib = dragon.getEntityAttribute(SharedMonsterAttributes.attackDamage);
 
@@ -149,7 +147,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 			return;
 		}
-
 		GOTLog.getLogger().debug("transforming to egg");
 		float volume = 1;
 		float pitch = 0.5f + (0.5f - rand.nextFloat()) * 0.1f;
@@ -158,7 +155,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		if (dragon.isSaddled()) {
 			dragon.dropItem(Items.saddle, 1);
 		}
-
 		dragon.entityDropItem(new ItemStack(Blocks.dragon_egg), 0);
 		dragon.setDead();
 	}
@@ -167,7 +163,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		if (!isEgg()) {
 			return;
 		}
-
 		int age = dragon.getGrowingAge();
 
 		int eggAge = GOTDragonLifeStage.EGG.getAgeLimit();
@@ -190,7 +185,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 				playEggCrackEffect();
 			}
 		}
-
 		rand.nextDouble();
 		rand.nextDouble();
 		rand.nextDouble();

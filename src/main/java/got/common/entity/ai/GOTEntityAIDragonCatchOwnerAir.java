@@ -23,7 +23,6 @@ public class GOTEntityAIDragonCatchOwnerAir extends GOTEntityAIDragonCatchOwner 
 		if (wp.isNear()) {
 			owner.mountEntity(dragon);
 		}
-
 		dragon.setMoveSpeedAirHoriz(1);
 	}
 }

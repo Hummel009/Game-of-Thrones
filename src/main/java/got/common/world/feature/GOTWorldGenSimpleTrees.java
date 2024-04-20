@@ -111,5 +111,4 @@ public class GOTWorldGenSimpleTrees extends WorldGenAbstractTree {
 		}
 		return false;
 	}
-
 }

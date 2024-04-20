@@ -276,7 +276,6 @@ public class GOTWikiGen {
 				try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
 					sitemap = lines.collect(Collectors.toSet());
 				}
-
 				for (String pageName : MINERALS) {
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
@@ -284,7 +283,6 @@ public class GOTWikiGen {
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
-
 				for (Class<? extends Entity> entityClass : CLASS_TO_OBJ.keySet()) {
 					String pageName = getEntityPagename(entityClass);
 					neededPages.add(pageName);
@@ -293,7 +291,6 @@ public class GOTWikiGen {
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
-
 				for (GOTBiome biome : BIOMES) {
 					String pageName = getBiomePagename(biome);
 					neededPages.add(pageName);
@@ -302,7 +299,6 @@ public class GOTWikiGen {
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
-
 				for (GOTFaction fac : FACTIONS) {
 					String pageName = getFactionPagename(fac);
 					neededPages.add(pageName);
@@ -311,7 +307,6 @@ public class GOTWikiGen {
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
-
 				for (GOTTreeType tree : TREES) {
 					String pageName = getTreeName(tree);
 					neededPages.add(pageName);
@@ -320,7 +315,6 @@ public class GOTWikiGen {
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
-
 				for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
 					String pageName = getStructureName(strClass);
 					neededPages.add(pageName);
@@ -329,7 +323,6 @@ public class GOTWikiGen {
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
-
 				StringBuilder del = new StringBuilder();
 				for (String existing : sitemap) {
 					if (!neededPages.contains(existing)) {
@@ -823,7 +816,6 @@ public class GOTWikiGen {
 							sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 						}
 					}
-
 				}
 				sb.append(END);
 
@@ -865,7 +857,6 @@ public class GOTWikiGen {
 							sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 						}
 					}
-
 				}
 				sb.append(END);
 
@@ -935,7 +926,6 @@ public class GOTWikiGen {
 							facShields.add(shield);
 						}
 					}
-
 					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (facCapes.isEmpty() && facShields.isEmpty()) {
 						sb.append(Lang.FACTION_NO_ATTRIBUTES);

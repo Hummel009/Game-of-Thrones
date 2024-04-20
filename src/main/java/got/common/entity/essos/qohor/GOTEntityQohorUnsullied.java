@@ -42,5 +42,4 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.unsulliedHelmet));
 		return data;
 	}
-
 }

@@ -268,10 +268,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean canGetDrunk() {
-		if (isChild()) {
-			return false;
-		}
-		return !isTrader() && !isTraderEscort && !hiredNPCInfo.isActive;
+		return !isChild() && !isTrader() && !isTraderEscort && !hiredNPCInfo.isActive;
 	}
 
 	public boolean canNPCTalk() {
@@ -486,10 +483,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if ((!spawnsInDarkness || liftSpawnRestrictions || isConquestSpawning && conquestSpawnIgnoresDarkness() || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere()) {
-			return liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this));
-		}
-		return false;
+		return (!spawnsInDarkness || liftSpawnRestrictions || isConquestSpawning && conquestSpawnIgnoresDarkness() || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
 	}
 
 	@Override
@@ -731,10 +725,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@SideOnly(Side.CLIENT)
 	public boolean isInRangeToRenderDist(double dist) {
 		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
-		if (entityplayer != null && !GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(this, true).isEmpty()) {
-			return true;
-		}
-		return super.isInRangeToRenderDist(dist);
+		return entityplayer != null && !GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(this, true).isEmpty() || super.isInRangeToRenderDist(dist);
 	}
 
 	public boolean isInvasionSpawned() {
@@ -979,10 +970,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				detachHome();
 			} else if (getAttackTarget() == null && getNavigator().noPath()) {
 				detachHome();
-				boolean goDirectlyHome = false;
-				if (worldObj.blockExists(homeX, homeY, homeZ) && hiredNPCInfo.isGuardMode()) {
-					goDirectlyHome = distToHome < 16.0;
-				}
+				boolean goDirectlyHome = worldObj.blockExists(homeX, homeY, homeZ) && hiredNPCInfo.isGuardMode() && distToHome < 16.0;
 				double homeSpeed = 1.3;
 				if (goDirectlyHome) {
 					getNavigator().tryMoveToXYZ(homeX + 0.5, homeY + 0.5, homeZ + 0.5, homeSpeed);
@@ -1254,10 +1242,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean shouldRenderNPCChest() {
-		if (this instanceof GOTEntityProstitute && hasCustomNameTag() && "Ayase".equalsIgnoreCase(getCustomNameTag())) {
-			return false;
-		}
-		return !familyInfo.isMale() && !isChild() && getEquipmentInSlot(3) == null;
+		return (!(this instanceof GOTEntityProstitute) || !hasCustomNameTag() || !"Ayase".equalsIgnoreCase(getCustomNameTag())) && !familyInfo.isMale() && !isChild() && getEquipmentInSlot(3) == null;
 	}
 
 	public boolean shouldRenderNPCHair() {
@@ -1447,5 +1432,4 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		MELEE, RANGED, IDLE
 
 	}
-
 }

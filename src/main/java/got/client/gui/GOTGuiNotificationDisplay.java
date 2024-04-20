@@ -23,11 +23,10 @@ public class GOTGuiNotificationDisplay extends Gui {
 	public static final GOTGuiNotificationDisplay INSTANCE = new GOTGuiNotificationDisplay();
 
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	private final Collection<Notification> notifications = new ArrayList<>();
 	private final Collection<Notification> notificationsToRemove = new HashSet<>();
-
-	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	private int windowWidth;
 

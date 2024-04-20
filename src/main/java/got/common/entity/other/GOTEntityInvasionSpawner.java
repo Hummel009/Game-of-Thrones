@@ -132,10 +132,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public boolean canInvasionSpawnHere() {
-		if (GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forInvasionSpawner(this), false) || GOTEntityNPCRespawner.isSpawnBlocked(this, getInvasionType().getInvasionFaction())) {
-			return false;
-		}
-		return worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
+		return !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forInvasionSpawner(this), false) && !GOTEntityNPCRespawner.isSpawnBlocked(this, getInvasionType().getInvasionFaction()) && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
 	public void endInvasion(boolean completed) {
@@ -226,10 +223,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 
 	@Override
 	public boolean hitByEntity(Entity entity) {
-		if (entity instanceof EntityPlayer) {
-			return attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
-		}
-		return false;
+		return entity instanceof EntityPlayer && attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
 	}
 
 	@Override
@@ -415,7 +409,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
-	@SuppressWarnings({"Convert2Lambda"})
+	@SuppressWarnings("Convert2Lambda")
 	public IEntitySelector selectThisInvasionMobs() {
 		return new IEntitySelector() {
 
@@ -508,5 +502,4 @@ public class GOTEntityInvasionSpawner extends Entity {
 			nbt.setTag("BonusFactions", bonusTags);
 		}
 	}
-
 }

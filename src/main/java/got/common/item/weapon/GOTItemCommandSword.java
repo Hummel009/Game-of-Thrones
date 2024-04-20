@@ -152,5 +152,4 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		}
 		return itemstack;
 	}
-
 }

@@ -15,5 +15,4 @@ public interface GOTTradeable {
 
 	interface Smith extends GOTTradeable {
 	}
-
 }

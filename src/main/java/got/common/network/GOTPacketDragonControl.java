@@ -68,14 +68,12 @@ public class GOTPacketDragonControl implements IMessage {
 				GOTLog.getLogger().warn("Recieved unexpected control message from server!");
 				return null;
 			}
-
 			EntityPlayerMP player = ctx.getServerHandler().playerEntity;
 
 			if (player.ridingEntity instanceof GOTEntityDragon) {
 				GOTEntityDragon dragon = (GOTEntityDragon) player.ridingEntity;
 				dragon.setControlFlags(message.getFlags());
 			}
-
 			return null;
 		}
 	}

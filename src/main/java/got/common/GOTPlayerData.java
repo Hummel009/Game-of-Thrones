@@ -1980,7 +1980,6 @@ public class GOTPlayerData {
 			NBTTagCompound questNBT = playerData.getCompoundTag("QuestData");
 			questData.load(questNBT);
 		}
-
 		askedForJaqen = playerData.getBoolean("AskedForJaqen");
 		balance = playerData.getInteger("Balance");
 		cape = null;

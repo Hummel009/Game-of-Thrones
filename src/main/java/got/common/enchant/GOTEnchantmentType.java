@@ -15,12 +15,10 @@ public enum GOTEnchantmentType {
 		if (this == BREAKABLE && item.isDamageable()) {
 			return true;
 		}
-
 		if (item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
 			if (this == ARMOR) {
 				return true;
 			}
-
 			ItemArmor itemarmor = (ItemArmor) item;
 			int armorType = itemarmor.armorType;
 			switch (armorType) {
@@ -36,7 +34,6 @@ public enum GOTEnchantmentType {
 					break;
 			}
 		}
-
 		return this == MELEE && GOTWeaponStats.isMeleeWeapon(itemstack) && !(item instanceof GOTItemCommandSword) || this == TOOL && !item.getToolClasses(itemstack).isEmpty() || this == SHEARS && item instanceof ItemShears || this == RANGED && GOTWeaponStats.isRangedWeapon(itemstack) || this == RANGED_LAUNCHER && (item instanceof ItemBow || item instanceof GOTItemSarbacane) || this == THROWING_AXE && item instanceof GOTItemThrowingAxe || this == FISHING && item instanceof ItemFishingRod;
 	}
 }

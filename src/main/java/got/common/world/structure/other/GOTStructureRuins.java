@@ -133,7 +133,6 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 				setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.slabSingle1, 4 + random.nextInt(2));
 			}
 		}
-
 	}
 
 	public static class GOTStructureRuinsTower extends GOTStructureBase {

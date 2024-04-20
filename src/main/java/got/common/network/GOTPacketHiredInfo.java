@@ -95,5 +95,4 @@ public class GOTPacketHiredInfo implements IMessage {
 			return null;
 		}
 	}
-
 }

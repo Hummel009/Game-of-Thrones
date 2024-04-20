@@ -1067,7 +1067,6 @@ public class GOTFixer {
 				biome.getDecorator().addFixedSettlement(location);
 			}
 		}
-
 		LOCATIONS.clear();
 	}
 

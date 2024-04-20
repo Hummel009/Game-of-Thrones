@@ -40,5 +40,4 @@ public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.unsulliedHelmet));
 		return data;
 	}
-
 }

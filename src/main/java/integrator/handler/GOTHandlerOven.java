@@ -124,5 +124,4 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 			return results.get(0);
 		}
 	}
-
 }

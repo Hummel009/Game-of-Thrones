@@ -273,5 +273,4 @@ public class GOTBlockTreasurePile extends Block {
 			world.setBlockToAir(i, j, k);
 		}
 	}
-
 }

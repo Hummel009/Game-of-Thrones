@@ -31,50 +31,6 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		super(0L);
 	}
 
-	public void tryLoadBiomeImage() {
-		if (!loadedBiomeImage()) {
-			try {
-				BufferedImage biomeImage = null;
-				String imageName = "assets/got/textures/map/map.png";
-				ModContainer mc = GOT.getModContainer();
-				if (mc.getSource().isFile()) {
-					ZipFile zip = new ZipFile(mc.getSource());
-					Enumeration<? extends ZipEntry> entries = zip.entries();
-					while (entries.hasMoreElements()) {
-						ZipEntry entry = entries.nextElement();
-						if (!entry.getName().equals(imageName)) {
-							continue;
-						}
-						biomeImage = ImageIO.read(zip.getInputStream(entry));
-					}
-					zip.close();
-				} else {
-					File file = new File(GOT.class.getResource('/' + imageName).toURI());
-					biomeImage = ImageIO.read(Files.newInputStream(file.toPath()));
-				}
-				if (biomeImage == null) {
-					throw new RuntimeException("Could not init GOT biome map image");
-				}
-				imageWidth = biomeImage.getWidth();
-				imageHeight = biomeImage.getHeight();
-				int[] colors = biomeImage.getRGB(0, 0, imageWidth, imageHeight, null, 0, imageWidth);
-				biomeImageData = new byte[imageWidth * imageHeight];
-				for (int i = 0; i < colors.length; ++i) {
-					int color = colors[i];
-					Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
-					if (biomeID != null) {
-						biomeImageData[i] = biomeID.byteValue();
-						continue;
-					}
-					FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));
-					biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
 	public static GOTGenLayer[] createWorld(GOTDimension dim, WorldType worldType) {
 		int i;
 
@@ -163,6 +119,50 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 
 	public static void setBiomeImageData(byte[] biomeImageData) {
 		GOTGenLayerWorld.biomeImageData = biomeImageData;
+	}
+
+	public void tryLoadBiomeImage() {
+		if (!loadedBiomeImage()) {
+			try {
+				BufferedImage biomeImage = null;
+				String imageName = "assets/got/textures/map/map.png";
+				ModContainer mc = GOT.getModContainer();
+				if (mc.getSource().isFile()) {
+					ZipFile zip = new ZipFile(mc.getSource());
+					Enumeration<? extends ZipEntry> entries = zip.entries();
+					while (entries.hasMoreElements()) {
+						ZipEntry entry = entries.nextElement();
+						if (!entry.getName().equals(imageName)) {
+							continue;
+						}
+						biomeImage = ImageIO.read(zip.getInputStream(entry));
+					}
+					zip.close();
+				} else {
+					File file = new File(GOT.class.getResource('/' + imageName).toURI());
+					biomeImage = ImageIO.read(Files.newInputStream(file.toPath()));
+				}
+				if (biomeImage == null) {
+					throw new RuntimeException("Could not init GOT biome map image");
+				}
+				imageWidth = biomeImage.getWidth();
+				imageHeight = biomeImage.getHeight();
+				int[] colors = biomeImage.getRGB(0, 0, imageWidth, imageHeight, null, 0, imageWidth);
+				biomeImageData = new byte[imageWidth * imageHeight];
+				for (int i = 0; i < colors.length; ++i) {
+					int color = colors[i];
+					Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
+					if (biomeID != null) {
+						biomeImageData[i] = biomeID.byteValue();
+						continue;
+					}
+					FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));
+					biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override

@@ -574,7 +574,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					break;
 			}
 		}
-
 		switch (random.nextInt(7)) {
 			case 0:
 			case 1:

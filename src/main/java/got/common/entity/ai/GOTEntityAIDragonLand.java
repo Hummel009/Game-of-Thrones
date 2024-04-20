@@ -20,7 +20,6 @@ public class GOTEntityAIDragonLand extends EntityAIBase {
 		if (!dragon.isFlying() || dragon.getRidingPlayer() != null) {
 			return false;
 		}
-
 		landTarget = RandomPositionGenerator.findRandomTarget(dragon, 16, 256);
 
 		return landTarget != null;

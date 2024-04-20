@@ -62,7 +62,6 @@ public class GOTEntityUtils {
 		} else {
 			npc.setCurrentItemOrArmor(2, dyeLeather(new ItemStack(Items.leather_leggings), rand));
 		}
-
 		int body = rand.nextInt(10);
 		if ((body == 0 || body == 1) && !alreadyHasChain) {
 			npc.setCurrentItemOrArmor(3, new ItemStack(GOTItems.bronzeChainmailChestplate));
@@ -71,7 +70,6 @@ public class GOTEntityUtils {
 		} else {
 			npc.setCurrentItemOrArmor(3, dyeLeather(new ItemStack(Items.leather_chestplate), rand));
 		}
-
 		if (forceTurban) {
 			ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 			int robeColor = turbanColors[rand.nextInt(turbanColors.length)];

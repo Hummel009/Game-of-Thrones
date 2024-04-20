@@ -52,16 +52,13 @@ public class GOTEntityAIDragonRideAir extends GOTEntityAIDragonRide {
 				if (rider.moveForward < 0) {
 					speedAir *= 0.5;
 				}
-
 				speedAir *= rider.moveForward;
 			}
-
 			dragon.setMoveSpeedAirHoriz(speedAir);
 
 			if (rider.moveStrafing != 0) {
 				dragon.rotationYaw -= rider.moveStrafing * 6;
 			}
-
 			double verticalSpeed = 0;
 
 			if (isFlyUp()) {
@@ -69,7 +66,6 @@ public class GOTEntityAIDragonRideAir extends GOTEntityAIDragonRide {
 			} else if (isFlyDown()) {
 				verticalSpeed = -0.5f;
 			}
-
 			dragon.setMoveSpeedAirVert(verticalSpeed);
 		}
 	}

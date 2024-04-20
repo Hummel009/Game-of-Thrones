@@ -443,7 +443,5 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 				super(block, (BlockSlab) GOTBlocks.woodSlabSingle5, (BlockSlab) GOTBlocks.woodSlabDouble5, false);
 			}
 		}
-
 	}
-
 }

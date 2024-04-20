@@ -36,7 +36,6 @@ public class GOTEnchantmentHelper {
 		} else {
 			clearEnchantsAndProgress(itemstack);
 		}
-
 		int enchants = 0;
 		float chance = random.nextFloat();
 		if (skilful) {
@@ -46,13 +45,11 @@ public class GOTEnchantmentHelper {
 				enchants = 1;
 
 			}
-
 		} else if (chance < 0.1F) {
 			enchants = 2;
 		} else if (chance < 0.65F) {
 			enchants = 1;
 		}
-
 		Collection<WeightedRandomEnchant> applicable = new ArrayList<>();
 		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 			if (ench.canApply(itemstack, true) && (!ench.getSkilful() || skilful)) {
@@ -63,18 +60,15 @@ public class GOTEnchantmentHelper {
 					} else {
 						weight *= 100;
 					}
-
 					if (weight > 0 && itemstack.getItem() instanceof ItemTool && !ench.getItemTypes().contains(GOTEnchantmentType.TOOL) && !ench.getItemTypes().contains(GOTEnchantmentType.BREAKABLE)) {
 						weight /= 3;
 						weight = Math.max(weight, 1);
 					}
-
 					WeightedRandomEnchant wre = new WeightedRandomEnchant(ench, weight);
 					applicable.add(wre);
 				}
 			}
 		}
-
 		if (!applicable.isEmpty()) {
 			Collection<GOTEnchantment> chosenEnchants = new ArrayList<>();
 
@@ -82,7 +76,6 @@ public class GOTEnchantmentHelper {
 				if (applicable.isEmpty()) {
 					break;
 				}
-
 				WeightedRandomEnchant chosenWre = (WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
 				GOTEnchantment chosenEnch = chosenWre.getTheEnchant();
 				chosenEnchants.add(chosenEnch);
@@ -98,14 +91,12 @@ public class GOTEnchantmentHelper {
 				}
 				applicable.removeAll(nowIncompatibles);
 			}
-
 			for (GOTEnchantment ench : chosenEnchants) {
 				if (ench.canApply(itemstack, false)) {
 					setHasEnchant(itemstack, ench);
 				}
 			}
 		}
-
 		if (!getEnchantList(itemstack).isEmpty() || canApplyAnyEnchant(itemstack)) {
 			setAppliedRandomEnchants(itemstack);
 		}
@@ -122,7 +113,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return damage;
 	}
 
@@ -137,7 +127,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return protection;
 	}
 
@@ -152,7 +141,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return damage;
 	}
 
@@ -167,7 +155,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return kb;
 	}
 
@@ -182,7 +169,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return fire;
 	}
 
@@ -190,7 +176,6 @@ public class GOTEnchantmentHelper {
 		if (itemstack != null && GOTEnchantmentType.MELEE.canApply(itemstack)) {
 			return calcFireAspect(itemstack);
 		}
-
 		return 0;
 	}
 
@@ -205,7 +190,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return looting;
 	}
 
@@ -220,7 +204,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return reach;
 	}
 
@@ -235,7 +218,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return speed;
 	}
 
@@ -250,7 +232,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return damage;
 	}
 
@@ -265,7 +246,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return kb;
 	}
 
@@ -284,7 +264,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return protection;
 	}
 
@@ -299,7 +278,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return speed;
 	}
 
@@ -313,7 +291,6 @@ public class GOTEnchantmentHelper {
 				value *= 1.5F;
 			}
 		}
-
 		return value;
 	}
 
@@ -372,7 +349,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return enchants;
 	}
 
@@ -434,7 +410,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return max;
 	}
 
@@ -444,13 +419,11 @@ public class GOTEnchantmentHelper {
 		if (ench.isBeneficial()) {
 			wd = Math.pow(wd, 0.3D);
 		}
-
 		wd *= 100.0D;
 
 		if (!ench.isBeneficial()) {
 			wd *= 0.15D;
 		}
-
 		weight = (int) Math.round(wd);
 		return Math.max(weight, 1);
 	}
@@ -486,7 +459,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return sourceEntity != null && hasProjectileEnchantment(sourceEntity, ench);
 	}
 
@@ -520,7 +492,6 @@ public class GOTEnchantmentHelper {
 				}
 				random1 = backupRand;
 			}
-
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentDurability) {
@@ -534,7 +505,6 @@ public class GOTEnchantmentHelper {
 				}
 			}
 		}
-
 		return false;
 	}
 
@@ -549,11 +519,9 @@ public class GOTEnchantmentHelper {
 						ItemStack itemstack = entity.getEquipmentInSlot(i);
 						tryApplyRandomEnchantsForEntity(itemstack, rand);
 					}
-
 					entity.getEntityData().setBoolean("GOTEnchantInit", true);
 				}
 			}
-
 			if (entity instanceof EntityPlayerMP) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) entity;
 				UUID playerID = entityplayer.getUniqueID();
@@ -563,7 +531,6 @@ public class GOTEnchantmentHelper {
 				if (lastKnownInv == null) {
 					lastKnownInv = new ItemStack[inv.getSizeInventory()];
 				}
-
 				for (int i = 0; i < inv.getSizeInventory(); i++) {
 					ItemStack itemstack = inv.getStackInSlot(i);
 					ItemStack lastKnownItem = lastKnownInv[i];
@@ -574,11 +541,9 @@ public class GOTEnchantmentHelper {
 						lastKnownInv[i] = lastKnownItem;
 					}
 				}
-
 				if (tryApplyRandomEnchantsForEntity(inv.getItemStack(), rand)) {
 					entityplayer.updateHeldItem();
 				}
-
 				LAST_KNOWN_PLAYER_INVENTORIES.put(playerID, lastKnownInv);
 				if (LAST_KNOWN_PLAYER_INVENTORIES.size() > 200) {
 					LAST_KNOWN_PLAYER_INVENTORIES.clear();

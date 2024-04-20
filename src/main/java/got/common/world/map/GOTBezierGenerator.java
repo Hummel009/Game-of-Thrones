@@ -38,7 +38,6 @@ public class GOTBezierGenerator {
 			}
 			return true;
 		}
-
 		boolean roadAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD);
 		boolean linkerAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.LINKER) && !disableLocations;
 		if (roadAt || linkerAt) {

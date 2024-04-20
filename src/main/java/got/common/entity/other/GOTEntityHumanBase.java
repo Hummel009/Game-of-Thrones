@@ -28,10 +28,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (canBeMarried && familyInfo.interact(entityplayer)) {
-			return true;
-		}
-		return super.interact(entityplayer);
+		return canBeMarried && familyInfo.interact(entityplayer) || super.interact(entityplayer);
 	}
 
 	@Override

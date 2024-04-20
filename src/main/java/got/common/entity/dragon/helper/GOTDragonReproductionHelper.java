@@ -34,7 +34,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 
 			return false;
 		}
-
 		GOTEntityDragon dragonMate = (GOTEntityDragon) mate;
 
 		return dragonMate.isTamed() && dragonMate.getReproductionHelper().canReproduce() && dragon.isInLove() && dragonMate.isInLove();
@@ -49,7 +48,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		if (!(mate instanceof GOTEntityDragon)) {
 			throw new IllegalArgumentException("The mate isn't a dragon");
 		}
-
 		GOTEntityDragon parent1 = dragon;
 		GOTEntityDragon parent2 = (GOTEntityDragon) mate;
 		GOTEntityDragon baby = new GOTEntityDragon(dragon.worldObj);
@@ -82,7 +80,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 			}
 			baby.setCustomNameTag(babyName);
 		}
-
 		parent1.getReproductionHelper().addReproduced();
 		parent2.getReproductionHelper().addReproduced();
 		return baby;
@@ -92,7 +89,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		if (nameOld == null || nameOld.isEmpty()) {
 			return nameOld;
 		}
-
 		char[] chars = nameOld.toLowerCase(Locale.ROOT).toCharArray();
 
 		chars[0] = Character.toUpperCase(chars[0]);
@@ -102,7 +98,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		if (!nameOld.equals(nameNew)) {
 			GOTLog.getLogger().debug("Fixed child name {} -> {}");
 		}
-
 		return nameNew;
 	}
 
@@ -151,7 +146,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		} else if (nbt.getBoolean(NBT_REPRODUCED)) {
 			reproCount++;
 		}
-
 		setReproCount(reproCount);
 	}
 

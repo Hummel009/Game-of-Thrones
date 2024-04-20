@@ -400,7 +400,6 @@ public class GOTAPI {
 				closestWaypoint = waypoint;
 			}
 		}
-
 		return new GOTWaypointInfo(closestWaypoint, targetX - closestWaypoint.getImgX(), targetY - closestWaypoint.getImgY(), 0);
 	}
 

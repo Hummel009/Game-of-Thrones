@@ -111,7 +111,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		if (itemStack == null) {
 			return null;
 		}
-
 		Item equippedItem = itemStack.getItem();
 
 		for (Item item : items) {
@@ -122,11 +121,9 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 				if (itemStack.stackSize <= 0) {
 					player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
 				}
-
 				return item;
 			}
 		}
-
 		return null;
 	}
 
@@ -149,7 +146,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		}
 		helpers.put(helper.getClass(), helper);
 	}
-
 
 	@Override
 	public void applyEntityAttributes() {
@@ -239,7 +235,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.onLivingUpdate();
 		}
-
 		if (isClient()) {
 			if (!isEgg()) {
 				animator.setOnGround(!isFlying());
@@ -252,27 +247,22 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 				setHomeArea((int) owner.posX, (int) owner.posY, (int) owner.posZ, HOME_RADIUS);
 			}
 		}
-
 		if (!isCanFly()) {
 			if (isFlying()) {
 				setFlying(false);
 			}
-
 			super.onLivingUpdate();
 			return;
 		}
-
 		if (!worldObj.isRemote) {
 			if (onGround) {
 				inAirTicks = 0;
 			} else {
 				inAirTicks++;
 			}
-
 			int IN_AIR_THRESH = 10;
 			setFlying(inAirTicks > IN_AIR_THRESH);
 		}
-
 		if (isFlying()) {
 			if (isClient()) {
 				onUpdateFlyingClient();
@@ -439,7 +429,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 			if (victim instanceof EntityLivingBase) {
 				EnchantmentHelper.func_151384_a((EntityLivingBase) victim, this);
 			}
-
 			EnchantmentHelper.func_151385_b(this, victim);
 
 			setLastAttacker(victim);
@@ -455,7 +444,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		if (damagesource == DamageSource.inFire || damagesource == DamageSource.onFire || damagesource == DamageSource.lava || damagesource == DamageSource.inWall || damagesource == DamageSource.drown || damagesource == DamageSource.starve || damagesource == DamageSource.cactus || damagesource == DamageSource.fall || damagesource == DamageSource.anvil || damagesource == DamageSource.fallingBlock) {
 			return false;
 		}
-
 		aiSit.setSitting(false);
 
 		return super.attackEntityFrom(damagesource, amount);
@@ -630,12 +618,10 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		if (isEgg()) {
 			return false;
 		}
-
 		if (!isTamed() && !isChild()) {
 			if (!worldObj.isRemote && consumeEquipped(player, FAVORITE_FOOD) != null) {
 				tamedFor(player, rand.nextInt(3) == 0);
 			}
-
 			return true;
 		}
 		ItemFood food = null;
@@ -673,7 +659,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 				setRidingPlayer(player);
 			}
 		}
-
 		return false;
 	}
 
@@ -728,7 +713,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		if (isEgg() || deathTime >= getMaxDeathTime()) {
 			setDead();
 		}
-
 		deathTime++;
 	}
 
