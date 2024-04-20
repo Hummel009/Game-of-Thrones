@@ -2,10 +2,9 @@ package got.common.world.structure.westeros.dorne;
 
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
-@SuppressWarnings("AbstractClassNeverImplemented")
-public abstract class GOTStructureDorneVillageFarm extends GOTStructureWesterosVillageFarm {
-	@SuppressWarnings("unused")
-	protected GOTStructureDorneVillageFarm(boolean flag) {
+public class GOTStructureDorneVillageFarm extends GOTStructureWesterosVillageFarm {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTStructureDorneVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.DORNE;
 	}

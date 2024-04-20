@@ -100,7 +100,6 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			super(flag);
 		}
 
-		@SuppressWarnings("JavaExistingMethodCanBeUsed")
 		private static EntityAnimal getRandomAnimal(World world, Random random) {
 			int animal = random.nextInt(4);
 			switch (animal) {
