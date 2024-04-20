@@ -19,7 +19,7 @@ public class GOTPacketMiniquest implements IMessage {
 	private NBTTagCompound miniquestData;
 	private boolean completed;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketMiniquest() {
 	}
 

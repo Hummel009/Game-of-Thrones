@@ -14,7 +14,7 @@ public class GOTPacketNPCIsOfferingQuest implements IMessage {
 	private int offerColor;
 	private int entityID;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketNPCIsOfferingQuest() {
 	}
 

@@ -18,7 +18,7 @@ public class GOTPacketBuyUnit implements IMessage {
 	private int tradeIndex;
 	private String squadron;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketBuyUnit() {
 	}
 

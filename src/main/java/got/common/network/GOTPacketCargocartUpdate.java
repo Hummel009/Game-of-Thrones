@@ -12,7 +12,7 @@ public class GOTPacketCargocartUpdate implements IMessage {
 	private int pullingId;
 	private int cartId;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketCargocartUpdate() {
 	}
 

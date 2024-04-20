@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 public class GOTPacketIsOpResponse implements IMessage {
 	private boolean isOp;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketIsOpResponse() {
 	}
 

@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketClientMQEvent implements IMessage {
 	private ClientMQEvent type;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketClientMQEvent() {
 	}
 

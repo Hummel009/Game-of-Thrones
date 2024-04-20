@@ -32,7 +32,7 @@ public class GOTPacketBannerData implements IMessage {
 	private int[] whitelistPerms;
 	private String[] whitelistSlots;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketBannerData() {
 	}
 
@@ -96,7 +96,7 @@ public class GOTPacketBannerData implements IMessage {
 		data.writeBoolean(thisPlayerHasPermission);
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isPlayerSpecificProtection() {
 		return playerSpecificProtection;
 	}
@@ -105,7 +105,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.playerSpecificProtection = playerSpecificProtection;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isSelfProtection() {
 		return selfProtection;
 	}
@@ -114,7 +114,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.selfProtection = selfProtection;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isStructureProtection() {
 		return structureProtection;
 	}
@@ -123,7 +123,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.structureProtection = structureProtection;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getCustomRange() {
 		return customRange;
 	}
@@ -132,7 +132,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.customRange = customRange;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public float getAlignmentProtection() {
 		return alignmentProtection;
 	}
@@ -141,7 +141,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.alignmentProtection = alignmentProtection;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getWhitelistLength() {
 		return whitelistLength;
 	}
@@ -150,7 +150,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.whitelistLength = whitelistLength;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public String[] getWhitelistSlots() {
 		return whitelistSlots;
 	}
@@ -159,7 +159,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.whitelistSlots = whitelistSlots;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int[] getWhitelistPerms() {
 		return whitelistPerms;
 	}
@@ -168,7 +168,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.whitelistPerms = whitelistPerms;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getDefaultPerms() {
 		return defaultPerms;
 	}
@@ -177,7 +177,7 @@ public class GOTPacketBannerData implements IMessage {
 		this.defaultPerms = defaultPerms;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isThisPlayerHasPermission() {
 		return thisPlayerHasPermission;
 	}

@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketSelectCape implements IMessage {
 	private GOTCapes cape;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketSelectCape() {
 	}
 

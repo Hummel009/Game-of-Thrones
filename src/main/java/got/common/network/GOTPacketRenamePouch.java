@@ -12,7 +12,7 @@ import net.minecraft.inventory.Container;
 public class GOTPacketRenamePouch implements IMessage {
 	private String name;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketRenamePouch() {
 	}
 

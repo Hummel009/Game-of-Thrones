@@ -25,7 +25,7 @@ public class GOTPacketHiredGui implements IMessage {
 	private int mobKills;
 	private int xp;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketHiredGui() {
 	}
 

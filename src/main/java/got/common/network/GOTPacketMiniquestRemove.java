@@ -18,7 +18,7 @@ public class GOTPacketMiniquestRemove implements IMessage {
 	private boolean wasCompleted;
 	private boolean addToCompleted;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketMiniquestRemove() {
 	}
 

@@ -16,7 +16,7 @@ public class GOTPacketNPCSquadron implements IMessage {
 	private int npcID;
 	private String squadron;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketNPCSquadron() {
 	}
 

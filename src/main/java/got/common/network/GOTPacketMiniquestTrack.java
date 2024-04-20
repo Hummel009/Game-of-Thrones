@@ -14,7 +14,7 @@ import java.util.UUID;
 public class GOTPacketMiniquestTrack implements IMessage {
 	private UUID questID;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketMiniquestTrack() {
 	}
 

@@ -16,7 +16,7 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 	private UUID subjectUuid;
 	private PlayerFunction function;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketFellowshipDoPlayer() {
 	}
 

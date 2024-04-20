@@ -17,7 +17,7 @@ import java.io.IOException;
 public class GOTPacketLoginPlayerData implements IMessage {
 	private NBTTagCompound playerData;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketLoginPlayerData() {
 	}
 

@@ -15,7 +15,7 @@ public class GOTPacketWeaponFX implements IMessage {
 	private Type type;
 	private int entityID;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketWeaponFX() {
 	}
 

@@ -17,7 +17,7 @@ public class GOTPacketShareCWPClient implements IMessage {
 	private UUID fellowshipID;
 	private boolean adding;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketShareCWPClient() {
 	}
 

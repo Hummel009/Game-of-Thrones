@@ -14,7 +14,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketFellowshipRename extends GOTPacketFellowshipDo {
 	private String newName;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketFellowshipRename() {
 	}
 

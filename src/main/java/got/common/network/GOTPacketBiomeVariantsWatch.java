@@ -15,7 +15,7 @@ public class GOTPacketBiomeVariantsWatch implements IMessage {
 	private int chunkZ;
 	private byte[] variants;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketBiomeVariantsWatch() {
 	}
 

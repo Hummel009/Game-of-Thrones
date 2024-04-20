@@ -19,7 +19,7 @@ public class GOTPacketEditNPCRespawner implements IMessage {
 	private int spawnerID;
 	private NBTTagCompound spawnerData;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketEditNPCRespawner() {
 	}
 
@@ -53,7 +53,7 @@ public class GOTPacketEditNPCRespawner implements IMessage {
 		data.writeBoolean(destroy);
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isDestroy() {
 		return destroy;
 	}

@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 public class GOTPacketEnvironmentOverlay implements IMessage {
 	private Overlay overlay;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketEnvironmentOverlay() {
 	}
 

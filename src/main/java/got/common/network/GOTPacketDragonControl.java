@@ -12,12 +12,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import java.util.BitSet;
 
 public class GOTPacketDragonControl implements IMessage {
-	private final BitSet bits;
-	private int previous;
+	private final BitSet bits = new BitSet(Byte.SIZE);
 
-	public GOTPacketDragonControl() {
-		bits = new BitSet(Byte.SIZE);
-	}
+	private int previous;
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
@@ -61,7 +58,6 @@ public class GOTPacketDragonControl implements IMessage {
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketDragonControl, IMessage> {
-
 		@Override
 		public IMessage onMessage(GOTPacketDragonControl message, MessageContext ctx) {
 			if (ctx.side == Side.CLIENT) {
@@ -69,7 +65,6 @@ public class GOTPacketDragonControl implements IMessage {
 				return null;
 			}
 			EntityPlayerMP player = ctx.getServerHandler().playerEntity;
-
 			if (player.ridingEntity instanceof GOTEntityDragon) {
 				GOTEntityDragon dragon = (GOTEntityDragon) player.ridingEntity;
 				dragon.setControlFlags(message.getFlags());

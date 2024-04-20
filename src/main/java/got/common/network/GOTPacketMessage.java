@@ -11,7 +11,7 @@ import io.netty.buffer.ByteBuf;
 public class GOTPacketMessage implements IMessage {
 	private GOTGuiMessageTypes message;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketMessage() {
 	}
 

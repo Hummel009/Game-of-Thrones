@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketPledgeSet implements IMessage {
 	private GOTFaction pledgeFac;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketPledgeSet() {
 	}
 

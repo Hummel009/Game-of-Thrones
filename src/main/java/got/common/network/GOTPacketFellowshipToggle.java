@@ -13,7 +13,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 	private ToggleFunction function;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketFellowshipToggle() {
 	}
 

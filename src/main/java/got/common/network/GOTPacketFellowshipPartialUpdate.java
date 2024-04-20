@@ -52,7 +52,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class AddMember extends OnePlayerUpdate {
 		private GOTTitle.PlayerTitle playerTitle;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public AddMember() {
 		}
 
@@ -85,7 +85,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class ChangeIcon extends GOTPacketFellowshipPartialUpdate {
 		private ItemStack fellowshipIcon;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public ChangeIcon() {
 		}
 
@@ -173,7 +173,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class RemoveAdmin extends OnePlayerUpdate {
 		private boolean isAdminned;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public RemoveAdmin() {
 		}
 
@@ -204,7 +204,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class RemoveMember extends OnePlayerUpdate {
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public RemoveMember() {
 		}
 
@@ -260,7 +260,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class SetAdmin extends OnePlayerUpdate {
 		private boolean isAdminned;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public SetAdmin() {
 		}
 
@@ -293,7 +293,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class SetOwner extends OnePlayerUpdate {
 		private boolean isOwned;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public SetOwner() {
 		}
 
@@ -326,7 +326,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class ToggleHiredFriendlyFire extends GOTPacketFellowshipPartialUpdate {
 		private boolean preventHiredFF;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public ToggleHiredFriendlyFire() {
 		}
 
@@ -359,7 +359,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class TogglePvp extends GOTPacketFellowshipPartialUpdate {
 		private boolean preventPVP;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public TogglePvp() {
 		}
 
@@ -392,7 +392,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class ToggleShowMap extends GOTPacketFellowshipPartialUpdate {
 		private boolean showMapLocations;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public ToggleShowMap() {
 		}
 
@@ -425,7 +425,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public static class UpdatePlayerTitle extends OnePlayerUpdate {
 		private GOTTitle.PlayerTitle playerTitle;
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public UpdatePlayerTitle() {
 		}
 

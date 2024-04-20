@@ -16,7 +16,7 @@ public class GOTPacketBannerValidate implements IMessage {
 	private String prevText;
 	private boolean valid;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketBannerValidate() {
 	}
 

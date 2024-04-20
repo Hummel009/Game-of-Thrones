@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketConquestGridRequest implements IMessage {
 	private GOTFaction conqFac;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketConquestGridRequest() {
 	}
 

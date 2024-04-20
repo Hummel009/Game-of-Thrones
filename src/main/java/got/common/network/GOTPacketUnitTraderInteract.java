@@ -17,7 +17,7 @@ public class GOTPacketUnitTraderInteract implements IMessage {
 	private int traderID;
 	private int traderAction;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketUnitTraderInteract() {
 	}
 

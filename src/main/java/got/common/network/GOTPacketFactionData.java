@@ -20,7 +20,7 @@ public class GOTPacketFactionData implements IMessage {
 	private GOTFaction faction;
 	private NBTTagCompound factionNBT;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketFactionData() {
 	}
 

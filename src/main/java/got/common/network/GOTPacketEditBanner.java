@@ -30,7 +30,7 @@ public class GOTPacketEditBanner implements IMessage {
 	private int[] whitelistPerms;
 	private String[] whitelistSlots;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketEditBanner() {
 	}
 
@@ -92,7 +92,7 @@ public class GOTPacketEditBanner implements IMessage {
 		data.writeShort(defaultPerms);
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getDefaultPerms() {
 		return defaultPerms;
 	}
@@ -101,7 +101,7 @@ public class GOTPacketEditBanner implements IMessage {
 		this.defaultPerms = defaultPerms;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int[] getWhitelistPerms() {
 		return whitelistPerms;
 	}
@@ -110,7 +110,7 @@ public class GOTPacketEditBanner implements IMessage {
 		this.whitelistPerms = whitelistPerms;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public String[] getWhitelistSlots() {
 		return whitelistSlots;
 	}
@@ -119,7 +119,7 @@ public class GOTPacketEditBanner implements IMessage {
 		this.whitelistSlots = whitelistSlots;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getWhitelistLength() {
 		return whitelistLength;
 	}
@@ -128,7 +128,7 @@ public class GOTPacketEditBanner implements IMessage {
 		this.whitelistLength = whitelistLength;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public float getAlignmentProtection() {
 		return alignmentProtection;
 	}
@@ -137,7 +137,7 @@ public class GOTPacketEditBanner implements IMessage {
 		this.alignmentProtection = alignmentProtection;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isSelfProtection() {
 		return selfProtection;
 	}
@@ -146,7 +146,7 @@ public class GOTPacketEditBanner implements IMessage {
 		this.selfProtection = selfProtection;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isPlayerSpecificProtection() {
 		return playerSpecificProtection;
 	}

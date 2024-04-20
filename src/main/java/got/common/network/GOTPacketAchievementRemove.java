@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 public class GOTPacketAchievementRemove implements IMessage {
 	private GOTAchievement achievement;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketAchievementRemove() {
 	}
 

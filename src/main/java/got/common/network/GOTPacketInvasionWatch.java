@@ -11,7 +11,7 @@ public class GOTPacketInvasionWatch implements IMessage {
 	private int invasionEntityID;
 	private boolean overrideAlreadyWatched;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketInvasionWatch() {
 	}
 

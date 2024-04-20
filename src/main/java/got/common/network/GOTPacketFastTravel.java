@@ -20,7 +20,7 @@ public class GOTPacketFastTravel implements IMessage {
 	private int wpID;
 	private UUID sharingPlayer;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketFastTravel() {
 	}
 

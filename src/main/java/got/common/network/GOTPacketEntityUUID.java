@@ -15,7 +15,7 @@ public class GOTPacketEntityUUID implements IMessage {
 	private int entityID;
 	private UUID entityUUID;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketEntityUUID() {
 	}
 

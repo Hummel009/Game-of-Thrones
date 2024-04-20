@@ -17,7 +17,7 @@ public class GOTPacketShareCWP implements IMessage {
 	private String fsName;
 	private boolean adding;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketShareCWP() {
 	}
 

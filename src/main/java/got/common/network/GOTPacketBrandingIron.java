@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 public class GOTPacketBrandingIron implements IMessage {
 	private String brandName;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketBrandingIron() {
 	}
 

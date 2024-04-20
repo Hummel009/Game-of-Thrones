@@ -19,7 +19,7 @@ public class GOTPacketNPCSpeech implements IMessage {
 	private String speech;
 	private boolean forceChatMsg;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketNPCSpeech() {
 	}
 

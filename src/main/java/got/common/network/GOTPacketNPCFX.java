@@ -13,7 +13,7 @@ public class GOTPacketNPCFX implements IMessage {
 	private int entityID;
 	private FXType type;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketNPCFX() {
 	}
 

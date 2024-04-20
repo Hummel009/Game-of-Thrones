@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketFellowshipCreate implements IMessage {
 	private String fellowshipName;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketFellowshipCreate() {
 	}
 

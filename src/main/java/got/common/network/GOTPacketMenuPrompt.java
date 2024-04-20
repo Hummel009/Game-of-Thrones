@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 public class GOTPacketMenuPrompt implements IMessage {
 	private Type type;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketMenuPrompt() {
 	}
 

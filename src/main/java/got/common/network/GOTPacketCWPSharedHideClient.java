@@ -16,7 +16,7 @@ public class GOTPacketCWPSharedHideClient implements IMessage {
 	private UUID sharingPlayer;
 	private boolean hideCWP;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketCWPSharedHideClient() {
 	}
 

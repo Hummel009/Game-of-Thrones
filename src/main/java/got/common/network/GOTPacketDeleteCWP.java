@@ -13,7 +13,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketDeleteCWP implements IMessage {
 	private int wpID;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketDeleteCWP() {
 	}
 

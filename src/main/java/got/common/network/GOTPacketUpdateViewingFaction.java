@@ -13,7 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 public class GOTPacketUpdateViewingFaction implements IMessage {
 	private GOTFaction viewingFaction;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketUpdateViewingFaction() {
 	}
 

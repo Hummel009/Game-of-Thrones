@@ -21,7 +21,7 @@ public class GOTPacketClientInfo implements IMessage {
 	private boolean showCWP;
 	private boolean showHiddenSWP;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketClientInfo() {
 	}
 

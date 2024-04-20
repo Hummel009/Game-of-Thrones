@@ -68,7 +68,7 @@ public class GOTPacketLogin implements IMessage {
 		data.writeInt(customWaypointMinY);
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getSwordPortalX() {
 		return swordPortalX;
 	}
@@ -77,7 +77,7 @@ public class GOTPacketLogin implements IMessage {
 		this.swordPortalX = swordPortalX;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getSwordPortalY() {
 		return swordPortalY;
 	}
@@ -86,7 +86,7 @@ public class GOTPacketLogin implements IMessage {
 		this.swordPortalY = swordPortalY;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getSwordPortalZ() {
 		return swordPortalZ;
 	}
@@ -95,7 +95,7 @@ public class GOTPacketLogin implements IMessage {
 		this.swordPortalZ = swordPortalZ;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getFtCooldownMax() {
 		return ftCooldownMax;
 	}
@@ -104,7 +104,7 @@ public class GOTPacketLogin implements IMessage {
 		this.ftCooldownMax = ftCooldownMax;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getFtCooldownMin() {
 		return ftCooldownMin;
 	}
@@ -113,7 +113,7 @@ public class GOTPacketLogin implements IMessage {
 		this.ftCooldownMin = ftCooldownMin;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public EnumDifficulty getDifficulty() {
 		return difficulty;
 	}
@@ -122,7 +122,7 @@ public class GOTPacketLogin implements IMessage {
 		this.difficulty = difficulty;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isDifficultyLocked() {
 		return difficultyLocked;
 	}
@@ -131,7 +131,7 @@ public class GOTPacketLogin implements IMessage {
 		this.difficultyLocked = difficultyLocked;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isAlignmentZones() {
 		return alignmentZones;
 	}
@@ -140,7 +140,7 @@ public class GOTPacketLogin implements IMessage {
 		this.alignmentZones = alignmentZones;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isFeastMode() {
 		return feastMode;
 	}
@@ -149,7 +149,7 @@ public class GOTPacketLogin implements IMessage {
 		this.feastMode = feastMode;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isFellowshipCreation() {
 		return fellowshipCreation;
 	}
@@ -158,7 +158,7 @@ public class GOTPacketLogin implements IMessage {
 		this.fellowshipCreation = fellowshipCreation;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getFellowshipMaxSize() {
 		return fellowshipMaxSize;
 	}
@@ -167,7 +167,7 @@ public class GOTPacketLogin implements IMessage {
 		this.fellowshipMaxSize = fellowshipMaxSize;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isEnchanting() {
 		return enchanting;
 	}
@@ -176,7 +176,7 @@ public class GOTPacketLogin implements IMessage {
 		this.enchanting = enchanting;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isEnchantingGOT() {
 		return enchantingGOT;
 	}
@@ -185,7 +185,7 @@ public class GOTPacketLogin implements IMessage {
 		this.enchantingGOT = enchantingGOT;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public boolean isStrictFactionTitleRequirements() {
 		return strictFactionTitleRequirements;
 	}
@@ -194,7 +194,7 @@ public class GOTPacketLogin implements IMessage {
 		this.strictFactionTitleRequirements = strictFactionTitleRequirements;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public int getCustomWaypointMinY() {
 		return customWaypointMinY;
 	}

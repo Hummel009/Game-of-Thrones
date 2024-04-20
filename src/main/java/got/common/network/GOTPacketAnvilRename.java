@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 public class GOTPacketAnvilRename implements IMessage {
 	private String rename;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTPacketAnvilRename() {
 	}
 
