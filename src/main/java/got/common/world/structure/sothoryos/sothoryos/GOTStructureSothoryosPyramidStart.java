@@ -5,10 +5,11 @@ import net.minecraft.world.gen.structure.StructureStart;
 import java.util.Random;
 
 public class GOTStructureSothoryosPyramidStart extends StructureStart {
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTStructureSothoryosPyramidStart() {
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTStructureSothoryosPyramidStart(Random random, int i, int j) {
 		GOTStructureSothoryosPyramidComponent startComponent = new GOTStructureSothoryosPyramidComponent(0, random, (i << 4) + 8, (j << 4) + 8);
 		components.add(startComponent);

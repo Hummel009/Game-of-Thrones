@@ -19,10 +19,11 @@ public class GOTStructureSothoryosPyramidComponent extends StructureComponent {
 
 	private long pyramidSeed = -1L;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTStructureSothoryosPyramidComponent() {
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTStructureSothoryosPyramidComponent(int l, Random random, int i, int k) {
 		super(l);
 		int r = GOTStructureSothoryosPyramid.RADIUS + 5;

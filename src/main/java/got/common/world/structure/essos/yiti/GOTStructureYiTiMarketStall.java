@@ -95,9 +95,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 
 	protected abstract void generateRoof(World var1, int var3, int var4, int var5);
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Baker extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Baker(boolean flag) {
 			super(flag);
 		}
@@ -118,9 +118,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Blacksmith extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Blacksmith(boolean flag) {
 			super(flag);
 		}
@@ -141,9 +141,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Brewer extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Brewer(boolean flag) {
 			super(flag);
 		}
@@ -164,9 +164,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Butcher extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Butcher(boolean flag) {
 			super(flag);
 		}
@@ -190,9 +190,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Farmer extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Farmer(boolean flag) {
 			super(flag);
 		}
@@ -218,9 +218,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Fish extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Fish(boolean flag) {
 			super(flag);
 		}
@@ -246,9 +246,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Florist extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Florist(boolean flag) {
 			super(flag);
 		}
@@ -268,9 +268,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Gold extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Gold(boolean flag) {
 			super(flag);
 		}
@@ -286,9 +286,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Lumber extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Lumber(boolean flag) {
 			super(flag);
 		}
@@ -310,9 +310,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Mason extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Mason(boolean flag) {
 			super(flag);
 		}
@@ -334,9 +334,9 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Miner extends GOTStructureYiTiMarketStall {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Miner(boolean flag) {
 			super(flag);
 		}

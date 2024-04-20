@@ -172,9 +172,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		return true;
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Baker extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Baker(boolean flag) {
 			super(flag);
 		}
@@ -195,9 +195,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Blacksmith extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Blacksmith(boolean flag) {
 			super(flag);
 		}
@@ -217,9 +217,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Brewer extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Brewer(boolean flag) {
 			super(flag);
 		}
@@ -238,9 +238,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Butcher extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Butcher(boolean flag) {
 			super(flag);
 		}
@@ -262,9 +262,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Farmer extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Farmer(boolean flag) {
 			super(flag);
 		}
@@ -292,9 +292,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Fish extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Fish(boolean flag) {
 			super(flag);
 		}
@@ -315,9 +315,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Florist extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Florist(boolean flag) {
 			super(flag);
 		}
@@ -335,9 +335,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Goldsmith extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Goldsmith(boolean flag) {
 			super(flag);
 		}
@@ -358,9 +358,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Lumber extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Lumber(boolean flag) {
 			super(flag);
 		}
@@ -383,9 +383,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Mason extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Mason(boolean flag) {
 			super(flag);
 		}
@@ -406,9 +406,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Miner extends GOTStructureBase {
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public Miner(boolean flag) {
 			super(flag);
 		}
