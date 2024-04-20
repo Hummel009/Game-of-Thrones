@@ -13,7 +13,7 @@ import java.util.Random;
 public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	private GOTFaction killFaction;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTMiniQuestKillFaction(GOTPlayerData pd) {
 		super(pd);
 	}
@@ -63,7 +63,7 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	public static class QFKillFaction extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillFaction> {
 		protected GOTFaction killFaction;
 
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public QFKillFaction() {
 			super("kill");
 		}

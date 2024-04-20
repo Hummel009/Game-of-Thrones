@@ -33,7 +33,7 @@ import java.util.*;
 public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	private final Collection<UUID> pickpocketedEntityIDs = new HashSet<>();
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTMiniQuestPickpocket(GOTPlayerData pd) {
 		super(pd);
 	}
@@ -178,7 +178,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	}
 
 	@Override
-	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public boolean onInteractOther(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		if (entityplayer.isSneaking() && entityplayer.getHeldItem() == null && npc instanceof IPickpocketable) {
 			UUID id = npc.getPersistentID();
@@ -218,14 +217,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					spawnAngryFX(npc);
 				}
 				if (!noticed || rand.nextFloat() < 0.5f) {
-					List<GOTEntityNPC> nearbyFriends = npc.worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, npc.boundingBox.expand(16.0, 16.0, 16.0), new IEntitySelector() {
-
-						@Override
-						public boolean isEntityApplicable(Entity entity) {
-							GOTEntityNPC otherNPC = (GOTEntityNPC) entity;
-							return otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction()) && otherNPC.hiredNPCInfo.getHiringPlayer() != entityplayer;
-						}
-					});
+					List<GOTEntityNPC> nearbyFriends = npc.worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, npc.boundingBox.expand(16.0, 16.0, 16.0), new EntitySelectorImpl(npc, entityplayer));
 					for (GOTEntityNPC otherNPC : nearbyFriends) {
 						if (otherNPC == npc) {
 							continue;
@@ -318,7 +310,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		protected int minTarget;
 		protected int maxTarget;
 
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public QFPickpocket(String name) {
 			super(name);
 		}
@@ -339,6 +331,22 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			minTarget = min;
 			maxTarget = max;
 			return this;
+		}
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final GOTEntityNPC npc;
+		private final EntityPlayer entityplayer;
+
+		private EntitySelectorImpl(GOTEntityNPC npc, EntityPlayer entityplayer) {
+			this.npc = npc;
+			this.entityplayer = entityplayer;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			GOTEntityNPC otherNPC = (GOTEntityNPC) entity;
+			return otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction()) && otherNPC.hiredNPCInfo.getHiringPlayer() != entityplayer;
 		}
 	}
 }
