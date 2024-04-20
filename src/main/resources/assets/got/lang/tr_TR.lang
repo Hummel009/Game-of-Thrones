@@ -3685,8 +3685,6 @@ got.wp.EURON.info=Euron Greyjoy'un gemisi burada. Burada, söylentilere göre, E
 got.wp.EURON=Sessizlik
 got.wp.EVENFALL_HALL.info=Baratheonların vassalları olan Tart hanedanının kalesi.
 got.wp.EVENFALL_HALL=Akşamüstü Salonu
-got.wp.EastPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
-got.wp.EastPass=Doğu Geçidi
 got.wp.FAIRCASTLE.info=Lannister'ın vassalı Farman'ın evinin kalesi.
 got.wp.FAIRCASTLE=Faircastle
 got.wp.FAIRMARKET.info=Blue Zubets Nehri üzerinde bir köprüsü olan bir köy.
@@ -3905,8 +3903,6 @@ got.wp.KYTH.info=Sarnor şehri Dothrakiler tarafından yok edildi.
 got.wp.KYTH=Kıt
 got.wp.K_DATH.info=Zamanın kendisinden daha eski olduğu varsayılan bir şehir. Burada kanlı kurbanlar gelişiyor ve öyle görünüyor ki, yerel tanrılar deli olarak kabul ediliyor ve hatta shrikler şehirlerden korkuyor.
 got.wp.K_DATH=K Dath
-got.wp.KissLock.info=Kafatası ve Öpücük Şövalyeleri Kalesi.
-got.wp.KissLock=öpücük kilidi
 got.wp.LANNISPORT.info=Başkent ve Menzil'den sonra Westeros'un en kalabalık üçüncü şehri; Batı Topraklarının en önemli limanı ve sanayi şehridir. Zanaatkarları, özellikle kuyumcuları ve altın için Demircisileri ile ünlüdür. Şehir, genç Lannister şubesi tarafından yönetiliyor.
 got.wp.LANNISPORT=Lannis Limanı
 got.wp.LAST_HEARTH.info=Amber hanesinin kalesi, Starkların vassalları.
@@ -4255,8 +4251,6 @@ got.wp.SWEETPORT_SOUND.info=Ejderha Kayası'na yeminli Sanglass Kalesi. Bu adada
 got.wp.SWEETPORT_SOUND=Tatlı liman sesi
 got.wp.SWEET_LOTUS_VALE.info=Güney adasında aynı adı taşıyan ilin merkezi ve eski bir köle olan Xanda Ko tarafından kurulan Birleşik Yaz Adaları devletinin ilk başkenti.
 got.wp.SWEET_LOTUS_VALE=Tatlı Lotus Vadisi
-got.wp.SouthPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
-got.wp.SouthPass=Güney Geçidi
 got.wp.TAKUTAI.info≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
 got.wp.TAKUTAI≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
 got.wp.TALL_TREES_TOWN.info=Rahibelerin Konuşan Ağaçlar üzerinde yaz insanlarının tarihini, geleneklerini ve yasalarını oyduğu güneşli bir şehir.

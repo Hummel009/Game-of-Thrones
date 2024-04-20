@@ -3685,8 +3685,6 @@ got.wp.EURON.info=Le navire d'Euron Greyjoy se trouve ici. Ici, selon les rumeur
 got.wp.EURON=Silence
 got.wp.EVENFALL_HALL.info=Le château de la maison de Tart, vassaux des Barathéons.
 got.wp.EVENFALL_HALL=Salle Evenfall
-got.wp.EastPass.info=Quatre cols sont d'anciens tertres funéraires, jusqu'aux nuages. Leur emplacement suggère qu'il s'agissait de structures défensives. Mais de qui et pourquoi défendre Mossia, si les ennemis sont à l'intérieur?
-got.wp.EastPass=EastPass
 got.wp.FAIRCASTLE.info=Le château de la maison du Farman, vassal du Lannister.
 got.wp.FAIRCASTLE=Faircastle
 got.wp.FAIRMARKET.info=Un village avec un pont sur la rivière Blue Zubets.
@@ -3905,8 +3903,6 @@ got.wp.KYTH.info=Ville de Sarnor détruite par les Dothraki.
 got.wp.KYTH=Kyth
 got.wp.K_DATH.info=Une ville censée être plus ancienne que le temps lui-même. Des sacrifices sanglants fleurissent ici et, semble-t-il, en quantités telles que les dieux locaux sont considérés comme des fous, et même les cris ont peur des villes.
 got.wp.K_DATH=K Dath
-got.wp.KissLock.info=Château des chevaliers des crânes et des bisous.
-got.wp.KissLock=Kiss Lock
 got.wp.LANNISPORT.info=La troisième ville la plus peuplée de Westeros après la Capeitale et la vieille ville; la ville portuaire et industrielle la plus importante des Terres occidentales. Il est célèbre pour ses artisans, en particulier les orfèvres et les forgerons d'or. La ville est dirigée par la filiale junior de Lannister.
 got.wp.LANNISPORT=Lannisport
 got.wp.LAST_HEARTH.info=Le château de la maison d'Ambre, vassaux des Starks.
@@ -4255,8 +4251,6 @@ got.wp.SWEETPORT_SOUND.info=Château des Sanglass, juré à Peyredragon. On ne s
 got.wp.SWEETPORT_SOUND=Son Sweetport
 got.wp.SWEET_LOTUS_VALE.info=Le centre de la province du même nom sur l'île du sud et la première Capeitale de l'état uni des Îles d'Été, fondée par un ancien esclave - Xanda Ko.
 got.wp.SWEET_LOTUS_VALE=Sweet Lotus Vale
-got.wp.SouthPass.info=Quatre cols sont d'anciens tertres funéraires, jusqu'aux nuages. Leur emplacement suggère qu'il s'agissait de structures défensives. Mais de qui et pourquoi défendre Mossia, si les ennemis sont à l'intérieur?
-got.wp.SouthPass=South Pass
 got.wp.TAKUTAI.info≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
 got.wp.TAKUTAI≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
 got.wp.TALL_TREES_TOWN.info=Une ville ensoleillée où les prêtresses sculptent l'histoire, les traditions et les lois des gens d'été sur les arbres parlants.
