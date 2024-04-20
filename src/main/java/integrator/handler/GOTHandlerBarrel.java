@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
-	private final Collection<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
-	private final Random rand = new Random();
+	private static final Collection<CachedBarrelRecipe> BARREL_RECIPES = new ArrayList<>();
+	private static final Random RAND = new Random();
 
 	public GOTHandlerBarrel() {
 		for (ShapelessOreRecipe rec : GOTRecipeBrewing.RECIPES) {
-			barrelRecipes.add(getBarrelRecipe(rec));
+			BARREL_RECIPES.add(getBarrelRecipe(rec));
 		}
 	}
 
@@ -53,7 +53,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
 		int damage = result.getItemDamage();
-		for (CachedBarrelRecipe rec : barrelRecipes) {
+		for (CachedBarrelRecipe rec : BARREL_RECIPES) {
 			try {
 				rec.getResult().setPermutationToRender(damage);
 			} catch (ArrayIndexOutOfBoundsException e) {
@@ -75,8 +75,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		for (CachedBarrelRecipe barrelRecipe : barrelRecipes) {
-
+		for (CachedBarrelRecipe barrelRecipe : BARREL_RECIPES) {
 			List<PositionedStack> ingreds;
 			if (barrelRecipe.contains(ingreds = barrelRecipe.getIngredients(), ingredient)) {
 
@@ -128,7 +127,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			if (cycle != lastCycleR) {
 				lastCycleR = cycle;
 				if (!fixedResult) {
-					result.setPermutationToRender(rand.nextInt(result.items.length));
+					result.setPermutationToRender(RAND.nextInt(result.items.length));
 				}
 			}
 			return result;

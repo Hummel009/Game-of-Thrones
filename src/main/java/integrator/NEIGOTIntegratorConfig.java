@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
-	private final Collection<ItemStack> hiddenItems = new ArrayList<>();
+	public static final Collection<ItemStack> HIDDEN_ITEMS = new ArrayList<>();
 
 	@Override
 	public String getName() {
-		return "Game of Thrones";
+		return GOT.NAME;
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		while (i < 16) {
 			ItemStack s = new ItemStack(stack.getItem(), 1, i);
 			API.hideItem(s);
-			hiddenItems.add(s);
+			HIDDEN_ITEMS.add(s);
 			i++;
 		}
 	}
@@ -144,9 +144,5 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(GOTBlocks.woodSlabSingle3);
 		hideItem(GOTBlocks.woodSlabSingle4);
 		hideItem(GOTBlocks.woodSlabSingle5);
-	}
-
-	public Collection<ItemStack> getHiddenItems() {
-		return hiddenItems;
 	}
 }

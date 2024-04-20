@@ -54,6 +54,7 @@ import java.util.*;
 @SuppressWarnings({"PublicField", "WeakerAccess"})
 @Mod(modid = "got", useMetadata = true)
 public class GOT {
+	public static final String NAME = "Game of Thrones";
 	public static final String VERSION = "24.07.10";
 	public static final String LANGUAGES = "Русский (ru), Українська (uk), English (en), Français (fr), Deutsch (de), Polska (pl), Türkçe (tr), 中文 (zh)";
 

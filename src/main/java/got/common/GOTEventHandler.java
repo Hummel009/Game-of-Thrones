@@ -482,7 +482,7 @@ public class GOTEventHandler {
 			for (IConfigureNEI element : NEIModContainer.plugins) {
 				if (element.getClass() == NEIGOTIntegratorConfig.class) {
 					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) element;
-					for (ItemStack element2 : configNEI.getHiddenItems()) {
+					for (ItemStack element2 : configNEI.HIDDEN_ITEMS) {
 						if (ItemInfo.hiddenItems.contains(element2)) {
 							ItemInfo.hiddenItems.remove(element2);
 						}
