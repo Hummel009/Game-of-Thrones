@@ -12,7 +12,6 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 
-@SuppressWarnings("ALL")
 public class GOTBlockSlab12 extends GOTBlockSlabBase {
 	public GOTBlockSlab12(boolean flag) {
 		super(flag, Material.rock, 8);
@@ -20,7 +19,6 @@ public class GOTBlockSlab12 extends GOTBlockSlabBase {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	@SuppressWarnings("UnreachableCode")
 	public IIcon getIcon(int i, int j) {
 		int j1 = j;
 		j1 &= 7;
@@ -39,10 +37,8 @@ public class GOTBlockSlab12 extends GOTBlockSlabBase {
 				return GOTBlocks.brick6.getIcon(i, 1);
 			case 6:
 				return GOTBlocks.pillar2.getIcon(i, 9);
-			case 7:
-				return GOTBlocks.brick6.getIcon(i, 10);
 			default:
-				return super.getIcon(i, j1);
+				return GOTBlocks.brick6.getIcon(i, 10);
 		}
 	}
 

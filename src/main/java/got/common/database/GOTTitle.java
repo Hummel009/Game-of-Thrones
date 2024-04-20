@@ -31,7 +31,7 @@ public class GOTTitle {
 	private boolean useAchievementName;
 
 	public GOTTitle(String s, GOTAchievement ach) {
-		this(s == null ? ach.getCodeName() : s);
+		this(s == null ? ach.getName() : s);
 		titleType = TitleType.ACHIEVEMENT;
 		titleAchievement = ach;
 		if (s == null) {

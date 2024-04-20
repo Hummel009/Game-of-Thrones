@@ -1,6 +1,6 @@
 package got.common.item.other;
 
-import got.common.block.torch.GOTBlockDoubleTorch;
+import got.common.block.other.GOTBlockDoubleTorch;
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

@@ -43,7 +43,6 @@ public class GOTBlockMillstone extends BlockContainer {
 		setStepSound(soundTypeStone);
 	}
 
-	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	private static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return (meta & 8) != 0;

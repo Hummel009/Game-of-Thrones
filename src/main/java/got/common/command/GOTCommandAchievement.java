@@ -24,7 +24,7 @@ public class GOTCommandAchievement extends CommandBase {
 				List<GOTAchievement> achievements = GOTAchievement.getAllAchievements();
 				ArrayList<String> names = new ArrayList<>();
 				for (GOTAchievement a : achievements) {
-					names.add(a.getCodeName());
+					names.add(a.getName());
 				}
 				if ("remove".equals(args[0])) {
 					names.add("all");

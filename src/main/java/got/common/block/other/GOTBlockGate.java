@@ -67,7 +67,6 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return (meta & 8) != 0;
 	}
 
-	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	private static void setGateOpen(World world, int i, int j, int k, boolean flag) {
 		int meta = world.getBlockMetadata(i, j, k);
 		meta = flag ? meta | 8 : meta & 7;

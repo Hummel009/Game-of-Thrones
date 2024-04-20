@@ -25,10 +25,8 @@ public class GOTBlockSlabSand extends GOTBlockSlabFalling {
 				return Blocks.sand.getIcon(i, 0);
 			case 1:
 				return Blocks.sand.getIcon(i, 1);
-			case 2:
-				return GOTBlocks.whiteSand.getIcon(i, 0);
 			default:
-				return super.getIcon(i, j1);
+				return GOTBlocks.whiteSand.getIcon(i, 0);
 		}
 	}
 

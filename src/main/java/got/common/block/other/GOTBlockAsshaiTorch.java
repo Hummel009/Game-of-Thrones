@@ -1,4 +1,4 @@
-package got.common.block.torch;
+package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

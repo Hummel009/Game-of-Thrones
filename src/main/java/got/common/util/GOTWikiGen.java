@@ -154,7 +154,7 @@ public class GOTWikiGen {
 
 				StringBuilder sb = new StringBuilder();
 				for (GOTAchievement ach : ACHIEVEMENTS) {
-					sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach)).append("\n|-");
+					sb.append("\n| ").append(ach.getTitle()).append(" || ").append(ach.getDescription()).append("\n|-");
 				}
 				PrintWriter fAchievements = new PrintWriter("hummel/achievements.txt", "UTF-8");
 				fAchievements.write(sb.toString());
@@ -631,7 +631,7 @@ public class GOTWikiGen {
 					if (ach == null) {
 						sb.append(Lang.BIOME_NO_ACHIEVEMENT);
 					} else {
-						sb.append('"').append(getAchievementTitle(ach)).append('"');
+						sb.append('"').append(ach.getTitle()).append('"');
 					}
 				}
 				sb.append(END);
@@ -1407,7 +1407,7 @@ public class GOTWikiGen {
 						if (ach == null) {
 							sb.append("N/A");
 						} else {
-							sb.append('"').append(getAchievementTitle(ach)).append('"');
+							sb.append('"').append(ach.getTitle()).append('"');
 						}
 					}
 				}
@@ -1493,14 +1493,6 @@ public class GOTWikiGen {
 		long newTime = System.nanoTime();
 		IChatComponent chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + 's');
 		player.addChatMessage(chatComponentTranslation);
-	}
-
-	private static String getAchievementDesc(GOTAchievement ach) {
-		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".desc");
-	}
-
-	private static String getAchievementTitle(GOTAchievement ach) {
-		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".title");
 	}
 
 	private static String getBannerName(GOTItemBanner.BannerType banner) {

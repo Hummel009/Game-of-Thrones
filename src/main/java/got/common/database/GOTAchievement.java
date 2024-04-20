@@ -347,16 +347,17 @@ public class GOTAchievement {
 	private boolean isBiomeAchievement;
 	private GOTTitle achievementTitle;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTAchievement(Category c, int i, Item item, String s) {
 		this(c, i, new ItemStack(item), s);
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTAchievement(Category c, int i, Block block, String s) {
 		this(c, i, new ItemStack(block), s);
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
 		category = c;
 		id = i;
@@ -816,10 +817,6 @@ public class GOTAchievement {
 		return component;
 	}
 
-	public String getCodeName() {
-		return name;
-	}
-
 	public String getDescription() {
 		return StatCollector.translateToLocal("got.achievement." + name + ".desc");
 	}
@@ -830,6 +827,10 @@ public class GOTAchievement {
 
 	public String getTitle(EntityPlayer entityplayer) {
 		return StatCollector.translateToLocal(getUntranslatedTitle(entityplayer));
+	}
+
+	public String getTitle() {
+		return StatCollector.translateToLocal("got.achievement." + name + ".title");
 	}
 
 	public String getUntranslatedTitle(EntityPlayer entityplayer) {
@@ -852,7 +853,6 @@ public class GOTAchievement {
 		return icon;
 	}
 
-	@SuppressWarnings("unused")
 	public String getName() {
 		return name;
 	}
