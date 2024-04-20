@@ -16,11 +16,11 @@ CHANGELOG
 * Improved unit costs
 * Improved dragon command tab completion
 
-* Optimized dragon code
+* Optimized dragons, giants and ice creatures
 * Optimized lots of client-size things
 
 * Moved zero coords of the world closer to Winterfell
-* Now a few animals that were giving alignment after death won't give it because of bad balance
+* Rebalanced +alignment values for killing
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
 * Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 

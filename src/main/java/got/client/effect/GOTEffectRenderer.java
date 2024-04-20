@@ -14,8 +14,6 @@ import java.util.List;
 public class GOTEffectRenderer {
 	public static final GOTEffectRenderer INSTANCE = new GOTEffectRenderer();
 
-	private static final Minecraft MC = Minecraft.getMinecraft();
-
 	private List<EntityFX>[] particleLayers = new List[0];
 
 	private GOTEffectRenderer() {
@@ -44,6 +42,8 @@ public class GOTEffectRenderer {
 	}
 
 	public void renderParticles(Entity entity, float f) {
+		Minecraft mc = Minecraft.getMinecraft();
+
 		float f1 = ActiveRenderInfo.rotationX;
 		float f2 = ActiveRenderInfo.rotationZ;
 		float f3 = ActiveRenderInfo.rotationYZ;
@@ -56,9 +56,9 @@ public class GOTEffectRenderer {
 			List<EntityFX> layer = particleLayers[l];
 			if (!layer.isEmpty()) {
 				if (l == 0) {
-					MC.getTextureManager().bindTexture(GOTClientProxy.PARTICLES_TEXTURE);
+					mc.getTextureManager().bindTexture(GOTClientProxy.PARTICLES_TEXTURE);
 				} else if (l == 1) {
-					MC.getTextureManager().bindTexture(GOTClientProxy.PARTICLES_2_TEXTURE);
+					mc.getTextureManager().bindTexture(GOTClientProxy.PARTICLES_2_TEXTURE);
 				}
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glDepthMask(false);

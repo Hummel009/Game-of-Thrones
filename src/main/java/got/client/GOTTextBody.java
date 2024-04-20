@@ -110,6 +110,7 @@ public class GOTTextBody {
 
 	private static class TextColor {
 		private final int color;
+
 		private String text;
 
 		private TextColor(String s, int c) {

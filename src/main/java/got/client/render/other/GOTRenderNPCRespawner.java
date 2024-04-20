@@ -14,11 +14,13 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderNPCRespawner extends Render {
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
+
 	private ItemStack renderIcon;
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode) {
+		if (!MINECRAFT.thePlayer.capabilities.isCreativeMode) {
 			return;
 		}
 		GOTEntityNPCRespawner spawner = (GOTEntityNPCRespawner) entity;
@@ -35,7 +37,7 @@ public class GOTRenderNPCRespawner extends Render {
 		}
 		IIcon icon = renderIcon.getIconIndex();
 		if (icon == null) {
-			icon = ((TextureMap) Minecraft.getMinecraft().getTextureManager().getTexture(TextureMap.locationItemsTexture)).getAtlasSprite("missingno");
+			icon = ((TextureMap) MINECRAFT.getTextureManager().getTexture(TextureMap.locationItemsTexture)).getAtlasSprite("missingno");
 		}
 		Tessellator tessellator = Tessellator.instance;
 		float f2 = icon.getMinU();

@@ -1,4 +1,4 @@
-package got.common.entity.essos.mossovy;
+package got.common.entity.animal;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
@@ -56,7 +56,7 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 10.0f;
+		return 2.0f;
 	}
 
 	@Override

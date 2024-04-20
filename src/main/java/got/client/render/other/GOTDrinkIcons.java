@@ -19,12 +19,13 @@ public class GOTDrinkIcons {
 	private static final Map<String, BufferedImage> VESSEL_ICONS = new HashMap<>();
 	private static final Map<Item, BufferedImage> LIQUID_ICONS = new HashMap<>();
 
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
+
 	private GOTDrinkIcons() {
 	}
 
 	public static IIcon registerDrinkIcon(IIconRegister iconregister, Item item, String itemName, String vessel) {
-		Minecraft mc = Minecraft.getMinecraft();
-		IResourceManager resourceManager = mc.getResourceManager();
+		IResourceManager resourceManager = MINECRAFT.getResourceManager();
 		TextureMap textureMap = (TextureMap) iconregister;
 		String baseIconName = itemName.substring("got:".length());
 		try {
@@ -60,9 +61,9 @@ public class GOTDrinkIcons {
 			textureMap.setTextureEntry(iconName, icon);
 			return icon;
 		} catch (IOException e) {
-			FMLLog.severe("Failed to onInit mug textures for %s", item.getUnlocalizedName());
+			FMLLog.severe("Failed to init mug textures for %s", item.getUnlocalizedName());
 			e.printStackTrace();
-			return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("");
+			return MINECRAFT.getTextureMapBlocks().getAtlasSprite("");
 		}
 	}
 

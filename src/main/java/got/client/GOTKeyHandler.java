@@ -38,7 +38,7 @@ public class GOTKeyHandler {
 	public static final KeyBinding KEY_BINDING_RETURN = new KeyBinding("Clear", Keyboard.KEY_RETURN, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_CARGO_CART = new KeyBinding("Enable cargocart", 19, "Game of Thrones");
 
-	private static final Minecraft mc = Minecraft.getMinecraft();
+	private static final Minecraft MC = Minecraft.getMinecraft();
 
 	private static int alignmentChangeTick;
 
@@ -66,10 +66,10 @@ public class GOTKeyHandler {
 	@SubscribeEvent
 	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
-		if (KEY_BINDING_MENU.getIsKeyPressed() && mc.currentScreen == null) {
-			mc.thePlayer.openGui(GOT.instance, GOTGuiId.MENU.ordinal(), mc.theWorld, 0, 0, 0);
+		if (KEY_BINDING_MENU.getIsKeyPressed() && MC.currentScreen == null) {
+			MC.thePlayer.openGui(GOT.instance, GOTGuiId.MENU.ordinal(), MC.theWorld, 0, 0, 0);
 		}
-		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
+		GOTPlayerData pd = GOTLevelData.getData(MC.thePlayer);
 		boolean usedAlignmentKeys = false;
 		boolean skippedHelp = false;
 		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
@@ -78,7 +78,7 @@ public class GOTKeyHandler {
 		GOTDimension.DimensionRegion currentRegion = currentFaction.getFactionRegion();
 		List<GOTDimension.DimensionRegion> regionList = currentDimension.getDimensionRegions();
 		List<GOTFaction> factionList = currentRegion.getFactionList();
-		if (mc.currentScreen == null && alignmentChangeTick <= 0) {
+		if (MC.currentScreen == null && alignmentChangeTick <= 0) {
 			int i;
 			if (KEY_BINDING_RETURN.getIsKeyPressed()) {
 				skippedHelp = true;

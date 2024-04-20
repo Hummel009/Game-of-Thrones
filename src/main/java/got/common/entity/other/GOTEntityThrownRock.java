@@ -3,7 +3,6 @@ package got.common.entity.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.entity.westeros.wildling.GOTEntityGiant;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
@@ -33,12 +32,6 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	}
 
 	@Override
-	public void entityInit() {
-		super.entityInit();
-		dataWatcher.addObject(16, (byte) 0);
-	}
-
-	@Override
 	public float func_70182_d() {
 		return 0.75f;
 	}
@@ -46,14 +39,6 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	@Override
 	public float getGravityVelocity() {
 		return 0.1f;
-	}
-
-	public boolean getSpawnsTroll() {
-		return dataWatcher.getWatchableObjectByte(16) == 1;
-	}
-
-	public void setSpawnsTroll(boolean flag) {
-		dataWatcher.updateObject(16, flag ? (byte) 1 : 0);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -76,15 +61,6 @@ public class GOTEntityThrownRock extends EntityThrowable {
 				flag = true;
 			}
 			if (flag) {
-				if (getSpawnsTroll()) {
-					GOTEntityGiantBase troll = new GOTEntityGiantBase(worldObj);
-					if (rand.nextInt(3) == 0) {
-						troll = new GOTEntityGiant(worldObj);
-					}
-					troll.setLocationAndAngles(posX, posY, posZ, rand.nextFloat() * 360.0f, 0.0f);
-					troll.onSpawnWithEgg(null);
-					worldObj.spawnEntityInWorld(troll);
-				}
 				worldObj.setEntityState(this, (byte) 15);
 				int drops = 1 + rand.nextInt(3);
 				for (int l = 0; l < drops; ++l) {
@@ -118,7 +94,6 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		damage = nbt.getFloat("RockDamage");
-		setSpawnsTroll(nbt.getBoolean("Troll"));
 	}
 
 	public void setDamage(float f) {
@@ -129,6 +104,5 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		nbt.setFloat("RockDamage", damage);
-		nbt.setBoolean("Troll", getSpawnsTroll());
 	}
 }

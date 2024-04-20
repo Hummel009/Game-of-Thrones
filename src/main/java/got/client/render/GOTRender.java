@@ -37,7 +37,6 @@ import got.common.entity.essos.lys.GOTEntityLysMan;
 import got.common.entity.essos.lys.GOTEntityLysSlave;
 import got.common.entity.essos.mossovy.GOTEntityMarshWraith;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
-import got.common.entity.essos.mossovy.GOTEntityMossovyWerewolf;
 import got.common.entity.essos.myr.GOTEntityMyrMan;
 import got.common.entity.essos.myr.GOTEntityMyrSlave;
 import got.common.entity.essos.norvos.GOTEntityNorvosMan;
@@ -425,7 +424,7 @@ public class GOTRender {
 		RENDERS.put(GOTEntityThrownTermite.class, new RenderSnowball(GOTItems.termite));
 		RENDERS.put(GOTEntityTraderRespawn.class, new GOTRenderTraderRespawn());
 		RENDERS.put(GOTEntityTyrionLannister.class, new GOTRenderTyrionLannister());
-		RENDERS.put(GOTEntityUlthosSpider.class, new GOTRenderGiantSpider());
+		RENDERS.put(GOTEntityUlthosSpider.class, new GOTRenderUlthosSpider());
 		RENDERS.put(GOTEntityShadowcat.class, new GOTRenderShadowcat());
 		RENDERS.put(GOTEntityWalrus.class, new GOTRenderWalrus());
 		RENDERS.put(GOTEntityWhiteOryx.class, new GOTRenderWhiteOryx());

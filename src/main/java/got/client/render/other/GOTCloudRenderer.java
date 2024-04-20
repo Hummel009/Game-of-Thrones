@@ -138,6 +138,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 		private final float maxValue;
 		private final float interval;
 		private final long baseSeed;
+
 		private float value;
 		private float prevValue;
 

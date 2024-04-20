@@ -16,7 +16,7 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 10.0f;
+		return 3.0f;
 	}
 
 	@Override

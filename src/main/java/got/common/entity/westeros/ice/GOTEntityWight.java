@@ -1,22 +1,14 @@
 package got.common.entity.westeros.ice;
 
-import got.common.GOTDamage;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.database.GOTMaterial;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
-import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
-import got.common.entity.other.*;
-import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
-import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
-import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
-import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
-import got.common.entity.westeros.wildling.GOTEntityGiant;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.item.GOTMaterialFinder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -25,15 +17,13 @@ import net.minecraft.entity.ai.EntityAIOpenDoor;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWight extends GOTEntityHumanBase {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
-	public static ItemStack[] spears = {new ItemStack(GOTItems.wildlingSpear)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
+	private static final ItemStack[] SPEARS = {new ItemStack(GOTItems.wildlingSpear)};
 
 	public GOTEntityWight(World world) {
 		super(world);
@@ -64,48 +54,13 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
-		if (super.attackEntityAsMob(entity)) {
-			if (entity instanceof EntityPlayerMP) {
-				GOTDamage.doFrostDamage((EntityPlayerMP) entity);
-			}
-			return true;
-		}
-		return false;
+		return IceUtils.attackWithFrost(entity, super.attackEntityAsMob(entity));
 	}
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		Entity entity = damagesource.getEntity();
-		Entity damageSource = damagesource.getSourceOfDamage();
-		boolean causeDamage = false;
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage()) {
-			ItemStack itemstack = ((EntityLivingBase) entity).getHeldItem();
-			if (itemstack != null) {
-				Item item = itemstack.getItem();
-				if (item instanceof GOTMaterialFinder && (((GOTMaterialFinder) item).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) item).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
-					causeDamage = true;
-				}
-				if (item == GOTItems.crowbar) {
-					causeDamage = true;
-				}
-			}
-		}
-		if (entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityAsshaiArchmag) {
-			causeDamage = true;
-		}
-		if (damageSource instanceof GOTEntitySpear) {
-			Item item = ((GOTEntityProjectileBase) damageSource).getProjectileItem().getItem();
-			if (item instanceof GOTMaterialFinder && (((GOTMaterialFinder) item).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) item).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
-				causeDamage = true;
-			}
-		}
-		if (damagesource.isFireDamage()) {
-			causeDamage = true;
-		}
-		if (causeDamage) {
-			return super.attackEntityFrom(damagesource, f);
-		}
-		return super.attackEntityFrom(damagesource, 0.0f);
+		boolean causeDamage = IceUtils.calculateDamage(damagesource, true);
+		return super.attackEntityFrom(damagesource, causeDamage ? f : 0.0f);
 	}
 
 	@Override
@@ -153,55 +108,25 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
-		GOTEntityWight wight = new GOTEntityWight(worldObj);
-		GOTEntityWightGiant giant = new GOTEntityWightGiant(worldObj);
-		GOTEntityIceSpider spider = new GOTEntityIceSpider(worldObj);
-		if (entity instanceof GOTEntityBericDondarrion || entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityLancelLannister || entity instanceof GOTEntityTheonGreyjoy) {
-			super.onKillEntity(entity);
-		} else if (entity instanceof GOTEntityHumanBase) {
-			super.onKillEntity(entity);
-			wight.familyInfo.setAge(((GOTEntityNPC) entity).familyInfo.getAge());
-			wight.copyLocationAndAnglesFrom(entity);
-			wight.npcItemsInv.setMeleeWeapon(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
-			wight.npcItemsInv.setIdleItem(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
-			wight.setCurrentItemOrArmor(1, entity.getEquipmentInSlot(1));
-			wight.setCurrentItemOrArmor(2, entity.getEquipmentInSlot(2));
-			wight.setCurrentItemOrArmor(3, entity.getEquipmentInSlot(3));
-			wight.setCurrentItemOrArmor(4, entity.getEquipmentInSlot(4));
-			wight.familyInfo.setMale(((GOTEntityNPC) entity).familyInfo.male);
-			worldObj.removeEntity(entity);
-			worldObj.spawnEntityInWorld(wight);
-		} else if (entity instanceof GOTEntityGiant) {
-			super.onKillEntity(entity);
-			giant.copyLocationAndAnglesFrom(entity);
-			worldObj.removeEntity(entity);
-			giant.onSpawnWithEgg(null);
-			worldObj.spawnEntityInWorld(giant);
-		} else if (entity instanceof GOTEntitySpiderBase) {
-			super.onKillEntity(entity);
-			spider.copyLocationAndAnglesFrom(entity);
-			worldObj.removeEntity(entity);
-			spider.onSpawnWithEgg(null);
-			worldObj.spawnEntityInWorld(spider);
-		}
+		super.onKillEntity(entity);
+		IceUtils.createNewWight(entity, worldObj);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData livingData = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		if (rand.nextInt(8) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			i = rand.nextInt(spears.length);
-			npcItemsInv.setMeleeWeapon(spears[i].copy());
+			i = rand.nextInt(SPEARS.length);
+			npcItemsInv.setMeleeWeapon(SPEARS[i].copy());
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.furChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return livingData;
 	}
-
 }

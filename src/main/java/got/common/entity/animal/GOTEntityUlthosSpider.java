@@ -14,7 +14,7 @@ public class GOTEntityUlthosSpider extends GOTEntitySpiderBase {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 5.0f;
+		return 2.0f;
 	}
 
 	@Override

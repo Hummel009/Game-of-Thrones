@@ -29,6 +29,9 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 
 	public GOTGenLayerWorld() {
 		super(0L);
+	}
+
+	public void tryLoadBiomeImage() {
 		if (!loadedBiomeImage()) {
 			try {
 				BufferedImage biomeImage = null;
@@ -83,6 +86,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		GOTGenLayer biomeSubtypes = new GOTGenLayerBiomeSubtypesInit(3000L);
 		biomeSubtypes = GOTGenLayerZoom.magnify(3000L, biomeSubtypes, 2);
 		GOTGenLayer biomes = new GOTGenLayerWorld();
+		((GOTGenLayerWorld) biomes).tryLoadBiomeImage();
 		if (worldType == GOT.worldTypeGOTClassic) {
 			GOTGenLayer oceans = new GOTGenLayerClassicOcean(2012L);
 			oceans = GOTGenLayerZoom.magnify(200L, oceans, 3);

@@ -20,13 +20,15 @@ import org.lwjgl.opengl.GL11;
 import java.util.Map;
 
 public class GOTRenderAlignmentBonus extends Render {
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
+
 	public GOTRenderAlignmentBonus() {
 		shadowSize = 0.0f;
 	}
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		EntityClientPlayerMP entityplayer = Minecraft.getMinecraft().thePlayer;
+		EntityClientPlayerMP entityplayer = MINECRAFT.thePlayer;
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		GOTFaction viewingFaction = playerData.getViewingFaction();
 		GOTEntityAlignmentBonus alignmentBonus = (GOTEntityAlignmentBonus) entity;
@@ -101,8 +103,7 @@ public class GOTRenderAlignmentBonus extends Render {
 	}
 
 	private void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {
-		Minecraft mc = Minecraft.getMinecraft();
-		FontRenderer fr = mc.fontRenderer;
+		FontRenderer fr = MINECRAFT.fontRenderer;
 		String strAlign = GOTAlignmentValues.formatAlignForDisplay(align);
 		String name = alignmentBonus.getName();
 		float conq = alignmentBonus.getConquestBonus();

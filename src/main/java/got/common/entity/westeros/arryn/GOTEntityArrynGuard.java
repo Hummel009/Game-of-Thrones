@@ -18,11 +18,6 @@ public class GOTEntityArrynGuard extends GOTEntityArrynSoldier {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killThePolice;
 	}

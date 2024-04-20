@@ -1,7 +1,6 @@
 package got.client.model;
 
 import got.common.entity.other.GOTEntityGiantBase;
-import got.common.entity.westeros.wildling.GOTEntityGiant;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -123,7 +122,7 @@ public class GOTModelGiant extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		boolean isHurt = entity instanceof GOTEntityGiant && !isOutiftModel;
+		boolean isHurt = entity instanceof GOTEntityGiantBase && !isOutiftModel;
 		if (isHurt) {
 			headHurt.render(f5);
 		} else {
@@ -206,7 +205,7 @@ public class GOTModelGiant extends ModelBase {
 		leftArm.rotateAngleZ -= MathHelper.cos(f2 * 0.09f) * 0.05f + 0.05f;
 		rightArm.rotateAngleX += MathHelper.sin(f2 * 0.067f) * 0.05f;
 		leftArm.rotateAngleX -= MathHelper.sin(f2 * 0.067f) * 0.05f;
-		boolean throwing = entity instanceof GOTEntityGiant && ((GOTEntityGiant) entity).isThrowingRocks();
+		boolean throwing = entity instanceof GOTEntityGiantBase && ((GOTEntityGiantBase) entity).isThrowingRocks();
 		if (throwing) {
 			rightArm.rotateAngleX -= 0.5f;
 			rightArm.rotateAngleZ -= 0.4f;

@@ -96,8 +96,8 @@ public class GOTTickHandlerClient {
 	private static final ResourceLocation BURN_OVERLAY = new ResourceLocation("got:textures/misc/burn_overlay.png");
 	private static final ResourceLocation WIGHT_OVERLAY = new ResourceLocation("got:textures/misc/wight.png");
 
-	private static final float[] FROST_RGB_MIDDLE = new float[]{0.4F, 0.46F, 0.74F};
-	private static final float[] FROST_RGB_EDGE = new float[]{1.0F, 1.0F, 1.0F};
+	private static final float[] FROST_RGB_MIDDLE = {0.4F, 0.46F, 0.74F};
+	private static final float[] FROST_RGB_EDGE = {1.0F, 1.0F, 1.0F};
 
 	private static boolean anyWightsViewed;
 	private static int clientTick;
@@ -808,7 +808,7 @@ public class GOTTickHandlerClient {
 		WorldClient worldClient = mc.theWorld;
 		WorldProvider provider = worldClient.provider;
 		if (provider instanceof GOTWorldProvider) {
-			float[] rgb = new float[]{event.red, event.green, event.blue};
+			float[] rgb = {event.red, event.green, event.blue};
 			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(rgb);
 			event.red = rgb[0];
 			event.green = rgb[1];

@@ -36,6 +36,8 @@ import java.util.List;
 public class GOTNPCRendering {
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
+
 	private GOTNPCRendering() {
 	}
 
@@ -71,8 +73,7 @@ public class GOTNPCRendering {
 	}
 
 	public static void renderHealthBar(EntityLivingBase entity, double d, double d1, double d2, int[] colors, int[] mountColors) {
-		Minecraft mc = Minecraft.getMinecraft();
-		WorldClient world = mc.theWorld;
+		WorldClient world = MINECRAFT.theWorld;
 		world.theProfiler.startSection("renderHealthBar");
 		RenderManager renderManager = RenderManager.instance;
 		double distance = RendererLivingEntity.NAME_TAG_RANGE;
@@ -165,10 +166,9 @@ public class GOTNPCRendering {
 		if (!GOTConfig.hiredUnitIcons || entity.riddenByEntity instanceof GOTEntityNPC || entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity)) {
 			return;
 		}
-		Minecraft mc = Minecraft.getMinecraft();
-		WorldClient world = mc.theWorld;
+		WorldClient world = MINECRAFT.theWorld;
 		world.theProfiler.startSection("renderHiredIcon");
-		TextureManager textureManager = mc.getTextureManager();
+		TextureManager textureManager = MINECRAFT.getTextureManager();
 		RenderManager renderManager = RenderManager.instance;
 		double distance = RendererLivingEntity.NAME_TAG_RANGE;
 		double distanceSq = entity.getDistanceSqToEntity(renderManager.livingPlayer);
@@ -198,7 +198,7 @@ public class GOTNPCRendering {
 			if (squadron != null) {
 				GL11.glTranslatef(0.0f, 0.3f, 0.0f);
 				GL11.glPushMatrix();
-				FontRenderer fr = mc.fontRenderer;
+				FontRenderer fr = MINECRAFT.fontRenderer;
 				Tessellator tessellator = Tessellator.instance;
 				int halfWidth = fr.getStringWidth(squadron) / 2;
 				float boxScale = 0.015f;
@@ -246,14 +246,13 @@ public class GOTNPCRendering {
 	}
 
 	public static void renderQuestBook(GOTEntityNPC npc, double d, double d1, double d2) {
-		Minecraft mc = Minecraft.getMinecraft();
-		WorldClient world = mc.theWorld;
+		WorldClient world = MINECRAFT.theWorld;
 		world.theProfiler.startSection("renderMiniquestBook");
-		float distance = mc.renderViewEntity.getDistanceToEntity(npc);
+		float distance = MINECRAFT.renderViewEntity.getDistanceToEntity(npc);
 		boolean aboveHead = distance <= GOTMiniQuest.RENDER_HEAD_DISTANCE;
-		TextureManager textureManager = mc.getTextureManager();
+		TextureManager textureManager = MINECRAFT.getTextureManager();
 		RenderManager renderManager = RenderManager.instance;
-		EntityClientPlayerMP entityplayer = mc.thePlayer;
+		EntityClientPlayerMP entityplayer = MINECRAFT.thePlayer;
 		if (!GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(npc, true).isEmpty() && !GOTSpeechClient.hasSpeech(npc)) {
 			ItemStack questBook = new ItemStack(GOTItems.questBook);
 			IIcon icon = questBook.getIconIndex();
@@ -319,14 +318,13 @@ public class GOTNPCRendering {
 	}
 
 	public static void renderQuestOffer(GOTEntityNPC npc, double d, double d1, double d2) {
-		Minecraft mc = Minecraft.getMinecraft();
-		WorldClient world = mc.theWorld;
+		WorldClient world = MINECRAFT.theWorld;
 		world.theProfiler.startSection("renderMiniquestoffer");
 		if (npc.isEntityAlive() && npc.questInfo.clientIsOffering && !GOTSpeechClient.hasSpeech(npc)) {
-			EntityClientPlayerMP entityplayer = mc.thePlayer;
-			float distance = mc.renderViewEntity.getDistanceToEntity(npc);
+			EntityClientPlayerMP entityplayer = MINECRAFT.thePlayer;
+			float distance = MINECRAFT.renderViewEntity.getDistanceToEntity(npc);
 			if (distance <= 16.0 && GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(npc, true).isEmpty()) {
-				TextureManager textureManager = mc.getTextureManager();
+				TextureManager textureManager = MINECRAFT.getTextureManager();
 				RenderManager renderManager = RenderManager.instance;
 				IIcon icon = GOTItemQuestBook.getQuestOfferIcon();
 				icon.getMinU();
@@ -366,11 +364,10 @@ public class GOTNPCRendering {
 	}
 
 	private static void renderSpeech(EntityLivingBase entity, String speech, float speechAge, double d, double d1, double d2) {
-		Minecraft mc = Minecraft.getMinecraft();
-		WorldClient world = mc.theWorld;
+		WorldClient world = MINECRAFT.theWorld;
 		world.theProfiler.startSection("renderNPCSpeech");
 		RenderManager renderManager = RenderManager.instance;
-		FontRenderer fr = mc.fontRenderer;
+		FontRenderer fr = MINECRAFT.fontRenderer;
 		double distance = RendererLivingEntity.NAME_TAG_RANGE;
 		double distanceSq = entity.getDistanceSqToEntity(renderManager.livingPlayer);
 		if (distanceSq <= distance * distance) {

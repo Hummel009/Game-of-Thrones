@@ -30,15 +30,19 @@ import java.util.Map;
 public class GOTRenderLargeItem implements IItemRenderer {
 	private static final Map<String, Float> SIZE_FOLDERS = new HashMap<>();
 
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
+
 	static {
 		SIZE_FOLDERS.put("large-2x", 2.0f);
 		SIZE_FOLDERS.put("large-3x", 3.0f);
 	}
 
+	private final Collection<GOTExtraLargeIconToken> extraTokens = new ArrayList<>();
+
 	private final Item theItem;
 	private final String folderName;
-	private final Collection<GOTExtraLargeIconToken> extraTokens = new ArrayList<>();
 	private final float largeIconScale;
+
 	private IIcon largeIcon;
 
 	private GOTRenderLargeItem(Item item, String dir, float f) {
@@ -61,7 +65,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 			float iconScale = entry.getValue();
 			try {
 				ResourceLocation resLoc = getLargeTexturePath(item, folder);
-				IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resLoc);
+				IResource res = MINECRAFT.getResourceManager().getResource(resLoc);
 				if (res != null) {
 					return new GOTRenderLargeItem(item, folder, iconScale);
 				}
@@ -111,7 +115,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		EntityLivingBase entityliving;
 		GL11.glPushMatrix();
 		Entity holder = (Entity) data[1];
-		boolean isFirstPerson = holder == Minecraft.getMinecraft().thePlayer && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0;
+		boolean isFirstPerson = holder == MINECRAFT.thePlayer && MINECRAFT.gameSettings.thirdPersonView == 0;
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemSpear && holder instanceof EntityPlayer && ((EntityPlayer) holder).getItemInUse() == itemstack) {
 			GL11.glRotatef(260.0f, 0.0f, 0.0f, 1.0f);
@@ -157,7 +161,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 
 	private void renderLargeItem(IIcon icon) {
 		doTransformations();
-		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationItemsTexture);
+		MINECRAFT.getTextureManager().bindTexture(TextureMap.locationItemsTexture);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		Tessellator tess = Tessellator.instance;
 		ItemRenderer.renderItemIn2D(tess, icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625f);

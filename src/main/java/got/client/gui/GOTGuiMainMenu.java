@@ -37,6 +37,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 
 	@SuppressWarnings("FieldMayBeFinal")
 	private boolean fadeIn = isFirstMenu;
+
 	private long firstRenderTime;
 
 	public GOTGuiMainMenu() {

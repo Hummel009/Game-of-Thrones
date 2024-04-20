@@ -160,10 +160,10 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	private int zoomTicks;
 	private int prevZoomPower = zoomPower;
 
-	@SuppressWarnings("ResultOfObjectAllocationIgnored")
 	public GOTGuiMap() {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
-			new GOTGenLayerWorld();
+			GOTGenLayerWorld genLayerWorld = new GOTGenLayerWorld();
+			genLayerWorld.tryLoadBiomeImage();
 		}
 	}
 
@@ -182,7 +182,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	}
 
 	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
-		int[] ret = new int[]{mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
+		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
 		mapWidth = w;
 		mapHeight = h;
 		mapXMin = xmin;

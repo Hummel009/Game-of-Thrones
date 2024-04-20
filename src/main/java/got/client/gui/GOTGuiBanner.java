@@ -46,11 +46,11 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	private GuiButton buttonAddSlot;
 	private GuiButton buttonRemoveSlot;
 
-	private GuiTextField[] allowedPlayers = new GuiTextField[]{};
+	private GuiTextField[] allowedPlayers = {};
 
-	private boolean[] invalidUsernames = new boolean[]{};
-	private boolean[] validatedUsernames = new boolean[]{};
-	private boolean[] checkUsernames = new boolean[]{};
+	private boolean[] invalidUsernames = {};
+	private boolean[] validatedUsernames = {};
+	private boolean[] checkUsernames = {};
 
 	private boolean defaultPermissionsOpen;
 	private boolean isScrolling;

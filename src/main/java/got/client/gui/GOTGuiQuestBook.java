@@ -574,6 +574,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 
 	private enum Page {
 		MINIQUESTS("miniquests");
+
 		private final String name;
 
 		Page(String s) {
@@ -582,11 +583,6 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 
 		private String getTitle() {
 			return StatCollector.translateToLocal("got.gui.redBook.page." + name);
-		}
-
-		@SuppressWarnings("unused")
-		public String getName() {
-			return name;
 		}
 	}
 }

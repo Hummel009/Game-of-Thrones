@@ -29,11 +29,6 @@ public class GOTEntityDragonstoneSoldier extends GOTEntityDragonstoneLevyman {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			if (mounted) {

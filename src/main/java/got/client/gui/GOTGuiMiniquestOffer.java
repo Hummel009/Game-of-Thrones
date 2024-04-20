@@ -307,7 +307,9 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 
 	private enum NPCAction {
 		TALKING(1.0f), SHAKING(0.1f), LOOKING(0.3f), LOOKING_UP(0.4f);
+
 		private static float totalWeight = -1.0f;
+
 		private final float weight;
 
 		NPCAction(float f) {

@@ -152,11 +152,11 @@ public class GOTConquestGrid {
 		return dir;
 	}
 
-	@SuppressWarnings("ResultOfObjectAllocationIgnored")
 	public static ConquestEffective getConquestEffectIn(World world, GOTConquestZone zone, GOTFaction theFaction) {
 		GridCoordPair gridCoords;
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
-			new GOTGenLayerWorld();
+			GOTGenLayerWorld genLayerWorld = new GOTGenLayerWorld();
+			genLayerWorld.tryLoadBiomeImage();
 		}
 		List<GOTFaction> cachedFacs = CACHED_ZONE_FACTIONS.get(gridCoords = GridCoordPair.forZone(zone));
 		if (cachedFacs == null) {

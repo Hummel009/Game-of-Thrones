@@ -47,16 +47,16 @@ public class GOTModelDragonAnimaton {
 	private final float[] wingForearmGlide = new float[3];
 	private final float[] wingArmGround = new float[3];
 	private final float[] wingForearmGround = new float[3];
-	private final float[] xGround = new float[]{0, 0, 0, 0};
-	private final float[] xGroundWalk2 = new float[]{0, 0, 0, 0};
-	private final float[] yGroundStand = new float[]{-0.25f, 0.25f};
-	private final float[] yGroundSit = new float[]{0.1f, 0.35f};
-	private final float[] yGroundWalk = new float[]{-0.1f, 0.1f};
-	private final float[] yAirAll = new float[]{-0.1f, 0.1f};
-	private final float[][] xAirAll = new float[][]{new float[]{0, 0, 0, 0}, new float[]{0, 0, 0, 0}};
-	private final float[][] xGroundStand = new float[][]{new float[]{0.8f, -1.5f, 1.3f, 0}, new float[]{-0.3f, 1.5f, -0.2f, 0},};
-	private final float[][] xGroundSit = new float[][]{new float[]{0.3f, -1.8f, 1.8f, 0}, new float[]{-0.8f, 1.8f, -0.9f, 0},};
-	private final float[][][] xGroundWalk = new float[][][]{new float[][]{new float[]{0.4f, -1.4f, 1.3f, 0}, new float[]{0.1f, 1.2f, -0.5f, 0}}, new float[][]{new float[]{1.2f, -1.6f, 1.3f, 0}, new float[]{-0.3f, 2.1f, -0.9f, 0.6f}}, new float[][]{new float[]{0.9f, -2.1f, 1.8f, 0.6f}, new float[]{-0.7f, 1.4f, -0.2f, 0}}};
+	private final float[] xGround = {0, 0, 0, 0};
+	private final float[] xGroundWalk2 = {0, 0, 0, 0};
+	private final float[] yGroundStand = {-0.25f, 0.25f};
+	private final float[] yGroundSit = {0.1f, 0.35f};
+	private final float[] yGroundWalk = {-0.1f, 0.1f};
+	private final float[] yAirAll = {-0.1f, 0.1f};
+	private final float[][] xAirAll = {new float[]{0, 0, 0, 0}, new float[]{0, 0, 0, 0}};
+	private final float[][] xGroundStand = {new float[]{0.8f, -1.5f, 1.3f, 0}, new float[]{-0.3f, 1.5f, -0.2f, 0},};
+	private final float[][] xGroundSit = {new float[]{0.3f, -1.8f, 1.8f, 0}, new float[]{-0.8f, 1.8f, -0.9f, 0},};
+	private final float[][][] xGroundWalk = {new float[][]{new float[]{0.4f, -1.4f, 1.3f, 0}, new float[]{0.1f, 1.2f, -0.5f, 0}}, new float[][]{new float[]{1.2f, -1.6f, 1.3f, 0}, new float[]{-0.3f, 2.1f, -0.9f, 0.6f}}, new float[][]{new float[]{0.9f, -2.1f, 1.8f, 0.6f}, new float[]{-0.7f, 1.4f, -0.2f, 0}}};
 
 	private boolean initTrails = true;
 	private boolean onGround;
@@ -396,8 +396,8 @@ public class GOTModelDragonAnimaton {
 		model.getWingForearm().rotateAngleX = wingForearm[0];
 		model.getWingForearm().rotateAngleY = wingForearm[1];
 		model.getWingForearm().rotateAngleZ = wingForearm[2];
-		float[] yFold = new float[]{2.7f, 2.8f, 2.9f, 3.0f};
-		float[] yUnfold = new float[]{0.1f, 0.9f, 1.7f, 2.5f};
+		float[] yFold = {2.7f, 2.8f, 2.9f, 3.0f};
+		float[] yUnfold = {0.1f, 0.9f, 1.7f, 2.5f};
 		float rotX = 0;
 		float rotYOfs = sin(a1) * sin(a2) * 0.03f;
 		float rotYMulti = 1;

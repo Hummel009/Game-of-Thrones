@@ -27,7 +27,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 	private final Collection<Notification> notifications = new ArrayList<>();
 	private final Collection<Notification> notificationsToRemove = new HashSet<>();
 
-	private final Minecraft mc = Minecraft.getMinecraft();
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	private int windowWidth;
 
@@ -76,7 +76,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 						int j = -(int) (d1 * 36.0);
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						GL11.glEnable(3553);
-						mc.getTextureManager().bindTexture(GOTGuiAchievements.ICONS_TEXTURE);
+						MINECRAFT.getTextureManager().bindTexture(GOTGuiAchievements.ICONS_TEXTURE);
 						GL11.glDisable(2896);
 						int guiYSize = 32;
 						drawTexturedModalRect(i, j += index * (guiYSize + 8), 0, 200, guiXSize, guiYSize);
@@ -94,13 +94,13 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	private void updateWindowScale() {
-		GL11.glViewport(0, 0, mc.displayWidth, mc.displayHeight);
+		GL11.glViewport(0, 0, MINECRAFT.displayWidth, MINECRAFT.displayHeight);
 		GL11.glMatrixMode(5889);
 		GL11.glLoadIdentity();
 		GL11.glMatrixMode(5888);
 		GL11.glLoadIdentity();
-		windowWidth = mc.displayWidth;
-		ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+		windowWidth = MINECRAFT.displayWidth;
+		ScaledResolution scaledresolution = new ScaledResolution(MINECRAFT, MINECRAFT.displayWidth, MINECRAFT.displayHeight);
 		windowWidth = scaledresolution.getScaledWidth();
 		int windowHeight = scaledresolution.getScaledHeight();
 		GL11.glClear(256);
@@ -145,20 +145,20 @@ public class GOTGuiNotificationDisplay extends Gui {
 			GL11.glEnable(32826);
 			GL11.glEnable(2903);
 			GL11.glEnable(2896);
-			ITEM_RENDERER.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.getIcon(), x, y);
+			ITEM_RENDERER.renderItemAndEffectIntoGUI(MINECRAFT.fontRenderer, MINECRAFT.getTextureManager(), achievement.getIcon(), x, y);
 			GL11.glDisable(2896);
 			GL11.glDepthMask(true);
 			GL11.glEnable(2929);
 			GL11.glEnable(3008);
-			mc.getTextureManager().bindTexture(GOTGuiAchievements.ICONS_TEXTURE);
+			MINECRAFT.getTextureManager().bindTexture(GOTGuiAchievements.ICONS_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x + 162, y + 1, 190, 17, 16, 16);
 		}
 
 		@Override
 		public void renderText(int x, int y) {
-			mc.fontRenderer.drawString(StatCollector.translateToLocal("achievement.get"), x, y, 8019267);
-			mc.fontRenderer.drawString(achievement.getTitle(mc.thePlayer), x, y + 11, 8019267);
+			MINECRAFT.fontRenderer.drawString(StatCollector.translateToLocal("achievement.get"), x, y, 8019267);
+			MINECRAFT.fontRenderer.drawString(achievement.getTitle(MINECRAFT.thePlayer), x, y + 11, 8019267);
 		}
 	}
 
@@ -180,7 +180,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		@Override
 		public void renderIcon(int x, int y) {
-			mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+			MINECRAFT.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, isCleansing ? 16 : 0, 228, 16, 16);
 		}
@@ -188,9 +188,9 @@ public class GOTGuiNotificationDisplay extends Gui {
 		@Override
 		public void renderText(int x, int y) {
 			String conqS = GOTAlignmentValues.formatConqForDisplay(conqValue, false);
-			GOTTickHandlerClient.drawConquestText(mc.fontRenderer, x + 1, y, conqS, isCleansing, 1.0f);
-			mc.fontRenderer.drawString(StatCollector.translateToLocal("got.gui.map.conquest.notif"), x + mc.fontRenderer.getStringWidth(conqS + ' ') + 2, y, 8019267);
-			mc.fontRenderer.drawString(EnumChatFormatting.ITALIC + conqFac.factionName(), x, y + 11, 9666921);
+			GOTTickHandlerClient.drawConquestText(MINECRAFT.fontRenderer, x + 1, y, conqS, isCleansing, 1.0f);
+			MINECRAFT.fontRenderer.drawString(StatCollector.translateToLocal("got.gui.map.conquest.notif"), x + MINECRAFT.fontRenderer.getStringWidth(conqS + ' ') + 2, y, 8019267);
+			MINECRAFT.fontRenderer.drawString(EnumChatFormatting.ITALIC + conqFac.factionName(), x, y + 11, 9666921);
 		}
 	}
 
@@ -208,14 +208,14 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		@Override
 		public void renderIcon(int x, int y) {
-			mc.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
+			MINECRAFT.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, 80, 0, 16, 16);
 		}
 
 		@Override
 		public void renderText(int x, int y) {
-			mc.fontRenderer.drawSplitString(message.getFormattedText(), x, y, 152, 8019267);
+			MINECRAFT.fontRenderer.drawSplitString(message.getFormattedText(), x, y, 152, 8019267);
 		}
 	}
 }

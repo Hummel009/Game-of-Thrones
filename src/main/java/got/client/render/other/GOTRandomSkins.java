@@ -14,7 +14,8 @@ import java.util.*;
 
 public class GOTRandomSkins implements IResourceManagerReloadListener {
 	private static final Map<String, GOTRandomSkins> ALL_RANDOM_SKINS = new HashMap<>();
-	private static final Minecraft MC = Minecraft.getMinecraft();
+
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 	private static final Random RANDOM = new Random();
 
 	private final String skinPath;
@@ -24,7 +25,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 	private GOTRandomSkins(String path, boolean register) {
 		skinPath = path;
 		if (register) {
-			((IReloadableResourceManager) MC.getResourceManager()).registerReloadListener(this);
+			((IReloadableResourceManager) MINECRAFT.getResourceManager()).registerReloadListener(this);
 		} else {
 			loadAllRandomSkins();
 		}
@@ -68,7 +69,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 			ResourceLocation skin = new ResourceLocation(skinPath + '/' + skinCount + ".png");
 			boolean noFile = false;
 			try {
-				if (MC.getResourceManager().getResource(skin) == null) {
+				if (MINECRAFT.getResourceManager().getResource(skin) == null) {
 					noFile = true;
 				}
 			} catch (Exception e) {

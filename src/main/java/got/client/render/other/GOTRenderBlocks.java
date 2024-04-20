@@ -27,6 +27,7 @@ import java.util.Random;
 
 public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	private static final Random BLOCK_RAND = new Random();
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	private final boolean renderInvIn3D;
 
@@ -35,11 +36,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	private static int getAO() {
-		return Minecraft.getMinecraft().gameSettings.ambientOcclusion;
+		return MINECRAFT.gameSettings.ambientOcclusion;
 	}
 
 	private static void setAO(int i) {
-		Minecraft.getMinecraft().gameSettings.ambientOcclusion = i;
+		MINECRAFT.gameSettings.ambientOcclusion = i;
 	}
 
 	private static void renderClover(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
@@ -81,7 +82,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = posX + 0.5;
 			double d5 = j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
-			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -176,7 +177,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = 0.0;
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
-			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -230,7 +231,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = 0.0;
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
-			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -290,7 +291,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = posX + 0.5;
 			double d5 = j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
-			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
 				vec.rotateAroundY(rotation);
 				vec.xCoord += d4;
@@ -754,7 +755,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double maxV = icon.getInterpolatedV(intMinV + zSize);
 			double x2 = xSizeD / 2.0;
 			double z2 = zSizeD / 2.0;
-			Vec3[] vecs = new Vec3[]{Vec3.createVectorHelper(-x2, 0.0, -z2), Vec3.createVectorHelper(-x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, -z2)};
+			Vec3[] vecs = {Vec3.createVectorHelper(-x2, 0.0, -z2), Vec3.createVectorHelper(-x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, -z2)};
 			for (Vec3 vec2 : vecs) {
 				vec2.rotateAroundY(rotation);
 				vec2.xCoord += posX;
@@ -1317,7 +1318,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int i, int j, int k, Block block, int id, RenderBlocks renderblocks) {
-		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
+		boolean fancyGraphics = MINECRAFT.gameSettings.fancyGraphics;
 		GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);

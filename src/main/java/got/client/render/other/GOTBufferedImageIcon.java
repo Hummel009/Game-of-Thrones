@@ -13,6 +13,7 @@ import java.util.HashSet;
 
 public class GOTBufferedImageIcon extends TextureAtlasSprite {
 	private static final Collection<String> LOADED_RESOURCES = new HashSet<>();
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	private final BufferedImage imageRGB;
 
@@ -20,7 +21,7 @@ public class GOTBufferedImageIcon extends TextureAtlasSprite {
 		super(iconName);
 		imageRGB = rgb;
 		if (!LOADED_RESOURCES.contains(iconName)) {
-			TextureManager texManager = Minecraft.getMinecraft().getTextureManager();
+			TextureManager texManager = MINECRAFT.getTextureManager();
 			ResourceLocation r = new ResourceLocation(iconName);
 			ResourceLocation r1 = new ResourceLocation(r.getResourceDomain(), String.format("%s%s", r.getResourcePath(), ".png"));
 			texManager.deleteTexture(r1);
@@ -36,9 +37,9 @@ public class GOTBufferedImageIcon extends TextureAtlasSprite {
 
 	@Override
 	public boolean load(IResourceManager resourceManager, ResourceLocation resourceLocation) {
-		BufferedImage[] imageArray = new BufferedImage[1 + Minecraft.getMinecraft().gameSettings.mipmapLevels];
+		BufferedImage[] imageArray = new BufferedImage[1 + MINECRAFT.gameSettings.mipmapLevels];
 		imageArray[0] = imageRGB;
-		loadSprite(imageArray, null, Minecraft.getMinecraft().gameSettings.anisotropicFiltering > 1.0f);
+		loadSprite(imageArray, null, MINECRAFT.gameSettings.anisotropicFiltering > 1.0f);
 		return false;
 	}
 }

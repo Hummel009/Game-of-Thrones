@@ -14,6 +14,8 @@ import java.net.URI;
 import java.util.List;
 
 public class GOTGuiLanguages extends GOTGuiMenuBase {
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
+
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -22,14 +24,14 @@ public class GOTGuiLanguages extends GOTGuiMenuBase {
 					switch (Util.getOSType()) {
 						case OSX:
 							try {
-								Runtime.getRuntime().exec(new String[]{"/usr/bin/open", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath()});
+								Runtime.getRuntime().exec(new String[]{"/usr/bin/open", new File(MINECRAFT.mcDataDir, "config").getAbsolutePath()});
 								return;
 							} catch (IOException var7) {
 								var7.printStackTrace();
 								break;
 							}
 						case WINDOWS:
-							String var2 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
+							String var2 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new File(MINECRAFT.mcDataDir, "config").getAbsolutePath());
 							try {
 								Runtime.getRuntime().exec(var2);
 								return;
@@ -53,7 +55,7 @@ public class GOTGuiLanguages extends GOTGuiMenuBase {
 						break;
 					}
 					System.out.println("Opening via system class!");
-					Sys.openURL("file://" + new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
+					Sys.openURL("file://" + new File(MINECRAFT.mcDataDir, "config").getAbsolutePath());
 					break;
 				case 2:
 					mc.displayGuiScreen(new GOTGuiMenu());

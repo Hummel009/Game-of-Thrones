@@ -11,6 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBannerItem implements IItemRenderer {
 	private static final GOTModelBanner MODEL = new GOTModelBanner();
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {
@@ -21,8 +22,8 @@ public class GOTRenderBannerItem implements IItemRenderer {
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
 		GL11.glDisable(2884);
 		Entity holder = (Entity) data[1];
-		boolean isFirstPerson = holder == Minecraft.getMinecraft().thePlayer && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0;
-		TextureManager textureManager = Minecraft.getMinecraft().getTextureManager();
+		boolean isFirstPerson = holder == MINECRAFT.thePlayer && MINECRAFT.gameSettings.thirdPersonView == 0;
+		TextureManager textureManager = MINECRAFT.getTextureManager();
 		if (isFirstPerson) {
 			GL11.glTranslatef(1.0f, 1.0f, 0.0f);
 			GL11.glScalef(-1.0f, 1.0f, 1.0f);

@@ -1,21 +1,12 @@
 package got.common.entity.westeros.ice;
 
 import got.common.GOTConfig;
-import got.common.GOTDamage;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.database.GOTMaterial;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
-import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
-import got.common.entity.other.*;
-import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
-import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
-import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
-import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
-import got.common.entity.westeros.wildling.GOTEntityGiant;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.item.GOTMaterialFinder;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -25,8 +16,6 @@ import net.minecraft.entity.ai.EntityAIOpenDoor;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -46,12 +35,9 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		canBeMarried = false;
-		spawnsInDarkness = true;
 		isImmuneToFrost = true;
-		isNotHuman = true;
-		isChilly = true;
 		isImmuneToFire = true;
+		isChilly = true;
 	}
 
 	@Override
@@ -63,48 +49,13 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
-		if (super.attackEntityAsMob(entity)) {
-			if (entity instanceof EntityPlayerMP) {
-				GOTDamage.doFrostDamage((EntityPlayerMP) entity);
-			}
-			return true;
-		}
-		return false;
+		return IceUtils.attackWithFrost(entity, super.attackEntityAsMob(entity));
 	}
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		Entity entity = damagesource.getEntity();
-		Entity damageSource = damagesource.getSourceOfDamage();
-		boolean causeDamage = false;
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage()) {
-			ItemStack itemstack = ((EntityLivingBase) entity).getHeldItem();
-			if (itemstack != null) {
-				Item item = itemstack.getItem();
-				if (item instanceof GOTMaterialFinder && (((GOTMaterialFinder) item).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) item).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
-					causeDamage = true;
-				}
-				if (item == GOTItems.crowbar) {
-					causeDamage = true;
-				}
-			}
-		}
-		if (entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityAsshaiArchmag) {
-			causeDamage = true;
-		}
-		if (damageSource instanceof GOTEntitySpear) {
-			Item item = ((GOTEntityProjectileBase) damageSource).getProjectileItem().getItem();
-			if (item instanceof GOTMaterialFinder && (((GOTMaterialFinder) item).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) item).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
-				causeDamage = true;
-			}
-		}
-		if (GOTConfig.walkerFireDamage && damagesource.isFireDamage()) {
-			causeDamage = true;
-		}
-		if (causeDamage) {
-			return super.attackEntityFrom(damagesource, f);
-		}
-		return super.attackEntityFrom(damagesource, 0.0f);
+		boolean causeDamage = IceUtils.calculateDamage(damagesource, GOTConfig.walkerFireDamage);
+		return super.attackEntityFrom(damagesource, causeDamage ? f : 0.0f);
 	}
 
 	@Override
@@ -116,7 +67,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 10.0f;
+		return 5.0f;
 	}
 
 	@Override
@@ -176,42 +127,13 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
-		GOTEntityWight wight = new GOTEntityWight(worldObj);
-		GOTEntityWightGiant giant = new GOTEntityWightGiant(worldObj);
-		GOTEntityIceSpider spider = new GOTEntityIceSpider(worldObj);
-		if (entity instanceof GOTEntityBericDondarrion || entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityLancelLannister || entity instanceof GOTEntityTheonGreyjoy) {
-			super.onKillEntity(entity);
-		} else if (entity instanceof GOTEntityHumanBase) {
-			super.onKillEntity(entity);
-			wight.familyInfo.setAge(((GOTEntityNPC) entity).familyInfo.getAge());
-			wight.copyLocationAndAnglesFrom(entity);
-			wight.npcItemsInv.setMeleeWeapon(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
-			wight.npcItemsInv.setIdleItem(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
-			wight.setCurrentItemOrArmor(1, entity.getEquipmentInSlot(1));
-			wight.setCurrentItemOrArmor(2, entity.getEquipmentInSlot(2));
-			wight.setCurrentItemOrArmor(3, entity.getEquipmentInSlot(3));
-			wight.setCurrentItemOrArmor(4, entity.getEquipmentInSlot(4));
-			wight.familyInfo.setMale(((GOTEntityNPC) entity).familyInfo.male);
-			worldObj.removeEntity(entity);
-			worldObj.spawnEntityInWorld(wight);
-		} else if (entity instanceof GOTEntityGiant) {
-			super.onKillEntity(entity);
-			giant.copyLocationAndAnglesFrom(entity);
-			worldObj.removeEntity(entity);
-			giant.onSpawnWithEgg(null);
-			worldObj.spawnEntityInWorld(giant);
-		} else if (entity instanceof GOTEntitySpiderBase) {
-			super.onKillEntity(entity);
-			spider.copyLocationAndAnglesFrom(entity);
-			worldObj.removeEntity(entity);
-			spider.onSpawnWithEgg(null);
-			worldObj.spawnEntityInWorld(spider);
-		}
+		super.onKillEntity(entity);
+		IceUtils.createNewWight(entity, worldObj);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData livingData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -220,6 +142,6 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 			setCurrentItemOrArmor(2, new ItemStack(GOTItems.whiteWalkersLeggings));
 			setCurrentItemOrArmor(3, new ItemStack(GOTItems.whiteWalkersChestplate));
 		}
-		return data;
+		return livingData;
 	}
 }

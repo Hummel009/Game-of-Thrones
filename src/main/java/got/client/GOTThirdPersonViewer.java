@@ -14,7 +14,7 @@ import net.minecraft.client.settings.GameSettings;
 public class GOTThirdPersonViewer {
 	public static final GOTThirdPersonViewer INSTANCE = new GOTThirdPersonViewer();
 
-	private static final String[] ENTITYRENDERER_THIRDPERSONDISTANCE = new String[]{"thirdPersonDistance", "field_78490_B"};
+	private static final String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
 	private static final Minecraft MC = Minecraft.getMinecraft();
 
 	private boolean ridingDragonPrev;

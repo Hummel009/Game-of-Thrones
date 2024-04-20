@@ -421,9 +421,10 @@ public class GOTRenderNorthernLights {
 		private final float freq;
 		private final float tickMultiplier;
 		private final float amp;
-		private int age;
-		private int maxAge = -1;
+
 		private float ampModifier = 1.0f;
+		private int maxAge = -1;
+		private int age;
 
 		private AuroraCycle(float f, float t, float a) {
 			freq = f;

@@ -27,7 +27,7 @@ import java.util.UUID;
 public class GOTRenderPlayer {
 	public static final GOTRenderPlayer INSTANCE = new GOTRenderPlayer();
 
-	private static final Minecraft MC = Minecraft.getMinecraft();
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 	private static final RenderManager RENDER_MANAGER = RenderManager.instance;
 
 	@SubscribeEvent
@@ -44,14 +44,14 @@ public class GOTRenderPlayer {
 		float fr1 = f1 - (float) d1;
 		float fr2 = f2 - (float) d2;
 		float yOffset = entityplayer.isPlayerSleeping() ? -1.5f : 0.0f;
-		if (shouldRenderAlignment(entityplayer) && (MC.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment)) {
-			GOTPlayerData clientPD = GOTLevelData.getData(MC.thePlayer);
+		if (shouldRenderAlignment(entityplayer) && (MINECRAFT.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment)) {
+			GOTPlayerData clientPD = GOTLevelData.getData(MINECRAFT.thePlayer);
 			GOTPlayerData otherPD = GOTLevelData.getData(entityplayer);
 			float alignment = otherPD.getAlignment(clientPD.getViewingFaction());
 			double dist = entityplayer.getDistanceSqToEntity(RENDER_MANAGER.livingPlayer);
 			float range = RendererLivingEntity.NAME_TAG_RANGE;
 			if (dist < range * range) {
-				FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
+				FontRenderer fr = MINECRAFT.fontRenderer;
 				GL11.glPushMatrix();
 				GL11.glTranslatef(fr0, fr1, fr2);
 				GL11.glTranslatef(0.0f, entityplayer.height + 0.6f + yOffset, 0.0f);
@@ -68,7 +68,7 @@ public class GOTRenderPlayer {
 				GL11.glBlendFunc(770, 771);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				String sAlign = GOTAlignmentValues.formatAlignForDisplay(alignment);
-				MC.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+				MINECRAFT.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
 				GOTTickHandlerClient.drawTexturedModalRect(-MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -19.0, 0, 36, 16, 16);
 				GOTTickHandlerClient.drawAlignmentText(fr, 18 - MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -12, sAlign, 1.0f);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -117,7 +117,7 @@ public class GOTRenderPlayer {
 		if (shield != null) {
 			if (!entityplayer.isInvisible()) {
 				GOTRenderShield.renderShield(shield, entityplayer, event.renderer.modelBipedMain);
-			} else if (!entityplayer.isInvisibleToPlayer(MC.thePlayer)) {
+			} else if (!entityplayer.isInvisibleToPlayer(MINECRAFT.thePlayer)) {
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.15f);
 				GL11.glDepthMask(false);
@@ -133,7 +133,6 @@ public class GOTRenderPlayer {
 		}
 		if (cape != null) {
 			if (!entityplayer.isInvisible()) {
-				Minecraft mc = Minecraft.getMinecraft();
 				ResourceLocation capeTexture = cape.getCapeTexture();
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -142,17 +141,16 @@ public class GOTRenderPlayer {
 				GL11.glRotatef(f9 / 2.0f, 0.0f, 0.0f, 1.0f);
 				GL11.glRotatef(-f9 / 2.0f, 0.0f, 1.0f, 0.0f);
 				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
-				mc.getTextureManager().bindTexture(capeTexture);
+				MINECRAFT.getTextureManager().bindTexture(capeTexture);
 				event.renderer.modelBipedMain.renderCloak(0.0625f);
 				GL11.glPopMatrix();
-			} else if (!entityplayer.isInvisibleToPlayer(MC.thePlayer)) {
+			} else if (!entityplayer.isInvisibleToPlayer(MINECRAFT.thePlayer)) {
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.15f);
 				GL11.glDepthMask(false);
 				GL11.glEnable(3042);
 				GL11.glBlendFunc(770, 771);
 				GL11.glAlphaFunc(516, 0.003921569f);
-				Minecraft mc = Minecraft.getMinecraft();
 				ResourceLocation capeTexture = cape.getCapeTexture();
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -161,7 +159,7 @@ public class GOTRenderPlayer {
 				GL11.glRotatef(f9 / 2.0f, 0.0f, 0.0f, 1.0f);
 				GL11.glRotatef(-f9 / 2.0f, 0.0f, 1.0f, 0.0f);
 				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
-				mc.getTextureManager().bindTexture(capeTexture);
+				MINECRAFT.getTextureManager().bindTexture(capeTexture);
 				event.renderer.modelBipedMain.renderCloak(0.0625f);
 				GL11.glPopMatrix();
 				GL11.glDisable(3042);
@@ -176,7 +174,7 @@ public class GOTRenderPlayer {
 		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
 			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
 				UUID playerUuid = entityplayer.getUniqueID();
-				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MC.thePlayer).getClientFellowships();
+				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
 				for (GOTFellowshipClient fs : fellowships) {
 					if (fs.containsPlayer(playerUuid)) {
 						return true;
@@ -191,7 +189,7 @@ public class GOTRenderPlayer {
 
 	private boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
-			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MC.thePlayer).getClientFellowships();
+			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
 				if (fs.containsPlayer(entityplayer.getUniqueID())) {
 					return true;
@@ -202,6 +200,6 @@ public class GOTRenderPlayer {
 	}
 
 	private boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
-		return Minecraft.isGuiEnabled() && entityplayer != RENDER_MANAGER.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(MC.thePlayer);
+		return Minecraft.isGuiEnabled() && entityplayer != RENDER_MANAGER.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(MINECRAFT.thePlayer);
 	}
 }

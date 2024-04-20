@@ -54,23 +54,18 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.*;
 
-@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 public class GOTGuiEventHandler {
 	public static final GOTGuiEventHandler INSTANCE = new GOTGuiEventHandler();
 
-	private static final Collection<Class<? extends Container>> COIN_COUNT_EXCLUDED_CONTAINERS = new HashSet<>();
-	private static final Collection<Class<? extends GuiContainer>> COIN_COUNT_EXCLUDED_GU_IS = new HashSet<>();
 	private static final Collection<Class<? extends IInventory>> COIN_COUNT_EXCLUDED_INV_TYPES = new HashSet<>();
-	private static final Collection<String> COIN_COUNT_EXCLUDED_CONTAINERS_CLS_NAMES = new HashSet<>();
-	private static final Collection<String> COIN_COUNT_EXCLUDED_GU_IS_CLS_NAMES = new HashSet<>();
 	private static final Collection<String> COIN_COUNT_EXCLUDED_INV_TYPES_CLS_NAMES = new HashSet<>();
 
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
 	static {
-		COIN_COUNT_EXCLUDED_GU_IS.add(GuiContainerCreative.class);
 		COIN_COUNT_EXCLUDED_INV_TYPES.add(GOTContainerCoinExchange.InventoryCoinExchangeSlot.class);
 		COIN_COUNT_EXCLUDED_INV_TYPES.add(InventoryCraftResult.class);
+		COIN_COUNT_EXCLUDED_INV_TYPES_CLS_NAMES.add("thaumcraft.common.entities.InventoryMob");
 	}
 
 	private int descScrollIndex = -1;
@@ -190,17 +185,14 @@ public class GOTGuiEventHandler {
 			mc.theWorld.theProfiler.startSection("invCoinCount");
 			GuiContainer guiContainer = (GuiContainer) gui;
 			Container container = guiContainer.inventorySlots;
-			Class<? extends Container> containerCls = container.getClass();
-			Class<? extends GuiContainer> guiCls = guiContainer.getClass();
-			boolean excludeContainer = COIN_COUNT_EXCLUDED_CONTAINERS.contains(containerCls) || COIN_COUNT_EXCLUDED_CONTAINERS_CLS_NAMES.contains(containerCls.getName());
-			boolean excludeGui = COIN_COUNT_EXCLUDED_GU_IS.contains(guiCls) || COIN_COUNT_EXCLUDED_GU_IS_CLS_NAMES.contains(guiCls.getName());
+			boolean excludeGui = false;
 			if (guiContainer instanceof GuiContainerCreative) {
 				int creativeTabIndex = GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer);
 				if (creativeTabIndex != CreativeTabs.tabInventory.getTabIndex()) {
 					excludeGui = true;
 				}
 			}
-			if (!excludeContainer && !excludeGui) {
+			if (!excludeGui) {
 				int guiLeft = -1;
 				int guiTop = -1;
 				int guiXSize = -1;

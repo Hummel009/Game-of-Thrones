@@ -20,6 +20,7 @@ import java.util.Map;
 
 public class GOTSwingHandler {
 	public static final GOTSwingHandler INSTANCE = new GOTSwingHandler();
+	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	private static final Map<EntityLivingBase, SwingTime> ENTITY_SWINGS = new HashMap<>();
 
@@ -28,10 +29,9 @@ public class GOTSwingHandler {
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if (event.phase == TickEvent.Phase.START) {
-			Minecraft mc = Minecraft.getMinecraft();
-			if (mc.theWorld == null) {
+			if (MINECRAFT.theWorld == null) {
 				ENTITY_SWINGS.clear();
-			} else if (!mc.isGamePaused()) {
+			} else if (!MINECRAFT.isGamePaused()) {
 				Collection<EntityLivingBase> removes = new ArrayList<>();
 				for (Map.Entry<EntityLivingBase, SwingTime> e : ENTITY_SWINGS.entrySet()) {
 					EntityLivingBase entity = e.getKey();
@@ -70,7 +70,7 @@ public class GOTSwingHandler {
 	@SubscribeEvent
 	public void onRenderTick(TickEvent.RenderTickEvent event) {
 		EntityClientPlayerMP entityplayer;
-		if (event.phase == TickEvent.Phase.START && (entityplayer = Minecraft.getMinecraft().thePlayer) != null) {
+		if (event.phase == TickEvent.Phase.START && (entityplayer = MINECRAFT.thePlayer) != null) {
 			tryUpdateSwing(entityplayer);
 		}
 	}
@@ -86,7 +86,7 @@ public class GOTSwingHandler {
 	}
 
 	private void tryUpdateSwing(EntityLivingBase entity) {
-		if (entity == Minecraft.getMinecraft().thePlayer) {
+		if (entity == MINECRAFT.thePlayer) {
 			if (GOTAttackTiming.getFullAttackTime() > 0) {
 				float max = GOTAttackTiming.getFullAttackTime();
 				float swing = (max - GOTAttackTiming.getAttackTime()) / max;
