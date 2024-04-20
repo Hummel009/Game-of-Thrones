@@ -30,7 +30,6 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		gotWeaponDamage = 1.0f;
 	}
 
-	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	private void command(EntityPlayer entityplayer, World world, ItemStack itemstack, MovingObjectPosition hitTarget) {
 		entityplayer.setRevengeTarget(null);
 		Collection<Entity> spreadTargets = new ArrayList<>();
@@ -38,13 +37,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 			Vec3 vec = hitTarget.hitVec;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(vec.xCoord, vec.yCoord, vec.zCoord, vec.xCoord, vec.yCoord, vec.zCoord);
 			aabb = aabb.expand(6.0D, 6.0D, 6.0D);
-			spreadTargets = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new IEntitySelector() {
-
-				@Override
-				public boolean isEntityApplicable(Entity entity) {
-					return entity.isEntityAlive() && GOT.canPlayerAttackEntity(entityplayer, (EntityLivingBase) entity, false);
-				}
-			});
+			spreadTargets = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new EntitySelectorImpl(entityplayer));
 		}
 		boolean anyAttackCommanded = false;
 		List<GOTEntityNPC> nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0D, 12.0D, 12.0D));
@@ -151,5 +144,18 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 			}
 		}
 		return itemstack;
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final EntityPlayer entityplayer;
+
+		private EntitySelectorImpl(EntityPlayer entityplayer) {
+			this.entityplayer = entityplayer;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			return entity.isEntityAlive() && GOT.canPlayerAttackEntity(entityplayer, (EntityLivingBase) entity, false);
+		}
 	}
 }

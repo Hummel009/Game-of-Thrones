@@ -29,7 +29,6 @@ public class GOTItemFeatherDyed extends Item {
 		setFeatherColor(itemstack, 16777215);
 	}
 
-	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	public static void setFeatherColor(ItemStack itemstack, int i) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());

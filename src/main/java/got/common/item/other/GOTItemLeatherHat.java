@@ -73,7 +73,6 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		itemstack.getTagCompound().setInteger("FeatherColor", i);
 	}
 
-	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	public static void setHatColor(ItemStack itemstack, int i) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
