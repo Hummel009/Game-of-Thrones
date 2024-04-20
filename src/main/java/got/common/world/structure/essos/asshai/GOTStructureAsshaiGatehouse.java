@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
-
 	public GOTStructureAsshaiGatehouse(boolean flag) {
 		super(flag);
 	}
