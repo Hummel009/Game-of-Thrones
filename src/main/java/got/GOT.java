@@ -91,8 +91,8 @@ public class GOT {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("achievements", GOTAchievement.CONTENT.size());
 		map.put("banners", GOTItemBanner.BannerType.values().length);
-		map.put("mobs", GOTEntityRegistry.CLASS_TO_FACTION_MAPPING.size());
-		map.put("structures", GOTStructureRegistry.CLASS_TO_FACTION_MAPPING.size());
+		map.put("mobs", GOTEntityRegistry.CONTENT.size());
+		map.put("structures", GOTStructureRegistry.CONTENT.size());
 		map.put("biomes", GOTBiome.CONTENT.size());
 		map.put("beziers", GOTBeziers.CONTENT.size());
 		map.put("waypoints", GOTWaypoint.values().length);
