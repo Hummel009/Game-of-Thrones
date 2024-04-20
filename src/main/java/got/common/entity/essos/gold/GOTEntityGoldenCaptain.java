@@ -27,11 +27,6 @@ public class GOTEntityGoldenCaptain extends GOTEntityGoldenWarrior implements GO
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

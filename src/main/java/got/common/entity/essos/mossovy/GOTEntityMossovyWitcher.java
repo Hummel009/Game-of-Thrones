@@ -64,7 +64,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public float getAlignmentBonus() {
-		return 2.0f;
+		return 5.0f;
 	}
 
 	@Override

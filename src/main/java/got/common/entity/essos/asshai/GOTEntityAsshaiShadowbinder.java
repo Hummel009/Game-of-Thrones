@@ -30,7 +30,7 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 10.0f;
+		return 3.0f;
 	}
 
 	public boolean getIsUsingStaff() {

@@ -90,7 +90,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 
 	@Override
 	public float getAlignmentBonus() {
-		return 5.0f;
+		return 1.0f;
 	}
 
 	@Override

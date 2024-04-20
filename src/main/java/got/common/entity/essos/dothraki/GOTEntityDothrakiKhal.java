@@ -39,7 +39,7 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 
 	@Override
 	public float getAlignmentBonus() {
-		return 10.0f;
+		return 5.0f;
 	}
 
 	@Override

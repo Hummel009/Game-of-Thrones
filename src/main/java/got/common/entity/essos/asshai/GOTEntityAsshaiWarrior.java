@@ -26,7 +26,7 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 3.0f;
+		return 2.0f;
 	}
 
 	@Override

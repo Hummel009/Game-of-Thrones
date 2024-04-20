@@ -34,7 +34,7 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 5.0f;
+		return 3.0f;
 	}
 
 	@Override

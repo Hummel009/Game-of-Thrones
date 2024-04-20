@@ -33,7 +33,7 @@ public class GOTEntityJogosChief extends GOTEntityJogos implements GOTUnitTradea
 
 	@Override
 	public float getAlignmentBonus() {
-		return 10.0f;
+		return 5.0f;
 	}
 
 	@Override

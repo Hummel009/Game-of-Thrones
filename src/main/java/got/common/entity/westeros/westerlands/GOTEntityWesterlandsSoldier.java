@@ -31,11 +31,6 @@ public class GOTEntityWesterlandsSoldier extends GOTEntityWesterlandsLevyman {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			if (mounted) {

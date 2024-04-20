@@ -91,7 +91,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public float getAlignmentBonus() {
-		return 5.0f;
+		return 1.0f;
 	}
 
 	@Override
