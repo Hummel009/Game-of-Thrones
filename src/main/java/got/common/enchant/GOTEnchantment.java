@@ -7,7 +7,7 @@ import net.minecraft.util.StatCollector;
 import java.text.DecimalFormat;
 import java.util.*;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public abstract class GOTEnchantment {
 	public static final Collection<GOTEnchantment> CONTENT = new ArrayList<>();
 	public static final Map<String, GOTEnchantment> ENCHANTS_BY_NAME = new HashMap<>();

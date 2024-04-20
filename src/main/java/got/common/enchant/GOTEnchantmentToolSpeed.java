@@ -6,7 +6,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentToolSpeed extends GOTEnchantment {
 	private final float speedFactor;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentToolSpeed(String s, float speed) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.TOOL, GOTEnchantmentType.SHEARS});
 		speedFactor = speed;

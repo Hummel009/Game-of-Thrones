@@ -7,7 +7,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentKnockback extends GOTEnchantment {
 	private final int knockback;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentKnockback(String s, int i) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE});
 		knockback = i;

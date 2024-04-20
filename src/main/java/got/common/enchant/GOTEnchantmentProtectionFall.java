@@ -6,7 +6,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionFall extends GOTEnchantmentProtectionSpecial {
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentProtectionFall(String s, int level) {
 		super(s, GOTEnchantmentType.ARMOR_FEET, level);
 	}
