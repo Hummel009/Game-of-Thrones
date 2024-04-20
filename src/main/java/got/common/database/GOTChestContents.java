@@ -1170,7 +1170,7 @@ public class GOTChestContents {
 	private List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	private int loreChance = 10;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTChestContents(int i, int j, List<WeightedRandomChestContent> list) {
 		WeightedRandomChestContent[] w = new WeightedRandomChestContent[list.size()];
 		w = list.toArray(w);
@@ -1257,11 +1257,6 @@ public class GOTChestContents {
 		return MathHelper.getRandomIntegerInRange(random, itemPool.minItems, itemPool.maxItems);
 	}
 
-	private GOTChestContents enablePouches() {
-		pouches = true;
-		return this;
-	}
-
 	public ItemStack getOneItem(Random random, boolean isNPCDrop) {
 		IInventory drops = new InventoryBasic("oneItem", false, 1);
 		fillInventory(drops, random, this, 1, isNPCDrop);
@@ -1270,16 +1265,25 @@ public class GOTChestContents {
 		return item;
 	}
 
-	private GOTChestContents setDrinkVessels(GOTFoods foods) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTChestContents enablePouches() {
+		pouches = true;
+		return this;
+	}
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTChestContents setDrinkVessels(GOTFoods foods) {
 		return setDrinkVessels(foods.getDrinkVessels());
 	}
 
-	private GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {
 		vesselTypes = v;
 		return this;
 	}
 
-	private GOTChestContents setLore(int chance, GOTLore.LoreCategory... categories) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTChestContents setLore(int chance, GOTLore.LoreCategory... categories) {
 		loreCategories = Arrays.asList(categories);
 		loreChance = chance;
 		return this;

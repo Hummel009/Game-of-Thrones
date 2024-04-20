@@ -30,6 +30,7 @@ public class GOTTitle {
 	private boolean isFeminineRank;
 	private boolean useAchievementName;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTitle(String s, GOTAchievement ach) {
 		this(s == null ? ach.getName() : s);
 		titleType = TitleType.ACHIEVEMENT;
@@ -39,6 +40,7 @@ public class GOTTitle {
 		}
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTitle(GOTFactionRank rank, boolean fem) {
 		this(fem ? rank.getCodeNameFem() : rank.getCodeName());
 		titleType = TitleType.RANK;
@@ -46,7 +48,7 @@ public class GOTTitle {
 		isFeminineRank = fem;
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTitle(String s) {
 		titleID = nextTitleID;
 		nextTitleID++;

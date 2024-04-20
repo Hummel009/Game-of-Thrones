@@ -885,19 +885,19 @@ public class GOTAchievement {
 
 		private int nextRankAchID = 1000;
 
-		Category(GOTDimension dim, int color) {
-			codeName = name();
-			categoryColors = new Color(color).getColorComponents(null);
-			dimension = dim;
-			dimension.getAchievementCategories().add(this);
-		}
-
 		Category(GOTFaction faction) {
 			this(faction.getFactionColor());
 		}
 
 		Category(int color) {
 			this(GOTDimension.GAME_OF_THRONES, color);
+		}
+
+		Category(GOTDimension dim, int color) {
+			codeName = name();
+			categoryColors = new Color(color).getColorComponents(null);
+			dimension = dim;
+			dimension.getAchievementCategories().add(this);
 		}
 
 		private String codeName() {

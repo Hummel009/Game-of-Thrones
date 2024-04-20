@@ -13,14 +13,10 @@ import java.util.Random;
 
 public class GOTBlockDoor extends BlockDoor {
 	public GOTBlockDoor() {
-		this(Material.wood);
+		super(Material.wood);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setStepSound(soundTypeWood);
 		setHardness(3.0f);
-	}
-
-	private GOTBlockDoor(Material material) {
-		super(material);
-		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 	}
 
 	@SideOnly(Side.CLIENT)

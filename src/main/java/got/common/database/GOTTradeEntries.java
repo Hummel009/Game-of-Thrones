@@ -1043,7 +1043,7 @@ public class GOTTradeEntries {
 
 	private GOTItemMug.Vessel[] drinkVessels;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTradeEntries(GOTTradeEntries.TradeType t, List<GOTTradeEntry> list) {
 		GOTTradeEntry[] arr = new GOTTradeEntry[list.size()];
 		arr = list.toArray(arr);
@@ -1104,11 +1104,13 @@ public class GOTTradeEntries {
 		return trades;
 	}
 
-	private GOTTradeEntries setVessels(GOTFoods foods) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTTradeEntries setVessels(GOTFoods foods) {
 		return setVessels(foods.getDrinkVessels());
 	}
 
-	private GOTTradeEntries setVessels(GOTItemMug.Vessel... v) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTTradeEntries setVessels(GOTItemMug.Vessel... v) {
 		if (tradeType != GOTTradeEntries.TradeType.WE_CAN_BUY) {
 			throw new IllegalArgumentException("Cannot set the vessel types for a sell list");
 		}

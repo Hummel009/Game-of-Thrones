@@ -33,14 +33,10 @@ public abstract class GOTBlockPillarBase extends Block {
 	private IIcon[] pillarSideBottomIcons;
 
 	protected GOTBlockPillarBase() {
-		this(Material.rock);
+		super(Material.rock);
 		setHardness(1.5f);
 		setResistance(10.0f);
 		setStepSound(soundTypeStone);
-	}
-
-	private GOTBlockPillarBase(Material material) {
-		super(material);
 		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 

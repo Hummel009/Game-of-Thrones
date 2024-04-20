@@ -8,11 +8,7 @@ import net.minecraft.block.material.Material;
 
 public class GOTBlockFlower extends BlockBush {
 	public GOTBlockFlower() {
-		this(Material.plants);
-	}
-
-	private GOTBlockFlower(Material material) {
-		super(material);
+		super(Material.plants);
 		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);

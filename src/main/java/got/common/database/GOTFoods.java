@@ -28,7 +28,7 @@ public class GOTFoods {
 	private GOTItemMug.Vessel[] drinkVessels;
 	private GOTItemMug.Vessel[] drinkVesselsPlaceable;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTFoods(ItemStack[] items) {
 		foodList = items;
 	}
@@ -37,7 +37,8 @@ public class GOTFoods {
 		return drinkVessels;
 	}
 
-	private GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
 		drinkVessels = vessels;
 		ArrayList<GOTItemMug.Vessel> placeable = new ArrayList<>();
 		for (GOTItemMug.Vessel v : drinkVessels) {

@@ -6,13 +6,9 @@ import net.minecraft.block.material.Material;
 
 public class GOTBlockTrapdoor extends BlockTrapDoor {
 	public GOTBlockTrapdoor() {
-		this(Material.wood);
+		super(Material.wood);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setStepSound(soundTypeWood);
 		setHardness(3.0f);
-	}
-
-	private GOTBlockTrapdoor(Material material) {
-		super(material);
-		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 	}
 }

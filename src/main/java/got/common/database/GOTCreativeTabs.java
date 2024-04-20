@@ -22,7 +22,7 @@ public class GOTCreativeTabs extends CreativeTabs {
 
 	private ItemStack theIcon;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTCreativeTabs(String label) {
 		super(label);
 	}
@@ -44,6 +44,11 @@ public class GOTCreativeTabs extends CreativeTabs {
 	@Override
 	public ItemStack getIconItemStack() {
 		return theIcon;
+	}
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public void setIconItemStack(ItemStack theIcon) {
+		this.theIcon = theIcon;
 	}
 
 	@Override

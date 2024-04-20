@@ -27,6 +27,11 @@ public enum GOTCapes {
 		this(CapeType.EXCLUSIVE, hidden, players);
 	}
 
+	GOTCapes(GOTFaction faction) {
+		this(CapeType.ALIGNMENT, false, new ArrayList<>());
+		alignmentFaction = faction;
+	}
+
 	GOTCapes(CapeType type, boolean hidden, List<String> players) {
 		capeType = type;
 		capeID = capeType.getCapes().size();
@@ -38,11 +43,6 @@ public enum GOTCapes {
 			exclusiveUUIDs[i] = UUID.fromString(s);
 		}
 		isHidden = hidden;
-	}
-
-	GOTCapes(GOTFaction faction) {
-		this(CapeType.ALIGNMENT, false, new ArrayList<>());
-		alignmentFaction = faction;
 	}
 
 	@SuppressWarnings("EmptyMethod")
