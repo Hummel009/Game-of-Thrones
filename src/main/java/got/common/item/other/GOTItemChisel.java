@@ -1,7 +1,7 @@
 package got.common.item.other;
 
 import got.common.database.GOTCreativeTabs;
-import got.common.tileentity.GOTTileEntitySign;
+import got.common.tileentity.GOTTileEntitySignCarved;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,7 +39,7 @@ public class GOTItemChisel extends Item {
 			if (!world.isRemote) {
 				world.setBlock(i1, j1, k1, signBlock, side, 3);
 				itemstack.damageItem(1, entityplayer);
-				GOTTileEntitySign sign = (GOTTileEntitySign) world.getTileEntity(i1, j1, k1);
+				GOTTileEntitySignCarved sign = (GOTTileEntitySignCarved) world.getTileEntity(i1, j1, k1);
 				if (sign != null) {
 					sign.openEditGUI((EntityPlayerMP) entityplayer);
 				}

@@ -66,20 +66,26 @@ import java.util.stream.Stream;
 public class GOTWikiGen {
 	private static final Map<Class<? extends Entity>, Entity> CLASS_TO_OBJ = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> CLASS_TO_WP = new HashMap<>();
+
 	private static final Map<String, String> FAC_TO_PAGE = new HashMap<>();
 	private static final Map<String, String> ENTITY_TO_PAGE = new HashMap<>();
 	private static final Map<String, String> BIOME_TO_PAGE = new HashMap<>();
+
 	private static final Iterable<GOTUnitTradeEntries> UNITS = new HashSet<>(GOTUnitTradeEntries.CONTENT);
 	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
+	private static final Iterable<Class<? extends WorldGenerator>> STRUCTURES = new HashSet<>(GOTStructureRegistry.CONTENT);
+
 	private static final Collection<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
+
 	private static final Set<GOTFaction> FACTIONS = EnumSet.allOf(GOTFaction.class);
 	private static final Set<GOTTreeType> TREES = EnumSet.allOf(GOTTreeType.class);
 	private static final Set<GOTWaypoint> WAYPOINTS = EnumSet.allOf(GOTWaypoint.class);
 	private static final Set<GOTCapes> CAPES = EnumSet.allOf(GOTCapes.class);
 	private static final Set<GOTShields> SHIELDS = EnumSet.allOf(GOTShields.class);
+
 	private static final Collection<String> MINERALS = new HashSet<>();
-	private static final Collection<Class<? extends WorldGenerator>> STRUCTURES = new HashSet<>();
 	private static final Collection<Class<? extends Entity>> HIREABLE = new HashSet<>();
+
 	private static final String BEGIN = "\n</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text></revision></page>";
 	private static final String TITLE = "<page><title>";
@@ -139,7 +145,6 @@ public class GOTWikiGen {
 		try {
 			searchForEntities(world);
 			searchForMinerals(BIOMES, MINERALS);
-			searchForStructures(BIOMES, STRUCTURES);
 			searchForHireable(HIREABLE, UNITS);
 			searchForPagenamesEntity(BIOMES, FACTIONS);
 			searchForPagenamesBiome(BIOMES, FACTIONS);
@@ -1682,14 +1687,6 @@ public class GOTWikiGen {
 				}
 			}
 			FAC_TO_PAGE.put(preName, preName);
-		}
-	}
-
-	private static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
-		for (GOTBiome biome : biomes) {
-			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
-				structures.add(structure.getStructureGen().getClass());
-			}
 		}
 	}
 

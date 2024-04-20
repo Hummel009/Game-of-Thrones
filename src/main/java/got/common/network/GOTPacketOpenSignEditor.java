@@ -5,7 +5,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.database.GOTGuiId;
-import got.common.tileentity.GOTTileEntitySign;
+import got.common.tileentity.GOTTileEntitySignCarved;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,7 +22,7 @@ public class GOTPacketOpenSignEditor implements IMessage {
 	public GOTPacketOpenSignEditor() {
 	}
 
-	public GOTPacketOpenSignEditor(GOTTileEntitySign sign) {
+	public GOTPacketOpenSignEditor(GOTTileEntitySignCarved sign) {
 		posX = sign.xCoord;
 		posY = sign.yCoord;
 		posZ = sign.zCoord;

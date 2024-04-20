@@ -3,7 +3,6 @@ package got.client.gui;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketEditSign;
 import got.common.network.GOTPacketHandler;
-import got.common.tileentity.GOTTileEntitySign;
 import got.common.tileentity.GOTTileEntitySignCarved;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -20,14 +19,14 @@ import org.lwjgl.opengl.GL11;
 public class GOTGuiEditSign extends GuiScreen {
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
-	private final GOTTileEntitySign tileSign;
+	private final GOTTileEntitySignCarved tileSign;
 
 	private GuiButton buttonDone;
 
 	private int updateCounter;
 	private int editLine;
 
-	public GOTGuiEditSign(GOTTileEntitySign sign) {
+	public GOTGuiEditSign(GOTTileEntitySignCarved sign) {
 		tileSign = sign;
 	}
 
@@ -89,7 +88,7 @@ public class GOTGuiEditSign extends GuiScreen {
 		if (i == 208 || i == 28 || i == 156) {
 			++editLine;
 		}
-		editLine &= tileSign.getNumLines() - 1;
+		editLine &= 7;
 		if (i == 14 && !tileSign.getSignText()[editLine].isEmpty()) {
 			String s = tileSign.getSignText()[editLine];
 			tileSign.getSignText()[editLine] = s.substring(0, s.length() - 1);

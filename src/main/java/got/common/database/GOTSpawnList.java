@@ -27,7 +27,6 @@ import got.common.entity.essos.lys.GOTEntityLysLevyman;
 import got.common.entity.essos.lys.GOTEntityLysLevymanArcher;
 import got.common.entity.essos.lys.GOTEntityLysSoldier;
 import got.common.entity.essos.lys.GOTEntityLysSoldierArcher;
-import got.common.entity.animal.GOTEntityMossovyWerewolf;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import got.common.entity.essos.myr.GOTEntityMyrLevyman;
 import got.common.entity.essos.myr.GOTEntityMyrLevymanArcher;

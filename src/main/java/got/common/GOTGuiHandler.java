@@ -134,7 +134,7 @@ public class GOTGuiHandler implements IGuiHandler {
 			case EDIT_SIGN:
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				GOTTileEntitySign fake = (GOTTileEntitySign) block.createTileEntity(world, meta);
+				GOTTileEntitySignCarved fake = (GOTTileEntitySignCarved) block.createTileEntity(world, meta);
 				fake.setWorldObj(world);
 				fake.xCoord = i;
 				fake.yCoord = j;

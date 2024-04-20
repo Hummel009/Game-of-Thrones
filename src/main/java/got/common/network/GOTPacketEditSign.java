@@ -4,7 +4,7 @@ import com.google.common.base.Charsets;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
-import got.common.tileentity.GOTTileEntitySign;
+import got.common.tileentity.GOTTileEntitySignCarved;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
@@ -22,7 +22,7 @@ public class GOTPacketEditSign implements IMessage {
 	public GOTPacketEditSign() {
 	}
 
-	public GOTPacketEditSign(GOTTileEntitySign sign) {
+	public GOTPacketEditSign(GOTTileEntitySignCarved sign) {
 		posX = sign.xCoord;
 		posY = sign.yCoord;
 		posZ = sign.zCoord;
@@ -70,13 +70,13 @@ public class GOTPacketEditSign implements IMessage {
 			int j = packet.posY;
 			int k = packet.posZ;
 			String[] newText = packet.signText;
-			if (world.blockExists(i, j, k) && (te = world.getTileEntity(i, j, k)) instanceof GOTTileEntitySign) {
-				GOTTileEntitySign sign = (GOTTileEntitySign) te;
+			if (world.blockExists(i, j, k) && (te = world.getTileEntity(i, j, k)) instanceof GOTTileEntitySignCarved) {
+				GOTTileEntitySignCarved sign = (GOTTileEntitySignCarved) te;
 				if (!sign.isEditable() || sign.getEditingPlayer() != entityplayer) {
 					MinecraftServer.getServer().logWarning("Player " + entityplayer.getCommandSenderName() + " just tried to change non-editable GOT sign");
 					return null;
 				}
-				for (int l = 0; l < sign.getNumLines(); ++l) {
+				for (int l = 0; l < 8; ++l) {
 					String line = newText[l];
 					boolean valid = true;
 					if (line.length() > 15) {
@@ -94,7 +94,7 @@ public class GOTPacketEditSign implements IMessage {
 					}
 					newText[l] = "!?";
 				}
-				System.arraycopy(newText, 0, sign.getSignText(), 0, sign.getNumLines());
+				System.arraycopy(newText, 0, sign.getSignText(), 0, 8);
 				sign.markDirty();
 				world.markBlockForUpdate(i, j, k);
 			}

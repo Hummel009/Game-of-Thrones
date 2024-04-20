@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
-import got.common.tileentity.GOTTileEntitySign;
+import got.common.tileentity.GOTTileEntitySignCarved;
 import got.common.util.GOTCommonIcons;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSign;
@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockSignCarved extends BlockSign {
-	public GOTBlockSignCarved(Class<? extends GOTTileEntitySign> cls) {
+	public GOTBlockSignCarved(Class<? extends GOTTileEntitySignCarved> cls) {
 		super(cls, false);
 		setStepSound(soundTypeStone);
 		setHardness(0.5f);
