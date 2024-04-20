@@ -59,7 +59,23 @@ public class GOTContainerAnvil extends Container {
 	private long lastReforgeTime = -1L;
 	private boolean doneMischief;
 
-	private GOTContainerAnvil(EntityPlayer entityplayer, boolean trader) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTContainerAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
+		this(entityplayer, true);
+		theNPC = npc;
+		theTrader = (GOTTradeable) npc;
+	}
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTContainerAnvil(EntityPlayer entityplayer, int i, int j, int k) {
+		this(entityplayer, false);
+		xCoord = i;
+		yCoord = j;
+		zCoord = k;
+	}
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTContainerAnvil(EntityPlayer entityplayer, boolean trader) {
 		thePlayer = entityplayer;
 		theWorld = entityplayer.worldObj;
 		isTrader = trader;
@@ -86,19 +102,6 @@ public class GOTContainerAnvil extends Container {
 		for (int i1 = 0; i1 < 9; ++i1) {
 			addSlotToContainer(new Slot(entityplayer.inventory, i1, 8 + i1 * 18, 174));
 		}
-	}
-
-	public GOTContainerAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		this(entityplayer, true);
-		theNPC = npc;
-		theTrader = (GOTTradeable) npc;
-	}
-
-	public GOTContainerAnvil(EntityPlayer entityplayer, int i, int j, int k) {
-		this(entityplayer, false);
-		xCoord = i;
-		yCoord = j;
-		zCoord = k;
 	}
 
 	private static String applyFormattingCodes(String name, Iterable<EnumChatFormatting> colors) {

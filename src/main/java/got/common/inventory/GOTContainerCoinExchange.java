@@ -219,8 +219,7 @@ public class GOTContainerCoinExchange extends Container {
 	}
 
 	public class InventoryCoinExchangeSlot extends InventoryBasic {
-		@SuppressWarnings("WeakerAccess")
-		public InventoryCoinExchangeSlot(int i) {
+		private InventoryCoinExchangeSlot(int i) {
 			super("coinExchange", true, i);
 		}
 
@@ -232,7 +231,7 @@ public class GOTContainerCoinExchange extends Container {
 	}
 
 	private class SlotCoinResult extends Slot {
-		SlotCoinResult(IInventory inv, int i, int j, int k) {
+		private SlotCoinResult(IInventory inv, int i, int j, int k) {
 			super(inv, i, j, k);
 		}
 
