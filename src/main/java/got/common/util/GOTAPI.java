@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.*;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTAPI {
 	private GOTAPI() {
 	}
