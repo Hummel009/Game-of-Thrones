@@ -94,7 +94,6 @@ public class GOTEventSpawner {
 		}
 	}
 
-	@SuppressWarnings("Convert2Lambda")
 	private static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0:
@@ -118,14 +117,7 @@ public class GOTEventSpawner {
 				if (!world.isDaytime() && GOTWorldProvider.isLunarEclipse()) {
 					chance *= 5.0;
 				}
-				if (rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), new IEntitySelector() {
-
-					@Override
-					public boolean isEntityApplicable(Entity entity) {
-						EntityPlayer entityplayer;
-						return entity instanceof EntityPlayer && (entityplayer = (EntityPlayer) entity).isEntityAlive() && !entityplayer.capabilities.isCreativeMode && GOTLevelData.getData(entityplayer).getAlignment(invasionType.getInvasionFaction()) < 0.0f;
-					}
-				}).isEmpty()) {
+				if (rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), new EntitySelectorImpl(invasionType)).isEmpty()) {
 					continue;
 				}
 				for (int attempts = 0; attempts < 16; ++attempts) {
@@ -176,6 +168,20 @@ public class GOTEventSpawner {
 
 		private double[] getChancesPerSecondPerChunk() {
 			return chancesPerSecondPerChunk;
+		}
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final GOTInvasions invasionType;
+
+		private EntitySelectorImpl(GOTInvasions invasionType) {
+			this.invasionType = invasionType;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			EntityPlayer entityplayer = (EntityPlayer) entity;
+			return entity instanceof EntityPlayer && entityplayer.isEntityAlive() && !entityplayer.capabilities.isCreativeMode && GOTLevelData.getData(entityplayer).getAlignment(invasionType.getInvasionFaction()) < 0.0f;
 		}
 	}
 }

@@ -325,26 +325,12 @@ public class GOT {
 		return calendar.getMonth() == Month.AUGUST && calendar.getDayOfMonth() == 24;
 	}
 
-	@SuppressWarnings("Convert2Lambda")
 	public static IEntitySelector selectLivingExceptCreativePlayers() {
-		return new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity entity) {
-				return entity instanceof EntityLivingBase && entity.isEntityAlive() && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode);
-			}
-		};
+		return new EntitySelectorImpl1();
 	}
 
-	@SuppressWarnings("Convert2Lambda")
 	public static IEntitySelector selectNonCreativePlayers() {
-		return new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity entity) {
-				return entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).capabilities.isCreativeMode;
-			}
-		};
+		return new EntitySelectorImpl2();
 	}
 
 	public static void transferEntityToDimension(Entity entity, int newDimension, Teleporter teleporter) {
@@ -488,5 +474,19 @@ public class GOT {
 			event.registerServerCommand(element);
 		}
 		proxy.testReflection(world);
+	}
+
+	private static class EntitySelectorImpl1 implements IEntitySelector {
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			return entity instanceof EntityLivingBase && entity.isEntityAlive() && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode);
+		}
+	}
+
+	private static class EntitySelectorImpl2 implements IEntitySelector {
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			return entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).capabilities.isCreativeMode;
+		}
 	}
 }

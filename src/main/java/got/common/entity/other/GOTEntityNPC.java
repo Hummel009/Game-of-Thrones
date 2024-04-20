@@ -1142,7 +1142,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		setAttackTarget(target, speak);
 	}
 
-	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public void setAttackTarget(EntityLivingBase target, boolean speak) {
 		EntityLivingBase prevEntityTarget = getAttackTarget();
 		super.setAttackTarget(target);
@@ -1156,17 +1155,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 					worldObj.playSoundAtEntity(this, getAttackSound(), getSoundVolume(), getSoundPitch());
 				}
 				if (target instanceof EntityPlayer && speak && (speechBank = getSpeechBank(entityplayer = (EntityPlayer) target)) != null) {
-					IEntitySelector selectorAttackingNPCs = new IEntitySelector() {
-
-						@Override
-						public boolean isEntityApplicable(Entity entity) {
-							if (entity instanceof GOTEntityNPC) {
-								GOTEntityNPC npc = (GOTEntityNPC) entity;
-								return npc.isAIEnabled() && npc.isEntityAlive() && npc.getAttackTarget() == entityplayer;
-							}
-							return false;
-						}
-					};
+					IEntitySelector selectorAttackingNPCs = new EntitySelectorImpl1(entityplayer);
 					double range = 16.0;
 					List<? extends Entity> nearbyMobs = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range), selectorAttackingNPCs);
 					if (nearbyMobs.size() <= 5) {
@@ -1374,20 +1363,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	@SuppressWarnings("Convert2Lambda")
 	public void updateNearbyBanners() {
 		if (getFaction() == GOTFaction.UNALIGNED) {
 			nearbyBannerFactor = 0;
 		} else {
 			double range = 16.0;
-			List<GOTBannerBearer> bannerBearers = worldObj.selectEntitiesWithinAABB(GOTBannerBearer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
-
-				@Override
-				public boolean isEntityApplicable(Entity entity) {
-					EntityLivingBase living = (EntityLivingBase) entity;
-					return living != GOTEntityNPC.this && living.isEntityAlive() && GOT.getNPCFaction(living) == getFaction();
-				}
-			});
+			List<GOTBannerBearer> bannerBearers = worldObj.selectEntitiesWithinAABB(GOTBannerBearer.class, boundingBox.expand(range, range, range), new EntitySelectorImpl2(this));
 			nearbyBannerFactor = Math.min(bannerBearers.size(), 5);
 		}
 	}
@@ -1431,5 +1412,36 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public enum AttackMode {
 		MELEE, RANGED, IDLE
 
+	}
+
+	private static class EntitySelectorImpl1 implements IEntitySelector {
+		private final EntityPlayer entityplayer;
+
+		private EntitySelectorImpl1(EntityPlayer entityplayer) {
+			this.entityplayer = entityplayer;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			if (entity instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entity;
+				return npc.isAIEnabled() && npc.isEntityAlive() && npc.getAttackTarget() == entityplayer;
+			}
+			return false;
+		}
+	}
+
+	private static class EntitySelectorImpl2 implements IEntitySelector {
+		private final GOTEntityNPC npc;
+
+		private EntitySelectorImpl2(GOTEntityNPC npc) {
+			this.npc = npc;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			EntityLivingBase living = (EntityLivingBase) entity;
+			return living != npc && living.isEntityAlive() && GOT.getNPCFaction(living) == npc.getFaction();
+		}
 	}
 }

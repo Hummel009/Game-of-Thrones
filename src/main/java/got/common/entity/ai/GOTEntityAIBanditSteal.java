@@ -141,26 +141,12 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		return true;
 	}
 
-	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	private boolean tryStealItem(InventoryPlayer inv) {
-		return tryStealItem_do(inv, new BanditItemFilter() {
-
-			@Override
-			public boolean isApplicable(ItemStack itemstack) {
-				return true;
-			}
-		});
+		return tryStealItem_do(inv, itemstack -> true);
 	}
 
-	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	private boolean tryStealItem(InventoryPlayer inv, Class<? extends Item> itemclass) {
-		return tryStealItem_do(inv, new BanditItemFilter() {
-
-			@Override
-			public boolean isApplicable(ItemStack itemstack) {
-				return itemclass.isAssignableFrom(itemstack.getItem().getClass());
-			}
-		});
+		return tryStealItem_do(inv, itemstack -> itemclass.isAssignableFrom(itemstack.getItem().getClass()));
 	}
 
 	private boolean tryStealItem_do(InventoryPlayer inv, BanditItemFilter filter) {

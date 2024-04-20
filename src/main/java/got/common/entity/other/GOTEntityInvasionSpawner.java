@@ -54,17 +54,10 @@ public class GOTEntityInvasionSpawner extends Entity {
 		spawnerSpin = rand.nextFloat() * 360.0f;
 	}
 
-	@SuppressWarnings("Convert2Lambda")
 	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
 		World world = seeker.worldObj;
 		double search = 256.0;
-		List<GOTEntityInvasionSpawner> invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity e) {
-				return e.getUniqueID().equals(id);
-			}
-		});
+		List<GOTEntityInvasionSpawner> invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new EntitySelectorImpl1(id));
 		if (!invasions.isEmpty()) {
 			return invasions.get(0);
 		}
@@ -409,19 +402,8 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
-	@SuppressWarnings("Convert2Lambda")
 	public IEntitySelector selectThisInvasionMobs() {
-		return new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity entity) {
-				if (entity.isEntityAlive() && entity instanceof GOTEntityNPC) {
-					GOTEntityNPC npc = (GOTEntityNPC) entity;
-					return npc.isInvasionSpawned() && npc.getInvasionID().equals(getInvasionID());
-				}
-				return false;
-			}
-		};
+		return new EntitySelectorImpl2(this);
 	}
 
 	public void setWatchingInvasion(EntityPlayerMP entityplayer, boolean overrideAlreadyWatched) {
@@ -500,6 +482,36 @@ public class GOTEntityInvasionSpawner extends Entity {
 				bonusTags.appendTag(new NBTTagString(fName));
 			}
 			nbt.setTag("BonusFactions", bonusTags);
+		}
+	}
+
+	private static class EntitySelectorImpl1 implements IEntitySelector {
+		private final UUID id;
+
+		private EntitySelectorImpl1(UUID id) {
+			this.id = id;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity e) {
+			return e.getUniqueID().equals(id);
+		}
+	}
+
+	private static class EntitySelectorImpl2 implements IEntitySelector {
+		private final GOTEntityInvasionSpawner spawner;
+
+		private EntitySelectorImpl2(GOTEntityInvasionSpawner spawner) {
+			this.spawner = spawner;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			if (entity.isEntityAlive() && entity instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entity;
+				return npc.isInvasionSpawned() && npc.getInvasionID().equals(spawner.getInvasionID());
+			}
+			return false;
 		}
 	}
 }

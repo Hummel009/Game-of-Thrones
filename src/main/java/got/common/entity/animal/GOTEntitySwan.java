@@ -53,16 +53,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 		tasks.addTask(3, new EntityAIWatchClosest(this, EntityLivingBase.class, 10.0f, 0.05f));
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
-
-		@SuppressWarnings("Convert2Lambda")
-		IEntitySelector swanAttackRange = new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity entity) {
-				return entity instanceof EntityLivingBase && entity.isEntityAlive() && getDistanceSqToEntity(entity) < 16.0;
-			}
-		};
-
+		IEntitySelector swanAttackRange = new EntitySelectorImpl(this);
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, swanAttackRange));
 	}
 
@@ -253,5 +244,18 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 
 	public float getPrevFlapPhase() {
 		return prevFlapPhase;
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final GOTEntitySwan swan;
+
+		private EntitySelectorImpl(GOTEntitySwan swan) {
+			this.swan = swan;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			return entity instanceof EntityLivingBase && entity.isEntityAlive() && swan.getDistanceSqToEntity(entity) < 16.0;
+		}
 	}
 }

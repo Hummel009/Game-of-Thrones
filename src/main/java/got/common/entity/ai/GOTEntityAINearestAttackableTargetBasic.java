@@ -23,32 +23,22 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 
 	private EntityLivingBase targetEntity;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight) {
 		this(entity, cls, chance, checkSight, false, null);
 	}
 
-	@SuppressWarnings({"Convert2Lambda", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
 		super(entity, checkSight, nearby);
 		targetClass = cls;
 		targetChance = chance;
 		targetSorter = new TargetSorter(entity);
 		setMutexBits(1);
-		targetSelector = new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity testEntity) {
-				if (testEntity instanceof EntityLivingBase) {
-					EntityLivingBase testEntityLiving = (EntityLivingBase) testEntity;
-					return (selector == null || selector.isEntityApplicable(testEntityLiving)) && isSuitableTarget(testEntityLiving, false);
-				}
-				return false;
-			}
-		};
+		targetSelector = new EntitySelectorImpl(selector, this);
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, IEntitySelector selector) {
 		this(entity, cls, chance, checkSight, false, selector);
 	}
@@ -138,6 +128,25 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			}
 			int dupesSq = dupes * dupes;
 			return dSq + dupesSq;
+		}
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final GOTEntityAINearestAttackableTargetBasic ai;
+		private final IEntitySelector selector;
+
+		private EntitySelectorImpl(IEntitySelector selector, GOTEntityAINearestAttackableTargetBasic ai) {
+			this.selector = selector;
+			this.ai = ai;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity testEntity) {
+			if (testEntity instanceof EntityLivingBase) {
+				EntityLivingBase testEntityLiving = (EntityLivingBase) testEntity;
+				return (selector == null || selector.isEntityApplicable(testEntityLiving)) && ai.isSuitableTarget(testEntityLiving, false);
+			}
+			return false;
 		}
 	}
 }

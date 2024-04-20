@@ -169,7 +169,6 @@ public class GOTEntityNPCRespawner extends Entity {
 	}
 
 	@Override
-	@SuppressWarnings("Convert2Lambda")
 	public void onUpdate() {
 		int maxY;
 		int maxX;
@@ -192,17 +191,7 @@ public class GOTEntityNPCRespawner extends Entity {
 		motionY = 0.0;
 		motionZ = 0.0;
 		moveEntity(motionX, motionY, motionZ);
-		if (!worldObj.isRemote && ticksExisted % spawnInterval == 0 && (spawnClass1 != null || spawnClass2 != null) && worldObj.checkChunksExist(minX = (i = MathHelper.floor_double(posX)) - checkHorizontalRange, minY = (j = MathHelper.floor_double(boundingBox.minY)) + checkVerticalMin, minZ = (k = MathHelper.floor_double(posZ)) - checkHorizontalRange, maxX = i + checkHorizontalRange, maxY = j + checkVerticalMax, maxZ = k + checkHorizontalRange) && worldObj.getClosestPlayer(i + 0.5, j + 0.5, k + 0.5, noPlayerRange) == null && (entities = worldObj.selectEntitiesWithinAABB(EntityLiving.class, AxisAlignedBB.getBoundingBox(minX, minY, minZ, maxX + 1, maxY + 1, maxZ + 1), new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity entity) {
-				if (!entity.isEntityAlive()) {
-					return false;
-				}
-				Class<?> entityClass = entity.getClass();
-				return spawnClass1 != null && spawnClass1.isAssignableFrom(entityClass) || spawnClass2 != null && spawnClass2.isAssignableFrom(entityClass);
-			}
-		}).size()) < spawnCap) {
+		if (!worldObj.isRemote && ticksExisted % spawnInterval == 0 && (spawnClass1 != null || spawnClass2 != null) && worldObj.checkChunksExist(minX = (i = MathHelper.floor_double(posX)) - checkHorizontalRange, minY = (j = MathHelper.floor_double(boundingBox.minY)) + checkVerticalMin, minZ = (k = MathHelper.floor_double(posZ)) - checkHorizontalRange, maxX = i + checkHorizontalRange, maxY = j + checkVerticalMax, maxZ = k + checkHorizontalRange) && worldObj.getClosestPlayer(i + 0.5, j + 0.5, k + 0.5, noPlayerRange) == null && (entities = worldObj.selectEntitiesWithinAABB(EntityLiving.class, AxisAlignedBB.getBoundingBox(minX, minY, minZ, maxX + 1, maxY + 1, maxZ + 1), new EntitySelectorImpl(this)).size()) < spawnCap) {
 			int attempts = 16;
 			for (int l = 0; l < attempts; ++l) {
 				int spawnX = i + MathHelper.getRandomIntegerInRange(rand, -spawnHorizontalRange, spawnHorizontalRange);
@@ -360,5 +349,22 @@ public class GOTEntityNPCRespawner extends Entity {
 		nbt.setBoolean("HomeSpawn", setHomePosFromSpawn);
 		nbt.setByte("MountSetting", (byte) mountSetting);
 		nbt.setByte("BlockEnemy", (byte) blockEnemySpawns);
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final GOTEntityNPCRespawner respawner;
+
+		private EntitySelectorImpl(GOTEntityNPCRespawner respawner) {
+			this.respawner = respawner;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			if (!entity.isEntityAlive()) {
+				return false;
+			}
+			Class<?> entityClass = entity.getClass();
+			return respawner.spawnClass1 != null && respawner.spawnClass1.isAssignableFrom(entityClass) || respawner.spawnClass2 != null && respawner.spawnClass2.isAssignableFrom(entityClass);
+		}
 	}
 }

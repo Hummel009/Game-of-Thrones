@@ -804,7 +804,6 @@ public class GOTClassTransformer implements IClassTransformer {
 		return writer.toByteArray();
 	}
 
-	@SuppressWarnings("StatementWithEmptyBody")
 	public byte[] patchEntityLivingBase(String name, byte[] bytes) {
 		String targetMethodName = "getTotalArmorValue";
 		String targetMethodNameObf = "func_70658_aO";

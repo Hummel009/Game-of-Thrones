@@ -426,7 +426,6 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	@Override
-	@SuppressWarnings("Convert2Lambda")
 	public void updateAITasks() {
 		super.updateAITasks();
 		if (getStolenItem() != null) {
@@ -443,31 +442,9 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		} else {
 			if (canStealItems() && !stealingCrops && stealTargetItem == null && stealTargetPlayer == null && !birdInv.isFull() && rand.nextInt(100) == 0) {
 				double range = 16.0;
-				List<EntityPlayer> players = worldObj.selectEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
-
-					@Override
-					public boolean isEntityApplicable(Entity e) {
-						EntityPlayer entityplayer;
-						if (e instanceof EntityPlayer && canStealPlayer(entityplayer = (EntityPlayer) e)) {
-							ChunkCoordinates coords = getPlayerFlightTarget(entityplayer);
-							return isValidFlightTarget(coords);
-						}
-						return false;
-					}
-				});
+				List<EntityPlayer> players = worldObj.selectEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(range, range, range), new EntitySelectorImpl1(this));
 				if (players.isEmpty()) {
-					List<EntityItem> entityItems = worldObj.selectEntitiesWithinAABB(EntityItem.class, boundingBox.expand(range, range, range), new IEntitySelector() {
-
-						@Override
-						public boolean isEntityApplicable(Entity e) {
-							EntityItem eItem;
-							if (e instanceof EntityItem && canStealItem(eItem = (EntityItem) e)) {
-								ChunkCoordinates coords = getItemFlightTarget(eItem);
-								return isValidFlightTarget(coords);
-							}
-							return false;
-						}
-					});
+					List<EntityItem> entityItems = worldObj.selectEntitiesWithinAABB(EntityItem.class, boundingBox.expand(range, range, range), new EntitySelectorImpl2(this));
 					if (!entityItems.isEmpty()) {
 						stealTargetItem = entityItems.get(rand.nextInt(entityItems.size()));
 						currentFlightTarget = getItemFlightTarget(stealTargetItem);
@@ -643,6 +620,42 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 		private boolean isCanSteal() {
 			return canSteal;
+		}
+	}
+
+	private static class EntitySelectorImpl1 implements IEntitySelector {
+		private final GOTEntityBird bird;
+
+		private EntitySelectorImpl1(GOTEntityBird bird) {
+			this.bird = bird;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity e) {
+			EntityPlayer entityplayer;
+			if (e instanceof EntityPlayer && bird.canStealPlayer(entityplayer = (EntityPlayer) e)) {
+				ChunkCoordinates coords = bird.getPlayerFlightTarget(entityplayer);
+				return bird.isValidFlightTarget(coords);
+			}
+			return false;
+		}
+	}
+
+	private static class EntitySelectorImpl2 implements IEntitySelector {
+		private final GOTEntityBird bird;
+
+		private EntitySelectorImpl2(GOTEntityBird bird) {
+			this.bird = bird;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity e) {
+			EntityItem eItem;
+			if (e instanceof EntityItem && bird.canStealItem(eItem = (EntityItem) e)) {
+				ChunkCoordinates coords = bird.getItemFlightTarget(eItem);
+				return bird.isValidFlightTarget(coords);
+			}
+			return false;
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package got.common.entity.ai;
 
 import got.GOT;
+import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTBartender;
 import got.common.entity.other.GOTEntityNPC;
@@ -20,7 +21,6 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 	}
 
 	@Override
-	@SuppressWarnings("Convert2Lambda")
 	public void consume() {
 		ItemStack itemstack = theEntity.getHeldItem();
 		Item item = itemstack.getItem();
@@ -29,13 +29,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 			drink.applyToNPC(theEntity, itemstack);
 			if (drink.getAlcoholicity() > 0.0f && theEntity.canGetDrunk() && !theEntity.isDrunkard() && rand.nextInt(3) == 0) {
 				double range = 12.0;
-				IEntitySelector selectNonEnemyBartenders = new IEntitySelector() {
-
-					@Override
-					public boolean isEntityApplicable(Entity entity) {
-						return entity.isEntityAlive() && !GOT.getNPCFaction(entity).isBadRelation(theEntity.getFaction());
-					}
-				};
+				IEntitySelector selectNonEnemyBartenders = new EntitySelectorImpl(theEntity);
 				List<GOTBartender> nearbyBartenders = theEntity.worldObj.selectEntitiesWithinAABB(GOTBartender.class, theEntity.boundingBox.expand(range, range, range), selectNonEnemyBartenders);
 				if (!nearbyBartenders.isEmpty()) {
 					int drunkTime = MathHelper.getRandomIntegerInRange(rand, 30, 1500);
@@ -73,6 +67,19 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 	public void updateConsumeTick(int tick) {
 		if (tick % 4 == 0) {
 			theEntity.playSound("random.drink", 0.5f, rand.nextFloat() * 0.1f + 0.9f);
+		}
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final GOTEntityNPC theEntity;
+
+		private EntitySelectorImpl(GOTEntityNPC theEntity) {
+			this.theEntity = theEntity;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entity) {
+			return entity.isEntityAlive() && !GOT.getNPCFaction(entity).isBadRelation(theEntity.getFaction());
 		}
 	}
 }

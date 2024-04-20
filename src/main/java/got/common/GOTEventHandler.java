@@ -479,15 +479,14 @@ public class GOTEventHandler {
 			GOTConfig.load();
 		}
 		if (GOTModChecker.hasNEI() && GOT.proxy.isClient()) {
-			for (IConfigureNEI element : NEIModContainer.plugins) {
-				if (element.getClass() == NEIGOTIntegratorConfig.class) {
-					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) element;
-					for (ItemStack element2 : configNEI.HIDDEN_ITEMS) {
-						if (ItemInfo.hiddenItems.contains(element2)) {
-							ItemInfo.hiddenItems.remove(element2);
+			for (IConfigureNEI plugin : NEIModContainer.plugins) {
+				if (plugin.getClass() == NEIGOTIntegratorConfig.class) {
+					for (ItemStack itemStack : NEIGOTIntegratorConfig.HIDDEN_ITEMS) {
+						if (ItemInfo.hiddenItems.contains(itemStack)) {
+							ItemInfo.hiddenItems.remove(itemStack);
 						}
 					}
-					configNEI.loadConfig();
+					plugin.loadConfig();
 				}
 			}
 		}
@@ -849,7 +848,6 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public void onLivingDeath(LivingDeathEvent event) {
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
@@ -931,16 +929,7 @@ public class GOTEventHandler {
 						int sentSpeeches = 0;
 						int maxSpeeches = 5;
 						double range = 8.0D;
-						List<EntityLiving> nearbyAlliedNPCs = world.selectEntitiesWithinAABB(EntityLiving.class, entity.boundingBox.expand(range, range, range), new IEntitySelector() {
-							@Override
-							public boolean isEntityApplicable(Entity entitySelect) {
-								if (entitySelect.isEntityAlive()) {
-									GOTFaction fac = GOT.getNPCFaction(entitySelect);
-									return fac.isGoodRelation(entityFaction);
-								}
-								return false;
-							}
-						});
+						List<EntityLiving> nearbyAlliedNPCs = world.selectEntitiesWithinAABB(EntityLiving.class, entity.boundingBox.expand(range, range, range), new EntitySelectorImpl(entityFaction));
 						for (EntityLiving npc : nearbyAlliedNPCs) {
 							if (npc instanceof GOTEntityNPC) {
 								GOTEntityNPC gotNPC = (GOTEntityNPC) npc;
@@ -1720,6 +1709,23 @@ public class GOTEventHandler {
 		World world = event.world;
 		if (world.provider instanceof GOTWorldProvider) {
 			GOTBiomeVariantStorage.clearAllVariants(world);
+		}
+	}
+
+	private static class EntitySelectorImpl implements IEntitySelector {
+		private final GOTFaction entityFaction;
+
+		private EntitySelectorImpl(GOTFaction entityFaction) {
+			this.entityFaction = entityFaction;
+		}
+
+		@Override
+		public boolean isEntityApplicable(Entity entitySelect) {
+			if (entitySelect.isEntityAlive()) {
+				GOTFaction fac = GOT.getNPCFaction(entitySelect);
+				return fac.isGoodRelation(entityFaction);
+			}
+			return false;
 		}
 	}
 }
