@@ -16,6 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosBlowgunner(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -66,13 +67,13 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.sarbacane));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
-		return data;
+		return data1;
 	}
 
 	@Override

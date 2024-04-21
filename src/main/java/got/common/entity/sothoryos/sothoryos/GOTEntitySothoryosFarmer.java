@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements GOTTradeable, GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosFarmer(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -52,10 +53,10 @@ public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements G
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

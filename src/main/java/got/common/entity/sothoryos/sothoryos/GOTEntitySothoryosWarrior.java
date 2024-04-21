@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -20,7 +21,7 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(8);
 		switch (i) {
 			case 0:
@@ -57,7 +58,7 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 		if (rand.nextInt(5) != 0) {
 			setCurrentItemOrArmor(4, new ItemStack(GOTItems.sothoryosHelmet));
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

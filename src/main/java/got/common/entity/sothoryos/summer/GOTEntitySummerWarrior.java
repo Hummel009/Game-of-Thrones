@@ -9,9 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
-	public static ItemStack[] weaponsBronze = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerDaggerPoisoned), new ItemStack(GOTItems.summerPike)};
-	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
+	private static final ItemStack[] weaponsBronze = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerDaggerPoisoned), new ItemStack(GOTItems.summerPike)};
+	private static final int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -43,7 +44,7 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weaponsBronze.length);
 		npcItemsInv.setMeleeWeapon(weaponsBronze[i].copy());
 		if (rand.nextInt(5) == 0) {
@@ -64,7 +65,7 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 		} else {
 			setCurrentItemOrArmor(4, new ItemStack(GOTItems.summerHelmet));
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

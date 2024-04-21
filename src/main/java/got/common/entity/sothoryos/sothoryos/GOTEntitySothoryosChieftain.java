@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosWarrior implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosChieftain(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -57,14 +58,14 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosWarrior imple
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.sothoryosHelmetChieftain));
-		return data;
+		return data1;
 	}
 
 	@Override

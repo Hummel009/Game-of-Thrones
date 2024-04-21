@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySothoryosShaman extends GOTEntitySothoryosMan implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosShaman(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -43,9 +44,9 @@ public class GOTEntitySothoryosShaman extends GOTEntitySothoryosMan implements G
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDaggerPoisoned));
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.bottlePoison));
-		return data;
+		return data1;
 	}
 }

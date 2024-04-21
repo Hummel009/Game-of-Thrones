@@ -13,8 +13,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 public class GOTEntitySummerFarmhand extends GOTEntitySummerMan implements GOTFarmhand {
-	public Item seedsItem;
+	private Item seedsItem;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerFarmhand(World world) {
 		super(world);
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.0f));
@@ -45,10 +46,10 @@ public class GOTEntitySummerFarmhand extends GOTEntitySummerMan implements GOTFa
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

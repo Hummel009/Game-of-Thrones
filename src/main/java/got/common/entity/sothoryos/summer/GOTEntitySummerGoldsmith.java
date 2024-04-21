@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySummerGoldsmith extends GOTEntitySummerTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerGoldsmith(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntitySummerGoldsmith extends GOTEntitySummerTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.goldRing));
-		return data;
+		return data1;
 	}
 }

@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntitySummerMan extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -56,11 +57,11 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase {
 		return GOTMiniQuestFactory.SUMMER.createQuest(this);
 	}
 
-	public EntityAIBase createSummerAttackAI() {
+	protected EntityAIBase createSummerAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
-	public void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.SUMMER, 1, 2 + i);
 		}
@@ -139,10 +140,10 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.summerDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

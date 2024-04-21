@@ -117,10 +117,10 @@ public class GOTStructureSummerFarm extends GOTStructureSummerBase {
 			spawnNPCAndSetHome(farmer, world, 0, 1, 1, 8);
 		}
 		GOTEntitySummerFarmhand farmhand1 = new GOTEntitySummerFarmhand(world);
-		farmhand1.seedsItem = seed1;
+		farmhand1.setSeedsItem(seed1);
 		spawnNPCAndSetHome(farmhand1, world, -2, 1, 0, 8);
 		GOTEntitySummerFarmhand farmhand2 = new GOTEntitySummerFarmhand(world);
-		farmhand2.seedsItem = seed2;
+		farmhand2.setSeedsItem(seed2);
 		spawnNPCAndSetHome(farmhand2, world, 2, 1, 0, 8);
 		return true;
 	}

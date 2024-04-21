@@ -13,8 +13,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements GOTFarmhand {
-	public Item seedsItem;
+	private Item seedsItem;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosFarmhand(World world) {
 		super(world);
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.2f));
@@ -45,10 +46,10 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

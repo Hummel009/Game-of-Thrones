@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySummerFarmer extends GOTEntitySummerMan implements GOTTradeable, GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerFarmer(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -64,13 +65,13 @@ public class GOTEntitySummerFarmer extends GOTEntitySummerMan implements GOTTrad
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		GOTItemLeatherHat.setHatColor(turban, 10390131);
 		setCurrentItemOrArmor(4, turban);
-		return data;
+		return data1;
 	}
 
 	@Override

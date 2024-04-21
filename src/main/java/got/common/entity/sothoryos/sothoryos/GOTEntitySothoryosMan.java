@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntitySothoryosMan extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -57,11 +58,11 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase {
 		return GOTMiniQuestFactory.SOTHORYOS.createQuest(this);
 	}
 
-	public EntityAIBase createSothoryosAttackAI() {
+	protected EntityAIBase createSothoryosAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
-	public void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.SOTHORYOS, 1, 2 + i);
 		}
@@ -145,10 +146,10 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

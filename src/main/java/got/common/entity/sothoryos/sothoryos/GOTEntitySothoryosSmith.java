@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySothoryosSmith extends GOTEntitySothoryosMan implements GOTTradeable.Smith {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosSmith(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -59,9 +60,9 @@ public class GOTEntitySothoryosSmith extends GOTEntitySothoryosMan implements GO
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

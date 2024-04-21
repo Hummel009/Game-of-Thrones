@@ -100,10 +100,10 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 			spawnNPCAndSetHome(farmer, world, 0, 2, 1, 4);
 		}
 		GOTEntitySothoryosFarmhand farmhand1 = new GOTEntitySothoryosFarmhand(world);
-		farmhand1.seedsItem = seedItem;
+		farmhand1.setSeedsItem(seedItem);
 		spawnNPCAndSetHome(farmhand1, world, -2, 2, 0, 6);
 		GOTEntitySothoryosFarmhand farmhand2 = new GOTEntitySothoryosFarmhand(world);
-		farmhand2.seedsItem = seedItem;
+		farmhand2.setSeedsItem(seedItem);
 		spawnNPCAndSetHome(farmhand2, world, 2, 2, 0, 6);
 		return true;
 	}

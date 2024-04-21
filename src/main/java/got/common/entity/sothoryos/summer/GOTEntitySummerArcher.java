@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySummerArcher extends GOTEntitySummerWarrior {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerArcher(World world) {
 		super(world);
 		spawnRidingHorse = false;
@@ -36,9 +37,9 @@ public class GOTEntitySummerArcher extends GOTEntitySummerWarrior {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.essosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return data1;
 	}
 }
