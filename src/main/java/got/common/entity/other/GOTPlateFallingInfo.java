@@ -7,10 +7,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class GOTPlateFallingInfo implements IExtendedEntityProperties {
-	public static final int TICK_DELAY_FACTOR = 1;
-	public static final int STACK_SIZE = 64;
-	public static final int NUM_FALLERS = 65;
-
 	private final Entity theEntity;
 
 	private final boolean[] isFalling = new boolean[65];

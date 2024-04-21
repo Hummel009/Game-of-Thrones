@@ -55,7 +55,7 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcCrossbowAttack(target, f);
+		npcCrossbowAttack(target);
 	}
 
 	private EntityAIBase createJoffreyAttackAI() {

@@ -68,10 +68,10 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropIbbenItems(flag, i);
+		dropIbbenItems(i);
 	}
 
-	private void dropIbbenItems(boolean flag, int i) {
+	private void dropIbbenItems(int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.IBBEN, 1, 2 + i);
 		}

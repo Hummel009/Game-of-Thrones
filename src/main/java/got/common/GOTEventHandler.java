@@ -914,7 +914,7 @@ public class GOTEventHandler {
 							playerData.getFactionData(enemy).addEnemyKill();
 						}
 						if (!entityplayer.capabilities.isCreativeMode) {
-							boolean recordBountyKill = entityFaction.inDefinedControlZone(entityplayer, Math.max(entityFaction.getControlZoneReducedRange(), 50));
+							boolean recordBountyKill = entityFaction.inDefinedControlZone(entityplayer, 50);
 							if (recordBountyKill) {
 								GOTFactionBounties.forFaction(entityFaction).forPlayer(entityplayer).recordNewKill();
 							}

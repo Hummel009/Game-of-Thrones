@@ -13,10 +13,10 @@ import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentCombining;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
+import got.common.entity.other.GOTEntityLightSkinScrapTrader;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeEntry;
 import got.common.entity.other.GOTTradeable;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
 import got.common.item.AnvilNameColorProvider;
 import got.common.item.other.*;
 import got.common.item.weapon.GOTItemSarbacane;
@@ -288,7 +288,7 @@ public class GOTContainerAnvil extends Container {
 				entityplayer.dropPlayerItemWithRandomChoice(itemstack, false);
 			}
 			if (doneMischief && isTrader && theNPC instanceof GOTEntityLightSkinScrapTrader) {
-				theNPC.sendSpeechBank(entityplayer, ((GOTEntityLightSkinScrapTrader) theNPC).getSmithSpeechBank());
+				theNPC.sendSpeechBank(entityplayer, "standard/civilized/usual_friendly");
 			}
 		}
 	}

@@ -252,11 +252,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	}
 
 	@Override
-	public float getStepHeightWhileRiddenByPlayer() {
-		return 1.0f;
-	}
-
-	@Override
 	public int getTotalArmorValue() {
 		ItemStack itemstack = GOTReflection.getHorseInv(this).getStackInSlot(1);
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemMountArmor) {

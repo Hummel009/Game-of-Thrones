@@ -5,14 +5,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
-	public static final int HELMET = 0;
-	public static final int BODY = 1;
-	public static final int LEGS = 2;
-	public static final int BOOTS = 3;
-	public static final int MELEE = 4;
-	public static final int BOMB = 5;
-	public static final int RANGED = 6;
-
 	private final boolean[] hasReplacedEquipment = new boolean[7];
 
 	private boolean replacedMeleeWeapons;

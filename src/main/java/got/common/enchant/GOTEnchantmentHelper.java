@@ -130,20 +130,6 @@ public class GOTEnchantmentHelper {
 		return protection;
 	}
 
-	public static float calcEntitySpecificDamage(ItemStack itemstack) {
-		float damage = 0.0F;
-
-		if (itemstack != null) {
-			List<GOTEnchantment> enchants = getEnchantList(itemstack);
-			for (GOTEnchantment ench : enchants) {
-				if (ench instanceof GOTEnchantmentDamage) {
-					damage += ((GOTEnchantmentDamage) ench).getEntitySpecificDamage();
-				}
-			}
-		}
-		return damage;
-	}
-
 	public static int calcExtraKnockback(ItemStack itemstack) {
 		int kb = 0;
 
@@ -165,7 +151,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench == GOTEnchantment.FIRE) {
-					fire += GOTEnchantmentWeaponSpecial.getFireAmount();
+					fire += 2;
 				}
 			}
 		}

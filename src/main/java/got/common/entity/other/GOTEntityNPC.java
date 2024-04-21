@@ -107,7 +107,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private boolean liftBannerRestrictions;
 	private boolean isLegendaryNPC;
 	private boolean addedBurningPanic;
-	private boolean canBannerBearerSpawnRiding;
 	private boolean combatStance;
 	private boolean enpouchNPCDrops;
 	private boolean firstUpdatedAttackMode;
@@ -256,7 +255,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcArrowAttack(target, f);
+		npcArrowAttack(target);
 	}
 
 	@Override
@@ -265,7 +264,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	private boolean canNPCTalk() {
-		return isEntityAlive() && npcTalkTick >= getNPCTalkInterval();
+		return isEntityAlive() && npcTalkTick >= 40;
 	}
 
 	@Override
@@ -565,10 +564,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return isChild() ? 0.5f : 1.0f;
 	}
 
-	public int getNPCTalkInterval() {
-		return 40;
-	}
-
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		int id = GOTEntityRegistry.getEntityID(this);
@@ -676,7 +671,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		npcTalkTick = 0;
 	}
 
-	private void npcArrowAttack(EntityLivingBase target, float f) {
+	private void npcArrowAttack(EntityLivingBase target) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.3f + getDistanceToEntity(target) / 80.0f;
 		float accuracy = (float) getEntityAttribute(NPC_RANGED_ACCURACY).getAttributeValue();
@@ -690,7 +685,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		worldObj.spawnEntityInWorld(arrow);
 	}
 
-	protected void npcCrossbowAttack(EntityLivingBase target, float f) {
+	protected void npcCrossbowAttack(EntityLivingBase target) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.0f + getDistanceToEntity(target) / 16.0f * 0.015f;
 		boolean poison = rand.nextFloat() < getPoisonedArrowChance();
@@ -727,7 +722,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		EntityPlayer entityplayer;
 		GOTEntityInvasionSpawner invasion;
 		enpouchNPCDrops = true;
-		hireableInfo.onDeath(damagesource);
+		hireableInfo.onDeath();
 		super.onDeath(damagesource);
 		if (!worldObj.isRemote && recentlyHit > 0 && GOT.canDropLoot(worldObj) && rand.nextInt(60) == 0) {
 			ItemStack pouch = createNPCPouchDrop();
@@ -862,7 +857,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			}
 		}
 		updateArmSwingProgress();
-		if (npcTalkTick < getNPCTalkInterval()) {
+		if (npcTalkTick < 40) {
 			++npcTalkTick;
 		}
 		if (!worldObj.isRemote && hasHome() && !isWithinHomeDistanceCurrentPosition()) {
@@ -904,7 +899,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		if (!worldObj.isRemote) {
-			if (spawnRidingHorse && (!(this instanceof GOTBannerBearer) || canBannerBearerSpawnRiding)) {
+			if (spawnRidingHorse && !(this instanceof GOTBannerBearer)) {
 				GOTNPCMount mount = createMountToRide();
 				EntityCreature livingMount = (EntityCreature) mount;
 				livingMount.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0F);
@@ -1371,6 +1366,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		isConquestSpawning = flag;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isLiftSpawnRestrictions() {
 		return liftSpawnRestrictions;
 	}

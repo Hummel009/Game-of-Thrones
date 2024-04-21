@@ -55,7 +55,7 @@ public class GOTPacketUnitTraderInteract implements IMessage {
 				int action = packet.traderAction;
 				boolean closeScreen = false;
 				if (action == 0) {
-					livingTrader.setNpcTalkTick(livingTrader.getNPCTalkInterval());
+					livingTrader.setNpcTalkTick(40);
 					closeScreen = livingTrader.interactFirst(entityplayer);
 				} else if (action == 1 && tradeableTrader.canTradeWith(entityplayer)) {
 					packet.openTradeGUI(entityplayer, livingTrader);

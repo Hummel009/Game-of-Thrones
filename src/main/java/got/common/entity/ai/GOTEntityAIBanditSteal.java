@@ -39,7 +39,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && IBandit.Helper.canStealFromPlayerInv(theBandit, targetPlayer) && chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
+		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && IBandit.Helper.canStealFromPlayerInv(targetPlayer) && chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
 	}
 
 	private int getRandomTheftAmount() {
@@ -65,7 +65,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		List<EntityPlayer> players = theBanditAsNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theBanditAsNPC.boundingBox.expand(range, range, range));
 		ArrayList<EntityPlayer> validTargets = new ArrayList<>();
 		for (EntityPlayer player : players) {
-			if (player.capabilities.isCreativeMode || !theBandit.canTargetPlayerForTheft(player) || !IBandit.Helper.canStealFromPlayerInv(theBandit, player)) {
+			if (player.capabilities.isCreativeMode || !IBandit.Helper.canStealFromPlayerInv(player)) {
 				continue;
 			}
 			validTargets.add(player);
@@ -87,7 +87,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 
 	private void steal() {
 		InventoryPlayer inv = targetPlayer.inventory;
-		int thefts = MathHelper.getRandomIntegerInRange(theBanditAsNPC.getRNG(), 1, theBandit.getMaxThefts());
+		int thefts = MathHelper.getRandomIntegerInRange(theBanditAsNPC.getRNG(), 1, 3);
 		boolean stolenSomething = false;
 		for (int i = 0; i < thefts; ++i) {
 			if (tryStealItem(inv, GOTItemCoin.class)) {
@@ -107,7 +107,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 			stolenSomething = true;
 		}
 		if (stolenSomething) {
-			targetPlayer.addChatMessage(theBandit.getTheftChatMsg(targetPlayer));
+			targetPlayer.addChatMessage(theBandit.getTheftChatMsg());
 			theBanditAsNPC.playSound("mob.horse.leather", 0.5f, 1.0f);
 			if (theBanditAsNPC.getAttackTarget() != null) {
 				theBanditAsNPC.setAttackTarget(null);

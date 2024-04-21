@@ -9,8 +9,7 @@ public interface GOTNPCMount {
 
 	String getMountArmorTexture();
 
-	float getStepHeightWhileRiddenByPlayer();
-
+	@SuppressWarnings("unused")
 	boolean isMountArmorValid(ItemStack var1);
 
 	boolean isMountSaddled();

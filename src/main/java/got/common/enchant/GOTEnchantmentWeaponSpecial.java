@@ -35,10 +35,6 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		GOTPacketHandler.NETWORK_WRAPPER.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
 	}
 
-	public static int getFireAmount() {
-		return 2;
-	}
-
 	@Override
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {

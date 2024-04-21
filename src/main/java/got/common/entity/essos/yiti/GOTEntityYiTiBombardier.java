@@ -9,7 +9,6 @@ import got.common.entity.ai.GOTEntityAISmoke;
 import got.common.entity.other.GOTEntityBomb;
 import got.common.entity.other.GOTEntityUtils;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -17,8 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
-	private EntityLivingBase currentRevengeTarget;
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiBombardier(World world) {
 		super(world);
@@ -61,9 +58,6 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (!worldObj.isRemote && getAttackTarget() == null) {
-			currentRevengeTarget = null;
-		}
 		if (worldObj.isRemote) {
 			byte meta = dataWatcher.getWatchableObjectByte(17);
 			if (meta == -1) {
@@ -87,13 +81,5 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuse));
 		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 10));
 		return entityData;
-	}
-
-	@Override
-	public void setRevengeTarget(EntityLivingBase entity) {
-		super.setRevengeTarget(entity);
-		if (entity != null) {
-			currentRevengeTarget = entity;
-		}
 	}
 }

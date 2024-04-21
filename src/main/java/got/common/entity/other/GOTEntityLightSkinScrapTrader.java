@@ -75,10 +75,6 @@ public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements
 		return GOTTradeEntries.C_BOMZH_SELL;
 	}
 
-	public String getSmithSpeechBank() {
-		return "standard/civilized/usual_friendly";
-	}
-
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {

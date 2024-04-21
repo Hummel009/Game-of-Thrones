@@ -545,10 +545,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		return "mob.enderdragon.growl";
 	}
 
-	public int getMaxDeathTime() {
-		return 120;
-	}
-
 	@Override
 	public double getMountedYOffset() {
 		return (isSitting() ? 1.7f : 2.2f) * getScale();
@@ -701,7 +697,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		motionX = motionY = motionZ = 0;
 		rotationYaw = prevRotationYaw;
 		rotationYawHead = prevRotationYawHead;
-		if (isEgg() || deathTime >= getMaxDeathTime()) {
+		if (isEgg() || deathTime >= 120) {
 			setDead();
 		}
 		deathTime++;

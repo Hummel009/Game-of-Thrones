@@ -34,8 +34,6 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.*;
 
 public class GOTEntityInvasionSpawner extends Entity {
-	public static final int MAX_INVASION_SIZE = 10000;
-
 	private static final double INVASION_FOLLOW_RANGE = 40.0;
 
 	private final Map<UUID, Integer> recentPlayerContributors = new HashMap<>();

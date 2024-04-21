@@ -37,7 +37,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcCrossbowAttack(target, f);
+		npcCrossbowAttack(target);
 	}
 
 	@Override

@@ -836,11 +836,11 @@ public class GOTTickHandlerClient {
 			if (item instanceof GOTItemBow) {
 				maxDrawTime = ((GOTItemBow) item).getMaxDrawTime();
 			} else if (item instanceof GOTItemCrossbow) {
-				maxDrawTime = ((GOTItemCrossbow) item).getMaxDrawTime();
+				maxDrawTime = 50;
 			} else if (item instanceof GOTItemSpear) {
-				maxDrawTime = ((GOTItemSpear) item).getMaxDrawTime();
+				maxDrawTime = 20;
 			} else if (item instanceof GOTItemSarbacane) {
-				maxDrawTime = ((GOTItemSarbacane) item).getMaxDrawTime();
+				maxDrawTime = 5;
 			}
 			if (maxDrawTime > 0.0F) {
 				int i = entityplayer.getItemInUseDuration();

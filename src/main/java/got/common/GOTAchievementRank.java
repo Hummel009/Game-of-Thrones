@@ -25,7 +25,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	public boolean canPlayerEarn(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		float align = pd.getAlignment(theFac);
-		return !(align < 0.0f) && (!requiresPledge() || pd.isPledgedTo(theFac));
+		return !(align < 0.0f);
 	}
 
 	@Override
@@ -56,10 +56,6 @@ public class GOTAchievementRank extends GOTAchievement {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		float align = pd.getAlignment(theFac);
 		float rankAlign = theRank.getAlignment();
-		return (!requiresPledge() || pd.isPledgedTo(theFac)) && align >= rankAlign;
-	}
-
-	private boolean requiresPledge() {
-		return false;
+		return align >= rankAlign;
 	}
 }

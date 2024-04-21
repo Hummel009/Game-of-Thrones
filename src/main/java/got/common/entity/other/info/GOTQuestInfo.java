@@ -28,8 +28,6 @@ import java.util.*;
 import java.util.function.Predicate;
 
 public class GOTQuestInfo {
-	public static final int MAX_OFFER_TIME = 24000;
-
 	private final GOTEntityNPC theNPC;
 
 	private final Map<UUID, GOTMiniQuest> playerSpecificOffers = new HashMap<>();

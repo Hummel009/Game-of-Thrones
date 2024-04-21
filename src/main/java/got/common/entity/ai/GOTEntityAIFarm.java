@@ -104,10 +104,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		return theEntity.getHireableInfo().isActive() && getInventorySeeds() != null && hasSpaceForCrops() && getCropForSeed(getSeedsToPlant()) != null;
 	}
 
-	private boolean canDoHoeing() {
-		return true;
-	}
-
 	private boolean canDoPlanting() {
 		if (theEntity.getHireableInfo().isActive()) {
 			ItemStack invSeeds = getInventorySeeds();
@@ -132,7 +128,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				case HARVESTING:
 					return canDoHarvesting() && isSuitableForHarvesting(actionTarget);
 				case HOEING:
-					return canDoHoeing() && isSuitableForHoeing(actionTarget);
+					return isSuitableForHoeing(actionTarget);
 				case PLANTING:
 					return canDoPlanting() && isSuitableForPlanting(actionTarget);
 			}
@@ -585,7 +581,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			TargetPair depositTarget;
 			Map<Action, Boolean> map = new EnumMap<>(Action.class);
 			map.put(Action.DEPOSITING, canDoDepositing());
-			map.put(Action.HOEING, canDoHoeing());
+			map.put(Action.HOEING, true);
 			map.put(Action.PLANTING, canDoPlanting());
 			map.put(Action.HARVESTING, canDoHarvesting());
 			map.put(Action.BONEMEALING, canDoBonemealing());

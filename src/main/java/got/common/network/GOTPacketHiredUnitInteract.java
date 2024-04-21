@@ -46,7 +46,7 @@ public class GOTPacketHiredUnitInteract implements IMessage {
 					int action = packet.entityAction;
 					boolean closeScreen = false;
 					if (action == 0) {
-						hiredNPC.setNpcTalkTick(hiredNPC.getNPCTalkInterval());
+						hiredNPC.setNpcTalkTick(40);
 						closeScreen = hiredNPC.speakTo(entityplayer);
 					} else if (action == 1) {
 						hiredNPC.getHireableInfo().sendClientPacket(true);

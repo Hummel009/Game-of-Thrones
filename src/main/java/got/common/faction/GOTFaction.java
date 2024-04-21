@@ -430,17 +430,13 @@ public enum GOTFaction {
 		if (inControlZone(entityplayer)) {
 			return 1.0f;
 		}
-		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.posZ, reducedRange = getControlZoneReducedRange())) >= 0.0) {
+		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.posZ, reducedRange = 50)) >= 0.0) {
 			double mapDist = GOTWaypoint.worldToMapR(dist);
 			float frac = (float) mapDist / reducedRange;
 			float mplier = 1.0f - frac;
 			return MathHelper.clamp_float(mplier, 0.0f, 1.0f);
 		}
 		return 0.0f;
-	}
-
-	public int getControlZoneReducedRange() {
-		return 50;
 	}
 
 	public List<GOTControlZone> getControlZones() {

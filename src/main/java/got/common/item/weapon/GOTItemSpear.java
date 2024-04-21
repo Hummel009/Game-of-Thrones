@@ -28,10 +28,6 @@ public class GOTItemSpear extends GOTItemSword {
 		return EnumAction.bow;
 	}
 
-	public int getMaxDrawTime() {
-		return 20;
-	}
-
 	public float getRangedDamageMultiplier(ItemStack itemstack, Entity shooter, Entity hit) {
 		float damage = getGOTWeaponDamage();
 		damage = damage + (shooter instanceof EntityLivingBase && hit instanceof EntityLivingBase ? EnchantmentHelper.getEnchantmentModifierLiving((EntityLivingBase) shooter, (EntityLivingBase) hit) : EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED));
@@ -44,7 +40,7 @@ public class GOTItemSpear extends GOTItemSword {
 			return;
 		}
 		int useTick = getMaxItemUseDuration(itemstack) - i;
-		float charge = (float) useTick / getMaxDrawTime();
+		float charge = (float) useTick / 20;
 		if (charge < 0.1f) {
 			return;
 		}

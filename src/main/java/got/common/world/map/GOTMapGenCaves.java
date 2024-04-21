@@ -20,10 +20,6 @@ public class GOTMapGenCaves extends MapGenBase {
 		return block == biome.topBlock || block == biome.fillerBlock || block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTBlocks.whiteSand || block == Blocks.gravel || block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == GOTBlocks.dirtPath || block == Blocks.stone || block == GOTBlocks.rock || block == Blocks.sandstone || block == GOTBlocks.redSandstone || block == GOTBlocks.whiteSandstone || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
-	private int caveRarity() {
-		return 10;
-	}
-
 	private void digBlock(Block[] blockArray, int index, int xzIndex, int j, GOTBiome biome, boolean cutSurface) {
 		int roadDepth;
 		int j1;
@@ -82,7 +78,7 @@ public class GOTMapGenCaves extends MapGenBase {
 	@Override
 	public void func_151538_a(World world, int i, int k, int chunkX, int chunkZ, Block[] blocks) {
 		int caves = rand.nextInt(rand.nextInt(rand.nextInt(40) + 1) + 1);
-		if (rand.nextInt(caveRarity()) != 0) {
+		if (rand.nextInt(10) != 0) {
 			caves = 0;
 		}
 		for (int l = 0; l < caves; ++l) {

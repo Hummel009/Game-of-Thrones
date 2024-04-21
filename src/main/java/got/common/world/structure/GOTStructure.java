@@ -26,7 +26,6 @@ import got.common.world.structure.other.*;
 import got.common.world.structure.sothoryos.sothoryos.*;
 import got.common.world.structure.sothoryos.summer.*;
 import got.common.world.structure.westeros.arryn.*;
-import got.common.world.structure.westeros.common.GOTStructureWesterosTownTrees;
 import got.common.world.structure.westeros.crownlands.*;
 import got.common.world.structure.westeros.dorne.*;
 import got.common.world.structure.westeros.dragonstone.*;

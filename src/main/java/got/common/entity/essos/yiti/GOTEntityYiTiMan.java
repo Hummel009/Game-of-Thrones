@@ -79,10 +79,10 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropYiTiItems(flag, i);
+		dropYiTiItems(i);
 	}
 
-	private void dropYiTiItems(boolean flag, int i) {
+	private void dropYiTiItems(int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.YI_TI, 1, 2 + i);
 		}

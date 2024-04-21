@@ -26,7 +26,7 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 	}
 
 	@Override
-	public void dropHillmanItems(boolean flag, int i) {
+	public void dropHillmanItems(int i) {
 		int j = rand.nextInt(3) + rand.nextInt(i + 1);
 		for (int k = 0; k < j; ++k) {
 			int l = rand.nextInt(7);

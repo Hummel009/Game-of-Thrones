@@ -139,7 +139,7 @@ public class GOTWikiGen {
 	private GOTWikiGen() {
 	}
 
-	@SuppressWarnings({"deprecation", "CastToIncompatibleInterface", "StringConcatenationMissingWhitespace"})
+	@SuppressWarnings({"deprecation", "StringConcatenationMissingWhitespace"})
 	public static void generate(World world, EntityPlayer player) {
 		long time = System.nanoTime();
 		try {

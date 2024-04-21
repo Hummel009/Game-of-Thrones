@@ -24,7 +24,7 @@ public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearest
 
 	@Override
 	public boolean isPlayerSuitableTarget(EntityPlayer entityplayer) {
-		return !IBandit.Helper.canStealFromPlayerInv(taskOwnerAsBandit, entityplayer) && super.isPlayerSuitableTarget(entityplayer);
+		return !IBandit.Helper.canStealFromPlayerInv(entityplayer) && super.isPlayerSuitableTarget(entityplayer);
 	}
 
 	@Override

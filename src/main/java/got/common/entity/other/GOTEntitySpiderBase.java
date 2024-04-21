@@ -2,7 +2,6 @@ package got.common.entity.other;
 
 import got.GOT;
 import got.common.GOTLevelData;
-import got.common.database.GOTGuiId;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
@@ -19,7 +18,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
@@ -32,13 +30,11 @@ import java.util.UUID;
 
 @SuppressWarnings("WeakerAccess")
 public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPCMount {
-	public static final int CLIMB_TIME = 100;
-	protected static final int VENOM_NONE = 0;
 	protected static final int VENOM_SLOWNESS = 1;
 	protected static final int VENOM_POISON = 2;
+
 	private UUID tamingPlayer;
 	private int npcTemper;
-
 
 	protected GOTEntitySpiderBase(World world) {
 		super(world);
@@ -374,10 +370,6 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 		return false;
 	}
 
-	public int getMaxNPCTemper() {
-		return 100;
-	}
-
 	@Override
 	public double getMountedYOffset() {
 		double d = getBaseMountedYOffset();
@@ -387,21 +379,12 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 		return d;
 	}
 
-	public IInventory getMountInventory() {
-		return null;
-	}
-
 	public int getNPCTemper() {
 		return npcTemper;
 	}
 
-	@Override
-	public float getStepHeightWhileRiddenByPlayer() {
-		return 1.0f;
-	}
-
 	public void increaseNPCTemper(int i) {
-		npcTemper = MathHelper.clamp_int(npcTemper + i, 0, getMaxNPCTemper());
+		npcTemper = MathHelper.clamp_int(npcTemper + i, 0, 100);
 	}
 
 	@Override
@@ -424,13 +407,6 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 	@Override
 	public void moveEntityWithHeading(float strafe, float forward) {
 		GOTMountFunctions.move(this, strafe, forward);
-	}
-
-	public void openGUI(EntityPlayer entityplayer) {
-		IInventory inv = getMountInventory();
-		if (inv != null && !worldObj.isRemote && (riddenByEntity == null || riddenByEntity == entityplayer) && isNPCTamed()) {
-			entityplayer.openGui(GOT.instance, GOTGuiId.MOUNT_INVENTORY.ordinal(), worldObj, getEntityId(), inv.getSizeInventory(), 0);
-		}
 	}
 
 	@Override

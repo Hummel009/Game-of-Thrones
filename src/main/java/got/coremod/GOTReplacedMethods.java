@@ -158,7 +158,7 @@ public class GOTReplacedMethods {
 		}
 
 		public static float getEnchantmentModifierLiving(float base, EntityLivingBase attacker, EntityLivingBase target) {
-			return base + GOTEnchantmentHelper.calcEntitySpecificDamage(attacker.getHeldItem());
+			return base;
 		}
 
 		public static int getFireAspectModifier(int base, EntityLivingBase entity) {

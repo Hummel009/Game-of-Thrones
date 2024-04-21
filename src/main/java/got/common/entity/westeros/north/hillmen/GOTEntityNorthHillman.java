@@ -77,10 +77,10 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements GOTBiom
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropHillmanItems(flag, i);
+		dropHillmanItems(i);
 	}
 
-	private void dropHillmanItems(boolean flag, int i) {
+	private void dropHillmanItems(int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.BEYOND_WALL, 1, 2 + i);
 		}

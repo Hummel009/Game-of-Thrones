@@ -125,10 +125,6 @@ public class GOTWeaponStats {
 		return damage;
 	}
 
-	public static float getMeleeExtraLookWidth() {
-		return 1.0f;
-	}
-
 	public static float getMeleeReachDistance(EntityPlayer entityplayer) {
 		float reach = 3.0f;
 		reach *= getMeleeReachFactor(entityplayer.getHeldItem());
@@ -208,17 +204,17 @@ public class GOTWeaponStats {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
 			if (item instanceof GOTItemCrossbow) {
-				time = ((GOTItemCrossbow) item).getMaxDrawTime();
+				time = 50;
 			} else if (item instanceof GOTItemBow) {
 				time = ((GOTItemBow) item).getMaxDrawTime();
 			} else if (item == Items.bow) {
 				time = 20;
 			}
 			if (item instanceof GOTItemSpear) {
-				time = ((GOTItemSpear) item).getMaxDrawTime();
+				time = 20;
 			}
 			if (item instanceof GOTItemSarbacane) {
-				time = ((GOTItemSarbacane) item).getMaxDrawTime();
+				time = 5;
 			}
 		}
 		if (time > 0) {

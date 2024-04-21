@@ -5,7 +5,6 @@ import cpw.mods.fml.client.GuiModList;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.GOTInfo;
 import got.client.gui.GOTGuiAchievementHoverEvent;
@@ -17,11 +16,8 @@ import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntitySpiderBase;
 import got.common.inventory.GOTContainerCoinExchange;
 import got.common.item.other.GOTItemCoin;
-import got.common.network.GOTPacketHandler;
-import got.common.network.GOTPacketMountOpenInv;
 import got.common.util.GOTModChecker;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
@@ -29,8 +25,6 @@ import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
-import net.minecraft.client.gui.inventory.GuiInventory;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -283,21 +277,6 @@ public class GOTGuiEventHandler {
 				}
 				mc.theWorld.theProfiler.endSection();
 			}
-		}
-	}
-
-	@SubscribeEvent
-	@SuppressWarnings("MethodMayBeStatic")
-	public void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
-		GuiScreen gui = event.gui;
-		Minecraft mc = Minecraft.getMinecraft();
-		EntityClientPlayerMP entityplayer = mc.thePlayer;
-		WorldClient world = mc.theWorld;
-		if ((gui instanceof GuiInventory || gui instanceof GuiContainerCreative) && entityplayer != null && world != null && entityplayer.ridingEntity instanceof GOTEntitySpiderBase && ((GOTEntitySpiderBase) entityplayer.ridingEntity).getMountInventory() != null) {
-			entityplayer.closeScreen();
-			IMessage packet = new GOTPacketMountOpenInv();
-			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
-			event.setCanceled(true);
 		}
 	}
 }

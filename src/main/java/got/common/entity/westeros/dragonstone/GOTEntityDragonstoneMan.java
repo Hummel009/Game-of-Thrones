@@ -79,10 +79,10 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase {
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropWesterosItems(flag, i);
+		dropWesterosItems(i);
 	}
 
-	private void dropWesterosItems(boolean flag, int i) {
+	private void dropWesterosItems(int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.DRAGONSTONE, 1, 2 + i);
 		}

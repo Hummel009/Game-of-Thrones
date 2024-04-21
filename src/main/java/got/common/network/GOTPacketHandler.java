@@ -121,7 +121,6 @@ public class GOTPacketHandler {
 		NETWORK_WRAPPER.registerMessage(GOTPacketMoneyGive.Handler.class, GOTPacketMoneyGive.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketMountControl.Handler.class, GOTPacketMountControl.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketMountControlServerEnforce.Handler.class, GOTPacketMountControlServerEnforce.class, id++, Side.CLIENT);
-		NETWORK_WRAPPER.registerMessage(GOTPacketMountOpenInv.Handler.class, GOTPacketMountOpenInv.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketNPCCombatStance.Handler.class, GOTPacketNPCCombatStance.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketNPCFX.Handler.class, GOTPacketNPCFX.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketNPCIsEating.Handler.class, GOTPacketNPCIsEating.class, id++, Side.CLIENT);

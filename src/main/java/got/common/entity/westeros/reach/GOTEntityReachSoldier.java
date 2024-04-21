@@ -27,7 +27,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 
 public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
-	public static final int MAX_GRAPE_ALERT = 3;
 	private int grapeAlert;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

@@ -16,7 +16,7 @@ public class GOTEntityYiTiLevymanCrossbower extends GOTEntityYiTiLevyman {
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcCrossbowAttack(target, f);
+		npcCrossbowAttack(target);
 	}
 
 	@Override

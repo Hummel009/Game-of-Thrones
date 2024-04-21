@@ -76,10 +76,10 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.Imm
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropGiftItems(flag, i);
+		dropGiftItems(i);
 	}
 
-	private void dropGiftItems(boolean flag, int i) {
+	private void dropGiftItems(int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.GIFT, 1, 2 + i);
 		}

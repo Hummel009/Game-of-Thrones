@@ -64,10 +64,10 @@ public class GOTEntityHillman extends GOTEntityHumanBase {
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropHillmanItems(flag, i);
+		dropHillmanItems(i);
 	}
 
-	protected void dropHillmanItems(boolean flag, int i) {
+	protected void dropHillmanItems(int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.HILLMEN, 1, 2 + i);
 		}

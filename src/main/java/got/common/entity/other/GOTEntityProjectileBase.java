@@ -141,10 +141,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		return DamageSource.causeThrownDamage(this, shootingEntity);
 	}
 
-	private String getImpactSound() {
-		return "random.bowhit";
-	}
-
 	private boolean getIsCritical() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
@@ -168,10 +164,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 	@Override
 	public float getShadowSize() {
 		return 0.0f;
-	}
-
-	private float getSpeedReduction() {
-		return 0.99f;
 	}
 
 	@Override
@@ -334,7 +326,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 								((EntityPlayerMP) shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0f));
 							}
 						}
-						worldObj.playSoundAtEntity(this, getImpactSound(), 1.0f, 1.2f / (rand.nextFloat() * 0.2f + 0.9f));
+						worldObj.playSoundAtEntity(this, "random.bowhit", 1.0f, 1.2f / (rand.nextFloat() * 0.2f + 0.9f));
 						onCollideWithTarget(hitEntity);
 					} else {
 						motionX *= -0.1;
@@ -357,7 +349,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 					posX -= motionX / f2 * 0.05;
 					posY -= motionY / f2 * 0.05;
 					posZ -= motionZ / f2 * 0.05;
-					worldObj.playSoundAtEntity(this, getImpactSound(), 1.0f, 1.2f / (rand.nextFloat() * 0.2f + 0.9f));
+					worldObj.playSoundAtEntity(this, "random.bowhit", 1.0f, 1.2f / (rand.nextFloat() * 0.2f + 0.9f));
 					inGround = true;
 					shake = 7;
 					setIsCritical(false);
@@ -391,7 +383,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 			}
 			rotationPitch = prevRotationPitch + (rotationPitch - prevRotationPitch) * 0.2f;
 			rotationYaw = prevRotationYaw + (rotationYaw - prevRotationYaw) * 0.2f;
-			float f4 = getSpeedReduction();
+			float f4 = 0.99f;
 			if (isInWater()) {
 				for (int k1 = 0; k1 < 4; ++k1) {
 					float f7 = 0.25f;

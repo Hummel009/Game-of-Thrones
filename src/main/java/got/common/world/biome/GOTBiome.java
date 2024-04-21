@@ -761,10 +761,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return null;
 	}
 
-	public GOTBezierType.BridgeType getBridgeBlock() {
-		return GOTBezierType.BridgeType.DEFAULT;
-	}
-
 	public float getChanceToSpawnAnimals() {
 		return 0.2f;
 	}

@@ -38,7 +38,6 @@ import java.util.UUID;
 public class GOTHireableInfo {
 	public static final int GUARD_RANGE_MAX = 64;
 	public static final int GUARD_RANGE_MIN = 1;
-	public static final int XP_COLOR = 16733440;
 
 	private static final int GUARD_RANGE_DEFAULT = 8;
 
@@ -271,7 +270,7 @@ public class GOTHireableInfo {
 		}
 	}
 
-	public void onDeath(DamageSource damagesource) {
+	public void onDeath() {
 		EntityPlayer hiringPlayer;
 		if (!theEntity.worldObj.isRemote && isActive && getHiringPlayer() != null && GOTLevelData.getData(hiringPlayer = getHiringPlayer()).getEnableHiredDeathMessages()) {
 			hiringPlayer.addChatMessage(new ChatComponentTranslation("got.hiredNPC.death", theEntity.func_110142_aN().func_151521_b()));
@@ -670,10 +669,7 @@ public class GOTHireableInfo {
 	}
 
 	public enum Task {
-		WARRIOR(true), FARMER(false), PROSTITUTE(false);
-
-		Task(boolean displayLvl) {
-		}
+		WARRIOR, FARMER, PROSTITUTE;
 
 		public static Task forID(int id) {
 			for (Task task : values()) {

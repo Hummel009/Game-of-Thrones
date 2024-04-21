@@ -160,7 +160,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 		if (target != null) {
 			ItemStack itemstack = playerEntity.getHeldItem();
 			double reach = GOTWeaponStats.getMeleeReachDistance(playerEntity);
-			reach += GOTWeaponStats.getMeleeExtraLookWidth();
+			reach += 1.0f;
 			reach += target.getCollisionBorderSize();
 			int attackTime = GOTWeaponStats.getAttackTimePlayer(itemstack);
 			if (playerEntity.getDistanceSqToEntity(target) < reach * reach) {

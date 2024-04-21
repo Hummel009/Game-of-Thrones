@@ -20,7 +20,7 @@ public class GOTBezierGenerator {
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
 		GOTBezierType roadType = biome.getRoadBlock();
-		GOTBezierType.BridgeType bridgeType = biome.getBridgeBlock();
+		GOTBezierType.BridgeType bridgeType = GOTBezierType.BridgeType.DEFAULT;
 		GOTBezierType wallType = biome.getWallBlock();
 		int wallTop = biome.getWallTop();
 		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;

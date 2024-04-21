@@ -72,7 +72,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 		return GOTMiniQuestFactory.DOTHRAKI.createQuest(this);
 	}
 
-	private void dropDothrakiItems(boolean flag, int i) {
+	private void dropDothrakiItems(int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.DOTHRAKI, 1, 2 + i);
 		}
@@ -85,7 +85,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropDothrakiItems(flag, i);
+		dropDothrakiItems(i);
 	}
 
 	@Override
@@ -120,10 +120,6 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
 		return false;
-	}
-
-	private String getDothrakiSkirmishSpeech() {
-		return "standard/special/gladiator";
 	}
 
 	@Override
@@ -221,7 +217,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 		if (!worldObj.isRemote && prevSkirmishTick == 0) {
 			List<EntityPlayer> nearbyPlayers = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(24.0, 24.0, 24.0));
 			for (EntityPlayer nearbyPlayer : nearbyPlayers) {
-				GOTSpeech.sendSpeech(nearbyPlayer, this, GOTSpeech.getRandomSpeechForPlayer(this, getDothrakiSkirmishSpeech(), nearbyPlayer));
+				GOTSpeech.sendSpeech(nearbyPlayer, this, GOTSpeech.getRandomSpeechForPlayer(this, "standard/special/gladiator", nearbyPlayer));
 			}
 		}
 	}

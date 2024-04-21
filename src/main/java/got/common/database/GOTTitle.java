@@ -147,19 +147,14 @@ public class GOTTitle {
 		return "got.title." + name;
 	}
 
-	private GOTTitle setPlayerExclusive(List<String> devs) {
+	private void setPlayerExclusive(List<String> devs) {
 		UUID[] us = new UUID[devs.size()];
 		for (int i = 0; i < devs.size(); ++i) {
 			us[i] = UUID.fromString(devs.get(i));
 		}
-		return setPlayerExclusive(us);
-	}
-
-	private GOTTitle setPlayerExclusive(UUID... players) {
 		titleType = TitleType.PLAYER_EXCLUSIVE;
-		uuids = players;
+		uuids = us;
 		isHidden = true;
-		return this;
 	}
 
 	public int getTitleID() {

@@ -11,7 +11,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityDart extends GOTEntityProjectileBase {
-	public static final float DEF_DART_DAMAGE = 1.0f;
 	private float dartDamageFactor = 1.0f;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

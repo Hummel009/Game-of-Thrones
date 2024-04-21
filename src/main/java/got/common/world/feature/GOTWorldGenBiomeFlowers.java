@@ -10,6 +10,15 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenBiomeFlowers extends WorldGenerator {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTWorldGenBiomeFlowers() {
+	}
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTWorldGenBiomeFlowers(boolean b) {
+		super(b);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		BiomeGenBase.FlowerEntry flower = ((GOTBiome) GOTCrashHandler.getBiomeGenForCoords(world, i, k)).getRandomFlower(random);

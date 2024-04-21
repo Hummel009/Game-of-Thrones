@@ -17,7 +17,7 @@ public class GOTEntityYiTiFrontierCrossbower extends GOTEntityYiTiFrontier {
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcCrossbowAttack(target, f);
+		npcCrossbowAttack(target);
 	}
 
 	@Override

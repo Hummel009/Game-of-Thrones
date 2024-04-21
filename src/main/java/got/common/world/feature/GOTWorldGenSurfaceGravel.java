@@ -10,6 +10,15 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenSurfaceGravel extends WorldGenerator {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTWorldGenSurfaceGravel() {
+	}
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTWorldGenSurfaceGravel(boolean b) {
+		super(b);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		Block surfBlock;

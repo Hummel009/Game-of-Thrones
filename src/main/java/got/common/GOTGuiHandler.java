@@ -202,12 +202,6 @@ public class GOTGuiHandler implements IGuiHandler {
 					GOTEntityHorse horse = (GOTEntityHorse) entity;
 					return new GOTGuiMountInventory(entityplayer.inventory, new AnimalChest(horse.getCommandSenderName(), j), horse);
 				}
-				if (entity instanceof GOTEntitySpiderBase) {
-					GOTEntitySpiderBase npc2 = (GOTEntitySpiderBase) entity;
-					if (npc2.getMountInventory() != null) {
-						return new GOTGuiSpiderInventory(entityplayer.inventory, new AnimalChest(npc2.getCommandSenderName(), j), npc2);
-					}
-				}
 				break;
 			case NPC_RESPAWNER:
 				entity = world.getEntityByID(i);
@@ -443,9 +437,6 @@ public class GOTGuiHandler implements IGuiHandler {
 				if (entity instanceof GOTEntityHorse) {
 					GOTEntityHorse horse = (GOTEntityHorse) entity;
 					return new GOTContainerMountInventory(entityplayer.inventory, GOTReflection.getHorseInv(horse), horse);
-				}
-				if (entity instanceof GOTEntitySpiderBase && ((GOTEntitySpiderBase) entity).getMountInventory() != null) {
-					return new GOTContainerSpiderInventory(entityplayer.inventory, ((GOTEntitySpiderBase) entity).getMountInventory(), (GOTEntitySpiderBase) entity);
 				}
 				break;
 			case OVEN:

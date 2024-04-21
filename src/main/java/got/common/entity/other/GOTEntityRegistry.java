@@ -5,8 +5,6 @@ import got.GOT;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 import java.util.*;
 
@@ -19,6 +17,9 @@ public class GOTEntityRegistry {
 	private static final Map<String, Integer> STRING_TO_ID_MAPPING = new HashMap<>();
 	private static final Map<Integer, String> ID_TO_STRING_MAPPING = new HashMap<>();
 	private static final Map<Class<? extends Entity>, Integer> CLASS_TO_ID_MAPPING = new HashMap<>();
+
+	private GOTEntityRegistry() {
+	}
 
 	public static Set<String> getAllEntityNames() {
 		return Collections.unmodifiableSet(STRING_TO_ID_MAPPING.keySet());
@@ -78,12 +79,6 @@ public class GOTEntityRegistry {
 		registerHidden(entityClass, id, 80, 3, true);
 		CONTENT.add(entityClass);
 		SPAWN_EGGS.put(id, new SpawnEggInfo(id, 9605778, faction.getEggColor()));
-	}
-
-	public void getSubItems(Item item, Collection<ItemStack> list) {
-		for (GOTEntityRegistry.SpawnEggInfo info : SPAWN_EGGS.values()) {
-			list.add(new ItemStack(item, 1, info.getSpawnedID()));
-		}
 	}
 
 	public static class SpawnEggInfo {

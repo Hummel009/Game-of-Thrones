@@ -94,10 +94,6 @@ public class GOTEntitySnowball extends Entity {
 		return 1.0F;
 	}
 
-	private float getMotionFactor() {
-		return 0.95F;
-	}
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public float getShadowSize() {
@@ -199,7 +195,7 @@ public class GOTEntitySnowball extends Entity {
 			}
 			rotationPitch = prevRotationPitch + (rotationPitch - prevRotationPitch) * 0.2F;
 			rotationYaw = prevRotationYaw + (rotationYaw - prevRotationYaw) * 0.2F;
-			float f2 = getMotionFactor();
+			float f2 = 0.95F;
 
 			if (isInWater()) {
 				for (int j = 0; j < 4; ++j) {

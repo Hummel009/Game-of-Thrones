@@ -39,7 +39,7 @@ public class GOTCommandTime extends CommandBase {
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 2) {
 			if ("set".equals(args[0])) {
-				long time = "day".equals(args[1]) ? Math.round(GOTTime.DAY_LENGTH * 0.03) : "night".equals(args[1]) ? Math.round(GOTTime.DAY_LENGTH * 0.6) : parseIntWithMin(sender, args[1], 0);
+				long time = "day".equals(args[1]) ? 1440 : "night".equals(args[1]) ? 28800 : parseIntWithMin(sender, args[1], 0);
 				GOTTime.setWorldTime(time);
 				func_152373_a(sender, this, "got.command.time.set", time);
 				return;

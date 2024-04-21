@@ -70,7 +70,7 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase {
 		return horse;
 	}
 
-	private void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.GHISCAR, 1, 2 + i);
 		}
@@ -83,7 +83,7 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase {
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropEssosItems(flag, i);
+		dropEssosItems(i);
 	}
 
 	@Override

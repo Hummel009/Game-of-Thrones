@@ -19,13 +19,10 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	private Item seedsItem;
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMossovyMan(World world) {
 		super(world);
@@ -77,10 +74,10 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropMossovyItems(flag, i);
+		dropMossovyItems(i);
 	}
 
-	private void dropMossovyItems(boolean flag, int i) {
+	private void dropMossovyItems(int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.MOSSOVY, 1, 2 + i);
 		}

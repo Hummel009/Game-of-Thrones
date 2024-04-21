@@ -210,10 +210,6 @@ public class GOTUnitTradeEntry {
 		return extraInfo;
 	}
 
-	public void setExtraInfo(String s) {
-		extraInfo = s;
-	}
-
 	public enum PledgeType {
 		NONE(0), FACTION(1);
 

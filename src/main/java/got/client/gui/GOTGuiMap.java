@@ -1458,7 +1458,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 						radius -= 1.0f;
 					}
 					if (pass == 0) {
-						radius = zone.getRadius() + controlZoneFaction.getControlZoneReducedRange();
+						radius = zone.getRadius() + 50;
 					}
 					float radiusWorld = GOTWaypoint.mapToWorldR(radius);
 					tessellator.startDrawing(9);

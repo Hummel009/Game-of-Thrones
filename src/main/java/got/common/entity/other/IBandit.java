@@ -5,15 +5,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IChatComponent;
 
 public interface IBandit {
-	boolean canTargetPlayerForTheft(EntityPlayer var1);
-
 	GOTEntityNPC getBanditAsNPC();
 
 	GOTInventoryNPC getBanditInventory();
 
-	int getMaxThefts();
-
-	IChatComponent getTheftChatMsg(EntityPlayer var1);
+	IChatComponent getTheftChatMsg();
 
 	String getTheftSpeechBank(EntityPlayer var1);
 
@@ -21,7 +17,7 @@ public interface IBandit {
 		private Helper() {
 		}
 
-		public static boolean canStealFromPlayerInv(IBandit bandit, EntityPlayer entityplayer) {
+		public static boolean canStealFromPlayerInv(EntityPlayer entityplayer) {
 			for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 				if (slot == entityplayer.inventory.currentItem || entityplayer.inventory.getStackInSlot(slot) == null) {
 					continue;
@@ -29,10 +25,6 @@ public interface IBandit {
 				return true;
 			}
 			return false;
-		}
-
-		public static GOTInventoryNPC createInv(IBandit bandit) {
-			return new GOTInventoryNPC("BanditInventory", bandit.getBanditAsNPC(), bandit.getMaxThefts());
 		}
 	}
 }

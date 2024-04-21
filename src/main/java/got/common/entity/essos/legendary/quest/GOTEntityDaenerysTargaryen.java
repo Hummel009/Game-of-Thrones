@@ -13,12 +13,9 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
-	private Item seedsItem;
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDaenerysTargaryen(World world) {
 		super(world);

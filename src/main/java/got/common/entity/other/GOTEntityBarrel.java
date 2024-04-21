@@ -390,6 +390,7 @@ public class GOTEntityBarrel extends Entity {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public NBTTagCompound getBarrelItemData() {
 		return barrelItemData;
 	}

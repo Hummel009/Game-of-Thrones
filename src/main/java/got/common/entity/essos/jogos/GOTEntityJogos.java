@@ -78,10 +78,10 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropJogosItems(flag, i);
+		dropJogosItems(i);
 	}
 
-	private void dropJogosItems(boolean flag, int i) {
+	private void dropJogosItems(int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.JOGOS, 1, 2 + i);
 		}

@@ -60,11 +60,6 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 	}
 
 	@Override
-	public boolean canTargetPlayerForTheft(EntityPlayer player) {
-		return true;
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
 		int bones = rand.nextInt(2) + rand.nextInt(i + 1);
@@ -96,11 +91,6 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 	}
 
 	@Override
-	public int getMaxThefts() {
-		return 3;
-	}
-
-	@Override
 	public String getNPCName() {
 		return familyInfo.getName();
 	}
@@ -111,7 +101,7 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 	}
 
 	@Override
-	public IChatComponent getTheftChatMsg(EntityPlayer player) {
+	public IChatComponent getTheftChatMsg() {
 		return new ChatComponentTranslation("got.chat.banditSteal");
 	}
 

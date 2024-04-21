@@ -57,10 +57,6 @@ public class GOTItemSarbacane extends Item {
 		return EnumAction.bow;
 	}
 
-	public int getMaxDrawTime() {
-		return 5;
-	}
-
 	@Override
 	public int getMaxItemUseDuration(ItemStack itemstack) {
 		return 72000;
@@ -100,7 +96,7 @@ public class GOTItemSarbacane extends Item {
 		}
 		if (dartItem != null) {
 			int useTick = getMaxItemUseDuration(itemstack) - i;
-			float charge = (float) useTick / getMaxDrawTime();
+			float charge = (float) useTick / 5;
 			if (charge < 0.65f) {
 				return;
 			}

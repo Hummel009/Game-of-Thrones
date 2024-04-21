@@ -63,7 +63,7 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase {
 		return GOTMiniQuestFactory.LHAZAR.createQuest(this);
 	}
 
-	private void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.LHAZAR, 1, 2 + i);
 		}
@@ -76,7 +76,7 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase {
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropEssosItems(flag, i);
+		dropEssosItems(i);
 	}
 
 	@Override

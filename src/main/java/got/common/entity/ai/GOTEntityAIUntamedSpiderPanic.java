@@ -51,8 +51,8 @@ public class GOTEntityAIUntamedSpiderPanic extends EntityAIBase {
 		if (theMount.getRNG().nextInt(50) == 0) {
 			if (theMount.riddenByEntity instanceof EntityPlayer) {
 				int i = theMount.getNPCTemper();
-				int j = theMount.getMaxNPCTemper();
-				if (j > 0 && theMount.getRNG().nextInt(j) < i) {
+				int j = 100;
+				if (theMount.getRNG().nextInt(j) < i) {
 					theMount.tameNPC((EntityPlayer) theMount.riddenByEntity);
 					theMount.spawnHearts();
 					return;

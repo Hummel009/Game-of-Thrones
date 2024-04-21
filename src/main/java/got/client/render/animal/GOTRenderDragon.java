@@ -83,7 +83,7 @@ public class GOTRenderDragon extends RenderLiving {
 		GOTEntityDragon dragon = (GOTEntityDragon) entity;
 		model.setRenderPass(-1);
 		if (dragon.getDeathTime() > 0) {
-			float alpha = dragon.getDeathTime() / (float) dragon.getMaxDeathTime();
+			float alpha = dragon.getDeathTime() / 120.0f;
 			glDepthFunc(GL_LEQUAL);
 			glEnable(GL_ALPHA_TEST);
 			glAlphaFunc(GL_GREATER, alpha);

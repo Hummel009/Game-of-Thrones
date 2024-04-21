@@ -28,9 +28,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 
 public class GOTEntityNPCRespawner extends Entity {
-	public static final int SPAWN_INTERVAL_DEFAULT = 3600;
-	public static final int MAX_SPAWN_BLOCK_RANGE = 64;
-
 	private Class<? extends Entity> spawnClass1;
 	private Class<? extends Entity> spawnClass2;
 
@@ -344,10 +341,6 @@ public class GOTEntityNPCRespawner extends Entity {
 
 	public float getSpawnerSpin() {
 		return spawnerSpin;
-	}
-
-	public void setSpawnerSpin(float spawnerSpin) {
-		this.spawnerSpin = spawnerSpin;
 	}
 
 	public int getBlockEnemySpawns() {
