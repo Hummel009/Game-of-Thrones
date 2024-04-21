@@ -928,7 +928,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		}
 	}
 
-	private void endMapClipping() {
+	private static void endMapClipping() {
 		GL11.glDisable(3089);
 	}
 
@@ -1093,15 +1093,15 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID();
 	}
 
-	private boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
+	private static boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
 		return keybinding.getKeyCode() >= 0 && GameSettings.isKeyDown(keybinding);
 	}
 
-	private boolean isValidWaypointName(CharSequence name) {
+	private static boolean isValidWaypointName(CharSequence name) {
 		return !StringUtils.isBlank(name);
 	}
 
-	private boolean isWaypointVisible(GOTAbstractWaypoint wp) {
+	private static boolean isWaypointVisible(GOTAbstractWaypoint wp) {
 		if (wp instanceof GOTCustomWaypoint) {
 			GOTCustomWaypoint cwp = (GOTCustomWaypoint) wp;
 			return (!cwp.isShared() || !cwp.isSharedHidden() || showHiddenSWP) && showCWP;
@@ -1502,7 +1502,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		}
 	}
 
-	private void renderGraduatedRects(int x1, int y1, int x2, int y2, int c1, int c2, int w) {
+	private static void renderGraduatedRects(int x1, int y1, int x2, int y2, int c1, int c2, int w) {
 		float[] rgb1 = new Color(c1).getColorComponents(null);
 		float[] rgb2 = new Color(c2).getColorComponents(null);
 		for (int l = w - 1; l >= 0; --l) {

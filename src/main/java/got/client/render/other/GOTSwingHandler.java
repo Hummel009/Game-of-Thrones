@@ -27,6 +27,7 @@ public class GOTSwingHandler {
 	private static final float SWING_FACTOR = 0.8f;
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if (event.phase == TickEvent.Phase.START) {
 			if (MINECRAFT.theWorld == null) {
@@ -50,6 +51,7 @@ public class GOTSwingHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
 		ItemStack item;
 		SwingTime swt;
@@ -68,6 +70,7 @@ public class GOTSwingHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onRenderTick(TickEvent.RenderTickEvent event) {
 		EntityClientPlayerMP entityplayer;
 		if (event.phase == TickEvent.Phase.START && (entityplayer = MINECRAFT.thePlayer) != null) {
@@ -76,16 +79,18 @@ public class GOTSwingHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preRenderLiving(RenderLivingEvent.Pre event) {
 		tryUpdateSwing(event.entity);
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preRenderPlayer(RenderPlayerEvent.Pre event) {
 		tryUpdateSwing(event.entityPlayer);
 	}
 
-	private void tryUpdateSwing(EntityLivingBase entity) {
+	private static void tryUpdateSwing(EntityLivingBase entity) {
 		if (entity == MINECRAFT.thePlayer) {
 			if (GOTAttackTiming.getFullAttackTime() > 0) {
 				float max = GOTAttackTiming.getFullAttackTime();

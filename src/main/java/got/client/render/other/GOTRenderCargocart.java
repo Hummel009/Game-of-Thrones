@@ -37,11 +37,11 @@ public class GOTRenderCargocart extends Render {
 		return TEXTURE;
 	}
 
-	private void setupRotation(float entityYaw) {
+	private static void setupRotation(float entityYaw) {
 		GL11.glRotatef(180.0f - entityYaw, 0.0f, 1.0f, 0.0f);
 	}
 
-	private void setupTranslation(double x, double y, double z) {
+	private static void setupTranslation(double x, double y, double z) {
 		GL11.glTranslatef((float) x, (float) y + 0.375f, (float) z);
 	}
 }

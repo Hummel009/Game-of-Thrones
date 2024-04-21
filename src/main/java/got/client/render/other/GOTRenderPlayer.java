@@ -31,6 +31,7 @@ public class GOTRenderPlayer {
 	private static final RenderManager RENDER_MANAGER = RenderManager.instance;
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void postRender(RenderPlayerEvent.Post event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		float tick = event.partialRenderTick;
@@ -86,6 +87,7 @@ public class GOTRenderPlayer {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preRenderSpecials(RenderPlayerEvent.Specials.Pre event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		float tick = event.partialRenderTick;
@@ -170,7 +172,7 @@ public class GOTRenderPlayer {
 		}
 	}
 
-	private boolean shouldRenderAlignment(EntityPlayer entityplayer) {
+	private static boolean shouldRenderAlignment(EntityPlayer entityplayer) {
 		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
 			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
 				UUID playerUuid = entityplayer.getUniqueID();
@@ -187,7 +189,7 @@ public class GOTRenderPlayer {
 		return false;
 	}
 
-	private boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
+	private static boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
 			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
@@ -199,7 +201,7 @@ public class GOTRenderPlayer {
 		return false;
 	}
 
-	private boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
+	private static boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
 		return Minecraft.isGuiEnabled() && entityplayer != RENDER_MANAGER.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(MINECRAFT.thePlayer);
 	}
 }

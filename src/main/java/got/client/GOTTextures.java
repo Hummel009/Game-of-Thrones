@@ -440,7 +440,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	@SubscribeEvent
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "MethodMayBeStatic"})
 	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 0) {

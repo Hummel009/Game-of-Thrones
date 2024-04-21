@@ -25,6 +25,7 @@ CHANGELOG
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
 * Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 
+* Fixed bug with shrykes', werewolves', ifekevrons' swimming ai.
 * Fixed different bugs related to mobs and their frost/heat immune
 * Fixed bug with dragon size
 * Fixed bug with broken title system

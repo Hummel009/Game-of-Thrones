@@ -32,7 +32,8 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 
 	private final GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
 
-	protected GOTEntityLightSkinBandit(World world) {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTEntityLightSkinBandit(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);

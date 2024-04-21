@@ -104,7 +104,7 @@ public class GOTRenderBanner extends Render {
 		}
 	}
 
-	private ResourceLocation getBannerTexture(Entity entity) {
+	private static ResourceLocation getBannerTexture(Entity entity) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		return getBannerTexture(banner.getBannerType());
 	}

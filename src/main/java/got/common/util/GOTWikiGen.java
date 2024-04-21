@@ -139,7 +139,7 @@ public class GOTWikiGen {
 	private GOTWikiGen() {
 	}
 
-	@SuppressWarnings({"deprecation", "CastToIncompatibleInterface"})
+	@SuppressWarnings({"deprecation", "CastToIncompatibleInterface", "StringConcatenationMissingWhitespace"})
 	public static void generate(World world, EntityPlayer player) {
 		long time = System.nanoTime();
 		try {
@@ -1373,7 +1373,7 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template:DB Mob-Marriage");
 				sb.append(BEGIN);
 				for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
-					if (entityEntry.getValue() instanceof GOTEntityNPC && GOTEntityUtils.canBeMarried((GOTEntityNPC) entityEntry)) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && GOTEntityUtils.canBeMarried((GOTEntityNPC) entityEntry.getValue())) {
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = True");
 					}
 				}

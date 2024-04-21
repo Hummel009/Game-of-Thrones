@@ -45,6 +45,7 @@ public class GOTAmbience {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlaySound(PlaySoundEvent17 event) {
 		String name = event.name;
 		ISound sound = event.sound;

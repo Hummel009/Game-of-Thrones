@@ -282,6 +282,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlaySound(PlaySoundEvent17 event) {
 		if (!ALL_TRACKS.isEmpty() && event.category == SoundCategory.MUSIC && !(event.sound instanceof GOTMusicTrack)) {
 			if (isGOTDimension()) {
@@ -299,7 +300,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
 	}
 
-	public void update() {
+	public static void update() {
 		GOTMusicTicker.update(MUSIC_RAND);
 	}
 

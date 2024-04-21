@@ -13,6 +13,7 @@ import got.client.model.GOTModelCompass;
 import got.client.render.other.GOTCloudRenderer;
 import got.client.render.other.GOTNPCRendering;
 import got.client.render.other.GOTRenderNorthernLights;
+import got.client.sound.GOTMusic;
 import got.client.sound.GOTMusicTicker;
 import got.client.sound.GOTMusicTrack;
 import got.common.*;
@@ -369,7 +370,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	@SuppressWarnings("NonConstantStringShouldBeStringBuffer")
+	@SuppressWarnings({"NonConstantStringShouldBeStringBuffer", "MethodMayBeStatic"})
 	public void getItemTooltip(ItemTooltipEvent event) {
 		ItemStack itemstack = event.itemStack;
 		List<String> tooltip = event.toolTip;
@@ -550,7 +551,7 @@ public class GOTTickHandlerClient {
 		return f;
 	}
 
-	private boolean isGamePaused(Minecraft mc) {
+	private static boolean isGamePaused(Minecraft mc) {
 		return mc.isSingleplayer() && mc.currentScreen != null && mc.currentScreen.doesGuiPauseGame() && !mc.getIntegratedServer().getPublic();
 	}
 
@@ -767,7 +768,7 @@ public class GOTTickHandlerClient {
 					}
 				}
 			}
-			GOTClientFactory.getMusicHandler().update();
+			GOTMusic.update();
 			if (GOTConfig.displayMusicTrack) {
 				GOTMusicTrack nowPlaying = GOTMusicTicker.getCurrentTrack();
 				if (nowPlaying != lastTrack) {
@@ -803,6 +804,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onFogColors(EntityViewRenderEvent.FogColors event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient worldClient = mc.theWorld;
@@ -817,6 +819,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onFOVUpdate(FOVUpdateEvent event) {
 		EntityPlayerSP entityplayer = event.entity;
 		float fov = event.newfov;
@@ -863,6 +866,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		EntityPlayer player = event.player;
 		if (event.phase == TickEvent.Phase.END && player instanceof EntityClientPlayerMP) {
@@ -1079,6 +1083,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onRenderDebugText(RenderGameOverlayEvent.Text event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		if (mc.gameSettings.showDebugInfo && mc.theWorld != null && mc.thePlayer != null && mc.theWorld.getWorldChunkManager() instanceof GOTWorldChunkManager) {
@@ -1288,6 +1293,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onRenderWorldLast(RenderWorldLastEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		float f = event.partialTicks;
@@ -1304,6 +1310,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onWorldLoad(WorldEvent.Load event) {
 		if (event.world instanceof WorldClient) {
 			GOTClientFactory.getEffectRenderer().clearEffectsAndSetWorld();
@@ -1337,7 +1344,7 @@ public class GOTTickHandlerClient {
 		renderAlignmentBar(alignment, viewingFac, alignmentXF, alignmentYF, text, text, text, false);
 	}
 
-	private void renderOverlay(float[] rgb, float alpha, Minecraft mc, ResourceLocation texture) {
+	private static void renderOverlay(float[] rgb, float alpha, Minecraft mc, ResourceLocation texture) {
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int width = resolution.getScaledWidth();
 		int height = resolution.getScaledHeight();
@@ -1372,7 +1379,7 @@ public class GOTTickHandlerClient {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
-	private void renderOverlayWithVerticalGradients(float[] rgbEdge, float[] rgbCentre, float alphaEdge, float alphaCentre, Minecraft mc) {
+	private static void renderOverlayWithVerticalGradients(float[] rgbEdge, float[] rgbCentre, float alphaEdge, float alphaCentre, Minecraft mc) {
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int width = resolution.getScaledWidth();
 		int height = resolution.getScaledHeight();
@@ -1418,7 +1425,7 @@ public class GOTTickHandlerClient {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
-	private void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
+	private static void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
 		world.theProfiler.startSection("gotEnvironmentFX");
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int j = MathHelper.floor_double(entityplayer.boundingBox.minY);

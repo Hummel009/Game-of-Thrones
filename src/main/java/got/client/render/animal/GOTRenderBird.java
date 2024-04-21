@@ -33,7 +33,7 @@ public class GOTRenderBird extends RenderLiving {
 		GOTRenderBird.renderStolenItem = renderStolenItem;
 	}
 
-	private GOTRandomSkins getBirdSkins(String s) {
+	private static GOTRandomSkins getBirdSkins(String s) {
 		GOTRandomSkins skins = BIRD_TEXTURES.get(s);
 		if (skins == null) {
 			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/bird/" + s);

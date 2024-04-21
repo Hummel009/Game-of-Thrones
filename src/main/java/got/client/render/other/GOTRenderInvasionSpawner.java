@@ -32,7 +32,7 @@ public class GOTRenderInvasionSpawner extends Render {
 	}
 
 	@SuppressWarnings("StatementWithEmptyBody")
-	private float interpolateRotation(float prevRotation, float newRotation, float tick) {
+	private static float interpolateRotation(float prevRotation, float newRotation, float tick) {
 		float interval;
 		for (interval = newRotation - prevRotation; interval < -180.0F; interval += 360.0F) {
 		}

@@ -198,14 +198,14 @@ public class GOTModelMammoth extends ModelBase {
 		harnessLowerBelt.setRotationPoint(0.0f, -2.0f, 7.0f);
 	}
 
-	private void adjustAllRotationPoints(ModelRenderer target, ModelRenderer origin) {
+	private static void adjustAllRotationPoints(ModelRenderer target, ModelRenderer origin) {
 		float distanceY = target.rotationPointY > origin.rotationPointY ? target.rotationPointY - origin.rotationPointY : origin.rotationPointY - target.rotationPointY;
 		target.rotationPointY = origin.rotationPointY + MathHelper.sin(origin.rotateAngleX) * distanceY;
 		target.rotationPointZ = origin.rotationPointZ - MathHelper.cos(origin.rotateAngleY) * (MathHelper.cos(origin.rotateAngleX) * distanceY);
 		target.rotationPointX = origin.rotationPointX - MathHelper.sin(origin.rotateAngleY) * (MathHelper.cos(origin.rotateAngleX) * distanceY);
 	}
 
-	private void adjustXRotationPoints(ModelRenderer target, ModelRenderer origin) {
+	private static void adjustXRotationPoints(ModelRenderer target, ModelRenderer origin) {
 		float distance = target.rotationPointY - origin.rotationPointY;
 		if (distance < 0.0f) {
 			distance *= -1.0f;
@@ -298,7 +298,7 @@ public class GOTModelMammoth extends ModelBase {
 		tailPlush.render(f5);
 	}
 
-	private void setRotation(ModelRenderer model, float x, float y, float z) {
+	private static void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;

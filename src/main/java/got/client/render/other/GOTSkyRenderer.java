@@ -294,7 +294,7 @@ public class GOTSkyRenderer extends IRenderHandler {
 		world.theProfiler.endSection();
 	}
 
-	private void renderSkyboxSide(Tessellator tessellator, int side) {
+	private static void renderSkyboxSide(Tessellator tessellator, int side) {
 		double u = side % 3 / 3.0;
 		double v = (double) side / 3 / 2.0;
 		tessellator.startDrawingQuads();

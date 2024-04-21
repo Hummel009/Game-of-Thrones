@@ -67,7 +67,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		mapRenderer.setZoomExp(prevZoom + (currentZoom - prevZoom) * f);
 		mapRenderer.setZoomStable((float) Math.pow(2.0, zoomBase));
 		mapRenderer.renderMap(this, mapGui, f);
-		mapRenderer.renderVignettes(this, zLevel, 4);
+		GOTGuiRendererMap.renderVignettes(this, zLevel, 4);
 		GL11.glEnable(3042);
 		String title = StatCollector.translateToLocalFormatted("got.fastTravel.travel", theWaypoint.getDisplayName());
 		String titleExtra = new String[]{"", ".", "..", "..."}[tickCounter / 10 % 4];

@@ -389,7 +389,7 @@ public class GOTModelDragon extends ModelBase {
 		setLivingAnimations((GOTEntityDragon) entity, partialTicks);
 	}
 
-	private void setLivingAnimations(GOTEntityDragon dragon, float partialTicks) {
+	private static void setLivingAnimations(GOTEntityDragon dragon, float partialTicks) {
 		GOTModelDragonAnimaton animator = dragon.getAnimator();
 		animator.setPartialTicks(partialTicks);
 	}

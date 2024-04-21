@@ -135,7 +135,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		}
 	}
 
-	private boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
+	private static boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
 		if (base == match) {
 			return true;
 		}

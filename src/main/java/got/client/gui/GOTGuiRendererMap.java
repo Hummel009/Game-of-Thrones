@@ -42,11 +42,11 @@ public class GOTGuiRendererMap {
 		GOTGuiMap.setFakeStaticProperties(statics[0], statics[1], statics[2], statics[3], statics[4], statics[5]);
 	}
 
-	private void renderVignette(GuiScreen gui, double zLevel) {
+	private static void renderVignette(GuiScreen gui, double zLevel) {
 		renderVignette(gui, zLevel, 0, 0, gui.width, gui.height);
 	}
 
-	private void renderVignette(GuiScreen gui, double zLevel, int x0, int y0, int x1, int y1) {
+	private static void renderVignette(GuiScreen gui, double zLevel, int x0, int y0, int x1, int y1) {
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(771, 769, 1, 0);
 		float alpha = 1.0f;
@@ -67,13 +67,13 @@ public class GOTGuiRendererMap {
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 	}
 
-	public void renderVignettes(GuiScreen gui, double zLevel, int count) {
+	public static void renderVignettes(GuiScreen gui, double zLevel, int count) {
 		for (int l = 0; l < count; ++l) {
 			renderVignette(gui, zLevel);
 		}
 	}
 
-	public void renderVignettes(GuiScreen gui, double zLevel, int count, int x0, int y0, int x1, int y1) {
+	public static void renderVignettes(GuiScreen gui, double zLevel, int count, int x0, int y0, int x1, int y1) {
 		for (int l = 0; l < count; ++l) {
 			renderVignette(gui, zLevel, x0, y0, x1, y1);
 		}

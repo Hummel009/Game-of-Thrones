@@ -207,7 +207,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBaseReturn {
 		drawAchievements();
 	}
 
-	private GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
+	private static GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
 		List<GOTAchievement.Category> categories = currentDimension.getAchievementCategories();
 		int index = categories.indexOf(currentCategory);
 		index += i;

@@ -509,7 +509,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		}
 	}
 
-	private boolean hasScrollBar() {
+	private static boolean hasScrollBar() {
 		return currentFactionList.size() > 1;
 	}
 

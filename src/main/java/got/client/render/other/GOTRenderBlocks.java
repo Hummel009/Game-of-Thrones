@@ -361,7 +361,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		return 0;
 	}
 
-	private void renderBarrel(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderBarrel(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -416,13 +416,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	private void renderBeacon(IBlockAccess world, int i, int j, int k, RenderBlocks renderblocks) {
+	private static void renderBeacon(IBlockAccess world, int i, int j, int k, RenderBlocks renderblocks) {
 		if (GOTBlockBeacon.isFullyLit(world, i, j, k)) {
 			renderblocks.renderBlockFire(Blocks.fire, i, j, k);
 		}
 	}
 
-	private void renderBeam(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderBeam(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int meta = world.getBlockMetadata(i, j, k);
 		int dir = meta & 0xC;
 		switch (dir) {
@@ -452,7 +452,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.uvRotateBottom = 0;
 	}
 
-	private void renderBirdCage(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderBirdCage(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -492,7 +492,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	private void renderBlockRandomRotated(int i, int j, int k, Block block, RenderBlocks renderblocks, boolean rotateSides) {
+	private static void renderBlockRandomRotated(int i, int j, int k, Block block, RenderBlocks renderblocks, boolean rotateSides) {
 		int[] sides = new int[6];
 		for (int l = 0; l < sides.length; ++l) {
 			int hash = i * 234890405 ^ k * 37383934 ^ j;
@@ -519,7 +519,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.uvRotateBottom = 0;
 	}
 
-	private void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -581,7 +581,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	private void renderButterflyJar(int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderButterflyJar(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -599,7 +599,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	private void renderCommandTable(int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderCommandTable(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -619,7 +619,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	private void renderCoral(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderCoral(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j + 1, k));
@@ -628,7 +628,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(icon, i, j + 1, k, 1.0f);
 	}
 
-	private boolean renderDoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static boolean renderDoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		Tessellator tessellator = Tessellator.instance;
 		int meta = world.getBlockMetadata(i, j, k);
 		boolean topDoor = (meta & 8) != 0;
@@ -673,7 +673,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		return true;
 	}
 
-	private void renderDoublePlant(IBlockAccess world, int i, int j, int k, BlockDoublePlant block, RenderBlocks renderblocks) {
+	private static void renderDoublePlant(IBlockAccess world, int i, int j, int k, BlockDoublePlant block, RenderBlocks renderblocks) {
 		int plantType;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
@@ -710,13 +710,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(icon, d, j, d2, 1.0f);
 	}
 
-	private void renderDoubleTorch(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderDoubleTorch(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		block.setBlockBoundsBasedOnState(world, i, j, k);
 		renderblocks.setRenderBoundsFromBlock(block);
 		renderblocks.renderStandardBlock(block, i, j, k);
 	}
 
-	private void renderFallenLeaves(IBlockAccess world, int i, int j, int k, Block block, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
+	private static void renderFallenLeaves(IBlockAccess world, int i, int j, int k, Block block, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		world.getBlockMetadata(i, j, k);
@@ -769,7 +769,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	private void renderFlowerBlock(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderFlowerBlock(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		int color = block.colorMultiplier(world, i, j, k);
@@ -791,7 +791,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(iicon, i + ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, k + ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
 	}
 
-	private void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		float f4;
 		renderblocks.renderStandardBlock(block, i, j, k);
 		Tessellator tessellator = Tessellator.instance;
@@ -844,7 +844,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	private void renderGrapevine(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderGrapevine(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		block.setBlockBoundsForItemRender();
 		renderblocks.setRenderBoundsFromBlock(block);
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -859,7 +859,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.clearOverrideBlockTexture();
 	}
 
-	private void renderInvBarrel(Block block, RenderBlocks renderblocks) {
+	private static void renderInvBarrel(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.15625, 0.0625, 0.15625, 0.84375, 0.75, 0.84375);
 		for (float f : new float[]{0.25f, 0.5f}) {
@@ -878,7 +878,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	private void renderInvBirdCage(Block block, RenderBlocks renderblocks, int meta) {
+	private static void renderInvBirdCage(Block block, RenderBlocks renderblocks, int meta) {
 		renderblocks.renderAllFaces = true;
 		float d = 0.001f;
 		renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 0.0, 0.0f + d, 1.0, 1.0, meta);
@@ -894,7 +894,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	private void renderInvBomb(Block block, int meta, RenderBlocks renderblocks) {
+	private static void renderInvBomb(Block block, int meta, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.125, 0.1875, 0.125, 0.875, 0.9375, 0.875, meta);
 		renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.375, 0.625, 1.0, 0.625, meta);
@@ -927,7 +927,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	private void renderInvButterflyJar(Block block, RenderBlocks renderblocks) {
+	private static void renderInvButterflyJar(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.5625, 0.8125);
 		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
@@ -938,7 +938,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	private void renderInvCommandTable(Block block, RenderBlocks renderblocks) {
+	private static void renderInvCommandTable(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
 		renderblocks.setOverrideBlockTexture(Blocks.planks.getIcon(0, 0));
@@ -1013,7 +1013,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	private void renderInvFence(Block block, int meta, RenderBlocks renderblocks) {
+	private static void renderInvFence(Block block, int meta, RenderBlocks renderblocks) {
 		for (int k = 0; k < 4; ++k) {
 			float f = 0.125f;
 			float f1 = 0.0625f;
@@ -1060,7 +1060,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.setRenderBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
 	}
 
-	private void renderInvStalactite(Block block, int metadata, RenderBlocks renderblocks) {
+	private static void renderInvStalactite(Block block, int metadata, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		for (int l = 0; l < 16; ++l) {
 			if (metadata == 0) {
@@ -1072,7 +1072,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	private void renderInvWildFireJar(Block block, RenderBlocks renderblocks) {
+	private static void renderInvWildFireJar(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		GOTBlockWildFireJar.setRenderingStage(1);
 		renderStandardInvBlock(renderblocks, block, 0.125, 0.0, 0.125, 0.875, 0.5, 0.875);
@@ -1092,7 +1092,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	private void renderPlate(int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderPlate(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -1104,7 +1104,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	private void renderReeds(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderReeds(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		block.setBlockBoundsBasedOnState(world, i, j, k);
 		renderblocks.setRenderBoundsFromBlock(block);
 		Tessellator tessellator = Tessellator.instance;
@@ -1144,7 +1144,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	private void renderRope(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderRope(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		double ropeWidth = 0.125;
 		double ropeMinX = 0.5 - ropeWidth / 2.0;
 		double ropeMaxX = 1.0 - ropeMinX;
@@ -1199,7 +1199,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	private void renderStalactite(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderStalactite(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -1217,7 +1217,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	private void renderTrapdoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderTrapdoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int meta = world.getBlockMetadata(i, j, k);
 		if (!BlockTrapDoor.func_150118_d(meta)) {
 			int dir = meta & 3;
@@ -1247,7 +1247,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.uvRotateTop = 0;
 	}
 
-	private void renderVanillaCauldron(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderVanillaCauldron(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
@@ -1285,7 +1285,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	private void renderWildFireJar(int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private static void renderWildFireJar(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;

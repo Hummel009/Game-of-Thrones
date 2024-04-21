@@ -20,7 +20,7 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		bindTexture(TextureMap.locationBlocksTexture);
 	}
 
-	private void renderTableAt(double d, double d1, double d2, double viewerX, double viewerZ, int zoomExp) {
+	private static void renderTableAt(double d, double d1, double d2, double viewerX, double viewerZ, int zoomExp) {
 		GL11.glEnable(32826);
 		GL11.glDisable(2884);
 		GL11.glDisable(2896);

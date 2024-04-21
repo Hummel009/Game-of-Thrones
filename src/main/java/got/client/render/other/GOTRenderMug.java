@@ -38,7 +38,7 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 	private static final ModelBase GLASS_MODEL = new GOTModelWineGlass();
 	private static final ModelBase BOTTLE_MODEL = new GOTModelGlassBottle();
 
-	private void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
+	private static void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
 		double yMin1 = yMin;
 		double yMax1 = yMax;
 		double edge = 0.001;
@@ -57,7 +57,7 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 
-	private void renderMeniscus(IIcon icon, int uvMin, int uvMax, double width, double height, float scale) {
+	private static void renderMeniscus(IIcon icon, int uvMin, int uvMax, double width, double height, float scale) {
 		double width1 = width;
 		double height1 = height;
 		float minU = icon.getInterpolatedU(uvMin);

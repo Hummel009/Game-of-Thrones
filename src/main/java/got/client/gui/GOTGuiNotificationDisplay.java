@@ -113,8 +113,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 	private abstract static class Notification {
 		protected final Long notificationTime = Minecraft.getSystemTime();
-
-		protected abstract int getDurationMs();
+		protected int durationMs;
 
 		protected Long getNotificationTime() {
 			return notificationTime;
@@ -123,6 +122,10 @@ public class GOTGuiNotificationDisplay extends Gui {
 		protected abstract void renderIcon(int var1, int var2);
 
 		protected abstract void renderText(int var1, int var2);
+
+		protected int getDurationMs() {
+			return durationMs;
+		}
 	}
 
 	private class NotificationAchievement extends Notification {
@@ -130,11 +133,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		private NotificationAchievement(GOTAchievement ach) {
 			achievement = ach;
-		}
-
-		@Override
-		public int getDurationMs() {
-			return 3000;
+			durationMs = 3000;
 		}
 
 		@Override
@@ -170,11 +169,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 			conqFac = fac;
 			conqValue = conq;
 			isCleansing = clean;
-		}
-
-		@Override
-		public int getDurationMs() {
-			return 6000;
+			durationMs = 6000;
 		}
 
 		@Override
@@ -198,11 +193,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		private NotificationFellowship(IChatComponent msg) {
 			message = msg;
-		}
-
-		@Override
-		public int getDurationMs() {
-			return 6000;
+			durationMs = 6000;
 		}
 
 		@Override

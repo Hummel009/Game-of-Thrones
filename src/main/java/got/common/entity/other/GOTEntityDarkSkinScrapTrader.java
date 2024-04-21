@@ -12,6 +12,7 @@ public class GOTEntityDarkSkinScrapTrader extends GOTEntityLightSkinScrapTrader 
 	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned)};
 	private static final int[] ROBE_COLORS = {3354412, 5984843, 5968655, 3619908, 9007463, 3228720};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDarkSkinScrapTrader(World world) {
 		super(world);
 	}

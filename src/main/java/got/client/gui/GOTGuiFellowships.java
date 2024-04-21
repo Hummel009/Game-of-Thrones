@@ -108,7 +108,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 		return false;
 	}
 
-	private void acceptInvitation(GOTFellowshipClient invite) {
+	private static void acceptInvitation(GOTFellowshipClient invite) {
 		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, true);
 		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
@@ -254,7 +254,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 		mouseOverFellowship = null;
 	}
 
-	private int countOnlineMembers(GOTFellowshipClient fs) {
+	private static int countOnlineMembers(GOTFellowshipClient fs) {
 		int i = 0;
 		List<GameProfile> allPlayers = fs.getAllPlayerProfiles();
 		for (GameProfile player : allPlayers) {
@@ -930,7 +930,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 		allFellowshipInvites.addAll(GOTLevelData.getData(mc.thePlayer).getClientFellowshipInvites());
 	}
 
-	private void rejectInvitation(GOTFellowshipClient invite) {
+	private static void rejectInvitation(GOTFellowshipClient invite) {
 		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, false);
 		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
@@ -1001,7 +1001,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 		}
 	}
 
-	private List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {
+	private static List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {
 		List<GOTFellowshipClient> sorted = new ArrayList<>(list);
 		sorted.sort((fs1, fs2) -> {
 			int count1 = fs1.getPlayerCount();
@@ -1014,7 +1014,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 		return sorted;
 	}
 
-	private List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
+	private static List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
 		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
 		members.sort(Comparator.comparing(GOTGuiFellowships::isPlayerOnline).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase(Locale.ROOT)));
 		return members;

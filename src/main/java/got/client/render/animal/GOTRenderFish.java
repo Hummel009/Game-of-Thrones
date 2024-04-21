@@ -27,7 +27,7 @@ public class GOTRenderFish extends RenderLiving {
 		return skins.getRandomSkin(fish);
 	}
 
-	private GOTRandomSkins getFishSkins(String s) {
+	private static GOTRandomSkins getFishSkins(String s) {
 		GOTRandomSkins skins = FISH_TEXTURES.get(s);
 		if (skins == null) {
 			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/fish/" + s);

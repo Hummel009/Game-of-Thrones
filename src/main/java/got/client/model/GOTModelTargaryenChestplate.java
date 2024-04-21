@@ -67,7 +67,7 @@ public class GOTModelTargaryenChestplate extends GOTModelBiped {
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 49, 18, -3.5F, -3.5F, 0.5F, 3, 7, 0, 0.0F));
 	}
 
-	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	private static void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

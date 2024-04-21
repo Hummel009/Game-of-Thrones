@@ -23,6 +23,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
 	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLightSkinThief(World world) {
 		super(world);
 		questInfo.setOfferChance(1);

@@ -158,7 +158,7 @@ public class GOTModelShadowcat extends ModelBase {
 		leg4.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
 	}
 
-	private void setRotation(ModelRenderer model, float x) {
+	private static void setRotation(ModelRenderer model, float x) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = 0.0f;
 		model.rotateAngleZ = 0.0f;

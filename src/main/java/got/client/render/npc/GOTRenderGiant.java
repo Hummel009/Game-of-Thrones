@@ -79,7 +79,7 @@ public class GOTRenderGiant extends RenderLiving {
 		}
 	}
 
-	private void scaleGiant(boolean inverse) {
+	private static void scaleGiant(boolean inverse) {
 		float scale = 1.6f;
 		if (inverse) {
 			scale = 1.0f / scale;

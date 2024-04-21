@@ -29,11 +29,11 @@ public class GOTThirdPersonViewer {
 		defaultThirdPersonDistance = getThirdPersonDistance();
 	}
 
-	private float getThirdPersonDistance() {
+	private static float getThirdPersonDistance() {
 		return ReflectionHelper.getPrivateValue(EntityRenderer.class, MC.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
-	private void setThirdPersonDistance(float thirdPersonDistance) {
+	private static void setThirdPersonDistance(float thirdPersonDistance) {
 		ReflectionHelper.setPrivateValue(EntityRenderer.class, MC.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 

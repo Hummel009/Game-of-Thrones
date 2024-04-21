@@ -62,7 +62,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		return avgColor;
 	}
 
-	private int calculateContrast(int color) {
+	private static int calculateContrast(int color) {
 		Color c = new Color(color);
 		float[] hsb = Color.RGBtoHSB(c.getRed(), c.getGreen(), c.getBlue(), null);
 		float h = hsb[0];
@@ -87,7 +87,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		return getContrastingColor(sign.getOnBlockIcon());
 	}
 
-	private BufferedImage loadAndCacheBlockTextureAtlas() {
+	private static BufferedImage loadAndCacheBlockTextureAtlas() {
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
 		int mipmapLvl = 0;

@@ -64,7 +64,8 @@ public class GOTKeyHandler {
 	}
 
 	@SubscribeEvent
-	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
+	@SuppressWarnings("MethodMayBeStatic")
+	public void onKeyInput(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
 		if (KEY_BINDING_MENU.getIsKeyPressed() && MC.currentScreen == null) {
 			MC.thePlayer.openGui(GOT.instance, GOTGuiId.MENU.ordinal(), MC.theWorld, 0, 0, 0);
@@ -135,6 +136,7 @@ public class GOTKeyHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onMouseInput(InputEvent.MouseInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
 	}

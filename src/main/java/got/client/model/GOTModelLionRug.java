@@ -37,7 +37,7 @@ public class GOTModelLionRug extends ModelBase {
 		GL11.glPopMatrix();
 	}
 
-	private void setRotationAngles() {
+	private static void setRotationAngles() {
 		LION_MODEL.getLeg1().rotateAngleX = 0.5235987755982988f;
 		LION_MODEL.getLeg1().rotateAngleZ = 1.5707963267948966f;
 		LION_MODEL.getLeg2().rotateAngleX = 0.5235987755982988f;

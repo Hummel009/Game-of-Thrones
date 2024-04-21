@@ -9,10 +9,10 @@ import got.common.faction.GOTFaction;
 import got.common.item.GOTMaterialFinder;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -25,12 +25,14 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
-		getNavigator().setCanSwim(false);
 		addTargetTasks(true);
-		tasks.addTask(0, new GOTEntityAIAttackOnCollide(this, 1.4, true));
-		tasks.addTask(2, new EntityAIWander(this, 1.0));
-		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
-		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
+		tasks.addTask(0, new EntityAISwimming(this));
+		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, true));
+		tasks.addTask(5, new EntityAIWander(this, 1.0));
+		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
+		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
+		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
+		tasks.addTask(9, new EntityAILookIdle(this));
 	}
 
 	@Override

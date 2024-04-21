@@ -73,7 +73,7 @@ public class GOTGuiEventHandler {
 	private GOTGuiEventHandler() {
 	}
 
-	private GuiButton getDifficultyButton(Iterable<GuiButton> buttons) {
+	private static GuiButton getDifficultyButton(Iterable<GuiButton> buttons) {
 		for (GuiButton obj : buttons) {
 			GuiOptionButton button;
 			if (obj instanceof GuiOptionButton && (button = (GuiOptionButton) obj).returnEnumOptions() == GameSettings.Options.DIFFICULTY) {
@@ -84,6 +84,7 @@ public class GOTGuiEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onGuiOpen(GuiOpenEvent event) {
 		GuiScreen gui = event.gui;
 		if (GOTConfig.customMainMenu && gui != null && gui.getClass() == GuiMainMenu.class) {
@@ -99,6 +100,7 @@ public class GOTGuiEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
@@ -116,7 +118,7 @@ public class GOTGuiEventHandler {
 	}
 
 	@SubscribeEvent
-	@SuppressWarnings("StringConcatenationMissingWhitespace")
+	@SuppressWarnings({"StringConcatenationMissingWhitespace", "MethodMayBeStatic"})
 	public void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
 		HoverEvent hoverevent;
 		IChatComponent component;
@@ -149,6 +151,7 @@ public class GOTGuiEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
 		GuiButton buttonDifficulty;
 		GuiScreen gui = event.gui;
@@ -284,6 +287,7 @@ public class GOTGuiEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
 		GuiScreen gui = event.gui;
 		Minecraft mc = Minecraft.getMinecraft();

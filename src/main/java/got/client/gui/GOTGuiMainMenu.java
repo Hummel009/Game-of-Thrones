@@ -99,7 +99,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		}
 		mapRenderer.setZoomStable((float) Math.pow(2.0, -0.10000000149011612));
 		mapRenderer.renderMap(this, mapGui, f);
-		mapRenderer.renderVignettes(this, zLevel, 2);
+		GOTGuiRendererMap.renderVignettes(this, zLevel, 2);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, fadeIn ? MathHelper.clamp_float(1.0f - fade, 0.0f, 1.0f) : 0.0f);

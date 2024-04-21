@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import java.awt.*;
 
 public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLightSkinScrapTrader(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
