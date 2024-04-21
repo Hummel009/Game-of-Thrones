@@ -10,7 +10,7 @@ public class GOTEntityAIHiredHorseRemainStill extends EntityAIBase {
 	private final GOTNPCMount theHorse;
 	private final EntityCreature livingHorse;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIHiredHorseRemainStill(GOTNPCMount entity) {
 		theHorse = entity;
 		livingHorse = (EntityCreature) theHorse;

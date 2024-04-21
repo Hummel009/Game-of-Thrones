@@ -14,7 +14,7 @@ public class GOTEntityAIUntamedPanic extends EntityAIBase {
 	private double targetY;
 	private double targetZ;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIUntamedPanic(GOTEntityNPCRideable mount, double d) {
 		theMount = mount;
 		speed = d;

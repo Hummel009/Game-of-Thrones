@@ -8,7 +8,7 @@ public class GOTEntityAIDragonCatchOwner extends EntityAIBase {
 	protected GOTEntityDragon dragon;
 	protected EntityPlayer owner;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIDragonCatchOwner(GOTEntityDragon dragon) {
 		this.dragon = dragon;
 	}

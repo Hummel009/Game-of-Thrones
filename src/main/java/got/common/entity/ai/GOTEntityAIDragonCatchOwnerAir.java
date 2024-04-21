@@ -5,7 +5,7 @@ import got.common.entity.dragon.GOTDragonFlightWaypoint;
 import got.common.entity.dragon.GOTEntityDragon;
 
 public class GOTEntityAIDragonCatchOwnerAir extends GOTEntityAIDragonCatchOwner {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIDragonCatchOwnerAir(GOTEntityDragon dragon) {
 		super(dragon);
 	}

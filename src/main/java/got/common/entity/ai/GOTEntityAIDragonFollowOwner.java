@@ -19,7 +19,7 @@ public class GOTEntityAIDragonFollowOwner extends EntityAIBase {
 	private int updateTicks;
 	private boolean avoidWater;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIDragonFollowOwner(GOTEntityDragon dragon, double speed, float minDist, float maxDist) {
 		this.dragon = dragon;
 		this.speed = speed;

@@ -12,7 +12,7 @@ public class GOTEntityAIHiringPlayerHurtByTarget extends EntityAITarget {
 	private EntityLivingBase theTarget;
 	private int playerRevengeTimer;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIHiringPlayerHurtByTarget(GOTEntityNPC entity) {
 		super(entity, false);
 		theNPC = entity;

@@ -23,7 +23,7 @@ public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
 	private Entity closestLivingEntity;
 	private PathEntity entityPathEntity;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINPCAvoidEvilPlayer(GOTEntityNPC npc, float f, double d, double d1) {
 		theNPC = npc;
 		distanceFromEntity = f;

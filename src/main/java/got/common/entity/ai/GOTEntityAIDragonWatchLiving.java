@@ -14,7 +14,7 @@ public class GOTEntityAIDragonWatchLiving extends EntityAIBase {
 	private Entity watchedEntity;
 	private int watchTicks;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIDragonWatchLiving(GOTEntityDragon dragon, float maxDist, float watchChance) {
 		this.dragon = dragon;
 		this.maxDist = maxDist;

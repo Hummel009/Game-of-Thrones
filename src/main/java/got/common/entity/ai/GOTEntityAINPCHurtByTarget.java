@@ -5,7 +5,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 
 public class GOTEntityAINPCHurtByTarget extends EntityAIHurtByTarget {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINPCHurtByTarget(GOTEntityNPC npc, boolean flag) {
 		super(npc, flag);
 	}

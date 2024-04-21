@@ -8,12 +8,12 @@ public class GOTEntityAIAvoidWithChance extends EntityAIAvoidEntity {
 	private final float chance;
 	private final String soundEffect;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIAvoidWithChance(EntityCreature entity, Class<?> avoidClass, float f, double d, double d1, float c) {
 		this(entity, avoidClass, f, d, d1, c, null);
 	}
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIAvoidWithChance(EntityCreature entity, Class<?> avoidClass, float f, double d, double d1, float c, String s) {
 		super(entity, avoidClass, f, d, d1);
 		theEntity = entity;

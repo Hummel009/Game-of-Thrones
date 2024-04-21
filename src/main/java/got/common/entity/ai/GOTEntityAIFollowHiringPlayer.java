@@ -18,7 +18,7 @@ public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
 	private boolean avoidsWater;
 	private int followTick;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIFollowHiringPlayer(GOTEntityNPC entity) {
 		theNPC = entity;
 		double entityMoveSpeed = entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue();
