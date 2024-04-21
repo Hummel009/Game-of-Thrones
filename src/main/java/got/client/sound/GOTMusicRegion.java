@@ -1,7 +1,5 @@
 package got.client.sound;
 
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,28 +50,13 @@ public enum GOTMusicRegion {
 		return regionName;
 	}
 
-	public static class Sub extends Pair<GOTMusicRegion, String> {
+	public static class Sub {
 		private final GOTMusicRegion region;
 		private final String subregion;
 
 		protected Sub(GOTMusicRegion r, String s) {
 			region = r;
 			subregion = s;
-		}
-
-		@Override
-		public String setValue(String value) {
-			throw new IllegalArgumentException("Value is final");
-		}
-
-		@Override
-		public GOTMusicRegion getLeft() {
-			return region;
-		}
-
-		@Override
-		public String getRight() {
-			return subregion;
 		}
 
 		public GOTMusicRegion getRegion() {
