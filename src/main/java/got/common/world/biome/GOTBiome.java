@@ -1159,6 +1159,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public interface Desert {
 	}
 
+	public interface Marshes {
+	}
+
 	public interface ImmuneToFrost {
 	}
 

@@ -229,17 +229,21 @@ public class GOTChunkProvider implements IChunkProvider {
 				float avgFlatBiomeHeight = totalFlatBiomeHeight / biomeCount;
 				float avgVariantHillFactor = totalVariantHillFactor / biomeCount;
 				if (GOTFixedStructures.hasMapFeatures(worldObj)) {
-					float roadNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.ROAD);
+					int width = 32;
+					if (centreBiome instanceof GOTBiome.Marshes) {
+						width = 8;
+					}
+					float roadNear = GOTBeziers.isBezierNear(xPos, zPos, width, GOTBeziers.Type.ROAD);
 					if (roadNear >= 0.0f) {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * roadNear;
 						avgHeightVariation *= roadNear;
 					}
-					float wallNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.WALL);
+					float wallNear = GOTBeziers.isBezierNear(xPos, zPos, width, GOTBeziers.Type.WALL);
 					if (wallNear >= 0.0f) {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * wallNear;
 						avgHeightVariation *= wallNear;
 					}
-					float linkerNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.LINKER);
+					float linkerNear = GOTBeziers.isBezierNear(xPos, zPos, width, GOTBeziers.Type.LINKER);
 					if (linkerNear >= 0.0f) {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * linkerNear;
 						avgHeightVariation *= linkerNear;

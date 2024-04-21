@@ -2,6 +2,7 @@ package got.common.world.biome.ulthos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -9,7 +10,7 @@ import got.common.world.spawning.GOTSpawnListContainer;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest {
+public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest implements GOTBiome.Marshes {
 	public GOTBiomeUlthosMarshes(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();

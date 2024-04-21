@@ -2,6 +2,7 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenMarshLights;
 import got.common.world.spawning.GOTEventSpawner;
@@ -10,7 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenFlowers;
 
 import java.util.Random;
 
-public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
+public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy implements GOTBiome.Marshes {
 	public GOTBiomeMossovyMarshes(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();

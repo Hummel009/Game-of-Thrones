@@ -2,6 +2,7 @@ package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
@@ -10,7 +11,7 @@ import got.common.world.spawning.GOTSpawnListContainer;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosJungle {
+public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosJungle implements GOTBiome.Marshes {
 	public GOTBiomeSothoryosMangrove(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();
