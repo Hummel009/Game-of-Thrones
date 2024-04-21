@@ -1,7 +1,6 @@
 package got.common.entity.ai;
 
 import got.GOT;
-import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTBartender;
 import got.common.entity.other.GOTEntityNPC;

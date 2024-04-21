@@ -13,8 +13,6 @@ import got.common.block.planks.*;
 import got.common.block.sapling.*;
 import got.common.block.slab.*;
 import got.common.block.table.*;
-import got.common.block.other.GOTBlockAsshaiTorch;
-import got.common.block.other.GOTBlockDoubleTorch;
 import got.common.block.wall.*;
 import got.common.block.wbeam.*;
 import got.common.block.wood.*;
