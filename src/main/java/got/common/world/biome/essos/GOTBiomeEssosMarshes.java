@@ -51,7 +51,7 @@ public class GOTBiomeEssosMarshes extends GOTBiomeEssos implements GOTBiome.Mars
 		decorator.setReedPerChunk(5);
 		decorator.setWaterlilyPerChunk(4);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN / 2));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 }

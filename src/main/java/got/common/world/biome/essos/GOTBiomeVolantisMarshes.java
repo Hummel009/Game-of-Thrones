@@ -31,7 +31,7 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis implements GOTBiom
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN / 2));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 	}

@@ -29,7 +29,7 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest implements GOTBi
 		decorator.setDryReedChance(1.0f);
 		npcSpawnList.clear();
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN / 2));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 
