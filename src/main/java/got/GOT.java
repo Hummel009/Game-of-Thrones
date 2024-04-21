@@ -361,6 +361,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preInit(FMLPreInitializationEvent event) {
 		GOTLog.findLogger();
 
@@ -376,6 +377,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onInit(FMLInitializationEvent event) {
 		GOTLoader.onInit();
 
@@ -383,6 +385,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
 	public void postInit(FMLPostInitializationEvent event) {
 		GOTLoader.postInit();
 
@@ -395,6 +398,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onMissingMappings(FMLMissingMappingsEvent event) {
 		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
 			Item item;
@@ -434,6 +438,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onServerStarting(FMLServerStartingEvent event) {
 		WorldServer world = DimensionManager.getWorld(0);
 
