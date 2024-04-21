@@ -522,7 +522,7 @@ public class GOTEventHandler {
 		Entity entity = event.target;
 		World world = entity.worldObj;
 		EntityPlayer entityplayer = event.entityPlayer;
-		if (!world.isRemote && (entity instanceof EntityHanging || entity instanceof GOTBannerProtectable) && GOTBannerProtection.isProtected(world, entity, GOTBannerProtection.forPlayer(entityplayer, GOTBannerProtection.Permission.FULL), true)) {
+		if (!world.isRemote && (entity instanceof EntityHanging || entity instanceof GOTEntityRugBase) && GOTBannerProtection.isProtected(world, entity, GOTBannerProtection.forPlayer(entityplayer, GOTBannerProtection.Permission.FULL), true)) {
 			event.setCanceled(true);
 		}
 	}
@@ -534,7 +534,7 @@ public class GOTEventHandler {
 		World world = entityplayer.worldObj;
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
 		Entity entity = event.target;
-		if (!world.isRemote && (entity instanceof EntityHanging || entity instanceof GOTBannerProtectable) && GOTBannerProtection.isProtected(world, entity, GOTBannerProtection.forPlayer(entityplayer, GOTBannerProtection.Permission.FULL), true)) {
+		if (!world.isRemote && (entity instanceof EntityHanging || entity instanceof GOTEntityRugBase) && GOTBannerProtection.isProtected(world, entity, GOTBannerProtection.forPlayer(entityplayer, GOTBannerProtection.Permission.FULL), true)) {
 			event.setCanceled(true);
 			return;
 		}

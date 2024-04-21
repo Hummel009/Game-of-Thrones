@@ -15,10 +15,7 @@ import got.common.fellowship.*;
 import got.common.item.other.GOTItemArmor;
 import got.common.item.weapon.GOTItemCrossbowBolt;
 import got.common.network.*;
-import got.common.quest.GOTMiniQuest;
-import got.common.quest.GOTMiniQuestEvent;
-import got.common.quest.GOTMiniQuestWelcome;
-import got.common.quest.MiniQuestSelector;
+import got.common.quest.*;
 import got.common.util.GOTCrashHandler;
 import got.common.util.GOTLog;
 import got.common.world.GOTWorldProvider;
@@ -972,7 +969,7 @@ public class GOTPlayerData {
 	}
 
 	public List<GOTMiniQuest> getActiveMiniQuests() {
-		return selectMiniQuests(new MiniQuestSelector.OptionalActive().setActiveOnly());
+		return selectMiniQuests(new GOTMiniQuestSelector().setActiveOnly());
 	}
 
 	public boolean getAdminHideMap() {
@@ -1270,7 +1267,7 @@ public class GOTPlayerData {
 	}
 
 	private List<GOTMiniQuest> getMiniQuestsForEntityID(UUID npcID, boolean activeOnly) {
-		MiniQuestSelector.EntityId sel = new MiniQuestSelector.EntityId(npcID);
+		GOTMiniQuestSelector.EntityId sel = new GOTMiniQuestSelector.EntityId(npcID);
 		if (activeOnly) {
 			sel.setActiveOnly();
 		}
@@ -1278,7 +1275,7 @@ public class GOTPlayerData {
 	}
 
 	public List<GOTMiniQuest> getMiniQuestsForFaction(GOTFaction f, boolean activeOnly) {
-		MiniQuestSelector.Faction sel = new MiniQuestSelector.Faction(() -> f);
+		GOTMiniQuestSelector.Faction sel = new GOTMiniQuestSelector.Faction(() -> f);
 		if (activeOnly) {
 			sel.setActiveOnly();
 		}
@@ -2703,7 +2700,7 @@ public class GOTPlayerData {
 		needsSave = false;
 	}
 
-	public List<GOTMiniQuest> selectMiniQuests(MiniQuestSelector selector) {
+	public List<GOTMiniQuest> selectMiniQuests(GOTMiniQuestSelector selector) {
 		List<GOTMiniQuest> ret = new ArrayList<>();
 		Iterable<GOTMiniQuest> threadSafe = new ArrayList<>(miniQuests);
 		for (GOTMiniQuest quest : threadSafe) {

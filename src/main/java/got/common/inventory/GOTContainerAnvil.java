@@ -17,7 +17,6 @@ import got.common.entity.other.GOTEntityLightSkinScrapTrader;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeEntry;
 import got.common.entity.other.GOTTradeable;
-import got.common.item.AnvilNameColorProvider;
 import got.common.item.other.*;
 import got.common.item.weapon.GOTItemSarbacane;
 import got.common.item.weapon.GOTItemThrowingAxe;
@@ -476,8 +475,8 @@ public class GOTContainerAnvil extends Container {
 			Collection<EnumChatFormatting> colorsToApply = new ArrayList<>(getAppliedFormattingCodes(inputCopy.getDisplayName()));
 			boolean alteringNameColor = false;
 			if (costsToRename(inputItem) && combinerItem != null) {
-				if (combinerItem.getItem() instanceof AnvilNameColorProvider) {
-					AnvilNameColorProvider nameColorProvider = (AnvilNameColorProvider) combinerItem.getItem();
+				if (combinerItem.getItem() instanceof GOTItemGemWithAnvilNameColor) {
+					GOTItemGemWithAnvilNameColor nameColorProvider = (GOTItemGemWithAnvilNameColor) combinerItem.getItem();
 					EnumChatFormatting newColor = nameColorProvider.getAnvilNameColor();
 					boolean isDifferentColor = !colorsToApply.contains(newColor);
 					if (isDifferentColor) {

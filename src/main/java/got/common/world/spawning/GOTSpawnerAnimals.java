@@ -3,7 +3,7 @@ package got.common.world.spawning;
 import cpw.mods.fml.common.eventhandler.Event;
 import got.common.GOTConfig;
 import got.common.GOTSpawnDamping;
-import got.common.entity.animal.GOTAnimalSpawnConditions;
+import got.common.entity.animal.GOTEntityBear;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.entity.EntityLiving;
@@ -193,7 +193,7 @@ public class GOTSpawnerAnimals {
 								exception.printStackTrace();
 								continue;
 							}
-							boolean canSpawn = !(entity instanceof GOTAnimalSpawnConditions) || ((GOTAnimalSpawnConditions) entity).canWorldGenSpawnAt(biome, variant);
+							boolean canSpawn = !(entity instanceof GOTEntityBear) || ((GOTEntityBear) entity).canWorldGenSpawnAt(biome, variant);
 							if (canSpawn) {
 								entity.setLocationAndAngles(f, j1, f2, rand.nextFloat() * 360.0f, 0.0f);
 								world.spawnEntityInWorld(entity);

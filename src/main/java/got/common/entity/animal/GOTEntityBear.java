@@ -23,7 +23,7 @@ import net.minecraft.world.biome.WorldChunkManager;
 import java.util.List;
 import java.util.Locale;
 
-public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditions, GOTBiome.ImmuneToFrost {
+public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFrost {
 	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.7, false);
 	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
 	private final EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
@@ -87,7 +87,6 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		hostileTick = 200;
 	}
 
-	@Override
 	public boolean canWorldGenSpawnAt(GOTBiome biome, GOTBiomeVariant variant) {
 		int trees = biome.getDecorator().getVariantTreesPerChunk(variant);
 		return trees >= 1;

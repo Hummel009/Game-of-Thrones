@@ -5,10 +5,19 @@ import got.common.faction.GOTFaction;
 import java.util.UUID;
 import java.util.function.Supplier;
 
-public interface MiniQuestSelector {
-	boolean include(GOTMiniQuest var1);
+public class GOTMiniQuestSelector {
+	private boolean activeOnly;
 
-	class BountyActiveAnyFaction extends OptionalActive {
+	public boolean include(GOTMiniQuest quest) {
+		return !activeOnly || quest.isActive();
+	}
+
+	public GOTMiniQuestSelector setActiveOnly() {
+		activeOnly = true;
+		return this;
+	}
+
+	public static class BountyActiveAnyFaction extends GOTMiniQuestSelector {
 		protected BountyActiveAnyFaction() {
 			setActiveOnly();
 		}
@@ -23,7 +32,7 @@ public interface MiniQuestSelector {
 		}
 	}
 
-	class BountyActiveFaction extends BountyActiveAnyFaction {
+	public static class BountyActiveFaction extends BountyActiveAnyFaction {
 		protected final Supplier<GOTFaction> factionGet;
 
 		public BountyActiveFaction(Supplier<GOTFaction> sup) {
@@ -36,7 +45,7 @@ public interface MiniQuestSelector {
 		}
 	}
 
-	class EntityId extends OptionalActive {
+	public static class EntityId extends GOTMiniQuestSelector {
 		protected final UUID entityID;
 
 		public EntityId(UUID id) {
@@ -49,7 +58,7 @@ public interface MiniQuestSelector {
 		}
 	}
 
-	class Faction extends OptionalActive {
+	public static class Faction extends GOTMiniQuestSelector {
 		protected final Supplier<GOTFaction> factionGet;
 
 		public Faction(Supplier<GOTFaction> sup) {
@@ -59,20 +68,6 @@ public interface MiniQuestSelector {
 		@Override
 		public boolean include(GOTMiniQuest quest) {
 			return super.include(quest) && quest.getEntityFaction() == factionGet.get();
-		}
-	}
-
-	class OptionalActive implements MiniQuestSelector {
-		protected boolean activeOnly;
-
-		@Override
-		public boolean include(GOTMiniQuest quest) {
-			return !activeOnly || quest.isActive();
-		}
-
-		public OptionalActive setActiveOnly() {
-			activeOnly = true;
-			return this;
 		}
 	}
 }

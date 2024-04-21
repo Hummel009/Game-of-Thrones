@@ -26,7 +26,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
-public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
+public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
 	private static final ItemStack[] ITEM_STACKS = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger)};
 	private static final int MAX_THEFTS = 3;
 
@@ -75,12 +75,10 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 		}
 	}
 
-	@Override
 	public GOTEntityNPC getBanditAsNPC() {
 		return this;
 	}
 
-	@Override
 	public GOTInventoryNPC getBanditInventory() {
 		return banditInventory;
 	}
@@ -100,12 +98,10 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 		return "standard/special/bandit";
 	}
 
-	@Override
 	public IChatComponent getTheftChatMsg() {
 		return new ChatComponentTranslation("got.chat.banditSteal");
 	}
 
-	@Override
 	public String getTheftSpeechBank(EntityPlayer player) {
 		return getSpeechBank(player);
 	}
@@ -179,5 +175,20 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		banditInventory.writeToNBT(nbt);
+	}
+
+	public static class Helper {
+		private Helper() {
+		}
+
+		public static boolean canStealFromPlayerInv(EntityPlayer entityplayer) {
+			for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
+				if (slot == entityplayer.inventory.currentItem || entityplayer.inventory.getStackInSlot(slot) == null) {
+					continue;
+				}
+				return true;
+			}
+			return false;
+		}
 	}
 }

@@ -1,7 +1,7 @@
 package got.common.entity.ai;
 
+import got.common.entity.other.GOTEntityLightSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.IBandit;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.RandomPositionGenerator;
@@ -11,7 +11,7 @@ import net.minecraft.util.Vec3;
 import java.util.List;
 
 public class GOTEntityAIBanditFlee extends EntityAIBase {
-	private final IBandit theBandit;
+	private final GOTEntityLightSkinBandit theBandit;
 	private final GOTEntityNPC theBanditAsNPC;
 	private final double speed;
 	private final double range;
@@ -19,7 +19,7 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 	private EntityPlayer targetPlayer;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityAIBanditFlee(IBandit bandit, double d) {
+	public GOTEntityAIBanditFlee(GOTEntityLightSkinBandit bandit, double d) {
 		theBandit = bandit;
 		theBanditAsNPC = theBandit.getBanditAsNPC();
 		speed = d;

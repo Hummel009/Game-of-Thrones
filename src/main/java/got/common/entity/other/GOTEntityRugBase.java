@@ -13,7 +13,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtectable {
+public abstract class GOTEntityRugBase extends Entity {
 	protected GOTEntityRugBase(World world) {
 		super(world);
 	}

@@ -9,10 +9,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMiniquestOffer;
 import got.common.network.GOTPacketNPCIsOfferingQuest;
-import got.common.quest.GOTMiniQuest;
-import got.common.quest.GOTMiniQuestBounty;
-import got.common.quest.GOTMiniQuestFactory;
-import got.common.quest.MiniQuestSelector;
+import got.common.quest.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,7 +33,7 @@ public class GOTQuestInfo {
 	private final Predicate<EntityPlayer> bountyHelpConsumer;
 	private final Collection<EntityPlayer> openOfferPlayers = new ArrayList<>();
 	private final Collection<UUID> activeQuestPlayers = new ArrayList<>();
-	private final MiniQuestSelector.BountyActiveAnyFaction activeBountySelector;
+	private final GOTMiniQuestSelector.BountyActiveAnyFaction activeBountySelector;
 
 	private GOTMiniQuest miniquestOffer;
 
@@ -54,7 +51,7 @@ public class GOTQuestInfo {
 		minAlignment = 0.0f;
 		bountyHelpPredicate = player -> theNPC.getRNG().nextInt(3) == 0;
 		bountyHelpConsumer = player -> true;
-		activeBountySelector = new MiniQuestSelector.BountyActiveFaction(theNPC::getFaction);
+		activeBountySelector = new GOTMiniQuestSelector.BountyActiveFaction(theNPC::getFaction);
 	}
 
 	public void addActiveQuestPlayer(EntityPlayer entityplayer) {
