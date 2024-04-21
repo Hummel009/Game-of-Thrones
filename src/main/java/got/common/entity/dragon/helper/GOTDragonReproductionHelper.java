@@ -17,10 +17,8 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 
 	public GOTDragonReproductionHelper(GOTEntityDragon dragon, int dataIndexBreeder, int dataIndexReproCount) {
 		super(dragon);
-
 		this.dataIndexBreeder = dataIndexBreeder;
 		dataIndexReproduced = dataIndexReproCount;
-
 		dataWatcher.addObject(dataIndexBreeder, "");
 		dataWatcher.addObject(dataIndexReproCount, 0);
 	}
@@ -31,11 +29,9 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 
 	public boolean canMateWith(EntityAnimal mate) {
 		if (mate == dragon || !dragon.isTamed() || !(mate instanceof GOTEntityDragon) || !canReproduce()) {
-
 			return false;
 		}
 		GOTEntityDragon dragonMate = (GOTEntityDragon) mate;
-
 		return dragonMate.isTamed() && dragonMate.getReproductionHelper().canReproduce() && dragon.isInLove() && dragonMate.isInLove();
 	}
 
@@ -51,20 +47,17 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		GOTEntityDragon parent1 = dragon;
 		GOTEntityDragon parent2 = (GOTEntityDragon) mate;
 		GOTEntityDragon baby = new GOTEntityDragon(dragon.worldObj);
-
 		if (parent1.hasCustomNameTag() && parent2.hasCustomNameTag()) {
 			String p1Name = parent1.getCustomNameTag();
 			String p2Name = parent2.getCustomNameTag();
 			String babyName;
 			if (p1Name.contains(" ") || p2Name.contains(" ")) {
-
 				String[] p1Names = p1Name.split(" ");
 				String[] p2Names = p2Name.split(" ");
 				p1Name = fixChildName(p1Names[rand.nextInt(p1Names.length)]);
 				p2Name = fixChildName(p2Names[rand.nextInt(p2Names.length)]);
 				babyName = rand.nextBoolean() ? p1Name + ' ' + p2Name : p2Name + ' ' + p1Name;
 			} else {
-
 				if (rand.nextBoolean()) {
 					p1Name = p1Name.substring(0, (p1Name.length() - 1) / 2);
 				} else {
@@ -90,11 +83,8 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 			return nameOld;
 		}
 		char[] chars = nameOld.toLowerCase(Locale.ROOT).toCharArray();
-
 		chars[0] = Character.toUpperCase(chars[0]);
-
 		String nameNew = new String(chars);
-
 		if (!nameOld.equals(nameNew)) {
 			GOTLog.getLogger().debug("Fixed child name {} -> {}");
 		}
@@ -138,7 +128,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		setBreederName(nbt.getString(NBT_BREEDER));
-
 		int reproCount = 0;
 		String NBT_REPRODUCED = "HasReproduced";
 		if (nbt.hasKey(NBT_REPRO_COUNT)) {

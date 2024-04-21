@@ -105,32 +105,24 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 	private void onNewLifeStage(GOTDragonLifeStage lifeStage, GOTDragonLifeStage prevLifeStage) {
 		GOTLog.getLogger().trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
-
 		if (dragon.isClient()) {
 			if (prevLifeStage == GOTDragonLifeStage.EGG && lifeStage == GOTDragonLifeStage.HATCHLING) {
 				playEggCrackEffect();
 			}
 		} else {
-
 			dragon.setCanFly(lifeStage != GOTDragonLifeStage.EGG && lifeStage != GOTDragonLifeStage.HATCHLING);
-
 			dragon.getNavigator().setEnterDoors(lifeStage == GOTDragonLifeStage.HATCHLING);
-
 			if (lifeStage == GOTDragonLifeStage.EGG) {
 				dragon.setPathToEntity(null);
 				dragon.setAttackTarget(null);
 			}
 			IAttributeInstance healthAttrib = dragon.getEntityAttribute(SharedMonsterAttributes.maxHealth);
 			IAttributeInstance damageAttrib = dragon.getEntityAttribute(SharedMonsterAttributes.attackDamage);
-
 			healthAttrib.removeModifier(scaleModifier);
 			damageAttrib.removeModifier(scaleModifier);
-
 			scaleModifier.setScale(getScale());
-
 			healthAttrib.applyModifier(scaleModifier);
 			damageAttrib.applyModifier(scaleModifier);
-
 			dragon.setHealth(dragon.getMaxHealth());
 		}
 	}
@@ -144,14 +136,12 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 	public void transformToEgg() {
 		if (dragon.getHealth() <= 0) {
-
 			return;
 		}
 		GOTLog.getLogger().debug("transforming to egg");
 		float volume = 1;
 		float pitch = 0.5f + (0.5f - rand.nextFloat()) * 0.1f;
 		dragon.worldObj.playSoundAtEntity(dragon, "mob.endermen.portal", volume, pitch);
-
 		if (dragon.isSaddled()) {
 			dragon.dropItem(Items.saddle, 1);
 		}
@@ -164,13 +154,10 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 			return;
 		}
 		int age = dragon.getGrowingAge();
-
 		int eggAge = GOTDragonLifeStage.EGG.getAgeLimit();
 		int hatchAge = GOTDragonLifeStage.HATCHLING.getAgeLimit();
 		float chance = (age - eggAge) / (float) (hatchAge - eggAge);
-
 		if (chance > 0.66f) {
-
 			chance /= 60;
 			if (eggWiggleX > 0) {
 				eggWiggleX--;

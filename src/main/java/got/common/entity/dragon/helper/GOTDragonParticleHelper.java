@@ -10,12 +10,10 @@ public class GOTDragonParticleHelper extends GOTDragonHelper {
 
 	@Override
 	public void applyEntityAttributes() {
-
 	}
 
 	@Override
 	public void onDeath() {
-
 	}
 
 	@Override

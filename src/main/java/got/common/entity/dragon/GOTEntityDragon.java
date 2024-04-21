@@ -37,11 +37,24 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneToFrost {
-	public static final float BASE_WIDTH = 4;
+	public static final float BASE_WIDTH = 4.0f;
+
+	private static final float BASE_HEIGHT = 3.0f;
 
 	private static final IAttribute MOVE_SPEED_AIR = new RangedAttribute("generic.movementSpeedAir", 1.5, 0.0, Double.MAX_VALUE).setDescription("Movement Speed Air").setShouldWatch(true);
+
 	private static final String[] ENTITYAITASKS_TICKRATE = {"tickRate", "field_75779_e"};
 	private static final String[] ENTITYLIVING_BODYHELPER = {"bodyHelper", "field_70762_j"};
+
+	private static final String NBT_FLYING = "Flying";
+	private static final String NBT_CAN_FLY = "CanFly";
+	private static final String NBT_SADDLED = "Saddle";
+	private static final Item FAVORITE_FOOD = Items.fish;
+
+	private static final double BASE_SPEED_GROUND = 0.3;
+	private static final double BASE_SPEED_AIR = 1.5;
+	private static final double BASE_HEALTH = 1000;
+	private static final double BASE_DAMAGE = 8;
 
 	private static final int INDEX_FLYING = 18;
 	private static final int INDEX_CAN_FLY = 19;
@@ -49,16 +62,11 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 	private static final int INDEX_BREEDER = 21;
 	private static final int INDEX_REPRO_COUNT = 23;
 
-	private static final String NBT_FLYING = "Flying";
-	private static final String NBT_CAN_FLY = "CanFly";
-	private static final String NBT_SADDLED = "Saddle";
-
-	private static final Item FAVORITE_FOOD = Items.fish;
-
 	private final GOTDragonFlightWaypoint waypoint;
 	private final EntityAITasks airTasks;
 
 	private Map<Class<? extends GOTDragonHelper>, GOTDragonHelper> helpers;
+
 	private GOTModelDragonAnimaton animator;
 	private BitSet controlFlags;
 
@@ -67,7 +75,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 	private float yawAdd;
 	private int inAirTicks;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragon(World world) {
 		super(world);
 		waypoint = new GOTDragonFlightWaypoint(this);
@@ -77,7 +85,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		} catch (Exception ex) {
 			GOTLog.getLogger().warn("Can't override EntityBodyHelper", ex);
 		}
-		float BASE_HEIGHT = 3.0f;
 		setSize(BASE_WIDTH, BASE_HEIGHT);
 		stepHeight = 1;
 		tasks.addTask(0, new GOTEntityAIDragonCatchOwnerGround(this));
@@ -107,12 +114,10 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 
 	private static Item consumeEquipped(EntityPlayer player, Item... items) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
-
 		if (itemStack == null) {
 			return null;
 		}
 		Item equippedItem = itemStack.getItem();
-
 		for (Item item : items) {
 			if (item == equippedItem) {
 				if (!player.capabilities.isCreativeMode) {
@@ -129,13 +134,11 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 
 	public static boolean hasEquipped(EntityPlayer player, Item item) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
-
 		return itemStack != null && itemStack.getItem() == item;
 	}
 
 	private static boolean hasEquippedUsable(EntityPlayer player) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
-
 		return itemStack != null && itemStack.getItemUseAction() != EnumAction.none;
 	}
 
@@ -151,10 +154,8 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getAttributeMap().registerAttribute(MOVE_SPEED_AIR);
-
 		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);
 		setAttributes();
-
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.applyEntityAttributes();
 		}
@@ -282,9 +283,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 			double newYaw = GOTModelDragonAnimaton.normDeg(newRotationYaw - rotationYaw);
 			rotationYaw += (float) newYaw / newPosRotationIncrements;
 			rotationPitch += ((float) newRotationPitch - rotationPitch) / newPosRotationIncrements;
-
 			--newPosRotationIncrements;
-
 			setPosition(px, py, pz);
 			setRotation(rotationYaw, rotationPitch);
 		}
@@ -312,7 +311,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 			Vec3 motionVec = Vec3.createVectorHelper(motionX, motionY, motionZ).normalize();
 			Vec3 deltaVec = Vec3.createVectorHelper(deltaX, deltaY, deltaZ).normalize();
 			Vec3 rotVec = Vec3.createVectorHelper(-Math.sin(Math.toRadians(rotationYaw)), motionY, Math.cos(Math.toRadians(rotationYaw))).normalize();
-
 			float tmp1 = (float) (rotVec.dotProduct(deltaVec) + 0.5) / 1.5f;
 			if (tmp1 < 0) {
 				tmp1 = 0;
@@ -358,7 +356,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		setCanFly(nbt.getBoolean(NBT_CAN_FLY));
 		waypoint.readFromNBT(nbt);
 		setSaddled(nbt.getBoolean(NBT_SADDLED));
-
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.readFromNBT(nbt);
 		}
@@ -384,7 +381,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		if (!isEgg()) {
 			setTasksEnabled(tasks, isGroundAIEnabled());
 			setTasksEnabled(airTasks, isAirAIEnabled());
-
 			super.updateAITasks();
 			airTasks.onUpdateTasks();
 		}
@@ -397,7 +393,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		nbt.setBoolean(NBT_CAN_FLY, isCanFly());
 		nbt.setBoolean(NBT_SADDLED, isSaddled());
 		waypoint.writeToNBT(nbt);
-
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.writeToNBT(nbt);
 		}
@@ -418,7 +413,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 				double vy = 0.1;
 				double vz = Math.cos(Math.toRadians(rotationYaw)) * knockback * 0.5;
 				victim.addVelocity(vx, vy, vz);
-
 				motionX *= 0.6;
 				motionZ *= 0.6;
 			}
@@ -430,7 +424,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 				EnchantmentHelper.func_151384_a((EntityLivingBase) victim, this);
 			}
 			EnchantmentHelper.func_151385_b(this, victim);
-
 			setLastAttacker(victim);
 			float volume = getSoundVolume() * 0.7f;
 			float pitch = getSoundPitch();
@@ -445,7 +438,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 			return false;
 		}
 		aiSit.setSitting(false);
-
 		return super.attackEntityFrom(damagesource, amount);
 	}
 
@@ -709,7 +701,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		motionX = motionY = motionZ = 0;
 		rotationYaw = prevRotationYaw;
 		rotationYawHead = prevRotationYawHead;
-
 		if (isEgg() || deathTime >= getMaxDeathTime()) {
 			setDead();
 		}
@@ -740,13 +731,9 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 	}
 
 	private void setAttributes() {
-		double BASE_SPEED_GROUND = 0.3;
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(BASE_SPEED_GROUND);
-		double BASE_SPEED_AIR = 1.5;
 		getEntityAttribute(MOVE_SPEED_AIR).setBaseValue(BASE_SPEED_AIR);
-		double BASE_HEALTH = 1000;
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(BASE_HEALTH);
-		double BASE_DAMAGE = 8;
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(BASE_DAMAGE);
 	}
 
