@@ -30,7 +30,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 	private ChunkCoordinates currentFlightTarget;
 	private int flapTime;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityButterfly(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);

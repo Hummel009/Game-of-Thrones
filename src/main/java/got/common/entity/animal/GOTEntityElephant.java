@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityElephant extends GOTEntityHorse {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityElephant(World world) {
 		super(world);
 		setSize(1.5f, 3.6f);

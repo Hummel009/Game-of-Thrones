@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTEntityWhiteOryx extends GOTEntityGemsbok implements GOTRandomSkinEntity {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWhiteOryx(World world) {
 		super(world);
 		setSize(width * 0.9f, height * 0.9f);

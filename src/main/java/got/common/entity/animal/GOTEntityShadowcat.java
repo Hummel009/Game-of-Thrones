@@ -28,7 +28,7 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 	private int hostileTick;
 	private boolean prevIsChild = true;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityShadowcat(World world) {
 		super(world);
 		setSize(1.35f, 1.35f);

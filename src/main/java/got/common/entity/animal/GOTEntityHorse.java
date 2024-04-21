@@ -41,7 +41,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	private boolean isMoving;
 	private boolean prevIsChild = true;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHorse(World world) {
 		super(world);
 		tasks.addTask(0, new GOTEntityAIHiredHorseRemainStill(this));

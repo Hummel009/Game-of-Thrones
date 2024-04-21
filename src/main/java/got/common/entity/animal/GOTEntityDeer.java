@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDeer(World world) {
 		super(world);
 		setSize(1.6f, 1.8f);

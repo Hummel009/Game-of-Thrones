@@ -42,7 +42,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 
 	private boolean assignedAttackOrFlee;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySwan(World world) {
 		super(world);
 		setSize(0.5f, 0.7f);

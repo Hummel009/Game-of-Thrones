@@ -28,7 +28,7 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 	private int hostileTick;
 	private boolean prevIsChild = true;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWalrus(World world) {
 		super(world);
 		setSize(1.05f, 1.35f);

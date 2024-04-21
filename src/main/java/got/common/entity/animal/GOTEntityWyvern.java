@@ -16,7 +16,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHeat {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWyvern(World world) {
 		super(world);
 		canBeMarried = false;

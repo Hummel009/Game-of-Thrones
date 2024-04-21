@@ -1,26 +1,27 @@
 package got.common.entity.ai;
 
 import got.GOT;
-import got.common.entity.animal.GOTEntityAnimalMF;
+import got.common.entity.animal.GOTEntityLionBase;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Random;
 
-public class GOTEntityAIMFMate extends EntityAIBase {
-	private final GOTEntityAnimalMF theAnimal;
+public class GOTEntityAILionMate extends EntityAIBase {
+	private final GOTEntityLionBase theAnimal;
 	private final World theWorld;
 	private final double moveSpeed;
 
-	private GOTEntityAnimalMF targetMate;
+	private EntityAnimal targetMate;
 	private int breeding;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityAIMFMate(GOTEntityAnimalMF animal, double d) {
+	public GOTEntityAILionMate(GOTEntityLionBase animal, double d) {
 		theAnimal = animal;
 		theWorld = animal.worldObj;
 		moveSpeed = d;
@@ -32,12 +33,12 @@ public class GOTEntityAIMFMate extends EntityAIBase {
 		return targetMate.isEntityAlive() && targetMate.isInLove() && breeding < 60;
 	}
 
-	private GOTEntityAnimalMF findMate() {
+	private EntityAnimal findMate() {
 		float searchRadius = 8.0f;
-		Class<? extends GOTEntityAnimalMF> mateClass = theAnimal.getAnimalMFBaseClass();
-		List<? extends GOTEntityAnimalMF> entities = theWorld.getEntitiesWithinAABB(mateClass, theAnimal.boundingBox.expand(searchRadius, searchRadius, searchRadius));
+		Class<? extends EntityAnimal> mateClass = theAnimal.getAnimalMFBaseClass();
+		List<? extends EntityAnimal> entities = theWorld.getEntitiesWithinAABB(mateClass, theAnimal.boundingBox.expand(searchRadius, searchRadius, searchRadius));
 
-		for (GOTEntityAnimalMF entity : entities) {
+		for (EntityAnimal entity : entities) {
 			if (theAnimal.canMateWith(entity)) {
 				return entity;
 			}

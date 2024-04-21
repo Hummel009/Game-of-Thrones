@@ -11,7 +11,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBoar extends GOTEntityHorse implements GOTBiome.ImmuneToFrost {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBoar(World world) {
 		super(world);
 		setSize(0.9f, 0.8f);

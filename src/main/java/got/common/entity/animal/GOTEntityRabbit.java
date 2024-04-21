@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRabbit(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);

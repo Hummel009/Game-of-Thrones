@@ -24,7 +24,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	private ChunkCoordinates currentSwimTarget;
 	private int swimTargetTime;
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFish(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);
