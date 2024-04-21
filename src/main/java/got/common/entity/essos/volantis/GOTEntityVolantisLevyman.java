@@ -8,8 +8,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityVolantisLevyman extends GOTEntityVolantisMan {
-	public static ItemStack[] weaponsIron = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisLevyman(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -39,16 +40,16 @@ public class GOTEntityVolantisLevyman extends GOTEntityVolantisMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weaponsIron.length);
-		npcItemsInv.setMeleeWeapon(weaponsIron[i].copy());
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		GOTEntityUtils.setLevymanArmor(this, rand, true);
-		return data;
+		return data1;
 	}
 
 	@Override

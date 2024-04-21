@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityQarthMan extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -65,11 +66,11 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase {
 		return camel;
 	}
 
-	public EntityAIBase createQarthAttackAI() {
+	protected EntityAIBase createQarthAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
-	public void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.QARTH, 1, 2 + i);
 		}
@@ -138,8 +139,8 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -148,10 +149,10 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

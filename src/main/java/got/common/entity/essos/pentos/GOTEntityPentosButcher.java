@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityPentosButcher extends GOTEntityPentosTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosButcher(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityPentosButcher extends GOTEntityPentosTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.camelRaw));
-		return data;
+		return data1;
 	}
 }

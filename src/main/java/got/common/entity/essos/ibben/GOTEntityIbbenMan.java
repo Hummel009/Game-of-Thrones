@@ -22,8 +22,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.flintDagger), new ItemStack(Items.iron_axe), new ItemStack(Items.stone_axe), new ItemStack(GOTItems.ironBattleaxe)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.flintDagger), new ItemStack(Items.iron_axe), new ItemStack(Items.stone_axe), new ItemStack(GOTItems.ironBattleaxe)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -51,7 +52,7 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
-	public EntityAIBase createIbbenAttackAI() {
+	protected EntityAIBase createIbbenAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -70,7 +71,7 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 		dropIbbenItems(flag, i);
 	}
 
-	public void dropIbbenItems(boolean flag, int i) {
+	private void dropIbbenItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.IBBEN, 1, 2 + i);
 		}
@@ -134,8 +135,8 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -144,11 +145,11 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

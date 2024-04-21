@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityLhazarMan extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -53,7 +54,7 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
-	public EntityAIBase createLhazarAttackAI() {
+	protected EntityAIBase createLhazarAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
@@ -62,7 +63,7 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase {
 		return GOTMiniQuestFactory.LHAZAR.createQuest(this);
 	}
 
-	public void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.LHAZAR, 1, 2 + i);
 		}
@@ -132,8 +133,8 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -142,10 +143,10 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

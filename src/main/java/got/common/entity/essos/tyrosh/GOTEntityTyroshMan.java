@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityTyroshMan extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTyroshMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -65,11 +66,11 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase {
 		return horse;
 	}
 
-	public EntityAIBase createTyroshAttackAI() {
+	protected EntityAIBase createTyroshAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
-	public void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.TYROSH, 1, 2 + i);
 		}
@@ -138,8 +139,8 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -148,10 +149,10 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

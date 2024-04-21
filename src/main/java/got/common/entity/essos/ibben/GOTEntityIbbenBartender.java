@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIbbenBartender extends GOTEntityIbbenMan implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenBartender(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -61,9 +62,9 @@ public class GOTEntityIbbenBartender extends GOTEntityIbbenMan implements GOTTra
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mugMead));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

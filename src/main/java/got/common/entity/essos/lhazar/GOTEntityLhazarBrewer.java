@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLhazarBrewer extends GOTEntityLhazarTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarBrewer(World world) {
 		super(world);
 	}
@@ -25,10 +26,10 @@ public class GOTEntityLhazarBrewer extends GOTEntityLhazarTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		ItemStack drink = new ItemStack(GOTItems.mugAraq);
 		GOTItemMug.setVessel(drink, GOTFoods.NOMAD_DRINK.getRandomVessel(rand), true);
 		npcItemsInv.setIdleItem(drink);
-		return data;
+		return data1;
 	}
 }

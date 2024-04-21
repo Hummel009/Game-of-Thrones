@@ -5,6 +5,7 @@ import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 
 public class GOTEntityNorvosBannerBearer extends GOTEntityNorvosGuard implements GOTBannerBearer {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorvosBannerBearer(World world) {
 		super(world);
 	}

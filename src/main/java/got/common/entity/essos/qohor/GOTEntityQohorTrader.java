@@ -22,7 +22,7 @@ public abstract class GOTEntityQohorTrader extends GOTEntityQohorMan implements 
 		addTargetTasks(false);
 	}
 
-	public static ItemStack createTraderTurban(Random random) {
+	private static ItemStack createTraderTurban(Random random) {
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		if (random.nextInt(3) == 0) {
 			GOTItemTurban.setHasOrnament(turban, true);
@@ -52,8 +52,8 @@ public abstract class GOTEntityQohorTrader extends GOTEntityQohorMan implements 
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, createTraderTurban(rand));
-		return data;
+		return data1;
 	}
 }

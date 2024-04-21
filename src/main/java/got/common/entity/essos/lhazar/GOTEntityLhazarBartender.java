@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLhazarBartender extends GOTEntityLhazarMan implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarBartender(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -54,8 +55,8 @@ public class GOTEntityLhazarBartender extends GOTEntityLhazarMan implements GOTT
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.skullCup));
-		return data;
+		return data1;
 	}
 }

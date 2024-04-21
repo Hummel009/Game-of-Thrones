@@ -4,7 +4,6 @@ import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDothrakiKhalin(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -44,8 +44,8 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -59,13 +59,13 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(1, null);
 		setCurrentItemOrArmor(2, null);
 		setCurrentItemOrArmor(3, null);
 		setCurrentItemOrArmor(4, null);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
-		return data;
+		return data1;
 	}
 
 	@Override

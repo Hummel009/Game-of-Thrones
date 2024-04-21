@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIbbenBrewer extends GOTEntityIbbenMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenBrewer(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityIbbenBrewer extends GOTEntityIbbenMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
-		return data;
+		return data1;
 	}
 }

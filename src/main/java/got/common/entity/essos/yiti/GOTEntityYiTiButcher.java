@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiButcher extends GOTEntityYiTiMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiButcher(World world) {
 		super(world);
 	}
@@ -24,7 +25,7 @@ public class GOTEntityYiTiButcher extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.rabbitRaw));
 		int robeColor = 14509656;
 		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
@@ -33,6 +34,6 @@ public class GOTEntityYiTiButcher extends GOTEntityYiTiMarketTrader {
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
-		return data;
+		return data1;
 	}
 }

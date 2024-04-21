@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityBraavosMiner extends GOTEntityBraavosTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosMiner(World world) {
 		super(world);
 	}
@@ -23,9 +24,9 @@ public class GOTEntityBraavosMiner extends GOTEntityBraavosTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

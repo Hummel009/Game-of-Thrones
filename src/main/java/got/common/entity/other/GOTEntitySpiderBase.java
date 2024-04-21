@@ -40,7 +40,6 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 	private int npcTemper;
 
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	protected GOTEntitySpiderBase(World world) {
 		super(world);
 		setSize(1.4f, 0.8f);

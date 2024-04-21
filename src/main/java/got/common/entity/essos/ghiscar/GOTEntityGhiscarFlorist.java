@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarFlorist extends GOTEntityGhiscarTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarFlorist(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityGhiscarFlorist extends GOTEntityGhiscarTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.essosFlower, 1, rand.nextInt(4)));
-		return data;
+		return data1;
 	}
 }

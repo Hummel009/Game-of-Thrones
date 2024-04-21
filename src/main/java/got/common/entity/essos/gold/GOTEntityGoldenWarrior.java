@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGoldenWarrior extends GOTEntityGoldenMan {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGoldenWarrior(World world) {
 		super(world);
 	}

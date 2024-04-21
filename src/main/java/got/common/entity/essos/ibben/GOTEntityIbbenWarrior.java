@@ -1,7 +1,6 @@
 package got.common.entity.essos.ibben;
 
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -40,8 +40,8 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -56,7 +56,7 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
 			case 0:
@@ -84,7 +84,7 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ibbenBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ibbenLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ibbenChestplate));
-		return data;
+		return data1;
 	}
 
 	@Override

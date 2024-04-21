@@ -7,7 +7,6 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIBombardierAttack;
 import got.common.entity.ai.GOTEntityAISmoke;
 import got.common.entity.other.GOTEntityBomb;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,8 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
-	public EntityLivingBase currentRevengeTarget;
+	private EntityLivingBase currentRevengeTarget;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiBombardier(World world) {
 		super(world);
 		spawnRidingHorse = false;
@@ -48,10 +48,10 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		if (npcItemsInv.getBomb() != null) {
 			setCurrentItemOrArmor(0, npcItemsInv.getBombingItem());
-		} else if (mode == GOTEntityNPC.AttackMode.IDLE) {
+		} else if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -83,10 +83,10 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuse));
 		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 10));
-		return data;
+		return data1;
 	}
 
 	@Override

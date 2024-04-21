@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityLorathMan extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -53,7 +54,7 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
-	public EntityAIBase createLorathAttackAI() {
+	protected EntityAIBase createLorathAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
@@ -69,7 +70,7 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 		return horse;
 	}
 
-	public void dropEssosItems(boolean flag, int i) {
+	private void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.LORATH, 1, 2 + i);
 		}
@@ -138,8 +139,8 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -148,10 +149,10 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

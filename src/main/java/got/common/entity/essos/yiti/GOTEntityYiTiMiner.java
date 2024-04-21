@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiMiner extends GOTEntityYiTiMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiMiner(World world) {
 		super(world);
 	}
@@ -25,7 +26,7 @@ public class GOTEntityYiTiMiner extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Items.iron_pickaxe));
 		int robeColor = 10855057;
@@ -35,6 +36,6 @@ public class GOTEntityYiTiMiner extends GOTEntityYiTiMarketTrader {
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
-		return data;
+		return data1;
 	}
 }

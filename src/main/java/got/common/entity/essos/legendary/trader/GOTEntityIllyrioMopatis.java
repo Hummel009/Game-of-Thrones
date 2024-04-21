@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIllyrioMopatis(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -91,8 +92,8 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -106,10 +107,10 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDaggerPoisoned));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

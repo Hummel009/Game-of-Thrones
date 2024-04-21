@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLorathBlacksmith extends GOTEntityLorathMan implements GOTTradeable.Smith {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathBlacksmith(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -65,12 +66,12 @@ public class GOTEntityLorathBlacksmith extends GOTEntityLorathMan implements GOT
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		GOTItemRobes.setRobesColor(turban, 4993068);
 		setCurrentItemOrArmor(4, turban);
-		return data;
+		return data1;
 	}
 }

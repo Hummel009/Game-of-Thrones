@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityGoldenCaptain extends GOTEntityGoldenWarrior implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGoldenCaptain(World world) {
 		super(world);
 		addTargetTasks(false);

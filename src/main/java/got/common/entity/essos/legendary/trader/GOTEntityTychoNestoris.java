@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTychoNestoris(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -84,8 +85,8 @@ public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTra
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -99,10 +100,10 @@ public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTra
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityTugarKhan extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTugarKhan(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -79,8 +80,8 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -89,10 +90,10 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.tugarKhanSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

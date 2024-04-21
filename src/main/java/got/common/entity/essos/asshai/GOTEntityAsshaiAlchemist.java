@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiAlchemist(World world) {
 		super(world);
 		cape = GOTCapes.ASSHAI;
@@ -39,9 +40,9 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

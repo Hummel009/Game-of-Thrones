@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -36,7 +37,7 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
 			int i = rand.nextInt(5);
 			switch (i) {
@@ -72,7 +73,7 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 		} else {
 			setCurrentItemOrArmor(4, new ItemStack(GOTItems.lhazarHelmet));
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

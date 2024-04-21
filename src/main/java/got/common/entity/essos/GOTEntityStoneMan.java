@@ -3,10 +3,6 @@ package got.common.entity.essos;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
-import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
-import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
-import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
 import got.common.faction.GOTFaction;
 import got.common.item.weapon.GOTItemSword;
 import net.minecraft.entity.Entity;
@@ -20,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityStoneMan extends GOTEntityNPC {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStoneMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -82,8 +79,8 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -92,20 +89,18 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
-		GOTEntityStoneMan infected = new GOTEntityStoneMan(worldObj);
-		if (entity instanceof GOTEntityBericDondarrion || entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityLancelLannister || entity instanceof GOTEntityTheonGreyjoy) {
-			super.onKillEntity(entity);
-		} else if (entity instanceof GOTEntityHumanBase) {
-			super.onKillEntity(entity);
-			infected.familyInfo.setAge(((GOTEntityNPC) entity).getFamilyInfo().getAge());
+		super.onKillEntity(entity);
+		if (entity instanceof GOTEntityHumanBase) {
+			GOTEntityStoneMan infected = new GOTEntityStoneMan(worldObj);
+			infected.getFamilyInfo().setAge(((GOTEntityNPC) entity).getFamilyInfo().getAge());
 			infected.copyLocationAndAnglesFrom(entity);
-			infected.npcItemsInv.setMeleeWeapon(((GOTEntityNPC) entity).getNpcItemsInv().getMeleeWeapon());
-			infected.npcItemsInv.setIdleItem(((GOTEntityNPC) entity).getNpcItemsInv().getMeleeWeapon());
+			infected.getNpcItemsInv().setMeleeWeapon(((GOTEntityNPC) entity).getNpcItemsInv().getMeleeWeapon());
+			infected.getNpcItemsInv().setIdleItem(((GOTEntityNPC) entity).getNpcItemsInv().getMeleeWeapon());
 			infected.setCurrentItemOrArmor(1, entity.getEquipmentInSlot(1));
 			infected.setCurrentItemOrArmor(2, entity.getEquipmentInSlot(2));
 			infected.setCurrentItemOrArmor(3, entity.getEquipmentInSlot(3));
 			infected.setCurrentItemOrArmor(4, entity.getEquipmentInSlot(4));
-			infected.familyInfo.setMale(((GOTEntityNPC) entity).getFamilyInfo().isMale());
+			infected.getFamilyInfo().setMale(((GOTEntityNPC) entity).getFamilyInfo().isMale());
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(infected);
 		}

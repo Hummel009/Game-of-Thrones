@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityPentosGuard extends GOTEntityPentosLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosGuard(World world) {
 		super(world);
 		cape = GOTCapes.PENTOS;
@@ -28,7 +29,7 @@ public class GOTEntityPentosGuard extends GOTEntityPentosLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -36,6 +37,6 @@ public class GOTEntityPentosGuard extends GOTEntityPentosLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.pentosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.pentosChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.pentosHelmet));
-		return data;
+		return data1;
 	}
 }

@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityIfekevron extends GOTEntityNPC {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIfekevron(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -63,8 +64,8 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());

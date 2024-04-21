@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarUnsullied(World world) {
 		super(world);
 		cape = GOTCapes.UNSULLIED;
@@ -30,13 +31,13 @@ public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.unsulliedBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.unsulliedLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.unsulliedChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.unsulliedHelmet));
-		return data;
+		return data1;
 	}
 }

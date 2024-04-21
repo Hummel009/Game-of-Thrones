@@ -1170,7 +1170,7 @@ public class GOTEventHandler {
 						if (wraith.getDistanceSqToEntity(entity) <= 144.0D) {
 							world.spawnEntityInWorld(wraith);
 							wraith.setAttackTarget(entity);
-							wraith.attackTargetUUID = entity.getUniqueID();
+							wraith.setAttackTargetUUID(entity.getUniqueID());
 							world.playSoundAtEntity(wraith, "got:wraith.spawn", 1.0F, 0.7F + world.rand.nextFloat() * 0.6F);
 						}
 					}

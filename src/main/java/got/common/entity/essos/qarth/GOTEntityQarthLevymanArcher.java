@@ -2,13 +2,13 @@ package got.common.entity.essos.qarth;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityQarthLevymanArcher extends GOTEntityQarthLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthLevymanArcher(World world) {
 		super(world);
 		spawnRidingHorse = false;
@@ -26,8 +26,8 @@ public class GOTEntityQarthLevymanArcher extends GOTEntityQarthLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
@@ -36,9 +36,9 @@ public class GOTEntityQarthLevymanArcher extends GOTEntityQarthLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.essosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return data1;
 	}
 }

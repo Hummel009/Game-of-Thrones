@@ -6,7 +6,6 @@ import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTMercenary;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,9 +18,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTMercenary {
-	public EntityAIBase rangedAttackAI = createMossovyRangedAI();
-	public EntityAIBase meleeAttackAI;
+	private final EntityAIBase rangedAttackAI = createMossovyRangedAI();
+	private EntityAIBase meleeAttackAI;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMossovyWitcher(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -51,7 +51,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 		return meleeAttackAI;
 	}
 
-	public EntityAIBase createMossovyRangedAI() {
+	private EntityAIBase createMossovyRangedAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 20, 40, 20.0f);
 	}
 
@@ -107,19 +107,19 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-		if (mode == GOTEntityNPC.AttackMode.MELEE) {
+		if (mode == AttackMode.MELEE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, meleeAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-		if (mode == GOTEntityNPC.AttackMode.RANGED) {
+		if (mode == AttackMode.RANGED) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, rangedAttackAI);
@@ -129,14 +129,14 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mossovySword));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.mossovyBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.mossovyLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.mossovyChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityJogos extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityJogos(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -56,7 +57,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 		getEntityAttribute(HORSE_ATTACK_SPEED).setBaseValue(2.0);
 	}
 
-	public EntityAIBase createJogosAttackAI() {
+	protected EntityAIBase createJogosAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -80,7 +81,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 		dropJogosItems(flag, i);
 	}
 
-	public void dropJogosItems(boolean flag, int i) {
+	private void dropJogosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.JOGOS, 1, 2 + i);
 		}
@@ -147,8 +148,8 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -163,7 +164,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadBattleaxe));
 		} else {
@@ -184,7 +185,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

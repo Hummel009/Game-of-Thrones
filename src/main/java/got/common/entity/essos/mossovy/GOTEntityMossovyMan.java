@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	private Item seedsItem;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMossovyMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -58,7 +59,7 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 		return GOTMiniQuestFactory.MOSSOVY.createQuest(this);
 	}
 
-	public EntityAIBase createMossovyAttackAI() {
+	protected EntityAIBase createMossovyAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
@@ -79,7 +80,7 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 		dropMossovyItems(flag, i);
 	}
 
-	public void dropMossovyItems(boolean flag, int i) {
+	private void dropMossovyItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.MOSSOVY, 1, 2 + i);
 		}
@@ -114,8 +115,8 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -124,10 +125,10 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mossovyDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

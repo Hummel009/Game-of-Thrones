@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorvosGoldsmith extends GOTEntityNorvosTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorvosGoldsmith(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityNorvosGoldsmith extends GOTEntityNorvosTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.silverRing));
-		return data;
+		return data1;
 	}
 }

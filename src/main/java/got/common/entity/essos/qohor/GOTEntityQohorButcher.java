@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityQohorButcher extends GOTEntityQohorTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQohorButcher(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityQohorButcher extends GOTEntityQohorTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.camelRaw));
-		return data;
+		return data1;
 	}
 }

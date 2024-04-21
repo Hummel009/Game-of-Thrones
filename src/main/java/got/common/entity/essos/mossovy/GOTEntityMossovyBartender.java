@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityMossovyBartender extends GOTEntityMossovyMan implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMossovyBartender(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -54,8 +55,8 @@ public class GOTEntityMossovyBartender extends GOTEntityMossovyMan implements GO
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
-		return data;
+		return data1;
 	}
 }

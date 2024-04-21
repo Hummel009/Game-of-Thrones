@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityBraavosFishmonger extends GOTEntityBraavosTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosFishmonger(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityBraavosFishmonger extends GOTEntityBraavosTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Items.fishing_rod));
-		return data;
+		return data1;
 	}
 }

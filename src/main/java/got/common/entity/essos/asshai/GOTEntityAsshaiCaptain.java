@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiWarrior implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiCaptain(World world) {
 		super(world);
 		cape = GOTCapes.ASSHAI;
@@ -62,13 +63,13 @@ public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiWarrior implements GO
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiSword));
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

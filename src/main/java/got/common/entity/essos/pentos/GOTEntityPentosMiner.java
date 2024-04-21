@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityPentosMiner extends GOTEntityPentosTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosMiner(World world) {
 		super(world);
 	}
@@ -23,9 +24,9 @@ public class GOTEntityPentosMiner extends GOTEntityPentosTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

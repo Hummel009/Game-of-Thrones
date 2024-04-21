@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYoungGriff extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYoungGriff(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -66,16 +67,16 @@ public class GOTEntityYoungGriff extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

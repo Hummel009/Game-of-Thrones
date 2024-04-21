@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLhazarMason extends GOTEntityLhazarTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarMason(World world) {
 		super(world);
 	}
@@ -24,9 +25,9 @@ public class GOTEntityLhazarMason extends GOTEntityLhazarTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzePickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
-		return data;
+		return data1;
 	}
 }

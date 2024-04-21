@@ -24,10 +24,11 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTEntityMarshWraith extends GOTEntityNPC {
-	public UUID attackTargetUUID;
-	public boolean checkedForAttackTarget;
-	public int timeUntilDespawn = -1;
+	private UUID attackTargetUUID;
+	private boolean checkedForAttackTarget;
+	private int timeUntilDespawn = -1;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMarshWraith(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -102,7 +103,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		return dataWatcher.getWatchableObjectInt(17);
 	}
 
-	public void setDeathFadeTime(int i) {
+	private void setDeathFadeTime(int i) {
 		dataWatcher.updateObject(17, i);
 	}
 
@@ -125,7 +126,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
-	public void setSpawnFadeTime(int i) {
+	private void setSpawnFadeTime(int i) {
 		dataWatcher.updateObject(16, i);
 	}
 
@@ -232,5 +233,14 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 			nbt.setLong("TargetUUIDMost", attackTargetUUID.getMostSignificantBits());
 			nbt.setLong("TargetUUIDLeast", attackTargetUUID.getLeastSignificantBits());
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public UUID getAttackTargetUUID() {
+		return attackTargetUUID;
+	}
+
+	public void setAttackTargetUUID(UUID attackTargetUUID) {
+		this.attackTargetUUID = attackTargetUUID;
 	}
 }

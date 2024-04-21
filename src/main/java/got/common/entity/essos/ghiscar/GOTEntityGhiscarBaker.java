@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarBaker extends GOTEntityGhiscarTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarBaker(World world) {
 		super(world);
 	}
@@ -23,9 +24,9 @@ public class GOTEntityGhiscarBaker extends GOTEntityGhiscarTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.rollingPin));
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.oliveBread));
-		return data;
+		return data1;
 	}
 }

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLorathBaker extends GOTEntityLorathTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathBaker(World world) {
 		super(world);
 	}
@@ -23,9 +24,9 @@ public class GOTEntityLorathBaker extends GOTEntityLorathTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.rollingPin));
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.oliveBread));
-		return data;
+		return data1;
 	}
 }

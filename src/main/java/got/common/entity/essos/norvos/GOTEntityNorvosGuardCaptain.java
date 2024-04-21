@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorvosGuardCaptain extends GOTEntityNorvosGuard implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorvosGuardCaptain(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -59,11 +60,11 @@ public class GOTEntityNorvosGuardCaptain extends GOTEntityNorvosGuard implements
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarCorsair extends GOTEntityGhiscarLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarCorsair(World world) {
 		super(world);
 		shield = GOTShields.GHISCAR;
@@ -29,7 +30,7 @@ public class GOTEntityGhiscarCorsair extends GOTEntityGhiscarLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
 			case 0:
@@ -62,6 +63,6 @@ public class GOTEntityGhiscarCorsair extends GOTEntityGhiscarLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ghiscarLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ghiscarChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.ghiscarHelmet));
-		return data;
+		return data1;
 	}
 }

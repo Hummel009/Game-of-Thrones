@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiSoldier(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -24,7 +25,7 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(8);
 		switch (i) {
 			case 0:
@@ -55,6 +56,6 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yitiLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yitiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yitiHelmet));
-		return data;
+		return data1;
 	}
 }

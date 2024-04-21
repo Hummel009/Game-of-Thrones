@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLorathBrewer extends GOTEntityLorathTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathBrewer(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityLorathBrewer extends GOTEntityLorathTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAraq));
-		return data;
+		return data1;
 	}
 }

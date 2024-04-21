@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTTradeable, GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHizdahrZoLoraq(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -99,9 +100,9 @@ public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenWarlord(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -57,12 +58,12 @@ public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTU
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ibbenSword));
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		return data;
+		return data1;
 	}
 
 	@Override

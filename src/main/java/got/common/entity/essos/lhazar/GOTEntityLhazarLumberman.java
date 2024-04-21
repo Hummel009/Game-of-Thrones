@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLhazarLumberman extends GOTEntityLhazarTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarLumberman(World world) {
 		super(world);
 	}
@@ -23,9 +24,9 @@ public class GOTEntityLhazarLumberman extends GOTEntityLhazarTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

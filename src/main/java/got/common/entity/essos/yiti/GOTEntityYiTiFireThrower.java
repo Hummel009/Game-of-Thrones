@@ -3,7 +3,6 @@ package got.common.entity.essos.yiti;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityFirePot;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -12,9 +11,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
-	public EntityAIBase rangedAttackAI = createEasterlingRangedAI();
-	public EntityAIBase meleeAttackAI;
+	private final EntityAIBase rangedAttackAI = createEasterlingRangedAI();
+	private EntityAIBase meleeAttackAI;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiFireThrower(World world) {
 		super(world);
 		spawnRidingHorse = false;
@@ -32,7 +32,7 @@ public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
 		worldObj.spawnEntityInWorld(pot);
 	}
 
-	public EntityAIBase createEasterlingRangedAI() {
+	private EntityAIBase createEasterlingRangedAI() {
 		return new GOTEntityAIRangedAttack(this, 1.3, 20, 30, 16.0f);
 	}
 
@@ -52,19 +52,19 @@ public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		}
-		if (mode == GOTEntityNPC.AttackMode.MELEE) {
+		if (mode == AttackMode.MELEE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, meleeAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-		if (mode == GOTEntityNPC.AttackMode.RANGED) {
+		if (mode == AttackMode.RANGED) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, rangedAttackAI);
@@ -74,10 +74,10 @@ public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiDagger));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.firePot));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return data1;
 	}
 }

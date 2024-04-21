@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTradeable.Smith {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenBlacksmith(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -57,9 +58,9 @@ public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTr
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

@@ -25,8 +25,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import java.util.List;
 
 public class GOTEntityDothraki extends GOTEntityHumanBase {
-	public int draka;
+	private int draka;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDothraki(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -62,7 +63,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 		return !questInfo.anyActiveQuestPlayers();
 	}
 
-	public EntityAIBase createDothrakiAttackAI() {
+	protected EntityAIBase createDothrakiAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -71,7 +72,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 		return GOTMiniQuestFactory.DOTHRAKI.createQuest(this);
 	}
 
-	public void dropDothrakiItems(boolean flag, int i) {
+	private void dropDothrakiItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.DOTHRAKI, 1, 2 + i);
 		}
@@ -121,7 +122,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 		return false;
 	}
 
-	public String getDothrakiSkirmishSpeech() {
+	private String getDothrakiSkirmishSpeech() {
 		return "standard/special/gladiator";
 	}
 
@@ -156,8 +157,8 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -184,7 +185,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadBattleaxe));
 		} else {
@@ -205,7 +206,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase {
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

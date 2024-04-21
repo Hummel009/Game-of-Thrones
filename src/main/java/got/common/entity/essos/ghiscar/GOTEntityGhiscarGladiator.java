@@ -11,9 +11,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
-	public static ItemStack[] weaponsIron = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
-	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
+	private static final int[] TURBAN_COLORS = {1643539, 6309443, 7014914, 7809314, 5978155};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -49,18 +50,18 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weaponsIron.length);
-		npcItemsInv.setMeleeWeapon(weaponsIron[i].copy());
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ghiscarBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ghiscarLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ghiscarChestplate));
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
-		int robeColor = turbanColors[rand.nextInt(turbanColors.length)];
+		int robeColor = TURBAN_COLORS[rand.nextInt(TURBAN_COLORS.length)];
 		GOTItemRobes.setRobesColor(turban, robeColor);
 		setCurrentItemOrArmor(4, turban);
-		return data;
+		return data1;
 	}
 
 	@Override

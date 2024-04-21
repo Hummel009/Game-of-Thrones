@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 	private Item seedsItem;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDaenerysTargaryen(World world) {
 		super(world);
 		addTargetTasks(false);

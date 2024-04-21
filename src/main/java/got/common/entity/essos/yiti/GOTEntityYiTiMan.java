@@ -26,8 +26,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityYiTiMan extends GOTEntityHumanBase {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger)};
+	private static final ItemStack[] weapons = {new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -67,7 +68,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 		return horse;
 	}
 
-	public EntityAIBase createYiTiAttackAI() {
+	protected EntityAIBase createYiTiAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -81,7 +82,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 		dropYiTiItems(flag, i);
 	}
 
-	public void dropYiTiItems(boolean flag, int i) {
+	private void dropYiTiItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.YI_TI, 1, 2 + i);
 		}
@@ -140,8 +141,8 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -150,7 +151,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(null);
@@ -163,7 +164,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 		if (familyInfo.isMale() && rand.nextInt(3000) == 0) {
 			familyInfo.setName("12121");
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiWarrior(World world) {
 		super(world);
 		cape = GOTCapes.ASSHAI;
@@ -41,7 +42,7 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(5);
 		switch (i) {
 			case 0:
@@ -67,7 +68,7 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiHelmet));
-		return data;
+		return data1;
 	}
 
 	@Override

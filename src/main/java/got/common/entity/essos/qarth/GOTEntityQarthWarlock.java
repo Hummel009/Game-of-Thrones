@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthWarlock(World world) {
 		super(world);
 	}
@@ -29,11 +30,11 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, null);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

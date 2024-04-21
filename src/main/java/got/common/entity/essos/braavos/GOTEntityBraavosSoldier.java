@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityBraavosSoldier extends GOTEntityBraavosLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosSoldier(World world) {
 		super(world);
 		spawnRidingHorse = rand.nextInt(10) == 0;
@@ -17,7 +18,7 @@ public class GOTEntityBraavosSoldier extends GOTEntityBraavosLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
 			case 0:
@@ -50,6 +51,6 @@ public class GOTEntityBraavosSoldier extends GOTEntityBraavosLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.braavosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.braavosChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.braavosHelmet));
-		return data;
+		return data1;
 	}
 }

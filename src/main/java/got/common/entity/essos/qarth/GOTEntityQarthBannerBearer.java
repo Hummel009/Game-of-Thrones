@@ -5,6 +5,7 @@ import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 
 public class GOTEntityQarthBannerBearer extends GOTEntityQarthLevyman implements GOTBannerBearer {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthBannerBearer(World world) {
 		super(world);
 	}

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityQarthLumberman extends GOTEntityQarthTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthLumberman(World world) {
 		super(world);
 	}
@@ -23,9 +24,9 @@ public class GOTEntityQarthLumberman extends GOTEntityQarthTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 }

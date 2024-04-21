@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiShadowbinder(World world) {
 		super(world);
 		tasks.addTask(1, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
@@ -70,7 +71,7 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.asshaiStaff));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -78,6 +79,6 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
-		return data;
+		return data1;
 	}
 }

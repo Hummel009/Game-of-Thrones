@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiFarmer extends GOTEntityYiTiMan implements GOTTradeable, GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiFarmer(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -63,7 +64,7 @@ public class GOTEntityYiTiFarmer extends GOTEntityYiTiMan implements GOTTradeabl
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		int robeColor = 7577646;
@@ -73,7 +74,7 @@ public class GOTEntityYiTiFarmer extends GOTEntityYiTiMan implements GOTTradeabl
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
-		return data;
+		return data1;
 	}
 
 	@Override

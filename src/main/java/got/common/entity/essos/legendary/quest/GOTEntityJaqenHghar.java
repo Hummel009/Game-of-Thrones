@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityJaqenHghar(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -45,7 +46,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 		tasks.addTask(9, new EntityAILookIdle(this));
 	}
 
-	public boolean addMQOfferFor(EntityPlayer entityplayer) {
+	private boolean addMQOfferFor(EntityPlayer entityplayer) {
 		GOTMiniQuestWelcome quest;
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (pd.getMiniQuestsForEntity(this, true).isEmpty() && ((GOTMiniQuest) (quest = new GOTMiniQuestWelcome(null, this))).canPlayerAccept(entityplayer)) {
@@ -85,7 +86,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 		doJaqenFX();
 	}
 
-	public void depart() {
+	private void depart() {
 		Collection<EntityPlayer> msgPlayers = new ArrayList<>();
 		List<EntityPlayer> worldPlayers = worldObj.playerEntities;
 		for (EntityPlayer obj : worldPlayers) {
@@ -104,7 +105,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 		setDead();
 	}
 
-	public void doJaqenFX() {
+	private void doJaqenFX() {
 		playSound("random.pop", 2.0f, 0.5f + rand.nextFloat() * 0.5f);
 		worldObj.setEntityState(this, (byte) 16);
 	}
@@ -144,8 +145,8 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -162,10 +163,10 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

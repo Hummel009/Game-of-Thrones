@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityVolantisGoldsmith extends GOTEntityVolantisTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisGoldsmith(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityVolantisGoldsmith extends GOTEntityVolantisTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.silverRing));
-		return data;
+		return data1;
 	}
 }
