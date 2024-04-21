@@ -139,15 +139,15 @@ public class GOTEntityUtils {
 	}
 
 	public static boolean canBeMarried(GOTEntityNPC npc) {
-		return npc.familyInfo.getAge() >= 0 && CAN_BE_MARRIED.contains(npc.getClass());
+		return npc.getFamilyInfo().getAge() >= 0 && CAN_BE_MARRIED.contains(npc.getClass());
 	}
 
 	public static boolean canBeRobbed(GOTEntityNPC npc) {
-		return npc.familyInfo.getAge() >= 0 && CAN_BE_ROBBED.contains(npc.getClass());
+		return npc.getFamilyInfo().getAge() >= 0 && CAN_BE_ROBBED.contains(npc.getClass());
 	}
 
 	public static boolean canSmokeDrink(GOTEntityNPC npc) {
-		return npc.familyInfo.isMale() && npc.familyInfo.getAge() >= 0 && CAN_SMOKE_DRINK.contains(npc.getClass());
+		return npc.getFamilyInfo().isMale() && npc.getFamilyInfo().getAge() >= 0 && CAN_SMOKE_DRINK.contains(npc.getClass());
 	}
 
 	private static ItemStack dyeLeather(ItemStack itemstack, Random rand) {

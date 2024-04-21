@@ -91,6 +91,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	protected GOTInventoryNPCItems npcItemsInv;
 
 	protected boolean spawnRidingHorse;
+	protected boolean liftSpawnRestrictions;
 
 	private final List<GOTFaction> killBonusFactions = new ArrayList<>();
 
@@ -101,7 +102,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private UUID prevAttackTarget;
 
 	private boolean isNPCPersistent;
-	private boolean liftSpawnRestrictions;
 	private boolean clientCombatStance;
 	private boolean clientIsEating;
 	private boolean liftBannerRestrictions;

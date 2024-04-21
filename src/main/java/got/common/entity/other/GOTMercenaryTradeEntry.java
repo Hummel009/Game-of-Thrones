@@ -23,6 +23,6 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 
 	@Override
 	public boolean hasRequiredCostAndAlignment(EntityPlayer entityplayer, GOTHireableBase trader) {
-		return !((GOTEntityNPC) theMerc).hireableInfo.isActive() && super.hasRequiredCostAndAlignment(entityplayer, trader);
+		return !((GOTEntityNPC) theMerc).getHireableInfo().isActive() && super.hasRequiredCostAndAlignment(entityplayer, trader);
 	}
 }

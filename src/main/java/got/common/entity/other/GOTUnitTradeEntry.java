@@ -146,7 +146,7 @@ public class GOTUnitTradeEntry {
 				if (mountClass != null) {
 					mount = createHiredMount(world);
 				}
-				hiredNPC.hireableInfo.hireUnit(entityplayer, !(unitExists = world.loadedEntityList.contains(hiredNPC)), trader.getFaction(), this, squadron, mount);
+				hiredNPC.getHireableInfo().hireUnit(entityplayer, !(unitExists = world.loadedEntityList.contains(hiredNPC)), trader.getFaction(), this, squadron, mount);
 				if (!unitExists) {
 					world.spawnEntityInWorld(hiredNPC);
 					if (mount != null) {

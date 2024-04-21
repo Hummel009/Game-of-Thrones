@@ -54,7 +54,7 @@ public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtec
 		return getRugItem();
 	}
 
-	public abstract ItemStack getRugItem();
+	protected abstract ItemStack getRugItem();
 
 	private int getTimeUntilGrowl() {
 		return (60 + rand.nextInt(150)) * 20;

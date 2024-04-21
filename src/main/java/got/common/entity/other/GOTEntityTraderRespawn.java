@@ -78,7 +78,7 @@ public class GOTEntityTraderRespawn extends Entity {
 			traderHomeRadius = entity.func_110174_bM();
 		}
 		if (entity instanceof GOTTradeable) {
-			GOTTraderInfo traderInfo = entity.traderInfo;
+			GOTTraderInfo traderInfo = entity.getTraderInfo();
 			traderData = new NBTTagCompound();
 			traderInfo.writeToNBT(traderData);
 		}
@@ -189,7 +189,7 @@ public class GOTEntityTraderRespawn extends Entity {
 				if (entity instanceof GOTEntityNPC) {
 					GOTEntityNPC trader = (GOTEntityNPC) entity;
 					trader.setLocationAndAngles(posX, posY, posZ, rand.nextFloat() * 360.0f, 0.0f);
-					trader.spawnRidingHorse = false;
+					trader.setSpawnRidingHorse(false);
 					trader.setLiftSpawnRestrictions(true);
 					boundingBox.offset(0.0, 100.0, 0.0);
 					if (trader.getCanSpawnHere()) {
@@ -200,7 +200,7 @@ public class GOTEntityTraderRespawn extends Entity {
 						}
 						flag = worldObj.spawnEntityInWorld(trader);
 						if (trader instanceof GOTTradeable && traderData != null) {
-							trader.traderInfo.readFromNBT(traderData);
+							trader.getTraderInfo().readFromNBT(traderData);
 						}
 					}
 					boundingBox.offset(0.0, -100.0, 0.0);

@@ -219,9 +219,9 @@ public class GOTEntityNPCRespawner extends Entity {
 				entity.setLiftSpawnRestrictions(false);
 				worldObj.spawnEntityInWorld(entity);
 				if (mountSetting == 0) {
-					entity.spawnRidingHorse = false;
+					entity.setSpawnRidingHorse(false);
 				} else if (mountSetting == 1) {
-					entity.spawnRidingHorse = true;
+					entity.setSpawnRidingHorse(true);
 				}
 				entity.onSpawnWithEgg(null);
 				if (homeRange >= 0) {

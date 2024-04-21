@@ -91,7 +91,7 @@ public class GOTEntityAsshaiMan extends GOTEntityHumanBase {
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (isLiftSpawnRestrictions()) {
+			if (liftSpawnRestrictions) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);
