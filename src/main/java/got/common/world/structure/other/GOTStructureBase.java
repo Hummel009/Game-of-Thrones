@@ -45,9 +45,10 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	private final Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	private final Map<String, Float> scanAliasChances = new HashMap<>();
 
+	protected final boolean notifyChanges;
+
 	protected EntityPlayer usingPlayer;
 	protected boolean restrictions = true;
-	protected boolean notifyChanges;
 	protected int originX;
 	protected int originY;
 	protected int originZ;

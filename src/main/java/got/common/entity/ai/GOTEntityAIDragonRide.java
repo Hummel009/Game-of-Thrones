@@ -7,7 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.BitSet;
 
 public abstract class GOTEntityAIDragonRide extends EntityAIBase {
-	protected GOTEntityDragon dragon;
+	protected final GOTEntityDragon dragon;
+
 	protected EntityPlayer rider;
 
 	protected GOTEntityAIDragonRide(GOTEntityDragon dragon) {

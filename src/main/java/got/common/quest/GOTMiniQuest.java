@@ -53,7 +53,7 @@ public abstract class GOTMiniQuest {
 
 	protected final Collection<ItemStack> itemsRewarded = new ArrayList<>();
 	protected final List<String> quotesStages = new ArrayList<>();
-	protected List<ItemStack> rewardItemTable = new ArrayList<>();
+	protected final List<ItemStack> rewardItemTable = new ArrayList<>();
 
 	protected GOTPlayerData playerData;
 	protected String entityNameFull;
@@ -617,12 +617,14 @@ public abstract class GOTMiniQuest {
 	}
 
 	public abstract static class QuestFactoryBase<Q extends GOTMiniQuest> {
+		protected final String questName;
+
 		protected GOTMiniQuestFactory questFactoryGroup;
-		protected String questName;
-		protected float rewardFactor = 1.0f;
+
 		protected boolean willHire;
-		protected float hiringAlignment;
 		protected boolean isLegendary;
+		protected float rewardFactor = 1.0f;
+		protected float hiringAlignment;
 
 		protected QuestFactoryBase(String name) {
 			questName = name;

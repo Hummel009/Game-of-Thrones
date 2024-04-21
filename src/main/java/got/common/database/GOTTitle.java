@@ -188,8 +188,8 @@ public class GOTTitle {
 	}
 
 	public static class PlayerTitle {
-		protected GOTTitle title;
-		protected EnumChatFormatting theColor;
+		protected final GOTTitle title;
+		protected final EnumChatFormatting theColor;
 
 		public PlayerTitle(GOTTitle title, EnumChatFormatting color) {
 			EnumChatFormatting color1 = color;

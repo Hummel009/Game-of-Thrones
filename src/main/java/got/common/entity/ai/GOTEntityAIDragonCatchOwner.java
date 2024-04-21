@@ -5,7 +5,8 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAIDragonCatchOwner extends EntityAIBase {
-	protected GOTEntityDragon dragon;
+	protected final GOTEntityDragon dragon;
+
 	protected EntityPlayer owner;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

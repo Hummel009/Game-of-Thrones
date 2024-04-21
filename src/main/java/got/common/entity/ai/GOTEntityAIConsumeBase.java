@@ -10,9 +10,9 @@ import java.util.Random;
 public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 	private final int chanceToConsume;
 
-	protected GOTEntityNPC theEntity;
-	protected Random rand;
-	protected GOTFoods foodPool;
+	protected final GOTEntityNPC theEntity;
+	protected final Random rand;
+	protected final GOTFoods foodPool;
 
 	private int consumeTick;
 

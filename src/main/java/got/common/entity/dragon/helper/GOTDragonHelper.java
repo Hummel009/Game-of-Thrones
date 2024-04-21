@@ -7,9 +7,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.Random;
 
 public abstract class GOTDragonHelper {
-	protected GOTEntityDragon dragon;
-	protected DataWatcher dataWatcher;
-	protected Random rand;
+	protected final GOTEntityDragon dragon;
+	protected final DataWatcher dataWatcher;
+	protected final Random rand;
 
 	protected GOTDragonHelper(GOTEntityDragon dragon) {
 		this.dragon = dragon;

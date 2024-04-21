@@ -24,7 +24,7 @@ public interface MiniQuestSelector {
 	}
 
 	class BountyActiveFaction extends BountyActiveAnyFaction {
-		protected Supplier<GOTFaction> factionGet;
+		protected final Supplier<GOTFaction> factionGet;
 
 		public BountyActiveFaction(Supplier<GOTFaction> sup) {
 			factionGet = sup;
@@ -37,7 +37,7 @@ public interface MiniQuestSelector {
 	}
 
 	class EntityId extends OptionalActive {
-		protected UUID entityID;
+		protected final UUID entityID;
 
 		public EntityId(UUID id) {
 			entityID = id;
@@ -50,7 +50,7 @@ public interface MiniQuestSelector {
 	}
 
 	class Faction extends OptionalActive {
-		protected Supplier<GOTFaction> factionGet;
+		protected final Supplier<GOTFaction> factionGet;
 
 		public Faction(Supplier<GOTFaction> sup) {
 			factionGet = sup;

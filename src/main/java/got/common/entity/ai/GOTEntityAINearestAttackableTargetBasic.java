@@ -99,7 +99,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 	}
 
 	public static class TargetSorter implements Comparator<Entity> {
-		protected EntityLivingBase theNPC;
+		protected final EntityLivingBase theNPC;
 
 		public TargetSorter(EntityLivingBase entity) {
 			theNPC = entity;

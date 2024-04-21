@@ -43,57 +43,6 @@ public abstract class GOTStructureBaseSettlement {
 		SETTLEMENT_RAND.setSeed(seed);
 	}
 
-	public void affix(GOTAbstractWaypoint... wps) {
-		for (GOTAbstractWaypoint wp : wps) {
-			LocationInfo loc = new LocationInfo(wp.getCoordX(), wp.getCoordZ(), wp.getRotation()).setFixedLocation();
-			fixedLocations.add(loc);
-		}
-	}
-
-	public boolean anyFixedSettlementsAt(World world, int i, int k) {
-		if (!hasFixedSettlements(world)) {
-			return false;
-		}
-		int checkRange = fixedSettlementChunkRadius + 1;
-		checkRange <<= 4;
-		for (LocationInfo loc : fixedLocations) {
-			int dx = Math.abs(loc.getPosX() - i);
-			int dz = Math.abs(loc.getPosZ() - k);
-			if (dx <= checkRange && dz <= checkRange) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public AbstractInstance createAndSetupSettlementInstance(World world, int i, int k, Random random, LocationInfo location) {
-		AbstractInstance instance = createSettlementInstance(world, i, k, random, location, getLegendaryNPCs(world));
-		instance.setupBaseAndSettlementProperties();
-		return instance;
-	}
-
-	protected abstract AbstractInstance createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5, Collection<GOTFixer.SpawnInfo> spawnInfos);
-
-	public void generateCompleteSettlementInstance(AbstractInstance instance, World world, int i, int k) {
-		instance.setupSettlementStructures();
-		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
-		for (int i1 = -checkRange; i1 <= checkRange; ++i1) {
-			for (int k1 = -checkRange; k1 <= checkRange; ++k1) {
-				int i2 = i - 8 + i1 * 16;
-				int k2 = k - 8 + k1 * 16;
-				generateInstanceInChunk(instance, world, i2, k2);
-			}
-		}
-	}
-
-	public void generateInChunk(World world, int i, int k) {
-		List<AbstractInstance> settlements = getNearbySettlementsAtPosition(world, i, k);
-		for (AbstractInstance instance : settlements) {
-			instance.setupSettlementStructures();
-			generateInstanceInChunk(instance, world, i, k);
-		}
-	}
-
 	private static void generateInstanceInChunk(AbstractInstance instance, World world, int i, int k) {
 		for (int i1 = i; i1 <= i + 15; ++i1) {
 			for (int k1 = k; k1 <= k + 15; ++k1) {
@@ -179,6 +128,74 @@ public abstract class GOTStructureBaseSettlement {
 		return ret;
 	}
 
+	private static int getTopTerrainBlock(World world, int i, int k, boolean acceptSlab) {
+		int j = world.getTopSolidOrLiquidBlock(i, k) - 1;
+		while (!world.getBlock(i, j + 1, k).getMaterial().isLiquid()) {
+			Block block = world.getBlock(i, j, k);
+			Block below = world.getBlock(i, j - 1, k);
+			if (block.isOpaqueCube() || acceptSlab && block instanceof BlockSlab && below.isOpaqueCube()) {
+				return j;
+			}
+			j--;
+			if (j > 62) {
+				continue;
+			}
+			break;
+		}
+		return -1;
+	}
+
+	public void affix(GOTAbstractWaypoint... wps) {
+		for (GOTAbstractWaypoint wp : wps) {
+			LocationInfo loc = new LocationInfo(wp.getCoordX(), wp.getCoordZ(), wp.getRotation()).setFixedLocation();
+			fixedLocations.add(loc);
+		}
+	}
+
+	public boolean anyFixedSettlementsAt(World world, int i, int k) {
+		if (!hasFixedSettlements(world)) {
+			return false;
+		}
+		int checkRange = fixedSettlementChunkRadius + 1;
+		checkRange <<= 4;
+		for (LocationInfo loc : fixedLocations) {
+			int dx = Math.abs(loc.getPosX() - i);
+			int dz = Math.abs(loc.getPosZ() - k);
+			if (dx <= checkRange && dz <= checkRange) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public AbstractInstance createAndSetupSettlementInstance(World world, int i, int k, Random random, LocationInfo location) {
+		AbstractInstance instance = createSettlementInstance(world, i, k, random, location, getLegendaryNPCs(world));
+		instance.setupBaseAndSettlementProperties();
+		return instance;
+	}
+
+	protected abstract AbstractInstance createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5, Collection<GOTFixer.SpawnInfo> spawnInfos);
+
+	public void generateCompleteSettlementInstance(AbstractInstance instance, World world, int i, int k) {
+		instance.setupSettlementStructures();
+		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
+		for (int i1 = -checkRange; i1 <= checkRange; ++i1) {
+			for (int k1 = -checkRange; k1 <= checkRange; ++k1) {
+				int i2 = i - 8 + i1 * 16;
+				int k2 = k - 8 + k1 * 16;
+				generateInstanceInChunk(instance, world, i2, k2);
+			}
+		}
+	}
+
+	public void generateInChunk(World world, int i, int k) {
+		List<AbstractInstance> settlements = getNearbySettlementsAtPosition(world, i, k);
+		for (AbstractInstance instance : settlements) {
+			instance.setupSettlementStructures();
+			generateInstanceInChunk(instance, world, i, k);
+		}
+	}
+
 	private List<AbstractInstance> getNearbySettlements(World world, int chunkX, int chunkZ) {
 		List<AbstractInstance> settlements = new ArrayList<>();
 		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
@@ -209,23 +226,6 @@ public abstract class GOTStructureBaseSettlement {
 		int chunkX = i >> 4;
 		int chunkZ = k >> 4;
 		return getNearbySettlements(world, chunkX, chunkZ);
-	}
-
-	private static int getTopTerrainBlock(World world, int i, int k, boolean acceptSlab) {
-		int j = world.getTopSolidOrLiquidBlock(i, k) - 1;
-		while (!world.getBlock(i, j + 1, k).getMaterial().isLiquid()) {
-			Block block = world.getBlock(i, j, k);
-			Block below = world.getBlock(i, j - 1, k);
-			if (block.isOpaqueCube() || acceptSlab && block instanceof BlockSlab && below.isOpaqueCube()) {
-				return j;
-			}
-			j--;
-			if (j > 62) {
-				continue;
-			}
-			break;
-		}
-		return -1;
 	}
 
 	private LocationInfo isSettlementCentre(World world, int chunkX, int chunkZ) {
@@ -295,16 +295,17 @@ public abstract class GOTStructureBaseSettlement {
 	}
 
 	public abstract static class AbstractInstance {
+		protected final Collection<GOTFixer.SpawnInfo> spawnInfos;
 		protected final LocationInfo locationInfo;
+		protected final World world;
+
+		protected final long randomSeed;
+		protected final int centreX;
+		protected final int centreZ;
 
 		private final Collection<StructureInfo> structures = new ArrayList<>();
 		private final Random random;
 
-		protected Collection<GOTFixer.SpawnInfo> spawnInfos;
-		protected World world;
-		protected long randomSeed;
-		protected int centreX;
-		protected int centreZ;
 		protected int rotationMode;
 
 		protected AbstractInstance(World world, int i, int k, Random random, LocationInfo locationInfo, Collection<GOTFixer.SpawnInfo> spawnInfos) {
