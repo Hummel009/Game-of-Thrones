@@ -69,13 +69,13 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTTrad
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 10390131);
 		setCurrentItemOrArmor(4, hat);
-		return data1;
+		return entityData;
 	}
 
 	@Override

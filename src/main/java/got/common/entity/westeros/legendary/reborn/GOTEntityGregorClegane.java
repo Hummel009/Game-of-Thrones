@@ -18,6 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityGregorClegane extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGregorClegane(World world) {
 		super(world);
 		addTargetTasks();
@@ -35,7 +36,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		tasks.addTask(9, new EntityAILookIdle(this));
 	}
 
-	public void addTargetTasks() {
+	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntitySandorClegane.class, 0, true));
 	}
@@ -46,8 +47,8 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -56,13 +57,14 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.gregorCleganeSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	public static class GregorCleganeAlive extends GOTEntityGregorClegane {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public GregorCleganeAlive(World world) {
 			super(world);
 		}
@@ -114,7 +116,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityGregorClegane.GregorCleganeDead dead = new GOTEntityGregorClegane.GregorCleganeDead(worldObj);
+				GregorCleganeDead dead = new GregorCleganeDead(worldObj);
 				dead.copyLocationAndAnglesFrom(this);
 				dead.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(dead);
@@ -124,6 +126,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	}
 
 	public static class GregorCleganeDead extends GOTEntityGregorClegane {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public GregorCleganeDead(World world) {
 			super(world);
 		}

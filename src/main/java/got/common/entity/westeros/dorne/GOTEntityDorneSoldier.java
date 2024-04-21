@@ -3,13 +3,13 @@ package got.common.entity.westeros.dorne;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDorneSoldier extends GOTEntityDorneLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDorneSoldier(World world) {
 		super(world);
 		spawnRidingHorse = rand.nextInt(10) == 0;
@@ -28,8 +28,8 @@ public class GOTEntityDorneSoldier extends GOTEntityDorneLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -44,7 +44,7 @@ public class GOTEntityDorneSoldier extends GOTEntityDorneLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -78,6 +78,6 @@ public class GOTEntityDorneSoldier extends GOTEntityDorneLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dorneLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dorneChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.dorneHelmet));
-		return data;
+		return entityData;
 	}
 }

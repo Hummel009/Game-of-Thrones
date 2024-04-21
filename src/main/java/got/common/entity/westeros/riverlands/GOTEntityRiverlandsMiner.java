@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityRiverlandsMiner extends GOTEntityRiverlandsMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsMiner(World world) {
 		super(world);
 	}
@@ -23,9 +24,9 @@ public class GOTEntityRiverlandsMiner extends GOTEntityRiverlandsMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 }

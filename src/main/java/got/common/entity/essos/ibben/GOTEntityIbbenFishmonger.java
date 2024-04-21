@@ -26,11 +26,11 @@ public class GOTEntityIbbenFishmonger extends GOTEntityIbbenMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Items.fishing_rod));
 		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 9013900);
 		setCurrentItemOrArmor(4, hat);
-		return data1;
+		return entityData;
 	}
 }

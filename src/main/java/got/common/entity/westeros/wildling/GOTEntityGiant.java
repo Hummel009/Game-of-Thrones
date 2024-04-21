@@ -10,6 +10,7 @@ import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 public class GOTEntityGiant extends GOTEntityGiantBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGiant(World world) {
 		super(world);
 	}

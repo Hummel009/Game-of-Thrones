@@ -46,10 +46,10 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data1;
+		return entityData;
 	}
 
 	@Override

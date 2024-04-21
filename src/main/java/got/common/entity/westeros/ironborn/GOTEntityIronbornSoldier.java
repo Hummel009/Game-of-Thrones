@@ -3,13 +3,13 @@ package got.common.entity.westeros.ironborn;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornSoldier(World world) {
 		super(world);
 		shield = GOTShields.IRONBORN;
@@ -27,8 +27,8 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -43,7 +43,7 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -77,6 +77,6 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ironbornLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ironbornChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.ironbornHelmet));
-		return data;
+		return entityData;
 	}
 }

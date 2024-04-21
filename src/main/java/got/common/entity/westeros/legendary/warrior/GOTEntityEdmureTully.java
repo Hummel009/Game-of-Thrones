@@ -16,9 +16,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityEdmureTully extends GOTEntityHumanBase {
-	public EntityAIBase rangedAttackAI = createRangedAttackAI();
-	public EntityAIBase meleeAttackAI;
+	private final EntityAIBase rangedAttackAI = createRangedAttackAI();
+	private EntityAIBase meleeAttackAI;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityEdmureTully(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -46,12 +47,12 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.5);
 	}
 
-	public EntityAIBase createMeleeAttackAI() {
+	private EntityAIBase createMeleeAttackAI() {
 		meleeAttackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 		return meleeAttackAI;
 	}
 
-	public EntityAIBase createRangedAttackAI() {
+	private EntityAIBase createRangedAttackAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 20, 40, 40.0f);
 	}
 
@@ -94,19 +95,19 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		}
-		if (mode == GOTEntityNPC.AttackMode.MELEE) {
+		if (mode == AttackMode.MELEE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, meleeAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-		if (mode == GOTEntityNPC.AttackMode.RANGED) {
+		if (mode == AttackMode.RANGED) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, rangedAttackAI);
@@ -116,11 +117,11 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDaggerPoisoned));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override

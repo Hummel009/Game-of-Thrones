@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillmanWarlord(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -57,9 +58,9 @@ public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements 
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.furHelmet));
-		return data;
+		return entityData;
 	}
 
 	@Override

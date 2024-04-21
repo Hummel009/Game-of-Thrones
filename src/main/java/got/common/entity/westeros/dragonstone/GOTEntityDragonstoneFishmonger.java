@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDragonstoneFishmonger extends GOTEntityDragonstoneMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneFishmonger(World world) {
 		super(world);
 	}
@@ -25,11 +26,11 @@ public class GOTEntityDragonstoneFishmonger extends GOTEntityDragonstoneMarketTr
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Items.fishing_rod));
 		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 9013900);
 		setCurrentItemOrArmor(4, hat);
-		return data;
+		return entityData;
 	}
 }

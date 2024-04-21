@@ -7,7 +7,6 @@ import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
@@ -26,6 +25,7 @@ public class GOTEntityWight extends GOTEntityHumanBase implements GOTBiome.Immun
 	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
 	private static final ItemStack[] SPEARS = {new ItemStack(GOTItems.wildlingSpear)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWight(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -95,8 +95,8 @@ public class GOTEntityWight extends GOTEntityHumanBase implements GOTBiome.Immun
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());

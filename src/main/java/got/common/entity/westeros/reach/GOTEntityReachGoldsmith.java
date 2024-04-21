@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityReachGoldsmith extends GOTEntityReachMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityReachGoldsmith(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityReachGoldsmith extends GOTEntityReachMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.silverRing));
-		return data;
+		return entityData;
 	}
 }

@@ -2,13 +2,13 @@ package got.common.entity.westeros.westerlands;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityWesterlandsSoldierArcher extends GOTEntityWesterlandsSoldier {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsSoldierArcher(World world) {
 		super(world);
 		spawnRidingHorse = false;
@@ -26,8 +26,8 @@ public class GOTEntityWesterlandsSoldierArcher extends GOTEntityWesterlandsSoldi
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
@@ -36,9 +36,9 @@ public class GOTEntityWesterlandsSoldierArcher extends GOTEntityWesterlandsSoldi
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return entityData;
 	}
 }

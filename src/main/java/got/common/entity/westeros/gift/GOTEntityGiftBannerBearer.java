@@ -5,6 +5,7 @@ import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftBannerBearer extends GOTEntityGiftGuard implements GOTBannerBearer {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGiftBannerBearer(World world) {
 		super(world);
 	}

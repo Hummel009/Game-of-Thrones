@@ -122,7 +122,7 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.archmagStaff));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.archmagStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -130,7 +130,7 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
-		return data1;
+		return entityData;
 	}
 
 	@Override

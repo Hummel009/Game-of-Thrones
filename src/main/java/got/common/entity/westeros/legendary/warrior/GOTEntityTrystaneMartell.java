@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityTrystaneMartell extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTrystaneMartell(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -70,16 +71,16 @@ public class GOTEntityTrystaneMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trystaneSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override

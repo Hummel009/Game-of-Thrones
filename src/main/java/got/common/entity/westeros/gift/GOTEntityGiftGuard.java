@@ -3,7 +3,6 @@ package got.common.entity.westeros.gift;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.warrior.GOTEntityAlliserThorne;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,8 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftGuard extends GOTEntityGiftMan {
-	public static ItemStack[] militiaWeapons = {new ItemStack(GOTItems.westerosSword), new ItemStack(GOTItems.westerosHammer), new ItemStack(GOTItems.westerosPike), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.ironBattleaxe), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.bronzeSword), new ItemStack(GOTItems.bronzeAxe), new ItemStack(GOTItems.bronzeBattleaxe)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.westerosSword), new ItemStack(GOTItems.westerosHammer), new ItemStack(GOTItems.westerosPike), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.ironBattleaxe), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.bronzeSword), new ItemStack(GOTItems.bronzeAxe), new ItemStack(GOTItems.bronzeBattleaxe)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGiftGuard(World world) {
 		super(world);
 		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityAlliserThorne.class, 5.0f, 1.0, 1.0));
@@ -51,8 +51,8 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -67,9 +67,9 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(militiaWeapons.length);
-		npcItemsInv.setMeleeWeapon(militiaWeapons[i].copy());
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.giftBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.giftLeggings));
@@ -77,7 +77,7 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.giftHelmet));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		return data;
+		return entityData;
 	}
 
 	@Override

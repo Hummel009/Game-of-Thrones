@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityHillman extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillman(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -66,7 +67,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase {
 		dropHillmanItems(flag, i);
 	}
 
-	public void dropHillmanItems(boolean flag, int i) {
+	protected void dropHillmanItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.HILLMEN, 1, 2 + i);
 		}
@@ -112,7 +113,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase {
 		return GOTFaction.HILL_TRIBES;
 	}
 
-	public EntityAIBase getHillmanAttackAI() {
+	protected EntityAIBase getHillmanAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -133,8 +134,8 @@ public class GOTEntityHillman extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -143,7 +144,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(9);
 		switch (i) {
 			case 0:
@@ -173,7 +174,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase {
 				break;
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override

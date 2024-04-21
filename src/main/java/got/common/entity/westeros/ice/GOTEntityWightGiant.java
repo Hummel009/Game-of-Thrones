@@ -11,6 +11,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWightGiant extends GOTEntityGiantBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWightGiant(World world) {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);

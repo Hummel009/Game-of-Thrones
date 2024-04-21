@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrasterWife(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);

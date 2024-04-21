@@ -14,6 +14,7 @@ import net.minecraftforge.common.IPlantable;
 public class GOTEntityRiverlandsFarmhand extends GOTEntityRiverlandsMan implements GOTFarmhand {
 	private Item seedsItem;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsFarmhand(World world) {
 		super(world);
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.0f));
@@ -44,10 +45,10 @@ public class GOTEntityRiverlandsFarmhand extends GOTEntityRiverlandsMan implemen
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override

@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWalderFrey(World world) {
 		super(world);
 		addTargetTasks();
@@ -36,7 +37,7 @@ public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTr
 		tasks.addTask(9, new EntityAILookIdle(this));
 	}
 
-	public void addTargetTasks() {
+	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRobbStark.class, 0, true));
 	}
@@ -95,8 +96,8 @@ public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -105,10 +106,10 @@ public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTr
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return entityData;
 	}
 
 	@Override

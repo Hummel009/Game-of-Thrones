@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorthButcher extends GOTEntityNorthMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthButcher(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityNorthButcher extends GOTEntityNorthMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Items.porkchop));
-		return data;
+		return entityData;
 	}
 }

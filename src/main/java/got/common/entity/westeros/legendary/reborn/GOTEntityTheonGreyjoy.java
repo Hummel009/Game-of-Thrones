@@ -20,6 +20,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTheonGreyjoy(World world) {
 		super(world);
 		setupLegendaryNPC(true);
@@ -33,7 +34,6 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-
 	}
 
 	@Override
@@ -49,13 +49,14 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	}
 
 	public static class TheonGreyjoyNormal extends GOTEntityTheonGreyjoy {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public TheonGreyjoyNormal(World world) {
 			super(world);
 			tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));
 			addTargetTasks();
 		}
 
-		public void addTargetTasks() {
+		protected void addTargetTasks() {
 			int target = addTargetTasks(true);
 			targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRamsayBolton.class, 0, true));
 		}
@@ -88,8 +89,8 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-			if (mode == GOTEntityNPC.AttackMode.IDLE) {
+		public void onAttackModeChange(AttackMode mode, boolean mounted) {
+			if (mode == AttackMode.IDLE) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 			} else {
 				setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -100,7 +101,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityTheonGreyjoy.TheonGreyjoyTormented tormented = new GOTEntityTheonGreyjoy.TheonGreyjoyTormented(worldObj);
+				TheonGreyjoyTormented tormented = new TheonGreyjoyTormented(worldObj);
 				tormented.copyLocationAndAnglesFrom(this);
 				tormented.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(tormented);
@@ -110,14 +111,15 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 
 		@Override
 		public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-			data = super.onSpawnWithEgg(data);
+			IEntityLivingData entityData = super.onSpawnWithEgg(data);
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 			npcItemsInv.setIdleItem(null);
-			return data;
+			return entityData;
 		}
 	}
 
 	public static class TheonGreyjoyTormented extends GOTEntityTheonGreyjoy {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public TheonGreyjoyTormented(World world) {
 			super(world);
 			addTargetTasks(false);

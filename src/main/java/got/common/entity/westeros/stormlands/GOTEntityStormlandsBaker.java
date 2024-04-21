@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityStormlandsBaker extends GOTEntityStormlandsMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStormlandsBaker(World world) {
 		super(world);
 	}
@@ -24,9 +25,9 @@ public class GOTEntityStormlandsBaker extends GOTEntityStormlandsMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.rollingPin));
 		npcItemsInv.setIdleItem(new ItemStack(Items.bread));
-		return data;
+		return entityData;
 	}
 }

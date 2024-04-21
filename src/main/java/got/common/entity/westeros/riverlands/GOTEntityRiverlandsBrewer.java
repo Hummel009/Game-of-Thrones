@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityRiverlandsBrewer extends GOTEntityRiverlandsMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsBrewer(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityRiverlandsBrewer extends GOTEntityRiverlandsMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAle));
-		return data;
+		return entityData;
 	}
 }

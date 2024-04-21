@@ -22,6 +22,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityJonSnow extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityJonSnow(World world) {
 		super(world);
 		setupLegendaryNPC(true);
@@ -54,8 +55,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -64,10 +65,10 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override
@@ -76,6 +77,7 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	}
 
 	public static class JonSnowLife1 extends GOTEntityJonSnow {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public JonSnowLife1(World world) {
 			super(world);
 			addTargetTasks(true);
@@ -117,7 +119,7 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityJonSnow.JonSnowLife2 stage2 = new GOTEntityJonSnow.JonSnowLife2(worldObj);
+				JonSnowLife2 stage2 = new JonSnowLife2(worldObj);
 				stage2.copyLocationAndAnglesFrom(this);
 				stage2.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(stage2);
@@ -127,12 +129,13 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	}
 
 	public static class JonSnowLife2 extends GOTEntityJonSnow {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public JonSnowLife2(World world) {
 			super(world);
 			addTargetTasks();
 		}
 
-		public void addTargetTasks() {
+		protected void addTargetTasks() {
 			int target = addTargetTasks(true);
 			target++;
 			targetTasks.addTask(target, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRamsayBolton.class, 0, true));

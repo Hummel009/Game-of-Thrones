@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillmanWarrior implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthHillmanChieftain(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -58,14 +59,14 @@ public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillmanWarrior
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return entityData;
 	}
 
 	@Override

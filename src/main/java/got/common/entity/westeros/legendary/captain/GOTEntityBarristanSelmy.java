@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBarristanSelmy(World world) {
 		super(world);
 		addTargetTasks();
@@ -37,7 +38,7 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 		cape = GOTCapes.ROYALGUARD;
 	}
 
-	public void addTargetTasks() {
+	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarHarpy.class, 0, true));
 	}
@@ -96,8 +97,8 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -106,13 +107,13 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.kingsguardBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.kingsguardLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.kingsguardChestplate));
-		return data;
+		return entityData;
 	}
 
 	@Override

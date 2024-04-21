@@ -5,6 +5,7 @@ import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 
 public class GOTEntityWildlingBannerBearer extends GOTEntityWildling implements GOTBannerBearer {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWildlingBannerBearer(World world) {
 		super(world);
 	}

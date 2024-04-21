@@ -359,7 +359,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
@@ -376,7 +376,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		} else {
 			setBirdType(BirdType.COMMON);
 		}
-		return data1;
+		return entityData;
 	}
 
 	@Override

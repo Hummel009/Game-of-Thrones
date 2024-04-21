@@ -37,7 +37,7 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
 			int i = rand.nextInt(5);
 			switch (i) {
@@ -73,7 +73,7 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 		} else {
 			setCurrentItemOrArmor(4, new ItemStack(GOTItems.lhazarHelmet));
 		}
-		return data1;
+		return entityData;
 	}
 
 	@Override

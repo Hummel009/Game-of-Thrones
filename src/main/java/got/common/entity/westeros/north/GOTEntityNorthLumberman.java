@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorthLumberman extends GOTEntityNorthMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthLumberman(World world) {
 		super(world);
 	}
@@ -25,13 +26,13 @@ public class GOTEntityNorthLumberman extends GOTEntityNorthMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 6834742);
 		GOTItemLeatherHat.setFeatherColor(hat, 3916082);
 		setCurrentItemOrArmor(4, hat);
-		return data;
+		return entityData;
 	}
 }

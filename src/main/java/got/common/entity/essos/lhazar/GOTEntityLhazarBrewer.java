@@ -26,10 +26,10 @@ public class GOTEntityLhazarBrewer extends GOTEntityLhazarTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		ItemStack drink = new ItemStack(GOTItems.mugAraq);
 		GOTItemMug.setVessel(drink, GOTFoods.NOMAD_DRINK.getRandomVessel(rand), true);
 		npcItemsInv.setIdleItem(drink);
-		return data1;
+		return entityData;
 	}
 }

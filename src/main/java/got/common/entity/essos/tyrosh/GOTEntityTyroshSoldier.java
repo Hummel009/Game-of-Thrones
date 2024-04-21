@@ -18,7 +18,7 @@ public class GOTEntityTyroshSoldier extends GOTEntityTyroshLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
 			case 0:
@@ -51,6 +51,6 @@ public class GOTEntityTyroshSoldier extends GOTEntityTyroshLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.tyroshLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.tyroshChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.tyroshHelmet));
-		return data1;
+		return entityData;
 	}
 }

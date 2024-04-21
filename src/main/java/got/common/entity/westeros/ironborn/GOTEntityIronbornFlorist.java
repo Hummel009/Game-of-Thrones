@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIronbornFlorist extends GOTEntityIronbornMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornFlorist(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityIronbornFlorist extends GOTEntityIronbornMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower, 1, 0));
-		return data;
+		return entityData;
 	}
 }

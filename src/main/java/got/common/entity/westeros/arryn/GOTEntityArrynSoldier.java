@@ -3,12 +3,12 @@ package got.common.entity.westeros.arryn;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynSoldier(World world) {
 		super(world);
 		spawnRidingHorse = rand.nextInt(10) == 0;
@@ -23,8 +23,8 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -39,7 +39,7 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -73,6 +73,6 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.arrynLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.arrynChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.arrynHelmet));
-		return data;
+		return entityData;
 	}
 }

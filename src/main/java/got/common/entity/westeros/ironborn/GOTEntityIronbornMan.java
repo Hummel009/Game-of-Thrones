@@ -26,8 +26,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityIronbornMan extends GOTEntityHumanBase {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -55,7 +56,7 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
-	public EntityAIBase createIronbornAttackAI() {
+	protected EntityAIBase createIronbornAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -81,7 +82,7 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase {
 		dropWesterosItems(flag, i);
 	}
 
-	public void dropWesterosItems(boolean flag, int i) {
+	private void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.IRONBORN, 1, 2 + i);
 		}
@@ -140,8 +141,8 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -150,11 +151,11 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return entityData;
 	}
 
 	@Override

@@ -66,14 +66,14 @@ public class GOTEntityYiTiShogune extends GOTEntityYiTiSamurai implements GOTUni
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yitiBootsSamurai));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yitiLeggingsSamurai));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yitiChestplateSamurai));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yitiHelmetShogune));
-		return data1;
+		return entityData;
 	}
 
 	@Override

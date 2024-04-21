@@ -63,9 +63,9 @@ public class GOTEntityLorathBartender extends GOTEntityLorathMan implements GOTB
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
-		return data1;
+		return entityData;
 	}
 
 	@Override

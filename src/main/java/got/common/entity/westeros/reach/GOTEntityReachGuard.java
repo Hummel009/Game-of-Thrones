@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityReachGuard extends GOTEntityReachSoldier {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityReachGuard(World world) {
 		super(world);
 		shield = GOTShields.REACHGUARD;
@@ -22,7 +23,7 @@ public class GOTEntityReachGuard extends GOTEntityReachSoldier {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -30,6 +31,6 @@ public class GOTEntityReachGuard extends GOTEntityReachSoldier {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachguardLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachguardChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachguardHelmet));
-		return data;
+		return entityData;
 	}
 }

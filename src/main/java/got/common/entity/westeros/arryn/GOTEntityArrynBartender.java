@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityArrynBartender extends GOTEntityArrynMan implements GOTBartender, GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynBartender(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -62,9 +63,9 @@ public class GOTEntityArrynBartender extends GOTEntityArrynMan implements GOTBar
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mug));
-		return data;
+		return entityData;
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityCrownlandsCaptain extends GOTEntityCrownlandsGuard implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrownlandsCaptain(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -50,13 +51,13 @@ public class GOTEntityCrownlandsCaptain extends GOTEntityCrownlandsGuard impleme
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return entityData;
 	}
 
 	@Override

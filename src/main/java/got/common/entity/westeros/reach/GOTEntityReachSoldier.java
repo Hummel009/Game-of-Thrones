@@ -6,7 +6,6 @@ import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTCrashHandler;
@@ -28,9 +27,10 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 
 public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
-	public static int MAX_GRAPE_ALERT = 3;
-	public int grapeAlert;
+	public static final int MAX_GRAPE_ALERT = 3;
+	private int grapeAlert;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityReachSoldier(World world) {
 		super(world);
 		spawnRidingHorse = rand.nextInt(10) == 0;
@@ -40,9 +40,8 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 
 	public static void defendGrapevines(EntityPlayer entityplayer, World world, int i, int j, int k) {
 		if (!entityplayer.capabilities.isCreativeMode) {
-			GOTBiomeVariant variant;
 			BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
-			variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
+			GOTBiomeVariant variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
 			if (biome instanceof GOTBiomeReachArbor && variant == GOTBiomeVariant.VINEYARD) {
 				GOTEntityReachSoldier guard;
 				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.REACH);
@@ -58,7 +57,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 					List<GOTEntityReachSoldier> guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(spawnRange, spawnRange, spawnRange));
 					for (GOTEntityReachSoldier obj : guardList) {
 						guard = obj;
-						if (!guard.hireableInfo.isActive()) {
+						if (!guard.getHireableInfo().isActive()) {
 							++nearbyGuards;
 						}
 					}
@@ -88,7 +87,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 								}
 								guard.setLiftSpawnRestrictions(false);
 								world.spawnEntityInWorld(guard);
-								guard.spawnRidingHorse = false;
+								guard.setSpawnRidingHorse(false);
 								guard.onSpawnWithEgg(null);
 								continue block1;
 							}
@@ -100,7 +99,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 				boolean anyAlert = false;
 				for (GOTEntityReachSoldier obj : guardList) {
 					guard = obj;
-					if (guard.hireableInfo.isActive()) {
+					if (guard.getHireableInfo().isActive()) {
 						continue;
 					}
 					if (evil) {
@@ -139,8 +138,8 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -166,7 +165,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -200,6 +199,6 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachHelmet));
-		return data;
+		return entityData;
 	}
 }

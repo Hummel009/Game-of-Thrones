@@ -25,7 +25,7 @@ public class GOTEntityYiTiBrewer extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAraq));
 		int robeColor = 12346368;
 		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
@@ -34,6 +34,6 @@ public class GOTEntityYiTiBrewer extends GOTEntityYiTiMarketTrader {
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
-		return data1;
+		return entityData;
 	}
 }

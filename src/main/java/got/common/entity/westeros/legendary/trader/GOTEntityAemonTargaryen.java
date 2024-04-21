@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAemonTargaryen(World world) {
 		super(world);
 		addTargetTasks(false);

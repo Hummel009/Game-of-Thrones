@@ -25,9 +25,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
-	public static ItemStack[] spears = {new ItemStack(GOTItems.wildlingSpear)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
+	private static final ItemStack[] SPEARS = {new ItemStack(GOTItems.wildlingSpear)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThenn(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -70,7 +71,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.Immun
 		dropHillmanItems(flag, i);
 	}
 
-	public void dropHillmanItems(boolean flag, int i) {
+	private void dropHillmanItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.BEYOND_WALL, 1, 2 + i);
 		}
@@ -132,13 +133,13 @@ public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.Immun
 		return "standard/wild/usual_hostile";
 	}
 
-	public EntityAIBase getThennAttackAI() {
+	protected EntityAIBase getThennAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -147,20 +148,20 @@ public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.Immun
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		if (rand.nextInt(8) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			i = rand.nextInt(spears.length);
-			npcItemsInv.setMeleeWeapon(spears[i].copy());
+			i = rand.nextInt(SPEARS.length);
+			npcItemsInv.setMeleeWeapon(SPEARS[i].copy());
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.furChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.furLeggings));
-		return data;
+		return entityData;
 	}
 
 	@Override

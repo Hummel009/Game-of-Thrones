@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIronbornButcher extends GOTEntityIronbornMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornButcher(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityIronbornButcher extends GOTEntityIronbornMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Items.porkchop));
-		return data;
+		return entityData;
 	}
 }

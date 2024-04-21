@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAmoryLorch extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAmoryLorch(World world) {
 		super(world);
 		addTargetTasks();
@@ -36,7 +37,7 @@ public class GOTEntityAmoryLorch extends GOTEntityHumanBase {
 		tasks.addTask(10, new EntityAILookIdle(this));
 	}
 
-	public void addTargetTasks() {
+	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityYoren.class, 0, true));
 	}
@@ -72,16 +73,16 @@ public class GOTEntityAmoryLorch extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override

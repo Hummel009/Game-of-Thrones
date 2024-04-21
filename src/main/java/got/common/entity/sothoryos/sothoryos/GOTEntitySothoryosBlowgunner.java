@@ -67,13 +67,13 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.sarbacane));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
-		return data1;
+		return entityData;
 	}
 
 	@Override

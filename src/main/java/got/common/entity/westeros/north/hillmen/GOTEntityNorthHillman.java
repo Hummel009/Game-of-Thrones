@@ -27,9 +27,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityNorthHillman extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
-	public static ItemStack[] spears = {new ItemStack(GOTItems.stoneSpear)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
+	private static final ItemStack[] SPEARS = {new ItemStack(GOTItems.stoneSpear)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthHillman(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -79,7 +80,7 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements GOTBiom
 		dropHillmanItems(flag, i);
 	}
 
-	public void dropHillmanItems(boolean flag, int i) {
+	private void dropHillmanItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.BEYOND_WALL, 1, 2 + i);
 		}
@@ -125,7 +126,7 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements GOTBiom
 		return GOTFaction.NORTH;
 	}
 
-	public EntityAIBase getNorthHillmanAttackAI() {
+	protected EntityAIBase getNorthHillmanAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -143,8 +144,8 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements GOTBiom
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -153,16 +154,16 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements GOTBiom
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		if (rand.nextInt(8) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			i = rand.nextInt(spears.length);
-			npcItemsInv.setMeleeWeapon(spears[i].copy());
+			i = rand.nextInt(SPEARS.length);
+			npcItemsInv.setMeleeWeapon(SPEARS[i].copy());
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override

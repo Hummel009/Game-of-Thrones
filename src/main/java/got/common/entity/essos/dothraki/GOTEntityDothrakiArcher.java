@@ -35,9 +35,9 @@ public class GOTEntityDothrakiArcher extends GOTEntityDothraki {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.nomadBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data1;
+		return entityData;
 	}
 }

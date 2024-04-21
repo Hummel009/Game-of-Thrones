@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityArrynGuard extends GOTEntityArrynSoldier {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynGuard(World world) {
 		super(world);
 		shield = GOTShields.ARRYNGUARD;
@@ -24,7 +25,7 @@ public class GOTEntityArrynGuard extends GOTEntityArrynSoldier {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -32,6 +33,6 @@ public class GOTEntityArrynGuard extends GOTEntityArrynSoldier {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.arrynguardLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.arrynguardChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.arrynguardHelmet));
-		return data;
+		return entityData;
 	}
 }

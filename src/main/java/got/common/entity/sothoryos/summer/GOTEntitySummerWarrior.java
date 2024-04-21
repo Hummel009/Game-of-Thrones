@@ -44,7 +44,7 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(WEAPONS_BRONZE.length);
 		npcItemsInv.setMeleeWeapon(WEAPONS_BRONZE[i].copy());
 		if (rand.nextInt(5) == 0) {
@@ -65,7 +65,7 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 		} else {
 			setCurrentItemOrArmor(4, new ItemStack(GOTItems.summerHelmet));
 		}
-		return data1;
+		return entityData;
 	}
 
 	@Override

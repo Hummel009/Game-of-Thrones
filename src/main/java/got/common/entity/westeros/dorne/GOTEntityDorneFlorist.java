@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDorneFlorist extends GOTEntityDorneMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDorneFlorist(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityDorneFlorist extends GOTEntityDorneMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower, 1, 0));
-		return data;
+		return entityData;
 	}
 }

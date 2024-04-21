@@ -2,13 +2,13 @@ package got.common.entity.westeros.arryn;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityArrynLevymanArcher extends GOTEntityArrynLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynLevymanArcher(World world) {
 		super(world);
 	}
@@ -25,8 +25,8 @@ public class GOTEntityArrynLevymanArcher extends GOTEntityArrynLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
@@ -35,9 +35,9 @@ public class GOTEntityArrynLevymanArcher extends GOTEntityArrynLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return entityData;
 	}
 }

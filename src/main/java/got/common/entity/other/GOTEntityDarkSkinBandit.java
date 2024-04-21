@@ -18,7 +18,7 @@ public class GOTEntityDarkSkinBandit extends GOTEntityLightSkinBandit {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(WEAPONS.length);
 		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -32,7 +32,7 @@ public class GOTEntityDarkSkinBandit extends GOTEntityLightSkinBandit {
 			}
 			setCurrentItemOrArmor(4, turban);
 		}
-		return data1;
+		return entityData;
 	}
 
 	@Override

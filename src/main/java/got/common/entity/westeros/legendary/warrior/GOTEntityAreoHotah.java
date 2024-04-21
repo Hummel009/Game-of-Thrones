@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAreoHotah extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAreoHotah(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -72,19 +73,19 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.areoHotahAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dorneBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dorneLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dorneChestplate));
-		return data;
+		return entityData;
 	}
 
 	@Override

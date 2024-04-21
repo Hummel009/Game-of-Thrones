@@ -59,13 +59,13 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(1, null);
 		setCurrentItemOrArmor(2, null);
 		setCurrentItemOrArmor(3, null);
 		setCurrentItemOrArmor(4, null);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
-		return data1;
+		return entityData;
 	}
 
 	@Override

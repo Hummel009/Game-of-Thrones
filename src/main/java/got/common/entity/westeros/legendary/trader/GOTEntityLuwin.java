@@ -21,6 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLuwin(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -50,7 +51,7 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
 
-	public EntityAIBase createMaesterAttackAI() {
+	private EntityAIBase createMaesterAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -89,10 +90,10 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return entityData;
 	}
 
 	@Override

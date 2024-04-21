@@ -56,7 +56,7 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
 			case 0:
@@ -84,7 +84,7 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ibbenBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ibbenLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ibbenChestplate));
-		return data1;
+		return entityData;
 	}
 
 	@Override

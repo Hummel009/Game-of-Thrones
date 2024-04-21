@@ -18,6 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityLancelLannister extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLancelLannister(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -48,8 +49,8 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -58,13 +59,14 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return entityData;
 	}
 
 	public static class LancelLannisterNormal extends GOTEntityLancelLannister {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public LancelLannisterNormal(World world) {
 			super(world);
 		}
@@ -90,7 +92,7 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityLancelLannister.LancelLannisterReligious religious = new GOTEntityLancelLannister.LancelLannisterReligious(worldObj);
+				LancelLannisterReligious religious = new LancelLannisterReligious(worldObj);
 				religious.copyLocationAndAnglesFrom(this);
 				religious.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(religious);
@@ -100,6 +102,7 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	}
 
 	public static class LancelLannisterReligious extends GOTEntityLancelLannister {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public LancelLannisterReligious(World world) {
 			super(world);
 		}

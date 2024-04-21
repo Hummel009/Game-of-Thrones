@@ -21,7 +21,7 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(8);
 		switch (i) {
 			case 0:
@@ -58,7 +58,7 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 		if (rand.nextInt(5) != 0) {
 			setCurrentItemOrArmor(4, new ItemStack(GOTItems.sothoryosHelmet));
 		}
-		return data1;
+		return entityData;
 	}
 
 	@Override

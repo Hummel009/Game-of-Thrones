@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDragonstoneGoldsmith extends GOTEntityDragonstoneMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneGoldsmith(World world) {
 		super(world);
 	}
@@ -23,8 +24,8 @@ public class GOTEntityDragonstoneGoldsmith extends GOTEntityDragonstoneMarketTra
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.silverRing));
-		return data;
+		return entityData;
 	}
 }

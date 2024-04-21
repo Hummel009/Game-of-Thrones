@@ -40,7 +40,7 @@ public class GOTEntityLorathLevyman extends GOTEntityLorathMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(WEAPONS.length);
 		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		if (rand.nextInt(5) == 0) {
@@ -49,7 +49,7 @@ public class GOTEntityLorathLevyman extends GOTEntityLorathMan {
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		GOTEntityUtils.setLevymanArmor(this, rand, true);
-		return data1;
+		return entityData;
 	}
 
 	@Override

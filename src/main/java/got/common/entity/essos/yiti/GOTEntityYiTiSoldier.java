@@ -25,7 +25,7 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(8);
 		switch (i) {
 			case 0:
@@ -56,6 +56,6 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yitiLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yitiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yitiHelmet));
-		return data1;
+		return entityData;
 	}
 }

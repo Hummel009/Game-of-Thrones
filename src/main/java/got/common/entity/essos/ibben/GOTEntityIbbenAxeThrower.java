@@ -43,13 +43,13 @@ public class GOTEntityIbbenAxeThrower extends GOTEntityIbbenWarrior {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironThrowingAxe));
 		} else {
 			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.bronzeThrowingAxe));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data1;
+		return entityData;
 	}
 }

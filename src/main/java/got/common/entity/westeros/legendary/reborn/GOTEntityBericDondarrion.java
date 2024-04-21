@@ -17,6 +17,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBericDondarrion(World world) {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
@@ -66,8 +67,8 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -76,10 +77,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bericSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override
@@ -88,6 +89,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	public static class BericDondarrionLife1 extends GOTEntityBericDondarrion {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife1(World world) {
 			super(world);
 		}
@@ -106,6 +108,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	public static class BericDondarrionLife2 extends GOTEntityBericDondarrion {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife2(World world) {
 			super(world);
 		}
@@ -124,6 +127,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	public static class BericDondarrionLife3 extends GOTEntityBericDondarrion {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife3(World world) {
 			super(world);
 		}
@@ -142,6 +146,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	public static class BericDondarrionLife4 extends GOTEntityBericDondarrion {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife4(World world) {
 			super(world);
 		}
@@ -160,6 +165,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	public static class BericDondarrionLife5 extends GOTEntityBericDondarrion {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife5(World world) {
 			super(world);
 		}
@@ -178,6 +184,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	public static class BericDondarrionLife6 extends GOTEntityBericDondarrion {
+		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife6(World world) {
 			super(world);
 		}

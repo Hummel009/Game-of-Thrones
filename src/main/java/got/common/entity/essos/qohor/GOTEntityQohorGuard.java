@@ -29,7 +29,7 @@ public class GOTEntityQohorGuard extends GOTEntityQohorLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -37,6 +37,6 @@ public class GOTEntityQohorGuard extends GOTEntityQohorLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.qohorLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.qohorChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.qohorHelmet));
-		return data1;
+		return entityData;
 	}
 }

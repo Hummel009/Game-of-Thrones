@@ -18,7 +18,7 @@ public class GOTEntityVolantisSoldier extends GOTEntityVolantisLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
 			case 0:
@@ -51,6 +51,6 @@ public class GOTEntityVolantisSoldier extends GOTEntityVolantisLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.volantisLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.volantisChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.volantisHelmet));
-		return data1;
+		return entityData;
 	}
 }

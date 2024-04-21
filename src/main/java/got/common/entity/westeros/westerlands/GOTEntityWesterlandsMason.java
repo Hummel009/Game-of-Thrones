@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityWesterlandsMason extends GOTEntityWesterlandsMarketTrader {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsMason(World world) {
 		super(world);
 	}
@@ -24,9 +25,9 @@ public class GOTEntityWesterlandsMason extends GOTEntityWesterlandsMarketTrader 
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
-		return data;
+		return entityData;
 	}
 }

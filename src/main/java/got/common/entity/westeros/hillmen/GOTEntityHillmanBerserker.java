@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillmanBerserker(World world) {
 		super(world);
 		shield = null;
@@ -22,7 +23,7 @@ public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(4);
 		if (i == 0 || i == 1 || i == 2) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
@@ -34,6 +35,6 @@ public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.boneChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.hillmenHelmet));
-		return data;
+		return entityData;
 	}
 }

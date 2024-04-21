@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityNorthHillmanMercenary extends GOTEntityNorthHillmanWarrior implements GOTMercenary {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthHillmanMercenary(World world) {
 		super(world);
 		spawnRidingHorse = false;

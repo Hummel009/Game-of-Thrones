@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityThennMagnar extends GOTEntityThenn implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThennMagnar(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -57,14 +58,14 @@ public class GOTEntityThennMagnar extends GOTEntityThenn implements GOTUnitTrade
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.furChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return entityData;
 	}
 
 	@Override

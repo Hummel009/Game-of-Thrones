@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityTywinLannister extends GOTEntityHumanBase {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTywinLannister(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -82,8 +83,8 @@ public class GOTEntityTywinLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -92,14 +93,14 @@ public class GOTEntityTywinLannister extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.westkingBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westkingLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westkingChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.westkingHelmet));
-		return data;
+		return entityData;
 	}
 
 	@Override

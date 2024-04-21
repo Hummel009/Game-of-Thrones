@@ -164,7 +164,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadBattleaxe));
 		} else {
@@ -185,7 +185,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase {
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}
-		return data1;
+		return entityData;
 	}
 
 	@Override

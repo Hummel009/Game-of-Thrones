@@ -3,13 +3,13 @@ package got.common.entity.westeros.riverlands;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsLevyman {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsSoldier(World world) {
 		super(world);
 		spawnRidingHorse = rand.nextInt(10) == 0;
@@ -28,8 +28,8 @@ public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			if (mounted) {
 				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
 			} else {
@@ -44,7 +44,7 @@ public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -78,6 +78,6 @@ public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.riverlandsLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.riverlandsChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.riverlandsHelmet));
-		return data;
+		return entityData;
 	}
 }

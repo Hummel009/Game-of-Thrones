@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAndrikTheUnsmilling extends GOTEntityHumanBase implements GOTMercenary {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAndrikTheUnsmilling(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -83,16 +84,16 @@ public class GOTEntityAndrikTheUnsmilling extends GOTEntityHumanBase implements 
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadBattleaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override

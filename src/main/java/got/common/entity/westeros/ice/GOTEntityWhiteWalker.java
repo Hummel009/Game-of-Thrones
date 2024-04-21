@@ -24,8 +24,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.iceSword), new ItemStack(GOTItems.iceHeavySword), new ItemStack(GOTItems.iceSpear)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.iceSword), new ItemStack(GOTItems.iceHeavySword), new ItemStack(GOTItems.iceSpear)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWhiteWalker(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -121,8 +122,8 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -138,8 +139,8 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData livingData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(8) == 0) {
 			setCurrentItemOrArmor(1, new ItemStack(GOTItems.whiteWalkersBoots));

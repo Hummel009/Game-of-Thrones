@@ -146,10 +146,10 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDagger));
 		npcItemsInv.setIdleItem(null);
-		return data1;
+		return entityData;
 	}
 
 	@Override

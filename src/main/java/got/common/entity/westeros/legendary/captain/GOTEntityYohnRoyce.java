@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYohnRoyce(World world) {
 		super(world);
 		addTargetTasks(true);
@@ -98,8 +99,8 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -108,14 +109,14 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lamentation));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.royceBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.royceLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.royceChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.royceHelmet));
-		return data;
+		return entityData;
 	}
 
 	@Override

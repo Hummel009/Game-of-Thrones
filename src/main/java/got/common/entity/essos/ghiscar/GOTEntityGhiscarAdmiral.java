@@ -63,14 +63,14 @@ public class GOTEntityGhiscarAdmiral extends GOTEntityGhiscarCorsair implements 
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ghiscarBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ghiscarLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ghiscarChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data1;
+		return entityData;
 	}
 
 	@Override

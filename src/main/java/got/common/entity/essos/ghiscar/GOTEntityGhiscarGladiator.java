@@ -50,7 +50,7 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(WEAPONS.length);
 		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -61,7 +61,7 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 		int robeColor = TURBAN_COLORS[rand.nextInt(TURBAN_COLORS.length)];
 		GOTItemRobes.setRobesColor(turban, robeColor);
 		setCurrentItemOrArmor(4, turban);
-		return data1;
+		return entityData;
 	}
 
 	@Override

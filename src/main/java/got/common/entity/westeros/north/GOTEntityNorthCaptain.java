@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTUnitTradeable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthCaptain(World world) {
 		super(world);
 		addTargetTasks(false);
@@ -56,7 +57,7 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTU
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -65,7 +66,7 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTU
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return entityData;
 	}
 
 	@Override

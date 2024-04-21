@@ -71,7 +71,7 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.asshaiStaff));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -79,6 +79,6 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
-		return data1;
+		return entityData;
 	}
 }

@@ -100,9 +100,9 @@ public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(null);
-		return data1;
+		return entityData;
 	}
 
 	@Override

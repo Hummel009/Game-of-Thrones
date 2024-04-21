@@ -440,18 +440,18 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData data1 = data;
+		IEntityLivingData entityData = data;
 		if (!worldObj.isRemote) {
-			data1 = super.onSpawnWithEgg(data1);
+			entityData = super.onSpawnWithEgg(entityData);
 			onGOTHorseSpawn();
 			setHealth(getMaxHealth());
-			return data1;
+			return entityData;
 		}
 		int j = rand.nextInt(7);
 		int k = rand.nextInt(5);
 		int i = j | k << 8;
 		setHorseVariant(i);
-		return data1;
+		return entityData;
 	}
 
 	@Override

@@ -23,8 +23,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGiftMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -52,7 +53,7 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.Imm
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
-	public EntityAIBase createGiftAttackAI() {
+	private EntityAIBase createGiftAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -78,7 +79,7 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.Imm
 		dropGiftItems(flag, i);
 	}
 
-	public void dropGiftItems(boolean flag, int i) {
+	private void dropGiftItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.GIFT, 1, 2 + i);
 		}
@@ -113,8 +114,8 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.Imm
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
@@ -123,11 +124,11 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.Imm
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return entityData;
 	}
 
 	@Override

@@ -18,9 +18,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
-	public EntityAIBase rangedAttackAI = createJoffreyRangedAI();
-	public EntityAIBase meleeAttackAI;
+	private final EntityAIBase rangedAttackAI = createJoffreyRangedAI();
+	private EntityAIBase meleeAttackAI;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityJoffreyBaratheon(World world) {
 		super(world);
 		addTargetTasks();
@@ -40,7 +41,7 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 		tasks.addTask(9, new EntityAILookIdle(this));
 	}
 
-	public void addTargetTasks() {
+	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityProstitute.class, 500, true));
 	}
@@ -57,12 +58,12 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 		npcCrossbowAttack(target, f);
 	}
 
-	public EntityAIBase createJoffreyAttackAI() {
+	private EntityAIBase createJoffreyAttackAI() {
 		meleeAttackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 		return meleeAttackAI;
 	}
 
-	public EntityAIBase createJoffreyRangedAI() {
+	private EntityAIBase createJoffreyRangedAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 20, 40, 20.0f);
 	}
 
@@ -96,19 +97,19 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == AttackMode.IDLE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-		if (mode == GOTEntityNPC.AttackMode.MELEE) {
+		if (mode == AttackMode.MELEE) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, meleeAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-		if (mode == GOTEntityNPC.AttackMode.RANGED) {
+		if (mode == AttackMode.RANGED) {
 			tasks.removeTask(meleeAttackAI);
 			tasks.removeTask(rangedAttackAI);
 			tasks.addTask(2, rangedAttackAI);
@@ -118,11 +119,11 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.hearteater));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.joffreyCrossbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return entityData;
 	}
 
 	@Override
