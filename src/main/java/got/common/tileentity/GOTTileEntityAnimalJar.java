@@ -1,8 +1,8 @@
 package got.common.tileentity;
 
 import got.common.block.other.GOTBlockAnimalJar;
+import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
-import got.common.entity.other.AnimalJarUpdater;
 import got.common.entity.other.GOTEntityRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -167,8 +167,8 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 			jarEntity.lastTickPosY = jarEntity.prevPosY = jarEntity.posY;
 			jarEntity.lastTickPosZ = jarEntity.prevPosZ = jarEntity.posZ;
 			jarEntity.prevRotationYaw = jarEntity.rotationYaw;
-			if (jarEntity instanceof AnimalJarUpdater) {
-				((AnimalJarUpdater) jarEntity).updateInAnimalJar();
+			if (jarEntity instanceof GOTEntityBird) {
+				((GOTEntityBird) jarEntity).updateInAnimalJar();
 			}
 			if (!worldObj.isRemote) {
 				if (jarEntity instanceof EntityLiving) {

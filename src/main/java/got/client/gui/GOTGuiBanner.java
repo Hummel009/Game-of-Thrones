@@ -96,10 +96,6 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		buttonMode.func_146113_a(mc.getSoundHandler());
 	}
 
-	private boolean canScroll() {
-		return true;
-	}
-
 	private void checkUsernameValid(int index) {
 		GuiTextField textBox = allowedPlayers[index];
 		String username = textBox.getText();
@@ -138,6 +134,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	}
 
 	@Override
+	@SuppressWarnings("StringConcatenationMissingWhitespace")
 	public void drawScreen(int i, int j, float f) {
 		int windowY;
 		String s;
@@ -199,12 +196,10 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				mc.getTextureManager().bindTexture(BANNER_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				drawTexturedModalRect(guiLeft + SCROLL_BAR_X, guiTop + SCROLL_BAR_Y, 200, 0, SCROLL_BAR_WIDTH, SCROLL_BAR_HEIGHT);
-				if (canScroll()) {
-					int scrollBarBorder = 1;
-					int scroll = (int) (currentScroll * (SCROLL_BAR_HEIGHT - scrollBarBorder * 2 - SCROLL_WIDGET_HEIGHT));
-					int scrollWidgetWidth = 10;
-					drawTexturedModalRect(guiLeft + SCROLL_BAR_X + scrollBarBorder, guiTop + SCROLL_BAR_Y + scrollBarBorder + scroll, 212, 0, scrollWidgetWidth, SCROLL_WIDGET_HEIGHT);
-				}
+				int scrollBarBorder = 1;
+				int scroll = (int) (currentScroll * (SCROLL_BAR_HEIGHT - scrollBarBorder * 2 - SCROLL_WIDGET_HEIGHT));
+				int scrollWidgetWidth = 10;
+				drawTexturedModalRect(guiLeft + SCROLL_BAR_X + scrollBarBorder, guiTop + SCROLL_BAR_Y + scrollBarBorder + scroll, 212, 0, scrollWidgetWidth, SCROLL_WIDGET_HEIGHT);
 			}
 		} else {
 			permissionsOpenY = -1;
@@ -276,7 +271,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	public void handleMouseInput() {
 		super.handleMouseInput();
 		int i = Mouse.getEventDWheel();
-		if (i != 0 && canScroll()) {
+		if (i != 0) {
 			int j = allowedPlayers.length - 6;
 			if (i > 0) {
 				i = 1;
@@ -513,7 +508,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		int i2 = i1 + SCROLL_BAR_WIDTH;
 		int j2 = j1 + SCROLL_BAR_HEIGHT;
 		if (!wasMouseDown && isMouseDown && i >= i1 && j >= j1 && i < i2 && j < j2) {
-			isScrolling = canScroll();
+			isScrolling = true;
 		}
 		if (!isMouseDown) {
 			isScrolling = false;

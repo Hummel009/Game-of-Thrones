@@ -99,14 +99,17 @@ public class GOTMusicTicker {
 		}
 		if (!noMusic) {
 			boolean update = menu || GOTMusic.isGOTDimension() && !Minecraft.getMinecraft().isGamePaused();
-			if (update && currentTrack == null && --timing <= 0) {
-				currentTrack = getNewTrack(mc, rand);
-				if (currentTrack != null) {
-					wasPlayingMenu = menu;
-					mc.getSoundHandler().playSound(currentTrack);
-					timing = Integer.MAX_VALUE;
-				} else {
-					timing = 400;
+			if (update && currentTrack == null) {
+				--timing;
+				if (timing <= 0) {
+					currentTrack = getNewTrack(mc, rand);
+					if (currentTrack != null) {
+						wasPlayingMenu = menu;
+						mc.getSoundHandler().playSound(currentTrack);
+						timing = Integer.MAX_VALUE;
+					} else {
+						timing = 400;
+					}
 				}
 			}
 		}

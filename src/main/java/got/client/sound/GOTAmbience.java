@@ -190,7 +190,7 @@ public class GOTAmbience {
 									float angle = (float) Math.atan2(dz, dx);
 									float cos = MathHelper.cos(angle);
 									float sin = MathHelper.sin(angle);
-									float angle90 = angle + (float) Math.toRadians(-90.0);
+									float angle90 = angle - 1.5707963267948966f;
 									float cos90 = MathHelper.cos(angle90);
 									float sin90 = MathHelper.sin(angle90);
 									float waveSpeed = MathHelper.randomFloatClamp(rand, 0.3f, 0.5f);

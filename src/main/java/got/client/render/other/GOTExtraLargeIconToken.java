@@ -2,7 +2,7 @@ package got.client.render.other;
 
 import net.minecraft.util.IIcon;
 
-class GOTExtraLargeIconToken {
+public class GOTExtraLargeIconToken {
 	private final String name;
 
 	private IIcon icon;

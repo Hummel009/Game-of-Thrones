@@ -94,7 +94,7 @@ public abstract class GOTStructureBaseSettlement {
 		}
 	}
 
-	private void generateInstanceInChunk(AbstractInstance instance, World world, int i, int k) {
+	private static void generateInstanceInChunk(AbstractInstance instance, World world, int i, int k) {
 		for (int i1 = i; i1 <= i + 15; ++i1) {
 			for (int k1 = k; k1 <= k + 15; ++k1) {
 				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i1, k1);
@@ -134,7 +134,7 @@ public abstract class GOTStructureBaseSettlement {
 		}
 	}
 
-	private Object[] getHeight_getPath_isSlab(AbstractInstance instance, World world, int i, int k) {
+	private static Object[] getHeight_getPath_isSlab(AbstractInstance instance, World world, int i, int k) {
 		instance.setupWorldPositionSeed(i, k);
 		int[] coords = instance.getRelativeCoords(i, k);
 		int i1 = coords[0];
@@ -211,7 +211,7 @@ public abstract class GOTStructureBaseSettlement {
 		return getNearbySettlements(world, chunkX, chunkZ);
 	}
 
-	private int getTopTerrainBlock(World world, int i, int k, boolean acceptSlab) {
+	private static int getTopTerrainBlock(World world, int i, int k, boolean acceptSlab) {
 		int j = world.getTopSolidOrLiquidBlock(i, k) - 1;
 		while (!world.getBlock(i, j + 1, k).getMaterial().isLiquid()) {
 			Block block = world.getBlock(i, j, k);
@@ -428,6 +428,7 @@ public abstract class GOTStructureBaseSettlement {
 			return random;
 		}
 
+		@SuppressWarnings("ClassEscapesDefinedScope")
 		protected Collection<StructureInfo> getStructures() {
 			return structures;
 		}

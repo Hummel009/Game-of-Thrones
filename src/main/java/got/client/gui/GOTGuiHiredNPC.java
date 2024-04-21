@@ -14,14 +14,15 @@ import org.lwjgl.opengl.GL11;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@SuppressWarnings("WeakerAccess")
 public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/npc/hired.png");
 
-	private static final int Y_SIZE = 220;
+	protected final GOTEntityNPC theNPC;
 
-	protected GOTEntityNPC theNPC;
+	protected static final int Y_SIZE = 220;
+	protected static final int X_SIZE = 200;
 
-	protected int xSize = 200;
 	protected int guiLeft;
 	protected int guiTop;
 	protected int page;
@@ -35,11 +36,11 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(GUI_TEXTURE);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, Y_SIZE);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, X_SIZE, Y_SIZE);
 		String s = theNPC.getNPCName();
-		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 3618615);
+		fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 3618615);
 		s = theNPC.getEntityClassName();
-		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 26, 3618615);
+		fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 26, 3618615);
 		if (page == 0 && theNPC.getHireableInfo().hasHiringRequirements()) {
 			int x = guiLeft + 6;
 			int y = guiTop + 170;
@@ -47,7 +48,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			fontRendererObj.drawString(s, x, y, 3618615);
 			y += fontRendererObj.FONT_HEIGHT;
 			x += 4;
-			int maxWidth = xSize - 12 - 4;
+			int maxWidth = X_SIZE - 12 - 4;
 			GOTFaction fac = theNPC.getFaction();
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.getHireableInfo().getAlignmentRequiredToCommand());
 			String alignReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.align", alignS, fac.factionName());
@@ -67,7 +68,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 
 	@Override
 	public void initGui() {
-		guiLeft = (width - xSize) / 2;
+		guiLeft = (width - X_SIZE) / 2;
 		guiTop = (height - Y_SIZE) / 2;
 	}
 

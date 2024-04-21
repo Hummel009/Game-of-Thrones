@@ -209,9 +209,9 @@ public class GOTModelDragonAnimaton {
 		cycleOfs = cycleOfs * (cycleOfs + 2) * 0.05f;
 		cycleOfs *= lerp(0.5f, 1, flutter);
 		cycleOfs *= lerp(1, 0.5f, ground);
-		model.setOffsetX(getModelOffsetX());
+		model.setOffsetX(0);
 		model.setOffsetY(getModelOffsetY());
-		model.setOffsetZ(getModelOffsetZ());
+		model.setOffsetZ(-1.5f);
 		model.setPitch(getModelPitch());
 		animHeadAndNeck(model);
 		animTail(model);
@@ -408,16 +408,8 @@ public class GOTModelDragonAnimaton {
 		}
 	}
 
-	private float getModelOffsetX() {
-		return 0;
-	}
-
 	private float getModelOffsetY() {
 		return -1.5f + sit * 0.6f;
-	}
-
-	private float getModelOffsetZ() {
-		return -1.5f;
 	}
 
 	private float getModelPitch() {
@@ -468,7 +460,7 @@ public class GOTModelDragonAnimaton {
 		this.ticksExisted = ticksExisted;
 	}
 
-	private void slerpArrays(float[] a, float[] b, float[] c, float x) {
+	private static void slerpArrays(float[] a, float[] b, float[] c, float x) {
 		if (a.length != b.length || b.length != c.length) {
 			throw new IllegalArgumentException();
 		}
@@ -485,7 +477,7 @@ public class GOTModelDragonAnimaton {
 		}
 	}
 
-	private void splineArrays(float x, boolean shift, float[] result, float[]... nodes) {
+	private static void splineArrays(float x, boolean shift, float[] result, float[]... nodes) {
 		int i1 = (int) x % nodes.length;
 		int i2 = (i1 + 1) % nodes.length;
 		int i3 = (i1 + 2) % nodes.length;

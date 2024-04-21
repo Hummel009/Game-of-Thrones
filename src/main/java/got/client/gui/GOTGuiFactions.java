@@ -164,10 +164,6 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		}
 	}
 
-	private boolean canScroll() {
-		return true;
-	}
-
 	public void drawButtonHoveringText(List<String> list, int i, int j) {
 		func_146283_a(list, i, j);
 	}
@@ -462,10 +458,8 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 			}
 			mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			if (canScroll()) {
-				int scroll = (int) (currentScroll * (scrollBarWidth - scrollBarBorder * 2 - scrollWidgetWidth));
-				drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder + scroll, guiTop + scrollBarY + scrollBarBorder, 0, 142, scrollWidgetWidth, scrollWidgetHeight);
-			}
+			int scroll = (int) (currentScroll * (scrollBarWidth - scrollBarBorder * 2 - scrollWidgetWidth));
+			drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder + scroll, guiTop + scrollBarY + scrollBarBorder, 0, 142, scrollWidgetWidth, scrollWidgetHeight);
 		}
 		super.drawScreen(i, j, f);
 		if (buttonFactionMap.enabled && buttonFactionMap.func_146115_a()) {
@@ -589,7 +583,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		int i2 = i1 + scrollBarWidth;
 		int j2 = j1 + scrollBarHeight;
 		if (!wasMouseDown && isMouseDown && i >= i1 && j >= j1 && i < i2 && j < j2) {
-			isScrolling = canScroll();
+			isScrolling = true;
 		}
 		if (!isMouseDown) {
 			isScrolling = false;

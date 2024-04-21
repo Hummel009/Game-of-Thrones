@@ -73,6 +73,7 @@ public class GOTBlockWaste extends Block {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("StringConcatenationMissingWhitespace")
 	public void registerBlockIcons(IIconRegister iconregister) {
 		randomIcons = new IIcon[4];
 		for (int l = 0; l < randomIcons.length; ++l) {

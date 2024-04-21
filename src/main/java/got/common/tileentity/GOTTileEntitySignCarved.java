@@ -80,6 +80,7 @@ public class GOTTileEntitySignCarved extends TileEntity {
 		readSignText(nbt);
 	}
 
+	@SuppressWarnings("StringConcatenationMissingWhitespace")
 	private void readSignText(NBTTagCompound nbt) {
 		for (int i = 0; i < signText.length; ++i) {
 			signText[i] = nbt.getString("Text" + (i + 1));
@@ -90,6 +91,7 @@ public class GOTTileEntitySignCarved extends TileEntity {
 		}
 	}
 
+	@SuppressWarnings("StringConcatenationMissingWhitespace")
 	private void writeSignText(NBTTagCompound nbt) {
 		for (int i = 0; i < signText.length; ++i) {
 			nbt.setString("Text" + (i + 1), signText[i]);

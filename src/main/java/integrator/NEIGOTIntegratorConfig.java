@@ -23,15 +23,15 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		return GOT.VERSION;
 	}
 
-	private void hideItem(Block block) {
+	private static void hideItem(Block block) {
 		hideItem(false, block);
 	}
 
-	private void hideItem(boolean all, Block block) {
+	private static void hideItem(boolean all, Block block) {
 		hideItem(new ItemStack(block), all);
 	}
 
-	private void hideItem(ItemStack stack, boolean all) {
+	private static void hideItem(ItemStack stack, boolean all) {
 		int i = all ? 0 : 8;
 		while (i < 16) {
 			ItemStack s = new ItemStack(stack.getItem(), 1, i);

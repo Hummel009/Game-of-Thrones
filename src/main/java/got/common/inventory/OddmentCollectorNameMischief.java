@@ -6,6 +6,7 @@ public class OddmentCollectorNameMischief {
 	private OddmentCollectorNameMischief() {
 	}
 
+	@SuppressWarnings("StringConcatenationMissingWhitespace")
 	public static String garbleName(String name, Random rand) {
 		String name1 = name;
 		int deletes = rand.nextInt(3);

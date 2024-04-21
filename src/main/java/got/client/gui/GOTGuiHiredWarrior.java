@@ -60,7 +60,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 	public void drawScreen(int i, int j, float f) {
 		super.drawScreen(i, j, f);
 		if (page == 0) {
-			int midX = guiLeft + xSize / 2;
+			int midX = guiLeft + X_SIZE / 2;
 			String s = StatCollector.translateToLocalFormatted("got.gui.warrior.health", Math.round(theNPC.getHealth()), Math.round(theNPC.getMaxHealth()));
 			fontRendererObj.drawString(s, midX - fontRendererObj.getStringWidth(s) / 2, guiTop + 50, 4210752);
 			s = theNPC.getHireableInfo().getStatusString();
@@ -98,7 +98,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 	@Override
 	public void initGui() {
 		super.initGui();
-		int midX = guiLeft + xSize / 2;
+		int midX = guiLeft + X_SIZE / 2;
 		if (page == 0) {
 			GOTGuiButtonOptions buttonOpenInv = new GOTGuiButtonOptions(0, midX - 80, guiTop + 142, 160, 20, StatCollector.translateToLocal("got.gui.warrior.openInv"));
 			buttonList.add(buttonOpenInv);
@@ -119,7 +119,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			}
 		}
 		buttonLeft = new GOTGuiButtonLeftRight(1000, true, guiLeft - 130, guiTop + 50, "");
-		buttonRight = new GOTGuiButtonLeftRight(1001, false, guiLeft + xSize + 10, guiTop + 50, "");
+		buttonRight = new GOTGuiButtonLeftRight(1001, false, guiLeft + X_SIZE + 10, guiTop + 50, "");
 		buttonList.add(buttonLeft);
 		buttonList.add(buttonRight);
 		buttonLeft.displayString = PAGE_TITLES[(page == 0 ? PAGE_TITLES.length : page) - 1];

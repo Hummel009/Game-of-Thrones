@@ -25,6 +25,7 @@ public class GOTGuiSlider extends GuiButton {
 	}
 
 	@Override
+	@SuppressWarnings("StringConcatenationMissingWhitespace")
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (overrideStateString != null) {
 			displayString = overrideStateString;

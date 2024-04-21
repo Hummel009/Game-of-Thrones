@@ -3,7 +3,6 @@ package got.common.entity.animal;
 import got.GOT;
 import got.common.block.other.GOTBlockBerryBush;
 import got.common.database.GOTItems;
-import got.common.entity.other.AnimalJarUpdater;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.entity.other.GOTScarecrows;
@@ -43,7 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, AnimalJarUpdater, GOTBiome.ImmuneToFrost {
+public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	private final GOTEntityInventory birdInv = new GOTEntityInventory("BirdItems", this, 9);
 
 	private ChunkCoordinates currentFlightTarget;
@@ -585,7 +584,6 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	public void updateFallState(double d, boolean flag) {
 	}
 
-	@Override
 	public void updateInAnimalJar() {
 		setBirdStill(false);
 	}

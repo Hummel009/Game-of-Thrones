@@ -31,6 +31,8 @@ import org.lwjgl.opengl.GL11;
 public abstract class GOTRenderBiped extends RenderBiped {
 	protected static final GOTModelBiped CAPE_MODEL = new GOTModelBiped();
 
+	protected float heldItemYTranslation = 0.1875f;
+
 	private ModelBiped npcRenderPassModel;
 
 	protected GOTRenderBiped(ModelBiped model, float f) {
@@ -75,10 +77,6 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		return super.getEntityTexture(entity);
-	}
-
-	protected float getHeldItemYTranslation() {
-		return 0.1875f;
 	}
 
 	@Override
@@ -137,13 +135,13 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			boolean is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItem, IItemRenderer.ItemRendererHelper.BLOCK_3D);
 			if (heldItem.getItem() instanceof ItemBlock && (is3D || RenderBlocks.renderItemIn3d(Block.getBlockFromItem(heldItem.getItem()).getRenderType()))) {
 				f12 = 0.5f;
-				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), -0.3125f);
+				GL11.glTranslatef(0.0f, heldItemYTranslation, -0.3125f);
 				GL11.glRotatef(20.0f, 1.0f, 0.0f, 0.0f);
 				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
 				GL11.glScalef(-(f12 *= 0.75f), -f12, f12);
 			} else if (heldItem.getItem() == Items.bow) {
 				f12 = 0.625f;
-				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), 0.3125f);
+				GL11.glTranslatef(0.0f, heldItemYTranslation, 0.3125f);
 				GL11.glRotatef(-20.0f, 0.0f, 1.0f, 0.0f);
 				GL11.glScalef(f12, -f12, f12);
 				GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
@@ -152,15 +150,15 @@ public abstract class GOTRenderBiped extends RenderBiped {
 				f12 = 0.625f;
 				if (heldItem.getItem().shouldRotateAroundWhenRendering()) {
 					GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
-					GL11.glTranslatef(0.0f, -getHeldItemYTranslation(), 0.0f);
+					GL11.glTranslatef(0.0f, -heldItemYTranslation, 0.0f);
 				}
-				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), 0.0f);
+				GL11.glTranslatef(0.0f, heldItemYTranslation, 0.0f);
 				GL11.glScalef(f12, -f12, f12);
 				GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
 				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
 			} else {
 				f12 = 0.375f;
-				GL11.glTranslatef(0.25f, getHeldItemYTranslation(), -0.1875f);
+				GL11.glTranslatef(0.25f, heldItemYTranslation, -0.1875f);
 				GL11.glScalef(f12, f12, f12);
 				GL11.glRotatef(60.0f, 0.0f, 0.0f, 1.0f);
 				GL11.glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
@@ -190,7 +188,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			boolean is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItemLeft, IItemRenderer.ItemRendererHelper.BLOCK_3D);
 			if (heldItemLeft.getItem() instanceof ItemBlock && (is3D || RenderBlocks.renderItemIn3d(Block.getBlockFromItem(heldItemLeft.getItem()).getRenderType()))) {
 				f14 = 0.5f;
-				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), -0.3125f);
+				GL11.glTranslatef(0.0f, heldItemYTranslation, -0.3125f);
 				GL11.glRotatef(20.0f, 1.0f, 0.0f, 0.0f);
 				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
 				GL11.glScalef(-(f14 *= 0.75f), -f14, f14);
@@ -199,12 +197,12 @@ public abstract class GOTRenderBiped extends RenderBiped {
 					f14 = 0.625f;
 					if (heldItemLeft.getItem().shouldRotateAroundWhenRendering()) {
 						GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
-						GL11.glTranslatef(0.0f, -getHeldItemYTranslation(), 0.0f);
+						GL11.glTranslatef(0.0f, -heldItemYTranslation, 0.0f);
 					}
 				} else {
 					f14 = 0.3175f;
 				}
-				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), 0.0f);
+				GL11.glTranslatef(0.0f, heldItemYTranslation, 0.0f);
 				GL11.glScalef(f14, -f14, f14);
 				GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
 				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
@@ -221,7 +219,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		renderNPCCape((GOTEntityNPC) entity);
 	}
 
-	private void renderNPCCape(GOTEntityNPC entity) {
+	private static void renderNPCCape(GOTEntityNPC entity) {
 		GOTCapes cape = entity.getCape();
 		if (cape != null) {
 			GOTRenderCape.renderCape(cape, CAPE_MODEL);

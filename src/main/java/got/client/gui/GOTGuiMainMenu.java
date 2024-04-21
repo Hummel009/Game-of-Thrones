@@ -35,7 +35,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 
 	private final GOTGuiMap mapGui;
 
-	@SuppressWarnings("FieldMayBeFinal")
+	@SuppressWarnings({"FieldMayBeFinal", "CanBeFinal"})
 	private boolean fadeIn = isFirstMenu;
 
 	private long firstRenderTime;

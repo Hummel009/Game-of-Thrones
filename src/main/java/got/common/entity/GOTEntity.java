@@ -83,7 +83,7 @@ public class GOTEntity {
 	private GOTEntity() {
 	}
 
-	@SuppressWarnings("UnusedAssignment")
+	@SuppressWarnings({"UnusedAssignment", "ValueOfIncrementOrDecrementUsed"})
 	public static void preInit() {
 		int id = 0;
 		GOTEntityRegistry.register(GOTEntityBison.class, id++, 7488812);

@@ -421,7 +421,7 @@ public class GOTAchievement {
 		return list;
 	}
 
-	@SuppressWarnings("UnusedAssignment")
+	@SuppressWarnings({"UnusedAssignment", "ValueOfIncrementOrDecrementUsed"})
 	public static void onInit() {
 		int genId = 1;
 		enterKnownWorld = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "ENTER_GOT");

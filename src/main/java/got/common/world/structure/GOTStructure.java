@@ -53,7 +53,7 @@ public class GOTStructure {
 	private GOTStructure() {
 	}
 
-	@SuppressWarnings("UnusedAssignment")
+	@SuppressWarnings({"UnusedAssignment", "ValueOfIncrementOrDecrementUsed"})
 	public static void onInit() {
 		int id = 0;
 		GOTStructureRegistry.register(id++, GOTStructureWesterosTownTrees.class, 9605778);

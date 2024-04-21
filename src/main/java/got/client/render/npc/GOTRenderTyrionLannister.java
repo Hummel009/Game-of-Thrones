@@ -16,6 +16,7 @@ public class GOTRenderTyrionLannister extends GOTRenderBiped {
 
 	public GOTRenderTyrionLannister() {
 		super(new GOTModelTyrionLannister(), 0.5f);
+		heldItemYTranslation = 0.075f;
 	}
 
 	@Override
@@ -36,11 +37,6 @@ public class GOTRenderTyrionLannister extends GOTRenderBiped {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		return TEXTURE;
-	}
-
-	@Override
-	public float getHeldItemYTranslation() {
-		return 0.075f;
 	}
 
 	@Override

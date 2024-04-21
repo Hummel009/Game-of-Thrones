@@ -11,7 +11,7 @@ public class GOTPacketHandler {
 	private GOTPacketHandler() {
 	}
 
-	@SuppressWarnings("UnusedAssignment")
+	@SuppressWarnings({"UnusedAssignment", "ValueOfIncrementOrDecrementUsed"})
 	public static void preInit() {
 		int id = 0;
 		NETWORK_WRAPPER.registerMessage(GOTPacketEnableAlignmentZones.Handler.class, GOTPacketEnableAlignmentZones.class, id++, Side.CLIENT);

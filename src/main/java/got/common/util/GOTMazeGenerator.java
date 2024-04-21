@@ -96,6 +96,7 @@ public class GOTMazeGenerator {
 		return getFlag(x, z, (short) 1);
 	}
 
+	@SuppressWarnings("ValueOfIncrementOrDecrementUsed")
 	public void selectOuterEndpoint(Random random) {
 		int startXHalf = startX / (xSize / 2);
 		int startZHalf = startZ / (zSize / 2);

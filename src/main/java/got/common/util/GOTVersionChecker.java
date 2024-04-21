@@ -22,35 +22,34 @@ public class GOTVersionChecker {
 
 	public static void checkForUpdates() {
 		if (!checkedUpdate) {
-			Thread checkThread = new Thread("GOT Update Checker") {
-
-				@Override
-				public void run() {
-					try {
-						String line;
-						URL url = new URL(VERSION_URL);
-						BufferedReader updateReader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
-						StringBuilder updateVersion = new StringBuilder();
-						while ((line = updateReader.readLine()) != null) {
-							updateVersion.append(line);
-						}
-						updateReader.close();
-						updateVersion = new StringBuilder(updateVersion.toString().trim());
-						String currentVersion = GOT.VERSION;
-						if (!updateVersion.toString().equals(currentVersion)) {
-							ChatComponentText component = new ChatComponentText("Game of Thrones Mod:");
-							component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-							EntityClientPlayerMP entityplayer = Minecraft.getMinecraft().thePlayer;
-							if (entityplayer != null) {
-								entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.update", component, updateVersion.toString()));
-							}
-						}
-					} catch (Exception e) {
-						GOTLog.getLogger().warn("Hummel009: Version check failed");
-						e.printStackTrace();
+			Runnable checkRunnable = () -> {
+				try {
+					String line;
+					URL url = new URL(VERSION_URL);
+					BufferedReader updateReader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
+					StringBuilder updateVersion = new StringBuilder();
+					while ((line = updateReader.readLine()) != null) {
+						updateVersion.append(line);
 					}
+					updateReader.close();
+					updateVersion = new StringBuilder(updateVersion.toString().trim());
+					String currentVersion = GOT.VERSION;
+					if (!updateVersion.toString().equals(currentVersion)) {
+						ChatComponentText component = new ChatComponentText("Game of Thrones Mod:");
+						component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+						EntityClientPlayerMP entityplayer = Minecraft.getMinecraft().thePlayer;
+						if (entityplayer != null) {
+							entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.update", component, updateVersion.toString()));
+						}
+					}
+				} catch (Exception e) {
+					GOTLog.getLogger().warn("Hummel009: Version check failed");
+					e.printStackTrace();
 				}
 			};
+
+			Thread checkThread = new Thread(checkRunnable, "GOT Update Checker");
+
 			checkedUpdate = true;
 			checkThread.setDaemon(true);
 			checkThread.start();

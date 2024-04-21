@@ -116,6 +116,7 @@ public class GOTGuiEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("StringConcatenationMissingWhitespace")
 	public void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
 		HoverEvent hoverevent;
 		IChatComponent component;
