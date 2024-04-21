@@ -8,17 +8,23 @@ import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityHumanBase extends GOTEntityNPC {
+	private final boolean canBeMarried;
+
 	protected GOTEntityHumanBase(World world) {
 		super(world);
-		canBeMarried = false;
-		if (familyInfo.isMale() && familyInfo.age >= 0 && !isLegendaryNPC && !isNotHuman) {
+		canBeMarried = GOTEntityUtils.canBeMarried(this);
+		if (canBeMarried) {
+			familyInfo.setMarriageEntityClass(getClass());
+			tasks.addTask(2, new GOTEntityAINPCAvoidEvilPlayer(this, 8.0f, 1.5, 1.8));
+			tasks.addTask(5, new GOTEntityAINPCMarry(this, 1.3));
+			tasks.addTask(6, new GOTEntityAINPCMate(this, 1.3));
+			tasks.addTask(7, new GOTEntityAINPCFollowParent(this, 1.4));
+		}
+
+		boolean canSmoke = GOTEntityUtils.canSmokeDrink(this);
+		if (canSmoke) {
 			tasks.addTask(6, new GOTEntityAISmoke(this, 8000));
 		}
-		tasks.addTask(2, new GOTEntityAINPCAvoidEvilPlayer(this, 8.0f, 1.5, 1.8));
-		tasks.addTask(5, new GOTEntityAINPCMarry(this, 1.3));
-		tasks.addTask(6, new GOTEntityAINPCMate(this, 1.3));
-		tasks.addTask(7, new GOTEntityAINPCFollowParent(this, 1.4));
-		familyInfo.marriageEntityClass = getClass();
 	}
 
 	@Override
@@ -33,7 +39,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 
 	@Override
 	public void onArtificalSpawn() {
-		if (canBeMarried && getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
+		if (canBeMarried && getClass() == familyInfo.getMarriageEntityClass() && rand.nextInt(7) == 0) {
 			familyInfo.setChild();
 		}
 	}

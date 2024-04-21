@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityReachCaptain extends GOTEntityReachSoldier implements GOTUnitTradeable {
 	public GOTEntityReachCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.REACH;
+		cape = GOTCapes.REACH;
 		spawnRidingHorse = false;
 	}
 

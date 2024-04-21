@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 public class GOTEntityQohorGuard extends GOTEntityQohorLevyman {
 	public GOTEntityQohorGuard(World world) {
 		super(world);
-		npcCape = GOTCapes.QOHOR;
-		npcShield = GOTShields.QOHOR;
+		cape = GOTCapes.QOHOR;
+		shield = GOTShields.QOHOR;
 		addTargetTasks(false);
 	}
 

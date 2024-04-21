@@ -28,12 +28,9 @@ import java.util.List;
 public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	public GOTEntityJaqenHghar(World world) {
 		super(world);
-		isImmuneToFrost = true;
-		canBeMarried = false;
 		addTargetTasks(false);
+		setupLegendaryNPC(false);
 		setSize(0.6f, 1.8f);
-		getNavigator().setAvoidsWater(true);
-		getNavigator().setBreakDoors(true);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));

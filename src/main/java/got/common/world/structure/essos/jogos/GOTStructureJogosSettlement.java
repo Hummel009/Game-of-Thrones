@@ -138,10 +138,10 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityJogos.class);
+				spawner.setSpawnClass1(GOTEntityJogos.class);
 				spawner.setCheckRanges(64, -12, 12, 24);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(40);
+				spawner.setBlockEnemySpawns(40);
 			}
 		}
 
@@ -152,10 +152,11 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityJogos.class, GOTEntityJogosArcher.class);
+				spawner.setSpawnClass1(GOTEntityJogos.class);
+				spawner.setSpawnClass2(GOTEntityJogosArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 12);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(40);
+				spawner.setBlockEnemySpawns(40);
 			}
 		}
 
@@ -166,10 +167,10 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityJogos.class);
+				spawner.setSpawnClass1(GOTEntityJogos.class);
 				spawner.setCheckRanges(80, -12, 12, 50);
 				spawner.setSpawnRanges(40, -8, 8, 40);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -180,10 +181,11 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityJogos.class, GOTEntityJogosArcher.class);
+				spawner.setSpawnClass1(GOTEntityJogos.class);
+				spawner.setSpawnClass2(GOTEntityJogosArcher.class);
 				spawner.setCheckRanges(80, -12, 12, 24);
 				spawner.setSpawnRanges(40, -8, 8, 40);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

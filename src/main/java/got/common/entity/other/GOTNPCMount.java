@@ -16,5 +16,4 @@ public interface GOTNPCMount {
 	boolean isMountSaddled();
 
 	void super_moveEntityWithHeading(float var1, float var2);
-
 }

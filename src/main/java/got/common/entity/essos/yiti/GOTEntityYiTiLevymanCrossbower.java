@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiLevymanCrossbower extends GOTEntityYiTiLevyman {
 	public GOTEntityYiTiLevymanCrossbower(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

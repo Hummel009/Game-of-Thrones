@@ -489,21 +489,21 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -5, 1, 2, GOTBlocks.commandTable, 0);
 		if (hasMaester()) {
 			GOTEntityMaester maester = new GOTEntityMaester(world);
-			maester.spawnRidingHorse = false;
+			maester.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(maester, world, 0, 1, 0, 12);
 		}
 		if (hasSepton()) {
 			GOTEntitySepton septon = new GOTEntitySepton(world);
-			septon.spawnRidingHorse = false;
+			septon.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(septon, world, 0, 1, 0, 12);
 		}
 		if (kingdom == Kingdom.DRAGONSTONE) {
 			GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
-			priest.spawnRidingHorse = false;
+			priest.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
 		} else if (kingdom == Kingdom.IRONBORN) {
 			GOTEntityIronbornPriest priest = new GOTEntityIronbornPriest(world);
-			priest.spawnRidingHorse = false;
+			priest.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
 		} else if (kingdom == Kingdom.CROWNLANDS_RED) {
 			spawnLegendaryNPC(new GOTEntitySandorClegane(world), world, -2, 1, -2);
@@ -521,14 +521,15 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			spawnLegendaryNPC(new GOTEntityBarristanSelmy(world), world, -1, 1, 0);
 		} else {
 			GOTEntityNPC captain = getCaptain(world);
-			captain.spawnRidingHorse = false;
+			captain.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
 			GOTEntityNPC soldier = getSoldier(world);
-			soldier.spawnRidingHorse = false;
+			soldier.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(getSoldier(world).getClass(), getSoldierArcher(world).getClass());
+		respawner.setSpawnClass1(getSoldier(world).getClass());
+		respawner.setSpawnClass2(getSoldierArcher(world).getClass());
 		respawner.setCheckRanges(20, -8, 12, 12);
 		respawner.setSpawnRanges(10, 0, 8, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

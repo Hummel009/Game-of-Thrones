@@ -14,9 +14,8 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarAdmiral extends GOTEntityGhiscarCorsair implements GOTUnitTradeable {
 	public GOTEntityGhiscarAdmiral(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.GHISCAR;
+		cape = GOTCapes.GHISCAR;
 	}
 
 	@Override

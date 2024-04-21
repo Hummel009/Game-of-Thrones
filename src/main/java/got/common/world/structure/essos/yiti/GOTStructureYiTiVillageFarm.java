@@ -194,7 +194,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			for (int l = 0; l < farmhands; ++l) {
 				GOTEntityYiTiFarmhand farmhand = new GOTEntityYiTiFarmhand(world);
 				spawnNPCAndSetHome(farmhand, world, 0, 1, -1, 8);
-				farmhand.seedsItem = seedItem;
+				farmhand.setSeedsItem(seedItem);
 			}
 			if (random.nextInt(3) == 0) {
 				GOTEntityYiTiFarmer farmer = new GOTEntityYiTiFarmer(world);

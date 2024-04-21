@@ -13,14 +13,16 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
+	private Item seedsItem;
+
 	public GOTEntityDaenerysTargaryen(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
@@ -35,7 +37,6 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		isImmuneToFire = true;
-		isImmuneToFrost = true;
 	}
 
 	@Override

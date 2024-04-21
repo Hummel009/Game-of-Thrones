@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorthSoldierArcher extends GOTEntityNorthSoldier {
 	public GOTEntityNorthSoldierArcher(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 	}
 

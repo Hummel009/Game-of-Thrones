@@ -28,26 +28,31 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 
 public class GOTEntityNPCRespawner extends Entity {
-	public static int spawnInterval_default = 3600;
-	public static int MAX_SPAWN_BLOCK_RANGE = 64;
-	public float spawnerSpin;
-	public float prevSpawnerSpin;
-	public int spawnInterval = 3600;
-	public int noPlayerRange = 24;
-	public Class<? extends Entity> spawnClass1;
-	public Class<? extends Entity> spawnClass2;
-	public int checkHorizontalRange = 8;
-	public int checkVerticalMin = -4;
-	public int checkVerticalMax = 4;
-	public int spawnCap = 4;
-	public int spawnHorizontalRange = 4;
-	public int spawnVerticalMin = -2;
-	public int spawnVerticalMax = 2;
-	public int homeRange = -1;
-	public boolean setHomePosFromSpawn;
-	public int mountSetting;
-	public int blockEnemySpawns;
+	public static final int SPAWN_INTERVAL_DEFAULT = 3600;
+	public static final int MAX_SPAWN_BLOCK_RANGE = 64;
 
+	private Class<? extends Entity> spawnClass1;
+	private Class<? extends Entity> spawnClass2;
+
+	private boolean setHomePosFromSpawn;
+
+	private float prevSpawnerSpin;
+	private float spawnerSpin;
+
+	private int blockEnemySpawns;
+	private int checkHorizontalRange = 8;
+	private int checkVerticalMax = 4;
+	private int checkVerticalMin = -4;
+	private int homeRange = -1;
+	private int mountSetting;
+	private int noPlayerRange = 24;
+	private int spawnCap = 4;
+	private int spawnHorizontalRange = 4;
+	private int spawnInterval = 3600;
+	private int spawnVerticalMax = 2;
+	private int spawnVerticalMin = -2;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNPCRespawner(World world) {
 		super(world);
 		setSize(1.0f, 1.0f);
@@ -66,7 +71,7 @@ public class GOTEntityNPCRespawner extends Entity {
 		if (!spawners.isEmpty()) {
 			for (GOTEntityNPCRespawner obj : spawners) {
 				AxisAlignedBB spawnBlockBB;
-				if (!obj.blockEnemySpawns() || !(spawnBlockBB = obj.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !obj.isEnemySpawnBlocked(spawnFaction)) {
+				if (obj.blockEnemySpawns <= 0 || !(spawnBlockBB = obj.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !obj.isEnemySpawnBlocked(spawnFaction)) {
 					continue;
 				}
 				return true;
@@ -83,10 +88,6 @@ public class GOTEntityNPCRespawner extends Entity {
 	public void applyEntityCollision(Entity entity) {
 	}
 
-	public boolean blockEnemySpawns() {
-		return blockEnemySpawns > 0;
-	}
-
 	@Override
 	public boolean canBeCollidedWith() {
 		if (!worldObj.isRemote) {
@@ -96,8 +97,8 @@ public class GOTEntityNPCRespawner extends Entity {
 		return entityplayer != null && entityplayer.capabilities.isCreativeMode;
 	}
 
-	public AxisAlignedBB createSpawnBlockRegion() {
-		if (!blockEnemySpawns()) {
+	private AxisAlignedBB createSpawnBlockRegion() {
+		if (blockEnemySpawns <= 0) {
 			return null;
 		}
 		int i = MathHelper.floor_double(posX);
@@ -131,10 +132,6 @@ public class GOTEntityNPCRespawner extends Entity {
 		}
 	}
 
-	public boolean hasHomeRange() {
-		return homeRange >= 0;
-	}
-
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
 		if (entityplayer.capabilities.isCreativeMode) {
@@ -147,7 +144,7 @@ public class GOTEntityNPCRespawner extends Entity {
 		return false;
 	}
 
-	public boolean isEnemySpawnBlocked(GOTFaction spawnFaction) {
+	private boolean isEnemySpawnBlocked(GOTFaction spawnFaction) {
 		GOTFaction faction1;
 		GOTFaction faction2;
 		return spawnClass1 != null && (faction1 = ((GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(spawnClass1), worldObj)).getFaction()) != null && faction1.isBadRelation(spawnFaction) || spawnClass2 != null && (faction2 = ((GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(spawnClass2), worldObj)).getFaction()) != null && faction2.isBadRelation(spawnFaction);
@@ -214,12 +211,12 @@ public class GOTEntityNPCRespawner extends Entity {
 				String entityName = GOTEntityRegistry.getStringFromClass(entityClass);
 				GOTEntityNPC entity = (GOTEntityNPC) EntityList.createEntityByName(entityName, worldObj);
 				entity.setLocationAndAngles(spawnX + 0.5, spawnY, spawnZ + 0.5, rand.nextFloat() * 360.0f, 0.0f);
-				entity.isNPCPersistent = true;
-				entity.liftSpawnRestrictions = true;
+				entity.setNPCPersistent(true);
+				entity.setLiftSpawnRestrictions(true);
 				if (!entity.getCanSpawnHere()) {
 					continue;
 				}
-				entity.liftSpawnRestrictions = false;
+				entity.setLiftSpawnRestrictions(false);
 				worldObj.spawnEntityInWorld(entity);
 				if (mountSetting == 0) {
 					entity.spawnRidingHorse = false;
@@ -227,7 +224,7 @@ public class GOTEntityNPCRespawner extends Entity {
 					entity.spawnRidingHorse = true;
 				}
 				entity.onSpawnWithEgg(null);
-				if (hasHomeRange()) {
+				if (homeRange >= 0) {
 					if (setHomePosFromSpawn) {
 						entity.setHomeArea(spawnX, spawnY, spawnZ, homeRange);
 					} else {
@@ -276,46 +273,6 @@ public class GOTEntityNPCRespawner extends Entity {
 		blockEnemySpawns = nbt.getByte("BlockEnemy");
 	}
 
-	public void setBlockEnemySpawnRange(int i) {
-		blockEnemySpawns = Math.min(i, 64);
-	}
-
-	public void setCheckRanges(int xz, int y, int y1, int l) {
-		checkHorizontalRange = xz;
-		checkVerticalMin = y;
-		checkVerticalMax = y1;
-		spawnCap = l;
-	}
-
-	public void setNoPlayerRange(int i) {
-		noPlayerRange = i;
-	}
-
-	public void setSpawnClass(Class<? extends GOTEntityNPC> c) {
-		spawnClass1 = c;
-	}
-
-	public void setSpawnClasses(Class<? extends GOTEntityNPC> c1, Class<? extends GOTEntityNPC> c2) {
-		spawnClass1 = c1;
-		spawnClass2 = c2;
-	}
-
-	public void setSpawnInterval(int i) {
-		spawnInterval = i;
-	}
-
-	public void setSpawnIntervalMinutes(int m) {
-		int s = m * 60;
-		spawnInterval = s * 20;
-	}
-
-	public void setSpawnRanges(int xz, int y, int y1, int h) {
-		spawnHorizontalRange = xz;
-		spawnVerticalMin = y;
-		spawnVerticalMax = y1;
-		homeRange = h;
-	}
-
 	public void toggleMountSetting() {
 		mountSetting = mountSetting == 0 ? 1 : mountSetting == 1 ? 2 : 0;
 	}
@@ -349,6 +306,140 @@ public class GOTEntityNPCRespawner extends Entity {
 		nbt.setBoolean("HomeSpawn", setHomePosFromSpawn);
 		nbt.setByte("MountSetting", (byte) mountSetting);
 		nbt.setByte("BlockEnemy", (byte) blockEnemySpawns);
+	}
+
+	public void setCheckRanges(int xz, int y, int y1, int l) {
+		checkHorizontalRange = xz;
+		checkVerticalMin = y;
+		checkVerticalMax = y1;
+		spawnCap = l;
+	}
+
+	public void setSpawnRanges(int xz, int y, int y1, int h) {
+		spawnHorizontalRange = xz;
+		spawnVerticalMin = y;
+		spawnVerticalMax = y1;
+		homeRange = h;
+	}
+
+	public Class<? extends Entity> getSpawnClass1() {
+		return spawnClass1;
+	}
+
+	public void setSpawnClass1(Class<? extends Entity> spawnClass1) {
+		this.spawnClass1 = spawnClass1;
+	}
+
+	public Class<? extends Entity> getSpawnClass2() {
+		return spawnClass2;
+	}
+
+	public void setSpawnClass2(Class<? extends Entity> spawnClass2) {
+		this.spawnClass2 = spawnClass2;
+	}
+
+	public float getPrevSpawnerSpin() {
+		return prevSpawnerSpin;
+	}
+
+	public float getSpawnerSpin() {
+		return spawnerSpin;
+	}
+
+	public void setSpawnerSpin(float spawnerSpin) {
+		this.spawnerSpin = spawnerSpin;
+	}
+
+	public int getBlockEnemySpawns() {
+		return blockEnemySpawns;
+	}
+
+	public void setBlockEnemySpawns(int blockEnemySpawns) {
+		this.blockEnemySpawns = Math.min(blockEnemySpawns, 64);
+	}
+
+	public int getCheckHorizontalRange() {
+		return checkHorizontalRange;
+	}
+
+	public void setCheckHorizontalRange(int checkHorizontalRange) {
+		this.checkHorizontalRange = checkHorizontalRange;
+	}
+
+	public int getCheckVerticalMax() {
+		return checkVerticalMax;
+	}
+
+	public void setCheckVerticalMax(int checkVerticalMax) {
+		this.checkVerticalMax = checkVerticalMax;
+	}
+
+	public int getCheckVerticalMin() {
+		return checkVerticalMin;
+	}
+
+	public void setCheckVerticalMin(int checkVerticalMin) {
+		this.checkVerticalMin = checkVerticalMin;
+	}
+
+	public int getHomeRange() {
+		return homeRange;
+	}
+
+	public void setHomeRange(int homeRange) {
+		this.homeRange = homeRange;
+	}
+
+	public int getMountSetting() {
+		return mountSetting;
+	}
+
+	public int getNoPlayerRange() {
+		return noPlayerRange;
+	}
+
+	public void setNoPlayerRange(int noPlayerRange) {
+		this.noPlayerRange = noPlayerRange;
+	}
+
+	public int getSpawnCap() {
+		return spawnCap;
+	}
+
+	public void setSpawnCap(int spawnCap) {
+		this.spawnCap = spawnCap;
+	}
+
+	public int getSpawnHorizontalRange() {
+		return spawnHorizontalRange;
+	}
+
+	public void setSpawnHorizontalRange(int spawnHorizontalRange) {
+		this.spawnHorizontalRange = spawnHorizontalRange;
+	}
+
+	public int getSpawnInterval() {
+		return spawnInterval;
+	}
+
+	public void setSpawnInterval(int spawnInterval) {
+		this.spawnInterval = spawnInterval;
+	}
+
+	public int getSpawnVerticalMax() {
+		return spawnVerticalMax;
+	}
+
+	public void setSpawnVerticalMax(int spawnVerticalMax) {
+		this.spawnVerticalMax = spawnVerticalMax;
+	}
+
+	public int getSpawnVerticalMin() {
+		return spawnVerticalMin;
+	}
+
+	public void setSpawnVerticalMin(int spawnVerticalMin) {
+		this.spawnVerticalMin = spawnVerticalMin;
 	}
 
 	private static class EntitySelectorImpl implements IEntitySelector {

@@ -746,10 +746,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityWesterlandsSoldier.class);
+				spawner.setSpawnClass1(GOTEntityWesterlandsSoldier.class);
 				spawner.setCheckRanges(50, -12, 12, 16);
 				spawner.setSpawnRanges(30, -6, 6, 40);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -760,10 +760,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityWesterlandsSoldier.class);
+				spawner.setSpawnClass1(GOTEntityWesterlandsSoldier.class);
 				spawner.setCheckRanges(20, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 40);
-				spawner.setBlockEnemySpawnRange(40);
+				spawner.setBlockEnemySpawns(40);
 			}
 		}
 
@@ -774,7 +774,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityCrownlandsAlchemist.class);
+				spawner.setSpawnClass1(GOTEntityCrownlandsAlchemist.class);
 				spawner.setCheckRanges(80, -12, 12, 10);
 				spawner.setSpawnRanges(60, -6, 6, 64);
 				spawner.setSpawnInterval(1);
@@ -788,10 +788,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityCrownlandsMan.class);
+				spawner.setSpawnClass1(GOTEntityCrownlandsMan.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(60, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -802,10 +802,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityWesterlandsSoldier.class);
+				spawner.setSpawnClass1(GOTEntityWesterlandsSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -816,10 +816,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityCrownlandsMan.class);
+				spawner.setSpawnClass1(GOTEntityCrownlandsMan.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(60, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -830,10 +830,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityWesterlandsSoldier.class);
+				spawner.setSpawnClass1(GOTEntityWesterlandsSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -844,10 +844,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityCrownlandsMan.class);
+				spawner.setSpawnClass1(GOTEntityCrownlandsMan.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -858,10 +858,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityWesterlandsSoldier.class);
+				spawner.setSpawnClass1(GOTEntityWesterlandsSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

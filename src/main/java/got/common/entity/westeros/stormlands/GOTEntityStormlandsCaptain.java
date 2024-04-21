@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityStormlandsCaptain extends GOTEntityStormlandsSoldier implements GOTUnitTradeable {
 	public GOTEntityStormlandsCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.STORMLANDS;
+		cape = GOTCapes.STORMLANDS;
 		spawnRidingHorse = false;
 	}
 

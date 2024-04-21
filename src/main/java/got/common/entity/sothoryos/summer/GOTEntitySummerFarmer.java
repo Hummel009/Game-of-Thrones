@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 public class GOTEntitySummerFarmer extends GOTEntitySummerMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntitySummerFarmer(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

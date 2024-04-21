@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
 	public GOTEntityQarthWarlock(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

@@ -46,10 +46,10 @@ public class GOTPacketSell implements IMessage {
 					if (itemstack == null || (sellResult = GOTTradeEntries.getItemSellResult(itemstack, trader)) == null) {
 						continue;
 					}
-					int tradeIndex = sellResult.tradeIndex;
-					int value = sellResult.totalSellValue;
-					int itemsSold = sellResult.itemsSold;
-					GOTTradeEntry[] sellTrades = trader.traderNPCInfo.getSellTrades();
+					int tradeIndex = sellResult.getTradeIndex();
+					int value = sellResult.getTotalSellValue();
+					int itemsSold = sellResult.getItemsSold();
+					GOTTradeEntry[] sellTrades = trader.getTraderInfo().getSellTrades();
 					GOTTradeEntry trade = null;
 					if (sellTrades != null) {
 						trade = sellTrades[tradeIndex];
@@ -68,7 +68,7 @@ public class GOTPacketSell implements IMessage {
 					for (Map.Entry<GOTTradeEntry, Integer> e : tradesUsed.entrySet()) {
 						GOTTradeEntry trade = e.getKey();
 						int value = e.getValue();
-						trader.traderNPCInfo.onTrade(entityplayer, trade, GOTTradeEntries.TradeType.WE_CAN_SELL, value);
+						trader.getTraderInfo().onTrade(entityplayer, trade, GOTTradeEntries.TradeType.WE_CAN_SELL, value);
 					}
 					GOTItemCoin.giveCoins(totalCoins, entityplayer);
 					if (totalCoins >= 1000) {

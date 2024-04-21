@@ -35,7 +35,7 @@ import got.common.entity.essos.tyrosh.*;
 import got.common.entity.essos.volantis.*;
 import got.common.entity.essos.yiti.*;
 import got.common.entity.other.GOTEntityProstitute;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.GOTUnitTradeEntry;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBannerBearer;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBlowgunner;
@@ -425,32 +425,32 @@ public class GOTUnitTradeEntries {
 		HILLMEN_L.add(new GOTUnitTradeEntry(GOTEntityHillmanBerserker.class, SOLDIER + 30, SOLDIER_F + 30.0f).setPledgeExclusive());
 		DOTHRAKI_L.add(new GOTUnitTradeEntry(GOTEntityDothraki.class, GOTEntityHorse.class, "Rider", LEVYMAN, LEVYMAN_F));
 		DOTHRAKI_L.add(new GOTUnitTradeEntry(GOTEntityDothrakiArcher.class, GOTEntityHorse.class, "Rider", LEVYMANA, LEVYMANA_F));
-		ARRYN_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityArrynFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		CROWNLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityCrownlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		DORNE_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityDorneFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		DRAGONSTONE_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityDragonstoneFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		IBBEN_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityIbbenFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		IRONBORN_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityIronbornFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		NORTH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityNorthFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		REACH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityReachFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		RIVERLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityRiverlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		SOTHORYOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntitySothoryosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		STORMLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityStormlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		SUMMER_FARMER_L.add(new GOTUnitTradeEntry(GOTEntitySummerFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		WESTERLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityWesterlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		LORATH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityLorathFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		BRAAVOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityBraavosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		NORVOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityNorvosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		PENTOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityPentosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		QOHOR_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityQohorFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		QARTH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityQarthFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		YITI_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityYiTiFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		GHISCAR_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityGhiscarSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		LYS_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityLysSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		MYR_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityMyrSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		TYROSH_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityTyroshSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		VOLANTIS_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityVolantisSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
-		PROSTITUTE_KEEPER_L.add(new GOTUnitTradeEntry(GOTEntityProstitute.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.PROSTITUTE));
+		ARRYN_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityArrynFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		CROWNLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityCrownlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		DORNE_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityDorneFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		DRAGONSTONE_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityDragonstoneFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		IBBEN_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityIbbenFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		IRONBORN_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityIronbornFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		NORTH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityNorthFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		REACH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityReachFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		RIVERLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityRiverlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		SOTHORYOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntitySothoryosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		STORMLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityStormlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		SUMMER_FARMER_L.add(new GOTUnitTradeEntry(GOTEntitySummerFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		WESTERLANDS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityWesterlandsFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		LORATH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityLorathFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		BRAAVOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityBraavosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		NORVOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityNorvosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		PENTOS_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityPentosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		QOHOR_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityQohorFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		QARTH_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityQarthFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		YITI_FARMER_L.add(new GOTUnitTradeEntry(GOTEntityYiTiFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		GHISCAR_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityGhiscarSlave.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		LYS_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityLysSlave.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		MYR_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityMyrSlave.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		TYROSH_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityTyroshSlave.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		VOLANTIS_SLAVER_L.add(new GOTUnitTradeEntry(GOTEntityVolantisSlave.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.FARMER));
+		PROSTITUTE_KEEPER_L.add(new GOTUnitTradeEntry(GOTEntityProstitute.class, SLAVE, SLAVE_F).setTask(GOTHireableInfo.Task.PROSTITUTE));
 
 		ARRYN = new GOTUnitTradeEntries(50.0f, ARRYN_L);
 		BRAAVOS = new GOTUnitTradeEntries(50.0f, BRAAVOS_L);
@@ -526,8 +526,8 @@ public class GOTUnitTradeEntries {
 		GOTUnitTradeEntry[] arr = new GOTUnitTradeEntry[list.size()];
 		arr = list.toArray(arr);
 		for (GOTUnitTradeEntry trade : tradeEntries = arr) {
-			trade.alignmentRequired += baseAlignment;
-			if (trade.alignmentRequired >= 0.0f) {
+			trade.setAlignmentRequired(trade.getAlignmentRequired() + baseAlignment);
+			if (trade.getAlignmentRequired() >= 0.0f) {
 				continue;
 			}
 			throw new IllegalArgumentException("Units cannot require negative alignment!");

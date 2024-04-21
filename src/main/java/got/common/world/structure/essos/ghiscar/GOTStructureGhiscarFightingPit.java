@@ -197,7 +197,7 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 			}
 		}
 		GOTEntityNPCRespawner gladiatorSpawner = new GOTEntityNPCRespawner(world);
-		gladiatorSpawner.setSpawnClass(GOTEntityGhiscarGladiator.class);
+		gladiatorSpawner.setSpawnClass1(GOTEntityGhiscarGladiator.class);
 		gladiatorSpawner.setCheckRanges(12, -8, 16, 10);
 		gladiatorSpawner.setSpawnRanges(4, -4, 4, 24);
 		gladiatorSpawner.setSpawnInterval(1);

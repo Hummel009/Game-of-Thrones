@@ -430,13 +430,14 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		setAir(world, 0, 12, 29);
 		setAir(world, 1, 12, 29);
 		GOTEntityNPC soldier = getSoldier(world);
-		soldier.spawnRidingHorse = false;
+		soldier.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(soldier, world, 0, 2, -3, 32);
 		GOTEntityNPC captain = getCaptain(world);
-		captain.spawnRidingHorse = false;
+		captain.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(captain, world, 0, 15, 0, 8);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(getSoldier(world).getClass(), getSoldierArcher(world).getClass());
+		respawner.setSpawnClass1(getSoldier(world).getClass());
+		respawner.setSpawnClass2(getSoldierArcher(world).getClass());
 		respawner.setCheckRanges(24, -8, 18, 12);
 		respawner.setSpawnRanges(4, 2, 17, 32);
 		placeNPCRespawner(respawner, world, 0, 2, 0);

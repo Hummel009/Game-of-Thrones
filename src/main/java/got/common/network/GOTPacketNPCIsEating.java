@@ -40,7 +40,7 @@ public class GOTPacketNPCIsEating implements IMessage {
 			World world = GOT.proxy.getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).clientIsEating = packet.isEating;
+				((GOTEntityNPC) entity).setClientIsEating(packet.isEating);
 			}
 			return null;
 		}

@@ -31,29 +31,29 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		return theSpouse != null && theSpouse.isEntityAlive() && theNPC.familyInfo.canMarryNPC(theSpouse) && theSpouse.familyInfo.canMarryNPC(theNPC);
+		return theSpouse != null && theSpouse.isEntityAlive() && theNPC.getFamilyInfo().canMarryNPC(theSpouse) && theSpouse.getFamilyInfo().canMarryNPC(theNPC);
 	}
 
 	private void marry() {
 		int maxChildren;
-		theNPC.familyInfo.spouseUniqueID = theSpouse.getUniqueID();
-		theSpouse.familyInfo.spouseUniqueID = theNPC.getUniqueID();
+		theNPC.getFamilyInfo().setSpouseUniqueID(theSpouse.getUniqueID());
+		theSpouse.getFamilyInfo().setSpouseUniqueID(theNPC.getUniqueID());
 		theNPC.setCurrentItemOrArmor(0, null);
 		theNPC.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		theSpouse.setCurrentItemOrArmor(0, null);
 		theSpouse.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
-		theNPC.familyInfo.maxChildren = maxChildren = theNPC.familyInfo.getRandomMaxChildren();
-		theSpouse.familyInfo.maxChildren = maxChildren;
-		theNPC.familyInfo.setMaxBreedingDelay();
-		theSpouse.familyInfo.setMaxBreedingDelay();
+		theNPC.getFamilyInfo().setMaxChildren(maxChildren = theNPC.getFamilyInfo().getRandomMaxChildren());
+		theSpouse.getFamilyInfo().setMaxChildren(maxChildren);
+		theNPC.getFamilyInfo().setMaxBreedingDelay();
+		theSpouse.getFamilyInfo().setMaxBreedingDelay();
 		theNPC.spawnHearts();
 		theSpouse.spawnHearts();
-		EntityPlayer ringPlayer = theNPC.familyInfo.getRingGivingPlayer();
+		EntityPlayer ringPlayer = theNPC.getFamilyInfo().getRingGivingPlayer();
 		if (ringPlayer != null) {
 			GOTLevelData.getData(ringPlayer).addAlignment(ringPlayer, GOTAlignmentValues.MARRIAGE_BONUS, theNPC.getFaction(), theNPC);
 
 		}
-		EntityPlayer ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
+		EntityPlayer ringPlayerSpouse = theSpouse.getFamilyInfo().getRingGivingPlayer();
 		if (ringPlayerSpouse != null) {
 			GOTLevelData.getData(ringPlayerSpouse).addAlignment(ringPlayerSpouse, GOTAlignmentValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
 			GOTLevelData.getData(ringPlayer).addAchievement(GOTAchievement.marry);
@@ -69,15 +69,15 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (theNPC.getClass() != theNPC.familyInfo.marriageEntityClass || theNPC.familyInfo.spouseUniqueID != null || theNPC.familyInfo.getAge() != 0 || theNPC.getEquipmentInSlot(4) != null || theNPC.getEquipmentInSlot(0) == null) {
+		if (theNPC.getClass() != theNPC.getFamilyInfo().getMarriageEntityClass() || theNPC.getFamilyInfo().getSpouseUniqueID() != null || theNPC.getFamilyInfo().getAge() != 0 || theNPC.getEquipmentInSlot(4) != null || theNPC.getEquipmentInSlot(0) == null) {
 			return false;
 		}
-		List<GOTEntityNPC> list = theNPC.worldObj.getEntitiesWithinAABB(theNPC.familyInfo.marriageEntityClass, theNPC.boundingBox.expand(16.0, 4.0, 16.0));
+		List<GOTEntityNPC> list = theNPC.worldObj.getEntitiesWithinAABB(theNPC.getFamilyInfo().getMarriageEntityClass(), theNPC.boundingBox.expand(16.0, 4.0, 16.0));
 		GOTEntityNPC spouse = null;
 		double distanceSq = Double.MAX_VALUE;
 		for (GOTEntityNPC candidate : list) {
 			double d;
-			if (!theNPC.familyInfo.canMarryNPC(candidate) || !candidate.familyInfo.canMarryNPC(theNPC) || (d = theNPC.getDistanceSqToEntity(candidate)) > distanceSq) {
+			if (!theNPC.getFamilyInfo().canMarryNPC(candidate) || !candidate.getFamilyInfo().canMarryNPC(theNPC) || (d = theNPC.getDistanceSqToEntity(candidate)) > distanceSq) {
 				continue;
 			}
 			distanceSq = d;

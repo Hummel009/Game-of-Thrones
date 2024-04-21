@@ -10,17 +10,16 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 	public GOTEntityYiTiSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.YITI;
-		npcCape = GOTCapes.YITI;
+		shield = GOTShields.YITI;
+		cape = GOTCapes.YITI;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

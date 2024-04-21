@@ -13,16 +13,15 @@ import net.minecraft.world.World;
 public class GOTEntityWesterlandsSoldier extends GOTEntityWesterlandsLevyman {
 	public GOTEntityWesterlandsSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.WESTERLANDS;
-		npcCape = GOTCapes.WESTERLANDS;
+		shield = GOTShields.WESTERLANDS;
+		cape = GOTCapes.WESTERLANDS;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

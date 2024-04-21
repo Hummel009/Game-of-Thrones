@@ -17,7 +17,7 @@ public class GOTRenderPortal extends Render {
 		GL11.glPushMatrix();
 		GL11.glEnable(32826);
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
-		float rotation = interpolateRotation(spawner.prevPortalRotation, spawner.portalRotation, f1);
+		float rotation = interpolateRotation(spawner.getPrevPortalRotation(), spawner.getPortalRotation(), f1);
 		float scale = 1.5f;
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		GL11.glScalef(scale, scale, scale);

@@ -26,7 +26,6 @@ import net.minecraft.world.World;
 public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOTBiome.ImmuneToHeat {
 	protected GOTEntityScorpionSmall(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(1.2f * 0.5f, 0.9f * 0.5f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -36,8 +35,6 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		spawnsInDarkness = true;
-		isNotHuman = true;
 	}
 
 	@Override
@@ -45,7 +42,7 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3);
-		getEntityAttribute(npcAttackDamage).setBaseValue(4.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(4.0);
 	}
 
 	@Override

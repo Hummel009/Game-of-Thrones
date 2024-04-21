@@ -10,8 +10,7 @@ import net.minecraft.world.World;
 public class GOTEntityReachGuard extends GOTEntityReachSoldier {
 	public GOTEntityReachGuard(World world) {
 		super(world);
-		canBeMarried = false;
-		npcShield = GOTShields.REACHGUARD;
+		shield = GOTShields.REACHGUARD;
 		spawnRidingHorse = false;
 		addTargetTasks(false);
 	}

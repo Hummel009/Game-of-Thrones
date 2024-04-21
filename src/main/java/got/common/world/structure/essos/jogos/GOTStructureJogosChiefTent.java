@@ -94,7 +94,7 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 		int warriors = 2 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityJogos warrior = new GOTEntityJogos(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, random.nextBoolean() ? -6 : 6, 1, 0, 8);
 		}
 		for (int i1 : new int[]{-5, 5}) {

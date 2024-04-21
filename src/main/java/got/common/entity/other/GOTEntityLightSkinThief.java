@@ -1,11 +1,9 @@
-package got.common.entity.westeros;
+package got.common.entity.other;
 
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.database.GOTNames;
 import got.common.entity.ai.*;
-import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemLeatherHat;
 import got.common.item.other.GOTItemMug;
 import got.common.quest.GOTMiniQuest;
@@ -22,13 +20,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
+public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	public GOTEntityLightSkinThief(World world) {
 		super(world);
-		questInfo.offerChance = 1;
-		canBeMarried = false;
+		questInfo.setOfferChance(1);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -45,7 +42,6 @@ public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBi
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(false);
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -60,7 +56,7 @@ public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBi
 		return GOTMiniQuestFactory.CRIMINAL.createQuest(this);
 	}
 
-	public EntityAIBase createThiefAttackAI() {
+	private EntityAIBase createThiefAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
@@ -124,9 +120,9 @@ public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBi
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(3) == 0) {
 			ItemStack hat = new ItemStack(GOTItems.leatherHat);
@@ -134,7 +130,7 @@ public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBi
 			GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 			setCurrentItemOrArmor(4, hat);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

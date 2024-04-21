@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable {
 	public GOTEntitySepton(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);

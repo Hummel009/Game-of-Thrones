@@ -43,9 +43,9 @@ public class GOTSlotTrade extends GOTSlotProtected {
 	public GOTTradeEntry getTrade() {
 		GOTTradeEntry[] trades = null;
 		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
-			trades = theEntity.traderNPCInfo.getBuyTrades();
+			trades = theEntity.getTraderInfo().getBuyTrades();
 		} else if (tradeType == GOTTradeEntries.TradeType.WE_CAN_SELL) {
-			trades = theEntity.traderNPCInfo.getSellTrades();
+			trades = theEntity.getTraderInfo().getSellTrades();
 		}
 		if (trades == null) {
 			return null;
@@ -68,7 +68,7 @@ public class GOTSlotTrade extends GOTSlotProtected {
 			if (!entityplayer.worldObj.isRemote && trade != null) {
 				putStack(trade.createTradeItem());
 				((EntityPlayerMP) entityplayer).sendContainerToPlayer(theContainer);
-				theEntity.traderNPCInfo.onTrade(entityplayer, trade, GOTTradeEntries.TradeType.WE_CAN_BUY, cost());
+				theEntity.getTraderInfo().onTrade(entityplayer, trade, GOTTradeEntries.TradeType.WE_CAN_BUY, cost());
 				theEntity.playTradeSound();
 			}
 		}

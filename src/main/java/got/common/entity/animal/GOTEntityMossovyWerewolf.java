@@ -22,7 +22,6 @@ import net.minecraft.world.World;
 public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 	public GOTEntityMossovyWerewolf(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -32,7 +31,6 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		spawnsInDarkness = true;
 	}
 
 	@Override
@@ -41,7 +39,7 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30.0);
-		getEntityAttribute(npcAttackDamage).setBaseValue(5.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(5.0);
 	}
 
 	@Override
@@ -62,7 +60,7 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);

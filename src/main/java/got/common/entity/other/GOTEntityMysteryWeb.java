@@ -13,14 +13,17 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityMysteryWeb extends EntityThrowable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMysteryWeb(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMysteryWeb(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMysteryWeb(World world, EntityLivingBase entityliving) {
 		super(world, entityliving);
 	}
@@ -45,7 +48,7 @@ public class GOTEntityMysteryWeb extends EntityThrowable {
 			if (rand.nextInt(4) == 0) {
 				GOTEntityUlthosSpider spider = new GOTEntityUlthosSpider(worldObj);
 				spider.setSpiderScale(0);
-				spider.liftSpawnRestrictions = true;
+				spider.setLiftSpawnRestrictions(true);
 				for (int i = -2; i <= -2 && !spawnedSpider; ++i) {
 					for (int j = 0; j <= 3 && !spawnedSpider; ++j) {
 						for (int k = -2; k <= -2 && !spawnedSpider; ++k) {
@@ -53,7 +56,7 @@ public class GOTEntityMysteryWeb extends EntityThrowable {
 							if (!spider.getCanSpawnHere()) {
 								continue;
 							}
-							spider.liftSpawnRestrictions = false;
+							spider.setLiftSpawnRestrictions(false);
 							spider.onSpawnWithEgg(null);
 							worldObj.spawnEntityInWorld(spider);
 							if (getThrower() != null) {

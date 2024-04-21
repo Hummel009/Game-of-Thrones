@@ -17,7 +17,6 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 
 	public GOTEntitySothoryosFarmhand(World world) {
 		super(world);
-		canBeMarried = false;
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.2f));
 		targetTasks.taskEntries.clear();
 		addTargetTasks(false);
@@ -25,18 +24,23 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+		if (hireableInfo.getHiringPlayer() == entityplayer) {
 			return "standard/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}
 
 	@Override
-	public IPlantable getUnhiredSeeds() {
+	public IPlantable getSeedsItem() {
 		if (seedsItem == null) {
 			return (IPlantable) Items.potato;
 		}
 		return (IPlantable) seedsItem;
+	}
+
+	@Override
+	public void setSeedsItem(Item seed) {
+		seedsItem = seed;
 	}
 
 	@Override

@@ -18,9 +18,8 @@ import net.minecraft.world.World;
 public class GOTEntityRobbStark extends GOTEntityHumanBase {
 	public GOTEntityRobbStark(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

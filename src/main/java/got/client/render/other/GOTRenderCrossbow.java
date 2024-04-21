@@ -31,7 +31,7 @@ public class GOTRenderCrossbow implements IItemRenderer {
 		} else if (holder instanceof EntityLiving) {
 			using = holder.getHeldItem() == itemstack;
 			if (using && holder instanceof GOTEntityNPC) {
-				using = ((GOTEntityNPC) holder).clientCombatStance;
+				using = ((GOTEntityNPC) holder).isClientCombatStance();
 			}
 		}
 		if (GOTRenderBow.isRenderingWeaponRack()) {

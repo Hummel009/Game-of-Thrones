@@ -16,9 +16,8 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		npcShield = GOTShields.GHISCAR;
+		shield = GOTShields.GHISCAR;
 		int target = addTargetTasks(false);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarGladiator.class, 0, true));
 	}
@@ -26,7 +25,7 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

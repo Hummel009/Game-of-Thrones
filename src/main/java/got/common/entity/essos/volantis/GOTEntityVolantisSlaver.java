@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityVolantisSlaver extends GOTEntityVolantisMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntityVolantisSlaver(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

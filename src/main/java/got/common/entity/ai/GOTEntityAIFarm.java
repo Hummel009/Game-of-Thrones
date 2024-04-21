@@ -68,7 +68,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private boolean canDoBonemealing() {
-		if (theEntity.hiredNPCInfo.isActive) {
+		if (theEntity.getHireableInfo().isActive()) {
 			ItemStack invBmeal = getInventoryBonemeal();
 			return invBmeal != null;
 		}
@@ -76,7 +76,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private boolean canDoCollecting() {
-		if (theEntity.hiredNPCInfo.isActive) {
+		if (theEntity.getHireableInfo().isActive()) {
 			ItemStack seeds = getInventorySeeds();
 			if (seeds != null && seeds.stackSize <= 16) {
 				return true;
@@ -88,9 +88,9 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private boolean canDoDepositing() {
-		if (theEntity.hiredNPCInfo.isActive) {
+		if (theEntity.getHireableInfo().isActive()) {
 			for (int l = 1; l <= 2; ++l) {
-				ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+				ItemStack itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(l);
 				if (itemstack == null || itemstack.stackSize < 16) {
 					continue;
 				}
@@ -101,7 +101,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private boolean canDoHarvesting() {
-		return theEntity.hiredNPCInfo.isActive && getInventorySeeds() != null && hasSpaceForCrops() && getCropForSeed(getSeedsToPlant()) != null;
+		return theEntity.getHireableInfo().isActive() && getInventorySeeds() != null && hasSpaceForCrops() && getCropForSeed(getSeedsToPlant()) != null;
 	}
 
 	private boolean canDoHoeing() {
@@ -109,7 +109,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private boolean canDoPlanting() {
-		if (theEntity.hiredNPCInfo.isActive) {
+		if (theEntity.getHireableInfo().isActive()) {
 			ItemStack invSeeds = getInventorySeeds();
 			return invSeeds != null && invSeeds.stackSize > 1;
 		}
@@ -118,7 +118,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (theEntity.hiredNPCInfo.isActive && !theEntity.hiredNPCInfo.isGuardMode() || theEntity.getNavigator().noPath()) {
+		if (theEntity.getHireableInfo().isActive() && !theEntity.getHireableInfo().isGuardMode() || theEntity.getNavigator().noPath()) {
 			return false;
 		}
 		if (pathingTick < 200) {
@@ -276,10 +276,10 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private ItemStack getInventoryBonemeal() {
-		if (theEntity.hiredNPCInfo.getHiredInventory() == null) {
+		if (theEntity.getHireableInfo().getHiredInventory() == null) {
 			return null;
 		}
-		ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(3);
+		ItemStack itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(3);
 		if (itemstack != null && itemstack.getItem() == Items.dye && itemstack.getItemDamage() == 15) {
 			return itemstack;
 		}
@@ -288,10 +288,10 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	private ItemStack getInventorySeeds() {
 		Item item;
-		if (theEntity.hiredNPCInfo.getHiredInventory() == null) {
+		if (theEntity.getHireableInfo().getHiredInventory() == null) {
 			return null;
 		}
-		ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+		ItemStack itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(0);
 		if (itemstack != null && (item = itemstack.getItem()) instanceof IPlantable && ((IPlantable) item).getPlantType(theWorld, -1, -1, -1) == EnumPlantType.Crop) {
 			return itemstack;
 		}
@@ -330,10 +330,10 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	private IPlantable getSeedsToPlant() {
 		ItemStack invSeeds;
-		if (theEntity.hiredNPCInfo.isActive && (invSeeds = getInventorySeeds()) != null) {
+		if (theEntity.getHireableInfo().isActive() && (invSeeds = getInventorySeeds()) != null) {
 			return (IPlantable) invSeeds.getItem();
 		}
-		return theEntityFarmer.getUnhiredSeeds();
+		return theEntityFarmer.getSeedsItem();
 	}
 
 	private TileEntityChest getSuitableChest(int i, int j, int k) {
@@ -350,11 +350,11 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private boolean hasSpaceForCrops() {
-		if (theEntity.hiredNPCInfo.getHiredInventory() == null) {
+		if (theEntity.getHireableInfo().getHiredInventory() == null) {
 			return false;
 		}
 		for (int l = 1; l <= 2; ++l) {
-			ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+			ItemStack itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(l);
 			if (itemstack != null && (itemstack.stackSize >= itemstack.getMaxStackSize() || !itemstack.isItemEqual(getCropForSeed(getSeedsToPlant())))) {
 				continue;
 			}
@@ -428,7 +428,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		TileEntityChest chest = getSuitableChest(i, j, k);
 		if (chest != null) {
 			for (int l : new int[]{0, 3}) {
-				ItemStack collectMatch = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+				ItemStack collectMatch = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(l);
 				if (collectMatch == null && l == 3) {
 					collectMatch = new ItemStack(Items.dye, 0, 15);
 				}
@@ -456,7 +456,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		TileEntityChest chest = getSuitableChest(i, j, k);
 		if (chest != null) {
 			for (int l = 1; l <= 2; ++l) {
-				ItemStack depositItem = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+				ItemStack depositItem = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(l);
 				if (depositItem == null) {
 					continue;
 				}
@@ -558,8 +558,8 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private void setAppropriateHomeRange(Action targetAction) {
-		if (theEntity.hiredNPCInfo.isActive) {
-			int hRange = theEntity.hiredNPCInfo.getGuardRange();
+		if (theEntity.getHireableInfo().isActive()) {
+			int hRange = theEntity.getHireableInfo().getGuardRange();
 			ChunkCoordinates home = theEntity.getHomePosition();
 			if ((targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING) && hRange < 24) {
 				hRange = 24;
@@ -574,7 +574,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	private boolean shouldFarmhandExecute() {
-		if (theEntity.hiredNPCInfo.isActive && !theEntity.hiredNPCInfo.isGuardMode()) {
+		if (theEntity.getHireableInfo().isActive() && !theEntity.getHireableInfo().isGuardMode()) {
 			return false;
 		}
 		setAppropriateHomeRange(null);
@@ -634,7 +634,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						if (bonemeal.stackSize <= 0) {
 							bonemeal = null;
 						}
-						theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(3, bonemeal);
+						theEntity.getHireableInfo().getHiredInventory().setInventorySlotContents(3, bonemeal);
 					}
 					break;
 				case COLLECTING:
@@ -646,7 +646,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 							IInventory chest = (IInventory) te;
 							int[] invSlots = {0, 3};
 							for (int l : invSlots) {
-								ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+								ItemStack itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(l);
 								if (itemstack == null && l == 3) {
 									itemstack = new ItemStack(Items.dye, 0, 15);
 								}
@@ -664,7 +664,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 											if (chestItem.stackSize <= 0) {
 												chestItem = null;
 											}
-											theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
+											theEntity.getHireableInfo().getHiredInventory().setInventorySlotContents(l, itemstack);
 											chest.setInventorySlotContents(slot, chestItem);
 											if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
 												break;
@@ -686,7 +686,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 							IInventory chest = (IInventory) te;
 							block5:
 							for (int l = 1; l <= 2; ++l) {
-								ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+								ItemStack itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(l);
 								if (itemstack == null) {
 									continue;
 								}
@@ -707,7 +707,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 									if (itemstack.stackSize > 0) {
 										continue;
 									}
-									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, null);
+									theEntity.getHireableInfo().getHiredInventory().setInventorySlotContents(l, null);
 									continue block5;
 								}
 							}
@@ -745,42 +745,42 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						}
 						Block.SoundType cropSound = block.stepSound;
 						theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, cropSound.getBreakSound(), (cropSound.getVolume() + 1.0f) / 2.0f, cropSound.getPitch() * 0.8f);
-						ItemStack seedItem = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+						ItemStack seedItem = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(0);
 						ItemStack cropItem = getCropForSeed(getSeedsToPlant());
 						boolean addedOneCropSeed = false;
 						block3:
 						for (ItemStack drop : drops) {
-							ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+							ItemStack itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(0);
 							if (drop.isItemEqual(cropItem)) {
 								if (drop.isItemEqual(seedItem) && !addedOneCropSeed) {
 									addedOneCropSeed = true;
-									itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+									itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(0);
 									if (itemstack.stackSize + drop.stackSize <= itemstack.getMaxStackSize()) {
 										++itemstack.stackSize;
-										theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
+										theEntity.getHireableInfo().getHiredInventory().setInventorySlotContents(0, itemstack);
 										continue;
 									}
 								}
 								for (int l = 1; l <= 2; ++l) {
-									ItemStack itemstack2 = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+									ItemStack itemstack2 = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(l);
 									if (itemstack2 == null) {
-										theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, drop);
+										theEntity.getHireableInfo().getHiredInventory().setInventorySlotContents(l, drop);
 										continue block3;
 									}
 									if (itemstack2.stackSize + drop.stackSize > itemstack2.getMaxStackSize() || !itemstack2.isItemEqual(cropItem)) {
 										continue;
 									}
 									++itemstack2.stackSize;
-									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack2);
+									theEntity.getHireableInfo().getHiredInventory().setInventorySlotContents(l, itemstack2);
 									continue block3;
 								}
 								continue;
 							}
-							if (!drop.isItemEqual(seedItem) || itemstack.stackSize + drop.stackSize > (itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0)).getMaxStackSize()) {
+							if (!drop.isItemEqual(seedItem) || itemstack.stackSize + drop.stackSize > (itemstack = theEntity.getHireableInfo().getHiredInventory().getStackInSlot(0)).getMaxStackSize()) {
 								continue;
 							}
 							++itemstack.stackSize;
-							theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
+							theEntity.getHireableInfo().getHiredInventory().setInventorySlotContents(0, itemstack);
 						}
 					}
 					break;
@@ -818,8 +818,8 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						Block plant = seed.getPlant(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 						int meta = seed.getPlantMetadata(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 						theWorld.setBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ, plant, meta, 3);
-						if (theEntity.hiredNPCInfo.isActive) {
-							theEntity.hiredNPCInfo.getHiredInventory().decrStackSize(0, 1);
+						if (theEntity.getHireableInfo().isActive()) {
+							theEntity.getHireableInfo().getHiredInventory().decrStackSize(0, 1);
 						}
 					}
 					break;

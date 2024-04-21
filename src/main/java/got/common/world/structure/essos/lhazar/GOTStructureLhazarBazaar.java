@@ -112,7 +112,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			j1 = 1;
 			int k1 = -11;
 			GOTEntityLhazarWarrior guard = new GOTEntityLhazarWarrior(world);
-			guard.spawnRidingHorse = false;
+			guard.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(guard, world, i1, j1, k1, 4);
 		}
 		List<Class<? extends GOTStructureBase>> stallClasses = Arrays.asList(Arrays.copyOf(STALLS, STALLS.length));

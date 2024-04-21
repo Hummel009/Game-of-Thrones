@@ -78,7 +78,7 @@ public class GOTPacketFamilyInfo implements IMessage {
 			World world = GOT.proxy.getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).familyInfo.receiveData(packet);
+				((GOTEntityNPC) entity).getFamilyInfo().receiveData(packet);
 			}
 			return null;
 		}

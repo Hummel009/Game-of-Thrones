@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityLhazarGoldsmith extends GOTEntityLhazarTrader {
 	public GOTEntityLhazarGoldsmith(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

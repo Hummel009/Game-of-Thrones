@@ -49,7 +49,7 @@ public class GOTContainerTrade extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		theTraderNPC.traderNPCInfo.sendClientPacket((EntityPlayer) crafting);
+		theTraderNPC.getTraderInfo().sendClientPacket((EntityPlayer) crafting);
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class GOTContainerTrade extends Container {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 			GOTTradeSellResult sellResult = GOTTradeEntries.getItemSellResult(itemstack1, theTraderNPC);
-			boolean sellable = sellResult != null && sellResult.tradesMade > 0;
+			boolean sellable = sellResult != null && sellResult.getTradesMade() > 0;
 			if (i < 9) {
 				if (!mergeItemStack(itemstack1, 27, 63, true)) {
 					return null;
@@ -103,8 +103,8 @@ public class GOTContainerTrade extends Container {
 	public void updateAllTradeSlots() {
 		GOTTradeEntry trade;
 		int i;
-		GOTTradeEntry[] buyTrades = theTraderNPC.traderNPCInfo.getBuyTrades();
-		GOTTradeEntry[] sellTrades = theTraderNPC.traderNPCInfo.getSellTrades();
+		GOTTradeEntry[] buyTrades = theTraderNPC.getTraderInfo().getBuyTrades();
+		GOTTradeEntry[] sellTrades = theTraderNPC.getTraderInfo().getSellTrades();
 		if (buyTrades != null) {
 			for (i = 0; i < tradeInvBuy.getSizeInventory(); ++i) {
 				trade = null;

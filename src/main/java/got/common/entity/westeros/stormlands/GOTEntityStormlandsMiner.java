@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityStormlandsMiner extends GOTEntityStormlandsMarketTrader {
 	public GOTEntityStormlandsMiner(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

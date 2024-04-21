@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorvosGuardCaptain extends GOTEntityNorvosGuard implements GOTUnitTradeable {
 	public GOTEntityNorvosGuardCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

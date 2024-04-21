@@ -33,10 +33,9 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 
 	public GOTEntityReachSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.REACH;
-		npcCape = GOTCapes.REACH;
+		shield = GOTShields.REACH;
+		cape = GOTCapes.REACH;
 	}
 
 	public static void defendGrapevines(EntityPlayer entityplayer, World world, int i, int j, int k) {
@@ -59,7 +58,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 					List<GOTEntityReachSoldier> guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(spawnRange, spawnRange, spawnRange));
 					for (GOTEntityReachSoldier obj : guardList) {
 						guard = obj;
-						if (!guard.hiredNPCInfo.isActive) {
+						if (!guard.hireableInfo.isActive()) {
 							++nearbyGuards;
 						}
 					}
@@ -83,11 +82,11 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 									continue;
 								}
 								guard.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-								guard.liftSpawnRestrictions = true;
+								guard.setLiftSpawnRestrictions(true);
 								if (!guard.getCanSpawnHere()) {
 									continue;
 								}
-								guard.liftSpawnRestrictions = false;
+								guard.setLiftSpawnRestrictions(false);
 								world.spawnEntityInWorld(guard);
 								guard.spawnRidingHorse = false;
 								guard.onSpawnWithEgg(null);
@@ -101,7 +100,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 				boolean anyAlert = false;
 				for (GOTEntityReachSoldier obj : guardList) {
 					guard = obj;
-					if (guard.hiredNPCInfo.isActive) {
+					if (guard.hireableInfo.isActive()) {
 						continue;
 					}
 					if (evil) {
@@ -131,7 +130,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

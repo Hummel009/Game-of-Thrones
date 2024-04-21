@@ -12,19 +12,22 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityMarshWraithBall extends EntityThrowable {
-	public int animationTick;
-	public Entity attackTarget;
+	private Entity attackTarget;
+	private int animationTick;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMarshWraithBall(World world) {
 		super(world);
 		setSize(0.75f, 0.75f);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMarshWraithBall(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 		setSize(0.75f, 0.75f);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMarshWraithBall(World world, EntityLivingBase entityliving) {
 		super(world, entityliving);
 		setSize(0.75f, 0.75f);
@@ -61,11 +64,11 @@ public class GOTEntityMarshWraithBall extends EntityThrowable {
 		return 0.5f;
 	}
 
-	public int getBallAge() {
+	private int getBallAge() {
 		return dataWatcher.getWatchableObjectShort(16);
 	}
 
-	public void setBallAge(int age) {
+	private void setBallAge(int age) {
 		dataWatcher.updateObject(16, (short) age);
 	}
 
@@ -121,5 +124,9 @@ public class GOTEntityMarshWraithBall extends EntityThrowable {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		nbt.setInteger("BallAge", getBallAge());
+	}
+
+	public int getAnimationTick() {
+		return animationTick;
 	}
 }

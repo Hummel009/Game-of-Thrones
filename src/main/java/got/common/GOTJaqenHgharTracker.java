@@ -76,12 +76,12 @@ public class GOTJaqenHgharTracker {
 							if (j > 62 && world.getBlock(i, j - 1, k).isOpaqueCube() && !world.getBlock(i, j, k).isNormalCube() && !world.getBlock(i, j + 1, k).isNormalCube()) {
 								GOTEntityJaqenHghar jaqenHghar = new GOTEntityJaqenHghar(world);
 								jaqenHghar.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-								jaqenHghar.liftSpawnRestrictions = true;
-								jaqenHghar.liftBannerRestrictions = true;
+								jaqenHghar.setLiftSpawnRestrictions(true);
+								jaqenHghar.setLiftBannerRestrictions(true);
 								Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(jaqenHghar, world, (float) jaqenHghar.posX, (float) jaqenHghar.posY, (float) jaqenHghar.posZ);
 								if (canSpawn == Event.Result.ALLOW || canSpawn == Event.Result.DEFAULT && jaqenHghar.getCanSpawnHere()) {
-									jaqenHghar.liftSpawnRestrictions = false;
-									jaqenHghar.liftBannerRestrictions = false;
+									jaqenHghar.setLiftSpawnRestrictions(false);
+									jaqenHghar.setLiftBannerRestrictions(false);
 									world.spawnEntityInWorld(jaqenHghar);
 									jaqenHghar.onSpawnWithEgg(null);
 									addNewJaqenHghar(jaqenHghar.getUniqueID());

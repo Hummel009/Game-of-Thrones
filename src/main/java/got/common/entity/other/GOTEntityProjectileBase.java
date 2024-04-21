@@ -27,18 +27,21 @@ import net.minecraft.world.WorldServer;
 import java.util.List;
 
 public abstract class GOTEntityProjectileBase extends Entity implements IThrowableEntity, IProjectile {
-	public int xTile = -1;
-	public int yTile = -1;
-	public int zTile = -1;
-	public Block inTile;
-	public int inData;
-	public boolean inGround;
-	public int shake;
-	public Entity shootingEntity;
-	public int ticksInGround;
-	public int ticksInAir;
-	public int canBePickedUp;
-	public int knockbackStrength;
+	protected Entity shootingEntity;
+
+	protected boolean inGround;
+
+	private Block inTile;
+
+	private int shake;
+	private int canBePickedUp;
+	private int knockbackStrength;
+	private int xTile = -1;
+	private int yTile = -1;
+	private int zTile = -1;
+	private int inData;
+	private int ticksInGround;
+	private int ticksInAir;
 
 	protected GOTEntityProjectileBase(World world) {
 		super(world);
@@ -108,7 +111,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		return false;
 	}
 
-	public ItemStack createPickupDrop(EntityPlayer entityplayer) {
+	private ItemStack createPickupDrop(EntityPlayer entityplayer) {
 		ItemStack itemstack = getProjectileItem();
 		if (itemstack != null) {
 			ItemStack itemPickup = itemstack.copy();
@@ -129,20 +132,20 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		dataWatcher.addObjectByDataType(18, 5);
 	}
 
-	public abstract float getBaseImpactDamage(Entity var1, ItemStack var2);
+	protected abstract float getBaseImpactDamage(Entity var1, ItemStack var2);
 
-	public DamageSource getDamageSource() {
+	private DamageSource getDamageSource() {
 		if (shootingEntity == null) {
 			return DamageSource.causeThrownDamage(this, this);
 		}
 		return DamageSource.causeThrownDamage(this, shootingEntity);
 	}
 
-	public String getImpactSound() {
+	private String getImpactSound() {
 		return "random.bowhit";
 	}
 
-	public boolean getIsCritical() {
+	private boolean getIsCritical() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
@@ -150,7 +153,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
 	}
 
-	public float getKnockbackFactor() {
+	protected float getKnockbackFactor() {
 		return 1.0f;
 	}
 
@@ -158,7 +161,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		return dataWatcher.getWatchableObjectItemStack(18);
 	}
 
-	public void setProjectileItem(ItemStack item) {
+	private void setProjectileItem(ItemStack item) {
 		dataWatcher.updateObject(18, item);
 	}
 
@@ -167,7 +170,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		return 0.0f;
 	}
 
-	public float getSpeedReduction() {
+	private float getSpeedReduction() {
 		return 0.99f;
 	}
 
@@ -188,7 +191,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		return d < (d1 *= 64.0) * d1;
 	}
 
-	public int maxTicksInGround() {
+	protected int maxTicksInGround() {
 		return canBePickedUp == 1 ? 6000 : 1200;
 	}
 
@@ -197,8 +200,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		if (!worldObj.isRemote && inGround && shake <= 0) {
 			ItemStack itemstack = createPickupDrop(entityplayer);
 			if (itemstack != null) {
-				boolean pickup;
-				pickup = canBePickedUp == 1 || canBePickedUp == 2 && entityplayer.capabilities.isCreativeMode;
+				boolean pickup = canBePickedUp == 1 || canBePickedUp == 2 && entityplayer.capabilities.isCreativeMode;
 				if (canBePickedUp == 1 && !entityplayer.inventory.addItemStackToInventory(itemstack.copy())) {
 					pickup = false;
 					EntityItem entityitem = new EntityItem(worldObj, posX, posY, posZ, itemstack);
@@ -220,7 +222,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		}
 	}
 
-	public void onCollideWithTarget(Entity entity) {
+	protected void onCollideWithTarget(Entity entity) {
 		ItemStack itemstack;
 		if (!worldObj.isRemote && ((itemstack = getProjectileItem()) == null || !itemstack.isItemStackDamageable())) {
 			setDead();
@@ -229,14 +231,13 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 
 	@Override
 	public void onUpdate() {
-		Block block;
 		super.onUpdate();
 		if (prevRotationPitch == 0.0f && prevRotationYaw == 0.0f) {
 			float f = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
 			prevRotationYaw = rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0 / 3.141592653589793);
 			prevRotationPitch = rotationPitch = (float) (Math.atan2(motionY, f) * 180.0 / 3.141592653589793);
 		}
-		block = worldObj.getBlock(xTile, yTile, zTile);
+		Block block = worldObj.getBlock(xTile, yTile, zTile);
 		if (block != Blocks.air) {
 			block.setBlockBoundsBasedOnState(worldObj, xTile, yTile, zTile);
 			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(worldObj, xTile, yTile, zTile);
@@ -303,7 +304,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 					ItemStack itemstack = getProjectileItem();
 					int damageInt = MathHelper.ceiling_double_int(getBaseImpactDamage(hitEntity, itemstack));
 					if (itemstack != null) {
-						knockbackStrength = shootingEntity instanceof EntityLivingBase && hitEntity instanceof EntityLivingBase ? knockbackStrength + EnchantmentHelper.getKnockbackModifier((EntityLivingBase) shootingEntity, (EntityLivingBase) hitEntity) : knockbackStrength + GOTWeaponStats.getTotalKnockback(itemstack);
+						knockbackStrength = knockbackStrength + (shootingEntity instanceof EntityLivingBase && hitEntity instanceof EntityLivingBase ? EnchantmentHelper.getKnockbackModifier((EntityLivingBase) shootingEntity, (EntityLivingBase) hitEntity) : GOTWeaponStats.getTotalKnockback(itemstack));
 					}
 					if (getIsCritical()) {
 						damageInt += rand.nextInt(damageInt / 2 + 2);
@@ -431,19 +432,22 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 
 	@Override
 	public void setThrowableHeading(double d, double d1, double d2, float f, float f1) {
-		float f2 = MathHelper.sqrt_double(d * d + d1 * d1 + d2 * d2);
-		d /= f2;
-		d1 /= f2;
-		d2 /= f2;
-		d += rand.nextGaussian() * 0.0075 * f1;
-		d1 += rand.nextGaussian() * 0.0075 * f1;
-		d2 += rand.nextGaussian() * 0.0075 * f1;
-		motionX = d *= f;
-		motionY = d1 *= f;
-		motionZ = d2 *= f;
-		float f3 = MathHelper.sqrt_double(d * d + d2 * d2);
-		prevRotationYaw = rotationYaw = (float) (Math.atan2(d, d2) * 180.0 / 3.141592653589793);
-		prevRotationPitch = rotationPitch = (float) (Math.atan2(d1, f3) * 180.0 / 3.141592653589793);
+		double d3 = d;
+		double d11 = d1;
+		double d21 = d2;
+		float f2 = MathHelper.sqrt_double(d3 * d3 + d11 * d11 + d21 * d21);
+		d3 /= f2;
+		d11 /= f2;
+		d21 /= f2;
+		d3 += rand.nextGaussian() * 0.0075 * f1;
+		d11 += rand.nextGaussian() * 0.0075 * f1;
+		d21 += rand.nextGaussian() * 0.0075 * f1;
+		motionX = d3 *= f;
+		motionY = d11 *= f;
+		motionZ = d21 *= f;
+		float f3 = MathHelper.sqrt_double(d3 * d3 + d21 * d21);
+		prevRotationYaw = rotationYaw = (float) (Math.atan2(d3, d21) * 180.0 / 3.141592653589793);
+		prevRotationPitch = rotationPitch = (float) (Math.atan2(d11, f3) * 180.0 / 3.141592653589793);
 		ticksInGround = 0;
 	}
 
@@ -475,5 +479,31 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		if (getProjectileItem() != null) {
 			nbt.setTag("ProjectileItem", getProjectileItem().writeToNBT(new NBTTagCompound()));
 		}
+	}
+
+	public boolean isInGround() {
+		return inGround;
+	}
+
+	public int getShake() {
+		return shake;
+	}
+
+	@SuppressWarnings("unused")
+	public int getCanBePickedUp() {
+		return canBePickedUp;
+	}
+
+	public void setCanBePickedUp(int canBePickedUp) {
+		this.canBePickedUp = canBePickedUp;
+	}
+
+	@SuppressWarnings("unused")
+	public int getKnockbackStrength() {
+		return knockbackStrength;
+	}
+
+	public void setKnockbackStrength(int knockbackStrength) {
+		this.knockbackStrength = knockbackStrength;
 	}
 }

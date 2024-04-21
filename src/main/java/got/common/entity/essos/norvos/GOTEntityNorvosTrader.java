@@ -19,7 +19,6 @@ import java.util.Random;
 public abstract class GOTEntityNorvosTrader extends GOTEntityNorvosMan implements GOTTradeable {
 	protected GOTEntityNorvosTrader(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

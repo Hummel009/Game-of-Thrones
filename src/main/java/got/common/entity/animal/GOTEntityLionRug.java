@@ -25,11 +25,6 @@ public class GOTEntityLionRug extends GOTEntityRugBase {
 		return new ItemStack(GOTItems.lionRug, 1, getRugType().getLionID());
 	}
 
-	@Override
-	public String getRugNoise() {
-		return "got:lion.say";
-	}
-
 	public GOTItemLionRug.LionRugType getRugType() {
 		byte i = dataWatcher.getWatchableObjectByte(18);
 		return GOTItemLionRug.LionRugType.forID(i);

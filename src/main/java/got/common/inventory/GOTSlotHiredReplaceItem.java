@@ -2,6 +2,7 @@ package got.common.inventory;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import got.common.entity.other.GOTEntityGiantBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTInventoryHiredReplacedItems;
 import net.minecraft.inventory.Slot;
@@ -18,7 +19,7 @@ public class GOTSlotHiredReplaceItem extends Slot {
 		int i;
 		parentSlot = slot;
 		theNPC = npc;
-		npcInv = theNPC.hiredReplacedInv;
+		npcInv = theNPC.getHiredReplacedInv();
 		if (!theNPC.worldObj.isRemote && npcInv.hasReplacedEquipment(i = getSlotIndex())) {
 			inventory.setInventorySlotContents(i, npcInv.getEquippedReplacement(i));
 		}
@@ -37,7 +38,7 @@ public class GOTSlotHiredReplaceItem extends Slot {
 
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
-		return parentSlot.isItemValid(itemstack) && theNPC.canReEquipHired(getSlotIndex(), itemstack);
+		return parentSlot.isItemValid(itemstack) && !(theNPC instanceof GOTEntityGiantBase);
 	}
 
 	@Override

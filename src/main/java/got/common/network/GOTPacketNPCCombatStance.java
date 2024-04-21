@@ -40,7 +40,7 @@ public class GOTPacketNPCCombatStance implements IMessage {
 			World world = GOT.proxy.getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).clientCombatStance = packet.combatStance;
+				((GOTEntityNPC) entity).setClientCombatStance(packet.combatStance);
 			}
 			return null;
 		}

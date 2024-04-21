@@ -1,5 +1,6 @@
 package got.common.entity.westeros.ice;
 
+import got.GOT;
 import got.common.GOTConfig;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
@@ -8,6 +9,7 @@ import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -21,7 +23,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityWhiteWalker extends GOTEntityNPC {
+public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
 	public static ItemStack[] weapons = {new ItemStack(GOTItems.iceSword), new ItemStack(GOTItems.iceHeavySword), new ItemStack(GOTItems.iceSpear)};
 
 	public GOTEntityWhiteWalker(World world) {
@@ -34,10 +36,8 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		isImmuneToFrost = true;
 		isImmuneToFire = true;
-		isChilly = true;
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		boolean causeDamage = IceUtils.calculateDamage(damagesource, GOTConfig.walkerFireDamage);
+		boolean causeDamage = IceUtils.calculateDamage(this, damagesource, GOTConfig.walkerFireDamage);
 		return super.attackEntityFrom(damagesource, causeDamage ? f : 0.0f);
 	}
 
@@ -73,7 +73,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);
@@ -110,9 +110,13 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 	}
 
 	@Override
-	public void onArtificalSpawn() {
-		if (canBeMarried && getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
-			familyInfo.setChild();
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if (motionX * motionX + motionY * motionY + motionZ * motionZ >= 0.01) {
+			double d = posX + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
+			double d1 = boundingBox.minY + MathHelper.randomFloatClamp(rand, 0.2f, 0.7f) * height;
+			double d2 = posZ + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
+			GOT.proxy.spawnParticle("chill", d, d1, d2, -motionX * 0.5, 0.0, -motionZ * 0.5);
 		}
 	}
 
@@ -128,7 +132,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
 		super.onKillEntity(entity);
-		IceUtils.createNewWight(entity, worldObj);
+		IceUtils.createNewWight(this, entity, worldObj);
 	}
 
 	@Override

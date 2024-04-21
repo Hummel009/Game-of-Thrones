@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 	public GOTEntityIbbenWarrior(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 	}
 
@@ -20,8 +19,8 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
-		getEntityAttribute(horseAttackSpeed).setBaseValue(2.0);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
+		getEntityAttribute(HORSE_ATTACK_SPEED).setBaseValue(2.0);
 	}
 
 	@Override
@@ -32,7 +31,7 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

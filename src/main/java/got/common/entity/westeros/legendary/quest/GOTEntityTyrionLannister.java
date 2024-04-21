@@ -20,9 +20,8 @@ import net.minecraft.world.World;
 public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 	public GOTEntityTyrionLannister(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.45f, 1.2f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

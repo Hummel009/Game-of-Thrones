@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 public class GOTEntityQarthLevymanArcher extends GOTEntityQarthLevyman {
 	public GOTEntityQarthLevymanArcher(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 	}
 

@@ -15,7 +15,6 @@ public class GOTEntityWesterlandsLevyman extends GOTEntityWesterlandsMan {
 
 	public GOTEntityWesterlandsLevyman(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 	}
 
@@ -32,7 +31,7 @@ public class GOTEntityWesterlandsLevyman extends GOTEntityWesterlandsMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

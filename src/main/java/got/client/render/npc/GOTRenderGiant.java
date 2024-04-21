@@ -32,7 +32,7 @@ public class GOTRenderGiant extends RenderLiving {
 	@Override
 	public void doRender(EntityLiving entity, double d, double d1, double d2, float f, float f1) {
 		super.doRender(entity, d, d1, d2, f, f1);
-		if (Minecraft.isGuiEnabled() && ((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayer() == renderManager.livingPlayer) {
+		if (Minecraft.isGuiEnabled() && ((GOTEntityNPC) entity).getHireableInfo().getHiringPlayer() == renderManager.livingPlayer) {
 			GOTNPCRendering.renderHiredIcon(entity, d, d1 + 1.0, d2);
 			GOTNPCRendering.renderNPCHealthBar(entity, d, d1 + 1.0, d2);
 		}

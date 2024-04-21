@@ -477,7 +477,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 			spawnNPCAndSetHome(new GOTEntityMossovyWitcher(world), world, 0, 1, 0, 20);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(GOTEntityMossovyWitcher.class);
+		respawner.setSpawnClass1(GOTEntityMossovyWitcher.class);
 		respawner.setCheckRanges(16, -8, 10, 12);
 		respawner.setSpawnRanges(11, 1, 6, 20);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

@@ -1,9 +1,11 @@
-package got.common.entity.other;
+package got.common.entity.other.info;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityUtils;
 import got.common.network.GOTPacketFamilyInfo;
 import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.Entity;
@@ -21,32 +23,37 @@ import java.util.List;
 import java.util.UUID;
 
 public class GOTFamilyInfo {
-	public GOTEntityNPC theEntity;
-	public Class<? extends Entity> marriageEntityClass;
-	public UUID spouseUniqueID;
-	public int children;
-	public int maxChildren;
-	public UUID maleParentID;
-	public UUID femaleParentID;
-	public UUID ringGivingPlayer;
-	public boolean doneFirstUpdate;
-	public boolean resendData = true;
-	public int age;
-	public boolean male;
-	public String name;
-	public int drunkTime;
-	public int timeUntilDrunkSpeech;
+	private final GOTEntityNPC theEntity;
+
+	private Class<? extends Entity> marriageEntityClass;
+
+	private UUID spouseUniqueID;
+	private UUID ringGivingPlayer;
+	private UUID maleParentID;
+	private UUID femaleParentID;
+
+	private String name;
+
+	private boolean male;
+	private boolean doneFirstUpdate;
+	private boolean resendData = true;
+
+	private int children;
+	private int maxChildren;
+	private int age;
+	private int drunkTime;
+	private int timeUntilDrunkSpeech;
 
 	public GOTFamilyInfo(GOTEntityNPC npc) {
 		theEntity = npc;
 	}
 
 	public boolean canMarryNPC(GOTEntityNPC npc) {
-		if (npc.getClass() != theEntity.getClass() || npc.familyInfo.spouseUniqueID != null || npc.familyInfo.age != 0 || npc.getEquipmentInSlot(4) != null) {
+		if (npc.getClass() != theEntity.getClass() || npc.getFamilyInfo().spouseUniqueID != null || npc.getFamilyInfo().age != 0 || npc.getEquipmentInSlot(4) != null) {
 			return false;
 		}
-		boolean lgbt = GOTConfig.lgbt || npc.familyInfo.male == male;
-		if (lgbt || npc == theEntity || maleParentID != null && maleParentID == npc.familyInfo.maleParentID || femaleParentID != null && femaleParentID == npc.familyInfo.femaleParentID) {
+		boolean lgbt = GOTConfig.lgbt || npc.getFamilyInfo().male == male;
+		if (lgbt || npc == theEntity || maleParentID != null && maleParentID == npc.getFamilyInfo().maleParentID || femaleParentID != null && femaleParentID == npc.getFamilyInfo().femaleParentID) {
 			return false;
 		}
 		ItemStack heldItem = npc.getEquipmentInSlot(0);
@@ -110,7 +117,7 @@ public class GOTFamilyInfo {
 				continue;
 			}
 			GOTEntityNPC npc = (GOTEntityNPC) element;
-			if (!theEntity.getUniqueID().equals(npc.familyInfo.spouseUniqueID)) {
+			if (!theEntity.getUniqueID().equals(npc.getFamilyInfo().spouseUniqueID)) {
 				continue;
 			}
 			return npc;
@@ -119,11 +126,11 @@ public class GOTFamilyInfo {
 	}
 
 	public boolean interact(EntityPlayer entityplayer) {
-		if (theEntity.hiredNPCInfo.isActive) {
+		if (theEntity.getHireableInfo().isActive()) {
 			return false;
 		}
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		if (theEntity.canBeMarried && itemstack != null && itemstack.getItem() == GOTItems.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 100.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
+		if (GOTEntityUtils.canBeMarried(theEntity) && itemstack != null && itemstack.getItem() == GOTItems.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 50.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 				if (itemstack.stackSize <= 0) {
@@ -134,7 +141,7 @@ public class GOTFamilyInfo {
 				theEntity.setCurrentItemOrArmor(0, new ItemStack(GOTItems.goldRing));
 				ringGivingPlayer = entityplayer.getUniqueID();
 			}
-			theEntity.isNPCPersistent = true;
+			theEntity.setNPCPersistent(true);
 			return true;
 		}
 		return false;
@@ -157,7 +164,7 @@ public class GOTFamilyInfo {
 		markDirty();
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		if (!theEntity.worldObj.isRemote) {
 			if (theEntity.ticksExisted > 0) {
 				resendData = true;
@@ -246,7 +253,7 @@ public class GOTFamilyInfo {
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
-	public void sendDataToAllWatchers() {
+	private void sendDataToAllWatchers() {
 		int x = MathHelper.floor_double(theEntity.posX) >> 4;
 		int z = MathHelper.floor_double(theEntity.posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) theEntity.worldObj).getPlayerManager();
@@ -260,14 +267,6 @@ public class GOTFamilyInfo {
 
 	public void setChild() {
 		setAge(-72000);
-	}
-
-	public void setDrunkTime(int i) {
-		boolean prevDrunk = isDrunk();
-		drunkTime = i;
-		if (isDrunk() != prevDrunk) {
-			markDirty();
-		}
 	}
 
 	public void setMaxBreedingDelay() {
@@ -300,5 +299,69 @@ public class GOTFamilyInfo {
 			nbt.setLong("RingGivingPlayerUUIDMost", ringGivingPlayer.getMostSignificantBits());
 			nbt.setLong("RingGivingPlayerUUIDLeast", ringGivingPlayer.getLeastSignificantBits());
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public int getDrunkTime() {
+		return drunkTime;
+	}
+
+	public void setDrunkTime(int i) {
+		boolean prevDrunk = isDrunk();
+		drunkTime = i;
+		if (isDrunk() != prevDrunk) {
+			markDirty();
+		}
+	}
+
+	public Class<? extends Entity> getMarriageEntityClass() {
+		return marriageEntityClass;
+	}
+
+	public void setMarriageEntityClass(Class<? extends Entity> marriageEntityClass) {
+		this.marriageEntityClass = marriageEntityClass;
+	}
+
+	public UUID getSpouseUniqueID() {
+		return spouseUniqueID;
+	}
+
+	public void setSpouseUniqueID(UUID spouseUniqueID) {
+		this.spouseUniqueID = spouseUniqueID;
+	}
+
+	public int getChildren() {
+		return children;
+	}
+
+	public void setChildren(int children) {
+		this.children = children;
+	}
+
+	@SuppressWarnings("unused")
+	public int getMaxChildren() {
+		return maxChildren;
+	}
+
+	public void setMaxChildren(int maxChildren) {
+		this.maxChildren = maxChildren;
+	}
+
+	@SuppressWarnings("unused")
+	public UUID getMaleParentID() {
+		return maleParentID;
+	}
+
+	public void setMaleParentID(UUID maleParentID) {
+		this.maleParentID = maleParentID;
+	}
+
+	@SuppressWarnings("unused")
+	public UUID getFemaleParentID() {
+		return femaleParentID;
+	}
+
+	public void setFemaleParentID(UUID femaleParentID) {
+		this.femaleParentID = femaleParentID;
 	}
 }

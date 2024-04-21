@@ -9,13 +9,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityPlowcart extends GOTEntityCart {
-	public boolean plowing;
-	public double bladeOffset = 1.2;
+	private boolean plowing;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPlowcart(World worldIn) {
 		super(worldIn);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPlowcart(World worldIn, double x, double y, double z) {
 		super(worldIn, x, y, z);
 	}
@@ -31,7 +32,7 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 		return true;
 	}
 
-	public void dropAsItem(boolean drop) {
+	private void dropAsItem(boolean drop) {
 		setDead();
 		if (drop) {
 			entityDropItem(new ItemStack(GOTItems.plowcart), 0.0f);
@@ -52,6 +53,7 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 	public void onUpdate() {
 		Block targetblock;
 		super.onUpdate();
+		double bladeOffset = 1.2;
 		if (getPulling() != null && (targetblock = worldObj.getBlock((int) (posX - getLookVec().xCoord * bladeOffset), (int) (posY - 1.0), (int) (posZ - getLookVec().zCoord * bladeOffset))) != null && worldObj.isAirBlock((int) (posX - getLookVec().xCoord * bladeOffset), (int) posY, (int) (posZ - getLookVec().zCoord * bladeOffset)) && (targetblock == Blocks.dirt || targetblock == Blocks.grass) && plowing) {
 			worldObj.setBlock((int) (posX - getLookVec().xCoord * bladeOffset), (int) (posY - 1.0), (int) (posZ - getLookVec().zCoord * bladeOffset), Blocks.farmland, 7, 2);
 		}

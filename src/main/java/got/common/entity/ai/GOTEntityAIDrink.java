@@ -4,6 +4,7 @@ import got.GOT;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTBartender;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityUtils;
 import got.common.item.other.GOTItemMug;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -26,13 +27,13 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 		if (item instanceof GOTItemMug) {
 			GOTItemMug drink = (GOTItemMug) item;
 			drink.applyToNPC(theEntity, itemstack);
-			if (drink.getAlcoholicity() > 0.0f && theEntity.canGetDrunk() && !theEntity.isDrunkard() && rand.nextInt(3) == 0) {
+			if (drink.getAlcoholicity() > 0.0f && GOTEntityUtils.canSmokeDrink(theEntity) && !theEntity.isDrunkard() && rand.nextInt(3) == 0) {
 				double range = 12.0;
 				IEntitySelector selectNonEnemyBartenders = new EntitySelectorImpl(theEntity);
 				List<GOTBartender> nearbyBartenders = theEntity.worldObj.selectEntitiesWithinAABB(GOTBartender.class, theEntity.boundingBox.expand(range, range, range), selectNonEnemyBartenders);
 				if (!nearbyBartenders.isEmpty()) {
 					int drunkTime = MathHelper.getRandomIntegerInRange(rand, 30, 1500);
-					theEntity.familyInfo.setDrunkTime(drunkTime * 20);
+					theEntity.getFamilyInfo().setDrunkTime(drunkTime * 20);
 				}
 			}
 		}

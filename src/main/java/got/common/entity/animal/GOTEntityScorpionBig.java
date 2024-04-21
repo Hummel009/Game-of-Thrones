@@ -28,7 +28,6 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 
 	protected GOTEntityScorpionBig(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(1.2f, 0.9f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -38,8 +37,6 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		spawnsInDarkness = true;
-		isNotHuman = true;
 	}
 
 	@Override
@@ -47,7 +44,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(12.0 + getScorpionScale() * 6.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35 - getScorpionScale() * 0.05);
-		getEntityAttribute(npcAttackDamage).setBaseValue(2.0 + getScorpionScale());
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(2.0 + getScorpionScale());
 	}
 
 	@Override
@@ -180,7 +177,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		setScorpionScale(nbt.getByte("ScorpionScale"));
-		getEntityAttribute(npcAttackDamage).setBaseValue(2.0 + getScorpionScale());
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(2.0 + getScorpionScale());
 	}
 
 	private void rescaleScorpion(float f) {

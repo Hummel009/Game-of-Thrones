@@ -13,19 +13,22 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityThrownRock extends EntityThrowable {
-	public int rockRotation;
-	public float damage;
+	private int rockRotation;
+	private float damage;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThrownRock(World world) {
 		super(world);
 		setSize(4.0f, 4.0f);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThrownRock(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 		setSize(4.0f, 4.0f);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThrownRock(World world, EntityLivingBase entityliving) {
 		super(world, entityliving);
 		setSize(4.0f, 4.0f);
@@ -94,6 +97,11 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		damage = nbt.getFloat("RockDamage");
+	}
+
+	@SuppressWarnings("unused")
+	public float getDamage() {
+		return damage;
 	}
 
 	public void setDamage(float f) {

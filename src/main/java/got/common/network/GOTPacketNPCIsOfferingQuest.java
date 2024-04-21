@@ -52,7 +52,7 @@ public class GOTPacketNPCIsOfferingQuest implements IMessage {
 			World world = GOT.proxy.getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).questInfo.receiveData(packet);
+				((GOTEntityNPC) entity).getQuestInfo().receiveData(packet);
 			}
 			return null;
 		}

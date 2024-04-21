@@ -2,9 +2,9 @@ package got.common.entity.ai;
 
 import got.GOT;
 import got.common.GOTLevelData;
+import got.common.entity.other.GOTEntityLightSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityNPCRideable;
-import got.common.entity.westeros.GOTEntityLightSkinBandit;
+import got.common.entity.other.GOTEntitySpiderBase;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -61,24 +61,24 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			if (entity instanceof EntityPlayer) {
 				return isPlayerSuitableTarget((EntityPlayer) entity);
 			}
-			return !(entity instanceof GOTEntityLightSkinBandit) || taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;
+			return !(entity instanceof GOTEntityLightSkinBandit) || taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).getHireableInfo().isActive();
 		}
 		return false;
 	}
 
 	@Override
 	public boolean shouldExecute() {
-		GOTEntityNPCRideable rideable;
+		GOTEntitySpiderBase rideable;
 		if (targetChance > 0 && taskOwner.getRNG().nextInt(targetChance) != 0) {
 			return false;
 		}
 		if (taskOwner instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) taskOwner;
-			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.isHalted() || npc.isChild()) {
+			if (npc.getHireableInfo().isActive() && npc.getHireableInfo().isHalted() || npc.isChild()) {
 				return false;
 			}
 		}
-		if (taskOwner instanceof GOTEntityNPCRideable && ((rideable = (GOTEntityNPCRideable) taskOwner).isNPCTamed() || rideable.riddenByEntity instanceof EntityPlayer)) {
+		if (taskOwner instanceof GOTEntitySpiderBase && ((rideable = (GOTEntitySpiderBase) taskOwner).isNPCTamed() || rideable.riddenByEntity instanceof EntityPlayer)) {
 			return false;
 		}
 		double range = getTargetDistance();

@@ -12,14 +12,13 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarCorsair extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarCorsair(World world) {
 		super(world);
-		canBeMarried = false;
-		npcShield = GOTShields.GHISCAR;
+		shield = GOTShields.GHISCAR;
 	}
 
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
 		super.onKillEntity(entity);
-		if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).canDropRares() && rand.nextInt(2) == 0) {
+		if (entity instanceof GOTEntityNPC && rand.nextInt(2) == 0) {
 			int coins = getRandomCoinDropAmount();
 			coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f));
 			if (coins > 0) {

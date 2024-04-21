@@ -15,7 +15,6 @@ public class GOTEntityStormlandsLevyman extends GOTEntityStormlandsMan {
 
 	public GOTEntityStormlandsLevyman(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 	}
 
@@ -32,7 +31,7 @@ public class GOTEntityStormlandsLevyman extends GOTEntityStormlandsMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

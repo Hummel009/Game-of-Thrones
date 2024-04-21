@@ -8,6 +8,7 @@ CHANGELOG
 + Added one forgotten dirtPath:2 recipe
 + Added crafts for stone chest, sandstone chest and replaced the craft of reeds chest with new one.
 
+* Improved mob selector for smoking, drinking, being robbed and being married.
 * Improved sound and volume of a few animals
 * Improved fixed structures system (more clear, optimized and stable)
 * Improved road-to-settlemen's-gate system

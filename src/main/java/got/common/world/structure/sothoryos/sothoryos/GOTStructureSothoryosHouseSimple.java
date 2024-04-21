@@ -81,16 +81,16 @@ public class GOTStructureSothoryosHouseSimple extends GOTStructureSothoryosHouse
 		placePlateWithCertainty(world, random, 1, 2, 2, GOTBlocks.woodPlate, GOTFoods.SOTHORYOS);
 		placeMug(world, random, 2, 2, 0, 3, GOTFoods.SOTHORYOS_DRINK);
 		GOTEntitySothoryosMan male = new GOTEntitySothoryosMan(world);
-		male.familyInfo.setMale(true);
+		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 8);
 		GOTEntitySothoryosMan female = new GOTEntitySothoryosMan(world);
-		female.familyInfo.setMale(false);
+		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 8);
 		GOTEntitySothoryosMan child = new GOTEntitySothoryosMan(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
+		child.getFamilyInfo().setMale(random.nextBoolean());
+		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 8);
 		return true;
 	}

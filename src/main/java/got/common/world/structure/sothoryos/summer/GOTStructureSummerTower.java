@@ -67,11 +67,12 @@ public class GOTStructureSummerTower extends GOTStructureSummerBase {
 		int warriors = 1 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntitySummerWarrior warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 13, 0, 8);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntitySummerWarrior.class, GOTEntitySummerArcher.class);
+		respawner.setSpawnClass1(GOTEntitySummerWarrior.class);
+		respawner.setSpawnClass2(GOTEntitySummerArcher.class);
 		respawner.setCheckRanges(6, -16, 4, 4);
 		respawner.setSpawnRanges(2, -1, 1, 8);
 		placeNPCRespawner(respawner, world, 0, 13, 0);

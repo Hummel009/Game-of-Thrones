@@ -17,7 +17,7 @@ public class GOTDispenseThrowingAxe extends BehaviorDefaultDispenseItem {
 		EnumFacing enumfacing = BlockDispenser.func_149937_b(dispense.getBlockMetadata());
 		GOTEntityThrowingAxe axe = new GOTEntityThrowingAxe(world, itemstack.copy(), iposition.getX(), iposition.getY(), iposition.getZ());
 		axe.setThrowableHeading(enumfacing.getFrontOffsetX(), enumfacing.getFrontOffsetY() + 0.1f, enumfacing.getFrontOffsetZ(), 1.1f, 6.0f);
-		axe.canBePickedUp = 1;
+		axe.setCanBePickedUp(1);
 		world.spawnEntityInWorld(axe);
 		itemstack.splitStack(1);
 		return itemstack;

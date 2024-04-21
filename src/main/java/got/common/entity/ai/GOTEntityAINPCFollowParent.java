@@ -32,10 +32,10 @@ public class GOTEntityAINPCFollowParent extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (theNPC.familyInfo.getAge() >= 0) {
+		if (theNPC.getFamilyInfo().getAge() >= 0) {
 			return false;
 		}
-		GOTEntityNPC parent = theNPC.familyInfo.getParentToFollow();
+		GOTEntityNPC parent = theNPC.getFamilyInfo().getParentToFollow();
 		if (parent == null || theNPC.getDistanceSqToEntity(parent) < 9.0 || theNPC.getDistanceSqToEntity(parent) >= 256.0) {
 			return false;
 		}

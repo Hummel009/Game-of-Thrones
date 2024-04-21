@@ -158,20 +158,21 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 			}
 		}
 		GOTEntityAsshaiCaptain captain = new GOTEntityAsshaiCaptain(world);
-		captain.spawnRidingHorse = false;
+		captain.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(captain, world, 0, 1, 0, 8);
 		for (int l = 0; l < 5; ++l) {
 			GOTEntityAsshaiShadowbinder shadowbinder = new GOTEntityAsshaiShadowbinder(world);
-			shadowbinder.spawnRidingHorse = false;
+			shadowbinder.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(shadowbinder, world, 0, 1, 0, 32);
 		}
 		for (int l = 0; l < 2; ++l) {
-			GOTEntityAsshaiSpherebinder psychobinder = new GOTEntityAsshaiSpherebinder(world);
-			psychobinder.spawnRidingHorse = false;
-			spawnNPCAndSetHome(psychobinder, world, 0, 1, 0, 32);
+			GOTEntityAsshaiSpherebinder spherebinder = new GOTEntityAsshaiSpherebinder(world);
+			spherebinder.setSpawnRidingHorse(false);
+			spawnNPCAndSetHome(spherebinder, world, 0, 1, 0, 32);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityAsshaiWarrior.class, GOTEntityAsshaiShadowbinder.class);
+		respawner.setSpawnClass1(GOTEntityAsshaiWarrior.class);
+		respawner.setSpawnClass2(GOTEntityAsshaiShadowbinder.class);
 		respawner.setCheckRanges(32, -16, 20, 24);
 		respawner.setSpawnRanges(24, -4, 8, 24);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

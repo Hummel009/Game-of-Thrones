@@ -14,9 +14,8 @@ import net.minecraft.world.World;
 public class GOTEntityMyrGeneral extends GOTEntityMyrSoldier implements GOTUnitTradeable {
 	public GOTEntityMyrGeneral(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.MYR;
+		cape = GOTCapes.MYR;
 		spawnRidingHorse = false;
 	}
 

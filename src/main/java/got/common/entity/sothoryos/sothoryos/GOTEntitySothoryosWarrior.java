@@ -9,9 +9,8 @@ import net.minecraft.world.World;
 public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 	public GOTEntitySothoryosWarrior(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		npcShield = GOTShields.SOTHORYOS;
+		shield = GOTShields.SOTHORYOS;
 	}
 
 	@Override

@@ -14,24 +14,27 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityFallingTreasure extends Entity implements IEntityAdditionalSpawnData {
-	public Block theBlock;
-	public int theBlockMeta;
-	public int ticksFalling;
+	private Block theBlock;
+	private int theBlockMeta;
+	private int ticksFalling;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFallingTreasure(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFallingTreasure(World world, double d, double d1, double d2, Block block) {
 		this(world, d, d1, d2, block, 0);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFallingTreasure(World world, double d, double d1, double d2, Block block, int meta) {
 		super(world);
 		blockMetaConstructor(d, d1, d2, block, meta);
 	}
 
-	public void blockMetaConstructor(double d, double d1, double d2, Block block, int meta) {
+	private void blockMetaConstructor(double d, double d1, double d2, Block block, int meta) {
 		theBlock = block;
 		theBlockMeta = meta;
 		preventEntitySpawning = true;
@@ -169,5 +172,13 @@ public class GOTEntityFallingTreasure extends Entity implements IEntityAdditiona
 		data.writeDouble(prevPosZ);
 		data.writeInt(Block.getIdFromBlock(theBlock));
 		data.writeByte(theBlockMeta);
+	}
+
+	public int getTheBlockMeta() {
+		return theBlockMeta;
+	}
+
+	public Block getTheBlock() {
+		return theBlock;
 	}
 }

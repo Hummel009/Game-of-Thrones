@@ -16,9 +16,4 @@ public class GOTEntityGiraffeRug extends GOTEntityRugBase {
 	public ItemStack getRugItem() {
 		return new ItemStack(GOTItems.giraffeRug);
 	}
-
-	@Override
-	public String getRugNoise() {
-		return "";
-	}
 }

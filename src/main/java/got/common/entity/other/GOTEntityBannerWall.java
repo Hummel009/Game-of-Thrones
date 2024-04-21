@@ -21,14 +21,16 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityBannerWall extends EntityHanging {
-	public NBTTagCompound protectData;
-	public boolean updatedClientBB;
+	private NBTTagCompound protectData;
+	private boolean updatedClientBB;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBannerWall(World world) {
 		super(world);
 		setSize(0.0f, 0.0f);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBannerWall(World world, int i, int j, int k, int dir) {
 		super(world, i, j, k, dir);
 		setSize(0.0f, 0.0f);
@@ -49,7 +51,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 		dataWatcher.addObject(18, (short) 0);
 	}
 
-	public ItemStack getBannerItem() {
+	private ItemStack getBannerItem() {
 		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().getBannerID());
 		if (protectData != null) {
 			GOTItemBanner.setProtectionData(item, protectData);
@@ -65,11 +67,11 @@ public class GOTEntityBannerWall extends EntityHanging {
 		setBannerTypeID(type.getBannerID());
 	}
 
-	public int getBannerTypeID() {
+	private int getBannerTypeID() {
 		return dataWatcher.getWatchableObjectShort(18);
 	}
 
-	public void setBannerTypeID(int i) {
+	private void setBannerTypeID(int i) {
 		dataWatcher.updateObject(18, (short) i);
 	}
 
@@ -100,7 +102,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 		return getBannerItem();
 	}
 
-	public void getWatchedDirection() {
+	private void getWatchedDirection() {
 		field_146063_b = dataWatcher.getWatchableObjectInt(10);
 		field_146064_c = dataWatcher.getWatchableObjectInt(11);
 		field_146062_d = dataWatcher.getWatchableObjectInt(12);
@@ -163,20 +165,21 @@ public class GOTEntityBannerWall extends EntityHanging {
 
 	@Override
 	public void setDirection(int dir) {
+		int dir1 = dir;
 		float edge;
 		float zSize;
 		float xSize;
 		float zEdge;
 		float xEdge;
-		if (dir < 0 || dir >= Direction.directions.length) {
-			dir = 0;
+		if (dir1 < 0 || dir1 >= Direction.directions.length) {
+			dir1 = 0;
 		}
-		hangingDirection = dir;
-		prevRotationYaw = rotationYaw = Direction.rotateOpposite[dir] * 90.0f;
+		hangingDirection = dir1;
+		prevRotationYaw = rotationYaw = Direction.rotateOpposite[dir1] * 90.0f;
 		float width = 1.0f;
 		float thickness = 0.0625f;
 		float yEdge = edge = 0.01f;
-		if (dir == 0 || dir == 2) {
+		if (dir1 == 0 || dir1 == 2) {
 			xSize = width;
 			zSize = thickness;
 			xEdge = thickness + edge;
@@ -191,7 +194,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 		float f1 = field_146064_c + 0.5f;
 		float f2 = field_146062_d + 0.5f;
 		float f3 = 0.5f + thickness / 2.0f;
-		setPosition(f += Direction.offsetX[dir] * f3, f1, f2 += Direction.offsetZ[dir] * f3);
+		setPosition(f += Direction.offsetX[dir1] * f3, f1, f2 += Direction.offsetZ[dir1] * f3);
 		prevPosX = posX;
 		prevPosY = posY;
 		prevPosZ = posZ;
@@ -202,11 +205,16 @@ public class GOTEntityBannerWall extends EntityHanging {
 		}
 	}
 
+	@SuppressWarnings("unused")
+	public NBTTagCompound getProtectData() {
+		return protectData;
+	}
+
 	public void setProtectData(NBTTagCompound nbt) {
 		protectData = nbt;
 	}
 
-	public void updateWatchedDirection() {
+	private void updateWatchedDirection() {
 		dataWatcher.updateObject(10, field_146063_b);
 		dataWatcher.updateObject(11, field_146064_c);
 		dataWatcher.updateObject(12, field_146062_d);

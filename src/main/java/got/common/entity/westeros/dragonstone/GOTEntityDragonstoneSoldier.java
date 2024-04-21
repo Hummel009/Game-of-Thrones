@@ -12,15 +12,14 @@ import net.minecraft.world.World;
 public class GOTEntityDragonstoneSoldier extends GOTEntityDragonstoneLevyman {
 	public GOTEntityDragonstoneSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.DRAGONSTONE;
+		shield = GOTShields.DRAGONSTONE;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

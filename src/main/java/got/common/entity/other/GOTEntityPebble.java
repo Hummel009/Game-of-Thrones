@@ -11,16 +11,19 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityPebble extends EntityThrowable {
-	public boolean isSling;
+	private boolean isSling;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPebble(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPebble(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPebble(World world, EntityLivingBase entityliving) {
 		super(world, entityliving);
 	}

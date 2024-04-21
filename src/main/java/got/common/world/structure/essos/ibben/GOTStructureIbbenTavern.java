@@ -6,8 +6,8 @@ import got.common.database.GOTNames;
 import got.common.entity.essos.ibben.GOTEntityIbbenBartender;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
-import got.common.entity.westeros.GOTEntityLightSkinThief;
+import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -435,10 +435,10 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			spawnNPCAndSetHome(ibbenese, world, 2, 2, 12, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(GOTEntityIbbenMan.class);
+		respawner.setSpawnClass1(GOTEntityIbbenMan.class);
 		respawner.setCheckRanges(32, -12, 12, 2);
 		respawner.setSpawnRanges(4, -2, 4, 16);
-		respawner.setSpawnIntervalMinutes(5);
+		respawner.setSpawnInterval(6000);
 		respawner.setNoPlayerRange(8);
 		placeNPCRespawner(respawner, world, 0, 0, 0);
 		return true;

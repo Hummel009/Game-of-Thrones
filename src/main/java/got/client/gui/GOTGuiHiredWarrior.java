@@ -3,7 +3,7 @@ package got.client.gui;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTSquadrons;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketNPCSquadron;
 import net.minecraft.client.gui.GuiButton;
@@ -63,15 +63,15 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			int midX = guiLeft + xSize / 2;
 			String s = StatCollector.translateToLocalFormatted("got.gui.warrior.health", Math.round(theNPC.getHealth()), Math.round(theNPC.getMaxHealth()));
 			fontRendererObj.drawString(s, midX - fontRendererObj.getStringWidth(s) / 2, guiTop + 50, 4210752);
-			s = theNPC.hiredNPCInfo.getStatusString();
+			s = theNPC.getHireableInfo().getStatusString();
 			fontRendererObj.drawString(s, midX - fontRendererObj.getStringWidth(s) / 2, guiTop + 62, 4210752);
-			s = StatCollector.translateToLocalFormatted("got.gui.warrior.level", theNPC.hiredNPCInfo.xpLevel);
+			s = StatCollector.translateToLocalFormatted("got.gui.warrior.level", theNPC.getHireableInfo().getXpLevel());
 			fontRendererObj.drawString(s, midX - fontRendererObj.getStringWidth(s) / 2, guiTop + 80, 4210752);
-			float lvlProgress = theNPC.hiredNPCInfo.getProgressToNextLevel();
-			String curLevel = EnumChatFormatting.BOLD + String.valueOf(theNPC.hiredNPCInfo.xpLevel);
-			String nextLevel = EnumChatFormatting.BOLD + String.valueOf(theNPC.hiredNPCInfo.xpLevel + 1);
-			String xpCurLevel = String.valueOf(theNPC.hiredNPCInfo.totalXPForLevel(theNPC.hiredNPCInfo.xpLevel));
-			String xpNextLevel = String.valueOf(theNPC.hiredNPCInfo.totalXPForLevel(theNPC.hiredNPCInfo.xpLevel + 1));
+			float lvlProgress = theNPC.getHireableInfo().getProgressToNextLevel();
+			String curLevel = EnumChatFormatting.BOLD + String.valueOf(theNPC.getHireableInfo().getXpLevel());
+			String nextLevel = EnumChatFormatting.BOLD + String.valueOf(theNPC.getHireableInfo().getXpLevel() + 1);
+			String xpCurLevel = String.valueOf(theNPC.getHireableInfo().totalXPForLevel(theNPC.getHireableInfo().getXpLevel()));
+			String xpNextLevel = String.valueOf(theNPC.getHireableInfo().totalXPForLevel(theNPC.getHireableInfo().getXpLevel() + 1));
 			drawRect(midX - 36, guiTop + 96, midX + 36, guiTop + 102, -16777216);
 			drawRect(midX - 35, guiTop + 97, midX + 35, guiTop + 101, -10658467);
 			drawRect(midX - 35, guiTop + 97, midX - 35 + (int) (lvlProgress * 70.0f), guiTop + 101, -43776);
@@ -83,9 +83,9 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			fontRendererObj.drawString(xpCurLevel, Math.round((midX - 38 - fontRendererObj.getStringWidth(xpCurLevel) * scale) / scale), (int) ((guiTop + 101) / scale), 4210752);
 			fontRendererObj.drawString(xpNextLevel, Math.round((midX + 38) / scale), (int) ((guiTop + 101) / scale), 4210752);
 			GL11.glPopMatrix();
-			s = StatCollector.translateToLocalFormatted("got.gui.warrior.xp", theNPC.hiredNPCInfo.xp);
+			s = StatCollector.translateToLocalFormatted("got.gui.warrior.xp", theNPC.getHireableInfo().getXp());
 			fontRendererObj.drawString(s, midX - fontRendererObj.getStringWidth(s) / 2, guiTop + 110, 4210752);
-			s = StatCollector.translateToLocalFormatted("got.gui.warrior.kills", theNPC.hiredNPCInfo.mobKills);
+			s = StatCollector.translateToLocalFormatted("got.gui.warrior.kills", theNPC.getHireableInfo().getMobKills());
 			fontRendererObj.drawString(s, midX - fontRendererObj.getStringWidth(s) / 2, guiTop + 122, 4210752);
 		}
 		if (page == 1) {
@@ -109,11 +109,11 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			buttonList.add(buttonGuardMode);
 			sliderGuardRange = new GOTGuiSlider(2, midX - 80, guiTop + 74, 160, 20, StatCollector.translateToLocal("got.gui.warrior.guardRange"));
 			buttonList.add(sliderGuardRange);
-			sliderGuardRange.setMinMaxValues(GOTHiredNPCInfo.GUARD_RANGE_MIN, GOTHiredNPCInfo.GUARD_RANGE_MAX);
-			sliderGuardRange.setSliderValue(theNPC.hiredNPCInfo.getGuardRange());
+			sliderGuardRange.setMinMaxValues(GOTHireableInfo.GUARD_RANGE_MIN, GOTHireableInfo.GUARD_RANGE_MAX);
+			sliderGuardRange.setSliderValue(theNPC.getHireableInfo().getGuardRange());
 			squadronNameField = new GuiTextField(fontRendererObj, midX - 80, guiTop + 130, 160, 20);
 			squadronNameField.setMaxStringLength(GOTSquadrons.SQUADRON_LENGTH_MAX);
-			String squadron = theNPC.hiredNPCInfo.getSquadron();
+			String squadron = theNPC.getHireableInfo().getHiredSquadron();
 			if (!StringUtils.isNullOrEmpty(squadron)) {
 				squadronNameField.setText(squadron);
 			}
@@ -131,7 +131,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 	@Override
 	public void keyTyped(char c, int i) {
 		if (page == 1 && squadronNameField != null && squadronNameField.getVisible() && squadronNameField.textboxKeyTyped(c, i)) {
-			theNPC.hiredNPCInfo.setSquadron(squadronNameField.getText());
+			theNPC.getHireableInfo().setHiredSquadron(squadronNameField.getText());
 			sendSquadronUpdate = true;
 			return;
 		}
@@ -150,7 +150,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 	public void onGuiClosed() {
 		super.onGuiClosed();
 		if (sendSquadronUpdate) {
-			String squadron = theNPC.hiredNPCInfo.getSquadron();
+			String squadron = theNPC.getHireableInfo().getHiredSquadron();
 			IMessage packet = new GOTPacketNPCSquadron(theNPC, squadron);
 			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
@@ -164,13 +164,13 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 		}
 		super.updateScreen();
 		if (page == 1) {
-			buttonTeleport.setState(theNPC.hiredNPCInfo.teleportAutomatically);
-			buttonTeleport.enabled = !theNPC.hiredNPCInfo.isGuardMode();
-			buttonGuardMode.setState(theNPC.hiredNPCInfo.isGuardMode());
-			sliderGuardRange.visible = theNPC.hiredNPCInfo.isGuardMode();
+			buttonTeleport.setState(theNPC.getHireableInfo().isTeleportAutomatically());
+			buttonTeleport.enabled = !theNPC.getHireableInfo().isGuardMode();
+			buttonGuardMode.setState(theNPC.getHireableInfo().isGuardMode());
+			sliderGuardRange.visible = theNPC.getHireableInfo().isGuardMode();
 			if (sliderGuardRange.isDragging()) {
 				int i = sliderGuardRange.getSliderValue();
-				theNPC.hiredNPCInfo.setGuardRange(i);
+				theNPC.getHireableInfo().setGuardRange(i);
 				sendActionPacket(sliderGuardRange.id, i);
 			}
 			squadronNameField.updateCursorCounter();

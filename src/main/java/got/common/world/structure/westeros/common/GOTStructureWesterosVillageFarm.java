@@ -2,6 +2,7 @@ package got.common.world.structure.westeros.common;
 
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTFarmhand;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.init.Blocks;
@@ -175,7 +176,7 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 			for (int l = 0; l < farmhands; ++l) {
 				GOTEntityNPC farmhand = getFarmhand(world);
 				spawnNPCAndSetHome(farmhand, world, 0, 1, -1, 8);
-				farmhand.seedsItem = seedItem;
+				((GOTFarmhand) farmhand).setSeedsItem(seedItem);
 			}
 			return true;
 		}

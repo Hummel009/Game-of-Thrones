@@ -300,10 +300,11 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityIbbenWarrior.class, GOTEntityIbbenArcher.class);
+				spawner.setSpawnClass1(GOTEntityIbbenWarrior.class);
+				spawner.setSpawnClass2(GOTEntityIbbenArcher.class);
 				spawner.setCheckRanges(40, -12, 12, 30);
 				spawner.setSpawnRanges(32, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -314,10 +315,10 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityIbbenMan.class);
+				spawner.setSpawnClass1(GOTEntityIbbenMan.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -328,10 +329,10 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityIbbenWarlord.class);
+				spawner.setSpawnClass1(GOTEntityIbbenWarlord.class);
 				spawner.setCheckRanges(2, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -342,10 +343,10 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityIbbenWarrior.class);
+				spawner.setSpawnClass1(GOTEntityIbbenWarrior.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

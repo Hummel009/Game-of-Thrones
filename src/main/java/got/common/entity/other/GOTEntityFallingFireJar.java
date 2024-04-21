@@ -8,14 +8,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntityFallingFireJar extends EntityFallingBlock implements IEntityAdditionalSpawnData {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFallingFireJar(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFallingFireJar(World world, double d, double d1, double d2, Block block) {
 		super(world, d, d1, d2, block);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFallingFireJar(World world, double d, double d1, double d2, Block block, int meta) {
 		super(world, d, d1, d2, block, meta);
 	}

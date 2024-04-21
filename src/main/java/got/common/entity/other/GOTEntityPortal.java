@@ -21,10 +21,12 @@ import net.minecraftforge.common.DimensionManager;
 import java.util.List;
 
 public class GOTEntityPortal extends Entity {
-	public static int MAX_SCALE = 120;
-	public float prevPortalRotation;
-	public float portalRotation;
+	public static final int MAX_SCALE = 120;
 
+	private float prevPortalRotation;
+	private float portalRotation;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPortal(World world) {
 		super(world);
 		setSize(3.0f, 1.5f);
@@ -82,7 +84,7 @@ public class GOTEntityPortal extends Entity {
 		return dataWatcher.getWatchableObjectShort(10);
 	}
 
-	public void setScale(int i) {
+	private void setScale(int i) {
 		dataWatcher.updateObject(10, (short) i);
 	}
 
@@ -172,7 +174,7 @@ public class GOTEntityPortal extends Entity {
 		setScale(nbt.getInteger("Scale"));
 	}
 
-	public void transferEntity(Entity entity) {
+	private void transferEntity(Entity entity) {
 		if (!worldObj.isRemote) {
 			int dimension = 0;
 			if (entity.dimension == 0) {
@@ -185,5 +187,13 @@ public class GOTEntityPortal extends Entity {
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("Scale", getScale());
+	}
+
+	public float getPrevPortalRotation() {
+		return prevPortalRotation;
+	}
+
+	public float getPortalRotation() {
+		return portalRotation;
 	}
 }

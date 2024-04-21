@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntitySummerWarlord extends GOTEntitySummerWarrior implements GOTUnitTradeable {
 	public GOTEntitySummerWarlord(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

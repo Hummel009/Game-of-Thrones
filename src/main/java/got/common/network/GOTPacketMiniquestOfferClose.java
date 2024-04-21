@@ -42,7 +42,7 @@ public class GOTPacketMiniquestOfferClose implements IMessage {
 			Entity npcEntity = world.getEntityByID(packet.npcID);
 			if (npcEntity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) npcEntity;
-				npc.questInfo.receiveOfferResponse(entityplayer, packet.accept);
+				npc.getQuestInfo().receiveOfferResponse(entityplayer, packet.accept);
 			}
 			return null;
 		}

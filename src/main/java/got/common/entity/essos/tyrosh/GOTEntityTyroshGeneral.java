@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 public class GOTEntityTyroshGeneral extends GOTEntityTyroshSoldier implements GOTUnitTradeable {
 	public GOTEntityTyroshGeneral(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

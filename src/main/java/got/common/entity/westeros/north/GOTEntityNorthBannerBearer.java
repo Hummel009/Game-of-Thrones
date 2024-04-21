@@ -7,7 +7,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorthBannerBearer extends GOTEntityNorthSoldier implements GOTBannerBearer {
 	public GOTEntityNorthBannerBearer(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

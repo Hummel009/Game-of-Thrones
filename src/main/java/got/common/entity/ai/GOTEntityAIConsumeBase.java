@@ -39,9 +39,9 @@ public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 
 	@Override
 	public void resetTask() {
-		theEntity.setCurrentItemOrArmor(0, theEntity.npcItemsInv.getEatingBackup());
-		theEntity.npcItemsInv.setEatingBackup(null);
-		theEntity.npcItemsInv.setIsEating(false);
+		theEntity.setCurrentItemOrArmor(0, theEntity.getNpcItemsInv().getEatingBackup());
+		theEntity.getNpcItemsInv().setEatingBackup(null);
+		theEntity.getNpcItemsInv().setIsEating(false);
 		theEntity.refreshCurrentAttackMode();
 		consumeTick = 0;
 	}
@@ -53,13 +53,13 @@ public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		return !theEntity.isChild() && theEntity.getAttackTarget() == null && !theEntity.npcItemsInv.getIsEating() && shouldConsume();
+		return !theEntity.isChild() && theEntity.getAttackTarget() == null && !theEntity.getNpcItemsInv().getIsEating() && shouldConsume();
 	}
 
 	@Override
 	public void startExecuting() {
-		theEntity.npcItemsInv.setEatingBackup(theEntity.getHeldItem());
-		theEntity.npcItemsInv.setIsEating(true);
+		theEntity.getNpcItemsInv().setEatingBackup(theEntity.getHeldItem());
+		theEntity.getNpcItemsInv().setIsEating(true);
 		theEntity.setCurrentItemOrArmor(0, createConsumable());
 		consumeTick = getConsumeTime();
 	}

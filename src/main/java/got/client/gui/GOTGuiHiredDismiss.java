@@ -36,8 +36,8 @@ public class GOTGuiHiredDismiss extends GOTGuiNPCInteract {
 		y += fontRendererObj.FONT_HEIGHT;
 		Entity mount = theEntity.ridingEntity;
 		Entity rider = theEntity.riddenByEntity;
-		boolean hasMount = mount instanceof GOTEntityNPC && ((GOTEntityNPC) mount).hiredNPCInfo.getHiringPlayer() == mc.thePlayer;
-		boolean hasRider = rider instanceof GOTEntityNPC && ((GOTEntityNPC) rider).hiredNPCInfo.getHiringPlayer() == mc.thePlayer;
+		boolean hasMount = mount instanceof GOTEntityNPC && ((GOTEntityNPC) mount).getHireableInfo().getHiringPlayer() == mc.thePlayer;
+		boolean hasRider = rider instanceof GOTEntityNPC && ((GOTEntityNPC) rider).getHireableInfo().getHiringPlayer() == mc.thePlayer;
 		if (hasMount) {
 			s = StatCollector.translateToLocal("got.gui.dismiss.mount");
 			fontRendererObj.drawString(s, (width - fontRendererObj.getStringWidth(s)) / 2, y, 11184810);

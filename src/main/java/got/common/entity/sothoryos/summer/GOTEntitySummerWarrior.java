@@ -14,16 +14,15 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 
 	public GOTEntitySummerWarrior(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.SUMMER;
+		shield = GOTShields.SUMMER;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(1.0);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(1.0);
 	}
 
 	@Override
@@ -34,7 +33,7 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

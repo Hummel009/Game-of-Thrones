@@ -20,9 +20,8 @@ import net.minecraft.world.World;
 public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	public GOTEntityGregorClegane(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks();
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f * 1.3f, 1.8f * 1.3f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
@@ -63,15 +62,9 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		return data;
 	}
 
-	@Override
-	public boolean shouldBurningPanic() {
-		return false;
-	}
-
 	public static class GregorCleganeAlive extends GOTEntityGregorClegane {
 		public GregorCleganeAlive(World world) {
 			super(world);
-			canBeMarried = false;
 		}
 
 		@Override
@@ -133,7 +126,6 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	public static class GregorCleganeDead extends GOTEntityGregorClegane {
 		public GregorCleganeDead(World world) {
 			super(world);
-			canBeMarried = false;
 		}
 
 		@Override

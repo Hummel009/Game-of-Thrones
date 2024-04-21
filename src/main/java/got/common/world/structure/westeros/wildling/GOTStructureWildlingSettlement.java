@@ -4,10 +4,8 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
 import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;
-import got.common.entity.westeros.wildling.thenn.GOTEntityThenn;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennArcher;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennAxeThrower;
-import got.common.entity.westeros.wildling.thenn.GOTEntityThennBerserker;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
@@ -255,10 +253,10 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityWildling.class);
+				spawner.setSpawnClass1(GOTEntityWildling.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(60, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -269,10 +267,11 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityWildlingAxeThrower.class, GOTEntityWildlingArcher.class);
+				spawner.setSpawnClass1(GOTEntityWildlingArcher.class);
+				spawner.setSpawnClass2(GOTEntityWildlingAxeThrower.class);
 				spawner.setCheckRanges(50, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -283,10 +282,11 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityThenn.class, GOTEntityThennBerserker.class);
+				spawner.setSpawnClass1(GOTEntityThennArcher.class);
+				spawner.setSpawnClass2(GOTEntityThennAxeThrower.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -297,10 +297,11 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityThennAxeThrower.class, GOTEntityThennArcher.class);
+				spawner.setSpawnClass1(GOTEntityThennArcher.class);
+				spawner.setSpawnClass2(GOTEntityThennAxeThrower.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -311,10 +312,10 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityWildling.class);
+				spawner.setSpawnClass1(GOTEntityWildling.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -325,10 +326,11 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityWildlingAxeThrower.class, GOTEntityWildlingArcher.class);
+				spawner.setSpawnClass1(GOTEntityWildlingArcher.class);
+				spawner.setSpawnClass2(GOTEntityWildlingAxeThrower.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

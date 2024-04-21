@@ -2,7 +2,6 @@ package got.common.world.structure.essos.lhazar;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
-import got.common.entity.essos.ghiscar.GOTEntityGhiscarSlave;
 import got.common.entity.essos.lhazar.GOTEntityLhazarFarmer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -14,9 +13,7 @@ import java.util.Random;
 
 public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 	private Block crop1Block;
-	private Item seed1;
 	private Block crop2Block;
-	private Item seed2;
 
 	public GOTStructureLhazarFarm(boolean flag) {
 		super(flag);
@@ -74,12 +71,6 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 			GOTEntityLhazarFarmer farmer = new GOTEntityLhazarFarmer(world);
 			spawnNPCAndSetHome(farmer, world, 0, 1, -1, 8);
 		}
-		GOTEntityGhiscarSlave farmhand1 = new GOTEntityGhiscarSlave(world);
-		farmhand1.seedsItem = seed1;
-		spawnNPCAndSetHome(farmhand1, world, -2, 1, 0, 8);
-		GOTEntityGhiscarSlave farmhand2 = new GOTEntityGhiscarSlave(world);
-		farmhand2.seedsItem = seed2;
-		spawnNPCAndSetHome(farmhand2, world, 2, 1, 0, 8);
 		return true;
 	}
 
@@ -87,6 +78,7 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 	public void setupRandomBlocks(Random random) {
 		int randomCrop;
 		super.setupRandomBlocks(random);
+		Item seed1;
 		if (random.nextBoolean()) {
 			crop1Block = Blocks.wheat;
 			seed1 = Items.wheat_seeds;
@@ -113,25 +105,20 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 		}
 		if (random.nextBoolean()) {
 			crop2Block = Blocks.wheat;
-			seed2 = Items.wheat_seeds;
 		} else {
 			randomCrop = random.nextInt(4);
 			switch (randomCrop) {
 				case 0:
 					crop2Block = Blocks.carrots;
-					seed2 = Items.carrot;
 					break;
 				case 1:
 					crop2Block = Blocks.potatoes;
-					seed2 = Items.potato;
 					break;
 				case 2:
 					crop2Block = GOTBlocks.lettuceCrop;
-					seed2 = GOTItems.lettuce;
 					break;
 				case 3:
 					crop2Block = GOTBlocks.turnipCrop;
-					seed2 = GOTItems.turnip;
 					break;
 				default:
 					break;

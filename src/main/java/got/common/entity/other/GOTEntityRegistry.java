@@ -15,7 +15,6 @@ public class GOTEntityRegistry {
 
 	public static final Map<Integer, SpawnEggInfo> SPAWN_EGGS = new LinkedHashMap<>();
 	public static final Map<Class<? extends Entity>, String> CLASS_TO_NAME_MAPPING = new HashMap<>();
-	public static final Map<Class<? extends Entity>, GOTFaction> CLASS_TO_FACTION_MAPPING = new HashMap<>();
 
 	private static final Map<String, Integer> STRING_TO_ID_MAPPING = new HashMap<>();
 	private static final Map<Integer, String> ID_TO_STRING_MAPPING = new HashMap<>();
@@ -52,7 +51,6 @@ public class GOTEntityRegistry {
 		registerHidden(entityClass, id, 80, 3, true);
 		CONTENT.add(entityClass);
 		SPAWN_EGGS.put(id, new SpawnEggInfo(id, faction.getEggColor(), faction.getEggColor()));
-		CLASS_TO_FACTION_MAPPING.put(entityClass, faction);
 	}
 
 	public static void register(Class<? extends Entity> entityClass, int id, int color) {
@@ -80,7 +78,6 @@ public class GOTEntityRegistry {
 		registerHidden(entityClass, id, 80, 3, true);
 		CONTENT.add(entityClass);
 		SPAWN_EGGS.put(id, new SpawnEggInfo(id, 9605778, faction.getEggColor()));
-		CLASS_TO_FACTION_MAPPING.put(entityClass, faction);
 	}
 
 	public void getSubItems(Item item, Collection<ItemStack> list) {
@@ -94,7 +91,7 @@ public class GOTEntityRegistry {
 		private final int primaryColor;
 		private final int secondaryColor;
 
-		public SpawnEggInfo(int i, int j, int k) {
+		protected SpawnEggInfo(int i, int j, int k) {
 			spawnedID = i;
 			primaryColor = j;
 			secondaryColor = k;

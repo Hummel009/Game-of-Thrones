@@ -17,9 +17,8 @@ import net.minecraft.world.World;
 public class GOTEntityRickonStark extends GOTEntityHumanBase {
 	public GOTEntityRickonStark(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f * 0.65f, 1.8f * 0.65f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

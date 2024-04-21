@@ -460,7 +460,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 		for (int l = 0; l <= 10; ++l) {
 			GOTEntityHumanBase wife = new GOTEntityCrasterWife(world);
 			if (random.nextBoolean()) {
-				wife.familyInfo.setChild();
+				wife.getFamilyInfo().setChild();
 			}
 			spawnNPCAndSetHome(wife, world, 0, 1, 5, 16);
 		}

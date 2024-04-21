@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityPentosBrewer extends GOTEntityPentosTrader {
 	public GOTEntityPentosBrewer(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

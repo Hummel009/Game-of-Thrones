@@ -31,22 +31,28 @@ import net.minecraft.world.WorldServer;
 import java.util.*;
 
 public class GOTEntityBanner extends Entity {
-	public static float ALIGNMENT_PROTECTION_MIN = 1.0f;
-	public static float ALIGNMENT_PROTECTION_MAX = 10000.0f;
-	public static int WHITELIST_DEFAULT = 16;
-	public static int WHITELIST_MIN = 1;
-	public static int WHITELIST_MAX = 4000;
-	public NBTTagCompound protectData;
-	public boolean wasEverProtecting;
-	public boolean playerSpecificProtection;
-	public boolean structureProtection;
-	public int customRange;
-	public boolean selfProtection = true;
-	public float alignmentProtection = ALIGNMENT_PROTECTION_MIN;
-	public GOTBannerWhitelistEntry[] allowedPlayers = new GOTBannerWhitelistEntry[WHITELIST_DEFAULT];
-	public Set<GOTBannerProtection.Permission> defaultPermissions = EnumSet.noneOf(GOTBannerProtection.Permission.class);
-	public boolean clientside_playerHasPermission;
+	public static final float ALIGNMENT_PROTECTION_MIN = 1.0f;
+	public static final float ALIGNMENT_PROTECTION_MAX = 10000.0f;
+	public static final int WHITELIST_MIN = 1;
+	public static final int WHITELIST_MAX = 4000;
 
+	private static final int WHITELIST_DEFAULT = 16;
+
+	private final Set<GOTBannerProtection.Permission> defaultPermissions = EnumSet.noneOf(GOTBannerProtection.Permission.class);
+
+	private GOTBannerWhitelistEntry[] allowedPlayers = new GOTBannerWhitelistEntry[WHITELIST_DEFAULT];
+	private NBTTagCompound protectData;
+
+	private boolean wasEverProtecting;
+	private boolean playerSpecificProtection;
+	private boolean structureProtection;
+	private boolean selfProtection = true;
+	private boolean clientside_playerHasPermission;
+
+	private float alignmentProtection = ALIGNMENT_PROTECTION_MIN;
+	private int customRange;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBanner(World world) {
 		super(world);
 		setSize(1.0f, 3.0f);
@@ -111,7 +117,7 @@ public class GOTEntityBanner extends Entity {
 		return AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1).expand(range, range, range);
 	}
 
-	public void dropAsItem(boolean drop) {
+	private void dropAsItem(boolean drop) {
 		setDead();
 		if (drop) {
 			entityDropItem(getBannerItem(), 0.0f);
@@ -134,7 +140,7 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public ItemStack getBannerItem() {
+	private ItemStack getBannerItem() {
 		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().getBannerID());
 		if (wasEverProtecting && protectData == null) {
 			protectData = new NBTTagCompound();
@@ -156,11 +162,11 @@ public class GOTEntityBanner extends Entity {
 		setBannerTypeID(type.getBannerID());
 	}
 
-	public int getBannerTypeID() {
+	private int getBannerTypeID() {
 		return dataWatcher.getWatchableObjectShort(18);
 	}
 
-	public void setBannerTypeID(int i) {
+	private void setBannerTypeID(int i) {
 		dataWatcher.updateObject(18, (short) i);
 	}
 
@@ -190,7 +196,7 @@ public class GOTEntityBanner extends Entity {
 		whitelistPlayer(0, player.getGameProfile());
 	}
 
-	public int getProtectionRange() {
+	private int getProtectionRange() {
 		if (!structureProtection && !GOTConfig.allowBannerProtection) {
 			return 0;
 		}
@@ -209,7 +215,7 @@ public class GOTEntityBanner extends Entity {
 		if (allowedPlayers[index] == null) {
 			return null;
 		}
-		return allowedPlayers[index].profile;
+		return allowedPlayers[index].getProfile();
 	}
 
 	public GOTBannerWhitelistEntry getWhitelistEntry(int index) {
@@ -243,7 +249,7 @@ public class GOTEntityBanner extends Entity {
 		return false;
 	}
 
-	public boolean isPlayerPermittedInSurvival(EntityPlayer entityplayer) {
+	private boolean isPlayerPermittedInSurvival(EntityPlayer entityplayer) {
 		return new GOTBannerProtection.FilterForPlayer(entityplayer, GOTBannerProtection.Permission.FULL).ignoreCreativeMode().protects(this) == GOTBannerProtection.ProtectType.NONE;
 	}
 
@@ -270,7 +276,7 @@ public class GOTEntityBanner extends Entity {
 					if (entry == null) {
 						continue;
 					}
-					GameProfile profile = entry.profile;
+					GameProfile profile = entry.getProfile();
 					boolean playerMatch = false;
 					if (profile instanceof GOTFellowshipProfile) {
 						Object fs;
@@ -325,14 +331,13 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public boolean isValidFellowship(GOTFellowship fs) {
+	private boolean isValidFellowship(GOTFellowship fs) {
 		GameProfile owner = getPlacingPlayer();
 		return fs != null && !fs.isDisbanded() && owner != null && owner.getId() != null && fs.containsPlayer(owner.getId());
 	}
 
 	@Override
 	public void onUpdate() {
-		boolean onSolidBlock;
 		super.onUpdate();
 		boolean protecting = isProtectingTerritory();
 		if (!worldObj.isRemote && protecting) {
@@ -352,7 +357,7 @@ public class GOTEntityBanner extends Entity {
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(boundingBox.minY);
 		int k = MathHelper.floor_double(posZ);
-		onSolidBlock = World.doesBlockHaveSolidTopSurface(worldObj, i, j - 1, k) && boundingBox.minY == MathHelper.ceiling_double_int(boundingBox.minY);
+		boolean onSolidBlock = World.doesBlockHaveSolidTopSurface(worldObj, i, j - 1, k) && boundingBox.minY == MathHelper.ceiling_double_int(boundingBox.minY);
 		if (!worldObj.isRemote && !onSolidBlock) {
 			dropAsItem(true);
 		}
@@ -457,12 +462,12 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public void resizeWhitelist(int length) {
-		length = MathHelper.clamp_int(length, WHITELIST_MIN, WHITELIST_MAX);
-		if (length == allowedPlayers.length) {
+		int length1 = MathHelper.clamp_int(length, WHITELIST_MIN, WHITELIST_MAX);
+		if (length1 == allowedPlayers.length) {
 			return;
 		}
-		GOTBannerWhitelistEntry[] resized = new GOTBannerWhitelistEntry[length];
-		for (int i = 0; i < length; ++i) {
+		GOTBannerWhitelistEntry[] resized = new GOTBannerWhitelistEntry[length1];
+		for (int i = 0; i < length1; ++i) {
 			if (i >= allowedPlayers.length) {
 				continue;
 			}
@@ -474,7 +479,7 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public void sendBannerData(EntityPlayer entityplayer, boolean sendWhitelist, boolean openGui) {
+	private void sendBannerData(EntityPlayer entityplayer, boolean sendWhitelist, boolean openGui) {
 		GOTPacketBannerData packet = new GOTPacketBannerData(getEntityId(), openGui);
 		packet.setPlayerSpecificProtection(playerSpecificProtection);
 		packet.setSelfProtection(selfProtection);
@@ -491,7 +496,7 @@ public class GOTEntityBanner extends Entity {
 				whitelistSlots[index] = null;
 				continue;
 			}
-			GameProfile profile = entry.profile;
+			GameProfile profile = entry.getProfile();
 			if (profile == null) {
 				whitelistSlots[index] = null;
 				continue;
@@ -536,27 +541,7 @@ public class GOTEntityBanner extends Entity {
 		clientside_playerHasPermission = flag;
 	}
 
-	public void setCustomRange(int i) {
-		customRange = MathHelper.clamp_int(i, 0, 64);
-		if (!worldObj.isRemote) {
-			updateForAllWatchers(worldObj);
-		}
-	}
-
-	public void setDefaultPermissions(Iterable<GOTBannerProtection.Permission> perms) {
-		defaultPermissions.clear();
-		for (GOTBannerProtection.Permission p : perms) {
-			if (p == GOTBannerProtection.Permission.FULL) {
-				continue;
-			}
-			defaultPermissions.add(p);
-		}
-		if (!worldObj.isRemote) {
-			updateForAllWatchers(worldObj);
-		}
-	}
-
-	public void updateForAllWatchers(World world) {
+	private void updateForAllWatchers(World world) {
 		int x = MathHelper.floor_double(posX) >> 4;
 		int z = MathHelper.floor_double(posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) worldObj).getPlayerManager();
@@ -569,7 +554,7 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public void validateWhitelistedFellowships() {
+	private void validateWhitelistedFellowships() {
 		getPlacingPlayer();
 		for (int i = 0; i < allowedPlayers.length; ++i) {
 			GameProfile profile = getWhitelistedPlayer(i);
@@ -620,7 +605,7 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public void writeProtectionToNBT(NBTTagCompound nbt) {
+	private void writeProtectionToNBT(NBTTagCompound nbt) {
 		nbt.setBoolean("PlayerProtection", playerSpecificProtection);
 		nbt.setBoolean("StructureProtection", structureProtection);
 		nbt.setShort("CustomRange", (short) customRange);
@@ -631,7 +616,7 @@ public class GOTEntityBanner extends Entity {
 		for (int i = 0; i < allowedPlayers.length; ++i) {
 			GameProfile profile;
 			GOTBannerWhitelistEntry entry = allowedPlayers[i];
-			if (entry == null || (profile = entry.profile) == null) {
+			if (entry == null || (profile = entry.getProfile()) == null) {
 				continue;
 			}
 			NBTTagCompound playerData = new NBTTagCompound();
@@ -665,6 +650,36 @@ public class GOTEntityBanner extends Entity {
 				permTags.appendTag(new NBTTagString(pName));
 			}
 			nbt.setTag("DefaultPerms", permTags);
+		}
+	}
+
+	@SuppressWarnings("unused")
+	public int getCustomRange() {
+		return customRange;
+	}
+
+	public void setCustomRange(int i) {
+		customRange = MathHelper.clamp_int(i, 0, 64);
+		if (!worldObj.isRemote) {
+			updateForAllWatchers(worldObj);
+		}
+	}
+
+	@SuppressWarnings("unused")
+	public Set<GOTBannerProtection.Permission> getDefaultPermissions() {
+		return defaultPermissions;
+	}
+
+	public void setDefaultPermissions(Iterable<GOTBannerProtection.Permission> perms) {
+		defaultPermissions.clear();
+		for (GOTBannerProtection.Permission p : perms) {
+			if (p == GOTBannerProtection.Permission.FULL) {
+				continue;
+			}
+			defaultPermissions.add(p);
+		}
+		if (!worldObj.isRemote) {
+			updateForAllWatchers(worldObj);
 		}
 	}
 }

@@ -1,9 +1,13 @@
-package got.common.entity.other;
+package got.common.entity.other.info;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTMountFunctions;
+import got.common.entity.other.GOTNPCMount;
+import got.common.entity.other.GOTUnitTradeEntry;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryNPC;
 import got.common.network.GOTPacketHandler;
@@ -31,39 +35,47 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 import java.util.UUID;
 
-public class GOTHiredNPCInfo {
-	public static int GUARD_RANGE_DEFAULT = 8;
-	public static int GUARD_RANGE_MAX = 64;
-	public static int GUARD_RANGE_MIN = 1;
-	public static int XP_COLOR = 16733440;
-	public GOTEntityNPC theEntity;
-	public GOTInventoryNPC hiredInventory;
-	public GOTUnitTradeEntry.PledgeType pledgeType = GOTUnitTradeEntry.PledgeType.NONE;
-	public String hiredSquadron;
-	public Task hiredTask = Task.WARRIOR;
-	public UUID hiringPlayerUUID;
-	public boolean canMove = true;
-	public boolean doneFirstUpdate;
-	public boolean guardMode;
-	public boolean inCombat;
-	public boolean isActive;
-	public boolean isGuiOpen;
-	public boolean prevInCombat;
-	public boolean resendBasicData = true;
-	public boolean targetFromCommandSword;
-	public boolean teleportAutomatically = true;
-	public boolean wasAttackCommanded;
-	public float alignmentRequiredToCommand;
-	public int guardRange = GUARD_RANGE_DEFAULT;
-	public int mobKills;
-	public int xp;
-	public int xpLevel = 1;
+public class GOTHireableInfo {
+	public static final int GUARD_RANGE_MAX = 64;
+	public static final int GUARD_RANGE_MIN = 1;
+	public static final int XP_COLOR = 16733440;
 
-	public GOTHiredNPCInfo(GOTEntityNPC npc) {
+	private static final int GUARD_RANGE_DEFAULT = 8;
+
+	private final GOTEntityNPC theEntity;
+
+	private GOTUnitTradeEntry.PledgeType pledgeType = GOTUnitTradeEntry.PledgeType.NONE;
+	private Task hiredTask = Task.WARRIOR;
+
+	private GOTInventoryNPC hiredInventory;
+	private String hiredSquadron;
+	private UUID hiringPlayerUUID;
+
+	private boolean isActive;
+	private boolean isGuiOpen;
+	private boolean doneFirstUpdate;
+	private boolean guardMode;
+	private boolean inCombat;
+	private boolean prevInCombat;
+	private boolean canMove = true;
+	private boolean resendBasicData = true;
+	private boolean teleportAutomatically = true;
+	private boolean targetFromCommandSword;
+	private boolean wasAttackCommanded;
+
+	private float alignmentRequiredToCommand;
+
+	private int mobKills;
+	private int xp;
+	private int xpLevel = 1;
+
+	private int guardRange = GUARD_RANGE_DEFAULT;
+
+	public GOTHireableInfo(GOTEntityNPC npc) {
 		theEntity = npc;
 	}
 
-	public void addExperience(int i) {
+	private void addExperience(int i) {
 		xp += i;
 		while (xp >= totalXPForLevel(xpLevel + 1)) {
 			++xpLevel;
@@ -131,7 +143,7 @@ public class GOTHiredNPCInfo {
 		return theEntity.worldObj.func_152378_a(hiringPlayerUUID);
 	}
 
-	public void setHiringPlayer(EntityPlayer entityplayer) {
+	private void setHiringPlayer(EntityPlayer entityplayer) {
 		hiringPlayerUUID = entityplayer == null ? null : entityplayer.getUniqueID();
 		markDirty();
 	}
@@ -158,11 +170,11 @@ public class GOTHiredNPCInfo {
 		return (float) (xp - start) / (cap - start);
 	}
 
-	public String getSquadron() {
+	public String getHiredSquadron() {
 		return hiredSquadron;
 	}
 
-	public void setSquadron(String s) {
+	public void setHiredSquadron(String s) {
 		hiredSquadron = s;
 		markDirty();
 	}
@@ -177,11 +189,7 @@ public class GOTHiredNPCInfo {
 		return StatCollector.translateToLocalFormatted("got.hiredNPC.status", status);
 	}
 
-	public Task getTask() {
-		return hiredTask;
-	}
-
-	public void setTask(Task t) {
+	private void setTask(Task t) {
 		if (t != hiredTask) {
 			hiredTask = t;
 			markDirty();
@@ -198,13 +206,13 @@ public class GOTHiredNPCInfo {
 	}
 
 	public boolean hasHiringRequirements() {
-		return theEntity.getHiringFaction().isPlayableAlignmentFaction() && alignmentRequiredToCommand >= 0.0f;
+		return theEntity.getFaction().isPlayableAlignmentFaction() && alignmentRequiredToCommand >= 0.0f;
 	}
 
 	public void hireUnit(EntityPlayer entityplayer, boolean setLocation, GOTFaction hiringFaction, GOTUnitTradeEntry tradeEntry, String squadron, Entity mount) {
-		float alignment = tradeEntry.alignmentRequired;
+		float alignment = tradeEntry.getAlignmentRequired();
 		GOTUnitTradeEntry.PledgeType pledge = tradeEntry.getPledgeType();
-		Task task = tradeEntry.task;
+		Task task = tradeEntry.getTask();
 		if (setLocation) {
 			theEntity.setLocationAndAngles(entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, entityplayer.rotationYaw + 180.0f, 0.0f);
 		}
@@ -213,7 +221,7 @@ public class GOTHiredNPCInfo {
 		pledgeType = pledge;
 		setHiringPlayer(entityplayer);
 		setTask(task);
-		setSquadron(squadron);
+		setHiredSquadron(squadron);
 		if (hiringFaction != null && hiringFaction.isPlayableAlignmentFaction()) {
 			GOTLevelData.getData(entityplayer).getFactionData(hiringFaction).addHire();
 		}
@@ -221,7 +229,7 @@ public class GOTHiredNPCInfo {
 			mount.setLocationAndAngles(theEntity.posX, theEntity.boundingBox.minY, theEntity.posZ, theEntity.rotationYaw, 0.0f);
 			if (mount instanceof GOTEntityNPC) {
 				GOTEntityNPC hiredMountNPC = (GOTEntityNPC) mount;
-				hiredMountNPC.hiredNPCInfo.hireUnit(entityplayer, setLocation, hiringFaction, tradeEntry, squadron, null);
+				hiredMountNPC.getHireableInfo().hireUnit(entityplayer, setLocation, hiringFaction, tradeEntry, squadron, null);
 			}
 			theEntity.mountEntity(mount);
 			if (mount instanceof GOTNPCMount && !(mount instanceof GOTEntityNPC)) {
@@ -253,7 +261,7 @@ public class GOTHiredNPCInfo {
 		return !guardMode && !canMove;
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		if (!theEntity.worldObj.isRemote) {
 			if (theEntity.ticksExisted > 0) {
 				resendBasicData = true;
@@ -280,7 +288,7 @@ public class GOTHiredNPCInfo {
 			if (hiredTask == Task.WARRIOR) {
 				boolean wasEnemy = false;
 				int addXP = 0;
-				GOTFaction unitFaction = theEntity.getHiringFaction();
+				GOTFaction unitFaction = theEntity.getFaction();
 				if (target instanceof EntityPlayer) {
 					wasEnemy = GOTLevelData.getData((EntityPlayer) target).getAlignment(unitFaction) < 0.0f;
 				} else {
@@ -304,7 +312,7 @@ public class GOTHiredNPCInfo {
 		}
 	}
 
-	public void onLevelUp() {
+	private void onLevelUp() {
 		float healthBoost = 2.0f;
 		IAttributeInstance attrHealth = theEntity.getEntityAttribute(SharedMonsterAttributes.maxHealth);
 		attrHealth.setBaseValue(attrHealth.getBaseValue() + healthBoost);
@@ -358,7 +366,7 @@ public class GOTHiredNPCInfo {
 				resendBasicData = false;
 			}
 			if (hasHiringRequirements() && isActive && (entityplayer = getHiringPlayer()) != null) {
-				GOTFaction fac = theEntity.getHiringFaction();
+				GOTFaction fac = theEntity.getFaction();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 				boolean canCommand = pd.getAlignment(fac) >= alignmentRequiredToCommand;
 				if (!pledgeType.canAcceptPlayer(entityplayer, fac)) {
@@ -431,7 +439,7 @@ public class GOTHiredNPCInfo {
 	public void receiveBasicData(GOTPacketHiredInfo packet) {
 		hiringPlayerUUID = packet.getHiringPlayer();
 		setTask(packet.getTask());
-		setSquadron(packet.getSquadron());
+		setHiredSquadron(packet.getSquadron());
 		xpLevel = packet.getXpLvl();
 	}
 
@@ -453,7 +461,7 @@ public class GOTHiredNPCInfo {
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
-	public void sendBasicDataToAllWatchers() {
+	private void sendBasicDataToAllWatchers() {
 		int x = MathHelper.floor_double(theEntity.posX) >> 4;
 		int z = MathHelper.floor_double(theEntity.posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) theEntity.worldObj).getPlayerManager();
@@ -605,13 +613,66 @@ public class GOTHiredNPCInfo {
 		nbt.setTag("HiredNPCInfo", data);
 	}
 
+	public GOTUnitTradeEntry.PledgeType getPledgeType() {
+		return pledgeType;
+	}
+
+	public Task getHiredTask() {
+		return hiredTask;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean active) {
+		isActive = active;
+	}
+
+	public boolean isGuiOpen() {
+		return isGuiOpen;
+	}
+
+	public void setGuiOpen(boolean guiOpen) {
+		isGuiOpen = guiOpen;
+	}
+
+	public boolean isTeleportAutomatically() {
+		return teleportAutomatically;
+	}
+
+	public void setTeleportAutomatically(boolean teleportAutomatically) {
+		this.teleportAutomatically = teleportAutomatically;
+	}
+
+	public boolean isWasAttackCommanded() {
+		return wasAttackCommanded;
+	}
+
+	public void setWasAttackCommanded(boolean wasAttackCommanded) {
+		this.wasAttackCommanded = wasAttackCommanded;
+	}
+
+	public float getAlignmentRequiredToCommand() {
+		return alignmentRequiredToCommand;
+	}
+
+	public int getMobKills() {
+		return mobKills;
+	}
+
+	public int getXp() {
+		return xp;
+	}
+
+	public int getXpLevel() {
+		return xpLevel;
+	}
+
 	public enum Task {
 		WARRIOR(true), FARMER(false), PROSTITUTE(false);
 
-		public boolean displayXpLevel;
-
 		Task(boolean displayLvl) {
-			displayXpLevel = displayLvl;
 		}
 
 		public static Task forID(int id) {

@@ -7,18 +7,22 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntitySmokeRing extends EntityThrowable {
-	public static int MAX_AGE = 300;
-	public int renderSmokeAge = -1;
-	public int prevRenderSmokeAge = -1;
+	private static final int MAX_AGE = 300;
 
+	private int renderSmokeAge = -1;
+	private int prevRenderSmokeAge = -1;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySmokeRing(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySmokeRing(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySmokeRing(World world, EntityLivingBase entityliving) {
 		super(world, entityliving);
 	}
@@ -45,11 +49,11 @@ public class GOTEntitySmokeRing extends EntityThrowable {
 		return smokeAge / MAX_AGE;
 	}
 
-	public int getSmokeAge() {
+	private int getSmokeAge() {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
-	public void setSmokeAge(int age) {
+	private void setSmokeAge(int age) {
 		dataWatcher.updateObject(16, age);
 	}
 

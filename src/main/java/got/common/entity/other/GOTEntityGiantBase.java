@@ -8,6 +8,7 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -18,11 +19,10 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class GOTEntityGiantBase extends GOTEntityNPC {
+public abstract class GOTEntityGiantBase extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
 	private static final IAttribute THROWN_ROCK_DAMAGE = new RangedAttribute("got.thrownRockDamage", 10.0, 0.0, 200.0).setDescription("GOT Thrown Rock Damage");
 
 	private final EntityAIBase rangedAttackAI = new GOTEntityAIRangedAttack(this, 1.2, 30, 60, 25.0f);
@@ -30,7 +30,6 @@ public abstract class GOTEntityGiantBase extends GOTEntityNPC {
 
 	protected GOTEntityGiantBase(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(1.6f * 1.6f, 3.2f * 1.6f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -43,7 +42,6 @@ public abstract class GOTEntityGiantBase extends GOTEntityNPC {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 12.0f, 0.01f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -51,7 +49,7 @@ public abstract class GOTEntityGiantBase extends GOTEntityNPC {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
-		getEntityAttribute(npcAttackDamage).setBaseValue(7.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(7.0);
 		getAttributeMap().registerAttribute(THROWN_ROCK_DAMAGE);
 	}
 
@@ -77,16 +75,11 @@ public abstract class GOTEntityGiantBase extends GOTEntityNPC {
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		if (super.attackEntityAsMob(entity)) {
-			float attackDamage = (float) getEntityAttribute(npcAttackDamage).getAttributeValue();
+			float attackDamage = (float) getEntityAttribute(NPC_ATTACK_DAMAGE).getAttributeValue();
 			float knockbackModifier = 0.25f * attackDamage;
 			entity.addVelocity(-MathHelper.sin(rotationYaw * 3.1415927f / 180.0f) * knockbackModifier * 0.5f, knockbackModifier * 0.1, MathHelper.cos(rotationYaw * 3.1415927f / 180.0f) * knockbackModifier * 0.5f);
 			return true;
 		}
-		return false;
-	}
-
-	@Override
-	public boolean canReEquipHired(int slot, ItemStack itemstack) {
 		return false;
 	}
 

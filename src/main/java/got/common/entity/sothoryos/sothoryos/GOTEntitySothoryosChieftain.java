@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosWarrior implements GOTUnitTradeable {
 	public GOTEntitySothoryosChieftain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

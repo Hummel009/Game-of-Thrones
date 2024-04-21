@@ -12,7 +12,6 @@ import got.common.entity.other.GOTNPCMount;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
-import got.common.quest.IPickpocketable;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.westeros.GOTBiomeStormlands;
 import net.minecraft.entity.EntityLiving;
@@ -26,12 +25,11 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickpocketable {
+public class GOTEntityStormlandsMan extends GOTEntityHumanBase {
 	public static ItemStack[] weapons = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	public GOTEntityStormlandsMan(World world) {
 		super(world);
-		canBeMarried = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -112,7 +110,7 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickp
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);

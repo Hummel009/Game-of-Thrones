@@ -165,17 +165,18 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 			leashEntityTo(horse, world, i13, j1, k1);
 		}
 		GOTEntityLhazarWarlord warlord = new GOTEntityLhazarWarlord(world);
-		warlord.spawnRidingHorse = false;
+		warlord.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(warlord, world, 0, 9, -3, 6);
 		setBlockAndMetadata(world, 0, 9, 3, GOTBlocks.commandTable, 0);
 		int warriors = 6;
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityLhazarWarrior warrior = random.nextInt(3) == 0 ? new GOTEntityLhazarArcher(world) : new GOTEntityLhazarWarrior(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 1, -1, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
+		respawner.setSpawnClass1(GOTEntityLhazarWarrior.class);
+		respawner.setSpawnClass2(GOTEntityLhazarArcher.class);
 		respawner.setCheckRanges(32, -8, 12, 24);
 		respawner.setSpawnRanges(24, -4, 6, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

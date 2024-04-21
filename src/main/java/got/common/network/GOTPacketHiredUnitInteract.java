@@ -42,14 +42,14 @@ public class GOTPacketHiredUnitInteract implements IMessage {
 			Entity npc = world.getEntityByID(packet.entityID);
 			if (npc instanceof GOTEntityNPC) {
 				GOTEntityNPC hiredNPC = (GOTEntityNPC) npc;
-				if (hiredNPC.hiredNPCInfo.isActive && hiredNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				if (hiredNPC.getHireableInfo().isActive() && hiredNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
 					int action = packet.entityAction;
 					boolean closeScreen = false;
 					if (action == 0) {
-						hiredNPC.npcTalkTick = hiredNPC.getNPCTalkInterval();
+						hiredNPC.setNpcTalkTick(hiredNPC.getNPCTalkInterval());
 						closeScreen = hiredNPC.speakTo(entityplayer);
 					} else if (action == 1) {
-						hiredNPC.hiredNPCInfo.sendClientPacket(true);
+						hiredNPC.getHireableInfo().sendClientPacket(true);
 					}
 					if (closeScreen) {
 						entityplayer.closeScreen();

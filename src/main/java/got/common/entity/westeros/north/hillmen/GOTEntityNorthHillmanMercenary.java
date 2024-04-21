@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorthHillmanMercenary extends GOTEntityNorthHillmanWarrior implements GOTMercenary {
 	public GOTEntityNorthHillmanMercenary(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 	}
 

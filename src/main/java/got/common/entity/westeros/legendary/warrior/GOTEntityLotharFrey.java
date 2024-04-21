@@ -21,9 +21,8 @@ public class GOTEntityLotharFrey extends GOTEntityHumanBase {
 
 	public GOTEntityLotharFrey(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
@@ -44,7 +43,7 @@ public class GOTEntityLotharFrey extends GOTEntityHumanBase {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(1.0);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(1.0);
 	}
 
 	@Override

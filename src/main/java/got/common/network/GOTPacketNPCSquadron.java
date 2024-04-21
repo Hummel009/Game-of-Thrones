@@ -54,13 +54,13 @@ public class GOTPacketNPCSquadron implements IMessage {
 			Entity npc = world.getEntityByID(packet.npcID);
 			if (npc instanceof GOTEntityNPC) {
 				GOTEntityNPC hiredNPC = (GOTEntityNPC) npc;
-				if (hiredNPC.hiredNPCInfo.isActive && hiredNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				if (hiredNPC.getHireableInfo().isActive() && hiredNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
 					String squadron = packet.squadron;
 					if (StringUtils.isNullOrEmpty(squadron)) {
-						hiredNPC.hiredNPCInfo.setSquadron("");
+						hiredNPC.getHireableInfo().setHiredSquadron("");
 					} else {
 						squadron = GOTSquadrons.checkAcceptableLength(squadron);
-						hiredNPC.hiredNPCInfo.setSquadron(squadron);
+						hiredNPC.getHireableInfo().setHiredSquadron(squadron);
 					}
 				}
 			}

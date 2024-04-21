@@ -40,7 +40,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 3618615);
 		s = theNPC.getEntityClassName();
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 26, 3618615);
-		if (page == 0 && theNPC.hiredNPCInfo.hasHiringRequirements()) {
+		if (page == 0 && theNPC.getHireableInfo().hasHiringRequirements()) {
 			int x = guiLeft + 6;
 			int y = guiTop + 170;
 			s = StatCollector.translateToLocal("got.hiredNPC.commandReq");
@@ -48,11 +48,11 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			y += fontRendererObj.FONT_HEIGHT;
 			x += 4;
 			int maxWidth = xSize - 12 - 4;
-			GOTFaction fac = theNPC.getHiringFaction();
-			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.hiredNPCInfo.alignmentRequiredToCommand);
+			GOTFaction fac = theNPC.getFaction();
+			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.getHireableInfo().getAlignmentRequiredToCommand());
 			String alignReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.align", alignS, fac.factionName());
 			Collection<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
-			GOTUnitTradeEntry.PledgeType pledge = theNPC.hiredNPCInfo.pledgeType;
+			GOTUnitTradeEntry.PledgeType pledge = theNPC.getHireableInfo().getPledgeType();
 			String pledgeReq = pledge.getCommandReqText(fac);
 			if (pledgeReq != null) {
 				requirementLines.addAll(fontRendererObj.listFormattedStringToWidth(pledgeReq, maxWidth));
@@ -89,7 +89,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		if (!theNPC.isEntityAlive() || theNPC.hiredNPCInfo.getHiringPlayer() != mc.thePlayer || theNPC.getDistanceSqToEntity(mc.thePlayer) > 64.0) {
+		if (!theNPC.isEntityAlive() || theNPC.getHireableInfo().getHiringPlayer() != mc.thePlayer || theNPC.getDistanceSqToEntity(mc.thePlayer) > 64.0) {
 			mc.thePlayer.closeScreen();
 		}
 	}

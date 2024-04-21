@@ -1052,7 +1052,7 @@ public class GOTTradeEntries {
 	}
 
 	public static GOTTradeSellResult getItemSellResult(ItemStack itemstack, GOTEntityNPC trader) {
-		GOTTradeEntry[] sellTrades = trader.traderNPCInfo.getSellTrades();
+		GOTTradeEntry[] sellTrades = trader.getTraderInfo().getSellTrades();
 		if (sellTrades != null) {
 			for (int index = 0; index < sellTrades.length; ++index) {
 				GOTTradeEntry trade = sellTrades[index];

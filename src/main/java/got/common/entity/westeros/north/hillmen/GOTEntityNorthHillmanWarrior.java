@@ -13,14 +13,13 @@ public class GOTEntityNorthHillmanWarrior extends GOTEntityNorthHillman {
 
 	public GOTEntityNorthHillmanWarrior(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
 	}
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/wild/hired_soldier";
 			}
 			return "standard/wild/usual_friendly";

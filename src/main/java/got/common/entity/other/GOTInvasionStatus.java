@@ -1,8 +1,8 @@
 package got.common.entity.other;
 
 public class GOTInvasionStatus {
-	public GOTEntityInvasionSpawner watchedInvasion;
-	public int ticksSinceRelevance;
+	private GOTEntityInvasionSpawner watchedInvasion;
+	private int ticksSinceRelevance;
 
 	public void clear() {
 		watchedInvasion = null;
@@ -23,6 +23,11 @@ public class GOTInvasionStatus {
 
 	public boolean isActive() {
 		return watchedInvasion != null;
+	}
+
+	@SuppressWarnings("unused")
+	public GOTEntityInvasionSpawner getWatchedInvasion() {
+		return watchedInvasion;
 	}
 
 	public void setWatchedInvasion(GOTEntityInvasionSpawner invasion) {

@@ -9,8 +9,7 @@ import net.minecraft.world.World;
 public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
 	public GOTEntityHillmanBerserker(World world) {
 		super(world);
-		canBeMarried = false;
-		npcShield = null;
+		shield = null;
 	}
 
 	@Override

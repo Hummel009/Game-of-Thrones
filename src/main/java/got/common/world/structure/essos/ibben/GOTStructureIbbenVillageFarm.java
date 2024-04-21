@@ -2,6 +2,7 @@ package got.common.world.structure.essos.ibben;
 
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.GOTEntityIbbenFarmhand;
+import got.common.entity.other.GOTFarmhand;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -92,7 +93,7 @@ public class GOTStructureIbbenVillageFarm extends GOTStructureIbbenBase {
 		for (int l = 0; l < farmhands; ++l) {
 			GOTEntityIbbenFarmhand farmhand = new GOTEntityIbbenFarmhand(world);
 			spawnNPCAndSetHome(farmhand, world, random.nextBoolean() ? -1 : 1, 1, 0, 8);
-			farmhand.seedsItem = seedItem;
+			farmhand.setSeedsItem(seedItem);
 		}
 		return true;
 	}

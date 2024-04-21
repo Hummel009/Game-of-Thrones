@@ -69,11 +69,12 @@ public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 		int warriors = 1 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityLhazarWarrior warrior = random.nextInt(3) == 0 ? new GOTEntityLhazarArcher(world) : new GOTEntityLhazarWarrior(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 14, 0, 8);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
+		respawner.setSpawnClass1(GOTEntityLhazarWarrior.class);
+		respawner.setSpawnClass2(GOTEntityLhazarArcher.class);
 		respawner.setCheckRanges(6, -20, 4, 4);
 		respawner.setSpawnRanges(1, -2, 1, 8);
 		placeNPCRespawner(respawner, world, 0, 14, 0);

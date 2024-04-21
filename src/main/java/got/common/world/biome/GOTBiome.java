@@ -8,7 +8,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.*;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.GOTEntityLightSkinBandit;
+import got.common.entity.other.GOTEntityLightSkinBandit;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.other.GOTBiomeBeach;

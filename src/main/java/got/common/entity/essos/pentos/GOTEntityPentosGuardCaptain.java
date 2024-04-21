@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 public class GOTEntityPentosGuardCaptain extends GOTEntityPentosGuard implements GOTUnitTradeable {
 	public GOTEntityPentosGuardCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

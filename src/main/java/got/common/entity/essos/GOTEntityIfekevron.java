@@ -23,7 +23,6 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(5, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		addTargetTasks(true);
-		spawnsInDarkness = true;
 	}
 
 	@Override
@@ -31,7 +30,7 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-		getEntityAttribute(npcAttackDamage).setBaseValue(5.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(5.0);
 	}
 
 	@Override
@@ -61,13 +60,6 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 	@Override
 	public String getLivingSound() {
 		return "mob.zombie.say";
-	}
-
-	@Override
-	public void onArtificalSpawn() {
-		if (canBeMarried && getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
-			familyInfo.setChild();
-		}
 	}
 
 	@Override

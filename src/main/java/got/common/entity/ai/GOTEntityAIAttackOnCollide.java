@@ -66,7 +66,7 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (theOwner instanceof GOTEntityNPC && ((GOTEntityNPC) theOwner).isPassive || theOwner instanceof GOTEntityNPC && ((GOTEntityNPC) theOwner).familyInfo.isChild()) {
+		if (theOwner instanceof GOTEntityNPC && ((GOTEntityNPC) theOwner).getFamilyInfo().isChild()) {
 			return false;
 		}
 		EntityLivingBase entity = theOwner.getAttackTarget();
@@ -116,7 +116,7 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 		ItemStack weapon = theOwner.getHeldItem();
 		if (weapon != null && weapon.getItem() instanceof GOTItemSpear && attackTick <= 0 && theOwner instanceof GOTEntityNPC) {
 			GOTEntityNPC theNPC = (GOTEntityNPC) theOwner;
-			ItemStack spearBackup = theNPC.npcItemsInv.getSpearBackup();
+			ItemStack spearBackup = theNPC.getNpcItemsInv().getSpearBackup();
 			if (spearBackup != null) {
 				weapon.getItem();
 				double d = theOwner.getDistanceToEntity(attackTarget);
@@ -126,11 +126,11 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 					worldObj.playSoundAtEntity(theOwner, "random.bow", 1.0f, 1.0f / (worldObj.rand.nextFloat() * 0.4f + 1.2f) + 0.25f);
 					worldObj.spawnEntityInWorld(spear);
 					attackTick = 30 + theOwner.getRNG().nextInt(20);
-					if (ItemStack.areItemStacksEqual(theNPC.npcItemsInv.getIdleItem(), theNPC.npcItemsInv.getMeleeWeapon())) {
-						theNPC.npcItemsInv.setIdleItem(spearBackup);
+					if (ItemStack.areItemStacksEqual(theNPC.getNpcItemsInv().getIdleItem(), theNPC.getNpcItemsInv().getMeleeWeapon())) {
+						theNPC.getNpcItemsInv().setIdleItem(spearBackup);
 					}
-					theNPC.npcItemsInv.setMeleeWeapon(spearBackup);
-					theNPC.npcItemsInv.setSpearBackup(null);
+					theNPC.getNpcItemsInv().setMeleeWeapon(spearBackup);
+					theNPC.getNpcItemsInv().setSpearBackup(null);
 					return;
 				}
 			}

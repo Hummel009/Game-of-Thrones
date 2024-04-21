@@ -30,7 +30,7 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		return attacker.npcItemsInv.getBomb() != null && attacker.getAttackTarget() != null && entityTarget.isEntityAlive() && !attacker.getNavigator().noPath();
+		return attacker.getNpcItemsInv().getBomb() != null && attacker.getAttackTarget() != null && entityTarget.isEntityAlive() && !attacker.getNavigator().noPath();
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 	@Override
 	public boolean shouldExecute() {
 		EntityLivingBase entity = attacker.getAttackTarget();
-		if (entity == null || attacker.npcItemsInv.getBomb() == null) {
+		if (entity == null || attacker.getNpcItemsInv().getBomb() == null) {
 			return false;
 		}
 		entityTarget = entity;
@@ -69,19 +69,19 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 		if (attacker.getDistanceToEntity(entityTarget) < 3.0) {
 			GOTEntityBomb bomb = new GOTEntityBomb(worldObj, attacker.posX, attacker.posY + 1.0, attacker.posZ, attacker);
 			int meta = 0;
-			ItemStack bombItem = attacker.npcItemsInv.getBomb();
+			ItemStack bombItem = attacker.getNpcItemsInv().getBomb();
 			if (bombItem != null && Block.getBlockFromItem(bombItem.getItem()) instanceof GOTBlockBomb) {
 				meta = bombItem.getItemDamage();
 			}
 			bomb.setBombStrengthLevel(meta);
-			bomb.droppedByHiredUnit = attacker.hiredNPCInfo.isActive;
-			bomb.droppedTargetingPlayer = entityTarget instanceof EntityPlayer;
+			bomb.setDroppedByHiredUnit(attacker.getHireableInfo().isActive());
+			bomb.setDroppedTargetingPlayer(entityTarget instanceof EntityPlayer);
 			worldObj.spawnEntityInWorld(bomb);
 			worldObj.playSoundAtEntity(attacker, "game.tnt.primed", 1.0f, 1.0f);
-			attacker.npcItemsInv.setBomb(null);
+			attacker.getNpcItemsInv().setBomb(null);
 			int bombSlot = 5;
-			if (attacker.hiredReplacedInv.hasReplacedEquipment(bombSlot)) {
-				attacker.hiredReplacedInv.onEquipmentChanged(bombSlot, null);
+			if (attacker.getHiredReplacedInv().hasReplacedEquipment(bombSlot)) {
+				attacker.getHiredReplacedInv().onEquipmentChanged(bombSlot, null);
 			}
 			attacker.refreshCurrentAttackMode();
 		}

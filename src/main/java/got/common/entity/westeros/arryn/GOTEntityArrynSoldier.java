@@ -11,16 +11,15 @@ import net.minecraft.world.World;
 public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 	public GOTEntityArrynSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.ARRYN;
-		npcCape = GOTCapes.ARRYN;
+		shield = GOTShields.ARRYN;
+		cape = GOTCapes.ARRYN;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

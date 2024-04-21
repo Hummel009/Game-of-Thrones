@@ -24,11 +24,6 @@ public class GOTEntityBearRug extends GOTEntityRugBase {
 		return new ItemStack(GOTItems.bearRug, 1, getRugType().bearID);
 	}
 
-	@Override
-	public String getRugNoise() {
-		return "got:bear.say";
-	}
-
 	public GOTEntityBear.BearType getRugType() {
 		byte i = dataWatcher.getWatchableObjectByte(18);
 		return GOTEntityBear.BearType.forID(i);

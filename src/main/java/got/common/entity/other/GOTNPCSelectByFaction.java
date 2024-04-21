@@ -6,7 +6,7 @@ import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 
 public class GOTNPCSelectByFaction implements IEntitySelector {
-	public GOTFaction faction;
+	private final GOTFaction faction;
 
 	public GOTNPCSelectByFaction(GOTFaction f) {
 		faction = f;

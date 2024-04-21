@@ -64,11 +64,12 @@ public class GOTStructureEssosTower extends GOTStructureEssosBase {
 		int warriors = 2;
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityNPC warrior = getSoldier(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 15, 0, 8);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(getSoldier(world).getClass(), getSoldierArcher(world).getClass());
+		respawner.setSpawnClass1(getSoldier(world).getClass());
+		respawner.setSpawnClass2(getSoldierArcher(world).getClass());
 		respawner.setCheckRanges(8, -4, 20, 8);
 		respawner.setSpawnRanges(2, -1, 16, 8);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

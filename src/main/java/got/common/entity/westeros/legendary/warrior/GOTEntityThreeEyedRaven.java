@@ -9,11 +9,9 @@ import net.minecraft.world.World;
 public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 	public GOTEntityThreeEyedRaven(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
-		isImmuneToFrost = true;
 	}
 
 	@Override

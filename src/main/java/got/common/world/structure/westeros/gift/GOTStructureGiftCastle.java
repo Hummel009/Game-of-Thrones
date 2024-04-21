@@ -520,7 +520,7 @@ public abstract class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				spawnNPCAndSetHome(new GOTEntityGiftGuard(world), world, 0, 1, 0, 20);
 			}
 			GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-			respawner.setSpawnClass(GOTEntityGiftGuard.class);
+			respawner.setSpawnClass1(GOTEntityGiftGuard.class);
 			respawner.setCheckRanges(16, -8, 10, 12);
 			respawner.setSpawnRanges(11, 1, 6, 20);
 			placeNPCRespawner(respawner, world, 0, 0, 0);

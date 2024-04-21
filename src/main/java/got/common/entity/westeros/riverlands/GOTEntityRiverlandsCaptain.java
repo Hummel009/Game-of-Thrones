@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityRiverlandsCaptain extends GOTEntityRiverlandsSoldier implements GOTUnitTradeable {
 	public GOTEntityRiverlandsCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.RIVERLANDS;
+		cape = GOTCapes.RIVERLANDS;
 		spawnRidingHorse = false;
 	}
 

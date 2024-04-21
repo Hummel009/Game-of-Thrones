@@ -20,21 +20,24 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityBarrel extends Entity {
-	public static double minSpeedMultiplier = 0.04;
-	public static double maxSpeedMultiplier = 0.25;
-	public boolean isBoatEmpty = true;
-	public double speedMultiplier = minSpeedMultiplier;
-	public int boatPosRotationIncrements;
-	public double boatX;
-	public double boatY;
-	public double boatZ;
-	public double boatYaw;
-	public double boatPitch;
-	public double velocityX;
-	public double velocityY;
-	public double velocityZ;
-	public NBTTagCompound barrelItemData;
+	private static final double MIN_SPEED_MULTIPLIER = 0.04;
+	private static final boolean IS_BOAT_EMPTY = true;
 
+	private NBTTagCompound barrelItemData;
+
+	private double speedMultiplier = MIN_SPEED_MULTIPLIER;
+	private double boatX;
+	private double boatY;
+	private double boatZ;
+	private double boatYaw;
+	private double boatPitch;
+	private double velocityX;
+	private double velocityY;
+	private double velocityZ;
+
+	private int boatPosRotationIncrements;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBarrel(World world) {
 		super(world);
 		preventEntitySpawning = true;
@@ -42,6 +45,7 @@ public class GOTEntityBarrel extends Entity {
 		yOffset = 0.0f;
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBarrel(World world, double d, double d1, double d2) {
 		this(world);
 		setPosition(d, d1 + yOffset, d2);
@@ -59,14 +63,13 @@ public class GOTEntityBarrel extends Entity {
 			return false;
 		}
 		if (!worldObj.isRemote && !isDead) {
-			boolean isCreative;
 			setForwardDirection(-getForwardDirection());
 			setTimeSinceHit(10);
 			setDamageTaken(getDamageTaken() + f * 10.0f);
 			Block.SoundType stepSound = GOTBlocks.barrel.stepSound;
 			playSound(stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
 			setBeenAttacked();
-			isCreative = damagesource.getEntity() instanceof EntityPlayer && ((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
+			boolean isCreative = damagesource.getEntity() instanceof EntityPlayer && ((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
 			if (isCreative || getDamageTaken() > 40.0f) {
 				if (riddenByEntity != null) {
 					riddenByEntity.mountEntity(this);
@@ -103,7 +106,7 @@ public class GOTEntityBarrel extends Entity {
 		dataWatcher.addObject(20, new ItemStack(GOTBlocks.barrel));
 	}
 
-	public ItemStack getBarrelDrop() {
+	private ItemStack getBarrelDrop() {
 		ItemStack itemstack = new ItemStack(GOTBlocks.barrel);
 		if (barrelItemData != null) {
 			GOTItemBarrel.setBarrelData(itemstack, barrelItemData);
@@ -111,11 +114,11 @@ public class GOTEntityBarrel extends Entity {
 		return itemstack;
 	}
 
-	public ItemStack getBarrelItem() {
+	private ItemStack getBarrelItem() {
 		return dataWatcher.getWatchableObjectItemStack(20);
 	}
 
-	public void setBarrelItem(ItemStack itemstack) {
+	private void setBarrelItem(ItemStack itemstack) {
 		dataWatcher.updateObject(20, itemstack);
 	}
 
@@ -133,7 +136,7 @@ public class GOTEntityBarrel extends Entity {
 		return dataWatcher.getWatchableObjectFloat(19);
 	}
 
-	public void setDamageTaken(float f) {
+	private void setDamageTaken(float f) {
 		dataWatcher.updateObject(19, f);
 	}
 
@@ -141,7 +144,7 @@ public class GOTEntityBarrel extends Entity {
 		return dataWatcher.getWatchableObjectInt(18);
 	}
 
-	public void setForwardDirection(int i) {
+	private void setForwardDirection(int i) {
 		dataWatcher.updateObject(18, i);
 	}
 
@@ -165,7 +168,7 @@ public class GOTEntityBarrel extends Entity {
 		return dataWatcher.getWatchableObjectInt(17);
 	}
 
-	public void setTimeSinceHit(int i) {
+	private void setTimeSinceHit(int i) {
 		dataWatcher.updateObject(17, i);
 	}
 
@@ -229,7 +232,7 @@ public class GOTEntityBarrel extends Entity {
 				++j;
 			}
 		}
-		if (worldObj.isRemote && isBoatEmpty) {
+		if (worldObj.isRemote && IS_BOAT_EMPTY) {
 			if (boatPosRotationIncrements > 0) {
 				d4 = posX + (boatX - posX) / boatPosRotationIncrements;
 				d5 = posY + (boatY - posY) / boatPosRotationIncrements;
@@ -255,7 +258,6 @@ public class GOTEntityBarrel extends Entity {
 				motionZ *= 0.99;
 			}
 		} else {
-			double d12;
 			double d11;
 			if (d0 < 1.0) {
 				d4 = d0 * 2.0 - 1.0;
@@ -273,6 +275,7 @@ public class GOTEntityBarrel extends Entity {
 				motionZ += d11 * speedMultiplier * 0.05;
 			}
 			d4 = Math.sqrt(motionX * motionX + motionZ * motionZ);
+			double maxSpeedMultiplier = 0.25;
 			if (d4 > maxSpeedMultiplier) {
 				d5 = maxSpeedMultiplier / d4;
 				motionX *= d5;
@@ -285,9 +288,9 @@ public class GOTEntityBarrel extends Entity {
 					speedMultiplier = maxSpeedMultiplier;
 				}
 			} else {
-				speedMultiplier -= (speedMultiplier - minSpeedMultiplier) / (maxSpeedMultiplier / 150.0);
-				if (speedMultiplier < minSpeedMultiplier) {
-					speedMultiplier = minSpeedMultiplier;
+				speedMultiplier -= (speedMultiplier - MIN_SPEED_MULTIPLIER) / (maxSpeedMultiplier / 150.0);
+				if (speedMultiplier < MIN_SPEED_MULTIPLIER) {
+					speedMultiplier = MIN_SPEED_MULTIPLIER;
 				}
 			}
 			if (onGround) {
@@ -306,7 +309,7 @@ public class GOTEntityBarrel extends Entity {
 			if (d11 * d11 + d10 * d10 > 0.001) {
 				d5 = (float) (Math.atan2(d10, d11) * 180.0 / 3.141592653589793);
 			}
-			d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw);
+			double d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw);
 			if (d12 > 20.0) {
 				d12 = 20.0;
 			}
@@ -350,7 +353,7 @@ public class GOTEntityBarrel extends Entity {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotation2(double d, double d1, double d2, float f, float f1, int i) {
-		if (isBoatEmpty) {
+		if (IS_BOAT_EMPTY) {
 			boatPosRotationIncrements = i + 5;
 		} else {
 			double d3 = d - posX;
@@ -385,5 +388,13 @@ public class GOTEntityBarrel extends Entity {
 		if (barrelItemData != null) {
 			nbt.setTag("BarrelItemData", barrelItemData);
 		}
+	}
+
+	public NBTTagCompound getBarrelItemData() {
+		return barrelItemData;
+	}
+
+	public void setBarrelItemData(NBTTagCompound barrelItemData) {
+		this.barrelItemData = barrelItemData;
 	}
 }

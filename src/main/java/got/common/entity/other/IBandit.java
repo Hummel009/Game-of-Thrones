@@ -18,6 +18,9 @@ public interface IBandit {
 	String getTheftSpeechBank(EntityPlayer var1);
 
 	class Helper {
+		private Helper() {
+		}
+
 		public static boolean canStealFromPlayerInv(IBandit bandit, EntityPlayer entityplayer) {
 			for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 				if (slot == entityplayer.inventory.currentItem || entityplayer.inventory.getStackInSlot(slot) == null) {

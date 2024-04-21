@@ -21,9 +21,8 @@ import net.minecraft.world.World;
 public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 	public GOTEntityAsshaiArchmag(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new GOTEntityAIAsshaiArchmagUseStaff(this));
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -36,9 +35,8 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		npcCape = GOTCapes.ASSHAI;
+		cape = GOTCapes.ASSHAI;
 		isImmuneToFire = true;
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -86,7 +84,7 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

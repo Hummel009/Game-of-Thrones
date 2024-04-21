@@ -177,7 +177,7 @@ public class GOTNPCRendering {
 			String squadron = null;
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				String s = npc.hiredNPCInfo.getSquadron();
+				String s = npc.getHireableInfo().getHiredSquadron();
 				if (!StringUtils.isNullOrEmpty(s)) {
 					squadron = s;
 				}
@@ -320,7 +320,7 @@ public class GOTNPCRendering {
 	public static void renderQuestOffer(GOTEntityNPC npc, double d, double d1, double d2) {
 		WorldClient world = MINECRAFT.theWorld;
 		world.theProfiler.startSection("renderMiniquestoffer");
-		if (npc.isEntityAlive() && npc.questInfo.clientIsOffering && !GOTSpeechClient.hasSpeech(npc)) {
+		if (npc.isEntityAlive() && npc.getQuestInfo().isClientIsOffering() && !GOTSpeechClient.hasSpeech(npc)) {
 			EntityClientPlayerMP entityplayer = MINECRAFT.thePlayer;
 			float distance = MINECRAFT.renderViewEntity.getDistanceToEntity(npc);
 			if (distance <= 16.0 && GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(npc, true).isEmpty()) {
@@ -333,7 +333,7 @@ public class GOTNPCRendering {
 				icon.getMaxV();
 				float scale = 0.75f;
 				float alpha = 1.0f;
-				int questColor = npc.questInfo.clientOfferColor;
+				int questColor = npc.getQuestInfo().getClientOfferColor();
 				float[] questRGB = new Color(questColor).getColorComponents(null);
 				GL11.glPushMatrix();
 				GL11.glTranslatef((float) d, (float) d1 + npc.height + 1.0f, (float) d2);

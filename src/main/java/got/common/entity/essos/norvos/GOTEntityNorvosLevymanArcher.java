@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorvosLevymanArcher extends GOTEntityNorvosLevyman {
 	public GOTEntityNorvosLevymanArcher(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

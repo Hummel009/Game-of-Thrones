@@ -7,7 +7,6 @@ import net.minecraft.world.World;
 public class GOTEntityReachBannerBearer extends GOTEntityReachSoldier implements GOTBannerBearer {
 	public GOTEntityReachBannerBearer(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

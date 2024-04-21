@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 public class GOTEntityThennBerserker extends GOTEntityThenn {
 	public GOTEntityThennBerserker(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f * 1.1f, 1.8f * 1.1f);
 	}
 

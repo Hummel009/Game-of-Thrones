@@ -18,11 +18,9 @@ import net.minecraft.world.World;
 public class GOTEntityAlliserThorne extends GOTEntityHumanBase {
 	public GOTEntityAlliserThorne(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
-		isImmuneToFrost = true;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));

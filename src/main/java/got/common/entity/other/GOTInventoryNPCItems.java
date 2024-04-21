@@ -5,19 +5,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTInventoryNPCItems extends GOTInventoryNPC {
-	public static int IDLE_ITEM;
-	public static int WEAPON_MELEE = 1;
-	public static int WEAPON_RANGED = 2;
-	public static int SPEAR_BACKUP = 3;
-	public static int EATING_BACKUP = 4;
-	public static int IDLE_ITEM_MOUNTED = 5;
-	public static int WEAPON_MELEE_MOUNTED = 6;
-	public static int REPLACED_IDLE = 7;
-	public static int REPLACED_MELEE_MOUNTED = 8;
-	public static int REPLACED_IDLE_MOUNTED = 9;
-	public static int BOMBING_ITEM = 10;
-	public static int BOMB = 11;
-	public boolean isEating;
+	private static final int IDLE_ITEM = 0;
+	private static final int WEAPON_MELEE = 1;
+	private static final int WEAPON_RANGED = 2;
+	private static final int SPEAR_BACKUP = 3;
+	private static final int EATING_BACKUP = 4;
+	private static final int IDLE_ITEM_MOUNTED = 5;
+	private static final int WEAPON_MELEE_MOUNTED = 6;
+	private static final int REPLACED_IDLE = 7;
+	private static final int REPLACED_MELEE_MOUNTED = 8;
+	private static final int REPLACED_IDLE_MOUNTED = 9;
+	private static final int BOMBING_ITEM = 10;
+	private static final int BOMB = 11;
+
+	private boolean isEating;
 
 	public GOTInventoryNPCItems(GOTEntityNPC npc) {
 		super("NPCItemsInv", npc, 12);

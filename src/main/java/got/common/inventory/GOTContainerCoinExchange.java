@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemCoin;
-import got.common.quest.IPickpocketable;
+import got.common.quest.GOTPickpoketableHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
@@ -40,7 +40,7 @@ public class GOTContainerCoinExchange extends Container {
 	}
 
 	private static boolean isValidCoin(ItemStack item) {
-		return item.getItem() == GOTItems.coin && !IPickpocketable.Helper.isPickpocketed(item);
+		return item.getItem() == GOTItems.coin && !GOTPickpoketableHelper.isPickpocketed(item);
 	}
 
 	@Override

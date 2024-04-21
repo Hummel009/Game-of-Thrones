@@ -15,9 +15,8 @@ import net.minecraft.world.World;
 public class GOTEntityHodor extends GOTEntityHumanBase {
 	public GOTEntityHodor(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f * 1.3f, 1.8f * 1.3f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIAttackOnCollide(this, 1.4, false));
@@ -34,7 +33,7 @@ public class GOTEntityHodor extends GOTEntityHumanBase {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(npcAttackDamage).setBaseValue(3.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(3.0);
 	}
 
 	@Override

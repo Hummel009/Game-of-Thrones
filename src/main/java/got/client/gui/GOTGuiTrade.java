@@ -113,7 +113,7 @@ public class GOTGuiTrade extends GuiContainer {
 			Slot slotSell = containerTrade.getSlotFromInventory(containerTrade.getTradeInvSellOffer(), l2);
 			ItemStack item = slotSell.getStack();
 			if (item != null && (sellResult = GOTTradeEntries.getItemSellResult(item, theEntity)) != null) {
-				totalSellPrice += sellResult.totalSellValue;
+				totalSellPrice += sellResult.getTotalSellValue();
 			}
 		}
 		if (totalSellPrice > 0) {

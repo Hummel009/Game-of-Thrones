@@ -23,9 +23,8 @@ import net.minecraft.world.World;
 public class GOTEntityEbrose extends GOTEntityHumanBase implements GOTTradeable {
 	public GOTEntityEbrose(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));

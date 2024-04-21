@@ -143,8 +143,8 @@ public class GOTItemConquestHorn extends Item {
 			if (!world.isRemote) {
 				GOTEntityInvasionSpawner invasion = new GOTEntityInvasionSpawner(world);
 				invasion.setInvasionType(invasionType);
-				invasion.isWarhorn = true;
-				invasion.spawnsPersistent = true;
+				invasion.setWarhorn(true);
+				invasion.setSpawnsPersistent(true);
 				invasion.setLocationAndAngles(entityplayer.posX, entityplayer.posY + 3.0, entityplayer.posZ, 0.0f, 0.0f);
 				world.spawnEntityInWorld(invasion);
 				invasion.startInvasion(entityplayer);

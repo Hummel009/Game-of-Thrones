@@ -24,7 +24,6 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	public GOTEntityMossovyWitcher(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 	}
 
@@ -33,7 +32,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(1.0);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(1.0);
 	}
 
 	@Override
@@ -70,7 +69,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);
@@ -99,7 +98,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

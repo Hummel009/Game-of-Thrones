@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class GOTEntitySothoryosSmith extends GOTEntitySothoryosMan implements GOTTradeable.Smith {
 	public GOTEntitySothoryosSmith(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

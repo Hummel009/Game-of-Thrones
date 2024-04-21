@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.StringUtils;
@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTPacketHiredInfo implements IMessage {
-	private GOTHiredNPCInfo.Task task;
+	private GOTHireableInfo.Task task;
 	private String squadron;
 	private UUID hiringPlayer;
 
@@ -27,7 +27,7 @@ public class GOTPacketHiredInfo implements IMessage {
 	public GOTPacketHiredInfo() {
 	}
 
-	public GOTPacketHiredInfo(int i, UUID player, GOTHiredNPCInfo.Task t, String sq, int lvl) {
+	public GOTPacketHiredInfo(int i, UUID player, GOTHireableInfo.Task t, String sq, int lvl) {
 		entityID = i;
 		hiringPlayer = player;
 		isHired = hiringPlayer != null;
@@ -41,7 +41,7 @@ public class GOTPacketHiredInfo implements IMessage {
 		entityID = data.readInt();
 		isHired = data.readBoolean();
 		hiringPlayer = isHired ? new UUID(data.readLong(), data.readLong()) : null;
-		task = GOTHiredNPCInfo.Task.forID(data.readByte());
+		task = GOTHireableInfo.Task.forID(data.readByte());
 		short sqLength = data.readShort();
 		if (sqLength > -1) {
 			squadron = data.readBytes(sqLength).toString(Charsets.UTF_8);
@@ -72,7 +72,7 @@ public class GOTPacketHiredInfo implements IMessage {
 		return hiringPlayer;
 	}
 
-	public GOTHiredNPCInfo.Task getTask() {
+	public GOTHireableInfo.Task getTask() {
 		return task;
 	}
 
@@ -90,7 +90,7 @@ public class GOTPacketHiredInfo implements IMessage {
 			World world = GOT.proxy.getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).hiredNPCInfo.receiveBasicData(packet);
+				((GOTEntityNPC) entity).getHireableInfo().receiveBasicData(packet);
 			}
 			return null;
 		}

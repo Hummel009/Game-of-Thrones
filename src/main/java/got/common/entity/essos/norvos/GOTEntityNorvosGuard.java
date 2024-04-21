@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 public class GOTEntityNorvosGuard extends GOTEntityNorvosLevyman {
 	public GOTEntityNorvosGuard(World world) {
 		super(world);
-		npcCape = GOTCapes.NORVOS;
-		npcShield = GOTShields.NORVOS;
+		cape = GOTCapes.NORVOS;
+		shield = GOTShields.NORVOS;
 		addTargetTasks(false);
 	}
 

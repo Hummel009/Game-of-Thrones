@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityStormlandsBlacksmith extends GOTEntityStormlandsMan implements GOTTradeable.Smith {
 	public GOTEntityStormlandsBlacksmith(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

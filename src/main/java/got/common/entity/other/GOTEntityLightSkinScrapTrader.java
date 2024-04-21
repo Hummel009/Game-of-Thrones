@@ -1,13 +1,10 @@
-package got.common.entity.westeros;
+package got.common.entity.other;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIDrink;
 import got.common.entity.ai.GOTEntityAIEat;
-import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTTradeable;
 import got.common.item.other.GOTItemLeatherHat;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;
@@ -22,10 +19,9 @@ import net.minecraft.world.World;
 
 import java.awt.*;
 
-public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
+public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
 	public GOTEntityLightSkinScrapTrader(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -40,7 +36,6 @@ public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements
 		tasks.addTask(6, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(7, new EntityAILookIdle(this));
 		addTargetTasks(false);
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -107,7 +102,7 @@ public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int weapon = rand.nextInt(4);
 		if (weapon == 0 || weapon == 1 || weapon == 2) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
@@ -133,7 +128,7 @@ public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements
 		int featherColor = Color.HSBtoRGB(h, s, b) & 0xFFFFFF;
 		GOTItemLeatherHat.setFeatherColor(hat, featherColor);
 		setCurrentItemOrArmor(4, hat);
-		return data;
+		return data1;
 	}
 
 	@Override

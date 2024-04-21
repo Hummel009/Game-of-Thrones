@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 public abstract class GOTEntityIronbornMarketTrader extends GOTEntityIronbornMan implements GOTTradeable {
 	protected GOTEntityIronbornMarketTrader(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

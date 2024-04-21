@@ -222,7 +222,7 @@ public class GOTArmorModels {
 					aiming = true;
 				}
 				if (entity instanceof GOTEntityNPC) {
-					aiming = ((GOTEntityNPC) entity).clientCombatStance;
+					aiming = ((GOTEntityNPC) entity).isClientCombatStance();
 				}
 				if (aiming) {
 					value = 3;
@@ -235,7 +235,7 @@ public class GOTArmorModels {
 			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).getItemInUseCount() > 0 && itemstack.getItemUseAction() == EnumAction.block) {
 				value = 3;
 			}
-			if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).clientIsEating) {
+			if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isClientIsEating()) {
 				value = 3;
 			}
 		}
@@ -260,7 +260,7 @@ public class GOTArmorModels {
 			model.isSneak = false;
 		}
 		if (entity instanceof GOTEntityNPC) {
-			model.bipedHeadwear.showModel = ((GOTEntityNPC) entity).shouldRenderNPCHair();
+			model.bipedHeadwear.showModel = true;
 		}
 		if (entity instanceof EntityPlayer) {
 			ItemStack heldRight = entity.getHeldItem();

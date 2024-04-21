@@ -3,6 +3,7 @@ package got.common.entity.other;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.entity.animal.GOTEntityHorse;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemCoin;
 import net.minecraft.entity.Entity;
@@ -16,23 +17,30 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTUnitTradeEntry {
-	public Class<? extends Entity> entityClass;
-	public Class<? extends Entity> mountClass;
-	public Item mountArmor;
-	public float mountArmorChance;
-	public String name;
-	public int initialCost;
-	public float alignmentRequired;
-	public PledgeType pledgeType = PledgeType.NONE;
-	public GOTHiredNPCInfo.Task task = GOTHiredNPCInfo.Task.WARRIOR;
-	public String extraInfo;
+	private final Class<? extends Entity> entityClass;
+	private final int initialCost;
 
+	private Class<? extends Entity> mountClass;
+
+	private GOTHireableInfo.Task task = GOTHireableInfo.Task.WARRIOR;
+	private PledgeType pledgeType = PledgeType.NONE;
+
+	private Item mountArmor;
+
+	private String name;
+	private String extraInfo;
+
+	private float alignmentRequired;
+	private float mountArmorChance;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTUnitTradeEntry(Class<? extends Entity> c, Class<? extends Entity> c1, String s, int cost, float alignment) {
 		this(c, cost, alignment);
 		mountClass = c1;
 		name = s;
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTUnitTradeEntry(Class<? extends Entity> c, int cost, float alignment) {
 		entityClass = c;
 		initialCost = cost;
@@ -94,7 +102,7 @@ public class GOTUnitTradeEntry {
 		return pledgeType;
 	}
 
-	public GOTUnitTradeEntry setPledgeType(PledgeType t) {
+	private GOTUnitTradeEntry setPledgeType(PledgeType t) {
 		pledgeType = t;
 		return this;
 	}
@@ -138,7 +146,7 @@ public class GOTUnitTradeEntry {
 				if (mountClass != null) {
 					mount = createHiredMount(world);
 				}
-				hiredNPC.hiredNPCInfo.hireUnit(entityplayer, !(unitExists = world.loadedEntityList.contains(hiredNPC)), trader.getFaction(), this, squadron, mount);
+				hiredNPC.hireableInfo.hireUnit(entityplayer, !(unitExists = world.loadedEntityList.contains(hiredNPC)), trader.getFaction(), this, squadron, mount);
 				if (!unitExists) {
 					world.spawnEntityInWorld(hiredNPC);
 					if (mount != null) {
@@ -149,15 +157,7 @@ public class GOTUnitTradeEntry {
 		}
 	}
 
-	public void setExtraInfo(String s) {
-		extraInfo = s;
-	}
-
-	public GOTUnitTradeEntry setMountArmor(Item item) {
-		return setMountArmor(item, 1.0f);
-	}
-
-	public GOTUnitTradeEntry setMountArmor(Item item, float chance) {
+	private GOTUnitTradeEntry setMountArmor(Item item, float chance) {
 		mountArmor = item;
 		mountArmorChance = chance;
 		return this;
@@ -167,15 +167,57 @@ public class GOTUnitTradeEntry {
 		return setPledgeType(PledgeType.FACTION);
 	}
 
-	public GOTUnitTradeEntry setTask(GOTHiredNPCInfo.Task t) {
-		task = t;
+	public Class<? extends Entity> getEntityClass() {
+		return entityClass;
+	}
+
+	public Class<? extends Entity> getMountClass() {
+		return mountClass;
+	}
+
+	public int getInitialCost() {
+		return initialCost;
+	}
+
+	public float getAlignmentRequired() {
+		return alignmentRequired;
+	}
+
+	public void setAlignmentRequired(float alignmentRequired) {
+		this.alignmentRequired = alignmentRequired;
+	}
+
+	public GOTHireableInfo.Task getTask() {
+		return task;
+	}
+
+	public GOTUnitTradeEntry setTask(GOTHireableInfo.Task task) {
+		this.task = task;
 		return this;
+	}
+
+	@SuppressWarnings("unused")
+	public Item getMountArmor() {
+		return mountArmor;
+	}
+
+	public GOTUnitTradeEntry setMountArmor(Item item) {
+		return setMountArmor(item, 1.0f);
+	}
+
+	@SuppressWarnings("unused")
+	public String getExtraInfo() {
+		return extraInfo;
+	}
+
+	public void setExtraInfo(String s) {
+		extraInfo = s;
 	}
 
 	public enum PledgeType {
 		NONE(0), FACTION(1);
 
-		public int typeID;
+		public final int typeID;
 
 		PledgeType(int i) {
 			typeID = i;
@@ -193,10 +235,7 @@ public class GOTUnitTradeEntry {
 
 		public boolean canAcceptPlayer(EntityPlayer entityplayer, GOTFaction fac) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			if (this == NONE) {
-				return true;
-			}
-			return this == FACTION && pd.isPledgedTo(fac);
+			return this == NONE || this == FACTION && pd.isPledgedTo(fac);
 		}
 
 		public String getCommandReqText(GOTFaction fac) {

@@ -3,6 +3,7 @@ package got.common.entity.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTItems;
+import got.common.entity.other.info.GOTTraderInfo;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -18,20 +19,24 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityTraderRespawn extends Entity {
-	public static int MAX_SCALE = 40;
-	public int timeUntilSpawn;
-	public int prevBobbingTime;
-	public int bobbingTime;
-	public String traderClassID;
-	public boolean traderHasHome;
-	public int traderHomeX;
-	public int traderHomeY;
-	public int traderHomeZ;
-	public float traderHomeRadius;
-	public NBTTagCompound traderData;
-	public float spawnerSpin;
-	public float prevSpawnerSpin;
+	private static final int MAX_SCALE = 40;
 
+	private float spawnerSpin;
+	private float prevSpawnerSpin;
+
+	private NBTTagCompound traderData;
+	private String traderClassID;
+
+	private boolean traderHasHome;
+	private float traderHomeRadius;
+	private int timeUntilSpawn;
+	private int prevBobbingTime;
+	private int bobbingTime;
+	private int traderHomeX;
+	private int traderHomeY;
+	private int traderHomeZ;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTraderRespawn(World world) {
 		super(world);
 		setSize(0.75f, 0.75f);
@@ -73,7 +78,7 @@ public class GOTEntityTraderRespawn extends Entity {
 			traderHomeRadius = entity.func_110174_bM();
 		}
 		if (entity instanceof GOTTradeable) {
-			GOTTraderNPCInfo traderInfo = entity.traderNPCInfo;
+			GOTTraderInfo traderInfo = entity.traderInfo;
 			traderData = new NBTTagCompound();
 			traderInfo.writeToNBT(traderData);
 		}
@@ -91,11 +96,11 @@ public class GOTEntityTraderRespawn extends Entity {
 		return MathHelper.sin((prevBobbingTime + f * tick) / 5.0f) * 0.25f;
 	}
 
-	public String getClientTraderString() {
+	private String getClientTraderString() {
 		return dataWatcher.getWatchableObjectString(18);
 	}
 
-	public void setClientTraderString(String s) {
+	private void setClientTraderString(String s) {
 		dataWatcher.updateObject(18, s);
 	}
 
@@ -108,11 +113,11 @@ public class GOTEntityTraderRespawn extends Entity {
 		return null;
 	}
 
-	public int getScale() {
+	private int getScale() {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
-	public void setScale(int i) {
+	private void setScale(int i) {
 		dataWatcher.updateObject(16, i);
 	}
 
@@ -141,7 +146,7 @@ public class GOTEntityTraderRespawn extends Entity {
 		return entity instanceof EntityPlayer && attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
 	}
 
-	public boolean isSpawnImminent() {
+	private boolean isSpawnImminent() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
@@ -156,7 +161,7 @@ public class GOTEntityTraderRespawn extends Entity {
 		prevPosY = posY;
 		prevPosZ = posZ;
 		prevSpawnerSpin = spawnerSpin;
-		spawnerSpin = isSpawnImminent() ? spawnerSpin + 24.0f : spawnerSpin + 6.0f;
+		spawnerSpin = spawnerSpin + (isSpawnImminent() ? 24.0f : 6.0f);
 		prevSpawnerSpin = MathHelper.wrapAngleTo180_float(prevSpawnerSpin);
 		spawnerSpin = MathHelper.wrapAngleTo180_float(spawnerSpin);
 		if (getScale() < MAX_SCALE) {
@@ -185,17 +190,17 @@ public class GOTEntityTraderRespawn extends Entity {
 					GOTEntityNPC trader = (GOTEntityNPC) entity;
 					trader.setLocationAndAngles(posX, posY, posZ, rand.nextFloat() * 360.0f, 0.0f);
 					trader.spawnRidingHorse = false;
-					trader.liftSpawnRestrictions = true;
+					trader.setLiftSpawnRestrictions(true);
 					boundingBox.offset(0.0, 100.0, 0.0);
 					if (trader.getCanSpawnHere()) {
-						trader.liftSpawnRestrictions = false;
+						trader.setLiftSpawnRestrictions(false);
 						trader.onSpawnWithEgg(null);
 						if (traderHasHome) {
 							trader.setHomeArea(traderHomeX, traderHomeY, traderHomeZ, Math.round(traderHomeRadius));
 						}
 						flag = worldObj.spawnEntityInWorld(trader);
 						if (trader instanceof GOTTradeable && traderData != null) {
-							trader.traderNPCInfo.readFromNBT(traderData);
+							trader.traderInfo.readFromNBT(traderData);
 						}
 					}
 					boundingBox.offset(0.0, -100.0, 0.0);
@@ -232,7 +237,7 @@ public class GOTEntityTraderRespawn extends Entity {
 		}
 	}
 
-	public void setSpawnImminent() {
+	private void setSpawnImminent() {
 		dataWatcher.updateObject(17, (byte) 1);
 	}
 
@@ -249,5 +254,13 @@ public class GOTEntityTraderRespawn extends Entity {
 		if (traderData != null) {
 			nbt.setTag("TraderData", traderData);
 		}
+	}
+
+	public float getSpawnerSpin() {
+		return spawnerSpin;
+	}
+
+	public float getPrevSpawnerSpin() {
+		return prevSpawnerSpin;
 	}
 }

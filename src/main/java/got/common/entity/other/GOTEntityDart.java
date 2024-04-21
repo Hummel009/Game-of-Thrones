@@ -11,21 +11,25 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityDart extends GOTEntityProjectileBase {
-	public static float DEF_DART_DAMAGE = 1.0f;
-	public float dartDamageFactor = 1.0f;
+	public static final float DEF_DART_DAMAGE = 1.0f;
+	private float dartDamageFactor = 1.0f;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDart(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDart(World world, EntityLivingBase entityliving, EntityLivingBase target, ItemStack item, float charge, float inaccuracy) {
 		super(world, entityliving, target, item, charge, inaccuracy);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDart(World world, EntityLivingBase entityliving, ItemStack item, float charge) {
 		super(world, entityliving, item, charge);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDart(World world, ItemStack item, double d, double d1, double d2) {
 		super(world, item, d, d1, d2);
 	}
@@ -66,5 +70,13 @@ public class GOTEntityDart extends GOTEntityProjectileBase {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		nbt.setFloat("DartDamage", dartDamageFactor);
+	}
+
+	public float getDartDamageFactor() {
+		return dartDamageFactor;
+	}
+
+	public void setDartDamageFactor(float dartDamageFactor) {
+		this.dartDamageFactor = dartDamageFactor;
 	}
 }

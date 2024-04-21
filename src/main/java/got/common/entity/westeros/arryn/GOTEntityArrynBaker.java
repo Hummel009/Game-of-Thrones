@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 public class GOTEntityArrynBaker extends GOTEntityArrynMarketTrader {
 	public GOTEntityArrynBaker(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

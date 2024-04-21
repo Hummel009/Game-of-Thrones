@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityArrynFarmer extends GOTEntityArrynMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntityArrynFarmer(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

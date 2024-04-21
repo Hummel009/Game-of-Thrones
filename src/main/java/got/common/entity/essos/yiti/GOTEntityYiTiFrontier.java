@@ -11,18 +11,17 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiFrontier extends GOTEntityYiTiLevyman {
 	public GOTEntityYiTiFrontier(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.YITI_FRONTIER;
-		npcCape = GOTCapes.YITI;
+		shield = GOTShields.YITI_FRONTIER;
+		cape = GOTCapes.YITI;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

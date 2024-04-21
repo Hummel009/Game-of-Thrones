@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTradeable {
 	public GOTEntityLhazarFarmer(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

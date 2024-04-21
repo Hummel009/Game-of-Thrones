@@ -12,7 +12,7 @@ public class GOTSquadrons {
 	}
 
 	public static boolean areSquadronsCompatible(GOTEntityNPC npc, ItemStack itemstack) {
-		String npcSquadron = npc.hiredNPCInfo.getSquadron();
+		String npcSquadron = npc.getHireableInfo().getHiredSquadron();
 		String itemSquadron = getSquadron(itemstack);
 		if (StringUtils.isNullOrEmpty(npcSquadron)) {
 			return StringUtils.isNullOrEmpty(itemSquadron);

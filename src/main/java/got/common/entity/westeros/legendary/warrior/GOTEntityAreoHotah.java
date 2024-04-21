@@ -18,9 +18,8 @@ import net.minecraft.world.World;
 public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 	public GOTEntityAreoHotah(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f * 1.2f, 1.8f * 1.2f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

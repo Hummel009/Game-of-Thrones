@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityReachButcher extends GOTEntityReachMarketTrader {
 	public GOTEntityReachButcher(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

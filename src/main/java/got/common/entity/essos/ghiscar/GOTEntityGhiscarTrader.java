@@ -19,7 +19,6 @@ import java.util.Random;
 public abstract class GOTEntityGhiscarTrader extends GOTEntityGhiscarMan implements GOTTradeable {
 	protected GOTEntityGhiscarTrader(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

@@ -475,15 +475,16 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 0, 1, 9, GOTBlocks.commandTable, 0);
 		placeWallBanner(world, 0, 3, 11, bannerType, 2);
 		GOTEntityIbbenWarlord marshal = new GOTEntityIbbenWarlord(world);
-		marshal.spawnRidingHorse = false;
+		marshal.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(marshal, world, 0, 1, 0, 8);
 		for (int l = 0; l < 8; ++l) {
 			GOTEntityIbbenWarrior ibbenese = world.rand.nextInt(3) == 0 ? new GOTEntityIbbenArcher(world) : new GOTEntityIbbenWarrior(world);
-			ibbenese.spawnRidingHorse = false;
+			ibbenese.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(ibbenese, world, 0, 1, 0, 20);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityIbbenWarrior.class, GOTEntityIbbenArcher.class);
+		respawner.setSpawnClass1(GOTEntityIbbenWarrior.class);
+		respawner.setSpawnClass2(GOTEntityIbbenArcher.class);
 		respawner.setCheckRanges(16, -8, 10, 12);
 		respawner.setSpawnRanges(11, 1, 6, 20);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

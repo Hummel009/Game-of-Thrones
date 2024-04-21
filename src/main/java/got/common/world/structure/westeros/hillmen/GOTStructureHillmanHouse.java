@@ -91,16 +91,16 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		placeWallBanner(world, -2, 4, -6, GOTItemBanner.BannerType.HILLMEN, 2);
 		placeWallBanner(world, 2, 4, -6, GOTItemBanner.BannerType.HILLMEN, 2);
 		GOTEntityHillman male = new GOTEntityHillman(world);
-		male.familyInfo.setMale(true);
+		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityHillman female = new GOTEntityHillman(world);
-		female.familyInfo.setMale(false);
+		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityHillman child = new GOTEntityHillman(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
+		child.getFamilyInfo().setMale(random.nextBoolean());
+		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);
 		return true;
 	}

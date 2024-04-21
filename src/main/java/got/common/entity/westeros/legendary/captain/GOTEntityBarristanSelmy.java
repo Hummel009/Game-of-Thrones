@@ -19,11 +19,9 @@ import net.minecraft.world.World;
 public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUnitTradeable {
 	public GOTEntityBarristanSelmy(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks();
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
-		npcCape = GOTCapes.ROYALGUARD;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));
@@ -36,6 +34,7 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
+		cape = GOTCapes.ROYALGUARD;
 	}
 
 	public void addTargetTasks() {

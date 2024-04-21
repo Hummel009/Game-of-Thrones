@@ -87,7 +87,7 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		int warriors = 2 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityDothraki warrior = new GOTEntityDothraki(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, random.nextBoolean() ? -6 : 6, 1, 0, 8);
 		}
 		for (int i1 : new int[]{-5, 5}) {

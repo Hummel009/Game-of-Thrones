@@ -31,7 +31,6 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(5, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		addTargetTasks(true);
-		spawnsInDarkness = true;
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-		getEntityAttribute(npcAttackDamage).setBaseValue(5.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(5.0);
 	}
 
 	@Override
@@ -83,13 +82,6 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	}
 
 	@Override
-	public void onArtificalSpawn() {
-		if (canBeMarried && getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
-			familyInfo.setChild();
-		}
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
@@ -105,15 +97,15 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 			super.onKillEntity(entity);
 		} else if (entity instanceof GOTEntityHumanBase) {
 			super.onKillEntity(entity);
-			infected.familyInfo.setAge(((GOTEntityNPC) entity).familyInfo.getAge());
+			infected.familyInfo.setAge(((GOTEntityNPC) entity).getFamilyInfo().getAge());
 			infected.copyLocationAndAnglesFrom(entity);
-			infected.npcItemsInv.setMeleeWeapon(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
-			infected.npcItemsInv.setIdleItem(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
+			infected.npcItemsInv.setMeleeWeapon(((GOTEntityNPC) entity).getNpcItemsInv().getMeleeWeapon());
+			infected.npcItemsInv.setIdleItem(((GOTEntityNPC) entity).getNpcItemsInv().getMeleeWeapon());
 			infected.setCurrentItemOrArmor(1, entity.getEquipmentInSlot(1));
 			infected.setCurrentItemOrArmor(2, entity.getEquipmentInSlot(2));
 			infected.setCurrentItemOrArmor(3, entity.getEquipmentInSlot(3));
 			infected.setCurrentItemOrArmor(4, entity.getEquipmentInSlot(4));
-			infected.familyInfo.setMale(((GOTEntityNPC) entity).familyInfo.male);
+			infected.familyInfo.setMale(((GOTEntityNPC) entity).getFamilyInfo().isMale());
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(infected);
 		}

@@ -26,7 +26,7 @@ public class GOTRenderTraderRespawn extends Render {
 		GL11.glPushMatrix();
 		GL11.glEnable(32826);
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
-		float rotation = interpolateRotation(traderRespawn.prevSpawnerSpin, traderRespawn.spawnerSpin, f1);
+		float rotation = interpolateRotation(traderRespawn.getPrevSpawnerSpin(), traderRespawn.getSpawnerSpin(), f1);
 		float scale = traderRespawn.getScaleFloat(f1);
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(-0.5f * scale, traderRespawn.getBobbingOffset(f1), 0.03125f * scale);

@@ -297,7 +297,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			}
 		}
 		GOTEntityNPC vintner = getSoldier(world);
-		vintner.spawnRidingHorse = false;
+		vintner.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(vintner, world, 0, 1, 13, 16);
 		return true;
 	}

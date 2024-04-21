@@ -88,7 +88,7 @@ public class GOTItemBarrel extends ItemBlock {
 				return itemstack;
 			}
 			if (!world.isRemote) {
-				barrel.barrelItemData = getBarrelData(itemstack);
+				barrel.setBarrelItemData(getBarrelData(itemstack));
 				world.spawnEntityInWorld(barrel);
 			}
 			if (!entityplayer.capabilities.isCreativeMode) {

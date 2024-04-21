@@ -355,16 +355,16 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 			}
 		}
 		GOTEntityIbbenMan male = new GOTEntityIbbenMan(world);
-		male.familyInfo.setMale(true);
+		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityIbbenMan female = new GOTEntityIbbenMan(world);
-		female.familyInfo.setMale(false);
+		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityIbbenMan child = new GOTEntityIbbenMan(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
+		child.getFamilyInfo().setMale(random.nextBoolean());
+		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);
 		return true;
 	}

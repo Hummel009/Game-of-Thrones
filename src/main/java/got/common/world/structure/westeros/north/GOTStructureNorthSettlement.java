@@ -699,10 +699,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthMan.class);
+				spawner.setSpawnClass1(GOTEntityNorthMan.class);
 				spawner.setCheckRanges(50, -12, 12, 16);
 				spawner.setSpawnRanges(30, -6, 6, 40);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -713,10 +713,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthSoldier.class);
+				spawner.setSpawnClass1(GOTEntityNorthSoldier.class);
 				spawner.setCheckRanges(20, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 40);
-				spawner.setBlockEnemySpawnRange(40);
+				spawner.setBlockEnemySpawns(40);
 			}
 		}
 
@@ -727,10 +727,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthHillman.class);
+				spawner.setSpawnClass1(GOTEntityNorthHillman.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -741,10 +741,11 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityNorthHillmanAxeThrower.class, GOTEntityNorthHillmanArcher.class);
+				spawner.setSpawnClass1(GOTEntityNorthHillmanArcher.class);
+				spawner.setSpawnClass2(GOTEntityNorthHillmanAxeThrower.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -755,10 +756,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthMan.class);
+				spawner.setSpawnClass1(GOTEntityNorthMan.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(60, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -769,10 +770,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthSoldier.class);
+				spawner.setSpawnClass1(GOTEntityNorthSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -783,10 +784,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthMan.class);
+				spawner.setSpawnClass1(GOTEntityNorthMan.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(60, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -797,10 +798,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthSoldier.class);
+				spawner.setSpawnClass1(GOTEntityNorthSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -811,10 +812,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthMan.class);
+				spawner.setSpawnClass1(GOTEntityNorthMan.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -825,10 +826,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityNorthSoldier.class);
+				spawner.setSpawnClass1(GOTEntityNorthSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

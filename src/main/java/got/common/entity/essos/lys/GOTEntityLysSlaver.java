@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityLysSlaver extends GOTEntityLysMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntityLysSlaver(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

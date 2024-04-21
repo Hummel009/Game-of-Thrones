@@ -1,10 +1,11 @@
-package got.common.entity.other;
+package got.common.entity.other.info;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMiniquestOffer;
 import got.common.network.GOTPacketNPCIsOfferingQuest;
@@ -26,37 +27,43 @@ import net.minecraft.world.WorldServer;
 import java.util.*;
 import java.util.function.Predicate;
 
-public class GOTEntityQuestInfo {
-	public static int maxOfferTime = 24000;
-	public GOTEntityNPC theNPC;
-	public GOTMiniQuest miniquestOffer;
-	public int offerTime;
-	public int offerChance;
-	public float minAlignment;
-	public Map<UUID, GOTMiniQuest> playerSpecificOffers = new HashMap<>();
-	public Collection<EntityPlayer> openOfferPlayers = new ArrayList<>();
-	public Map<UUID, Boolean> playerPacketCache = new HashMap<>();
-	public boolean clientIsOffering;
-	public int clientOfferColor;
-	public Collection<UUID> activeQuestPlayers = new ArrayList<>();
-	public Predicate<EntityPlayer> bountyHelpPredicate;
-	public Predicate<EntityPlayer> bountyHelpConsumer;
-	public MiniQuestSelector.BountyActiveAnyFaction activeBountySelector;
+public class GOTQuestInfo {
+	public static final int MAX_OFFER_TIME = 24000;
 
-	public GOTEntityQuestInfo(GOTEntityNPC npc) {
+	private final GOTEntityNPC theNPC;
+
+	private final Map<UUID, GOTMiniQuest> playerSpecificOffers = new HashMap<>();
+	private final Map<UUID, Boolean> playerPacketCache = new HashMap<>();
+	private final Predicate<EntityPlayer> bountyHelpPredicate;
+	private final Predicate<EntityPlayer> bountyHelpConsumer;
+	private final Collection<EntityPlayer> openOfferPlayers = new ArrayList<>();
+	private final Collection<UUID> activeQuestPlayers = new ArrayList<>();
+	private final MiniQuestSelector.BountyActiveAnyFaction activeBountySelector;
+
+	private GOTMiniQuest miniquestOffer;
+
+	private boolean clientIsOffering;
+
+	private int offerTime;
+	private int offerChance;
+	private int clientOfferColor;
+
+	private float minAlignment;
+
+	public GOTQuestInfo(GOTEntityNPC npc) {
 		theNPC = npc;
 		offerChance = 20000;
 		minAlignment = 0.0f;
 		bountyHelpPredicate = player -> theNPC.getRNG().nextInt(3) == 0;
 		bountyHelpConsumer = player -> true;
-		activeBountySelector = new MiniQuestSelector.BountyActiveFaction(() -> theNPC.getFaction());
+		activeBountySelector = new MiniQuestSelector.BountyActiveFaction(theNPC::getFaction);
 	}
 
 	public void addActiveQuestPlayer(EntityPlayer entityplayer) {
 		activeQuestPlayers.add(entityplayer.getUniqueID());
 	}
 
-	public void addOpenOfferPlayer(EntityPlayer entityplayer) {
+	private void addOpenOfferPlayer(EntityPlayer entityplayer) {
 		openOfferPlayers.add(entityplayer);
 	}
 
@@ -68,11 +75,11 @@ public class GOTEntityQuestInfo {
 		return !openOfferPlayers.isEmpty();
 	}
 
-	public boolean canGenerateQuests() {
-		return GOTConfig.allowMiniquests && !theNPC.isChild() && !theNPC.isDrunkard() && !theNPC.isTrader() && !theNPC.isTraderEscort && !theNPC.hiredNPCInfo.isActive;
+	private boolean canGenerateQuests() {
+		return GOTConfig.allowMiniquests && !theNPC.isChild() && !theNPC.isDrunkard() && !theNPC.isTrader() && !theNPC.getHireableInfo().isActive();
 	}
 
-	public boolean canOfferQuestsTo(EntityPlayer entityplayer) {
+	private boolean canOfferQuestsTo(EntityPlayer entityplayer) {
 		if (canGenerateQuests() && theNPC.isFriendlyAndAligned(entityplayer) && theNPC.getAttackTarget() == null) {
 			float alignment = GOTLevelData.getData(entityplayer).getAlignment(theNPC.getFaction());
 			return alignment >= minAlignment;
@@ -80,15 +87,15 @@ public class GOTEntityQuestInfo {
 		return false;
 	}
 
-	public void clearMiniQuestOffer() {
+	private void clearMiniQuestOffer() {
 		setMiniQuestOffer(null, 0);
 	}
 
-	public void clearPlayerSpecificOffer(EntityPlayer entityplayer) {
+	private void clearPlayerSpecificOffer(EntityPlayer entityplayer) {
 		playerSpecificOffers.remove(entityplayer.getUniqueID());
 	}
 
-	public GOTMiniQuest generateRandomMiniQuest() {
+	private GOTMiniQuest generateRandomMiniQuest() {
 		int tries = 8;
 		for (int l = 0; l < tries; ++l) {
 			GOTMiniQuest quest = theNPC.createMiniQuest();
@@ -107,7 +114,7 @@ public class GOTEntityQuestInfo {
 		return getOfferFor(entityplayer, null);
 	}
 
-	public GOTMiniQuest getOfferFor(EntityPlayer entityplayer, boolean[] isSpecific) {
+	private GOTMiniQuest getOfferFor(EntityPlayer entityplayer, boolean[] isSpecific) {
 		UUID id = entityplayer.getUniqueID();
 		if (playerSpecificOffers.containsKey(id)) {
 			if (isSpecific != null) {
@@ -223,7 +230,7 @@ public class GOTEntityQuestInfo {
 		}
 	}
 
-	public void pruneActiveQuestPlayers() {
+	private void pruneActiveQuestPlayers() {
 		if (!activeQuestPlayers.isEmpty()) {
 			Collection<UUID> removes = new HashSet<>();
 			for (UUID player : activeQuestPlayers) {
@@ -302,11 +309,11 @@ public class GOTEntityQuestInfo {
 		}
 	}
 
-	public void removeActiveQuestPlayer(EntityPlayer entityplayer) {
+	private void removeActiveQuestPlayer(EntityPlayer entityplayer) {
 		activeQuestPlayers.remove(entityplayer.getUniqueID());
 	}
 
-	public void removeOpenOfferPlayer(EntityPlayer entityplayer) {
+	private void removeOpenOfferPlayer(EntityPlayer entityplayer) {
 		openOfferPlayers.remove(entityplayer);
 	}
 
@@ -326,7 +333,7 @@ public class GOTEntityQuestInfo {
 		}
 	}
 
-	public void sendDataToAllWatchers() {
+	private void sendDataToAllWatchers() {
 		int x = MathHelper.floor_double(theNPC.posX) >> 4;
 		int z = MathHelper.floor_double(theNPC.posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) theNPC.worldObj).getPlayerManager();
@@ -338,7 +345,7 @@ public class GOTEntityQuestInfo {
 		}
 	}
 
-	public void sendMiniquestOffer(EntityPlayer entityplayer, GOTMiniQuest quest) {
+	private void sendMiniquestOffer(EntityPlayer entityplayer, GOTMiniQuest quest) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
 		IMessage packet = new GOTPacketMiniquestOffer(theNPC.getEntityId(), nbt);
@@ -346,16 +353,11 @@ public class GOTEntityQuestInfo {
 		addOpenOfferPlayer(entityplayer);
 	}
 
-	public void setIsLegendaryQuest() {
-		offerChance = 1;
-		minAlignment = 100;
+	public void setMinAlignment(float minAlignment) {
+		this.minAlignment = minAlignment;
 	}
 
-	public void setMinAlignment(float f) {
-		minAlignment = f;
-	}
-
-	public void setMiniQuestOffer(GOTMiniQuest quest, int time) {
+	private void setMiniQuestOffer(GOTMiniQuest quest, int time) {
 		miniquestOffer = quest;
 		offerTime = time;
 	}
@@ -387,5 +389,27 @@ public class GOTEntityQuestInfo {
 			activeQuestTags.appendTag(new NBTTagString(s));
 		}
 		nbt.setTag("ActiveQuestPlayers", activeQuestTags);
+	}
+
+	@SuppressWarnings("unused")
+	public int getOfferChance() {
+		return offerChance;
+	}
+
+	public void setOfferChance(int offerChance) {
+		this.offerChance = offerChance;
+	}
+
+	public boolean isClientIsOffering() {
+		return clientIsOffering;
+	}
+
+	public int getClientOfferColor() {
+		return clientOfferColor;
+	}
+
+	@SuppressWarnings("unused")
+	public float getMinAlignment() {
+		return minAlignment;
 	}
 }

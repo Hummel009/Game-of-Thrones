@@ -16,7 +16,7 @@ public class GOTRenderInvasionSpawner extends Render {
 		GL11.glPushMatrix();
 		GL11.glEnable(32826);
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
-		float rotation = interpolateRotation(spawner.prevSpawnerSpin, spawner.spawnerSpin, f1);
+		float rotation = interpolateRotation(spawner.getPrevSpawnerSpin(), spawner.getSpawnerSpin(), f1);
 		float scale = 1.5F;
 		GL11.glRotatef(rotation, 0.0F, 1.0F, 0.0F);
 		GL11.glScalef(scale, scale, scale);

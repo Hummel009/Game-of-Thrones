@@ -15,10 +15,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityFishHook extends EntityFishHook {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFishHook(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFishHook(World world, EntityPlayer entityplayer) {
 		super(world, entityplayer);
 	}
@@ -50,7 +52,7 @@ public class GOTEntityFishHook extends EntityFishHook {
 			int luck = EnchantmentHelper.func_151386_g(field_146042_b);
 			int speed = EnchantmentHelper.func_151387_h(field_146042_b);
 			GOTFishing.FishResult result = GOTFishing.getFishResult(rand, chance, luck, speed, true);
-			ItemStack item = result.fishedItem;
+			ItemStack item = result.getFishedItem();
 			EntityItem entityitem = new EntityItem(worldObj, posX, posY, posZ, item);
 			double d0 = field_146042_b.posX - posX;
 			double d1 = field_146042_b.posY - posY;
@@ -62,7 +64,7 @@ public class GOTEntityFishHook extends EntityFishHook {
 			entityitem.motionZ = d2 * motion;
 			worldObj.spawnEntityInWorld(entityitem);
 			worldObj.spawnEntityInWorld(new EntityXPOrb(field_146042_b.worldObj, field_146042_b.posX, field_146042_b.posY + 0.5, field_146042_b.posZ + 0.5, rand.nextInt(6) + 1));
-			field_146042_b.addStat(result.category.stat, 1);
+			field_146042_b.addStat(result.getCategory().stat, 1);
 			if (item.getItem() instanceof GOTItemRing) {
 				GOTLevelData.getData(field_146042_b).addAchievement(GOTAchievement.fishRing);
 			}
@@ -76,7 +78,7 @@ public class GOTEntityFishHook extends EntityFishHook {
 		return damage;
 	}
 
-	public int getPlayerID() {
+	private int getPlayerID() {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 

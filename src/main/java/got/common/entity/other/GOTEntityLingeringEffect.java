@@ -16,24 +16,28 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityLingeringEffect extends Entity implements IEntityAdditionalSpawnData {
-	public static int TICKS_DATA_WATCHER = 10;
-	public static int WIDTH_DATA_WATCHER = 11;
-	public static int HEIGHT_DATA_WATCHER = 12;
-	public EntityLivingBase thrower;
-	public ItemStack stack;
-	public int MAX_TICKS = 30 * 20;
+	private static final int TICKS_DATA_WATCHER = 10;
+	private static final int WIDTH_DATA_WATCHER = 11;
+	private static final int HEIGHT_DATA_WATCHER = 12;
+	private static final int MAX_TICKS = 30 * 20;
 
+	private EntityLivingBase thrower;
+	private ItemStack stack;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLingeringEffect(World world) {
 		super(world);
 		yOffset = 0;
 		setSize(1, 1);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLingeringEffect(World world, GOTEntityLingeringPotion potion) {
 		this(world, potion.getStack(), potion.getThrower());
 		setPosition(potion.posX, potion.posY, potion.posZ);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLingeringEffect(World world, ItemStack stack, EntityLivingBase thrower) {
 		this(world);
 		this.stack = stack;
@@ -133,7 +137,7 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 		dataWatcher.updateObject(HEIGHT_DATA_WATCHER, this.height);
 	}
 
-	public void setTickCount(int ticks) {
+	private void setTickCount(int ticks) {
 		dataWatcher.updateObject(TICKS_DATA_WATCHER, ticks);
 		if (ticks >= MAX_TICKS) {
 			setDead();

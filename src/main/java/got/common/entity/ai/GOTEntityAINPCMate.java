@@ -24,7 +24,7 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		return theSpouse.isEntityAlive() && spawnBabyDelay < 60 && theNPC.familyInfo.getAge() == 0 && theSpouse.familyInfo.getAge() == 0;
+		return theSpouse.isEntityAlive() && spawnBabyDelay < 60 && theNPC.getFamilyInfo().getAge() == 0 && theSpouse.getFamilyInfo().getAge() == 0;
 	}
 
 	@Override
@@ -35,29 +35,29 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (theNPC.getClass() != theNPC.familyInfo.marriageEntityClass || theNPC.familyInfo.spouseUniqueID == null || theNPC.familyInfo.children >= 3 || theNPC.familyInfo.getAge() != 0) {
+		if (theNPC.getClass() != theNPC.getFamilyInfo().getMarriageEntityClass() || theNPC.getFamilyInfo().getSpouseUniqueID() == null || theNPC.getFamilyInfo().getChildren() >= 3 || theNPC.getFamilyInfo().getAge() != 0) {
 			return false;
 		}
-		theSpouse = theNPC.familyInfo.getSpouse();
-		return theSpouse != null && theNPC.getDistanceToEntity(theSpouse) < 16.0 && theSpouse.familyInfo.children < 3 && theSpouse.familyInfo.getAge() == 0;
+		theSpouse = theNPC.getFamilyInfo().getSpouse();
+		return theSpouse != null && theNPC.getDistanceToEntity(theSpouse) < 16.0 && theSpouse.getFamilyInfo().getChildren() < 3 && theSpouse.getFamilyInfo().getAge() == 0;
 	}
 
 	private void spawnBaby() {
-		GOTEntityNPC baby = (GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(theNPC.familyInfo.marriageEntityClass), theWorld);
-		GOTEntityNPC maleParent = theNPC.familyInfo.isMale() ? theNPC : theSpouse;
-		GOTEntityNPC femaleParent = theNPC.familyInfo.isMale() ? theSpouse : theNPC;
-		baby.familyInfo.setChild();
-		baby.familyInfo.setMale(baby.getRNG().nextBoolean());
-		baby.familyInfo.maleParentID = maleParent.getUniqueID();
-		baby.familyInfo.femaleParentID = femaleParent.getUniqueID();
+		GOTEntityNPC baby = (GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(theNPC.getFamilyInfo().getMarriageEntityClass()), theWorld);
+		GOTEntityNPC maleParent = theNPC.getFamilyInfo().isMale() ? theNPC : theSpouse;
+		GOTEntityNPC femaleParent = theNPC.getFamilyInfo().isMale() ? theSpouse : theNPC;
+		baby.getFamilyInfo().setChild();
+		baby.getFamilyInfo().setMale(baby.getRNG().nextBoolean());
+		baby.getFamilyInfo().setMaleParentID(maleParent.getUniqueID());
+		baby.getFamilyInfo().setFemaleParentID(femaleParent.getUniqueID());
 		baby.onSpawnWithEgg(null);
 		baby.setLocationAndAngles(theNPC.posX, theNPC.posY, theNPC.posZ, 0.0f, 0.0f);
-		baby.isNPCPersistent = true;
+		baby.setNPCPersistent(true);
 		theWorld.spawnEntityInWorld(baby);
-		theNPC.familyInfo.setMaxBreedingDelay();
-		theSpouse.familyInfo.setMaxBreedingDelay();
-		++theNPC.familyInfo.children;
-		++theSpouse.familyInfo.children;
+		theNPC.getFamilyInfo().setMaxBreedingDelay();
+		theSpouse.getFamilyInfo().setMaxBreedingDelay();
+		theNPC.getFamilyInfo().setChildren(theNPC.getFamilyInfo().getChildren() + 1);
+		theSpouse.getFamilyInfo().setChildren(theSpouse.getFamilyInfo().getChildren() + 1);
 		theNPC.spawnHearts();
 		theSpouse.spawnHearts();
 	}

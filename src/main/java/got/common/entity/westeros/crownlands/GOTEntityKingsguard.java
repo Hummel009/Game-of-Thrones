@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 	public GOTEntityKingsguard(World world) {
 		super(world);
-		npcCape = GOTCapes.ROYALGUARD;
+		cape = GOTCapes.ROYALGUARD;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 

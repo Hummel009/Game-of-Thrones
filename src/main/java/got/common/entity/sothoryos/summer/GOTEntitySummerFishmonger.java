@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntitySummerFishmonger extends GOTEntitySummerTrader {
 	public GOTEntitySummerFishmonger(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

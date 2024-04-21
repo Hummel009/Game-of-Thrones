@@ -193,7 +193,8 @@ public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 			setBlockAndMetadata(world, 3, j1, 3, Blocks.wool, 10);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityGoldenSpearman.class, GOTEntityGoldenWarrior.class);
+		respawner.setSpawnClass1(GOTEntityGoldenWarrior.class);
+		respawner.setSpawnClass2(GOTEntityGoldenSpearman.class);
 		respawner.setCheckRanges(80, -12, 0, 30);
 		respawner.setSpawnRanges(80, -12, 0, 80);
 		respawner.setSpawnInterval(1);

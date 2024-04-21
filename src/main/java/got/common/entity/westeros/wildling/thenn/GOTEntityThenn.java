@@ -11,6 +11,7 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.westeros.GOTBiomeThennLand;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
@@ -23,13 +24,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityThenn extends GOTEntityHumanBase {
+public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	public static ItemStack[] weapons = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
 	public static ItemStack[] spears = {new ItemStack(GOTItems.wildlingSpear)};
 
 	public GOTEntityThenn(World world) {
 		super(world);
-		canBeMarried = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -46,8 +46,6 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		spawnsInDarkness = false;
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -101,7 +99,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);
@@ -126,7 +124,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/wild/hired_soldier";
 			}
 			return "standard/wild/usual_friendly";

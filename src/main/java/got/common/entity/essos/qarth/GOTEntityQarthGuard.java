@@ -12,8 +12,8 @@ public class GOTEntityQarthGuard extends GOTEntityQarthLevyman {
 	public GOTEntityQarthGuard(World world) {
 		super(world);
 		spawnRidingHorse = false;
-		npcCape = GOTCapes.QARTH;
-		npcShield = GOTShields.QARTH;
+		cape = GOTCapes.QARTH;
+		shield = GOTShields.QARTH;
 		addTargetTasks(false);
 	}
 

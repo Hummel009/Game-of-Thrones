@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Set;
 
 public class GOTBannerWhitelistEntry {
-	public GameProfile profile;
-	public Set<GOTBannerProtection.Permission> perms = EnumSet.noneOf(GOTBannerProtection.Permission.class);
+	private final Set<GOTBannerProtection.Permission> perms = EnumSet.noneOf(GOTBannerProtection.Permission.class);
+	private final GameProfile profile;
 
 	public GOTBannerWhitelistEntry(GameProfile p) {
 		profile = p;
@@ -80,5 +80,9 @@ public class GOTBannerWhitelistEntry {
 		for (GOTBannerProtection.Permission p : perms) {
 			addPermission(p);
 		}
+	}
+
+	public GameProfile getProfile() {
+		return profile;
 	}
 }

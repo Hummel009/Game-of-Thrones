@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneSoldier implements GOTUnitTradeable {
 	public GOTEntityDragonstoneCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.DRAGONSTONE;
+		cape = GOTCapes.DRAGONSTONE;
 		spawnRidingHorse = false;
 	}
 

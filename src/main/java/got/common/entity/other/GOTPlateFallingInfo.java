@@ -7,23 +7,26 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class GOTPlateFallingInfo implements IExtendedEntityProperties {
-	public static String propID = "got_plateFall";
-	public static int tickDelayFactor = 1;
-	public static int stackSize = 64;
-	public static int numFallers = 65;
-	public Entity theEntity;
-	public int updateTick;
-	public float[] posXTicksAgo = new float[65];
-	public boolean[] isFalling = new boolean[65];
-	public float[] fallerPos = new float[65];
-	public float[] prevFallerPos = new float[65];
-	public float[] fallerSpeed = new float[65];
+	public static final int TICK_DELAY_FACTOR = 1;
+	public static final int STACK_SIZE = 64;
+	public static final int NUM_FALLERS = 65;
 
-	public GOTPlateFallingInfo(Entity entity) {
+	private final Entity theEntity;
+
+	private final boolean[] isFalling = new boolean[65];
+	private final float[] posXTicksAgo = new float[65];
+	private final float[] fallerPos = new float[65];
+	private final float[] prevFallerPos = new float[65];
+	private final float[] fallerSpeed = new float[65];
+
+	private int updateTick;
+
+	private GOTPlateFallingInfo(Entity entity) {
 		theEntity = entity;
 	}
 
 	public static GOTPlateFallingInfo getOrCreateFor(Entity entity, boolean create) {
+		String propID = "got_plateFall";
 		GOTPlateFallingInfo props = (GOTPlateFallingInfo) entity.getExtendedProperties(propID);
 		if (props == null && create) {
 			props = new GOTPlateFallingInfo(entity);
@@ -36,9 +39,9 @@ public class GOTPlateFallingInfo implements IExtendedEntityProperties {
 		return getOffsetY(food - 1, f);
 	}
 
-	public float getOffsetY(int index, float f) {
-		index = MathHelper.clamp_int(index, 0, fallerPos.length - 1);
-		float pos = prevFallerPos[index] + (fallerPos[index] - prevFallerPos[index]) * f;
+	private float getOffsetY(int index, float f) {
+		int index1 = MathHelper.clamp_int(index, 0, fallerPos.length - 1);
+		float pos = prevFallerPos[index1] + (fallerPos[index1] - prevFallerPos[index1]) * f;
 		float offset = pos - (float) (theEntity.prevPosY + (theEntity.posY - theEntity.prevPosY) * f);
 		return Math.max(offset, 0.0f);
 	}

@@ -29,7 +29,7 @@ public class GOTEntityWightGiant extends GOTEntityGiantBase {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		boolean causeDamage = IceUtils.calculateDamage(damagesource, true);
+		boolean causeDamage = IceUtils.calculateDamage(this, damagesource, true);
 		return super.attackEntityFrom(damagesource, causeDamage ? f : 0.0f);
 	}
 
@@ -55,6 +55,6 @@ public class GOTEntityWightGiant extends GOTEntityGiantBase {
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
 		super.onKillEntity(entity);
-		IceUtils.createNewWight(entity, worldObj);
+		IceUtils.createNewWight(this, entity, worldObj);
 	}
 }

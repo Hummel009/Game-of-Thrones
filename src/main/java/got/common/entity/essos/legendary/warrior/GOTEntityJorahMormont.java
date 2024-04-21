@@ -19,8 +19,7 @@ import net.minecraft.world.World;
 public class GOTEntityJorahMormont extends GOTEntityHumanBase {
 	public GOTEntityJorahMormont(World world) {
 		super(world);
-		canBeMarried = false;
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -62,7 +61,7 @@ public class GOTEntityJorahMormont extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

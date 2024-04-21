@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiFarmer extends GOTEntityYiTiMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntityYiTiFarmer(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

@@ -303,10 +303,10 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntitySummerMan.class);
+				spawner.setSpawnClass1(GOTEntitySummerMan.class);
 				spawner.setCheckRanges(64, -12, 12, 16);
 				spawner.setSpawnRanges(24, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(50);
+				spawner.setBlockEnemySpawns(50);
 			}
 		}
 
@@ -317,10 +317,10 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntitySummerMan.class);
+				spawner.setSpawnClass1(GOTEntitySummerMan.class);
 				spawner.setCheckRanges(64, -12, 12, 24);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(64);
+				spawner.setBlockEnemySpawns(64);
 			}
 		}
 
@@ -331,10 +331,11 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntitySummerWarrior.class, GOTEntitySummerArcher.class);
+				spawner.setSpawnClass1(GOTEntitySummerWarrior.class);
+				spawner.setSpawnClass2(GOTEntitySummerArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 12);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(64);
+				spawner.setBlockEnemySpawns(64);
 			}
 		}
 	}

@@ -275,7 +275,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 			j12 = 8;
 			int k17 = 0;
 			GOTEntityNPC levyman = getSoldier(world);
-			levyman.spawnRidingHorse = false;
+			levyman.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(levyman, world, i1221, j12, k17, 8);
 		}
 		return true;

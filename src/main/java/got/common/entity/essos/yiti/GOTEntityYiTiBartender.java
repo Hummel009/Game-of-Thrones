@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiBartender extends GOTEntityYiTiMan implements GOTTradeable {
 	public GOTEntityYiTiBartender(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

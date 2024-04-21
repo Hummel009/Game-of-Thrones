@@ -15,7 +15,7 @@ public class GOTEntityAIHiredRemainStill extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		return theNPC.hiredNPCInfo.isActive && !theNPC.isInWater() && theNPC.onGround && theNPC.hiredNPCInfo.isHalted() && (theNPC.getAttackTarget() == null || !theNPC.getAttackTarget().isEntityAlive());
+		return theNPC.getHireableInfo().isActive() && !theNPC.isInWater() && theNPC.onGround && theNPC.getHireableInfo().isHalted() && (theNPC.getAttackTarget() == null || !theNPC.getAttackTarget().isEntityAlive());
 	}
 
 	@Override

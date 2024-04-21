@@ -17,7 +17,7 @@ public class GOTDispenseSpear extends BehaviorDefaultDispenseItem {
 		EnumFacing enumfacing = BlockDispenser.func_149937_b(dispense.getBlockMetadata());
 		GOTEntitySpear spear = new GOTEntitySpear(world, itemstack.copy(), iposition.getX(), iposition.getY(), iposition.getZ());
 		spear.setThrowableHeading(enumfacing.getFrontOffsetX(), enumfacing.getFrontOffsetY() + 0.1f, enumfacing.getFrontOffsetZ(), 1.1f, 6.0f);
-		spear.canBePickedUp = 1;
+		spear.setCanBePickedUp(1);
 		world.spawnEntityInWorld(spear);
 		itemstack.splitStack(1);
 		return itemstack;

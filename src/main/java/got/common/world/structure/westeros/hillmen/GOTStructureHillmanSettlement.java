@@ -95,10 +95,10 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityHillman.class);
+				spawner.setSpawnClass1(GOTEntityHillman.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -109,10 +109,11 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityHillmanWarrior.class, GOTEntityHillmanArcher.class);
+				spawner.setSpawnClass1(GOTEntityHillmanWarrior.class);
+				spawner.setSpawnClass2(GOTEntityHillmanArcher.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

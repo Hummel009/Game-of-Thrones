@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTUnitTradeable {
 	public GOTEntityIbbenWarlord(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

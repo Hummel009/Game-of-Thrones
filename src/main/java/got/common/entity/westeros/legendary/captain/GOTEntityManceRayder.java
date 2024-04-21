@@ -18,9 +18,8 @@ import net.minecraft.world.World;
 public class GOTEntityManceRayder extends GOTEntityHumanBase implements GOTUnitTradeable {
 	public GOTEntityManceRayder(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
@@ -34,7 +33,6 @@ public class GOTEntityManceRayder extends GOTEntityHumanBase implements GOTUnitT
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		isImmuneToFrost = true;
 	}
 
 	@Override

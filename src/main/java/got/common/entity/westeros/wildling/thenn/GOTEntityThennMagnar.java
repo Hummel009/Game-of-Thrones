@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityThennMagnar extends GOTEntityThenn implements GOTUnitTradeable {
 	public GOTEntityThennMagnar(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

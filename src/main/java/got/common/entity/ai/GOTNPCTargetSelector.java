@@ -3,7 +3,8 @@ package got.common.entity.ai;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.GOTEntityUtils;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -29,7 +30,7 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 			return false;
 		}
 		if (target.isEntityAlive()) {
-			if (target instanceof GOTEntityNPC && !((GOTEntityNPC) target).canBeFreelyTargetedBy(owner)) {
+			if (target instanceof GOTEntityNPC && GOTEntityUtils.isCrasterFamily((GOTEntityNPC) target)) {
 				return false;
 			}
 			if (!ownerFaction.isApprovesWarCrimes() && target instanceof GOTEntityNPC && ((GOTEntityNPC) target).isCivilianNPC()) {
@@ -43,8 +44,8 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 				EntityPlayer hiringPlayer = null;
 				if (owner instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) owner;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.hiredTask != GOTHiredNPCInfo.Task.FARMER) {
-						hiringPlayer = npc.hiredNPCInfo.getHiringPlayer();
+					if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiredTask() != GOTHireableInfo.Task.FARMER) {
+						hiringPlayer = npc.getHireableInfo().getHiringPlayer();
 					}
 				}
 				return hiringPlayer != null && GOTLevelData.getData(hiringPlayer).getAlignment(targetFaction) < 0.0f;

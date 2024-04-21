@@ -20,10 +20,8 @@ import net.minecraft.world.World;
 public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenary {
 	public GOTEntityGreyWorm(World world) {
 		super(world);
-		canBeMarried = false;
-		npcShield = GOTShields.UNSULLIED;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
@@ -37,6 +35,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
+		shield = GOTShields.UNSULLIED;
 	}
 
 	@Override
@@ -44,7 +43,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(npcAttackDamageExtra).setBaseValue(14.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE_EXTRA).setBaseValue(14.0);
 	}
 
 	@Override
@@ -78,7 +77,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

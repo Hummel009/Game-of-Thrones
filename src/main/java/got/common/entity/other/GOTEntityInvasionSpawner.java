@@ -34,18 +34,23 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.*;
 
 public class GOTEntityInvasionSpawner extends Entity {
-	public static int MAX_INVASION_SIZE = 10000;
-	public static double INVASION_FOLLOW_RANGE = 40.0;
-	public float spawnerSpin;
-	public float prevSpawnerSpin;
-	public int invasionSize;
-	public int invasionRemaining;
-	public int successiveFailedSpawns;
-	public int timeSincePlayerProgress;
-	public Map<UUID, Integer> recentPlayerContributors = new HashMap<>();
-	public boolean isWarhorn;
-	public boolean spawnsPersistent = true;
-	public Collection<GOTFaction> bonusFactions = new ArrayList<>();
+	public static final int MAX_INVASION_SIZE = 10000;
+
+	private static final double INVASION_FOLLOW_RANGE = 40.0;
+
+	private final Map<UUID, Integer> recentPlayerContributors = new HashMap<>();
+	private final Collection<GOTFaction> bonusFactions = new ArrayList<>();
+
+	private boolean isWarhorn;
+	private boolean spawnsPersistent = true;
+
+	private float spawnerSpin;
+	private float prevSpawnerSpin;
+
+	private int invasionSize;
+	private int invasionRemaining;
+	private int successiveFailedSpawns;
+	private int timeSincePlayerProgress;
 
 	public GOTEntityInvasionSpawner(World world) {
 		super(world);
@@ -70,7 +75,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		recentPlayerContributors.put(entityplayer.getUniqueID(), 2400);
 	}
 
-	public void announceInvasionTo(ICommandSender entityplayer) {
+	private void announceInvasionTo(ICommandSender entityplayer) {
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.invasion.start", getInvasionType().invasionName()));
 	}
 
@@ -90,7 +95,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		return false;
 	}
 
-	public boolean attemptSpawnMob(GOTEntityNPC npc) {
+	private boolean attemptSpawnMob(GOTEntityNPC npc) {
 		for (int at = 0; at < 40; ++at) {
 			int i = MathHelper.floor_double(posX) + MathHelper.getRandomIntegerInRange(rand, -6, 6);
 			int k = MathHelper.floor_double(posZ) + MathHelper.getRandomIntegerInRange(rand, -6, 6);
@@ -99,16 +104,16 @@ public class GOTEntityInvasionSpawner extends Entity {
 				continue;
 			}
 			npc.setLocationAndAngles(i + 0.5, j, k + 0.5, rand.nextFloat() * 360.0f, 0.0f);
-			npc.liftSpawnRestrictions = true;
+			npc.setLiftSpawnRestrictions(true);
 			Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(npc, worldObj, (float) npc.posX, (float) npc.posY, (float) npc.posZ);
 			if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !npc.getCanSpawnHere())) {
 				continue;
 			}
-			npc.liftSpawnRestrictions = false;
+			npc.setLiftSpawnRestrictions(false);
 			npc.onSpawnWithEgg(null);
-			npc.isNPCPersistent = spawnsPersistent;
+			npc.setNPCPersistent(spawnsPersistent);
 			npc.setInvasionID(getInvasionID());
-			npc.killBonusFactions.addAll(bonusFactions);
+			npc.getKillBonusFactions().addAll(bonusFactions);
 			worldObj.spawnEntityInWorld(npc);
 			IAttributeInstance followRangeAttrib = npc.getEntityAttribute(SharedMonsterAttributes.followRange);
 			double followRange = followRangeAttrib.getBaseValue();
@@ -128,13 +133,12 @@ public class GOTEntityInvasionSpawner extends Entity {
 		return !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forInvasionSpawner(this), false) && !GOTEntityNPCRespawner.isSpawnBlocked(this, getInvasionType().getInvasionFaction()) && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
-	public void endInvasion(boolean completed) {
+	private void endInvasion(boolean completed) {
 		if (completed) {
 			GOTFaction invasionFac = getInvasionType().getInvasionFaction();
 			Collection<EntityPlayer> achievementPlayers = new HashSet<>();
 			Collection<EntityPlayer> conqRewardPlayers = new HashSet<>();
 			for (UUID player : recentPlayerContributors.keySet()) {
-				GOTFaction pledged;
 				EntityPlayer entityplayer = worldObj.func_152378_a(player);
 				if (entityplayer == null) {
 					continue;
@@ -147,7 +151,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 				if (pd.getAlignment(invasionFac) <= 0.0f) {
 					achievementPlayers.add(entityplayer);
 				}
-				pledged = pd.getPledgeFaction();
+				GOTFaction pledged = pd.getPledgeFaction();
 				if (pledged == null || !pledged.isBadRelation(invasionFac)) {
 					continue;
 				}
@@ -180,7 +184,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		return (float) invasionRemaining / invasionSize;
 	}
 
-	public UUID getInvasionID() {
+	private UUID getInvasionID() {
 		return getUniqueID();
 	}
 
@@ -314,7 +318,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		updateWatchedInvasionValues();
 	}
 
-	public void playHorn() {
+	private void playHorn() {
 		worldObj.playSoundAtEntity(this, "got:item.horn", 4.0f, 0.65f + rand.nextFloat() * 0.1f);
 	}
 
@@ -402,7 +406,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
-	public IEntitySelector selectThisInvasionMobs() {
+	private IEntitySelector selectThisInvasionMobs() {
 		return new EntitySelectorImpl2(this);
 	}
 
@@ -420,10 +424,11 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void startInvasion(EntityPlayer announcePlayer, int size) {
-		if (size < 0) {
-			size = MathHelper.getRandomIntegerInRange(rand, 30, 70);
+		int size1 = size;
+		if (size1 < 0) {
+			size1 = MathHelper.getRandomIntegerInRange(rand, 30, 70);
 		}
-		invasionRemaining = invasionSize = size;
+		invasionRemaining = invasionSize = size1;
 		playHorn();
 		double announceRange = INVASION_FOLLOW_RANGE * 2.0;
 		List<EntityPlayer> nearbyPlayers = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(announceRange, announceRange, announceRange));
@@ -431,8 +436,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			nearbyPlayers.add(announcePlayer);
 		}
 		for (EntityPlayer entityplayer : nearbyPlayers) {
-			boolean announce;
-			announce = GOTLevelData.getData(entityplayer).getAlignment(getInvasionType().getInvasionFaction()) < 0.0f;
+			boolean announce = GOTLevelData.getData(entityplayer).getAlignment(getInvasionType().getInvasionFaction()) < 0.0f;
 			if (entityplayer == announcePlayer) {
 				announce = true;
 			}
@@ -444,7 +448,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
-	public void updateWatchedInvasionValues() {
+	private void updateWatchedInvasionValues() {
 		if (worldObj.isRemote) {
 			invasionSize = dataWatcher.getWatchableObjectShort(21);
 			invasionRemaining = dataWatcher.getWatchableObjectShort(22);
@@ -485,6 +489,32 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
+	@SuppressWarnings("unused")
+	public boolean isWarhorn() {
+		return isWarhorn;
+	}
+
+	public void setWarhorn(boolean warhorn) {
+		isWarhorn = warhorn;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isSpawnsPersistent() {
+		return spawnsPersistent;
+	}
+
+	public void setSpawnsPersistent(boolean spawnsPersistent) {
+		this.spawnsPersistent = spawnsPersistent;
+	}
+
+	public float getSpawnerSpin() {
+		return spawnerSpin;
+	}
+
+	public float getPrevSpawnerSpin() {
+		return prevSpawnerSpin;
+	}
+
 	private static class EntitySelectorImpl1 implements IEntitySelector {
 		private final UUID id;
 
@@ -509,7 +539,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		public boolean isEntityApplicable(Entity entity) {
 			if (entity.isEntityAlive() && entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				return npc.isInvasionSpawned() && npc.getInvasionID().equals(spawner.getInvasionID());
+				return npc.getInvasionID() != null && npc.getInvasionID().equals(spawner.getInvasionID());
 			}
 			return false;
 		}

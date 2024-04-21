@@ -2,7 +2,7 @@ package got.common.inventory;
 
 import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.GOTInventoryHiredReplacedItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -21,7 +21,7 @@ public class GOTContainerHiredWarriorInventory extends Container {
 	public GOTContainerHiredWarriorInventory(InventoryPlayer inv, GOTEntityNPC entity) {
 		int i;
 		theNPC = entity;
-		GOTInventoryHiredReplacedItems npcInv = theNPC.hiredReplacedInv;
+		GOTInventoryHiredReplacedItems npcInv = theNPC.getHiredReplacedInv();
 		npcFullInvSize = npcInv.getSizeInventory();
 		proxyInv = new InventoryBasic("npcTemp", false, npcFullInvSize);
 		for (int i2 = 0; i2 < 4; ++i2) {
@@ -57,14 +57,14 @@ public class GOTContainerHiredWarriorInventory extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return theNPC != null && theNPC.isEntityAlive() && theNPC.hiredNPCInfo.isActive && theNPC.hiredNPCInfo.getHiringPlayer() == entityplayer && theNPC.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR && entityplayer.getDistanceSqToEntity(theNPC) <= 144.0;
+		return theNPC != null && theNPC.isEntityAlive() && theNPC.getHireableInfo().isActive() && theNPC.getHireableInfo().getHiringPlayer() == entityplayer && theNPC.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.WARRIOR && entityplayer.getDistanceSqToEntity(theNPC) <= 144.0;
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
 		if (!theNPC.worldObj.isRemote) {
-			theNPC.hiredNPCInfo.sendClientPacket(true);
+			theNPC.getHireableInfo().sendClientPacket(true);
 		}
 	}
 

@@ -22,7 +22,6 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 
 	public GOTEntityYiTiBombardier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityBomb.class, 12.0f, 1.5, 2.0));
 		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);

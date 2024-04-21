@@ -40,12 +40,12 @@ public class GOTItemCrossbow extends ItemBow {
 	public static void applyCrossbowModifiers(GOTEntityCrossbowBolt bolt, ItemStack itemstack) {
 		int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
 		if (power > 0) {
-			bolt.boltDamageFactor += power * 0.5 + 0.5;
+			bolt.setBoltDamageFactor(bolt.getBoltDamageFactor() + power * 0.5 + 0.5);
 		}
 		int punch = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack);
 		punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack);
 		if (punch > 0) {
-			bolt.knockbackStrength = punch;
+			bolt.setKnockbackStrength(punch);
 		}
 		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
 			bolt.setFire(100);
@@ -183,13 +183,13 @@ public class GOTItemCrossbow extends ItemBow {
 				ItemStack shotBolt = boltItem.copy();
 				shotBolt.stackSize = 1;
 				GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(world, entityplayer, shotBolt, 2.0f * getCrossbowLaunchSpeedFactor(itemstack));
-				if (bolt.boltDamageFactor < 1.0) {
-					bolt.boltDamageFactor = 1.0;
+				if (bolt.getBoltDamageFactor() < 1.0) {
+					bolt.setBoltDamageFactor(1.0);
 				}
 				bolt.setIsCritical(true);
 				applyCrossbowModifiers(bolt, itemstack);
 				if (!shouldConsumeBolt(itemstack, entityplayer)) {
-					bolt.canBePickedUp = 2;
+					bolt.setCanBePickedUp(2);
 				}
 				if (!world.isRemote) {
 					world.spawnEntityInWorld(bolt);

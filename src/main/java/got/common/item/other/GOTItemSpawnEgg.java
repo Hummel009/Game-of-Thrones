@@ -104,7 +104,7 @@ public class GOTItemSpawnEgg extends Item {
 				((EntityLiving) entity).setCustomNameTag(itemstack.getDisplayName());
 			}
 			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).isNPCPersistent = true;
+				((GOTEntityNPC) entity).setNPCPersistent(true);
 				((GOTEntityNPC) entity).onArtificalSpawn();
 			}
 			if (!entityplayer.capabilities.isCreativeMode) {

@@ -12,7 +12,6 @@ public class GOTEntityQarthLevyman extends GOTEntityQarthMan {
 
 	public GOTEntityQarthLevyman(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 		spawnRidingHorse = false;
 	}
@@ -20,7 +19,7 @@ public class GOTEntityQarthLevyman extends GOTEntityQarthMan {
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override
@@ -31,7 +30,7 @@ public class GOTEntityQarthLevyman extends GOTEntityQarthMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

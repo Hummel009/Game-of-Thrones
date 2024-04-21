@@ -299,10 +299,10 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityLhazarMan.class);
+				spawner.setSpawnClass1(GOTEntityLhazarMan.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(24, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -313,10 +313,10 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityLhazarMan.class);
+				spawner.setSpawnClass1(GOTEntityLhazarMan.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(40, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -327,10 +327,11 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
+				spawner.setSpawnClass1(GOTEntityLhazarWarrior.class);
+				spawner.setSpawnClass2(GOTEntityLhazarArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 20);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(64);
+				spawner.setBlockEnemySpawns(64);
 			}
 		}
 
@@ -341,10 +342,10 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityLhazarMan.class);
+				spawner.setSpawnClass1(GOTEntityLhazarMan.class);
 				spawner.setCheckRanges(64, -12, 12, 24);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(64);
+				spawner.setBlockEnemySpawns(64);
 			}
 		}
 
@@ -355,10 +356,11 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityLhazarWarrior.class, GOTEntityLhazarArcher.class);
+				spawner.setSpawnClass1(GOTEntityLhazarWarrior.class);
+				spawner.setSpawnClass2(GOTEntityLhazarArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 12);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(64);
+				spawner.setBlockEnemySpawns(64);
 			}
 		}
 	}

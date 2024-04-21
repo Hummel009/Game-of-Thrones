@@ -8,15 +8,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntityBomb extends EntityTNTPrimed {
-	public int bombFuse;
-	public boolean droppedByPlayer;
-	public boolean droppedByHiredUnit;
-	public boolean droppedTargetingPlayer;
+	private boolean droppedByPlayer;
+	private boolean droppedByHiredUnit;
+	private boolean droppedTargetingPlayer;
+	private int bombFuse;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBomb(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBomb(World world, double d, double d1, double d2, EntityLivingBase entity) {
 		super(world, d, d1, d2, entity);
 	}
@@ -27,7 +29,7 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		dataWatcher.addObject(16, (byte) 0);
 	}
 
-	public void explodeBomb() {
+	private void explodeBomb() {
 		boolean doTerrainDamage = false;
 		if (droppedByPlayer) {
 			doTerrainDamage = true;
@@ -95,5 +97,36 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		nbt.setBoolean("DroppedTargetingPlayer", droppedTargetingPlayer);
 		nbt.setInteger("BombStrengthLevel", getBombStrengthLevel());
 		nbt.setInteger("BombFuse", bombFuse);
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isDroppedTargetingPlayer() {
+		return droppedTargetingPlayer;
+	}
+
+	public void setDroppedTargetingPlayer(boolean droppedTargetingPlayer) {
+		this.droppedTargetingPlayer = droppedTargetingPlayer;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isDroppedByHiredUnit() {
+		return droppedByHiredUnit;
+	}
+
+	public void setDroppedByHiredUnit(boolean droppedByHiredUnit) {
+		this.droppedByHiredUnit = droppedByHiredUnit;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isDroppedByPlayer() {
+		return droppedByPlayer;
+	}
+
+	public void setDroppedByPlayer(boolean droppedByPlayer) {
+		this.droppedByPlayer = droppedByPlayer;
+	}
+
+	public int getBombFuse() {
+		return bombFuse;
 	}
 }

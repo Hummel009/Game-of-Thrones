@@ -2,7 +2,7 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
-import got.common.entity.essos.GOTEntityDarkSkinBandit;
+import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;

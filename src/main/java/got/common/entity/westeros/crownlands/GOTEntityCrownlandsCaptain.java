@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityCrownlandsCaptain extends GOTEntityCrownlandsGuard implements GOTUnitTradeable {
 	public GOTEntityCrownlandsCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.CROWNLANDS;
+		cape = GOTCapes.CROWNLANDS;
 	}
 
 	@Override

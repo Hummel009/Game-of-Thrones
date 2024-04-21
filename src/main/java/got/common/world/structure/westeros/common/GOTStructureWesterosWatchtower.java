@@ -164,12 +164,12 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -3, 11, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 3, 11, 0, Blocks.torch, 1);
 		GOTEntityNPC soldier = getSoldier(world);
-		soldier.spawnRidingHorse = false;
+		soldier.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		GOTEntityNPC levyman = getSoldier(world);
 		spawnNPCAndSetHome(levyman, world, 0, 11, 1, 16);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(getSoldier(world).getClass());
+		respawner.setSpawnClass1(getSoldier(world).getClass());
 		respawner.setCheckRanges(16, -12, 8, 6);
 		respawner.setSpawnRanges(3, -6, 6, 16);
 		placeNPCRespawner(respawner, world, 0, 6, 0);

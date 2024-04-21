@@ -180,23 +180,23 @@ public class GOTWikiGen {
 				for (GOTUnitTradeEntries unitTradeEntries : UNITS) {
 					for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
 						if (entry != null) {
-							sb.append("\n| ").append(getEntityLink(entry.entityClass));
+							sb.append("\n| ").append(getEntityLink(entry.getEntityClass()));
 							if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-								if (entry.mountClass == null) {
-									sb.append(" || {{Coins|").append(entry.initialCost * 2).append("}} || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || -");
+								if (entry.getMountClass() == null) {
+									sb.append(" || {{Coins|").append(entry.getInitialCost() * 2).append("}} || {{Coins|").append(entry.getInitialCost()).append("}} || +").append(entry.getAlignmentRequired()).append(" || -");
 								} else {
-									sb.append(" || {{Coins|").append(entry.initialCost * 2).append("}} (").append(Lang.RIDER).append(") || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || -");
+									sb.append(" || {{Coins|").append(entry.getInitialCost() * 2).append("}} (").append(Lang.RIDER).append(") || {{Coins|").append(entry.getInitialCost()).append("}} || +").append(entry.getAlignmentRequired()).append(" || -");
 								}
-							} else if (entry.mountClass == null) {
-								if (entry.alignmentRequired < 101.0f) {
-									sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} || +100.0 || +");
+							} else if (entry.getMountClass() == null) {
+								if (entry.getAlignmentRequired() < 101.0f) {
+									sb.append(" || N/A || {{Coins|").append(entry.getInitialCost()).append("}} || +100.0 || +");
 								} else {
-									sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || +");
+									sb.append(" || N/A || {{Coins|").append(entry.getInitialCost()).append("}} || +").append(entry.getAlignmentRequired()).append(" || +");
 								}
-							} else if (entry.alignmentRequired < 101.0f) {
-								sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} (").append(Lang.RIDER).append(") || +100.0 || +");
+							} else if (entry.getAlignmentRequired() < 101.0f) {
+								sb.append(" || N/A || {{Coins|").append(entry.getInitialCost()).append("}} (").append(Lang.RIDER).append(") || +100.0 || +");
 							} else {
-								sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} (").append(Lang.RIDER).append(") || +").append(entry.alignmentRequired).append(" || +");
+								sb.append(" || N/A || {{Coins|").append(entry.getInitialCost()).append("}} (").append(Lang.RIDER).append(") || +").append(entry.getAlignmentRequired()).append(" || +");
 							}
 							sb.append("\n|-");
 						}
@@ -1178,7 +1178,7 @@ public class GOTWikiGen {
 							GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 							if (!((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
 								for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-									if (entry.entityClass == entityClass) {
+									if (entry.getEntityClass() == entityClass) {
 										owners.put(entityClass, ownerEntry.getKey());
 										break loop;
 									}
@@ -1193,7 +1193,7 @@ public class GOTWikiGen {
 								GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 								if (((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
 									for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-										if (entry.entityClass == entityClass) {
+										if (entry.getEntityClass() == entityClass) {
 											owners.put(entityClass, ownerEntry.getKey());
 											break loop;
 										}
@@ -1219,7 +1219,7 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template: DB Mob-Rideable1");
 				sb.append(BEGIN);
 				for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
-					if (entityEntry.getValue() instanceof GOTEntityNPCRideable) {
+					if (entityEntry.getValue() instanceof GOTEntitySpiderBase) {
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = True");
 					}
 				}
@@ -1295,7 +1295,7 @@ public class GOTWikiGen {
 						GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getSellPool();
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ");
 						for (GOTTradeEntry entry : entries.getTradeEntries()) {
-							sb.append("\n* ").append(entry.tradeItem.getDisplayName()).append(": {{Coins|").append(entry.getCost()).append("}};");
+							sb.append("\n* ").append(entry.getTradeItem().getDisplayName()).append(": {{Coins|").append(entry.getCost()).append("}};");
 						}
 					}
 				}
@@ -1308,7 +1308,7 @@ public class GOTWikiGen {
 						GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getBuyPool();
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ");
 						for (GOTTradeEntry entry : entries.getTradeEntries()) {
-							sb.append("\n* ").append(entry.tradeItem.getDisplayName()).append(": {{Coins|").append(entry.getCost()).append("}};");
+							sb.append("\n* ").append(entry.getTradeItem().getDisplayName()).append(": {{Coins|").append(entry.getCost()).append("}};");
 						}
 					}
 				}
@@ -1326,7 +1326,7 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template:DB Mob-ImmuneToFrost");
 				sb.append(BEGIN);
 				for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
-					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isImmuneToFrost || entityEntry.getValue() instanceof GOTBiome.ImmuneToFrost) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && entityEntry.getValue() instanceof GOTBiome.ImmuneToFrost) {
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = True");
 					}
 				}
@@ -1350,25 +1350,16 @@ public class GOTWikiGen {
 				}
 				sb.append(END);
 
-				sb.append(TITLE).append("Template:DB Mob-SpawnInDarkness");
-				sb.append(BEGIN);
-				for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
-					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).spawnsInDarkness) {
-						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = True");
-					}
-				}
-				sb.append(END);
-
 				sb.append(TITLE).append("Template:DB Mob-Alignment");
 				sb.append(BEGIN);
 				next:
 				for (Class<? extends Entity> entityClass : HIREABLE) {
 					for (GOTUnitTradeEntries entries : UNITS) {
 						for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-							if (entry.entityClass == entityClass) {
+							if (entry.getEntityClass() == entityClass) {
 								sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = ");
-								if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE || entry.alignmentRequired >= 101.0f) {
-									sb.append(entry.alignmentRequired);
+								if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE || entry.getAlignmentRequired() >= 101.0f) {
+									sb.append(entry.getAlignmentRequired());
 								} else {
 									sb.append('+').append(100.0);
 								}
@@ -1382,7 +1373,7 @@ public class GOTWikiGen {
 				sb.append(TITLE).append("Template:DB Mob-Marriage");
 				sb.append(BEGIN);
 				for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
-					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).canBeMarried) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && GOTEntityUtils.canBeMarried((GOTEntityNPC) entityEntry)) {
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = True");
 					}
 				}
@@ -1427,9 +1418,9 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTUnitTradeEntries entries : UNITS) {
 					for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-						sb.append("\n| ").append(getEntityPagename(entry.entityClass)).append(" = ");
+						sb.append("\n| ").append(getEntityPagename(entry.getEntityClass())).append(" = ");
 						if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-							sb.append("{{Coins|").append(entry.initialCost * 2).append("}}");
+							sb.append("{{Coins|").append(entry.getInitialCost() * 2).append("}}");
 						} else {
 							sb.append("N/A");
 						}
@@ -1441,7 +1432,7 @@ public class GOTWikiGen {
 				sb.append(BEGIN);
 				for (GOTUnitTradeEntries entries : UNITS) {
 					for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-						sb.append("\n| ").append(getEntityPagename(entry.entityClass)).append(" = {{Coins|").append(entry.initialCost).append("}}");
+						sb.append("\n| ").append(getEntityPagename(entry.getEntityClass())).append(" = {{Coins|").append(entry.getInitialCost()).append("}}");
 					}
 				}
 				sb.append(END);
@@ -1453,14 +1444,14 @@ public class GOTWikiGen {
 						GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 						sb.append("\n| ").append(getEntityPagename(ownerEntry.getKey())).append(" = ");
 						for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-							if (entry.mountClass == null) {
-								sb.append("\n* ").append(getEntityLink(entry.entityClass));
+							if (entry.getMountClass() == null) {
+								sb.append("\n* ").append(getEntityLink(entry.getEntityClass()));
 								if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-									sb.append(": {{Coins|").append(entry.initialCost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; ").append(entry.alignmentRequired).append("+ ").append(Lang.REPUTATION).append(';');
-								} else if (entry.alignmentRequired < 101.0f) {
-									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(100.0).append("+ ").append(Lang.REPUTATION).append(';');
+									sb.append(": {{Coins|").append(entry.getInitialCost() * 2).append("}} ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.getInitialCost()).append("}} ").append(Lang.NEED_PLEDGE).append("; ").append(entry.getAlignmentRequired()).append("+ ").append(Lang.REPUTATION).append(';');
+								} else if (entry.getAlignmentRequired() < 101.0f) {
+									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.getInitialCost()).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(100.0).append("+ ").append(Lang.REPUTATION).append(';');
 								} else {
-									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(entry.alignmentRequired).append("+ ").append(Lang.REPUTATION).append(';');
+									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.getInitialCost()).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(entry.getAlignmentRequired()).append("+ ").append(Lang.REPUTATION).append(';');
 								}
 							}
 						}
@@ -1599,7 +1590,7 @@ public class GOTWikiGen {
 	private static void searchForHireable(Collection<Class<? extends Entity>> hireable, Iterable<GOTUnitTradeEntries> units) {
 		for (GOTUnitTradeEntries entries : units) {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				hireable.add(entry.entityClass);
+				hireable.add(entry.getEntityClass());
 			}
 		}
 	}

@@ -12,14 +12,13 @@ import net.minecraft.world.World;
 public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
 	public GOTEntityIronbornSoldier(World world) {
 		super(world);
-		canBeMarried = false;
-		npcShield = GOTShields.IRONBORN;
+		shield = GOTShields.IRONBORN;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

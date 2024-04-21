@@ -22,9 +22,8 @@ import net.minecraft.world.World;
 public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTradeable {
 	public GOTEntityIllyrioMopatis(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

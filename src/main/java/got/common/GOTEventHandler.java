@@ -597,7 +597,7 @@ public class GOTEventHandler {
 			return;
 		}
 		if (entity instanceof GOTMercenary && ((GOTHireableBase) entity).canTradeWith(entityplayer)) {
-			if (((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
+			if (((GOTEntityNPC) entity).getHireableInfo().getHiringPlayerUUID() == null) {
 				entityplayer.openGui(GOT.instance, GOTGuiId.MERCENARY_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 				event.setCanceled(true);
 				return;
@@ -605,7 +605,7 @@ public class GOTEventHandler {
 		}
 		if (entity instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) entity;
-			if (npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (npc.getHireableInfo().getHiringPlayer() == entityplayer) {
 				if (entity instanceof GOTEntityProstitute) {
 					entityplayer.openGui(GOT.instance, GOTGuiId.HIRED_INTERACT_NO_FUNC.ordinal(), world, entity.getEntityId(), 0, 0);
 				} else {
@@ -614,9 +614,9 @@ public class GOTEventHandler {
 				event.setCanceled(true);
 				return;
 			}
-			if (npc.hiredNPCInfo.isActive && entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.getItem() == Items.clock) {
+			if (npc.getHireableInfo().isActive() && entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.getItem() == Items.clock) {
 				if (!world.isRemote && MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile())) {
-					UUID hiringUUID = npc.hiredNPCInfo.getHiringPlayerUUID();
+					UUID hiringUUID = npc.getHireableInfo().getHiringPlayerUUID();
 					if (hiringUUID != null) {
 						String playerName = getUsernameWithoutWebservice(hiringUUID);
 						if (playerName != null) {
@@ -870,8 +870,8 @@ public class GOTEventHandler {
 				entityplayer = (EntityPlayer) entity.func_94060_bK();
 			} else if (source.getEntity() instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) source.getEntity();
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {
-					entityplayer = npc.hiredNPCInfo.getHiringPlayer();
+				if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() != null) {
+					entityplayer = npc.getHireableInfo().getHiringPlayer();
 					creditHiredUnit = true;
 					double nearbyDist = 64.0D;
 					byNearbyUnit = npc.getDistanceSqToEntity(entityplayer) <= nearbyDist * nearbyDist;
@@ -883,12 +883,12 @@ public class GOTEventHandler {
 				float prevAlignment = playerData.getAlignment(entityFaction);
 				List<GOTFaction> forcedBonusFactions = null;
 				if (entity instanceof GOTEntityNPC) {
-					forcedBonusFactions = ((GOTEntityNPC) entity).killBonusFactions;
+					forcedBonusFactions = ((GOTEntityNPC) entity).getKillBonusFactions();
 				}
 				boolean wasSelfDefenceAgainstAlliedUnit = false;
 				if (!creditHiredUnit && prevAlignment > 0.0F && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.wasAttackCommanded) {
+					if (npc.getHireableInfo().isActive() && npc.getHireableInfo().isWasAttackCommanded()) {
 						wasSelfDefenceAgainstAlliedUnit = true;
 					}
 				}
@@ -933,7 +933,7 @@ public class GOTEventHandler {
 						for (EntityLiving npc : nearbyAlliedNPCs) {
 							if (npc instanceof GOTEntityNPC) {
 								GOTEntityNPC gotNPC = (GOTEntityNPC) npc;
-								if (gotNPC.hiredNPCInfo.isActive && newAlignment > 0.0F || gotNPC.hiredNPCInfo.isActive && gotNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+								if (gotNPC.getHireableInfo().isActive() && newAlignment > 0.0F || gotNPC.getHireableInfo().isActive() && gotNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
 									continue;
 								}
 							}
@@ -983,8 +983,8 @@ public class GOTEventHandler {
 				attackingPlayer = (EntityPlayer) source.getEntity();
 			} else if (source.getEntity() instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) source.getEntity();
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {
-					attackingPlayer = npc.hiredNPCInfo.getHiringPlayer();
+				if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() != null) {
+					attackingPlayer = npc.getHireableInfo().getHiringPlayer();
 					attackingHiredUnit = npc;
 				}
 			}
@@ -994,7 +994,7 @@ public class GOTEventHandler {
 					if (attackingPlayer.isPotionActive(Potion.confusion.id)) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killWhileDrunk);
 					}
-					if (entity instanceof GOTEntityYiTiBombardier && ((GOTEntityNPC) entity).npcItemsInv.getBomb() != null) {
+					if (entity instanceof GOTEntityYiTiBombardier && ((GOTEntityNPC) entity).getNpcItemsInv().getBomb() != null) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killBombardier);
 					}
 					if (source.getSourceOfDamage() instanceof GOTEntityCrossbowBolt) {
@@ -1298,10 +1298,13 @@ public class GOTEventHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean flag = (!(entity instanceof GOTEntityNPC) || !((GOTEntityNPC) entity).isImmuneToFrost) && !(entity instanceof GOTBiome.ImmuneToFrost);
+			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendaryNPC() || entity instanceof GOTBiome.ImmuneToFrost;
+			boolean flag = !simplifySyntax;
+
 			if (entity instanceof EntityPlayer) {
 				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}
+
 			if (flag) {
 				int i = MathHelper.floor_double(entity.posX);
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
@@ -1338,10 +1341,13 @@ public class GOTEventHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean flag = !(entity instanceof GOTBiome.ImmuneToHeat) && (!(entity instanceof GOTEntityNPC) || !entity.isImmuneToFire());
+			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendaryNPC() || entity instanceof GOTBiome.ImmuneToHeat || entity.isImmuneToFire();
+			boolean flag = !simplifySyntax;
+
 			if (entity instanceof EntityPlayer) {
 				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}
+
 			if (flag) {
 				int i = MathHelper.floor_double(entity.posX);
 				int j = MathHelper.floor_double(entity.boundingBox.minY);

@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityArrynCaptain extends GOTEntityArrynSoldier implements GOTUnitTradeable {
 	public GOTEntityArrynCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.ARRYN;
+		cape = GOTCapes.ARRYN;
 		spawnRidingHorse = false;
 	}
 

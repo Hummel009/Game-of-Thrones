@@ -88,13 +88,13 @@ public class GOTModelCargocart extends ModelBase {
 		rightWheel.rotateAngleX = ((GOTEntityCart) entity).getWheelRotation();
 		leftWheel.render(scale);
 		rightWheel.render(scale);
-		if (((GOTEntityCargocart) entity).load > 3) {
+		if (((GOTEntityCargocart) entity).getLoad() > 3) {
 			cargo.render(scale);
-			if (((GOTEntityCargocart) entity).load > 8) {
+			if (((GOTEntityCargocart) entity).getLoad() > 8) {
 				cargo1.render(scale);
-				if (((GOTEntityCargocart) entity).load > 16) {
+				if (((GOTEntityCargocart) entity).getLoad() > 16) {
 					cargo2.render(scale);
-					if (((GOTEntityCargocart) entity).load > 31) {
+					if (((GOTEntityCargocart) entity).getLoad() > 31) {
 						cargo3.render(scale);
 					}
 				}

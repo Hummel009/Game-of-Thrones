@@ -16,7 +16,7 @@ import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityPortal;
 import got.common.entity.other.GOTEntityRegistry;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
 import got.common.item.other.GOTItemBanner;
@@ -117,7 +117,7 @@ public class GOT {
 		GOTFaction attackerFaction = getNPCFaction(attacker);
 		if (attacker instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) attacker;
-			EntityPlayer hiringPlayer = npc.hiredNPCInfo.getHiringPlayer();
+			EntityPlayer hiringPlayer = npc.getHireableInfo().getHiringPlayer();
 			if (hiringPlayer != null) {
 				if (target == hiringPlayer || target.riddenByEntity == hiringPlayer) {
 					return false;
@@ -128,9 +128,9 @@ public class GOT {
 				} else if (target.riddenByEntity instanceof GOTEntityNPC) {
 					targetNPC = (GOTEntityNPC) target.riddenByEntity;
 				}
-				if (targetNPC != null && targetNPC.hiredNPCInfo.isActive) {
-					UUID hiringPlayerUUID = npc.hiredNPCInfo.getHiringPlayerUUID();
-					UUID targetHiringPlayerUUID = targetNPC.hiredNPCInfo.getHiringPlayerUUID();
+				if (targetNPC != null && targetNPC.getHireableInfo().isActive()) {
+					UUID hiringPlayerUUID = npc.getHireableInfo().getHiringPlayerUUID();
+					UUID targetHiringPlayerUUID = targetNPC.getHireableInfo().getHiringPlayerUUID();
 					if (hiringPlayerUUID != null && hiringPlayerUUID.equals(targetHiringPlayerUUID) && !attackerFaction.isBadRelation(getNPCFaction(targetNPC))) {
 						return false;
 					}
@@ -181,8 +181,8 @@ public class GOT {
 			targetNPCFaction = getNPCFaction(targetNPC);
 			if (targetNPC instanceof GOTEntityNPC) {
 				GOTEntityNPC targetgotNPC = (GOTEntityNPC) targetNPC;
-				GOTHiredNPCInfo hiredInfo = targetgotNPC.hiredNPCInfo;
-				if (hiredInfo.isActive) {
+				GOTHireableInfo hiredInfo = targetgotNPC.getHireableInfo();
+				if (hiredInfo.isActive()) {
 					if (hiredInfo.getHiringPlayer() == attacker) {
 						return false;
 					}
@@ -256,8 +256,8 @@ public class GOT {
 		}
 		if (damagesource.getEntity() instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) damagesource.getEntity();
-			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {
-				return npc.hiredNPCInfo.getHiringPlayer();
+			if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() != null) {
+				return npc.getHireableInfo().getHiringPlayer();
 			}
 		}
 		return null;

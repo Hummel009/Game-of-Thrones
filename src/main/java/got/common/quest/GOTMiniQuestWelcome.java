@@ -222,7 +222,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		switch (stage) {
 			case 1:
 				dropItems.add(new ItemStack(GOTItems.questBook));
-				npc.dropItemList(dropItems);
+				npc.dropItemList(dropItems, true);
 				dropItems.clear();
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
 				sendQuoteSpeech(entityplayer, npc, line);
@@ -296,7 +296,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 					dropItems.add(new ItemStack(GOTItems.valyrianDagger));
 					pd.getQuestData().setGivenFirstPouches(true);
 				}
-				npc.dropItemList(dropItems);
+				npc.dropItemList(dropItems, true);
 				dropItems.clear();
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 11);
 				sendQuoteSpeech(entityplayer, npc, line);

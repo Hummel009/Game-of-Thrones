@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityThennBlacksmith extends GOTEntityThenn implements GOTTradeable.Smith {
 	public GOTEntityThennBlacksmith(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

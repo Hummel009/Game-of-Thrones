@@ -17,7 +17,7 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	public GOTEntityAsshaiSpherebinder(World world) {
 		super(world);
 		isImmuneToFire = true;
-		npcShield = null;
+		shield = null;
 	}
 
 	@Override

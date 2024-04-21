@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarSlaver extends GOTEntityGhiscarMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntityGhiscarSlaver(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

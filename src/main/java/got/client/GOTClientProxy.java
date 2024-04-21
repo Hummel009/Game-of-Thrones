@@ -16,6 +16,7 @@ import got.common.GOTGuiMessageTypes;
 import got.common.GOTTickHandlerServer;
 import got.common.database.GOTAchievement;
 import got.common.entity.other.*;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketClientInfo;
@@ -525,9 +526,9 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void openHiredNPCGui(GOTEntityNPC npc) {
 		Minecraft mc = Minecraft.getMinecraft();
-		if (npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
+		if (npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.WARRIOR) {
 			mc.displayGuiScreen(new GOTGuiHiredWarrior(npc));
-		} else if (npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
+		} else if (npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.FARMER) {
 			mc.displayGuiScreen(new GOTGuiHiredFarmer(npc));
 		}
 	}

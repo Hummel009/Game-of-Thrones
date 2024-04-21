@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityTyroshSlaver extends GOTEntityTyroshMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntityTyroshSlaver(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

@@ -1,11 +1,13 @@
 package got.common.entity.other;
 
+import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIDrink;
 import got.common.entity.ai.GOTEntityAIEat;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,10 +17,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class GOTEntityHummel009 extends GOTEntityNPC {
+public class GOTEntityHummel009 extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHummel009(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -34,7 +36,6 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		isImmuneToFire = true;
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -62,8 +63,14 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 	}
 
 	@Override
-	public GOTAchievement getTalkAchievement() {
-		return GOTAchievement.freeman;
+	public boolean speakTo(EntityPlayer entityplayer) {
+		String speechBank = getSpeechBank(entityplayer);
+		if (speechBank != null) {
+			sendSpeechBank(entityplayer, speechBank);
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.freeman);
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -77,9 +84,9 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.crowbar));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 }

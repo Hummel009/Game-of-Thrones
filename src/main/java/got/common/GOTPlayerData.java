@@ -906,7 +906,7 @@ public class GOTPlayerData {
 				if (!(entity instanceof GOTEntityDragon)) {
 					if (entity instanceof GOTEntityNPC) {
 						GOTEntityNPC npc = (GOTEntityNPC) entity;
-						if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.shouldFollowPlayer()) {
+						if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() == entityplayer && npc.getHireableInfo().shouldFollowPlayer()) {
 							entitiesToTransport.add(npc);
 							continue;
 						}
@@ -2434,7 +2434,7 @@ public class GOTPlayerData {
 			int hiredUnits = 0;
 			List<GOTEntityNPC> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
 			for (GOTEntityNPC npc : nearbyNPCs) {
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() == entityplayer) {
 					hiredUnits++;
 				}
 			}
@@ -2446,7 +2446,7 @@ public class GOTPlayerData {
 			int hiredUnits = 0;
 			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
 			for (GOTEntityNPC npc : nearbyNPCs) {
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() == entityplayer) {
 					hiredUnits++;
 				}
 			}

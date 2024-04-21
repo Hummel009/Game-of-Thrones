@@ -26,7 +26,7 @@ public class GOTItemSarbacane extends Item {
 	public static void applySarbacaneModifiers(GOTEntityDart dart, ItemStack itemstack) {
 		int punch = GOTEnchantmentHelper.calcRangedKnockback(itemstack);
 		if (punch > 0) {
-			dart.knockbackStrength = punch;
+			dart.setKnockbackStrength(punch);
 		}
 		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
 			dart.setFire(100);
@@ -118,15 +118,15 @@ public class GOTItemSarbacane extends Item {
 				ItemStack shotDart = dartItem.copy();
 				shotDart.stackSize = 1;
 				GOTEntityDart dart = ((GOTItemDart) shotDart.getItem()).createDart(world, entityplayer, shotDart, charge * 2.0f * getSarbacaneLaunchSpeedFactor(itemstack));
-				if (dart.dartDamageFactor < 1.0f) {
-					dart.dartDamageFactor = 1.0f;
+				if (dart.getDartDamageFactor() < 1.0f) {
+					dart.setDartDamageFactor(1.0f);
 				}
 				if (charge >= 1.0f) {
 					dart.setIsCritical(true);
 				}
 				applySarbacaneModifiers(dart, itemstack);
 				if (entityplayer.capabilities.isCreativeMode) {
-					dart.canBePickedUp = 2;
+					dart.setCanBePickedUp(2);
 				}
 				world.spawnEntityInWorld(dart);
 			}

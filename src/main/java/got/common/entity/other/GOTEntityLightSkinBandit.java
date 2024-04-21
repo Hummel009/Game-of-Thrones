@@ -1,4 +1,4 @@
-package got.common.entity.westeros;
+package got.common.entity.other;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
@@ -8,9 +8,6 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIBanditFlee;
 import got.common.entity.ai.GOTEntityAIBanditSteal;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBandit;
-import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.IBandit;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryNPC;
 import got.common.item.other.GOTItemLeatherHat;
@@ -29,12 +26,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
-public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
-	public static int MAX_THEFTS = 3;
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger)};
-	public GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
+public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
+	private static final ItemStack[] ITEM_STACKS = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger)};
+	private static final int MAX_THEFTS = 3;
 
-	public GOTEntityLightSkinBandit(World world) {
+	private final GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
+
+	protected GOTEntityLightSkinBandit(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
@@ -50,7 +48,6 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 		tasks.addTask(7, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(8, new EntityAILookIdle(this));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetBandit.class);
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -150,9 +147,9 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(ITEM_STACKS.length);
+		npcItemsInv.setMeleeWeapon(ITEM_STACKS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(3) == 0) {
 			ItemStack hat = new ItemStack(GOTItems.leatherHat);
@@ -160,7 +157,7 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 			GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 			setCurrentItemOrArmor(4, hat);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -16,12 +16,9 @@ import net.minecraft.world.World;
 public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTradeable {
 	public GOTEntityAemonTargaryen(World world) {
 		super(world);
-		canBeMarried = false;
-		isImmuneToFrost = true;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
-		getNavigator().setAvoidsWater(true);
 		tasks.addTask(2, new EntityAIOpenDoor(this, true));
 		tasks.addTask(3, new EntityAIWander(this, 1.0));
 	}

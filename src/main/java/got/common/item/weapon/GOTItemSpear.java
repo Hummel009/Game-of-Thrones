@@ -64,7 +64,7 @@ public class GOTItemSpear extends GOTItemSword {
 			GOTEnchantmentHelper.setProjectileEnchantment(spear, ench);
 		}
 		if (entityplayer.capabilities.isCreativeMode) {
-			spear.canBePickedUp = 2;
+			spear.setCanBePickedUp(2);
 		}
 		world.playSoundAtEntity(entityplayer, "random.bow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
 		if (!world.isRemote) {

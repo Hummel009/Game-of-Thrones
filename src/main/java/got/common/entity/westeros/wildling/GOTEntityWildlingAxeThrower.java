@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 public class GOTEntityWildlingAxeThrower extends GOTEntityWildling {
 	public GOTEntityWildlingAxeThrower(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override
@@ -22,7 +21,7 @@ public class GOTEntityWildlingAxeThrower extends GOTEntityWildling {
 		if (axeItem == null) {
 			axeItem = new ItemStack(GOTItems.ironThrowingAxe);
 		}
-		GOTEntityThrowingAxe axe = new GOTEntityThrowingAxe(worldObj, this, target, axeItem, 1.0f, (float) getEntityAttribute(npcRangedAccuracy).getAttributeValue());
+		GOTEntityThrowingAxe axe = new GOTEntityThrowingAxe(worldObj, this, target, axeItem, 1.0f, (float) getEntityAttribute(NPC_RANGED_ACCURACY).getAttributeValue());
 		playSound("random.bow", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.8f));
 		worldObj.spawnEntityInWorld(axe);
 		swingItem();

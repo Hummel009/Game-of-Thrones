@@ -10,7 +10,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.GOTUnitTradeEntry;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTAlignmentValues;
@@ -210,16 +210,16 @@ public abstract class GOTMiniQuest {
 				pouchCopy.setTagCompound(null);
 				itemsRewarded.add(pouchCopy);
 			}
-			npc.dropItemList(dropItems);
+			npc.dropItemList(dropItems, true);
 		}
 		if (willHire) {
 			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringAlignment);
-			tradeEntry.setTask(GOTHiredNPCInfo.Task.WARRIOR);
-			npc.hiredNPCInfo.hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
+			tradeEntry.setTask(GOTHireableInfo.Task.WARRIOR);
+			npc.getHireableInfo().hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
 			wasHired = true;
 		}
 		if (isLegendary) {
-			npc.hiredNPCInfo.isActive = true;
+			npc.getHireableInfo().setActive(true);
 		}
 		playerData.updateMiniQuest(this);
 		playerData.completeMiniQuest(this);
@@ -416,7 +416,7 @@ public abstract class GOTMiniQuest {
 		entityName = npc.getNPCName();
 		entityNameFull = npc.getCommandSenderName();
 		entityFaction = npc.getFaction();
-		questColor = npc.getMiniquestColor();
+		questColor = npc.getFaction().getFactionColor();
 	}
 
 	public GOTFaction getEntityFaction() {
@@ -527,7 +527,7 @@ public abstract class GOTMiniQuest {
 			biomeGiven = (GOTBiome) biome;
 		}
 		playerData.addMiniQuest(this);
-		npc.questInfo.addActiveQuestPlayer(entityplayer);
+		npc.getQuestInfo().addActiveQuestPlayer(entityplayer);
 		playerData.setTrackingMiniQuest(this);
 	}
 

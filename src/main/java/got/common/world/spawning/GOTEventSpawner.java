@@ -9,7 +9,7 @@ import got.common.database.GOTInvasions;
 import got.common.entity.other.GOTEntityInvasionSpawner;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
-import got.common.entity.westeros.GOTEntityLightSkinBandit;
+import got.common.entity.other.GOTEntityLightSkinBandit;
 import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
@@ -85,7 +85,7 @@ public class GOTEventSpawner {
 				}
 				bandit.onSpawnWithEgg(null);
 				world.spawnEntityInWorld(bandit);
-				bandit.isNPCPersistent = false;
+				bandit.setNPCPersistent(false);
 				banditsSpawned++;
 				if (banditsSpawned >= maxBandits) {
 					continue block0;

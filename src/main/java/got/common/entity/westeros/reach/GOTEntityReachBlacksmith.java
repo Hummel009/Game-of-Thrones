@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityReachBlacksmith extends GOTEntityReachMan implements GOTTradeable.Smith {
 	public GOTEntityReachBlacksmith(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

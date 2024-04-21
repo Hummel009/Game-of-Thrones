@@ -137,10 +137,10 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityDothraki.class);
+				spawner.setSpawnClass1(GOTEntityDothraki.class);
 				spawner.setCheckRanges(64, -12, 12, 24);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(40);
+				spawner.setBlockEnemySpawns(40);
 			}
 		}
 
@@ -151,10 +151,11 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityDothraki.class, GOTEntityDothrakiArcher.class);
+				spawner.setSpawnClass1(GOTEntityDothraki.class);
+				spawner.setSpawnClass2(GOTEntityDothrakiArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 12);
 				spawner.setSpawnRanges(32, -6, 6, 32);
-				spawner.setBlockEnemySpawnRange(40);
+				spawner.setBlockEnemySpawns(40);
 			}
 		}
 
@@ -165,10 +166,10 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityDothraki.class);
+				spawner.setSpawnClass1(GOTEntityDothraki.class);
 				spawner.setCheckRanges(80, -12, 12, 50);
 				spawner.setSpawnRanges(40, -8, 8, 40);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -179,10 +180,11 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityDothraki.class, GOTEntityDothrakiArcher.class);
+				spawner.setSpawnClass1(GOTEntityDothraki.class);
+				spawner.setSpawnClass2(GOTEntityDothrakiArcher.class);
 				spawner.setCheckRanges(80, -12, 12, 24);
 				spawner.setSpawnRanges(40, -8, 8, 40);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

@@ -72,19 +72,19 @@ public class GOTStructureJogosTentLarge extends GOTStructureJogosBase {
 		placeChest(world, random, -4, 1, -5, GOTBlocks.chestBasket, 3, GOTChestContents.JOGOS);
 		placeWallBanner(world, 0, 5, 7, GOTItemBanner.BannerType.JOGOS, 2);
 		GOTEntityJogos male = new GOTEntityJogos(world);
-		male.familyInfo.setMale(true);
+		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
-		male.spawnRidingHorse = false;
+		male.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityJogos female = new GOTEntityJogos(world);
-		female.familyInfo.setMale(false);
+		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
-		female.spawnRidingHorse = false;
+		female.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityJogos child = new GOTEntityJogos(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
-		child.spawnRidingHorse = false;
+		child.getFamilyInfo().setMale(random.nextBoolean());
+		child.getFamilyInfo().setChild();
+		child.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);
 		return true;
 	}

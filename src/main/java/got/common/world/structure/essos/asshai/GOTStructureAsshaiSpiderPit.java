@@ -184,7 +184,7 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 			}
 		}
 		GOTEntityNPCRespawner spiderSpawner = new GOTEntityNPCRespawner(world);
-		spiderSpawner.setSpawnClass(GOTEntityUlthosSpider.class);
+		spiderSpawner.setSpawnClass1(GOTEntityUlthosSpider.class);
 		spiderSpawner.setCheckRanges(12, -8, 16, 10);
 		spiderSpawner.setSpawnRanges(4, -4, 4, 24);
 		spiderSpawner.setSpawnInterval(1);

@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 public class GOTEntityVolantisGeneral extends GOTEntityVolantisSoldier implements GOTUnitTradeable {
 	public GOTEntityVolantisGeneral(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

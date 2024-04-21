@@ -20,7 +20,7 @@ public class GOTRenderWraithBall extends Render {
 		GL11.glEnable(3042);
 		GL11.glBlendFunc(770, 771);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.75f);
-		drawSprite(tessellator, ((GOTEntityMarshWraithBall) entity).animationTick);
+		drawSprite(tessellator, ((GOTEntityMarshWraithBall) entity).getAnimationTick());
 		GL11.glDisable(3042);
 		GL11.glDisable(32826);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);

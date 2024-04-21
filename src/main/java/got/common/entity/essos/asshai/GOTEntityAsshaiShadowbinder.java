@@ -12,7 +12,7 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 		super(world);
 		tasks.addTask(1, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
 		isImmuneToFire = true;
-		npcShield = null;
+		shield = null;
 	}
 
 	@Override

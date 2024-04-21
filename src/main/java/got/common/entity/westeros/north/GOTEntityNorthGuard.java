@@ -12,8 +12,8 @@ public class GOTEntityNorthGuard extends GOTEntityNorthLevyman {
 	public GOTEntityNorthGuard(World world) {
 		super(world);
 		spawnRidingHorse = false;
-		npcShield = GOTShields.NORTHGUARD;
-		npcCape = GOTCapes.NORTHGUARD;
+		shield = GOTShields.NORTHGUARD;
+		cape = GOTCapes.NORTHGUARD;
 		addTargetTasks(false);
 	}
 

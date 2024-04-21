@@ -18,7 +18,6 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrocodile(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(2.1f, 0.7f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -28,8 +27,6 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		spawnsInDarkness = true;
-		isNotHuman = true;
 	}
 
 	@Override
@@ -37,7 +34,7 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
-		getEntityAttribute(npcAttackDamage).setBaseValue(4.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(4.0);
 	}
 
 	@Override

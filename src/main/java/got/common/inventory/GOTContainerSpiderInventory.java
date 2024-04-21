@@ -1,6 +1,6 @@
 package got.common.inventory;
 
-import got.common.entity.other.GOTEntityNPCRideable;
+import got.common.entity.other.GOTEntitySpiderBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
@@ -8,11 +8,11 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class GOTContainerNPCMountInventory extends Container {
+public class GOTContainerSpiderInventory extends Container {
 	private final IInventory theMountInv;
-	private final GOTEntityNPCRideable theMount;
+	private final GOTEntitySpiderBase theMount;
 
-	public GOTContainerNPCMountInventory(IInventory playerInv, IInventory mountInv, GOTEntityNPCRideable mount) {
+	public GOTContainerSpiderInventory(IInventory playerInv, IInventory mountInv, GOTEntitySpiderBase mount) {
 		int j;
 		theMountInv = mountInv;
 		theMount = mount;
@@ -73,9 +73,9 @@ public class GOTContainerNPCMountInventory extends Container {
 	}
 
 	private static class MySlot2 extends Slot {
-		private final GOTEntityNPCRideable mount;
+		private final GOTEntitySpiderBase mount;
 
-		private MySlot2(IInventory mountInv, GOTEntityNPCRideable mount) {
+		private MySlot2(IInventory mountInv, GOTEntitySpiderBase mount) {
 			super(mountInv, 1, 8, 36);
 			this.mount = mount;
 		}

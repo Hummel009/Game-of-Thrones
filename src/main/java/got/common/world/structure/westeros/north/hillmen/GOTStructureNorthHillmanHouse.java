@@ -181,32 +181,32 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			switch (num) {
 				case 0:
 					GOTEntityNPC npc = new GOTEntityNorthHillmanArcher(world);
-					npc.spawnRidingHorse = false;
+					npc.setSpawnRidingHorse(false);
 					spawnNPCAndSetHome(npc, world, 0, 1, 0, 8);
 					break;
 				case 1:
 					GOTEntityNPC npc1 = new GOTEntityNorthHillmanAxeThrower(world);
-					npc1.spawnRidingHorse = false;
+					npc1.setSpawnRidingHorse(false);
 					spawnNPCAndSetHome(npc1, world, 0, 1, 0, 8);
 					break;
 				case 2:
 					GOTEntityNPC npc11 = new GOTEntityNorthHillmanWarrior(world);
-					npc11.spawnRidingHorse = false;
+					npc11.setSpawnRidingHorse(false);
 					spawnNPCAndSetHome(npc11, world, 0, 1, 0, 8);
 					break;
 			}
 		} else {
 			GOTEntityNorthHillman male = new GOTEntityNorthHillman(world);
-			male.familyInfo.setMale(true);
+			male.getFamilyInfo().setMale(true);
 			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, 0, 8);
 			GOTEntityNorthHillman female = new GOTEntityNorthHillman(world);
-			female.familyInfo.setMale(false);
+			female.getFamilyInfo().setMale(false);
 			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, 0, 8);
 			GOTEntityNorthHillman child = new GOTEntityNorthHillman(world);
-			child.familyInfo.setMale(random.nextBoolean());
-			child.familyInfo.setChild();
+			child.getFamilyInfo().setMale(random.nextBoolean());
+			child.getFamilyInfo().setChild();
 			spawnNPCAndSetHome(child, world, 0, 1, 0, 8);
 		}
 		return true;

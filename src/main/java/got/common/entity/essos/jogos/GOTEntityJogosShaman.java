@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class GOTEntityJogosShaman extends GOTEntityJogos implements GOTTradeable {
 	public GOTEntityJogosShaman(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

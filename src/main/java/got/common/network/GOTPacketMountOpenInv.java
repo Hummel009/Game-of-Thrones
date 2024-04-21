@@ -3,7 +3,7 @@ package got.common.network;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
-import got.common.entity.other.GOTEntityNPCRideable;
+import got.common.entity.other.GOTEntitySpiderBase;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -20,8 +20,8 @@ public class GOTPacketMountOpenInv implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketMountOpenInv packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			if (entityplayer.ridingEntity instanceof GOTEntityNPCRideable) {
-				((GOTEntityNPCRideable) entityplayer.ridingEntity).openGUI(entityplayer);
+			if (entityplayer.ridingEntity instanceof GOTEntitySpiderBase) {
+				((GOTEntitySpiderBase) entityplayer.ridingEntity).openGUI(entityplayer);
 			}
 			return null;
 		}

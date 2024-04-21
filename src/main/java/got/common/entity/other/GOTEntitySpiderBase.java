@@ -2,12 +2,15 @@ package got.common.entity.other;
 
 import got.GOT;
 import got.common.GOTLevelData;
+import got.common.database.GOTGuiId;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
-import got.common.entity.ai.GOTEntityAIUntamedPanic;
+import got.common.entity.ai.GOTEntityAIUntamedSpiderPanic;
 import got.common.faction.GOTAlignmentValues;
+import got.common.item.other.GOTItemMountArmor;
+import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,35 +19,42 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
-	public static int VENOM_NONE;
-	public static int VENOM_SLOWNESS = 1;
-	public static int VENOM_POISON = 2;
-	public static int CLIMB_TIME = 100;
+import java.util.UUID;
 
+@SuppressWarnings("WeakerAccess")
+public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPCMount {
+	public static final int CLIMB_TIME = 100;
+	protected static final int VENOM_NONE = 0;
+	protected static final int VENOM_SLOWNESS = 1;
+	protected static final int VENOM_POISON = 2;
+	private UUID tamingPlayer;
+	private int npcTemper;
+
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	protected GOTEntitySpiderBase(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(1.4f, 0.8f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new EntityAILeapAtTarget(this, 0.4f));
 		tasks.addTask(3, new GOTEntityAIAttackOnCollide(this, 1.4, false));
-		tasks.addTask(4, new GOTEntityAIUntamedPanic(this, 1.2));
+		tasks.addTask(4, new GOTEntityAIUntamedSpiderPanic(this, 1.2));
 		tasks.addTask(5, new GOTEntityAIFollowHiringPlayer(this));
 		tasks.addTask(6, new EntityAIWander(this, 1.0));
 		tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(8, new EntityAILookIdle(this));
 		addTargetTasks(true);
-		spawnsInDarkness = true;
 	}
 
 	@Override
@@ -57,7 +67,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(12.0 + getSpiderScale() * 6.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35 - getSpiderScale() * 0.03);
-		getEntityAttribute(npcAttackDamage).setBaseValue(2.0 + getSpiderScale());
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(2.0 + getSpiderScale());
 	}
 
 	@Override
@@ -82,17 +92,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		return damagesource != DamageSource.fall && super.attackEntityFrom(damagesource, f);
 	}
 
-	@Override
-	public boolean canDropRares() {
-		return false;
-	}
-
-	@Override
-	public boolean canReEquipHired(int slot, ItemStack itemstack) {
-		return false;
-	}
-
-	public boolean canRideSpider() {
+	private boolean canRideSpider() {
 		return getSpiderScale() > 0;
 	}
 
@@ -111,6 +111,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 	@Override
 	public void entityInit() {
 		super.entityInit();
+		dataWatcher.addObject(17, (byte) 0);
 		dataWatcher.addObject(20, (byte) 0);
 		dataWatcher.addObject(21, (byte) 0);
 		dataWatcher.addObject(22, (byte) getRandomSpiderScale());
@@ -123,9 +124,8 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		playSound("mob.spider.step", 0.15f, 1.0f);
 	}
 
-	@Override
-	public double getBaseMountedYOffset() {
-		return height - 0.7;
+	private double getBaseMountedYOffset() {
+		return height * 0.5;
 	}
 
 	@Override
@@ -134,6 +134,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 	}
 
 	@Override
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void setBelongsToNPC(boolean flag) {
 	}
 
@@ -151,12 +152,6 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 	@Override
 	public String getDeathSound() {
 		return "mob.spider.death";
-	}
-
-	@Override
-	public int getExperiencePoints(EntityPlayer entityplayer) {
-		int i = getSpiderScale();
-		return 2 + i + rand.nextInt(i + 2);
 	}
 
 	@Override
@@ -188,15 +183,15 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		return getSpiderScaleAmount();
 	}
 
-	public int getSpiderClimbTime() {
+	private int getSpiderClimbTime() {
 		return dataWatcher.getWatchableObjectShort(23);
 	}
 
-	public void setSpiderClimbTime(int i) {
+	private void setSpiderClimbTime(int i) {
 		dataWatcher.updateObject(23, (short) i);
 	}
 
-	public int getSpiderScale() {
+	private int getSpiderScale() {
 		return dataWatcher.getWatchableObjectByte(22);
 	}
 
@@ -212,7 +207,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		return dataWatcher.getWatchableObjectByte(21);
 	}
 
-	public void setSpiderType(int i) {
+	private void setSpiderType(int i) {
 		dataWatcher.updateObject(21, (byte) i);
 	}
 
@@ -228,7 +223,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 			}
 			return true;
 		}
-		if (worldObj.isRemote || hiredNPCInfo.isActive) {
+		if (worldObj.isRemote || hireableInfo.isActive()) {
 			return false;
 		}
 		if (GOTMountFunctions.interact(this, entityplayer)) {
@@ -286,19 +281,20 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		return (getSpiderType() != VENOM_SLOWNESS || effect.getPotionID() != Potion.moveSlowdown.id) && (getSpiderType() != VENOM_POISON || effect.getPotionID() != Potion.poison.id) && super.isPotionApplicable(effect);
 	}
 
-	public boolean isSpiderClimbing() {
+	private boolean isSpiderClimbing() {
 		return (dataWatcher.getWatchableObjectByte(20) & 1) != 0;
 	}
 
-	public void setSpiderClimbing(boolean flag) {
+	private void setSpiderClimbing(boolean flag) {
 		byte b = dataWatcher.getWatchableObjectByte(20);
-		b = flag ? (byte) (b | 1) : (byte) (b & 0xFFFFFFFE);
+		b = (byte) (flag ? b | 1 : b & 0xFFFFFFFE);
 		dataWatcher.updateObject(20, b);
 	}
 
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		GOTMountFunctions.update(this);
 		if (!worldObj.isRemote) {
 			Entity rider = riddenByEntity;
 			if (rider instanceof EntityPlayer && !onGround) {
@@ -325,13 +321,19 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
+		setNPCTamed(nbt.getBoolean("NPCTamed"));
+		if (nbt.hasKey("NPCTamer")) {
+			tamingPlayer = UUID.fromString(nbt.getString("NPCTamer"));
+		}
+		npcTemper = nbt.getInteger("NPCTemper");
 		setSpiderType(nbt.getByte("SpiderType"));
 		setSpiderScale(nbt.getByte("SpiderScale"));
-		getEntityAttribute(npcAttackDamage).setBaseValue(2.0 + getSpiderScale());
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(2.0 + getSpiderScale());
 		setSpiderClimbTime(nbt.getShort("SpiderRideTime"));
 	}
 
 	@Override
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void setInWeb() {
 	}
 
@@ -342,8 +344,103 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
+		nbt.setBoolean("NPCTamed", isNPCTamed());
+		if (tamingPlayer != null) {
+			nbt.setString("NPCTamer", tamingPlayer.toString());
+		}
+		nbt.setInteger("NPCTemper", npcTemper);
 		nbt.setByte("SpiderType", (byte) getSpiderType());
 		nbt.setByte("SpiderScale", (byte) getSpiderScale());
 		nbt.setShort("SpiderRideTime", (short) getSpiderClimbTime());
+	}
+
+
+	public void angerNPC() {
+		playSound(getHurtSound(), getSoundVolume(), getSoundPitch() * 1.5f);
+	}
+
+	@Override
+	public boolean canDespawn() {
+		return super.canDespawn() && !isNPCTamed();
+	}
+
+	@Override
+	public boolean getCanSpawnHere() {
+		if (super.getCanSpawnHere()) {
+			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
+			int k = MathHelper.floor_double(posZ);
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
+		}
+		return false;
+	}
+
+	public int getMaxNPCTemper() {
+		return 100;
+	}
+
+	@Override
+	public double getMountedYOffset() {
+		double d = getBaseMountedYOffset();
+		if (riddenByEntity != null) {
+			d += riddenByEntity.yOffset - riddenByEntity.getYOffset();
+		}
+		return d;
+	}
+
+	public IInventory getMountInventory() {
+		return null;
+	}
+
+	public int getNPCTemper() {
+		return npcTemper;
+	}
+
+	@Override
+	public float getStepHeightWhileRiddenByPlayer() {
+		return 1.0f;
+	}
+
+	public void increaseNPCTemper(int i) {
+		npcTemper = MathHelper.clamp_int(npcTemper + i, 0, getMaxNPCTemper());
+	}
+
+	@Override
+	public boolean isMountArmorValid(ItemStack itemstack) {
+		if (itemstack != null && itemstack.getItem() instanceof GOTItemMountArmor) {
+			GOTItemMountArmor armor = (GOTItemMountArmor) itemstack.getItem();
+			return armor.isValid(this);
+		}
+		return false;
+	}
+
+	public boolean isNPCTamed() {
+		return dataWatcher.getWatchableObjectByte(17) == 1;
+	}
+
+	private void setNPCTamed(boolean flag) {
+		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
+	}
+
+	@Override
+	public void moveEntityWithHeading(float strafe, float forward) {
+		GOTMountFunctions.move(this, strafe, forward);
+	}
+
+	public void openGUI(EntityPlayer entityplayer) {
+		IInventory inv = getMountInventory();
+		if (inv != null && !worldObj.isRemote && (riddenByEntity == null || riddenByEntity == entityplayer) && isNPCTamed()) {
+			entityplayer.openGui(GOT.instance, GOTGuiId.MOUNT_INVENTORY.ordinal(), worldObj, getEntityId(), inv.getSizeInventory(), 0);
+		}
+	}
+
+	@Override
+	public void super_moveEntityWithHeading(float strafe, float forward) {
+		super.moveEntityWithHeading(strafe, forward);
+	}
+
+	public void tameNPC(EntityPlayer entityplayer) {
+		setNPCTamed(true);
+		tamingPlayer = entityplayer.getUniqueID();
 	}
 }

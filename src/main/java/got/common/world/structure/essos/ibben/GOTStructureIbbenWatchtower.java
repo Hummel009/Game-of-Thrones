@@ -163,7 +163,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 		int soldiers = 1 + random.nextInt(3);
 		for (int l = 0; l < soldiers; ++l) {
 			GOTEntityIbbenWarrior ibbenese = random.nextInt(3) == 0 ? new GOTEntityIbbenArcher(world) : new GOTEntityIbbenWarrior(world);
-			ibbenese.spawnRidingHorse = false;
+			ibbenese.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(ibbenese, world, 0, 1, 0, 4);
 		}
 		return true;

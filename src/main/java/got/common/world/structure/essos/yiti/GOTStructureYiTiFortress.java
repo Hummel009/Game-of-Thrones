@@ -671,10 +671,10 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 			leashEntityTo(horse, world, i110, 2, 6);
 		}
 		GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
-		priest.spawnRidingHorse = false;
+		priest.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
 		GOTEntityYiTiShogune captain = new GOTEntityYiTiShogune(world);
-		captain.spawnRidingHorse = false;
+		captain.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
 		int soldiers = 4 + random.nextInt(4);
 		for (int l = 0; l < soldiers; ++l) {
@@ -682,16 +682,17 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 			if (random.nextInt(3) == 0) {
 				soldier = new GOTEntityYiTiSamurai(world);
 			}
-			soldier.spawnRidingHorse = false;
+			soldier.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityYiTiSoldier.class, GOTEntityYiTiSoldierCrossbower.class);
+		respawner.setSpawnClass1(GOTEntityYiTiSoldier.class);
+		respawner.setSpawnClass2(GOTEntityYiTiSoldierCrossbower.class);
 		respawner.setCheckRanges(20, -8, 12, 10);
 		respawner.setSpawnRanges(10, 0, 8, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);
 		GOTEntityNPCRespawner respawnerGold = new GOTEntityNPCRespawner(world);
-		respawnerGold.setSpawnClass(GOTEntityYiTiSamurai.class);
+		respawnerGold.setSpawnClass1(GOTEntityYiTiSamurai.class);
 		respawnerGold.setCheckRanges(20, -8, 12, 5);
 		respawnerGold.setSpawnRanges(10, 0, 8, 16);
 		placeNPCRespawner(respawnerGold, world, 0, 0, 0);

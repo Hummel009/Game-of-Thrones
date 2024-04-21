@@ -19,7 +19,7 @@ public class GOTDispenseBomb extends BehaviorDefaultDispenseItem {
 		GOTEntityBomb bomb = new GOTEntityBomb(world, i + 0.5f, j + 0.5f, k + 0.5f, null);
 		bomb.fuse += itemstack.getItemDamage() * 10;
 		bomb.setBombStrengthLevel(itemstack.getItemDamage());
-		bomb.droppedByPlayer = true;
+		bomb.setDroppedByPlayer(true);
 		world.spawnEntityInWorld(bomb);
 		--itemstack.stackSize;
 		return itemstack;

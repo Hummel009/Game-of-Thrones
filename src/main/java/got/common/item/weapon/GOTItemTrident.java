@@ -78,7 +78,7 @@ public class GOTItemTrident extends GOTItemPolearm {
 						int luck = EnchantmentHelper.func_151386_g(entityplayer);
 						int speed = EnchantmentHelper.func_151387_h(entityplayer);
 						GOTFishing.FishResult result = GOTFishing.getFishResult(world.rand, chance, luck, speed, false);
-						EntityItem fish = new EntityItem(world, i + 0.5, j + 0.5, k + 0.5, result.fishedItem);
+						EntityItem fish = new EntityItem(world, i + 0.5, j + 0.5, k + 0.5, result.getFishedItem());
 						double d = entityplayer.posX - fish.posX;
 						double d1 = entityplayer.posY - fish.posY;
 						double d2 = entityplayer.posZ - fish.posZ;
@@ -88,7 +88,7 @@ public class GOTItemTrident extends GOTItemPolearm {
 						fish.motionY = d1 * motion + MathHelper.sqrt_double(dist) * 0.08;
 						fish.motionZ = d2 * motion;
 						world.spawnEntityInWorld(fish);
-						entityplayer.addStat(result.category.stat, 1);
+						entityplayer.addStat(result.getCategory().stat, 1);
 						world.spawnEntityInWorld(new EntityXPOrb(world, fish.posX, fish.posY, fish.posZ, world.rand.nextInt(3) + 1));
 					}
 				}

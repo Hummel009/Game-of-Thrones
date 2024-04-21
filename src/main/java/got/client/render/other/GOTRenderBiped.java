@@ -42,7 +42,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		super.doRender(entity, d, d1, d2, f, f1);
 		if (Minecraft.isGuiEnabled() && entity instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) entity;
-			if (npc.hiredNPCInfo.getHiringPlayer() == renderManager.livingPlayer) {
+			if (npc.getHireableInfo().getHiringPlayer() == renderManager.livingPlayer) {
 				GOTNPCRendering.renderHiredIcon(npc, d, d1 + 0.5, d2);
 				GOTNPCRendering.renderNPCHealthBar(npc, d, d1 + 0.5, d2);
 			}
@@ -222,14 +222,14 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	}
 
 	private void renderNPCCape(GOTEntityNPC entity) {
-		GOTCapes cape = entity.npcCape;
+		GOTCapes cape = entity.getCape();
 		if (cape != null) {
 			GOTRenderCape.renderCape(cape, CAPE_MODEL);
 		}
 	}
 
 	private void renderNPCShield(GOTEntityNPC entity) {
-		GOTShields shield = entity.npcShield;
+		GOTShields shield = entity.getShield();
 		if (shield != null) {
 			GOTRenderShield.renderShield(shield, entity, modelBipedMain);
 		}

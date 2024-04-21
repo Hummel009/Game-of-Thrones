@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarHarpy(World world) {
 		super(world);
-		spawnsInDarkness = true;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 

@@ -10,10 +10,9 @@ import net.minecraft.world.World;
 public class GOTEntityMyrSoldier extends GOTEntityMyrLevyman {
 	public GOTEntityMyrSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcCape = GOTCapes.MYR;
-		npcShield = GOTShields.MYR;
+		cape = GOTCapes.MYR;
+		shield = GOTShields.MYR;
 	}
 
 	@Override

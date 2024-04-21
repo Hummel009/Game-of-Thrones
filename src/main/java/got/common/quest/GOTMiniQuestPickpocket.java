@@ -10,7 +10,8 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.GOTEntityUtils;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.GOTUnitTradeEntry;
 import got.common.faction.GOTAlignmentValues;
 import got.common.item.other.GOTItemCoin;
@@ -110,16 +111,16 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				pouchCopy.setTagCompound(null);
 				itemsRewarded.add(pouchCopy);
 			}
-			npc.dropItemList(dropItems);
+			npc.dropItemList(dropItems, true);
 		}
 		if (willHire) {
 			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringAlignment);
-			tradeEntry.setTask(GOTHiredNPCInfo.Task.WARRIOR);
-			npc.hiredNPCInfo.hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
+			tradeEntry.setTask(GOTHireableInfo.Task.WARRIOR);
+			npc.getHireableInfo().hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
 			wasHired = true;
 		}
 		if (isLegendary) {
-			npc.hiredNPCInfo.isActive = true;
+			npc.getHireableInfo().setActive(true);
 		}
 		playerData.updateMiniQuest(this);
 		playerData.completeMiniQuest(this);
@@ -174,12 +175,12 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
-		return IPickpocketable.Helper.isPickpocketed(itemstack) && entityUUID.equals(IPickpocketable.Helper.getWanterID(itemstack));
+		return GOTPickpoketableHelper.isPickpocketed(itemstack) && entityUUID.equals(GOTPickpoketableHelper.getWanterID(itemstack));
 	}
 
 	@Override
 	public boolean onInteractOther(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		if (entityplayer.isSneaking() && entityplayer.getHeldItem() == null && npc instanceof IPickpocketable) {
+		if (entityplayer.isSneaking() && entityplayer.getHeldItem() == null && GOTEntityUtils.canBeRobbed(npc)) {
 			UUID id = npc.getPersistentID();
 			if (!pickpocketedEntityIDs.contains(id)) {
 				boolean noticed;
@@ -196,7 +197,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				boolean anyoneNoticed = noticed = rand.nextInt(success ? 3 : 4) == 0;
 				if (success) {
 					ItemStack picked = GOTChestContents.TREASURE.getOneItem(rand, true);
-					IPickpocketable.Helper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, entityUUID);
+					GOTPickpoketableHelper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, entityUUID);
 					entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, picked);
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.chat.pickpocket.success", picked.stackSize, picked.getDisplayName(), npc.getNPCName())));
 					npc.playSound("got:event.trade", 0.5f, 1.0f + (rand.nextFloat() - rand.nextFloat()) * 0.1f);
@@ -346,7 +347,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		@Override
 		public boolean isEntityApplicable(Entity entity) {
 			GOTEntityNPC otherNPC = (GOTEntityNPC) entity;
-			return otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction()) && otherNPC.hiredNPCInfo.getHiringPlayer() != entityplayer;
+			return otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction()) && otherNPC.getHireableInfo().getHiringPlayer() != entityplayer;
 		}
 	}
 }

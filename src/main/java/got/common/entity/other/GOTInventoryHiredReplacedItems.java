@@ -5,15 +5,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
-	public static int HELMET;
-	public static int BODY = 1;
-	public static int LEGS = 2;
-	public static int BOOTS = 3;
-	public static int MELEE = 4;
-	public static int BOMB = 5;
-	public static int RANGED = 6;
-	public boolean[] hasReplacedEquipment = new boolean[7];
-	public boolean replacedMeleeWeapons;
+	public static final int HELMET = 0;
+	public static final int BODY = 1;
+	public static final int LEGS = 2;
+	public static final int BOOTS = 3;
+	public static final int MELEE = 4;
+	public static final int BOMB = 5;
+	public static final int RANGED = 6;
+
+	private final boolean[] hasReplacedEquipment = new boolean[7];
+
+	private boolean replacedMeleeWeapons;
 
 	public GOTInventoryHiredReplacedItems(GOTEntityNPC npc) {
 		super("HiredReplacedItems", npc, 7);
@@ -31,7 +33,7 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		}
 	}
 
-	public void equipReplacement(int i, ItemStack itemstack) {
+	private void equipReplacement(int i, ItemStack itemstack) {
 		switch (i) {
 			case 4:
 				boolean idleMelee = ItemStack.areItemStacksEqual(getTheNPC().npcItemsInv.getMeleeWeapon(), getTheNPC().npcItemsInv.getIdleItem());
@@ -77,11 +79,11 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		return getTheNPC().getEquipmentInSlot(getNPCArmorSlot(i));
 	}
 
-	public int getNPCArmorSlot(int i) {
+	private int getNPCArmorSlot(int i) {
 		return 4 - i;
 	}
 
-	public ItemStack getReplacedEquipment(int i) {
+	private ItemStack getReplacedEquipment(int i) {
 		ItemStack item = getStackInSlot(i);
 		return item == null ? null : item.copy();
 	}
@@ -115,7 +117,7 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		replacedMeleeWeapons = nbt.getBoolean("ReplacedMelee");
 	}
 
-	public void setReplacedEquipment(int i, ItemStack item, boolean flag) {
+	private void setReplacedEquipment(int i, ItemStack item, boolean flag) {
 		setInventorySlotContents(i, item);
 		hasReplacedEquipment[i] = flag;
 		if (!flag && i == 4) {
@@ -132,7 +134,7 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		}
 	}
 
-	public void updateHeldItem() {
+	private void updateHeldItem() {
 		if (!getTheNPC().npcItemsInv.getIsEating()) {
 			getTheNPC().refreshCurrentAttackMode();
 		}

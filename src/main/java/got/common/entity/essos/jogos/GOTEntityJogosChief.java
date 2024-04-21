@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityJogosChief extends GOTEntityJogos implements GOTUnitTradeable {
 	public GOTEntityJogosChief(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

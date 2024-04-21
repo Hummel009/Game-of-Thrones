@@ -22,8 +22,7 @@ import net.minecraft.world.World;
 public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	public GOTEntityTheonGreyjoy(World world) {
 		super(world);
-		canBeMarried = false;
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
@@ -52,7 +51,6 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	public static class TheonGreyjoyNormal extends GOTEntityTheonGreyjoy {
 		public TheonGreyjoyNormal(World world) {
 			super(world);
-			canBeMarried = false;
 			tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));
 			addTargetTasks();
 		}
@@ -122,7 +120,6 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	public static class TheonGreyjoyTormented extends GOTEntityTheonGreyjoy {
 		public TheonGreyjoyTormented(World world) {
 			super(world);
-			canBeMarried = false;
 			addTargetTasks(false);
 			tasks.addTask(2, new EntityAIPanic(this, 1.4));
 		}

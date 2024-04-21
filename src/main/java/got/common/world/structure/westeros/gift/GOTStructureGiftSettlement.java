@@ -204,7 +204,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityGiftMan.class);
+				spawner.setSpawnClass1(GOTEntityGiftMan.class);
 				spawner.setCheckRanges(40, -12, 12, 30);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 			}
@@ -217,7 +217,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityGiftGuard.class);
+				spawner.setSpawnClass1(GOTEntityGiftGuard.class);
 				spawner.setCheckRanges(40, -12, 12, 12);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 			}

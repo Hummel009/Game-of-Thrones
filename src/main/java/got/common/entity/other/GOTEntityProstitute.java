@@ -17,11 +17,11 @@ import net.minecraft.world.World;
 import java.util.Locale;
 
 public class GOTEntityProstitute extends GOTEntityHumanBase {
-	public ProstituteType prostituteType;
+	private ProstituteType prostituteType;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityProstitute(World world) {
 		super(world);
-		canBeMarried = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -48,11 +48,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public boolean canRenameNPC() {
-		return true;
-	}
-
-	@Override
 	public void entityInit() {
 		super.entityInit();
 		dataWatcher.addObject(18, (byte) 0);
@@ -74,8 +69,8 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		return ProstituteType.forID(i);
 	}
 
-	public void setProstituteType(ProstituteType t) {
-		dataWatcher.updateObject(18, (byte) t.prostituteID);
+	private void setProstituteType(ProstituteType t) {
+		dataWatcher.updateObject(18, (byte) t.getProstituteID());
 	}
 
 	@Override
@@ -171,19 +166,19 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setByte("ProstituteType", (byte) getProstituteType().prostituteID);
+		nbt.setByte("ProstituteType", (byte) getProstituteType().getProstituteID());
 	}
 
 	public enum ProstituteType {
 		LIGHT_1(0), LIGHT_2(1), LIGHT_3(2), LIGHT_4(3), LIGHT_5(4), DARK(5), BLACK(6), NOMAD(7), YITI(8), JOGOS(9), WILD(10);
 
-		public int prostituteID;
+		private final int prostituteID;
 
 		ProstituteType(int i) {
 			prostituteID = i;
 		}
 
-		public static ProstituteType forID(int ID) {
+		private static ProstituteType forID(int ID) {
 			for (ProstituteType t : values()) {
 				if (t.prostituteID == ID) {
 					return t;
@@ -194,6 +189,10 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 
 		public String textureName() {
 			return name().toLowerCase(Locale.ROOT);
+		}
+
+		private int getProstituteID() {
+			return prostituteID;
 		}
 	}
 }

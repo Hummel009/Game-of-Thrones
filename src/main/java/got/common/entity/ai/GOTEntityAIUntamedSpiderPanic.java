@@ -1,13 +1,13 @@
 package got.common.entity.ai;
 
-import got.common.entity.other.GOTEntityNPCRideable;
+import got.common.entity.other.GOTEntitySpiderBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
 
-public class GOTEntityAIUntamedPanic extends EntityAIBase {
-	private final GOTEntityNPCRideable theMount;
+public class GOTEntityAIUntamedSpiderPanic extends EntityAIBase {
+	private final GOTEntitySpiderBase theMount;
 	private final double speed;
 
 	private double targetX;
@@ -15,7 +15,7 @@ public class GOTEntityAIUntamedPanic extends EntityAIBase {
 	private double targetZ;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityAIUntamedPanic(GOTEntityNPCRideable mount, double d) {
+	public GOTEntityAIUntamedSpiderPanic(GOTEntitySpiderBase mount, double d) {
 		theMount = mount;
 		speed = d;
 		setMutexBits(1);

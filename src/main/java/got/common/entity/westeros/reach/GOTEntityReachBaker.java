@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 public class GOTEntityReachBaker extends GOTEntityReachMarketTrader {
 	public GOTEntityReachBaker(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

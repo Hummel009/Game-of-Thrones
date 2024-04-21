@@ -21,9 +21,8 @@ import net.minecraft.world.World;
 public class GOTEntitySandorClegane extends GOTEntityHumanBase {
 	public GOTEntitySandorClegane(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks();
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f * 1.2f, 1.8f * 1.2f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

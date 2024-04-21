@@ -1,7 +1,7 @@
 package got.common.inventory;
 
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -14,11 +14,11 @@ public class GOTContainerHiredFarmerInventory extends Container {
 	public GOTContainerHiredFarmerInventory(InventoryPlayer inv, GOTEntityNPC entity) {
 		int i;
 		theNPC = entity;
-		addSlotToContainer(new GOTSlotSeeds(theNPC.hiredNPCInfo.getHiredInventory(), 0, 80, 21, theNPC.worldObj));
+		addSlotToContainer(new GOTSlotSeeds(theNPC.getHireableInfo().getHiredInventory(), 0, 80, 21, theNPC.worldObj));
 		for (i = 0; i < 2; ++i) {
-			addSlotToContainer(new GOTSlotProtected(theNPC.hiredNPCInfo.getHiredInventory(), i + 1, 71 + i * 18, 47));
+			addSlotToContainer(new GOTSlotProtected(theNPC.getHireableInfo().getHiredInventory(), i + 1, 71 + i * 18, 47));
 		}
-		addSlotToContainer(new GOTSlotBonemeal(theNPC.hiredNPCInfo.getHiredInventory(), 3, 123, 34));
+		addSlotToContainer(new GOTSlotBonemeal(theNPC.getHireableInfo().getHiredInventory(), 3, 123, 34));
 		for (i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 79 + i * 18));
@@ -31,14 +31,14 @@ public class GOTContainerHiredFarmerInventory extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return theNPC != null && theNPC.isEntityAlive() && theNPC.hiredNPCInfo.isActive && theNPC.hiredNPCInfo.getHiringPlayer() == entityplayer && theNPC.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER && entityplayer.getDistanceSqToEntity(theNPC) <= 144.0;
+		return theNPC != null && theNPC.isEntityAlive() && theNPC.getHireableInfo().isActive() && theNPC.getHireableInfo().getHiringPlayer() == entityplayer && theNPC.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.FARMER && entityplayer.getDistanceSqToEntity(theNPC) <= 144.0;
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
 		if (!theNPC.worldObj.isRemote) {
-			theNPC.hiredNPCInfo.sendClientPacket(true);
+			theNPC.getHireableInfo().sendClientPacket(true);
 		}
 	}
 

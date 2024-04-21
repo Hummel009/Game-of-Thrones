@@ -11,18 +11,17 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBarrowWight extends GOTEntityNPC {
-	public static Potion[] attackEffects = {Potion.moveSlowdown, Potion.digSlowdown, Potion.wither};
+	private static final Potion[] ATTACK_EFFECTS = {Potion.moveSlowdown, Potion.digSlowdown, Potion.wither};
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBarrowWight(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.8f, 2.5f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -35,7 +34,6 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 		tasks.addTask(6, new EntityAIWatchClosest(this, EntityLiving.class, 12.0f, 0.02f));
 		tasks.addTask(7, new EntityAILookIdle(this));
 		addTargetTasks(true);
-		spawnsInDarkness = true;
 		isImmuneToFire = true;
 	}
 
@@ -45,7 +43,7 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(npcAttackDamage).setBaseValue(6.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(6.0);
 	}
 
 	@Override
@@ -54,17 +52,12 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 			int difficulty;
 			int duration;
 			if (entity instanceof EntityLivingBase && (duration = (difficulty = worldObj.difficultySetting.getDifficultyId()) * (difficulty + 5) / 2) > 0) {
-				for (Potion effect : attackEffects) {
+				for (Potion effect : ATTACK_EFFECTS) {
 					((EntityLivingBase) entity).addPotionEffect(new PotionEffect(effect.id, duration * 20, 0));
 				}
 			}
 			return true;
 		}
-		return false;
-	}
-
-	@Override
-	public boolean canReEquipHired(int slot, ItemStack itemstack) {
 		return false;
 	}
 
@@ -90,7 +83,7 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);
@@ -112,11 +105,6 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 	}
 
 	@Override
-	public int getExperiencePoints(EntityPlayer entityplayer) {
-		return 4 + rand.nextInt(5);
-	}
-
-	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.HOSTILE;
 	}
@@ -130,11 +118,11 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
-	public void setTargetEntityID(Entity entity) {
+	private void setTargetEntityID(Entity entity) {
 		dataWatcher.updateObject(16, entity == null ? -1 : entity.getEntityId());
 	}
 
-	public EntityAIBase getWightAttackAI() {
+	private EntityAIBase getWightAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 

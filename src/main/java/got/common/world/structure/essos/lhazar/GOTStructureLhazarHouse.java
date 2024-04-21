@@ -83,16 +83,16 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 			placeMug(world, random, i1, j12, k1, 3, GOTFoods.NOMAD_DRINK);
 		}
 		GOTEntityLhazarMan male = new GOTEntityLhazarMan(world);
-		male.familyInfo.setMale(true);
+		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 0, 0, 16);
 		GOTEntityLhazarMan female = new GOTEntityLhazarMan(world);
-		female.familyInfo.setMale(false);
+		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 0, 0, 16);
 		GOTEntityLhazarMan child = new GOTEntityLhazarMan(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
+		child.getFamilyInfo().setMale(random.nextBoolean());
+		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 0, 0, 16);
 		return true;
 	}

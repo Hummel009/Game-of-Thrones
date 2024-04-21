@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntitySummerBlacksmith extends GOTEntitySummerMan implements GOTTradeable.Smith {
 	public GOTEntitySummerBlacksmith(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

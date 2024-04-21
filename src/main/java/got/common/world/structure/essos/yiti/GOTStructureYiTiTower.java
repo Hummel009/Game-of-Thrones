@@ -211,11 +211,12 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		int soldiers = 1 + random.nextInt(3);
 		for (int l = 0; l < soldiers; ++l) {
 			GOTEntityYiTiSoldier soldier = random.nextInt(3) == 0 ? new GOTEntityYiTiSoldierCrossbower(world) : new GOTEntityYiTiSoldier(world);
-			soldier.spawnRidingHorse = false;
+			soldier.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityYiTiSoldier.class, GOTEntityYiTiSoldierCrossbower.class);
+		respawner.setSpawnClass1(GOTEntityYiTiSoldier.class);
+		respawner.setSpawnClass2(GOTEntityYiTiSoldierCrossbower.class);
 		respawner.setCheckRanges(16, -8, 8, 6);
 		respawner.setSpawnRanges(3, -6, 6, 16);
 		placeNPCRespawner(respawner, world, 0, 6, 0);

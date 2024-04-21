@@ -56,7 +56,7 @@ public class GOTPacketTraderInfo implements IMessage {
 			Container container = entityplayer.openContainer;
 			if (container instanceof GOTContainerTrade) {
 				GOTContainerTrade containerTrade = (GOTContainerTrade) container;
-				containerTrade.getTheTraderNPC().traderNPCInfo.receiveClientPacket(packet);
+				containerTrade.getTheTraderNPC().getTraderInfo().receiveClientPacket(packet);
 			}
 			return null;
 		}

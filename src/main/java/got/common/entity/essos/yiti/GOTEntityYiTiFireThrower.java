@@ -17,7 +17,6 @@ public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
 
 	public GOTEntityYiTiFireThrower(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 	}
 

@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityIronbornCaptain extends GOTEntityIronbornSoldier implements GOTUnitTradeable {
 	public GOTEntityIronbornCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.IRONBORN;
+		cape = GOTCapes.IRONBORN;
 	}
 
 	@Override

@@ -132,7 +132,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
 		drawTexturedModalRect(reqX, reqY += reqGap, 0, 36, 16, 16);
-		float alignment = curTrade.alignmentRequired;
+		float alignment = curTrade.getAlignmentRequired();
 		String alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
 		fontRendererObj.drawString(alignS, reqXText, reqY + reqYTextBelow, 4210752);
 		if (curTrade.getPledgeType() != GOTUnitTradeEntry.PledgeType.NONE) {
@@ -186,8 +186,8 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	}
 
 	private void drawMobOnGui(int i, int j, float f, float f1) {
-		Class<? extends Entity> entityClass = currentTrade().entityClass;
-		Class<? extends Entity> mountClass = currentTrade().mountClass;
+		Class<? extends Entity> entityClass = currentTrade().getEntityClass();
+		Class<? extends Entity> mountClass = currentTrade().getMountClass();
 		if (currentDisplayedMob == null || currentDisplayedMob.getClass() != entityClass || mountClass == null && currentDisplayedMount != null || mountClass != null && (currentDisplayedMount == null || currentDisplayedMount.getClass() != mountClass)) {
 			currentDisplayedMob = currentTrade().getOrCreateHiredNPC(mc.theWorld);
 			if (mountClass != null) {

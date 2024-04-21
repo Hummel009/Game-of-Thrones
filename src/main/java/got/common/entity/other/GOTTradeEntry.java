@@ -1,18 +1,22 @@
 package got.common.entity.other;
 
+import got.common.entity.other.info.GOTTraderInfo;
 import got.common.item.other.GOTItemMug;
-import got.common.quest.IPickpocketable;
+import got.common.quest.GOTPickpoketableHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class GOTTradeEntry {
-	public ItemStack tradeItem;
-	public int tradeCost;
-	public int recentTradeValue;
-	public int lockedTicks;
-	public GOTTraderNPCInfo theTrader;
+	private final ItemStack tradeItem;
 
+	private GOTTraderInfo theTrader;
+
+	private int tradeCost;
+	private int recentTradeValue;
+	private int lockedTicks;
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTradeEntry(ItemStack itemstack, int cost) {
 		tradeItem = itemstack;
 		tradeCost = cost;
@@ -48,18 +52,18 @@ public class GOTTradeEntry {
 		tradeCost = i;
 	}
 
-	public float getLockedProgress() {
+	private float getLockedProgress() {
 		if (theTrader != null && theTrader.shouldLockTrades()) {
 			return (float) recentTradeValue / theTrader.getLockTradeAtValue();
 		}
 		return 0.0f;
 	}
 
-	public int getLockedProgressForSlot() {
+	private int getLockedProgressForSlot() {
 		return getLockedProgressInt(16);
 	}
 
-	public int getLockedProgressInt(int i) {
+	private int getLockedProgressInt(int i) {
 		float f = getLockedProgress();
 		return Math.round(f * i);
 	}
@@ -69,7 +73,7 @@ public class GOTTradeEntry {
 	}
 
 	public boolean matches(ItemStack itemstack) {
-		if (IPickpocketable.Helper.isPickpocketed(itemstack)) {
+		if (GOTPickpoketableHelper.isPickpocketed(itemstack)) {
 			return false;
 		}
 		ItemStack tradeCreated = createTradeItem();
@@ -85,7 +89,7 @@ public class GOTTradeEntry {
 		lockedTicks = ticks;
 	}
 
-	public void setOwningTrader(GOTTraderNPCInfo trader) {
+	public void setOwningTrader(GOTTraderInfo trader) {
 		if (theTrader != null) {
 			throw new IllegalArgumentException("Cannot assign already-owned trade entry to a different trader!");
 		}
@@ -109,5 +113,9 @@ public class GOTTradeEntry {
 		nbt.setInteger("Cost", tradeCost);
 		nbt.setInteger("RecentTradeValue", recentTradeValue);
 		nbt.setInteger("LockedTicks", lockedTicks);
+	}
+
+	public ItemStack getTradeItem() {
+		return tradeItem;
 	}
 }

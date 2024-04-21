@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTradeable {
 	public GOTEntityDothrakiKhalin(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

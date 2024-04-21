@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 public class GOTEntityIronbornBartender extends GOTEntityIronbornMan implements GOTBartender, GOTTradeable {
 	public GOTEntityIronbornBartender(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

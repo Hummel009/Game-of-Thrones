@@ -12,15 +12,14 @@ import net.minecraft.world.World;
 public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsLevyman {
 	public GOTEntityRiverlandsSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.RIVERLANDS;
+		shield = GOTShields.RIVERLANDS;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override

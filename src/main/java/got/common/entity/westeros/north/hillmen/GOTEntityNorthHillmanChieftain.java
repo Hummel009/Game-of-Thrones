@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillmanWarrior implements GOTUnitTradeable {
 	public GOTEntityNorthHillmanChieftain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

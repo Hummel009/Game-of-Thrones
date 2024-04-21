@@ -12,7 +12,7 @@ import got.common.entity.other.GOTNPCMount;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
-import got.common.quest.IPickpocketable;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,12 +22,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketable {
+public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	public GOTEntityGiftMan(World world) {
 		super(world);
-		canBeMarried = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -44,7 +43,6 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(false);
-		isImmuneToFrost = true;
 	}
 
 	@Override

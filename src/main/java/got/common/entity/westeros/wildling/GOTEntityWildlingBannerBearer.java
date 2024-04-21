@@ -7,7 +7,6 @@ import net.minecraft.world.World;
 public class GOTEntityWildlingBannerBearer extends GOTEntityWildling implements GOTBannerBearer {
 	public GOTEntityWildlingBannerBearer(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

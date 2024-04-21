@@ -1,7 +1,7 @@
 package got.client.gui;
 
-import got.common.entity.other.GOTEntityNPCRideable;
-import got.common.inventory.GOTContainerNPCMountInventory;
+import got.common.entity.other.GOTEntitySpiderBase;
+import got.common.inventory.GOTContainerSpiderInventory;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.resources.I18n;
@@ -9,19 +9,19 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class GOTGuiNPCMountInventory extends GuiContainer {
+public class GOTGuiSpiderInventory extends GuiContainer {
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("textures/gui/container/horse.png");
 
 	private final IInventory thePlayerInv;
 	private final IInventory theMountInv;
 
-	private final GOTEntityNPCRideable theMount;
+	private final GOTEntitySpiderBase theMount;
 
 	private float mouseX;
 	private float mouseY;
 
-	public GOTGuiNPCMountInventory(IInventory playerInv, IInventory mountInv, GOTEntityNPCRideable mount) {
-		super(new GOTContainerNPCMountInventory(playerInv, mountInv, mount));
+	public GOTGuiSpiderInventory(IInventory playerInv, IInventory mountInv, GOTEntitySpiderBase mount) {
+		super(new GOTContainerSpiderInventory(playerInv, mountInv, mount));
 		thePlayerInv = playerInv;
 		theMountInv = mountInv;
 		theMount = mount;

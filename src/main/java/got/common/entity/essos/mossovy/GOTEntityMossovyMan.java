@@ -12,20 +12,22 @@ import got.common.entity.other.GOTNPCMount;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
-import got.common.quest.IPickpocketable;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpocketable {
+public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
+	private Item seedsItem;
+
 	public GOTEntityMossovyMan(World world) {
 		super(world);
-		canBeMarried = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -42,7 +44,6 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -96,11 +97,6 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 
 	@Override
 	public GOTFaction getFaction() {
-		return GOTFaction.MOSSOVY;
-	}
-
-	@Override
-	public GOTFaction getHiringFaction() {
 		return GOTFaction.MOSSOVY;
 	}
 

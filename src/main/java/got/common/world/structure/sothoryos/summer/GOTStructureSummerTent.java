@@ -117,7 +117,7 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 		placeWallBanner(world, -3, 3, 1, GOTItemBanner.BannerType.SUMMER, 1);
 		placeWallBanner(world, -3, 3, -1, GOTItemBanner.BannerType.SUMMER, 1);
 		GOTEntitySummerWarrior npc = new GOTEntitySummerWarrior(world);
-		npc.spawnRidingHorse = false;
+		npc.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(npc, world, 0, 1, -1, 16);
 		return true;
 	}

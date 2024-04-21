@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTUnitTradeable {
 	public GOTEntityNorthCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.NORTH;
+		cape = GOTCapes.NORTH;
 		spawnRidingHorse = false;
 	}
 

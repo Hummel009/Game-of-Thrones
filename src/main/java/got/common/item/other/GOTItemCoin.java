@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
-import got.common.quest.IPickpocketable;
+import got.common.quest.GOTPickpoketableHelper;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -53,7 +53,7 @@ public class GOTItemCoin extends Item {
 
 	private static int getSingleItemValue(ItemStack itemstack, boolean allowStolen) {
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemCoin) {
-			if (!allowStolen && IPickpocketable.Helper.isPickpocketed(itemstack)) {
+			if (!allowStolen && GOTPickpoketableHelper.isPickpocketed(itemstack)) {
 				return 0;
 			}
 			int i = itemstack.getItemDamage();

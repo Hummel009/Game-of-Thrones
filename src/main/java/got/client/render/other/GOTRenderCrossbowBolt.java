@@ -37,7 +37,7 @@ public class GOTRenderCrossbowBolt extends Render {
 		float f9 = (10 + yOffset * 10) / 32.0f;
 		float f10 = 0.05625f;
 		GL11.glEnable(32826);
-		float f11 = bolt.shake - f1;
+		float f11 = bolt.getShake() - f1;
 		if (f11 > 0.0f) {
 			float f12 = -MathHelper.sin(f11 * 3.0f) * f11;
 			GL11.glRotatef(f12, 0.0f, 0.0f, 1.0f);

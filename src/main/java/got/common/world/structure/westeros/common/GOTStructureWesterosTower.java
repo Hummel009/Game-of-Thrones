@@ -179,11 +179,11 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 		int soldiers = 1 + random.nextInt(2);
 		for (int l = 0; l < soldiers; ++l) {
 			GOTEntityNPC soldier = getSoldierArcher(world);
-			soldier.spawnRidingHorse = false;
+			soldier.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(soldier, world, -1, 9, 0, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(getSoldier(world).getClass());
+		respawner.setSpawnClass1(getSoldier(world).getClass());
 		respawner.setCheckRanges(16, -12, 12, 4);
 		respawner.setSpawnRanges(2, -2, 2, 16);
 		placeNPCRespawner(respawner, world, 0, 9, 0);

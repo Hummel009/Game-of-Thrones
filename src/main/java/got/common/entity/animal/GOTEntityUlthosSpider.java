@@ -9,7 +9,6 @@ public class GOTEntityUlthosSpider extends GOTEntitySpiderBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityUlthosSpider(World world) {
 		super(world);
-		spawnsInDarkness = false;
 	}
 
 	@Override

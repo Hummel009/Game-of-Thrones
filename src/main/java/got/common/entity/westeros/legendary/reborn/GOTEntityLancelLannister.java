@@ -20,9 +20,8 @@ import net.minecraft.world.World;
 public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	public GOTEntityLancelLannister(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
@@ -68,7 +67,6 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	public static class LancelLannisterNormal extends GOTEntityLancelLannister {
 		public LancelLannisterNormal(World world) {
 			super(world);
-			canBeMarried = false;
 		}
 
 		@Override
@@ -104,7 +102,6 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	public static class LancelLannisterReligious extends GOTEntityLancelLannister {
 		public LancelLannisterReligious(World world) {
 			super(world);
-			canBeMarried = false;
 		}
 
 		@Override

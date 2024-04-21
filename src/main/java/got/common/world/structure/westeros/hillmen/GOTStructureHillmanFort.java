@@ -141,11 +141,12 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 		int warriors = 6;
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityHillmanWarrior warrior = random.nextInt(3) == 0 ? new GOTEntityHillmanArcher(world) : new GOTEntityHillmanWarrior(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 1, 2, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityHillmanWarrior.class, GOTEntityHillmanArcher.class);
+		respawner.setSpawnClass1(GOTEntityHillmanWarrior.class);
+		respawner.setSpawnClass2(GOTEntityHillmanArcher.class);
 		respawner.setCheckRanges(20, -8, 12, 12);
 		respawner.setSpawnRanges(6, -1, 4, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

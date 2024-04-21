@@ -19,7 +19,6 @@ import java.util.Random;
 public abstract class GOTEntitySummerTrader extends GOTEntitySummerMan implements GOTTradeable {
 	protected GOTEntitySummerTrader(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

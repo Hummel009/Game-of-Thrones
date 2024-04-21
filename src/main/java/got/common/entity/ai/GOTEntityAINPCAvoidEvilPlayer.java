@@ -55,7 +55,7 @@ public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
 				continue;
 			}
 			float alignment = GOTLevelData.getData(element).getAlignment(theNPC.getFaction());
-			if ((theNPC.familyInfo.getAge() >= 0 || alignment >= 0.0f) && alignment > -100.0f) {
+			if ((theNPC.getFamilyInfo().getAge() >= 0 || alignment >= 0.0f) && alignment > -100.0f) {
 				continue;
 			}
 			validPlayers.add(element);

@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.database.GOTGuiId;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.info.GOTHireableInfo;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -53,39 +53,39 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 			Entity npc = world.getEntityByID(packet.entityID);
 			if (npc instanceof GOTEntityNPC) {
 				GOTEntityNPC hiredNPC = (GOTEntityNPC) npc;
-				if (hiredNPC.hiredNPCInfo.isActive && hiredNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				if (hiredNPC.getHireableInfo().isActive() && hiredNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
 					int page = packet.page;
 					int action = packet.action;
 					int value = packet.value;
 					if (action == -1) {
-						hiredNPC.hiredNPCInfo.isGuiOpen = false;
+						hiredNPC.getHireableInfo().setGuiOpen(false);
 					} else {
-						GOTHiredNPCInfo.Task task = hiredNPC.hiredNPCInfo.getTask();
-						if (task == GOTHiredNPCInfo.Task.WARRIOR) {
+						GOTHireableInfo.Task task = hiredNPC.getHireableInfo().getHiredTask();
+						if (task == GOTHireableInfo.Task.WARRIOR) {
 							if (page == 0) {
 								entityplayer.openGui(GOT.instance, GOTGuiId.HIRED_WARRIOR_INVENTORY.ordinal(), world, hiredNPC.getEntityId(), 0, 0);
 							} else if (page == 1) {
 								switch (action) {
 									case 0:
-										hiredNPC.hiredNPCInfo.teleportAutomatically = !hiredNPC.hiredNPCInfo.teleportAutomatically;
+										hiredNPC.getHireableInfo().setTeleportAutomatically(!hiredNPC.getHireableInfo().isTeleportAutomatically());
 										break;
 									case 1:
-										hiredNPC.hiredNPCInfo.setGuardMode(!hiredNPC.hiredNPCInfo.isGuardMode());
+										hiredNPC.getHireableInfo().setGuardMode(!hiredNPC.getHireableInfo().isGuardMode());
 										break;
 									case 2:
-										hiredNPC.hiredNPCInfo.setGuardRange(value);
+										hiredNPC.getHireableInfo().setGuardRange(value);
 										break;
 									default:
 										break;
 								}
 							}
-						} else if (task == GOTHiredNPCInfo.Task.FARMER) {
+						} else if (task == GOTHireableInfo.Task.FARMER) {
 							switch (action) {
 								case 0:
-									hiredNPC.hiredNPCInfo.setGuardMode(!hiredNPC.hiredNPCInfo.isGuardMode());
+									hiredNPC.getHireableInfo().setGuardMode(!hiredNPC.getHireableInfo().isGuardMode());
 									break;
 								case 1:
-									hiredNPC.hiredNPCInfo.setGuardRange(value);
+									hiredNPC.getHireableInfo().setGuardRange(value);
 									break;
 								case 2:
 									entityplayer.openGui(GOT.instance, GOTGuiId.HIRED_FARMER_INVENTORY.ordinal(), world, hiredNPC.getEntityId(), 0, 0);
@@ -94,7 +94,7 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 									break;
 							}
 						}
-						hiredNPC.hiredNPCInfo.sendClientPacket(false);
+						hiredNPC.getHireableInfo().sendClientPacket(false);
 					}
 				}
 			}

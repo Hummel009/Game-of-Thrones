@@ -17,7 +17,7 @@ import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityNPCRideable;
+import got.common.entity.other.GOTEntitySpiderBase;
 import got.common.inventory.GOTContainerCoinExchange;
 import got.common.item.other.GOTItemCoin;
 import got.common.network.GOTPacketHandler;
@@ -288,7 +288,7 @@ public class GOTGuiEventHandler {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
 		WorldClient world = mc.theWorld;
-		if ((gui instanceof GuiInventory || gui instanceof GuiContainerCreative) && entityplayer != null && world != null && entityplayer.ridingEntity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entityplayer.ridingEntity).getMountInventory() != null) {
+		if ((gui instanceof GuiInventory || gui instanceof GuiContainerCreative) && entityplayer != null && world != null && entityplayer.ridingEntity instanceof GOTEntitySpiderBase && ((GOTEntitySpiderBase) entityplayer.ridingEntity).getMountInventory() != null) {
 			entityplayer.closeScreen();
 			IMessage packet = new GOTPacketMountOpenInv();
 			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);

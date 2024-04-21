@@ -294,16 +294,16 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, -6, 4, 0, Blocks.pumpkin, 3);
 		}
 		GOTEntityGiftMan male = new GOTEntityGiftMan(world);
-		male.familyInfo.setMale(true);
+		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 2, 1, 0, 16);
 		GOTEntityGiftMan female = new GOTEntityGiftMan(world);
-		female.familyInfo.setMale(false);
+		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 2, 1, 0, 16);
 		GOTEntityGiftMan child = new GOTEntityGiftMan(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
+		child.getFamilyInfo().setMale(random.nextBoolean());
+		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 2, 1, 0, 16);
 		return true;
 	}

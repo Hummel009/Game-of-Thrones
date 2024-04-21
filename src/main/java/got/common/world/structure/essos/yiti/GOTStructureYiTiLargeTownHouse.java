@@ -492,16 +492,16 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 			spawnItemFrame(world, 2, 7, -7, 0, new ItemStack(Items.clock));
 		}
 		GOTEntityYiTiMan male = new GOTEntityYiTiMan(world);
-		male.familyInfo.setMale(true);
+		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 5, 3, 16);
 		GOTEntityYiTiMan female = new GOTEntityYiTiMan(world);
-		female.familyInfo.setMale(false);
+		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 5, 3, 16);
 		GOTEntityYiTiMan child = new GOTEntityYiTiMan(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
+		child.getFamilyInfo().setMale(random.nextBoolean());
+		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 5, 3, 16);
 		return true;
 	}

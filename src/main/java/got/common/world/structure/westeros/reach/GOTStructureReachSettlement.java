@@ -492,10 +492,10 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityReachSoldier.class);
+				spawner.setSpawnClass1(GOTEntityReachSoldier.class);
 				spawner.setCheckRanges(50, -12, 12, 16);
 				spawner.setSpawnRanges(30, -6, 6, 40);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -506,10 +506,10 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityReachSoldier.class);
+				spawner.setSpawnClass1(GOTEntityReachSoldier.class);
 				spawner.setCheckRanges(20, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 40);
-				spawner.setBlockEnemySpawnRange(40);
+				spawner.setBlockEnemySpawns(40);
 			}
 		}
 
@@ -520,10 +520,10 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityReachMan.class);
+				spawner.setSpawnClass1(GOTEntityReachMan.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(60, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -534,10 +534,10 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityReachSoldier.class);
+				spawner.setSpawnClass1(GOTEntityReachSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -548,10 +548,10 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityReachMan.class);
+				spawner.setSpawnClass1(GOTEntityReachMan.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 
@@ -562,10 +562,10 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityReachSoldier.class);
+				spawner.setSpawnClass1(GOTEntityReachSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

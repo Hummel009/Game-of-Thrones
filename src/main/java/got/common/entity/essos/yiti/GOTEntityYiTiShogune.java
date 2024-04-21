@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiShogune extends GOTEntityYiTiSamurai implements GOTUnitTradeable {
 	public GOTEntityYiTiShogune(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

@@ -30,7 +30,7 @@ public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (theNPC.hiredNPCInfo.isActive && theNPC.hiredNPCInfo.getHiringPlayer() != null && theNPC.hiredNPCInfo.shouldFollowPlayer() && !theNPC.getNavigator().noPath()) {
+		if (theNPC.getHireableInfo().isActive() && theNPC.getHireableInfo().getHiringPlayer() != null && theNPC.getHireableInfo().shouldFollowPlayer() && !theNPC.getNavigator().noPath()) {
 			EntityLivingBase target = bannerBearerTarget != null ? bannerBearerTarget : theHiringPlayer;
 			return theNPC.getDistanceSqToEntity(target) > maxNearDist * maxNearDist;
 		}
@@ -47,15 +47,15 @@ public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (!theNPC.hiredNPCInfo.isActive) {
+		if (!theNPC.getHireableInfo().isActive()) {
 			return false;
 		}
-		EntityPlayer entityplayer = theNPC.hiredNPCInfo.getHiringPlayer();
+		EntityPlayer entityplayer = theNPC.getHireableInfo().getHiringPlayer();
 		if (entityplayer == null) {
 			return false;
 		}
 		theHiringPlayer = entityplayer;
-		return theNPC.hiredNPCInfo.shouldFollowPlayer() && theNPC.getDistanceSqToEntity(entityplayer) >= minFollowDist * minFollowDist;
+		return theNPC.getHireableInfo().shouldFollowPlayer() && theNPC.getDistanceSqToEntity(entityplayer) >= minFollowDist * minFollowDist;
 	}
 
 	@Override
@@ -69,15 +69,15 @@ public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
 	public void updateTask() {
 		EntityLivingBase target = bannerBearerTarget != null ? bannerBearerTarget : theHiringPlayer;
 		theNPC.getLookHelper().setLookPositionWithEntity(target, 10.0f, theNPC.getVerticalFaceSpeed());
-		if (theNPC.hiredNPCInfo.shouldFollowPlayer()) {
+		if (theNPC.getHireableInfo().shouldFollowPlayer()) {
 			--followTick;
 			if (followTick <= 0) {
 				followTick = 10;
-				if (!theNPC.getNavigator().tryMoveToEntityLiving(target, moveSpeed) && theNPC.hiredNPCInfo.teleportAutomatically) {
+				if (!theNPC.getNavigator().tryMoveToEntityLiving(target, moveSpeed) && theNPC.getHireableInfo().isTeleportAutomatically()) {
 					double d = theNPC.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
 					d = Math.max(d, 24.0);
 					if (theNPC.getDistanceSqToEntity(theHiringPlayer) > d * d) {
-						theNPC.hiredNPCInfo.tryTeleportToHiringPlayer(false);
+						theNPC.getHireableInfo().tryTeleportToHiringPlayer(false);
 					}
 				}
 			}

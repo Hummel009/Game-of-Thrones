@@ -9,6 +9,7 @@ import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -21,7 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class GOTEntityWight extends GOTEntityHumanBase {
+public class GOTEntityWight extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
 	private static final ItemStack[] SPEARS = {new ItemStack(GOTItems.wildlingSpear)};
 
@@ -39,10 +40,6 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityWhiteWalker.class, 5.0f, 0.02f));
 		tasks.addTask(5, new EntityAIWatchClosest2(this, GOTEntityWight.class, 5.0f, 0.02f));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		canBeMarried = false;
-		spawnsInDarkness = true;
-		isImmuneToFrost = true;
-		isNotHuman = true;
 	}
 
 	@Override
@@ -59,7 +56,7 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		boolean causeDamage = IceUtils.calculateDamage(damagesource, true);
+		boolean causeDamage = IceUtils.calculateDamage(this, damagesource, true);
 		return super.attackEntityFrom(damagesource, causeDamage ? f : 0.0f);
 	}
 
@@ -109,7 +106,7 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
 		super.onKillEntity(entity);
-		IceUtils.createNewWight(entity, worldObj);
+		IceUtils.createNewWight(this, entity, worldObj);
 	}
 
 	@Override

@@ -24,9 +24,8 @@ import net.minecraft.world.World;
 public class GOTEntityVarys extends GOTEntityHumanBase {
 	public GOTEntityVarys(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityAsshaiShadowbinder.class, 12.0f, 1.5, 2.0));

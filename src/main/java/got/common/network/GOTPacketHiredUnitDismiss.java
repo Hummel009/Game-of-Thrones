@@ -42,23 +42,23 @@ public class GOTPacketHiredUnitDismiss implements IMessage {
 			Entity npc = world.getEntityByID(packet.entityID);
 			if (npc instanceof GOTEntityNPC) {
 				GOTEntityNPC hiredNPC = (GOTEntityNPC) npc;
-				if (hiredNPC.hiredNPCInfo.isActive && hiredNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				if (hiredNPC.getHireableInfo().isActive() && hiredNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
 					int action = packet.action;
 					boolean closeScreen = false;
 					if (action == 0) {
-						hiredNPC.hiredNPCInfo.dismissUnit(false);
+						hiredNPC.getHireableInfo().dismissUnit(false);
 						Entity mount = hiredNPC.ridingEntity;
 						Entity rider = hiredNPC.riddenByEntity;
 						if (mount instanceof GOTEntityNPC) {
 							GOTEntityNPC mountNPC = (GOTEntityNPC) mount;
-							if (mountNPC.hiredNPCInfo.isActive && mountNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
-								mountNPC.hiredNPCInfo.dismissUnit(false);
+							if (mountNPC.getHireableInfo().isActive() && mountNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
+								mountNPC.getHireableInfo().dismissUnit(false);
 							}
 						}
 						if (rider instanceof GOTEntityNPC) {
 							GOTEntityNPC riderNPC = (GOTEntityNPC) rider;
-							if (riderNPC.hiredNPCInfo.isActive && riderNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
-								riderNPC.hiredNPCInfo.dismissUnit(false);
+							if (riderNPC.getHireableInfo().isActive() && riderNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
+								riderNPC.getHireableInfo().dismissUnit(false);
 							}
 						}
 						closeScreen = true;

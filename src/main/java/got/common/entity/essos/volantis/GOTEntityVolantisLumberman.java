@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityVolantisLumberman extends GOTEntityVolantisTrader {
 	public GOTEntityVolantisLumberman(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

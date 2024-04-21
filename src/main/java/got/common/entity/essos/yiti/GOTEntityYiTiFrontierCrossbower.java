@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiFrontierCrossbower extends GOTEntityYiTiFrontier {
 	public GOTEntityYiTiFrontierCrossbower(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 	}
 

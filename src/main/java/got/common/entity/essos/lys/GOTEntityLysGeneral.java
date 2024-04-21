@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 public class GOTEntityLysGeneral extends GOTEntityLysSoldier implements GOTUnitTradeable {
 	public GOTEntityLysGeneral(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOTTradeable {
 	public GOTEntityIronbornPriest(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

@@ -18,7 +18,6 @@ import net.minecraft.world.World;
 public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 	public GOTEntitySothoryosBlowgunner(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 	}
 

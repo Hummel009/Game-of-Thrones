@@ -9,12 +9,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityCargocart extends GOTEntityCart {
-	public int load;
+	private int load;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCargocart(World worldIn) {
 		super(worldIn);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCargocart(World worldIn, double x, double y, double z) {
 		super(worldIn, x, y, z);
 	}
@@ -30,7 +32,7 @@ public class GOTEntityCargocart extends GOTEntityCart {
 		return true;
 	}
 
-	public void dropAsItem(boolean drop) {
+	private void dropAsItem(boolean drop) {
 		setDead();
 		if (drop) {
 			entityDropItem(new ItemStack(GOTItems.cargocart), 0.0f);

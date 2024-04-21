@@ -82,16 +82,16 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 			placePlate(world, random, -1, 2, 4, GOTBlocks.ceramicPlate, GOTFoods.SOTHORYOS);
 			placeMug(world, random, 1, 2, 4, 0, GOTFoods.SOTHORYOS_DRINK);
 			GOTEntitySummerMan male = new GOTEntitySummerMan(world);
-			male.familyInfo.setMale(true);
+			male.getFamilyInfo().setMale(true);
 			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, -1, 16);
 			GOTEntitySummerMan female = new GOTEntitySummerMan(world);
-			female.familyInfo.setMale(false);
+			female.getFamilyInfo().setMale(false);
 			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, -1, 16);
 			GOTEntitySummerMan child = new GOTEntitySummerMan(world);
-			child.familyInfo.setMale(random.nextBoolean());
-			child.familyInfo.setChild();
+			child.getFamilyInfo().setMale(random.nextBoolean());
+			child.getFamilyInfo().setChild();
 			spawnNPCAndSetHome(child, world, 0, 1, -1, 16);
 		}
 		return true;

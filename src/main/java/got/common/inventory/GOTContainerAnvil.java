@@ -16,7 +16,7 @@ import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeEntry;
 import got.common.entity.other.GOTTradeable;
-import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinScrapTrader;
 import got.common.item.AnvilNameColorProvider;
 import got.common.item.other.*;
 import got.common.item.weapon.GOTItemSarbacane;
@@ -213,7 +213,7 @@ public class GOTContainerAnvil extends Container {
 
 	private float getTraderMaterialPrice(ItemStack inputItem) {
 		float materialPrice = 0.0f;
-		GOTTradeEntry[] sellTrades = theNPC.traderNPCInfo.getSellTrades();
+		GOTTradeEntry[] sellTrades = theNPC.getTraderInfo().getSellTrades();
 		if (sellTrades != null) {
 			for (GOTTradeEntry trade : sellTrades) {
 				ItemStack tradeItem = trade.createTradeItem();

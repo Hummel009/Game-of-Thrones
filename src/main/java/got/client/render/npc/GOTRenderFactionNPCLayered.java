@@ -30,7 +30,7 @@ public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityNPC mob = (GOTEntityNPC) entity;
-		if (mob.familyInfo.isMale()) {
+		if (mob.getFamilyInfo().isMale()) {
 			if (mob.isChild()) {
 				return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/malechild").getRandomSkin(mob);
 			}

@@ -1,40 +1,38 @@
-package got.common.entity.essos;
+package got.common.entity.other;
 
 import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
 import got.common.item.other.GOTItemRobes;
 import got.common.item.other.GOTItemTurban;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityDarkSkinScrapTrader extends GOTEntityLightSkinScrapTrader {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned)};
-	public static int[] robeColors = {3354412, 5984843, 5968655, 3619908, 9007463, 3228720};
+public class GOTEntityDarkSkinThief extends GOTEntityLightSkinThief {
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned)};
+	private static final int[] ROBE_COLORS = {3354412, 5984843, 5968655, 3619908, 9007463, 3228720};
 
-	public GOTEntityDarkSkinScrapTrader(World world) {
+	public GOTEntityDarkSkinThief(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weapons.length);
-		npcItemsInv.setMeleeWeapon(weapons[i].copy());
-		npcItemsInv.setIdleItem(null);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(WEAPONS.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
 		if (rand.nextInt(4) == 0) {
 			ItemStack turban = new ItemStack(GOTItems.robesHelmet);
-			int robeColor = robeColors[rand.nextInt(robeColors.length)];
+			int robeColor = ROBE_COLORS[rand.nextInt(ROBE_COLORS.length)];
 			GOTItemRobes.setRobesColor(turban, robeColor);
 			if (rand.nextInt(3) == 0) {
 				GOTItemTurban.setHasOrnament(turban, true);
 			}
 			setCurrentItemOrArmor(4, turban);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

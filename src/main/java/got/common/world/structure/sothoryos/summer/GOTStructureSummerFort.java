@@ -128,12 +128,12 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		placeWallBanner(world, 0, 6, 8, GOTItemBanner.BannerType.SUMMER, 2);
 		setBlockAndMetadata(world, 7, 1, 5, GOTBlocks.commandTable, 0);
 		GOTEntitySummerWarlord warlord = new GOTEntitySummerWarlord(world);
-		warlord.spawnRidingHorse = false;
+		warlord.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(warlord, world, 0, 3, 7, 4);
 		int warriors = 4 + random.nextInt(4);
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntitySummerWarrior warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
-			warrior.spawnRidingHorse = false;
+			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 1, 0, 16);
 		}
 		for (int i13 : new int[]{-4, 4}) {
@@ -147,7 +147,8 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 			leashEntityTo(horse, world, i13, j1, k1);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntitySummerWarrior.class, GOTEntitySummerArcher.class);
+		respawner.setSpawnClass1(GOTEntitySummerWarrior.class);
+		respawner.setSpawnClass2(GOTEntitySummerArcher.class);
 		respawner.setCheckRanges(16, -8, 12, 12);
 		respawner.setSpawnRanges(8, -2, 2, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

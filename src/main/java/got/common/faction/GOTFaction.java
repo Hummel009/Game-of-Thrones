@@ -5,7 +5,7 @@ import got.common.GOTAchievementRank;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.entity.other.GOTNPCSelectForInfluence;
+import got.common.entity.other.GOTNPCSelectByFaction;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.GOTWorldProvider;
 import got.common.world.map.GOTWaypoint;
@@ -577,7 +577,7 @@ public enum GOTFaction {
 		}
 		double nearbyRange = 24.0;
 		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(x, y, z, x, y, z).expand(nearbyRange, nearbyRange, nearbyRange);
-		List<EntityLivingBase> nearbyNPCs = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new GOTNPCSelectForInfluence(this));
+		List<EntityLivingBase> nearbyNPCs = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new GOTNPCSelectByFaction(this));
 		return !nearbyNPCs.isEmpty();
 	}
 

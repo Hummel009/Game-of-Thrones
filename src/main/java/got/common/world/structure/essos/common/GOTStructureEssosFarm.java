@@ -3,6 +3,7 @@ package got.common.world.structure.essos.common;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTFarmhand;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -82,10 +83,10 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 			spawnNPCAndSetHome(farmer, world, 0, 1, 1, 8);
 		}
 		GOTEntityNPC jabroni1 = getFarmhand(world);
-		jabroni1.seedsItem = seed1;
+		((GOTFarmhand) jabroni1).setSeedsItem(seed1);
 		spawnNPCAndSetHome(jabroni1, world, -2, 1, 0, 8);
 		GOTEntityNPC jabroni2 = getFarmhand(world);
-		jabroni2.seedsItem = seed2;
+		((GOTFarmhand) jabroni2).setSeedsItem(seed2);
 		spawnNPCAndSetHome(jabroni2, world, 2, 1, 0, 8);
 		return true;
 	}

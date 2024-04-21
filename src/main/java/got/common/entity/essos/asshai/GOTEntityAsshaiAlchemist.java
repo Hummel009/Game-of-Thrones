@@ -14,8 +14,7 @@ import net.minecraft.world.World;
 public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTTradeable {
 	public GOTEntityAsshaiAlchemist(World world) {
 		super(world);
-		canBeMarried = false;
-		npcCape = GOTCapes.ASSHAI;
+		cape = GOTCapes.ASSHAI;
 	}
 
 	@Override

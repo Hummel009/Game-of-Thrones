@@ -46,7 +46,7 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
-		if (IPickpocketable.Helper.isPickpocketed(itemstack)) {
+		if (GOTPickpoketableHelper.isPickpocketed(itemstack)) {
 			return false;
 		}
 		if (GOTItemMug.isItemFullDrink(collectItem)) {

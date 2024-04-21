@@ -154,8 +154,8 @@ public class GOTPacketHiredGui implements IMessage {
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				if (npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
-					npc.hiredNPCInfo.receiveClientPacket(packet);
+				if (npc.getHireableInfo().getHiringPlayer() == entityplayer) {
+					npc.getHireableInfo().receiveClientPacket(packet);
 					if (packet.openGui) {
 						GOT.proxy.openHiredNPCGui(npc);
 					}

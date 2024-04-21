@@ -18,9 +18,8 @@ import net.minecraft.world.World;
 public class GOTEntityRooseBolton extends GOTEntityHumanBase {
 	public GOTEntityRooseBolton(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks();
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.util.GOTCrashHandler;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeQohorForest;
 import got.common.world.biome.essos.GOTBiomeVolantisOrangeForest;
 import got.common.world.biome.sothoryos.GOTBiomeSummerIslands;
@@ -26,7 +25,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.UUID;
 
-public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
+public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity {
 	private ChunkCoordinates currentFlightTarget;
 	private int flapTime;
 

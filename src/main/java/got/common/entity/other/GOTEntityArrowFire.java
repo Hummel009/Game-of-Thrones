@@ -12,31 +12,33 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntityArrowFire extends EntityArrow implements IEntityAdditionalSpawnData {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrowFire(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrowFire(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrowFire(World world, EntityLivingBase shooter, EntityLivingBase target, float charge, float inaccuracy) {
 		super(world, shooter, target, charge, inaccuracy);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrowFire(World world, EntityLivingBase shooter, float charge) {
 		super(world, shooter, charge);
 	}
 
 	@Override
 	public void onCollideWithPlayer(EntityPlayer entityplayer) {
-		boolean isInGround;
 		NBTTagCompound nbt = new NBTTagCompound();
 		writeEntityToNBT(nbt);
-		isInGround = nbt.getByte("inGround") == 1;
+		boolean isInGround = nbt.getByte("inGround") == 1;
 		if (!worldObj.isRemote && isInGround && arrowShake <= 0) {
-			boolean pickup;
-			pickup = canBePickedUp == 1 || canBePickedUp == 2 && entityplayer.capabilities.isCreativeMode;
+			boolean pickup = canBePickedUp == 1 || canBePickedUp == 2 && entityplayer.capabilities.isCreativeMode;
 			if (canBePickedUp == 1 && !entityplayer.inventory.addItemStackToInventory(new ItemStack(GOTItems.arrowFire, 1))) {
 				pickup = false;
 			}

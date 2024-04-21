@@ -10,10 +10,9 @@ import net.minecraft.world.World;
 public class GOTEntityVolantisSoldier extends GOTEntityVolantisLevyman {
 	public GOTEntityVolantisSoldier(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcCape = GOTCapes.VOLANTIS;
-		npcShield = GOTShields.VOLANTIS;
+		cape = GOTCapes.VOLANTIS;
+		shield = GOTShields.VOLANTIS;
 	}
 
 	@Override

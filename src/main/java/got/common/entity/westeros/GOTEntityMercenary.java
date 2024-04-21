@@ -20,7 +20,6 @@ import net.minecraft.world.World;
 public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercenary {
 	public GOTEntityMercenary(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -64,7 +63,7 @@ public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercena
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

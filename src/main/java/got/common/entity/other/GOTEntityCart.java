@@ -13,22 +13,24 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 public class GOTEntityCart extends Entity {
-	public Entity pulling;
-	public float wheelrot;
-	public double factor;
-	public int lerpSteps;
-	public double lerpX;
-	public double lerpY;
-	public double lerpZ;
-	public double lerpYaw;
-	public double lerpPitch;
+	private Entity pulling;
+	private double factor;
+	private double lerpX;
+	private double lerpY;
+	private double lerpZ;
+	private double lerpYaw;
+	private double lerpPitch;
+	private float wheelrot;
+	private int lerpSteps;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCart(World worldIn) {
 		super(worldIn);
 		setSize(1.5f, 1.4f);
 		stepHeight = 1.0f;
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCart(World worldIn, double x, double y, double z) {
 		this(worldIn);
 		setPosition(x, y, z);
@@ -134,7 +136,7 @@ public class GOTEntityCart extends Entity {
 		lerpSteps = 10;
 	}
 
-	public void tickLerp() {
+	private void tickLerp() {
 		if (worldObj.isRemote && lerpSteps > 0 && pulling.riddenByEntity == null) {
 			double d0 = posX + (lerpX - posX) / lerpSteps;
 			double d1 = posY + (lerpY - posY) / lerpSteps;

@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarUnsullied(World world) {
 		super(world);
-		canBeMarried = false;
-		npcCape = GOTCapes.UNSULLIED;
-		npcShield = GOTShields.UNSULLIED;
+		cape = GOTCapes.UNSULLIED;
+		shield = GOTShields.UNSULLIED;
 	}
 
 	@Override

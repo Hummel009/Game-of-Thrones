@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 public class GOTEntityArrynGuard extends GOTEntityArrynSoldier {
 	public GOTEntityArrynGuard(World world) {
 		super(world);
-		npcShield = GOTShields.ARRYNGUARD;
-		npcCape = GOTCapes.ARRYNGUARD;
+		shield = GOTShields.ARRYNGUARD;
+		cape = GOTCapes.ARRYNGUARD;
 		spawnRidingHorse = false;
 		addTargetTasks(false);
 	}

@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 public class GOTEntityMaester extends GOTEntityHumanBase implements GOTTradeable {
 	public GOTEntityMaester(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);

@@ -12,18 +12,17 @@ import net.minecraft.world.World;
 public class GOTEntityYiTiSamurai extends GOTEntityYiTiSoldier {
 	public GOTEntityYiTiSamurai(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		npcShield = GOTShields.YITI_SAMURAI;
-		npcCape = GOTCapes.YITI_SAMURAI;
+		shield = GOTShields.YITI_SAMURAI;
+		cape = GOTCapes.YITI_SAMURAI;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(1.0);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(1.0);
 	}
 
 	@Override

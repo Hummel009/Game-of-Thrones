@@ -59,7 +59,7 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 
 	@Override
 	public void startExecuting() {
-		speed = ((EntityLivingBase) livingHorse.riddenByEntity).getEntityAttribute(GOTEntityNPC.horseAttackSpeed).getAttributeValue();
+		speed = ((EntityLivingBase) livingHorse.riddenByEntity).getEntityAttribute(GOTEntityNPC.HORSE_ATTACK_SPEED).getAttributeValue();
 		livingHorse.getNavigator().setPath(entityPathEntity, speed);
 		pathCheckTimer = 0;
 	}

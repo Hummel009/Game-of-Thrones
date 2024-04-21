@@ -150,7 +150,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 		}
 
 		private void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClass(GOTEntityQohorMan.class);
+			spawner.setSpawnClass1(GOTEntityQohorMan.class);
 		}
 
 		private void setupFort(Random random) {
@@ -165,7 +165,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 					setCivilianSpawnClass(spawner);
 					spawner.setCheckRanges(60, -12, 12, 16);
 					spawner.setSpawnRanges(24, -6, 6, 40);
-					spawner.setBlockEnemySpawnRange(60);
+					spawner.setBlockEnemySpawns(60);
 				}
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-25, 25}) {
@@ -177,7 +177,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 							setWarriorSpawnClasses(spawner);
 							spawner.setCheckRanges(35, -12, 12, 16);
 							spawner.setSpawnRanges(15, -6, 6, 40);
-							spawner.setBlockEnemySpawnRange(35);
+							spawner.setBlockEnemySpawns(35);
 						}
 					}, i1, k1, 0);
 				}
@@ -251,7 +251,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 					setCivilianSpawnClass(spawner);
 					spawner.setCheckRanges(80, -12, 12, 100);
 					spawner.setSpawnRanges(40, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
+					spawner.setBlockEnemySpawns(60);
 				}
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-30, 30}) {
@@ -263,7 +263,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 							setWarriorSpawnClasses(spawner);
 							spawner.setCheckRanges(40, -12, 12, 16);
 							spawner.setSpawnRanges(20, -6, 6, 64);
-							spawner.setBlockEnemySpawnRange(60);
+							spawner.setBlockEnemySpawns(60);
 						}
 					}, i1, k1, 0);
 				}
@@ -410,7 +410,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 					setCivilianSpawnClass(spawner);
 					spawner.setCheckRanges(64, -12, 12, 24);
 					spawner.setSpawnRanges(32, -6, 6, 32);
-					spawner.setBlockEnemySpawnRange(64);
+					spawner.setBlockEnemySpawns(64);
 				}
 			}, 0, 0, 0);
 			addStructure(new GOTStructureNPCRespawner(false) {
@@ -420,7 +420,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 					setWarriorSpawnClasses(spawner);
 					spawner.setCheckRanges(64, -12, 12, 12);
 					spawner.setSpawnRanges(32, -6, 6, 32);
-					spawner.setBlockEnemySpawnRange(64);
+					spawner.setBlockEnemySpawns(64);
 				}
 			}, 0, 0, 0);
 			addStructure(new GOTStructureQohorWell(false), 0, -2, 0, true);
@@ -495,7 +495,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 		}
 
 		private void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClass(GOTEntityQohorGuard.class);
+			spawner.setSpawnClass1(GOTEntityQohorGuard.class);
 		}
 
 		@SuppressWarnings("unused")
@@ -514,7 +514,7 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass(GOTEntityQohorGuard.class);
+				spawner.setSpawnClass1(GOTEntityQohorGuard.class);
 				spawner.setCheckRanges(60, -12, 12, 4);
 				spawner.setSpawnRanges(24, -6, 6, 32);
 			}

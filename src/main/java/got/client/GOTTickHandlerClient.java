@@ -33,7 +33,7 @@ import got.common.item.weapon.GOTItemBow;
 import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSarbacane;
 import got.common.item.weapon.GOTItemSpear;
-import got.common.quest.IPickpocketable;
+import got.common.quest.GOTPickpoketableHelper;
 import got.common.util.*;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.GOTWorldProvider;
@@ -512,9 +512,9 @@ public class GOTTickHandlerClient {
 				tooltip.add(line);
 			}
 		}
-		if (IPickpocketable.Helper.isPickpocketed(itemstack)) {
+		if (GOTPickpoketableHelper.isPickpocketed(itemstack)) {
 			tooltip.add("");
-			String owner = IPickpocketable.Helper.getOwner(itemstack);
+			String owner = GOTPickpoketableHelper.getOwner(itemstack);
 			owner = StatCollector.translateToLocalFormatted("item.got.generic.stolen", owner);
 			List<String> robbedLines = new ArrayList<String>(fontRenderer.listFormattedStringToWidth(owner, 200));
 			for (int i = 0; i < robbedLines.size(); i++) {

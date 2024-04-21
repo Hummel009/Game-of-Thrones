@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class GOTEntityMossovyBlacksmith extends GOTEntityMossovyMan implements GOTTradeable.Smith {
 	public GOTEntityMossovyBlacksmith(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

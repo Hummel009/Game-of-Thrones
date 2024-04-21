@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 public class GOTEntityLorathGeneral extends GOTEntityLorathSoldier implements GOTUnitTradeable {
 	public GOTEntityLorathGeneral(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 		spawnRidingHorse = false;
 	}

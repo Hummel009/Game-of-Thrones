@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityReachFarmer extends GOTEntityReachMan implements GOTTradeable, GOTUnitTradeable {
 	public GOTEntityReachFarmer(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

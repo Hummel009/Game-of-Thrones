@@ -10,7 +10,6 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
-import got.common.quest.IPickpocketable;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosJungle;
 import net.minecraft.block.Block;
@@ -25,10 +24,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpocketable {
+public class GOTEntitySothoryosMan extends GOTEntityHumanBase {
 	public GOTEntitySothoryosMan(World world) {
 		super(world);
-		canBeMarried = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -102,7 +100,7 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpo
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);
@@ -128,7 +126,7 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpo
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/wild/hired_soldier";
 			}
 			return "standard/wild/usual_friendly";

@@ -16,7 +16,6 @@ import net.minecraft.world.World;
 public class GOTEntityPentosBlacksmith extends GOTEntityPentosMan implements GOTTradeable.Smith {
 	public GOTEntityPentosBlacksmith(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

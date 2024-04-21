@@ -43,7 +43,7 @@ public class GOTEntityAINPCFollowNPC extends EntityAIBase {
 			distanceSq = d;
 			entityNPC = npcCandidate;
 		}
-		if (entityNPC == null || entityFollowing.currentAttackMode != GOTEntityNPC.AttackMode.IDLE || distanceSq < 9.0) {
+		if (entityNPC == null || entityFollowing.getCurrentAttackMode() != GOTEntityNPC.AttackMode.IDLE || distanceSq < 9.0) {
 			return false;
 		}
 		entityToFollow = entityNPC;

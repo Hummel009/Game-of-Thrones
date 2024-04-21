@@ -18,9 +18,8 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 
 	public GOTEntityGiftGuard(World world) {
 		super(world);
-		canBeMarried = false;
 		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityAlliserThorne.class, 5.0f, 1.0, 1.0));
-		npcCape = GOTCapes.NIGHT;
+		cape = GOTCapes.NIGHT;
 	}
 
 	@Override
@@ -43,7 +42,7 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

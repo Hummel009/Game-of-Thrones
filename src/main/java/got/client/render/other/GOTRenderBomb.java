@@ -19,7 +19,7 @@ public class GOTRenderBomb extends Render {
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityBomb bomb = (GOTEntityBomb) entity;
-		renderBomb(bomb, d, d1, d2, f1, bomb.bombFuse, bomb.getBombStrengthLevel(), 1.0f, entity.getBrightness(f1));
+		renderBomb(bomb, d, d1, d2, f1, bomb.getBombFuse(), bomb.getBombStrengthLevel(), 1.0f, entity.getBrightness(f1));
 	}
 
 	@Override

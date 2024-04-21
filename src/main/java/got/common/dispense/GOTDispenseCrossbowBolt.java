@@ -20,7 +20,7 @@ public class GOTDispenseCrossbowBolt extends BehaviorProjectileDispense {
 	public IProjectile getProjectileEntity(World world, IPosition iposition) {
 		ItemStack itemstack = new ItemStack(theBoltItem);
 		GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(world, itemstack, iposition.getX(), iposition.getY(), iposition.getZ());
-		bolt.canBePickedUp = 1;
+		bolt.setCanBePickedUp(1);
 		return bolt;
 	}
 

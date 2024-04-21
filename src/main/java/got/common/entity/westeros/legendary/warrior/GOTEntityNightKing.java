@@ -5,15 +5,7 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntitySpiderBase;
-import got.common.entity.westeros.ice.GOTEntityIceSpider;
-import got.common.entity.westeros.ice.GOTEntityWhiteWalker;
-import got.common.entity.westeros.ice.GOTEntityWightGiant;
-import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
-import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
-import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
-import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
-import got.common.entity.westeros.wildling.GOTEntityGiant;
+import got.common.entity.westeros.ice.IceUtils;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -25,10 +17,9 @@ import net.minecraft.world.World;
 public class GOTEntityNightKing extends GOTEntityHumanBase {
 	public GOTEntityNightKing(World world) {
 		super(world);
-		canBeMarried = false;
-		setSize(0.6f * 1.1f, 1.8f * 1.1f);
-		setIsLegendaryNPC();
 		addTargetTasks();
+		setupLegendaryNPC(true);
+		setSize(0.6f * 1.1f, 1.8f * 1.1f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));
@@ -39,7 +30,7 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		isImmuneToFrost = true;
+		isImmuneToFire = true;
 	}
 
 	public void addTargetTasks() {
@@ -52,17 +43,17 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
+	}
+
+	@Override
+	public boolean attackEntityAsMob(Entity entity) {
+		return IceUtils.attackWithFrost(entity, super.attackEntityAsMob(entity));
 	}
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		ItemStack itemstack;
-		Entity entity = damagesource.getEntity();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && (itemstack.getItem() == GOTItems.baelishDagger || itemstack.getItem() == GOTItems.crowbar)) {
-			return super.attackEntityFrom(damagesource, f * 100);
-		}
-		return super.attackEntityFrom(damagesource, 0.0f);
+		boolean causeDamage = IceUtils.calculateDamage(this, damagesource, false);
+		return super.attackEntityFrom(damagesource, causeDamage ? f : 0.0f);
 	}
 
 	@Override
@@ -116,31 +107,8 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
-		GOTEntityWhiteWalker walker = new GOTEntityWhiteWalker(worldObj);
-		GOTEntityWightGiant giant = new GOTEntityWightGiant(worldObj);
-		GOTEntityIceSpider spider = new GOTEntityIceSpider(worldObj);
-		if (entity instanceof GOTEntityBericDondarrion || entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityLancelLannister || entity instanceof GOTEntityTheonGreyjoy) {
-			super.onKillEntity(entity);
-		} else if (entity instanceof GOTEntityHumanBase) {
-			super.onKillEntity(entity);
-			walker.familyInfo.setAge(((GOTEntityNPC) entity).familyInfo.getAge());
-			walker.copyLocationAndAnglesFrom(entity);
-			worldObj.removeEntity(entity);
-			walker.onSpawnWithEgg(null);
-			worldObj.spawnEntityInWorld(walker);
-		} else if (entity instanceof GOTEntityGiant) {
-			super.onKillEntity(entity);
-			giant.copyLocationAndAnglesFrom(entity);
-			worldObj.removeEntity(entity);
-			giant.onSpawnWithEgg(null);
-			worldObj.spawnEntityInWorld(giant);
-		} else if (entity instanceof GOTEntitySpiderBase) {
-			super.onKillEntity(entity);
-			spider.copyLocationAndAnglesFrom(entity);
-			worldObj.removeEntity(entity);
-			spider.onSpawnWithEgg(null);
-			worldObj.spawnEntityInWorld(spider);
-		}
+		super.onKillEntity(entity);
+		IceUtils.createNewWight(this, entity, worldObj);
 	}
 
 	@Override

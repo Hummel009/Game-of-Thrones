@@ -9,14 +9,17 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityConker extends EntityThrowable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityConker(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityConker(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityConker(World world, EntityLivingBase entity) {
 		super(world, entity);
 	}

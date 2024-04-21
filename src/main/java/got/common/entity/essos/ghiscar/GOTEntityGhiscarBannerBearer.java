@@ -7,7 +7,6 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarBannerBearer extends GOTEntityGhiscarCorsair implements GOTBannerBearer {
 	public GOTEntityGhiscarBannerBearer(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

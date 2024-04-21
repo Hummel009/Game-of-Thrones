@@ -35,7 +35,7 @@ public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
 			return false;
 		}
 		GOTEntityNPC ridingNPC = (GOTEntityNPC) livingHorse.riddenByEntity;
-		return ridingNPC.hiredNPCInfo.isActive && ridingNPC.hiredNPCInfo.getHiringPlayer() != null && ridingNPC.hiredNPCInfo.shouldFollowPlayer() && !livingHorse.getNavigator().noPath() && livingHorse.getDistanceSqToEntity(theHiringPlayer) > maxNearDist * maxNearDist;
+		return ridingNPC.getHireableInfo().isActive() && ridingNPC.getHireableInfo().getHiringPlayer() != null && ridingNPC.getHireableInfo().shouldFollowPlayer() && !livingHorse.getNavigator().noPath() && livingHorse.getDistanceSqToEntity(theHiringPlayer) > maxNearDist * maxNearDist;
 	}
 
 	@Override
@@ -55,11 +55,11 @@ public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
 			return false;
 		}
 		GOTEntityNPC ridingNPC = (GOTEntityNPC) rider;
-		if (!ridingNPC.hiredNPCInfo.isActive) {
+		if (!ridingNPC.getHireableInfo().isActive()) {
 			return false;
 		}
-		EntityPlayer entityplayer = ridingNPC.hiredNPCInfo.getHiringPlayer();
-		if (entityplayer == null || !ridingNPC.hiredNPCInfo.shouldFollowPlayer() || livingHorse.getDistanceSqToEntity(entityplayer) < minFollowDist * minFollowDist) {
+		EntityPlayer entityplayer = ridingNPC.getHireableInfo().getHiringPlayer();
+		if (entityplayer == null || !ridingNPC.getHireableInfo().shouldFollowPlayer() || livingHorse.getDistanceSqToEntity(entityplayer) < minFollowDist * minFollowDist) {
 			return false;
 		}
 		theHiringPlayer = entityplayer;
@@ -84,15 +84,15 @@ public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
 		livingHorse.getLookHelper().setLookPositionWithEntity(theHiringPlayer, 10.0f, livingHorse.getVerticalFaceSpeed());
 		ridingNPC.rotationYaw = livingHorse.rotationYaw;
 		ridingNPC.rotationYawHead = livingHorse.rotationYawHead;
-		if (ridingNPC.hiredNPCInfo.shouldFollowPlayer()) {
+		if (ridingNPC.getHireableInfo().shouldFollowPlayer()) {
 			--followTick;
 			if (followTick <= 0) {
 				followTick = 10;
-				if (!livingHorse.getNavigator().tryMoveToEntityLiving(theHiringPlayer, moveSpeed) && ridingNPC.hiredNPCInfo.teleportAutomatically) {
+				if (!livingHorse.getNavigator().tryMoveToEntityLiving(theHiringPlayer, moveSpeed) && ridingNPC.getHireableInfo().isTeleportAutomatically()) {
 					double d = ridingNPC.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
 					d = Math.max(d, 24.0);
 					if (ridingNPC.getDistanceSqToEntity(theHiringPlayer) > d * d) {
-						ridingNPC.hiredNPCInfo.tryTeleportToHiringPlayer(false);
+						ridingNPC.getHireableInfo().tryTeleportToHiringPlayer(false);
 					}
 				}
 			}

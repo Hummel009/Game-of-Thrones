@@ -14,9 +14,8 @@ import net.minecraft.world.World;
 public class GOTEntityWesterlandsCaptain extends GOTEntityWesterlandsSoldier implements GOTUnitTradeable {
 	public GOTEntityWesterlandsCaptain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.WESTERLANDS;
+		cape = GOTCapes.WESTERLANDS;
 		spawnRidingHorse = false;
 	}
 

@@ -11,8 +11,7 @@ import net.minecraft.world.World;
 public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	public GOTEntityHillmanWarrior(World world) {
 		super(world);
-		canBeMarried = false;
-		npcShield = GOTShields.HILLMEN;
+		shield = GOTShields.HILLMEN;
 	}
 
 	@Override
@@ -23,7 +22,7 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

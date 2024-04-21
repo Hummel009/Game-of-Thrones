@@ -21,10 +21,10 @@ public class GOTEntityAIHiringPlayerHurtByTarget extends EntityAITarget {
 
 	@Override
 	public boolean shouldExecute() {
-		if (!theNPC.hiredNPCInfo.isActive || theNPC.hiredNPCInfo.isHalted()) {
+		if (!theNPC.getHireableInfo().isActive() || theNPC.getHireableInfo().isHalted()) {
 			return false;
 		}
-		EntityPlayer entityplayer = theNPC.hiredNPCInfo.getHiringPlayer();
+		EntityPlayer entityplayer = theNPC.getHireableInfo().getHiringPlayer();
 		if (entityplayer == null) {
 			return false;
 		}
@@ -36,7 +36,7 @@ public class GOTEntityAIHiringPlayerHurtByTarget extends EntityAITarget {
 	@Override
 	public void startExecuting() {
 		theNPC.setAttackTarget(theTarget);
-		EntityPlayer entityplayer = theNPC.hiredNPCInfo.getHiringPlayer();
+		EntityPlayer entityplayer = theNPC.getHireableInfo().getHiringPlayer();
 		if (entityplayer != null) {
 			playerRevengeTimer = entityplayer.func_142015_aE();
 		}

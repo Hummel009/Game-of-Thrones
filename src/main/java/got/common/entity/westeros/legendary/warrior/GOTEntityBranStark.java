@@ -17,9 +17,8 @@ import net.minecraft.world.World;
 public class GOTEntityBranStark extends GOTEntityHumanBase {
 	public GOTEntityBranStark(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
-		setIsLegendaryNPC();
+		setupLegendaryNPC(true);
 		setSize(0.6f * 0.75f, 1.8f * 0.75f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

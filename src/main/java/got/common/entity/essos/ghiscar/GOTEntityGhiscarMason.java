@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarMason extends GOTEntityGhiscarTrader {
 	public GOTEntityGhiscarMason(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

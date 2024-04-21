@@ -485,7 +485,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				if (entry == null) {
 					whitelistSlots[index] = null;
 				} else {
-					GameProfile profile = entry.profile;
+					GameProfile profile = entry.getProfile();
 					if (profile == null) {
 						whitelistSlots[index] = null;
 					} else {

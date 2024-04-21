@@ -14,8 +14,7 @@ import net.minecraft.world.World;
 public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiWarrior implements GOTUnitTradeable {
 	public GOTEntityAsshaiCaptain(World world) {
 		super(world);
-		canBeMarried = false;
-		npcCape = GOTCapes.ASSHAI;
+		cape = GOTCapes.ASSHAI;
 		addTargetTasks(false);
 	}
 

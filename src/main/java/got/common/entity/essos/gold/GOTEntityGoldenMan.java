@@ -6,7 +6,6 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTNPCMount;
-import got.common.quest.IPickpocketable;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.essos.GOTBiomeDisputedLands;
 import net.minecraft.entity.EntityLiving;
@@ -19,10 +18,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocketable {
+public class GOTEntityGoldenMan extends GOTEntityHumanBase {
 	public GOTEntityGoldenMan(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -38,7 +36,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		npcShield = GOTShields.GOLDENCOMPANY;
+		shield = GOTShields.GOLDENCOMPANY;
 		addTargetTasks(true);
 	}
 
@@ -89,7 +87,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
+			if (isLiftSpawnRestrictions()) {
 				return true;
 			}
 			int i = MathHelper.floor_double(posX);
@@ -108,7 +106,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

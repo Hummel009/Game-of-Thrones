@@ -12,14 +12,13 @@ public class GOTEntityGhiscarLevyman extends GOTEntityGhiscarMan {
 
 	public GOTEntityGhiscarLevyman(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true);
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
 	}
 
 	@Override
@@ -30,7 +29,7 @@ public class GOTEntityGhiscarLevyman extends GOTEntityGhiscarMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+			if (hireableInfo.getHiringPlayer() == entityplayer) {
 				return "standard/civilized/hired_soldier";
 			}
 			return "standard/civilized/usual_friendly";

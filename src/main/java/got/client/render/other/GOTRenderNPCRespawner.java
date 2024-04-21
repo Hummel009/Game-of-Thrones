@@ -27,7 +27,7 @@ public class GOTRenderNPCRespawner extends Render {
 		GL11.glPushMatrix();
 		GL11.glEnable(32826);
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
-		float rotation = interpolateRotation(spawner.prevSpawnerSpin, spawner.spawnerSpin, f1);
+		float rotation = interpolateRotation(spawner.getPrevSpawnerSpin(), spawner.getSpawnerSpin(), f1);
 		float scale = 2.0f;
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(-0.5f * scale, -spawner.height / 2.0f, 0.03125f * scale);

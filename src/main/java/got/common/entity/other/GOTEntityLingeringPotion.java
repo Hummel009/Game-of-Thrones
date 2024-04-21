@@ -11,17 +11,20 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityLingeringPotion extends EntityPotion implements IEntityAdditionalSpawnData {
-	public ItemStack stack;
+	private ItemStack stack;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLingeringPotion(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLingeringPotion(World world, double x, double y, double z, ItemStack stack) {
 		super(world, x, y, z, stack);
 		this.stack = stack;
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLingeringPotion(World world, EntityLivingBase thrower, ItemStack stack) {
 		super(world, thrower, stack);
 		this.stack = stack;

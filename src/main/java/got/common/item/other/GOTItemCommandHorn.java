@@ -65,21 +65,21 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 			for (Entity entity : entities) {
 				if (entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
-					if (!npc.hiredNPCInfo.isActive || npc.hiredNPCInfo.getHiringPlayer() != entityplayer || !GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
+					if (!npc.getHireableInfo().isActive() || npc.getHireableInfo().getHiringPlayer() != entityplayer || !GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
 						continue;
 					}
-					if (itemstack.getItemDamage() == 1 && npc.hiredNPCInfo.getObeyHornHaltReady()) {
-						npc.hiredNPCInfo.halt();
+					if (itemstack.getItemDamage() == 1 && npc.getHireableInfo().getObeyHornHaltReady()) {
+						npc.getHireableInfo().halt();
 						continue;
 					}
-					if (itemstack.getItemDamage() == 2 && npc.hiredNPCInfo.getObeyHornHaltReady()) {
-						npc.hiredNPCInfo.ready();
+					if (itemstack.getItemDamage() == 2 && npc.getHireableInfo().getObeyHornHaltReady()) {
+						npc.getHireableInfo().ready();
 						continue;
 					}
-					if (itemstack.getItemDamage() != 3 || !npc.hiredNPCInfo.getObeyHornSummon()) {
+					if (itemstack.getItemDamage() != 3 || !npc.getHireableInfo().getObeyHornSummon()) {
 						continue;
 					}
-					npc.hiredNPCInfo.tryTeleportToHiringPlayer(true);
+					npc.getHireableInfo().tryTeleportToHiringPlayer(true);
 				}
 			}
 		}

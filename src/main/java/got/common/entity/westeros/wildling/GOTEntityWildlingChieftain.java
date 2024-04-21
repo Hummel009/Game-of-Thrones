@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 public class GOTEntityWildlingChieftain extends GOTEntityWildling implements GOTUnitTradeable {
 	public GOTEntityWildlingChieftain(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
 	}
 

@@ -6,7 +6,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorthHillmanCannibal extends GOTEntityNorthHillman {
 	public GOTEntityNorthHillmanCannibal(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 

@@ -9,20 +9,24 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityThrowingAxe extends GOTEntityProjectileBase {
-	public int axeRotation;
+	private int axeRotation;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThrowingAxe(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThrowingAxe(World world, EntityLivingBase entityliving, EntityLivingBase target, ItemStack item, float charge, float inaccuracy) {
 		super(world, entityliving, target, item, charge, inaccuracy);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThrowingAxe(World world, EntityLivingBase entityliving, ItemStack item, float charge) {
 		super(world, entityliving, item, charge);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThrowingAxe(World world, ItemStack item, double d, double d1, double d2) {
 		super(world, item, d, d1, d2);
 	}
@@ -37,7 +41,7 @@ public class GOTEntityThrowingAxe extends GOTEntityProjectileBase {
 		return speed * damage;
 	}
 
-	public boolean isThrowingAxe() {
+	private boolean isThrowingAxe() {
 		Item item = getProjectileItem().getItem();
 		return item instanceof GOTItemThrowingAxe;
 	}

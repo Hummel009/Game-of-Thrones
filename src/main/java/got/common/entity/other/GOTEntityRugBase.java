@@ -14,8 +14,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtectable {
-	public int timeSinceLastGrowl = getTimeUntilGrowl();
-
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	protected GOTEntityRugBase(World world) {
 		super(world);
 	}
@@ -23,11 +22,10 @@ public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtec
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
 		if (!worldObj.isRemote && !isDead) {
-			boolean creative;
 			Block.SoundType blockSound = Blocks.wool.stepSound;
 			worldObj.playSoundAtEntity(this, blockSound.getBreakSound(), (blockSound.getVolume() + 1.0f) / 2.0f, blockSound.getPitch() * 0.8f);
 			Entity attacker = damagesource.getEntity();
-			creative = attacker instanceof EntityPlayer && ((EntityPlayer) attacker).capabilities.isCreativeMode;
+			boolean creative = attacker instanceof EntityPlayer && ((EntityPlayer) attacker).capabilities.isCreativeMode;
 			if (!creative) {
 				entityDropItem(getRugItem(), 0.0f);
 			}
@@ -42,6 +40,7 @@ public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtec
 	}
 
 	@Override
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void entityInit() {
 	}
 
@@ -57,9 +56,7 @@ public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtec
 
 	public abstract ItemStack getRugItem();
 
-	public abstract String getRugNoise();
-
-	public int getTimeUntilGrowl() {
+	private int getTimeUntilGrowl() {
 		return (60 + rand.nextInt(150)) * 20;
 	}
 
@@ -86,21 +83,15 @@ public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtec
 		if (onGround) {
 			motionY *= -0.5;
 		}
-		if (!worldObj.isRemote) {
-			if (timeSinceLastGrowl > 0) {
-				--timeSinceLastGrowl;
-			} else if (rand.nextInt(5000) == 0) {
-				worldObj.playSoundAtEntity(this, getRugNoise(), 1.0f, (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2f + 1.0f);
-				timeSinceLastGrowl = getTimeUntilGrowl();
-			}
-		}
 	}
 
 	@Override
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 	}
 
 	@Override
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 	}
 }

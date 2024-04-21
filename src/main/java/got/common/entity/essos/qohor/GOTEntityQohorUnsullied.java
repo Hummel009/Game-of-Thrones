@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 	public GOTEntityQohorUnsullied(World world) {
 		super(world);
-		canBeMarried = false;
-		npcCape = GOTCapes.UNSULLIED;
-		npcShield = GOTShields.UNSULLIED;
+		cape = GOTCapes.UNSULLIED;
+		shield = GOTShields.UNSULLIED;
 	}
 
 	@Override
@@ -23,7 +22,7 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
-		getEntityAttribute(npcAttackDamage).setBaseValue(40.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(40.0);
 	}
 
 	@Override

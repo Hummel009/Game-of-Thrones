@@ -116,10 +116,11 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClasses(GOTEntityGoldenWarrior.class, GOTEntityGoldenSpearman.class);
+				spawner.setSpawnClass1(GOTEntityGoldenWarrior.class);
+				spawner.setSpawnClass2(GOTEntityGoldenSpearman.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
-				spawner.setBlockEnemySpawnRange(60);
+				spawner.setBlockEnemySpawns(60);
 			}
 		}
 	}

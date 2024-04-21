@@ -7,6 +7,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTGuiId;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.inventory.*;
 import got.common.item.other.GOTItemCracker;
 import got.common.item.other.GOTItemPouch;
@@ -145,7 +146,7 @@ public class GOTGuiHandler implements IGuiHandler {
 				entity = world.getEntityByID(i);
 				if (entity instanceof GOTEntityNPC) {
 					npc = (GOTEntityNPC) entity;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
+					if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer().equals(entityplayer) && npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.FARMER) {
 						return new GOTGuiHiredFarmerInventory(entityplayer.inventory, npc);
 					}
 				}
@@ -166,7 +167,7 @@ public class GOTGuiHandler implements IGuiHandler {
 				entity = world.getEntityByID(i);
 				if (entity instanceof GOTEntityNPC) {
 					npc = (GOTEntityNPC) entity;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
+					if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer().equals(entityplayer) && npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.WARRIOR) {
 						return new GOTGuiHiredWarriorInventory(entityplayer.inventory, npc);
 					}
 				}
@@ -201,10 +202,10 @@ public class GOTGuiHandler implements IGuiHandler {
 					GOTEntityHorse horse = (GOTEntityHorse) entity;
 					return new GOTGuiMountInventory(entityplayer.inventory, new AnimalChest(horse.getCommandSenderName(), j), horse);
 				}
-				if (entity instanceof GOTEntityNPCRideable) {
-					GOTEntityNPCRideable npc2 = (GOTEntityNPCRideable) entity;
+				if (entity instanceof GOTEntitySpiderBase) {
+					GOTEntitySpiderBase npc2 = (GOTEntitySpiderBase) entity;
 					if (npc2.getMountInventory() != null) {
-						return new GOTGuiNPCMountInventory(entityplayer.inventory, new AnimalChest(npc2.getCommandSenderName(), j), npc2);
+						return new GOTGuiSpiderInventory(entityplayer.inventory, new AnimalChest(npc2.getCommandSenderName(), j), npc2);
 					}
 				}
 				break;
@@ -409,7 +410,7 @@ public class GOTGuiHandler implements IGuiHandler {
 				entity = world.getEntityByID(i);
 				if (entity instanceof GOTEntityNPC) {
 					npc = (GOTEntityNPC) entity;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
+					if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer().equals(entityplayer) && npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.FARMER) {
 						return new GOTContainerHiredFarmerInventory(entityplayer.inventory, npc);
 					}
 				}
@@ -418,7 +419,7 @@ public class GOTGuiHandler implements IGuiHandler {
 				entity = world.getEntityByID(i);
 				if (entity instanceof GOTEntityNPC) {
 					npc = (GOTEntityNPC) entity;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
+					if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer().equals(entityplayer) && npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.WARRIOR) {
 						return new GOTContainerHiredWarriorInventory(entityplayer.inventory, npc);
 					}
 				}
@@ -443,8 +444,8 @@ public class GOTGuiHandler implements IGuiHandler {
 					GOTEntityHorse horse = (GOTEntityHorse) entity;
 					return new GOTContainerMountInventory(entityplayer.inventory, GOTReflection.getHorseInv(horse), horse);
 				}
-				if (entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).getMountInventory() != null) {
-					return new GOTContainerNPCMountInventory(entityplayer.inventory, ((GOTEntityNPCRideable) entity).getMountInventory(), (GOTEntityNPCRideable) entity);
+				if (entity instanceof GOTEntitySpiderBase && ((GOTEntitySpiderBase) entity).getMountInventory() != null) {
+					return new GOTContainerSpiderInventory(entityplayer.inventory, ((GOTEntitySpiderBase) entity).getMountInventory(), (GOTEntitySpiderBase) entity);
 				}
 				break;
 			case OVEN:

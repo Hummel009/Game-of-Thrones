@@ -3,8 +3,8 @@ package got.common.world.structure.westeros.wildling;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
-import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
-import got.common.entity.westeros.GOTEntityLightSkinThief;
+import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
 import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;
@@ -187,16 +187,16 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 			spawnNPCAndSetHome(new GOTEntityWildlingAxeThrower(world), world, 0, 1, 0, 8);
 		} else {
 			GOTEntityWildling male = new GOTEntityWildling(world);
-			male.familyInfo.setMale(true);
+			male.getFamilyInfo().setMale(true);
 			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, 0, 8);
 			GOTEntityWildling female = new GOTEntityWildling(world);
-			female.familyInfo.setMale(false);
+			female.getFamilyInfo().setMale(false);
 			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, 0, 8);
 			GOTEntityWildling child = new GOTEntityWildling(world);
-			child.familyInfo.setMale(random.nextBoolean());
-			child.familyInfo.setChild();
+			child.getFamilyInfo().setMale(random.nextBoolean());
+			child.getFamilyInfo().setChild();
 			spawnNPCAndSetHome(child, world, 0, 1, 0, 8);
 		}
 		return true;

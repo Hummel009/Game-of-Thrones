@@ -19,7 +19,6 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWyvern(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(2.85f, 2.55f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -29,8 +28,6 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		spawnsInDarkness = true;
-		isNotHuman = true;
 	}
 
 	@Override
@@ -38,7 +35,7 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
-		getEntityAttribute(npcAttackDamage).setBaseValue(6.0);
+		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(6.0);
 	}
 
 	@Override
@@ -48,7 +45,7 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 				setSnapTime(20);
 			}
 			worldObj.playSoundAtEntity(this, "got:crocodile.snap", getSoundVolume(), getSoundPitch());
-			float attackDamage = (float) getEntityAttribute(npcAttackDamage).getAttributeValue();
+			float attackDamage = (float) getEntityAttribute(NPC_ATTACK_DAMAGE).getAttributeValue();
 			float knockbackModifier = 0.25f * attackDamage;
 			entity.addVelocity(-MathHelper.sin(rotationYaw * 3.1415927f / 180.0f) * knockbackModifier * 0.5f, knockbackModifier * 0.1, MathHelper.cos(rotationYaw * 3.1415927f / 180.0f) * knockbackModifier * 0.5f);
 			return true;

@@ -15,27 +15,30 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntityPlate extends EntityThrowable implements IEntityAdditionalSpawnData {
-	public int plateSpin;
-	public Block plateBlock;
+	private Block plateBlock;
+	private int plateSpin;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPlate(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPlate(World world, Block block, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 		setSize(0.5f, 0.5f);
 		plateBlock = block;
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPlate(World world, Block block, EntityLivingBase entityliving) {
 		super(world, entityliving);
 		setSize(0.5f, 0.5f);
 		plateBlock = block;
 	}
 
-	public boolean breakGlass(int i, int j, int k) {
+	private boolean breakGlass(int i, int j, int k) {
 		Block block = worldObj.getBlock(i, j, k);
 		if (block.getMaterial() == Material.glass && !GOTBannerProtection.isProtected(worldObj, i, j, k, GOTBannerProtection.forThrown(this), true)) {
 			worldObj.playAuxSFX(2001, i, j, k, Block.getIdFromBlock(block) + (worldObj.getBlockMetadata(i, j, k) << 12));

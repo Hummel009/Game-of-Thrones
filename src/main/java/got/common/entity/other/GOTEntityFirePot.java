@@ -15,14 +15,17 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTEntityFirePot extends EntityThrowable {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFirePot(World world) {
 		super(world);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFirePot(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
 	}
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityFirePot(World world, EntityLivingBase entityliving) {
 		super(world, entityliving);
 	}

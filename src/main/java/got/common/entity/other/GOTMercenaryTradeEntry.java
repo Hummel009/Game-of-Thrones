@@ -5,9 +5,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
-	public GOTMercenary theMerc;
+	private final GOTMercenary theMerc;
 
-	public GOTMercenaryTradeEntry(GOTMercenary merc) {
+	private GOTMercenaryTradeEntry(GOTMercenary merc) {
 		super((Class<? extends Entity>) merc.getClass(), merc.getMercBaseCost(), merc.getMercAlignmentRequired());
 		theMerc = merc;
 	}
@@ -23,6 +23,6 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 
 	@Override
 	public boolean hasRequiredCostAndAlignment(EntityPlayer entityplayer, GOTHireableBase trader) {
-		return !((GOTEntityNPC) theMerc).hiredNPCInfo.isActive && super.hasRequiredCostAndAlignment(entityplayer, trader);
+		return !((GOTEntityNPC) theMerc).hireableInfo.isActive() && super.hasRequiredCostAndAlignment(entityplayer, trader);
 	}
 }

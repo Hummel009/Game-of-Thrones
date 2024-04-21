@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 public class GOTEntityCrownlandsAlchemist extends GOTEntityCrownlandsMan implements GOTTradeable {
 	public GOTEntityCrownlandsAlchemist(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
 	@Override

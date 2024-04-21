@@ -67,7 +67,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 			GOTEnchantmentHelper.setProjectileEnchantment(axe, ench);
 		}
 		if (entityplayer.capabilities.isCreativeMode) {
-			axe.canBePickedUp = 2;
+			axe.setCanBePickedUp(2);
 		}
 		world.playSoundAtEntity(entityplayer, "random.bow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + 0.25f);
 		if (!world.isRemote) {

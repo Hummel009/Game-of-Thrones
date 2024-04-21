@@ -200,7 +200,8 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 			setBlockAndMetadata(world, 3, j1, 3, Blocks.wool, 15);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityIronbornSoldier.class, GOTEntityIronbornSoldierArcher.class);
+		respawner.setSpawnClass1(GOTEntityIronbornSoldier.class);
+		respawner.setSpawnClass2(GOTEntityIronbornSoldierArcher.class);
 		respawner.setCheckRanges(80, -12, 0, 30);
 		respawner.setSpawnRanges(80, -12, 0, 80);
 		respawner.setSpawnInterval(1);

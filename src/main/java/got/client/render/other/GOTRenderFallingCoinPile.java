@@ -23,8 +23,8 @@ public class GOTRenderFallingCoinPile extends Render {
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityFallingTreasure fallingCoin = (GOTEntityFallingTreasure) entity;
 		World world = fallingCoin.worldObj;
-		Block block = fallingCoin.theBlock;
-		int meta = fallingCoin.theBlockMeta;
+		Block block = fallingCoin.getTheBlock();
+		int meta = fallingCoin.getTheBlockMeta();
 		int i = MathHelper.floor_double(fallingCoin.posX);
 		int j = MathHelper.floor_double(fallingCoin.posY);
 		int k = MathHelper.floor_double(fallingCoin.posZ);

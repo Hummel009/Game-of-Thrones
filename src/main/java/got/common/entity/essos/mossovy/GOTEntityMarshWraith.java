@@ -36,6 +36,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(3, new EntityAILookIdle(this));
 		ignoreFrustumCheck = true;
+		isImmuneToFire = true;
 	}
 
 	@Override
@@ -70,11 +71,6 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 			playSound("got:wraith.marshWraith_shoot", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.8f));
 			worldObj.spawnEntityInWorld(ball);
 		}
-	}
-
-	@Override
-	public boolean canReEquipHired(int slot, ItemStack itemstack) {
-		return false;
 	}
 
 	@Override

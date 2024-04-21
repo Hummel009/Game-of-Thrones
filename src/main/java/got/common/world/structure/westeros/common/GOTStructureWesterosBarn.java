@@ -4,6 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTFarmhand;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -318,7 +319,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		for (int l = 0; l < farmhands; ++l) {
 			GOTEntityNPC farmhand = getFarmhand(world);
 			spawnNPCAndSetHome(farmhand, world, -7, 1, 6, 12);
-			farmhand.seedsItem = seedItem;
+			((GOTFarmhand) farmhand).setSeedsItem(seedItem);
 		}
 		return true;
 	}

@@ -21,7 +21,7 @@ public class GOTRenderSpear extends Render {
 		GL11.glRotatef(spear.prevRotationYaw + (spear.rotationYaw - spear.prevRotationYaw) * f1 - 90.0f, 0.0f, 1.0f, 0.0f);
 		GL11.glRotatef(spear.prevRotationPitch + (spear.rotationPitch - spear.prevRotationPitch) * f1, 0.0f, 0.0f, 1.0f);
 		GL11.glEnable(32826);
-		float f2 = spear.shake - f1;
+		float f2 = spear.getShake() - f1;
 		if (f2 > 0.0f) {
 			float f3 = -MathHelper.sin(f2 * 3.0f) * f2;
 			GL11.glRotatef(f3, 0.0f, 0.0f, 1.0f);

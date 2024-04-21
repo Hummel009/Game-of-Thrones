@@ -15,9 +15,8 @@ import net.minecraft.world.World;
 public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitTradeable {
 	public GOTEntityDothrakiKhal(World world) {
 		super(world);
-		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = null;
+		cape = null;
 		spawnRidingHorse = false;
 	}
 

@@ -4,16 +4,16 @@ import got.common.database.GOTNames;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityCrasterWife extends GOTEntityHumanBase {
+public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	public GOTEntityCrasterWife(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -25,7 +25,6 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(false);
-		isImmuneToFrost = true;
 	}
 
 	@Override
@@ -33,11 +32,6 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-	}
-
-	@Override
-	public boolean canBeFreelyTargetedBy(EntityLiving attacker) {
-		return false;
 	}
 
 	@Override

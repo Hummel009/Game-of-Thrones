@@ -11,13 +11,19 @@ import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
+import got.common.entity.other.info.GOTFamilyInfo;
+import got.common.entity.other.info.GOTHireableInfo;
+import got.common.entity.other.info.GOTQuestInfo;
+import got.common.entity.other.info.GOTTraderInfo;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTContainerAnvil;
 import got.common.inventory.GOTContainerCoinExchange;
 import got.common.inventory.GOTContainerTrade;
 import got.common.inventory.GOTContainerUnitTrade;
 import got.common.item.GOTWeaponStats;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemModifierTemplate;
+import got.common.item.other.GOTItemOwnership;
+import got.common.item.other.GOTItemPouch;
 import got.common.item.weapon.GOTItemBow;
 import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSpear;
@@ -52,82 +58,83 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.util.*;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 
-import java.awt.*;
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.*;
+import java.util.UUID;
 
+@SuppressWarnings("WeakerAccess")
 public abstract class GOTEntityNPC extends EntityCreature implements IRangedAttackMob, GOTRandomSkinEntity {
-	public static IAttribute npcAttackDamage = new RangedAttribute("got.npcAttackDamage", 2.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Attack Damage");
-	public static IAttribute npcAttackDamageExtra = new RangedAttribute("got.npcAttackDamageExtra", 0.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Extra Attack Damage");
-	public static IAttribute npcAttackDamageDrunk = new RangedAttribute("got.npcAttackDamageDrunk", 4.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Drunken Attack Damage");
-	public static IAttribute npcRangedAccuracy = new RangedAttribute("got.npcRangedAccuracy", 1.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Ranged Accuracy");
-	public static IAttribute horseAttackSpeed = new RangedAttribute("got.horseAttackSpeed", 1.7, 0.0, Double.MAX_VALUE).setDescription("GOT Horse Attack Speed");
-	public static float MOUNT_RANGE_BONUS = 1.5f;
-	public AttackMode currentAttackMode = AttackMode.IDLE;
-	public GOTCapes npcCape;
-	public GOTEntityQuestInfo questInfo;
-	public GOTFamilyInfo familyInfo;
-	public GOTHiredNPCInfo hiredNPCInfo;
-	public GOTInventoryHiredReplacedItems hiredReplacedInv;
-	public GOTInventoryNPCItems npcItemsInv;
-	public GOTShields npcShield;
-	public Item seedsItem;
-	public GOTTraderNPCInfo traderNPCInfo;
-	public ItemStack[] festiveItems = new ItemStack[5];
-	public List<GOTFaction> killBonusFactions = new ArrayList<>();
-	public List<ItemStack> enpouchedDrops = new ArrayList<>();
-	public Random festiveRand = new Random();
-	public UUID invasionID;
-	public UUID prevAttackTarget;
-	public boolean addedBurningPanic;
-	public boolean canBannerBearerSpawnRiding;
-	public boolean canBeMarried;
-	public boolean clientCombatStance;
-	public boolean clientIsEating;
-	public boolean combatStance;
-	public boolean enpouchNPCDrops;
-	public boolean firstUpdatedAttackMode;
-	public boolean hurtOnlyByPlates = true;
-	public boolean initFestiveItems;
-	public boolean isChilly;
-	public boolean isConquestSpawning;
-	public boolean isImmuneToFrost;
-	public boolean isLegendaryNPC;
-	public boolean isNPCPersistent;
-	public boolean isNotHuman;
-	public boolean isPassive;
-	public boolean isTargetSeeker;
-	public boolean isTraderEscort;
-	public boolean liftBannerRestrictions;
-	public boolean liftSpawnRestrictions;
-	public boolean loadingFromNBT;
-	public boolean prevCombatStance;
-	public boolean ridingMount;
-	public boolean setInitialHome;
-	public boolean spawnRidingHorse;
-	public boolean spawnsInDarkness;
-	public float npcHeight;
-	public float npcWidth = -1.0f;
-	public int combatCooldown;
-	public int initHomeRange = -1;
-	public int initHomeX;
-	public int initHomeY;
-	public int initHomeZ;
-	public int nearbyBannerFactor;
-	public int npcTalkTick;
+	public static final float MOUNT_RANGE_BONUS = 1.5f;
+
+	public static final IAttribute NPC_ATTACK_DAMAGE = new RangedAttribute("got.npcAttackDamage", 2.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Attack Damage");
+	public static final IAttribute NPC_ATTACK_DAMAGE_EXTRA = new RangedAttribute("got.npcAttackDamageExtra", 0.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Extra Attack Damage");
+	public static final IAttribute NPC_RANGED_ACCURACY = new RangedAttribute("got.npcRangedAccuracy", 1.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Ranged Accuracy");
+	public static final IAttribute HORSE_ATTACK_SPEED = new RangedAttribute("got.horseAttackSpeed", 1.7, 0.0, Double.MAX_VALUE).setDescription("GOT Horse Attack Speed");
+	public static final IAttribute NPC_ATTACK_DAMAGE_DRUNK = new RangedAttribute("got.npcAttackDamageDrunk", 4.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Drunken Attack Damage");
+
+	private final List<ItemStack> enpouchedDrops = new ArrayList<>();
+
+	protected GOTCapes cape;
+	protected GOTShields shield;
+
+	protected GOTQuestInfo questInfo;
+	protected GOTFamilyInfo familyInfo;
+	protected GOTHireableInfo hireableInfo;
+	protected GOTTraderInfo traderInfo;
+
+	protected GOTInventoryNPCItems npcItemsInv;
+
+	protected boolean spawnRidingHorse;
+
+	private final List<GOTFaction> killBonusFactions = new ArrayList<>();
+
+	private AttackMode currentAttackMode = AttackMode.IDLE;
+	private GOTInventoryHiredReplacedItems hiredReplacedInv;
+	private ItemStack anonymousMask;
+	private UUID invasionID;
+	private UUID prevAttackTarget;
+
+	private boolean isNPCPersistent;
+	private boolean liftSpawnRestrictions;
+	private boolean clientCombatStance;
+	private boolean clientIsEating;
+	private boolean liftBannerRestrictions;
+	private boolean isLegendaryNPC;
+	private boolean addedBurningPanic;
+	private boolean canBannerBearerSpawnRiding;
+	private boolean combatStance;
+	private boolean enpouchNPCDrops;
+	private boolean firstUpdatedAttackMode;
+	private boolean hurtOnlyByPlates = true;
+	private boolean initMask;
+	private boolean isConquestSpawning;
+	private boolean isTargetSeeker;
+	private boolean loadingFromNBT;
+	private boolean ridingMount;
+	private boolean setInitialHome;
+
+	private float npcHeight;
+	private float npcWidth = -1.0f;
+
+	private int npcTalkTick;
+	private int combatCooldown;
+	private int initHomeRange = -1;
+	private int initHomeX;
+	private int initHomeY;
+	private int initHomeZ;
+	private int nearbyBannerFactor;
 
 	protected GOTEntityNPC(World world) {
 		super(world);
-		canBeMarried = false;
 	}
 
-	public static int addTargetTasks(EntityCreature entity, int index, Class<? extends GOTEntityAINearestAttackableTargetBasic> c) {
+	private static int addTargetTasks(EntityCreature entity, int index, Class<? extends GOTEntityAINearestAttackableTargetBasic> c) {
 		try {
 			Constructor<? extends GOTEntityAINearestAttackableTargetBasic> constructor = c.getConstructor(EntityCreature.class, Class.class, Integer.TYPE, Boolean.TYPE, IEntitySelector.class);
 			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityPlayer.class, 0, true, null));
@@ -163,17 +170,16 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getAttributeMap().registerAttribute(npcAttackDamage);
-		getAttributeMap().registerAttribute(npcAttackDamageExtra);
-		getAttributeMap().registerAttribute(npcAttackDamageDrunk);
-		getAttributeMap().registerAttribute(npcRangedAccuracy);
-		getAttributeMap().registerAttribute(horseAttackSpeed);
+		getAttributeMap().registerAttribute(NPC_ATTACK_DAMAGE);
+		getAttributeMap().registerAttribute(NPC_ATTACK_DAMAGE_EXTRA);
+		getAttributeMap().registerAttribute(NPC_ATTACK_DAMAGE_DRUNK);
+		getAttributeMap().registerAttribute(NPC_RANGED_ACCURACY);
+		getAttributeMap().registerAttribute(HORSE_ATTACK_SPEED);
 	}
 
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
-		boolean flag;
-		float damage = (float) getEntityAttribute(npcAttackDamage).getAttributeValue();
+		float damage = (float) getEntityAttribute(NPC_ATTACK_DAMAGE).getAttributeValue();
 		float weaponDamage = 0.0f;
 		ItemStack weapon = getEquipmentInSlot(0);
 		if (weapon != null) {
@@ -182,9 +188,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (weaponDamage > 0.0f) {
 			damage = weaponDamage;
 		}
-		damage += (float) getEntityAttribute(npcAttackDamageExtra).getAttributeValue();
+		damage += (float) getEntityAttribute(NPC_ATTACK_DAMAGE_EXTRA).getAttributeValue();
 		if (isDrunkard()) {
-			damage += (float) getEntityAttribute(npcAttackDamageDrunk).getAttributeValue();
+			damage += (float) getEntityAttribute(NPC_ATTACK_DAMAGE_DRUNK).getAttributeValue();
 		}
 		damage += nearbyBannerFactor * 0.5f;
 		int knockbackModifier = 0;
@@ -192,9 +198,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			damage += EnchantmentHelper.getEnchantmentModifierLiving(this, (EntityLivingBase) entity);
 			knockbackModifier += EnchantmentHelper.getKnockbackModifier(this, (EntityLivingBase) entity);
 		}
-		flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+		boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
 		if (flag) {
-			int fireAspectModifier;
 			if (weapon != null && entity instanceof EntityLivingBase) {
 				int weaponItemDamage = weapon.getItemDamage();
 				weapon.getItem().hitEntity(weapon, (EntityLivingBase) entity, this);
@@ -205,7 +210,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				motionX *= 0.6;
 				motionZ *= 0.6;
 			}
-			fireAspectModifier = EnchantmentHelper.getFireAspectModifier(this);
+			int fireAspectModifier = EnchantmentHelper.getFireAspectModifier(this);
 			if (fireAspectModifier > 0) {
 				entity.setFire(fireAspectModifier * 4);
 			}
@@ -219,19 +224,19 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		boolean flag;
+		float f2 = f;
 		if (riddenByEntity != null && damagesource.getEntity() == riddenByEntity) {
 			return false;
 		}
 		if (nearbyBannerFactor > 0) {
 			int i = 12 - nearbyBannerFactor;
-			float f1 = f * i;
-			f = f1 / 12.0f;
+			float f1 = f2 * i;
+			f2 = f1 / 12.0f;
 		}
-		flag = super.attackEntityFrom(damagesource, f);
+		boolean flag = super.attackEntityFrom(damagesource, f2);
 		if (flag && damagesource.getEntity() instanceof GOTEntityNPC) {
 			GOTEntityNPC attacker = (GOTEntityNPC) damagesource.getEntity();
-			if (attacker.hiredNPCInfo.isActive && attacker.hiredNPCInfo.getHiringPlayer() != null) {
+			if (attacker.hireableInfo.isActive() && attacker.hireableInfo.getHiringPlayer() != null) {
 				recentlyHit = 100;
 				attackingPlayer = null;
 			}
@@ -239,7 +244,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (flag && !worldObj.isRemote && hurtOnlyByPlates) {
 			hurtOnlyByPlates = damagesource.getSourceOfDamage() instanceof GOTEntityPlate;
 		}
-		if (flag && !worldObj.isRemote && isInvasionSpawned() && damagesource.getEntity() instanceof EntityPlayer) {
+		if (flag && !worldObj.isRemote && invasionID != null && damagesource.getEntity() instanceof EntityPlayer) {
 			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
 			GOTEntityInvasionSpawner invasion = GOTEntityInvasionSpawner.locateInvasionNearby(this, invasionID);
 			if (invasion != null) {
@@ -254,42 +259,18 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		npcArrowAttack(target, f);
 	}
 
-	public boolean canBeFreelyTargetedBy(EntityLiving attacker) {
-		return true;
-	}
-
 	@Override
 	public boolean canDespawn() {
-		return !isNPCPersistent && !isLegendaryNPC && !hiredNPCInfo.isActive && !questInfo.anyActiveQuestPlayers();
+		return !isNPCPersistent && !isLegendaryNPC && !hireableInfo.isActive() && !questInfo.anyActiveQuestPlayers();
 	}
 
-	public boolean canDropRares() {
-		return !hiredNPCInfo.isActive || !isNotHuman;
-	}
-
-	public boolean canGetDrunk() {
-		return !isChild() && !isTrader() && !isTraderEscort && !hiredNPCInfo.isActive;
-	}
-
-	public boolean canNPCTalk() {
+	private boolean canNPCTalk() {
 		return isEntityAlive() && npcTalkTick >= getNPCTalkInterval();
 	}
 
 	@Override
 	public boolean canPickUpLoot() {
 		return false;
-	}
-
-	public boolean canReEquipHired(int slot, ItemStack itemstack) {
-		return true;
-	}
-
-	public boolean canRenameNPC() {
-		return false;
-	}
-
-	public boolean conquestSpawnIgnoresDarkness() {
-		return true;
 	}
 
 	public GOTMiniQuest createMiniQuest() {
@@ -322,6 +303,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	@Override
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void dropEquipment(boolean flag, int i) {
 	}
 
@@ -329,7 +311,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void dropFewItems(boolean flag, int i) {
 		hiredReplacedInv.dropAllReplacedItems();
 		dropNPCEquipment(flag, i);
-		if (flag && canDropRares()) {
+		if (flag) {
 			int coinChance = 8 - i * 2;
 			if (rand.nextInt(Math.max(coinChance, 1)) == 0) {
 				int coins = getRandomCoinDropAmount();
@@ -340,7 +322,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				dropChestContents(GOTChestContents.TREASURE, 1, 1);
 			}
 		}
-		if (flag && canDropRares()) {
+		if (flag) {
 			int modChance = 60;
 			modChance -= i * 5;
 			if (rand.nextInt(Math.max(modChance, 1)) == 0) {
@@ -348,10 +330,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				entityDropItem(modItem, 0.0f);
 			}
 		}
-	}
-
-	public void dropItemList(Collection<ItemStack> items) {
-		dropItemList(items, true);
 	}
 
 	public void dropItemList(Collection<ItemStack> items, boolean applyOwnership) {
@@ -362,7 +340,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	public void dropNPCAmmo(Item item, int i) {
+	protected void dropNPCAmmo(Item item, int i) {
 		int ammo = rand.nextInt(3) + rand.nextInt(i + 1);
 		for (int l = 0; l < ammo; ++l) {
 			dropItem(item, 1);
@@ -373,11 +351,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		dropNPCAmmo(Items.arrow, i);
 	}
 
-	public void dropNPCCrossbowBolts(int i) {
+	protected void dropNPCCrossbowBolts(int i) {
 		dropNPCAmmo(GOTItems.crossbowBolt, i);
 	}
 
-	public void dropNPCEquipment(boolean flag, int i) {
+	private void dropNPCEquipment(boolean flag, int i) {
 		if (flag) {
 			int j;
 			int equipmentCount = 0;
@@ -389,12 +367,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			}
 			if (equipmentCount > 0) {
 				for (j = 0; j < 5; ++j) {
-					boolean dropGuaranteed;
 					ItemStack equipmentDrop = getEquipmentInSlot(j);
 					if (equipmentDrop == null) {
 						continue;
 					}
-					dropGuaranteed = equipmentDropChances[j] >= 1.0f;
+					boolean dropGuaranteed = equipmentDropChances[j] >= 1.0f;
 					if (!dropGuaranteed) {
 						int chance = 20 * equipmentCount - i * 4 * equipmentCount;
 						if (rand.nextInt(Math.max(chance, 1)) != 0) {
@@ -421,9 +398,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void entityInit() {
 		super.entityInit();
 		familyInfo = new GOTFamilyInfo(this);
-		questInfo = new GOTEntityQuestInfo(this);
-		hiredNPCInfo = new GOTHiredNPCInfo(this);
-		traderNPCInfo = new GOTTraderNPCInfo(this);
+		questInfo = new GOTQuestInfo(this);
+		hireableInfo = new GOTHireableInfo(this);
+		traderInfo = new GOTTraderInfo(this);
 		setupNPCGender();
 		setupNPCName();
 		npcItemsInv = new GOTInventoryNPCItems(this);
@@ -444,6 +421,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	@Override
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void func_110163_bv() {
 	}
 
@@ -452,29 +430,13 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return getEquipmentInSlot(i + 1);
 	}
 
-	public boolean generatesControlZone() {
-		return true;
-	}
-
 	public float getAlignmentBonus() {
 		return 0.0f;
 	}
 
-	public String getAttackSound() {
-		return null;
-	}
-
 	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
-		if (liftSpawnRestrictions) {
-			return 1.0f;
-		}
-		if (!isConquestSpawning || !conquestSpawnIgnoresDarkness()) {
-			if (spawnsInDarkness) {
-				return 0.5f - worldObj.getLightBrightness(i, j, k);
-			}
-		}
-		return 0.0f;
+		return liftSpawnRestrictions ? 1.0f : 0.0f;
 	}
 
 	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
@@ -483,7 +445,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return (!spawnsInDarkness || liftSpawnRestrictions || isConquestSpawning && conquestSpawnIgnoresDarkness() || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
+		return super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
 	}
 
 	@Override
@@ -513,28 +475,14 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public ItemStack getEquipmentInSlot(int i) {
 		if (worldObj.isRemote) {
-			if (!initFestiveItems) {
-				festiveRand.setSeed(getEntityId() * 341873128712L);
-				if (GOT.isGuyFawkes()) {
-					festiveItems[4] = new ItemStack(GOTItems.anonymousMask);
-				} else if (GOT.isNewYear() && festiveRand.nextInt(3) == 0) {
-					ItemStack hat;
-					if (rand.nextBoolean()) {
-						hat = new ItemStack(GOTItems.leatherHat);
-						GOTItemLeatherHat.setHatColor(hat, 13378587);
-						GOTItemLeatherHat.setFeatherColor(hat, 16777215);
-						festiveItems[4] = hat;
-					} else {
-						hat = new ItemStack(GOTItems.partyHat);
-						float hue = rand.nextFloat();
-						GOTItemPartyHat.setHatColor(hat, Color.HSBtoRGB(hue, 1.0f, 1.0f));
-					}
-					festiveItems[4] = hat;
+			if (!initMask) {
+				if (GOT.isGuyFawkes() && i == 4) {
+					anonymousMask = new ItemStack(GOTItems.anonymousMask);
 				}
-				initFestiveItems = true;
+				initMask = true;
 			}
-			if (festiveItems[i] != null) {
-				return festiveItems[i];
+			if (anonymousMask != null) {
+				return anonymousMask;
 			}
 		}
 		return super.getEquipmentInSlot(i);
@@ -559,16 +507,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			return new ItemStack(GOTItems.banner, 1, bannerBearer.getBannerType().getBannerID());
 		}
 		if (isTrader() && !isLegendaryNPC && !(this instanceof GOTMercenary)) {
-			boolean showCoin = npcShield == null || !clientCombatStance && hiredNPCInfo.getHiringPlayerUUID() == null;
+			boolean showCoin = shield == null || !clientCombatStance && hireableInfo.getHiringPlayerUUID() == null;
 			if (showCoin) {
 				return new ItemStack(GOTItems.coin);
 			}
 		}
 		return null;
-	}
-
-	public GOTFaction getHiringFaction() {
-		return getFaction();
 	}
 
 	public UUID getInvasionID() {
@@ -583,12 +527,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return null;
 	}
 
-	public double getMaxCombatRange() {
+	private double getMaxCombatRange() {
 		double d = getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
 		return d * 0.95;
 	}
 
-	public double getMaxCombatRangeSq() {
+	private double getMaxCombatRangeSq() {
 		double d = getMaxCombatRange();
 		return d * d;
 	}
@@ -601,16 +545,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return d;
 	}
 
-	public double getMeleeRangeSq() {
+	private double getMeleeRangeSq() {
 		double d = getMeleeRange();
 		return d * d;
 	}
 
-	public int getMiniquestColor() {
-		return getFaction().getFactionColor();
-	}
-
-	public String getNPCFormattedName(String npcName, String entityName) {
+	private String getNPCFormattedName(String npcName, String entityName) {
 		if (npcName.equals(entityName)) {
 			return entityName;
 		}
@@ -621,7 +561,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return super.getCommandSenderName();
 	}
 
-	public float getNPCScale() {
+	protected float getNPCScale() {
 		return isChild() ? 0.5f : 1.0f;
 	}
 
@@ -642,12 +582,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return 0.0f;
 	}
 
-	public int getRandomCoinDropAmount() {
+	protected int getRandomCoinDropAmount() {
 		return 1 + (int) Math.round(Math.pow(1.0 + Math.abs(rand.nextGaussian()), 3.0) * 0.25);
 	}
 
 	public int getSpawnCountValue() {
-		if (isNPCPersistent || hiredNPCInfo.isActive) {
+		if (isNPCPersistent || hireableInfo.isActive()) {
 			return 0;
 		}
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
@@ -658,10 +598,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		return null;
-	}
-
-	public GOTAchievement getTalkAchievement() {
 		return null;
 	}
 
@@ -728,10 +664,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return entityplayer != null && !GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(this, true).isEmpty() || super.isInRangeToRenderDist(dist);
 	}
 
-	public boolean isInvasionSpawned() {
-		return invasionID != null;
-	}
-
 	public boolean isLegendaryNPC() {
 		return isLegendaryNPC;
 	}
@@ -740,35 +672,14 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return this instanceof GOTTradeable || this instanceof GOTUnitTradeable || this instanceof GOTMercenary;
 	}
 
-	public boolean isValidLightLevelForDarkSpawn() {
-		int i = MathHelper.floor_double(posX);
-		int j = MathHelper.floor_double(boundingBox.minY);
-		int k = MathHelper.floor_double(posZ);
-		if (worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) > rand.nextInt(32)) {
-			return false;
-		}
-		int l = worldObj.getBlockLightValue(i, j, k);
-		if (worldObj.isThundering()) {
-			int i1 = worldObj.skylightSubtracted;
-			worldObj.skylightSubtracted = 10;
-			l = worldObj.getBlockLightValue(i, j, k);
-			worldObj.skylightSubtracted = i1;
-		}
-		return l <= rand.nextInt(8);
-	}
-
-	public boolean lootsExtraCoins() {
-		return false;
-	}
-
 	public void markNPCSpoken() {
 		npcTalkTick = 0;
 	}
 
-	public void npcArrowAttack(EntityLivingBase target, float f) {
+	private void npcArrowAttack(EntityLivingBase target, float f) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.3f + getDistanceToEntity(target) / 80.0f;
-		float accuracy = (float) getEntityAttribute(npcRangedAccuracy).getAttributeValue();
+		float accuracy = (float) getEntityAttribute(NPC_RANGED_ACCURACY).getAttributeValue();
 		float poisonChance = getPoisonedArrowChance();
 		float fireChance = getFireArrowChance();
 		EntityArrow arrow = rand.nextFloat() < fireChance ? new GOTEntityArrowFire(worldObj, this, target, str, accuracy) : rand.nextFloat() < poisonChance ? new GOTEntityArrowPoisoned(worldObj, this, target, str, accuracy) : new EntityArrow(worldObj, this, target, str * GOTItemBow.getLaunchSpeedFactor(heldItem), accuracy);
@@ -779,11 +690,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		worldObj.spawnEntityInWorld(arrow);
 	}
 
-	public void npcCrossbowAttack(EntityLivingBase target, float f) {
+	protected void npcCrossbowAttack(EntityLivingBase target, float f) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.0f + getDistanceToEntity(target) / 16.0f * 0.015f;
 		boolean poison = rand.nextFloat() < getPoisonedArrowChance();
-		ItemStack boltItem = poison ? new ItemStack(GOTItems.crossbowBoltPoisoned) : new ItemStack(GOTItems.crossbowBolt);
+		ItemStack boltItem = new ItemStack(poison ? GOTItems.crossbowBoltPoisoned : GOTItems.crossbowBolt);
 		GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(worldObj, this, target, boltItem, str * GOTItemCrossbow.getCrossbowLaunchSpeedFactor(heldItem), 1.0f);
 		if (heldItem != null) {
 			GOTItemCrossbow.applyCrossbowModifiers(bolt, heldItem);
@@ -803,9 +714,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return super.entityDropItem(item, offset);
 	}
 
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void onArtificalSpawn() {
 	}
 
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 	}
 
@@ -814,9 +727,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		EntityPlayer entityplayer;
 		GOTEntityInvasionSpawner invasion;
 		enpouchNPCDrops = true;
-		hiredNPCInfo.onDeath(damagesource);
+		hireableInfo.onDeath(damagesource);
 		super.onDeath(damagesource);
-		if (!worldObj.isRemote && recentlyHit > 0 && canDropRares() && GOT.canDropLoot(worldObj) && rand.nextInt(60) == 0) {
+		if (!worldObj.isRemote && recentlyHit > 0 && GOT.canDropLoot(worldObj) && rand.nextInt(60) == 0) {
 			ItemStack pouch = createNPCPouchDrop();
 			fillPouchFromListAndRetainUnfilled(pouch, enpouchedDrops);
 			enpouchNPCDrops = false;
@@ -844,7 +757,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			entity.onSpawn();
 		}
 		questInfo.onDeath();
-		if (!worldObj.isRemote && isInvasionSpawned() && (entityplayer = GOT.getDamagingPlayerIncludingUnits(damagesource)) != null && (invasion = GOTEntityInvasionSpawner.locateInvasionNearby(this, invasionID)) != null) {
+		if (!worldObj.isRemote && invasionID != null && (entityplayer = GOT.getDamagingPlayerIncludingUnits(damagesource)) != null && (invasion = GOTEntityInvasionSpawner.locateInvasionNearby(this, invasionID)) != null) {
 			invasion.addPlayerKill(entityplayer);
 			if (damagesource.getEntity() == entityplayer) {
 				invasion.setWatchingInvasion((EntityPlayerMP) entityplayer, true);
@@ -855,17 +768,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
 		super.onKillEntity(entity);
-		hiredNPCInfo.onKillEntity(entity);
-		if (lootsExtraCoins() && !worldObj.isRemote && entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).canDropRares() && rand.nextInt(2) == 0) {
-			int coins = getRandomCoinDropAmount();
-			coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f));
-			if (coins > 0) {
-				entity.dropItem(GOTItems.coin, coins);
-			}
-		}
+		hireableInfo.onKillEntity(entity);
 	}
 
 	@Override
+	@SuppressWarnings("CastConflictsWithInstanceof")
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		rescaleNPC(getNPCScale());
@@ -875,12 +782,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		familyInfo.onUpdate();
 		questInfo.onUpdate();
-		hiredNPCInfo.onUpdate();
+		hireableInfo.onUpdate();
 		if (this instanceof GOTTradeable) {
-			traderNPCInfo.onUpdate();
+			traderInfo.onUpdate();
 		}
 		if ((this instanceof GOTTradeable || this instanceof GOTUnitTradeable) && !worldObj.isRemote) {
-			int preventKidnap;
 			if (!setInitialHome) {
 				if (hasHome()) {
 					initHomeX = getHomePosition().posX;
@@ -890,7 +796,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				}
 				setInitialHome = true;
 			}
-			preventKidnap = GOTConfig.preventTraderKidnap;
+			int preventKidnap = GOTConfig.preventTraderKidnap;
 			if (preventKidnap > 0 && initHomeRange > 0 && getDistanceSq(initHomeX + 0.5, initHomeY + 0.5, initHomeZ + 0.5) > preventKidnap * preventKidnap) {
 				if (ridingEntity != null) {
 					mountEntity(null);
@@ -901,17 +807,17 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		if (!worldObj.isRemote && !addedBurningPanic) {
 			GOTEntityUtils.removeAITask(this, GOTEntityAIBurningPanic.class);
-			if (shouldBurningPanic()) {
+			if (!isLegendaryNPC) {
 				tasks.addTask(0, new GOTEntityAIBurningPanic(this, 1.5));
 			}
 			addedBurningPanic = true;
 		}
-		if (!worldObj.isRemote && isEntityAlive() && (isTrader() || hiredNPCInfo.isActive) && getAttackTarget() == null) {
+		if (!worldObj.isRemote && isEntityAlive() && (isTrader() || hireableInfo.isActive()) && getAttackTarget() == null) {
 			float healAmount = 0.0f;
 			if (ticksExisted % 40 == 0) {
 				healAmount += 1.0f;
 			}
-			if (hiredNPCInfo.isActive && nearbyBannerFactor > 0 && ticksExisted % (240 - nearbyBannerFactor * 40) == 0) {
+			if (hireableInfo.isActive() && nearbyBannerFactor > 0 && ticksExisted % (240 - nearbyBannerFactor * 40) == 0) {
 				healAmount += 1.0f;
 			}
 			if (healAmount > 0.0f) {
@@ -942,7 +848,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 					break;
 				}
 			}
-			if (hiredNPCInfo.isActive && hiredNPCInfo.isGuiOpen) {
+			if (hireableInfo.isActive() && hireableInfo.isGuiOpen()) {
 				guiOpen = true;
 			}
 			if (questInfo.anyOpenOfferPlayers()) {
@@ -970,7 +876,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				detachHome();
 			} else if (getAttackTarget() == null && getNavigator().noPath()) {
 				detachHome();
-				boolean goDirectlyHome = worldObj.blockExists(homeX, homeY, homeZ) && hiredNPCInfo.isGuardMode() && distToHome < 16.0;
+				boolean goDirectlyHome = worldObj.blockExists(homeX, homeY, homeZ) && hireableInfo.isGuardMode() && distToHome < 16.0;
 				double homeSpeed = 1.3;
 				if (goDirectlyHome) {
 					getNavigator().tryMoveToXYZ(homeX + 0.5, homeY + 0.5, homeZ + 0.5, homeSpeed);
@@ -986,16 +892,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				setHomeArea(homeX, homeY, homeZ, homeRange);
 			}
 		}
-		if (isChilly && motionX * motionX + motionY * motionY + motionZ * motionZ >= 0.01) {
-			double d = posX + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
-			double d1 = boundingBox.minY + MathHelper.randomFloatClamp(rand, 0.2f, 0.7f) * height;
-			double d2 = posZ + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
-			GOT.proxy.spawnParticle("chill", d, d1, d2, -motionX * 0.5, 0.0, -motionZ * 0.5);
-		}
 	}
 
 	public void onPlayerStartTracking(EntityPlayerMP entityplayer) {
-		hiredNPCInfo.sendBasicData(entityplayer);
+		hireableInfo.sendBasicData(entityplayer);
 		familyInfo.sendData(entityplayer);
 		questInfo.sendData(entityplayer);
 		sendCombatStance(entityplayer);
@@ -1019,8 +919,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 					}
 				}
 			}
-			if (traderNPCInfo.getBuyTrades() != null && rand.nextInt(10000) == 0) {
-				for (GOTTradeEntry trade : traderNPCInfo.getBuyTrades()) {
+			if (traderInfo.getBuyTrades() != null && rand.nextInt(10000) == 0) {
+				for (GOTTradeEntry trade : traderInfo.getBuyTrades()) {
 					trade.setCost(trade.getCost() * 100);
 				}
 				familyInfo.setName("Мойша Рабинович");
@@ -1039,8 +939,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		super.readEntityFromNBT(nbt);
 		familyInfo.readFromNBT(nbt);
 		questInfo.readFromNBT(nbt);
-		hiredNPCInfo.readFromNBT(nbt);
-		traderNPCInfo.readFromNBT(nbt);
+		hireableInfo.readFromNBT(nbt);
+		traderInfo.readFromNBT(nbt);
 		npcItemsInv.readFromNBT(nbt);
 		hiredReplacedInv.readFromNBT(nbt);
 		if (nbt.hasKey("NPCHomeRadius")) {
@@ -1055,8 +955,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		hurtOnlyByPlates = nbt.getBoolean("HurtOnlyByPlates");
 		ridingMount = nbt.getBoolean("RidingHorse");
-		isPassive = nbt.getBoolean("NPCPassive");
-		isTraderEscort = nbt.getBoolean("TraderEscort");
 		if (nbt.hasKey("BonusFactions")) {
 			NBTTagList bonusTags = nbt.getTagList("BonusFactions", 8);
 			for (int i = 0; i < bonusTags.tagCount(); ++i) {
@@ -1089,16 +987,16 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		onAttackModeChange(currentAttackMode, ridingMount);
 	}
 
-	public void rescaleNPC(float f) {
+	private void rescaleNPC(float f) {
 		super.setSize(npcWidth * f, npcHeight * f);
 	}
 
-	public void sendCombatStance(EntityPlayerMP entityplayer) {
+	private void sendCombatStance(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketNPCCombatStance(getEntityId(), combatStance);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
-	public void sendIsEatingPacket(EntityPlayerMP entityplayer) {
+	private void sendIsEatingPacket(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketNPCIsEating(getEntityId(), npcItemsInv.getIsEating());
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
@@ -1145,15 +1043,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void setAttackTarget(EntityLivingBase target, boolean speak) {
 		EntityLivingBase prevEntityTarget = getAttackTarget();
 		super.setAttackTarget(target);
-		hiredNPCInfo.onSetTarget(target, prevEntityTarget);
+		hireableInfo.onSetTarget(target, prevEntityTarget);
 		if (target != null && !target.getUniqueID().equals(prevAttackTarget)) {
 			prevAttackTarget = target.getUniqueID();
 			if (!worldObj.isRemote) {
 				EntityPlayer entityplayer;
 				String speechBank;
-				if (getAttackSound() != null) {
-					worldObj.playSoundAtEntity(this, getAttackSound(), getSoundVolume(), getSoundPitch());
-				}
 				if (target instanceof EntityPlayer && speak && (speechBank = getSpeechBank(entityplayer = (EntityPlayer) target)) != null) {
 					IEntitySelector selectorAttackingNPCs = new EntitySelectorImpl1(entityplayer);
 					double range = 16.0;
@@ -1166,13 +1061,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	public void setConquestSpawning(boolean flag) {
-		isConquestSpawning = flag;
-	}
-
 	@Override
 	public void setCustomNameTag(String name) {
-		if (canRenameNPC() || loadingFromNBT) {
+		if (loadingFromNBT) {
 			super.setCustomNameTag(name);
 		}
 	}
@@ -1185,12 +1076,13 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	public void setIsLegendaryNPC() {
+	public void setupLegendaryNPC(boolean legendaryQuest) {
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
 		isLegendaryNPC = true;
 		spawnRidingHorse = false;
-		questInfo.setIsLegendaryQuest();
+		questInfo.setOfferChance(legendaryQuest ? 1 : 20000);
+		questInfo.setMinAlignment(legendaryQuest ? 100 : 0);
 	}
 
 	public void setRidingHorse(boolean flag) {
@@ -1215,14 +1107,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		entityUniqueID = uuid;
 	}
 
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void setupNPCGender() {
 	}
 
+	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void setupNPCName() {
-	}
-
-	public boolean shouldBurningPanic() {
-		return true;
 	}
 
 	@Override
@@ -1231,11 +1121,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean shouldRenderNPCChest() {
-		return (!(this instanceof GOTEntityProstitute) || !hasCustomNameTag() || !"Ayase".equalsIgnoreCase(getCustomNameTag())) && !familyInfo.isMale() && !isChild() && getEquipmentInSlot(3) == null;
-	}
-
-	public boolean shouldRenderNPCHair() {
-		return true;
+		return !familyInfo.isMale() && !isChild() && getEquipmentInSlot(3) == null;
 	}
 
 	public void spawnFoodParticles() {
@@ -1291,15 +1177,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		String speechBank = getSpeechBank(entityplayer);
 		if (speechBank != null) {
 			sendSpeechBank(entityplayer, speechBank);
-			if (getTalkAchievement() != null) {
-				GOTLevelData.getData(entityplayer).addAchievement(getTalkAchievement());
-			}
 			return true;
 		}
 		return false;
 	}
 
-	public void updateCombat() {
+	private void updateCombat() {
 		EntityLivingBase entity;
 		if (!worldObj.isRemote && getAttackTarget() != null && (!(entity = getAttackTarget()).isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode)) {
 			setAttackTarget(null);
@@ -1307,17 +1190,15 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		boolean changedMounted = false;
 		boolean changedAttackMode = false;
 		if (!worldObj.isRemote) {
-			boolean isRidingMountNow;
-			isRidingMountNow = ridingEntity instanceof EntityLiving && ridingEntity.isEntityAlive() && !(ridingEntity instanceof GOTEntityNPC);
+			boolean isRidingMountNow = ridingEntity instanceof EntityLiving && ridingEntity.isEntityAlive() && !(ridingEntity instanceof GOTEntityNPC);
 			if (ridingMount != isRidingMountNow) {
 				setRidingHorse(isRidingMountNow);
 				changedMounted = true;
 			}
 		}
 		if (!worldObj.isRemote && !isChild()) {
-			boolean carryingSpearWithBackup;
 			ItemStack weapon = getEquipmentInSlot(0);
-			carryingSpearWithBackup = weapon != null && weapon.getItem() instanceof GOTItemSpear && npcItemsInv.getSpearBackup() != null;
+			boolean carryingSpearWithBackup = weapon != null && weapon.getItem() instanceof GOTItemSpear && npcItemsInv.getSpearBackup() != null;
 			if (getAttackTarget() != null) {
 				double d = getDistanceSqToEntity(getAttackTarget());
 				if (d < getMeleeRangeSq() || carryingSpearWithBackup) {
@@ -1342,7 +1223,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			onAttackModeChange(currentAttackMode, ridingMount);
 		}
 		if (!worldObj.isRemote) {
-			prevCombatStance = combatCooldown > 0;
+			boolean prevCombatStance = combatCooldown > 0;
 			if (getAttackTarget() != null) {
 				combatCooldown = 40;
 			} else if (combatCooldown > 0) {
@@ -1363,7 +1244,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	public void updateNearbyBanners() {
+	private void updateNearbyBanners() {
 		if (getFaction() == GOTFaction.UNALIGNED) {
 			nearbyBannerFactor = 0;
 		} else {
@@ -1378,8 +1259,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		super.writeEntityToNBT(nbt);
 		familyInfo.writeToNBT(nbt);
 		questInfo.writeToNBT(nbt);
-		hiredNPCInfo.writeToNBT(nbt);
-		traderNPCInfo.writeToNBT(nbt);
+		hireableInfo.writeToNBT(nbt);
+		traderInfo.writeToNBT(nbt);
 		npcItemsInv.writeToNBT(nbt);
 		hiredReplacedInv.writeToNBT(nbt);
 		nbt.setInteger("NPCHomeX", getHomePosition().posX);
@@ -1389,8 +1270,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		nbt.setBoolean("NPCPersistent", isNPCPersistent);
 		nbt.setBoolean("HurtOnlyByPlates", hurtOnlyByPlates);
 		nbt.setBoolean("RidingHorse", ridingMount);
-		nbt.setBoolean("NPCPassive", isPassive);
-		nbt.setBoolean("TraderEscort", isTraderEscort);
 		if (!killBonusFactions.isEmpty()) {
 			NBTTagList bonusTags = new NBTTagList();
 			for (GOTFaction f : killBonusFactions) {
@@ -1409,9 +1288,117 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		nbt.setInteger("InitHomeR", initHomeRange);
 	}
 
+	public AttackMode getCurrentAttackMode() {
+		return currentAttackMode;
+	}
+
+	public GOTCapes getCape() {
+		return cape;
+	}
+
+	public GOTShields getShield() {
+		return shield;
+	}
+
+	public GOTQuestInfo getQuestInfo() {
+		return questInfo;
+	}
+
+	public GOTFamilyInfo getFamilyInfo() {
+		return familyInfo;
+	}
+
+	public GOTHireableInfo getHireableInfo() {
+		return hireableInfo;
+	}
+
+	public GOTInventoryHiredReplacedItems getHiredReplacedInv() {
+		return hiredReplacedInv;
+	}
+
+	public GOTInventoryNPCItems getNpcItemsInv() {
+		return npcItemsInv;
+	}
+
+	public GOTTraderInfo getTraderInfo() {
+		return traderInfo;
+	}
+
+	public List<GOTFaction> getKillBonusFactions() {
+		return killBonusFactions;
+	}
+
+	public boolean isClientCombatStance() {
+		return clientCombatStance;
+	}
+
+	public void setClientCombatStance(boolean clientCombatStance) {
+		this.clientCombatStance = clientCombatStance;
+	}
+
+	public boolean isClientIsEating() {
+		return clientIsEating;
+	}
+
+	public void setClientIsEating(boolean clientIsEating) {
+		this.clientIsEating = clientIsEating;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isNPCPersistent() {
+		return isNPCPersistent;
+	}
+
+	public void setNPCPersistent(boolean NPCPersistent) {
+		isNPCPersistent = NPCPersistent;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isLiftBannerRestrictions() {
+		return liftBannerRestrictions;
+	}
+
+	public void setLiftBannerRestrictions(boolean liftBannerRestrictions) {
+		this.liftBannerRestrictions = liftBannerRestrictions;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isConquestSpawning() {
+		return isConquestSpawning;
+	}
+
+	public void setConquestSpawning(boolean flag) {
+		isConquestSpawning = flag;
+	}
+
+	public boolean isLiftSpawnRestrictions() {
+		return liftSpawnRestrictions;
+	}
+
+	public void setLiftSpawnRestrictions(boolean liftSpawnRestrictions) {
+		this.liftSpawnRestrictions = liftSpawnRestrictions;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isSpawnRidingHorse() {
+		return spawnRidingHorse;
+	}
+
+	public void setSpawnRidingHorse(boolean spawnRidingHorse) {
+		this.spawnRidingHorse = spawnRidingHorse;
+	}
+
+	@SuppressWarnings("unused")
+	public int getNpcTalkTick() {
+		return npcTalkTick;
+	}
+
+	public void setNpcTalkTick(int npcTalkTick) {
+		this.npcTalkTick = npcTalkTick;
+	}
+
 	public enum AttackMode {
 		MELEE, RANGED, IDLE
-
 	}
 
 	private static class EntitySelectorImpl1 implements IEntitySelector {

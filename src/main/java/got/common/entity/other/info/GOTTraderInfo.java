@@ -1,8 +1,11 @@
-package got.common.entity.other;
+package got.common.entity.other.info;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.database.GOTTradeEntries;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeEntry;
+import got.common.entity.other.GOTTradeable;
 import got.common.inventory.GOTContainerTrade;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketTraderInfo;
@@ -16,21 +19,24 @@ import net.minecraft.util.MathHelper;
 import java.util.List;
 import java.util.Random;
 
-public class GOTTraderNPCInfo {
-	public GOTEntityNPC theEntity;
-	public GOTTradeEntry[] buyTrades;
-	public GOTTradeEntry[] sellTrades;
-	public int timeUntilAdvertisement;
-	public int timeSinceTrade;
-	public boolean shouldLockTrades = true;
-	public int lockTradeAtValue = 200;
-	public int lockValueDecayTicks = 60;
-	public boolean shouldRefresh = true;
-	public int valueSinceRefresh;
-	public int refreshAtValue = 5000;
-	public int lockTicksAfterRefresh = 6000;
+public class GOTTraderInfo {
+	private final GOTEntityNPC theEntity;
 
-	public GOTTraderNPCInfo(GOTEntityNPC npc) {
+	private GOTTradeEntry[] buyTrades;
+	private GOTTradeEntry[] sellTrades;
+
+	private boolean shouldLockTrades = true;
+	private boolean shouldRefresh = true;
+
+	private int timeUntilAdvertisement;
+	private int timeSinceTrade;
+	private int lockTradeAtValue = 200;
+	private int lockValueDecayTicks = 60;
+	private int valueSinceRefresh;
+	private int refreshAtValue = 5000;
+	private int lockTicksAfterRefresh = 6000;
+
+	public GOTTraderInfo(GOTEntityNPC npc) {
 		theEntity = npc;
 		if (theEntity instanceof GOTTradeable && !theEntity.worldObj.isRemote) {
 			refreshTrades();
@@ -41,7 +47,7 @@ public class GOTTraderNPCInfo {
 		return buyTrades;
 	}
 
-	public void setBuyTrades(GOTTradeEntry[] trades) {
+	private void setBuyTrades(GOTTradeEntry[] trades) {
 		for (GOTTradeEntry trade : trades) {
 			trade.setOwningTrader(this);
 		}
@@ -56,7 +62,7 @@ public class GOTTraderNPCInfo {
 		return sellTrades;
 	}
 
-	public void setSellTrades(GOTTradeEntry[] trades) {
+	private void setSellTrades(GOTTradeEntry[] trades) {
 		for (GOTTradeEntry trade : trades) {
 			trade.setOwningTrader(this);
 		}
@@ -179,7 +185,7 @@ public class GOTTraderNPCInfo {
 		readFromNBT(nbt);
 	}
 
-	public void refreshTrades() {
+	private void refreshTrades() {
 		GOTTradeable theTrader = (GOTTradeable) theEntity;
 		Random rand = theEntity.getRNG();
 		setBuyTrades(theTrader.getBuyPool().getRandomTrades(rand));
@@ -202,7 +208,7 @@ public class GOTTraderNPCInfo {
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 
-	public void setAllTradesDelayed() {
+	private void setAllTradesDelayed() {
 		int delay = lockTicksAfterRefresh;
 		for (GOTTradeEntry trade : buyTrades) {
 			if (trade == null) {
