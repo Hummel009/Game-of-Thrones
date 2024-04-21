@@ -24,6 +24,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return !isBannered(world, i, j, k) && canCatchFire(world, i, j, k, face);
 	}
 
+	@SuppressWarnings("MethodOverridesInaccessibleMethodOfSuper")
 	private boolean canNeighborBurn(World world, int i, int j, int k) {
 		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			if (!canCatchFireNotBannered(world, i + dir.offsetX, j + dir.offsetY, k + dir.offsetZ, dir)) {
@@ -133,6 +134,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return 2;
 	}
 
+	@SuppressWarnings("MethodOverridesInaccessibleMethodOfSuper")
 	private void tryCatchFire(World world, int i, int j, int k, int chance, Random random, int meta, ForgeDirection face) {
 		if (isBannered(world, i, j, k)) {
 			return;

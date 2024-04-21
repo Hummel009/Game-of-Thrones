@@ -43,7 +43,7 @@ public class GOTGuiEditSign extends GuiScreen {
 		tileSign.getBlockType();
 		int meta = tileSign.getBlockMetadata();
 		float rotation = Direction.facingToDirection[meta] * 90.0f;
-		IIcon onIcon = ((GOTTileEntitySignCarved) tileSign).getOnBlockIcon();
+		IIcon onIcon = tileSign.getOnBlockIcon();
 		drawDefaultBackground();
 		drawCenteredString(fontRendererObj, StatCollector.translateToLocal("sign.edit"), width / 2, 40, 16777215);
 		GL11.glPushMatrix();

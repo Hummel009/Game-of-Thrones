@@ -2,7 +2,6 @@ package got.common.world.structure.essos.ibben;
 
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.GOTEntityIbbenFarmhand;
-import got.common.entity.other.GOTFarmhand;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 

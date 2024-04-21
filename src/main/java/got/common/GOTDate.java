@@ -160,7 +160,7 @@ public class GOTDate {
 				return days == 1;
 			}
 
-			@SuppressWarnings("unused")
+			@SuppressWarnings({"WeakerAccess", "unused"})
 			public Season getSeason() {
 				return season;
 			}

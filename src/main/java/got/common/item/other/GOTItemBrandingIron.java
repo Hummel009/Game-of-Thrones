@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTGuiId;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.tileentity.GOTTileEntityAlloyForge;
 import got.common.tileentity.GOTTileEntityOven;
 import net.minecraft.block.Block;

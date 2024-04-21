@@ -69,23 +69,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		if (below == this) {
 			return true;
 		}
-		IPlantable beachTest = new IPlantable() {
-
-			@Override
-			public Block getPlant(IBlockAccess world, int i, int j, int k) {
-				return GOTBlockCorn.this;
-			}
-
-			@Override
-			public int getPlantMetadata(IBlockAccess world, int i, int j, int k) {
-				return 0;
-			}
-
-			@Override
-			public EnumPlantType getPlantType(IBlockAccess world, int i, int j, int k) {
-				return EnumPlantType.Beach;
-			}
-		};
+		IPlantable beachTest = new PlantableImpl(this);
 		return below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, this) || below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, beachTest);
 	}
 
@@ -259,6 +243,29 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 			if (!hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k) && world.rand.nextFloat() < growth) {
 				setHasCorn(world, i, j, k, true);
 			}
+		}
+	}
+
+	private static class PlantableImpl implements IPlantable {
+		private final Block block;
+
+		private PlantableImpl(Block block) {
+			this.block = block;
+		}
+
+		@Override
+		public Block getPlant(IBlockAccess world, int i, int j, int k) {
+			return block;
+		}
+
+		@Override
+		public int getPlantMetadata(IBlockAccess world, int i, int j, int k) {
+			return 0;
+		}
+
+		@Override
+		public EnumPlantType getPlantType(IBlockAccess world, int i, int j, int k) {
+			return EnumPlantType.Beach;
 		}
 	}
 }

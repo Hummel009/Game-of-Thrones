@@ -78,28 +78,22 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 	public void setupRandomBlocks(Random random) {
 		int randomCrop;
 		super.setupRandomBlocks(random);
-		Item seed1;
 		if (random.nextBoolean()) {
 			crop1Block = Blocks.wheat;
-			seed1 = Items.wheat_seeds;
 		} else {
 			randomCrop = random.nextInt(4);
 			switch (randomCrop) {
 				case 0:
 					crop1Block = Blocks.carrots;
-					seed1 = Items.carrot;
 					break;
 				case 1:
 					crop1Block = Blocks.potatoes;
-					seed1 = Items.potato;
 					break;
 				case 2:
 					crop1Block = GOTBlocks.lettuceCrop;
-					seed1 = GOTItems.lettuce;
 					break;
 				default:
 					crop1Block = GOTBlocks.turnipCrop;
-					seed1 = GOTItems.turnip;
 					break;
 			}
 		}
