@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
-	private static final ItemStack[] weaponsBronze = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerDaggerPoisoned), new ItemStack(GOTItems.summerPike)};
-	private static final int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
+	private static final ItemStack[] WEAPONS_BRONZE = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerDaggerPoisoned), new ItemStack(GOTItems.summerPike)};
+	private static final int[] TURBAN_COLORS = {1643539, 6309443, 7014914, 7809314, 5978155};
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerWarrior(World world) {
@@ -45,8 +45,8 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData data1 = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(weaponsBronze.length);
-		npcItemsInv.setMeleeWeapon(weaponsBronze[i].copy());
+		int i = rand.nextInt(WEAPONS_BRONZE.length);
+		npcItemsInv.setMeleeWeapon(WEAPONS_BRONZE[i].copy());
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.summerSpear));
@@ -59,7 +59,7 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 			setCurrentItemOrArmor(4, null);
 		} else if (rand.nextInt(5) == 0) {
 			ItemStack turban = new ItemStack(GOTItems.robesHelmet);
-			int robeColor = turbanColors[rand.nextInt(turbanColors.length)];
+			int robeColor = TURBAN_COLORS[rand.nextInt(TURBAN_COLORS.length)];
 			GOTItemRobes.setRobesColor(turban, robeColor);
 			setCurrentItemOrArmor(4, turban);
 		} else {
