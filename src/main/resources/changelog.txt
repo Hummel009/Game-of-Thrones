@@ -20,6 +20,7 @@ CHANGELOG
 * Optimized dragons, giants and ice creatures
 * Optimized lots of client-size things
 
+* Biome visit achievements and achievement shields now require more biomes and achievements.
 * Moved zero coords of the world closer to Winterfell
 * Rebalanced +alignment values for killing
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
