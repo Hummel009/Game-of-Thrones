@@ -3,7 +3,6 @@ package got.common.util;
 import got.common.GOTDate;
 import got.common.block.other.GOTBlockOreGem;
 import got.common.block.other.GOTBlockRock;
-import got.common.command.GOTCommandWikiGen;
 import got.common.database.*;
 import got.common.entity.other.*;
 import got.common.entity.westeros.legendary.captain.*;
@@ -140,7 +139,7 @@ public class GOTWikiGen {
 	}
 
 	@SuppressWarnings({"deprecation", "StringConcatenationMissingWhitespace"})
-	public static void generate(World world, EntityPlayer player) {
+	public static void generate(String type, World world, EntityPlayer player) {
 		long time = System.nanoTime();
 		try {
 			searchForEntities(world);
@@ -150,8 +149,7 @@ public class GOTWikiGen {
 			searchForPagenamesBiome(BIOMES, FACTIONS);
 			searchForPagenamesFaction(BIOMES, FACTIONS);
 			Files.createDirectories(Paths.get("hummel"));
-			if ("tables".equals(GOTCommandWikiGen.getType())) {
-
+			if ("tables".equals(type)) {
 				StringBuilder sb = new StringBuilder();
 				for (GOTAchievement ach : ACHIEVEMENTS) {
 					sb.append("\n| ").append(ach.getTitle()).append(" || ").append(ach.getDescription()).append("\n|-");
@@ -262,7 +260,7 @@ public class GOTWikiGen {
 				fFood.write(sb.toString());
 				fFood.close();
 
-			} else if ("xml".equals(GOTCommandWikiGen.getType())) {
+			} else if ("xml".equals(type)) {
 				StringBuilder sb = new StringBuilder();
 
 				sb.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
@@ -1673,17 +1671,17 @@ public class GOTWikiGen {
 		}
 	}
 
-	public enum Database {
+	public enum Type {
 		XML("xml"), TABLES("tables");
 
 		private final String codeName;
 
-		Database(String name) {
+		Type(String name) {
 			codeName = name;
 		}
 
-		public static Database forName(String name) {
-			for (Database db : values()) {
+		public static Type forName(String name) {
+			for (Type db : values()) {
 				if (db.codeName.equals(name)) {
 					return db;
 				}
@@ -1693,7 +1691,7 @@ public class GOTWikiGen {
 
 		public static List<String> getNames() {
 			List<String> names = new ArrayList<>();
-			for (Database db : values()) {
+			for (Type db : values()) {
 				names.add(db.codeName);
 			}
 			return names;

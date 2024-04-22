@@ -1099,6 +1099,8 @@ got.achievement.KILL_SHRYKE.desc≠Kill a shryke
 got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
 got.achievement.KILL_THENN_BERSERKER.desc=Mata al entonces n-berserker
 got.achievement.KILL_THENN_BERSERKER.title=Mas poderoso
+got.achievement.KILL_THEON_GREYJOY.desc=Tormento Theon Greyjoy
+got.achievement.KILL_THEON_GREYJOY.title=Es solo una salchicha
 got.achievement.KILL_THE_KING.desc=Mata a cualquier rey de los siete reinos
 got.achievement.KILL_THE_KING.title=Kingslayer
 got.achievement.KILL_THIEVING_BANDIT.desc≠Kill the bandit who robbed you
@@ -1173,10 +1175,10 @@ got.achievement.STEAL.desc=Robar un objeto para un compañero ladrón
 got.achievement.STEAL.title=Misión cumplida
 got.achievement.STEAL_ARBOR_GRAPES.desc=Robar uvas en Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=¡Es mio!
-got.achievement.KILL_THEON_GREYJOY.desc=Tormento Theon Greyjoy
-got.achievement.KILL_THEON_GREYJOY.title=Es solo una salchicha
 got.achievement.TRADE.desc=Comercia con alguien
 got.achievement.TRADE.title=Iniciar un negocio
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.TRAVEL20.desc≠Visit 20 biomes
 got.achievement.TRAVEL20.title≠Traveller I
 got.achievement.TRAVEL40.desc≠Visit 40 biomes
@@ -1185,8 +1187,6 @@ got.achievement.TRAVEL60.desc≠Visit 60 biomes
 got.achievement.TRAVEL60.title≠Traveller III
 got.achievement.TRAVEL80.desc≠Visit 80 biomes
 got.achievement.TRAVEL80.title≠Traveller IV
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc≠Unsmelt unneeded equipment
 got.achievement.UNSMELT.title≠Util
 got.achievement.USE_CROSSBOW.desc≠Use a crossbow
@@ -1857,6 +1857,7 @@ got.command.date.get=La fecha de obtención actual es %d (%s)
 got.command.date.outOfBounds=Fecha fuera de límites
 got.command.date.set=Establecer la fecha de obtención en %d (%s)
 got.command.date.usage=/fecha <obtener|establecer|agregar> <fecha>
+got.command.db.usage=/db <xml|tables>
 got.command.dragon.canttame=No puedes domesticar dragones
 got.command.dragon.nodragons=¡No hay dragones!
 got.command.facRelations.error=Error en la relación de las facciones: %s
@@ -1899,14 +1900,6 @@ got.command.fmsg.fsPrefix=[%s]
 got.command.fmsg.notFound=No eres miembro de la Comunidad "%s"
 got.command.fmsg.unbind=La Comunidad "%s" se ha desenlazado
 got.command.fmsg.usage=/fmsg <"fName"> <mensaje> o /fmsg bind <"fName"> para enlazar una Comunidad predeterminada, luego /fmsg <mensaje> o /fmsg unbind
-got.command.gotEnchant.add=El encantamiento %1$s se ha aplicado al artículo %2$s de %3s
-got.command.gotEnchant.cannotAdd=No se puede aplicar el encantamiento %s al artículo %s
-got.command.gotEnchant.cannotRemove=No se puede remover el encantamiento %s del artículo %s
-got.command.gotEnchant.clear=Todos los encantamientos del artículo %1$s de %2$s han sido removidos
-got.command.gotEnchant.noItem=No se puede encantar un espacio vacío
-got.command.gotEnchant.remove=El encantamiento %1$s se ha removido del artículo %2$s de %3$s
-got.command.gotEnchant.unknown=No hay encantamientos con el nombre %s
-got.command.gotEnchant.usage=/gotEnchant <jugador> <add|remove> <encantamiento> o /gotEnchant <jugador> clear
 got.command.got_achievement.addAll=Se agregaron todos los logros para el jugador %s
 got.command.got_achievement.give.fail=%s ya posee el logro %s
 got.command.got_achievement.give=Se ha entregado a %s el logro %s
@@ -1915,6 +1908,14 @@ got.command.got_achievement.remove=Se ha quitado a %s el logro %s
 got.command.got_achievement.removeAll=Todos los logros de la Juego de Tronos han sido removidos de %s
 got.command.got_achievement.unknown=No existe un logro con nombre %s
 got.command.got_achievement.usage=/got_achievement <give|remove> <logro> [jugador]
+got.command.got_enchant.add=El encantamiento %1$s se ha aplicado al artículo %2$s de %3s
+got.command.got_enchant.cannotAdd=No se puede aplicar el encantamiento %s al artículo %s
+got.command.got_enchant.cannotRemove=No se puede remover el encantamiento %s del artículo %s
+got.command.got_enchant.clear=Todos los encantamientos del artículo %1$s de %2$s han sido removidos
+got.command.got_enchant.noItem=No se puede encantar un espacio vacío
+got.command.got_enchant.remove=El encantamiento %1$s se ha removido del artículo %2$s de %3$s
+got.command.got_enchant.unknown=No hay encantamientos con el nombre %s
+got.command.got_enchant.usage=/gotEnchant <jugador> <add|remove> <encantamiento> o /gotEnchant <jugador> clear
 got.command.invasion.noType=La invasión %s no existe.
 got.command.invasion.start=Invasión iniciada %s (tamaño: %d) en las coordenadas %d, %d, %d
 got.command.invasion.usage=/invasion <nombre> [x] [y] [z] [tamaño]

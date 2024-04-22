@@ -1099,6 +1099,8 @@ got.achievement.KILL_SHRYKE.desc≠Kill a shryke
 got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
 got.achievement.KILL_THENN_BERSERKER.desc=Dood de thenn-berserker
 got.achievement.KILL_THENN_BERSERKER.title=Krachtiger
+got.achievement.KILL_THEON_GREYJOY.desc=Kwelling Theon Greyjoy
+got.achievement.KILL_THEON_GREYJOY.title=Het is maar een worst
 got.achievement.KILL_THE_KING.desc=Dood een willekeurige koning van zeven koninkrijken
 got.achievement.KILL_THE_KING.title=Kingslayer
 got.achievement.KILL_THIEVING_BANDIT.desc≠Kill the bandit who robbed you
@@ -1173,10 +1175,10 @@ got.achievement.STEAL.desc=Steel een item voor een dief partner
 got.achievement.STEAL.title=Missie volbracht
 got.achievement.STEAL_ARBOR_GRAPES.desc=Steel druiven in Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=Het is van mij!
-got.achievement.KILL_THEON_GREYJOY.desc=Kwelling Theon Greyjoy
-got.achievement.KILL_THEON_GREYJOY.title=Het is maar een worst
 got.achievement.TRADE.desc=Handel met iemand
 got.achievement.TRADE.title=Start een bedrijf
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.TRAVEL20.desc≠Visit 20 biomes
 got.achievement.TRAVEL20.title≠Traveller I
 got.achievement.TRAVEL40.desc≠Visit 40 biomes
@@ -1185,8 +1187,6 @@ got.achievement.TRAVEL60.desc≠Visit 60 biomes
 got.achievement.TRAVEL60.title≠Traveller III
 got.achievement.TRAVEL80.desc≠Visit 80 biomes
 got.achievement.TRAVEL80.title≠Traveller IV
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc≠Unsmelt unneeded equipment
 got.achievement.UNSMELT.title≠Util
 got.achievement.USE_CROSSBOW.desc≠Use a crossbow
@@ -1857,6 +1857,7 @@ got.command.date.get=Huidige ophaaldatum is %d ( %s)
 got.command.date.outOfBounds=Datum buiten het bereik
 got.command.date.set=Stel de ophaaldatum in op %d ( %s)
 got.command.date.usage=/date <get|set|add> <datum>
+got.command.db.usage=/db <xml|tables>
 got.command.dragon.canttame=Je kunt geen draken temmen
 got.command.dragon.nodragons=Er zijn geen draken!
 got.command.facRelations.error=Fout in factierelaties: %s
@@ -1899,14 +1900,6 @@ got.command.fmsg.fsPrefix=[%s]
 got.command.fmsg.notFound=U bent geen lid van het Reisgenootschap "%s"
 got.command.fmsg.unbind="%s" is niet langer uw hoofdReisgenootschap
 got.command.fmsg.usage=/fmsg <"fName"> <message> OR /fmsg bind <"fName"> to bind a default Fellowship then /fmsg <message> OR /fmsg unbind
-got.command.gotEnchant.add=Enchant %s is gemodificeerd op %s
-got.command.gotEnchant.cannotAdd=Het is niet mogelijk om %s aan %s te wijzigen
-got.command.gotEnchant.cannotRemove=Het is niet mogelijk om %s aan %s te wijzigen
-got.command.gotEnchant.clear=Verwijder alle wijzigen van item %s
-got.command.gotEnchant.noItem=Het is niet mogelijk dit item te wijzigen
-got.command.gotEnchant.remove=Enchant %s is verwijderd van %s
-got.command.gotEnchant.unknown=Er bestaat geen enchantment met de naam %s
-got.command.gotEnchant.usage=/gotEnchant <Spelernaam> <add|remove> <enchantment> OR /gotEnchant <player> clear
 got.command.got_achievement.addAll=Alle prestaties voor speler %s toegevoegd
 got.command.got_achievement.give.fail=%s heeft deze achievement al %s
 got.command.got_achievement.give=%s is de achievement %s gegeven
@@ -1915,6 +1908,14 @@ got.command.got_achievement.remove=%s heeft de achievement %s niet meer
 got.command.got_achievement.removeAll=Alle prestaties voor speler %s verwijderd
 got.command.got_achievement.unknown=Geen achievement met de naam %s
 got.command.got_achievement.usage=/got_achievement <give|remove> <achievement> [speler]
+got.command.got_enchant.add=Enchant %s is gemodificeerd op %s
+got.command.got_enchant.cannotAdd=Het is niet mogelijk om %s aan %s te wijzigen
+got.command.got_enchant.cannotRemove=Het is niet mogelijk om %s aan %s te wijzigen
+got.command.got_enchant.clear=Verwijder alle wijzigen van item %s
+got.command.got_enchant.noItem=Het is niet mogelijk dit item te wijzigen
+got.command.got_enchant.remove=Enchant %s is verwijderd van %s
+got.command.got_enchant.unknown=Er bestaat geen enchantment met de naam %s
+got.command.got_enchant.usage=/gotEnchant <Spelernaam> <add|remove> <enchantment> OR /gotEnchant <player> clear
 got.command.invasion.noType=Invasie %s bestaat niet.
 got.command.invasion.start=Invasie %s (grootte: %d) gestart op coördinaten %d, %d, %d
 got.command.invasion.usage=/invasie <naam> [x] [y] [z] [grootte]
