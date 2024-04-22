@@ -645,7 +645,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, boolean isKill, boolean isHiredKill, float conquestBonus, double posX, double posY, double posZ) {
+	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, float conquestBonus, double posX, double posY, double posZ) {
 		World world = getClientWorld();
 		if (world != null) {
 			GOTEntityAlignmentBonus entity = new GOTEntityAlignmentBonus(world, posX, posY, posZ, name, faction, prevMainAlignment, factionBonusMap, conquestBonus);

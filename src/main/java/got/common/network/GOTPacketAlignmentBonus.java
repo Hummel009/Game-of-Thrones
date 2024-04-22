@@ -98,7 +98,7 @@ public class GOTPacketAlignmentBonus implements IMessage {
 			if (packet.needsTranslation) {
 				name = StatCollector.translateToLocal(name);
 			}
-			GOT.proxy.spawnAlignmentBonus(packet.mainFaction, packet.prevMainAlignment, packet.factionBonusMap, name, packet.isKill, packet.isHiredKill, packet.conquestBonus, packet.posX, packet.posY, packet.posZ);
+			GOT.proxy.spawnAlignmentBonus(packet.mainFaction, packet.prevMainAlignment, packet.factionBonusMap, name, packet.conquestBonus, packet.posX, packet.posY, packet.posZ);
 			return null;
 		}
 	}
