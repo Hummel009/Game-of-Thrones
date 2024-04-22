@@ -2799,14 +2799,14 @@ got.rank.leader_fm≠Patroness
 got.rank.leader≠Patron
 got.rank.neutral_fm≠Neutral
 got.rank.neutral≠Neutral
-got.shields.ACHIEVEMENT_BRONZE.desc=Verkrijgbaar door 25 prestaties te behalen
+got.shields.ACHIEVEMENT_BRONZE.desc=Verkrijgbaar door 75 prestaties te behalen
 got.shields.ACHIEVEMENT_BRONZE.name=Bronzen Avonturiers Schild
-got.shields.ACHIEVEMENT_GOLD.desc=Verkrijgbaar door 100 prestaties te behalen
+got.shields.ACHIEVEMENT_GOLD.desc=Verkrijgbaar door 225 prestaties te behalen
 got.shields.ACHIEVEMENT_GOLD.name=Gouden Avonturiers Schild
-got.shields.ACHIEVEMENT_SILVER.desc=Verkrijgbaar door 50 prestaties te behalen
+got.shields.ACHIEVEMENT_SILVER.desc=Verkrijgbaar door 150 prestaties te behalen
 got.shields.ACHIEVEMENT_SILVER.name=Zilveren Avonturiers Schild
-got.shields.ACHIEVEMENT_VALYRIAN.desc=Voor 50 prestaties
-got.shields.ACHIEVEMENT_VALYRIAN.name=Valyrian Shield
+got.shields.ACHIEVEMENT_VALYRIAN.desc=Verkrijgbaar door 300 prestaties te behalen
+got.shields.ACHIEVEMENT_VALYRIAN.name=Valyrian Avonturiers Schild
 got.shields.ALCOHOLIC.desc=Verkrijgbaar door een overvloedige hoeveelheid drank te drinken
 got.shields.ALCOHOLIC.name=Alcoholisten Schild
 got.shields.ARRYN.name=Schild van Vallei van Arryn

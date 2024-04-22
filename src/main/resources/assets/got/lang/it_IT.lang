@@ -2799,14 +2799,14 @@ got.rank.leader_fm≠Patroness
 got.rank.leader≠Patron
 got.rank.neutral_fm≠Neutral
 got.rank.neutral≠Neutral
-got.shields.ACHIEVEMENT_BRONZE.desc=Conferito per aver completato 25 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_BRONZE.desc=Conferito per aver completato 75 obiettivi della Trono di Spade
 got.shields.ACHIEVEMENT_BRONZE.name=Scudo di bronzo dell'avventuriero
-got.shields.ACHIEVEMENT_GOLD.desc=Conferito per aver completato 100 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_GOLD.desc=Conferito per aver completato 225 obiettivi della Trono di Spade
 got.shields.ACHIEVEMENT_GOLD.name=Scudo d'oro dell'avventuriero
-got.shields.ACHIEVEMENT_SILVER.desc=Conferito per aver completato 50 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_SILVER.desc=Conferito per aver completato 150 obiettivi della Trono di Spade
 got.shields.ACHIEVEMENT_SILVER.name=Scudo d'argento dell'avventuriero
-got.shields.ACHIEVEMENT_VALYRIAN.desc=Per 50 realizzazioni
-got.shields.ACHIEVEMENT_VALYRIAN.name=Scudo di Valyria
+got.shields.ACHIEVEMENT_VALYRIAN.desc=Conferito per aver completato 300 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_VALYRIAN.name=Scudo di valyria dell'avventuriero
 got.shields.ALCOHOLIC.desc=Conferito per aver gustato copiose quantità di bevande alcoliche
 got.shields.ALCOHOLIC.name=Scudo dell'alcolista
 got.shields.ARRYN.name=Scudo di Valle di Arryn

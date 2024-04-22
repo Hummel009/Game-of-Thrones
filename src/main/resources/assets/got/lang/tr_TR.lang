@@ -2799,14 +2799,14 @@ got.rank.leader_fm≠Patroness
 got.rank.leader≠Patron
 got.rank.neutral_fm≠Neutral
 got.rank.neutral≠Neutral
-got.shields.ACHIEVEMENT_BRONZE.desc=25 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_BRONZE.desc=75 Başarım Sonucunda Verilecek Kalkan
 got.shields.ACHIEVEMENT_BRONZE.name=Bronz Maceracı Kalkanı
-got.shields.ACHIEVEMENT_GOLD.desc=100 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_GOLD.desc=225 Başarım Sonucunda Verilecek Kalkan
 got.shields.ACHIEVEMENT_GOLD.name=Altın Maceracı Kalkanı
-got.shields.ACHIEVEMENT_SILVER.desc=50 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_SILVER.desc=150 Başarım Sonucunda Verilecek Kalkan
 got.shields.ACHIEVEMENT_SILVER.name=Gümüş Maceracı Kalkanı
-got.shields.ACHIEVEMENT_VALYRIAN.desc=50 başarı için
-got.shields.ACHIEVEMENT_VALYRIAN.name=Valyria Kalkanı
+got.shields.ACHIEVEMENT_VALYRIAN.desc=300 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_VALYRIAN.name=Valyria Maceracı Kalkanı
 got.shields.ALCOHOLIC.desc=Epey Bir Miktar İçkinin Sonunda Kazanılan Kalkan
 got.shields.ALCOHOLIC.name=Alkoliklerin Kalkanı
 got.shields.ARRYN.name=Vadi Kalkanı

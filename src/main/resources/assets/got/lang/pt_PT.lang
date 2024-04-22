@@ -2799,14 +2799,14 @@ got.rank.leader_fm≠Patroness
 got.rank.leader≠Patron
 got.rank.neutral_fm≠Neutral
 got.rank.neutral≠Neutral
-got.shields.ACHIEVEMENT_BRONZE.desc=Concedido por adquirir 25 conquistas na Juego de Tronos
+got.shields.ACHIEVEMENT_BRONZE.desc=Concedido por adquirir 75 conquistas na Juego de Tronos
 got.shields.ACHIEVEMENT_BRONZE.name=Escudo de Bronze do Aventureiro
-got.shields.ACHIEVEMENT_GOLD.desc=Concedido por adquirir 100 conquistas na Juego de Tronos
+got.shields.ACHIEVEMENT_GOLD.desc=Concedido por adquirir 225 conquistas na Juego de Tronos
 got.shields.ACHIEVEMENT_GOLD.name=Escudo de Ouro do Aventureiro
-got.shields.ACHIEVEMENT_SILVER.desc=Concedido por adquirir 50 conquistas na Juego de Tronos
+got.shields.ACHIEVEMENT_SILVER.desc=Concedido por adquirir 150 conquistas na Juego de Tronos
 got.shields.ACHIEVEMENT_SILVER.name=Escudo de Prata do Aventureiro
-got.shields.ACHIEVEMENT_VALYRIAN.desc=Por 50 conquistas
-got.shields.ACHIEVEMENT_VALYRIAN.name=Escudo Valiriano
+got.shields.ACHIEVEMENT_VALYRIAN.desc=Concedido por adquirir 300 conquistas na Juego de Tronos
+got.shields.ACHIEVEMENT_VALYRIAN.name=Escudo de Valiriano do Aventureiro
 got.shields.ALCOHOLIC.desc=Concedido por desfrutar de uma enorme quantidade de bebidas alcoólicas
 got.shields.ALCOHOLIC.name=Escudo do Alcoólatra
 got.shields.ARRYN.name=Escudo do Vale Arryn
