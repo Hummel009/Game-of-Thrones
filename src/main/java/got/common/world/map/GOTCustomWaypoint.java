@@ -358,7 +358,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return false;
 	}
 
-	private boolean isSafeBlock(IBlockAccess world, int i, int j, int k) {
+	private static boolean isSafeBlock(IBlockAccess world, int i, int j, int k) {
 		Block below = world.getBlock(i, j - 1, k);
 		Block block = world.getBlock(i, j, k);
 		Block above = world.getBlock(i, j + 1, k);

@@ -124,14 +124,14 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureBraavosFarm(false);
 			}
 			return new GOTStructureBraavosPasture(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureBraavosSmithy(false);
 			}
@@ -150,7 +150,7 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			addStructure(new StructureRespawner(), 0, 0, 0);
 		}
 
-		private void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		private static void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityBraavosMan.class);
 		}
 
@@ -495,7 +495,7 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		private static void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityBraavosSoldier.class);
 			spawner.setSpawnClass2(GOTEntityBraavosSoldierArcher.class);
 		}

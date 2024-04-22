@@ -5,7 +5,6 @@ import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityUtils;
 import got.common.network.GOTPacketFamilyInfo;
 import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.Entity;
@@ -25,7 +24,7 @@ import java.util.UUID;
 public class GOTFamilyInfo {
 	private final GOTEntityNPC theEntity;
 
-	private Class<? extends Entity> marriageEntityClass;
+	private Class<? extends GOTEntityNPC> marriageEntityClass;
 
 	private UUID spouseUniqueID;
 	private UUID ringGivingPlayer;
@@ -81,17 +80,17 @@ public class GOTFamilyInfo {
 	public GOTEntityNPC getParentToFollow() {
 		UUID parentToFollowID = male ? maleParentID : femaleParentID;
 		List<? extends Entity> list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
-		for (Entity element : list) {
-			if (!(element instanceof GOTEntityNPC) || element == theEntity || !element.getUniqueID().equals(parentToFollowID)) {
+		for (Entity entity : list) {
+			if (!(entity instanceof GOTEntityNPC) || entity == theEntity || !entity.getUniqueID().equals(parentToFollowID)) {
 				continue;
 			}
-			return (GOTEntityNPC) element;
+			return (GOTEntityNPC) entity;
 		}
 		return null;
 	}
 
 	public int getRandomMaxChildren() {
-		return 1 + theEntity.getRNG().nextInt(3);
+		return 1 + theEntity.getRNG().nextInt(1);
 	}
 
 	public EntityPlayer getRingGivingPlayer() {
@@ -112,11 +111,11 @@ public class GOTFamilyInfo {
 			return null;
 		}
 		List<? extends Entity> list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
-		for (Entity element : list) {
-			if (!(element instanceof GOTEntityNPC) || element == theEntity || !element.getUniqueID().equals(spouseUniqueID)) {
+		for (Entity entity : list) {
+			if (!(entity instanceof GOTEntityNPC) || entity == theEntity || !entity.getUniqueID().equals(spouseUniqueID)) {
 				continue;
 			}
-			GOTEntityNPC npc = (GOTEntityNPC) element;
+			GOTEntityNPC npc = (GOTEntityNPC) entity;
 			if (!theEntity.getUniqueID().equals(npc.getFamilyInfo().spouseUniqueID)) {
 				continue;
 			}
@@ -130,7 +129,7 @@ public class GOTFamilyInfo {
 			return false;
 		}
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		if (GOTEntityUtils.canBeMarried(theEntity) && itemstack != null && itemstack.getItem() == GOTItems.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 50.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
+		if (itemstack != null && itemstack.getItem() == GOTItems.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 50.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 				if (itemstack.stackSize <= 0) {
@@ -199,12 +198,12 @@ public class GOTFamilyInfo {
 				if (theEntity.isEntityAlive() && theEntity.getAttackTarget() == null && timeUntilDrunkSpeech == 0) {
 					double range = 12.0;
 					List<EntityPlayer> players = theEntity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theEntity.boundingBox.expand(range, range, range));
-					for (EntityPlayer obj : players) {
+					for (EntityPlayer entityplayer : players) {
 						String speechBank;
-						if (!obj.isEntityAlive() || obj.capabilities.isCreativeMode || (speechBank = theEntity.getSpeechBank(obj)) == null || theEntity.getRNG().nextInt(3) != 0) {
+						if (!entityplayer.isEntityAlive() || entityplayer.capabilities.isCreativeMode || (speechBank = theEntity.getSpeechBank(entityplayer)) == null || theEntity.getRNG().nextInt(3) != 0) {
 							continue;
 						}
-						theEntity.sendSpeechBank(obj, speechBank);
+						theEntity.sendSpeechBank(entityplayer, speechBank);
 					}
 					timeUntilDrunkSpeech = 20 * MathHelper.getRandomIntegerInRange(theEntity.getRNG(), 5, 20);
 				}
@@ -257,20 +256,21 @@ public class GOTFamilyInfo {
 		int x = MathHelper.floor_double(theEntity.posX) >> 4;
 		int z = MathHelper.floor_double(theEntity.posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) theEntity.worldObj).getPlayerManager();
-		List<EntityPlayer> players = theEntity.worldObj.playerEntities;
-		for (EntityPlayer obj : players) {
-			if (playermanager.isPlayerWatchingChunk((EntityPlayerMP) obj, x, z)) {
-				sendData((EntityPlayerMP) obj);
+		List<EntityPlayerMP> players = theEntity.worldObj.playerEntities;
+		for (EntityPlayerMP entityplayer : players) {
+			if (!playermanager.isPlayerWatchingChunk(entityplayer, x, z)) {
+				continue;
 			}
+			sendData(entityplayer);
 		}
 	}
 
 	public void setChild() {
-		setAge(-72000);
+		setAge(-48000);
 	}
 
 	public void setMaxBreedingDelay() {
-		float f = 48000;
+		float f = 24000;
 		setAge((int) (f * (0.5f + theEntity.getRNG().nextFloat() * 0.5f)));
 	}
 
@@ -318,7 +318,7 @@ public class GOTFamilyInfo {
 		return marriageEntityClass;
 	}
 
-	public void setMarriageEntityClass(Class<? extends Entity> marriageEntityClass) {
+	public void setMarriageEntityClass(Class<? extends GOTEntityNPC> marriageEntityClass) {
 		this.marriageEntityClass = marriageEntityClass;
 	}
 

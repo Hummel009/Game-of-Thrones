@@ -159,7 +159,7 @@ public class GOTContainerAnvil extends Container {
 		return changed;
 	}
 
-	public boolean canEngraveNewOwner(ItemStack itemstack, ICommandSender entityplayer) {
+	public static boolean canEngraveNewOwner(ItemStack itemstack, ICommandSender entityplayer) {
 		String currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
 		return currentOwner == null || !currentOwner.equals(entityplayer.getCommandSenderName());
 	}
@@ -249,7 +249,7 @@ public class GOTContainerAnvil extends Container {
 		return materialItem != null && isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
 	}
 
-	private boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
+	private static boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
 		if (inputItem.getItem().getIsRepairable(inputItem, materialItem)) {
 			return true;
 		}

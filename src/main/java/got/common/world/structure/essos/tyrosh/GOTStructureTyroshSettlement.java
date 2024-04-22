@@ -126,14 +126,14 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureTyroshFarm(false);
 			}
 			return new GOTStructureTyroshPasture(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureTyroshSmithy(false);
 			}
@@ -154,7 +154,7 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			addStructure(new StructureRespawner(), 0, 0, 0);
 		}
 
-		private void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		private static void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityTyroshMan.class);
 		}
 
@@ -499,7 +499,7 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		private static void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityTyroshSoldier.class);
 			spawner.setSpawnClass2(GOTEntityTyroshSoldierArcher.class);
 		}

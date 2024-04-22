@@ -179,7 +179,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		return true;
 	}
 
-	private ItemStack getRandomAsshaiWeapon(Random random) {
+	private static ItemStack getRandomAsshaiWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.asshaiSword), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiDaggerPoisoned), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiHammer)};
 		return items[random.nextInt(items.length)].copy();
 	}

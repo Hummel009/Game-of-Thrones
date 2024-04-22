@@ -170,7 +170,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		forgeIcons[3] = iconregister.registerIcon(getTextureName() + "_active");
 	}
 
-	private void setDefaultDirection(World world, int i, int j, int k) {
+	private static void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);

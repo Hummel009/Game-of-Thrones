@@ -215,7 +215,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		return false;
 	}
 
-	public boolean isMeat(ItemStack meat) {
+	public static boolean isMeat(ItemStack meat) {
 		if (meat == null) {
 			return false;
 		}

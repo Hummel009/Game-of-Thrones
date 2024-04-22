@@ -11,8 +11,8 @@ import got.common.database.GOTItems;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityUtils;
-import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTAlignmentValues;
 import got.common.item.other.GOTItemCoin;
 import got.common.item.other.GOTItemLeatherHat;
@@ -105,7 +105,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			boolean givePouch = canRewardVariousExtraItems() && rand.nextInt(10) == 0;
 			if (givePouch) {
 				ItemStack pouch = npc.createNPCPouchDrop();
-				npc.fillPouchFromListAndRetainUnfilled(pouch, dropItems);
+				GOTEntityNPC.fillPouchFromListAndRetainUnfilled(pouch, dropItems);
 				npc.entityDropItem(pouch, 0.0f);
 				ItemStack pouchCopy = pouch.copy();
 				pouchCopy.setTagCompound(null);
@@ -164,7 +164,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public void handleEvent(GOTMiniQuestEvent event) {
 	}
 
-	private boolean isEntityWatching(EntityLiving watcher, EntityLivingBase target) {
+	private static boolean isEntityWatching(EntityLiving watcher, EntityLivingBase target) {
 		Vec3 look = watcher.getLookVec();
 		Vec3 watcherEyes = Vec3.createVectorHelper(watcher.posX, watcher.boundingBox.minY + watcher.getEyeHeight(), watcher.posZ);
 		Vec3 targetEyes = Vec3.createVectorHelper(target.posX, target.boundingBox.minY + target.getEyeHeight(), target.posZ);
@@ -276,11 +276,11 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		}
 	}
 
-	private void spawnAngryFX(EntityLivingBase npc) {
+	private static void spawnAngryFX(EntityLivingBase npc) {
 		GOT.proxy.spawnParticle("angry", npc.posX, npc.boundingBox.minY + npc.height * 2.0f, npc.posZ, npc.motionX, Math.max(0.0, npc.motionY), npc.motionZ);
 	}
 
-	private void spawnPickingFX(String particle, double upSpeed, EntityLivingBase npc) {
+	private static void spawnPickingFX(String particle, double upSpeed, EntityLivingBase npc) {
 		Random rand = npc.getRNG();
 		int particles = 3 + rand.nextInt(8);
 		for (int p = 0; p < particles; ++p) {

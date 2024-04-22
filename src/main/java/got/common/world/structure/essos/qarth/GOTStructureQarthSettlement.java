@@ -135,14 +135,14 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureQarthFarm(false);
 			}
 			return new GOTStructureQarthPasture(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureQarthSmithy(false);
 			}
@@ -163,7 +163,7 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			addStructure(new StructureRespawner(), 0, 0, 0);
 		}
 
-		private void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		private static void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityQarthMan.class);
 		}
 
@@ -508,7 +508,7 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		private static void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityQarthGuard.class);
 		}
 

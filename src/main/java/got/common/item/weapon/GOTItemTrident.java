@@ -19,7 +19,7 @@ public class GOTItemTrident extends GOTItemPolearm {
 		super(material);
 	}
 
-	private boolean canFishAt(World world, int i, int j, int k) {
+	private static boolean canFishAt(World world, int i, int j, int k) {
 		double d = i + 0.5;
 		double d1 = j + 0.5;
 		double d2 = k + 0.5;

@@ -103,7 +103,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureDorneVillageFarm.Animals(false);
@@ -113,7 +113,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureDorneVillageFarm.Tree(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
@@ -128,31 +128,31 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureDorneHouse(false);
 		}
 
-		private GOTStructureDorneTownWall getWallCentre(boolean flag) {
+		private static GOTStructureDorneTownWall getWallCentre(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -5, 5);
 		}
 
-		private GOTStructureDorneTownWall getWallLeft(boolean flag) {
+		private static GOTStructureDorneTownWall getWallLeft(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -9, 6);
 		}
 
-		private GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
+		private static GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 6, -5, 6);
 		}
 
-		private GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
+		private static GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -5, 6);
 		}
 
-		private GOTStructureDorneTownWall getWallRight(boolean flag) {
+		private static GOTStructureDorneTownWall getWallRight(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 9);
 		}
 
-		private GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
+		private static GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 6, -6, 5);
 		}
 
-		private GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
+		private static GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
 			return new GOTStructureDorneTownWall(flag, -6, 5);
 		}
 

@@ -15,8 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTHandlerKebab extends TemplateRecipeHandler {
-	private static final GOTTileEntityKebabStand INSTANCE = new GOTTileEntityKebabStand();
-
 	@Override
 	public void drawForeground(int recipe) {
 		super.drawForeground(recipe);
@@ -48,7 +46,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 			FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
 			for (Item item : (Iterable<Item>) items) {
 				ItemStack stack = new ItemStack(item, 1);
-				if (INSTANCE.isMeat(stack)) {
+				if (GOTTileEntityKebabStand.isMeat(stack)) {
 					arecipes.add(new CachedKebabRecipe(stack));
 				}
 			}
@@ -64,7 +62,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		if (INSTANCE.isMeat(ingredient)) {
+		if (GOTTileEntityKebabStand.isMeat(ingredient)) {
 			ingredient.stackSize = 1;
 			arecipes.add(new CachedKebabRecipe(ingredient));
 		}

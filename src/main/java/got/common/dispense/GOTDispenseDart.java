@@ -24,7 +24,7 @@ public class GOTDispenseDart extends BehaviorProjectileDispense {
 	@Override
 	public IProjectile getProjectileEntity(World world, IPosition iposition) {
 		ItemStack itemstack = new ItemStack(theDartItem);
-		GOTEntityDart dart = theDartItem.createDart(world, itemstack, iposition.getX(), iposition.getY(), iposition.getZ());
+		GOTEntityDart dart = GOTItemDart.createDart(world, itemstack, iposition.getX(), iposition.getY(), iposition.getZ());
 		dart.setCanBePickedUp(1);
 		return dart;
 	}

@@ -138,7 +138,7 @@ public class GOTItemStructureSpawner extends Item {
 		return true;
 	}
 
-	private boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
+	private static boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
 		if (!GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.containsKey(id)) {
 			return false;
 		}

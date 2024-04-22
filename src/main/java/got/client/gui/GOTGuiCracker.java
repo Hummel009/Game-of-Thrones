@@ -23,7 +23,7 @@ public class GOTGuiCracker extends GuiContainer {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled && button == buttonSeal && !theCracker.isCrackerInvEmpty()) {
-			theCracker.sendSealingPacket();
+			GOTContainerCracker.sendSealingPacket();
 			mc.displayGuiScreen(null);
 		}
 	}

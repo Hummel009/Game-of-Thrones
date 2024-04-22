@@ -540,7 +540,7 @@ public class GOTGuiHandler implements IGuiHandler {
 		return null;
 	}
 
-	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
+	public static void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
 		if (world.isRemote && GOT.proxy.isClient()) {
 			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
 		} else {

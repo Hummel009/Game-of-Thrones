@@ -87,7 +87,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 		hostileTick = 200;
 	}
 
-	public boolean canWorldGenSpawnAt(GOTBiome biome, GOTBiomeVariant variant) {
+	public static boolean canWorldGenSpawnAt(GOTBiome biome, GOTBiomeVariant variant) {
 		int trees = biome.getDecorator().getVariantTreesPerChunk(variant);
 		return trees >= 1;
 	}

@@ -46,7 +46,7 @@ public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipInvitePlayer, IMessage> {
-		private UUID findInvitedPlayerUUID(String invitedUsername) {
+		private static UUID findInvitedPlayerUUID(String invitedUsername) {
 			GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(invitedUsername);
 			if (profile != null && profile.getId() != null) {
 				return profile.getId();

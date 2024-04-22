@@ -46,6 +46,7 @@ public class GOTTickHandlerServer {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		EntityPlayer player = event.player;
 		World world = player.worldObj;
@@ -113,6 +114,7 @@ public class GOTTickHandlerServer {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onWorldTick(TickEvent.WorldTickEvent event) {
 		World world = event.world;
 		if (world.isRemote) {

@@ -71,7 +71,7 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		return theNPC.getEquipmentInSlot(getNPCArmorSlot(i));
 	}
 
-	private int getNPCArmorSlot(int i) {
+	private static int getNPCArmorSlot(int i) {
 		return 4 - i;
 	}
 

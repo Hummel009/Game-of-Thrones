@@ -33,7 +33,7 @@ public class GOTCommandWaypoints extends CommandBase {
 		return Collections.emptyList();
 	}
 
-	private GOTWaypoint.Region findRegionByName(String name) {
+	private static GOTWaypoint.Region findRegionByName(String name) {
 		GOTWaypoint.Region region = GOTWaypoint.regionForName(name);
 		if (region == null) {
 			throw new CommandException("got.command.waypoints.unknown", name);

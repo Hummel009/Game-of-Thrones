@@ -51,10 +51,10 @@ public class GOTPacketShareCWPClient implements IMessage {
 				if (packet.adding) {
 					GOTFellowshipClient fsClient = pd.getClientFellowshipByID(packet.fellowshipID);
 					if (fsClient != null) {
-						pd.customWaypointAddSharedFellowshipClient(cwp, fsClient);
+						GOTPlayerData.customWaypointAddSharedFellowshipClient(cwp, fsClient);
 					}
 				} else {
-					pd.customWaypointRemoveSharedFellowshipClient(cwp, packet.fellowshipID);
+					GOTPlayerData.customWaypointRemoveSharedFellowshipClient(cwp, packet.fellowshipID);
 				}
 			}
 			return null;

@@ -107,7 +107,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 			stolenSomething = true;
 		}
 		if (stolenSomething) {
-			targetPlayer.addChatMessage(theBandit.getTheftChatMsg());
+			targetPlayer.addChatMessage(GOTEntityLightSkinBandit.getTheftChatMsg());
 			theBanditAsNPC.playSound("mob.horse.leather", 0.5f, 1.0f);
 			if (theBanditAsNPC.getAttackTarget() != null) {
 				theBanditAsNPC.setAttackTarget(null);

@@ -67,7 +67,7 @@ public class GOTItemConquestHorn extends Item {
 		itemstack.getTagCompound().setString("InvasionType", type.codeName());
 	}
 
-	private boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
+	private static boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
 		GOTInvasions invasionType = getInvasionType(itemstack);
 		GOTFaction invasionFaction = invasionType.getInvasionFaction();
 		float alignmentRequired = 1000.0f;

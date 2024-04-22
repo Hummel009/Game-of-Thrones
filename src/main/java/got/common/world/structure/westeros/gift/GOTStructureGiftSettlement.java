@@ -93,7 +93,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(3) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

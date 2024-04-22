@@ -12,7 +12,7 @@ public class GOTSettlementPositionCache {
 		cacheMap.clear();
 	}
 
-	private ChunkCoordIntPair getChunkKey(int chunkX, int chunkZ) {
+	private static ChunkCoordIntPair getChunkKey(int chunkX, int chunkZ) {
 		return new ChunkCoordIntPair(chunkX, chunkZ);
 	}
 

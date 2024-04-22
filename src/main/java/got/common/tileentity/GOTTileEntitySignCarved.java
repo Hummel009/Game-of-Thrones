@@ -29,7 +29,8 @@ public class GOTTileEntitySignCarved extends TileEntity {
 	private boolean isFakeGuiSign;
 	private boolean editable = true;
 
-	protected GOTTileEntitySignCarved() {
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTTileEntitySignCarved() {
 		Arrays.fill(signText, "");
 	}
 
@@ -102,12 +103,11 @@ public class GOTTileEntitySignCarved extends TileEntity {
 		World world = getWorldObj();
 		Block block = getBlockType();
 		if (block instanceof GOTBlockSignCarved) {
-			GOTBlockSignCarved signBlock = (GOTBlockSignCarved) block;
 			int meta = getBlockMetadata();
 			int i = xCoord;
 			int j = yCoord;
 			int k = zCoord;
-			return signBlock.getOnBlockIcon(world, i, j, k, meta);
+			return GOTBlockSignCarved.getOnBlockIcon(world, i, j, k, meta);
 		}
 		return Blocks.stone.getIcon(0, 0);
 	}

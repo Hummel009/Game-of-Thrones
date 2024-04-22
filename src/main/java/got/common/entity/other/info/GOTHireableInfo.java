@@ -497,7 +497,7 @@ public class GOTHireableInfo {
 		return !guardMode && canMove;
 	}
 
-	public int totalXPForLevel(int lvl) {
+	public static int totalXPForLevel(int lvl) {
 		if (lvl <= 1) {
 			return 0;
 		}

@@ -78,7 +78,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected Block getRandomCakeBlock(Random random) {
+	protected static Block getRandomCakeBlock(Random random) {
 		int i = random.nextInt(3);
 		switch (i) {
 			case 0:
@@ -90,7 +90,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		}
 	}
 
-	protected ItemStack getRandomWeapon(Random random) {
+	protected static ItemStack getRandomWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.stoneSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironDaggerPoisoned)};
 		return items[random.nextInt(items.length)].copy();
 	}

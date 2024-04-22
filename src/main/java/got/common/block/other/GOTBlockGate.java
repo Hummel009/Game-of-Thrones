@@ -107,10 +107,10 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			return true;
 		}
 		boolean connected = open ? otherBlock instanceof GOTBlockGate : otherBlock == this;
-		return connected && directionsMatch(dir, otherDir) && ((GOTBlockGate) otherBlock).directionsMatch(dir, otherDir) && open == otherOpen;
+		return connected && directionsMatch(dir, otherDir) && open == otherOpen;
 	}
 
-	private boolean directionsMatch(int dir1, int dir2) {
+	private static boolean directionsMatch(int dir1, int dir2) {
 		switch (dir1) {
 			case 0:
 			case 1:
@@ -127,7 +127,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return false;
 	}
 
-	private void gatherAdjacentGate(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
+	private static void gatherAdjacentGate(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
 		ChunkCoordinates coords = new ChunkCoordinates(i, j, k);
 		if (allCoords.contains(coords)) {
 			return;
@@ -136,14 +136,14 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		if (otherBlock instanceof GOTBlockGate) {
 			boolean otherOpen = isGateOpen(world, i, j, k);
 			int otherDir = getGateDirection(world, i, j, k);
-			if (otherOpen == open && directionsMatch(dir, otherDir) && ((GOTBlockGate) otherBlock).directionsMatch(dir, otherDir)) {
+			if (otherOpen == open && directionsMatch(dir, otherDir)) {
 				allCoords.add(coords);
 				currentDepthCoords.add(coords);
 			}
 		}
 	}
 
-	private void gatherAdjacentGates(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
+	private static void gatherAdjacentGates(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
 		if (dir != 0 && dir != 1) {
 			gatherAdjacentGate(world, i, j - 1, k, dir, open, allCoords, currentDepthCoords);
 			gatherAdjacentGate(world, i, j + 1, k, dir, open, allCoords, currentDepthCoords);
@@ -172,7 +172,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return super.getCollisionBoundingBoxFromPool(world, i, j, k);
 	}
 
-	private List<ChunkCoordinates> getConnectedGates(IBlockAccess world, int i, int j, int k) {
+	private static List<ChunkCoordinates> getConnectedGates(IBlockAccess world, int i, int j, int k) {
 		boolean open = isGateOpen(world, i, j, k);
 		int dir = getGateDirection(world, i, j, k);
 		HashSet<ChunkCoordinates> allCoords = new HashSet<>();
@@ -329,7 +329,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			boolean openOther = isGateOpen(metaOther);
 			boolean connect = !directionsMatch(dirThis, side);
 			if (connect) {
-				return openThis != openOther || !directionsMatch(dirThis, dirOther) || !((GOTBlockGate) otherBlock).directionsMatch(dirThis, dirOther);
+				return openThis != openOther || !directionsMatch(dirThis, dirOther);
 			}
 		}
 		return super.shouldSideBeRendered(world, i, j, k, side);

@@ -109,7 +109,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 		if (tileentity instanceof GOTTileEntityKebabStand) {
 			GOTTileEntityKebabStand stand = (GOTTileEntityKebabStand) tileentity;
 			ItemStack heldItem = entityplayer.getHeldItem();
-			if (!stand.isCooked() && stand.isMeat(heldItem)) {
+			if (!stand.isCooked() && GOTTileEntityKebabStand.isMeat(heldItem)) {
 				if (stand.hasEmptyMeatSlot()) {
 					if (!world.isRemote && stand.addMeat(heldItem) && !entityplayer.capabilities.isCreativeMode) {
 						--heldItem.stackSize;

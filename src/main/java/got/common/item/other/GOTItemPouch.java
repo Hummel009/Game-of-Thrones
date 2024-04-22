@@ -3,7 +3,7 @@ package got.common.item.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.GOTCommonFactory;
+import got.common.GOTGuiHandler;
 import got.common.block.other.GOTBlockChest;
 import got.common.block.other.GOTBlockSpawnerChest;
 import got.common.database.GOTCreativeTabs;
@@ -73,7 +73,7 @@ public class GOTItemPouch extends Item {
 			return ((BlockChest) block).func_149951_m(world, i, j, k);
 		}
 		if (block instanceof GOTBlockChest) {
-			return ((GOTBlockChest) block).getModChestAt(world, i, j, k);
+			return GOTBlockChest.getModChestAt(world, i, j, k);
 		}
 		if (block instanceof BlockEnderChest && !world.getBlock(i, j + 1, k).isNormalCube() && (enderInv = entityplayer.getInventoryEnderChest()) != null && te instanceof TileEntityEnderChest) {
 			TileEntityEnderChest enderChest = (TileEntityEnderChest) te;
@@ -246,7 +246,7 @@ public class GOTItemPouch extends Item {
 	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float hitX, float hitY, float hitZ) {
 		IInventory chest = getChestInvAt(entityplayer, world, i, j, k);
 		if (chest != null) {
-			GOTCommonFactory.getGuiHandler().usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, entityplayer.inventory.currentItem);
+			GOTGuiHandler.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, entityplayer.inventory.currentItem);
 			return true;
 		}
 		return false;

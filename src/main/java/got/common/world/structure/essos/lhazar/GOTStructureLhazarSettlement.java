@@ -94,14 +94,14 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureLhazarFarm(false);
 			}
 			return new GOTStructureLhazarPasture(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureLhazarSmithy(false);
 			}

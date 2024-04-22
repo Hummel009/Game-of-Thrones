@@ -65,7 +65,7 @@ public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 		return true;
 	}
 
-	private String getRandomStatueStrscan(Random random) {
+	private static String getRandomStatueStrscan(Random random) {
 		String[] statues = {"mumak", "bird", "snake"};
 		return "essos_statue_" + statues[random.nextInt(statues.length)];
 	}

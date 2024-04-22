@@ -141,7 +141,7 @@ public class GOTItemCrossbow extends ItemBow {
 		return itemIcon;
 	}
 
-	private int getInvBoltSlot(EntityPlayer entityplayer) {
+	private static int getInvBoltSlot(EntityPlayer entityplayer) {
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
 			if (invItem == null || !(invItem.getItem() instanceof GOTItemCrossbowBolt)) {
@@ -248,7 +248,7 @@ public class GOTItemCrossbow extends ItemBow {
 		crossbowPullIcons[2] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_2.getIconName());
 	}
 
-	private void setLoaded(ItemStack itemstack, ItemStack ammo) {
+	private static void setLoaded(ItemStack itemstack, ItemStack ammo) {
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemCrossbow) {
 			NBTTagCompound nbt = itemstack.getTagCompound();
 			if (nbt == null) {
@@ -268,7 +268,7 @@ public class GOTItemCrossbow extends ItemBow {
 		}
 	}
 
-	private boolean shouldConsumeBolt(ItemStack itemstack, EntityPlayer entityplayer) {
+	private static boolean shouldConsumeBolt(ItemStack itemstack, EntityPlayer entityplayer) {
 		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
 	}
 

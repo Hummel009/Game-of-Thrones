@@ -92,7 +92,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 		GOTBlockWildFireJar.renderingStage = renderingStage;
 	}
 
-	public void explode(World world, int i, int j, int k) {
+	public static void explode(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			world.createExplosion(null, i, j, k, 2.0f, false);
 			world.setBlockToAir(i, j, k);

@@ -244,7 +244,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return "got:bird.hurt";
 	}
 
-	private ChunkCoordinates getItemFlightTarget(EntityItem entity) {
+	private static ChunkCoordinates getItemFlightTarget(EntityItem entity) {
 		int i = MathHelper.floor_double(entity.posX);
 		int j = MathHelper.floor_double(entity.boundingBox.minY);
 		int k = MathHelper.floor_double(entity.posZ);
@@ -265,7 +265,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
-	private ChunkCoordinates getPlayerFlightTarget(EntityPlayer entityplayer) {
+	private static ChunkCoordinates getPlayerFlightTarget(EntityPlayer entityplayer) {
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int j = MathHelper.floor_double(entityplayer.boundingBox.minY + 1.0);
 		int k = MathHelper.floor_double(entityplayer.posZ);
@@ -632,7 +632,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		public boolean isEntityApplicable(Entity e) {
 			EntityPlayer entityplayer;
 			if (e instanceof EntityPlayer && bird.canStealPlayer(entityplayer = (EntityPlayer) e)) {
-				ChunkCoordinates coords = bird.getPlayerFlightTarget(entityplayer);
+				ChunkCoordinates coords = getPlayerFlightTarget(entityplayer);
 				return bird.isValidFlightTarget(coords);
 			}
 			return false;
@@ -650,7 +650,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		public boolean isEntityApplicable(Entity e) {
 			EntityItem eItem;
 			if (e instanceof EntityItem && bird.canStealItem(eItem = (EntityItem) e)) {
-				ChunkCoordinates coords = bird.getItemFlightTarget(eItem);
+				ChunkCoordinates coords = getItemFlightTarget(eItem);
 				return bird.isValidFlightTarget(coords);
 			}
 			return false;

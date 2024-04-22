@@ -109,7 +109,7 @@ public abstract class GOTEnchantment {
 		return false;
 	}
 
-	protected String formatAdditive(float f) {
+	protected static String formatAdditive(float f) {
 		String s = formatDecimalNumber(f);
 		if (f >= 0.0F) {
 			return '+' + s;
@@ -117,7 +117,7 @@ public abstract class GOTEnchantment {
 		return s;
 	}
 
-	protected String formatAdditiveInt(int i) {
+	protected static String formatAdditiveInt(int i) {
 		String s = String.valueOf(i);
 		if (i >= 0) {
 			return '+' + s;
@@ -125,13 +125,13 @@ public abstract class GOTEnchantment {
 		return s;
 	}
 
-	protected String formatDecimalNumber(float f) {
+	protected static String formatDecimalNumber(float f) {
 		DecimalFormat df = new DecimalFormat();
 		df.setMinimumFractionDigits(1);
 		return df.format(f);
 	}
 
-	protected String formatMultiplicative(float f) {
+	protected static String formatMultiplicative(float f) {
 		String s = formatDecimalNumber(f);
 		return 'x' + s;
 	}

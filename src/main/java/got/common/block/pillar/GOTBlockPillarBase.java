@@ -91,7 +91,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		}
 	}
 
-	private boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
+	private static boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		return block instanceof GOTBlockPillarBase;
 	}

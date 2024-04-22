@@ -17,7 +17,7 @@ public class GOTTileEntityWeaponRack extends TileEntity {
 	private ItemStack weaponItem;
 	private EntityLivingBase rackEntity;
 
-	public boolean canAcceptItem(ItemStack itemstack) {
+	public static boolean canAcceptItem(ItemStack itemstack) {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
 			return GOTWeaponStats.isMeleeWeapon(itemstack) || GOTWeaponStats.isRangedWeapon(itemstack) || item instanceof ItemHoe || item instanceof ItemFishingRod;

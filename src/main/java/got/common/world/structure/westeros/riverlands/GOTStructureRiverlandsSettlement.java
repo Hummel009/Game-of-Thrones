@@ -97,7 +97,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureRiverlandsVillageFarm.Animals(false);
@@ -107,7 +107,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			return new GOTStructureRiverlandsVillageFarm.Tree(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

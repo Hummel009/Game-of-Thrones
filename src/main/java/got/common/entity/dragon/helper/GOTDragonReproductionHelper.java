@@ -78,7 +78,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		return baby;
 	}
 
-	private String fixChildName(String nameOld) {
+	private static String fixChildName(String nameOld) {
 		if (nameOld == null || nameOld.isEmpty()) {
 			return nameOld;
 		}

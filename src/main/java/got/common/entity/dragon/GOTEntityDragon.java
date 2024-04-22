@@ -53,7 +53,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 
 	private static final double BASE_SPEED_GROUND = 0.3;
 	private static final double BASE_SPEED_AIR = 1.5;
-	private static final double BASE_HEALTH = 1000;
+	private static final double BASE_HEALTH = 250;
 	private static final double BASE_DAMAGE = 8;
 
 	private static final int INDEX_FLYING = 18;
@@ -372,7 +372,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		this.airSpeedVertical = airSpeedVertical;
 	}
 
-	private void setTasksEnabled(EntityAITasks tasks, boolean flag) {
+	private static void setTasksEnabled(EntityAITasks tasks, boolean flag) {
 		ReflectionHelper.setPrivateValue(EntityAITasks.class, tasks, flag ? 3 : Integer.MAX_VALUE, ENTITYAITASKS_TICKRATE);
 	}
 

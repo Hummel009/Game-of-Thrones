@@ -99,7 +99,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureSummerSmithy(false);
 			}

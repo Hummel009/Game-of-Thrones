@@ -68,7 +68,7 @@ public class GOTBlockBeacon extends BlockContainer {
 		return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
 	}
 
-	private boolean canItemLightBeacon(ItemStack itemstack) {
+	private static boolean canItemLightBeacon(ItemStack itemstack) {
 		if (itemstack == null) {
 			return false;
 		}

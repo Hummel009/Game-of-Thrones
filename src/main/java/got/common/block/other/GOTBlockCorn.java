@@ -107,7 +107,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return null;
 	}
 
-	public Collection<ItemStack> getCornDrops(World world, int meta) {
+	public static Collection<ItemStack> getCornDrops(World world, int meta) {
 		Collection<ItemStack> drops = new ArrayList<>();
 		if (metaHasCorn(meta)) {
 			int corns = 1;
@@ -128,7 +128,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return drops;
 	}
 
-	private float getGrowthFactor(World world, int i, int j, int k) {
+	private static float getGrowthFactor(World world, int i, int j, int k) {
 		float growth = 1.0f;
 		Block below = world.getBlock(i, j - 1, k);
 		if (below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {

@@ -115,7 +115,7 @@ public class GOTItemBow extends ItemBow {
 		return itemIcon;
 	}
 
-	private int getInvArrowSlot(EntityPlayer entityplayer) {
+	private static int getInvArrowSlot(EntityPlayer entityplayer) {
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
 			if (invItem == null || invItem.getItem() != Items.arrow && invItem.getItem() != GOTItems.arrowPoisoned && invItem.getItem() != GOTItems.arrowFire) {
@@ -222,7 +222,7 @@ public class GOTItemBow extends ItemBow {
 		return this;
 	}
 
-	private boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
+	private static boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
 		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
 	}
 

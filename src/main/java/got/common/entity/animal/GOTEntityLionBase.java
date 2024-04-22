@@ -55,14 +55,14 @@ public abstract class GOTEntityLionBase extends EntityAnimal {
 		if (mate == this) {
 			return false;
 		}
-		if (getAnimalMFBaseClass() == mfMate.getAnimalMFBaseClass() && isInLove() && mate.isInLove()) {
+		if (getAnimalMFBaseClass() == getAnimalMFBaseClass() && isInLove() && mate.isInLove()) {
 			boolean thisMale = isMale();
 			return thisMale != mfMate.isMale();
 		}
 		return false;
 	}
 
-	public Class<? extends EntityAnimal> getAnimalMFBaseClass() {
+	public static Class<? extends EntityAnimal> getAnimalMFBaseClass() {
 		return GOTEntityLionBase.class;
 	}
 

@@ -122,7 +122,7 @@ public class GOTBlockChandelier extends Block {
 		return false;
 	}
 
-	private void spawnChandelierParticles(World world, double d, double d1, double d2, Random random, int meta) {
+	private static void spawnChandelierParticles(World world, double d, double d1, double d2, Random random, int meta) {
 		if (meta == 12) {
 			double d3 = -0.05 + random.nextFloat() * 0.1;
 			double d4 = 0.1 + random.nextFloat() * 0.1;

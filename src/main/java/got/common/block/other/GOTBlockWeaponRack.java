@@ -123,7 +123,7 @@ public class GOTBlockWeaponRack extends BlockContainer {
 				}
 				return true;
 			}
-			if (rack.canAcceptItem(heldItem)) {
+			if (GOTTileEntityWeaponRack.canAcceptItem(heldItem)) {
 				if (!world.isRemote) {
 					rack.setWeaponItem(heldItem.copy());
 				}

@@ -133,7 +133,7 @@ public class GOTEventHandler {
 		return player.toString();
 	}
 
-	private void cancelAttackEvent(LivingAttackEvent event) {
+	private static void cancelAttackEvent(LivingAttackEvent event) {
 		event.setCanceled(true);
 		DamageSource source = event.source;
 		if (source instanceof EntityDamageSourceIndirect) {
@@ -142,6 +142,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void getBlockDrops(BlockEvent.HarvestDropsEvent event) {
 		EntityPlayer entityplayer = event.harvester;
 		Block block = event.block;
@@ -161,6 +162,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onAnvilUpdate(AnvilUpdateEvent event) {
 		if (!GOTConfig.enchantingVanilla) {
 			if (event.left != null && event.left.getItem() instanceof ItemEnchantedBook || event.right != null && event.right.getItem() instanceof ItemEnchantedBook) {
@@ -192,6 +194,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onBlockBreak(BlockEvent.BreakEvent event) {
 		EntityPlayer entityplayer = event.getPlayer();
 		Block block = event.block;
@@ -225,6 +228,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onBlockInteract(PlayerInteractEvent event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		World world = entityplayer.worldObj;
@@ -416,6 +420,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onBreakingSpeed(net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		Block block = event.block;
@@ -432,6 +437,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onChunkDataLoad(ChunkDataEvent.Load event) {
 		World world = event.world;
 		Chunk chunk = event.getChunk();
@@ -442,6 +448,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onChunkDataSave(ChunkDataEvent.Save event) {
 		World world = event.world;
 		Chunk chunk = event.getChunk();
@@ -452,6 +459,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onChunkStartWatching(ChunkWatchEvent.Watch event) {
 		EntityPlayerMP entityplayer = event.player;
 		World world = entityplayer.worldObj;
@@ -463,6 +471,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onChunkStopWatching(ChunkWatchEvent.UnWatch event) {
 		EntityPlayerMP entityplayer = event.player;
 		World world = entityplayer.worldObj;
@@ -474,6 +483,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
 		if ("got".equals(event.modID)) {
 			GOTConfig.load();
@@ -493,6 +503,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onCrafting(PlayerEvent.ItemCraftedEvent event) {
 		EntityPlayer entityplayer = event.player;
 		ItemStack itemstack = event.crafting;
@@ -518,6 +529,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onEntityAttackedByPlayer(AttackEntityEvent event) {
 		Entity entity = event.target;
 		World world = entity.worldObj;
@@ -528,7 +540,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
-	@SuppressWarnings("CastConflictsWithInstanceof")
+	@SuppressWarnings({"MethodMayBeStatic", "CastConflictsWithInstanceof"})
 	public void onEntityInteract(EntityInteractEvent event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		World world = entityplayer.worldObj;
@@ -651,6 +663,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onEntityJoinWorld(EntityJoinWorldEvent event) {
 		Entity entity = event.entity;
 		World world = entity.worldObj;
@@ -676,6 +689,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onEntitySpawnAttempt(LivingSpawnEvent.CheckSpawn event) {
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
@@ -685,6 +699,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onExplosionDetonate(ExplosionEvent.Detonate event) {
 		Explosion expl = event.explosion;
 		World world = event.world;
@@ -717,6 +732,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onFillBucket(FillBucketEvent event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		World world = event.world;
@@ -732,6 +748,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onHarvestCheck(net.minecraftforge.event.entity.player.PlayerEvent.HarvestCheck event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		Block block = event.block;
@@ -742,6 +759,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onItemPickup(EntityItemPickupEvent event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		ItemStack itemstack = event.item.getEntityItem();
@@ -773,6 +791,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onItemUseFinish(PlayerUseItemEvent.Finish event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		World world = entityplayer.worldObj;
@@ -808,6 +827,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onLivingAttacked(LivingAttackEvent event) {
 		EntityLivingBase entity = event.entityLiving;
 		EntityLivingBase attacker;
@@ -848,6 +868,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onLivingDeath(LivingDeathEvent event) {
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
@@ -1020,6 +1041,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onLivingDrops(LivingDropsEvent event) {
 		EntityLivingBase entity = event.entityLiving;
 		Random rand = entity.getRNG();
@@ -1037,6 +1059,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onLivingHurt(LivingHurtEvent event) {
 		EntityLivingBase entity = event.entityLiving;
 		EntityLivingBase attacker;
@@ -1124,6 +1147,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
@@ -1383,6 +1407,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onMinecartInteract(MinecartInteractEvent event) {
 		EntityPlayer entityplayer = event.player;
 		World world = entityplayer.worldObj;
@@ -1398,6 +1423,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
 		EntityPlayer entityplayer = event.player;
 		if (!entityplayer.worldObj.isRemote) {
@@ -1411,6 +1437,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlayerInteract(PlayerInteractEvent evt) {
 		if (FMLCommonHandler.instance().getEffectiveSide() != Side.SERVER || evt.action != PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) {
 			return;
@@ -1431,6 +1458,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
 		EntityPlayer entityplayer = event.player;
 		World world = entityplayer.worldObj;
@@ -1458,6 +1486,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
 		EntityPlayer entityplayer = event.player;
 		World world = entityplayer.worldObj;
@@ -1496,6 +1525,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onSaplingGrow(SaplingGrowTreeEvent event) {
 		World world = event.world;
 		int i = event.x;
@@ -1509,6 +1539,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onServerChat(ServerChatEvent event) {
 		EntityPlayerMP entityplayer = event.player;
 		String message = event.message;
@@ -1574,6 +1605,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onSmelting(PlayerEvent.ItemSmeltedEvent event) {
 		EntityPlayer entityplayer = event.player;
 		ItemStack itemstack = event.smelting;
@@ -1588,6 +1620,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onStartTracking(net.minecraftforge.event.entity.player.PlayerEvent.StartTracking event) {
 		if (event.target instanceof GOTEntityCart) {
 			GOTEntityCart target = (GOTEntityCart) event.target;
@@ -1602,6 +1635,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onStartTrackingEntity(net.minecraftforge.event.entity.player.PlayerEvent.StartTracking event) {
 		Entity entity = event.target;
 		EntityPlayer entityplayer = event.entityPlayer;
@@ -1620,6 +1654,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onUseBonemeal(BonemealEvent event) {
 		EntityPlayer entityplayer = event.entityPlayer;
 		World world = event.world;
@@ -1683,6 +1718,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onUseHoe(UseHoeEvent event) {
 		World world = event.world;
 		int i = event.x;
@@ -1703,6 +1739,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onWorldSave(WorldEvent.Save event) {
 		World world = event.world;
 		if (!world.isRemote && world.provider.dimensionId == 0) {
@@ -1711,6 +1748,7 @@ public class GOTEventHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onWorldUnload(WorldEvent.Unload event) {
 		World world = event.world;
 		if (world.provider instanceof GOTWorldProvider) {

@@ -66,7 +66,7 @@ public class GOTBlockTermite extends Block {
 		return meta == 1 ? 1 : 0;
 	}
 
-	private void spawnTermite(World world, int i, int j, int k) {
+	private static void spawnTermite(World world, int i, int j, int k) {
 		GOTEntityTermite termite = new GOTEntityTermite(world);
 		termite.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
 		world.spawnEntityInWorld(termite);

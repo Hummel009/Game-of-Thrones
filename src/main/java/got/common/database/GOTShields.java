@@ -73,16 +73,16 @@ public enum GOTShields {
 			return GOTLevelData.getData(entityplayer).getAlignment(alignmentFaction) >= 100.0f;
 		}
 		if (this == ACHIEVEMENT_BRONZE) {
-			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 10;
-		}
-		if (this == ACHIEVEMENT_SILVER) {
-			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 20;
-		}
-		if (this == ACHIEVEMENT_GOLD) {
 			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 50;
 		}
-		if (this == ACHIEVEMENT_VALYRIAN) {
+		if (this == ACHIEVEMENT_SILVER) {
 			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 100;
+		}
+		if (this == ACHIEVEMENT_GOLD) {
+			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 200;
+		}
+		if (this == ACHIEVEMENT_VALYRIAN) {
+			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 250;
 		}
 		if (this == ALCOHOLIC) {
 			return GOTLevelData.getData(entityplayer).hasAchievement(GOTAchievement.gainHighAlcoholTolerance);

@@ -126,14 +126,14 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureMyrFarm(false);
 			}
 			return new GOTStructureMyrPasture(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(6) == 0) {
 				return new GOTStructureMyrSmithy(false);
 			}
@@ -154,7 +154,7 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 			addStructure(new StructureRespawner(), 0, 0, 0);
 		}
 
-		private void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
+		private static void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityMyrMan.class);
 		}
 
@@ -499,7 +499,7 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
+		private static void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClass1(GOTEntityMyrSoldier.class);
 			spawner.setSpawnClass2(GOTEntityMyrSoldierArcher.class);
 		}

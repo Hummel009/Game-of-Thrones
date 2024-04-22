@@ -101,7 +101,7 @@ public class GOTBlockSpawnerChest extends BlockChest {
 		return true;
 	}
 
-	private void spawnEntity(World world, int i, int j, int k) {
+	private static void spawnEntity(World world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (!(tileentity instanceof GOTTileEntitySpawnerChest)) {
 			return;

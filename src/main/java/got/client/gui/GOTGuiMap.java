@@ -162,8 +162,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 
 	public GOTGuiMap() {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
-			GOTGenLayerWorld genLayerWorld = new GOTGenLayerWorld();
-			genLayerWorld.tryLoadBiomeImage();
+			GOTGenLayerWorld.tryLoadBiomeImage();
 		}
 	}
 

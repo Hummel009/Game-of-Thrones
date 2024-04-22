@@ -37,7 +37,7 @@ public class GOTRecipePouch implements IRecipe {
 		hasOverrideColor = flag;
 	}
 
-	private int getCombinedMeta(Iterable<ItemStack> pouches) {
+	private static int getCombinedMeta(Iterable<ItemStack> pouches) {
 		int size = 0;
 		for (ItemStack pouch : pouches) {
 			size += pouch.getItemDamage() + 1;

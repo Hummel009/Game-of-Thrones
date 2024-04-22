@@ -366,7 +366,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return (GOTEntityNPC) GOTReflection.newEntity(FARMHANDS.get(kingdom), world);
 	}
 
-	protected ItemStack getFramedItem(Random random) {
+	protected static ItemStack getFramedItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.westerosSpear), new ItemStack(GOTItems.westerosBow), new ItemStack(Items.arrow), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.ironCrossbow), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing)};
 		return items[random.nextInt(items.length)].copy();
 	}

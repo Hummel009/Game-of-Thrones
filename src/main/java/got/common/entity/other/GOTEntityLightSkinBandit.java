@@ -98,7 +98,7 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements GOTB
 		return "standard/special/bandit";
 	}
 
-	public IChatComponent getTheftChatMsg() {
+	public static IChatComponent getTheftChatMsg() {
 		return new ChatComponentTranslation("got.chat.banditSteal");
 	}
 

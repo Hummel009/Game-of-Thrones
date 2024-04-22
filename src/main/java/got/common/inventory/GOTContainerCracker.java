@@ -78,7 +78,7 @@ public class GOTContainerCracker extends Container {
 		}
 	}
 
-	public void sendSealingPacket() {
+	public static void sendSealingPacket() {
 		IMessage packet = new GOTPacketSealCracker();
 		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}

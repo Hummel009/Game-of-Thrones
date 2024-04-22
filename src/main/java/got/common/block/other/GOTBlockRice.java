@@ -74,7 +74,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		func_149863_m(p_149853_1_, p_149853_3_, p_149853_4_, p_149853_5_);
 	}
 
-	private void func_149863_m(World p_149863_1_, int p_149863_2_, int p_149863_3_, int p_149863_4_) {
+	private static void func_149863_m(World p_149863_1_, int p_149863_2_, int p_149863_3_, int p_149863_4_) {
 		int l = p_149863_1_.getBlockMetadata(p_149863_2_, p_149863_3_, p_149863_4_) + MathHelper.getRandomIntegerInRange(p_149863_1_.rand, 2, 5);
 		if (l > 7) {
 			l = 7;
@@ -116,11 +116,11 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		return f;
 	}
 
-	private Item func_149865_P() {
+	private static Item func_149865_P() {
 		return GOTItems.rice;
 	}
 
-	private Item func_149866_i() {
+	private static Item func_149866_i() {
 		return GOTItems.rice;
 	}
 

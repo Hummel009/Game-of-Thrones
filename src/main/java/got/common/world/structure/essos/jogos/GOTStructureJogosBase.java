@@ -36,7 +36,7 @@ public abstract class GOTStructureJogosBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected ItemStack getRandomNomadWeapon(Random random) {
+	protected static ItemStack getRandomNomadWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.nomadBattleaxe), new ItemStack(GOTItems.nomadSword), new ItemStack(GOTItems.nomadSpear)};
 		return items[random.nextInt(items.length)].copy();
 	}

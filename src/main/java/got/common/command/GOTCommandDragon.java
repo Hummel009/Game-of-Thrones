@@ -29,7 +29,7 @@ public class GOTCommandDragon extends CommandBase {
 		return Collections.emptyList();
 	}
 
-	private void appyModifier(ICommandSender sender, EntityModifier modifier, boolean global) {
+	private static void appyModifier(ICommandSender sender, EntityModifier modifier, boolean global) {
 		if (!global && sender instanceof EntityPlayerMP) {
 			EntityPlayerMP player = getCommandSenderAsPlayer(sender);
 			double range = 64;

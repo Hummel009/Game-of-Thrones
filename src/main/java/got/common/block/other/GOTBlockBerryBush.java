@@ -71,7 +71,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		}
 	}
 
-	private Collection<ItemStack> getBerryDrops(World world, int meta) {
+	private static Collection<ItemStack> getBerryDrops(World world, int meta) {
 		Collection<ItemStack> drops = new ArrayList<>();
 		if (hasBerries(meta)) {
 			int berryType = getBerryType(meta);
@@ -203,7 +203,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		}
 	}
 
-	private void growBerries(World world, int i, int j, int k) {
+	private static void growBerries(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		world.setBlockMetadataWithNotify(i, j, k, setHasBerries(meta, true), 3);
 	}

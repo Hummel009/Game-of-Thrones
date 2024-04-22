@@ -102,14 +102,14 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextInt(3) == 0) {
 				return new GOTStructureIbbenVillagePasture(false);
 			}
 			return new GOTStructureIbbenVillageFarm(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(4) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

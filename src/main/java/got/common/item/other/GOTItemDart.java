@@ -17,15 +17,15 @@ public class GOTItemDart extends Item {
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseDart(this));
 	}
 
-	public GOTEntityDart createDart(World world, EntityLivingBase entity, EntityLivingBase target, ItemStack itemstack, float charge, float inaccuracy) {
+	public static GOTEntityDart createDart(World world, EntityLivingBase entity, EntityLivingBase target, ItemStack itemstack, float charge, float inaccuracy) {
 		return new GOTEntityDart(world, entity, target, itemstack, charge, inaccuracy);
 	}
 
-	public GOTEntityDart createDart(World world, EntityLivingBase entity, ItemStack itemstack, float charge) {
+	public static GOTEntityDart createDart(World world, EntityLivingBase entity, ItemStack itemstack, float charge) {
 		return new GOTEntityDart(world, entity, itemstack, charge);
 	}
 
-	public GOTEntityDart createDart(World world, ItemStack itemstack, double d, double d1, double d2) {
+	public static GOTEntityDart createDart(World world, ItemStack itemstack, double d, double d1, double d2) {
 		return new GOTEntityDart(world, itemstack, d, d1, d2);
 	}
 

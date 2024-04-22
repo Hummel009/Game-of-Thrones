@@ -78,7 +78,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private GOTStructureBase getOtherSettlementStructure(Random random) {
+		private static GOTStructureBase getOtherSettlementStructure(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureYiTiStables(false);
 			}
@@ -125,7 +125,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomVillageFarm(Random random) {
+		private static GOTStructureBase getRandomVillageFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureYiTiVillageFarm.Animals(false);
 			}

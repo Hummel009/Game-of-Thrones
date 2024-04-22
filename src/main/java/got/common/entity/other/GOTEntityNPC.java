@@ -406,7 +406,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		hiredReplacedInv = new GOTInventoryHiredReplacedItems(this);
 	}
 
-	public void fillPouchFromListAndRetainUnfilled(ItemStack pouch, List<ItemStack> items) {
+	public static void fillPouchFromListAndRetainUnfilled(ItemStack pouch, List<ItemStack> items) {
 		Collection<ItemStack> pouchContents = new ArrayList<>();
 		while (!items.isEmpty()) {
 			pouchContents.add(items.remove(0));
@@ -549,7 +549,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return d * d;
 	}
 
-	private String getNPCFormattedName(String npcName, String entityName) {
+	private static String getNPCFormattedName(String npcName, String entityName) {
 		if (npcName.equals(entityName)) {
 			return entityName;
 		}

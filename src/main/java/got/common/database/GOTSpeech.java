@@ -220,7 +220,7 @@ public class GOTSpeech {
 			return "ERROR: Speech line " + line + " is out of range!";
 		}
 
-		private String internalFormatSpeech(String s) {
+		private static String internalFormatSpeech(String s) {
 			return s;
 		}
 	}

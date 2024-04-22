@@ -68,7 +68,7 @@ public class GOTBlockChest extends BlockContainer {
 		return baseBlock.getIcon(i, baseMeta);
 	}
 
-	public IInventory getModChestAt(World world, int i, int j, int k) {
+	public static IInventory getModChestAt(World world, int i, int j, int k) {
 		if (world.isSideSolid(i, j + 1, k, ForgeDirection.DOWN)) {
 			return null;
 		}
@@ -136,7 +136,7 @@ public class GOTBlockChest extends BlockContainer {
 		return false;
 	}
 
-	private void setDefaultDirection(World world, int i, int j, int k) {
+	private static void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);

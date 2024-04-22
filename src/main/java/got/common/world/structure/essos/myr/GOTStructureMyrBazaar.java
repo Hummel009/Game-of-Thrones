@@ -59,8 +59,8 @@ public class GOTStructureMyrBazaar extends GOTStructureEssosBazaar {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.anvil, 3);
-			placeWeaponRack(world, -2, 2, 0, 1, new GOTStructureMyrBazaar(false).getRandomWeapon(random));
-			placeWeaponRack(world, 2, 2, 0, 3, new GOTStructureMyrBazaar(false).getRandomWeapon(random));
+			placeWeaponRack(world, -2, 2, 0, 1, getRandomWeapon(random));
+			placeWeaponRack(world, 2, 2, 0, 3, getRandomWeapon(random));
 			GOTEntityMyrBlacksmith trader = new GOTEntityMyrBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

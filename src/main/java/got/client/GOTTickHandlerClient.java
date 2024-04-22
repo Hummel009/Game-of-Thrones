@@ -811,7 +811,7 @@ public class GOTTickHandlerClient {
 		WorldProvider provider = worldClient.provider;
 		if (provider instanceof GOTWorldProvider) {
 			float[] rgb = {event.red, event.green, event.blue};
-			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(rgb);
+			rgb = GOTWorldProvider.handleFinalFogColors(rgb);
 			event.red = rgb[0];
 			event.green = rgb[1];
 			event.blue = rgb[2];

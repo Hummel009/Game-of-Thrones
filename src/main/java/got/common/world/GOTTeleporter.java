@@ -38,7 +38,7 @@ public class GOTTeleporter extends Teleporter {
 			GOTLevelData.setMadeGameOfThronesPortal(1);
 			if (makeRingPortal) {
 				if (world.provider instanceof GOTWorldProvider) {
-					((GOTWorldProvider) world.provider).setRingPortalLocation(i, j, k);
+					GOTWorldProvider.setRingPortalLocation(i, j, k);
 				}
 				GOTEntityPortal portal = new GOTEntityPortal(world);
 				portal.setLocationAndAngles(i + 0.5, j + 3.5, k + 0.5, 0.0f, 0.0f);

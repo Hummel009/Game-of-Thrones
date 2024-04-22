@@ -207,6 +207,7 @@ public class GOTRecipe {
 		COMMON_ESSOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.essosPike), "  X", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
 		COMMON_ESSOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.essosPolearm), " XX", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
 		COMMON_ESSOS.add(new GOTRecipeRobesDye(GOTMaterial.ROBES));
+		COMMON_ESSOS.add(new GOTRecipeTurbanOrnament());
 	}
 
 	private static void createCommonWesterosRecipes() {

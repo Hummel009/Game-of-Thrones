@@ -180,7 +180,7 @@ public class GOTCommandFellowship extends CommandBase {
 		return "got.command.fellowship.usage";
 	}
 
-	private UUID getPlayerIDByName(ICommandSender sender, String username) {
+	private static UUID getPlayerIDByName(ICommandSender sender, String username) {
 		try {
 			EntityPlayerMP entityplayer = getPlayer(sender, username);
 			return entityplayer.getUniqueID();
