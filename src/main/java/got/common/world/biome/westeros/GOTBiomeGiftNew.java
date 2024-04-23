@@ -16,6 +16,7 @@ public class GOTBiomeGiftNew extends GOTBiomeNorthWild {
 		decorator.clearSettlements();
 		decorator.addSettlement(new GOTStructureGiftSettlement(this, 1.0f));
 		invasionSpawns.clearInvasions();
+		npcSpawnList.clear();
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

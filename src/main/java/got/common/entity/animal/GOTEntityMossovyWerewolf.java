@@ -8,6 +8,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTMaterialFinder;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +20,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
+public class GOTEntityMossovyWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
 	public GOTEntityMossovyWerewolf(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);

@@ -377,12 +377,6 @@ public class GOTBiomeDecorator {
 			k5 = chunkZ + rand.nextInt(16) + 8;
 			new WorldGenFlowers(GOTBlocks.flaxPlant).generate(worldObj, rand, i5, j3, k5);
 		}
-		if (generateAgriculture && rand.nextInt(6) == 0) {
-			i5 = chunkX + rand.nextInt(16) + 8;
-			j3 = rand.nextInt(128);
-			k5 = chunkZ + rand.nextInt(16) + 8;
-			new WorldGenFlowers(GOTBlocks.cucumberPlant).generate(worldObj, rand, i5, j3, k5);
-		}
 	}
 
 	public void decorate(World world, Random random, int i, int k) {

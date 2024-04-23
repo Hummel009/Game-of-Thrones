@@ -16,10 +16,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemSeedFood;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -170,8 +168,6 @@ public class GOTItems {
 	public static Item crownlandsChestplate;
 	public static Item crownlandsHelmet;
 	public static Item crownlandsLeggings;
-	public static Item cucumber;
-	public static Item cucumberSeeds;
 	public static Item cutwave;
 	public static Item daarioArakh;
 	public static Item darkSister;
@@ -504,7 +500,6 @@ public class GOTItems {
 	public static Item rhinoCooked;
 	public static Item rhinoHorn;
 	public static Item rhinoRaw;
-	public static Item rice;
 	public static Item riverlandsBoots;
 	public static Item riverlandsChestplate;
 	public static Item riverlandsHelmet;
@@ -858,8 +853,6 @@ public class GOTItems {
 		crownlandsChestplate = new GOTItemArmor(GOTMaterial.CROWNLANDS, 1);
 		crownlandsHelmet = new GOTItemArmor(GOTMaterial.CROWNLANDS, 0);
 		crownlandsLeggings = new GOTItemArmor(GOTMaterial.CROWNLANDS, 2);
-		cucumber = new GOTItemFood(4, 0.3f, false);
-		cucumberSeeds = new GOTItemSeeds(GOTBlocks.cucumberCrop, Blocks.farmland);
 		cutwave = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		daarioArakh = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
 		darkSister = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
@@ -1192,7 +1185,6 @@ public class GOTItems {
 		rhinoCooked = new GOTItemFood(7, 0.4f, true);
 		rhinoHorn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		rhinoRaw = new GOTItemFood(2, 0.1f, true);
-		rice = new GOTItemRice(2, 0.2f, GOTBlocks.ricePlant).setUnlocalizedName("rice").setTextureName("complexcrops:rice");
 		riverlandsBoots = new GOTItemArmor(GOTMaterial.RIVERLANDS, 3);
 		riverlandsChestplate = new GOTItemArmor(GOTMaterial.RIVERLANDS, 1);
 		riverlandsHelmet = new GOTItemArmor(GOTMaterial.RIVERLANDS, 0);
@@ -1407,10 +1399,6 @@ public class GOTItems {
 		zebraRaw = new GOTItemFood(2, 0.1f, true);
 	}
 
-	public static void onInit() {
-		MinecraftForge.addGrassSeed(new ItemStack(rice), 2);
-	}
-
 	public static void preInit() {
 		GOTBlockReplacement.replaceVanillaItem(Items.cake, new GOTItemPlaceableFood(Blocks.cake).setTextureName("cake").setCreativeTab(CreativeTabs.tabFood));
 		GOTBlockReplacement.replaceVanillaItem(Items.potionitem, new GOTItemPotion().setTextureName("potion"));
@@ -1607,8 +1595,6 @@ public class GOTItems {
 		register(termite, "termite");
 		register(flaxSeeds, "flaxSeeds");
 		register(flax, "flax");
-		register(cucumberSeeds, "cucumberSeeds");
-		register(cucumber, "cucumber");
 		register(blueberry, "blueberry");
 		register(blackberry, "blackberry");
 		register(raspberry, "raspberry");
@@ -2092,7 +2078,6 @@ public class GOTItems {
 		register(jogosLeggings, "jogosLeggings");
 		register(jogosBoots, "jogosBoots");
 		register(tugarKhanSword, "tugarKhanSword");
-		register(rice, "rice");
 		register(westerosLongsword, "westerosLongsword");
 		register(westerosGreatsword, "westerosGreatsword");
 		register(elephantRaw, "elephantRaw");

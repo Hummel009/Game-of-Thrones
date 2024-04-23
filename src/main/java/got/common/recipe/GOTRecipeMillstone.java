@@ -79,7 +79,7 @@ public class GOTRecipeMillstone {
 		addCrackedBricks(new ItemStack(GOTBlocks.brick4, 1, 0), new ItemStack(GOTBlocks.brick4, 1, 2));
 		addCrackedBricks(new ItemStack(GOTBlocks.brick5, 1, 8), new ItemStack(GOTBlocks.brick5, 1, 10));
 		addCrackedBricks(new ItemStack(GOTBlocks.brick5, 1, 11), new ItemStack(GOTBlocks.brick5, 1, 14));
-		addCrackedBricks(new ItemStack(GOTBlocks.brick6, 1, 6), new ItemStack(GOTBlocks.brick6, 1, 4));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick6, 1, 4), new ItemStack(GOTBlocks.brick6, 1, 6));
 	}
 
 	public static class MillstoneResult {

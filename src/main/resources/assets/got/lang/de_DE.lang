@@ -6751,6 +6751,7 @@ tile.got:weapon_rack.name=Waffenhalter
 tile.got:white_sand.name=Weißer Sand
 tile.got:white_sandstone.name=Weißer Sandstein
 tile.got:wild_fire_jar.name=Lauffeuer
+tile.got:wild_fire.name=Lauffeuer
 tile.got:willow_vines.name=Weidenranken
 tile.got:wood1.0.name=Ibbiniaholz
 tile.got:wood1.1.name=Catalpaholz

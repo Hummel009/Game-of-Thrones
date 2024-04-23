@@ -4,6 +4,7 @@ import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeQohorForest;
 import got.common.world.biome.essos.GOTBiomeVolantisOrangeForest;
 import got.common.world.biome.sothoryos.GOTBiomeSummerIslands;
@@ -25,7 +26,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.UUID;
 
-public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity {
+public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost, GOTBiome.ImmuneToHeat {
 	private ChunkCoordinates currentFlightTarget;
 	private int flapTime;
 
@@ -113,7 +114,11 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return super.getCanSpawnHere() && GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);
+		int i = MathHelper.floor_double(posX);
+		int j = MathHelper.floor_double(posY);
+		int k = MathHelper.floor_double(posZ);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
+		return biome.temperature != 0.0f && super.getCanSpawnHere() && GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);
 	}
 
 	@Override

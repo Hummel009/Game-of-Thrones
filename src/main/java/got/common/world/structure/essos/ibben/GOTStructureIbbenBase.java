@@ -229,9 +229,9 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 			woodBeamBlock = woodBeam2Block;
 			woodBeamMeta = woodBeam2Meta;
 		}
-		woodBeamRohanBlock = GOTBlocks.woodBeamS;
+		woodBeamRohanBlock = GOTBlocks.woodBeam1;
 		woodBeamRohanMeta = 0;
-		woodBeamRohanGoldBlock = GOTBlocks.woodBeamS;
+		woodBeamRohanGoldBlock = GOTBlocks.woodBeam1;
 		woodBeamRohanGoldMeta = 1;
 		roofBlock = GOTBlocks.thatch;
 		roofMeta = 0;

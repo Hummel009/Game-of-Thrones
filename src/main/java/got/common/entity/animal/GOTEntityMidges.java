@@ -6,6 +6,7 @@ import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.westeros.GOTBiomeNeck;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -14,10 +15,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.List;
 
-public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature {
+public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature, GOTBiome.ImmuneToFrost, GOTBiome.ImmuneToHeat {
 	private final Midge[] midges;
 
 	private ChunkCoordinates currentFlightTarget;
@@ -82,7 +84,8 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(posY);
 		int k = MathHelper.floor_double(posZ);
-		return j >= 62 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock && super.getCanSpawnHere();
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
+		return biome.temperature != 0.0f && j >= 62 && worldObj.getBlock(i, j - 1, k) == biome.topBlock && super.getCanSpawnHere();
 	}
 
 	@Override

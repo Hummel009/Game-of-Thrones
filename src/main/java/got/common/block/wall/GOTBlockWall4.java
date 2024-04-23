@@ -72,6 +72,5 @@ public class GOTBlockWall4 extends GOTBlockWallBase {
 		list.add(new ItemStack(item, 1, 11));
 		list.add(new ItemStack(item, 1, 12));
 		list.add(new ItemStack(item, 1, 13));
-		list.add(new ItemStack(item, 1, 15));
 	}
 }

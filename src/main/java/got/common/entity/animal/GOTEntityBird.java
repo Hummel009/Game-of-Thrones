@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
+public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost, GOTBiome.ImmuneToHeat {
 	private final GOTEntityInventory birdInv = new GOTEntityInventory("BirdItems", this, 9);
 
 	private ChunkCoordinates currentFlightTarget;

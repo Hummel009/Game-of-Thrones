@@ -3,6 +3,7 @@ package got.common.entity.animal;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -14,7 +15,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class GOTEntityGemsbok extends EntityAnimal {
+public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToHeat {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGemsbok(World world) {
 		super(world);

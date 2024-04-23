@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
+public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost, GOTBiome.ImmuneToHeat {
 	private ChunkCoordinates currentSwimTarget;
 	private int swimTargetTime;
 

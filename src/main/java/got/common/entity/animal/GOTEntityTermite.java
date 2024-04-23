@@ -6,6 +6,7 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -22,7 +23,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class GOTEntityTermite extends EntityMob {
+public class GOTEntityTermite extends EntityMob implements GOTBiome.ImmuneToHeat {
 	private int fuseTime;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

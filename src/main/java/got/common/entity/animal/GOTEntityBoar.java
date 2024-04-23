@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityBoar extends GOTEntityHorse implements GOTBiome.ImmuneToFrost {
+public class GOTEntityBoar extends GOTEntityHorse {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBoar(World world) {
 		super(world);

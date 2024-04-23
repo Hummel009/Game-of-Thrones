@@ -105,8 +105,6 @@ public class GOTBlocks {
 	public static Block commandTable;
 	public static Block coralReef;
 	public static Block cornStalk;
-	public static Block cucumberCrop;
-	public static Block cucumberPlant;
 	public static Block date;
 	public static Block daub;
 	public static Block deadMarshPlant;
@@ -257,7 +255,6 @@ public class GOTBlocks {
 	public static Block leaves7;
 	public static Block leaves8;
 	public static Block leaves9;
-	public static Block leavesSnowy;
 	public static Block leekCrop;
 	public static Block lemonCake;
 	public static Block lettuceCrop;
@@ -308,7 +305,6 @@ public class GOTBlocks {
 	public static Block redSandstone;
 	public static Block reedBars;
 	public static Block reeds;
-	public static Block ricePlant;
 	public static Block rock;
 	public static Block rope;
 	public static Block rottenLog;
@@ -617,7 +613,6 @@ public class GOTBlocks {
 	public static Block woodBeam9;
 	public static Block woodBeamFruit;
 	public static Block woodBeamRotten;
-	public static Block woodBeamS;
 	public static Block woodBeamV1;
 	public static Block woodBeamV2;
 	public static Block woodPlate;
@@ -708,8 +703,6 @@ public class GOTBlocks {
 		commandTable = new GOTBlockCommandTable();
 		coralReef = new GOTBlockCoralReef();
 		cornStalk = new GOTBlockCorn();
-		cucumberCrop = new GOTBlockCucumberCrop();
-		cucumberPlant = new GOTBlockFlower().setFlowerBounds(0.2f, 0.0f, 0.2f, 0.8f, 0.8f, 0.8f);
 		date = new GOTBlockDate().setHardness(0.0f).setResistance(1.0f).setStepSound(Block.soundTypeWood);
 		daub = new GOTBlockDaub();
 		deadMarshPlant = new GOTBlockDeadPlant();
@@ -860,7 +853,6 @@ public class GOTBlocks {
 		leaves7 = new GOTBlockLeaves7();
 		leaves8 = new GOTBlockLeaves8();
 		leaves9 = new GOTBlockLeaves9();
-		leavesSnowy = new GOTBlockBone().setCreativeTab(null);
 		leekCrop = new GOTBlockLeekCrop();
 		lemonCake = new GOTBlockPlaceableFood();
 		lettuceCrop = new GOTBlockLettuceCrop();
@@ -907,7 +899,6 @@ public class GOTBlocks {
 		redSandstone = new GOTBlockSandstone();
 		reedBars = new GOTBlockReedBars();
 		reeds = new GOTBlockReed();
-		ricePlant = new GOTBlockRice().setHardness(0.0f).setStepSound(Block.soundTypeGrass).setResistance(0.0f).setBlockName("rice").setBlockTextureName("complexcrops:rice/rice");
 		rock = new GOTBlockRock();
 		rope = new GOTBlockRope(false);
 		rottenLog = new GOTBlockWoodRotten();
@@ -1214,7 +1205,6 @@ public class GOTBlocks {
 		woodBeam9 = new GOTBlockWoodBeam9();
 		woodBeamFruit = new GOTBlockWoodBeamFruit();
 		woodBeamRotten = new GOTBlockWoodBeamRotten();
-		woodBeamS = new GOTBlockWoodBeamS();
 		woodBeamV1 = new GOTBlockWoodBeamV1();
 		woodBeamV2 = new GOTBlockWoodBeamV2();
 		woodPlate = new GOTBlockPlate().setStepSound(Block.soundTypeWood);
@@ -1485,8 +1475,6 @@ public class GOTBlocks {
 		register(essosFlower, "essosFlower", GOTItemBlockMetadata.class);
 		register(flaxPlant, "flaxPlant");
 		register(flaxCrop, "flax");
-		register(cucumberPlant, "cucumberPlant");
-		register(cucumberCrop, "cucumber");
 		register(berryBush, "berryBush", GOTItemBlockMetadata.class);
 		register(planks2, "planks2", GOTItemBlockMetadata.class);
 		register(fence2, "fence2", GOTItemBlockMetadata.class);
@@ -1711,7 +1699,6 @@ public class GOTBlocks {
 		register(glassBottle, "glassBottle");
 		register(aleHorn, "aleHorn");
 		register(aleHornGold, "aleHornGold");
-		register(woodBeamS, "woodBeamS", GOTItemBlockMetadata.class);
 		register(birdCage, "birdCage", GOTItemAnimalJar.class);
 		register(birdCageWood, "birdCageWood", GOTItemAnimalJar.class);
 		register(gateIbben, "gateIbben", GOTItemGate.class);
@@ -1948,7 +1935,5 @@ public class GOTBlocks {
 		register(tableJogos, "tableJogos");
 		register(tableMossovy, "tableMossovy");
 		register(kelp, "kelp", GOTItemKelp.class);
-		register(ricePlant, "rice");
-		register(leavesSnowy, "leavesSnowy");
 	}
 }

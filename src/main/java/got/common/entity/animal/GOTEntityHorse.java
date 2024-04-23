@@ -13,6 +13,7 @@ import got.common.entity.other.GOTNPCMount;
 import got.common.item.other.GOTItemMountArmor;
 import got.common.util.GOTCrashHandler;
 import got.common.util.GOTReflection;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeDothrakiSea;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -33,7 +34,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.List;
 
-public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
+public class GOTEntityHorse extends EntityHorse implements GOTNPCMount, GOTBiome.ImmuneToFrost, GOTBiome.ImmuneToHeat {
 	private final EntityAIBase attackAI;
 	private final EntityAIBase panicAI;
 

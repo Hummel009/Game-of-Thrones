@@ -251,6 +251,7 @@ public class GOTRecipe {
 	}
 
 	private static void createDothrakiRecipes() {
+		DOTHRAKI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableDothraki), "XX", "XX", 'X', "plankWood"));
 		DOTHRAKI.add(new ShapedOreRecipe(new ItemStack(GOTItems.dothrakiHorseArmor), "X  ", "XXX", "XXX", 'X', Items.leather));
 		DOTHRAKI.add(new ShapedOreRecipe(new ItemStack(GOTItems.dothrakiHelmet), "XXX", "X X", 'X', GOTBlocks.driedReeds));
 		DOTHRAKI.add(new ShapedOreRecipe(new ItemStack(GOTItems.dothrakiChestplate), "X X", "XXX", "XXX", 'X', GOTBlocks.driedReeds));
@@ -328,8 +329,6 @@ public class GOTRecipe {
 		IBBEN.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadBow), " XY", "X Y", " XY", 'X', "stickWood", 'Y', Items.string));
 		IBBEN.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsRhyolite, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.rock, 1, 2)));
 		IBBEN.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 3), "XX", "XX", 'X', new ItemStack(GOTBlocks.brick1, 1, 4)));
-		IBBEN.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeamS, 3, 0), "X", "X", "X", 'X', "logWood"));
-		IBBEN.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeamS, 1, 1), " X ", "XYX", " X ", 'X', "nuggetGold", 'Y', new ItemStack(GOTBlocks.woodBeamS, 1, 0)));
 		IBBEN.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.gateIbben, 4), "ZYZ", "YXY", "ZYZ", 'X', GOTItems.gateGear, 'Y', "plankWood", 'Z', "ingotIron"));
 	}
 
@@ -345,6 +344,7 @@ public class GOTRecipe {
 	}
 
 	private static void createJogosRecipes() {
+		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableJogos), "XX", "XX", 'X', "plankWood"));
 		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.JOGOS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosHelmet), "XXX", "X X", 'X', "ingotIron"));
 		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
@@ -369,7 +369,7 @@ public class GOTRecipe {
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone2, 6, 15), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick3, 4, 10)));
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarBattleaxe), "XXX", "XYX", " Y ", 'X', GOTItems.rhinoHorn, 'Y', "stickWood"));
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarDagger), "X", "Y", 'X', GOTItems.rhinoHorn, 'Y', "stickWood"));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarSpear), "  X", " X ", "X  ", 'X', GOTItems.rhinoHorn));
+		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarSpear), "  X", " Y ", "Y  ", 'X', GOTItems.rhinoHorn, 'Y', "stickWood"));
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarHelmetLion), "XXX", "X X", 'X', GOTItems.lionFur));
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarChestplateLion), "X X", "XXX", "XXX", 'X', GOTItems.lionFur));
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarLeggingsLion), "XXX", "X X", "X X", 'X', GOTItems.lionFur));
@@ -703,6 +703,7 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 7), new ItemStack(GOTBlocks.brick6, 1, 4), "vine"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.iceHeavySword), " XX", " X ", "Y  ", 'X', GOTItems.iceShard, 'Y', "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.iceSword), "X", "X", "Y", 'X', GOTItems.iceShard, 'Y', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.iceSpear), "  X", " Y ", "Y  ", 'X', GOTItems.iceShard, 'Y', "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.smoothStone, 2, 6), "X", "X", 'X', new ItemStack(GOTBlocks.rock, 1, 6)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsLabradorite, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.rock, 1, 6)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsLabradoriteBrick, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick6, 1, 4)));
@@ -1238,6 +1239,8 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.doorCatalpa), "XX", "XX", "XX", 'X', new ItemStack(GOTBlocks.planks1, 1, 1)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.trapdoorCatalpa, 2), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.planks1, 1, 1)));
 
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.brickIce, 1), "XX", "XX", 'X', new ItemStack(Blocks.packed_ice, 1)));
+
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Blocks.dirt, 1, 0), new ItemStack(Blocks.dirt, 1, 1), Items.wheat_seeds));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Blocks.mossy_cobblestone, 1, 0), new ItemStack(Blocks.cobblestone, 1, 0), "vine"));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Blocks.stonebrick, 1, 1), new ItemStack(Blocks.stonebrick, 1, 0), "vine"));
@@ -1282,7 +1285,6 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 2, 0), new ItemStack(GOTBlocks.doubleFlower, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.emerald, 9), new ItemStack(GOTBlocks.blockGem, 1, 9));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.flaxSeeds, 2), GOTBlocks.flaxPlant);
-		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.cucumberSeeds, 2), GOTBlocks.cucumberPlant);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.kebab, 9), new ItemStack(GOTBlocks.kebabBlock, 1, 0));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.leekSoup), Items.bowl, GOTItems.leek, GOTItems.leek, Items.potato);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.mapleSyrup), new ItemStack(GOTBlocks.wood3, 1, 0), Items.bowl);

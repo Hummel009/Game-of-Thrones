@@ -46,7 +46,6 @@ public class GOTLoader {
 
 	public static void onInit() {
 		GOTBlocks.onInit();
-		GOTItems.onInit();
 		GOTTileEntityRegistry.onInit();
 		GOTCreativeTabs.onInit();
 		GOTRecipe.onInit();

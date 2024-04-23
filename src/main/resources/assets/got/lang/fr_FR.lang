@@ -6751,6 +6751,7 @@ tile.got:weapon_rack.name=Présentoir à arme
 tile.got:white_sand.name=Sable blanc
 tile.got:white_sandstone.name=Grès blanc
 tile.got:wild_fire_jar.name=Incendies
+tile.got:wild_fire.name=Incendies
 tile.got:willow_vines.name=Branches de saule
 tile.got:wood1.0.name=Bois de robinier
 tile.got:wood1.1.name=Bois de catalpa

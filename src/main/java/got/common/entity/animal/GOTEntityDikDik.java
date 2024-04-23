@@ -5,6 +5,7 @@ import got.common.entity.ai.GOTEntityAIAvoidWithChance;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,7 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public class GOTEntityDikDik extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity {
+public class GOTEntityDikDik extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDikDik(World world) {
 		super(world);

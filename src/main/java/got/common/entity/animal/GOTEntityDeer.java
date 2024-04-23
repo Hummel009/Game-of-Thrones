@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
+public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDeer(World world) {
 		super(world);

@@ -824,8 +824,6 @@ public class GOTTradeEntries {
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.thatch, 4, 0), 2));
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.thatch, 4, 1), 4));
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.thatchFloor, 16, 0), 2));
-		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.woodBeamS, 3, 0), 4));
-		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.woodBeamS, 3, 1), 8));
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.woodBeamV1, 3, 0), 2));
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.woodBeamV1, 3, 1), 2));
 		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.blacksmithHammer), 18));

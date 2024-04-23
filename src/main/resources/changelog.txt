@@ -20,11 +20,17 @@ CHANGELOG
 * Optimized dragons, giants and ice creatures
 * Optimized lots of client-size things
 
+* Midges and butterflies can't spawn in winter now
 * Moved zero coords of the world closer to Winterfell
 * Rebalanced +alignment values for killing
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
 * Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 
+* Fixed bug with uncraftable crafting tables
+* Fixed bug with lhazar spear crafting
+* Fixed bug with labradorite cracked bricks crafting
+* Fixed bug with North men spawning in Gift
+* Fixed bug with no craft ice spear, ice bricks
 * Fixed bug with shrykes', werewolves', ifekevrons' swimming ai.
 * Fixed different bugs related to mobs and their frost/heat immune
 * Fixed bug with dragon size
@@ -42,6 +48,9 @@ CHANGELOG
 * Fixed bug with one broken command
 * Fixed bug with cargo cart
 * Fixed 2 bugs with granite structures
+
+- Removed rice and cucumbers because of bugs
+- Removed double ibbinia wooden beams because of alternative
 
 >>BUILD 23.07.10
 + Added lots of forest biomes

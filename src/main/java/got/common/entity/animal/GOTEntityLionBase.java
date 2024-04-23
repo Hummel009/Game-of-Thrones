@@ -7,6 +7,7 @@ import got.common.entity.ai.GOTEntityAILionMate;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.item.other.GOTItemLionRug;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,7 +25,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public abstract class GOTEntityLionBase extends EntityAnimal {
+public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome.ImmuneToHeat {
 	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);
 	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
 	private final EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
