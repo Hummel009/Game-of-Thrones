@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRecipeMillstone {
-	private static final Map<ItemStack, MillstoneResult> RECIPES = new HashMap<>();
+	public static final Map<ItemStack, MillstoneResult> RECIPES = new HashMap<>();
 
 	private GOTRecipeMillstone() {
 	}

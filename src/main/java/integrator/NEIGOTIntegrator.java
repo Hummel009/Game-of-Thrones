@@ -31,6 +31,7 @@ public class NEIGOTIntegrator {
 		registerHandler(new GOTHandlerOven());
 		registerHandler(new GOTHandlerKebab());
 		registerHandler(new GOTHandlerUnsmeltery());
+		registerHandler(new GOTHandlerMillstone());
 		registerHandler("asshai", GOTGuiCraftingTable.Asshai.class, GOTRecipe.ASSHAI);
 		registerHandler("arryn", GOTGuiCraftingTable.Arryn.class, GOTRecipe.ARRYN);
 		registerHandler("braavos", GOTGuiCraftingTable.Braavos.class, GOTRecipe.BRAAVOS);

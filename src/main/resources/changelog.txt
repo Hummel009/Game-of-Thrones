@@ -1,6 +1,7 @@
 CHANGELOG
 
 >>BUILD 24.07.10
++ Added NEI support for Millstone
 + Added full German translation (by ToCraft).
 + Added beavers (with their spawn) and their drop (with its usage)
 + Added Janos Slynt's, Pycelle's and Melisandra's drop
