@@ -2,7 +2,7 @@ package got.client.render.other;
 
 import got.GOT;
 import got.client.model.GOTModelBanner;
-import got.common.entity.other.GOTEntityBanner;
+import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;

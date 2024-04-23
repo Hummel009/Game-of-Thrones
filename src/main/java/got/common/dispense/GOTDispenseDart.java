@@ -1,6 +1,6 @@
 package got.common.dispense;
 
-import got.common.entity.other.GOTEntityDart;
+import got.common.entity.other.inanimate.GOTEntityDart;
 import got.common.item.other.GOTItemDart;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IBlockSource;

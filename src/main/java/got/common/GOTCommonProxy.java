@@ -4,7 +4,7 @@ import com.mojang.authlib.GameProfile;
 import got.common.block.other.GOTBlockFlowerPot;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
-import got.common.entity.other.GOTEntityBanner;
+import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTFaction;

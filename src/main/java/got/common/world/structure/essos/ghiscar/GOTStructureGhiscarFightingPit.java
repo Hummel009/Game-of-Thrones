@@ -4,7 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarGladiator;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.structure.essos.common.GOTStructureEssosBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

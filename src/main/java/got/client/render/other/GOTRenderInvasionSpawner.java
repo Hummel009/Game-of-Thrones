@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.entity.other.GOTEntityInvasionSpawner;
+import got.common.entity.other.inanimate.GOTEntityInvasionSpawner;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;

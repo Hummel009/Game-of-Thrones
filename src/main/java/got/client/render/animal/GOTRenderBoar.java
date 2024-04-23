@@ -2,7 +2,7 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelBoar;
 import got.common.entity.animal.GOTEntityBoar;
-import got.common.entity.other.GOTNPCMount;
+import got.common.entity.other.iface.GOTNPCMount;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;

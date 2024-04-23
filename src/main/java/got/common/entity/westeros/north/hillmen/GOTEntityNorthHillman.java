@@ -8,7 +8,7 @@ import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityWoolyRhino;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTNPCMount;
+import got.common.entity.other.iface.GOTNPCMount;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;

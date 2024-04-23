@@ -1,7 +1,7 @@
 package got.common.entity.essos.lorath;
 
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityUtils;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

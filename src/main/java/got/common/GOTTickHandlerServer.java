@@ -4,7 +4,7 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
-import got.common.entity.other.GOTEntityPortal;
+import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.faction.GOTFactionBounties;
 import got.common.faction.GOTFactionRelations;
 import got.common.fellowship.GOTFellowshipData;

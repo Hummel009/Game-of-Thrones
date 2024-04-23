@@ -5,7 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarCorsair;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarCorsairArcher;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarMan;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;

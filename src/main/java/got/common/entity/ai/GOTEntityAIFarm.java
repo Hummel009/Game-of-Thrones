@@ -6,7 +6,7 @@ import got.common.block.other.GOTBlockGrapevine;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTFarmhand;
+import got.common.entity.other.iface.GOTFarmhand;
 import got.common.util.GOTReflection;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;

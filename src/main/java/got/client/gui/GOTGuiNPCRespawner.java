@@ -1,7 +1,7 @@
 package got.client.gui;
 
-import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
+import got.common.entity.GOTEntityRegistry;
 import got.common.network.GOTPacketEditNPCRespawner;
 import got.common.network.GOTPacketHandler;
 import net.minecraft.client.gui.GuiButton;

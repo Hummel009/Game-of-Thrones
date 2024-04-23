@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.other.GOTEntityFallingTreasure;
+import got.common.entity.other.inanimate.GOTEntityFallingTreasure;
 import got.common.recipe.GOTRecipeTreasurePile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;

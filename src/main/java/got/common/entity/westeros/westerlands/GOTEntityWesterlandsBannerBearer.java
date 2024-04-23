@@ -1,6 +1,6 @@
 package got.common.entity.westeros.westerlands;
 
-import got.common.entity.other.GOTBannerBearer;
+import got.common.entity.other.iface.GOTBannerBearer;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 

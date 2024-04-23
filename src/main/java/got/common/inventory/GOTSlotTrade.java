@@ -2,7 +2,7 @@ package got.common.inventory;
 
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTTradeEntry;
+import got.common.entity.other.utils.GOTTradeEntry;
 import got.common.item.other.GOTItemCoin;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

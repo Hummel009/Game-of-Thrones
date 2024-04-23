@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.north;
 
 import com.google.common.math.IntMath;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.north.GOTEntityNorthMan;
 import got.common.entity.westeros.north.GOTEntityNorthSoldier;
 import got.common.entity.westeros.north.hillmen.GOTEntityNorthHillman;

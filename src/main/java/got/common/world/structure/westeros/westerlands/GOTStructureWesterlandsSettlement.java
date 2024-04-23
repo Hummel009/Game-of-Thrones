@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.westerlands;
 
 import com.google.common.math.IntMath;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.westerlands.GOTEntityWesterlandsMan;
 import got.common.entity.westeros.westerlands.GOTEntityWesterlandsSoldier;
 import got.common.world.biome.GOTBiome;

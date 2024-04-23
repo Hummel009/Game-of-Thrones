@@ -4,7 +4,7 @@ import com.google.common.collect.HashMultimap;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTRenderLingeringDispenser;
-import got.common.entity.other.GOTEntityLingeringPotion;
+import got.common.entity.other.inanimate.GOTEntityLingeringPotion;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

@@ -2,7 +2,7 @@ package got.common.item.other;
 
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseConker;
-import got.common.entity.other.GOTEntityConker;
+import got.common.entity.other.inanimate.GOTEntityConker;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

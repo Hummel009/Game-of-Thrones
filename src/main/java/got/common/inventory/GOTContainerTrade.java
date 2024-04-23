@@ -2,9 +2,9 @@ package got.common.inventory;
 
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTTradeEntry;
-import got.common.entity.other.GOTTradeSellResult;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.utils.GOTTradeEntry;
+import got.common.entity.other.utils.GOTTradeSellResult;
+import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;

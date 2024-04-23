@@ -2,7 +2,7 @@ package got.common.tileentity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.entity.other.GOTPlateFallingInfo;
+import got.common.entity.other.utils.GOTPlateFallingInfo;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSoup;

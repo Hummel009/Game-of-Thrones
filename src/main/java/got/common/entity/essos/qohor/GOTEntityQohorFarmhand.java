@@ -1,7 +1,7 @@
 package got.common.entity.essos.qohor;
 
 import got.common.entity.ai.GOTEntityAIFarm;
-import got.common.entity.other.GOTFarmhand;
+import got.common.entity.other.iface.GOTFarmhand;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;

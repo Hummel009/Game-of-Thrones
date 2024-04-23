@@ -3,7 +3,7 @@ package got.common.entity.essos.ibben;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

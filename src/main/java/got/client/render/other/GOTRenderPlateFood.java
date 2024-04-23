@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.entity.other.GOTPlateFallingInfo;
+import got.common.entity.other.utils.GOTPlateFallingInfo;
 import got.common.tileentity.GOTTileEntityPlate;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;

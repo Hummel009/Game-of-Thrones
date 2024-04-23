@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.other.GOTEntityFallingFireJar;
+import got.common.entity.other.inanimate.GOTEntityFallingFireJar;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.MapColor;

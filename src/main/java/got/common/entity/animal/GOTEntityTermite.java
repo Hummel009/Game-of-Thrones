@@ -4,7 +4,7 @@ import got.GOT;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

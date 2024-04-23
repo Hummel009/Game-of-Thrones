@@ -7,6 +7,7 @@ import got.common.database.GOTTradeEntries;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIDrink;
 import got.common.entity.ai.GOTEntityAIEat;
+import got.common.entity.other.iface.GOTTradeable;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;

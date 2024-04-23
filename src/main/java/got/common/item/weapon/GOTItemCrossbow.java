@@ -6,7 +6,7 @@ import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.GOTEntityCrossbowBolt;
+import got.common.entity.other.inanimate.GOTEntityCrossbowBolt;
 import got.common.recipe.GOTRecipe;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;

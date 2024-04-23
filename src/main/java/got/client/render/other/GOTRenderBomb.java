@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.common.database.GOTBlocks;
-import got.common.entity.other.GOTEntityBomb;
+import got.common.entity.other.inanimate.GOTEntityBomb;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;

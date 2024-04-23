@@ -2,7 +2,7 @@ package got.common.item.weapon;
 
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseTermite;
-import got.common.entity.other.GOTEntityThrownTermite;
+import got.common.entity.other.inanimate.GOTEntityThrownTermite;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

@@ -54,6 +54,7 @@ import got.common.entity.essos.volantis.GOTEntityVolantisMan;
 import got.common.entity.essos.volantis.GOTEntityVolantisSlave;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.other.*;
+import got.common.entity.other.inanimate.*;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosMan;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosShaman;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;

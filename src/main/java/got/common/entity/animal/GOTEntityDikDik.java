@@ -2,8 +2,9 @@ package got.common.entity.animal;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAvoidWithChance;
-import got.common.entity.other.GOTEntityRegistry;
-import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.entity.GOTEntityRegistry;
+import got.common.entity.other.iface.GOTAmbientCreature;
+import got.common.entity.other.iface.GOTRandomSkinEntity;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityCreature;

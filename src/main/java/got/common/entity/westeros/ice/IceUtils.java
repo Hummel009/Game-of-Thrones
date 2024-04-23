@@ -5,6 +5,8 @@ import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
 import got.common.entity.other.*;
+import got.common.entity.other.inanimate.GOTEntityProjectileBase;
+import got.common.entity.other.inanimate.GOTEntitySpear;
 import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
 import got.common.entity.westeros.legendary.warrior.GOTEntityNightKing;
 import got.common.item.GOTMaterialFinder;

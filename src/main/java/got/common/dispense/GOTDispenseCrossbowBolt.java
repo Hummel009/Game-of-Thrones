@@ -1,6 +1,6 @@
 package got.common.dispense;
 
-import got.common.entity.other.GOTEntityCrossbowBolt;
+import got.common.entity.other.inanimate.GOTEntityCrossbowBolt;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.dispenser.IPosition;

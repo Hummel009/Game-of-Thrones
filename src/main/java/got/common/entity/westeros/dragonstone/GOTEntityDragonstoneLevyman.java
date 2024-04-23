@@ -2,7 +2,7 @@ package got.common.entity.westeros.dragonstone;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTEntityUtils;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,6 +1,6 @@
 package got.common.dispense;
 
-import got.common.entity.other.GOTEntityBomb;
+import got.common.entity.other.inanimate.GOTEntityBomb;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.dispenser.IBlockSource;

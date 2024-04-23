@@ -5,7 +5,7 @@ import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.GOTEntityDart;
+import got.common.entity.other.inanimate.GOTEntityDart;
 import got.common.item.other.GOTItemDart;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

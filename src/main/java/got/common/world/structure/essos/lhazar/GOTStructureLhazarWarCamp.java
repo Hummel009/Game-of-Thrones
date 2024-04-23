@@ -8,7 +8,7 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarlord;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

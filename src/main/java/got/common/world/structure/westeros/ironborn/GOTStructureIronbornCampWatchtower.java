@@ -2,7 +2,7 @@ package got.common.world.structure.westeros.ironborn;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornCaptain;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldierArcher;

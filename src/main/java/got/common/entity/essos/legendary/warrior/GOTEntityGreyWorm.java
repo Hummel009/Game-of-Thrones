@@ -8,7 +8,7 @@ import got.common.database.GOTShields;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTMercenary;
+import got.common.entity.other.iface.GOTMercenary;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;

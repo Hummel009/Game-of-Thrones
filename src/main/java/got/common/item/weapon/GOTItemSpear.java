@@ -3,7 +3,7 @@ package got.common.item.weapon;
 import got.common.dispense.GOTDispenseSpear;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.GOTEntitySpear;
+import got.common.entity.other.inanimate.GOTEntitySpear;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

@@ -2,7 +2,7 @@ package got.common.world.structure.westeros.dragonstone;
 
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.dragonstone.GOTEntityDragonstoneMan;
 import got.common.entity.westeros.dragonstone.GOTEntityDragonstoneSoldier;
 import got.common.world.biome.GOTBiome;

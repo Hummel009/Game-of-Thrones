@@ -1,6 +1,6 @@
 package got.common.dispense;
 
-import got.common.entity.other.GOTEntityPlate;
+import got.common.entity.other.inanimate.GOTEntityPlate;
 import net.minecraft.block.Block;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IPosition;

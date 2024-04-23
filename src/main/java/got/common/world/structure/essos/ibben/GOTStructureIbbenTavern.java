@@ -7,7 +7,7 @@ import got.common.entity.essos.ibben.GOTEntityIbbenBartender;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

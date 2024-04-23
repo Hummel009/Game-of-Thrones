@@ -1,5 +1,6 @@
 package got.common.entity.animal;
 
+import got.common.entity.other.utils.GOTAmbientSpawnChecks;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;

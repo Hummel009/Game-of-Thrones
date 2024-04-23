@@ -43,6 +43,7 @@ import got.common.entity.essos.tyrosh.*;
 import got.common.entity.essos.volantis.*;
 import got.common.entity.essos.yiti.*;
 import got.common.entity.other.*;
+import got.common.entity.other.inanimate.*;
 import got.common.entity.sothoryos.sothoryos.*;
 import got.common.entity.sothoryos.summer.*;
 import got.common.entity.westeros.GOTEntityMaester;

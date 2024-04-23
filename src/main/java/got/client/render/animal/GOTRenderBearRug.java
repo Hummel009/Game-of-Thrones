@@ -1,7 +1,7 @@
 package got.client.render.animal;
 
 import got.client.model.GOTModelBearRug;
-import got.common.entity.animal.GOTEntityBearRug;
+import got.common.entity.other.inanimate.GOTEntityBearRug;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;

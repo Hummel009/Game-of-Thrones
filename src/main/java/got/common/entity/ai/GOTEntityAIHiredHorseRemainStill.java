@@ -1,7 +1,7 @@
 package got.common.entity.ai;
 
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTNPCMount;
+import got.common.entity.other.iface.GOTNPCMount;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;

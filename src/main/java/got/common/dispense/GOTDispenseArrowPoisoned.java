@@ -1,6 +1,6 @@
 package got.common.dispense;
 
-import got.common.entity.other.GOTEntityArrowPoisoned;
+import got.common.entity.other.inanimate.GOTEntityArrowPoisoned;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;

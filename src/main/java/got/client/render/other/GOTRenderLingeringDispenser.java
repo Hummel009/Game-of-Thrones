@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.entity.other.GOTEntityLingeringPotion;
+import got.common.entity.other.inanimate.GOTEntityLingeringPotion;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IBehaviorDispenseItem;
 import net.minecraft.dispenser.IBlockSource;

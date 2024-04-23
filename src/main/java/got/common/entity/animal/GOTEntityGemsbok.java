@@ -1,7 +1,7 @@
 package got.common.entity.animal;
 
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;

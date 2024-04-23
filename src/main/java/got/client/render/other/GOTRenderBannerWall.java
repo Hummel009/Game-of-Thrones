@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.model.GOTModelBannerWall;
-import got.common.entity.other.GOTEntityBannerWall;
+import got.common.entity.other.inanimate.GOTEntityBannerWall;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

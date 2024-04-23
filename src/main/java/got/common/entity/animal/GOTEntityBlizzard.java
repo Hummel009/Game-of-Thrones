@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntitySnowball;
+import got.common.entity.other.inanimate.GOTEntitySnowball;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;

@@ -2,7 +2,7 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelGiraffe;
 import got.common.entity.animal.GOTEntityGiraffe;
-import got.common.entity.other.GOTNPCMount;
+import got.common.entity.other.iface.GOTNPCMount;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

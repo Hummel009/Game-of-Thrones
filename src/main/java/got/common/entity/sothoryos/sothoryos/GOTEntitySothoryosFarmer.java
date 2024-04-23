@@ -2,8 +2,8 @@ package got.common.entity.sothoryos.sothoryos;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTTradeable;
-import got.common.entity.other.GOTUnitTradeable;
+import got.common.entity.other.iface.GOTTradeable;
+import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

@@ -1,7 +1,7 @@
 package got.common.entity.ai;
 
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntitySpear;
+import got.common.entity.other.inanimate.GOTEntitySpear;
 import got.common.item.GOTWeaponStats;
 import got.common.item.weapon.GOTItemSpear;
 import net.minecraft.entity.EntityCreature;

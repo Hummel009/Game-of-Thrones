@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityLingeringPotion;
+import got.common.entity.other.inanimate.GOTEntityLingeringPotion;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;

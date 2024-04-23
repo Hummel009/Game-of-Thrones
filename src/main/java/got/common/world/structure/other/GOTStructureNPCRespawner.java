@@ -1,6 +1,6 @@
 package got.common.world.structure.other;
 
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.world.World;
 
 import java.util.Random;

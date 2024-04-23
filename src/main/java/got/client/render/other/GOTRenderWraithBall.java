@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.entity.other.GOTEntityMarshWraithBall;
+import got.common.entity.other.inanimate.GOTEntityMarshWraithBall;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;

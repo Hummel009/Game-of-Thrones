@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityTraderRespawn;
+import got.common.entity.other.inanimate.GOTEntityTraderRespawn;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;

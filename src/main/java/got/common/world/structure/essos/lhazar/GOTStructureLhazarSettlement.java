@@ -4,7 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;

@@ -4,7 +4,7 @@ import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarlord;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;

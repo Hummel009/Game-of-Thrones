@@ -5,7 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.GOTEntityGiftBlacksmith;
 import got.common.entity.westeros.gift.GOTEntityGiftGuard;
 import got.common.entity.westeros.legendary.captain.GOTEntityCotterPyke;

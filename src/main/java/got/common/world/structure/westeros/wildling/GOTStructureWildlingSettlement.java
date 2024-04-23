@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.wildling;
 
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
 import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;

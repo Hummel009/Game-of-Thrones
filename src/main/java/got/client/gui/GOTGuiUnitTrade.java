@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.common.entity.other.GOTUnitTradeable;
+import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

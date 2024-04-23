@@ -2,7 +2,7 @@ package got.common.world.structure.sothoryos.summer;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
 import net.minecraft.world.World;

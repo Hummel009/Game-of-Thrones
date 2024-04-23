@@ -4,7 +4,7 @@ import got.common.GOTLevelData;
 import got.common.block.other.GOTBlockAnimalJar;
 import got.common.database.GOTAchievement;
 import got.common.entity.animal.GOTEntityButterfly;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import got.common.tileentity.GOTTileEntityAnimalJar;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

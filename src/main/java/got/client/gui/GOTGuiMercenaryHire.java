@@ -1,9 +1,9 @@
 package got.client.gui;
 
 import got.common.database.GOTUnitTradeEntries;
-import got.common.entity.other.GOTMercenary;
-import got.common.entity.other.GOTMercenaryTradeEntry;
-import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.entity.other.iface.GOTMercenary;
+import got.common.entity.other.utils.GOTMercenaryTradeEntry;
+import got.common.entity.other.utils.GOTUnitTradeEntry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

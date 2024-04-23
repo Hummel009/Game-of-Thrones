@@ -1,6 +1,6 @@
 package got.common.item.weapon;
 
-import got.common.entity.other.GOTFishing;
+import got.common.entity.other.utils.GOTFishing;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;

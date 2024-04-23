@@ -4,7 +4,7 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAILionChase;
 import got.common.entity.ai.GOTEntityAILionMate;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import got.common.item.other.GOTItemLionRug;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.Entity;

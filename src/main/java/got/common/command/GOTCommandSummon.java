@@ -1,6 +1,6 @@
 package got.common.command;
 
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import net.minecraft.command.server.CommandSummon;
 
 public class GOTCommandSummon extends CommandSummon {

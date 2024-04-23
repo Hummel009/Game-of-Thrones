@@ -7,6 +7,8 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.entity.ai.GOTEntityAIUntamedSpiderPanic;
+import got.common.entity.other.iface.GOTNPCMount;
+import got.common.entity.other.utils.GOTMountFunctions;
 import got.common.faction.GOTAlignmentValues;
 import got.common.item.other.GOTItemMountArmor;
 import got.common.util.GOTCrashHandler;

@@ -1,7 +1,7 @@
 package got.client.model;
 
-import got.common.entity.other.GOTEntityCargocart;
-import got.common.entity.other.GOTEntityCart;
+import got.common.entity.other.inanimate.GOTEntityCargocart;
+import got.common.entity.other.inanimate.GOTEntityCart;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

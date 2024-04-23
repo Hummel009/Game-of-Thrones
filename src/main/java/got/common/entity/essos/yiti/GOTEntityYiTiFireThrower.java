@@ -2,7 +2,7 @@ package got.common.entity.essos.yiti;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.GOTEntityFirePot;
+import got.common.entity.other.inanimate.GOTEntityFirePot;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;

@@ -4,7 +4,7 @@ import com.google.common.primitives.Doubles;
 import com.google.common.primitives.Floats;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import got.common.entity.other.GOTMountFunctions;
+import got.common.entity.other.utils.GOTMountFunctions;
 import got.common.item.GOTWeaponStats;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMountControl;

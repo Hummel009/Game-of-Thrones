@@ -6,7 +6,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.GOTMercenary;
+import got.common.entity.other.iface.GOTMercenary;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;

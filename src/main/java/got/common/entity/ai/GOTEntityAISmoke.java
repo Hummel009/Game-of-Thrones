@@ -2,7 +2,7 @@ package got.common.entity.ai;
 
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntitySmokeRing;
+import got.common.entity.other.inanimate.GOTEntitySmokeRing;
 import got.common.item.other.GOTItemPipe;
 import net.minecraft.item.ItemStack;
 

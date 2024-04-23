@@ -1,8 +1,10 @@
 package got.common.entity.animal;
 
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityRegistry;
-import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.entity.GOTEntityRegistry;
+import got.common.entity.other.iface.GOTAmbientCreature;
+import got.common.entity.other.iface.GOTRandomSkinEntity;
+import got.common.entity.other.utils.GOTAmbientSpawnChecks;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.essos.GOTBiomeQohorForest;
 import got.common.world.biome.essos.GOTBiomeVolantisOrangeForest;

@@ -4,7 +4,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.entity.other.GOTEntityInvasionSpawner;
+import got.common.entity.other.inanimate.GOTEntityInvasionSpawner;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketInvasionWatch implements IMessage {

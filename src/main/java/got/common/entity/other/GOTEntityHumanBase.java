@@ -3,6 +3,7 @@ package got.common.entity.other;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.entity.ai.*;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.world.World;

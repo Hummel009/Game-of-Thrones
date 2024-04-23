@@ -4,7 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldierCrossbower;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 

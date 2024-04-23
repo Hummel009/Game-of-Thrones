@@ -1,7 +1,7 @@
 package got.client.render.animal;
 
 import got.client.model.GOTModelLionRug;
-import got.common.entity.animal.GOTEntityLionRug;
+import got.common.entity.other.inanimate.GOTEntityLionRug;
 import got.common.item.other.GOTItemLionRug;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;

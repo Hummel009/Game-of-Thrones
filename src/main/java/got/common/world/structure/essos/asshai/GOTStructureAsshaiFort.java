@@ -8,7 +8,7 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
 import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiSpherebinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

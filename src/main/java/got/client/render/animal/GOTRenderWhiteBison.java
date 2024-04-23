@@ -1,7 +1,7 @@
 package got.client.render.animal;
 
 import got.client.render.other.GOTRandomSkins;
-import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.entity.other.iface.GOTRandomSkinEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
