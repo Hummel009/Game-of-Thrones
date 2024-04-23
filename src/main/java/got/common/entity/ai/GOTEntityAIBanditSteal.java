@@ -1,7 +1,7 @@
 package got.common.entity.ai;
 
 import got.common.GOTLevelData;
-import got.common.entity.other.GOTEntityLightSkinBandit;
+import got.common.entity.other.GOTEntityBanditBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemCoin;
 import got.common.item.other.GOTItemGem;
@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class GOTEntityAIBanditSteal extends EntityAIBase {
-	private final GOTEntityLightSkinBandit theBandit;
+	private final GOTEntityBanditBase theBandit;
 	private final GOTEntityNPC theBanditAsNPC;
 	private final double speed;
 
@@ -30,7 +30,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 	private int rePathDelay;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityAIBanditSteal(GOTEntityLightSkinBandit bandit, double d) {
+	public GOTEntityAIBanditSteal(GOTEntityBanditBase bandit, double d) {
 		theBandit = bandit;
 		theBanditAsNPC = theBandit.getBanditAsNPC();
 		speed = d;
@@ -39,7 +39,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && GOTEntityLightSkinBandit.Helper.canStealFromPlayerInv(targetPlayer) && chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
+		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && GOTEntityBanditBase.canStealFromPlayerInv(targetPlayer) && chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
 	}
 
 	private int getRandomTheftAmount() {
@@ -65,7 +65,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		List<EntityPlayer> players = theBanditAsNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theBanditAsNPC.boundingBox.expand(range, range, range));
 		ArrayList<EntityPlayer> validTargets = new ArrayList<>();
 		for (EntityPlayer player : players) {
-			if (player.capabilities.isCreativeMode || !GOTEntityLightSkinBandit.Helper.canStealFromPlayerInv(player)) {
+			if (player.capabilities.isCreativeMode || !GOTEntityBanditBase.canStealFromPlayerInv(player)) {
 				continue;
 			}
 			validTargets.add(player);
@@ -107,7 +107,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 			stolenSomething = true;
 		}
 		if (stolenSomething) {
-			targetPlayer.addChatMessage(GOTEntityLightSkinBandit.getTheftChatMsg());
+			targetPlayer.addChatMessage(GOTEntityBanditBase.getTheftChatMsg());
 			theBanditAsNPC.playSound("mob.horse.leather", 0.5f, 1.0f);
 			if (theBanditAsNPC.getAttackTarget() != null) {
 				theBanditAsNPC.setAttackTarget(null);

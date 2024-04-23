@@ -141,10 +141,10 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		spawnNPCAndSetHome(new GOTEntityGoldenCaptain(world), world, 0, 1, 0, 16);
 		if (hasDarkSkinPeople()) {
 			spawnNPCAndSetHome(new GOTEntityDarkSkinThief(world), world, 0, 1, 0, 16);
-			spawnNPCAndSetHome(new GOTEntityDarkSkinScrapTrader(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityDarkSkinTramp(world), world, 0, 1, 0, 16);
 		} else {
 			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
-			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 		}
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);

@@ -213,7 +213,7 @@ public class GOTUnitTradeEntry {
 	public enum PledgeType {
 		NONE(0), FACTION(1);
 
-		public final int typeID;
+		private final int typeID;
 
 		PledgeType(int i) {
 			typeID = i;
@@ -239,6 +239,10 @@ public class GOTUnitTradeEntry {
 				return null;
 			}
 			return StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.pledge." + name(), fac.factionName());
+		}
+
+		public int getTypeID() {
+			return typeID;
 		}
 	}
 }

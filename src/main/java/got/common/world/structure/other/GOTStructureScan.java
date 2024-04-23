@@ -108,12 +108,12 @@ public class GOTStructureScan {
 					if (line.isEmpty()) {
 						continue;
 					}
-					if (line.charAt(0) == GOTScanAlias.Type.BLOCK.typeCode) {
+					if (line.charAt(0) == GOTScanAlias.Type.BLOCK.getTypeCode()) {
 						s1 = line.substring(1, line.length() - 1);
 						scan.aliases.add(new GOTScanAlias(s1, GOTScanAlias.Type.BLOCK));
 						continue;
 					}
-					if (line.charAt(0) == GOTScanAlias.Type.BLOCK_META.typeCode) {
+					if (line.charAt(0) == GOTScanAlias.Type.BLOCK_META.getTypeCode()) {
 						s1 = line.substring(1, line.length() - 1);
 						scan.aliases.add(new GOTScanAlias(s1, GOTScanAlias.Type.BLOCK_META));
 						continue;
@@ -156,8 +156,8 @@ public class GOTStructureScan {
 						s12 = line.substring(i, j);
 						int meta = Integer.parseInt(s12);
 						step = new ScanStep(x, y, z, block, meta);
-					} else if (c == GOTScanAlias.Type.BLOCK.typeCode) {
-						j = line.indexOf(GOTScanAlias.Type.BLOCK.typeCode, i + 1);
+					} else if (c == GOTScanAlias.Type.BLOCK.getTypeCode()) {
+						j = line.indexOf(GOTScanAlias.Type.BLOCK.getTypeCode(), i + 1);
 						s12 = line.substring(i, j + 1);
 						alias = s12.substring(1, s12.length() - 1);
 						i = j + 2;
@@ -165,8 +165,8 @@ public class GOTStructureScan {
 						s12 = line.substring(i, j);
 						int meta = Integer.parseInt(s12);
 						step = new ScanStepBlockAlias(x, y, z, alias, meta);
-					} else if (c == GOTScanAlias.Type.BLOCK_META.typeCode) {
-						j = line.indexOf(GOTScanAlias.Type.BLOCK_META.typeCode, i + 1);
+					} else if (c == GOTScanAlias.Type.BLOCK_META.getTypeCode()) {
+						j = line.indexOf(GOTScanAlias.Type.BLOCK_META.getTypeCode(), i + 1);
 						s12 = line.substring(i, j + 1);
 						alias = s12.substring(1, s12.length() - 1);
 						step = new ScanStepBlockMetaAlias(x, y, z, alias);

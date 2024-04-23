@@ -131,10 +131,10 @@ public class GOTEntity {
 
 		GOTEntityRegistry.register(GOTEntityLightSkinBandit.class, id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityLightSkinThief.class, id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityLightSkinScrapTrader.class, id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityLightSkinTramp.class, id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityDarkSkinBandit.class, id++, 13345354);
 		GOTEntityRegistry.register(GOTEntityDarkSkinThief.class, id++, 13345354);
-		GOTEntityRegistry.register(GOTEntityDarkSkinScrapTrader.class, id++, 13345354);
+		GOTEntityRegistry.register(GOTEntityDarkSkinTramp.class, id++, 13345354);
 
 		GOTEntityRegistry.register(GOTEntityProstitute.class, id++, 16087966);
 		GOTEntityRegistry.register(GOTEntityMaester.class, id++, 0xffffff);

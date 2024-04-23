@@ -157,9 +157,9 @@ entity.got.CrownlandsMiner.name=Mineur des Terres de la Couronne
 entity.got.DaarioNaharis.name≠Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠Dagmer
-entity.got.DarkSkinBandit.name=Bandit d'Essos
-entity.got.DarkSkinScrapTrader.name=Ferrailleur d'Essos
-entity.got.DarkSkinThief.name=Voleur d'Essos
+entity.got.DarkSkinBandit.name=Bandit à la peau foncée
+entity.got.DarkSkinTramp.name=Clochard à la peau foncée
+entity.got.DarkSkinThief.name=Voleur à la peau foncée
 entity.got.Dart.name=Fléchette
 entity.got.DavenLannister.name≠Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -392,7 +392,7 @@ entity.got.LhazarMiner.name=Mineur de Lhazar
 entity.got.LhazarWarlord.name=Seigneur de guerre de Lhazar
 entity.got.LhazarWarrior.name=Guerrier de Lhazar
 entity.got.LightSkinBandit.name=Bandit
-entity.got.LightSkinScrapTrader.name=Ferrailleur
+entity.got.LightSkinTramp.name=Clochard
 entity.got.LightSkinThief.name=Voleur
 entity.got.LingeringEffect.name≠Lingering Effect
 entity.got.LingeringPotion.name≠Lingering Potion

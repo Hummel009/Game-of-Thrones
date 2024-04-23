@@ -21,7 +21,7 @@ public class GOTEntityBearRug extends GOTEntityRugBase {
 
 	@Override
 	public ItemStack getRugItem() {
-		return new ItemStack(GOTItems.bearRug, 1, getRugType().bearID);
+		return new ItemStack(GOTItems.bearRug, 1, getRugType().getBearID());
 	}
 
 	public GOTEntityBear.BearType getRugType() {
@@ -30,7 +30,7 @@ public class GOTEntityBearRug extends GOTEntityRugBase {
 	}
 
 	public void setRugType(GOTEntityBear.BearType t) {
-		dataWatcher.updateObject(18, (byte) t.bearID);
+		dataWatcher.updateObject(18, (byte) t.getBearID());
 	}
 
 	@Override
@@ -42,6 +42,6 @@ public class GOTEntityBearRug extends GOTEntityRugBase {
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setByte("RugType", (byte) getRugType().bearID);
+		nbt.setByte("RugType", (byte) getRugType().getBearID());
 	}
 }

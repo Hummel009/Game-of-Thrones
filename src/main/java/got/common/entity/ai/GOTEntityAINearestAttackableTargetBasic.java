@@ -2,7 +2,7 @@ package got.common.entity.ai;
 
 import got.GOT;
 import got.common.GOTLevelData;
-import got.common.entity.other.GOTEntityLightSkinBandit;
+import got.common.entity.other.GOTEntityBanditBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntitySpiderBase;
 import net.minecraft.command.IEntitySelector;
@@ -61,7 +61,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			if (entity instanceof EntityPlayer) {
 				return isPlayerSuitableTarget((EntityPlayer) entity);
 			}
-			return !(entity instanceof GOTEntityLightSkinBandit) || taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).getHireableInfo().isActive();
+			return !(entity instanceof GOTEntityBanditBase) || taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).getHireableInfo().isActive();
 		}
 		return false;
 	}

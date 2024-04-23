@@ -765,10 +765,10 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		}
 		if (hasDarkSkinPeople()) {
 			spawnNPCAndSetHome(new GOTEntityDarkSkinThief(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityDarkSkinScrapTrader(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityDarkSkinTramp(world), world, 2, 1, 7, 16);
 		} else {
 			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 2, 1, 7, 16);
 		}
 		spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
 

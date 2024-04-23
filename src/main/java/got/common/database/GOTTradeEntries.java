@@ -22,8 +22,8 @@ public class GOTTradeEntries {
 	public static final GOTTradeEntries C_BARTENDER_BUY;
 	public static final GOTTradeEntries C_BARTENDER_SELL;
 	public static final GOTTradeEntries C_BLACKSMITH_SELL;
-	public static final GOTTradeEntries C_BOMZH_BUY;
-	public static final GOTTradeEntries C_BOMZH_SELL;
+	public static final GOTTradeEntries C_TRAMP_BUY;
+	public static final GOTTradeEntries C_TRAMP_SELL;
 	public static final GOTTradeEntries C_BREWER_BUY;
 	public static final GOTTradeEntries C_BREWER_SELL;
 	public static final GOTTradeEntries C_BUTCHER_BUY;
@@ -999,8 +999,8 @@ public class GOTTradeEntries {
 		C_BARTENDER_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, C_BARTENDER_B_L);
 		C_BARTENDER_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, C_BARTENDER_S_L);
 		C_BLACKSMITH_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, C_BLACKSMITH_S_L);
-		C_BOMZH_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, C_BOMZH_B_L);
-		C_BOMZH_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, C_BOMZH_S_L);
+		C_TRAMP_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, C_BOMZH_B_L);
+		C_TRAMP_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, C_BOMZH_S_L);
 		C_BREWER_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, C_BREWER_B_L);
 		C_BREWER_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, C_BREWER_S_L);
 		C_BUTCHER_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, C_BUTCHER_B_L);

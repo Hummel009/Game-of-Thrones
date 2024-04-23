@@ -5,7 +5,7 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.essos.ibben.GOTEntityIbbenBartender;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.block.Block;
@@ -428,7 +428,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		GOTEntityIbbenBartender meadhost = new GOTEntityIbbenBartender(world);
 		spawnNPCAndSetHome(meadhost, world, 0, 2, 21, 8);
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
-		spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 		int men = 5 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {
 			GOTEntityIbbenMan ibbenese = new GOTEntityIbbenMan(world);

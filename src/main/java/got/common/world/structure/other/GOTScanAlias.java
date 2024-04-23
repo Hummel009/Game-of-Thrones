@@ -10,7 +10,7 @@ public class GOTScanAlias {
 	}
 
 	public String getFullCode() {
-		char c = type.typeCode;
+		char c = type.getTypeCode();
 		return c + name + c;
 	}
 
@@ -21,10 +21,14 @@ public class GOTScanAlias {
 	public enum Type {
 		BLOCK('#'), BLOCK_META('~');
 
-		public final char typeCode;
+		private final char typeCode;
 
 		Type(char c) {
 			typeCode = c;
+		}
+
+		public char getTypeCode() {
+			return typeCode;
 		}
 	}
 }

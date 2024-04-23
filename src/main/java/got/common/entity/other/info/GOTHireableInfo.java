@@ -594,7 +594,7 @@ public class GOTHireableInfo {
 			data.setString("HiringPlayerUUID", hiringPlayerUUID.toString());
 		}
 		data.setFloat("AlignReqF", alignmentRequiredToCommand);
-		data.setByte("PledgeType", (byte) pledgeType.typeID);
+		data.setByte("PledgeType", (byte) pledgeType.getTypeID());
 		data.setBoolean("CanMove", canMove);
 		data.setBoolean("TeleportAutomatically", teleportAutomatically);
 		data.setInteger("MobKills", mobKills);

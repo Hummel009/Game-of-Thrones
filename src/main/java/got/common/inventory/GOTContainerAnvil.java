@@ -13,7 +13,7 @@ import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentCombining;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityTrampBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeEntry;
 import got.common.entity.other.GOTTradeable;
@@ -188,7 +188,7 @@ public class GOTContainerAnvil extends Container {
 		if (inputItem != null && engraveOwnerCost > 0 && hasMaterialOrCoinAmount(engraveOwnerCost)) {
 			int cost = engraveOwnerCost;
 			GOTItemOwnership.setCurrentOwner(inputItem, thePlayer.getCommandSenderName());
-			if (isTrader && theNPC instanceof GOTEntityLightSkinScrapTrader && applyMischief(inputItem)) {
+			if (isTrader && theNPC instanceof GOTEntityTrampBase && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
 			invInput.setInventorySlotContents(0, inputItem);
@@ -286,7 +286,7 @@ public class GOTContainerAnvil extends Container {
 				}
 				entityplayer.dropPlayerItemWithRandomChoice(itemstack, false);
 			}
-			if (doneMischief && isTrader && theNPC instanceof GOTEntityLightSkinScrapTrader) {
+			if (doneMischief && isTrader && theNPC instanceof GOTEntityTrampBase) {
 				theNPC.sendSpeechBank(entityplayer, "standard/civilized/usual_friendly");
 			}
 		}
@@ -328,7 +328,7 @@ public class GOTContainerAnvil extends Container {
 			}
 			GOTEnchantmentHelper.applyRandomEnchantments(inputItem, theWorld.rand, true, true);
 			GOTEnchantmentHelper.setAnvilCost(inputItem, 0);
-			if (isTrader && theNPC instanceof GOTEntityLightSkinScrapTrader && applyMischief(inputItem)) {
+			if (isTrader && theNPC instanceof GOTEntityTrampBase && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
 			invInput.setInventorySlotContents(0, inputItem);
@@ -348,7 +348,7 @@ public class GOTContainerAnvil extends Container {
 		ItemStack resultItem = invOutput.getStackInSlot(0);
 		resultItem = ItemStack.copyItemStack(resultItem);
 		boolean changed = false;
-		if (resultItem != null && slotNo == getSlotFromInventory(invOutput, 0).slotNumber && !theWorld.isRemote && isTrader && theNPC instanceof GOTEntityLightSkinScrapTrader && (changed = applyMischief(resultCopy = resultItem.copy()))) {
+		if (resultItem != null && slotNo == getSlotFromInventory(invOutput, 0).slotNumber && !theWorld.isRemote && isTrader && theNPC instanceof GOTEntityTrampBase && (changed = applyMischief(resultCopy = resultItem.copy()))) {
 			invOutput.setInventorySlotContents(0, resultCopy);
 		}
 		ItemStack slotClickResult = super.slotClick(slotNo, j, k, entityplayer);
@@ -793,7 +793,7 @@ public class GOTContainerAnvil extends Container {
 					reforgeCost = Math.max(reforgeCost, 1);
 					engraveOwnerCost = Math.round(engraveOwnerCost * materialPrice);
 					engraveOwnerCost = Math.max(engraveOwnerCost, 1);
-					if (theTrader instanceof GOTEntityLightSkinScrapTrader) {
+					if (theTrader instanceof GOTEntityTrampBase) {
 						materialCost = MathHelper.ceiling_float_int(materialCost * 0.5f);
 						materialCost = Math.max(materialCost, 1);
 						reforgeCost = MathHelper.ceiling_float_int(reforgeCost * 0.5f);

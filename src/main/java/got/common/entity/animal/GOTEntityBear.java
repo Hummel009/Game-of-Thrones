@@ -113,7 +113,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 		if (flag) {
 			int rugChance = 30 - i * 5;
 			if (rand.nextInt(Math.max(rugChance, 1)) == 0) {
-				entityDropItem(new ItemStack(GOTItems.bearRug, 1, getBearType().bearID), 0.0f);
+				entityDropItem(new ItemStack(GOTItems.bearRug, 1, getBearType().getBearID()), 0.0f);
 			}
 		}
 	}
@@ -132,7 +132,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 	}
 
 	private void setBearType(BearType t) {
-		dataWatcher.updateObject(18, (byte) t.bearID);
+		dataWatcher.updateObject(18, (byte) t.getBearID());
 	}
 
 	@Override
@@ -273,14 +273,14 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setByte("BearType", (byte) getBearType().bearID);
+		nbt.setByte("BearType", (byte) getBearType().getBearID());
 		nbt.setInteger("Angry", hostileTick);
 	}
 
 	public enum BearType {
 		LIGHT(0), DARK(1), BLACK(2);
 
-		public final int bearID;
+		private final int bearID;
 
 		BearType(int i) {
 			bearID = i;
@@ -306,6 +306,10 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 
 		public String textureName() {
 			return name().toLowerCase(Locale.ROOT);
+		}
+
+		public int getBearID() {
+			return bearID;
 		}
 	}
 
