@@ -95,7 +95,7 @@ public class GOTEntityShryke extends GOTEntityNPC {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (getHealth() < getMaxHealth() && ticksExisted % 10 == 0) {
+		if (getHealth() < getMaxHealth() && ticksExisted % 20 == 0) {
 			heal(1.0f);
 		}
 	}

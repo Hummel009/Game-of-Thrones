@@ -40,7 +40,7 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 5.0f;
+		return 2.0f;
 	}
 
 	@Override
