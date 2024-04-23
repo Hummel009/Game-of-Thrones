@@ -146,44 +146,18 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		private void placeChampionRespawner() {
-			addStructure(new StructureRespawner(), 0, 0, 0);
-		}
-
-		private static void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClass1(GOTEntityBraavosMan.class);
-		}
-
 		private void setupFort(Random random) {
 			int k;
 			int i;
 			int r;
 			int l;
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					setCivilianSpawnClass(spawner);
-					spawner.setCheckRanges(60, -12, 12, 16);
-					spawner.setSpawnRanges(24, -6, 6, 40);
-					spawner.setBlockEnemySpawns(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner1(), 0, 0, 0);
 			for (int i1 : new int[]{-25, 25}) {
 				for (int k1 : new int[]{-25, 25}) {
-					addStructure(new GOTStructureNPCRespawner(false) {
-
-						@Override
-						public void setupRespawner(GOTEntityNPCRespawner spawner) {
-							setWarriorSpawnClasses(spawner);
-							spawner.setCheckRanges(35, -12, 12, 16);
-							spawner.setSpawnRanges(15, -6, 6, 40);
-							spawner.setBlockEnemySpawns(35);
-						}
-					}, i1, k1, 0);
+					addStructure(new StructureRespawner2(), i1, k1, 0);
 				}
 			}
-			placeChampionRespawner();
+			addStructure(new StructureRespawner3(), 0, 0, 0);
 			addStructure(new GOTStructureBraavosFortress(false), 0, -15, 0, true);
 			addStructure(new GOTStructureBraavosBarracks(false), -33, -8, 0, true);
 			addStructure(new GOTStructureBraavosBarracks(false), 32, -8, 0, true);
@@ -245,28 +219,10 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			int i;
 			int r;
 			int l;
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					setCivilianSpawnClass(spawner);
-					spawner.setCheckRanges(80, -12, 12, 100);
-					spawner.setSpawnRanges(40, -6, 6, 64);
-					spawner.setBlockEnemySpawns(60);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner4(), 0, 0, 0);
 			for (int i1 : new int[]{-30, 30}) {
 				for (int k1 : new int[]{-30, 30}) {
-					addStructure(new GOTStructureNPCRespawner(false) {
-
-						@Override
-						public void setupRespawner(GOTEntityNPCRespawner spawner) {
-							setWarriorSpawnClasses(spawner);
-							spawner.setCheckRanges(40, -12, 12, 16);
-							spawner.setSpawnRanges(20, -6, 6, 64);
-							spawner.setBlockEnemySpawns(60);
-						}
-					}, i1, k1, 0);
+					addStructure(new StructureRespawner5(), i1, k1, 0);
 				}
 			}
 			addStructure(new GOTStructureBraavosBazaar(false), 1, -2, 0, true);
@@ -404,26 +360,8 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 		}
 
 		private void setupVillage(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					setCivilianSpawnClass(spawner);
-					spawner.setCheckRanges(64, -12, 12, 24);
-					spawner.setSpawnRanges(32, -6, 6, 32);
-					spawner.setBlockEnemySpawns(64);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					setWarriorSpawnClasses(spawner);
-					spawner.setCheckRanges(64, -12, 12, 12);
-					spawner.setSpawnRanges(32, -6, 6, 32);
-					spawner.setBlockEnemySpawns(64);
-				}
-			}, 0, 0, 0);
+			addStructure(new StructureRespawner6(), 0, 0, 0);
+			addStructure(new StructureRespawner7(), 0, 0, 0);
 			addStructure(new GOTStructureBraavosWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureBraavosTavern(false), 0, rSquareEdge, 0, true);
@@ -495,11 +433,6 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private static void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClass1(GOTEntityBraavosSoldier.class);
-			spawner.setSpawnClass2(GOTEntityBraavosSoldierArcher.class);
-		}
-
 		@SuppressWarnings("unused")
 		public Type getType() {
 			return type;
@@ -509,8 +442,8 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			this.type = type;
 		}
 
-		private static class StructureRespawner extends GOTStructureNPCRespawner {
-			private StructureRespawner() {
+		private static class StructureRespawner3 extends GOTStructureNPCRespawner {
+			private StructureRespawner3() {
 				super(false);
 			}
 
@@ -519,6 +452,93 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 				spawner.setSpawnClass1(GOTEntityBraavosSoldier.class);
 				spawner.setCheckRanges(60, -12, 12, 4);
 				spawner.setSpawnRanges(24, -6, 6, 32);
+			}
+		}
+
+		private static class StructureRespawner1 extends GOTStructureNPCRespawner {
+			private StructureRespawner1() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass1(GOTEntityBraavosMan.class);
+				spawner.setCheckRanges(60, -12, 12, 16);
+				spawner.setSpawnRanges(24, -6, 6, 40);
+				spawner.setBlockEnemySpawns(60);
+			}
+		}
+
+		private static class StructureRespawner2 extends GOTStructureNPCRespawner {
+			private StructureRespawner2() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass1(GOTEntityBraavosSoldier.class);
+				spawner.setSpawnClass2(GOTEntityBraavosSoldierArcher.class);
+				spawner.setCheckRanges(35, -12, 12, 16);
+				spawner.setSpawnRanges(15, -6, 6, 40);
+				spawner.setBlockEnemySpawns(35);
+			}
+		}
+
+		private static class StructureRespawner4 extends GOTStructureNPCRespawner {
+			private StructureRespawner4() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass1(GOTEntityBraavosMan.class);
+				spawner.setCheckRanges(80, -12, 12, 100);
+				spawner.setSpawnRanges(40, -6, 6, 64);
+				spawner.setBlockEnemySpawns(60);
+			}
+		}
+
+		private static class StructureRespawner5 extends GOTStructureNPCRespawner {
+			private StructureRespawner5() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass1(GOTEntityBraavosSoldier.class);
+				spawner.setSpawnClass2(GOTEntityBraavosSoldierArcher.class);
+				spawner.setCheckRanges(40, -12, 12, 16);
+				spawner.setSpawnRanges(20, -6, 6, 64);
+				spawner.setBlockEnemySpawns(60);
+			}
+		}
+
+		private static class StructureRespawner6 extends GOTStructureNPCRespawner {
+			private StructureRespawner6() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass1(GOTEntityBraavosMan.class);
+				spawner.setCheckRanges(64, -12, 12, 24);
+				spawner.setSpawnRanges(32, -6, 6, 32);
+				spawner.setBlockEnemySpawns(64);
+			}
+		}
+
+		private static class StructureRespawner7 extends GOTStructureNPCRespawner {
+			private StructureRespawner7() {
+				super(false);
+			}
+
+			@Override
+			public void setupRespawner(GOTEntityNPCRespawner spawner) {
+				spawner.setSpawnClass1(GOTEntityBraavosSoldier.class);
+				spawner.setSpawnClass2(GOTEntityBraavosSoldierArcher.class);
+				spawner.setCheckRanges(64, -12, 12, 12);
+				spawner.setSpawnRanges(32, -6, 6, 32);
+				spawner.setBlockEnemySpawns(64);
 			}
 		}
 	}
