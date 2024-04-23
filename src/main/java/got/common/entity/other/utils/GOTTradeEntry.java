@@ -9,6 +9,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class GOTTradeEntry {
 	private final ItemStack tradeItem;
+	private final boolean frozenPrice;
 
 	private GOTTraderInfo theTrader;
 
@@ -20,6 +21,14 @@ public class GOTTradeEntry {
 	public GOTTradeEntry(ItemStack itemstack, int cost) {
 		tradeItem = itemstack;
 		tradeCost = cost;
+		frozenPrice = false;
+	}
+
+	@SuppressWarnings({"WeakerAccess", "unused"})
+	public GOTTradeEntry(ItemStack itemstack, int cost, boolean frozenPrice) {
+		tradeItem = itemstack;
+		tradeCost = cost;
+		this.frozenPrice = frozenPrice;
 	}
 
 	public static GOTTradeEntry readFromNBT(NBTTagCompound nbt) {
@@ -117,5 +126,9 @@ public class GOTTradeEntry {
 
 	public ItemStack getTradeItem() {
 		return tradeItem;
+	}
+
+	public boolean isFrozenPrice() {
+		return frozenPrice;
 	}
 }

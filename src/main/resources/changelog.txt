@@ -20,6 +20,7 @@ CHANGELOG
 * Optimized dragons, giants and ice creatures
 * Optimized lots of client-size things
 
+* Silver, gold, valyrian steel and different gems now has fixed prices world-wide.
 * Midges and butterflies can't spawn in winter now
 * Biome visit achievements and achievement shields now require more biomes and achievements.
 * Moved zero coords of the world closer to Winterfell
@@ -27,6 +28,7 @@ CHANGELOG
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
 * Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 
+* Fixed bug with Petyr Baelish and dagger. Now he can sell only one dagger, and if did this, won't drop dagger after death.
 * Fixed bug with uncraftable crafting tables
 * Fixed bug with lhazar spear crafting
 * Fixed bug with labradorite cracked bricks crafting
@@ -50,6 +52,7 @@ CHANGELOG
 * Fixed bug with cargo cart
 * Fixed 2 bugs with granite structures
 
+- Removed a few unused blocks and items
 - Removed rice and cucumbers because of bugs
 - Removed double ibbinia wooden beams because of alternative
 

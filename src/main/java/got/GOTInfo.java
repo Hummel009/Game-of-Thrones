@@ -18,6 +18,8 @@ public class GOTInfo {
 		AUTHORS.add("贾昆·赫加尔01");
 		AUTHORS.add("RoobimWu");
 		AUTHORS.add("DAndMaster");
+		AUTHORS.add("VVVIP2");
+		AUTHORS.add("Dimagic");
 		AUTHORS.add("sashar2000r");
 		AUTHORS.add("Danvintius Bookix");
 		AUTHORS.add("iliamakar");
@@ -31,7 +33,6 @@ public class GOTInfo {
 		AUTHORS.add("Valence");
 		AUTHORS.add("Alqualindë");
 		AUTHORS.add("Jaehaerys");
-		AUTHORS.add("VVVIP2");
 		AUTHORS.add("TIGASA");
 		AUTHORS.add("Alex.Tollar");
 		AUTHORS.add("Maglor");

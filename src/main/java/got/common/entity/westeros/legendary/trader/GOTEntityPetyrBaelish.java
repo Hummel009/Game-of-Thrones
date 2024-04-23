@@ -3,9 +3,9 @@ package got.common.entity.westeros.legendary.trader;
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.*;
-import got.common.entity.other.iface.GOTBartender;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.iface.GOTBartender;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.EntityLiving;
@@ -17,6 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBartender, GOTTradeable {
+	private boolean soldDagger;
+
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPetyrBaelish(World world) {
 		super(world);
@@ -46,13 +48,16 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 
 	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+		return !soldDagger && GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
+
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.baelishBrooch, 1);
-		dropItem(GOTItems.baelishDagger, 1);
+		if (!soldDagger) {
+			dropItem(GOTItems.baelishDagger, 1);
+		}
 	}
 
 	@Override
@@ -77,7 +82,7 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BREWER_SELL;
+		return GOTTradeEntries.EMPTY_SELL;
 	}
 
 	@Override
@@ -110,6 +115,7 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+		soldDagger = true;
 	}
 
 	@Override
