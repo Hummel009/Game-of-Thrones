@@ -155,8 +155,9 @@ public abstract class GOTBezierType {
 		return new CustomBezierType(baseRoad, flag);
 	}
 
-	public interface BridgeType {
-		BridgeType DEFAULT = new BridgeType() {
+	@SuppressWarnings("AbstractClassWithOnlyOneDirectInheritor")
+	public abstract static class BridgeType {
+		public static final BridgeType DEFAULT = new BridgeType() {
 
 			@Override
 			public BezierBlock getBlock(boolean slab) {
@@ -177,11 +178,11 @@ public abstract class GOTBezierType {
 			}
 		};
 
-		BezierBlock getBlock(boolean var2);
+		abstract BezierBlock getBlock(boolean var2);
 
-		BezierBlock getEdge();
+		abstract BezierBlock getEdge();
 
-		BezierBlock getFence();
+		abstract BezierBlock getFence();
 	}
 
 	public static class BezierBlock {
