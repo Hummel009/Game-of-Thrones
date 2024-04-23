@@ -4,7 +4,6 @@ import got.GOT;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTReflection;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -52,7 +51,7 @@ public class GOTEntityWoolyRhino extends GOTEntityHorse {
 
 	@Override
 	public EntityAIBase createMountAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.0, true);
+		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
 	@Override

@@ -3,7 +3,6 @@ package got.common.entity.animal;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.iface.GOTRandomSkinEntity;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.init.Items;
@@ -38,7 +37,7 @@ public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity
 
 	@Override
 	public EntityAIBase createMountAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.25, true);
+		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
 	@Override

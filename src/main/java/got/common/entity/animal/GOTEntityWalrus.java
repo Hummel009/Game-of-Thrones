@@ -22,11 +22,10 @@ import java.util.List;
 
 public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFrost {
 	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
+	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.4);
 	private final EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
 
 	private int hostileTick;
-	private boolean prevIsChild = true;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWalrus(World world) {
@@ -165,20 +164,14 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 	public void onLivingUpdate() {
 		if (!worldObj.isRemote) {
 			boolean isChild = isChild();
-			if (isChild != prevIsChild) {
-				if (isChild) {
-					tasks.removeTask(attackAI);
-					tasks.addTask(2, panicAI);
-					targetTasks.removeTask(targetNearAI);
+			if (!isChild) {
+				tasks.removeTask(panicAI);
+				if (hostileTick > 0) {
+					tasks.addTask(1, attackAI);
+					targetTasks.addTask(1, targetNearAI);
 				} else {
-					tasks.removeTask(panicAI);
-					if (hostileTick > 0) {
-						tasks.addTask(1, attackAI);
-						targetTasks.addTask(1, targetNearAI);
-					} else {
-						tasks.removeTask(attackAI);
-						targetTasks.removeTask(targetNearAI);
-					}
+					tasks.removeTask(attackAI);
+					targetTasks.removeTask(targetNearAI);
 				}
 			}
 		}
@@ -198,7 +191,6 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 				resetInLove();
 			}
 		}
-		prevIsChild = isChild();
 	}
 
 	@Override

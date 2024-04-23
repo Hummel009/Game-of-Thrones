@@ -1,8 +1,8 @@
 package got.common.entity.animal;
 
 import got.common.database.GOTItems;
-import got.common.entity.ai.GOTEntityAIAvoidWithChance;
 import got.common.entity.GOTEntityRegistry;
+import got.common.entity.ai.GOTEntityAIAvoidWithChance;
 import got.common.entity.other.iface.GOTAmbientCreature;
 import got.common.entity.other.iface.GOTRandomSkinEntity;
 import got.common.util.GOTCrashHandler;

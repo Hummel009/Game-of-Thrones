@@ -1,8 +1,8 @@
 package got.common.entity.animal;
 
 import got.common.database.GOTItems;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.GOTEntityRegistry;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
@@ -24,12 +24,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFrost {
-	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.7, false);
-	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
+	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, false);
+	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.4);
 	private final EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
 
 	private int hostileTick;
-	private boolean prevIsChild = true;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBear(World world) {
@@ -46,6 +45,11 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 		tasks.addTask(8, new EntityAILookIdle(this));
 		targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
 		targetTasks.addTask(1, targetNearAI);
+	}
+
+	public static boolean canWorldGenSpawnAt(GOTBiome biome, GOTBiomeVariant variant) {
+		int trees = biome.getDecorator().getVariantTreesPerChunk(variant);
+		return trees >= 1;
 	}
 
 	@Override
@@ -85,11 +89,6 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 	private void becomeAngryAt(EntityLivingBase entity) {
 		setAttackTarget(entity);
 		hostileTick = 200;
-	}
-
-	public static boolean canWorldGenSpawnAt(GOTBiome biome, GOTBiomeVariant variant) {
-		int trees = biome.getDecorator().getVariantTreesPerChunk(variant);
-		return trees >= 1;
 	}
 
 	@Override
@@ -205,20 +204,14 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 	public void onLivingUpdate() {
 		if (!worldObj.isRemote) {
 			boolean isChild = isChild();
-			if (isChild != prevIsChild) {
-				if (isChild) {
-					tasks.removeTask(attackAI);
-					tasks.addTask(2, panicAI);
-					targetTasks.removeTask(targetNearAI);
+			if (!isChild) {
+				tasks.removeTask(panicAI);
+				if (hostileTick > 0) {
+					tasks.addTask(1, attackAI);
+					targetTasks.addTask(1, targetNearAI);
 				} else {
-					tasks.removeTask(panicAI);
-					if (hostileTick > 0) {
-						tasks.addTask(1, attackAI);
-						targetTasks.addTask(1, targetNearAI);
-					} else {
-						tasks.removeTask(attackAI);
-						targetTasks.removeTask(targetNearAI);
-					}
+					tasks.removeTask(attackAI);
+					targetTasks.removeTask(targetNearAI);
 				}
 			}
 		}
@@ -238,7 +231,6 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 				resetInLove();
 			}
 		}
-		prevIsChild = isChild();
 	}
 
 	@Override

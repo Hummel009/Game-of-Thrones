@@ -2,9 +2,9 @@ package got.common.entity.animal;
 
 import got.GOT;
 import got.common.database.GOTItems;
+import got.common.entity.GOTEntityRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.GOTEntityRegistry;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
@@ -33,7 +33,7 @@ public class GOTEntityTermite extends EntityMob implements GOTBiome.ImmuneToHeat
 		renderDistanceWeight = 2.0;
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
-		tasks.addTask(1, new GOTEntityAIAttackOnCollide(this, 1.0, true));
+		tasks.addTask(1, new GOTEntityAIAttackOnCollide(this, 1.4, true));
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));

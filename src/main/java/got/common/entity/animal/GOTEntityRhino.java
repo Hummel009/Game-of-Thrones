@@ -46,7 +46,7 @@ public class GOTEntityRhino extends GOTEntityHorse {
 
 	@Override
 	public EntityAIBase createMountAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.0, true);
+		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
 	@Override

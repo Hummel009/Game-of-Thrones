@@ -1,10 +1,10 @@
 package got.common.entity.animal;
 
 import got.common.database.GOTItems;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.GOTEntityRegistry;
-import got.common.entity.other.utils.GOTEntityUtils;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.iface.GOTRandomSkinEntity;
+import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.*;
@@ -39,7 +39,7 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 		EntityAITasks.EntityAITaskEntry panic = GOTEntityUtils.removeAITask(this, EntityAIPanic.class);
 		tasks.addTask(panic.priority, panic.action);
 		panicAI = panic.action;
-		attackAI = createBisonAttackAI();
+		attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 	}
 
@@ -75,10 +75,6 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 			}
 		}
 		return flag;
-	}
-
-	private EntityAIBase createBisonAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.7, true);
 	}
 
 	@Override

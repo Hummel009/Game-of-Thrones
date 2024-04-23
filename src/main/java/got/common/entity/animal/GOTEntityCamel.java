@@ -4,7 +4,6 @@ import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.util.GOTReflection;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;

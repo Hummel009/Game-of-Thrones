@@ -1,11 +1,11 @@
 package got.common.entity.animal;
 
 import got.common.database.GOTItems;
+import got.common.entity.GOTEntityRegistry;
 import got.common.entity.ai.GOTEntityAIAvoidWithChance;
 import got.common.entity.ai.GOTEntityAIFlee;
 import got.common.entity.ai.GOTEntityAIRabbitEatCrops;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.GOTEntityRegistry;
 import got.common.entity.other.iface.GOTAmbientCreature;
 import got.common.entity.other.iface.GOTFarmhand;
 import got.common.entity.other.iface.GOTRandomSkinEntity;

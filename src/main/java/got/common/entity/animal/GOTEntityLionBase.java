@@ -1,10 +1,10 @@
 package got.common.entity.animal;
 
 import got.common.database.GOTItems;
+import got.common.entity.GOTEntityRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAILionChase;
 import got.common.entity.ai.GOTEntityAILionMate;
-import got.common.entity.GOTEntityRegistry;
 import got.common.item.other.GOTItemLionRug;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
@@ -26,12 +26,11 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome.ImmuneToHeat {
-	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);
-	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
+	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, false);
+	private final EntityAIBase panicAI = new EntityAIPanic(this, 1.4);
 	private final EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
 
 	private int hostileTick;
-	private boolean prevIsChild = true;
 
 	protected GOTEntityLionBase(World world) {
 		super(world);
@@ -50,6 +49,10 @@ public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome
 		targetTasks.addTask(1, targetNearAI);
 	}
 
+	public static Class<? extends EntityAnimal> getAnimalMFBaseClass() {
+		return GOTEntityLionBase.class;
+	}
+
 	@Override
 	public boolean canMateWith(EntityAnimal mate) {
 		GOTEntityLionBase mfMate = (GOTEntityLionBase) mate;
@@ -61,10 +64,6 @@ public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome
 			return thisMale != mfMate.isMale();
 		}
 		return false;
-	}
-
-	public static Class<? extends EntityAnimal> getAnimalMFBaseClass() {
-		return GOTEntityLionBase.class;
 	}
 
 	protected abstract boolean isMale();
@@ -211,20 +210,14 @@ public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome
 	public void onLivingUpdate() {
 		if (!worldObj.isRemote) {
 			boolean isChild = isChild();
-			if (isChild != prevIsChild) {
-				if (isChild) {
-					tasks.removeTask(attackAI);
-					tasks.addTask(2, panicAI);
-					targetTasks.removeTask(targetNearAI);
+			if (!isChild) {
+				tasks.removeTask(panicAI);
+				if (hostileTick > 0) {
+					tasks.addTask(1, attackAI);
+					targetTasks.addTask(1, targetNearAI);
 				} else {
-					tasks.removeTask(panicAI);
-					if (hostileTick > 0) {
-						tasks.addTask(1, attackAI);
-						targetTasks.addTask(1, targetNearAI);
-					} else {
-						tasks.removeTask(attackAI);
-						targetTasks.removeTask(targetNearAI);
-					}
+					tasks.removeTask(attackAI);
+					targetTasks.removeTask(targetNearAI);
 				}
 			}
 		}
@@ -244,7 +237,6 @@ public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome
 				resetInLove();
 			}
 		}
-		prevIsChild = isChild();
 	}
 
 	@Override

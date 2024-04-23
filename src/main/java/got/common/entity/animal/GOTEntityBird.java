@@ -64,6 +64,20 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		tasks.addTask(2, new EntityAILookIdle(this));
 	}
 
+	private static ChunkCoordinates getItemFlightTarget(EntityItem entity) {
+		int i = MathHelper.floor_double(entity.posX);
+		int j = MathHelper.floor_double(entity.boundingBox.minY);
+		int k = MathHelper.floor_double(entity.posZ);
+		return new ChunkCoordinates(i, j, k);
+	}
+
+	private static ChunkCoordinates getPlayerFlightTarget(EntityPlayer entityplayer) {
+		int i = MathHelper.floor_double(entityplayer.posX);
+		int j = MathHelper.floor_double(entityplayer.boundingBox.minY + 1.0);
+		int k = MathHelper.floor_double(entityplayer.posZ);
+		return new ChunkCoordinates(i, j, k);
+	}
+
 	@Override
 	public boolean allowLeashing() {
 		return false;
@@ -246,13 +260,6 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return "got:bird.hurt";
 	}
 
-	private static ChunkCoordinates getItemFlightTarget(EntityItem entity) {
-		int i = MathHelper.floor_double(entity.posX);
-		int j = MathHelper.floor_double(entity.boundingBox.minY);
-		int k = MathHelper.floor_double(entity.posZ);
-		return new ChunkCoordinates(i, j, k);
-	}
-
 	@Override
 	public String getLivingSound() {
 		BirdType type = getBirdType();
@@ -265,13 +272,6 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
-	}
-
-	private static ChunkCoordinates getPlayerFlightTarget(EntityPlayer entityplayer) {
-		int i = MathHelper.floor_double(entityplayer.posX);
-		int j = MathHelper.floor_double(entityplayer.boundingBox.minY + 1.0);
-		int k = MathHelper.floor_double(entityplayer.posZ);
-		return new ChunkCoordinates(i, j, k);
 	}
 
 	@Override

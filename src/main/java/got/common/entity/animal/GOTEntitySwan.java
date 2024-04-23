@@ -4,8 +4,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTItems;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.GOTEntityRegistry;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.iface.GOTAmbientCreature;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
@@ -29,7 +29,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	private static final Random VIOLENCE_RAND = new Random();
 
 	private final EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
-	private final EntityAIBase fleeAI = new EntityAIPanic(this, 1.8);
+	private final EntityAIBase fleeAI = new EntityAIPanic(this, 1.4);
 
 	private float flapPhase;
 	private float flapPower;

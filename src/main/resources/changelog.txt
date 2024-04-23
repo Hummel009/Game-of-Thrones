@@ -15,7 +15,8 @@ CHANGELOG
 * Improved roads & walls code
 * Improved GUI opening code
 * Improved unit costs
-* Improved dragon command tab completion
+* Improved dragon and wikigen command tab completion
+* Improved animal stats
 
 * Optimized dragons, giants and ice creatures
 * Optimized lots of client-size things

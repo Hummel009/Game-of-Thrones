@@ -1,7 +1,6 @@
 package got.common.entity.animal;
 
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -35,7 +34,7 @@ public class GOTEntityBoar extends GOTEntityHorse {
 
 	@Override
 	public EntityAIBase createMountAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.2, true);
+		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
 	@Override
