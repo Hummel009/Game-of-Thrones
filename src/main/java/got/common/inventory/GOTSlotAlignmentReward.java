@@ -11,7 +11,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotAlignmentReward extends GOTSlotProtected {
-	public static final int REWARD_COST = 2000;
+	public static final int REWARD_COST = 1000;
 
 	private final GOTContainerUnitTrade theContainer;
 	private final GOTHireableBase theTrader;
