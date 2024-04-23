@@ -973,6 +973,7 @@ public class GOTTradeEntries {
 		YITI_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.yitiPolearm), 16));
 		YITI_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.yitiSpear), 16));
 		YITI_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.yitiSword), 15));
+		YITI_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.firePot), 32));
 		YITI_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.cobblestone, 8), 1));
 		YITI_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.hardened_clay, 8), 4));
 		YITI_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.sandstone, 8), 4));
