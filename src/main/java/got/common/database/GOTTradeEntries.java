@@ -64,19 +64,6 @@ public class GOTTradeEntries {
 	public static final GOTTradeEntries EMPTY_SELL = new GOTTradeEntries(TradeType.WE_CAN_BUY, Collections.emptyList());
 	public static final GOTTradeEntries EMPTY_BUY = new GOTTradeEntries(TradeType.WE_CAN_SELL, Collections.emptyList());
 
-	/* Зарегулированные пропорциональные цены */
-	private static final int VALYRIAN_INGOT = 512;
-	private static final int GOLD_INGOT = 128;
-	private static final int SILVER_INGOT = 32;
-	private static final int DIAMOND = 128;
-	private static final int EMERALD = 96;
-	private static final int AMBER = 64;
-	private static final int OPAL = 64;
-	private static final int RUBY = 64;
-	private static final int SAPPHIRE = 64;
-	private static final int TOPAZ = 64;
-	private static final int AMETHYST = 64;
-
 	private static final List<GOTTradeEntry> BAELISH_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> C_ALCHEMIST_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> C_BAKER_B_L = new ArrayList<>();
@@ -122,8 +109,73 @@ public class GOTTradeEntries {
 	private static final List<GOTTradeEntry> CROWNLANDS_ALCHEMIST_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> DAVOS_B_L = new ArrayList<>();
 
+	/* Зарегулированные пропорциональные цены */
+	private static final int VALYRIAN_INGOT = 512;
+	private static final int GOLD_INGOT = 128;
+	private static final int SILVER_INGOT = 32;
+	private static final int DIAMOND = 128;
+	private static final int EMERALD = 96;
+	private static final int AMBER = 64;
+	private static final int OPAL = 64;
+	private static final int RUBY = 64;
+	private static final int SAPPHIRE = 64;
+	private static final int TOPAZ = 64;
+	private static final int AMETHYST = 64;
+
 	static {
-		BAELISH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.baelishDagger), 5000, true));
+		BAELISH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.baelishDagger), VALYRIAN_INGOT * 8, true));
+
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 2), SILVER_INGOT * 6, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 3), GOLD_INGOT * 6, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 2), SILVER_INGOT, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 3), GOLD_INGOT, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletGold), GOLD_INGOT * 2, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletSilver), SILVER_INGOT * 2, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.goldBars), GOLD_INGOT, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.goldRing), GOLD_INGOT, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.silverBars), SILVER_INGOT, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.silverRing), SILVER_INGOT, true));
+		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianRing), VALYRIAN_INGOT, true));
+
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amber), AMBER, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amethyst), AMETHYST, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.diamond), DIAMOND, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.emerald), EMERALD, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.opal), OPAL, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ruby), RUBY, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sapphire), SAPPHIRE, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.silverIngot), SILVER_INGOT, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.topaz), TOPAZ, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianIngot), VALYRIAN_INGOT, true));
+		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT, true));
+
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amber), AMBER, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amethyst), AMETHYST, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.diamond), DIAMOND, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.emerald), EMERALD, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.opal), OPAL, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ruby), RUBY, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sapphire), SAPPHIRE, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.silverIngot), SILVER_INGOT, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.topaz), TOPAZ, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianIngot), VALYRIAN_INGOT, true));
+		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT, true));
+
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianBook), VALYRIAN_INGOT, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianDagger), VALYRIAN_INGOT, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianDaggerPoisoned), VALYRIAN_INGOT, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianHammer), VALYRIAN_INGOT * 4, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianSpear), VALYRIAN_INGOT, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianSword), VALYRIAN_INGOT * 3, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianHelmet), VALYRIAN_INGOT * 5, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChestplate), VALYRIAN_INGOT * 8, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianLeggings), VALYRIAN_INGOT * 7, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianBoots), VALYRIAN_INGOT * 4, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailHelmet), VALYRIAN_INGOT * 4, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailChestplate), VALYRIAN_INGOT * 6, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailLeggings), VALYRIAN_INGOT * 6, true));
+		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailBoots), VALYRIAN_INGOT * 3, true));
+
 		C_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bottlePoison), 10));
 		C_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lingeringPotion, 1, 1), 128));
 		C_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lingeringPotion, 1, 10), 128));
@@ -244,8 +296,6 @@ public class GOTTradeEntries {
 		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(Items.iron_ingot), 9));
 		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzeIngot), 6));
 		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.copperIngot), 3));
-		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.diamond), DIAMOND, true));
-		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sapphire), SAPPHIRE, true));
 		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.tinIngot), 3));
 		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(Items.coal, 2, 32767), 1));
 		C_BLACKSMITH_S_L.add(new GOTTradeEntry(new ItemStack(Items.leather), 2));
@@ -435,28 +485,6 @@ public class GOTTradeEntries {
 		C_FLORIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.yitiFlower, 1, 2), 20));
 		C_FLORIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.yitiFlower, 1, 3), 20));
 		C_FLORIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.yitiFlower, 1, 4), 20));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 2), SILVER_INGOT * 6, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 3), GOLD_INGOT * 6, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 2), SILVER_INGOT, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 3), GOLD_INGOT, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletGold), GOLD_INGOT * 2, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletSilver), SILVER_INGOT * 2, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.goldBars), GOLD_INGOT, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.goldRing), GOLD_INGOT, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.silverBars), SILVER_INGOT, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.silverRing), SILVER_INGOT, true));
-		C_GOLDSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianRing), VALYRIAN_INGOT, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amber), AMBER, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amethyst), AMETHYST, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.diamond), DIAMOND, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.emerald), EMERALD, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.opal), OPAL, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ruby), RUBY, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sapphire), SAPPHIRE, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.silverIngot), SILVER_INGOT, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.topaz), TOPAZ, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianIngot), VALYRIAN_INGOT, true));
-		C_GOLDSMITH_S_L.add(new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT, true));
 		C_LUMBERMAN_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.leaves, 1, 0), 2));
 		C_LUMBERMAN_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.leaves, 1, 1), 4));
 		C_LUMBERMAN_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.leaves, 1, 2), 3));
@@ -688,17 +716,7 @@ public class GOTTradeEntries {
 		C_MAESTER_S_L.add(new GOTTradeEntry(new ItemStack(Items.paper, 2), 1));
 		C_MAESTER_S_L.add(new GOTTradeEntry(new ItemStack(Items.saddle), 1));
 		C_MAESTER_S_L.add(new GOTTradeEntry(new ItemStack(Items.writable_book, 1), 4));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amber), AMBER, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.amethyst), AMETHYST, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.diamond), DIAMOND, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.emerald), EMERALD, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.opal), OPAL, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ruby), RUBY, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sapphire), SAPPHIRE, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.silverIngot), SILVER_INGOT, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.topaz), TOPAZ, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianIngot), VALYRIAN_INGOT, true));
-		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT, true));
+
 		C_MINER_S_L.add(new GOTTradeEntry(new ItemStack(Blocks.torch, 16), 2));
 		C_MINER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzePickaxe), 6));
 		C_MINER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.deerCooked), 3));
@@ -846,20 +864,6 @@ public class GOTTradeEntries {
 		MOSSOVY_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(Items.chainmail_chestplate), 16));
 		MOSSOVY_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(Items.chainmail_leggings), 14));
 		MOSSOVY_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(Items.chainmail_boots), 10));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianBook), VALYRIAN_INGOT, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianDagger), VALYRIAN_INGOT, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianDaggerPoisoned), VALYRIAN_INGOT, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianHammer), VALYRIAN_INGOT * 4, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianSpear), VALYRIAN_INGOT, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianSword), VALYRIAN_INGOT * 3, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianHelmet), VALYRIAN_INGOT * 5, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChestplate), VALYRIAN_INGOT * 8, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianLeggings), VALYRIAN_INGOT * 7, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianBoots), VALYRIAN_INGOT * 4, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailHelmet), VALYRIAN_INGOT * 4, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailChestplate), VALYRIAN_INGOT * 6, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailLeggings), VALYRIAN_INGOT * 6, true));
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianChainmailBoots), VALYRIAN_INGOT * 3, true));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.blacksmithHammer), 18));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.bronzeBars, 8), 20));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosBattleaxe), 16));
