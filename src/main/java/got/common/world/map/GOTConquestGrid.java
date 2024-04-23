@@ -155,8 +155,7 @@ public class GOTConquestGrid {
 	public static ConquestEffective getConquestEffectIn(World world, GOTConquestZone zone, GOTFaction theFaction) {
 		GridCoordPair gridCoords;
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
-			GOTGenLayerWorld genLayerWorld = new GOTGenLayerWorld();
-			genLayerWorld.tryLoadBiomeImage();
+			GOTGenLayerWorld.tryLoadBiomeImage();
 		}
 		List<GOTFaction> cachedFacs = CACHED_ZONE_FACTIONS.get(gridCoords = GridCoordPair.forZone(zone));
 		if (cachedFacs == null) {

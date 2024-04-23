@@ -2,7 +2,7 @@ package got.common.block.other;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.other.GOTEntityFallingConcrete;
+import got.common.entity.other.inanimate.GOTEntityFallingConcrete;
 import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;

@@ -39,6 +39,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	private int currentSmeltTime;
 	private String specialForgeName;
 
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTileEntityAlloyForge() {
 		setupForgeSlots();
 	}
@@ -63,7 +64,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return isItemValidForSlot(slot, itemstack);
 	}
 
-	private boolean canMachineInsertFuel(ItemStack itemstack) {
+	private static boolean canMachineInsertFuel(ItemStack itemstack) {
 		return TileEntityFurnace.isItemFuel(itemstack);
 	}
 
@@ -161,7 +162,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return new int[]{fuelSlot};
 	}
 
-	private ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
+	private static ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
 		if (isCopper(itemstack) && isTin(alloyItem) || isTin(itemstack) && isCopper(alloyItem)) {
 			return new ItemStack(GOTItems.bronzeIngot, 2);
 		}
@@ -207,7 +208,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return 200;
 	}
 
-	public ItemStack getSmeltingResult(ItemStack itemstack) {
+	public static ItemStack getSmeltingResult(ItemStack itemstack) {
 		boolean isStoneMaterial = false;
 		Item item = itemstack.getItem();
 		Block block = Block.getBlockFromItem(item);
@@ -261,19 +262,19 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return specialForgeName != null && !specialForgeName.isEmpty();
 	}
 
-	private boolean isCobalt(ItemStack itemstack) {
+	private static boolean isCobalt(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.cobaltIngot;
 	}
 
-	private boolean isCopper(ItemStack itemstack) {
+	private static boolean isCopper(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreCopper") || GOT.isOreNameEqual(itemstack, "ingotCopper");
 	}
 
-	private boolean isGoldNugget(ItemStack itemstack) {
+	private static boolean isGoldNugget(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "nuggetGold");
 	}
 
-	private boolean isIron(ItemStack itemstack) {
+	private static boolean isIron(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreIron") || GOT.isOreNameEqual(itemstack, "ingotIron");
 	}
 
@@ -285,11 +286,11 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return slot == fuelSlot && canMachineInsertFuel(itemstack);
 	}
 
-	private boolean isOathkeeper(ItemStack itemstack) {
+	private static boolean isOathkeeper(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.oathkeeper;
 	}
 
-	private boolean isSilver(ItemStack itemstack) {
+	private static boolean isSilver(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreSilver") || GOT.isOreNameEqual(itemstack, "ingotSilver");
 	}
 
@@ -297,7 +298,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return forgeSmeltTime > 0;
 	}
 
-	private boolean isTin(ItemStack itemstack) {
+	private static boolean isTin(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreTin") || GOT.isOreNameEqual(itemstack, "ingotTin");
 	}
 
@@ -306,15 +307,15 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
 	}
 
-	private boolean isValyrianNugget(ItemStack itemstack) {
+	private static boolean isValyrianNugget(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.valyrianNugget;
 	}
 
-	private boolean isWidowWail(ItemStack itemstack) {
+	private static boolean isWidowWail(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.widowWail;
 	}
 
-	private boolean isWood(ItemStack itemstack) {
+	private static boolean isWood(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "logWood");
 	}
 

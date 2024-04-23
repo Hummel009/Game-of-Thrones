@@ -1,7 +1,7 @@
 package got.common.command;
 
 import got.common.database.GOTInvasions;
-import got.common.entity.other.GOTEntityInvasionSpawner;
+import got.common.entity.other.inanimate.GOTEntityInvasionSpawner;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;

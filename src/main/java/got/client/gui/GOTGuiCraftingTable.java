@@ -54,13 +54,13 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 	public void drawGuiContainerForegroundLayer(int i, int j) {
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		boolean tableSwitched = pd.getTableSwitched();
+		String title;
 		if (tableSwitched) {
-			String title = StatCollector.translateToLocal("container.crafting");
-			fontRendererObj.drawString(title, 28, 6, 4210752);
+			title = StatCollector.translateToLocal("container.crafting");
 		} else {
-			String title = StatCollector.translateToLocal("got.container.crafting." + unlocalizedName);
-			fontRendererObj.drawString(title, 28, 6, 4210752);
+			title = StatCollector.translateToLocal("got.container.crafting." + unlocalizedName);
 		}
+		fontRendererObj.drawString(title, 28, 6, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 2, 4210752);
 	}
 

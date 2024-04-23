@@ -56,7 +56,7 @@ public class GOTWorldGenStreams extends WorldGenerator {
 		return true;
 	}
 
-	private boolean isRock(IBlockAccess world, int i, int j, int k) {
+	private static boolean isRock(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		return block == Blocks.stone || block == Blocks.sandstone || block == GOTBlocks.rock;
 	}

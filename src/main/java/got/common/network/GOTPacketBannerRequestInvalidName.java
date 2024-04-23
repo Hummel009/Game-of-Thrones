@@ -5,7 +5,7 @@ import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
-import got.common.entity.other.GOTEntityBanner;
+import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipProfile;
 import io.netty.buffer.ByteBuf;

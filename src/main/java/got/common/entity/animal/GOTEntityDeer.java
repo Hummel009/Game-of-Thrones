@@ -2,7 +2,7 @@ package got.common.entity.animal;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.entity.other.iface.GOTRandomSkinEntity;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;

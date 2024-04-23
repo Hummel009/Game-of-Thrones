@@ -428,7 +428,7 @@ public class GOTAchievement {
 		freeman = new GOTAchievement(Category.GENERAL, genId++, GOTItems.crowbar, "FREEMAN");
 
 		bannerProtect = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banner, "BANNER_PROTECT");
-		brewDrinkInBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.barrel, "BREW_DRINK_IN_BARREL");
+		brewDrinkInBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugEthanol, "BREW_DRINK_IN_BARREL");
 		catchButterfly = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.butterflyJar, "CATCH_BUTTERFLY");
 		collectCraftingTables = new GOTAchievement(Category.GENERAL, genId++, Blocks.crafting_table, "COLLECT_CRAFTING_TABLES");
 		collectCrossbowBolts = new GOTAchievement(Category.GENERAL, genId++, GOTItems.crossbowBolt, "COLLECT_CROSSBOW_BOLTS");

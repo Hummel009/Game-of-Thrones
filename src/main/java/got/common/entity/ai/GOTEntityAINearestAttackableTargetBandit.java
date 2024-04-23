@@ -1,6 +1,6 @@
 package got.common.entity.ai;
 
-import got.common.entity.other.GOTEntityLightSkinBandit;
+import got.common.entity.other.GOTEntityBanditBase;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -8,23 +8,23 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearestAttackableTargetBasic {
-	private final GOTEntityLightSkinBandit taskOwnerAsBandit;
+	private final GOTEntityBanditBase taskOwnerAsBandit;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag) {
 		super(entity, targetClass, chance, flag);
-		taskOwnerAsBandit = (GOTEntityLightSkinBandit) entity;
+		taskOwnerAsBandit = (GOTEntityBanditBase) entity;
 	}
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag, IEntitySelector selector) {
 		super(entity, targetClass, chance, flag, selector);
-		taskOwnerAsBandit = (GOTEntityLightSkinBandit) entity;
+		taskOwnerAsBandit = (GOTEntityBanditBase) entity;
 	}
 
 	@Override
 	public boolean isPlayerSuitableTarget(EntityPlayer entityplayer) {
-		return !GOTEntityLightSkinBandit.Helper.canStealFromPlayerInv(entityplayer) && super.isPlayerSuitableTarget(entityplayer);
+		return !GOTEntityBanditBase.canStealFromPlayerInv(entityplayer) && super.isPlayerSuitableTarget(entityplayer);
 	}
 
 	@Override

@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntitySmokeRing;
+import got.common.entity.other.inanimate.GOTEntitySmokeRing;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;

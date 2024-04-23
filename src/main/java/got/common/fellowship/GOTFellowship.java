@@ -359,7 +359,7 @@ public class GOTFellowship {
 		}
 	}
 
-	public void sendNotification(ICommandSender entityplayer, String key, Object... args) {
+	public static void sendNotification(ICommandSender entityplayer, String key, Object... args) {
 		ChatComponentTranslation message = new ChatComponentTranslation(key, args);
 		message.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(message);

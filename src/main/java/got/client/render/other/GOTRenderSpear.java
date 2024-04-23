@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import cpw.mods.fml.common.FMLLog;
-import got.common.entity.other.GOTEntitySpear;
+import got.common.entity.other.inanimate.GOTEntitySpear;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;

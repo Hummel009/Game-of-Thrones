@@ -6,7 +6,7 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.essos.yiti.GOTEntityYiTiBartender;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -595,7 +595,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		GOTEntityYiTiBartender bartender = new GOTEntityYiTiBartender(world);
 		spawnNPCAndSetHome(bartender, world, -2, 1, 0, 2);
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 2, 1, 0, 16);
-		spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 2, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 2, 1, 0, 16);
 		int men = 6 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {
 			GOTEntityYiTiMan yitish = new GOTEntityYiTiMan(world);

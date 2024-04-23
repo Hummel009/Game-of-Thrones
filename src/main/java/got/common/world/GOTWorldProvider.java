@@ -285,7 +285,7 @@ public class GOTWorldProvider extends WorldProvider {
 		return StatCollector.translateToLocalFormatted("got.dimension.enter", GOTDimension.GAME_OF_THRONES.getTranslatedDimensionName());
 	}
 
-	public float[] handleFinalFogColors(float[] rgb) {
+	public static float[] handleFinalFogColors(float[] rgb) {
 		return rgb;
 	}
 
@@ -340,7 +340,7 @@ public class GOTWorldProvider extends WorldProvider {
 		}
 	}
 
-	public void setRingPortalLocation(int i, int j, int k) {
+	public static void setRingPortalLocation(int i, int j, int k) {
 		GOTLevelData.markGameOfThronesPortalLocation(i, j, k);
 	}
 

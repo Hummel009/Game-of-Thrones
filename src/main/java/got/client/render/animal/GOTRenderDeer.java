@@ -3,7 +3,7 @@ package got.client.render.animal;
 import got.client.model.GOTModelDeer;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.animal.GOTEntityDeer;
-import got.common.entity.other.GOTNPCMount;
+import got.common.entity.other.iface.GOTNPCMount;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

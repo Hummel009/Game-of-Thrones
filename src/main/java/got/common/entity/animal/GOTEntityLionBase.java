@@ -4,7 +4,7 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAILionChase;
 import got.common.entity.ai.GOTEntityAILionMate;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import got.common.item.other.GOTItemLionRug;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
@@ -56,14 +56,14 @@ public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome
 		if (mate == this) {
 			return false;
 		}
-		if (getAnimalMFBaseClass() == mfMate.getAnimalMFBaseClass() && isInLove() && mate.isInLove()) {
+		if (getAnimalMFBaseClass() == getAnimalMFBaseClass() && isInLove() && mate.isInLove()) {
 			boolean thisMale = isMale();
 			return thisMale != mfMate.isMale();
 		}
 		return false;
 	}
 
-	public Class<? extends EntityAnimal> getAnimalMFBaseClass() {
+	public static Class<? extends EntityAnimal> getAnimalMFBaseClass() {
 		return GOTEntityLionBase.class;
 	}
 

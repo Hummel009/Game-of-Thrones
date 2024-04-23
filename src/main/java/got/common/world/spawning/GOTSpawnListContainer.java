@@ -13,7 +13,7 @@ public class GOTSpawnListContainer {
 		weight = w;
 	}
 
-	public boolean canSpawnAtConquestLevel(float conq) {
+	public static boolean canSpawnAtConquestLevel(float conq) {
 		return conq > -1.0f;
 	}
 

@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTLevelData;
 import got.common.database.GOTCreativeTabs;
-import got.common.world.structure.other.GOTStructureRegistry;
+import got.common.world.structure.GOTStructureRegistry;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -138,7 +138,7 @@ public class GOTItemStructureSpawner extends Item {
 		return true;
 	}
 
-	private boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
+	private static boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
 		if (!GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.containsKey(id)) {
 			return false;
 		}

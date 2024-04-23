@@ -25,7 +25,7 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BOMZH_SELL;
+		return GOTTradeEntries.C_TRAMP_SELL;
 	}
 
 	@Override

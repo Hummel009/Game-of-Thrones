@@ -145,7 +145,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	private void handlerCRStack(Item forgeItem, ItemStack result) {
 		ItemStack stack = new ItemStack(forgeItem, 1);
-		if (NEIServerUtils.areStacksSameType(INSTANCE.getSmeltingResult(stack), result)) {
+		if (NEIServerUtils.areStacksSameType(GOTTileEntityAlloyForge.getSmeltingResult(stack), result)) {
 			List<Object> list = new ArrayList<>();
 			ArrayList<ItemStack> newList = new ArrayList<>();
 			stack.getItem().getSubItems(forgeItem, null, list);
@@ -185,7 +185,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		ItemStack tmp = INSTANCE.getSmeltingResult(ingredient);
+		ItemStack tmp = GOTTileEntityAlloyForge.getSmeltingResult(ingredient);
 		if (tmp != null) {
 			arecipes.add(new CachedForgeRecipe(null, new ItemStack[]{ingredient}, tmp));
 		}

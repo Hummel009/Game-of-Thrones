@@ -23,6 +23,9 @@ import got.common.database.GOTMaterial;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.*;
+import got.common.entity.other.inanimate.GOTEntityPortal;
+import got.common.entity.other.utils.GOTInvasionStatus;
+import got.common.entity.other.utils.GOTMountFunctions;
 import got.common.faction.*;
 import got.common.fellowship.GOTFellowshipData;
 import got.common.item.GOTMaterialFinder;
@@ -811,7 +814,7 @@ public class GOTTickHandlerClient {
 		WorldProvider provider = worldClient.provider;
 		if (provider instanceof GOTWorldProvider) {
 			float[] rgb = {event.red, event.green, event.blue};
-			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(rgb);
+			rgb = GOTWorldProvider.handleFinalFogColors(rgb);
 			event.red = rgb[0];
 			event.green = rgb[1];
 			event.blue = rgb[2];

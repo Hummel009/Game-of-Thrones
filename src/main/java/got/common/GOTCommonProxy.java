@@ -4,7 +4,7 @@ import com.mojang.authlib.GameProfile;
 import got.common.block.other.GOTBlockFlowerPot;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
-import got.common.entity.other.GOTEntityBanner;
+import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTFaction;
@@ -277,7 +277,7 @@ public class GOTCommonProxy {
 	public void showFrostOverlay() {
 	}
 
-	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, boolean isKill, boolean isHiredKill, float conquestBonus, double posX, double posY, double posZ) {
+	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, float conquestBonus, double posX, double posY, double posZ) {
 	}
 
 	public void spawnParticle(String type, double d, double d1, double d2, double d3, double d4, double d5) {

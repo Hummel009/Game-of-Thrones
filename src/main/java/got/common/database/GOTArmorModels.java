@@ -31,7 +31,7 @@ public class GOTArmorModels {
 	private GOTArmorModels() {
 	}
 
-	public void copyBoxRotations(ModelRenderer target, ModelRenderer src) {
+	public static void copyBoxRotations(ModelRenderer target, ModelRenderer src) {
 		target.rotationPointX = src.rotationPointX;
 		target.rotationPointY = src.rotationPointY;
 		target.rotationPointZ = src.rotationPointZ;
@@ -40,7 +40,7 @@ public class GOTArmorModels {
 		target.rotateAngleZ = src.rotateAngleZ;
 	}
 
-	private void copyModelRotations(ModelBiped target, ModelBiped src) {
+	private static void copyModelRotations(ModelBiped target, ModelBiped src) {
 		copyBoxRotations(target.bipedHead, src.bipedHead);
 		copyBoxRotations(target.bipedHeadwear, src.bipedHeadwear);
 		copyBoxRotations(target.bipedBody, src.bipedBody);
@@ -174,6 +174,7 @@ public class GOTArmorModels {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preRenderEntity(RenderLivingEvent.Pre event) {
 		EntityLivingBase entity = event.entity;
 		RendererLivingEntity renderer = event.renderer;
@@ -189,7 +190,7 @@ public class GOTArmorModels {
 		}
 	}
 
-	public void setupArmorForSlot(ModelBiped model, int slot) {
+	public static void setupArmorForSlot(ModelBiped model, int slot) {
 		model.bipedHead.showModel = slot == 0;
 		model.bipedHeadwear.showModel = slot == 0;
 		model.bipedBody.showModel = slot == 1 || slot == 2;
@@ -199,7 +200,7 @@ public class GOTArmorModels {
 		model.bipedLeftLeg.showModel = slot == 2 || slot == 3;
 	}
 
-	private void setupHeldItem(ModelBiped model, EntityLivingBase entity, ItemStack itemstack, boolean rightArm) {
+	private static void setupHeldItem(ModelBiped model, EntityLivingBase entity, ItemStack itemstack, boolean rightArm) {
 		int value = 0;
 		boolean aimBow = false;
 		if (itemstack != null) {
@@ -247,7 +248,7 @@ public class GOTArmorModels {
 		}
 	}
 
-	public void setupModelForRender(ModelBiped model, ModelBiped mainModel, EntityLivingBase entity) {
+	public static void setupModelForRender(ModelBiped model, ModelBiped mainModel, EntityLivingBase entity) {
 		if (mainModel != null) {
 			model.onGround = mainModel.onGround;
 			model.isRiding = mainModel.isRiding;

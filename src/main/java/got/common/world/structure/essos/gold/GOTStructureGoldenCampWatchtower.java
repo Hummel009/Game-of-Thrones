@@ -5,7 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
 import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
 import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;

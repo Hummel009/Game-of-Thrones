@@ -103,7 +103,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		return targetName;
 	}
 
-	private GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
+	private static GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (pd.getPledgeFaction() != null) {
 			return pd.getPledgeFaction();

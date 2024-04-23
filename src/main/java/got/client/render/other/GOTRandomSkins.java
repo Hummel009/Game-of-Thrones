@@ -2,7 +2,7 @@ package got.client.render.other;
 
 import cpw.mods.fml.common.FMLLog;
 import got.client.GOTTextures;
-import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.entity.other.iface.GOTRandomSkinEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;

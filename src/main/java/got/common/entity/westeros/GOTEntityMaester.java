@@ -7,7 +7,7 @@ import got.common.entity.ai.GOTEntityAIDrink;
 import got.common.entity.ai.GOTEntityAIEat;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;

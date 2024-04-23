@@ -15,7 +15,10 @@ import got.common.fellowship.*;
 import got.common.item.other.GOTItemArmor;
 import got.common.item.weapon.GOTItemCrossbowBolt;
 import got.common.network.*;
-import got.common.quest.*;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestEvent;
+import got.common.quest.GOTMiniQuestSelector;
+import got.common.quest.GOTMiniQuestWelcome;
 import got.common.util.GOTCrashHandler;
 import got.common.util.GOTLog;
 import got.common.world.GOTWorldProvider;
@@ -305,7 +308,7 @@ public class GOTPlayerData {
 						}
 						EntityPlayer inviter = getOtherPlayer(inviterID);
 						if (inviter != null) {
-							fs.sendNotification(inviter, "got.gui.fellowships.notifyAccept", entityplayer.getCommandSenderName());
+							GOTFellowship.sendNotification(inviter, "got.gui.fellowships.notifyAccept", entityplayer.getCommandSenderName());
 						}
 					}
 				}
@@ -505,7 +508,7 @@ public class GOTPlayerData {
 			sendFellowshipInvitePacket(fs);
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				fs.sendNotification(entityplayer, "got.gui.fellowships.notifyInvite", inviterUsername);
+				GOTFellowship.sendNotification(entityplayer, "got.gui.fellowships.notifyInvite", inviterUsername);
 			}
 		}
 	}
@@ -819,7 +822,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void customWaypointAddSharedFellowshipClient(GOTCustomWaypoint waypoint, GOTFellowshipClient fs) {
+	public static void customWaypointAddSharedFellowshipClient(GOTCustomWaypoint waypoint, GOTFellowshipClient fs) {
 		waypoint.addSharedFellowship(fs.getFellowshipID());
 	}
 
@@ -843,7 +846,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void customWaypointRemoveSharedFellowshipClient(GOTCustomWaypoint waypoint, UUID fsID) {
+	public static void customWaypointRemoveSharedFellowshipClient(GOTCustomWaypoint waypoint, UUID fsID) {
 		waypoint.removeSharedFellowship(fsID);
 	}
 
@@ -855,7 +858,7 @@ public class GOTPlayerData {
 			for (UUID memberID : memberUUIDs) {
 				EntityPlayer member = getOtherPlayer(memberID);
 				if (member != null && !member.worldObj.isRemote) {
-					fs.sendNotification(member, "got.gui.fellowships.notifyDisband", disbanderUsername);
+					GOTFellowship.sendNotification(member, "got.gui.fellowships.notifyDisband", disbanderUsername);
 				}
 			}
 		}
@@ -869,11 +872,11 @@ public class GOTPlayerData {
 		}
 	}
 
-	private boolean doesFactionPreventPledge(GOTFaction pledgeFac, GOTFaction otherFac) {
+	private static boolean doesFactionPreventPledge(GOTFaction pledgeFac, GOTFaction otherFac) {
 		return pledgeFac.isMortalEnemy(otherFac);
 	}
 
-	private <T extends EntityLiving> T fastTravelEntity(WorldServer world, T entity, int i, int j, int k) {
+	private static <T extends EntityLiving> T fastTravelEntity(WorldServer world, T entity, int i, int j, int k) {
 		String entityID = EntityList.getEntityString(entity);
 		NBTTagCompound nbt = new NBTTagCompound();
 		entity.writeToNBT(nbt);
@@ -1086,7 +1089,7 @@ public class GOTPlayerData {
 		return completedMiniquestCount;
 	}
 
-	private long getCurrentOnlineTime() {
+	private static long getCurrentOnlineTime() {
 		return MinecraftServer.getServer().worldServerForDimension(0).getTotalWorldTime();
 	}
 
@@ -1286,7 +1289,7 @@ public class GOTPlayerData {
 		return nextCwpID;
 	}
 
-	private EntityPlayer getOtherPlayer(UUID uuid) {
+	private static EntityPlayer getOtherPlayer(UUID uuid) {
 		for (WorldServer worldServer : MinecraftServer.getServer().worldServers) {
 			EntityPlayer entityplayer = worldServer.func_152378_a(uuid);
 			if (entityplayer != null) {
@@ -1659,7 +1662,7 @@ public class GOTPlayerData {
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				EntityPlayer owner = getOtherPlayer(fs.getOwner());
 				if (owner != null) {
-					fs.sendNotification(owner, "got.gui.fellowships.notifyLeave", entityplayer.getCommandSenderName());
+					GOTFellowship.sendNotification(owner, "got.gui.fellowships.notifyLeave", entityplayer.getCommandSenderName());
 				}
 			}
 		}
@@ -2264,7 +2267,7 @@ public class GOTPlayerData {
 			fs.removeMember(player);
 			EntityPlayer removed = getOtherPlayer(player);
 			if (removed != null && !removed.worldObj.isRemote) {
-				fs.sendNotification(removed, "got.gui.fellowships.notifyRemove", removerUsername);
+				GOTFellowship.sendNotification(removed, "got.gui.fellowships.notifyRemove", removerUsername);
 			}
 		}
 	}
@@ -2311,7 +2314,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void renameCustomWaypointClient(GOTCustomWaypoint waypoint, String newName) {
+	public static void renameCustomWaypointClient(GOTCustomWaypoint waypoint, String newName) {
 		waypoint.rename(newName);
 	}
 
@@ -2711,12 +2714,12 @@ public class GOTPlayerData {
 		return ret;
 	}
 
-	private void sendAchievementPacket(EntityPlayerMP entityplayer, GOTAchievement achievement, boolean display) {
+	private static void sendAchievementPacket(EntityPlayerMP entityplayer, GOTAchievement achievement, boolean display) {
 		IMessage packet = new GOTPacketAchievement(achievement, display);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
-	private void sendAchievementRemovePacket(EntityPlayerMP entityplayer, GOTAchievement achievement) {
+	private static void sendAchievementRemovePacket(EntityPlayerMP entityplayer, GOTAchievement achievement) {
 		IMessage packet = new GOTPacketAchievementRemove(achievement);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
@@ -2761,12 +2764,12 @@ public class GOTPlayerData {
 		}
 	}
 
-	private void sendFTBouncePacket(EntityPlayerMP entityplayer) {
+	private static void sendFTBouncePacket(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketFTBounceClient();
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
-	private void sendFTPacket(EntityPlayerMP entityplayer, GOTAbstractWaypoint waypoint, int startX, int startZ) {
+	private static void sendFTPacket(EntityPlayerMP entityplayer, GOTAbstractWaypoint waypoint, int startX, int startZ) {
 		IMessage packet = new GOTPacketFTScreen(waypoint, startX, startZ);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
@@ -2784,7 +2787,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	private void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) {
+	private static void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
 		IMessage packet = new GOTPacketMiniquest(nbt, completed);
@@ -2877,9 +2880,9 @@ public class GOTPlayerData {
 			EntityPlayer subjectPlayer = getOtherPlayer(player);
 			if (subjectPlayer != null && !subjectPlayer.worldObj.isRemote) {
 				if (flag) {
-					fs.sendNotification(subjectPlayer, "got.gui.fellowships.notifyOp", granterUsername);
+					GOTFellowship.sendNotification(subjectPlayer, "got.gui.fellowships.notifyOp", granterUsername);
 				} else {
-					fs.sendNotification(subjectPlayer, "got.gui.fellowships.notifyDeop", granterUsername);
+					GOTFellowship.sendNotification(subjectPlayer, "got.gui.fellowships.notifyDeop", granterUsername);
 				}
 			}
 		}
@@ -2985,7 +2988,7 @@ public class GOTPlayerData {
 			fs.setOwner(player);
 			EntityPlayer newOwner = getOtherPlayer(player);
 			if (newOwner != null && !newOwner.worldObj.isRemote) {
-				fs.sendNotification(newOwner, "got.gui.fellowships.notifyTransfer", prevOwnerUsername);
+				GOTFellowship.sendNotification(newOwner, "got.gui.fellowships.notifyTransfer", prevOwnerUsername);
 			}
 		}
 	}

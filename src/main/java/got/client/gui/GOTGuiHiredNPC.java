@@ -2,7 +2,7 @@ package got.client.gui;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.entity.other.utils.GOTUnitTradeEntry;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketHandler;

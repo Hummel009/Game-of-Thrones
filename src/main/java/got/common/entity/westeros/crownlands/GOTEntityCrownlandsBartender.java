@@ -2,8 +2,8 @@ package got.common.entity.westeros.crownlands;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.iface.GOTBartender;
+import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

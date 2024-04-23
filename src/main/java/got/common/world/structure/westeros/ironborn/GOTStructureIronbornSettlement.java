@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.ironborn;
 
 import com.google.common.math.IntMath;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornMan;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldierArcher;
@@ -98,7 +98,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureIronbornVillageFarm.Animals(false);
@@ -108,7 +108,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureIronbornVillageFarm.Tree(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

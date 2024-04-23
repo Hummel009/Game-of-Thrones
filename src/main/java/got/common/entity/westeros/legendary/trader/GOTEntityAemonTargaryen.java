@@ -4,7 +4,7 @@ import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.iface.GOTTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIOpenDoor;

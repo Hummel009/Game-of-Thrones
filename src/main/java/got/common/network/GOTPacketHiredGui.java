@@ -5,7 +5,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.entity.other.utils.GOTUnitTradeEntry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -60,7 +60,7 @@ public class GOTPacketHiredGui implements IMessage {
 		data.writeInt(mobKills);
 		data.writeInt(xp);
 		data.writeFloat(alignmentRequired);
-		data.writeByte(pledgeType.typeID);
+		data.writeByte(pledgeType.getTypeID());
 		data.writeBoolean(inCombat);
 		data.writeBoolean(guardMode);
 		data.writeInt(guardRange);

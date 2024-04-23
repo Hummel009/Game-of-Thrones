@@ -2,7 +2,7 @@ package got.common.world.structure.essos.common;
 
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.world.World;
 
 import java.util.Random;

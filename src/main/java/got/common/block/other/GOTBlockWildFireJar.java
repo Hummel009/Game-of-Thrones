@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.other.GOTEntityFallingFireJar;
+import got.common.entity.other.inanimate.GOTEntityFallingFireJar;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.MapColor;
@@ -92,7 +92,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 		GOTBlockWildFireJar.renderingStage = renderingStage;
 	}
 
-	public void explode(World world, int i, int j, int k) {
+	public static void explode(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			world.createExplosion(null, i, j, k, 2.0f, false);
 			world.setBlockToAir(i, j, k);

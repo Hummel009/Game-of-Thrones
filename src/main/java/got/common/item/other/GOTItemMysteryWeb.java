@@ -2,7 +2,7 @@ package got.common.item.other;
 
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseMysteryWeb;
-import got.common.entity.other.GOTEntityMysteryWeb;
+import got.common.entity.other.inanimate.GOTEntityMysteryWeb;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

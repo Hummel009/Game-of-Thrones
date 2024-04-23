@@ -3,7 +3,7 @@ package got.common.item.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.other.GOTEntityRugBase;
+import got.common.entity.other.inanimate.GOTEntityRugBase;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

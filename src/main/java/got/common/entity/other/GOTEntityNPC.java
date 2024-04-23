@@ -9,12 +9,16 @@ import got.common.GOTBannerProtection;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.*;
+import got.common.entity.GOTEntityRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
+import got.common.entity.other.iface.*;
+import got.common.entity.other.inanimate.*;
 import got.common.entity.other.info.GOTFamilyInfo;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.info.GOTQuestInfo;
 import got.common.entity.other.info.GOTTraderInfo;
+import got.common.entity.other.utils.*;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTContainerAnvil;
 import got.common.inventory.GOTContainerCoinExchange;
@@ -406,7 +410,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		hiredReplacedInv = new GOTInventoryHiredReplacedItems(this);
 	}
 
-	public void fillPouchFromListAndRetainUnfilled(ItemStack pouch, List<ItemStack> items) {
+	public static void fillPouchFromListAndRetainUnfilled(ItemStack pouch, List<ItemStack> items) {
 		Collection<ItemStack> pouchContents = new ArrayList<>();
 		while (!items.isEmpty()) {
 			pouchContents.add(items.remove(0));
@@ -549,7 +553,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return d * d;
 	}
 
-	private String getNPCFormattedName(String npcName, String entityName) {
+	private static String getNPCFormattedName(String npcName, String entityName) {
 		if (npcName.equals(entityName)) {
 			return entityName;
 		}

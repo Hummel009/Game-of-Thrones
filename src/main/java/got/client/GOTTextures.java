@@ -448,7 +448,6 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			GOTCommonIcons.iconStoneSnow = map.registerIcon("stone_snow");
 		}
 		if (map.getTextureType() == 1) {
-			GOTCommonIcons.iconEmptyItem = generateIconEmpty(map);
 			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slot_melee");
 			GOTCommonIcons.iconBomb = map.registerIcon("got:slot_bomb");
 		}

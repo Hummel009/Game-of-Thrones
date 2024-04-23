@@ -2,7 +2,7 @@ package got.common.inventory;
 
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTHireableBase;
+import got.common.entity.other.iface.GOTHireableBase;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemCoin;
 import net.minecraft.entity.player.EntityPlayer;

@@ -8,6 +8,7 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
+import got.common.entity.other.inanimate.GOTEntityThrownRock;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

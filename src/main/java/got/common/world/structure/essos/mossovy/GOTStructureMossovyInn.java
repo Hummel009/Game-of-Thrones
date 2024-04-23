@@ -7,7 +7,7 @@ import got.common.database.GOTNames;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBartender;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -130,7 +130,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 			spawnNPCAndSetHome(mossovylander, world, -2, 1, 0, 16);
 		}
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, -2, 1, 0, 16);
-		spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, -2, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, -2, 1, 0, 16);
 		return true;
 	}
 

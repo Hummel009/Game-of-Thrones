@@ -1,7 +1,7 @@
 package got.common.item.other;
 
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -48,7 +48,7 @@ public class GOTItemNPCRespawner extends Item {
 		return false;
 	}
 
-	private void placeSpawnerAt(World world, int i, int j, int k) {
+	private static void placeSpawnerAt(World world, int i, int j, int k) {
 		GOTEntityNPCRespawner spawner = new GOTEntityNPCRespawner(world);
 		double f = 0.1;
 		double f1 = 1.0 - f;

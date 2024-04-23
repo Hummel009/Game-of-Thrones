@@ -4,7 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldierCrossbower;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
@@ -78,7 +78,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private GOTStructureBase getOtherSettlementStructure(Random random) {
+		private static GOTStructureBase getOtherSettlementStructure(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureYiTiStables(false);
 			}
@@ -125,7 +125,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomVillageFarm(Random random) {
+		private static GOTStructureBase getRandomVillageFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureYiTiVillageFarm.Animals(false);
 			}

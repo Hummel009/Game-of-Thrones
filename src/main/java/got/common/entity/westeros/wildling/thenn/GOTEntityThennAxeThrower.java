@@ -2,7 +2,7 @@ package got.common.entity.westeros.wildling.thenn;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.GOTEntityThrowingAxe;
+import got.common.entity.other.inanimate.GOTEntityThrowingAxe;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;

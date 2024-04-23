@@ -2,7 +2,7 @@ package got.common.item.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.entity.other.GOTEntityBarrel;
+import got.common.entity.other.inanimate.GOTEntityBarrel;
 import got.common.tileentity.GOTTileEntityBarrel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

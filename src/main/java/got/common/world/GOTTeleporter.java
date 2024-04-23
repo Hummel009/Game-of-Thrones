@@ -3,7 +3,7 @@ package got.common.world;
 import got.GOT;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
-import got.common.entity.other.GOTEntityPortal;
+import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.Teleporter;
@@ -38,7 +38,7 @@ public class GOTTeleporter extends Teleporter {
 			GOTLevelData.setMadeGameOfThronesPortal(1);
 			if (makeRingPortal) {
 				if (world.provider instanceof GOTWorldProvider) {
-					((GOTWorldProvider) world.provider).setRingPortalLocation(i, j, k);
+					GOTWorldProvider.setRingPortalLocation(i, j, k);
 				}
 				GOTEntityPortal portal = new GOTEntityPortal(world);
 				portal.setLocationAndAngles(i + 0.5, j + 3.5, k + 0.5, 0.0f, 0.0f);

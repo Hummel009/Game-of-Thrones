@@ -52,7 +52,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return (int) (chance * 1.25f);
 	}
 
-	private boolean isBannered(World world, int i, int j, int k) {
+	private static boolean isBannered(World world, int i, int j, int k) {
 		return GOTBannerProtection.isProtected(world, i, j, k, GOTBannerProtection.anyBanner(), false);
 	}
 

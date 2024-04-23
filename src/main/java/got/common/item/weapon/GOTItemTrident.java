@@ -1,6 +1,6 @@
 package got.common.item.weapon;
 
-import got.common.entity.other.GOTFishing;
+import got.common.entity.other.utils.GOTFishing;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;
@@ -19,7 +19,7 @@ public class GOTItemTrident extends GOTItemPolearm {
 		super(material);
 	}
 
-	private boolean canFishAt(World world, int i, int j, int k) {
+	private static boolean canFishAt(World world, int i, int j, int k) {
 		double d = i + 0.5;
 		double d1 = j + 0.5;
 		double d2 = k + 0.5;

@@ -6,7 +6,7 @@ import got.common.block.other.GOTBlockGrapevine;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTFarmhand;
+import got.common.entity.other.iface.GOTFarmhand;
 import got.common.util.GOTReflection;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -727,7 +727,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 									continue;
 								}
 								int meta2 = theWorld.getBlockMetadata(x, y, z);
-								drops.addAll(((GOTBlockCorn) block).getCornDrops(theWorld, meta2));
+								drops.addAll(GOTBlockCorn.getCornDrops(theWorld, meta2));
 								GOTBlockCorn.setHasCorn(theWorld, x, y, z, false);
 							}
 						} else if (block instanceof GOTBlockGrapevine) {

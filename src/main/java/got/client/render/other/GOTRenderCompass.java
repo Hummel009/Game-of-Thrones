@@ -2,7 +2,7 @@ package got.client.render.other;
 
 import got.client.GOTClientProxy;
 import got.client.model.GOTModelPortal;
-import got.common.entity.other.GOTEntityPortal;
+import got.common.entity.other.inanimate.GOTEntityPortal;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;

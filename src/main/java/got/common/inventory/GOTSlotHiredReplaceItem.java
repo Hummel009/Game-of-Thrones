@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.entity.other.GOTEntityGiantBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTInventoryHiredReplacedItems;
+import got.common.entity.other.utils.GOTInventoryHiredReplacedItems;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;

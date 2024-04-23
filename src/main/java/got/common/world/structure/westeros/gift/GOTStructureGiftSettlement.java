@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.gift;
 
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.GOTEntityGiftGuard;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import got.common.world.biome.GOTBiome;
@@ -93,7 +93,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(3) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

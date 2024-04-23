@@ -167,8 +167,8 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.anvil, 3);
 			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
-			placeWeaponRack(world, 0, 2, 2, 1, new GOTStructureLhazarBazaar(false).getRandomlhazarWeapon(random));
-			placeWeaponRack(world, 3, 2, 2, 3, new GOTStructureLhazarBazaar(false).getRandomlhazarWeapon(random));
+			placeWeaponRack(world, 0, 2, 2, 1, getRandomlhazarWeapon(random));
+			placeWeaponRack(world, 3, 2, 2, 3, getRandomlhazarWeapon(random));
 			GOTEntityLhazarBlacksmith trader = new GOTEntityLhazarBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;

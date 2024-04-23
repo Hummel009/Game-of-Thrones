@@ -7,8 +7,8 @@ import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.GOTEntityArrowFire;
-import got.common.entity.other.GOTEntityArrowPoisoned;
+import got.common.entity.other.inanimate.GOTEntityArrowFire;
+import got.common.entity.other.inanimate.GOTEntityArrowPoisoned;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -115,7 +115,7 @@ public class GOTItemBow extends ItemBow {
 		return itemIcon;
 	}
 
-	private int getInvArrowSlot(EntityPlayer entityplayer) {
+	private static int getInvArrowSlot(EntityPlayer entityplayer) {
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
 			if (invItem == null || invItem.getItem() != Items.arrow && invItem.getItem() != GOTItems.arrowPoisoned && invItem.getItem() != GOTItems.arrowFire) {
@@ -222,7 +222,7 @@ public class GOTItemBow extends ItemBow {
 		return this;
 	}
 
-	private boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
+	private static boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
 		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
 	}
 

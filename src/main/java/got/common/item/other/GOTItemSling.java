@@ -2,7 +2,7 @@ package got.common.item.other;
 
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityPebble;
+import got.common.entity.other.inanimate.GOTEntityPebble;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

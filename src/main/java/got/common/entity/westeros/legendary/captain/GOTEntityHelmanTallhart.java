@@ -5,7 +5,7 @@ import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTUnitTradeable;
+import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;

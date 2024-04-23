@@ -2,7 +2,7 @@ package got.common.world.structure.westeros.common;
 
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTFarmhand;
+import got.common.entity.other.iface.GOTFarmhand;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.init.Blocks;

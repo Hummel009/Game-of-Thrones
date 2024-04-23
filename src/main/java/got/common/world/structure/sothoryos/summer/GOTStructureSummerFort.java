@@ -5,7 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarlord;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;

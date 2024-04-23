@@ -3,7 +3,7 @@ package got.common.entity.ai;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityUtils;
+import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;

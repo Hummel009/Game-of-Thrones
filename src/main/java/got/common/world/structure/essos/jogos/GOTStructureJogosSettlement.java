@@ -2,7 +2,7 @@ package got.common.world.structure.essos.jogos;
 
 import got.common.entity.essos.jogos.GOTEntityJogos;
 import got.common.entity.essos.jogos.GOTEntityJogosArcher;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;

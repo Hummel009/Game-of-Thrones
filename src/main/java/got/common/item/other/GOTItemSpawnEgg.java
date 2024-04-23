@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseSpawnEgg;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.renderer.texture.IIconRegister;

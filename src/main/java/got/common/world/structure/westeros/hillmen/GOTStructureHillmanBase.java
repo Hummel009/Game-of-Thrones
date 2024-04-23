@@ -38,7 +38,7 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected ItemStack getRandomHillmanWeapon(Random random) {
+	protected static ItemStack getRandomHillmanWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(Items.iron_sword), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.ironDagger), new ItemStack(Items.stone_sword), new ItemStack(GOTItems.stoneSpear), new ItemStack(GOTItems.club), new ItemStack(GOTItems.trident)};
 		return items[random.nextInt(items.length)].copy();
 	}

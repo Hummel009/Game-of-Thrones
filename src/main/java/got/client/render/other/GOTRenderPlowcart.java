@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.model.GOTModelPlowcart;
-import got.common.entity.other.GOTEntityCart;
+import got.common.entity.other.inanimate.GOTEntityCart;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

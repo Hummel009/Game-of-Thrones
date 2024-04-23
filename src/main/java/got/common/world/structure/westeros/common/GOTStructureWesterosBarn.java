@@ -4,7 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTFarmhand;
+import got.common.entity.other.iface.GOTFarmhand;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

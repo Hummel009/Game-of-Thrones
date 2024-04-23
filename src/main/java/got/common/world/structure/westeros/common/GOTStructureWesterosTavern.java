@@ -4,11 +4,7 @@ import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.entity.other.GOTEntityDarkSkinScrapTrader;
-import got.common.entity.other.GOTEntityDarkSkinThief;
-import got.common.entity.other.GOTEntityProstitute;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
-import got.common.entity.other.GOTEntityLightSkinThief;
+import got.common.entity.other.*;
 import got.common.entity.westeros.GOTEntityMercenary;
 import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;
 import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
@@ -769,10 +765,10 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		}
 		if (hasDarkSkinPeople()) {
 			spawnNPCAndSetHome(new GOTEntityDarkSkinThief(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityDarkSkinScrapTrader(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityDarkSkinTramp(world), world, 2, 1, 7, 16);
 		} else {
 			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 2, 1, 7, 16);
 		}
 		spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
 

@@ -30,7 +30,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		gotWeaponDamage = 1.0f;
 	}
 
-	private void command(EntityPlayer entityplayer, World world, ItemStack itemstack, MovingObjectPosition hitTarget) {
+	private static void command(EntityPlayer entityplayer, World world, ItemStack itemstack, MovingObjectPosition hitTarget) {
 		entityplayer.setRevengeTarget(null);
 		Collection<Entity> spreadTargets = new ArrayList<>();
 		if (hitTarget != null) {
@@ -71,7 +71,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		}
 	}
 
-	private Entity getEntityTarget(EntityPlayer entityplayer) {
+	private static Entity getEntityTarget(EntityPlayer entityplayer) {
 		double range = 64.0;
 		Vec3 eyePos = Vec3.createVectorHelper(entityplayer.posX, entityplayer.posY + entityplayer.getEyeHeight(), entityplayer.posZ);
 		Vec3 look = entityplayer.getLookVec();

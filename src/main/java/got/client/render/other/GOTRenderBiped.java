@@ -60,11 +60,11 @@ public abstract class GOTRenderBiped extends RenderBiped {
 
 	@Override
 	public void func_82420_a(EntityLiving entity, ItemStack itemstack) {
-		GOTArmorModels.INSTANCE.setupModelForRender(modelBipedMain, modelBipedMain, entity);
-		GOTArmorModels.INSTANCE.setupModelForRender(field_82425_h, modelBipedMain, entity);
-		GOTArmorModels.INSTANCE.setupModelForRender(field_82423_g, modelBipedMain, entity);
+		GOTArmorModels.setupModelForRender(modelBipedMain, modelBipedMain, entity);
+		GOTArmorModels.setupModelForRender(field_82425_h, modelBipedMain, entity);
+		GOTArmorModels.setupModelForRender(field_82423_g, modelBipedMain, entity);
 		if (npcRenderPassModel != null) {
-			GOTArmorModels.INSTANCE.setupModelForRender(npcRenderPassModel, modelBipedMain, entity);
+			GOTArmorModels.setupModelForRender(npcRenderPassModel, modelBipedMain, entity);
 		}
 	}
 

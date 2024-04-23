@@ -29,7 +29,7 @@ public class GOTModelTurban extends GOTModelRobes {
 		ornament.showModel = false;
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		GL11.glColor3f(1.0f, 1.0f, 1.0f);
-		GOTArmorModels.INSTANCE.copyBoxRotations(ornament, bipedHead);
+		GOTArmorModels.copyBoxRotations(ornament, bipedHead);
 		ornament.showModel = bipedHead.showModel && GOTItemTurban.hasOrnament(robeItem);
 		ornament.render(f5);
 	}

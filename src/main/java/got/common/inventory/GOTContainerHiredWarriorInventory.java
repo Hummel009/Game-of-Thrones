@@ -2,8 +2,8 @@ package got.common.inventory;
 
 import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.utils.GOTInventoryHiredReplacedItems;
 import got.common.entity.other.info.GOTHireableInfo;
-import got.common.entity.other.GOTInventoryHiredReplacedItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

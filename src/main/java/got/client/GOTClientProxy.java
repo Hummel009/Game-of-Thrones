@@ -15,7 +15,10 @@ import got.common.GOTDimension;
 import got.common.GOTGuiMessageTypes;
 import got.common.GOTTickHandlerServer;
 import got.common.database.GOTAchievement;
-import got.common.entity.other.*;
+import got.common.entity.other.inanimate.GOTEntityBanner;
+import got.common.entity.other.inanimate.GOTEntityInvasionSpawner;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.utils.GOTInvasionStatus;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTFaction;
@@ -645,7 +648,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, boolean isKill, boolean isHiredKill, float conquestBonus, double posX, double posY, double posZ) {
+	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, float conquestBonus, double posX, double posY, double posZ) {
 		World world = getClientWorld();
 		if (world != null) {
 			GOTEntityAlignmentBonus entity = new GOTEntityAlignmentBonus(world, posX, posY, posZ, name, faction, prevMainAlignment, factionBonusMap, conquestBonus);

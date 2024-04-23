@@ -2,7 +2,7 @@ package got.common.entity.westeros.north.hillmen;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.entity.other.GOTMercenary;
+import got.common.entity.other.iface.GOTMercenary;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

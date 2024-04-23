@@ -69,7 +69,7 @@ public abstract class GOTBlockLeavesBase extends BlockLeaves {
 
 	protected abstract void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune);
 
-	protected int calcFortuneModifiedDropChance(int baseChance, int fortune) {
+	protected static int calcFortuneModifiedDropChance(int baseChance, int fortune) {
 		int chance = baseChance;
 		if (fortune > 0) {
 			chance -= 2 << fortune;

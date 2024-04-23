@@ -5,9 +5,9 @@ import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTMountFunctions;
-import got.common.entity.other.GOTNPCMount;
-import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.entity.other.iface.GOTNPCMount;
+import got.common.entity.other.utils.GOTMountFunctions;
+import got.common.entity.other.utils.GOTUnitTradeEntry;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryNPC;
 import got.common.network.GOTPacketHandler;
@@ -497,7 +497,7 @@ public class GOTHireableInfo {
 		return !guardMode && canMove;
 	}
 
-	public int totalXPForLevel(int lvl) {
+	public static int totalXPForLevel(int lvl) {
 		if (lvl <= 1) {
 			return 0;
 		}
@@ -594,7 +594,7 @@ public class GOTHireableInfo {
 			data.setString("HiringPlayerUUID", hiringPlayerUUID.toString());
 		}
 		data.setFloat("AlignReqF", alignmentRequiredToCommand);
-		data.setByte("PledgeType", (byte) pledgeType.typeID);
+		data.setByte("PledgeType", (byte) pledgeType.getTypeID());
 		data.setBoolean("CanMove", canMove);
 		data.setBoolean("TeleportAutomatically", teleportAutomatically);
 		data.setInteger("MobKills", mobKills);

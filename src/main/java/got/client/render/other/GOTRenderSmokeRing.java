@@ -2,7 +2,7 @@ package got.client.render.other;
 
 import got.client.GOTClientProxy;
 import got.client.model.GOTModelSmokeShip;
-import got.common.entity.other.GOTEntitySmokeRing;
+import got.common.entity.other.inanimate.GOTEntitySmokeRing;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;

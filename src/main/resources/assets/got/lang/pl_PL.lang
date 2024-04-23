@@ -158,7 +158,7 @@ entity.got.DaarioNaharis.name=Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name=Dagmer
 entity.got.DarkSkinBandit.name=Ciemnoskóry Bandyt
-entity.got.DarkSkinScrapTrader.name=Ciemnoskóry Handlarz złomem
+entity.got.DarkSkinTramp.name=Ciemnoskóry Włóczęga
 entity.got.DarkSkinThief.name=Ciemnoskóry Złodziej
 entity.got.Dart.name=Strzałka
 entity.got.DavenLannister.name=Daven Lannister
@@ -392,7 +392,7 @@ entity.got.LhazarMiner.name=Lhazarski Górnik
 entity.got.LhazarWarlord.name=Lhazarski Wódz
 entity.got.LhazarWarrior.name=Lhazarski Wojownik
 entity.got.LightSkinBandit.name=Bandyt
-entity.got.LightSkinScrapTrader.name=Handlarz złomem
+entity.got.LightSkinTramp.name=Włóczęga
 entity.got.LightSkinThief.name=Złodziej
 entity.got.LingeringEffect.name=Utrzymujący się Efekt
 entity.got.LingeringPotion.name=Utrzymująca się Mikstura
@@ -1099,6 +1099,8 @@ got.achievement.KILL_SHRYKE.desc=Zabij shryka
 got.achievement.KILL_SHRYKE.title=Walczenie z reptoloidami
 got.achievement.KILL_THENN_BERSERKER.desc=Zabij berserkera
 got.achievement.KILL_THENN_BERSERKER.title=Mocniejszy
+got.achievement.KILL_THEON_GREYJOY.desc=Torment Theon Greyjoy
+got.achievement.KILL_THEON_GREYJOY.title=To tylko kiełbasa
 got.achievement.KILL_THE_KING.desc=Zabij dowolnego Króla Siedmiu Królestw
 got.achievement.KILL_THE_KING.title=Królobójca
 got.achievement.KILL_THIEVING_BANDIT.desc=Zabij bandytę który cię okradł
@@ -1173,10 +1175,10 @@ got.achievement.STEAL.desc=Ukradnij przedmiot dla partnera złodzieja.
 got.achievement.STEAL.title=Misja zakończona
 got.achievement.STEAL_ARBOR_GRAPES.desc=Ukradnij winogrona w Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=To jest moje!
-got.achievement.KILL_THEON_GREYJOY.desc=Torment Theon Greyjoy
-got.achievement.KILL_THEON_GREYJOY.title=To tylko kiełbasa
 got.achievement.TRADE.desc=Handluj z kimś
 got.achievement.TRADE.title=Otworzyć biznes
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.TRAVEL20.desc≠Visit 20 biomes
 got.achievement.TRAVEL20.title≠Traveller I
 got.achievement.TRAVEL40.desc≠Visit 40 biomes
@@ -1185,8 +1187,6 @@ got.achievement.TRAVEL60.desc≠Visit 60 biomes
 got.achievement.TRAVEL60.title≠Traveller III
 got.achievement.TRAVEL80.desc≠Visit 80 biomes
 got.achievement.TRAVEL80.title≠Traveller IV
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc=Roztop przedmiot w tyglu
 got.achievement.UNSMELT.title=Dekonstruowanie
 got.achievement.USE_CROSSBOW.desc=Użyj kuszy
@@ -1857,6 +1857,7 @@ got.command.date.get=Bieżąca data pobrania to %d (%s)
 got.command.date.outOfBounds=Data poza zakresem
 got.command.date.set=Ustaw datę otrzymania na %d (%s)
 got.command.date.usage=/date <get|set|add> <date>
+got.command.db.usage=/db <xml|tables>
 got.command.dragon.canttame=Nie możesz oswajać smoków
 got.command.dragon.nodragons=Nie ma żadnych smoków!
 got.command.facRelations.error=Błąd relacji frakcji: %s
@@ -1899,14 +1900,6 @@ got.command.fmsg.fsPrefix=[ %s]
 got.command.fmsg.notFound=Nie jesteś członkiem Bractwa " %s"
 got.command.fmsg.unbind=Niezwiązane Bractwo "%s"
 got.command.fmsg.usage=/fmsg <"fName"> <message> LUB /fmsg bind <"fName">, aby związać domyślną Bractwo, a następnie /fmsg <message> LUB /fmsg unbind
-got.command.gotEnchant.add=Zastosowano zaklęcie %s do przedmiotu %s %s
-got.command.gotEnchant.cannotAdd=Nie można zastosować zaklęcia %s do przedmiotu %s
-got.command.gotEnchant.cannotRemove=Nie można usunąć zaklęcia %s z przedmiotu %s
-got.command.gotEnchant.clear=Usunięto wszystkie zaklęcia z przedmiotu %s %s
-got.command.gotEnchant.noItem=Nie można zaczarować pustego gniazda
-got.command.gotEnchant.remove=Usunięto zaklęcie %s z przedmiotu %s %s
-got.command.gotEnchant.unknown=Brak zaklęć z imieniem %s
-got.command.gotEnchant.usage=/gotEnchant <player> <add|remove> <enchantment> LUB /gotEnchant <player> wyczyść
 got.command.got_achievement.addAll=Dodano wszystkie osiągnięcia dla gracza %s
 got.command.got_achievement.give.fail=%s ma już osiągnięcie %s
 got.command.got_achievement.give=Gracz %s otrzymał osiągnięcie %s
@@ -1915,6 +1908,14 @@ got.command.got_achievement.remove=Wojna gracza %s zakończyła się bez osiągn
 got.command.got_achievement.removeAll=Usunięto wszystkie osiągnięcia gracza %s
 got.command.got_achievement.unknown=Osiągnięcie " %s" nie istnieje
 got.command.got_achievement.usage=/got_achievement <give|remove> <achievement> [player]
+got.command.got_enchant.add=Zastosowano zaklęcie %s do przedmiotu %s %s
+got.command.got_enchant.cannotAdd=Nie można zastosować zaklęcia %s do przedmiotu %s
+got.command.got_enchant.cannotRemove=Nie można usunąć zaklęcia %s z przedmiotu %s
+got.command.got_enchant.clear=Usunięto wszystkie zaklęcia z przedmiotu %s %s
+got.command.got_enchant.noItem=Nie można zaczarować pustego gniazda
+got.command.got_enchant.remove=Usunięto zaklęcie %s z przedmiotu %s %s
+got.command.got_enchant.unknown=Brak zaklęć z imieniem %s
+got.command.got_enchant.usage=/gotEnchant <player> <add|remove> <enchantment> LUB /gotEnchant <player> wyczyść
 got.command.invasion.noType=Inwazja %s nie istnieje.
 got.command.invasion.start=Rozpoczęto inwazję %s (rozmiar: %d) u współrzędnych %d, %d, %d
 got.command.invasion.usage=/invasion <nazwa> [x] [y] [z] [rozmiar]
@@ -2798,14 +2799,14 @@ got.rank.leader=Przywódca
 got.rank.leader_fm=Przywódca
 got.rank.neutral=Neutralny
 got.rank.neutral_fm=Neutralny
-got.shields.ACHIEVEMENT_BRONZE.desc=Nagroda za zdobycie 25 osiągnięć w Gry o tron
+got.shields.ACHIEVEMENT_BRONZE.desc=Nagroda za zdobycie 75 osiągnięć w Gry o tron
 got.shields.ACHIEVEMENT_BRONZE.name=Brązowa tarcza poszukiwacza przygód
-got.shields.ACHIEVEMENT_GOLD.desc=Nagroda za zdobycie 100 osiągnięć w Gry o tron
+got.shields.ACHIEVEMENT_GOLD.desc=Nagroda za zdobycie 225 osiągnięć w Gry o tron
 got.shields.ACHIEVEMENT_GOLD.name=Złota tarcza poszukiwacza przygód
-got.shields.ACHIEVEMENT_SILVER.desc=Nagroda za zdobycie 50 osiągnięć w Gry o tron
+got.shields.ACHIEVEMENT_SILVER.desc=Nagroda za zdobycie 150 osiągnięć w Gry o tron
 got.shields.ACHIEVEMENT_SILVER.name=Srebrna tarcza poszukiwacza przygód
-got.shields.ACHIEVEMENT_VALYRIAN.desc=Za 50 osiągnięć
-got.shields.ACHIEVEMENT_VALYRIAN.name=Tarcza Valyriańska
+got.shields.ACHIEVEMENT_VALYRIAN.desc=Nagroda za zdobycie 300 osiągnięć w Gry o tron
+got.shields.ACHIEVEMENT_VALYRIAN.name=Valyriańska Tarcza poszukiwacza przygód
 got.shields.ALCOHOLIC.desc=Nagroda za nacieszenie się sporą ilością napojów alkoholowych
 got.shields.ALCOHOLIC.name=Tarcza alkoholika
 got.shields.ARRYN.name=Tarcza Dolina Arrynów

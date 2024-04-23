@@ -53,7 +53,7 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected ItemStack getRangerFramedItem(Random random) {
+	protected static ItemStack getRangerFramedItem(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow)};
 		return items[random.nextInt(items.length)].copy();
 	}

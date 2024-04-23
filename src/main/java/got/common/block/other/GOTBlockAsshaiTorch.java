@@ -43,7 +43,7 @@ public class GOTBlockAsshaiTorch extends BlockTorch {
 		}
 	}
 
-	private TorchParticle createTorchParticle(Random random) {
+	private static TorchParticle createTorchParticle(Random random) {
 		double d3 = -0.05 + random.nextFloat() * 0.1;
 		double d4 = 0.1 + random.nextFloat() * 0.1;
 		double d5 = -0.05 + random.nextFloat() * 0.1;

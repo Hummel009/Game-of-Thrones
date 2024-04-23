@@ -2,7 +2,7 @@ package got.common.world.structure.westeros.arryn;
 
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.arryn.GOTEntityArrynMan;
 import got.common.entity.westeros.arryn.GOTEntityArrynSoldier;
 import got.common.world.biome.GOTBiome;
@@ -97,7 +97,7 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureArrynVillageFarm.Animals(false);
@@ -107,7 +107,7 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureArrynVillageFarm.Tree(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

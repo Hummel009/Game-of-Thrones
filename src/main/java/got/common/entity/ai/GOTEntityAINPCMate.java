@@ -1,7 +1,7 @@
 package got.common.entity.ai;
 
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.GOTEntityRegistry;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.world.World;
@@ -35,11 +35,11 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (theNPC.getClass() != theNPC.getFamilyInfo().getMarriageEntityClass() || theNPC.getFamilyInfo().getSpouseUniqueID() == null || theNPC.getFamilyInfo().getChildren() >= 3 || theNPC.getFamilyInfo().getAge() != 0) {
+		if (theNPC.getClass() != theNPC.getFamilyInfo().getMarriageEntityClass() || theNPC.getFamilyInfo().getSpouseUniqueID() == null || theNPC.getFamilyInfo().getChildren() >= 2 || theNPC.getFamilyInfo().getAge() != 0) {
 			return false;
 		}
 		theSpouse = theNPC.getFamilyInfo().getSpouse();
-		return theSpouse != null && theNPC.getDistanceToEntity(theSpouse) < 16.0 && theSpouse.getFamilyInfo().getChildren() < 3 && theSpouse.getFamilyInfo().getAge() == 0;
+		return theSpouse != null && theNPC.getDistanceToEntity(theSpouse) < 16.0 && theSpouse.getFamilyInfo().getChildren() < 2 && theSpouse.getFamilyInfo().getAge() == 0;
 	}
 
 	private void spawnBaby() {

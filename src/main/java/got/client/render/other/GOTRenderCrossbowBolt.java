@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.entity.other.GOTEntityCrossbowBolt;
+import got.common.entity.other.inanimate.GOTEntityCrossbowBolt;
 import got.common.item.weapon.GOTItemCrossbowBolt;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;

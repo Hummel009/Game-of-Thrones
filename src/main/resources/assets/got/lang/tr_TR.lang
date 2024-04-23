@@ -158,7 +158,7 @@ entity.got.DaarioNaharis.name=Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name=Dagmer
 entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinTramp.name≠Tramp
 entity.got.DarkSkinThief.name≠Thief
 entity.got.Dart.name=Dart
 entity.got.DavenLannister.name=Daven Lannister
@@ -392,7 +392,7 @@ entity.got.LhazarMiner.name=Lhazar Madenci
 entity.got.LhazarWarlord.name=Lhazar Savaş Lordu
 entity.got.LhazarWarrior.name=Lhazar Savaşçı
 entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinTramp.name≠Tramp
 entity.got.LightSkinThief.name≠Thief
 entity.got.LingeringEffect.name=Çökelme Etkisi
 entity.got.LingeringPotion.name=Yerleştirme İksiri
@@ -1099,6 +1099,8 @@ got.achievement.KILL_SHRYKE.desc≠Kill a shryke
 got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
 got.achievement.KILL_THENN_BERSERKER.desc=O zaman çılgına döneni öldür
 got.achievement.KILL_THENN_BERSERKER.title=Daha güçlü
+got.achievement.KILL_THEON_GREYJOY.desc=Eziyet Theon Greyjoy
+got.achievement.KILL_THEON_GREYJOY.title=Bu sadece bir sosis
 got.achievement.KILL_THE_KING.desc=Herhangi bir King of Seven Kingdoms öldür
 got.achievement.KILL_THE_KING.title=Kral katili
 got.achievement.KILL_THIEVING_BANDIT.desc=Sizi soyan haydutu öldürün
@@ -1173,10 +1175,10 @@ got.achievement.STEAL.desc=Bir hırsız ortağı için bir eşya çalmak
 got.achievement.STEAL.title=Görev tamamlandı
 got.achievement.STEAL_ARBOR_GRAPES.desc=Arbor'da üzüm çalmak
 got.achievement.STEAL_ARBOR_GRAPES.title=Bu benim!
-got.achievement.KILL_THEON_GREYJOY.desc=Eziyet Theon Greyjoy
-got.achievement.KILL_THEON_GREYJOY.title=Bu sadece bir sosis
 got.achievement.TRADE.desc=Biriyle ticaret yapmak
 got.achievement.TRADE.title=Bir iş kurmak
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.TRAVEL20.desc≠Visit 20 biomes
 got.achievement.TRAVEL20.title≠Traveller I
 got.achievement.TRAVEL40.desc≠Visit 40 biomes
@@ -1185,8 +1187,6 @@ got.achievement.TRAVEL60.desc≠Visit 60 biomes
 got.achievement.TRAVEL60.title≠Traveller III
 got.achievement.TRAVEL80.desc≠Visit 80 biomes
 got.achievement.TRAVEL80.title≠Traveller IV
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc=Gereksiz ekipman
 got.achievement.UNSMELT.title=Kullanım
 got.achievement.USE_CROSSBOW.desc=Kundaklı Yay Kullan
@@ -1857,6 +1857,7 @@ got.command.date.get=Geçerli alma tarihi %d (%s)
 got.command.date.outOfBounds=Sınır dışı tarih
 got.command.date.set=Alınma tarihini %d (%s) olarak ayarla
 got.command.date.usage=/tarih <get|set|ekle> <tarih>
+got.command.db.usage=/db <xml|tables>
 got.command.dragon.canttame=Ejderhaları evcilleştiremezsin
 got.command.dragon.nodragons=Hiç ejderha yok!
 got.command.facRelations.error=Fraksiyon ilişkileri hatası: %s
@@ -1899,14 +1900,6 @@ got.command.fmsg.fsPrefix=[%s]
 got.command.fmsg.notFound=%s Bursunun bir üyesi değilsiniz
 got.command.fmsg.unbind=Bağlantısız Burs "%s"
 got.command.fmsg.usage=/fmsg <"fName"> <message> VEYA /fmsg bağlama <"fName"> için varsayılan bir Bursu bağlar, ardından /fmsg <message> VEYA /fmsg bağlantısını kaldırır
-got.command.gotEnchant.add=%s öğesinin %s öğesine %s büyüsü uygulandı
-got.command.gotEnchant.cannotAdd=%s büyüsü %s öğesine uygulanamaz
-got.command.gotEnchant.cannotRemove=%s öğesinden %s büyüsü kaldırılamıyor
-got.command.gotEnchant.clear=%s öğesinin %s öğesindeki tüm büyüler temizlendi
-got.command.gotEnchant.noItem=Boş bir yuvayı büyüleyemez
-got.command.gotEnchant.remove=%s öğesinin %s öğesinden %s büyüsü kaldırıldı
-got.command.gotEnchant.unknown=%s adında büyü yok
-got.command.gotEnchant.usage=/gotEnchant <player> <add|remove> <büyü> VEYA /gotEnchant <player> temizle
 got.command.got_achievement.addAll=%s oyuncusu için tüm başarılar eklendi
 got.command.got_achievement.give.fail=%s zaten %s başarısına sahip
 got.command.got_achievement.give=%s oyuncusuna %s başarısı verildi
@@ -1915,6 +1908,14 @@ got.command.got_achievement.remove=Oyuncu %s savaşı başarı olmadan ayrıldı
 got.command.got_achievement.removeAll=%s oyuncusunun tüm başarıları kaldırıldı
 got.command.got_achievement.unknown=Başarı "%s" mevcut değil
 got.command.got_achievement.usage=/got_achievement <ver|kaldır> <başarı> [oyuncu]
+got.command.got_enchant.add=%s öğesinin %s öğesine %s büyüsü uygulandı
+got.command.got_enchant.cannotAdd=%s büyüsü %s öğesine uygulanamaz
+got.command.got_enchant.cannotRemove=%s öğesinden %s büyüsü kaldırılamıyor
+got.command.got_enchant.clear=%s öğesinin %s öğesindeki tüm büyüler temizlendi
+got.command.got_enchant.noItem=Boş bir yuvayı büyüleyemez
+got.command.got_enchant.remove=%s öğesinin %s öğesinden %s büyüsü kaldırıldı
+got.command.got_enchant.unknown=%s adında büyü yok
+got.command.got_enchant.usage=/gotEnchant <player> <add|remove> <büyü> VEYA /gotEnchant <player> temizle
 got.command.invasion.noType=İstila %s mevcut değil.
 got.command.invasion.start=%d, %d, %d kodlarında %s istilası (boyut: %d) başlatıldı
 got.command.invasion.usage=/invasion <ad> [x] [y] [z] [boyut]
@@ -2798,14 +2799,14 @@ got.rank.leader_fm≠Patroness
 got.rank.leader≠Patron
 got.rank.neutral_fm≠Neutral
 got.rank.neutral≠Neutral
-got.shields.ACHIEVEMENT_BRONZE.desc=25 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_BRONZE.desc=75 Başarım Sonucunda Verilecek Kalkan
 got.shields.ACHIEVEMENT_BRONZE.name=Bronz Maceracı Kalkanı
-got.shields.ACHIEVEMENT_GOLD.desc=100 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_GOLD.desc=225 Başarım Sonucunda Verilecek Kalkan
 got.shields.ACHIEVEMENT_GOLD.name=Altın Maceracı Kalkanı
-got.shields.ACHIEVEMENT_SILVER.desc=50 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_SILVER.desc=150 Başarım Sonucunda Verilecek Kalkan
 got.shields.ACHIEVEMENT_SILVER.name=Gümüş Maceracı Kalkanı
-got.shields.ACHIEVEMENT_VALYRIAN.desc=50 başarı için
-got.shields.ACHIEVEMENT_VALYRIAN.name=Valyria Kalkanı
+got.shields.ACHIEVEMENT_VALYRIAN.desc=300 Başarım Sonucunda Verilecek Kalkan
+got.shields.ACHIEVEMENT_VALYRIAN.name=Valyria Maceracı Kalkanı
 got.shields.ALCOHOLIC.desc=Epey Bir Miktar İçkinin Sonunda Kazanılan Kalkan
 got.shields.ALCOHOLIC.name=Alkoliklerin Kalkanı
 got.shields.ARRYN.name=Vadi Kalkanı

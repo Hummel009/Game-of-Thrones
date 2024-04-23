@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.common.block.other.GOTBlockTreasurePile;
-import got.common.entity.other.GOTEntityFallingTreasure;
+import got.common.entity.other.inanimate.GOTEntityFallingTreasure;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.entity.Render;

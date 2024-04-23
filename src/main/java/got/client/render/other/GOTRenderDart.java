@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.entity.other.GOTEntityDart;
+import got.common.entity.other.inanimate.GOTEntityDart;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;

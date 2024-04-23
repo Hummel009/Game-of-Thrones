@@ -5,7 +5,7 @@ import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.GOTEntityDart;
+import got.common.entity.other.inanimate.GOTEntityDart;
 import got.common.item.other.GOTItemDart;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -113,7 +113,7 @@ public class GOTItemSarbacane extends Item {
 			if (!world.isRemote) {
 				ItemStack shotDart = dartItem.copy();
 				shotDart.stackSize = 1;
-				GOTEntityDart dart = ((GOTItemDart) shotDart.getItem()).createDart(world, entityplayer, shotDart, charge * 2.0f * getSarbacaneLaunchSpeedFactor(itemstack));
+				GOTEntityDart dart = GOTItemDart.createDart(world, entityplayer, shotDart, charge * 2.0f * getSarbacaneLaunchSpeedFactor(itemstack));
 				if (dart.getDartDamageFactor() < 1.0f) {
 					dart.setDartDamageFactor(1.0f);
 				}

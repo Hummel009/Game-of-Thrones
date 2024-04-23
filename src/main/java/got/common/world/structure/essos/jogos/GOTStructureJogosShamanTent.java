@@ -108,7 +108,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.anvil, 1);
-			placeWeaponRack(world, -1, 2, -2, 2, new GOTStructureJogosShamanTent(false).getRandomNomadWeapon(random));
+			placeWeaponRack(world, -1, 2, -2, 2, getRandomNomadWeapon(random));
 			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

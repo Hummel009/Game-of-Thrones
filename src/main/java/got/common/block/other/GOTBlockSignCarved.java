@@ -44,7 +44,7 @@ public class GOTBlockSignCarved extends BlockSign {
 		return null;
 	}
 
-	public IIcon getOnBlockIcon(IBlockAccess world, int i, int j, int k, int side) {
+	public static IIcon getOnBlockIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int onX = i - Facing.offsetsXForSide[side];
 		int onY = j - Facing.offsetsYForSide[side];
 		int onZ = k - Facing.offsetsZForSide[side];

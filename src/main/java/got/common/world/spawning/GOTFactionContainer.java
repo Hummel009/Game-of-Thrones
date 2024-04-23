@@ -69,7 +69,7 @@ public class GOTFactionContainer {
 	public GOTSpawnListContainer getRandomSpawnList(Random rand, float conq) {
 		int totalWeight = 0;
 		for (GOTSpawnListContainer cont : spawnLists) {
-			if (!cont.canSpawnAtConquestLevel(conq)) {
+			if (!GOTSpawnListContainer.canSpawnAtConquestLevel(conq)) {
 				continue;
 			}
 			totalWeight += cont.getWeight();
@@ -77,7 +77,7 @@ public class GOTFactionContainer {
 		if (totalWeight > 0) {
 			int w = rand.nextInt(totalWeight);
 			for (GOTSpawnListContainer cont : spawnLists) {
-				if (!cont.canSpawnAtConquestLevel(conq) || (w -= cont.getWeight()) >= 0) {
+				if (!GOTSpawnListContainer.canSpawnAtConquestLevel(conq) || (w -= cont.getWeight()) >= 0) {
 					continue;
 				}
 				return cont;

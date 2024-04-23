@@ -205,8 +205,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			placeWeaponRack(world, 3, 2, 0, 2, new GOTStructureSummerMarket(false).getRandomWeapon(random));
-			placeWeaponRack(world, 0, 2, 4, 3, new GOTStructureSummerMarket(false).getRandomWeapon(random));
+			placeWeaponRack(world, 3, 2, 0, 2, getRandomWeapon(random));
+			placeWeaponRack(world, 0, 2, 4, 3, getRandomWeapon(random));
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.anvil, 1);
 			placeArmorStand(world, 4, 1, 2, 0, new ItemStack[]{new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), null, null});
@@ -284,7 +284,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			return true;
 		}
 
-		private ItemStack getRandomFarmFood(Random random) {
+		private static ItemStack getRandomFarmFood(Random random) {
 			ItemStack[] items = {new ItemStack(GOTItems.orange), new ItemStack(GOTItems.lemon), new ItemStack(GOTItems.lime), new ItemStack(Items.carrot), new ItemStack(Items.potato), new ItemStack(GOTItems.lettuce), new ItemStack(GOTItems.turnip)};
 			ItemStack ret = items[random.nextInt(items.length)].copy();
 			ret.stackSize = 1 + random.nextInt(3);

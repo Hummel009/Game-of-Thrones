@@ -4,7 +4,7 @@ import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarlord;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
@@ -102,14 +102,14 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextInt(3) == 0) {
 				return new GOTStructureIbbenVillagePasture(false);
 			}
 			return new GOTStructureIbbenVillageFarm(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(4) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

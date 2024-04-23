@@ -1,7 +1,7 @@
 package got.common.item.other;
 
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.other.GOTEntityCargocart;
+import got.common.entity.other.inanimate.GOTEntityCargocart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

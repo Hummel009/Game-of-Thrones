@@ -7,6 +7,11 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTGuiId;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
+import got.common.entity.other.iface.GOTHireableBase;
+import got.common.entity.other.iface.GOTMercenary;
+import got.common.entity.other.iface.GOTTradeable;
+import got.common.entity.other.iface.GOTUnitTradeable;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.inventory.*;
 import got.common.item.other.GOTItemCracker;
@@ -540,7 +545,7 @@ public class GOTGuiHandler implements IGuiHandler {
 		return null;
 	}
 
-	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
+	public static void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
 		if (world.isRemote && GOT.proxy.isClient()) {
 			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
 		} else {

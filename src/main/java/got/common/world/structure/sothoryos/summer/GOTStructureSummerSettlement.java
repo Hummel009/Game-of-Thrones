@@ -1,6 +1,6 @@
 package got.common.world.structure.sothoryos.summer;
 
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
@@ -99,7 +99,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureSummerSmithy(false);
 			}

@@ -158,7 +158,7 @@ entity.got.DaarioNaharis.name≠Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠Dagmer
 entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinTramp.name≠Tramp
 entity.got.DarkSkinThief.name≠Thief
 entity.got.Dart.name=Dardo
 entity.got.DavenLannister.name≠Daven Lannister
@@ -392,7 +392,7 @@ entity.got.LhazarMiner.name=Minatore di Lhazar
 entity.got.LhazarWarlord.name=Signore della Guerra di Lhazar
 entity.got.LhazarWarrior.name=Guerriero di Lhazar
 entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinTramp.name≠Tramp
 entity.got.LightSkinThief.name≠Thief
 entity.got.LingeringEffect.name≠Lingering Effect
 entity.got.LingeringPotion.name≠Lingering Potion
@@ -1099,6 +1099,8 @@ got.achievement.KILL_SHRYKE.desc≠Kill a shryke
 got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
 got.achievement.KILL_THENN_BERSERKER.desc=Uccidi l'allora berserker
 got.achievement.KILL_THENN_BERSERKER.title=Più potente
+got.achievement.KILL_THEON_GREYJOY.desc=Tormento Theon Greyjoy
+got.achievement.KILL_THEON_GREYJOY.title=È solo una salsiccia
 got.achievement.KILL_THE_KING.desc=Uccidi qualsiasi Re dei Sette Regni
 got.achievement.KILL_THE_KING.title=Kingslayer
 got.achievement.KILL_THIEVING_BANDIT.desc≠Kill the bandit who robbed you
@@ -1173,10 +1175,10 @@ got.achievement.STEAL.desc=Steal un oggetto per un partner ladro
 got.achievement.STEAL.title=Missione compiuta
 got.achievement.STEAL_ARBOR_GRAPES.desc=Ruba l'uva ad Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=È mio!
-got.achievement.KILL_THEON_GREYJOY.desc=Tormento Theon Greyjoy
-got.achievement.KILL_THEON_GREYJOY.title=È solo una salsiccia
 got.achievement.TRADE.desc=Scambia con qualcuno
 got.achievement.TRADE.title=Iniziare un attività
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.TRAVEL20.desc≠Visit 20 biomes
 got.achievement.TRAVEL20.title≠Traveller I
 got.achievement.TRAVEL40.desc≠Visit 40 biomes
@@ -1185,8 +1187,6 @@ got.achievement.TRAVEL60.desc≠Visit 60 biomes
 got.achievement.TRAVEL60.title≠Traveller III
 got.achievement.TRAVEL80.desc≠Visit 80 biomes
 got.achievement.TRAVEL80.title≠Traveller IV
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc≠Unsmelt unneeded equipment
 got.achievement.UNSMELT.title≠Util
 got.achievement.USE_CROSSBOW.desc≠Use a crossbow
@@ -1857,6 +1857,7 @@ got.command.date.get=La data attuale è %d (%s)
 got.command.date.outOfBounds=Data fuori limite
 got.command.date.set=Imposta la data su %d (%s)
 got.command.date.usage=/data <get|set|add> <date>
+got.command.db.usage=/db <xml|tables>
 got.command.dragon.canttame=Non puoi domare i draghi
 got.command.dragon.nodragons=Non ci sono draghi!
 got.command.facRelations.error=Errore di rapporto tra fazioni: %s
@@ -1899,14 +1900,6 @@ got.command.fmsg.fsPrefix=[%s]
 got.command.fmsg.notFound=Non sei membro della compagnia "%s"
 got.command.fmsg.unbind=Scollegata compagnia "%s"
 got.command.fmsg.usage=/fmsg <"fName"> <message> OPPURE /fmsg bind <"fName"> per associare una compagnia predefinita, poi /fmsg <message> OPPURE /fmsg unbind
-got.command.gotEnchant.add=Applicato l'incantesimo %s all'oggetto di %s %s
-got.command.gotEnchant.cannotAdd=Impossibile applicare l'incantesimo %s all'oggetto %s
-got.command.gotEnchant.cannotRemove=Impossibile rimuovere l'incantesimo %s dall'oggetto %s
-got.command.gotEnchant.clear=Rimossi tutti gli incantamenti dall'oggetto di %s %s
-got.command.gotEnchant.noItem=Impossibile incantare uno slot vuoto
-got.command.gotEnchant.remove=Rimosso l'incantesimo %s dall'oggetto di %s %s
-got.command.gotEnchant.unknown=Nessun incantesimo con nome %s
-got.command.gotEnchant.usage=/gotEnchant <player> <add|remove> <enchantment> OPPURE /gotEnchant <player> clear
 got.command.got_achievement.addAll=Aggiunti tutti gli obiettivi per il giocatore %s
 got.command.got_achievement.give.fail=%s ha già completato l'obiettivo %s
 got.command.got_achievement.give=Dato a %s l'obiettivo %s
@@ -1915,6 +1908,14 @@ got.command.got_achievement.remove=Tolto a %s l'obiettivo %s
 got.command.got_achievement.removeAll=Tolti tutti gli obiettivi della Trono di Spade a %s
 got.command.got_achievement.unknown=Nessun obiettivo con nome %s
 got.command.got_achievement.usage=/got_achievement <give|remove> <achievement> [player]
+got.command.got_enchant.add=Applicato l'incantesimo %s all'oggetto di %s %s
+got.command.got_enchant.cannotAdd=Impossibile applicare l'incantesimo %s all'oggetto %s
+got.command.got_enchant.cannotRemove=Impossibile rimuovere l'incantesimo %s dall'oggetto %s
+got.command.got_enchant.clear=Rimossi tutti gli incantamenti dall'oggetto di %s %s
+got.command.got_enchant.noItem=Impossibile incantare uno slot vuoto
+got.command.got_enchant.remove=Rimosso l'incantesimo %s dall'oggetto di %s %s
+got.command.got_enchant.unknown=Nessun incantesimo con nome %s
+got.command.got_enchant.usage=/gotEnchant <player> <add|remove> <enchantment> OPPURE /gotEnchant <player> clear
 got.command.invasion.noType=Nessun tipo di invasione con nome %s
 got.command.invasion.start=Avviata invasione di %s (dimensione %d) in %d, %d, %d
 got.command.invasion.usage=/invasion <type> [x] [y] [z] [size]
@@ -2798,14 +2799,14 @@ got.rank.leader_fm≠Patroness
 got.rank.leader≠Patron
 got.rank.neutral_fm≠Neutral
 got.rank.neutral≠Neutral
-got.shields.ACHIEVEMENT_BRONZE.desc=Conferito per aver completato 25 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_BRONZE.desc=Conferito per aver completato 75 obiettivi della Trono di Spade
 got.shields.ACHIEVEMENT_BRONZE.name=Scudo di bronzo dell'avventuriero
-got.shields.ACHIEVEMENT_GOLD.desc=Conferito per aver completato 100 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_GOLD.desc=Conferito per aver completato 225 obiettivi della Trono di Spade
 got.shields.ACHIEVEMENT_GOLD.name=Scudo d'oro dell'avventuriero
-got.shields.ACHIEVEMENT_SILVER.desc=Conferito per aver completato 50 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_SILVER.desc=Conferito per aver completato 150 obiettivi della Trono di Spade
 got.shields.ACHIEVEMENT_SILVER.name=Scudo d'argento dell'avventuriero
-got.shields.ACHIEVEMENT_VALYRIAN.desc=Per 50 realizzazioni
-got.shields.ACHIEVEMENT_VALYRIAN.name=Scudo di Valyria
+got.shields.ACHIEVEMENT_VALYRIAN.desc=Conferito per aver completato 300 obiettivi della Trono di Spade
+got.shields.ACHIEVEMENT_VALYRIAN.name=Scudo di valyria dell'avventuriero
 got.shields.ALCOHOLIC.desc=Conferito per aver gustato copiose quantità di bevande alcoliche
 got.shields.ALCOHOLIC.name=Scudo dell'alcolista
 got.shields.ARRYN.name=Scudo di Valle di Arryn

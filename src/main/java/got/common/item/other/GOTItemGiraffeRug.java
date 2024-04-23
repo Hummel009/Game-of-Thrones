@@ -1,7 +1,7 @@
 package got.common.item.other;
 
-import got.common.entity.animal.GOTEntityGiraffeRug;
-import got.common.entity.other.GOTEntityRugBase;
+import got.common.entity.other.inanimate.GOTEntityGiraffeRug;
+import got.common.entity.other.inanimate.GOTEntityRugBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

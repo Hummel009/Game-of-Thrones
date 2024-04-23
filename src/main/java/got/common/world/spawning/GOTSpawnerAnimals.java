@@ -193,7 +193,7 @@ public class GOTSpawnerAnimals {
 								exception.printStackTrace();
 								continue;
 							}
-							boolean canSpawn = !(entity instanceof GOTEntityBear) || ((GOTEntityBear) entity).canWorldGenSpawnAt(biome, variant);
+							boolean canSpawn = !(entity instanceof GOTEntityBear) || GOTEntityBear.canWorldGenSpawnAt(biome, variant);
 							if (canSpawn) {
 								entity.setLocationAndAngles(f, j1, f2, rand.nextFloat() * 360.0f, 0.0f);
 								world.spawnEntityInWorld(entity);

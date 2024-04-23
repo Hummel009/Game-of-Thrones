@@ -157,9 +157,9 @@ entity.got.CrownlandsMiner.name=Mineur des Terres de la Couronne
 entity.got.DaarioNaharis.name≠Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠Dagmer
-entity.got.DarkSkinBandit.name=Bandit d'Essos
-entity.got.DarkSkinScrapTrader.name=Ferrailleur d'Essos
-entity.got.DarkSkinThief.name=Voleur d'Essos
+entity.got.DarkSkinBandit.name=Bandit à la peau foncée
+entity.got.DarkSkinTramp.name=Clochard à la peau foncée
+entity.got.DarkSkinThief.name=Voleur à la peau foncée
 entity.got.Dart.name=Fléchette
 entity.got.DavenLannister.name≠Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -392,7 +392,7 @@ entity.got.LhazarMiner.name=Mineur de Lhazar
 entity.got.LhazarWarlord.name=Seigneur de guerre de Lhazar
 entity.got.LhazarWarrior.name=Guerrier de Lhazar
 entity.got.LightSkinBandit.name=Bandit
-entity.got.LightSkinScrapTrader.name=Ferrailleur
+entity.got.LightSkinTramp.name=Clochard
 entity.got.LightSkinThief.name=Voleur
 entity.got.LingeringEffect.name≠Lingering Effect
 entity.got.LingeringPotion.name≠Lingering Potion
@@ -1099,6 +1099,8 @@ got.achievement.KILL_SHRYKE.desc≠Kill a shryke
 got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
 got.achievement.KILL_THENN_BERSERKER.desc=Tuez le thenn-berserker
 got.achievement.KILL_THENN_BERSERKER.title=Plus puissant
+got.achievement.KILL_THEON_GREYJOY.desc=Tourmenter Theon Greyjoy
+got.achievement.KILL_THEON_GREYJOY.title=Ramsey?
 got.achievement.KILL_THE_KING.desc=Tuez n'importe quel roi des sept royaumes
 got.achievement.KILL_THE_KING.title=Kingslayer
 got.achievement.KILL_THIEVING_BANDIT.desc≠Kill the bandit who robbed you
@@ -1173,10 +1175,10 @@ got.achievement.STEAL.desc=Voler un objet pour un partenaire voleur
 got.achievement.STEAL.title=Mission accomplie
 got.achievement.STEAL_ARBOR_GRAPES.desc=Voler des raisins à Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=C'est à moi!
-got.achievement.KILL_THEON_GREYJOY.desc=Tourmenter Theon Greyjoy
-got.achievement.KILL_THEON_GREYJOY.title=Ramsey?
 got.achievement.TRADE.desc=Commercer avec quelqu'un
 got.achievement.TRADE.title=Commencer une affaire
+got.achievement.TRAVEL100.desc≠Visit 100 biomes
+got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.TRAVEL20.desc≠Visit 20 biomes
 got.achievement.TRAVEL20.title≠Traveller I
 got.achievement.TRAVEL40.desc≠Visit 40 biomes
@@ -1185,8 +1187,6 @@ got.achievement.TRAVEL60.desc≠Visit 60 biomes
 got.achievement.TRAVEL60.title≠Traveller III
 got.achievement.TRAVEL80.desc≠Visit 80 biomes
 got.achievement.TRAVEL80.title≠Traveller IV
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
 got.achievement.UNSMELT.desc=Recycler des équipements inutiles
 got.achievement.UNSMELT.title=Recyclage
 got.achievement.USE_CROSSBOW.desc=Utiliser une arbalète
@@ -1857,6 +1857,7 @@ got.command.date.get=La date d'obtention actuelle est %d (%s)
 got.command.date.outOfBounds=Date hors limites
 got.command.date.set=Définir la date d’obtention sur %d (%s)
 got.command.date.usage=/date <get|set|add> <date>
+got.command.db.usage=/db <xml|tables>
 got.command.dragon.canttame=Vous ne pouvez pas apprivoiser les dragons
 got.command.dragon.nodragons=Il n'y a pas de dragons!
 got.command.facRelations.error=Erreur de relation de factions: %s
@@ -1899,14 +1900,6 @@ got.command.fmsg.fsPrefix=[%s]
 got.command.fmsg.notFound=Vous n'êtes plus membre de la communauté "%s"
 got.command.fmsg.unbind=La communauté "%s" n'est plus la communauté par défaut
 got.command.fmsg.usage=/fmsg <"nomDeCommunauté"> <message> OU /fmsg bind <"nomDeCommunauté"> pour ajouter une communauté par défaut ; puis /fmsg <message> OU /fmsg unbind
-got.command.gotEnchant.add=Appliqué l'enchantement %s à %s pour l'objet %s
-got.command.gotEnchant.cannotAdd=Impossible d'appliquer l'enchantement %s à l'objet %s
-got.command.gotEnchant.cannotRemove=Impossible de supprimer l'enchantement %s de l'objet %s
-got.command.gotEnchant.clear=Supprimé tous les enchantement à %s sur l'objet %s
-got.command.gotEnchant.noItem=Impossible d'enchanter un emplacement vide
-got.command.gotEnchant.remove=Supprimé l'enchantement %s de %s sur l'objet %s
-got.command.gotEnchant.unknown=Aucun enchantement du nom "%s"
-got.command.gotEnchant.usage=/gotEnchant <joueur> <add|remove> <enchantement> OU /gotEnchant <joueur> clear
 got.command.got_achievement.addAll=Ajout de toutes les réalisations pour le joueur %s
 got.command.got_achievement.give.fail=%s a déjà le succès %s
 got.command.got_achievement.give=%s a obtenu le succès %s
@@ -1915,6 +1908,14 @@ got.command.got_achievement.remove=Supprimé à %s le succès %s
 got.command.got_achievement.removeAll=Supprimé tous les succès de %s
 got.command.got_achievement.unknown=Aucun succès du nom de %s
 got.command.got_achievement.usage=/got_achievement <give|remove> <succès> [joueur]
+got.command.got_enchant.add=Appliqué l'enchantement %s à %s pour l'objet %s
+got.command.got_enchant.cannotAdd=Impossible d'appliquer l'enchantement %s à l'objet %s
+got.command.got_enchant.cannotRemove=Impossible de supprimer l'enchantement %s de l'objet %s
+got.command.got_enchant.clear=Supprimé tous les enchantement à %s sur l'objet %s
+got.command.got_enchant.noItem=Impossible d'enchanter un emplacement vide
+got.command.got_enchant.remove=Supprimé l'enchantement %s de %s sur l'objet %s
+got.command.got_enchant.unknown=Aucun enchantement du nom "%s"
+got.command.got_enchant.usage=/gotEnchant <joueur> <add|remove> <enchantement> OU /gotEnchant <joueur> clear
 got.command.invasion.noType=Aucune invasion de ce type pour au nom de %s
 got.command.invasion.start=Déclenché une invasion de %s (taille %d) à %d, %d, %d
 got.command.invasion.usage=/invasion <type> [x] [y] [z] [taille]
@@ -2798,14 +2799,14 @@ got.rank.leader=Dirigeant
 got.rank.leader_fm=Dirigeante
 got.rank.neutral=Neutre
 got.rank.neutral_fm=Neutre
-got.shields.ACHIEVEMENT_BRONZE.desc=Décerné pour avoir complété 25 succès en Game of Thrones
+got.shields.ACHIEVEMENT_BRONZE.desc=Décerné pour avoir complété 75 succès en Game of Thrones
 got.shields.ACHIEVEMENT_BRONZE.name=Bouclier de bronze de l'aventurier
-got.shields.ACHIEVEMENT_GOLD.desc=Décerné pour avoir complété 100 succès en Game of Thrones
+got.shields.ACHIEVEMENT_GOLD.desc=Décerné pour avoir complété 225 succès en Game of Thrones
 got.shields.ACHIEVEMENT_GOLD.name=Bouclier d'or de l'aventurier
-got.shields.ACHIEVEMENT_SILVER.desc=Décerné pour avoir complété 50 succès en Game of Thrones
+got.shields.ACHIEVEMENT_SILVER.desc=Décerné pour avoir complété 150 succès en Game of Thrones
 got.shields.ACHIEVEMENT_SILVER.name=Bouclier d'argent de l'aventurier
-got.shields.ACHIEVEMENT_VALYRIAN.desc=Pour 50 réalisations
-got.shields.ACHIEVEMENT_VALYRIAN.name=Bouclier valyrien
+got.shields.ACHIEVEMENT_VALYRIAN.desc=Décerné pour avoir complété 300 succès en Game of Thrones
+got.shields.ACHIEVEMENT_VALYRIAN.name=Bouclier d'valyrien de l'aventurier
 got.shields.ALCOHOLIC.desc=Décerné pour avoir consommé une grande quantité de boissons alcoolisées
 got.shields.ALCOHOLIC.name=Bouclier de l'alcoolique
 got.shields.ARRYN.name=Bouclier du Val d'Arryn

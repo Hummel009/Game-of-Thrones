@@ -55,7 +55,7 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 		return false;
 	}
 
-	private void launchWhip(EntityLivingBase user, EntityLivingBase hitEntity) {
+	private static void launchWhip(EntityLivingBase user, EntityLivingBase hitEntity) {
 		user.worldObj.playSoundAtEntity(user, "got:item.whip", 2.0f, 0.7f + itemRand.nextFloat() * 0.6f);
 		double range = 16.0;
 		Vec3 position = Vec3.createVectorHelper(user.posX, user.posY, user.posZ);

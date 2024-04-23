@@ -2,7 +2,7 @@ package got.common.world.structure.essos.mossovy;
 
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;

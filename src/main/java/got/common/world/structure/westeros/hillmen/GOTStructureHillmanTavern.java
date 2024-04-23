@@ -4,7 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanBartender;
@@ -133,7 +133,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 			spawnNPCAndSetHome(man, world, 0, 1, 0, 16);
 		}
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
-		spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 		return true;
 	}
 

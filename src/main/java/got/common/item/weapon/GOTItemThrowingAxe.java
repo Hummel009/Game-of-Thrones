@@ -4,7 +4,7 @@ import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseThrowingAxe;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.GOTEntityThrowingAxe;
+import got.common.entity.other.inanimate.GOTEntityThrowingAxe;
 import got.common.item.GOTMaterialFinder;
 import got.common.recipe.GOTRecipe;
 import net.minecraft.block.BlockDispenser;

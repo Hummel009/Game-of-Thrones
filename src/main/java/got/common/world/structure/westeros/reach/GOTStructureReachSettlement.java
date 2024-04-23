@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.reach;
 
 import com.google.common.math.IntMath;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.reach.GOTEntityReachMan;
 import got.common.entity.westeros.reach.GOTEntityReachSoldier;
 import got.common.world.biome.GOTBiome;
@@ -99,7 +99,7 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureReachVillageFarm.Animals(false);
@@ -109,7 +109,7 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureReachVillageFarm.Tree(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

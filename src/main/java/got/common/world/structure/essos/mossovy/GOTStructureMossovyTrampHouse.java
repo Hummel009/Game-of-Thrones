@@ -3,7 +3,7 @@ package got.common.world.structure.essos.mossovy;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -218,7 +218,7 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		if (random.nextBoolean()) {
 			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
 		} else {
-			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 		}
 		return true;
 	}

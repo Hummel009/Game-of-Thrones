@@ -70,8 +70,8 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			float lvlProgress = theNPC.getHireableInfo().getProgressToNextLevel();
 			String curLevel = EnumChatFormatting.BOLD + String.valueOf(theNPC.getHireableInfo().getXpLevel());
 			String nextLevel = EnumChatFormatting.BOLD + String.valueOf(theNPC.getHireableInfo().getXpLevel() + 1);
-			String xpCurLevel = String.valueOf(theNPC.getHireableInfo().totalXPForLevel(theNPC.getHireableInfo().getXpLevel()));
-			String xpNextLevel = String.valueOf(theNPC.getHireableInfo().totalXPForLevel(theNPC.getHireableInfo().getXpLevel() + 1));
+			String xpCurLevel = String.valueOf(GOTHireableInfo.totalXPForLevel(theNPC.getHireableInfo().getXpLevel()));
+			String xpNextLevel = String.valueOf(GOTHireableInfo.totalXPForLevel(theNPC.getHireableInfo().getXpLevel() + 1));
 			drawRect(midX - 36, guiTop + 96, midX + 36, guiTop + 102, -16777216);
 			drawRect(midX - 35, guiTop + 97, midX + 35, guiTop + 101, -10658467);
 			drawRect(midX - 35, guiTop + 97, midX - 35 + (int) (lvlProgress * 70.0f), guiTop + 101, -43776);

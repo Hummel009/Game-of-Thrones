@@ -118,10 +118,6 @@ public class GOTEntityBeaver extends EntityAnimal implements GOTBiome.ImmuneToFr
 		return false;
 	}
 
-	private GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBeaver;
-	}
-
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
 		return !isHostile() && super.interact(entityplayer);
@@ -150,9 +146,7 @@ public class GOTEntityBeaver extends EntityAnimal implements GOTBiome.ImmuneToFr
 		super.onDeath(damagesource);
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
-			if (getKillAchievement() != null) {
-				GOTLevelData.getData(entityplayer).addAchievement(getKillAchievement());
-			}
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killBeaver);
 		}
 	}
 

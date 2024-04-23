@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.wildling;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityLightSkinScrapTrader;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
@@ -180,7 +180,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 			if (random.nextBoolean()) {
 				spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
 			} else {
-				spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
+				spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 			}
 		} else if (random.nextInt(4) == 1) {
 			spawnNPCAndSetHome(new GOTEntityWildlingArcher(world), world, 0, 1, 0, 8);

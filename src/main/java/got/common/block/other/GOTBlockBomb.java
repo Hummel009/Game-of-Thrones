@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityBomb;
+import got.common.entity.other.inanimate.GOTEntityBomb;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

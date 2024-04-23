@@ -35,7 +35,7 @@ public class GOTEntityAILionMate extends EntityAIBase {
 
 	private EntityAnimal findMate() {
 		float searchRadius = 8.0f;
-		Class<? extends EntityAnimal> mateClass = theAnimal.getAnimalMFBaseClass();
+		Class<? extends EntityAnimal> mateClass = GOTEntityLionBase.getAnimalMFBaseClass();
 		List<? extends EntityAnimal> entities = theWorld.getEntitiesWithinAABB(mateClass, theAnimal.boundingBox.expand(searchRadius, searchRadius, searchRadius));
 
 		for (EntityAnimal entity : entities) {

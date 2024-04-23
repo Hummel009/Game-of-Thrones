@@ -2,7 +2,7 @@ package got.common.item.weapon;
 
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseFirePot;
-import got.common.entity.other.GOTEntityFirePot;
+import got.common.entity.other.inanimate.GOTEntityFirePot;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

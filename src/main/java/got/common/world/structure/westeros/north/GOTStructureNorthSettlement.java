@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.north;
 
 import com.google.common.math.IntMath;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.north.GOTEntityNorthMan;
 import got.common.entity.westeros.north.GOTEntityNorthSoldier;
 import got.common.entity.westeros.north.hillmen.GOTEntityNorthHillman;
@@ -112,7 +112,7 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		private GOTStructureBase getRandomFarm(Random random) {
+		private static GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
 					return new GOTStructureNorthVillageFarm.Animals(false);
@@ -122,7 +122,7 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureNorthVillageFarm.Tree(false);
 		}
 
-		private GOTStructureBase getRandomHouse(Random random) {
+		private static GOTStructureBase getRandomHouse(Random random) {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {

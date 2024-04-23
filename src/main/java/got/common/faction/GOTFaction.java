@@ -5,7 +5,7 @@ import got.common.GOTAchievementRank;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.entity.other.GOTNPCSelectByFaction;
+import got.common.entity.other.utils.GOTNPCSelectByFaction;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.GOTWorldProvider;
 import got.common.world.map.GOTWaypoint;

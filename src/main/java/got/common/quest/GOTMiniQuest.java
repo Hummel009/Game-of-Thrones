@@ -11,7 +11,7 @@ import got.common.database.GOTSpeech;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.info.GOTHireableInfo;
-import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.entity.other.utils.GOTUnitTradeEntry;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
@@ -204,7 +204,7 @@ public abstract class GOTMiniQuest {
 			boolean givePouch = canRewardVariousExtraItems() && rand.nextInt(10) == 0;
 			if (givePouch) {
 				ItemStack pouch = npc.createNPCPouchDrop();
-				npc.fillPouchFromListAndRetainUnfilled(pouch, dropItems);
+				GOTEntityNPC.fillPouchFromListAndRetainUnfilled(pouch, dropItems);
 				npc.entityDropItem(pouch, 0.0f);
 				ItemStack pouchCopy = pouch.copy();
 				pouchCopy.setTagCompound(null);

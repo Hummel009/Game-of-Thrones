@@ -44,7 +44,7 @@ public class GOTCommandStrScan extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "development command";
+		return "/strscan [google its usage it's really complex]";
 	}
 
 	@Override

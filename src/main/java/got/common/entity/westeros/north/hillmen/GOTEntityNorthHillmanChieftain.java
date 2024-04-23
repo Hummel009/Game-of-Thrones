@@ -5,7 +5,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
-import got.common.entity.other.GOTUnitTradeable;
+import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;

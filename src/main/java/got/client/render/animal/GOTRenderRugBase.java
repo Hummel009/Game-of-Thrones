@@ -1,6 +1,6 @@
 package got.client.render.animal;
 
-import got.common.entity.other.GOTEntityRugBase;
+import got.common.entity.other.inanimate.GOTEntityRugBase;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;

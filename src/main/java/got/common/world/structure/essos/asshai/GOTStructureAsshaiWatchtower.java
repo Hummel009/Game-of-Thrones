@@ -6,7 +6,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

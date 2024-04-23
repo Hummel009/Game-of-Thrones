@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import cpw.mods.fml.common.FMLLog;
-import got.common.entity.other.GOTEntityThrowingAxe;
+import got.common.entity.other.inanimate.GOTEntityThrowingAxe;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;

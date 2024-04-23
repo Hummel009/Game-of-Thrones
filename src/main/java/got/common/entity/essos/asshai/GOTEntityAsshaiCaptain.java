@@ -3,7 +3,7 @@ package got.common.entity.essos.asshai;
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTUnitTradeable;
+import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;

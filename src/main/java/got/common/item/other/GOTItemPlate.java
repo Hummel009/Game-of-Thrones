@@ -3,7 +3,7 @@ package got.common.item.other;
 import got.common.block.other.GOTBlockPlate;
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispensePlate;
-import got.common.entity.other.GOTEntityPlate;
+import got.common.entity.other.inanimate.GOTEntityPlate;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.Entity;
