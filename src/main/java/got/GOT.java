@@ -1,21 +1,19 @@
 package got;
 
-import com.google.common.base.CaseFormat;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
-import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.*;
 import got.common.command.*;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
+import got.common.entity.GOTEntityRegistry;
 import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityPortal;
-import got.common.entity.GOTEntityRegistry;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
@@ -37,7 +35,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
@@ -398,9 +395,9 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
-	@SuppressWarnings("MethodMayBeStatic")
+	@SuppressWarnings({"MethodMayBeStatic", "CommentedOutCode"})
 	public void onMissingMappings(FMLMissingMappingsEvent event) {
-		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+		/*for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
 			Item item;
 			Block block;
 			String newName;
@@ -434,7 +431,7 @@ public class GOT {
 					mapping.remap(item);
 				}
 			}
-		}
+		}*/
 	}
 
 	@Mod.EventHandler
