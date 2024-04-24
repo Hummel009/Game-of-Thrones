@@ -25,6 +25,7 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
+		notAttackable = true;
 		addTargetTasks(false);
 	}
 

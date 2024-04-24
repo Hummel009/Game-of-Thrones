@@ -29,8 +29,6 @@ import got.common.entity.westeros.dragonstone.GOTEntityDragonstoneMan;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornMan;
-import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
-import got.common.entity.westeros.legendary.trader.GOTEntityCraster;
 import got.common.entity.westeros.north.GOTEntityNorthMan;
 import got.common.entity.westeros.north.hillmen.GOTEntityNorthHillman;
 import got.common.entity.westeros.reach.GOTEntityReachMan;

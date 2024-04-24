@@ -117,7 +117,6 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 	@Override
 	public boolean getCanSpawnHere() {
 		int i = MathHelper.floor_double(posX);
-		int j = MathHelper.floor_double(posY);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		return biome.temperature != 0.0f && super.getCanSpawnHere() && GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);

@@ -469,7 +469,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		private final ItemStack[] rowLower;
 		private final ItemStack result;
 
-		public CraftingSnapshot(Object[] rowUpper, Object[] rowLower, Object result) {
+		protected CraftingSnapshot(Object[] rowUpper, Object[] rowLower, Object result) {
 			this.rowUpper = wrapStackArray(rowUpper);
 			this.rowLower = wrapStackArray(rowLower);
 			this.result = wrapStack(result);
@@ -507,7 +507,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 			return stackArray;
 		}
 
-		public boolean upperContains(ItemStack item) {
+		protected boolean upperContains(ItemStack item) {
 			for (ItemStack obj : rowUpper) {
 				if (obj != null && obj.getItem().equals(item.getItem())) {
 					return true;
@@ -516,7 +516,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 			return false;
 		}
 
-		public boolean lowerContains(ItemStack item) {
+		protected boolean lowerContains(ItemStack item) {
 			for (ItemStack obj : rowLower) {
 				if (obj != null && obj.getItem().equals(item.getItem())) {
 					return true;
