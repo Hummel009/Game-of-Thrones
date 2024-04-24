@@ -94,11 +94,8 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 						int k1 = MathHelper.floor_double(posZ) + k;
 						int j1 = MathHelper.floor_double(posY) + j;
 						int i1 = MathHelper.floor_double(posX) + i;
-						if (!(!worldObj.blockExists(i1, j1, k1) || worldObj.getBlock(i1, j1, k1).getMaterial() != Material.water)) {
-							if (posY > 60.0) {
-								return super.getCanSpawnHere();
-							}
-							if (rand.nextInt(50) == 0) {
+						if (worldObj.blockExists(i1, j1, k1) && worldObj.getBlock(i1, j1, k1).getMaterial() == Material.water) {
+							if (posY > 60.0 || rand.nextInt(50) == 0) {
 								return super.getCanSpawnHere();
 							}
 						}
