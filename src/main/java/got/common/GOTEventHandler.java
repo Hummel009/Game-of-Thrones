@@ -30,7 +30,9 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
 import got.common.entity.essos.mossovy.GOTEntityMarshWraith;
 import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityProstitute;
 import got.common.entity.other.iface.*;
 import got.common.entity.other.inanimate.*;
 import got.common.entity.other.utils.GOTPlateFallingInfo;
@@ -1342,18 +1344,18 @@ public class GOTEventHandler {
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
 				boolean noLightSource = world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10;
 				if ((standardColdBiome || altitudeColdBiome) && (isOpenAir || inWater) && noLightSource) {
-					int frostChance = 20;
-					int frostProtection = 0;
+					int frostChance = 100;
+					int frostProtection = 1;
 					for (int l = 0; l < 4; l++) {
 						ItemStack armor = entity.getEquipmentInSlot(l + 1);
 						if (armor != null && armor.getItem() instanceof ItemArmor) {
 							ItemArmor.ArmorMaterial material = ((ItemArmor) armor.getItem()).getArmorMaterial();
-							if (material == GOTMaterial.FUR || material == GOTMaterial.GIFT) {
-								frostProtection += 80;
+							if (material == GOTMaterial.FUR) {
+								frostProtection += 2;
 							}
 						}
 					}
-					frostChance += frostProtection;
+					frostChance *= frostProtection;
 					if (world.isRaining()) {
 						frostChance /= 5;
 					}
@@ -1361,7 +1363,7 @@ public class GOTEventHandler {
 						frostChance /= 10;
 					}
 					frostChance = Math.max(frostChance, 1);
-					if (world.rand.nextInt(frostChance) == 0) {
+					if (world.rand.nextInt(frostChance) < 10) {
 						entity.attackEntityFrom(GOTDamage.FROST, 1.0f);
 					}
 				}
@@ -1382,20 +1384,20 @@ public class GOTEventHandler {
 				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
 				if (biome instanceof GOTBiome.Desert && !inWater && isOpenAir && world.isDaytime()) {
-					int burnChance = 20;
-					int burnProtection = 0;
+					int burnChance = 100;
+					int burnProtection = 1;
 					for (int l = 0; l < 4; l++) {
 						ItemStack armour = entity.getEquipmentInSlot(l + 1);
 						if (armour != null && armour.getItem() instanceof ItemArmor) {
 							ItemArmor.ArmorMaterial material = ((ItemArmor) armour.getItem()).getArmorMaterial();
 							if (material == GOTMaterial.ROBES) {
-								burnProtection += 80;
+								burnProtection += 2;
 							}
 						}
 					}
-					burnChance += burnProtection;
+					burnChance *= burnProtection;
 					burnChance = Math.max(burnChance, 1);
-					if (world.rand.nextInt(burnChance) == 0) {
+					if (world.rand.nextInt(burnChance) < 10) {
 						boolean attacked = entity.attackEntityFrom(DamageSource.onFire, 1.0F);
 						if (attacked && entity instanceof EntityPlayerMP) {
 							GOTDamage.doBurnDamage((EntityPlayerMP) entity);

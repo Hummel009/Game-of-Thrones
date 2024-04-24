@@ -3,7 +3,6 @@ package got.common.entity.ai;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;
@@ -30,7 +29,7 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 			return false;
 		}
 		if (target.isEntityAlive()) {
-			if (target instanceof GOTEntityNPC && GOTEntityUtils.isCrasterFamily((GOTEntityNPC) target)) {
+			if (target instanceof GOTEntityNPC && ((GOTEntityNPC) target).isNotAttackable()) {
 				return false;
 			}
 			if (!ownerFaction.isApprovesWarCrimes() && target instanceof GOTEntityNPC && ((GOTEntityNPC) target).isCivilianNPC()) {

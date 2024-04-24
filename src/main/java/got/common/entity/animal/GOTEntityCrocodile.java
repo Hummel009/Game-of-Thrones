@@ -33,7 +33,7 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(4.0);
 	}
 

@@ -1,10 +1,9 @@
-package got.common.entity.animal;
+package got.common.entity.other;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTMaterialFinder;
 import got.common.util.GOTCrashHandler;
@@ -34,13 +33,14 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC implements GOTBiome.I
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
+		spawnsInDarkness = true;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30.0);
 		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(5.0);
 	}

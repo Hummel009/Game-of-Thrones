@@ -40,6 +40,7 @@ public class GOTEntityWight extends GOTEntityHumanBase implements GOTBiome.Immun
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityWhiteWalker.class, 5.0f, 0.02f));
 		tasks.addTask(5, new EntityAIWatchClosest2(this, GOTEntityWight.class, 5.0f, 0.02f));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		spawnsInDarkness = true;
 	}
 
 	@Override

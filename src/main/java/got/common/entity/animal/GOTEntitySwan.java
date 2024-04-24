@@ -21,6 +21,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.List;
 import java.util.Random;
@@ -62,7 +63,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0);
 	}
@@ -114,7 +115,8 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
+			BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
+			return biome.temperature != 0.0f && j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == biome.topBlock;
 		}
 		return false;
 	}

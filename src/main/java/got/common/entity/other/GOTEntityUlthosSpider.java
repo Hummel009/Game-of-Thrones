@@ -1,7 +1,6 @@
-package got.common.entity.animal;
+package got.common.entity.other;
 
 import got.common.database.GOTAchievement;
-import got.common.entity.other.GOTEntitySpiderBase;
 import got.common.faction.GOTFaction;
 import net.minecraft.world.World;
 
@@ -9,6 +8,7 @@ public class GOTEntityUlthosSpider extends GOTEntitySpiderBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityUlthosSpider(World world) {
 		super(world);
+		spawnsInDarkness = true;
 	}
 
 	@Override

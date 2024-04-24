@@ -144,11 +144,6 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public void dropFewItems(boolean flag, int i) {
-			dropItem(GOTItems.bloodOfTrueKings, 1);
-		}
-
-		@Override
 		public float getAlignmentBonus() {
 			return 200.0f;
 		}

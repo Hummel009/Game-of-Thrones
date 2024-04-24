@@ -18,7 +18,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTMercenary {
-	private final EntityAIBase rangedAttackAI = createMossovyRangedAI();
+	private final EntityAIBase rangedAttackAI = new GOTEntityAIRangedAttack(this, 1.25, 20, 40, 20.0f);
 	private EntityAIBase meleeAttackAI;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
@@ -49,10 +49,6 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	public EntityAIBase createMossovyAttackAI() {
 		meleeAttackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 		return meleeAttackAI;
-	}
-
-	private EntityAIBase createMossovyRangedAI() {
-		return new GOTEntityAIRangedAttack(this, 1.25, 20, 40, 20.0f);
 	}
 
 	@Override

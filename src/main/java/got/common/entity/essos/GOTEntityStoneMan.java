@@ -1,5 +1,6 @@
 package got.common.entity.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -28,6 +29,7 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
+		spawnsInDarkness = true;
 	}
 
 	@Override
@@ -71,6 +73,11 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	@Override
 	public String getHurtSound() {
 		return "mob.zombie.hurt";
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killStoneMan;
 	}
 
 	@Override

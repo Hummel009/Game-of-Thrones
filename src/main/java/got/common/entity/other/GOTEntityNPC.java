@@ -62,6 +62,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.util.*;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -83,6 +84,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public static final IAttribute NPC_ATTACK_DAMAGE_DRUNK = new RangedAttribute("got.npcAttackDamageDrunk", 4.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Drunken Attack Damage");
 
 	private final List<ItemStack> enpouchedDrops = new ArrayList<>();
+	private final List<GOTFaction> killBonusFactions = new ArrayList<>();
 
 	protected GOTCapes cape;
 	protected GOTShields shield;
@@ -91,13 +93,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	protected GOTFamilyInfo familyInfo;
 	protected GOTHireableInfo hireableInfo;
 	protected GOTTraderInfo traderInfo;
-
 	protected GOTInventoryNPCItems npcItemsInv;
 
 	protected boolean spawnRidingHorse;
 	protected boolean liftSpawnRestrictions;
-
-	private final List<GOTFaction> killBonusFactions = new ArrayList<>();
+	protected boolean spawnsInDarkness;
+	protected boolean notAttackable;
 
 	private AttackMode currentAttackMode = AttackMode.IDLE;
 	private GOTInventoryHiredReplacedItems hiredReplacedInv;
@@ -147,6 +148,26 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			e.printStackTrace();
 		}
 		return index;
+	}
+
+	public static void fillPouchFromListAndRetainUnfilled(ItemStack pouch, List<ItemStack> items) {
+		Collection<ItemStack> pouchContents = new ArrayList<>();
+		while (!items.isEmpty()) {
+			pouchContents.add(items.remove(0));
+		}
+		for (ItemStack itemstack : pouchContents) {
+			if (GOTItemPouch.tryAddItemToPouch(pouch, itemstack, false)) {
+				continue;
+			}
+			items.add(itemstack);
+		}
+	}
+
+	private static String getNPCFormattedName(String npcName, String entityName) {
+		if (npcName.equals(entityName)) {
+			return entityName;
+		}
+		return StatCollector.translateToLocalFormatted(npcName) + ", " + StatCollector.translateToLocalFormatted(entityName);
 	}
 
 	public int addTargetTasks(boolean seekTargets) {
@@ -410,19 +431,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		hiredReplacedInv = new GOTInventoryHiredReplacedItems(this);
 	}
 
-	public static void fillPouchFromListAndRetainUnfilled(ItemStack pouch, List<ItemStack> items) {
-		Collection<ItemStack> pouchContents = new ArrayList<>();
-		while (!items.isEmpty()) {
-			pouchContents.add(items.remove(0));
-		}
-		for (ItemStack itemstack : pouchContents) {
-			if (GOTItemPouch.tryAddItemToPouch(pouch, itemstack, false)) {
-				continue;
-			}
-			items.add(itemstack);
-		}
-	}
-
 	@Override
 	@SuppressWarnings("NoopMethodInAbstractClass")
 	public void func_110163_bv() {
@@ -439,7 +447,30 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
-		return liftSpawnRestrictions ? 1.0f : 0.0f;
+		if (liftSpawnRestrictions) {
+			return 1.0f;
+		}
+		if (!isConquestSpawning && spawnsInDarkness) {
+			return 0.5f - worldObj.getLightBrightness(i, j, k);
+		}
+		return 0.0f;
+	}
+
+	private boolean isValidLightLevelForDarkSpawn() {
+		int i = MathHelper.floor_double(posX);
+		int j = MathHelper.floor_double(boundingBox.minY);
+		int k = MathHelper.floor_double(posZ);
+		if (worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) > rand.nextInt(32)) {
+			return false;
+		}
+		int l = worldObj.getBlockLightValue(i, j, k);
+		if (worldObj.isThundering()) {
+			int i1 = worldObj.skylightSubtracted;
+			worldObj.skylightSubtracted = 10;
+			l = worldObj.getBlockLightValue(i, j, k);
+			worldObj.skylightSubtracted = i1;
+		}
+		return l <= rand.nextInt(8);
 	}
 
 	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
@@ -448,7 +479,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
+		return (!spawnsInDarkness || liftSpawnRestrictions || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
 	}
 
 	@Override
@@ -551,13 +582,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private double getMeleeRangeSq() {
 		double d = getMeleeRange();
 		return d * d;
-	}
-
-	private static String getNPCFormattedName(String npcName, String entityName) {
-		if (npcName.equals(entityName)) {
-			return entityName;
-		}
-		return StatCollector.translateToLocalFormatted(npcName) + ", " + StatCollector.translateToLocalFormatted(entityName);
 	}
 
 	public String getNPCName() {
@@ -700,6 +724,18 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		playSound("got:item.crossbow", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.8f));
 		worldObj.spawnEntityInWorld(bolt);
+	}
+
+	protected void npcSnowballAttack(EntityLivingBase target) {
+		double d0 = target.posX - posX;
+		double d1 = target.boundingBox.minY + target.height / 2.0F - (posY + height / 2.0F);
+		double d2 = target.posZ - posZ;
+		for (int i = 0; i < 3; i++) {
+			worldObj.playAuxSFXAtEntity(null, 1009, (int) posX, (int) posY, (int) posZ, 0);
+			GOTEntitySnowball snowball = new GOTEntitySnowball(worldObj, this, d0 + rand.nextGaussian(), d1, d2 + rand.nextGaussian());
+			snowball.posY = posY + height / 2.0F + 0.5D;
+			worldObj.spawnEntityInWorld(snowball);
+		}
 	}
 
 	public EntityItem npcDropItem(ItemStack item, float offset, boolean enpouch, boolean applyOwnership) {
@@ -1395,6 +1431,14 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public void setNpcTalkTick(int npcTalkTick) {
 		this.npcTalkTick = npcTalkTick;
+	}
+
+	public boolean isNotAttackable() {
+		return notAttackable;
+	}
+
+	public boolean isSpawnsInDarkness() {
+		return spawnsInDarkness;
 	}
 
 	public enum AttackMode {

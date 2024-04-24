@@ -15,6 +15,7 @@ public class GOTEntityWightGiant extends GOTEntityGiantBase {
 	public GOTEntityWightGiant(World world) {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		spawnsInDarkness = true;
 	}
 
 	@Override

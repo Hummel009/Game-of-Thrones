@@ -60,8 +60,6 @@ public class GOTEntityUtils {
 	private static final Collection<Class<? extends GOTEntityHumanBase>> CAN_BE_ROBBED = new HashSet<>();
 	private static final Collection<Class<? extends GOTEntityHumanBase>> CAN_SMOKE_DRINK = new HashSet<>();
 
-	private static final Collection<Class<? extends GOTEntityHumanBase>> CRASTER_SAFESPACE = new HashSet<>();
-
 	static {
 		BASIC_NPC.add(GOTEntityArrynMan.class);
 		BASIC_NPC.add(GOTEntityAsshaiMan.class);
@@ -128,16 +126,9 @@ public class GOTEntityUtils {
 		CAN_SMOKE_DRINK.add(GOTEntityVolantisMan.class);
 		CAN_SMOKE_DRINK.add(GOTEntityWesterlandsMan.class);
 		CAN_SMOKE_DRINK.add(GOTEntityYiTiMan.class);
-
-		CRASTER_SAFESPACE.add(GOTEntityCraster.class);
-		CRASTER_SAFESPACE.add(GOTEntityCrasterWife.class);
 	}
 
 	private GOTEntityUtils() {
-	}
-
-	public static boolean isCrasterFamily(GOTEntityNPC npc) {
-		return CRASTER_SAFESPACE.contains(npc.getClass());
 	}
 
 	public static boolean canBeMarried(GOTEntityNPC npc) {

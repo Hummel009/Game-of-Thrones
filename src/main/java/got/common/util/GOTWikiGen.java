@@ -1344,6 +1344,15 @@ public class GOTWikiGen {
 				}
 				sb.append(END);
 
+				sb.append(TITLE).append("Template:DB Mob-SpawnsInDarkness");
+				sb.append(BEGIN);
+				for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isSpawnsInDarkness()) {
+						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = True");
+					}
+				}
+				sb.append(END);
+
 				sb.append(TITLE).append("Template:DB Mob-ImmuneToHeat");
 				sb.append(BEGIN);
 				for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {

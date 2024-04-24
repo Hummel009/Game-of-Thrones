@@ -176,6 +176,7 @@ public class GOTAchievement {
 	public static GOTAchievement killBenjenStark;
 	public static GOTAchievement killBericDayne;
 	public static GOTAchievement killBericDondarrion;
+	public static GOTAchievement killBlizzard;
 	public static GOTAchievement killBombardier;
 	public static GOTAchievement killBrienneTarth;
 	public static GOTAchievement killBryndenTully;
@@ -230,6 +231,7 @@ public class GOTAchievement {
 	public static GOTAchievement killSandorClegane;
 	public static GOTAchievement killSansaStark;
 	public static GOTAchievement killShryke;
+	public static GOTAchievement killStoneMan;
 	public static GOTAchievement killTheKing;
 	public static GOTAchievement killThePolice;
 	public static GOTAchievement killThennBerserker;
@@ -490,6 +492,7 @@ public class GOTAchievement {
 
 		killBeaver = new GOTAchievement(Category.KILL, killId++, GOTItems.beaverTail, "KILL_BEAVER");
 		killBombardier = new GOTAchievement(Category.KILL, killId++, GOTBlocks.bomb, "KILL_BOMBARDIER");
+		killBlizzard = new GOTAchievement(Category.KILL, killId++, GOTBlocks.stalactiteIce, "KILL_BLIZZARD");
 		killButterfly = new GOTAchievement(Category.KILL, killId++, Items.iron_sword, "KILL_BUTTERFLY");
 		killGiant = new GOTAchievement(Category.KILL, killId++, GOTItems.club, "KILL_GIANT");
 		killGladiator = new GOTAchievement(Category.KILL, killId++, GOTItems.essosSword, "KILL_GLADIATOR");
@@ -504,6 +507,7 @@ public class GOTAchievement {
 		killProstitute = new GOTAchievement(Category.KILL, killId++, GOTItems.ironCrossbow, "KILL_PROSTITUTE");
 		killSamurai = new GOTAchievement(Category.KILL, killId++, GOTItems.katana, "KILL_SAMURAI");
 		killShryke = new GOTAchievement(Category.KILL, killId++, GOTItems.bottlePoison, "KILL_SHRYKE");
+		killStoneMan = new GOTAchievement(Category.KILL, killId++, Blocks.cobblestone, "KILL_STONE_MAN");
 		killThePolice = new GOTAchievement(Category.KILL, killId++, GOTItems.westerosDagger, "BANDIT");
 		killThievingBandit = new GOTAchievement(Category.KILL, killId++, GOTItems.leatherHat, "KILL_THIEVING_BANDIT");
 		killUlthos = new GOTAchievement(Category.KILL, killId++, GOTItems.mysteryWeb, "KILL_ULTHOS");

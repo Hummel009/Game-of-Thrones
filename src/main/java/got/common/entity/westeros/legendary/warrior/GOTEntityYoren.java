@@ -44,7 +44,7 @@ public class GOTEntityYoren extends GOTEntityHumanBase {
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
 	@Override

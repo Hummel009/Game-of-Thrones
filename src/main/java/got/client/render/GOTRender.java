@@ -162,7 +162,7 @@ public class GOTRender {
 		RENDERS.put(GOTEntitySepton.class, new GOTRenderFactionNPCLayered("westeros/westeros", "septon"));
 		RENDERS.put(GOTEntityRedPriest.class, new GOTRenderFactionNPCLayered("essos/asshai", "priest"));
 		RENDERS.put(GOTEntityIronbornPriest.class, new GOTRenderFactionNPCLayered("westeros/ironborn", "priest"));
-		RENDERS.put(GOTEntityIfekevron.class, new GOTRenderFactionNPCLayered("essos/ibben"));
+		RENDERS.put(GOTEntityIfekevron.class, new GOTRenderFactionNPCLayered("essos/ifekevron"));
 		RENDERS.put(GOTEntityMercenary.class, new GOTRenderFactionNPCLayered("westeros/westeros", "mercenary"));
 		RENDERS.put(GOTEntitySothoryosShaman.class, new GOTRenderFactionNPCLayered("sothoryos/sothoryos", "shaman"));
 		RENDERS.put(GOTEntityAddamMarbrand.class, new GOTRenderLegendaryNPC("addam_marbrand"));

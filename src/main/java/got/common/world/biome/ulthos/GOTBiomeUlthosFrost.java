@@ -1,7 +1,7 @@
 package got.common.world.biome.ulthos;
 
 import got.common.database.GOTAchievement;
-import got.common.entity.animal.GOTEntityBlizzard;
+import got.common.entity.other.GOTEntityBlizzard;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;

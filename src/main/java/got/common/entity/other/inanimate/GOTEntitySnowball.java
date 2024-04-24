@@ -3,6 +3,7 @@ package got.common.entity.other.inanimate;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTDamage;
+import got.common.entity.westeros.ice.IceUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -169,9 +170,26 @@ public class GOTEntitySnowball extends Entity {
 			}
 			if (movingobjectposition != null) {
 				if (!worldObj.isRemote) {
-					if (movingobjectposition.entityHit instanceof EntityPlayerMP) {
-						movingobjectposition.entityHit.attackEntityFrom(GOTDamage.FROST, 6.0F);
-						GOTDamage.doFrostDamage((EntityPlayerMP) movingobjectposition.entityHit);
+					if (movingobjectposition.entityHit != null) {
+						DamageSource damagesource;
+
+						if (shootingEntity == null) {
+							damagesource = DamageSource.causeThrownDamage(this, this);
+						} else {
+							damagesource = DamageSource.causeThrownDamage(this, shootingEntity);
+						}
+
+						if (movingobjectposition.entityHit.attackEntityFrom(damagesource, 5.0f)) {
+							if (movingobjectposition.entityHit instanceof EntityPlayerMP) {
+								GOTDamage.doFrostDamage((EntityPlayerMP) movingobjectposition.entityHit);
+							}
+						} else {
+							motionX *= -0.10000000149011612D;
+							motionY *= -0.10000000149011612D;
+							motionZ *= -0.10000000149011612D;
+							prevRotationYaw += 180.0F;
+							ticksInAir = 0;
+						}
 					}
 					setDead();
 				}
@@ -241,5 +259,11 @@ public class GOTEntitySnowball extends Entity {
 		nbt.setByte("inTile", (byte) Block.getIdFromBlock(block));
 		nbt.setByte("inGround", (byte) (inGround ? 1 : 0));
 		nbt.setTag("direction", newDoubleNBTList(motionX, motionY, motionZ));
+	}
+
+	@Override
+	public void onKillEntity(EntityLivingBase entity) {
+		super.onKillEntity(entity);
+		IceUtils.createNewWight(this, entity, worldObj);
 	}
 }

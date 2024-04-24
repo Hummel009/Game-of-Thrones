@@ -989,6 +989,8 @@ got.achievement.KILL_BERIC_DAYNE.desc=Tuer Beric Dayne
 got.achievement.KILL_BERIC_DAYNE.title=Il n'y en a plus de dignes
 got.achievement.KILL_BERIC_DONDARRION.desc=Tuer Beric Dondarrion 6 fois
 got.achievement.KILL_BERIC_DONDARRION.title=Gaspillé
+got.achievement.KILL_BLIZZARD.desc≠Kill the blizzard
+got.achievement.KILL_BLIZZARD.title≠Another kind of walker?
 got.achievement.KILL_BOMBARDIER.desc≠Kill the bombardier
 got.achievement.KILL_BOMBARDIER.title≠Counter-Terrorists win
 got.achievement.KILL_BRIENNE_TARTH.desc=Tuer Brienne Tarth
@@ -1097,6 +1099,8 @@ got.achievement.KILL_SANSA_STARK.desc=Tuer Sansa Stark
 got.achievement.KILL_SANSA_STARK.title=Vous avez trahi votre père!
 got.achievement.KILL_SHRYKE.desc≠Kill a shryke
 got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
+got.achievement.KILL_STONE_MAN.desc≠Kill Stone Man
+got.achievement.KILL_STONE_MAN.title≠Mercy
 got.achievement.KILL_THENN_BERSERKER.desc=Tuez le thenn-berserker
 got.achievement.KILL_THENN_BERSERKER.title=Plus puissant
 got.achievement.KILL_THEON_GREYJOY.desc=Tourmenter Theon Greyjoy

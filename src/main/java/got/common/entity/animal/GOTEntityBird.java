@@ -232,7 +232,11 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return super.getCanSpawnHere() && canBirdSpawnHere();
+		int i = MathHelper.floor_double(posX);
+		int j = MathHelper.floor_double(boundingBox.minY);
+		int k = MathHelper.floor_double(posZ);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
+		return biome.temperature != 0.0f && super.getCanSpawnHere() && canBirdSpawnHere();
 	}
 
 	@Override

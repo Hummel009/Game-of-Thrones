@@ -1,6 +1,6 @@
 package got.client.render.npc;
 
-import got.common.entity.animal.GOTEntityUlthosSpider;
+import got.common.entity.other.GOTEntityUlthosSpider;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 

@@ -3,7 +3,7 @@ package got.common.world.structure.essos.asshai;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.entity.animal.GOTEntityUlthosSpider;
+import got.common.entity.other.GOTEntityUlthosSpider;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;

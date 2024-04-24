@@ -56,7 +56,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
 	}
 

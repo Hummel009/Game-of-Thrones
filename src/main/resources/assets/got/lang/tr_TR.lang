@@ -989,6 +989,8 @@ got.achievement.KILL_BERIC_DAYNE.desc=Beric Dayne'i öldür
 got.achievement.KILL_BERIC_DAYNE.title=Daha değerlileri kalmadı
 got.achievement.KILL_BERIC_DONDARRION.desc=Beric Dondarrion'u 6 kez öldür
 got.achievement.KILL_BERIC_DONDARRION.title=Heba olmuş
+got.achievement.KILL_BLIZZARD.desc≠Kill the blizzard
+got.achievement.KILL_BLIZZARD.title≠Another kind of walker?
 got.achievement.KILL_BOMBARDIER.desc=Golcüyü öldür
 got.achievement.KILL_BOMBARDIER.title=Counter-Terrorists win
 got.achievement.KILL_BRIENNE_TARTH.desc=Brienne Tarth'ı öldür
@@ -1097,6 +1099,8 @@ got.achievement.KILL_SANSA_STARK.desc=Sansa Stark'ı öldür
 got.achievement.KILL_SANSA_STARK.title=Babana ihanet ettin!
 got.achievement.KILL_SHRYKE.desc≠Kill a shryke
 got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
+got.achievement.KILL_STONE_MAN.desc≠Kill Stone Man
+got.achievement.KILL_STONE_MAN.title≠Mercy
 got.achievement.KILL_THENN_BERSERKER.desc=O zaman çılgına döneni öldür
 got.achievement.KILL_THENN_BERSERKER.title=Daha güçlü
 got.achievement.KILL_THEON_GREYJOY.desc=Eziyet Theon Greyjoy

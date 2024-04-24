@@ -299,6 +299,7 @@ public enum GOTFaction {
 		WHITE_WALKER.controlZones.add(new GOTControlZone(667, 239, 186));
 		WHITE_WALKER.controlZones.add(new GOTControlZone(696, 504, 207));
 		WHITE_WALKER.controlZones.add(new GOTControlZone(757, 573, 267));
+		WHITE_WALKER.controlZones.add(new GOTControlZone(4432, 4290, 375));
 		WHITE_WALKER.approvesWarCrimes = true;
 		WILDLING.controlZones.add(new GOTControlZone(757, 573, 267));
 		WILDLING.approvesWarCrimes = true;

@@ -45,6 +45,7 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
+		dropItem(GOTItems.bloodOfTrueKings, 1);
 		dropItem(GOTItems.robbSword, 1);
 	}
 

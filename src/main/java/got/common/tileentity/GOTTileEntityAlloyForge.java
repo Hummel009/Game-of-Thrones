@@ -7,6 +7,7 @@ import got.common.block.other.GOTBlockForgeBase;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.inventory.GOTSlotStackSize;
+import got.common.util.GOTLog;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,14 +27,33 @@ import net.minecraft.util.StatCollector;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInventory {
+	public static final Collection<CraftingSnapshot> CRAFTING_SNAPSHOTS = new ArrayList<>();
+
+	static {
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTBlocks.oreCopper, GOTItems.copperIngot}, new Object[]{GOTBlocks.oreTin, GOTItems.tinIngot}, GOTItems.bronzeIngot));
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTBlocks.oreTin, GOTItems.tinIngot}, new Object[]{GOTBlocks.oreCopper, GOTItems.copperIngot}, GOTItems.bronzeIngot));
+
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{Blocks.iron_ore, Items.iron_ingot}, new Object[]{Items.gold_nugget}, GOTItems.yitiSteelIngot));
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{Items.gold_nugget}, new Object[]{Blocks.iron_ore, Items.iron_ingot}, GOTItems.yitiSteelIngot));
+
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTBlocks.oreSilver, GOTItems.silverIngot}, new Object[]{GOTItems.valyrianNugget}, GOTItems.valyrianPowder));
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.valyrianNugget}, new Object[]{GOTBlocks.oreSilver, GOTItems.silverIngot}, GOTItems.valyrianPowder));
+
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.widowWail}, new Object[]{GOTItems.oathkeeper}, GOTItems.ice));
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.oathkeeper}, new Object[]{GOTItems.widowWail}, GOTItems.ice));
+
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.cobaltIngot, GOTBlocks.oreCobalt}, new Object[]{Blocks.iron_ore, Items.iron_ingot}, GOTItems.alloySteelIngot));
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{Blocks.iron_ore, Items.iron_ingot}, new Object[]{GOTItems.cobaltIngot, GOTBlocks.oreCobalt}, GOTItems.alloySteelIngot));
+	}
+
 	protected ItemStack[] inventory = new ItemStack[getForgeInvSize()];
 	protected int[] inputSlots;
 	protected int[] outputSlots;
 	protected int fuelSlot;
-
 	private int forgeSmeltTime;
 	private int currentItemFuelValue;
 	private int currentSmeltTime;
@@ -42,6 +62,36 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTileEntityAlloyForge() {
 		setupForgeSlots();
+	}
+
+	private static ItemStack getAlloySmeltingResult(ItemStack itemStackUpper, ItemStack itemStackLower) {
+		for (CraftingSnapshot craftingSnapshot : CRAFTING_SNAPSHOTS) {
+			if (craftingSnapshot.upperContains(itemStackUpper) && craftingSnapshot.lowerContains(itemStackLower)) {
+				return craftingSnapshot.getResult();
+			}
+		}
+		return null;
+	}
+
+	public static ItemStack getSmeltingResult(ItemStack itemstack) {
+		boolean isStoneMaterial = false;
+		Item item = itemstack.getItem();
+		Block block = Block.getBlockFromItem(item);
+		if (block != null && block != Blocks.air) {
+			Material material = block.getMaterial();
+			if (material == Material.rock || material == Material.sand || material == Material.clay) {
+				isStoneMaterial = true;
+			}
+		} else if (item == Items.clay_ball || item == GOTItems.redClayBall || item == GOTItems.clayMug || item == GOTItems.clayPlate || item == GOTItems.ceramicPlate) {
+			isStoneMaterial = true;
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.oreValyrian)) {
+			return new ItemStack(GOTItems.valyrianIngot);
+		}
+		if (isStoneMaterial || GOT.isOreNameEqual(itemstack, "logWood")) {
+			return FurnaceRecipes.smelting().getSmeltingResult(itemstack);
+		}
+		return null;
 	}
 
 	protected boolean canDoSmelting() {
@@ -62,10 +112,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	@Override
 	public boolean canInsertItem(int slot, ItemStack itemstack, int side) {
 		return isItemValidForSlot(slot, itemstack);
-	}
-
-	private static boolean canMachineInsertFuel(ItemStack itemstack) {
-		return TileEntityFurnace.isItemFuel(itemstack);
 	}
 
 	protected boolean canMachineInsertInput(ItemStack itemstack) {
@@ -162,25 +208,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return new int[]{fuelSlot};
 	}
 
-	private static ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
-		if (isCopper(itemstack) && isTin(alloyItem) || isTin(itemstack) && isCopper(alloyItem)) {
-			return new ItemStack(GOTItems.bronzeIngot, 2);
-		}
-		if (isIron(itemstack) && isGoldNugget(alloyItem) || isGoldNugget(itemstack) && isIron(alloyItem)) {
-			return new ItemStack(GOTItems.yitiSteelIngot);
-		}
-		if (isSilver(itemstack) && isValyrianNugget(alloyItem) || isValyrianNugget(itemstack) && isSilver(alloyItem)) {
-			return new ItemStack(GOTItems.valyrianPowder);
-		}
-		if (isWidowWail(itemstack) && isOathkeeper(alloyItem) || isOathkeeper(itemstack) && isWidowWail(alloyItem)) {
-			return new ItemStack(GOTItems.ice);
-		}
-		if (isCobalt(itemstack) && isIron(alloyItem) || isIron(itemstack) && isCobalt(alloyItem)) {
-			return new ItemStack(GOTItems.alloySteelIngot);
-		}
-		return null;
-	}
-
 	protected int getForgeInvSize() {
 		return 13;
 	}
@@ -206,27 +233,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 
 	protected int getSmeltingDuration() {
 		return 200;
-	}
-
-	public static ItemStack getSmeltingResult(ItemStack itemstack) {
-		boolean isStoneMaterial = false;
-		Item item = itemstack.getItem();
-		Block block = Block.getBlockFromItem(item);
-		if (block != null && block != Blocks.air) {
-			Material material = block.getMaterial();
-			if (material == Material.rock || material == Material.sand || material == Material.clay) {
-				isStoneMaterial = true;
-			}
-		} else if (item == Items.clay_ball || item == GOTItems.redClayBall || item == GOTItems.clayMug || item == GOTItems.clayPlate || item == GOTItems.ceramicPlate) {
-			isStoneMaterial = true;
-		}
-		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.oreValyrian)) {
-			return new ItemStack(GOTItems.valyrianIngot);
-		}
-		if (isStoneMaterial || isWood(itemstack)) {
-			return FurnaceRecipes.smelting().getSmeltingResult(itemstack);
-		}
-		return null;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -262,61 +268,21 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return specialForgeName != null && !specialForgeName.isEmpty();
 	}
 
-	private static boolean isCobalt(ItemStack itemstack) {
-		return itemstack.getItem() == GOTItems.cobaltIngot;
-	}
-
-	private static boolean isCopper(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "oreCopper") || GOT.isOreNameEqual(itemstack, "ingotCopper");
-	}
-
-	private static boolean isGoldNugget(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "nuggetGold");
-	}
-
-	private static boolean isIron(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "oreIron") || GOT.isOreNameEqual(itemstack, "ingotIron");
-	}
-
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
 		if (ArrayUtils.contains(inputSlots, slot)) {
 			return canMachineInsertInput(itemstack);
 		}
-		return slot == fuelSlot && canMachineInsertFuel(itemstack);
-	}
-
-	private static boolean isOathkeeper(ItemStack itemstack) {
-		return itemstack.getItem() == GOTItems.oathkeeper;
-	}
-
-	private static boolean isSilver(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "oreSilver") || GOT.isOreNameEqual(itemstack, "ingotSilver");
+		return slot == fuelSlot && TileEntityFurnace.isItemFuel(itemstack);
 	}
 
 	public boolean isSmelting() {
 		return forgeSmeltTime > 0;
 	}
 
-	private static boolean isTin(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "oreTin") || GOT.isOreNameEqual(itemstack, "ingotTin");
-	}
-
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
-	}
-
-	private static boolean isValyrianNugget(ItemStack itemstack) {
-		return itemstack.getItem() == GOTItems.valyrianNugget;
-	}
-
-	private static boolean isWidowWail(ItemStack itemstack) {
-		return itemstack.getItem() == GOTItems.widowWail;
-	}
-
-	private static boolean isWood(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "logWood");
 	}
 
 	@Override
@@ -496,5 +462,79 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 
 	public void setSpecialForgeName(String s) {
 		specialForgeName = s;
+	}
+
+	public static class CraftingSnapshot {
+		private final ItemStack[] rowUpper;
+		private final ItemStack[] rowLower;
+		private final ItemStack result;
+
+		public CraftingSnapshot(Object[] rowUpper, Object[] rowLower, Object result) {
+			this.rowUpper = wrapStackArray(rowUpper);
+			this.rowLower = wrapStackArray(rowLower);
+			this.result = wrapStack(result);
+		}
+
+		private static ItemStack wrapStack(Object obj) {
+			if (obj instanceof Block) {
+				return new ItemStack((Block) obj);
+			}
+
+			if (obj instanceof Item) {
+				return new ItemStack((Item) obj);
+			}
+
+			GOTLog.getLogger().error("wrapStack");
+
+			return null;
+		}
+
+		private static ItemStack[] wrapStackArray(Object[] objArray) {
+			ItemStack[] stackArray = new ItemStack[objArray.length];
+
+			for (int i = 0; i < objArray.length; i++) {
+				Object obj = objArray[i];
+
+				if (obj instanceof Block) {
+					stackArray[i] = new ItemStack((Block) obj);
+				} else if (obj instanceof Item) {
+					stackArray[i] = new ItemStack((Item) obj);
+				} else {
+					GOTLog.getLogger().error("wrapStackArray");
+				}
+			}
+
+			return stackArray;
+		}
+
+		public boolean upperContains(ItemStack item) {
+			for (ItemStack obj : rowUpper) {
+				if (obj != null && obj.getItem().equals(item.getItem())) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public boolean lowerContains(ItemStack item) {
+			for (ItemStack obj : rowLower) {
+				if (obj != null && obj.getItem().equals(item.getItem())) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public ItemStack[] getRowUpper() {
+			return rowUpper;
+		}
+
+		public ItemStack[] getRowLower() {
+			return rowLower;
+		}
+
+		public ItemStack getResult() {
+			return result;
+		}
 	}
 }

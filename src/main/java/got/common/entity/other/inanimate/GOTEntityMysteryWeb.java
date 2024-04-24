@@ -1,7 +1,7 @@
 package got.common.entity.other.inanimate;
 
 import got.common.database.GOTChestContents;
-import got.common.entity.animal.GOTEntityUlthosSpider;
+import got.common.entity.other.GOTEntityUlthosSpider;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.projectile.EntityThrowable;

@@ -4,7 +4,10 @@ import got.common.GOTDamage;
 import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityGiantBase;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntitySpiderBase;
 import got.common.entity.other.inanimate.GOTEntityProjectileBase;
 import got.common.entity.other.inanimate.GOTEntitySpear;
 import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
@@ -37,7 +40,7 @@ public class IceUtils {
 	private IceUtils() {
 	}
 
-	public static void createNewWight(GOTEntityNPC attacker, EntityLivingBase entity, World world) {
+	public static void createNewWight(Entity attacker, EntityLivingBase entity, World world) {
 		if (entity instanceof GOTEntityHumanBase) {
 			if (attacker instanceof GOTEntityNightKing) {
 				GOTEntityNPC walker = new GOTEntityWhiteWalker(world);

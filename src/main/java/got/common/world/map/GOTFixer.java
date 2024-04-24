@@ -108,7 +108,8 @@ public class GOTFixer {
 		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.EAST_WATCH, 2), GOTWaypoint.EASTWATCH);
 		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.SHADOW_TOWER, 2), GOTWaypoint.SHADOW_TOWER);
 		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.VILLAGE, 4), GOTWaypoint.MOLETOWN, GOTWaypoint.QUEENSCROWN);
-		registerLocation(new GOTStructureIbbenSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIbbenSettlement.Type.FORT, 6), GOTWaypoint.IB_NOR, GOTWaypoint.IB_SAR, GOTWaypoint.NEW_IBBISH, GOTWaypoint.PORT_OF_IBBEN);
+		registerLocation(new GOTStructureIbbenSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIbbenSettlement.Type.VILLAGE, 6), GOTWaypoint.IB_NOR, GOTWaypoint.IB_SAR, GOTWaypoint.PORT_OF_IBBEN);
+		registerLocation(new GOTStructureIbbenSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIbbenSettlement.Type.FORT, 6), GOTWaypoint.NEW_IBBISH);
 		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.CAMP, 5), GOTWaypoint.VICTARION_LANDING);
 		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.CATFISH_ROCK, GOTWaypoint.CORPSE_LAKE, GOTWaypoint.CROW_SPIKE_KEEP, GOTWaypoint.DOWNDELVING, GOTWaypoint.HARLAW_HALL, GOTWaypoint.HARRIDAN_HILL, GOTWaypoint.IRON_HOLT, GOTWaypoint.MYRE_CASTLE, GOTWaypoint.ORKWOOD, GOTWaypoint.SALTCLIFFE, GOTWaypoint.SEALSKIN_POINT, GOTWaypoint.SHATTERSTONE, GOTWaypoint.SPARR_CASTLE, GOTWaypoint.STONEHOUSE, GOTWaypoint.STONETREE_CASTLE, GOTWaypoint.SUNDERLY, GOTWaypoint.TAWNEY_CASTLE);
 		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.VILLAGE, 6), GOTWaypoint.PEBBLETON);

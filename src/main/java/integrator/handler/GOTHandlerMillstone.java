@@ -46,8 +46,8 @@ public class GOTHandlerMillstone extends TemplateRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
 		for (Map.Entry<ItemStack, GOTRecipeMillstone.MillstoneResult> entry : GOTRecipeMillstone.RECIPES.entrySet()) {
-			if (NEIServerUtils.areStacksSameTypeCrafting(entry.getKey(), result)) {
-				arecipes.add(new CachedForgeRecipe(entry.getValue().getResultItem(), entry.getKey()));
+			if (NEIServerUtils.areStacksSameTypeCrafting(entry.getValue().getResultItem(), result)) {
+				arecipes.add(new CachedForgeRecipe(entry.getKey(), entry.getValue().getResultItem()));
 			}
 		}
 	}
@@ -62,8 +62,8 @@ public class GOTHandlerMillstone extends TemplateRecipeHandler {
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
 		for (Map.Entry<ItemStack, GOTRecipeMillstone.MillstoneResult> entry : GOTRecipeMillstone.RECIPES.entrySet()) {
-			if (NEIServerUtils.areStacksSameTypeCrafting(entry.getValue().getResultItem(), ingredient)) {
-				arecipes.add(new CachedForgeRecipe(entry.getValue().getResultItem(), entry.getKey()));
+			if (NEIServerUtils.areStacksSameTypeCrafting(entry.getKey(), ingredient)) {
+				arecipes.add(new CachedForgeRecipe(entry.getKey(), entry.getValue().getResultItem()));
 			}
 		}
 	}

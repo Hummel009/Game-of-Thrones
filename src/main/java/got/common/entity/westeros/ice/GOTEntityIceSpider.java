@@ -3,6 +3,7 @@ package got.common.entity.westeros.ice;
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.database.GOTAchievement;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntitySpiderBase;
 import got.common.faction.GOTFaction;
@@ -19,6 +20,7 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.
 	public GOTEntityIceSpider(World world) {
 		super(world);
 		isImmuneToFire = true;
+		spawnsInDarkness = true;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
@@ -41,6 +43,9 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
+		if (rand.nextFloat() <= 0.525f) {
+			dropItem(GOTItems.iceShard, rand.nextInt(2) + 1);
+		}
 	}
 
 	@Override
@@ -57,7 +62,6 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killIceSpider;
 	}
-
 
 	@Override
 	public void onLivingUpdate() {

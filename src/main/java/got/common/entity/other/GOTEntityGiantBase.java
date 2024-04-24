@@ -49,7 +49,7 @@ public abstract class GOTEntityGiantBase extends GOTEntityNPC implements GOTBiom
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(7.0);
 		getAttributeMap().registerAttribute(THROWN_ROCK_DAMAGE);
 	}
