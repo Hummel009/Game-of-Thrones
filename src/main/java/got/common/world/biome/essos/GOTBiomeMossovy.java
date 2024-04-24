@@ -20,7 +20,7 @@ public class GOTBiomeMossovy extends GOTBiomeEssosCold {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN));
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN * 3));
 		npcSpawnList.newFactionList(10).add(c1);
 	}
 
