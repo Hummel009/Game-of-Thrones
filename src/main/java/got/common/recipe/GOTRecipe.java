@@ -920,7 +920,6 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.stairsStoneBrickCracked, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(Blocks.stonebrick, 1, 2));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.stairsStoneBrickMossy, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(Blocks.stonebrick, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.stairsThatch, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.thatch, 1, 0));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeam9, 3, 2), "X", "X", "X", 'X', new ItemStack(GOTBlocks.planks3, 1, 6)));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.stairsUlthos, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.planks1, 1, 2));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.stairsWeirwood, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.planks3, 1, 6));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.stairsWhiteSandstone, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.whiteSandstone, 1, 0));
@@ -941,6 +940,7 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.wallStone3, 6, 14), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.whiteSandstone, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.wallStone3, 6, 6), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.rock, 1, 5));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.wallStone3, 6, 7), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick4, 1, 15));
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.wallStone3, 6, 8), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.wallClayTile, 6, 0), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.clayTile, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.wallStoneV, 6, 0), "XXX", "XXX", 'X', new ItemStack(Blocks.stone, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.wallStoneV, 6, 1), "XXX", "XXX", 'X', new ItemStack(Blocks.stonebrick, 1, 0));
@@ -1419,8 +1419,10 @@ public class GOTRecipe {
 		for (GOTEnumDyeColor dye : GOTEnumDyeColor.values()) {
 			GameRegistry.addShapelessRecipe(new ItemStack(getPowderFromDye(dye), 8), Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.gravel, Blocks.gravel, Blocks.gravel, Blocks.gravel, new ItemStack(Items.dye, 1, dye.getDyeDamage()));
 		}
-		for (i = 0; i <= 1; ++i) {
+		for (i = 0; i <= 2; ++i) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeam9, 3, i), "X", "X", "X", 'X', new ItemStack(GOTBlocks.wood9, 1, i)));
+		}
+		for (i = 0; i <= 1; ++i) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeamV2, 3, i), "X", "X", "X", 'X', new ItemStack(Blocks.log2, 1, i)));
 		}
 		for (i = 0; i <= 2; ++i) {
