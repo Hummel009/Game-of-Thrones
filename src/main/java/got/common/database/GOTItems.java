@@ -93,7 +93,6 @@ public class GOTItems {
 	public static Item blackfyreChestplate;
 	public static Item blackfyreHelmet;
 	public static Item blackfyreLeggings;
-	public static Item blackrootStick;
 	public static Item blackskinChestplate;
 	public static Item blacksmithHammer;
 	public static Item bloodOfTrueKings;
@@ -159,7 +158,6 @@ public class GOTItems {
 	public static Item corn;
 	public static Item cornBread;
 	public static Item cornCooked;
-	public static Item cracker;
 	public static Item cranberry;
 	public static Item crossbowBolt;
 	public static Item crossbowBoltPoisoned;
@@ -443,7 +441,6 @@ public class GOTItems {
 	public static Item orange;
 	public static Item orphanMaker;
 	public static Item pancake;
-	public static Item partyHat;
 	public static Item pastry;
 	public static Item pear;
 	public static Item pearl;
@@ -778,7 +775,6 @@ public class GOTItems {
 		blackfyreChestplate = new GOTItemArmor(GOTMaterial.BLACKFYRE, 1).setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		blackfyreHelmet = new GOTItemArmor(GOTMaterial.BLACKFYRE, 0, "helmet").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		blackfyreLeggings = new GOTItemArmor(GOTMaterial.BLACKFYRE, 2).setCreativeTab(GOTCreativeTabs.TAB_STORY);
-		blackrootStick = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS).setFull3D();
 		blackskinChestplate = new GOTItemArmor(GOTMaterial.BLACKSKIN, 1).setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		blacksmithHammer = new GOTItemHammer(Item.ToolMaterial.IRON);
 		bloodOfTrueKings = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
@@ -844,7 +840,6 @@ public class GOTItems {
 		corn = new GOTItemFood(2, 0.3f, false);
 		cornBread = new GOTItemFood(5, 0.6f, false);
 		cornCooked = new GOTItemFood(4, 0.4f, false);
-		cracker = new GOTItemCracker();
 		cranberry = new GOTItemBerry();
 		crossbowBolt = new GOTItemCrossbowBolt();
 		crossbowBoltPoisoned = new GOTItemCrossbowBolt().setPoisoned();
@@ -1128,7 +1123,6 @@ public class GOTItems {
 		orange = new GOTItemFood(4, 0.3f, false);
 		orphanMaker = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		pancake = new GOTItemFood(4, 0.6f, false);
-		partyHat = new GOTItemPartyHat();
 		pastry = new GOTItemPlaceableFood(GOTBlocks.pastry);
 		pear = new GOTItemFood(4, 0.3f, false);
 		pearl = new GOTItemGem();
@@ -1737,7 +1731,6 @@ public class GOTItems {
 		register(essosPike, "essosPike");
 		register(almond, "almond");
 		register(wildberry, "wildberry");
-		register(blackrootStick, "blackrootStick");
 		register(plum, "plum");
 		register(mugShadeEvening, "mugShadeEvening");
 		register(westerosPike, "westerosPike");
@@ -1745,8 +1738,6 @@ public class GOTItems {
 		register(stoneSpear, "stoneSpear");
 		register(marzipan, "marzipan");
 		register(marzipanChocolate, "marzipanChocolate");
-		register(cracker, "cracker");
-		register(partyHat, "partyHat");
 		register(gobletGold, "gobletGold");
 		register(gobletSilver, "gobletSilver");
 		register(gobletCopper, "gobletCopper");

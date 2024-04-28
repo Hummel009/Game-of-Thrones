@@ -5,6 +5,7 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.braavos.GOTEntityBraavosMan;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarMan;
+import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenMason;
 import got.common.entity.essos.jogos.GOTEntityJogos;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
@@ -69,7 +70,7 @@ public class GOTEntityUtils {
 		BASIC_NPC.add(GOTEntityGhiscarMan.class);
 		BASIC_NPC.add(GOTEntityGiftMan.class);
 		BASIC_NPC.add(GOTEntityHillman.class);
-		BASIC_NPC.add(GOTEntityIbbenMason.class);
+		BASIC_NPC.add(GOTEntityIbbenMan.class);
 		BASIC_NPC.add(GOTEntityIronbornMan.class);
 		BASIC_NPC.add(GOTEntityJogos.class);
 		BASIC_NPC.add(GOTEntityLhazarMan.class);

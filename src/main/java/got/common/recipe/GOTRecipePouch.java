@@ -147,17 +147,16 @@ public class GOTRecipePouch implements IRecipe {
 		Collection<ItemStack> dyes = new ArrayList<>();
 		for (int i = 0; i < inv.getSizeInventory(); ++i) {
 			ItemStack itemstack = inv.getStackInSlot(i);
-			if (itemstack == null) {
-				continue;
+			if (itemstack != null) {
+				if (itemstack.getItem() instanceof GOTItemPouch) {
+					pouches.add(itemstack);
+				} else {
+					if (GOTItemDye.isItemDye(itemstack) == -1) {
+						return false;
+					}
+					dyes.add(itemstack);
+				}
 			}
-			if (itemstack.getItem() instanceof GOTItemPouch) {
-				pouches.add(itemstack);
-				continue;
-			}
-			if (GOTItemDye.isItemDye(itemstack) == -1) {
-				return false;
-			}
-			dyes.add(itemstack);
 		}
 		if (pouches.isEmpty()) {
 			return false;

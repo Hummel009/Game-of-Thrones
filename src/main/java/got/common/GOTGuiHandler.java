@@ -6,7 +6,7 @@ import got.client.gui.*;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTGuiId;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTHireableBase;
 import got.common.entity.other.iface.GOTMercenary;
 import got.common.entity.other.iface.GOTTradeable;
@@ -14,7 +14,6 @@ import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.inventory.*;
-import got.common.item.other.GOTItemCracker;
 import got.common.item.other.GOTItemPouch;
 import got.common.tileentity.*;
 import got.common.util.GOTReflection;
@@ -126,11 +125,6 @@ public class GOTGuiHandler implements IGuiHandler {
 				break;
 			case CONQUEST:
 				return new GOTGuiMap().setConquestGrid();
-			case CRACKER:
-				if (entityplayer.inventory.getCurrentItem() != null && entityplayer.inventory.getCurrentItem().getItem() instanceof GOTItemCracker) {
-					return new GOTGuiCracker(entityplayer);
-				}
-				break;
 			case DISPENSER:
 				TileEntity trap = world.getTileEntity(i, j, k);
 				if (trap instanceof GOTTileEntitySarbacaneTrap) {
@@ -392,11 +386,6 @@ public class GOTGuiHandler implements IGuiHandler {
 				if (entity instanceof GOTEntityNPC) {
 					npc = (GOTEntityNPC) entity;
 					return new GOTContainerCoinExchange(entityplayer, npc);
-				}
-				break;
-			case CRACKER:
-				if (entityplayer.inventory.getCurrentItem() != null && entityplayer.inventory.getCurrentItem().getItem() instanceof GOTItemCracker) {
-					return new GOTContainerCracker(entityplayer);
 				}
 				break;
 			case DISPENSER:

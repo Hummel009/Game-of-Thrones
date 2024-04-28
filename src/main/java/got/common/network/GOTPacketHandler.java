@@ -136,7 +136,6 @@ public class GOTPacketHandler {
 		NETWORK_WRAPPER.registerMessage(GOTPacketRenameCWP.Handler.class, GOTPacketRenameCWP.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketRenameCWPClient.Handler.class, GOTPacketRenameCWPClient.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketRenamePouch.Handler.class, GOTPacketRenamePouch.class, id++, Side.SERVER);
-		NETWORK_WRAPPER.registerMessage(GOTPacketSealCracker.Handler.class, GOTPacketSealCracker.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketSelectCape.Handler.class, GOTPacketSelectCape.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketSelectShield.Handler.class, GOTPacketSelectShield.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketSelectTitle.Handler.class, GOTPacketSelectTitle.class, id++, Side.SERVER);

@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfile;
 import got.GOT;
 import got.common.GOTCommonFactory;
 import got.common.block.table.GOTBlockCraftingTable;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.inventory.GOTContainerCraftingTable;
@@ -72,32 +73,36 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				return material;
 			}
 		} else {
-			if (item == Items.bucket) {
+			if (itemstack.getItem() == new ItemStack(Items.bucket).getItem()) {
 				return new ItemStack(Items.iron_ingot);
 			}
-			if (item == GOTItems.silverRing) {
+
+			if (itemstack.getItem() == new ItemStack(GOTBlocks.birdCage, 1, 2).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTItems.gobletSilver).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.silverBars).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.chandelier, 1, 2).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTItems.silverRing).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.gateSilver).getItem()
+			) {
 				return new ItemStack(GOTItems.silverNugget);
 			}
-			if (item == GOTItems.copperRing) {
-				return new ItemStack(GOTItems.copperNugget);
-			}
-			if (item == GOTItems.bronzeRing) {
-				return new ItemStack(GOTItems.bronzeNugget);
-			}
-			if (item == GOTItems.goldRing) {
+
+			if (itemstack.getItem() == new ItemStack(GOTBlocks.birdCage, 1, 3).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTItems.gobletGold).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.goldBars).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.chandelier, 1, 3).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTItems.goldRing).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.gateGold).getItem()
+			) {
 				return new ItemStack(Items.gold_nugget);
 			}
-			if (item == GOTItems.valyrianRing) {
+
+			if (itemstack.getItem() == new ItemStack(GOTBlocks.valyrianBars).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.chandelier, 1, 4).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTItems.valyrianRing).getItem()
+					|| itemstack.getItem() == new ItemStack(GOTBlocks.gateValyrian).getItem()
+			) {
 				return new ItemStack(GOTItems.valyrianNugget);
-			}
-			if (item == GOTItems.gobletGold) {
-				return new ItemStack(Items.gold_ingot);
-			}
-			if (item == GOTItems.gobletSilver) {
-				return new ItemStack(GOTItems.silverIngot);
-			}
-			if (item == GOTItems.gobletCopper) {
-				return new ItemStack(GOTItems.copperIngot);
 			}
 		}
 		return null;

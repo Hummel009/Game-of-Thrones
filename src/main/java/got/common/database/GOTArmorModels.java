@@ -112,9 +112,6 @@ public class GOTArmorModels {
 		if (model instanceof GOTModelRobes) {
 			((GOTModelRobes) model).setRobeItem(itemstack);
 		}
-		if (model instanceof GOTModelPartyHat) {
-			((GOTModelPartyHat) model).setHatItem(itemstack);
-		}
 		if (model instanceof GOTModelPlateHead) {
 			((GOTModelPlateHead) model).setPlateItem(itemstack);
 		}
@@ -144,7 +141,6 @@ public class GOTArmorModels {
 			map.put(GOTItems.leatherHat, new GOTModelLeatherHat(0.0f));
 			map.put(GOTItems.lhazarHelmetLion, new GOTModelSandorHelmet(1.0f));
 			map.put(GOTItems.northHelmet, new GOTModelNorthHelmet(1.0f));
-			map.put(GOTItems.partyHat, new GOTModelPartyHat(0.6f));
 			map.put(GOTItems.plate, new GOTModelPlateHead());
 			map.put(GOTItems.reachHelmet, new GOTModelReachHelmet(1.0f));
 			map.put(GOTItems.reachguardHelmet, new GOTModelReachHelmet(1.0f));
