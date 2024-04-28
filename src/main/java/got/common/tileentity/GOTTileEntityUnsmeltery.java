@@ -73,39 +73,43 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				return material;
 			}
 		} else {
-			if (itemstack.getItem() == new ItemStack(Items.bucket).getItem()) {
+			if (itemStackEquals(itemstack, new ItemStack(Items.bucket))) {
 				return new ItemStack(Items.iron_ingot);
 			}
 
-			if (itemstack.getItem() == new ItemStack(GOTBlocks.birdCage, 1, 2).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTItems.gobletSilver).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.silverBars).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.chandelier, 1, 2).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTItems.silverRing).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.gateSilver).getItem()
+			if (itemStackEquals(itemstack, new ItemStack(GOTBlocks.birdCage, 1, 2))
+					|| itemStackEquals(itemstack, new ItemStack(GOTItems.gobletSilver))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.silverBars))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.chandelier, 1, 2))
+					|| itemStackEquals(itemstack, new ItemStack(GOTItems.silverRing))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.gateSilver))
 			) {
 				return new ItemStack(GOTItems.silverNugget);
 			}
 
-			if (itemstack.getItem() == new ItemStack(GOTBlocks.birdCage, 1, 3).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTItems.gobletGold).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.goldBars).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.chandelier, 1, 3).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTItems.goldRing).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.gateGold).getItem()
+			if (itemStackEquals(itemstack, new ItemStack(GOTBlocks.birdCage, 1, 3))
+					|| itemStackEquals(itemstack, new ItemStack(GOTItems.gobletGold))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.goldBars))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.chandelier, 1, 3))
+					|| itemStackEquals(itemstack, new ItemStack(GOTItems.goldRing))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.gateGold))
 			) {
 				return new ItemStack(Items.gold_nugget);
 			}
 
-			if (itemstack.getItem() == new ItemStack(GOTBlocks.valyrianBars).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.chandelier, 1, 4).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTItems.valyrianRing).getItem()
-					|| itemstack.getItem() == new ItemStack(GOTBlocks.gateValyrian).getItem()
+			if (itemStackEquals(itemstack, new ItemStack(GOTBlocks.valyrianBars))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.chandelier, 1, 4))
+					|| itemStackEquals(itemstack, new ItemStack(GOTItems.valyrianRing))
+					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.gateValyrian))
 			) {
 				return new ItemStack(GOTItems.valyrianNugget);
 			}
 		}
 		return null;
+	}
+
+	private static boolean itemStackEquals(ItemStack itemStack1, ItemStack itemStack2) {
+		return itemStack1.getItem() == itemStack2.getItem() && itemStack1.getItemDamage() == itemStack2.getItemDamage();
 	}
 
 	public boolean canBeUnsmelted(ItemStack itemstack) {
