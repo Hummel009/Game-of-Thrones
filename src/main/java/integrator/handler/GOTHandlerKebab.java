@@ -36,7 +36,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 
 	@Override
 	public String getRecipeName() {
-		return StatCollector.translateToLocal("tile.got:kebabStand.name");
+		return StatCollector.translateToLocal("tile.got:kebab_stand.name");
 	}
 
 	@Override
