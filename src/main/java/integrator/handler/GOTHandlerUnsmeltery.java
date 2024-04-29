@@ -37,20 +37,18 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 		FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
 		for (Item item : (Iterable<Item>) items) {
 			ItemStack stack = new ItemStack(item, 1);
-			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
-			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
-				ItemStack randomResult = INSTANCE.getRandomUnsmeltingResult(null);
-				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
+			ItemStack unsmeltingResult = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
+			if (unsmeltingResult != null && NEIServerUtils.areStacksSameTypeCrafting(unsmeltingResult, result)) {
+				UnsmeltingPair pair = new UnsmeltingPair(stack, unsmeltingResult);
 				arecipes.add(pair);
 			}
 		}
 		FMLControlledNamespacedRegistry<Block> blocks = GameData.getBlockRegistry();
 		for (Block block : (Iterable<Block>) blocks) {
 			ItemStack stack = new ItemStack(block, 1);
-			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
-			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
-				ItemStack randomResult = INSTANCE.getRandomUnsmeltingResult(null);
-				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
+			ItemStack unsmeltingResult = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
+			if (unsmeltingResult != null && NEIServerUtils.areStacksSameTypeCrafting(unsmeltingResult, result)) {
+				UnsmeltingPair pair = new UnsmeltingPair(stack, unsmeltingResult);
 				arecipes.add(pair);
 			}
 		}
@@ -65,10 +63,23 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		ItemStack resultStack = INSTANCE.getRandomUnsmeltingResult(null);
-		if (resultStack != null) {
-			UnsmeltingPair pair = new UnsmeltingPair(ingredient, resultStack);
-			arecipes.add(pair);
+		FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
+		for (Item item : (Iterable<Item>) items) {
+			ItemStack stack = new ItemStack(item, 1);
+			ItemStack unsmeltingResult = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
+			if (unsmeltingResult != null && NEIServerUtils.areStacksSameTypeCrafting(stack, ingredient)) {
+				UnsmeltingPair pair = new UnsmeltingPair(stack, unsmeltingResult);
+				arecipes.add(pair);
+			}
+		}
+		FMLControlledNamespacedRegistry<Block> blocks = GameData.getBlockRegistry();
+		for (Block block : (Iterable<Block>) blocks) {
+			ItemStack stack = new ItemStack(block, 1);
+			ItemStack unsmeltingResult = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
+			if (unsmeltingResult != null && NEIServerUtils.areStacksSameTypeCrafting(stack, ingredient)) {
+				UnsmeltingPair pair = new UnsmeltingPair(stack, unsmeltingResult);
+				arecipes.add(pair);
+			}
 		}
 	}
 
