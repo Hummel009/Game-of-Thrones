@@ -345,9 +345,6 @@ public class GOTEventHandler {
 					} else if (item instanceof GOTItemRobes && GOTItemRobes.areRobesDyed(itemstack)) {
 						GOTItemRobes.removeRobeDye(itemstack);
 						undyed = true;
-					} else if (item instanceof GOTItemPartyHat && GOTItemPartyHat.isHatDyed(itemstack)) {
-						GOTItemPartyHat.removeHatDye(itemstack);
-						undyed = true;
 					}
 					if (undyed) {
 						((BlockCauldron) block).func_150024_a(world, i, j, k, cauldronMeta - 1);
