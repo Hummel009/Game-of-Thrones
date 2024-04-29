@@ -40,6 +40,31 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	private static final Random UNSMELTING_RAND = new Random();
 	private static final Map<Pair<Item, Integer>, Integer> UNSMELTABLE_CRAFTING_COUNTS = new HashMap<>();
 
+	private static final Map<ItemStack, ItemStack> UNSMELT_CUSTOM = new HashMap<>();
+
+	static {
+		UNSMELT_CUSTOM.put(new ItemStack(Items.bucket), new ItemStack(Items.iron_ingot));
+
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 2), new ItemStack(GOTItems.silverNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.silverNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.silverBars), new ItemStack(GOTItems.silverNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 2), new ItemStack(GOTItems.silverNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.silverNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateSilver), new ItemStack(GOTItems.silverNugget));
+
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 3), new ItemStack(Items.gold_nugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.gobletGold), new ItemStack(Items.gold_nugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.goldBars), new ItemStack(Items.gold_nugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 3), new ItemStack(Items.gold_nugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.goldRing), new ItemStack(Items.gold_nugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateGold), new ItemStack(Items.gold_nugget));
+
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.valyrianBars), new ItemStack(GOTItems.valyrianNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 4), new ItemStack(GOTItems.valyrianNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.valyrianRing), new ItemStack(GOTItems.valyrianNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateValyrian), new ItemStack(GOTItems.valyrianNugget));
+	}
+
 	private float prevRocking;
 	private float rocking;
 	private float prevRockingPhase;
@@ -73,36 +98,12 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				return material;
 			}
 		} else {
-			if (itemStackEquals(itemstack, new ItemStack(Items.bucket))) {
-				return new ItemStack(Items.iron_ingot);
-			}
-
-			if (itemStackEquals(itemstack, new ItemStack(GOTBlocks.birdCage, 1, 2))
-					|| itemStackEquals(itemstack, new ItemStack(GOTItems.gobletSilver))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.silverBars))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.chandelier, 1, 2))
-					|| itemStackEquals(itemstack, new ItemStack(GOTItems.silverRing))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.gateSilver))
-			) {
-				return new ItemStack(GOTItems.silverNugget);
-			}
-
-			if (itemStackEquals(itemstack, new ItemStack(GOTBlocks.birdCage, 1, 3))
-					|| itemStackEquals(itemstack, new ItemStack(GOTItems.gobletGold))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.goldBars))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.chandelier, 1, 3))
-					|| itemStackEquals(itemstack, new ItemStack(GOTItems.goldRing))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.gateGold))
-			) {
-				return new ItemStack(Items.gold_nugget);
-			}
-
-			if (itemStackEquals(itemstack, new ItemStack(GOTBlocks.valyrianBars))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.chandelier, 1, 4))
-					|| itemStackEquals(itemstack, new ItemStack(GOTItems.valyrianRing))
-					|| itemStackEquals(itemstack, new ItemStack(GOTBlocks.gateValyrian))
-			) {
-				return new ItemStack(GOTItems.valyrianNugget);
+			for (Map.Entry<ItemStack, ItemStack> entry : UNSMELT_CUSTOM.entrySet()) {
+				ItemStack key = entry.getKey();
+				ItemStack value = entry.getValue();
+				if (itemStackEquals(itemstack, key)) {
+					return value;
+				}
 			}
 		}
 		return null;
