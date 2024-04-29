@@ -1,5 +1,6 @@
 package got.common.world.biome.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.other.GOTBiomeOcean;
 import got.common.world.map.GOTBezierType;
@@ -15,6 +16,11 @@ public class GOTBiomeBleedingBeach extends GOTBiomeOcean {
 		npcSpawnList.clear();
 		biomeColors.setWater(0x640a0a);
 		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterBleedingSea;
 	}
 
 	@Override
