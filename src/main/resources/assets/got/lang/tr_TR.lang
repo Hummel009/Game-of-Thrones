@@ -949,8 +949,6 @@ got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.desc=Ay eteklerini ziyaret edin
 got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.title=Zorlu yol
 got.achievement.ENTER_ARRYN_TOWN.desc=Martı kasabasını ziyaret edin
 got.achievement.ENTER_ARRYN_TOWN.title=Deniz havası kadar taze
-got.achievement.ENTER_SHADOW_TOWN.desc=Asshai'yi ziyaret edin
-got.achievement.ENTER_SHADOW_TOWN.title=Büyücüler şehri
 got.achievement.ENTER_BLEEDING_SEA.desc=Kan Denizi'ni ziyaret edin
 got.achievement.ENTER_BLEEDING_SEA.title=Neden kırmızı?
 got.achievement.ENTER_BONE_MOUNTAINS.desc=Kemik Dağlarını ziyaret edin
@@ -1073,6 +1071,8 @@ got.achievement.ENTER_SHADOW_LAND.desc=Shadow Lands'i ziyaret edin
 got.achievement.ENTER_SHADOW_LAND.title=Kara dünya
 got.achievement.ENTER_SHADOW_MOUNTAINS.desc=Şafak Dağları'nı ziyaret edin
 got.achievement.ENTER_SHADOW_MOUNTAINS.title=Заслоняя солнце
+got.achievement.ENTER_SHADOW_TOWN.desc=Asshai'yi ziyaret edin
+got.achievement.ENTER_SHADOW_TOWN.title=Büyücüler şehri
 got.achievement.ENTER_SHADOW_WASTELAND.desc=The Wasteland Of Shadows'u ziyaret edin
 got.achievement.ENTER_SHADOW_WASTELAND.title=Хуже пустоши
 got.achievement.ENTER_SHRYKES_LAND.desc≠Visit Land of the Shrykes

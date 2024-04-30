@@ -949,8 +949,6 @@ got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.desc=Visite o sopé lunar
 got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.title=Estrada irregular
 got.achievement.ENTER_ARRYN_TOWN.desc=Visite a cidade de Gull
 got.achievement.ENTER_ARRYN_TOWN.title=Fresco como a brisa do mar
-got.achievement.ENTER_SHADOW_TOWN.desc=Visite Asshai
-got.achievement.ENTER_SHADOW_TOWN.title=Cidade dos necromantes
 got.achievement.ENTER_BLEEDING_SEA.desc=Visite o Mar de Sangue
 got.achievement.ENTER_BLEEDING_SEA.title=Por que está vermelho?
 got.achievement.ENTER_BONE_MOUNTAINS.desc=Visite as montanhas dos ossos
@@ -1073,6 +1071,8 @@ got.achievement.ENTER_SHADOW_LAND.desc=Visite Shadow Lands
 got.achievement.ENTER_SHADOW_LAND.title=Terra negra
 got.achievement.ENTER_SHADOW_MOUNTAINS.desc=Visite as montanhas Dawn
 got.achievement.ENTER_SHADOW_MOUNTAINS.title=Заслоняя солнце
+got.achievement.ENTER_SHADOW_TOWN.desc=Visite Asshai
+got.achievement.ENTER_SHADOW_TOWN.title=Cidade dos necromantes
 got.achievement.ENTER_SHADOW_WASTELAND.desc=Visite o Wasteland de Shadows
 got.achievement.ENTER_SHADOW_WASTELAND.title=Хуже пустоши
 got.achievement.ENTER_SHRYKES_LAND.desc≠Visit Land of the Shrykes
