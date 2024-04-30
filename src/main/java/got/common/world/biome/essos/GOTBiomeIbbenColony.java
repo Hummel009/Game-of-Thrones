@@ -1,5 +1,6 @@
 package got.common.world.biome.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
@@ -20,6 +21,11 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 		npcSpawnList.newFactionList(10).add(c0);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIbbenColony;
 	}
 
 	@Override

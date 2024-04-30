@@ -1,5 +1,6 @@
 package got.common.world.biome.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -18,5 +19,10 @@ public class GOTBiomeGhiscarMeereen extends GOTBiomeGhiscar {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_HARPY, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterGhiscarMeereen;
 	}
 }

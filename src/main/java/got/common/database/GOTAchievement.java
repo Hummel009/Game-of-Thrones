@@ -55,7 +55,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterArrynMountains;
 	public static GOTAchievement enterArrynMountainsFoothills;
 	public static GOTAchievement enterArrynTown;
-	public static GOTAchievement enterAsshai;
+	public static GOTAchievement enterShadowTown;
 	public static GOTAchievement enterBleedingSea;
 	public static GOTAchievement enterBoneMountains;
 	public static GOTAchievement enterBraavos;
@@ -106,7 +106,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterQarthColony;
 	public static GOTAchievement enterQarthDesert;
 	public static GOTAchievement enterQohor;
-	public static GOTAchievement enterQohorForest;
 	public static GOTAchievement enterReach;
 	public static GOTAchievement enterReachArbor;
 	public static GOTAchievement enterReachFireField;
@@ -154,7 +153,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterWesterosFrost;
 	public static GOTAchievement enterYeen;
 	public static GOTAchievement enterYiTi;
-	public static GOTAchievement enterYiTiWasteland;
 	public static GOTAchievement factionConquest;
 	public static GOTAchievement findFourLeafClover;
 	public static GOTAchievement findPlantain;
@@ -337,6 +335,16 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYiti;
 	public static GOTAchievement wearFullYitiFrontier;
 	public static GOTAchievement wearFullYitiSamurai;
+
+	public static GOTAchievement enterGhiscarAstapor;
+	public static GOTAchievement enterGhiscarMeereen;
+	public static GOTAchievement enterGhiscarNewGhis;
+	public static GOTAchievement enterGhiscarYunkai;
+	public static GOTAchievement enterIbbenColony;
+	public static GOTAchievement enterIbbenMountains;
+	public static GOTAchievement enterIbbenTaiga;
+	public static GOTAchievement enterLorathMaze;
+	public static GOTAchievement enterMossovyTaiga;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 	private final Category category;
@@ -589,7 +597,7 @@ public class GOTAchievement {
 		enterArrynMountains = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.rock, 1, 1), "ENTER_ARRYN_MOUNTAINS").setBiomeAchievement();
 		enterArrynMountainsFoothills = new GOTAchievement(Category.ENTER, entId++, GOTItems.trident, "ENTER_ARRYN_MOUNTAINS_FOOTHILLS").setBiomeAchievement();
 		enterArrynTown = new GOTAchievement(Category.ENTER, entId++, GOTItems.arrynguardHelmet, "ENTER_ARRYN_TOWN").setBiomeAchievement();
-		enterAsshai = new GOTAchievement(Category.ENTER, entId++, GOTItems.asshaiStaff, "ENTER_ASSHAI").setBiomeAchievement();
+		enterShadowTown = new GOTAchievement(Category.ENTER, entId++, GOTItems.asshaiStaff, "ENTER_SHADOW_TOWN").setBiomeAchievement();
 		enterBleedingSea = new GOTAchievement(Category.ENTER, entId++, GOTItems.bronzeSword, "ENTER_BLEEDING_SEA").setBiomeAchievement();
 		enterBoneMountains = new GOTAchievement(Category.ENTER, entId++, GOTBlocks.boneBlock, "ENTER_BONE_MOUNTAINS").setBiomeAchievement();
 		enterBraavos = new GOTAchievement(Category.ENTER, entId++, GOTItems.braavosHelmet, "ENTER_BRAAVOS").setBiomeAchievement();
@@ -639,7 +647,6 @@ public class GOTAchievement {
 		enterQarthColony = new GOTAchievement(Category.ENTER, entId++, GOTItems.qarthHelmet, "ENTER_QARTH_COLONY").setBiomeAchievement();
 		enterQarthDesert = new GOTAchievement(Category.ENTER, entId++, GOTBlocks.redSandstone, "ENTER_QARTH_DESERT").setBiomeAchievement();
 		enterQohor = new GOTAchievement(Category.ENTER, entId++, GOTItems.qohorHelmet, "ENTER_QOHOR").setBiomeAchievement();
-		enterQohorForest = new GOTAchievement(Category.ENTER, entId++, GOTItems.qohorHelmet, "ENTER_QOHOR_FOREST").setBiomeAchievement();
 		enterReach = new GOTAchievement(Category.ENTER, entId++, GOTItems.reachHelmet, "ENTER_REACH").setBiomeAchievement();
 		enterReachArbor = new GOTAchievement(Category.ENTER, entId++, GOTItems.grapeRed, "ENTER_REACH_ARBOR").setBiomeAchievement();
 		enterReachFireField = new GOTAchievement(Category.ENTER, entId++, Blocks.red_flower, "ENTER_REACH_FIRE_FIELD").setBiomeAchievement();
@@ -687,7 +694,16 @@ public class GOTAchievement {
 		enterWesterosFrost = new GOTAchievement(Category.ENTER, entId++, Blocks.snow, "ENTER_WESTEROS_FROST").setBiomeAchievement();
 		enterYeen = new GOTAchievement(Category.ENTER, entId++, Blocks.obsidian, "ENTER_YEEN").setBiomeAchievement();
 		enterYiTi = new GOTAchievement(Category.ENTER, entId++, GOTItems.yitiHelmet, "ENTER_YI_TI").setBiomeAchievement();
-		enterYiTiWasteland = new GOTAchievement(Category.ENTER, entId++, GOTItems.yitiHelmetSamurai, "ENTER_YI_TI_WASTELAND").setBiomeAchievement();
+
+		enterGhiscarAstapor = new GOTAchievement(Category.ENTER, entId++, GOTItems.unsulliedHelmet, "ENTER_GHISCAR_ASTAPOR").setBiomeAchievement();
+		enterGhiscarMeereen = new GOTAchievement(Category.ENTER, entId++, GOTItems.harpy, "ENTER_GHISCAR_MEEREEN").setBiomeAchievement();
+		enterGhiscarNewGhis = new GOTAchievement(Category.ENTER, entId++, GOTItems.ghiscarHelmet, "ENTER_GHISCAR_NEW_GHIS").setBiomeAchievement();
+		enterGhiscarYunkai = new GOTAchievement(Category.ENTER, entId++, GOTItems.gemsbokHelmet, "ENTER_GHISCAR_YUNKAI").setBiomeAchievement();
+		enterIbbenColony = new GOTAchievement(Category.ENTER, entId++, GOTItems.ibbenHarpoon, "ENTER_IBBEN_COLONY").setBiomeAchievement();
+		enterIbbenMountains = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.rock, 1, 2), "ENTER_IBBEN_MOUNTAINS").setBiomeAchievement();
+		enterIbbenTaiga = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.wood1, 1, 0), "ENTER_IBBEN_TAIGA").setBiomeAchievement();
+		enterLorathMaze = new GOTAchievement(Category.ENTER, entId++, Blocks.stone, "ENTER_IBBEN_LORATH_MAZE").setBiomeAchievement();
+		enterMossovyTaiga = new GOTAchievement(Category.ENTER, entId++, new ItemStack(Blocks.log, 1, 1), "ENTER_MOSSOVY_TAIGA").setBiomeAchievement();
 
 		int wearId = 1;
 		wearFullArryn = createArmorAchievement(Category.WEAR, wearId++, GOTItems.arrynChestplate, "WEAR_FULL_ARRYN");

@@ -1,6 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
@@ -31,10 +30,5 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterQohorForest;
 	}
 }

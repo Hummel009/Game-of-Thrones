@@ -1,4 +1,6 @@
 ﻿
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Посетите Астапор
+got.achievement.ENTER_GHISCAR_ASTAPOR.title=Безупречный город
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)
 color.black=Чёрный
 color.blue=Голубой
@@ -949,8 +951,8 @@ got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.desc=Посетите Лунно
 got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.title=Неспокойная дорога
 got.achievement.ENTER_ARRYN_TOWN.desc=Посетите Чаячий город
 got.achievement.ENTER_ARRYN_TOWN.title=Свежая, как морской воздух
-got.achievement.ENTER_ASSHAI.desc=Посетите Асшай
-got.achievement.ENTER_ASSHAI.title=Темно, как у негра...
+got.achievement.ENTER_SHADOW_TOWN.desc=Посетите Асшай
+got.achievement.ENTER_SHADOW_TOWN.title=Темно, как у негра...
 got.achievement.ENTER_BLEEDING_SEA.desc=Посетите Кровавое море
 got.achievement.ENTER_BLEEDING_SEA.title=Почему оно красное?
 got.achievement.ENTER_BONE_MOUNTAINS.desc=Посетите Хребет костей

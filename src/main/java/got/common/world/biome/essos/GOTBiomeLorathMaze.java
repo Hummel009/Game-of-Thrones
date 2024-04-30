@@ -1,6 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.GOT;
+import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -24,6 +25,11 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 		npcSpawnList.clear();
 		spawnableCreatureList.clear();
 		spawnableGOTAmbientList.clear();
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterLorathMaze;
 	}
 
 	@Override

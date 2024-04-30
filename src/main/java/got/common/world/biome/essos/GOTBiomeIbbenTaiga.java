@@ -1,5 +1,6 @@
 package got.common.world.biome.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTEventSpawner;
 
@@ -12,5 +13,10 @@ public class GOTBiomeIbbenTaiga extends GOTBiomeIbben {
 		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.setTreesPerChunk(10);
 		decorator.clearSettlements();
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIbbenTaiga;
 	}
 }

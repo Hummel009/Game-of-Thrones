@@ -1,5 +1,6 @@
 package got.common.world.biome.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
@@ -24,5 +25,10 @@ public class GOTBiomeMossovyTaiga extends GOTBiomeMossovy {
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c1);
 		invasionSpawns.clearInvasions();
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterMossovyTaiga;
 	}
 }

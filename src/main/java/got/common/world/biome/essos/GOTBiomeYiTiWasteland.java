@@ -1,6 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -19,10 +18,5 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterYiTiWasteland;
 	}
 }
