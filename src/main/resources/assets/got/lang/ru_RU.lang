@@ -1,6 +1,22 @@
 ﻿
+got.achievement.ENTER_MOSSOVY_TAIGA.desc=Посетите моссовийскую тайгу
+got.achievement.ENTER_MOSSOVY_TAIGA.title=Глубокий и тёмный лес
+got.achievement.ENTER_IBBEN_LORATH_MAZE.desc=Посетите лабиринты Лората
+got.achievement.ENTER_IBBEN_LORATH_MAZE.title=Нельзя так просто взять и...
+got.achievement.ENTER_IBBEN_TAIGA.desc=Посетите иббенийскую тайгу
+got.achievement.ENTER_IBBEN_TAIGA.title=Большие мамонты маленького острова
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc=Посетите иббенийские горы
+got.achievement.ENTER_IBBEN_MOUNTAINS.title=Холодные риолитовые просторы
+got.achievement.ENTER_IBBEN_COLONY.desc=Посетите иббенийские колонии
+got.achievement.ENTER_IBBEN_COLONY.title=Даже у них есть колонии, а у тебя нет!
+got.achievement.ENTER_GHISCAR_YUNKAI.desc=Посетите Юнкай
+got.achievement.ENTER_GHISCAR_YUNKAI.title=Город "Мудрых господ"
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc=Посетите Новый Гис
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title=Подражатели Империи
+got.achievement.ENTER_GHISCAR_MEEREEN.desc=Посетите Миэрин
+got.achievement.ENTER_GHISCAR_MEEREEN.title=Город Гарпий
 got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Посетите Астапор
-got.achievement.ENTER_GHISCAR_ASTAPOR.title=Безупречный город
+got.achievement.ENTER_GHISCAR_ASTAPOR.title=Город Безупречных
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)
 color.black=Чёрный
 color.blue=Голубой
