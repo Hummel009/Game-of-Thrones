@@ -26,9 +26,7 @@ public class GOTCommandAchievement extends CommandBase {
 				for (GOTAchievement a : achievements) {
 					names.add(a.getName());
 				}
-				if ("remove".equals(args[0])) {
-					names.add("all");
-				}
+				names.add("all");
 				return getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
 			case 3:
 				return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
@@ -71,6 +69,15 @@ public class GOTCommandAchievement extends CommandBase {
 			EntityPlayerMP entityplayer = args.length >= 3 ? getPlayer(sender, args[2]) : getCommandSenderAsPlayer(sender);
 			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 			if ("give".equalsIgnoreCase(args[0])) {
+				if ("all".equalsIgnoreCase(achName)) {
+					for (GOTAchievement ach : GOTAchievement.CONTENT) {
+						if (!playerData.hasAchievement(ach)) {
+							playerData.addAchievement(ach);
+						}
+					}
+					func_152373_a(sender, this, "got.command.got_achievement.addAll", entityplayer.getCommandSenderName());
+					return;
+				}
 				GOTAchievement ach = findAchievementByName(achName);
 				if (playerData.hasAchievement(ach)) {
 					throw new WrongUsageException("got.command.got_achievement.give.fail", entityplayer.getCommandSenderName(), ach.getTitle(entityplayer));
