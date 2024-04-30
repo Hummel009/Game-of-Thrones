@@ -12,6 +12,7 @@ public class GOTBiomeReachFireField extends GOTBiomeReach {
 	public GOTBiomeReachFireField(int i, boolean major) {
 		super(i, major);
 		setupStandardDomesticFauna();
+		biomeVariants.clear();
 		decorator.setTreesPerChunk(0);
 		decorator.setFlowersPerChunk(20);
 		decorator.setDoubleFlowersPerChunk(12);
@@ -22,7 +23,7 @@ public class GOTBiomeReachFireField extends GOTBiomeReach {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterFireField;
+		return GOTAchievement.enterReachFireField;
 	}
 
 	@Override

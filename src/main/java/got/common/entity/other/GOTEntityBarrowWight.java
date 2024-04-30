@@ -6,6 +6,7 @@ import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -16,7 +17,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityBarrowWight extends GOTEntityNPC {
+public class GOTEntityBarrowWight extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
 	private static final Potion[] ATTACK_EFFECTS = {Potion.moveSlowdown, Potion.digSlowdown, Potion.wither};
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

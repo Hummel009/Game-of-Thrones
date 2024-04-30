@@ -245,7 +245,7 @@ public class GOTBeziers {
 		double[] braavosHalfway1 = {1250, 1451};
 		double[] braavosHalfway2 = {1210, 1339};
 
-		registerBezier(Type.ROAD, GOTWaypoint.MANTARYS, new double[]{1864, 2058}, new double[]{1843, 2089}, new double[]{1832, 2136}, new double[]{1830, 2184}, new double[]{1835, 2219}, GOTWaypoint.OROS);
+		registerBezier(Type.ROAD, GOTWaypoint.MANTARYS, new double[]{1865, 2062}, new double[]{1831, 2099}, new double[]{1816, 2145}, new double[]{1811, 2181}, new double[]{1797, 2228}, new double[]{1801, 2246}, new double[]{1815, 2249}, new double[]{1831, 2247}, GOTWaypoint.OROS);
 		registerBezier(Type.ROAD, GOTWaypoint.BHORASH, new double[]{2024, 1981}, new double[]{1988, 2001}, unhabitedCrossroads);
 		registerBezier(Type.ROAD, unhabitedCrossroads, new double[]{1958, 2043}, new double[]{1951, 2058}, GOTWaypoint.TOLOS);
 		registerBezier(Type.ROAD, unhabitedCrossroads, new double[]{1942, 2030}, new double[]{1913, 2027}, GOTWaypoint.MANTARYS);

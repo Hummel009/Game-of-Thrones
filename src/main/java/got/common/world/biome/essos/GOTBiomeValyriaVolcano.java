@@ -13,8 +13,6 @@ import java.util.Random;
 public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 	public GOTBiomeValyriaVolcano(int i, boolean major) {
 		super(i, major);
-		topBlock = Blocks.stone;
-		fillerBlock = Blocks.stone;
 		decorator.setTreesPerChunk(0);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreValyrian, 3), 2.0f, 0, 16);
 	}

@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class GOTEntityHummel009 extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
+public class GOTEntityHummel009 extends GOTEntityNPC implements GOTBiome.ImmuneToFrost, GOTBiome.ImmuneToHeat {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHummel009(World world) {
 		super(world);

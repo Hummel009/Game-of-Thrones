@@ -2,9 +2,10 @@ package got.common.entity.other;
 
 import got.common.database.GOTAchievement;
 import got.common.faction.GOTFaction;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.world.World;
 
-public class GOTEntityUlthosSpider extends GOTEntitySpiderBase {
+public class GOTEntityUlthosSpider extends GOTEntitySpiderBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityUlthosSpider(World world) {
 		super(world);

@@ -11,8 +11,8 @@ import got.common.world.structure.westeros.ironborn.GOTStructureIronbornWatchfor
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeIronborn extends GOTBiomeWesteros {
-	public GOTBiomeIronborn(int i, boolean major) {
+public class GOTBiomeIronIslands extends GOTBiomeWesteros {
+	public GOTBiomeIronIslands(int i, boolean major) {
 		super(i, major);
 		decorator.addSettlement(new GOTStructureIronbornSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureIronbornWatchfort(false), 800);

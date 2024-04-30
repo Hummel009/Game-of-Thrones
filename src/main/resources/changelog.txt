@@ -20,10 +20,12 @@ CHANGELOG
 * Improved unit costs
 * Improved dragon and wikigen command tab completion
 * Improved animal stats
+* Improved mobs' immune to frost/heat
 
 * Optimized dragons, giants and ice creatures
 * Optimized lots of client-size things
 
+* Reworked valyria region from scratch
 * Now not only ibben forts are fixed near waypoints
 * Silver, gold, valyrian steel and different gems now has fixed prices world-wide.
 * Midges and butterflies can't spawn in winter now

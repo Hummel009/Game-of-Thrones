@@ -5,6 +5,7 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.item.weapon.GOTItemSword;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,7 +14,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityShryke extends GOTEntityNPC {
+public class GOTEntityShryke extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityShryke(World world) {
 		super(world);

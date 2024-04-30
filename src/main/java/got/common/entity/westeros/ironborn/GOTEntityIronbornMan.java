@@ -13,7 +13,8 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.util.GOTCrashHandler;
-import got.common.world.biome.westeros.GOTBiomeIronborn;
+import got.common.world.biome.GOTBiome;
+import got.common.world.biome.westeros.GOTBiomeIronIslands;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -25,7 +26,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityIronbornMan extends GOTEntityHumanBase {
+public class GOTEntityIronbornMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
@@ -97,7 +98,7 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase {
 	public float getBlockPathWeight(int i, int j, int k) {
 		float f = 0.0f;
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
-		if (biome instanceof GOTBiomeIronborn) {
+		if (biome instanceof GOTBiomeIronIslands) {
 			f += 20.0f;
 		}
 		return f;

@@ -84,6 +84,6 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterArbor;
+		return GOTAchievement.enterReachArbor;
 	}
 }

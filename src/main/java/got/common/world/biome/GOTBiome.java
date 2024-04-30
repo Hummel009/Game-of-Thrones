@@ -119,9 +119,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome ibbenMountains;
 	public static GOTBiome ibbenTaiga;
 	public static GOTBiome ifekevronForest;
-	public static GOTBiome ironborn;
-	public static GOTBiome ironbornForest;
-	public static GOTBiome ironbornHills;
+	public static GOTBiome ironIslands;
+	public static GOTBiome ironIslandsForest;
+	public static GOTBiome ironIslandsHills;
 	public static GOTBiome island;
 	public static GOTBiome isleOfFaces;
 	public static GOTBiome jogosNhai;
@@ -145,13 +145,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome massy;
 	public static GOTBiome massyHills;
 	public static GOTBiome mossovy;
-	public static GOTBiome mossovyForest;
 	public static GOTBiome mossovyMarshes;
 	public static GOTBiome mossovyMountains;
+	public static GOTBiome mossovyTaiga;
 	public static GOTBiome myr;
 	public static GOTBiome myrForest;
 	public static GOTBiome naath;
 	public static GOTBiome neck;
+	public static GOTBiome neckForest;
 	public static GOTBiome north;
 	public static GOTBiome northBarrows;
 	public static GOTBiome northForest;
@@ -232,6 +233,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome ulthosTaigaEdge;
 	public static GOTBiome valyria;
 	public static GOTBiome valyriaSea;
+	public static GOTBiome valyriaSea1;
+	public static GOTBiome valyriaSea2;
 	public static GOTBiome valyriaVolcano;
 	public static GOTBiome volantis;
 	public static GOTBiome volantisForest;
@@ -242,7 +245,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome westerlandsHills;
 	public static GOTBiome westerlandsTown;
 	public static GOTBiome westerosFrost;
-	public static GOTBiome wetwood;
 	public static GOTBiome whisperingWood;
 	public static GOTBiome wolfswood;
 	public static GOTBiome yeen;
@@ -303,23 +305,27 @@ public abstract class GOTBiome extends BiomeGenBase {
 		beach = new GOTBiomeBeach(9, false).setBeachBlock(Blocks.sand, 0).setColor(14404247).setBiomeName("beach");
 		beachGravel = new GOTBiomeBeach(10, false).setBeachBlock(Blocks.gravel, 0).setColor(9868704).setBiomeName("beachGravel");
 		beachWhite = new GOTBiomeBeach(11, false).setBeachBlock(GOTBlocks.whiteSand, 0).setColor(15592941).setBiomeName("beachWhite");
-		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
 		lake = new GOTBiomeLake(60, false).setTemperatureRainfall(0.8F, 0.8F).setColor(3433630).setBiomeName("lake");
+		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
 
 		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x024B75).setMinMaxHeight(-1.0f, 0.3f).setBiomeName("ocean");
-		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x036FAC).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("ocean");
-		ocean2 = new GOTBiomeOcean(167, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x026193).setMinMaxHeight(-0.8f, 0.3f).setBiomeName("ocean");
-		ocean3 = new GOTBiomeOcean(46, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x025582).setMinMaxHeight(-0.9f, 0.3f).setBiomeName("ocean");
+		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x025582).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("ocean");
+		ocean2 = new GOTBiomeOcean(167, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x025E8C).setMinMaxHeight(-0.8f, 0.3f).setBiomeName("ocean");
+		ocean3 = new GOTBiomeOcean(46, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x036799).setMinMaxHeight(-0.9f, 0.3f).setBiomeName("ocean");
 		island = new GOTBiomeOcean(55, false).setTemperatureRainfall(0.8F, 0.8F).setColor(10138963).setMinMaxHeight(0.0f, 0.3f).setBiomeName("island");
+
 		kingSpears = new GOTBiomeOcean(59, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0xA0A0A0).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("kingSpears");
+
 		shadowLand = new GOTBiomeShadowLand(112, true).setMinMaxHeight(0.1f, 0.15f).setColor(0x8E8854).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowLand");
 		shadowMountains = new GOTBiomeShadowMountains(113, true).setMinMaxHeight(2.0f, 2.0f).setColor(0x635E3B).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowMountains");
 		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.15f).setColor(0xA39C68).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowTown");
 		valyria = new GOTBiomeValyria(145, true).setMinMaxHeight(0.1f, 0.15f).setColor(6710111).setTemperatureRainfall(1.2F, 0.8F).setBiomeName("valyria");
-		valyriaSea = new GOTBiomeValyria(146, true).setMinMaxHeight(-1.0f, 0.3f).setColor(0x0D304C).setTemperatureRainfall(0.8F, 0.8F).setBiomeName("valyriaSea");
+		valyriaSea = new GOTBiomeValyria(146, true).setMinMaxHeight(-1.0f, 0.3f).setColor(0x0D314C).setTemperatureRainfall(0.8F, 0.8F).setBiomeName("valyriaSea");
+		valyriaSea1 = new GOTBiomeValyria(186, true).setMinMaxHeight(-0.9f, 0.3f).setColor(0x103B5B).setTemperatureRainfall(0.8F, 0.8F).setBiomeName("valyriaSea");
+		valyriaSea2 = new GOTBiomeValyria(187, true).setMinMaxHeight(-0.8f, 0.3f).setColor(0x124468).setTemperatureRainfall(0.8F, 0.8F).setBiomeName("valyriaSea");
 		valyriaVolcano = new GOTBiomeValyriaVolcano(147, true).setMinMaxHeight(2.0f, 2.0f).setColor(0xA5A5A5).setTemperatureRainfall(1.2F, 0.8F).setBiomeName("valyriaVolcano");
 
-		bleedingBeach = new GOTBiomeBleedingBeach(105, false).setBeachBlock(Blocks.sand, 1).setClimateType(GOTClimateType.SUMMER).setColor(14403247).setMinMaxHeight(0.1f, 0.0f).setBiomeName("beach");
+		bleedingBeach = new GOTBiomeBleedingBeach(105, false).setBeachBlock(Blocks.sand, 1).setClimateType(GOTClimateType.SUMMER).setColor(14403247).setMinMaxHeight(0.1f, 0.0f).setBiomeName("bleedingBeach");
 
 		alwaysWinter = new GOTBiomeAlwaysWinter(1, true).setClimateType(GOTClimateType.WINTER).setColor(0xC9DAE0).setMinMaxHeight(0.1f, 0.15f).setBiomeName("alwaysWinter");
 		arryn = new GOTBiomeArryn(3, true).setClimateType(GOTClimateType.NORMAL).setColor(0x8CBA5B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arryn");
@@ -371,9 +377,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xafbc9f).setMinMaxHeight(2.0f, 2.0f).setBiomeName("ibbenMountains");
 		ibbenTaiga = new GOTBiomeIbbenTaiga(49, true).setClimateType(GOTClimateType.COLD).setColor(0x4C6B23).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibbenTaiga");
 		ifekevronForest = new GOTBiomeIfekevronForest(50, true).setClimateType(GOTClimateType.SUMMER).setColor(0x657231).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ifekevronForest");
-		ironborn = new GOTBiomeIronborn(51, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA83).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironborn");
-		ironbornForest = new GOTBiomeIronbornForest(180, true).setClimateType(GOTClimateType.COLD).setColor(0x59845E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironbornForest");
-		ironbornHills = new GOTBiomeIronbornHills(53, true).setClimateType(GOTClimateType.COLD).setColor(0x779E70).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ironbornHills");
+		ironIslands = new GOTBiomeIronIslands(51, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA83).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironIslands");
+		ironIslandsForest = new GOTBiomeIronIslandsForest(180, true).setClimateType(GOTClimateType.COLD).setColor(0x59845E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironIslandsForest");
+		ironIslandsHills = new GOTBiomeIronIslandsHills(53, true).setClimateType(GOTClimateType.COLD).setColor(0x779E70).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ironIslandsHills");
 		isleOfFaces = new GOTBiomeIsleOfFaces(56, true).setClimateType(GOTClimateType.NORMAL).setColor(0x82A556).setMinMaxHeight(0.1f, 0.15f).setBiomeName("isleOfFaces");
 		jogosNhai = new GOTBiomeJogosNhai(57, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2B762).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhai");
 		jogosNhaiDesert = new GOTBiomeJogosNhaiDesert(58, true).setClimateType(GOTClimateType.SUMMER).setColor(0xD6C182).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiDesert");
@@ -386,6 +392,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		lhazarForest = new GOTBiomeLhazarForest(173, true).setClimateType(GOTClimateType.SUMMER).setColor(0x74823F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lhazarForest");
 		lhazarHills = new GOTBiomeLhazar(117, true).setClimateType(GOTClimateType.SUMMER).setColor(0x979B4C).setMinMaxHeight(0.1f, 1.0f).setBiomeName("lhazarHills");
 		longSummer = new GOTBiomeLongSummer(62, true).setClimateType(GOTClimateType.SUMMER).setColor(0x95A03D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("longSummer");
+		longSummer = new GOTBiomeLongSummerForest(185, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5A6B29).setMinMaxHeight(0.1f, 0.15f).setBiomeName("longSummerForest");
 		lorath = new GOTBiomeLorath(63, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA5B25B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorath");
 		lorathForest = new GOTBiomeLorathForest(153, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6A7C40).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorathForest");
 		lorathHills = new GOTBiomeLorath(162, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8C964E).setMinMaxHeight(0.1f, 1.0f).setBiomeName("lorathHills");
@@ -394,13 +401,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 		massy = new GOTBiomeDragonstone(28, true).setClimateType(GOTClimateType.NORMAL).setColor(0x89AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("massy");
 		massyHills = new GOTBiomeDragonstoneHills(67, true).setClimateType(GOTClimateType.NORMAL).setColor(0x749158).setMinMaxHeight(0.1f, 1.0f).setBiomeName("massyHills");
 		mossovy = new GOTBiomeMossovy(71, true).setClimateType(GOTClimateType.COLD).setColor(0x92A35E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovy");
-		mossovyForest = new GOTBiomeMossovyForest(72, true).setClimateType(GOTClimateType.COLD).setColor(0x647A46).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovyForest");
 		mossovyMarshes = new GOTBiomeMossovyMarshes(73, true).setClimateType(GOTClimateType.COLD).setColor(0x749975).setMinMaxHeight(0.0f, 0.1f).setBiomeName("mossovyMarshes");
 		mossovyMountains = new GOTBiomeMossovyMountains(75, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xD7E2B3).setMinMaxHeight(2.0f, 2.0f).setBiomeName("mossovyMountains");
+		mossovyTaiga = new GOTBiomeMossovyTaiga(72, true).setClimateType(GOTClimateType.COLD).setColor(0x647A46).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovyTaiga");
 		myr = new GOTBiomeMyr(76, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA0A349).setMinMaxHeight(0.1f, 0.15f).setBiomeName("myr");
 		myrForest = new GOTBiomeMyrForest(168, true).setClimateType(GOTClimateType.SUMMER).setColor(0x626D31).setMinMaxHeight(0.1f, 0.15f).setBiomeName("myrForest");
 		naath = new GOTBiomeSummerIslands(78, true).setClimateType(GOTClimateType.SUMMER).setColor(0x7DA33C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("naath");
 		neck = new GOTBiomeNeck(79, true).setClimateType(GOTClimateType.COLD).setColor(0x6DAA75).setMinMaxHeight(0.0f, 0.1f).setBiomeName("neck");
+		neckForest = new GOTBiomeNeckForest(157, true).setClimateType(GOTClimateType.COLD).setColor(0x427551).setMinMaxHeight(0.1f, 0.15f).setBiomeName("neckForest");
 		north = new GOTBiomeNorth(81, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA6D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("north");
 		northBarrows = new GOTBiomeNorthBarrows(82, true).setClimateType(GOTClimateType.COLD).setColor(0x97C17C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northBarrows");
 		northForest = new GOTBiomeNorthForest(84, true).setClimateType(GOTClimateType.COLD).setColor(0x59844E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northForest");
@@ -434,7 +442,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		sothoryosBushland = new GOTBiomeSothoryosBushland(118, true).setClimateType(GOTClimateType.SUMMER).setColor(0x998F3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosBushland");
 		sothoryosDesert = new GOTBiomeSothoryosDesert(119, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCB882).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesert");
 		sothoryosDesertCold = new GOTBiomeSothoryosDesertCold(120, true).setClimateType(GOTClimateType.WINTER).setColor(0xDAD4AF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesertCold");
-		sothoryosDesertHills = new GOTBiomeSothoryosDesert(121, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB9A762).setMinMaxHeight(0.1f, 1.0f).setBiomeName("sothoryosDeserHills");
+		sothoryosDesertHills = new GOTBiomeSothoryosDesert(121, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB9A762).setMinMaxHeight(0.1f, 1.0f).setBiomeName("sothoryosDesertHills");
 		sothoryosForest = new GOTBiomeSothoryosForest(126, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6A8436).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosForest");
 		sothoryosFrost = new GOTBiomeSothoryosFrost(122, true).setClimateType(GOTClimateType.WINTER).setColor(0xD8D8D2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosFrost");
 		sothoryosHell = new GOTBiomeSothoryosHell(123, true).setClimateType(GOTClimateType.SUMMER).setColor(0x2E421B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosHell");
@@ -479,7 +487,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		westerlandsHills = new GOTBiomeWesterlandsHills(154, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9E9E50).setMinMaxHeight(0.1f, 1.0f).setBiomeName("westerlandsHills");
 		westerlandsTown = new GOTBiomeWesterlandsTown(155, true).setClimateType(GOTClimateType.NORMAL).setColor(0xD1D17F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsTown");
 		westerosFrost = new GOTBiomeWesterosFrost(37, true).setClimateType(GOTClimateType.WINTER).setColor(0xD7E4E5).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerosFrost");
-		wetwood = new GOTBiomeWetwood(157, true).setClimateType(GOTClimateType.COLD).setColor(0x427551).setMinMaxHeight(0.1f, 0.15f).setBiomeName("wetwood");
 		yeen = new GOTBiomeYeen(160, true).setClimateType(GOTClimateType.SUMMER).setColor(0x242F0F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yeen");
 		yiTi = new GOTBiomeYiTi(161, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE55).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTi");
 		yiTiMarshes = new GOTBiomeYiTiMarshes(12, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8BA061).setMinMaxHeight(0.0f, 0.1f).setBiomeName("yiTiMarshes");
@@ -1187,9 +1194,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 			return customWater;
 		}
 
-		public void setWater(int rgb) {
-			biome.waterColorMultiplier = rgb;
-			if (rgb != DEFAULT_WATER) {
+		public void setWater(Color rgb) {
+			biome.waterColorMultiplier = rgb.getRGB();
+			if (rgb.getRGB() != DEFAULT_WATER) {
 				customWater = true;
 			}
 		}

@@ -1347,7 +1347,7 @@ public class GOTEventHandler {
 						ItemStack armor = entity.getEquipmentInSlot(l + 1);
 						if (armor != null && armor.getItem() instanceof ItemArmor) {
 							ItemArmor.ArmorMaterial material = ((ItemArmor) armor.getItem()).getArmorMaterial();
-							if (material == GOTMaterial.FUR) {
+							if (material == GOTMaterial.FUR || material == GOTMaterial.GIFT) {
 								frostProtection += 2;
 							}
 						}

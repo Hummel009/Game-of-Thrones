@@ -1,6 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityLion;
 import got.common.entity.animal.GOTEntityLioness;
@@ -18,10 +17,5 @@ public class GOTBiomeWesterlandsHills extends GOTBiomeWesterlands {
 		npcSpawnList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 10, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 10, 1, 1));
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterWesterlandsHills;
 	}
 }

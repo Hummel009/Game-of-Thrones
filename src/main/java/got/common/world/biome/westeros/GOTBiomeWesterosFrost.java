@@ -22,7 +22,7 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSnowyWasteland;
+		return GOTAchievement.enterWesterosFrost;
 	}
 
 	@Override

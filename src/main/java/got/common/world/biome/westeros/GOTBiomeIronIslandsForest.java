@@ -2,8 +2,8 @@ package got.common.world.biome.westeros;
 
 import got.common.world.biome.variant.GOTBiomeVariant;
 
-public class GOTBiomeIronbornForest extends GOTBiomeIronborn {
-	public GOTBiomeIronbornForest(int i, boolean major) {
+public class GOTBiomeIronIslandsForest extends GOTBiomeIronIslands {
+	public GOTBiomeIronIslandsForest(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
 		biomeVariants.clear();

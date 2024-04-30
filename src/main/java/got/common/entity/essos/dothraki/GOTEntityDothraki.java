@@ -9,6 +9,7 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeDothrakiSea;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
@@ -24,7 +25,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.List;
 
-public class GOTEntityDothraki extends GOTEntityHumanBase {
+public class GOTEntityDothraki extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
 	private int draka;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

@@ -36,7 +36,7 @@ public class GOTBiomeShadowLand extends GOTBiome {
 		biomeColors.setSky(new Color(0));
 		biomeColors.setClouds(new Color(0));
 		biomeColors.setFog(new Color(0));
-		biomeColors.setWater(0);
+		biomeColors.setWater(new Color(0));
 	}
 
 	public static boolean isBlackSurface(IBlockAccess world, int i, int j, int k) {

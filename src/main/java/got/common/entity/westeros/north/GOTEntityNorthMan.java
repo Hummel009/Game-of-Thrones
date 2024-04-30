@@ -13,6 +13,7 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.westeros.GOTBiomeNorth;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
@@ -25,7 +26,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityNorthMan extends GOTEntityHumanBase {
+public class GOTEntityNorthMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

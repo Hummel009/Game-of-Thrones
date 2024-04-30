@@ -8,8 +8,8 @@ import got.common.world.spawning.GOTSpawnListContainer;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
-	public GOTBiomeMossovyForest(int i, boolean major) {
+public class GOTBiomeMossovyTaiga extends GOTBiomeMossovy {
+	public GOTBiomeMossovyTaiga(int i, boolean major) {
 		super(i, major);
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);

@@ -7,6 +7,7 @@ public class GOTBiomeNorthForestIrontree extends GOTBiomeNorthForest {
 	public GOTBiomeNorthForestIrontree(int i, boolean major) {
 		super(i, major);
 		decorator.clearTrees();
+		decorator.clearSettlements();
 		decorator.addTree(GOTTreeType.REDWOOD, 10000);
 		decorator.addTree(GOTTreeType.REDWOOD_2, 10000);
 		decorator.addTree(GOTTreeType.REDWOOD_3, 5000);
@@ -16,6 +17,6 @@ public class GOTBiomeNorthForestIrontree extends GOTBiomeNorthForest {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterIrontreeForest;
+		return GOTAchievement.enterNorthForestIrontree;
 	}
 }

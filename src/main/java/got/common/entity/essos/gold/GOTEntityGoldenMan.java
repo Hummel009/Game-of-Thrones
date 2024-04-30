@@ -7,6 +7,7 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTNPCMount;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeDisputedLands;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,7 +19,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityGoldenMan extends GOTEntityHumanBase {
+public class GOTEntityGoldenMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGoldenMan(World world) {
 		super(world);

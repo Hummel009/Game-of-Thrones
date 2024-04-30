@@ -7,6 +7,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 
+import java.awt.*;
+
 public class GOTBiomeBleedingBeach extends GOTBiomeOcean {
 	public GOTBiomeBleedingBeach(int i, boolean major) {
 		super(i, major);
@@ -14,7 +16,7 @@ public class GOTBiomeBleedingBeach extends GOTBiomeOcean {
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		npcSpawnList.clear();
-		biomeColors.setWater(0x640a0a);
+		biomeColors.setWater(new Color(0x640a0a));
 		unreliableChance = GOTEventSpawner.EventChance.NEVER;
 	}
 

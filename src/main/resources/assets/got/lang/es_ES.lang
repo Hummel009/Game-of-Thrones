@@ -158,8 +158,8 @@ entity.got.DaarioNaharis.name≠Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠Dagmer
 entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinTramp.name≠Tramp
 entity.got.DarkSkinThief.name≠Thief
+entity.got.DarkSkinTramp.name≠Tramp
 entity.got.Dart.name=Dardo
 entity.got.DavenLannister.name≠Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -392,8 +392,8 @@ entity.got.LhazarMiner.name=Minero de Lhazar
 entity.got.LhazarWarlord.name=Señor de la guerra de Lhazar
 entity.got.LhazarWarrior.name=Guerrero de Lhazar
 entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinTramp.name≠Tramp
 entity.got.LightSkinThief.name≠Thief
+entity.got.LightSkinTramp.name≠Tramp
 entity.got.LingeringEffect.name≠Lingering Effect
 entity.got.LingeringPotion.name≠Lingering Potion
 entity.got.Lion.name=León
@@ -937,10 +937,236 @@ got.achievement.DRINK_TERMITE.desc=Beber tequila de termitas
 got.achievement.DRINK_TERMITE.title=Ruleta rusa
 got.achievement.EARN_MANY_COINS.desc=Gana 1000 monedas en 1 clic
 got.achievement.EARN_MANY_COINS.title=Día rico
-got.achievement.ENGRAVE.desc=Quitar el nombre del propietario del objeto
-got.achievement.ENGRAVE.title=¡Borra el historial!
-got.achievement.ENTER_GOT.desc=Entra en el mundo de Juego de Tronos
-got.achievement.ENTER_GOT.title=Game de Thrones
+got.achievement.ENGRAVE_OWNERSHIP.desc=Quitar el nombre del propietario del objeto
+got.achievement.ENGRAVE_OWNERSHIP.title=¡Borra el historial!
+got.achievement.ENTER_ALWAYS_WINTER.desc=Visita la tierra del siempre invierno
+got.achievement.ENTER_ALWAYS_WINTER.title=Entre el hielo eterno
+got.achievement.ENTER_ARRYN.desc=Visita el valle de Arryn
+got.achievement.ENTER_ARRYN.title=Alto como el honor
+got.achievement.ENTER_ARRYN_MOUNTAINS.desc=Visita las Montañas de la Luna
+got.achievement.ENTER_ARRYN_MOUNTAINS.title=Las montañas más altas de Westeros
+got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.desc=Visita las estribaciones lunares
+got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.title=Camino duro
+got.achievement.ENTER_ARRYN_TOWN.desc=Visita la ciudad de Gull
+got.achievement.ENTER_ARRYN_TOWN.title=Fresco como el aire del mar
+got.achievement.ENTER_ASSHAI.desc=Visitar Asshai
+got.achievement.ENTER_ASSHAI.title=Ciudad de los nigromantes
+got.achievement.ENTER_BLEEDING_SEA.desc=Visita el mar de sangre
+got.achievement.ENTER_BLEEDING_SEA.title=¿Por qué es rojo?
+got.achievement.ENTER_BONE_MOUNTAINS.desc=Visita las Montañas de Hueso
+got.achievement.ENTER_BONE_MOUNTAINS.title=País de Goguen
+got.achievement.ENTER_BRAAVOS.desc=Visitar Braavos
+got.achievement.ENTER_BRAAVOS.title=Casa en blanco y negro
+got.achievement.ENTER_CANNIBAL_SANDS.desc=Visita las arenas caníbales
+got.achievement.ENTER_CANNIBAL_SANDS.title=¿Y donde?
+got.achievement.ENTER_COLD_COAST.desc=Visita la costa fría
+got.achievement.ENTER_COLD_COAST.title=Morsas y personas
+got.achievement.ENTER_CROWNLANDS.desc=Visite Crownlands
+got.achievement.ENTER_CROWNLANDS.title=Manzana de la discordia
+got.achievement.ENTER_CROWNLANDS_TOWN.desc=Visita Desembarco del Rey
+got.achievement.ENTER_CROWNLANDS_TOWN.title=Nido de serpientes
+got.achievement.ENTER_DISPUTED_LANDS.desc=Visita al mercenario
+got.achievement.ENTER_DISPUTED_LANDS.title=Nadie
+got.achievement.ENTER_DORNE.desc=Visita el Dorne
+got.achievement.ENTER_DORNE.title=Erguida sin doblar ininterrumpida
+got.achievement.ENTER_DORNE_DESERT.desc=Visita el desierto de Dornish
+got.achievement.ENTER_DORNE_DESERT.title=El miedo de los Targaryen
+got.achievement.ENTER_DORNE_MESA.desc=Visita la meseta de Dornish
+got.achievement.ENTER_DORNE_MESA.title=Nivel de acceso: 3
+got.achievement.ENTER_DORNE_MOUNTAINS.desc=Visita las montañas rojas
+got.achievement.ENTER_DORNE_MOUNTAINS.title=Granito, granito, granito
+got.achievement.ENTER_DOSH_KHALIN.desc=Visita a la Madre de las montañas
+got.achievement.ENTER_DOSH_KHALIN.title=Madre de las montañas
+got.achievement.ENTER_DOTHRAKI_SEA.desc=Visita el mar de Dothraki
+got.achievement.ENTER_DOTHRAKI_SEA.title=Mar de hierba
+got.achievement.ENTER_DRAGONSTONE.desc=Visita Rocadragón
+got.achievement.ENTER_DRAGONSTONE.title=El feudo del verdadero rey
+got.achievement.ENTER_ESSOS_MOUNTAINS.desc=Visita las montañas de Essos
+got.achievement.ENTER_ESSOS_MOUNTAINS.title=Extensiones de riolita
+got.achievement.ENTER_FROSTFANGS.desc=Visita Frost Fangs
+got.achievement.ENTER_FROSTFANGS.title=Montañas de hielo y piedra
+got.achievement.ENTER_GHISCAR.desc=Visita Ghiscar
+got.achievement.ENTER_GHISCAR.title=Bahía de esclavos
+got.achievement.ENTER_GHISCAR_COLONY.desc=Visita las colonias de Ghiscar
+got.achievement.ENTER_GHISCAR_COLONY.title=Corsario desesperado
+got.achievement.ENTER_GIFT_NEW.desc=Visita el nuevo regalo
+got.achievement.ENTER_GIFT_NEW.title=¡Al El Norte!
+got.achievement.ENTER_GIFT_OLD.desc=Visita el viejo regalo
+got.achievement.ENTER_GIFT_OLD.title=¡Al muro!
+got.achievement.ENTER_HAUNTED_FOREST.desc=Visita el bosque encantado
+got.achievement.ENTER_HAUNTED_FOREST.title=Salvajes, mamuts y gigantes
+got.achievement.ENTER_IBBEN.desc=Visitar Ibben
+got.achievement.ENTER_IBBEN.title=Isla ballenera
+got.achievement.ENTER_IFEKEVRON_FOREST.desc=Visita las tierras de Ifekevron
+got.achievement.ENTER_IFEKEVRON_FOREST.title=¿Quien está aquí?
+got.achievement.ENTER_IRON_ISLANDS.desc=Visita las Islas del Hierro
+got.achievement.ENTER_IRON_ISLANDS.title=No sembramos
+got.achievement.ENTER_ISLE_OF_FACES.desc=Visita la Isla de las Caras
+got.achievement.ENTER_ISLE_OF_FACES.title=Más allá de los arcianos
+got.achievement.ENTER_JOGOS_NHAI.desc=Visita las llanuras de Jogos Nhaya
+got.achievement.ENTER_JOGOS_NHAI.title=Y de nuevo las llanuras
+got.achievement.ENTER_JOGOS_NHAI_DESERT.desc=Visita el mar reseco
+got.achievement.ENTER_JOGOS_NHAI_DESERT.title=Mar seco
+got.achievement.ENTER_KINGSWOOD.desc=Visita el bosque real
+got.achievement.ENTER_KINGSWOOD.title=¿Buscas un jabalí también?
+got.achievement.ENTER_KNOWN_WORLD.desc=Entra en el mundo de Juego de Tronos
+got.achievement.ENTER_KNOWN_WORLD.title=Game de Thrones
+got.achievement.ENTER_LHAZAR.desc=Visitar Lhazar
+got.achievement.ENTER_LHAZAR.title=País de ganaderos de ovejas
+got.achievement.ENTER_LONG_SUMMER.desc=Visita la tierra del largo verano
+got.achievement.ENTER_LONG_SUMMER.title=Tierra quemada
+got.achievement.ENTER_LORATH.desc=Visita Lorath
+got.achievement.ENTER_LORATH.title=Ciudad abandonada por Dios
+got.achievement.ENTER_LYS.desc=Visita The Lys
+got.achievement.ENTER_LYS.title=País de amor y pasión
+got.achievement.ENTER_MOSSOVY.desc=Visitar Mossovy
+got.achievement.ENTER_MOSSOVY.title=Presencia demoníaca
+got.achievement.ENTER_MOSSOVY_MARSHES.desc=Visita el pantano de Mossovy
+got.achievement.ENTER_MOSSOVY_MARSHES.title=Los vastos pantanos
+got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc≠Visit Mossovy Sopkas
+got.achievement.ENTER_MOSSOVY_MOUNTAINS.title≠Far East
+got.achievement.ENTER_MOSSOVY_TUNDRA.desc=Visita Mossovy Tundra
+got.achievement.ENTER_MOSSOVY_TUNDRA.title=En el borde del mundo
+got.achievement.ENTER_MYR.desc=Visita The Myr
+got.achievement.ENTER_MYR.title=Guerra y paz
+got.achievement.ENTER_NAATH.desc=Visitar Naath
+got.achievement.ENTER_NAATH.title=Mariposas equivocadas
+got.achievement.ENTER_NECK.desc=Visita el cuello
+got.achievement.ENTER_NECK.title=Una mala inundación
+got.achievement.ENTER_NORTH.desc=Visita el El Norte
+got.achievement.ENTER_NORTH.title=Viene el invierno
+got.achievement.ENTER_NORTH_BARROWS.desc=Visita los túmulos del El Norte
+got.achievement.ENTER_NORTH_BARROWS.title=Túmulos antiguos
+got.achievement.ENTER_NORTH_FOREST_IRONTREE.desc=Visita el bosque de Irontree
+got.achievement.ENTER_NORTH_FOREST_IRONTREE.title=Árboles de hierro!
+got.achievement.ENTER_NORTH_MOUNTAINS.desc=Visita las montañas del El Norte
+got.achievement.ENTER_NORTH_MOUNTAINS.title=Montañas del El Norte
+got.achievement.ENTER_NORTH_TOWN.desc=Visita White Harbor
+got.achievement.ENTER_NORTH_TOWN.title=¡Al mar!
+got.achievement.ENTER_NORTH_WILD.desc=Visita el salvaje El Norte
+got.achievement.ENTER_NORTH_WILD.title=Amables montañeses
+got.achievement.ENTER_NORVOS.desc=Visitar Norvos
+got.achievement.ENTER_NORVOS.title=Entre las colinas
+got.achievement.ENTER_PENTOS.desc=Visitar Pentos
+got.achievement.ENTER_PENTOS.title=Frente al desembarco del rey
+got.achievement.ENTER_QARTH.desc=Visita el Quarth
+got.achievement.ENTER_QARTH.title=País de comerciantes
+got.achievement.ENTER_QARTH_COLONY.desc≠Visit Quartic colonies
+got.achievement.ENTER_QARTH_COLONY.title≠Eastern Colonizers
+got.achievement.ENTER_QARTH_DESERT.desc=Visita el desierto rojo
+got.achievement.ENTER_QARTH_DESERT.title=Arenas rojas
+got.achievement.ENTER_QOHOR.desc=Visita Qohor
+got.achievement.ENTER_QOHOR.title=Bosque dorado
+got.achievement.ENTER_QOHOR_FOREST.desc=Visita el bosque de Qohor
+got.achievement.ENTER_QOHOR_FOREST.title=Bosque dorado
+got.achievement.ENTER_REACH.desc=Visita The Reach
+got.achievement.ENTER_REACH.title=Al crecer, nos hacemos más fuertes
+got.achievement.ENTER_REACH_ARBOR.desc=Visita el cenador
+got.achievement.ENTER_REACH_ARBOR.title=Región vitivinícola
+got.achievement.ENTER_REACH_FIRE_FIELD.desc=Visita Highgarden
+got.achievement.ENTER_REACH_FIRE_FIELD.title=Valle de las rosas
+got.achievement.ENTER_REACH_TOWN.desc=Visita el casco antiguo
+got.achievement.ENTER_REACH_TOWN.title=Centro de ciencia y cultura
+got.achievement.ENTER_RIVERLANDS.desc=Visita las Tierras de los Ríos
+got.achievement.ENTER_RIVERLANDS.title=Honor del deber de la familia
+got.achievement.ENTER_SHADOW_LAND.desc=Visita las Tierras de las Sombras
+got.achievement.ENTER_SHADOW_LAND.title=Tierra oscura
+got.achievement.ENTER_SHADOW_MOUNTAINS.desc=Visita las montañas del amanecer
+got.achievement.ENTER_SHADOW_MOUNTAINS.title=Заслоняя солнце
+got.achievement.ENTER_SHADOW_WASTELAND.desc=Visita el páramo de las sombras
+got.achievement.ENTER_SHADOW_WASTELAND.title=Хуже пустоши
+got.achievement.ENTER_SHRYKES_LAND.desc≠Visit Land of the Shrykes
+got.achievement.ENTER_SHRYKES_LAND.title≠Nibiru
+got.achievement.ENTER_SKAGOS.desc=Visita Skagos
+got.achievement.ENTER_SKAGOS.title=En busca de un rinoceronte lanudo
+got.achievement.ENTER_SKIRLING_PASS.desc=Visita el Skirling Pass
+got.achievement.ENTER_SKIRLING_PASS.title=Siguiendo los pasos de Mance
+got.achievement.ENTER_SOTHORYOS_BUSHLAND.desc=Visita los arbustos de Sothoryos
+got.achievement.ENTER_SOTHORYOS_BUSHLAND.title=Precaución: explosivo
+got.achievement.ENTER_SOTHORYOS_DESERT.desc=Visita el desierto de Sothoryos
+got.achievement.ENTER_SOTHORYOS_DESERT.title=Desierto frío
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc≠Visit Sothoryos Cold Desert
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title≠Cold Desert
+got.achievement.ENTER_SOTHORYOS_FOREST.desc=Visita el bosque de Sothoryos Kanuka
+got.achievement.ENTER_SOTHORYOS_FOREST.title=Interior
+got.achievement.ENTER_SOTHORYOS_FROST.desc=Visita la esfera polar de Sothoryos
+got.achievement.ENTER_SOTHORYOS_FROST.title=Viceversa
+got.achievement.ENTER_SOTHORYOS_HELL.desc=Visita el infierno verde
+got.achievement.ENTER_SOTHORYOS_HELL.title=Coronavirus
+got.achievement.ENTER_SOTHORYOS_JUNGLE.desc=Visita la jungla de Sothoryos
+got.achievement.ENTER_SOTHORYOS_JUNGLE.title=El tercer continente
+got.achievement.ENTER_SOTHORYOS_MANGROVE.desc=Visita los manglares de Sothoryos
+got.achievement.ENTER_SOTHORYOS_MANGROVE.title=Mosquitos y en mosquitos Sothoryos
+got.achievement.ENTER_SOTHORYOS_MOUNTAINS.desc=Visita las montañas Sothoryos
+got.achievement.ENTER_SOTHORYOS_MOUNTAINS.title=Montañas amarillas
+got.achievement.ENTER_SOTHORYOS_SAVANNAH.desc=Visita la sabana de Sothoryos
+got.achievement.ENTER_SOTHORYOS_SAVANNAH.title=Acerca de cero árboles
+got.achievement.ENTER_SOTHORYOS_TAIGA.desc=Visita la Taiga de Sothoryos
+got.achievement.ENTER_SOTHORYOS_TAIGA.title=¿De nuevo mamuts?
+got.achievement.ENTER_STEPSTONES.desc=Visite los Stepstones
+got.achievement.ENTER_STEPSTONES.title=Extensión pirata
+got.achievement.ENTER_STONE_COAST.desc=Visita la costa pedregosa
+got.achievement.ENTER_STONE_COAST.title=Manzana de la contención
+got.achievement.ENTER_STORMLANDS.desc=Visita las Tierras de la Tormenta
+got.achievement.ENTER_STORMLANDS.title=Nuestra es la furia
+got.achievement.ENTER_STORMLANDS_TARTH.desc=Visita Tarth
+got.achievement.ENTER_STORMLANDS_TARTH.title=¡Oh, zafiros!
+got.achievement.ENTER_SUMMER_COLONY.desc≠Visit the Summer Colonies
+got.achievement.ENTER_SUMMER_COLONY.title≠Western Colonizers
+got.achievement.ENTER_SUMMER_ISLANDS.desc=Visita las Islas del Verano
+got.achievement.ENTER_SUMMER_ISLANDS.title=Islas del sur
+got.achievement.ENTER_THENN_LAND.desc=Visita el Thenn
+got.achievement.ENTER_THENN_LAND.title=Volcanes del lejano El Norte
+got.achievement.ENTER_TROPICAL_FOREST.desc=Visite la selva tropical
+got.achievement.ENTER_TROPICAL_FOREST.title=Escorpiones y elefantes
+got.achievement.ENTER_TYROSH.desc=Visita Tyrosh
+got.achievement.ENTER_TYROSH.title=Pequeño, pero remoto
+got.achievement.ENTER_ULOS.desc≠Visit Ulos
+got.achievement.ENTER_ULOS.title≠Arachnophobes present
+got.achievement.ENTER_ULTHOS.desc=Visitar Ulthos
+got.achievement.ENTER_ULTHOS.title=Arañas, niebla, privacidad
+got.achievement.ENTER_ULTHOS_DESERT.desc=Visita el desierto de Ulthos
+got.achievement.ENTER_ULTHOS_DESERT.title=Bueno, al menos no hay arañas en alguna parte.
+got.achievement.ENTER_ULTHOS_DESERT_COLD.desc≠Visit Ulthos Cold Desert
+got.achievement.ENTER_ULTHOS_DESERT_COLD.title≠The path, senseless and merciless
+got.achievement.ENTER_ULTHOS_FOREST.desc≠Visit Ulthos Forest
+got.achievement.ENTER_ULTHOS_FOREST.title≠The wrong forest and the wrong spiders
+got.achievement.ENTER_ULTHOS_FROST.desc≠Visit Ulthos Permafrost
+got.achievement.ENTER_ULTHOS_FROST.title≠My condolences to the survivors
+got.achievement.ENTER_ULTHOS_MARSHES.desc≠Visit the Ultos marshes
+got.achievement.ENTER_ULTHOS_MARSHES.title≠Isthmus II
+got.achievement.ENTER_ULTHOS_MOUNTAINS.desc=Visita las montañas de Ulthos
+got.achievement.ENTER_ULTHOS_MOUNTAINS.title=Con un borde blanco
+got.achievement.ENTER_ULTHOS_RED_FOREST.desc≠Visit the crimson forests of Ultos
+got.achievement.ENTER_ULTHOS_RED_FOREST.title≠Wine and blood
+got.achievement.ENTER_ULTHOS_TAIGA.desc≠Visit Ulthos Taiga
+got.achievement.ENTER_ULTHOS_TAIGA.title≠Taiga in the southeast, why not?
+got.achievement.ENTER_VALYRIA.desc=Visita la península de Valyria
+got.achievement.ENTER_VALYRIA.title=Ruinas del Imperio
+got.achievement.ENTER_VALYRIA_SEA.desc=Visita el mar humeante
+got.achievement.ENTER_VALYRIA_SEA.title=El mar humeante
+got.achievement.ENTER_VALYRIA_VOLCANO.desc=Visita los volcanes Valyrian
+got.achievement.ENTER_VALYRIA_VOLCANO.title=En busca de mineral
+got.achievement.ENTER_VOLANTIS.desc=Visita Volantis
+got.achievement.ENTER_VOLANTIS.title=El heredero de Valyria
+got.achievement.ENTER_VOLANTIS_ORANGE_FOREST.desc=Visita la Costa Naranja
+got.achievement.ENTER_VOLANTIS_ORANGE_FOREST.title=¡Naranjas!
+got.achievement.ENTER_WESTERLANDS.desc=Visita las Tierras del Oeste
+got.achievement.ENTER_WESTERLANDS.title=Escucha mi rugido
+got.achievement.ENTER_WESTERLANDS_HILLS.desc=Visita las colinas occidentales
+got.achievement.ENTER_WESTERLANDS_HILLS.title=Las minas de oro de
+got.achievement.ENTER_WESTERLANDS_TOWN.desc=Visitar Lannisport
+got.achievement.ENTER_WESTERLANDS_TOWN.title=Posesión de los ricos
+got.achievement.ENTER_WESTEROS_FROST.desc=Visita el páramo nevado
+got.achievement.ENTER_WESTEROS_FROST.title=Detrás del muro
+got.achievement.ENTER_WHISPERING_WOOD.desc=Visita el bosque susurrante
+got.achievement.ENTER_WHISPERING_WOOD.title=El bosque de la batalla
+got.achievement.ENTER_YEEN.desc=Visita Yeen
+got.achievement.ENTER_YEEN.title=Meseta de obsidiana
+got.achievement.ENTER_YI_TI.desc=Visita Yi Ti
+got.achievement.ENTER_YI_TI.title=El Imperio Dorado
+got.achievement.ENTER_YI_TI_WASTELAND.desc=Visite la zona fronteriza de Yi Ti
+got.achievement.ENTER_YI_TI_WASTELAND.title=Cinco fortalezas
 got.achievement.FACTION_CONQUEST.desc=Comprometerse y conquistar la tierra
 got.achievement.FACTION_CONQUEST.title=¡Para el rey!
 got.achievement.FIND_FOUR_LEAF_CLOVER.desc=Encuentra el trébol de cuatro hojas
@@ -1199,230 +1425,6 @@ got.achievement.USE_SPEAR_FROM_FAR.desc≠Kill with a spear from a long distance
 got.achievement.USE_SPEAR_FROM_FAR.title≠Sniper
 got.achievement.USE_THROWING_AXE.desc≠Use a throwing axe
 got.achievement.USE_THROWING_AXE.title≠Let us throw it!
-got.achievement.VISIT_ALWAYS_WINTER.desc=Visita la tierra del siempre invierno
-got.achievement.VISIT_ALWAYS_WINTER.title=Entre el hielo eterno
-got.achievement.VISIT_ARBOR.desc=Visita el cenador
-got.achievement.VISIT_ARBOR.title=Región vitivinícola
-got.achievement.VISIT_ARRYN.desc=Visita el valle de Arryn
-got.achievement.VISIT_ARRYN.title=Alto como el honor
-got.achievement.VISIT_ARRYN_MOUNTAINS.desc=Visita las Montañas de la Luna
-got.achievement.VISIT_ARRYN_MOUNTAINS.title=Las montañas más altas de Westeros
-got.achievement.VISIT_ARRYN_TOWN.desc=Visita la ciudad de Gull
-got.achievement.VISIT_ARRYN_TOWN.title=Fresco como el aire del mar
-got.achievement.VISIT_ASSHAI.desc=Visitar Asshai
-got.achievement.VISIT_ASSHAI.title=Ciudad de los nigromantes
-got.achievement.VISIT_BONE_MOUNTAINS.desc=Visita las Montañas de Hueso
-got.achievement.VISIT_BONE_MOUNTAINS.title=País de Goguen
-got.achievement.VISIT_BRAAVOS.desc=Visitar Braavos
-got.achievement.VISIT_BRAAVOS.title=Casa en blanco y negro
-got.achievement.VISIT_CANNIBAL_SANDS.desc=Visita las arenas caníbales
-got.achievement.VISIT_CANNIBAL_SANDS.title=¿Y donde?
-got.achievement.VISIT_COLD_COAST.desc=Visita la costa fría
-got.achievement.VISIT_COLD_COAST.title=Morsas y personas
-got.achievement.VISIT_CROWNLANDS.desc=Visite Crownlands
-got.achievement.VISIT_CROWNLANDS.title=Manzana de la discordia
-got.achievement.VISIT_CROWNLANDS_FOREST.desc=Visita el bosque real
-got.achievement.VISIT_CROWNLANDS_FOREST.title=¿Buscas un jabalí también?
-got.achievement.VISIT_DORNE.desc=Visita el Dorne
-got.achievement.VISIT_DORNE.title=Erguida sin doblar ininterrumpida
-got.achievement.VISIT_DORNE_DESERT.desc=Visita el desierto de Dornish
-got.achievement.VISIT_DORNE_DESERT.title=El miedo de los Targaryen
-got.achievement.VISIT_DORNE_MESA.desc=Visita la meseta de Dornish
-got.achievement.VISIT_DORNE_MESA.title=Nivel de acceso: 3
-got.achievement.VISIT_DORNE_MOUNTAINS.desc=Visita las montañas rojas
-got.achievement.VISIT_DORNE_MOUNTAINS.title=Granito, granito, granito
-got.achievement.VISIT_DOSH_KHALIN.desc=Visita a la Madre de las montañas
-got.achievement.VISIT_DOSH_KHALIN.title=Madre de las montañas
-got.achievement.VISIT_DOTHRAKI_SEA.desc=Visita el mar de Dothraki
-got.achievement.VISIT_DOTHRAKI_SEA.title=Mar de hierba
-got.achievement.VISIT_DRAGONSTONE.desc=Visita Rocadragón
-got.achievement.VISIT_DRAGONSTONE.title=El feudo del verdadero rey
-got.achievement.VISIT_ESSOS_MOUNTAINS.desc=Visita las montañas de Essos
-got.achievement.VISIT_ESSOS_MOUNTAINS.title=Extensiones de riolita
-got.achievement.VISIT_FACES.desc=Visita la Isla de las Caras
-got.achievement.VISIT_FACES.title=Más allá de los arcianos
-got.achievement.VISIT_FAR_NORTH.desc=Visita el páramo nevado
-got.achievement.VISIT_FAR_NORTH.title=Detrás del muro
-got.achievement.VISIT_FIRE_FIELD.desc=Visita Highgarden
-got.achievement.VISIT_FIRE_FIELD.title=Valle de las rosas
-got.achievement.VISIT_FROSTFANGS.desc=Visita Frost Fangs
-got.achievement.VISIT_FROSTFANGS.title=Montañas de hielo y piedra
-got.achievement.VISIT_GHISCAR.desc=Visita Ghiscar
-got.achievement.VISIT_GHISCAR.title=Bahía de esclavos
-got.achievement.VISIT_GHISCAR_COLONY.desc=Visita las colonias de Ghiscar
-got.achievement.VISIT_GHISCAR_COLONY.title=Corsario desesperado
-got.achievement.VISIT_GIFT_NEW.desc=Visita el nuevo regalo
-got.achievement.VISIT_GIFT_NEW.title=¡Al El Norte!
-got.achievement.VISIT_GIFT_OLD.desc=Visita el viejo regalo
-got.achievement.VISIT_GIFT_OLD.title=¡Al muro!
-got.achievement.VISIT_HAUNTED_FOREST.desc=Visita el bosque encantado
-got.achievement.VISIT_HAUNTED_FOREST.title=Salvajes, mamuts y gigantes
-got.achievement.VISIT_HILL_TRIBES.desc=Visita las estribaciones lunares
-got.achievement.VISIT_HILL_TRIBES.title=Camino duro
-got.achievement.VISIT_IBBEN.desc=Visitar Ibben
-got.achievement.VISIT_IBBEN.title=Isla ballenera
-got.achievement.VISIT_IFEKEVRON.desc=Visita las tierras de Ifekevron
-got.achievement.VISIT_IFEKEVRON.title=¿Quien está aquí?
-got.achievement.VISIT_IRONBORN.desc=Visita las Islas del Hierro
-got.achievement.VISIT_IRONBORN.title=No sembramos
-got.achievement.VISIT_IRONTREE.desc=Visita el bosque de Irontree
-got.achievement.VISIT_IRONTREE.title=Árboles de hierro!
-got.achievement.VISIT_JOGOS.desc=Visita las llanuras de Jogos Nhaya
-got.achievement.VISIT_JOGOS.title=Y de nuevo las llanuras
-got.achievement.VISIT_JOGOS_DESERT.desc=Visita el mar reseco
-got.achievement.VISIT_JOGOS_DESERT.title=Mar seco
-got.achievement.VISIT_KINGS_LANDING.desc=Visita Desembarco del Rey
-got.achievement.VISIT_KINGS_LANDING.title=Nido de serpientes
-got.achievement.VISIT_LHAZAR.desc=Visitar Lhazar
-got.achievement.VISIT_LHAZAR.title=País de ganaderos de ovejas
-got.achievement.VISIT_LONG_SUMMER.desc=Visita la tierra del largo verano
-got.achievement.VISIT_LONG_SUMMER.title=Tierra quemada
-got.achievement.VISIT_LORATH.desc=Visita Lorath
-got.achievement.VISIT_LORATH.title=Ciudad abandonada por Dios
-got.achievement.VISIT_LYS.desc=Visita The Lys
-got.achievement.VISIT_LYS.title=País de amor y pasión
-got.achievement.VISIT_MERCENARY.desc=Visita al mercenario
-got.achievement.VISIT_MERCENARY.title=Nadie
-got.achievement.VISIT_MOSSOVY.desc=Visitar Mossovy
-got.achievement.VISIT_MOSSOVY.title=Presencia demoníaca
-got.achievement.VISIT_MOSSOVY_MARSHES.desc=Visita el pantano de Mossovy
-got.achievement.VISIT_MOSSOVY_MARSHES.title=Los vastos pantanos
-got.achievement.VISIT_MOSSOVY_SOPKAS.desc≠Visit Mossovy Sopkas
-got.achievement.VISIT_MOSSOVY_SOPKAS.title≠Far East
-got.achievement.VISIT_MOSSOVY_TUNDRA.desc=Visita Mossovy Tundra
-got.achievement.VISIT_MOSSOVY_TUNDRA.title=En el borde del mundo
-got.achievement.VISIT_MYR.desc=Visita The Myr
-got.achievement.VISIT_MYR.title=Guerra y paz
-got.achievement.VISIT_NAATH.desc=Visitar Naath
-got.achievement.VISIT_NAATH.title=Mariposas equivocadas
-got.achievement.VISIT_NECK.desc=Visita el cuello
-got.achievement.VISIT_NECK.title=Una mala inundación
-got.achievement.VISIT_NORTH.desc=Visita el El Norte
-got.achievement.VISIT_NORTH.title=Viene el invierno
-got.achievement.VISIT_NORTH_BARROWS.desc=Visita los túmulos del El Norte
-got.achievement.VISIT_NORTH_BARROWS.title=Túmulos antiguos
-got.achievement.VISIT_NORTH_MOUNTAINS.desc=Visita las montañas del El Norte
-got.achievement.VISIT_NORTH_MOUNTAINS.title=Montañas del El Norte
-got.achievement.VISIT_NORTH_TOWN.desc=Visita White Harbor
-got.achievement.VISIT_NORTH_TOWN.title=¡Al mar!
-got.achievement.VISIT_NORTH_WILD.desc=Visita el salvaje El Norte
-got.achievement.VISIT_NORTH_WILD.title=Amables montañeses
-got.achievement.VISIT_NORVOS.desc=Visitar Norvos
-got.achievement.VISIT_NORVOS.title=Entre las colinas
-got.achievement.VISIT_PENTOS.desc=Visitar Pentos
-got.achievement.VISIT_PENTOS.title=Frente al desembarco del rey
-got.achievement.VISIT_QARTH.desc=Visita el Quarth
-got.achievement.VISIT_QARTH.title=País de comerciantes
-got.achievement.VISIT_QARTH_COLONY.desc≠Visit Quartic colonies
-got.achievement.VISIT_QARTH_COLONY.title≠Eastern Colonizers
-got.achievement.VISIT_QARTH_DESERT.desc=Visita el desierto rojo
-got.achievement.VISIT_QARTH_DESERT.title=Arenas rojas
-got.achievement.VISIT_QOHOR.desc=Visita Qohor
-got.achievement.VISIT_QOHOR.title=Bosque dorado
-got.achievement.VISIT_QOHOR_FOREST.desc=Visita el bosque de Qohor
-got.achievement.VISIT_QOHOR_FOREST.title=Bosque dorado
-got.achievement.VISIT_REACH.desc=Visita The Reach
-got.achievement.VISIT_REACH.title=Al crecer, nos hacemos más fuertes
-got.achievement.VISIT_REACH_TOWN.desc=Visita el casco antiguo
-got.achievement.VISIT_REACH_TOWN.title=Centro de ciencia y cultura
-got.achievement.VISIT_RED_SEA.desc=Visita el mar de sangre
-got.achievement.VISIT_RED_SEA.title=¿Por qué es rojo?
-got.achievement.VISIT_RIVERLANDS.desc=Visita las Tierras de los Ríos
-got.achievement.VISIT_RIVERLANDS.title=Honor del deber de la familia
-got.achievement.VISIT_SHADOW_LAND.desc=Visita las Tierras de las Sombras
-got.achievement.VISIT_SHADOW_LAND.title=Tierra oscura
-got.achievement.VISIT_SHADOW_MOUNTAINS.desc=Visita las montañas del amanecer
-got.achievement.VISIT_SHADOW_MOUNTAINS.title=Заслоняя солнце
-got.achievement.VISIT_SHADOW_WASTELAND.desc=Visita el páramo de las sombras
-got.achievement.VISIT_SHADOW_WASTELAND.title=Хуже пустоши
-got.achievement.VISIT_SHRYKES_LAND.desc≠Visit Land of the Shrykes
-got.achievement.VISIT_SHRYKES_LAND.title≠Nibiru
-got.achievement.VISIT_SKAGOS.desc=Visita Skagos
-got.achievement.VISIT_SKAGOS.title=En busca de un rinoceronte lanudo
-got.achievement.VISIT_SKIRLING_PASS.desc=Visita el Skirling Pass
-got.achievement.VISIT_SKIRLING_PASS.title=Siguiendo los pasos de Mance
-got.achievement.VISIT_SOTHORYOS_BUSHLAND.desc=Visita los arbustos de Sothoryos
-got.achievement.VISIT_SOTHORYOS_BUSHLAND.title=Precaución: explosivo
-got.achievement.VISIT_SOTHORYOS_DESERT.desc=Visita el desierto de Sothoryos
-got.achievement.VISIT_SOTHORYOS_DESERT.title=Desierto frío
-got.achievement.VISIT_SOTHORYOS_FROST.desc=Visita la esfera polar de Sothoryos
-got.achievement.VISIT_SOTHORYOS_FROST.title=Viceversa
-got.achievement.VISIT_SOTHORYOS_HELL.desc=Visita el infierno verde
-got.achievement.VISIT_SOTHORYOS_HELL.title=Coronavirus
-got.achievement.VISIT_SOTHORYOS_JUNGLE.desc=Visita la jungla de Sothoryos
-got.achievement.VISIT_SOTHORYOS_JUNGLE.title=El tercer continente
-got.achievement.VISIT_SOTHORYOS_KANUKA.desc=Visita el bosque de Sothoryos Kanuka
-got.achievement.VISIT_SOTHORYOS_KANUKA.title=Interior
-got.achievement.VISIT_SOTHORYOS_MANGROVE.desc=Visita los manglares de Sothoryos
-got.achievement.VISIT_SOTHORYOS_MANGROVE.title=Mosquitos y en mosquitos Sothoryos
-got.achievement.VISIT_SOTHORYOS_MOUNTAINS.desc=Visita las montañas Sothoryos
-got.achievement.VISIT_SOTHORYOS_MOUNTAINS.title=Montañas amarillas
-got.achievement.VISIT_SOTHORYOS_SAVANNAH.desc=Visita la sabana de Sothoryos
-got.achievement.VISIT_SOTHORYOS_SAVANNAH.title=Acerca de cero árboles
-got.achievement.VISIT_SOTHORYOS_TAIGA.desc=Visita la Taiga de Sothoryos
-got.achievement.VISIT_SOTHORYOS_TAIGA.title=¿De nuevo mamuts?
-got.achievement.VISIT_STEPSTONES.desc=Visite los Stepstones
-got.achievement.VISIT_STEPSTONES.title=Extensión pirata
-got.achievement.VISIT_STONE_COAST.desc=Visita la costa pedregosa
-got.achievement.VISIT_STONE_COAST.title=Manzana de la contención
-got.achievement.VISIT_STORMLANDS.desc=Visita las Tierras de la Tormenta
-got.achievement.VISIT_STORMLANDS.title=Nuestra es la furia
-got.achievement.VISIT_SUMMER_COLONY.desc≠Visit the Summer Colonies
-got.achievement.VISIT_SUMMER_COLONY.title≠Western Colonizers
-got.achievement.VISIT_SUMMER_ISLANDS.desc=Visita las Islas del Verano
-got.achievement.VISIT_SUMMER_ISLANDS.title=Islas del sur
-got.achievement.VISIT_TARTH.desc=Visita Tarth
-got.achievement.VISIT_TARTH.title=¡Oh, zafiros!
-got.achievement.VISIT_THENN.desc=Visita el Thenn
-got.achievement.VISIT_THENN.title=Volcanes del lejano El Norte
-got.achievement.VISIT_TROPICAL_FOREST.desc=Visite la selva tropical
-got.achievement.VISIT_TROPICAL_FOREST.title=Escorpiones y elefantes
-got.achievement.VISIT_TYROSH.desc=Visita Tyrosh
-got.achievement.VISIT_TYROSH.title=Pequeño, pero remoto
-got.achievement.VISIT_ULOS.desc≠Visit Ulos
-got.achievement.VISIT_ULOS.title≠Arachnophobes present
-got.achievement.VISIT_ULTHOS.desc=Visitar Ulthos
-got.achievement.VISIT_ULTHOS.title=Arañas, niebla, privacidad
-got.achievement.VISIT_ULTHOS_DESERT.desc=Visita el desierto de Ulthos
-got.achievement.VISIT_ULTHOS_DESERT.title=Bueno, al menos no hay arañas en alguna parte.
-got.achievement.VISIT_ULTHOS_DESERT_COLD.desc≠Visit Ulthos Cold Desert
-got.achievement.VISIT_ULTHOS_DESERT_COLD.title≠The path, senseless and merciless
-got.achievement.VISIT_ULTHOS_FOREST.desc≠Visit Ulthos Forest
-got.achievement.VISIT_ULTHOS_FOREST.title≠The wrong forest and the wrong spiders
-got.achievement.VISIT_ULTHOS_FROST.desc≠Visit Ulthos Permafrost
-got.achievement.VISIT_ULTHOS_FROST.title≠My condolences to the survivors
-got.achievement.VISIT_ULTHOS_MARSHES.desc≠Visit the Ultos marshes
-got.achievement.VISIT_ULTHOS_MARSHES.title≠Isthmus II
-got.achievement.VISIT_ULTHOS_MOUNTAINS.desc=Visita las montañas de Ulthos
-got.achievement.VISIT_ULTHOS_MOUNTAINS.title=Con un borde blanco
-got.achievement.VISIT_ULTHOS_RED_FOREST.desc≠Visit the crimson forests of Ultos
-got.achievement.VISIT_ULTHOS_RED_FOREST.title≠Wine and blood
-got.achievement.VISIT_ULTHOS_TAIGA.desc≠Visit Ulthos Taiga
-got.achievement.VISIT_ULTHOS_TAIGA.title≠Taiga in the southeast, why not?
-got.achievement.VISIT_VALYRIA.desc=Visita la península de Valyria
-got.achievement.VISIT_VALYRIA.title=Ruinas del Imperio
-got.achievement.VISIT_VALYRIA_SEA.desc=Visita el mar humeante
-got.achievement.VISIT_VALYRIA_SEA.title=El mar humeante
-got.achievement.VISIT_VALYRIA_VOLCANO.desc=Visita los volcanes Valyrian
-got.achievement.VISIT_VALYRIA_VOLCANO.title=En busca de mineral
-got.achievement.VISIT_VOLANTIS.desc=Visita Volantis
-got.achievement.VISIT_VOLANTIS.title=El heredero de Valyria
-got.achievement.VISIT_VOLANTIS_FOREST.desc=Visita la Costa Naranja
-got.achievement.VISIT_VOLANTIS_FOREST.title=¡Naranjas!
-got.achievement.VISIT_WESTERLANDS.desc=Visita las Tierras del Oeste
-got.achievement.VISIT_WESTERLANDS.title=Escucha mi rugido
-got.achievement.VISIT_WESTERLANDS_HILLS.desc=Visita las colinas occidentales
-got.achievement.VISIT_WESTERLANDS_HILLS.title=Las minas de oro de
-got.achievement.VISIT_WESTERLANDS_TOWN.desc=Visitar Lannisport
-got.achievement.VISIT_WESTERLANDS_TOWN.title=Posesión de los ricos
-got.achievement.VISIT_WHISPERING_WOOD.desc=Visita el bosque susurrante
-got.achievement.VISIT_WHISPERING_WOOD.title=El bosque de la batalla
-got.achievement.VISIT_YEEN.desc=Visita Yeen
-got.achievement.VISIT_YEEN.title=Meseta de obsidiana
-got.achievement.VISIT_YI_TI.desc=Visita Yi Ti
-got.achievement.VISIT_YI_TI.title=El Imperio Dorado
-got.achievement.VISIT_YI_TI_WASTELAND.desc=Visite la zona fronteriza de Yi Ti
-got.achievement.VISIT_YI_TI_WASTELAND.title=Cinco fortalezas
 got.achievement.WEAR_FULL_ARRYN.desc=Use un conjunto completo de Valle de Arryn
 got.achievement.WEAR_FULL_ARRYN.title=Guardia de Valle de Arryn
 got.achievement.WEAR_FULL_ARRYNGUARD.desc=Use un conjunto completo de guardias de Valle de Arryn
@@ -1535,11 +1537,11 @@ got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠Wear full set of Yi Ti frontiers
 got.achievement.WEAR_FULL_YITI_FRONTIER.title≠One does not simply walk into Yi Ti
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Use un conjunto completo de Yi Ti Samurai
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=Yi Ti Samurái
+got.achievement.category.ENTER=Biomas
 got.achievement.category.GENERAL=General
 got.achievement.category.KILL=Mata
 got.achievement.category.LEGENDARY=Legendario
 got.achievement.category.TITLES=Títulos
-got.achievement.category.VISIT=Biomas
 got.achievement.category.WEAR=Armadura
 got.alignment.bountyKilled=¡Recompensa Reclamada!
 got.alignment.breakPledge=Juramento Roto
@@ -1564,6 +1566,7 @@ got.biome.beach.name=Playa
 got.biome.beachGravel.name=Playa
 got.biome.beachWhite.name=Playa
 got.biome.blackIslands.name=Islas de Blackwater Bay
+got.biome.bleedingBeach.name≠Bleeding Beach
 got.biome.bleedingSea.name=Mar sangriento
 got.biome.boneMountains.name=Montañas de hueso
 got.biome.braavos.name=Braavos
@@ -1613,9 +1616,9 @@ got.biome.ibbenColonyHills.name≠Ibben Colony Hills
 got.biome.ibbenMountains.name=Ibben Mountains
 got.biome.ibbenTaiga.name=Bosque de Ibben
 got.biome.ifekevronForest.name=Bosque de Ifekevron
-got.biome.ironborn.name=Islas de Hierro
-got.biome.ironbornForest.name≠Iron Islands Forest
-got.biome.ironbornHills.name=Iron Hills
+got.biome.ironIslands.name=Islas de Hierro
+got.biome.ironIslandsForest.name≠Iron Islands Forest
+got.biome.ironIslandsHills.name=Iron Hills
 got.biome.island.name=Isla
 got.biome.isleOfFaces.name=Isla de las Caras
 got.biome.jogosNhai.name=Llanuras de Jogos Nhai
@@ -1630,6 +1633,7 @@ got.biome.lhazar.name=Lhazar
 got.biome.lhazarForest.name≠Lhazar Forest
 got.biome.lhazarHills.name≠Lhazar Hills
 got.biome.longSummer.name=Tierras del largo verano
+got.biome.longSummerForest.name≠Forests of the Long Summer
 got.biome.lorath.name=Lorath
 got.biome.lorathForest.name≠Lorath Forest
 got.biome.lorathHills.name≠Lorath Hills
@@ -1638,14 +1642,15 @@ got.biome.lys.name=Lys
 got.biome.massy.name=El gancho de Massy
 got.biome.massyHills.name≠Massy's Hills
 got.biome.mossovy.name=Mossovy
-got.biome.mossovyForest.name≠Mossovy Taiga
 got.biome.mossovyMarshes.name≠Mossovy Marshes
 got.biome.mossovyMountains.name≠Mossovy Mountains
+got.biome.mossovyTaiga.name≠Mossovy Taiga
 got.biome.mossovyTundra.name=Tundra Mossovy
 got.biome.myr.name=Myr
 got.biome.myrForest.name≠Myr Forest
 got.biome.naath.name=Naath
 got.biome.neck.name=Marismas del El Norte
+got.biome.neckForest.name=Wetwood
 got.biome.north.name=El Norte
 got.biome.northBarrows.name=Túmulos
 got.biome.northForest.name=Bosque del El Norte
@@ -1687,9 +1692,9 @@ got.biome.shrykesLand.name≠Land of the Shrykes
 got.biome.skagos.name=Skagos
 got.biome.skirlingPass.name=Pase Skirling
 got.biome.sothoryosBushland.name=Sothoryos Bushland
-got.biome.sothoryosDeserHills.name=Colinas del desierto de Sothoryos
 got.biome.sothoryosDesert.name=Desierto de Sothoryos
 got.biome.sothoryosDesertCold.name=Desierto Frío de Sothoryos
+got.biome.sothoryosDesertHills.name=Colinas del desierto de Sothoryos
 got.biome.sothoryosForest.name=Sothoryos Kanuka
 got.biome.sothoryosFrost.name=Esfera polar de Sothoryos
 got.biome.sothoryosHell.name=Infierno verde
@@ -1743,7 +1748,6 @@ got.biome.westerosForest1.name≠Westeros Coniferous Forest
 got.biome.westerosForest2.name≠Westeros Deciduous Forest
 got.biome.westerosFrost.name=Páramo nevado
 got.biome.westerosMountains.name=Montañas de Westeros
-got.biome.wetwood.name=Wetwood
 got.biome.whisperingWood.name=Madera susurrante
 got.biome.wolfswood.name=Wolfswood
 got.biome.yeen.name=Yeen Wasteland
@@ -6755,8 +6759,8 @@ tile.got:waste_block.name=Bloque de Restos
 tile.got:weapon_rack.name=Pedestal de Arma
 tile.got:white_sand.name=Arena Blanca
 tile.got:white_sandstone.name=Arenisca Blanca
-tile.got:wild_fire_jar.name=Fuego salvaje
 tile.got:wild_fire.name=Fuego salvaje
+tile.got:wild_fire_jar.name=Fuego salvaje
 tile.got:willow_vines.name=Lianas de Sauce
 tile.got:wood1.0.name=Madera de Ibbinia
 tile.got:wood1.1.name=Madera de Catalpa

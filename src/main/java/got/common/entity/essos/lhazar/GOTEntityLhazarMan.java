@@ -11,6 +11,7 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeLhazar;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
@@ -25,7 +26,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityLhazarMan extends GOTEntityHumanBase {
+public class GOTEntityLhazarMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarMan(World world) {
 		super(world);

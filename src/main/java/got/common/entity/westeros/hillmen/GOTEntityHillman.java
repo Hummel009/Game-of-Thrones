@@ -11,6 +11,7 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.util.GOTCrashHandler;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.westeros.GOTBiomeArrynMountainsFoothills;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
@@ -23,7 +24,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityHillman extends GOTEntityHumanBase {
+public class GOTEntityHillman extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillman(World world) {
 		super(world);

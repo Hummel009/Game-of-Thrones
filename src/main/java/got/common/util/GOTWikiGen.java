@@ -154,7 +154,7 @@ public class GOTWikiGen {
 			searchForPagenamesBiome(BIOMES, FACTIONS);
 			searchForPagenamesFaction(BIOMES, FACTIONS);
 			Files.createDirectories(Paths.get("hummel"));
-			if ("tables".equals(type)) {
+			if ("tables".equalsIgnoreCase(type)) {
 				StringBuilder sb = new StringBuilder();
 				for (GOTAchievement ach : ACHIEVEMENTS) {
 					sb.append("\n| ").append(ach.getTitle()).append(" || ").append(ach.getDescription()).append("\n|-");
@@ -265,7 +265,7 @@ public class GOTWikiGen {
 				fFood.write(sb.toString());
 				fFood.close();
 
-			} else if ("xml".equals(type)) {
+			} else if ("xml".equalsIgnoreCase(type)) {
 				StringBuilder sb = new StringBuilder();
 
 				sb.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");

@@ -158,8 +158,8 @@ entity.got.DaarioNaharis.name=Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name=Dagmer
 entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinTramp.name≠Tramp
 entity.got.DarkSkinThief.name≠Thief
+entity.got.DarkSkinTramp.name≠Tramp
 entity.got.Dart.name=Dart
 entity.got.DavenLannister.name=Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -392,8 +392,8 @@ entity.got.LhazarMiner.name=Lhazar Madenci
 entity.got.LhazarWarlord.name=Lhazar Savaş Lordu
 entity.got.LhazarWarrior.name=Lhazar Savaşçı
 entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinTramp.name≠Tramp
 entity.got.LightSkinThief.name≠Thief
+entity.got.LightSkinTramp.name≠Tramp
 entity.got.LingeringEffect.name=Çökelme Etkisi
 entity.got.LingeringPotion.name=Yerleştirme İksiri
 entity.got.Lion.name=Aslan
@@ -937,10 +937,236 @@ got.achievement.DRINK_TERMITE.desc=Termit tekila iç
 got.achievement.DRINK_TERMITE.title=Rus ruleti
 got.achievement.EARN_MANY_COINS.desc=1 tıklamayla 1000 jeton kazanın
 got.achievement.EARN_MANY_COINS.title=Zengin gün
-got.achievement.ENGRAVE.desc=Eşyanın sahibinin adını çıkarın
-got.achievement.ENGRAVE.title=Boş
-got.achievement.ENTER_GOT.desc=Game of Thrones World'e girin
-got.achievement.ENTER_GOT.title=Game of Thrones
+got.achievement.ENGRAVE_OWNERSHIP.desc=Eşyanın sahibinin adını çıkarın
+got.achievement.ENGRAVE_OWNERSHIP.title=Boş
+got.achievement.ENTER_ALWAYS_WINTER.desc=Daima Kış ülkesini ziyaret edin
+got.achievement.ENTER_ALWAYS_WINTER.title=Sonsuz buz arasında
+got.achievement.ENTER_ARRYN.desc=Vadi'ni ziyaret edin
+got.achievement.ENTER_ARRYN.title=Onur kadar yüksek
+got.achievement.ENTER_ARRYN_MOUNTAINS.desc=Ay Dağları'nı ziyaret edin
+got.achievement.ENTER_ARRYN_MOUNTAINS.title=Westeros'un en yüksek dağları
+got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.desc=Ay eteklerini ziyaret edin
+got.achievement.ENTER_ARRYN_MOUNTAINS_FOOTHILLS.title=Zorlu yol
+got.achievement.ENTER_ARRYN_TOWN.desc=Martı kasabasını ziyaret edin
+got.achievement.ENTER_ARRYN_TOWN.title=Deniz havası kadar taze
+got.achievement.ENTER_ASSHAI.desc=Asshai'yi ziyaret edin
+got.achievement.ENTER_ASSHAI.title=Büyücüler şehri
+got.achievement.ENTER_BLEEDING_SEA.desc=Kan Denizi'ni ziyaret edin
+got.achievement.ENTER_BLEEDING_SEA.title=Neden kırmızı?
+got.achievement.ENTER_BONE_MOUNTAINS.desc=Kemik Dağlarını ziyaret edin
+got.achievement.ENTER_BONE_MOUNTAINS.title=Goguen Ülkesi
+got.achievement.ENTER_BRAAVOS.desc=Braavos'u ziyaret edin
+got.achievement.ENTER_BRAAVOS.title=Siyah beyaz ev
+got.achievement.ENTER_CANNIBAL_SANDS.desc=Cannibal Sands'i ziyaret edin
+got.achievement.ENTER_CANNIBAL_SANDS.title=Ve nerede?
+got.achievement.ENTER_COLD_COAST.desc=Soğuk sahili ziyaret edin
+got.achievement.ENTER_COLD_COAST.title=Morslar ve insanlar
+got.achievement.ENTER_CROWNLANDS.desc=Taç Toprakları'i ziyaret edin
+got.achievement.ENTER_CROWNLANDS.title=Anlaşmazlık Elması
+got.achievement.ENTER_CROWNLANDS_TOWN.desc=King's Landing'i ziyaret edin
+got.achievement.ENTER_CROWNLANDS_TOWN.title=Yılan yuvası
+got.achievement.ENTER_DISPUTED_LANDS.desc=Paralı Askeri ziyaret edin
+got.achievement.ENTER_DISPUTED_LANDS.title=Kimse
+got.achievement.ENTER_DORNE.desc=Dorne'u ziyaret edin
+got.achievement.ENTER_DORNE.title=Eğilmemiş, Eğilmemiş, Kırılmamış
+got.achievement.ENTER_DORNE_DESERT.desc=Dorne çölünü ziyaret edin
+got.achievement.ENTER_DORNE_DESERT.title=Targaryenlerin Korkusu
+got.achievement.ENTER_DORNE_MESA.desc=Dorne platosunu ziyaret edin
+got.achievement.ENTER_DORNE_MESA.title=Menzil düzeyi: 3
+got.achievement.ENTER_DORNE_MOUNTAINS.desc=Kızıl dağları ziyaret edin
+got.achievement.ENTER_DORNE_MOUNTAINS.title=Granit, granit, granit
+got.achievement.ENTER_DOSH_KHALIN.desc=Dağların Anasını ziyaret edin
+got.achievement.ENTER_DOSH_KHALIN.title=Dağların anası
+got.achievement.ENTER_DOTHRAKI_SEA.desc=Dothraki Denizi'ni ziyaret edin
+got.achievement.ENTER_DOTHRAKI_SEA.title=çim denizi
+got.achievement.ENTER_DRAGONSTONE.desc=Dragonstone'u ziyaret edin
+got.achievement.ENTER_DRAGONSTONE.title=Gerçek kralın beyliği
+got.achievement.ENTER_ESSOS_MOUNTAINS.desc=Essos dağlarını ziyaret edin
+got.achievement.ENTER_ESSOS_MOUNTAINS.title=Riyolit genişler
+got.achievement.ENTER_FROSTFANGS.desc=Frost Fangs'ı ziyaret edin
+got.achievement.ENTER_FROSTFANGS.title=Buz ve taş dağlar
+got.achievement.ENTER_GHISCAR.desc=Ghiscar'ı ziyaret edin
+got.achievement.ENTER_GHISCAR.title=Köle Körfezi
+got.achievement.ENTER_GHISCAR_COLONY.desc=Ghiscar Kolonilerini ziyaret edin
+got.achievement.ENTER_GHISCAR_COLONY.title=çaresiz korsan
+got.achievement.ENTER_GIFT_NEW.desc=Yeni Hediyeyi Ziyaret Edin
+got.achievement.ENTER_GIFT_NEW.title=Kuzeye!
+got.achievement.ENTER_GIFT_OLD.desc=Eski Hediyeyi Ziyaret Edin
+got.achievement.ENTER_GIFT_OLD.title=Duvara!
+got.achievement.ENTER_HAUNTED_FOREST.desc=Büyülü ormanı ziyaret edin
+got.achievement.ENTER_HAUNTED_FOREST.title=Yabani hayvanlar, mamutlar ve devler
+got.achievement.ENTER_IBBEN.desc=Ibben'i ziyaret edin
+got.achievement.ENTER_IBBEN.title=Balina avcısı adası
+got.achievement.ENTER_IFEKEVRON_FOREST.desc=Ifekevron topraklarını ziyaret edin
+got.achievement.ENTER_IFEKEVRON_FOREST.title=Kim burada?
+got.achievement.ENTER_IRON_ISLANDS.desc=Demir Adalar ziyaret edin
+got.achievement.ENTER_IRON_ISLANDS.title=Biz ekmiyoruz
+got.achievement.ENTER_ISLE_OF_FACES.desc=Yüzler Adası'nı ziyaret edin
+got.achievement.ENTER_ISLE_OF_FACES.title=Büvet ağaçlarının ötesinde
+got.achievement.ENTER_JOGOS_NHAI.desc=Jogos Nhaya ovalarını ziyaret edin
+got.achievement.ENTER_JOGOS_NHAI.title=Ve yine ovalar
+got.achievement.ENTER_JOGOS_NHAI_DESERT.desc=Kavrulmuş Deniz'i ziyaret edin
+got.achievement.ENTER_JOGOS_NHAI_DESERT.title=Kuru deniz
+got.achievement.ENTER_KINGSWOOD.desc=Kraliyet Ormanı'nı ziyaret edin
+got.achievement.ENTER_KINGSWOOD.title=Domuz da mı arıyorsunuz?
+got.achievement.ENTER_KNOWN_WORLD.desc=Game of Thrones World'e girin
+got.achievement.ENTER_KNOWN_WORLD.title=Game of Thrones
+got.achievement.ENTER_LHAZAR.desc=Lhazar'ı ziyaret edin
+got.achievement.ENTER_LHAZAR.title=Koyun çiftçilerinin ülkesi
+got.achievement.ENTER_LONG_SUMMER.desc=Uzun Yaz Ülkesini Ziyaret Edin
+got.achievement.ENTER_LONG_SUMMER.title=Kavrulmuş toprak
+got.achievement.ENTER_LORATH.desc=Lorath'ı ziyaret edin
+got.achievement.ENTER_LORATH.title=Tanrının unuttuğu şehir
+got.achievement.ENTER_LYS.desc=The Lys'i ziyaret edin
+got.achievement.ENTER_LYS.title=Aşkın ve tutkunun ülkesi
+got.achievement.ENTER_MOSSOVY.desc=Mossovy'i ziyaret edin
+got.achievement.ENTER_MOSSOVY.title=şeytani varlık
+got.achievement.ENTER_MOSSOVY_MARSHES.desc=Mossovy Bataklığı'nı ziyaret edin
+got.achievement.ENTER_MOSSOVY_MARSHES.title=Geniş bataklıklar
+got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc=Mossovy Sopkas'ı ziyaret edin
+got.achievement.ENTER_MOSSOVY_MOUNTAINS.title=Uzak Doğu
+got.achievement.ENTER_MOSSOVY_TUNDRA.desc=Mossovy Tundra'yı ziyaret edin
+got.achievement.ENTER_MOSSOVY_TUNDRA.title=Dünyanın kenarında
+got.achievement.ENTER_MYR.desc=Myr'i ziyaret edin
+got.achievement.ENTER_MYR.title=Savaş ve Barış
+got.achievement.ENTER_NAATH.desc=Naath'ı ziyaret edin
+got.achievement.ENTER_NAATH.title=Yanlış kelebekler
+got.achievement.ENTER_NECK.desc=The Neck'i ziyaret edin
+got.achievement.ENTER_NECK.title=Kötü bir sel
+got.achievement.ENTER_NORTH.desc=Kuzey'i ziyaret edin
+got.achievement.ENTER_NORTH.title=Kış geliyor
+got.achievement.ENTER_NORTH_BARROWS.desc=Kuzey Barrows'u ziyaret edin
+got.achievement.ENTER_NORTH_BARROWS.title=Antik höyükler
+got.achievement.ENTER_NORTH_FOREST_IRONTREE.desc=Irontree Ormanı'nı ziyaret edin
+got.achievement.ENTER_NORTH_FOREST_IRONTREE.title=Demirağaçlar!
+got.achievement.ENTER_NORTH_MOUNTAINS.desc=Kuzey Dağları'nı ziyaret edin
+got.achievement.ENTER_NORTH_MOUNTAINS.title=Kuzey dağları
+got.achievement.ENTER_NORTH_TOWN.desc=Beyaz Liman'ı ziyaret edin
+got.achievement.ENTER_NORTH_TOWN.title=Denize!
+got.achievement.ENTER_NORTH_WILD.desc=Vahşi Kuzey'i ziyaret edin
+got.achievement.ENTER_NORTH_WILD.title=Dost dağlılar
+got.achievement.ENTER_NORVOS.desc=Norvos'u ziyaret edin
+got.achievement.ENTER_NORVOS.title=Tepeler arasında
+got.achievement.ENTER_PENTOS.desc=Pentos'u ziyaret edin
+got.achievement.ENTER_PENTOS.title=King'in inişinin karşısında
+got.achievement.ENTER_QARTH.desc=The Quarth'ı ziyaret edin
+got.achievement.ENTER_QARTH.title=Tüccarlar ülke
+got.achievement.ENTER_QARTH_COLONY.desc≠Visit Quartic colonies
+got.achievement.ENTER_QARTH_COLONY.title≠Eastern Colonizers
+got.achievement.ENTER_QARTH_DESERT.desc=Kızıl Çölü ziyaret edin
+got.achievement.ENTER_QARTH_DESERT.title=Kırmızı kumlar
+got.achievement.ENTER_QOHOR.desc=Qohor'u ziyaret edin
+got.achievement.ENTER_QOHOR.title=Altın orman
+got.achievement.ENTER_QOHOR_FOREST.desc=Qohor Ormanı'nı ziyaret edin
+got.achievement.ENTER_QOHOR_FOREST.title=Altın orman
+got.achievement.ENTER_REACH.desc=The Menzil'i ziyaret edin
+got.achievement.ENTER_REACH.title=Büyüyoruz - güçleniyoruz
+got.achievement.ENTER_REACH_ARBOR.desc=Arbor'u ziyaret edin
+got.achievement.ENTER_REACH_ARBOR.title=Bağcılık bölgesi
+got.achievement.ENTER_REACH_FIRE_FIELD.desc=Highgarden'ı ziyaret edin
+got.achievement.ENTER_REACH_FIRE_FIELD.title=Gül vadisi
+got.achievement.ENTER_REACH_TOWN.desc=Eski Kent'i ziyaret edin
+got.achievement.ENTER_REACH_TOWN.title=Bilim ve kültür merkezi
+got.achievement.ENTER_RIVERLANDS.desc=Nehir Toprakları ziyaret edin
+got.achievement.ENTER_RIVERLANDS.title=Aile, görev, onur
+got.achievement.ENTER_SHADOW_LAND.desc=Shadow Lands'i ziyaret edin
+got.achievement.ENTER_SHADOW_LAND.title=Kara dünya
+got.achievement.ENTER_SHADOW_MOUNTAINS.desc=Şafak Dağları'nı ziyaret edin
+got.achievement.ENTER_SHADOW_MOUNTAINS.title=Заслоняя солнце
+got.achievement.ENTER_SHADOW_WASTELAND.desc=The Wasteland Of Shadows'u ziyaret edin
+got.achievement.ENTER_SHADOW_WASTELAND.title=Хуже пустоши
+got.achievement.ENTER_SHRYKES_LAND.desc≠Visit Land of the Shrykes
+got.achievement.ENTER_SHRYKES_LAND.title≠Nibiru
+got.achievement.ENTER_SKAGOS.desc=Skagos'u ziyaret edin
+got.achievement.ENTER_SKAGOS.title=Yünlü bir gergedan arayışı içinde
+got.achievement.ENTER_SKIRLING_PASS.desc=Skirling Pass'ı ziyaret edin
+got.achievement.ENTER_SKIRLING_PASS.title=Mance'nin ayak izlerini takip etmek
+got.achievement.ENTER_SOTHORYOS_BUSHLAND.desc=Sothoryos Çalılarını ziyaret edin
+got.achievement.ENTER_SOTHORYOS_BUSHLAND.title=Dikkat: patlayıcı
+got.achievement.ENTER_SOTHORYOS_DESERT.desc=Sothoryos Çölü'nü ziyaret edin
+got.achievement.ENTER_SOTHORYOS_DESERT.title=Soğuk tatlı
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc≠Visit Sothoryos Cold Desert
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title≠Cold Desert
+got.achievement.ENTER_SOTHORYOS_FOREST.desc=Sothoryos Kanuka ormanını ziyaret edin
+got.achievement.ENTER_SOTHORYOS_FOREST.title=Iç
+got.achievement.ENTER_SOTHORYOS_FROST.desc=Sothoryos Polar Sphere'i ziyaret edin
+got.achievement.ENTER_SOTHORYOS_FROST.title=Tersine
+got.achievement.ENTER_SOTHORYOS_HELL.desc=Yeşil Cehennemi ziyaret edin
+got.achievement.ENTER_SOTHORYOS_HELL.title=Koronavirüs
+got.achievement.ENTER_SOTHORYOS_JUNGLE.desc=Sothoryos Ormanı'nı ziyaret edin
+got.achievement.ENTER_SOTHORYOS_JUNGLE.title=üçüncü kıta
+got.achievement.ENTER_SOTHORYOS_MANGROVE.desc=Sothoryos Mangrovlarını ziyaret edin
+got.achievement.ENTER_SOTHORYOS_MANGROVE.title=Sivrisinekler ve Sothoryos sivrisineklerinde
+got.achievement.ENTER_SOTHORYOS_MOUNTAINS.desc=Sothoryos Dağları'nı ziyaret edin
+got.achievement.ENTER_SOTHORYOS_MOUNTAINS.title=Sarı dağlar
+got.achievement.ENTER_SOTHORYOS_SAVANNAH.desc=Sothoryos Savannah'ı ziyaret edin
+got.achievement.ENTER_SOTHORYOS_SAVANNAH.title=Sıfır ağaç hakkında
+got.achievement.ENTER_SOTHORYOS_TAIGA.desc=Sothoryos Tayga'yı ziyaret edin
+got.achievement.ENTER_SOTHORYOS_TAIGA.title=Yine mi mamutlar?
+got.achievement.ENTER_STEPSTONES.desc=Stepstones'u ziyaret edin
+got.achievement.ENTER_STEPSTONES.title=Korsan genişliği
+got.achievement.ENTER_STONE_COAST.desc=Stony Shore'u ziyaret edin
+got.achievement.ENTER_STONE_COAST.title=Tartışma elma
+got.achievement.ENTER_STORMLANDS.desc=Fırtına Toprakları'nı ziyaret edin
+got.achievement.ENTER_STORMLANDS.title=Bizimki öfke
+got.achievement.ENTER_STORMLANDS_TARTH.desc=Tarth'ı ziyaret edin
+got.achievement.ENTER_STORMLANDS_TARTH.title=Ah, safirler!
+got.achievement.ENTER_SUMMER_COLONY.desc≠Visit the Summer Colonies
+got.achievement.ENTER_SUMMER_COLONY.title≠Western Colonizers
+got.achievement.ENTER_SUMMER_ISLANDS.desc=Yaz Adaları'nı ziyaret edin
+got.achievement.ENTER_SUMMER_ISLANDS.title=Güney adaları
+got.achievement.ENTER_THENN_LAND.desc=Thenn'i ziyaret edin
+got.achievement.ENTER_THENN_LAND.title=Uzak Kuzeydeki Volkanlar
+got.achievement.ENTER_TROPICAL_FOREST.desc=Yağmur Ormanlarını ziyaret edin
+got.achievement.ENTER_TROPICAL_FOREST.title=Akrepler ve filler
+got.achievement.ENTER_TYROSH.desc=Tyrosh'u ziyaret edin
+got.achievement.ENTER_TYROSH.title=Küçük ama uzak
+got.achievement.ENTER_ULOS.desc=Ulos'u ziyaret edin
+got.achievement.ENTER_ULOS.title=Araknofoblar mevcut
+got.achievement.ENTER_ULTHOS.desc=Ulthos'u ziyaret edin
+got.achievement.ENTER_ULTHOS.title=Örümcekler, sis, mahremiyet
+got.achievement.ENTER_ULTHOS_DESERT.desc=Ulthos çölünü ziyaret edin
+got.achievement.ENTER_ULTHOS_DESERT.title=En azından bir yerlerde örümcek yok
+got.achievement.ENTER_ULTHOS_DESERT_COLD.desc≠Visit Ulthos Cold Desert
+got.achievement.ENTER_ULTHOS_DESERT_COLD.title≠The path, senseless and merciless
+got.achievement.ENTER_ULTHOS_FOREST.desc≠Visit Ulthos Forest
+got.achievement.ENTER_ULTHOS_FOREST.title≠The wrong forest and the wrong spiders
+got.achievement.ENTER_ULTHOS_FROST.desc≠Visit Ulthos Permafrost
+got.achievement.ENTER_ULTHOS_FROST.title≠My condolences to the survivors
+got.achievement.ENTER_ULTHOS_MARSHES.desc≠Visit the Ultos marshes
+got.achievement.ENTER_ULTHOS_MARSHES.title≠Isthmus II
+got.achievement.ENTER_ULTHOS_MOUNTAINS.desc=Ulthos Dağları'nı ziyaret edin
+got.achievement.ENTER_ULTHOS_MOUNTAINS.title=Beyaz bir kenarlıkla
+got.achievement.ENTER_ULTHOS_RED_FOREST.desc≠Visit the crimson forests of Ultos
+got.achievement.ENTER_ULTHOS_RED_FOREST.title≠Wine and blood
+got.achievement.ENTER_ULTHOS_TAIGA.desc≠Visit Ulthos Taiga
+got.achievement.ENTER_ULTHOS_TAIGA.title≠Taiga in the southeast, why not?
+got.achievement.ENTER_VALYRIA.desc=Valyria Yarımadası'nı ziyaret edin
+got.achievement.ENTER_VALYRIA.title=İmparatorluğun Kalıntıları
+got.achievement.ENTER_VALYRIA_SEA.desc=Sigara İçilen Deniz'i ziyaret edin
+got.achievement.ENTER_VALYRIA_SEA.title=Sigara İçen Deniz
+got.achievement.ENTER_VALYRIA_VOLCANO.desc=Valyrian Volkanlarını ziyaret edin
+got.achievement.ENTER_VALYRIA_VOLCANO.title=Cevher arayışı içinde
+got.achievement.ENTER_VOLANTIS.desc=Volantis'i ziyaret edin
+got.achievement.ENTER_VOLANTIS.title=Valyria'nın Varisi
+got.achievement.ENTER_VOLANTIS_ORANGE_FOREST.desc=Orange Coast'u ziyaret edin
+got.achievement.ENTER_VOLANTIS_ORANGE_FOREST.title=Portakal!
+got.achievement.ENTER_WESTERLANDS.desc=Batı Topraklarını ziyaret edin
+got.achievement.ENTER_WESTERLANDS.title=Kükreme duy
+got.achievement.ENTER_WESTERLANDS_HILLS.desc=Western Hills'i ziyaret edin
+got.achievement.ENTER_WESTERLANDS_HILLS.title=Altın madenleri
+got.achievement.ENTER_WESTERLANDS_TOWN.desc=Lannisport'u ziyaret edin
+got.achievement.ENTER_WESTERLANDS_TOWN.title=Zenginlerin mülkiyeti
+got.achievement.ENTER_WESTEROS_FROST.desc=Karlı çorak araziyi ziyaret edin
+got.achievement.ENTER_WESTEROS_FROST.title=Duvarın arkasında
+got.achievement.ENTER_WHISPERING_WOOD.desc=Fısıldayan Ormanı Ziyaret Edin
+got.achievement.ENTER_WHISPERING_WOOD.title=Dövüş ormanı
+got.achievement.ENTER_YEEN.desc=Yeen'i ziyaret edin
+got.achievement.ENTER_YEEN.title=Obsidyen platosu
+got.achievement.ENTER_YI_TI.desc=Yi Ti'yi ziyaret edin
+got.achievement.ENTER_YI_TI.title=Altın İmparatorluk
+got.achievement.ENTER_YI_TI_WASTELAND.desc=Yi Ti Sınır Bölgesini ziyaret edin
+got.achievement.ENTER_YI_TI_WASTELAND.title=Beş Kale
 got.achievement.FACTION_CONQUEST.desc=Söz ver ve toprağı fethet
 got.achievement.FACTION_CONQUEST.title=Kral için!
 got.achievement.FIND_FOUR_LEAF_CLOVER.desc=Dört yapraklı yonca bul
@@ -1199,230 +1425,6 @@ got.achievement.USE_SPEAR_FROM_FAR.desc=Uzun mesafeden mızrakla öldür
 got.achievement.USE_SPEAR_FROM_FAR.title=Nişancı
 got.achievement.USE_THROWING_AXE.desc=Fırlatma Baltası Kullan
 got.achievement.USE_THROWING_AXE.title=At onu
-got.achievement.VISIT_ALWAYS_WINTER.desc=Daima Kış ülkesini ziyaret edin
-got.achievement.VISIT_ALWAYS_WINTER.title=Sonsuz buz arasında
-got.achievement.VISIT_ARBOR.desc=Arbor'u ziyaret edin
-got.achievement.VISIT_ARBOR.title=Bağcılık bölgesi
-got.achievement.VISIT_ARRYN.desc=Vadi'ni ziyaret edin
-got.achievement.VISIT_ARRYN.title=Onur kadar yüksek
-got.achievement.VISIT_ARRYN_MOUNTAINS.desc=Ay Dağları'nı ziyaret edin
-got.achievement.VISIT_ARRYN_MOUNTAINS.title=Westeros'un en yüksek dağları
-got.achievement.VISIT_ARRYN_TOWN.desc=Martı kasabasını ziyaret edin
-got.achievement.VISIT_ARRYN_TOWN.title=Deniz havası kadar taze
-got.achievement.VISIT_ASSHAI.desc=Asshai'yi ziyaret edin
-got.achievement.VISIT_ASSHAI.title=Büyücüler şehri
-got.achievement.VISIT_BONE_MOUNTAINS.desc=Kemik Dağlarını ziyaret edin
-got.achievement.VISIT_BONE_MOUNTAINS.title=Goguen Ülkesi
-got.achievement.VISIT_BRAAVOS.desc=Braavos'u ziyaret edin
-got.achievement.VISIT_BRAAVOS.title=Siyah beyaz ev
-got.achievement.VISIT_CANNIBAL_SANDS.desc=Cannibal Sands'i ziyaret edin
-got.achievement.VISIT_CANNIBAL_SANDS.title=Ve nerede?
-got.achievement.VISIT_COLD_COAST.desc=Soğuk sahili ziyaret edin
-got.achievement.VISIT_COLD_COAST.title=Morslar ve insanlar
-got.achievement.VISIT_CROWNLANDS.desc=Taç Toprakları'i ziyaret edin
-got.achievement.VISIT_CROWNLANDS.title=Anlaşmazlık Elması
-got.achievement.VISIT_CROWNLANDS_FOREST.desc=Kraliyet Ormanı'nı ziyaret edin
-got.achievement.VISIT_CROWNLANDS_FOREST.title=Domuz da mı arıyorsunuz?
-got.achievement.VISIT_DORNE.desc=Dorne'u ziyaret edin
-got.achievement.VISIT_DORNE.title=Eğilmemiş, Eğilmemiş, Kırılmamış
-got.achievement.VISIT_DORNE_DESERT.desc=Dorne çölünü ziyaret edin
-got.achievement.VISIT_DORNE_DESERT.title=Targaryenlerin Korkusu
-got.achievement.VISIT_DORNE_MESA.desc=Dorne platosunu ziyaret edin
-got.achievement.VISIT_DORNE_MESA.title=Menzil düzeyi: 3
-got.achievement.VISIT_DORNE_MOUNTAINS.desc=Kızıl dağları ziyaret edin
-got.achievement.VISIT_DORNE_MOUNTAINS.title=Granit, granit, granit
-got.achievement.VISIT_DOSH_KHALIN.desc=Dağların Anasını ziyaret edin
-got.achievement.VISIT_DOSH_KHALIN.title=Dağların anası
-got.achievement.VISIT_DOTHRAKI_SEA.desc=Dothraki Denizi'ni ziyaret edin
-got.achievement.VISIT_DOTHRAKI_SEA.title=çim denizi
-got.achievement.VISIT_DRAGONSTONE.desc=Dragonstone'u ziyaret edin
-got.achievement.VISIT_DRAGONSTONE.title=Gerçek kralın beyliği
-got.achievement.VISIT_ESSOS_MOUNTAINS.desc=Essos dağlarını ziyaret edin
-got.achievement.VISIT_ESSOS_MOUNTAINS.title=Riyolit genişler
-got.achievement.VISIT_FACES.desc=Yüzler Adası'nı ziyaret edin
-got.achievement.VISIT_FACES.title=Büvet ağaçlarının ötesinde
-got.achievement.VISIT_FAR_NORTH.desc=Karlı çorak araziyi ziyaret edin
-got.achievement.VISIT_FAR_NORTH.title=Duvarın arkasında
-got.achievement.VISIT_FIRE_FIELD.desc=Highgarden'ı ziyaret edin
-got.achievement.VISIT_FIRE_FIELD.title=Gül vadisi
-got.achievement.VISIT_FROSTFANGS.desc=Frost Fangs'ı ziyaret edin
-got.achievement.VISIT_FROSTFANGS.title=Buz ve taş dağlar
-got.achievement.VISIT_GHISCAR.desc=Ghiscar'ı ziyaret edin
-got.achievement.VISIT_GHISCAR.title=Köle Körfezi
-got.achievement.VISIT_GHISCAR_COLONY.desc=Ghiscar Kolonilerini ziyaret edin
-got.achievement.VISIT_GHISCAR_COLONY.title=çaresiz korsan
-got.achievement.VISIT_GIFT_NEW.desc=Yeni Hediyeyi Ziyaret Edin
-got.achievement.VISIT_GIFT_NEW.title=Kuzeye!
-got.achievement.VISIT_GIFT_OLD.desc=Eski Hediyeyi Ziyaret Edin
-got.achievement.VISIT_GIFT_OLD.title=Duvara!
-got.achievement.VISIT_HAUNTED_FOREST.desc=Büyülü ormanı ziyaret edin
-got.achievement.VISIT_HAUNTED_FOREST.title=Yabani hayvanlar, mamutlar ve devler
-got.achievement.VISIT_HILL_TRIBES.desc=Ay eteklerini ziyaret edin
-got.achievement.VISIT_HILL_TRIBES.title=Zorlu yol
-got.achievement.VISIT_IBBEN.desc=Ibben'i ziyaret edin
-got.achievement.VISIT_IBBEN.title=Balina avcısı adası
-got.achievement.VISIT_IFEKEVRON.desc=Ifekevron topraklarını ziyaret edin
-got.achievement.VISIT_IFEKEVRON.title=Kim burada?
-got.achievement.VISIT_IRONBORN.desc=Demir Adalar ziyaret edin
-got.achievement.VISIT_IRONBORN.title=Biz ekmiyoruz
-got.achievement.VISIT_IRONTREE.desc=Irontree Ormanı'nı ziyaret edin
-got.achievement.VISIT_IRONTREE.title=Demirağaçlar!
-got.achievement.VISIT_JOGOS.desc=Jogos Nhaya ovalarını ziyaret edin
-got.achievement.VISIT_JOGOS.title=Ve yine ovalar
-got.achievement.VISIT_JOGOS_DESERT.desc=Kavrulmuş Deniz'i ziyaret edin
-got.achievement.VISIT_JOGOS_DESERT.title=Kuru deniz
-got.achievement.VISIT_KINGS_LANDING.desc=King's Landing'i ziyaret edin
-got.achievement.VISIT_KINGS_LANDING.title=Yılan yuvası
-got.achievement.VISIT_LHAZAR.desc=Lhazar'ı ziyaret edin
-got.achievement.VISIT_LHAZAR.title=Koyun çiftçilerinin ülkesi
-got.achievement.VISIT_LONG_SUMMER.desc=Uzun Yaz Ülkesini Ziyaret Edin
-got.achievement.VISIT_LONG_SUMMER.title=Kavrulmuş toprak
-got.achievement.VISIT_LORATH.desc=Lorath'ı ziyaret edin
-got.achievement.VISIT_LORATH.title=Tanrının unuttuğu şehir
-got.achievement.VISIT_LYS.desc=The Lys'i ziyaret edin
-got.achievement.VISIT_LYS.title=Aşkın ve tutkunun ülkesi
-got.achievement.VISIT_MERCENARY.desc=Paralı Askeri ziyaret edin
-got.achievement.VISIT_MERCENARY.title=Kimse
-got.achievement.VISIT_MOSSOVY.desc=Mossovy'i ziyaret edin
-got.achievement.VISIT_MOSSOVY.title=şeytani varlık
-got.achievement.VISIT_MOSSOVY_MARSHES.desc=Mossovy Bataklığı'nı ziyaret edin
-got.achievement.VISIT_MOSSOVY_MARSHES.title=Geniş bataklıklar
-got.achievement.VISIT_MOSSOVY_SOPKAS.desc=Mossovy Sopkas'ı ziyaret edin
-got.achievement.VISIT_MOSSOVY_SOPKAS.title=Uzak Doğu
-got.achievement.VISIT_MOSSOVY_TUNDRA.desc=Mossovy Tundra'yı ziyaret edin
-got.achievement.VISIT_MOSSOVY_TUNDRA.title=Dünyanın kenarında
-got.achievement.VISIT_MYR.desc=Myr'i ziyaret edin
-got.achievement.VISIT_MYR.title=Savaş ve Barış
-got.achievement.VISIT_NAATH.desc=Naath'ı ziyaret edin
-got.achievement.VISIT_NAATH.title=Yanlış kelebekler
-got.achievement.VISIT_NECK.desc=The Neck'i ziyaret edin
-got.achievement.VISIT_NECK.title=Kötü bir sel
-got.achievement.VISIT_NORTH.desc=Kuzey'i ziyaret edin
-got.achievement.VISIT_NORTH.title=Kış geliyor
-got.achievement.VISIT_NORTH_BARROWS.desc=Kuzey Barrows'u ziyaret edin
-got.achievement.VISIT_NORTH_BARROWS.title=Antik höyükler
-got.achievement.VISIT_NORTH_MOUNTAINS.desc=Kuzey Dağları'nı ziyaret edin
-got.achievement.VISIT_NORTH_MOUNTAINS.title=Kuzey dağları
-got.achievement.VISIT_NORTH_TOWN.desc=Beyaz Liman'ı ziyaret edin
-got.achievement.VISIT_NORTH_TOWN.title=Denize!
-got.achievement.VISIT_NORTH_WILD.desc=Vahşi Kuzey'i ziyaret edin
-got.achievement.VISIT_NORTH_WILD.title=Dost dağlılar
-got.achievement.VISIT_NORVOS.desc=Norvos'u ziyaret edin
-got.achievement.VISIT_NORVOS.title=Tepeler arasında
-got.achievement.VISIT_PENTOS.desc=Pentos'u ziyaret edin
-got.achievement.VISIT_PENTOS.title=King'in inişinin karşısında
-got.achievement.VISIT_QARTH.desc=The Quarth'ı ziyaret edin
-got.achievement.VISIT_QARTH.title=Tüccarlar ülke
-got.achievement.VISIT_QARTH_COLONY.desc≠Visit Quartic colonies
-got.achievement.VISIT_QARTH_COLONY.title≠Eastern Colonizers
-got.achievement.VISIT_QARTH_DESERT.desc=Kızıl Çölü ziyaret edin
-got.achievement.VISIT_QARTH_DESERT.title=Kırmızı kumlar
-got.achievement.VISIT_QOHOR.desc=Qohor'u ziyaret edin
-got.achievement.VISIT_QOHOR.title=Altın orman
-got.achievement.VISIT_QOHOR_FOREST.desc=Qohor Ormanı'nı ziyaret edin
-got.achievement.VISIT_QOHOR_FOREST.title=Altın orman
-got.achievement.VISIT_REACH.desc=The Menzil'i ziyaret edin
-got.achievement.VISIT_REACH.title=Büyüyoruz - güçleniyoruz
-got.achievement.VISIT_REACH_TOWN.desc=Eski Kent'i ziyaret edin
-got.achievement.VISIT_REACH_TOWN.title=Bilim ve kültür merkezi
-got.achievement.VISIT_RED_SEA.desc=Kan Denizi'ni ziyaret edin
-got.achievement.VISIT_RED_SEA.title=Neden kırmızı?
-got.achievement.VISIT_RIVERLANDS.desc=Nehir Toprakları ziyaret edin
-got.achievement.VISIT_RIVERLANDS.title=Aile, görev, onur
-got.achievement.VISIT_SHADOW_LAND.desc=Shadow Lands'i ziyaret edin
-got.achievement.VISIT_SHADOW_LAND.title=Kara dünya
-got.achievement.VISIT_SHADOW_MOUNTAINS.desc=Şafak Dağları'nı ziyaret edin
-got.achievement.VISIT_SHADOW_MOUNTAINS.title=Заслоняя солнце
-got.achievement.VISIT_SHADOW_WASTELAND.desc=The Wasteland Of Shadows'u ziyaret edin
-got.achievement.VISIT_SHADOW_WASTELAND.title=Хуже пустоши
-got.achievement.VISIT_SHRYKES_LAND.desc≠Visit Land of the Shrykes
-got.achievement.VISIT_SHRYKES_LAND.title≠Nibiru
-got.achievement.VISIT_SKAGOS.desc=Skagos'u ziyaret edin
-got.achievement.VISIT_SKAGOS.title=Yünlü bir gergedan arayışı içinde
-got.achievement.VISIT_SKIRLING_PASS.desc=Skirling Pass'ı ziyaret edin
-got.achievement.VISIT_SKIRLING_PASS.title=Mance'nin ayak izlerini takip etmek
-got.achievement.VISIT_SOTHORYOS_BUSHLAND.desc=Sothoryos Çalılarını ziyaret edin
-got.achievement.VISIT_SOTHORYOS_BUSHLAND.title=Dikkat: patlayıcı
-got.achievement.VISIT_SOTHORYOS_DESERT.desc=Sothoryos Çölü'nü ziyaret edin
-got.achievement.VISIT_SOTHORYOS_DESERT.title=Soğuk tatlı
-got.achievement.VISIT_SOTHORYOS_FROST.desc=Sothoryos Polar Sphere'i ziyaret edin
-got.achievement.VISIT_SOTHORYOS_FROST.title=Tersine
-got.achievement.VISIT_SOTHORYOS_HELL.desc=Yeşil Cehennemi ziyaret edin
-got.achievement.VISIT_SOTHORYOS_HELL.title=Koronavirüs
-got.achievement.VISIT_SOTHORYOS_JUNGLE.desc=Sothoryos Ormanı'nı ziyaret edin
-got.achievement.VISIT_SOTHORYOS_JUNGLE.title=üçüncü kıta
-got.achievement.VISIT_SOTHORYOS_KANUKA.desc=Sothoryos Kanuka ormanını ziyaret edin
-got.achievement.VISIT_SOTHORYOS_KANUKA.title=Iç
-got.achievement.VISIT_SOTHORYOS_MANGROVE.desc=Sothoryos Mangrovlarını ziyaret edin
-got.achievement.VISIT_SOTHORYOS_MANGROVE.title=Sivrisinekler ve Sothoryos sivrisineklerinde
-got.achievement.VISIT_SOTHORYOS_MOUNTAINS.desc=Sothoryos Dağları'nı ziyaret edin
-got.achievement.VISIT_SOTHORYOS_MOUNTAINS.title=Sarı dağlar
-got.achievement.VISIT_SOTHORYOS_SAVANNAH.desc=Sothoryos Savannah'ı ziyaret edin
-got.achievement.VISIT_SOTHORYOS_SAVANNAH.title=Sıfır ağaç hakkında
-got.achievement.VISIT_SOTHORYOS_TAIGA.desc=Sothoryos Tayga'yı ziyaret edin
-got.achievement.VISIT_SOTHORYOS_TAIGA.title=Yine mi mamutlar?
-got.achievement.VISIT_STEPSTONES.desc=Stepstones'u ziyaret edin
-got.achievement.VISIT_STEPSTONES.title=Korsan genişliği
-got.achievement.VISIT_STONE_COAST.desc=Stony Shore'u ziyaret edin
-got.achievement.VISIT_STONE_COAST.title=Tartışma elma
-got.achievement.VISIT_STORMLANDS.desc=Fırtına Toprakları'nı ziyaret edin
-got.achievement.VISIT_STORMLANDS.title=Bizimki öfke
-got.achievement.VISIT_SUMMER_COLONY.desc≠Visit the Summer Colonies
-got.achievement.VISIT_SUMMER_COLONY.title≠Western Colonizers
-got.achievement.VISIT_SUMMER_ISLANDS.desc=Yaz Adaları'nı ziyaret edin
-got.achievement.VISIT_SUMMER_ISLANDS.title=Güney adaları
-got.achievement.VISIT_TARTH.desc=Tarth'ı ziyaret edin
-got.achievement.VISIT_TARTH.title=Ah, safirler!
-got.achievement.VISIT_THENN.desc=Thenn'i ziyaret edin
-got.achievement.VISIT_THENN.title=Uzak Kuzeydeki Volkanlar
-got.achievement.VISIT_TROPICAL_FOREST.desc=Yağmur Ormanlarını ziyaret edin
-got.achievement.VISIT_TROPICAL_FOREST.title=Akrepler ve filler
-got.achievement.VISIT_TYROSH.desc=Tyrosh'u ziyaret edin
-got.achievement.VISIT_TYROSH.title=Küçük ama uzak
-got.achievement.VISIT_ULOS.desc=Ulos'u ziyaret edin
-got.achievement.VISIT_ULOS.title=Araknofoblar mevcut
-got.achievement.VISIT_ULTHOS.desc=Ulthos'u ziyaret edin
-got.achievement.VISIT_ULTHOS.title=Örümcekler, sis, mahremiyet
-got.achievement.VISIT_ULTHOS_DESERT.desc=Ulthos çölünü ziyaret edin
-got.achievement.VISIT_ULTHOS_DESERT.title=En azından bir yerlerde örümcek yok
-got.achievement.VISIT_ULTHOS_DESERT_COLD.desc≠Visit Ulthos Cold Desert
-got.achievement.VISIT_ULTHOS_DESERT_COLD.title≠The path, senseless and merciless
-got.achievement.VISIT_ULTHOS_FOREST.desc≠Visit Ulthos Forest
-got.achievement.VISIT_ULTHOS_FOREST.title≠The wrong forest and the wrong spiders
-got.achievement.VISIT_ULTHOS_FROST.desc≠Visit Ulthos Permafrost
-got.achievement.VISIT_ULTHOS_FROST.title≠My condolences to the survivors
-got.achievement.VISIT_ULTHOS_MARSHES.desc≠Visit the Ultos marshes
-got.achievement.VISIT_ULTHOS_MARSHES.title≠Isthmus II
-got.achievement.VISIT_ULTHOS_MOUNTAINS.desc=Ulthos Dağları'nı ziyaret edin
-got.achievement.VISIT_ULTHOS_MOUNTAINS.title=Beyaz bir kenarlıkla
-got.achievement.VISIT_ULTHOS_RED_FOREST.desc≠Visit the crimson forests of Ultos
-got.achievement.VISIT_ULTHOS_RED_FOREST.title≠Wine and blood
-got.achievement.VISIT_ULTHOS_TAIGA.desc≠Visit Ulthos Taiga
-got.achievement.VISIT_ULTHOS_TAIGA.title≠Taiga in the southeast, why not?
-got.achievement.VISIT_VALYRIA.desc=Valyria Yarımadası'nı ziyaret edin
-got.achievement.VISIT_VALYRIA.title=İmparatorluğun Kalıntıları
-got.achievement.VISIT_VALYRIA_SEA.desc=Sigara İçilen Deniz'i ziyaret edin
-got.achievement.VISIT_VALYRIA_SEA.title=Sigara İçen Deniz
-got.achievement.VISIT_VALYRIA_VOLCANO.desc=Valyrian Volkanlarını ziyaret edin
-got.achievement.VISIT_VALYRIA_VOLCANO.title=Cevher arayışı içinde
-got.achievement.VISIT_VOLANTIS.desc=Volantis'i ziyaret edin
-got.achievement.VISIT_VOLANTIS.title=Valyria'nın Varisi
-got.achievement.VISIT_VOLANTIS_FOREST.desc=Orange Coast'u ziyaret edin
-got.achievement.VISIT_VOLANTIS_FOREST.title=Portakal!
-got.achievement.VISIT_WESTERLANDS.desc=Batı Topraklarını ziyaret edin
-got.achievement.VISIT_WESTERLANDS.title=Kükreme duy
-got.achievement.VISIT_WESTERLANDS_HILLS.desc=Western Hills'i ziyaret edin
-got.achievement.VISIT_WESTERLANDS_HILLS.title=Altın madenleri
-got.achievement.VISIT_WESTERLANDS_TOWN.desc=Lannisport'u ziyaret edin
-got.achievement.VISIT_WESTERLANDS_TOWN.title=Zenginlerin mülkiyeti
-got.achievement.VISIT_WHISPERING_WOOD.desc=Fısıldayan Ormanı Ziyaret Edin
-got.achievement.VISIT_WHISPERING_WOOD.title=Dövüş ormanı
-got.achievement.VISIT_YEEN.desc=Yeen'i ziyaret edin
-got.achievement.VISIT_YEEN.title=Obsidyen platosu
-got.achievement.VISIT_YI_TI.desc=Yi Ti'yi ziyaret edin
-got.achievement.VISIT_YI_TI.title=Altın İmparatorluk
-got.achievement.VISIT_YI_TI_WASTELAND.desc=Yi Ti Sınır Bölgesini ziyaret edin
-got.achievement.VISIT_YI_TI_WASTELAND.title=Beş Kale
 got.achievement.WEAR_FULL_ARRYN.desc=Vadi tam setini giyin
 got.achievement.WEAR_FULL_ARRYN.title=Vadi Muhafız
 got.achievement.WEAR_FULL_ARRYNGUARD.desc=Vadi Muhafıznın tam setini giyin
@@ -1535,11 +1537,11 @@ got.achievement.WEAR_FULL_YITI_FRONTIER.desc=Yi Ti sınırlarının tamamını g
 got.achievement.WEAR_FULL_YITI_FRONTIER.title=Kişi sadece Yi Ti'ye girmez
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Yi Ti Samuray'ın tam setini giyin
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=Yi Ti Samuray
+got.achievement.category.ENTER=Biyomlar
 got.achievement.category.GENERAL=Genel
 got.achievement.category.KILL=öldürür
 got.achievement.category.LEGENDARY=Efsanevi
 got.achievement.category.TITLES=Başlıklar
-got.achievement.category.VISIT=Biyomlar
 got.achievement.category.WEAR=Zırh
 got.alignment.bountyKilled=Kellen İçin Avlandın!
 got.alignment.breakPledge=İstila Bitirmek
@@ -1564,6 +1566,7 @@ got.biome.beach.name=Plaj
 got.biome.beachGravel.name=Plaj
 got.biome.beachWhite.name=Plaj
 got.biome.blackIslands.name=Blackwater Körfezi Adaları
+got.biome.bleedingBeach.name≠Bleeding Beach
 got.biome.bleedingSea.name=Kanlı deniz
 got.biome.boneMountains.name=Kemik Dağları
 got.biome.braavos.name=Braavos
@@ -1613,9 +1616,9 @@ got.biome.ibbenColonyHills.name≠Ibben Colony Hills
 got.biome.ibbenMountains.name=İbben Dağları
 got.biome.ibbenTaiga.name=İbben Ormanı
 got.biome.ifekevronForest.name=Ifekevron Ormanı
-got.biome.ironborn.name=Demir Adalar
-got.biome.ironbornForest.name≠Iron Islands Forest
-got.biome.ironbornHills.name=Demir Tepeler
+got.biome.ironIslands.name=Demir Adalar
+got.biome.ironIslandsForest.name≠Iron Islands Forest
+got.biome.ironIslandsHills.name=Demir Tepeler
 got.biome.island.name=Adalet
 got.biome.isleOfFaces.name=Yüzler Adası
 got.biome.jogosNhai.name=Jogos Nhai Ovaları
@@ -1630,6 +1633,7 @@ got.biome.lhazar.name=Lhazar
 got.biome.lhazarForest.name≠Lhazar Forest
 got.biome.lhazarHills.name≠Lhazar Hills
 got.biome.longSummer.name=Uzun Yaz Ülkeleri
+got.biome.longSummerForest.name≠Forests of the Long Summer
 got.biome.lorath.name=Lorath
 got.biome.lorathForest.name≠Lorath Forest
 got.biome.lorathHills.name≠Lorath Hills
@@ -1638,14 +1642,15 @@ got.biome.lys.name=Lys
 got.biome.massy.name=Massy'nin Kancası
 got.biome.massyHills.name≠Massy's Hills
 got.biome.mossovy.name=Mossovy
-got.biome.mossovyForest.name≠Mossovy Taiga
 got.biome.mossovyMarshes.name≠Mossovy Marshes
 got.biome.mossovyMountains.name≠Mossovy Mountains
+got.biome.mossovyTaiga.name≠Mossovy Taiga
 got.biome.mossovyTundra.name=Mossovy tundra
 got.biome.myr.name=Mür
 got.biome.myrForest.name≠Myr Forest
 got.biome.naath.name=Naath
 got.biome.neck.name=Kuzey Bataklıkları
+got.biome.neckForest.name=ıslak odun
 got.biome.north.name=Kuzey
 got.biome.northBarrows.name=Höyükler
 got.biome.northForest.name=Kuzey Ormanı
@@ -1687,9 +1692,9 @@ got.biome.shrykesLand.name≠Land of the Shrykes
 got.biome.skagos.name=Skagos
 got.biome.skirlingPass.name=Hücum geçişi
 got.biome.sothoryosBushland.name=Sothoryos çalılık
-got.biome.sothoryosDeserHills.name=Sothoryos Çölü Tepeleri
 got.biome.sothoryosDesert.name=Sothoryos Çölü
 got.biome.sothoryosDesertCold.name=Sothoryos Soğuk Çölü
+got.biome.sothoryosDesertHills.name=Sothoryos Çölü Tepeleri
 got.biome.sothoryosForest.name=Sothoryos kanuka
 got.biome.sothoryosFrost.name=Sothoryos Kutup Küresi
 got.biome.sothoryosHell.name=Yeşil Cehennem
@@ -1743,7 +1748,6 @@ got.biome.westerosForest1.name≠Westeros Coniferous Forest
 got.biome.westerosForest2.name≠Westeros Deciduous Forest
 got.biome.westerosFrost.name=Karlı çorak
 got.biome.westerosMountains.name=Westeros Dağları
-got.biome.wetwood.name=ıslak odun
 got.biome.whisperingWood.name=Fısıldayan Ahşap
 got.biome.wolfswood.name=Kurt ağacı
 got.biome.yeen.name=Yeen Çorak
@@ -6755,8 +6759,8 @@ tile.got:waste_block.name=Atık Blok
 tile.got:weapon_rack.name=Silah Rafı
 tile.got:white_sand.name=Beyaz kum
 tile.got:white_sandstone.name=Beyaz Kumtaşı
-tile.got:wild_fire_jar.name=Orman yangını
 tile.got:wild_fire.name=Orman yangını
+tile.got:wild_fire_jar.name=Orman yangını
 tile.got:willow_vines.name=Söğüt Asmaları
 tile.got:wood1.0.name=Ibbinia Ahşap
 tile.got:wood1.1.name=Çatalpa Ahşap
