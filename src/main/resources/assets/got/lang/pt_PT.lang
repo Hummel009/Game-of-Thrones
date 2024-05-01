@@ -261,6 +261,7 @@ entity.got.GhiscarSlave.name=Escravo de Ghiscar
 entity.got.GhiscarSlaver.name=Escravidão de Ghiscar
 entity.got.GhiscarUnsullied.name=Imaculado de Ghiscar
 entity.got.Giant.name=Gigante
+entity.got.GiantSpider.name=Aranha gigante
 entity.got.GiftBannerBearer.name=Porta-estandarte da Patrulha da Noite
 entity.got.GiftBlacksmith.name=Silva de Gift
 entity.got.GiftGuard.name=Guerreiro da noite
@@ -470,7 +471,6 @@ entity.got.MossovyBartender.name≠Bartender of Mossovy
 entity.got.MossovyBlacksmith.name≠Blacksmith of Mossovy
 entity.got.MossovyFarmer.name≠Farmer of Mossovy
 entity.got.MossovyMan.name≠Man of Mossovy
-entity.got.MossovyWerewolf.name=Mossovy Werewolf
 entity.got.MossovyWitcher.name=Bruxo Mossovy
 entity.got.Mullin.name=Mullin
 entity.got.MyrBaker.name=Padeiro de Myr
@@ -794,7 +794,6 @@ entity.got.TyroshSoldierArcher.name≠Warrior Archer of Tyrosh
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
-entity.got.UlthosSpider.name=Aranha gigante
 entity.got.VargoHoat.name≠Vargo Hoat
 entity.got.Varys.name=Varia
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
@@ -820,6 +819,7 @@ entity.got.VolantisSoldier.name≠Warrior of Volantis
 entity.got.VolantisSoldierArcher.name≠Warrior Archer of Volantis
 entity.got.WalderFrey.name=Walder Frey
 entity.got.Walrus.name=Morsa
+entity.got.Werewolf.name=Mossovy Werewolf
 entity.got.WesterlandsBaker.name=Baker de Terras Ocidentais
 entity.got.WesterlandsBannerBearer.name=Portador da bandeira de Terras Ocidentais
 entity.got.WesterlandsBartender.name=Barman de Terras Ocidentais
@@ -985,8 +985,16 @@ got.achievement.ENTER_FROSTFANGS.desc=Visite Frost Fangs
 got.achievement.ENTER_FROSTFANGS.title=Montanhas de gelo e pedra
 got.achievement.ENTER_GHISCAR.desc=Visite Ghiscar
 got.achievement.ENTER_GHISCAR.title=Baía dos Escravos
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc≠Visit Astapor
+got.achievement.ENTER_GHISCAR_ASTAPOR.title≠The City of Unsullied
 got.achievement.ENTER_GHISCAR_COLONY.desc=Visite as colônias de Ghiscar
 got.achievement.ENTER_GHISCAR_COLONY.title=Corsário desesperado
+got.achievement.ENTER_GHISCAR_MEEREEN.desc≠Visit Meereen
+got.achievement.ENTER_GHISCAR_MEEREEN.title≠The City of Harpies
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc≠Visit New Ghis
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title≠Wannabes of the Empire
+got.achievement.ENTER_GHISCAR_YUNKAI.desc≠Visit Yunkai
+got.achievement.ENTER_GHISCAR_YUNKAI.title≠The City of Wise Lords
 got.achievement.ENTER_GIFT_NEW.desc=Visite o novo presente
 got.achievement.ENTER_GIFT_NEW.title=Para o norte!
 got.achievement.ENTER_GIFT_OLD.desc=Visite o antigo presente
@@ -995,6 +1003,12 @@ got.achievement.ENTER_HAUNTED_FOREST.desc=Visite a floresta encantada
 got.achievement.ENTER_HAUNTED_FOREST.title=Selvagens, mamutes e gigantes
 got.achievement.ENTER_IBBEN.desc=Visite Ibben
 got.achievement.ENTER_IBBEN.title=Ilha Whaler
+got.achievement.ENTER_IBBEN_COLONY.desc≠Visit Ibben Colony
+got.achievement.ENTER_IBBEN_COLONY.title≠Even they have colonies, and you...
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc≠Visit Ibben Mountains
+got.achievement.ENTER_IBBEN_MOUNTAINS.title≠The Big Mountains of Little Island
+got.achievement.ENTER_IBBEN_TAIGA.desc≠Visit Ibben Taiga
+got.achievement.ENTER_IBBEN_TAIGA.title≠Unusual Trees
 got.achievement.ENTER_IFEKEVRON_FOREST.desc=Visite as terras Ifekevron
 got.achievement.ENTER_IFEKEVRON_FOREST.title=Quem está aqui?
 got.achievement.ENTER_IRON_ISLANDS.desc=Visite as Ilhas de Ferro
@@ -1015,6 +1029,8 @@ got.achievement.ENTER_LONG_SUMMER.desc=Visite a terra do longo verão
 got.achievement.ENTER_LONG_SUMMER.title=Terra arrasada
 got.achievement.ENTER_LORATH.desc=Visite Lorath
 got.achievement.ENTER_LORATH.title=Cidade esquecida por Deus
+got.achievement.ENTER_LORATH_MAZE.desc≠Visit Lorath Maze
+got.achievement.ENTER_LORATH_MAZE.title≠One does not simply walk...
 got.achievement.ENTER_LYS.desc=Visite The Lys
 got.achievement.ENTER_LYS.title=País de amor e paixão
 got.achievement.ENTER_MOSSOVY.desc=Visite Mossovy
@@ -1023,6 +1039,8 @@ got.achievement.ENTER_MOSSOVY_MARSHES.desc=Visite Mossovy Swamp
 got.achievement.ENTER_MOSSOVY_MARSHES.title=Os vastos pântanos
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc≠Visit Mossovy Sopkas
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.title≠Far East
+got.achievement.ENTER_MOSSOVY_TAIGA.desc≠Visit Mossovy Taiga
+got.achievement.ENTER_MOSSOVY_TAIGA.title≠Deep dark fantasies
 got.achievement.ENTER_MOSSOVY_TUNDRA.desc=Visite Mossovy Tundra
 got.achievement.ENTER_MOSSOVY_TUNDRA.title=No limite do mundo
 got.achievement.ENTER_MYR.desc=Visite o Myr
@@ -1752,9 +1770,9 @@ got.biome.whisperingWood.name=Madeira Sussurrante
 got.biome.wolfswood.name=Wolfswood
 got.biome.yeen.name=Yeen Wasteland
 got.biome.yiTi.name=Yi Ti
+got.biome.yiTiBorderZone.name=Zona de fronteira de Yi Ti
 got.biome.yiTiMarshes.name≠Yi Ti Marshes
 got.biome.yiTiTropicalForest.name≠Tropical Forest
-got.biome.yiTiWasteland.name=Zona de fronteira de Yi Ti
 got.capes.ARRYN.name=Vale do Cabo Arryn
 got.capes.ARRYNGUARD.name=Guarda do Cabo de Arryn
 got.capes.ASSHAI.name=Cabo de Asshai
@@ -1818,7 +1836,7 @@ got.chat.pickpocket.inCombat=Você tem sido perseguido
 got.chat.pickpocket.missed≠Pocket is empty
 got.chat.pickpocket.noticed=Você foi avistado!
 got.chat.pickpocket.otherNoticed=Você foi avistado!
-got.chat.pickpocket.success= Foi roubado com sucesso
+got.chat.pickpocket.success=Foi roubado com sucesso
 got.chat.pickpocket.watched≠You are being watched
 got.chat.pledgeBreakCooldown=O tempo passou, e o mundo se esqueceu que você quebrou seu juramento à %s
 got.chat.pledgeKillWarn=Cuidado! Suas ações correm o risco de quebrar seu juramento à %s
@@ -4324,8 +4342,6 @@ got.wp.ULOS.info=Uma ilha sobre a qual quase nada se sabe além da sua posição
 got.wp.ULOS=Ulos
 got.wp.UPLANDS.info=O castelo da casa de Mullendore, vassalos do Hightower.
 got.wp.UPLANDS=Planaltos
-got.wp.Ulthos.info=Um dos 4 continentes famosos do mundo. É tudo o que se sabe sobre ele.
-got.wp.Ulthos=Ulthos
 got.wp.VAES_ATHJIKHARI.info=Uma cidade de estudiosos de Sarnor com uma enorme biblioteca queimada pelos Dothraki durante a Era Sangrenta. Hoje as ruínas são chamadas Vaez Atjikhari, "a cidade da enfermidade".
 got.wp.VAES_ATHJIKHARI=Vaes Athjikhari
 got.wp.VAES_DIAF.info=Outrora uma cidade de escravos Ghiskar, para onde os Dothraki traziam prisioneiros de Sarnor; logo, porém, o próprio Khazdan Mo caiu - Vaez Diaf, como os dothraki a chamavam, "a cidade dos crânios".
@@ -4426,8 +4442,6 @@ got.wp.WYL.info=O castelo da casa de ville. Em algum lugar aqui, o lendário Cav
 got.wp.WYL=Wyl
 got.wp.WYNDHALL.info=O castelo da Casa de Estrens, vassalos do Lannister.
 got.wp.WYNDHALL=Wyndhall
-got.wp.WestPass.info=Quatro passagens são túmulos antigos, até as nuvens. Sua localização sugere que eram estruturas defensivas. Mas de quem e por que defender Mossia, se os inimigos estão dentro dela?
-got.wp.WestPass=West Pass
 got.wp.XON.info=O menor povoado em uma pequena ilha. Aqui, os Ghiskari costumam pousar a caminho das Ilhas de Verão.
 got.wp.XON=Xon
 got.wp.YEEN.info=Uma cidade com péssima reputação, construída de pedra negra, como Asshai, e não coberta de mato. Todas as tentativas de preenchê-lo falharam. Que tipo de magia foi erguida e que tipo de magia destrói as pessoas nela - ninguém sabe.

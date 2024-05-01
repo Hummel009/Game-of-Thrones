@@ -251,7 +251,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTi;
 	public static GOTBiome yiTiMarshes;
 	public static GOTBiome yiTiTropicalForest;
-	public static GOTBiome yiTiWasteland;
+	public static GOTBiome yiTiBorderZone;
 
 	protected final GOTBiomeVariantList biomeVariants = new GOTBiomeVariantList();
 
@@ -491,7 +491,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTi = new GOTBiomeYiTi(161, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE55).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTi");
 		yiTiMarshes = new GOTBiomeYiTiMarshes(12, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8BA061).setMinMaxHeight(0.0f, 0.1f).setBiomeName("yiTiMarshes");
 		yiTiTropicalForest = new GOTBiomeTropicalForest(139, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E7A3B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiTropicalForest");
-		yiTiWasteland = new GOTBiomeYiTiBorderZone(163, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiWasteland");
+		yiTiBorderZone = new GOTBiomeYiTiBorderZone(163, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiBorderZone");
 	}
 
 	public static void updateWaterColor(int k) {

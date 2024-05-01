@@ -703,7 +703,7 @@ public class GOTAchievement {
 		enterIbbenColony = new GOTAchievement(Category.ENTER, entId++, GOTItems.ibbenHarpoon, "ENTER_IBBEN_COLONY").setBiomeAchievement();
 		enterIbbenMountains = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.rock, 1, 2), "ENTER_IBBEN_MOUNTAINS").setBiomeAchievement();
 		enterIbbenTaiga = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.wood1, 1, 0), "ENTER_IBBEN_TAIGA").setBiomeAchievement();
-		enterLorathMaze = new GOTAchievement(Category.ENTER, entId++, Blocks.stone, "ENTER_IBBEN_LORATH_MAZE").setBiomeAchievement();
+		enterLorathMaze = new GOTAchievement(Category.ENTER, entId++, Blocks.stone, "ENTER_LORATH_MAZE").setBiomeAchievement();
 		enterMossovyTaiga = new GOTAchievement(Category.ENTER, entId++, new ItemStack(Blocks.log, 1, 1), "ENTER_MOSSOVY_TAIGA").setBiomeAchievement();
 		enterYiTiBorderZone = new GOTAchievement(Category.ENTER, entId++, GOTItems.yitiHelmetFrontier, "ENTER_YI_TI_BORDER_ZONE").setBiomeAchievement();
 

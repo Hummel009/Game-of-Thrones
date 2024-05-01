@@ -3,7 +3,7 @@ package got.common.world.structure.essos.asshai;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.entity.other.GOTEntityUlthosSpider;
+import got.common.entity.other.GOTEntityGiantSpider;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
@@ -184,7 +184,7 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 			}
 		}
 		GOTEntityNPCRespawner spiderSpawner = new GOTEntityNPCRespawner(world);
-		spiderSpawner.setSpawnClass1(GOTEntityUlthosSpider.class);
+		spiderSpawner.setSpawnClass1(GOTEntityGiantSpider.class);
 		spiderSpawner.setCheckRanges(12, -8, 16, 10);
 		spiderSpawner.setSpawnRanges(4, -4, 4, 24);
 		spiderSpawner.setSpawnInterval(1);

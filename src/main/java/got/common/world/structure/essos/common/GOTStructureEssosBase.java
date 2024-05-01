@@ -314,7 +314,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	protected static ItemStack getRandomItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
+		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
 		return items[random.nextInt(items.length)].copy();
 	}
 

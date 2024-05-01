@@ -261,6 +261,7 @@ entity.got.GhiscarSlave.name=Niewolnik Ghiscar
 entity.got.GhiscarSlaver.name=Handlarz niewolnikami Ghiscar
 entity.got.GhiscarUnsullied.name=Nieskalany Ghiscar
 entity.got.Giant.name=Olbrzym
+entity.got.GiantSpider.name=Gigantyczny pająk
 entity.got.GiftBannerBearer.name=Chorąży Nocnej Straży
 entity.got.GiftBlacksmith.name=Kowal Podmurza
 entity.got.GiftGuard.name=Strażnik Nocnej Straży
@@ -470,7 +471,6 @@ entity.got.MossovyBartender.name=Karczmarz Mossovy
 entity.got.MossovyBlacksmith.name=Kowal Mossovy
 entity.got.MossovyFarmer.name=Farmer Mossovy
 entity.got.MossovyMan.name=Poddany Mossovy
-entity.got.MossovyWerewolf.name=Wilkołak Mossovy
 entity.got.MossovyWitcher.name=Wiedźmin Mossovy
 entity.got.Mullin.name=Mullin
 entity.got.MyrBaker.name=Piekarz Myr
@@ -794,7 +794,6 @@ entity.got.TyroshSoldierArcher.name=Wojownik-Łucznik Tyrosh
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
-entity.got.UlthosSpider.name=Gigantyczny pająk
 entity.got.VargoHoat.name=Vargo Hoat
 entity.got.Varys.name=Varys
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
@@ -820,6 +819,7 @@ entity.got.VolantisSoldier.name=Wojownik Volantis
 entity.got.VolantisSoldierArcher.name=Wojownik-Łucznik Volantis
 entity.got.WalderFrey.name=Walder Frey
 entity.got.Walrus.name=Mors
+entity.got.Werewolf.name=Wilkołak Mossovy
 entity.got.WesterlandsBaker.name=Piekarz Krainy zachodu
 entity.got.WesterlandsBannerBearer.name=Chorąży Krainy zachodu
 entity.got.WesterlandsBartender.name=Karczmarz Krainy zachodu
@@ -985,8 +985,16 @@ got.achievement.ENTER_FROSTFANGS.desc=Odwiedź Mroźne Kły
 got.achievement.ENTER_FROSTFANGS.title=Góry lodu i kamienia
 got.achievement.ENTER_GHISCAR.desc=Odwiedź Ghiscar
 got.achievement.ENTER_GHISCAR.title=Zatoka niewolników
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc≠Visit Astapor
+got.achievement.ENTER_GHISCAR_ASTAPOR.title≠The City of Unsullied
 got.achievement.ENTER_GHISCAR_COLONY.desc=Odwiedź kolonie Ghiscar
 got.achievement.ENTER_GHISCAR_COLONY.title=Zdesperowany korsarz
+got.achievement.ENTER_GHISCAR_MEEREEN.desc≠Visit Meereen
+got.achievement.ENTER_GHISCAR_MEEREEN.title≠The City of Harpies
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc≠Visit New Ghis
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title≠Wannabes of the Empire
+got.achievement.ENTER_GHISCAR_YUNKAI.desc≠Visit Yunkai
+got.achievement.ENTER_GHISCAR_YUNKAI.title≠The City of Wise Lords
 got.achievement.ENTER_GIFT_NEW.desc=Odwiedź Nowy prezent
 got.achievement.ENTER_GIFT_NEW.title=Na Północ!
 got.achievement.ENTER_GIFT_OLD.desc=Odwiedź Stary prezent
@@ -995,6 +1003,12 @@ got.achievement.ENTER_HAUNTED_FOREST.desc=Odwiedź Zaczarowany Las
 got.achievement.ENTER_HAUNTED_FOREST.title=Dzikie, mamuty i olbrzymy
 got.achievement.ENTER_IBBEN.desc=Odwiedź Ibben
 got.achievement.ENTER_IBBEN.title=Wyspa wielorybników
+got.achievement.ENTER_IBBEN_COLONY.desc≠Visit Ibben Colony
+got.achievement.ENTER_IBBEN_COLONY.title≠Even they have colonies, and you...
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc≠Visit Ibben Mountains
+got.achievement.ENTER_IBBEN_MOUNTAINS.title≠The Big Mountains of Little Island
+got.achievement.ENTER_IBBEN_TAIGA.desc≠Visit Ibben Taiga
+got.achievement.ENTER_IBBEN_TAIGA.title≠Unusual Trees
 got.achievement.ENTER_IFEKEVRON_FOREST.desc=Odwiedź ziemie Ifekevron
 got.achievement.ENTER_IFEKEVRON_FOREST.title=Kto tu jest?
 got.achievement.ENTER_IRON_ISLANDS.desc=Odwiedź Żelazne Wyspy
@@ -1015,6 +1029,8 @@ got.achievement.ENTER_LONG_SUMMER.desc=Odwiedź Krainę Długiego Lata
 got.achievement.ENTER_LONG_SUMMER.title=Spękana ziemia
 got.achievement.ENTER_LORATH.desc=Odwiedź Lorath
 got.achievement.ENTER_LORATH.title=Miasto zapomniane przez Boga
+got.achievement.ENTER_LORATH_MAZE.desc≠Visit Lorath Maze
+got.achievement.ENTER_LORATH_MAZE.title≠One does not simply walk...
 got.achievement.ENTER_LYS.desc=Odwiedź The Lys
 got.achievement.ENTER_LYS.title=Kraj miłości i pasji
 got.achievement.ENTER_MOSSOVY.desc=Odwiedź Mossovy
@@ -1023,6 +1039,8 @@ got.achievement.ENTER_MOSSOVY_MARSHES.desc=Odwiedź bagna Mossovy
 got.achievement.ENTER_MOSSOVY_MARSHES.title=Rozległe bagna
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc=Odwiedź Mossovy Sopkas
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.title=Daleki wschód
+got.achievement.ENTER_MOSSOVY_TAIGA.desc≠Visit Mossovy Taiga
+got.achievement.ENTER_MOSSOVY_TAIGA.title≠Deep dark fantasies
 got.achievement.ENTER_MOSSOVY_TUNDRA.desc=Odwiedź Tundrę Mossovy
 got.achievement.ENTER_MOSSOVY_TUNDRA.title=Na krańcu świata
 got.achievement.ENTER_MYR.desc=Odwiedź The Myr
@@ -1752,9 +1770,9 @@ got.biome.whisperingWood.name=Szepczące drewno
 got.biome.wolfswood.name=Wolfswood
 got.biome.yeen.name=Yeen
 got.biome.yiTi.name=Yi Ti
+got.biome.yiTiBorderZone.name=Strefa graniczna Yi Ti
 got.biome.yiTiMarshes.name=Bagna Yi Ti
 got.biome.yiTiTropicalForest.name=Tropikalny las Yi Ti
-got.biome.yiTiWasteland.name=Strefa graniczna Yi Ti
 got.capes.ARRYN.name=Przylądek Doliny Arrynów
 got.capes.ARRYNGUARD.name=Przylądek Straży Arrynów
 got.capes.ASSHAI.name=Przylądek Asshai
@@ -4324,8 +4342,6 @@ got.wp.ULOS.info=Wyspa, o której prawie nic nie wiadomo poza jej położeniem i
 got.wp.ULOS=Ulos
 got.wp.UPLANDS.info=Zamek rodu Mullendore, wasali Hightower.
 got.wp.UPLANDS=Okolica górska
-got.wp.Ulthos.info=Jeden z 4 słynnych kontynentów na świecie. To wszystko, co o nim wiadomo.
-got.wp.Ulthos=Ulthos
 got.wp.VAES_ATHJIKHARI.info=Miasto uczonych Sarnor z ogromną biblioteką spaloną przez Dothraków podczas Krwawej Ery. Dziś ruiny nazywają się Vaez Atjikhari, "miasto niemocy".
 got.wp.VAES_ATHJIKHARI=Vaes Athjikhari
 got.wp.VAES_DIAF.info=Niegdyś miasto niewolników Ghiskar, do którego Dothrakowie przywieźli więźniów Sarnoru; wkrótce jednak upadł sam Khazdan Mo - Vaez Diaf, jak Dothrakowie nazywali to "miastem czaszek".
@@ -4426,8 +4442,6 @@ got.wp.WYL.info=Zamek z rodu Ville. Gdzieś tutaj legendarny Smoczy Rycerz siedz
 got.wp.WYL=Wyl
 got.wp.WYNDHALL.info=Zamek rodu Estrenów, wasali Lannisterów.
 got.wp.WYNDHALL=Wyndhall
-got.wp.WestPass.info=Cztery przełęcze to starożytne kurhany sięgające chmur. Ich lokalizacja sugeruje, że były to budowle obronne. Ale przed kim i po co bronić Mossii, skoro są w niej wrogowie?
-got.wp.WestPass=West Pass
 got.wp.XON.info=Najmniejsza osada na małej wyspie. Tutaj Ghiskari często lądują w drodze na Letnie Wyspy.
 got.wp.XON=Xon
 got.wp.YEEN.info=Miasto o strasznej reputacji, zbudowane z czarnego kamienia, jak Asshai, nie porośnięte przez dżunglę. Wszystkie próby jego zaludnienia zakończyły się niepowodzeniem. Jaki rodzaj magii został wzniesiony i jaka magia niszczy w nim ludzi - nikt nie wie.

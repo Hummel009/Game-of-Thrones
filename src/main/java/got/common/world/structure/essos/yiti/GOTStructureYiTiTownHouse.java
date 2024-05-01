@@ -298,7 +298,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, i12, 5, 5, bedBlock, 8);
 		}
 		placeChest(world, random, 0, 5, 5, 2, GOTChestContents.YI_TI);
-		setBlockAndMetadata(world, 0, 7, 5, GOTBlocks.chandelier, 3);
+		setBlockAndMetadata(world, 0, 7, 5, GOTBlocks.chandelier, 1);
 		GOTEntityYiTiMan male = new GOTEntityYiTiMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));

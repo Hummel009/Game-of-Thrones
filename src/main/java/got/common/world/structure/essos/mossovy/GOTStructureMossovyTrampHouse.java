@@ -194,8 +194,8 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, 3, -2, -3, 2, GOTChestContents.MOSSOVY);
-		placeChest(world, random, -2, -2, 0, 4, GOTChestContents.TREASURE);
-		placeChest(world, random, 3, -2, 1, 2, GOTChestContents.TREASURE);
+		placeChest(world, random, -2, -2, 0, 4, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 3, -2, 1, 2, GOTChestContents.MOSSOVY);
 		placePlateWithCertainty(world, random, 3, 2, -3, GOTBlocks.plate, GOTFoods.WESTEROS);
 		placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);

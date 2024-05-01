@@ -125,10 +125,10 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		placeChest(world, random, -4, 1, -5, 4, GOTChestContents.MOSSOVY, 1 + random.nextInt(2));
 		placeChest(world, random, 4, 1, 5, 5, GOTChestContents.MOSSOVY, 1 + random.nextInt(2));
 		placeChest(world, random, 4, 1, 6, 5, GOTChestContents.MOSSOVY, 1 + random.nextInt(2));
-		placeChest(world, random, -4, 0, -1, 4, GOTChestContents.TREASURE);
+		placeChest(world, random, -4, 0, -1, 4, GOTChestContents.MOSSOVY);
 		placeChest(world, random, 4, 5, -5, 5, GOTChestContents.MOSSOVY, 1 + random.nextInt(2));
-		placeChest(world, random, -4, 5, 0, 4, GOTChestContents.TREASURE, 1 + random.nextInt(2));
-		placeChest(world, random, -4, 5, 6, 4, GOTChestContents.TREASURE);
+		placeChest(world, random, -4, 5, 0, 4, GOTChestContents.MOSSOVY, 1 + random.nextInt(2));
+		placeChest(world, random, -4, 5, 6, 4, GOTChestContents.MOSSOVY);
 		GOTEntityMossovyFarmer farmer = new GOTEntityMossovyFarmer(world);
 		spawnNPCAndSetHome(farmer, world, 0, 1, 0, 16);
 		spawnAnimal(world, random, -3, 1, -2);

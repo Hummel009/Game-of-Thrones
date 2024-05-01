@@ -5,9 +5,9 @@ import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.world.World;
 
-public class GOTEntityUlthosSpider extends GOTEntitySpiderBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
+public class GOTEntityGiantSpider extends GOTEntitySpiderBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityUlthosSpider(World world) {
+	public GOTEntityGiantSpider(World world) {
 		super(world);
 		spawnsInDarkness = true;
 	}

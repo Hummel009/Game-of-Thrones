@@ -38,7 +38,7 @@ entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name=Areo Hotah
 entity.got.ArianneMartell.name=Arianne Martell
 entity.got.ArrowFire.name=Yanan Ok
-entity.got.ArrowPoisoned.name= Zehirli Ok
+entity.got.ArrowPoisoned.name=Zehirli Ok
 entity.got.ArrynBaker.name=Vadi Fırıncı
 entity.got.ArrynBannerBearer.name=Vadi Bayraktar
 entity.got.ArrynBartender.name=Vadi Hancı
@@ -261,6 +261,7 @@ entity.got.GhiscarSlave.name=Ghiscar Kölesi
 entity.got.GhiscarSlaver.name=Ghiscar Köle Taciri
 entity.got.GhiscarUnsullied.name=Lekesiz Ghiscar
 entity.got.Giant.name=Dev
+entity.got.GiantSpider.name=Dev örümcek
 entity.got.GiftBannerBearer.name=Gece Nöbetinin Bayraktar
 entity.got.GiftBlacksmith.name=Hediye Demircisi
 entity.got.GiftGuard.name=Gece Nöbeti Savaşçı
@@ -470,7 +471,6 @@ entity.got.MossovyBartender.name=Mossovy Hancı
 entity.got.MossovyBlacksmith.name=Mossovy Demircisi
 entity.got.MossovyFarmer.name=Mossovy çiftçi
 entity.got.MossovyMan.name=Mossovy Yerleşik
-entity.got.MossovyWerewolf.name=Mossovy Kurtadam
 entity.got.MossovyWitcher.name=Mossovy cadı
 entity.got.Mullin.name=Müllin
 entity.got.MyrBaker.name=Myr Fırıncı
@@ -794,7 +794,6 @@ entity.got.TyroshSoldierArcher.name=Tyrosh Savaşçı Okçusu
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
-entity.got.UlthosSpider.name=Dev örümcek
 entity.got.VargoHoat.name=Vargo Hoat
 entity.got.Varys.name=Değişir
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
@@ -820,6 +819,7 @@ entity.got.VolantisSoldier.name=Volantis Savaşçı
 entity.got.VolantisSoldierArcher.name=Volantis Savaşçı Okçusu
 entity.got.WalderFrey.name=Walder Frey
 entity.got.Walrus.name=Mors
+entity.got.Werewolf.name=Mossovy Kurtadam
 entity.got.WesterlandsBaker.name=Batı Toprakları Fırıncı
 entity.got.WesterlandsBannerBearer.name=Batı Toprakları Bayraktar
 entity.got.WesterlandsBartender.name=Batı Toprakları Hancı
@@ -985,8 +985,16 @@ got.achievement.ENTER_FROSTFANGS.desc=Frost Fangs'ı ziyaret edin
 got.achievement.ENTER_FROSTFANGS.title=Buz ve taş dağlar
 got.achievement.ENTER_GHISCAR.desc=Ghiscar'ı ziyaret edin
 got.achievement.ENTER_GHISCAR.title=Köle Körfezi
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc≠Visit Astapor
+got.achievement.ENTER_GHISCAR_ASTAPOR.title≠The City of Unsullied
 got.achievement.ENTER_GHISCAR_COLONY.desc=Ghiscar Kolonilerini ziyaret edin
 got.achievement.ENTER_GHISCAR_COLONY.title=çaresiz korsan
+got.achievement.ENTER_GHISCAR_MEEREEN.desc≠Visit Meereen
+got.achievement.ENTER_GHISCAR_MEEREEN.title≠The City of Harpies
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc≠Visit New Ghis
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title≠Wannabes of the Empire
+got.achievement.ENTER_GHISCAR_YUNKAI.desc≠Visit Yunkai
+got.achievement.ENTER_GHISCAR_YUNKAI.title≠The City of Wise Lords
 got.achievement.ENTER_GIFT_NEW.desc=Yeni Hediyeyi Ziyaret Edin
 got.achievement.ENTER_GIFT_NEW.title=Kuzeye!
 got.achievement.ENTER_GIFT_OLD.desc=Eski Hediyeyi Ziyaret Edin
@@ -995,6 +1003,12 @@ got.achievement.ENTER_HAUNTED_FOREST.desc=Büyülü ormanı ziyaret edin
 got.achievement.ENTER_HAUNTED_FOREST.title=Yabani hayvanlar, mamutlar ve devler
 got.achievement.ENTER_IBBEN.desc=Ibben'i ziyaret edin
 got.achievement.ENTER_IBBEN.title=Balina avcısı adası
+got.achievement.ENTER_IBBEN_COLONY.desc≠Visit Ibben Colony
+got.achievement.ENTER_IBBEN_COLONY.title≠Even they have colonies, and you...
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc≠Visit Ibben Mountains
+got.achievement.ENTER_IBBEN_MOUNTAINS.title≠The Big Mountains of Little Island
+got.achievement.ENTER_IBBEN_TAIGA.desc≠Visit Ibben Taiga
+got.achievement.ENTER_IBBEN_TAIGA.title≠Unusual Trees
 got.achievement.ENTER_IFEKEVRON_FOREST.desc=Ifekevron topraklarını ziyaret edin
 got.achievement.ENTER_IFEKEVRON_FOREST.title=Kim burada?
 got.achievement.ENTER_IRON_ISLANDS.desc=Demir Adalar ziyaret edin
@@ -1015,6 +1029,8 @@ got.achievement.ENTER_LONG_SUMMER.desc=Uzun Yaz Ülkesini Ziyaret Edin
 got.achievement.ENTER_LONG_SUMMER.title=Kavrulmuş toprak
 got.achievement.ENTER_LORATH.desc=Lorath'ı ziyaret edin
 got.achievement.ENTER_LORATH.title=Tanrının unuttuğu şehir
+got.achievement.ENTER_LORATH_MAZE.desc≠Visit Lorath Maze
+got.achievement.ENTER_LORATH_MAZE.title≠One does not simply walk...
 got.achievement.ENTER_LYS.desc=The Lys'i ziyaret edin
 got.achievement.ENTER_LYS.title=Aşkın ve tutkunun ülkesi
 got.achievement.ENTER_MOSSOVY.desc=Mossovy'i ziyaret edin
@@ -1023,6 +1039,8 @@ got.achievement.ENTER_MOSSOVY_MARSHES.desc=Mossovy Bataklığı'nı ziyaret edin
 got.achievement.ENTER_MOSSOVY_MARSHES.title=Geniş bataklıklar
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc=Mossovy Sopkas'ı ziyaret edin
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.title=Uzak Doğu
+got.achievement.ENTER_MOSSOVY_TAIGA.desc≠Visit Mossovy Taiga
+got.achievement.ENTER_MOSSOVY_TAIGA.title≠Deep dark fantasies
 got.achievement.ENTER_MOSSOVY_TUNDRA.desc=Mossovy Tundra'yı ziyaret edin
 got.achievement.ENTER_MOSSOVY_TUNDRA.title=Dünyanın kenarında
 got.achievement.ENTER_MYR.desc=Myr'i ziyaret edin
@@ -1752,9 +1770,9 @@ got.biome.whisperingWood.name=Fısıldayan Ahşap
 got.biome.wolfswood.name=Kurt ağacı
 got.biome.yeen.name=Yeen Çorak
 got.biome.yiTi.name=Yi Ti
+got.biome.yiTiBorderZone.name=Yi Ti Sınır Bölgesi
 got.biome.yiTiMarshes.name≠Yi Ti Marshes
 got.biome.yiTiTropicalForest.name≠Tropical Forest
-got.biome.yiTiWasteland.name=Yi Ti Sınır Bölgesi
 got.capes.ARRYN.name=Vadi Burnu
 got.capes.ARRYNGUARD.name=Arryn Muhafız Burnu
 got.capes.ASSHAI.name=Asshai Burnu
@@ -4324,8 +4342,6 @@ got.wp.ULOS.info=Kalıntılardan da anlaşılacağı gibi, konumu ve bir zamanla
 got.wp.ULOS=Ulolar
 got.wp.UPLANDS.info=Hightower'ın vassalları olan Mullendore hanedanının kalesi.
 got.wp.UPLANDS=Yaylalar
-got.wp.Ulthos.info=Dünyanın 4 ünlü kıtasından biri. Onun hakkında bilinen tek şey bu.
-got.wp.Ulthos=Ulthos
 got.wp.VAES_ATHJIKHARI.info=Kanlı Çağ'da Dothrakiler tarafından yakılan devasa bir kütüphaneye sahip Sarnor bilginlerinin şehri. Bugün harabeler Vaez Atjikhari, "hastalık şehri" olarak adlandırılıyor.
 got.wp.VAES_ATHJIKHARI=Vaes Athjikhari
 got.wp.VAES_DIAF.info=Bir zamanlar Dothraki'nin Sarnor mahkumlarını getirdiği bir Ghiskar köle şehri; Ancak kısa süre sonra Khazdan Mo düştü - Dothrakiler Vaez Diaf buna "kafatası şehri" dedi.
@@ -4426,8 +4442,6 @@ got.wp.WYL.info=Ville evinin kalesi. Burada bir yerde, efsanevi Ejderha Şövaly
 got.wp.WYL=Wyl
 got.wp.WYNDHALL.info=Lannister'ın vassalları olan Estrens Hanedanı'nın kalesi.
 got.wp.WYNDHALL=Wyndhall
-got.wp.WestPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
-got.wp.WestPass=Batı Geçidi
 got.wp.XON.info=Küçük bir adadaki en küçük yerleşim yeri. Burada Ghiskari genellikle Yaz Adaları'na doğru yola çıkar.
 got.wp.XON=Kson
 got.wp.YEEN.info=Asshai gibi kara taştan inşa edilmiş korkunç bir üne sahip bir şehir ve orman tarafından fazla büyütülmemiş. Onu doldurmak için yapılan tüm girişimler başarısız oldu. Ne tür bir sihir dikildi ve ne tür bir sihir içindeki insanları yok ediyor - kimse bilmiyor.

@@ -105,7 +105,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				int i22 = Math.abs(i13);
 				if (i22 == 5 && (k1 == 2 || k1 == 26)) {
 					for (j12 = 2; j12 <= 4; ++j12) {
-						setBlockAndMetadata(world, i13, j12, k1, woodBeamRohanBlock, woodBeamRohanMeta);
+						setBlockAndMetadata(world, i13, j12, k1, woodBeamIbbenBlock, woodBeamIbbenMeta);
 					}
 				} else {
 					if (i22 == 5 && k1 >= 3) {
@@ -230,7 +230,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			}
 			if (i2 == 2) {
 				for (j13 = 2; j13 <= 6; ++j13) {
-					setBlockAndMetadata(world, i13, j13, 25, woodBeamRohanBlock, woodBeamRohanMeta);
+					setBlockAndMetadata(world, i13, j13, 25, woodBeamIbbenBlock, woodBeamIbbenMeta);
 				}
 			}
 			if (i2 <= 1) {
@@ -287,7 +287,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			for (int i14 = -5; i14 <= 5; ++i14) {
 				int i24 = Math.abs(i14);
 				if (i24 == 2 || i24 == 5) {
-					setBlockAndMetadata(world, i14, 5, k14, woodBeamRohanBlock, woodBeamRohanMeta | 8);
+					setBlockAndMetadata(world, i14, 5, k14, woodBeamIbbenBlock, woodBeamIbbenMeta | 8);
 				}
 				if (i24 > 1) {
 					continue;
@@ -312,7 +312,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		placeSign(world, 0, 4, 2, Blocks.wall_sign, 2, meadNameSign);
 		for (int i15 : new int[]{-2, 2}) {
 			for (j14 = 2; j14 <= 4; ++j14) {
-				setBlockAndMetadata(world, i15, j14, 3, woodBeamRohanGoldBlock, woodBeamRohanGoldMeta);
+				setBlockAndMetadata(world, i15, j14, 3, woodBeamIbbenGoldBlock, woodBeamIbbenGoldMeta);
 			}
 		}
 		for (int i15 : new int[]{-3, 3}) {
@@ -330,8 +330,8 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			}
 			if (k13 % 6 == 2) {
 				for (j1 = 2; j1 <= 5; ++j1) {
-					setBlockAndMetadata(world, -4, j1, k13, woodBeamRohanBlock, woodBeamRohanMeta);
-					setBlockAndMetadata(world, 4, j1, k13, woodBeamRohanBlock, woodBeamRohanMeta);
+					setBlockAndMetadata(world, -4, j1, k13, woodBeamIbbenBlock, woodBeamIbbenMeta);
+					setBlockAndMetadata(world, 4, j1, k13, woodBeamIbbenBlock, woodBeamIbbenMeta);
 				}
 				setBlockAndMetadata(world, -3, 5, k13, plank2SlabBlock, plank2SlabMeta | 8);
 				setBlockAndMetadata(world, 3, 5, k13, plank2SlabBlock, plank2SlabMeta | 8);

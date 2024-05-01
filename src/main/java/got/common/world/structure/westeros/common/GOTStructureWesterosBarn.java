@@ -263,9 +263,9 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 6, 11, Blocks.hay_block, 0);
 		if (random.nextInt(3) == 0) {
 			if (random.nextBoolean()) {
-				placeChest(world, random, -2, 6, 3, 4, GOTChestContents.TREASURE);
+				placeChest(world, random, -2, 6, 3, 4, getChestContents());
 			} else {
-				placeChest(world, random, -1, 6, 11, 4, GOTChestContents.TREASURE);
+				placeChest(world, random, -1, 6, 11, 4, getChestContents());
 			}
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {

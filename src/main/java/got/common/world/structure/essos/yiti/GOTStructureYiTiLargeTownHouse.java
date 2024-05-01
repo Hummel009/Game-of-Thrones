@@ -403,8 +403,8 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 		placeBarrel(world, random, -2, 2, 3, 5, GOTFoods.YITI_DRINK);
 		setBlockAndMetadata(world, 2, 1, 3, plankStairBlock, 4);
 		placeBarrel(world, random, 2, 2, 3, 4, GOTFoods.YITI_DRINK);
-		setBlockAndMetadata(world, -2, 3, 4, GOTBlocks.chandelier, 3);
-		setBlockAndMetadata(world, 2, 3, 4, GOTBlocks.chandelier, 3);
+		setBlockAndMetadata(world, -2, 3, 4, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 2, 3, 4, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, 0, 1, 3, tableBlock, 0);
 		setAir(world, 0, 2, 3);
 		setBlockAndMetadata(world, 0, 3, 3, plankStairBlock, 7);
@@ -464,12 +464,12 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 			placeMug(world, random, 5, 2, k14, 1, GOTFoods.YITI_DRINK);
 		}
 		placeWallBanner(world, 0, 7, 7, bannerType, 2);
-		setBlockAndMetadata(world, -2, 7, 4, GOTBlocks.chandelier, 3);
-		setBlockAndMetadata(world, 2, 7, 4, GOTBlocks.chandelier, 3);
+		setBlockAndMetadata(world, -2, 7, 4, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 2, 7, 4, GOTBlocks.chandelier, 1);
 		placeArmorStand(world, -4, 5, 6, 0, null);
 		placeArmorStand(world, 4, 5, 6, 0, null);
-		setBlockAndMetadata(world, -2, 7, -4, GOTBlocks.chandelier, 3);
-		setBlockAndMetadata(world, 2, 7, -4, GOTBlocks.chandelier, 3);
+		setBlockAndMetadata(world, -2, 7, -4, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 2, 7, -4, GOTBlocks.chandelier, 1);
 		for (int i1221 : new int[]{-4, 0, 4}) {
 			setBlockAndMetadata(world, i1221, 5, -5, bedBlock, 2);
 			setBlockAndMetadata(world, i1221, 5, -6, bedBlock, 10);

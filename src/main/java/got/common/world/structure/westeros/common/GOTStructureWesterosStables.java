@@ -215,7 +215,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 5, 1, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 2, 5, 2, Blocks.hay_block, 0);
 		if (random.nextInt(3) == 0) {
-			placeChest(world, random, 3, 5, 1, 5, GOTChestContents.TREASURE);
+			placeChest(world, random, 3, 5, 1, 5, getChestContents());
 		}
 		setBlockAndMetadata(world, 3, 6, 2, Blocks.torch, 1);
 		setBlockAndMetadata(world, -2, 5, 3, bedBlock, 3);

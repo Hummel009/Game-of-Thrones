@@ -113,7 +113,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityMammoth.class, id++, 5653040);
 		GOTEntityRegistry.register(GOTEntityManticore.class, id++, 0x2B3F19);
 		GOTEntityRegistry.register(GOTEntityMidges.class, id++, 5653040);
-		GOTEntityRegistry.register(GOTEntityMossovyWerewolf.class, id++, 0x282728);
+		GOTEntityRegistry.register(GOTEntityWerewolf.class, id++, 0x282728);
 		GOTEntityRegistry.register(GOTEntityRabbit.class, id++, 9860178);
 		GOTEntityRegistry.register(GOTEntityRedScorpion.class, id++, 0x7c0a02);
 		GOTEntityRegistry.register(GOTEntityRhino.class, id++, 6118481);
@@ -763,7 +763,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntitySummerFlorist.class, id++, GOTFaction.SUMMER_ISLANDS);
 		GOTEntityRegistry.register(GOTEntitySummerGoldsmith.class, id++, GOTFaction.SUMMER_ISLANDS);
 
-		GOTEntityRegistry.register(GOTEntityUlthosSpider.class, id++, GOTFaction.ULTHOS);
+		GOTEntityRegistry.register(GOTEntityGiantSpider.class, id++, GOTFaction.ULTHOS);
 		GOTEntityRegistry.register(GOTEntityBlizzard.class, id++, GOTFaction.WHITE_WALKER);
 
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityNightKing.class, id++, GOTFaction.WHITE_WALKER);

@@ -185,12 +185,12 @@ public class GOTStructurePentosBazaar extends GOTStructureEssosBazaar {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, -1, GOTBlocks.goldBars, 0);
-			setBlockAndMetadata(world, 1, 1, -1, GOTBlocks.goldBars, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.goldBars, 0);
-			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.goldBars, 0);
-			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, -1, GOTBlocks.birdCage, 2);
-			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, 1, GOTBlocks.birdCage, 3);
+			setBlockAndMetadata(world, -1, 1, -1, GOTBlocks.bronzeBars, 0);
+			setBlockAndMetadata(world, 1, 1, -1, GOTBlocks.bronzeBars, 0);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.bronzeBars, 0);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.bronzeBars, 0);
+			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, -1, GOTBlocks.birdCage, 1);
+			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, 1, GOTBlocks.birdCage, 1);
 			GOTEntityPentosGoldsmith trader = new GOTEntityPentosGoldsmith(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

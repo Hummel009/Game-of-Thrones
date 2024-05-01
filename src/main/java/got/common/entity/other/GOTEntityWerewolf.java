@@ -19,8 +19,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityMossovyWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
-	public GOTEntityMossovyWerewolf(World world) {
+public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
+	public GOTEntityWerewolf(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);

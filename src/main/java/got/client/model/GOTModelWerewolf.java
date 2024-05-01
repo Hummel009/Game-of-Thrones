@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-public class GOTModelMossovyWerewolf extends ModelBase {
+public class GOTModelWerewolf extends ModelBase {
 	private final ModelRenderer head;
 	private final ModelRenderer nose;
 	private final ModelRenderer snout;
@@ -52,7 +52,7 @@ public class GOTModelMossovyWerewolf extends ModelBase {
 
 	private ModelRenderer rFinger1;
 
-	public GOTModelMossovyWerewolf() {
+	public GOTModelWerewolf() {
 		textureWidth = 64;
 		textureHeight = 128;
 		head = new ModelRenderer(this, 0, 0);

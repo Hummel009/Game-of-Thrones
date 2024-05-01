@@ -54,10 +54,10 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	protected int fence2Meta;
 	protected Block woodBeam2Block;
 	protected int woodBeam2Meta;
-	protected Block woodBeamRohanBlock;
-	protected int woodBeamRohanMeta;
-	protected Block woodBeamRohanGoldBlock;
-	protected int woodBeamRohanGoldMeta;
+	protected Block woodBeamIbbenBlock;
+	protected int woodBeamIbbenMeta;
+	protected Block woodBeamIbbenGoldBlock;
+	protected int woodBeamIbbenGoldMeta;
 	protected Block roofBlock;
 	protected int roofMeta;
 	protected Block roofSlabBlock;
@@ -229,10 +229,10 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 			woodBeamBlock = woodBeam2Block;
 			woodBeamMeta = woodBeam2Meta;
 		}
-		woodBeamRohanBlock = GOTBlocks.woodBeam1;
-		woodBeamRohanMeta = 0;
-		woodBeamRohanGoldBlock = GOTBlocks.woodBeam1;
-		woodBeamRohanGoldMeta = 1;
+		woodBeamIbbenBlock = GOTBlocks.woodBeam1;
+		woodBeamIbbenMeta = 0;
+		woodBeamIbbenGoldBlock = GOTBlocks.woodBeam1;
+		woodBeamIbbenGoldMeta = 1;
 		roofBlock = GOTBlocks.thatch;
 		roofMeta = 0;
 		roofSlabBlock = GOTBlocks.slabSingleThatch;

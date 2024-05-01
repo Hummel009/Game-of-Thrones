@@ -77,7 +77,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		placeAnimalJar(world, -7, 2, -4, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, 9, 1, 5, GOTBlocks.birdCageWood, 0, null);
 		placeAnimalJar(world, 4, 3, 2, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, -4, 4, 5, GOTBlocks.birdCage, 2, new GOTEntityBird(world));
+		placeAnimalJar(world, -4, 4, 5, GOTBlocks.birdCage, 1, new GOTEntityBird(world));
 		placeAnimalJar(world, -4, 5, -1, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 0, 5, 5, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
 		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(STALLS));

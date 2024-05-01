@@ -226,7 +226,7 @@ entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name≠Falling Fire Jar
 entity.got.FallingTreasure.name≠Falling Treasure
 entity.got.FirePot.name≠Fire Pot
-entity.got.Fish.name= Vis
+entity.got.Fish.name=Vis
 entity.got.FishHook.name≠Fish Hook
 entity.got.Flamingo.name=Flamingo
 entity.got.ForleyPrester.name=Forley Prester
@@ -261,6 +261,7 @@ entity.got.GhiscarSlave.name=Slaaf van Ghiscar
 entity.got.GhiscarSlaver.name=Slaaf van Ghiscar
 entity.got.GhiscarUnsullied.name= Onbedoezelde van Ghiscar
 entity.got.Giant.name=Reus
+entity.got.GiantSpider.name=Gigantische spin
 entity.got.GiftBannerBearer.name=Vlaghouder Van de Nachtwacht
 entity.got.GiftBlacksmith.name=Smid van Gift
 entity.got.GiftGuard.name=Krijger van de Nachtwacht
@@ -470,7 +471,6 @@ entity.got.MossovyBartender.name≠Bartender of Mossovy
 entity.got.MossovyBlacksmith.name≠Blacksmith of Mossovy
 entity.got.MossovyFarmer.name≠Farmer of Mossovy
 entity.got.MossovyMan.name≠Man of Mossovy
-entity.got.MossovyWerewolf.name=Mossovy Weerwolf
 entity.got.MossovyWitcher.name=Mossovy Witcher
 entity.got.Mullin.name=Mullin
 entity.got.MyrBaker.name=Baker van Myr
@@ -794,7 +794,6 @@ entity.got.TyroshSoldierArcher.name≠Warrior Archer of Tyrosh
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
-entity.got.UlthosSpider.name=Gigantische spin
 entity.got.VargoHoat.name≠Vargo Hoat
 entity.got.Varys.name=Varieert
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
@@ -820,6 +819,7 @@ entity.got.VolantisSoldier.name≠Warrior of Volantis
 entity.got.VolantisSoldierArcher.name≠Warrior Archer of Volantis
 entity.got.WalderFrey.name=Walder Frey
 entity.got.Walrus.name=Walrus
+entity.got.Werewolf.name=Mossovy Weerwolf
 entity.got.WesterlandsBaker.name=Bakker van Westlanden
 entity.got.WesterlandsBannerBearer.name=Vlaghouder van Westlanden
 entity.got.WesterlandsBartender.name=Herbergier van Westlanden
@@ -985,8 +985,16 @@ got.achievement.ENTER_FROSTFANGS.desc=Bezoek Frost Fangs
 got.achievement.ENTER_FROSTFANGS.title=Bergen van ijs en steen
 got.achievement.ENTER_GHISCAR.desc=Bezoek Ghiscar
 got.achievement.ENTER_GHISCAR.title=Slaver's Bay
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc≠Visit Astapor
+got.achievement.ENTER_GHISCAR_ASTAPOR.title≠The City of Unsullied
 got.achievement.ENTER_GHISCAR_COLONY.desc=Bezoek de Ghiscar-koloniën
 got.achievement.ENTER_GHISCAR_COLONY.title=Wanhopige zeerover
+got.achievement.ENTER_GHISCAR_MEEREEN.desc≠Visit Meereen
+got.achievement.ENTER_GHISCAR_MEEREEN.title≠The City of Harpies
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc≠Visit New Ghis
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title≠Wannabes of the Empire
+got.achievement.ENTER_GHISCAR_YUNKAI.desc≠Visit Yunkai
+got.achievement.ENTER_GHISCAR_YUNKAI.title≠The City of Wise Lords
 got.achievement.ENTER_GIFT_NEW.desc=Bezoek The New Gift
 got.achievement.ENTER_GIFT_NEW.title=Naar het Noorden!
 got.achievement.ENTER_GIFT_OLD.desc=Bezoek The Old Gift
@@ -995,6 +1003,12 @@ got.achievement.ENTER_HAUNTED_FOREST.desc=Bezoek het betoverde bos
 got.achievement.ENTER_HAUNTED_FOREST.title=Wildlings, mammoeten en reuzen
 got.achievement.ENTER_IBBEN.desc=Bezoek Ibben
 got.achievement.ENTER_IBBEN.title=Walvisvaarder eiland
+got.achievement.ENTER_IBBEN_COLONY.desc≠Visit Ibben Colony
+got.achievement.ENTER_IBBEN_COLONY.title≠Even they have colonies, and you...
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc≠Visit Ibben Mountains
+got.achievement.ENTER_IBBEN_MOUNTAINS.title≠The Big Mountains of Little Island
+got.achievement.ENTER_IBBEN_TAIGA.desc≠Visit Ibben Taiga
+got.achievement.ENTER_IBBEN_TAIGA.title≠Unusual Trees
 got.achievement.ENTER_IFEKEVRON_FOREST.desc=Bezoek de Ifekevron-landen
 got.achievement.ENTER_IFEKEVRON_FOREST.title=Wie is hier?
 got.achievement.ENTER_IRON_ISLANDS.desc=Bezoek de IJzereilanden
@@ -1015,6 +1029,8 @@ got.achievement.ENTER_LONG_SUMMER.desc=Bezoek het land van de lange zomer
 got.achievement.ENTER_LONG_SUMMER.title=Verschroeide aarde
 got.achievement.ENTER_LORATH.desc=Bezoek Lorath
 got.achievement.ENTER_LORATH.title=Door God verlaten stad
+got.achievement.ENTER_LORATH_MAZE.desc≠Visit Lorath Maze
+got.achievement.ENTER_LORATH_MAZE.title≠One does not simply walk...
 got.achievement.ENTER_LYS.desc=Bezoek The Lys
 got.achievement.ENTER_LYS.title=Land van liefde en passie
 got.achievement.ENTER_MOSSOVY.desc=Bezoek Mossovy
@@ -1023,6 +1039,8 @@ got.achievement.ENTER_MOSSOVY_MARSHES.desc=Bezoek Mossovy Swamp
 got.achievement.ENTER_MOSSOVY_MARSHES.title=De uitgestrekte moerassen
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc≠Visit Mossovy Sopkas
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.title≠Far East
+got.achievement.ENTER_MOSSOVY_TAIGA.desc≠Visit Mossovy Taiga
+got.achievement.ENTER_MOSSOVY_TAIGA.title≠Deep dark fantasies
 got.achievement.ENTER_MOSSOVY_TUNDRA.desc=Bezoek Mossovy Tundra
 got.achievement.ENTER_MOSSOVY_TUNDRA.title=Aan de rand van de wereld
 got.achievement.ENTER_MYR.desc=Bezoek The Myr
@@ -1752,9 +1770,9 @@ got.biome.whisperingWood.name=Whispering Wood
 got.biome.wolfswood.name=Wolfswood
 got.biome.yeen.name=Yeen Wasteland
 got.biome.yiTi.name=Yi Ti
+got.biome.yiTiBorderZone.name=Yi Ti grenszone
 got.biome.yiTiMarshes.name≠Yi Ti Marshes
 got.biome.yiTiTropicalForest.name≠Tropical Forest
-got.biome.yiTiWasteland.name=Yi Ti grenszone
 got.capes.ARRYN.name=Kaap van Vallei van Arryn
 got.capes.ARRYNGUARD.name=Kaap van Arryn Guard
 got.capes.ASSHAI.name=Kaap van Asshai
@@ -4324,8 +4342,6 @@ got.wp.ULOS.info=Een eiland waarover bijna niets anders bekend is dan zijn liggi
 got.wp.ULOS=Ulos
 got.wp.UPLANDS.info=Het kasteel van het huis van Mullendore, vazallen van de Hightower.
 got.wp.UPLANDS=Hooglanden
-got.wp.Ulthos.info=Een van de 4 beroemde continenten ter wereld. Dat is alles wat er over hem bekend is.
-got.wp.Ulthos=Ulthos
 got.wp.VAES_ATHJIKHARI.info=Een stad van Sarnor-geleerden met een enorme bibliotheek die tijdens de Bloody Age door de Dothraki in brand is gestoken. Tegenwoordig worden de ruïnes Vaez Atjikhari genoemd, "de stad van zwakte".
 got.wp.VAES_ATHJIKHARI=Vaes Athjikhari
 got.wp.VAES_DIAF.info=Ooit een Ghiskar-slavenstad, waar de Dothraki de gevangenen van Sarnor brachten; Maar al snel viel Khazdan Mo zelf - Vaez Diaf, de Dothraki noemden het 'de stad van schedels'.
@@ -4426,8 +4442,6 @@ got.wp.WYL.info=Het kasteel van het huis van Ville. Ergens hier zat de legendari
 got.wp.WYL=Wyl
 got.wp.WYNDHALL.info=Het kasteel van het Huis van Estrens, vazallen van de Lannister.
 got.wp.WYNDHALL=Wyndhall
-got.wp.WestPass.info=Vier passen zijn oude grafheuvels, tot aan de wolken. Hun locatie suggereert dat het verdedigingsstructuren waren. Maar van wie en waarom Mossia verdedigen, als de vijanden erin zitten?
-got.wp.WestPass=West Pass
 got.wp.XON.info=De kleinste nederzetting op een klein eiland. Hier landen de Ghiskari vaak op weg naar de Zomereilanden.
 got.wp.XON=Xon
 got.wp.YEEN.info=Een stad met een vreselijke reputatie, gebouwd van zwarte steen, zoals Asshai, en niet overwoekerd door de jungle. Alle pogingen om het te bevolken zijn mislukt. Wat voor soort magie het werd opgericht en wat voor soort magie mensen erin vernietigt - niemand weet het.

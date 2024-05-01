@@ -148,7 +148,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 								}
 								setBlockAndMetadata(world, i14, 6, k2, plankBlock, plankMeta);
 								if (i16 == 9 && k4 == 9 || i16 == 11 && k4 == 11) {
-									setBlockAndMetadata(world, i14, 5, k2, GOTBlocks.chandelier, 2);
+									setBlockAndMetadata(world, i14, 5, k2, GOTBlocks.chandelier, 1);
 								}
 							}
 						}
@@ -347,7 +347,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		placeWallBanner(world, 0, 9, 0, bannerType, 1);
 		placeWallBanner(world, 0, 9, 0, bannerType, 2);
 		placeWallBanner(world, 0, 9, 0, bannerType, 3);
-		setBlockAndMetadata(world, 0, 4, 0, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 0, 4, 0, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, -3, 3, -8, brickWallBlock, brickWallMeta);
 		setBlockAndMetadata(world, -3, 4, -8, Blocks.torch, 5);
 		setBlockAndMetadata(world, 3, 3, -8, brickWallBlock, brickWallMeta);
@@ -484,8 +484,8 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 4, 1, 5, plankBlock, plankMeta);
 		placePlateWithCertainty(world, random, 3, 2, 5, plateBlock, GOTFoods.WESTEROS);
 		placePlateWithCertainty(world, random, 4, 2, 5, plateBlock, GOTFoods.WESTEROS);
-		setBlockAndMetadata(world, -3, 3, 6, GOTBlocks.chandelier, 2);
-		setBlockAndMetadata(world, 3, 3, 6, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, -3, 3, 6, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 3, 3, 6, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, -5, 1, 2, GOTBlocks.commandTable, 0);
 		if (hasMaester()) {
 			GOTEntityMaester maester = new GOTEntityMaester(world);
