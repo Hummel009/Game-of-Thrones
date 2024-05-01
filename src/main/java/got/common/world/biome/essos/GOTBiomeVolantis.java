@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -60,5 +61,10 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterVolantis;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VOLANTIS;
 	}
 }

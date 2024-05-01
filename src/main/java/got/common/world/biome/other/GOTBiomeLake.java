@@ -3,6 +3,7 @@ package got.common.world.biome.other;
 import got.client.sound.GOTMusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.GOTBiome;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 
 public class GOTBiomeLake extends GOTBiome {
@@ -24,6 +25,11 @@ public class GOTBiomeLake extends GOTBiome {
 	@Override
 	public GOTMusicRegion.Sub getBiomeMusic() {
 		return GOTMusicRegion.OCEAN.getSubregion(biomeName);
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return null;
 	}
 
 	@Override

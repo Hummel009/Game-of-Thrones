@@ -88,6 +88,6 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.DRANGONSTONE;
+		return GOTWaypoint.Region.CROWNLANDS;
 	}
 }

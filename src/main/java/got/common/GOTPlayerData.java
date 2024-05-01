@@ -1632,8 +1632,13 @@ public class GOTPlayerData {
 		}
 	}
 
-	public boolean isFTRegionUnlocked(GOTWaypoint.Region region) {
-		return unlockedFTRegions.contains(region);
+	public boolean isFTRegionUnlocked(Iterable<GOTWaypoint.Region> regions) {
+		for (GOTWaypoint.Region region : regions) {
+			if (unlockedFTRegions.contains(region)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean isPledgedTo(GOTFaction fac) {

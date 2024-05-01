@@ -382,6 +382,8 @@ public class GOTBeziers {
 		registerLinker(GOTWaypoint.MANTARYS.info(0, toEssosTown(-0.5)));
 		registerLinker(GOTWaypoint.VOLON_THERYS.info(0, toEssosTown(0.5)));
 		registerLinker(GOTWaypoint.LITTLE_VALYRIA.info(0.26, toEssosTown(0.5) + 0.1));
+		registerLinker(GOTWaypoint.ANOGARIA.info(0.26, toEssosTown(0.5) + 0.1));
+		registerLinker(GOTWaypoint.BHORASH.info(0.26, toEssosTown(0.5) + 0.2));
 		registerLinker(GOTWaypoint.TOLOS.info(0, toEssosTown(0.5)));
 		registerLinker(GOTWaypoint.MEEREEN.info(0, toEssosTown(-0.5)));
 		registerLinker(GOTWaypoint.PORT_YHOS.info(0, toEssosTown(0.5)));

@@ -765,9 +765,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return biomeVariants;
 	}
 
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return null;
-	}
+	public abstract GOTWaypoint.Region getBiomeWaypoints();
 
 	public float getChanceToSpawnAnimals() {
 		return 0.2f;

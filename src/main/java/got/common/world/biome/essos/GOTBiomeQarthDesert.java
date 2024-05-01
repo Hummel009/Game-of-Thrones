@@ -7,6 +7,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.block.Block;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Desert {
+public class GOTBiomeQarthDesert extends GOTBiomeEssosPlains implements GOTBiome.Desert {
 	public GOTBiomeQarthDesert(int i, boolean major) {
 		super(i, major);
 		setupDesertFauna();
@@ -134,5 +135,10 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_SANDY;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.QARTH;
 	}
 }

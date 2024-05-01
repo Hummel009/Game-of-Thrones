@@ -118,6 +118,11 @@ public class GOTBiomeEssos extends GOTBiome {
 	}
 
 	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VALYRIA;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return null;
 	}
@@ -125,11 +130,6 @@ public class GOTBiomeEssos extends GOTBiome {
 	@Override
 	public GOTMusicRegion.Sub getBiomeMusic() {
 		return GOTMusicRegion.ESSOS.getSubregion(biomeName);
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.FREE;
 	}
 
 	@Override

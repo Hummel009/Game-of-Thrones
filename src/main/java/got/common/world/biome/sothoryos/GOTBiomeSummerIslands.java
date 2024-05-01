@@ -52,6 +52,6 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.SUMMER_ISLANDS;
+		return GOTWaypoint.Region.SUMMER;
 	}
 }

@@ -30,6 +30,6 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.IBBEN;
+		return GOTWaypoint.Region.IBBEN_COLONY;
 	}
 }

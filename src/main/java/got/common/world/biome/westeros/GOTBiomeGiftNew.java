@@ -4,15 +4,22 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
+import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.gift.GOTStructureGiftSettlement;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeGiftNew extends GOTBiomeNorthWild {
+public class GOTBiomeGiftNew extends GOTBiomeNorth {
 	public GOTBiomeGiftNew(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
+		decorator.clearStructures();
+		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		decorator.clearSettlements();
 		decorator.addSettlement(new GOTStructureGiftSettlement(this, 1.0f));
 		invasionSpawns.clearInvasions();

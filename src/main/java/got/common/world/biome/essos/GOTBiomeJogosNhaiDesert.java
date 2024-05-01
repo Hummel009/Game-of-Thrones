@@ -6,6 +6,7 @@ import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.other.GOTStructureStoneRuin;
@@ -127,5 +128,10 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTB
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
 		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ESSOS_SEPARATOR;
 	}
 }

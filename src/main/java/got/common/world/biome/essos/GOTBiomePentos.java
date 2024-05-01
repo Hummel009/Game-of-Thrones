@@ -6,6 +6,7 @@ import got.common.database.GOTSpawnList;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -54,5 +55,10 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_SANDY;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.PENTOS;
 	}
 }

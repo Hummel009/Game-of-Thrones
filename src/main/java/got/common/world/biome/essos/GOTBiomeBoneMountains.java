@@ -76,7 +76,7 @@ public class GOTBiomeBoneMountains extends GOTBiomeEssosPlains implements GOTBio
 
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.JOGOS;
+		return GOTWaypoint.Region.ESSOS_SEPARATOR;
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import got.common.entity.animal.GOTEntityBear;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenBoulder;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -101,5 +102,10 @@ public class GOTBiomeNorvos extends GOTBiomeEssos {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterNorvos;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORVOS;
 	}
 }

@@ -618,7 +618,7 @@ public class GOTWikiGen {
 					} else {
 						sb.append(Lang.BIOME_HAS_WAYPOINTS);
 						for (GOTWaypoint wp : WAYPOINTS) {
-							if (wp.getRegion() == region) {
+							if (wp.getRegions().contains(region)) {
 								sb.append("\n* ").append(wp.getDisplayName()).append(" (").append(getFactionLink(wp.getFaction())).append(");");
 							}
 						}

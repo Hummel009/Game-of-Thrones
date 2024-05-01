@@ -27,7 +27,7 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.ICE;
+		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 
 	@Override

@@ -76,7 +76,7 @@ public class GOTCommandWaypoints extends CommandBase {
 					return;
 				}
 				GOTWaypoint.Region region = findRegionByName(regionName);
-				if (playerData.isFTRegionUnlocked(region)) {
+				if (playerData.isFTRegionUnlocked(Collections.singletonList(region))) {
 					throw new WrongUsageException("got.command.waypoints.unlock.fail", entityplayer.getCommandSenderName(), region.name());
 				}
 				playerData.unlockFTRegion(region);
@@ -92,7 +92,7 @@ public class GOTCommandWaypoints extends CommandBase {
 					return;
 				}
 				GOTWaypoint.Region region = findRegionByName(regionName);
-				if (!playerData.isFTRegionUnlocked(region)) {
+				if (!playerData.isFTRegionUnlocked(Collections.singletonList(region))) {
 					throw new WrongUsageException("got.command.waypoints.lock.fail", entityplayer.getCommandSenderName(), region.name());
 				}
 				playerData.lockFTRegion(region);

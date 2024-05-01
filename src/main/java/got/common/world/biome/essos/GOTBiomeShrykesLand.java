@@ -73,6 +73,6 @@ public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.SHRYKE;
+		return GOTWaypoint.Region.MOSSOVY;
 	}
 }

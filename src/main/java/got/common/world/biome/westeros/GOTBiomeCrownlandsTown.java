@@ -3,6 +3,7 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 
@@ -54,5 +55,10 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_PAVING;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.KINGS_LANDING;
 	}
 }
