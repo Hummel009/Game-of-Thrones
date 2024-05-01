@@ -345,6 +345,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterIbbenTaiga;
 	public static GOTAchievement enterLorathMaze;
 	public static GOTAchievement enterMossovyTaiga;
+	public static GOTAchievement enterYiTiBorderZone;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 	private final Category category;
@@ -704,6 +705,7 @@ public class GOTAchievement {
 		enterIbbenTaiga = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.wood1, 1, 0), "ENTER_IBBEN_TAIGA").setBiomeAchievement();
 		enterLorathMaze = new GOTAchievement(Category.ENTER, entId++, Blocks.stone, "ENTER_IBBEN_LORATH_MAZE").setBiomeAchievement();
 		enterMossovyTaiga = new GOTAchievement(Category.ENTER, entId++, new ItemStack(Blocks.log, 1, 1), "ENTER_MOSSOVY_TAIGA").setBiomeAchievement();
+		enterYiTiBorderZone = new GOTAchievement(Category.ENTER, entId++, GOTItems.yitiHelmetFrontier, "ENTER_YI_TI_BORDER_ZONE").setBiomeAchievement();
 
 		int wearId = 1;
 		wearFullArryn = createArmorAchievement(Category.WEAR, wearId++, GOTItems.arrynChestplate, "WEAR_FULL_ARRYN");
