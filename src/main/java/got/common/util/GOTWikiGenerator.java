@@ -1,5 +1,6 @@
 package got.common.util;
 
+import got.common.GOTAchievementRank;
 import got.common.GOTDate;
 import got.common.block.other.GOTBlockOreGem;
 import got.common.block.other.GOTBlockRock;
@@ -380,7 +381,9 @@ public class GOTWikiGenerator {
 			List<String> sortable = new ArrayList<>();
 
 			for (GOTAchievement ach : ACHIEVEMENTS) {
-				sortable.add(NTRB + ach.getTitle(player) + TR + ach.getDescription() + NTRE);
+				if (!(ach instanceof GOTAchievementRank)) {
+					sortable.add(NTRB + ach.getTitle(player) + TR + ach.getDescription() + NTRE);
+				}
 			}
 
 			appendSortedList(sb, sortable);
