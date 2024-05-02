@@ -354,7 +354,7 @@ public class GOTWikiGenerator {
 				threads.clear();
 				sbs.clear();
 
-				xmlBuilder.append("\n</mediawiki>");
+				xmlBuilder.append("</mediawiki>");
 
 				GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 
