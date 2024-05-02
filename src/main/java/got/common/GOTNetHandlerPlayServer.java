@@ -142,14 +142,22 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 
 	@Override
 	public void processPlayerBlockPlacement(C08PacketPlayerBlockPlacement packet) {
-		setBlockReach();
-		super.processPlayerBlockPlacement(packet);
+		try {
+			setBlockReach();
+			super.processPlayerBlockPlacement(packet);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void processPlayerDigging(C07PacketPlayerDigging packet) {
-		setBlockReach();
-		super.processPlayerDigging(packet);
+		try {
+			setBlockReach();
+			super.processPlayerDigging(packet);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

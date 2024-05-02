@@ -41,11 +41,11 @@ import got.common.world.structure.GOTStructureRegistry;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
-import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemFood;
@@ -58,7 +58,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
@@ -66,6 +69,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@SuppressWarnings("StreamToLoop")
 public class GOTWikiGenerator {
 	private static final Map<Class<? extends Entity>, Entity> CLASS_TO_ENTITY_MAPPING = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> CLASS_TO_WP_MAPPING = new HashMap<>();
@@ -100,11 +104,23 @@ public class GOTWikiGenerator {
 	private static final String TR = " || ";
 
 	static {
-		searchForMinerals(BIOMES, MINERALS);
-		searchForHireable(HIREABLE, UNIT_TRADE_ENTRIES);
-		searchForPagenamesEntity(BIOMES, FACTIONS);
-		searchForPagenamesBiome(BIOMES, FACTIONS);
-		searchForPagenamesFaction(BIOMES, FACTIONS);
+		Collection<Thread> threads = new ArrayList<>();
+
+		threads.add(new Thread(() -> searchForMinerals(BIOMES, MINERALS)));
+		threads.add(new Thread(() -> searchForHireable(HIREABLE, UNIT_TRADE_ENTRIES)));
+		threads.add(new Thread(() -> searchForPagenamesEntity(BIOMES, FACTIONS)));
+		threads.add(new Thread(() -> searchForPagenamesBiome(BIOMES, FACTIONS)));
+		threads.add(new Thread(() -> searchForPagenamesFaction(BIOMES, FACTIONS)));
+
+		threads.forEach(Thread::start);
+
+		threads.forEach(thread -> {
+			try {
+				thread.join();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 
 		BIOMES.remove(GOTBiome.ocean1);
 		BIOMES.remove(GOTBiome.ocean2);
@@ -162,7 +178,7 @@ public class GOTWikiGenerator {
 	private GOTWikiGenerator() {
 	}
 
-	public static void generate(String type, World world, ICommandSender player) {
+	public static void generate(String type, World world, EntityPlayer player) {
 		long time = System.nanoTime();
 		try {
 			Files.createDirectories(Paths.get("hummel"));
@@ -170,14 +186,18 @@ public class GOTWikiGenerator {
 			searchForEntities(world);
 
 			if ("tables".equalsIgnoreCase(type)) {
-				genTableAchievements();
-				genTableShields();
-				genTableCapes();
-				genTableUnits();
-				genTableWaypoints();
-				genTableArmor();
-				genTableWeapons();
-				genTableFood();
+				Collection<Thread> threads = new ArrayList<>();
+
+				threads.add(new Thread(() -> genTableAchievements(player)));
+				threads.add(new Thread(GOTWikiGenerator::genTableShields));
+				threads.add(new Thread(GOTWikiGenerator::genTableCapes));
+				threads.add(new Thread(GOTWikiGenerator::genTableUnits));
+				threads.add(new Thread(GOTWikiGenerator::genTableArmor));
+				threads.add(new Thread(GOTWikiGenerator::genTableWaypoints));
+				threads.add(new Thread(GOTWikiGenerator::genTableWeapons));
+				threads.add(new Thread(GOTWikiGenerator::genTableFood));
+
+				threads.forEach(Thread::start);
 			} else if ("xml".equalsIgnoreCase(type)) {
 				StringBuilder sb = new StringBuilder();
 
@@ -824,7 +844,7 @@ public class GOTWikiGenerator {
 			}
 			sb.append(NTRB);
 			sb.append(getEntityPagename(entityClass)).append(" = ");
-			//noinspection StreamToLoop
+
 			if (Stream.of(spawnBiomes, conquestBiomes, invasionBiomes).allMatch(Collection::isEmpty)) {
 				sb.append(Lang.ENTITY_NO_BIOMES);
 			} else {
@@ -1847,158 +1867,222 @@ public class GOTWikiGenerator {
 		sb.append(END);
 	}
 
-	private static List<String> getExistingPages() throws IOException {
-		File file = new File("hummel/sitemap.txt");
-		if (!file.exists()) {
-			boolean created = file.createNewFile();
-			if (!created) {
-				GOTLog.getLogger().info("DatabaseGenerator: file wasn't created");
+	private static List<String> getExistingPages() {
+		try {
+			File file = new File("hummel/sitemap.txt");
+			if (!file.exists()) {
+				boolean created = file.createNewFile();
+				if (!created) {
+					GOTLog.getLogger().info("DatabaseGenerator: file wasn't created");
+				}
 			}
+			try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
+				return lines.collect(Collectors.toList());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
-			return lines.collect(Collectors.toList());
-		}
+		return Collections.emptyList();
 	}
 
 	@SuppressWarnings("deprecation")
-	private static void genTableFood() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (Item item : ITEMS) {
-			if (item instanceof ItemFood) {
-				int heal = ((ItemFood) item).func_150905_g(null);
-				float saturation = ((ItemFood) item).func_150906_h(null);
-				sb.append(NTRB);
-				sb.append(getItemName(item));
-				sb.append(TR).append(getItemFilename(item));
-				sb.append(TR).append("{{Bar|bread|").append(new DecimalFormat("#.##").format(saturation * heal * 2)).append("}}");
-				sb.append(TR).append("{{Bar|food|").append(heal).append("}}");
-				sb.append(TR).append(item.getItemStackLimit());
-				sb.append(NTRE);
-			}
-		}
-		PrintWriter printWriter = new PrintWriter("hummel/food.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
-	}
+	private static void genTableFood() {
+		try {
+			StringBuilder sb = new StringBuilder();
 
-	private static void genTableWeapons() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (Item item : ITEMS) {
-			if (item instanceof ItemSword) {
-				float damage = GOTReflection.getDamageAmount(item);
-				Item.ToolMaterial material = GOTReflection.getToolMaterial(item);
-				sb.append(NTRB);
-				sb.append(getItemName(item)).append(TR).append(getItemFilename(item)).append(TR).append(item.getMaxDamage()).append(TR).append(damage).append(TR);
-				if (material == null || material.getRepairItemStack() == null) {
-					sb.append("N/A");
-				} else {
-					sb.append(getItemName(material.getRepairItemStack().getItem()));
+			List<String> sortable = new ArrayList<>();
+
+			for (Item item : ITEMS) {
+				if (item instanceof ItemFood) {
+					StringBuilder localSb = new StringBuilder();
+
+					int heal = ((ItemFood) item).func_150905_g(null);
+					float saturation = ((ItemFood) item).func_150906_h(null);
+					localSb.append(NTRB);
+					localSb.append(getItemName(item));
+					localSb.append(TR).append(getItemFilename(item));
+					localSb.append(TR).append("{{Bar|bread|").append(new DecimalFormat("#.##").format(saturation * heal * 2)).append("}}");
+					localSb.append(TR).append("{{Bar|food|").append(heal).append("}}");
+					localSb.append(TR).append(item.getItemStackLimit());
+					localSb.append(NTRE);
+
+					sortable.add(localSb.toString());
 				}
-				sb.append(NTRE);
 			}
+
+			appendSortedList(sb, sortable);
+
+			PrintWriter printWriter = new PrintWriter("hummel/food.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		PrintWriter printWriter = new PrintWriter("hummel/weapon.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
 	}
 
-	private static void genTableArmor() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (Item item : ITEMS) {
-			if (item instanceof ItemArmor) {
-				float damage = ((ItemArmor) item).damageReduceAmount;
-				ItemArmor.ArmorMaterial material = ((ItemArmor) item).getArmorMaterial();
-				sb.append(NTRB);
-				sb.append(getItemName(item)).append(TR).append(getItemFilename(item)).append(TR).append(item.getMaxDamage()).append(TR).append(damage).append(TR);
-				if (material == null || material.customCraftingMaterial == null) {
-					sb.append("N/A");
-				} else {
-					sb.append(getItemName(material.customCraftingMaterial));
-				}
-				sb.append(NTRE);
-			}
-		}
-		PrintWriter printWriter = new PrintWriter("hummel/armor.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
-	}
+	private static void genTableWeapons() {
+		try {
+			StringBuilder sb = new StringBuilder();
 
-	private static void genTableWaypoints() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (GOTWaypoint wp : WAYPOINTS) {
-			sb.append(NTRB);
-			sb.append(wp.getDisplayName()).append(TR).append(wp.getLoreText(null)).append(NTRE);
-		}
-		PrintWriter printWriter = new PrintWriter("hummel/waypoints.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
-	}
+			List<String> sortable = new ArrayList<>();
 
-	private static void genTableUnits() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (GOTUnitTradeEntries unitTradeEntries : UNIT_TRADE_ENTRIES) {
-			for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
-				if (entry != null) {
-					sb.append(NTRB);
-					sb.append(getEntityLink(entry.getEntityClass()));
-					if (entry.getMountClass() != null) {
-						sb.append(Lang.RIDER);
-					}
+			for (Item item : ITEMS) {
+				if (item instanceof ItemSword) {
+					StringBuilder localSb = new StringBuilder();
 
-					float cost = entry.getInitialCost();
-					float alignment = entry.getAlignmentRequired();
+					float damage = GOTReflection.getDamageAmount(item);
+					Item.ToolMaterial material = GOTReflection.getToolMaterial(item);
 
-					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-						sb.append(TR).append("{{Coins|").append(cost * 2).append("}}");
-						sb.append(TR).append("{{Coins|").append(cost).append("}}");
-						sb.append(TR).append('+').append(alignment);
-						sb.append(TR).append('-');
+					localSb.append(NTRB);
+					localSb.append(getItemName(item)).append(TR).append(getItemFilename(item)).append(TR).append(item.getMaxDamage()).append(TR).append(damage).append(TR);
+					if (material == null || material.getRepairItemStack() == null) {
+						localSb.append("N/A");
 					} else {
-						sb.append(TR).append(" N/A");
-						sb.append(TR).append("{{Coins|").append(cost).append("}}");
-						sb.append(TR).append('+').append(Math.max(alignment, 100.0f));
-						sb.append(TR).append('+');
+						localSb.append(getItemName(material.getRepairItemStack().getItem()));
+					}
+					localSb.append(NTRE);
+
+					sortable.add(localSb.toString());
+				}
+			}
+
+			appendSortedList(sb, sortable);
+
+			PrintWriter printWriter = new PrintWriter("hummel/weapon.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void genTableArmor() {
+		try {
+			StringBuilder sb = new StringBuilder();
+			for (Item item : ITEMS) {
+				if (item instanceof ItemArmor) {
+					float damage = ((ItemArmor) item).damageReduceAmount;
+					ItemArmor.ArmorMaterial material = ((ItemArmor) item).getArmorMaterial();
+
+					sb.append(NTRB);
+					sb.append(getItemName(item)).append(TR).append(getItemFilename(item)).append(TR).append(item.getMaxDamage()).append(TR).append(damage).append(TR);
+					if (material == null || material.customCraftingMaterial == null) {
+						sb.append("N/A");
+					} else {
+						sb.append(getItemName(material.customCraftingMaterial));
 					}
 					sb.append(NTRE);
 				}
 			}
+			PrintWriter printWriter = new PrintWriter("hummel/armor.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		PrintWriter printWriter = new PrintWriter("hummel/units.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
 	}
 
-	private static void genTableCapes() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (GOTCapes cape : CAPES) {
-			sb.append(NTRB);
-			sb.append(cape.getCapeName()).append(TR).append(cape.getCapeDesc()).append(TR).append(getCapeFilename(cape)).append(NTRE);
+	private static void genTableWaypoints() {
+		try {
+			StringBuilder sb = new StringBuilder();
+
+			List<String> sortable = new ArrayList<>();
+
+			for (GOTWaypoint wp : WAYPOINTS) {
+				sortable.add(NTRB + wp.getDisplayName() + TR + wp.getLoreText(null) + NTRE);
+			}
+
+			appendSortedList(sb, sortable);
+
+			PrintWriter printWriter = new PrintWriter("hummel/waypoints.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		PrintWriter printWriter = new PrintWriter("hummel/capes.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
 	}
 
-	private static void genTableShields() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (GOTShields shield : SHIELDS) {
-			sb.append(NTRB);
-			sb.append(shield.getShieldName()).append(TR).append(shield.getShieldDesc()).append(TR).append(getShieldFilename(shield)).append(NTRE);
+	private static void genTableUnits() {
+		try {
+			StringBuilder sb = new StringBuilder();
+			for (GOTUnitTradeEntries unitTradeEntries : UNIT_TRADE_ENTRIES) {
+				for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
+					if (entry != null) {
+						sb.append(NTRB);
+						sb.append(getEntityLink(entry.getEntityClass()));
+						if (entry.getMountClass() != null) {
+							sb.append(Lang.RIDER);
+						}
+
+						float cost = entry.getInitialCost();
+						float alignment = entry.getAlignmentRequired();
+
+						if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+							sb.append(TR).append("{{Coins|").append(cost * 2).append("}}");
+							sb.append(TR).append("{{Coins|").append(cost).append("}}");
+							sb.append(TR).append('+').append(alignment);
+							sb.append(TR).append('-');
+						} else {
+							sb.append(TR).append(" N/A");
+							sb.append(TR).append("{{Coins|").append(cost).append("}}");
+							sb.append(TR).append('+').append(Math.max(alignment, 100.0f));
+							sb.append(TR).append('+');
+						}
+						sb.append(NTRE);
+					}
+				}
+			}
+			PrintWriter printWriter = new PrintWriter("hummel/units.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		PrintWriter printWriter = new PrintWriter("hummel/shields.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
 	}
 
-	private static void genTableAchievements() throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		for (GOTAchievement ach : ACHIEVEMENTS) {
-			sb.append(NTRB);
-			sb.append(ach.getTitle()).append(TR).append(ach.getDescription()).append(NTRE);
+	private static void genTableCapes() {
+		try {
+			StringBuilder sb = new StringBuilder();
+			for (GOTCapes cape : CAPES) {
+				sb.append(NTRB);
+				sb.append(cape.getCapeName()).append(TR).append(cape.getCapeDesc()).append(TR).append(getCapeFilename(cape)).append(NTRE);
+			}
+			PrintWriter printWriter = new PrintWriter("hummel/capes.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		PrintWriter printWriter = new PrintWriter("hummel/achievements.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
+	}
+
+	private static void genTableShields() {
+		try {
+			StringBuilder sb = new StringBuilder();
+			for (GOTShields shield : SHIELDS) {
+				sb.append(NTRB);
+				sb.append(shield.getShieldName()).append(TR).append(shield.getShieldDesc()).append(TR).append(getShieldFilename(shield)).append(NTRE);
+			}
+			PrintWriter printWriter = new PrintWriter("hummel/shields.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void genTableAchievements(EntityPlayer player) {
+		try {
+			StringBuilder sb = new StringBuilder();
+			for (GOTAchievement ach : ACHIEVEMENTS) {
+				sb.append(NTRB);
+				sb.append(ach.getTitle(player)).append(TR).append(ach.getDescription()).append(NTRE);
+			}
+			PrintWriter printWriter = new PrintWriter("hummel/achievements.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static String getBannerName(GOTItemBanner.BannerType banner) {

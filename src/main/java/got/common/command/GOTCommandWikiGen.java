@@ -37,7 +37,8 @@ public class GOTCommandWikiGen extends CommandBase {
 			func_152373_a(sender, this, "Database \"" + args[0] + "\" does not exist.");
 		} else {
 			func_152373_a(sender, this, "Database \"" + type + "\" is prepared.");
-			GOTWikiGenerator.generate(type.toString(), world, (EntityPlayer) sender);
+
+			new Thread(() -> GOTWikiGenerator.generate(type.toString(), world, (EntityPlayer) sender)).start();
 		}
 	}
 }
