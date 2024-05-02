@@ -270,6 +270,7 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeMinerals);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeMobs);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeMusic);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeName);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeRainfall);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeSpawnNPCs);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeStructures);
@@ -792,6 +793,20 @@ public class GOTWikiGenerator {
 			} else {
 				sb.append(biome.getBiomeMusic().getSubregion());
 			}
+		}
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateBiomeName() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append("Template:DB Biome-Name");
+		sb.append(BEGIN);
+		for (GOTBiome biome : BIOMES) {
+			sb.append(NTRB);
+			sb.append(getBiomePagename(biome)).append(" = ").append(getBiomeName(biome));
 		}
 		sb.append(END);
 
