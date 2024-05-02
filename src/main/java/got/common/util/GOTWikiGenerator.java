@@ -215,7 +215,7 @@ public class GOTWikiGenerator {
 
 				GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
 
-				xmlBuilder.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
+				xmlBuilder.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 				Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
 				Collection<Thread> threads = new HashSet<>();
@@ -353,6 +353,8 @@ public class GOTWikiGenerator {
 				suppliers.clear();
 				threads.clear();
 				sbs.clear();
+
+				xmlBuilder.append("\n</mediawiki>");
 
 				GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 
@@ -1652,7 +1654,6 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
-		sb.append("\n</mediawiki>");
 
 		return sb;
 	}
