@@ -98,6 +98,7 @@ public class GOTWikiGenerator {
 	private static final String BEGIN = "</title>\n<ns>10</ns>\n<revision><text>\n&lt;includeonly&gt;{{#switch: {{{1}}}";
 	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;\n</text></revision>\n</page>\n";
 	private static final String TITLE = "<page>\n<title>";
+	private static final String TITLE_SINGLE = "<page><title>";
 	private static final String NLI = "\n* ";
 	private static final String NTRB = "\n| ";
 	private static final String NTRE = "\n|-";
@@ -388,7 +389,7 @@ public class GOTWikiGenerator {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
 				String page = "</title><revision><text>{{Статья Структура}}</text></revision></page>\n";
-				sb.append(TITLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
 			}
 		}
 
@@ -403,7 +404,7 @@ public class GOTWikiGenerator {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
 				String page = "</title><revision><text>{{Статья Дерево}}</text></revision></page>\n";
-				sb.append(TITLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
 			}
 		}
 
@@ -418,7 +419,7 @@ public class GOTWikiGenerator {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
 				String page = "</title><revision><text>{{Статья Фракция}}</text></revision></page>\n";
-				sb.append(TITLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
 			}
 		}
 
@@ -433,7 +434,7 @@ public class GOTWikiGenerator {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
 				String page = "</title><revision><text>{{Статья Биом}}</text></revision></page>\n";
-				sb.append(TITLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
 			}
 		}
 
@@ -448,7 +449,7 @@ public class GOTWikiGenerator {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
 				String page = "</title><revision><text>{{Статья Моб}}</text></revision></page>\n";
-				sb.append(TITLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
 			}
 		}
 
@@ -462,7 +463,7 @@ public class GOTWikiGenerator {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
 				String page = "</title><revision><text>{{Статья Ископаемое}}</text></revision></page>\n";
-				sb.append(TITLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
 			}
 		}
 
