@@ -211,6 +211,8 @@ public class GOTWikiGenerator {
 			} else if ("xml".equalsIgnoreCase(type)) {
 				StringBuilder xmlBuilder = new StringBuilder();
 
+				GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
+
 				xmlBuilder.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 				Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
@@ -349,6 +351,8 @@ public class GOTWikiGenerator {
 				suppliers.clear();
 				threads.clear();
 				sbs.clear();
+
+				GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 
 				PrintWriter xml = new PrintWriter("hummel/import.xml", "UTF-8");
 				xml.write(xmlBuilder.toString());
@@ -1954,8 +1958,6 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append("Template:DB Biome-Rainfall");
 		sb.append(BEGIN);
 
-		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
-
 		for (GOTBiome biome : BIOMES) {
 			sb.append(NTRB);
 			sb.append(getBiomePagename(biome)).append(" = ");
@@ -1973,8 +1975,6 @@ public class GOTWikiGenerator {
 			sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
 		}
 
-		GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
-
 		sb.append(END);
 
 		return sb;
@@ -1985,8 +1985,6 @@ public class GOTWikiGenerator {
 
 		sb.append(TITLE).append("Template:DB Biome-Temperature");
 		sb.append(BEGIN);
-
-		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
 
 		for (GOTBiome biome : BIOMES) {
 			sb.append(NTRB);
@@ -2004,8 +2002,6 @@ public class GOTWikiGenerator {
 			GOTClimateType.performSeasonalChangesServerSide();
 			sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
 		}
-
-		GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 
 		sb.append(END);
 
