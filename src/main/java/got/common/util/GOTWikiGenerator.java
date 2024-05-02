@@ -163,105 +163,6 @@ public class GOTWikiGenerator {
 	private GOTWikiGenerator() {
 	}
 
-	private static StringBuilder addPagesBiomes(Collection<String> neededPages, Collection<String> existingPages) {
-		StringBuilder sb = new StringBuilder();
-
-		for (GOTBiome biome : BIOMES) {
-			String pageName = getBiomePagename(biome);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				String page = "</title><revision><text>{{Статья Биом}}</text></revision></page>\n";
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
-			}
-		}
-
-		return sb;
-	}
-
-	private static StringBuilder addPagesEntities(Collection<String> neededPages, Collection<String> existingPages) {
-		StringBuilder sb = new StringBuilder();
-
-		for (Class<? extends Entity> entityClass : ENTITIES) {
-			String pageName = getEntityPagename(entityClass);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				String page = "</title><revision><text>{{Статья Моб}}</text></revision></page>\n";
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
-			}
-		}
-
-		return sb;
-	}
-
-	private static StringBuilder addPagesFactions(Collection<String> neededPages, Collection<String> existingPages) {
-		StringBuilder sb = new StringBuilder();
-
-		for (GOTFaction faction : FACTIONS) {
-			String pageName = getFactionPagename(faction);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				String page = "</title><revision><text>{{Статья Фракция}}</text></revision></page>\n";
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
-			}
-		}
-
-		return sb;
-	}
-
-	private static StringBuilder addPagesMinerals(Collection<String> neededPages, Collection<String> existingPages) {
-		StringBuilder sb = new StringBuilder();
-
-		for (String pageName : MINERALS) {
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				String page = "</title><revision><text>{{Статья Ископаемое}}</text></revision></page>\n";
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
-			}
-		}
-
-		return sb;
-	}
-
-	private static StringBuilder addPagesStructures(Collection<String> neededPages, Collection<String> existingPages) {
-		StringBuilder sb = new StringBuilder();
-
-		for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
-			String pageName = getStructureName(strClass);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				String page = "</title><revision><text>{{Статья Структура}}</text></revision></page>\n";
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
-			}
-		}
-
-		return sb;
-	}
-
-	private static StringBuilder addPagesTrees(Collection<String> neededPages, Collection<String> existingPages) {
-		StringBuilder sb = new StringBuilder();
-
-		for (GOTTreeType tree : TREES) {
-			String pageName = getTreeName(tree);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				String page = "</title><revision><text>{{Статья Дерево}}</text></revision></page>\n";
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
-			}
-		}
-
-		return sb;
-	}
-
-	private static void appendSortedList(StringBuilder sb, List<String> sortable) {
-		Collections.sort(sortable);
-
-		for (String item : sortable) {
-			sb.append(item);
-		}
-
-		sortable.clear();
-	}
-
 	public static void generate(String type, World world, EntityPlayer player) {
 		long time = System.nanoTime();
 		try {
@@ -2419,6 +2320,95 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
+	private static StringBuilder addPagesBiomes(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
+		for (GOTBiome biome : BIOMES) {
+			String pageName = getBiomePagename(biome);
+			neededPages.add(pageName);
+			if (!existingPages.contains(pageName)) {
+				String page = "</title><revision><text>{{Статья Биом}}</text></revision></page>\n";
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
+			}
+		}
+
+		return sb;
+	}
+
+	private static StringBuilder addPagesEntities(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
+		for (Class<? extends Entity> entityClass : ENTITIES) {
+			String pageName = getEntityPagename(entityClass);
+			neededPages.add(pageName);
+			if (!existingPages.contains(pageName)) {
+				String page = "</title><revision><text>{{Статья Моб}}</text></revision></page>\n";
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
+			}
+		}
+
+		return sb;
+	}
+
+	private static StringBuilder addPagesFactions(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
+		for (GOTFaction faction : FACTIONS) {
+			String pageName = getFactionPagename(faction);
+			neededPages.add(pageName);
+			if (!existingPages.contains(pageName)) {
+				String page = "</title><revision><text>{{Статья Фракция}}</text></revision></page>\n";
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
+			}
+		}
+
+		return sb;
+	}
+
+	private static StringBuilder addPagesMinerals(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
+		for (String pageName : MINERALS) {
+			neededPages.add(pageName);
+			if (!existingPages.contains(pageName)) {
+				String page = "</title><revision><text>{{Статья Ископаемое}}</text></revision></page>\n";
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
+			}
+		}
+
+		return sb;
+	}
+
+	private static StringBuilder addPagesStructures(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
+		for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
+			String pageName = getStructureName(strClass);
+			neededPages.add(pageName);
+			if (!existingPages.contains(pageName)) {
+				String page = "</title><revision><text>{{Статья Структура}}</text></revision></page>\n";
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
+			}
+		}
+
+		return sb;
+	}
+
+	private static StringBuilder addPagesTrees(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
+		for (GOTTreeType tree : TREES) {
+			String pageName = getTreeName(tree);
+			neededPages.add(pageName);
+			if (!existingPages.contains(pageName)) {
+				String page = "</title><revision><text>{{Статья Дерево}}</text></revision></page>\n";
+				sb.append(TITLE_SINGLE).append(pageName).append(page);
+			}
+		}
+
+		return sb;
+	}
+
 	private static Set<String> getExistingPages() {
 		try {
 			File file = new File("hummel/sitemap.txt");
@@ -2487,6 +2477,14 @@ public class GOTWikiGenerator {
 		}
 	}
 
+	private static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
+		for (GOTBiome biome : biomes) {
+			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+				structures.add(structure.getStructureGen().getClass());
+			}
+		}
+	}
+
 	private static void searchForPagenamesBiome(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
 		next:
 		for (GOTBiome biome : biomes) {
@@ -2544,14 +2542,6 @@ public class GOTWikiGenerator {
 				}
 			}
 			FACTION_TO_PAGE.put(preName, preName);
-		}
-	}
-
-	private static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
-		for (GOTBiome biome : biomes) {
-			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
-				structures.add(structure.getStructureGen().getClass());
-			}
 		}
 	}
 
@@ -2688,6 +2678,16 @@ public class GOTWikiGenerator {
 
 		public static String getTreeName(GOTTreeType tree) {
 			return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name");
+		}
+
+		public static void appendSortedList(StringBuilder sb, List<String> sortable) {
+			Collections.sort(sortable);
+
+			for (String item : sortable) {
+				sb.append(item);
+			}
+
+			sortable.clear();
 		}
 	}
 }
