@@ -1302,7 +1302,7 @@ public class GOTWikiGenerator {
 				if (ach == null) {
 					sb.append("N/A");
 				} else {
-					sb.append('"').append(ach.getTitle()).append('"');
+					sb.append('«').append(ach.getTitle()).append('»');
 				}
 			}
 		}
