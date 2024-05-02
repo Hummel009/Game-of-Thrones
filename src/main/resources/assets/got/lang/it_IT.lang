@@ -2117,8 +2117,7 @@ got.db.FACTION_HAS_RANKS.name≠Faction ranks become available when you reach th
 got.db.FACTION_HAS_SPAWN.name≠Mobs of this faction can spawn in the following biomes:
 got.db.FACTION_HAS_WAR_CRIMES.name≠This faction encourages war crimes
 got.db.FACTION_HAS_WAYPOINTS.name≠This faction controls the waypoints listed below. You will not be able to teleport to them if you have a bad reputation.
-got.db.FACTION_NO_CAPES.name≠This faction has no capes.
-got.db.FACTION_NO_SHIELDS.name≠This faction has no shields.
+got.db.FACTION_NO_ATTRIBUTES.name≠This faction has no shields and capes.
 got.db.FACTION_NO_BANNERS.name≠This faction has no banners.
 got.db.FACTION_NO_CHARS.name≠Characters belonging to this faction do not exist.
 got.db.FACTION_NO_CONQUEST.name≠No biomes can be conquered on behalf of this faction.

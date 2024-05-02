@@ -280,7 +280,6 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeWaypoints);
 
 				suppliers.add(GOTWikiGenerator::genTemplateFactionBanners);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionCapes);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionChars);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionCodename);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionConquestBiomes);
@@ -292,7 +291,7 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateFactionPledgeRank);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionRanks);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionRegion);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionShields);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionShieldsCapes);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionSpawnBiomes);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionStructures);
 				suppliers.add(GOTWikiGenerator::genTemplateFactionWarCrimes);
@@ -1684,40 +1683,6 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateFactionCapes() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append("Template:DB Faction-Capes");
-		sb.append(BEGIN);
-		for (GOTFaction fac : FACTIONS) {
-			List<String> sortable = new ArrayList<>();
-
-			Collection<GOTCapes> facCapes = EnumSet.noneOf(GOTCapes.class);
-			for (GOTCapes cape : CAPES) {
-				if (cape.getAlignmentFaction() == fac) {
-					facCapes.add(cape);
-				}
-			}
-			sb.append(NTRB);
-			sb.append(getFactionPagename(fac)).append(" = ");
-			if (facCapes.isEmpty()) {
-				sb.append(Lang.FACTION_NO_CAPES);
-			} else {
-				sb.append("\n&lt;table class=\"wikitable capes\"&gt;");
-				for (GOTCapes cape : facCapes) {
-					sortable.add("\n&lt;tr&gt;&lt;td&gt;" + cape.getCapeName() + "&lt;/td&gt;&lt;td&gt;" + cape.getCapeDesc() + "&lt;/td&gt;&lt;td&gt;" + getCapeFilename(cape) + "&lt;/td&gt;&lt;/tr&gt;");
-				}
-
-				appendSortedList(sb, sortable);
-
-				sb.append("\n&lt;table&gt;");
-			}
-		}
-		sb.append(END);
-
-		return sb;
-	}
-
 	private static StringBuilder genTemplateFactionChars() {
 		StringBuilder sb = new StringBuilder();
 
@@ -2042,10 +2007,10 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateFactionShields() {
+	private static StringBuilder genTemplateFactionShieldsCapes() {
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append("Template:DB Faction-Shields");
+		sb.append(TITLE).append("Template:DB Faction-ShieldsCapes");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
@@ -2056,14 +2021,29 @@ public class GOTWikiGenerator {
 					facShields.add(shield);
 				}
 			}
+
+			Collection<GOTCapes> facCapes = EnumSet.noneOf(GOTCapes.class);
+			for (GOTCapes cape : CAPES) {
+				if (cape.getAlignmentFaction() == fac) {
+					facCapes.add(cape);
+				}
+			}
+
 			sb.append(NTRB);
 			sb.append(getFactionPagename(fac)).append(" = ");
-			if (facShields.isEmpty()) {
-				sb.append(Lang.FACTION_NO_SHIELDS);
+			if (facShields.isEmpty() && facCapes.isEmpty()) {
+				sb.append(Lang.FACTION_NO_ATTRIBUTES);
 			} else {
-				sb.append("\n&lt;table class=\"wikitable shields\"&gt;");
+				sb.append("\n&lt;table class=\"wikitable shields-capes\"&gt;");
+
 				for (GOTShields shield : facShields) {
 					sortable.add("\n&lt;tr&gt;&lt;td&gt;" + shield.getShieldName() + "&lt;/td&gt;&lt;td&gt;" + shield.getShieldDesc() + "&lt;/td&gt;&lt;td&gt;" + getShieldFilename(shield) + "&lt;/td&gt;&lt;/tr&gt;");
+				}
+
+				appendSortedList(sb, sortable);
+
+				for (GOTCapes cape : facCapes) {
+					sortable.add("\n&lt;tr&gt;&lt;td&gt;" + cape.getCapeName() + "&lt;/td&gt;&lt;td&gt;" + cape.getCapeDesc() + "&lt;/td&gt;&lt;td&gt;" + getCapeFilename(cape) + "&lt;/td&gt;&lt;/tr&gt;");
 				}
 
 				appendSortedList(sb, sortable);
@@ -2547,7 +2527,7 @@ public class GOTWikiGenerator {
 	}
 
 	public enum Lang {
-		PAGE_BIOME, PAGE_FACTION, PAGE_ENTITY, BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST, BIOME_HAS_INVASIONS, BIOME_HAS_SPAWN, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_TREES_BIOME_ONLY, BIOME_HAS_WAYPOINTS, BIOME_NO_ACHIEVEMENT, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST, BIOME_NO_INVASIONS, BIOME_NO_SPAWN, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, BIOME_HAS_MINERALS, BIOME_CONQUEST_ONLY, BIOME_SPAWN_ONLY, FACTION_HAS_BANNERS, FACTION_HAS_CHARS, FACTION_HAS_CONQUEST, FACTION_HAS_INVASION, FACTION_HAS_RANKS, FACTION_HAS_SPAWN, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_CAPES, FACTION_NO_SHIELDS, FACTION_NO_BANNERS, FACTION_NO_CHARS, FACTION_NO_CONQUEST, FACTION_NO_ENEMIES, FACTION_NO_FRIENDS, FACTION_NO_INVASIONS, FACTION_NO_RANKS, FACTION_NO_SPAWN, FACTION_NO_STRUCTURES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, TREE_HAS_BIOMES, TREE_NO_BIOMES, TREE_VARIANT_ONLY, RIDER, NO_PLEDGE, NEED_PLEDGE, REPUTATION, MINERAL_BIOMES, STRUCTURE_BIOMES, ENTITY_NO_BIOMES, ENTITY_HAS_BIOMES, ENTITY_CONQUEST, ENTITY_INVASION, ENTITY_CONQUEST_INVASION, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, CLIMATE_NULL, SEASON_WINTER, SEASON_AUTUMN, SEASON_SUMMER, SEASON_SPRING;
+		PAGE_BIOME, PAGE_FACTION, PAGE_ENTITY, BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST, BIOME_HAS_INVASIONS, BIOME_HAS_SPAWN, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_TREES_BIOME_ONLY, BIOME_HAS_WAYPOINTS, BIOME_NO_ACHIEVEMENT, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST, BIOME_NO_INVASIONS, BIOME_NO_SPAWN, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, BIOME_HAS_MINERALS, BIOME_CONQUEST_ONLY, BIOME_SPAWN_ONLY, FACTION_HAS_BANNERS, FACTION_HAS_CHARS, FACTION_HAS_CONQUEST, FACTION_HAS_INVASION, FACTION_HAS_RANKS, FACTION_HAS_SPAWN, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_ATTRIBUTES, FACTION_NO_BANNERS, FACTION_NO_CHARS, FACTION_NO_CONQUEST, FACTION_NO_ENEMIES, FACTION_NO_FRIENDS, FACTION_NO_INVASIONS, FACTION_NO_RANKS, FACTION_NO_SPAWN, FACTION_NO_STRUCTURES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, TREE_HAS_BIOMES, TREE_NO_BIOMES, TREE_VARIANT_ONLY, RIDER, NO_PLEDGE, NEED_PLEDGE, REPUTATION, MINERAL_BIOMES, STRUCTURE_BIOMES, ENTITY_NO_BIOMES, ENTITY_HAS_BIOMES, ENTITY_CONQUEST, ENTITY_INVASION, ENTITY_CONQUEST_INVASION, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, CLIMATE_NULL, SEASON_WINTER, SEASON_AUTUMN, SEASON_SUMMER, SEASON_SPRING;
 
 		@Override
 		public String toString() {
