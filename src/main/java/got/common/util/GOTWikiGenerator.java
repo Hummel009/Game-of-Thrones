@@ -97,8 +97,8 @@ public class GOTWikiGenerator {
 	private static final Collection<Class<? extends WorldGenerator>> STRUCTURES = new HashSet<>();
 	private static final Collection<Class<? extends Entity>> HIREABLE = new HashSet<>();
 
-	private static final String BEGIN = "</title>\n<ns>10</ns>\n<revision><text>\n&lt;includeonly&gt;{{#switch: {{{1}}}";
-	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;\n</text></revision>\n</page>\n";
+	private static final String BEGIN = "</title>\n<ns>10</ns>\n<revision>\n<text>&lt;includeonly&gt;{{#switch: {{{1}}}";
+	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text>\n</revision>\n</page>\n";
 	private static final String TITLE = "<page>\n<title>";
 	private static final String TITLE_SINGLE = "<page><title>";
 	private static final String NLI = "\n* ";
