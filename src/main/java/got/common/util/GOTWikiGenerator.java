@@ -1953,7 +1953,9 @@ public class GOTWikiGenerator {
 
 		sb.append(TITLE).append("Template:DB Biome-Rainfall");
 		sb.append(BEGIN);
+
 		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
+
 		for (GOTBiome biome : BIOMES) {
 			sb.append(NTRB);
 			sb.append(getBiomePagename(biome)).append(" = ");
@@ -1970,7 +1972,9 @@ public class GOTWikiGenerator {
 			GOTClimateType.performSeasonalChangesServerSide();
 			sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
 		}
+
 		GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
+
 		sb.append(END);
 
 		return sb;
@@ -1981,6 +1985,9 @@ public class GOTWikiGenerator {
 
 		sb.append(TITLE).append("Template:DB Biome-Temperature");
 		sb.append(BEGIN);
+
+		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
+
 		for (GOTBiome biome : BIOMES) {
 			sb.append(NTRB);
 			sb.append(getBiomePagename(biome)).append(" = ");
@@ -1997,6 +2004,9 @@ public class GOTWikiGenerator {
 			GOTClimateType.performSeasonalChangesServerSide();
 			sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
 		}
+
+		GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
+
 		sb.append(END);
 
 		return sb;
