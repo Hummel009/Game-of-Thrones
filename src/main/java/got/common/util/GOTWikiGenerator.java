@@ -199,95 +199,96 @@ public class GOTWikiGenerator {
 
 				threads.forEach(Thread::start);
 			} else if ("xml".equalsIgnoreCase(type)) {
-				StringBuilder sb = new StringBuilder();
+				StringBuilder globalSb = new StringBuilder();
 
-				sb.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
+				globalSb.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
-				/* ALL PAGES */
+				Collection<StringBuilder> sbs = new ArrayList<>();
 
 				List<String> existingPages = getExistingPages();
-
 				Collection<String> neededPages = new ArrayList<>();
 
-				addPagesMinerals(neededPages, existingPages, sb);
-				addPagesEntities(neededPages, existingPages, sb);
-				addPagesBiomes(neededPages, existingPages, sb);
-				addPagesFactions(neededPages, existingPages, sb);
-				addPagesTrees(neededPages, existingPages, sb);
-				addPagesStructures(neededPages, existingPages, sb);
+				sbs.add(addPagesMinerals(neededPages, existingPages));
+				sbs.add(addPagesEntities(neededPages, existingPages));
+				sbs.add(addPagesBiomes(neededPages, existingPages));
+				sbs.add(addPagesFactions(neededPages, existingPages));
+				sbs.add(addPagesTrees(neededPages, existingPages));
+				sbs.add(addPagesStructures(neededPages, existingPages));
 
-				markPagesForRemoval(existingPages, neededPages);
+				sbs.add(markPagesForRemoval(existingPages, neededPages));
 
-				genTemplateStructureBiomes(sb);
-				//genTemplateStructureEntities(sb);
-				genTemplateMineralBiomes(sb);
-				genTemplateTreeBiomes(sb);
+				sbs.add(genTemplateStructureBiomes());
+				sbs.add(genTemplateMineralBiomes());
+				sbs.add(genTemplateTreeBiomes());
 
-				genTemplateBiomeClimate(sb);
-				genTemplateBiomeConquestFactions(sb);
-				genTemplateBiomeInvasionFactions(sb);
-				genTemplateBiomeMinerals(sb);
-				genTemplateBiomeMobs(sb);
-				genTemplateBiomeMusic(sb);
-				genTemplateBiomeRainfall(sb);
-				genTemplateBiomeSpawnNPCs(sb);
-				genTemplateBiomeStructures(sb);
-				genTemplateBiomeTemperature(sb);
-				genTemplateBiomeTrees(sb);
-				genTemplateBiomeVariants(sb);
-				genTemplateBiomeVisitAchievement(sb);
-				genTemplateBiomeWaypoints(sb);
+				sbs.add(genTemplateBiomeClimate());
+				sbs.add(genTemplateBiomeConquestFactions());
+				sbs.add(genTemplateBiomeInvasionFactions());
+				sbs.add(genTemplateBiomeMinerals());
+				sbs.add(genTemplateBiomeMobs());
+				sbs.add(genTemplateBiomeMusic());
+				sbs.add(genTemplateBiomeRainfall());
+				sbs.add(genTemplateBiomeSpawnNPCs());
+				sbs.add(genTemplateBiomeStructures());
+				sbs.add(genTemplateBiomeTemperature());
+				sbs.add(genTemplateBiomeTrees());
+				sbs.add(genTemplateBiomeVariants());
+				sbs.add(genTemplateBiomeVisitAchievement());
+				sbs.add(genTemplateBiomeWaypoints());
 
-				genTemplateFactionBanners(sb);
-				genTemplateFactionCapes(sb);
-				genTemplateFactionChars(sb);
-				genTemplateFactionCodename(sb);
-				genTemplateFactionConquestBiomes(sb);
-				genTemplateFactionEnemies(sb);
-				genTemplateFactionFriends(sb);
-				genTemplateFactionInvasionBiomes(sb);
-				genTemplateFactionNPCs(sb);
-				genTemplateFactionName(sb);
-				genTemplateFactionPledgeRank(sb);
-				genTemplateFactionRanks(sb);
-				genTemplateFactionRegion(sb);
-				genTemplateFactionShields(sb);
-				genTemplateFactionSpawnBiomes(sb);
-				genTemplateFactionStructures(sb);
-				genTemplateFactionWarCrimes(sb);
-				genTemplateFactionWaypoints(sb);
+				sbs.add(genTemplateFactionBanners());
+				sbs.add(genTemplateFactionCapes());
+				sbs.add(genTemplateFactionChars());
+				sbs.add(genTemplateFactionCodename());
+				sbs.add(genTemplateFactionConquestBiomes());
+				sbs.add(genTemplateFactionEnemies());
+				sbs.add(genTemplateFactionFriends());
+				sbs.add(genTemplateFactionInvasionBiomes());
+				sbs.add(genTemplateFactionNPCs());
+				sbs.add(genTemplateFactionName());
+				sbs.add(genTemplateFactionPledgeRank());
+				sbs.add(genTemplateFactionRanks());
+				sbs.add(genTemplateFactionRegion());
+				sbs.add(genTemplateFactionShields());
+				sbs.add(genTemplateFactionSpawnBiomes());
+				sbs.add(genTemplateFactionStructures());
+				sbs.add(genTemplateFactionWarCrimes());
+				sbs.add(genTemplateFactionWaypoints());
 
-				genTemplateEntityBannerBearer(sb);
-				genTemplateEntityBuys(sb);
-				genTemplateEntityCharacter(sb);
-				genTemplateEntityFaction(sb);
-				genTemplateEntityFarmhand(sb);
-				genTemplateEntityHealth(sb);
-				genTemplateEntityHireAlignment(sb);
-				genTemplateEntityHirePrice(sb);
-				genTemplateEntityHirePricePledge(sb);
-				genTemplateEntityImmuneToFire(sb);
-				genTemplateEntityImmuneToFrost(sb);
-				genTemplateEntityImmuneToHeat(sb);
-				genTemplateEntityKillAchievement(sb);
-				genTemplateEntityKillAlignment(sb);
-				genTemplateEntityMarriage(sb);
-				genTemplateEntityMercenary(sb);
-				genTemplateEntityOwner(sb);
-				genTemplateEntityRideableMob(sb);
-				genTemplateEntityRideableNPC(sb);
-				genTemplateEntitySells(sb);
-				genTemplateEntitySellsUnits(sb);
-				genTemplateEntitySmith(sb);
-				genTemplateEntitySpawn(sb);
-				genTemplateEntitySpawnsInDarkness(sb);
-				//genTemplateEntityStructures(sb);
-				genTemplateEntityTradeable(sb);
-				genTemplateEntityUnitTradeable(sb);
-				genTemplateEntityWaypoint(world, sb);
+				sbs.add(genTemplateEntityBannerBearer());
+				sbs.add(genTemplateEntityBuys());
+				sbs.add(genTemplateEntityCharacter());
+				sbs.add(genTemplateEntityFaction());
+				sbs.add(genTemplateEntityFarmhand());
+				sbs.add(genTemplateEntityHealth());
+				sbs.add(genTemplateEntityHireAlignment());
+				sbs.add(genTemplateEntityHirePrice());
+				sbs.add(genTemplateEntityHirePricePledge());
+				sbs.add(genTemplateEntityImmuneToFire());
+				sbs.add(genTemplateEntityImmuneToFrost());
+				sbs.add(genTemplateEntityImmuneToHeat());
+				sbs.add(genTemplateEntityKillAchievement());
+				sbs.add(genTemplateEntityKillAlignment());
+				sbs.add(genTemplateEntityMarriage());
+				sbs.add(genTemplateEntityMercenary());
+				sbs.add(genTemplateEntityOwner());
+				sbs.add(genTemplateEntityRideableMob());
+				sbs.add(genTemplateEntityRideableNPC());
+				sbs.add(genTemplateEntitySells());
+				sbs.add(genTemplateEntitySellsUnits());
+				sbs.add(genTemplateEntitySmith());
+				sbs.add(genTemplateEntitySpawn());
+				sbs.add(genTemplateEntitySpawnsInDarkness());
+				sbs.add(genTemplateEntityTradeable());
+				sbs.add(genTemplateEntityUnitTradeable());
+				sbs.add(genTemplateEntityWaypoint(world));
+
+				for (StringBuilder sb : sbs) {
+					globalSb.append(sb);
+				}
 
 				PrintWriter xml = new PrintWriter("hummel/import.xml", "UTF-8");
-				xml.write(sb.toString());
+				xml.write(globalSb.toString());
 				xml.close();
 			}
 		} catch (Exception e) {
@@ -300,8 +301,9 @@ public class GOTWikiGenerator {
 		player.addChatMessage(component);
 	}
 
-	private static void markPagesForRemoval(Iterable<String> existingPages, Collection<String> neededPages) throws FileNotFoundException, UnsupportedEncodingException {
+	private static StringBuilder markPagesForRemoval(Iterable<String> existingPages, Collection<String> neededPages) throws FileNotFoundException, UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
+
 		for (String existing : existingPages) {
 			if (!neededPages.contains(existing)) {
 				sb.append(existing).append('\n');
@@ -310,9 +312,13 @@ public class GOTWikiGenerator {
 		PrintWriter printWriter = new PrintWriter("hummel/removal.txt", "UTF-8");
 		printWriter.write(sb.toString());
 		printWriter.close();
+
+		return sb;
 	}
 
-	private static void addPagesStructures(Collection<String> neededPages, Collection<String> existingPages, StringBuilder sb) {
+	private static StringBuilder addPagesStructures(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
 		for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
 			String pageName = getStructureName(strClass);
 			neededPages.add(pageName);
@@ -321,9 +327,13 @@ public class GOTWikiGenerator {
 				sb.append(TITLE).append(pageName).append(page);
 			}
 		}
+
+		return sb;
 	}
 
-	private static void addPagesTrees(Collection<String> neededPages, Collection<String> existingPages, StringBuilder sb) {
+	private static StringBuilder addPagesTrees(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
 		for (GOTTreeType tree : TREES) {
 			String pageName = getTreeName(tree);
 			neededPages.add(pageName);
@@ -332,9 +342,13 @@ public class GOTWikiGenerator {
 				sb.append(TITLE).append(pageName).append(page);
 			}
 		}
+
+		return sb;
 	}
 
-	private static void addPagesFactions(Collection<String> neededPages, Collection<String> existingPages, StringBuilder sb) {
+	private static StringBuilder addPagesFactions(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
 		for (GOTFaction faction : FACTIONS) {
 			String pageName = getFactionPagename(faction);
 			neededPages.add(pageName);
@@ -343,9 +357,13 @@ public class GOTWikiGenerator {
 				sb.append(TITLE).append(pageName).append(page);
 			}
 		}
+
+		return sb;
 	}
 
-	private static void addPagesBiomes(Collection<String> neededPages, Collection<String> existingPages, StringBuilder sb) {
+	private static StringBuilder addPagesBiomes(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
 		for (GOTBiome biome : BIOMES) {
 			String pageName = getBiomePagename(biome);
 			neededPages.add(pageName);
@@ -354,9 +372,13 @@ public class GOTWikiGenerator {
 				sb.append(TITLE).append(pageName).append(page);
 			}
 		}
+
+		return sb;
 	}
 
-	private static void addPagesEntities(Collection<String> neededPages, Collection<String> existingPages, StringBuilder sb) {
+	private static StringBuilder addPagesEntities(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
 		for (Class<? extends Entity> entityClass : ENTITIES) {
 			String pageName = getEntityPagename(entityClass);
 			neededPages.add(pageName);
@@ -365,9 +387,13 @@ public class GOTWikiGenerator {
 				sb.append(TITLE).append(pageName).append(page);
 			}
 		}
+
+		return sb;
 	}
 
-	private static void addPagesMinerals(Collection<String> neededPages, Collection<String> existingPages, StringBuilder sb) {
+	private static StringBuilder addPagesMinerals(Collection<String> neededPages, Collection<String> existingPages) {
+		StringBuilder sb = new StringBuilder();
+
 		for (String pageName : MINERALS) {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
@@ -375,9 +401,13 @@ public class GOTWikiGenerator {
 				sb.append(TITLE).append(pageName).append(page);
 			}
 		}
+
+		return sb;
 	}
 
-	private static void genTemplateEntityWaypoint(World world, StringBuilder sb) {
+	private static StringBuilder genTemplateEntityWaypoint(World world) {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Waypoint");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : CLASS_TO_WP_MAPPING.entrySet()) {
@@ -394,9 +424,13 @@ public class GOTWikiGenerator {
 		}
 		sb.append(END);
 		sb.append("\n</mediawiki>");
+
+		return sb;
 	}
 
-	private static void genTemplateEntitySellsUnits(StringBuilder sb) {
+	private static StringBuilder genTemplateEntitySellsUnits() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Units");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -427,9 +461,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityKillAlignment(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityKillAlignment() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Bonus");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -440,9 +478,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityKillAchievement(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityKillAchievement() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Achievement");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -458,9 +500,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityFaction(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityFaction() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Faction");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -471,9 +517,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityMarriage(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityMarriage() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Marriage");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -483,9 +533,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityHireAlignment(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityHireAlignment() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Alignment");
 		sb.append(BEGIN);
 		next:
@@ -506,9 +560,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityHirePrice(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityHirePrice() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Price");
 		sb.append(BEGIN);
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
@@ -523,9 +581,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityHirePricePledge(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityHirePricePledge() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-PricePledge");
 		sb.append(BEGIN);
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
@@ -535,9 +597,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntitySpawnsInDarkness(StringBuilder sb) {
+	private static StringBuilder genTemplateEntitySpawnsInDarkness() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-SpawnsInDarkness");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -547,9 +613,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityImmuneToHeat(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityImmuneToHeat() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-ImmuneToHeat");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -559,9 +629,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityImmuneToFire(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityImmuneToFire() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-ImmuneToFire");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -571,9 +645,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityImmuneToFrost(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityImmuneToFrost() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-ImmuneToFrost");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -583,9 +661,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityCharacter(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityCharacter() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Character");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -595,9 +677,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntitySells(StringBuilder sb) {
+	private static StringBuilder genTemplateEntitySells() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Sells");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -615,9 +701,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityBuys(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityBuys() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Buys");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -635,9 +725,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityFarmhand(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityFarmhand() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Farmhand");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -647,9 +741,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityMercenary(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityMercenary() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Mercenary");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -659,9 +757,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntitySmith(StringBuilder sb) {
+	private static StringBuilder genTemplateEntitySmith() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Smith");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -671,9 +773,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityTradeable(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityTradeable() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Tradeable");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -683,9 +789,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityUnitTradeable(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityUnitTradeable() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-UnitTradeable");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -695,9 +805,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityBannerBearer(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityBannerBearer() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-BannerBearer");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -707,9 +821,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityRideableMob(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityRideableMob() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Rideable2");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -719,9 +837,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityRideableNPC(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityRideableNPC() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template: DB Mob-Rideable1");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -731,9 +853,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityHealth(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityHealth() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Health");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
@@ -742,9 +868,13 @@ public class GOTWikiGenerator {
 			sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(entity.getMaxHealth());
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntityOwner(StringBuilder sb) {
+	private static StringBuilder genTemplateEntityOwner() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("DB Mob-Owner");
 		sb.append(BEGIN);
 		for (Class<? extends Entity> entityClass : HIREABLE) {
@@ -785,9 +915,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateEntitySpawn(StringBuilder sb) {
+	private static StringBuilder genTemplateEntitySpawn() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mob-Spawn");
 		sb.append(BEGIN);
 		for (Class<? extends Entity> entityClass : ENTITIES) {
@@ -881,9 +1015,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionStructures(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionStructures() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Structures");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -907,9 +1045,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionRegion(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionRegion() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Region");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -922,9 +1064,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionName(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionName() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Name");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -932,9 +1078,13 @@ public class GOTWikiGenerator {
 			sb.append(getFactionPagename(fac)).append(" = ").append(getFactionName(fac));
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionCodename(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionCodename() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Codename");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -942,9 +1092,13 @@ public class GOTWikiGenerator {
 			sb.append(getFactionPagename(fac)).append(" = ").append(fac.codeName());
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionWarCrimes(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionWarCrimes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-WarCrimes");
 		sb.append(BEGIN);
 		sb.append("\n| #default = ").append(Lang.FACTION_NO_WAR_CRIMES);
@@ -955,9 +1109,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionFriends(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionFriends() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Friends");
 		sb.append(BEGIN);
 		for (GOTFaction fac1 : FACTIONS) {
@@ -989,9 +1147,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionEnemies(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionEnemies() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Enemies");
 		sb.append(BEGIN);
 		for (GOTFaction fac1 : FACTIONS) {
@@ -1023,9 +1185,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionChars(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionChars() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Chars");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1052,9 +1218,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionPledgeRank(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionPledgeRank() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Pledge");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1072,9 +1242,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionCapes(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionCapes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Capes");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1102,9 +1276,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionShields(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionShields() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Shields");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1132,9 +1310,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionWaypoints(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionWaypoints() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Waypoints");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1160,9 +1342,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionBanners(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionBanners() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Banners");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1182,9 +1368,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionRanks(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionRanks() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Ranks");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1207,9 +1397,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionConquestBiomes(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionConquestBiomes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Conquest");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1255,9 +1449,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionSpawnBiomes(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionSpawnBiomes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Spawn");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1303,9 +1501,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionInvasionBiomes(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionInvasionBiomes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-Invasions");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1338,9 +1540,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateFactionNPCs(StringBuilder sb) {
+	private static StringBuilder genTemplateFactionNPCs() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Faction-NPC");
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
@@ -1358,9 +1564,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeStructures(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeStructures() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Structures");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1380,9 +1590,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeMusic(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeMusic() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Music");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1395,9 +1609,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeMinerals(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeMinerals() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Minerals");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1424,9 +1642,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeMobs(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeMobs() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Mobs");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1455,9 +1677,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeTrees(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeTrees() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Trees");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1499,9 +1725,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeVisitAchievement(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeVisitAchievement() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Achievement");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1515,9 +1745,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeWaypoints(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeWaypoints() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Waypoints");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1540,9 +1774,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeInvasionFactions(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeInvasionFactions() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Invasions");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1574,9 +1812,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeVariants(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeVariants() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Variants");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1595,9 +1837,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeClimate(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeClimate() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Climate");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1632,9 +1878,13 @@ public class GOTWikiGenerator {
 			}
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeRainfall(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeRainfall() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Rainfall");
 		sb.append(BEGIN);
 		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
@@ -1656,9 +1906,13 @@ public class GOTWikiGenerator {
 		}
 		GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeTemperature(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeTemperature() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-Temperature");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1678,9 +1932,13 @@ public class GOTWikiGenerator {
 			sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeConquestFactions(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeConquestFactions() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-ConquestNPC");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1726,9 +1984,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateBiomeSpawnNPCs(StringBuilder sb) {
+	private static StringBuilder genTemplateBiomeSpawnNPCs() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Biome-SpawnNPC");
 		sb.append(BEGIN);
 		for (GOTBiome biome : BIOMES) {
@@ -1764,9 +2026,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateTreeBiomes(StringBuilder sb) {
+	private static StringBuilder genTemplateTreeBiomes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Tree-Biomes");
 		sb.append(BEGIN);
 
@@ -1812,9 +2078,13 @@ public class GOTWikiGenerator {
 			appendSortedList(sb, sortable);
 		}
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateMineralBiomes(StringBuilder sb) {
+	private static StringBuilder genTemplateMineralBiomes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Mineral-Biomes");
 		sb.append(BEGIN);
 
@@ -1841,9 +2111,13 @@ public class GOTWikiGenerator {
 		}
 
 		sb.append(END);
+
+		return sb;
 	}
 
-	private static void genTemplateStructureBiomes(StringBuilder sb) {
+	private static StringBuilder genTemplateStructureBiomes() {
+		StringBuilder sb = new StringBuilder();
+
 		sb.append(TITLE).append("Template:DB Structure-Biomes");
 		sb.append(BEGIN);
 
@@ -1865,6 +2139,8 @@ public class GOTWikiGenerator {
 		}
 
 		sb.append(END);
+
+		return sb;
 	}
 
 	private static List<String> getExistingPages() {
@@ -1882,14 +2158,15 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		return Collections.emptyList();
 	}
 
 	@SuppressWarnings("deprecation")
-	private static void genTableFood() {
-		try {
-			StringBuilder sb = new StringBuilder();
+	private static StringBuilder genTableFood() {
+		StringBuilder sb = new StringBuilder();
 
+		try {
 			List<String> sortable = new ArrayList<>();
 
 			for (Item item : ITEMS) {
@@ -1918,12 +2195,14 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
-	private static void genTableWeapons() {
-		try {
-			StringBuilder sb = new StringBuilder();
+	private static StringBuilder genTableWeapons() {
+		StringBuilder sb = new StringBuilder();
 
+		try {
 			List<String> sortable = new ArrayList<>();
 
 			for (Item item : ITEMS) {
@@ -1954,11 +2233,14 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
-	private static void genTableArmor() {
+	private static StringBuilder genTableArmor() {
+		StringBuilder sb = new StringBuilder();
+
 		try {
-			StringBuilder sb = new StringBuilder();
 			for (Item item : ITEMS) {
 				if (item instanceof ItemArmor) {
 					float damage = ((ItemArmor) item).damageReduceAmount;
@@ -1980,12 +2262,14 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
-	private static void genTableWaypoints() {
-		try {
-			StringBuilder sb = new StringBuilder();
+	private static StringBuilder genTableWaypoints() {
+		StringBuilder sb = new StringBuilder();
 
+		try {
 			List<String> sortable = new ArrayList<>();
 
 			for (GOTWaypoint wp : WAYPOINTS) {
@@ -2000,11 +2284,14 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
-	private static void genTableUnits() {
+	private static StringBuilder genTableUnits() {
+		StringBuilder sb = new StringBuilder();
+
 		try {
-			StringBuilder sb = new StringBuilder();
 			for (GOTUnitTradeEntries unitTradeEntries : UNIT_TRADE_ENTRIES) {
 				for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
 					if (entry != null) {
@@ -2038,11 +2325,14 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
-	private static void genTableCapes() {
+	private static StringBuilder genTableCapes() {
+		StringBuilder sb = new StringBuilder();
+
 		try {
-			StringBuilder sb = new StringBuilder();
 			for (GOTCapes cape : CAPES) {
 				sb.append(NTRB);
 				sb.append(cape.getCapeName()).append(TR).append(cape.getCapeDesc()).append(TR).append(getCapeFilename(cape)).append(NTRE);
@@ -2053,11 +2343,14 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
-	private static void genTableShields() {
+	private static StringBuilder genTableShields() {
+		StringBuilder sb = new StringBuilder();
+
 		try {
-			StringBuilder sb = new StringBuilder();
 			for (GOTShields shield : SHIELDS) {
 				sb.append(NTRB);
 				sb.append(shield.getShieldName()).append(TR).append(shield.getShieldDesc()).append(TR).append(getShieldFilename(shield)).append(NTRE);
@@ -2068,11 +2361,14 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
-	private static void genTableAchievements(EntityPlayer player) {
+	private static StringBuilder genTableAchievements(EntityPlayer player) {
+		StringBuilder sb = new StringBuilder();
+
 		try {
-			StringBuilder sb = new StringBuilder();
 			for (GOTAchievement ach : ACHIEVEMENTS) {
 				sb.append(NTRB);
 				sb.append(ach.getTitle(player)).append(TR).append(ach.getDescription()).append(NTRE);
@@ -2083,6 +2379,8 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return sb;
 	}
 
 	private static String getBannerName(GOTItemBanner.BannerType banner) {
