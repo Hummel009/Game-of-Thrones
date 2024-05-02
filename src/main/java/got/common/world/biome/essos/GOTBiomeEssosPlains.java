@@ -9,7 +9,7 @@ public abstract class GOTBiomeEssosPlains extends GOTBiomeEssos {
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.SAVANNAH_BAOBAB, 0.5f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.setGrassPerChunk(256);
 	}
 }

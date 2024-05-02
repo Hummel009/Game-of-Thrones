@@ -34,7 +34,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.setBiomeGemFactor(2.0f);
 		decorator.setBiomeOreFactor(2.0f);
 		decorator.setTreesPerChunk(0);

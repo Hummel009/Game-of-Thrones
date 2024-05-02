@@ -17,7 +17,7 @@ public class GOTBiomeEssosMarshes extends GOTBiomeEssos implements GOTBiome.Mars
 		setupMarshFauna();
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.SWAMP_LOWLAND, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.ACACIA, 300);
 		decorator.addTree(GOTTreeType.ACACIA_DEAD, 1);

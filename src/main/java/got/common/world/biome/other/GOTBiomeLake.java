@@ -14,7 +14,7 @@ public class GOTBiomeLake extends GOTBiome {
 		spawnableGOTAmbientList.clear();
 		npcSpawnList.clear();
 		decorator.setSandPerChunk(0);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

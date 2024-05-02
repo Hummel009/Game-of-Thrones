@@ -21,7 +21,7 @@ public class GOTBiomeArrynMountains extends GOTBiomeArryn implements GOTBiome.Mo
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 10, 1, 2));
 		decorator.setDoubleFlowersPerChunk(0);
 		decorator.setDoubleGrassPerChunk(1);

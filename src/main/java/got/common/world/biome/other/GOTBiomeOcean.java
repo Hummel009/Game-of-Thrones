@@ -30,7 +30,7 @@ public class GOTBiomeOcean extends GOTBiome {
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8), 4.0f, 0, 64);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, Blocks.sand), 0.5f, 56, 80);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, GOTBlocks.whiteSand), 0.5f, 56, 80);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	public static boolean isFrozen(int k) {

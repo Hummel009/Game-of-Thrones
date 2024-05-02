@@ -12,7 +12,7 @@ public class GOTBiomeRiver extends GOTBiome {
 		spawnableCreatureList.clear();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

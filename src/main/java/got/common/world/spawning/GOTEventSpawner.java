@@ -63,7 +63,7 @@ public class GOTEventSpawner {
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
 			Class<? extends GOTEntityNPC> banditClass = gotbiome.getBanditEntityClass();
-			double chance = gotbiome.getUnreliableChance().getChancesPerSecondPerChunk()[16];
+			double chance = gotbiome.getBanditChance().getChancesPerSecondPerChunk()[16];
 			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
 			}

@@ -15,7 +15,7 @@ public class GOTBiomeBeach extends GOTBiomeOcean {
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySeagull.class, 20, 4, 4));
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	public GOTBiome setBeachBlock(Block block, int meta) {

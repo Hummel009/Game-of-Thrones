@@ -16,7 +16,7 @@ public class GOTBiomeYiTiMarshes extends GOTBiomeYiTi implements GOTBiome.Marshe
 		setupMarshFauna();
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.SWAMP_LOWLAND, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		variantChance = 1.0f;
 		decorator.setSandPerChunk(0);
 		decorator.setQuagmirePerChunk(1);

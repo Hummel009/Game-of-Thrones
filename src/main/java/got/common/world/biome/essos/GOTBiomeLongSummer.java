@@ -24,7 +24,7 @@ public class GOTBiomeLongSummer extends GOTBiomeEssosPlains {
 		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.setTreesPerChunk(0);
 		decorator.setLogsPerChunk(2);
 		decorator.setFlowersPerChunk(2);

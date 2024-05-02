@@ -19,7 +19,7 @@ public class GOTBiomeEssosMountains extends GOTBiomeEssos implements GOTBiome.Mo
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		enableRocky = true;
 		decorator.setBiomeOreFactor(2.0f);
 		decorator.setBiomeGemFactor(2.0f);

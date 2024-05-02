@@ -30,7 +30,7 @@ public class GOTBiomeSothoryosMountains extends GOTBiomeSothoryosSavannah implem
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
 		decorator.clearSettlements();
 		npcSpawnList.clear();
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

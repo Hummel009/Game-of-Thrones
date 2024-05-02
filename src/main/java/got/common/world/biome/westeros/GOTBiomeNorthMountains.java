@@ -31,7 +31,7 @@ public class GOTBiomeNorthMountains extends GOTBiomeNorth implements GOTBiome.Mo
 		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

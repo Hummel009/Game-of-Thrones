@@ -17,7 +17,7 @@ public class GOTBiomeBleedingBeach extends GOTBiomeOcean {
 		spawnableGOTAmbientList.clear();
 		npcSpawnList.clear();
 		biomeColors.setWater(new Color(0x640a0a));
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

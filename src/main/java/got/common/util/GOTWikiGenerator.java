@@ -264,6 +264,7 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
 				suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
 
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeConquestFactions);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeInvasionFactions);
@@ -579,6 +580,19 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static StringBuilder genTemplateBiomeBandits() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append("Template:DB Biome-Bandits");
+		sb.append(BEGIN);
+		for (GOTBiome biome : BIOMES) {
+			sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biome.getBanditChance());
+		}
+		sb.append(END);
+
+		return sb;
 	}
 
 	private static StringBuilder genTemplateBiomeClimate() {

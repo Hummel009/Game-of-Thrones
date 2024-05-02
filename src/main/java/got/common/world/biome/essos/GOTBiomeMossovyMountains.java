@@ -21,7 +21,7 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy implements GOTBiom
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
 		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		enableRocky = true;
 		decorator.setDoubleFlowersPerChunk(0);
 		decorator.setDoubleGrassPerChunk(1);

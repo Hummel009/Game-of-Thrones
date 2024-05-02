@@ -264,7 +264,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	protected GOTBiomeInvasionSpawns invasionSpawns;
 	protected GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
 	protected Class<? extends GOTEntityNPC> banditEntityClass;
-	protected GOTEventSpawner.EventChance unreliableChance;
+	protected GOTEventSpawner.EventChance banditChance;
 
 	protected boolean enableRocky;
 	protected float variantChance = 0.4f;
@@ -296,7 +296,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableCaveCreatureList.clear();
 		spawnableWaterCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFish.class, 10, 4, 4));
 		spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
-		unreliableChance = GOTEventSpawner.EventChance.COMMON;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
 		CONTENT.add(this);
 	}
@@ -923,8 +923,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return tree.create(false, random);
 	}
 
-	public GOTEventSpawner.EventChance getUnreliableChance() {
-		return unreliableChance;
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return banditChance;
 	}
 
 	public float getVariantChance() {

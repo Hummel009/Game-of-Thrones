@@ -17,7 +17,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy implements GOTBiome.
 		setupMarshFauna();
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.SWAMP_LOWLAND, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		variantChance = 1.0f;
 		decorator.setSandPerChunk(0);
 		decorator.setQuagmirePerChunk(1);

@@ -11,7 +11,7 @@ public class GOTBiomeVolantisOrangeForest extends GOTBiomeVolantis {
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.setTreesPerChunk(10);
 		decorator.setFlowersPerChunk(6);
 		decorator.setGrassPerChunk(8);

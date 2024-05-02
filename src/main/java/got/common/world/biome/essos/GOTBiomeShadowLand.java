@@ -18,7 +18,7 @@ public class GOTBiomeShadowLand extends GOTBiome {
 	public GOTBiomeShadowLand(int i, boolean major) {
 		super(i, major);
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();

@@ -13,7 +13,7 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 		setupFrostFauna();
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.clearTrees();
 		decorator.clearStructures();
 		topBlock = Blocks.snow;

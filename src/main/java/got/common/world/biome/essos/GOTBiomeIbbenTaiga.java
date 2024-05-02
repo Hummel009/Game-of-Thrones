@@ -10,7 +10,7 @@ public class GOTBiomeIbbenTaiga extends GOTBiomeIbben {
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		decorator.setTreesPerChunk(10);
 		decorator.clearSettlements();
 	}

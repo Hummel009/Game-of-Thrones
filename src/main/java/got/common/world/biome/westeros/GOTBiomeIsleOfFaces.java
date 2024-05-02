@@ -26,7 +26,7 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 		decorator.setGrassPerChunk(8);
 		decorator.setDoubleGrassPerChunk(3);
 		addFlower(Blocks.red_flower, 0, 80);
-		unreliableChance = GOTEventSpawner.EventChance.NEVER;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override
