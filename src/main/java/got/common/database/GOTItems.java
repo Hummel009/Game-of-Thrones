@@ -19,12 +19,12 @@ import net.minecraft.item.ItemSeedFood;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @SuppressWarnings({"PublicField", "WeakerAccess"})
 public class GOTItems {
-	public static final Set<Item> CONTENT = new HashSet<>();
+	public static final Collection<Item> CONTENT = new ArrayList<>();
 
 	public static Item beaverRaw;
 	public static Item beaverTail;

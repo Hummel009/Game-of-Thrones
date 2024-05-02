@@ -30,14 +30,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemLeaves;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EnumMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 @SuppressWarnings({"PublicField", "WeakerAccess"})
 public class GOTBlocks {
-	public static final Set<Block> CONTENT = new HashSet<>();
+	public static final Collection<Block> CONTENT = new ArrayList<>();
 
 	public static final Map<GOTEnumDyeColor, GOTBlockConcretePowder> CONCRETE_POWDER = new EnumMap<>(GOTEnumDyeColor.class);
 	public static final Map<GOTEnumDyeColor, GOTBlockConcrete> CONCRETE = new EnumMap<>(GOTEnumDyeColor.class);

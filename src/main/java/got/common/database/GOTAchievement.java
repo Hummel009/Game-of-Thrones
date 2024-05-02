@@ -23,7 +23,7 @@ import java.util.*;
 
 @SuppressWarnings({"PublicField", "WeakerAccess", "unused"})
 public class GOTAchievement {
-	public static final Set<GOTAchievement> CONTENT = new HashSet<>();
+	public static final Collection<GOTAchievement> CONTENT = new ArrayList<>();
 
 	public static final Map<ItemArmor.ArmorMaterial, GOTAchievement> ARMOR_ACHIEVEMENTS = new EnumMap<>(ItemArmor.ArmorMaterial.class);
 

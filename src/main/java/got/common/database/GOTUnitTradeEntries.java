@@ -35,8 +35,8 @@ import got.common.entity.essos.tyrosh.*;
 import got.common.entity.essos.volantis.*;
 import got.common.entity.essos.yiti.*;
 import got.common.entity.other.GOTEntityProstitute;
-import got.common.entity.other.utils.GOTUnitTradeEntry;
 import got.common.entity.other.info.GOTHireableInfo;
+import got.common.entity.other.utils.GOTUnitTradeEntry;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBannerBearer;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBlowgunner;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmhand;
@@ -66,13 +66,12 @@ import got.common.entity.westeros.wildling.*;
 import got.common.entity.westeros.wildling.thenn.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTUnitTradeEntries {
-	public static final Set<GOTUnitTradeEntries> CONTENT = new HashSet<>();
+	public static final Collection<GOTUnitTradeEntries> CONTENT = new ArrayList<>();
 
 	public static final int LEVYMAN = 5;
 	public static final int LEVYMANA = 10;

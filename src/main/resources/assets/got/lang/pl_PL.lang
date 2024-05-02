@@ -2117,7 +2117,8 @@ got.db.FACTION_HAS_RANKS.name=Rangi frakcyjne są dostępne gdy uzyskasz potrzeb
 got.db.FACTION_HAS_SPAWN.name=Moby tej frakcji mogą się pojawiać w podanych biomach:
 got.db.FACTION_HAS_WAR_CRIMES.name=Ta frakcja zachęca do zbrodni wojennych
 got.db.FACTION_HAS_WAYPOINTS.name=Ta frakcja posiada punkty orientacyjne wypisane poniżeł. Nie będziesz mógł się do nich teleportować jeżeli będziesz miał z frakcją złe stosunki.
-got.db.FACTION_NO_ATTRIBUTES.name=Ta frakcja nie ma żadnych tarcz lub peleryn.
+got.db.FACTION_NO_CAPES.name≠This faction has no capes.
+got.db.FACTION_NO_SHIELDS.name≠This faction has no shields.
 got.db.FACTION_NO_BANNERS.name=Ta frakcja nie ma żadnych sztandarów.
 got.db.FACTION_NO_CHARS.name=Postacie należące do tej frakcji nie istnieją.
 got.db.FACTION_NO_CONQUEST.name=Żadne biomy nie mogą zostać podbite w imieniu tej frakcji.
