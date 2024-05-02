@@ -8,12 +8,13 @@ import net.minecraft.world.World;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class GOTCommandWikiGen extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			List<String> list = GOTWikiGenerator.Type.getNames();
+			Set<String> list = GOTWikiGenerator.Type.getNames();
 			return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
 		return Collections.emptyList();

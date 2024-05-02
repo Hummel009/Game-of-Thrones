@@ -59,13 +59,12 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -78,22 +77,23 @@ public class GOTWikiGenerator {
 	private static final Map<String, String> ENTITY_TO_PAGE = new HashMap<>();
 	private static final Map<String, String> BIOME_TO_PAGE = new HashMap<>();
 
-	private static final Iterable<Class<? extends Entity>> ENTITIES = new ArrayList<>(GOTEntityRegistry.CONTENT);
 	private static final Iterable<Item> ITEMS = new ArrayList<>(GOTItems.CONTENT);
 	private static final Iterable<GOTUnitTradeEntries> UNIT_TRADE_ENTRIES = new ArrayList<>(GOTUnitTradeEntries.CONTENT);
-	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new ArrayList<>(GOTAchievement.CONTENT);
-	private static final Iterable<Class<? extends WorldGenerator>> STRUCTURES = new ArrayList<>(GOTStructureRegistry.CONTENT);
 
-	private static final Collection<GOTBiome> BIOMES = new ArrayList<>(GOTBiome.CONTENT);
+	private static final Iterable<Class<? extends Entity>> ENTITIES = new HashSet<>(GOTEntityRegistry.CONTENT);
+	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
 
-	private static final Iterable<GOTFaction> FACTIONS = new ArrayList<>(Arrays.asList(GOTFaction.values()));
-	private static final Iterable<GOTTreeType> TREES = new ArrayList<>(Arrays.asList(GOTTreeType.values()));
-	private static final Iterable<GOTWaypoint> WAYPOINTS = new ArrayList<>(Arrays.asList(GOTWaypoint.values()));
-	private static final Iterable<GOTCapes> CAPES = new ArrayList<>(Arrays.asList(GOTCapes.values()));
-	private static final Iterable<GOTShields> SHIELDS = new ArrayList<>(Arrays.asList(GOTShields.values()));
+	private static final Collection<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
 
-	private static final Collection<String> MINERALS = new ArrayList<>();
-	private static final Collection<Class<? extends Entity>> HIREABLE = new ArrayList<>();
+	private static final Iterable<GOTFaction> FACTIONS = EnumSet.allOf(GOTFaction.class);
+	private static final Iterable<GOTTreeType> TREES = EnumSet.allOf(GOTTreeType.class);
+	private static final Iterable<GOTWaypoint> WAYPOINTS = EnumSet.allOf(GOTWaypoint.class);
+	private static final Iterable<GOTCapes> CAPES = EnumSet.allOf(GOTCapes.class);
+	private static final Iterable<GOTShields> SHIELDS = EnumSet.allOf(GOTShields.class);
+
+	private static final Collection<String> MINERALS = new HashSet<>();
+	private static final Collection<Class<? extends WorldGenerator>> STRUCTURES = new HashSet<>();
+	private static final Collection<Class<? extends Entity>> HIREABLE = new HashSet<>();
 
 	private static final String BEGIN = "\n</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text></revision></page>";
@@ -104,24 +104,6 @@ public class GOTWikiGenerator {
 	private static final String TR = " || ";
 
 	static {
-		Collection<Thread> threads = new ArrayList<>();
-
-		threads.add(new Thread(() -> searchForMinerals(BIOMES, MINERALS)));
-		threads.add(new Thread(() -> searchForHireable(HIREABLE, UNIT_TRADE_ENTRIES)));
-		threads.add(new Thread(() -> searchForPagenamesEntity(BIOMES, FACTIONS)));
-		threads.add(new Thread(() -> searchForPagenamesBiome(BIOMES, FACTIONS)));
-		threads.add(new Thread(() -> searchForPagenamesFaction(BIOMES, FACTIONS)));
-
-		threads.forEach(Thread::start);
-
-		threads.forEach(thread -> {
-			try {
-				thread.join();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-
 		BIOMES.remove(GOTBiome.ocean1);
 		BIOMES.remove(GOTBiome.ocean2);
 		BIOMES.remove(GOTBiome.ocean3);
@@ -183,112 +165,192 @@ public class GOTWikiGenerator {
 		try {
 			Files.createDirectories(Paths.get("hummel"));
 
-			searchForEntities(world);
+			Collection<Runnable> pRunnables = new HashSet<>();
+
+			pRunnables.add(() -> searchForEntities(world));
+			pRunnables.add(() -> searchForMinerals(BIOMES, MINERALS));
+			pRunnables.add(() -> searchForStructures(BIOMES, STRUCTURES));
+			pRunnables.add(() -> searchForHireable(HIREABLE, UNIT_TRADE_ENTRIES));
+			pRunnables.add(() -> searchForPagenamesEntity(BIOMES, FACTIONS));
+			pRunnables.add(() -> searchForPagenamesBiome(BIOMES, FACTIONS));
+			pRunnables.add(() -> searchForPagenamesFaction(BIOMES, FACTIONS));
+
+			Collection<Thread> pThreads = pRunnables.stream().map(Thread::new).collect(Collectors.toSet());
+
+			pThreads.forEach(thread -> {
+				try {
+					thread.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			});
+
+			pThreads.forEach(thread -> {
+				try {
+					thread.join();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			});
 
 			if ("tables".equalsIgnoreCase(type)) {
-				Collection<Thread> threads = new ArrayList<>();
+				Collection<Runnable> runnables = new HashSet<>();
 
-				threads.add(new Thread(() -> genTableAchievements(player)));
-				threads.add(new Thread(GOTWikiGenerator::genTableShields));
-				threads.add(new Thread(GOTWikiGenerator::genTableCapes));
-				threads.add(new Thread(GOTWikiGenerator::genTableUnits));
-				threads.add(new Thread(GOTWikiGenerator::genTableArmor));
-				threads.add(new Thread(GOTWikiGenerator::genTableWaypoints));
-				threads.add(new Thread(GOTWikiGenerator::genTableWeapons));
-				threads.add(new Thread(GOTWikiGenerator::genTableFood));
+				runnables.add(() -> genTableAchievements(player));
+				runnables.add(GOTWikiGenerator::genTableShields);
+				runnables.add(GOTWikiGenerator::genTableCapes);
+				runnables.add(GOTWikiGenerator::genTableUnits);
+				runnables.add(GOTWikiGenerator::genTableArmor);
+				runnables.add(GOTWikiGenerator::genTableWaypoints);
+				runnables.add(GOTWikiGenerator::genTableWeapons);
+				runnables.add(GOTWikiGenerator::genTableFood);
 
-				threads.forEach(Thread::start);
+				runnables.stream().map(Thread::new).forEach(Thread::start);
+
 			} else if ("xml".equalsIgnoreCase(type)) {
-				StringBuilder globalSb = new StringBuilder();
+				StringBuilder xmlBuilder = new StringBuilder();
 
-				globalSb.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
+				xmlBuilder.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
-				Collection<StringBuilder> sbs = new ArrayList<>();
+				Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
+				Collection<Thread> threads = new HashSet<>();
+				Collection<StringBuilder> sbs = new HashSet<>();
 
-				List<String> existingPages = getExistingPages();
-				Collection<String> neededPages = new ArrayList<>();
+				Set<String> existingPages = getExistingPages();
+				Collection<String> neededPages = new HashSet<>();
 
-				sbs.add(addPagesMinerals(neededPages, existingPages));
-				sbs.add(addPagesEntities(neededPages, existingPages));
-				sbs.add(addPagesBiomes(neededPages, existingPages));
-				sbs.add(addPagesFactions(neededPages, existingPages));
-				sbs.add(addPagesTrees(neededPages, existingPages));
-				sbs.add(addPagesStructures(neededPages, existingPages));
+				suppliers.add(() -> addPagesMinerals(neededPages, existingPages));
+				suppliers.add(() -> addPagesEntities(neededPages, existingPages));
+				suppliers.add(() -> addPagesBiomes(neededPages, existingPages));
+				suppliers.add(() -> addPagesFactions(neededPages, existingPages));
+				suppliers.add(() -> addPagesTrees(neededPages, existingPages));
+				suppliers.add(() -> addPagesStructures(neededPages, existingPages));
 
-				sbs.add(markPagesForRemoval(existingPages, neededPages));
+				suppliers.stream().map(supplier -> new Thread(() -> {
+					StringBuilder result = supplier.get();
+					sbs.add(result);
+				})).forEach(threads::add);
 
-				sbs.add(genTemplateStructureBiomes());
-				sbs.add(genTemplateMineralBiomes());
-				sbs.add(genTemplateTreeBiomes());
+				threads.forEach(thread -> {
+					try {
+						thread.start();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				});
 
-				sbs.add(genTemplateBiomeClimate());
-				sbs.add(genTemplateBiomeConquestFactions());
-				sbs.add(genTemplateBiomeInvasionFactions());
-				sbs.add(genTemplateBiomeMinerals());
-				sbs.add(genTemplateBiomeMobs());
-				sbs.add(genTemplateBiomeMusic());
-				sbs.add(genTemplateBiomeRainfall());
-				sbs.add(genTemplateBiomeSpawnNPCs());
-				sbs.add(genTemplateBiomeStructures());
-				sbs.add(genTemplateBiomeTemperature());
-				sbs.add(genTemplateBiomeTrees());
-				sbs.add(genTemplateBiomeVariants());
-				sbs.add(genTemplateBiomeVisitAchievement());
-				sbs.add(genTemplateBiomeWaypoints());
+				threads.forEach(thread -> {
+					try {
+						thread.join();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				});
 
-				sbs.add(genTemplateFactionBanners());
-				sbs.add(genTemplateFactionCapes());
-				sbs.add(genTemplateFactionChars());
-				sbs.add(genTemplateFactionCodename());
-				sbs.add(genTemplateFactionConquestBiomes());
-				sbs.add(genTemplateFactionEnemies());
-				sbs.add(genTemplateFactionFriends());
-				sbs.add(genTemplateFactionInvasionBiomes());
-				sbs.add(genTemplateFactionNPCs());
-				sbs.add(genTemplateFactionName());
-				sbs.add(genTemplateFactionPledgeRank());
-				sbs.add(genTemplateFactionRanks());
-				sbs.add(genTemplateFactionRegion());
-				sbs.add(genTemplateFactionShields());
-				sbs.add(genTemplateFactionSpawnBiomes());
-				sbs.add(genTemplateFactionStructures());
-				sbs.add(genTemplateFactionWarCrimes());
-				sbs.add(genTemplateFactionWaypoints());
+				markPagesForRemoval(neededPages, existingPages);
 
-				sbs.add(genTemplateEntityBannerBearer());
-				sbs.add(genTemplateEntityBuys());
-				sbs.add(genTemplateEntityCharacter());
-				sbs.add(genTemplateEntityFaction());
-				sbs.add(genTemplateEntityFarmhand());
-				sbs.add(genTemplateEntityHealth());
-				sbs.add(genTemplateEntityHireAlignment());
-				sbs.add(genTemplateEntityHirePrice());
-				sbs.add(genTemplateEntityHirePricePledge());
-				sbs.add(genTemplateEntityImmuneToFire());
-				sbs.add(genTemplateEntityImmuneToFrost());
-				sbs.add(genTemplateEntityImmuneToHeat());
-				sbs.add(genTemplateEntityKillAchievement());
-				sbs.add(genTemplateEntityKillAlignment());
-				sbs.add(genTemplateEntityMarriage());
-				sbs.add(genTemplateEntityMercenary());
-				sbs.add(genTemplateEntityOwner());
-				sbs.add(genTemplateEntityRideableMob());
-				sbs.add(genTemplateEntityRideableNPC());
-				sbs.add(genTemplateEntitySells());
-				sbs.add(genTemplateEntitySellsUnits());
-				sbs.add(genTemplateEntitySmith());
-				sbs.add(genTemplateEntitySpawn());
-				sbs.add(genTemplateEntitySpawnsInDarkness());
-				sbs.add(genTemplateEntityTradeable());
-				sbs.add(genTemplateEntityUnitTradeable());
-				sbs.add(genTemplateEntityWaypoint(world));
+				sbs.forEach(xmlBuilder::append);
 
-				for (StringBuilder sb : sbs) {
-					globalSb.append(sb);
-				}
+				suppliers.clear();
+				threads.clear();
+				sbs.clear();
+
+				suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
+				suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
+				suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
+
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeConquestFactions);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeInvasionFactions);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeMinerals);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeMobs);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeMusic);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeRainfall);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeSpawnNPCs);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeStructures);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeTemperature);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeTrees);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeVariants);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeVisitAchievement);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeWaypoints);
+
+				suppliers.add(GOTWikiGenerator::genTemplateFactionBanners);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionCapes);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionChars);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionCodename);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionConquestBiomes);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionEnemies);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionFriends);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionInvasionBiomes);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionNPCs);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionName);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionPledgeRank);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionRanks);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionRegion);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionShields);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionSpawnBiomes);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionStructures);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionWarCrimes);
+				suppliers.add(GOTWikiGenerator::genTemplateFactionWaypoints);
+
+				suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityBuys);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityCharacter);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityHireAlignment);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityHirePrice);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityHirePricePledge);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFire);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFrost);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToHeat);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityKillAchievement);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityKillAlignment);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityOwner);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityRideableMob);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityRideableNPC);
+				suppliers.add(GOTWikiGenerator::genTemplateEntitySells);
+				suppliers.add(GOTWikiGenerator::genTemplateEntitySellsUnits);
+				suppliers.add(GOTWikiGenerator::genTemplateEntitySmith);
+				suppliers.add(GOTWikiGenerator::genTemplateEntitySpawn);
+				suppliers.add(GOTWikiGenerator::genTemplateEntitySpawnsInDarkness);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityTradeable);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
+
+				suppliers.add(() -> genTemplateEntityWaypoint(world));
+
+				suppliers.stream().map(supplier -> new Thread(() -> {
+					StringBuilder result = supplier.get();
+					sbs.add(result);
+				})).forEach(threads::add);
+
+				threads.forEach(thread -> {
+					try {
+						thread.start();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				});
+
+				threads.forEach(thread -> {
+					try {
+						thread.join();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				});
+
+				sbs.forEach(xmlBuilder::append);
+
+				suppliers.clear();
+				threads.clear();
+				sbs.clear();
 
 				PrintWriter xml = new PrintWriter("hummel/import.xml", "UTF-8");
-				xml.write(globalSb.toString());
+				xml.write(xmlBuilder.toString());
 				xml.close();
 			}
 		} catch (Exception e) {
@@ -301,19 +363,21 @@ public class GOTWikiGenerator {
 		player.addChatMessage(component);
 	}
 
-	private static StringBuilder markPagesForRemoval(Iterable<String> existingPages, Collection<String> neededPages) throws FileNotFoundException, UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
+	private static void markPagesForRemoval(Collection<String> neededPages, Iterable<String> existingPages) {
+		try {
+			StringBuilder sb = new StringBuilder();
 
-		for (String existing : existingPages) {
-			if (!neededPages.contains(existing)) {
-				sb.append(existing).append('\n');
+			for (String existing : existingPages) {
+				if (!neededPages.contains(existing)) {
+					sb.append(existing).append('\n');
+				}
 			}
+			PrintWriter printWriter = new PrintWriter("hummel/removal.txt", "UTF-8");
+			printWriter.write(sb.toString());
+			printWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		PrintWriter printWriter = new PrintWriter("hummel/removal.txt", "UTF-8");
-		printWriter.write(sb.toString());
-		printWriter.close();
-
-		return sb;
 	}
 
 	private static StringBuilder addPagesStructures(Collection<String> neededPages, Collection<String> existingPages) {
@@ -927,15 +991,15 @@ public class GOTWikiGenerator {
 		for (Class<? extends Entity> entityClass : ENTITIES) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTBiome> spawnBiomes = new ArrayList<>();
-			Collection<GOTBiome> conquestBiomes = new ArrayList<>();
-			Collection<GOTBiome> invasionBiomes = new ArrayList<>();
-			Collection<GOTBiome> conquestIvasionBiomes = new ArrayList<>();
+			Collection<GOTBiome> spawnBiomes = new HashSet<>();
+			Collection<GOTBiome> conquestBiomes = new HashSet<>();
+			Collection<GOTBiome> invasionBiomes = new HashSet<>();
+			Collection<GOTBiome> conquestIvasionBiomes = new HashSet<>();
 			next:
 			for (GOTBiome biome : BIOMES) {
-				Collection<BiomeGenBase.SpawnListEntry> spawnEntries = new ArrayList<>();
-				Collection<BiomeGenBase.SpawnListEntry> conquestEntries = new ArrayList<>();
-				Collection<GOTInvasions.InvasionSpawnEntry> invasionEntries = new ArrayList<>();
+				Collection<BiomeGenBase.SpawnListEntry> spawnEntries = new HashSet<>();
+				Collection<BiomeGenBase.SpawnListEntry> conquestEntries = new HashSet<>();
+				Collection<GOTInvasions.InvasionSpawnEntry> invasionEntries = new HashSet<>();
 				spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
 				spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 				spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
@@ -1026,7 +1090,8 @@ public class GOTWikiGenerator {
 		sb.append(BEGIN);
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
-			Collection<Class<? extends WorldGenerator>> facStructures = new ArrayList<>();
+
+			Collection<Class<? extends WorldGenerator>> facStructures = new HashSet<>();
 			for (Map.Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.CLASS_TO_FACTION_MAPPING.entrySet()) {
 				if (entry.getValue() == fac) {
 					facStructures.add(entry.getKey());
@@ -1121,7 +1186,7 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac1 : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTFaction> facFriends = new ArrayList<>();
+			Collection<GOTFaction> facFriends = EnumSet.noneOf(GOTFaction.class);
 			for (GOTFaction fac2 : FACTIONS) {
 				if (fac1.isGoodRelation(fac2) && fac1 != fac2) {
 					facFriends.add(fac2);
@@ -1159,7 +1224,7 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac1 : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTFaction> facEnemies = new ArrayList<>();
+			Collection<GOTFaction> facEnemies = EnumSet.noneOf(GOTFaction.class);
 			for (GOTFaction fac2 : FACTIONS) {
 				if (fac1.isBadRelation(fac2) && fac1 != fac2) {
 					facEnemies.add(fac2);
@@ -1197,7 +1262,7 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<Class<? extends Entity>> facCharacters = new ArrayList<>();
+			Collection<Class<? extends Entity>> facCharacters = new HashSet<>();
 			for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
 				Entity entity = entityEntry.getValue();
 				if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac && ((GOTEntityNPC) entity).isLegendaryNPC()) {
@@ -1254,7 +1319,7 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTCapes> facCapes = new ArrayList<>();
+			Collection<GOTCapes> facCapes = EnumSet.noneOf(GOTCapes.class);
 			for (GOTCapes cape : CAPES) {
 				if (cape.getAlignmentFaction() == fac) {
 					facCapes.add(cape);
@@ -1288,7 +1353,7 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTShields> facShields = new ArrayList<>();
+			Collection<GOTShields> facShields = EnumSet.noneOf(GOTShields.class);
 			for (GOTShields shield : SHIELDS) {
 				if (shield.getAlignmentFaction() == fac) {
 					facShields.add(shield);
@@ -1322,7 +1387,7 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTWaypoint> facWaypoints = new ArrayList<>();
+			Collection<GOTWaypoint> facWaypoints = EnumSet.noneOf(GOTWaypoint.class);
 			for (GOTWaypoint wp : WAYPOINTS) {
 				if (wp.getFaction() == fac) {
 					facWaypoints.add(wp);
@@ -1409,12 +1474,12 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTBiome> conquestBiomes = new ArrayList<>();
+			Collection<GOTBiome> conquestBiomes = new HashSet<>();
 			next:
 			for (GOTBiome biome : BIOMES) {
 				List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
 				if (!facContainers.isEmpty()) {
-					Collection<GOTFactionContainer> conquestContainers = new ArrayList<>();
+					Collection<GOTFactionContainer> conquestContainers = new HashSet<>();
 					for (GOTFactionContainer facContainer : facContainers) {
 						if (facContainer.getBaseWeight() <= 0) {
 							conquestContainers.add(facContainer);
@@ -1461,12 +1526,12 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTBiome> spawnBiomes = new ArrayList<>();
+			Collection<GOTBiome> spawnBiomes = new HashSet<>();
 			next:
 			for (GOTBiome biome : BIOMES) {
 				List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
 				if (!facContainers.isEmpty()) {
-					Collection<GOTFactionContainer> spawnContainers = new ArrayList<>();
+					Collection<GOTFactionContainer> spawnContainers = new HashSet<>();
 					for (GOTFactionContainer facContainer : facContainers) {
 						if (facContainer.getBaseWeight() > 0) {
 							spawnContainers.add(facContainer);
@@ -1513,7 +1578,7 @@ public class GOTWikiGenerator {
 		for (GOTFaction fac : FACTIONS) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTBiome> invasionBiomes = new ArrayList<>();
+			Collection<GOTBiome> invasionBiomes = new HashSet<>();
 			next:
 			for (GOTBiome biome : BIOMES) {
 				for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
@@ -1623,7 +1688,7 @@ public class GOTWikiGenerator {
 
 			sb.append(NTRB);
 			sb.append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_HAS_MINERALS);
-			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().getBiomeSoils());
+			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new HashSet<>(biome.getDecorator().getBiomeSoils());
 			oreGenerants.addAll(biome.getDecorator().getBiomeOres());
 			oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 			for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
@@ -1654,7 +1719,7 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<BiomeGenBase.SpawnListEntry> entries = new ArrayList<>(biome.getSpawnableList(EnumCreatureType.ambient));
+			Collection<BiomeGenBase.SpawnListEntry> entries = new HashSet<>(biome.getSpawnableList(EnumCreatureType.ambient));
 			entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 			entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 			entries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
@@ -1689,7 +1754,7 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTTreeType> trees = new ArrayList<>(Arrays.asList(GOTTreeType.values()));
+			Collection<GOTTreeType> trees = EnumSet.noneOf(GOTTreeType.class);
 			Map<GOTTreeType, GOTBiomeVariant> additionalTrees = new EnumMap<>(GOTTreeType.class);
 			for (GOTTreeType.WeightedTreeType weightedTreeType : biome.getDecorator().getTreeTypes()) {
 				trees.add(weightedTreeType.getTreeType());
@@ -1792,7 +1857,7 @@ public class GOTWikiGenerator {
 				sb.append(Lang.BIOME_NO_INVASIONS);
 			} else {
 				sb.append(Lang.BIOME_HAS_INVASIONS);
-				Collection<GOTFaction> invasionFactions = new ArrayList<>(Arrays.asList(GOTFaction.values()));
+				Collection<GOTFaction> invasionFactions = EnumSet.noneOf(GOTFaction.class);
 				next:
 				for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
 					for (GOTInvasions.InvasionSpawnEntry entry : invasion.getInvasionMobs()) {
@@ -1949,7 +2014,7 @@ public class GOTWikiGenerator {
 				sb.append(NTRB);
 				sb.append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_CONQUEST);
 			} else {
-				Collection<GOTFactionContainer> conqestContainers = new ArrayList<>();
+				Collection<GOTFactionContainer> conqestContainers = new HashSet<>();
 				for (GOTFactionContainer facContainer : facContainers) {
 					if (facContainer.getBaseWeight() <= 0) {
 						conqestContainers.add(facContainer);
@@ -1961,7 +2026,7 @@ public class GOTWikiGenerator {
 					sb.append(Lang.BIOME_SPAWN_ONLY);
 				} else {
 					sb.append(Lang.BIOME_HAS_CONQUEST);
-					Collection<GOTFaction> conquestFactions = new ArrayList<>(Arrays.asList(GOTFaction.values()));
+					Collection<GOTFaction> conquestFactions = EnumSet.noneOf(GOTFaction.class);
 					for (GOTFactionContainer facContainer : conqestContainers) {
 						next:
 						for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
@@ -2001,7 +2066,7 @@ public class GOTWikiGenerator {
 				sb.append(NTRB);
 				sb.append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_SPAWN);
 			} else {
-				Collection<GOTFactionContainer> spawnContainers = new ArrayList<>();
+				Collection<GOTFactionContainer> spawnContainers = new HashSet<>();
 				for (GOTFactionContainer facContainer : facContainers) {
 					if (facContainer.getBaseWeight() > 0) {
 						spawnContainers.add(facContainer);
@@ -2039,8 +2104,8 @@ public class GOTWikiGenerator {
 		for (GOTTreeType tree : TREES) {
 			List<String> sortable = new ArrayList<>();
 
-			Collection<GOTBiome> biomesTree = new ArrayList<>();
-			Collection<GOTBiome> biomesVariantTree = new ArrayList<>();
+			Collection<GOTBiome> biomesTree = new HashSet<>();
+			Collection<GOTBiome> biomesVariantTree = new HashSet<>();
 			next:
 			for (GOTBiome biome : BIOMES) {
 				for (GOTTreeType.WeightedTreeType weightedTreeType : biome.getDecorator().getTreeTypes()) {
@@ -2094,7 +2159,7 @@ public class GOTWikiGenerator {
 			sb.append(NTRB);
 			sb.append(mineral).append(" = ").append(Lang.MINERAL_BIOMES);
 			for (GOTBiome biome : BIOMES) {
-				Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().getBiomeSoils());
+				Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new HashSet<>(biome.getDecorator().getBiomeSoils());
 				oreGenerants.addAll(biome.getDecorator().getBiomeOres());
 				oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 				for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
@@ -2143,7 +2208,7 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static List<String> getExistingPages() {
+	private static Set<String> getExistingPages() {
 		try {
 			File file = new File("hummel/sitemap.txt");
 			if (!file.exists()) {
@@ -2153,20 +2218,20 @@ public class GOTWikiGenerator {
 				}
 			}
 			try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
-				return lines.collect(Collectors.toList());
+				return lines.collect(Collectors.toSet());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return Collections.emptyList();
+		return Collections.emptySet();
 	}
 
 	@SuppressWarnings("deprecation")
-	private static StringBuilder genTableFood() {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableFood() {
 		try {
+			StringBuilder sb = new StringBuilder();
+
 			List<String> sortable = new ArrayList<>();
 
 			for (Item item : ITEMS) {
@@ -2195,14 +2260,12 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
-	private static StringBuilder genTableWeapons() {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableWeapons() {
 		try {
+			StringBuilder sb = new StringBuilder();
+
 			List<String> sortable = new ArrayList<>();
 
 			for (Item item : ITEMS) {
@@ -2233,14 +2296,12 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
-	private static StringBuilder genTableArmor() {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableArmor() {
 		try {
+			StringBuilder sb = new StringBuilder();
+
 			for (Item item : ITEMS) {
 				if (item instanceof ItemArmor) {
 					float damage = ((ItemArmor) item).damageReduceAmount;
@@ -2262,14 +2323,12 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
-	private static StringBuilder genTableWaypoints() {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableWaypoints() {
 		try {
+			StringBuilder sb = new StringBuilder();
+
 			List<String> sortable = new ArrayList<>();
 
 			for (GOTWaypoint wp : WAYPOINTS) {
@@ -2284,14 +2343,12 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
-	private static StringBuilder genTableUnits() {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableUnits() {
 		try {
+			StringBuilder sb = new StringBuilder();
+
 			for (GOTUnitTradeEntries unitTradeEntries : UNIT_TRADE_ENTRIES) {
 				for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
 					if (entry != null) {
@@ -2325,14 +2382,12 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
-	private static StringBuilder genTableCapes() {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableCapes() {
 		try {
+			StringBuilder sb = new StringBuilder();
+
 			for (GOTCapes cape : CAPES) {
 				sb.append(NTRB);
 				sb.append(cape.getCapeName()).append(TR).append(cape.getCapeDesc()).append(TR).append(getCapeFilename(cape)).append(NTRE);
@@ -2343,14 +2398,12 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
-	private static StringBuilder genTableShields() {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableShields() {
 		try {
+			StringBuilder sb = new StringBuilder();
+
 			for (GOTShields shield : SHIELDS) {
 				sb.append(NTRB);
 				sb.append(shield.getShieldName()).append(TR).append(shield.getShieldDesc()).append(TR).append(getShieldFilename(shield)).append(NTRE);
@@ -2361,26 +2414,26 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
-	private static StringBuilder genTableAchievements(EntityPlayer player) {
-		StringBuilder sb = new StringBuilder();
-
+	private static void genTableAchievements(EntityPlayer player) {
 		try {
+			StringBuilder sb = new StringBuilder();
+
+			List<String> sortable = new ArrayList<>();
+
 			for (GOTAchievement ach : ACHIEVEMENTS) {
-				sb.append(NTRB);
-				sb.append(ach.getTitle(player)).append(TR).append(ach.getDescription()).append(NTRE);
+				sortable.add(NTRB + ach.getTitle(player) + TR + ach.getDescription() + NTRE);
 			}
+
+			appendSortedList(sb, sortable);
+
 			PrintWriter printWriter = new PrintWriter("hummel/achievements.txt", "UTF-8");
 			printWriter.write(sb.toString());
 			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return sb;
 	}
 
 	private static String getBannerName(GOTItemBanner.BannerType banner) {
@@ -2494,7 +2547,7 @@ public class GOTWikiGenerator {
 
 	private static void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
 		for (GOTBiome biome : biomes) {
-			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().getBiomeSoils());
+			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new HashSet<>(biome.getDecorator().getBiomeSoils());
 			oreGenerants.addAll(biome.getDecorator().getBiomeOres());
 			oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 			for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
@@ -2506,6 +2559,14 @@ public class GOTWikiGenerator {
 				} else {
 					minerals.add(getBlockName(block));
 				}
+			}
+		}
+	}
+
+	private static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
+		for (GOTBiome biome : biomes) {
+			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+				structures.add(structure.getStructureGen().getClass());
 			}
 		}
 	}
@@ -2598,8 +2659,8 @@ public class GOTWikiGenerator {
 			return null;
 		}
 
-		public static List<String> getNames() {
-			List<String> names = new ArrayList<>();
+		public static Set<String> getNames() {
+			Set<String> names = new HashSet<>();
 			for (Type db : values()) {
 				names.add(db.codeName);
 			}
