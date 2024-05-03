@@ -1107,8 +1107,6 @@ public class GOTWikiGenerator {
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
-				List<String> sortable = new ArrayList<>();
-
 				sb.append(NL).append("| ");
 				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
 
@@ -1130,11 +1128,9 @@ public class GOTWikiGenerator {
 					sb.append(Lang.MOB_NO_LEGENDARY_DROP);
 				} else {
 					for (ItemStack itemStack : itemStacks) {
-						sortable.add(NL + "* " + itemStack.getDisplayName() + ';');
+						sb.append(NL + "* ").append(itemStack.getDisplayName()).append(';');
 					}
 				}
-
-				appendSortedList(sb, sortable);
 			}
 		}
 		sb.append(END);
