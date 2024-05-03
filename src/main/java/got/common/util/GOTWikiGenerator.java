@@ -264,7 +264,7 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityBuys);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityCharacter);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityDrops);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
@@ -1100,10 +1100,10 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateEntityDrops() {
+	private static StringBuilder genTemplateEntityLegendaryDrop() {
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Drops");
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-LegendaryDrop");
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
@@ -1127,9 +1127,9 @@ public class GOTWikiGenerator {
 				}
 
 				if (itemStacks.isEmpty()) {
-					//sb.append(Lang.MOB_NO_DROPS);
+					sb.append(Lang.MOB_NO_LEGENDARY_DROP);
 				} else {
-					//sb.append(Lang.MOB_HAS_DROPS);
+					sb.append(Lang.MOB_HAS_LEGENDARY_DROP);
 					for (ItemStack itemStack : itemStacks) {
 						sortable.add(NL + "* " + itemStack.getDisplayName() + ';');
 					}
