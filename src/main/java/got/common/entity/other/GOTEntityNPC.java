@@ -668,6 +668,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return !isLegendaryNPC && !isTargetSeeker && !(this instanceof GOTUnitTradeable) && !(this instanceof GOTMercenary);
 	}
 
+	public boolean isTargetSeeker() {
+		return isTargetSeeker;
+	}
+
 	public boolean isDrunkard() {
 		return familyInfo.isDrunk();
 	}

@@ -180,7 +180,7 @@ public class GOTConquestGrid {
 			block2:
 			for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
 				for (GOTBiome biome2 : includedBiomes) {
-					if (!biome2.getNpcSpawnList().isFactionPresent(world, fac)) {
+					if (!biome2.getNPCSpawnList().isFactionPresent(world, fac)) {
 						continue;
 					}
 					cachedFacs.add(fac);

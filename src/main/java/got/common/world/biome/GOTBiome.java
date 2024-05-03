@@ -1146,7 +1146,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return 1;
 	}
 
-	public GOTBiomeSpawnList getNpcSpawnList() {
+	public GOTBiomeSpawnList getNPCSpawnList() {
 		return npcSpawnList;
 	}
 

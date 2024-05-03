@@ -179,23 +179,7 @@ public class GOTWikiGenerator {
 			pRunnables.add(() -> searchForPagenamesBiome(BIOMES, FACTIONS));
 			pRunnables.add(() -> searchForPagenamesFaction(BIOMES, FACTIONS));
 
-			Collection<Thread> pThreads = pRunnables.stream().map(Thread::new).collect(Collectors.toSet());
-
-			pThreads.forEach(thread -> {
-				try {
-					thread.start();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			});
-
-			pThreads.forEach(thread -> {
-				try {
-					thread.join();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			});
+			pRunnables.parallelStream().forEach(Runnable::run);
 
 			if ("tables".equalsIgnoreCase(type)) {
 				Collection<Runnable> runnables = new HashSet<>();
@@ -209,7 +193,7 @@ public class GOTWikiGenerator {
 				runnables.add(GOTWikiGenerator::genTableWeapons);
 				runnables.add(GOTWikiGenerator::genTableFood);
 
-				runnables.stream().map(Thread::new).forEach(Thread::start);
+				runnables.parallelStream().forEach(Runnable::run);
 
 			} else if ("xml".equalsIgnoreCase(type)) {
 				StringBuilder xmlBuilder = new StringBuilder();
@@ -219,7 +203,6 @@ public class GOTWikiGenerator {
 				xmlBuilder.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 				Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
-				Collection<Thread> threads = new HashSet<>();
 				Collection<StringBuilder> sbs = new HashSet<>();
 
 				Set<String> existingPages = getExistingPages();
@@ -232,34 +215,13 @@ public class GOTWikiGenerator {
 				suppliers.add(() -> addPagesTrees(neededPages, existingPages));
 				suppliers.add(() -> addPagesStructures(neededPages, existingPages));
 
-				suppliers.stream().map(supplier -> new Thread(() -> {
-					StringBuilder result = supplier.get();
-					sbs.add(result);
-				})).forEach(threads::add);
-
-				threads.forEach(thread -> {
-					try {
-						thread.start();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				});
-
-				threads.forEach(thread -> {
-					try {
-						thread.join();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				});
-
-				markPagesForRemoval(neededPages, existingPages);
-
+				suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
 				sbs.forEach(xmlBuilder::append);
 
 				suppliers.clear();
-				threads.clear();
 				sbs.clear();
+
+				markPagesForRemoval(neededPages, existingPages);
 
 				suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
 				suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
@@ -324,36 +286,16 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateEntitySmith);
 				suppliers.add(GOTWikiGenerator::genTemplateEntitySpawn);
 				suppliers.add(GOTWikiGenerator::genTemplateEntitySpawnsInDarkness);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityTargetSeeker);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityTradeable);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
 
 				suppliers.add(() -> genTemplateEntityWaypoint(world));
 
-				suppliers.stream().map(supplier -> new Thread(() -> {
-					StringBuilder result = supplier.get();
-					sbs.add(result);
-				})).forEach(threads::add);
-
-				threads.forEach(thread -> {
-					try {
-						thread.start();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				});
-
-				threads.forEach(thread -> {
-					try {
-						thread.join();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				});
-
+				suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
 				sbs.forEach(xmlBuilder::append);
 
 				suppliers.clear();
-				threads.clear();
 				sbs.clear();
 
 				xmlBuilder.append("</mediawiki>");
@@ -647,7 +589,7 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			List<String> sortable = new ArrayList<>();
 
-			List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
+			List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 			if (facContainers.isEmpty()) {
 				sb.append(NTRB);
 				sb.append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_CONQUEST);
@@ -866,7 +808,7 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			List<String> sortable = new ArrayList<>();
 
-			List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
+			List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 			if (facContainers.isEmpty()) {
 				sb.append(NTRB);
 				sb.append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_SPAWN);
@@ -1541,7 +1483,7 @@ public class GOTWikiGenerator {
 				spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 				spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 				spawnEntries.addAll(biome.getSpawnableGOTAmbientList());
-				for (GOTFactionContainer facContainer : biome.getNpcSpawnList().getFactionContainers()) {
+				for (GOTFactionContainer facContainer : biome.getNPCSpawnList().getFactionContainers()) {
 					if (facContainer.getBaseWeight() > 0) {
 						for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
 							spawnEntries.addAll(container.getSpawnList().getSpawnEntries());
@@ -1626,6 +1568,22 @@ public class GOTWikiGenerator {
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isSpawnsInDarkness()) {
+				sb.append(NTRB);
+				sb.append(getEntityPagename(entityEntry.getKey())).append(" = True");
+			}
+		}
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityTargetSeeker() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append("Template:DB Mob-TargetSeeker");
+		sb.append(BEGIN);
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isTargetSeeker()) {
 				sb.append(NTRB);
 				sb.append(getEntityPagename(entityEntry.getKey())).append(" = True");
 			}
@@ -1773,7 +1731,7 @@ public class GOTWikiGenerator {
 			Collection<GOTBiome> conquestBiomes = new HashSet<>();
 			next:
 			for (GOTBiome biome : BIOMES) {
-				List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
+				List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 				if (!facContainers.isEmpty()) {
 					Collection<GOTFactionContainer> conquestContainers = new HashSet<>();
 					for (GOTFactionContainer facContainer : facContainers) {
@@ -2099,7 +2057,7 @@ public class GOTWikiGenerator {
 			Collection<GOTBiome> spawnBiomes = new HashSet<>();
 			next:
 			for (GOTBiome biome : BIOMES) {
-				List<GOTFactionContainer> facContainers = biome.getNpcSpawnList().getFactionContainers();
+				List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
 				if (!facContainers.isEmpty()) {
 					Collection<GOTFactionContainer> spawnContainers = new HashSet<>();
 					for (GOTFactionContainer facContainer : facContainers) {
