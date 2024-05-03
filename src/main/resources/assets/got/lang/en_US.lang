@@ -2075,6 +2075,7 @@ got.date.month.november=Novemver
 got.date.month.october=October
 got.date.month.september=September
 got.date=AC
+got.db.MOB_NO_LEGENDARY_DROP.name=Nothing is dropped from this NPC after death.
 got.db.BIOME_CONQUEST_ONLY.name=No NPCs will spawn in this biome; however, if you conquer the biome, your allies will spawn there.
 got.db.BIOME_HAS_ANIMALS.name=Below is a list of all mobs that you may encounter as you travel through the biome.
 got.db.BIOME_HAS_CONQUEST.name=This biome can be [[Factions#Conquest|conquered]] by the following factions:

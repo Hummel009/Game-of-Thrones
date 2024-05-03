@@ -2075,6 +2075,7 @@ got.date.month.november=Листопада
 got.date.month.october=Жовтня
 got.date.month.september=Вересня
 got.date=З.Е.
+got.db.MOB_NO_LEGENDARY_DROP.name=З цього моба після смерті нічого не дропається.
 got.db.BIOME_CONQUEST_ONLY.name=У цьому біомі не спавняться ніякі NPC, проте, якщо ви завоюєте біом, там будуть спавніться ваші союзники.
 got.db.BIOME_HAS_ANIMALS.name=Нижче перелічені всі моби, які можуть зустрітися під час подорожі по біому.
 got.db.BIOME_HAS_CONQUEST.name=Цей біом можна завоювати [[Фракції#Присяга|від імені]] наступних фракцій:

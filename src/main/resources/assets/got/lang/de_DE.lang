@@ -2075,6 +2075,7 @@ got.date.month.november=November
 got.date.month.october=Oktober
 got.date.month.september=September
 got.date=Z.E.
+got.db.MOB_NO_LEGENDARY_DROP.name=Nichts wird von diesem Mob nach dem Tod fallen gelassen.
 got.db.BIOME_CONQUEST_ONLY.name=Hier spawnen keine NPCs, es sei denn, du nimmst dieses Gebiet ein.
 got.db.BIOME_HAS_ANIMALS.name=Nachfolgend ist eine Liste aller Mobs, denen man auf Reisen durch dieses Biom begegnen kann.
 got.db.BIOME_HAS_CONQUEST.name=Dieses Biom kann von den follgenden Fraktionen [[Factions#Conquest|conquered]] werden:

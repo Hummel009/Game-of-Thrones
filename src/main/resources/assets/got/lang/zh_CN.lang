@@ -2075,6 +2075,7 @@ got.date.month.november=十一月
 got.date.month.october=十月
 got.date.month.september=九月
 got.date=AC
+got.db.MOB_NO_LEGENDARY_DROP.name=此暴徒死亡后不会掉落任何物品。
 got.db.BIOME_CONQUEST_ONLY.name=没有NPC会在这个生物群落中产生；但是如果你征服了这个生物群落，你的盟友会在那里产生。
 got.db.BIOME_HAS_ANIMALS.name=下面是你在该生物群落中旅行时可能遇到的所有小怪的列表。
 got.db.BIOME_HAS_CONQUEST.name=该生物群落可以被以下派别[[派别#征服|征服了]]所征服：

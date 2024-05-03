@@ -2075,6 +2075,7 @@ got.date.month.november=Listopad
 got.date.month.october=Październik
 got.date.month.september=Wrzesień
 got.date=AC
+got.db.MOB_NO_LEGENDARY_DROP.name≠Nothing is dropped from this NPC after death.
 got.db.BIOME_CONQUEST_ONLY.name=Zadne NPCs nie pojawi się w tym biomie: jednakże, jeśli podbijesz biom, twoi sojusznicy będą się tutaj pojawiać.
 got.db.BIOME_HAS_ANIMALS.name=Poniżej znajduje się lista wszystkich mobów, które możesz spotkać w tym biomie.
 got.db.BIOME_HAS_CONQUEST.name=ten biom może zostać podbity [[Factions#Conquest|conquered]] przez następujące frakcje:
