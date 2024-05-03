@@ -68,10 +68,7 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @SuppressWarnings("WeakerAccess")
 public abstract class GOTEntityNPC extends EntityCreature implements IRangedAttackMob, GOTRandomSkinEntity {
@@ -85,6 +82,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	private final List<ItemStack> enpouchedDrops = new ArrayList<>();
 	private final List<GOTFaction> killBonusFactions = new ArrayList<>();
+	private final Set<Object> drops = new HashSet<>();
 
 	protected GOTCapes cape;
 	protected GOTShields shield;
@@ -314,15 +312,22 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return pouch;
 	}
 
+	@Override
+	public EntityItem dropItem(Item item, int i) {
+		if (isLegendaryNPC) {
+			drops.add(item);
+		}
+		return super.dropItem(item, i);
+	}
+
 	public void dropChestContents(GOTChestContents itemPool, int min, int max) {
 		IInventory drops = new InventoryBasic("drops", false, max * 5);
 		GOTChestContents.fillInventory(drops, rand, itemPool, MathHelper.getRandomIntegerInRange(rand, min, max), true);
 		for (int i = 0; i < drops.getSizeInventory(); ++i) {
 			ItemStack item = drops.getStackInSlot(i);
-			if (item == null) {
-				continue;
+			if (item != null) {
+				entityDropItem(item, 0.0f);
 			}
-			entityDropItem(item, 0.0f);
 		}
 	}
 
@@ -333,25 +338,28 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		hiredReplacedInv.dropAllReplacedItems();
-		dropNPCEquipment(flag, i);
-		if (flag) {
-			int coinChance = 8 - i * 2;
-			if (rand.nextInt(Math.max(coinChance, 1)) == 0) {
-				int coins = getRandomCoinDropAmount();
-				dropItem(GOTItems.coin, coins * MathHelper.getRandomIntegerInRange(rand, 1, i + 1));
+		if (!isLegendaryNPC) {
+			hiredReplacedInv.dropAllReplacedItems();
+			dropNPCEquipment(flag, i);
+
+			if (flag) {
+				int coinChance = 8 - i * 2;
+				if (rand.nextInt(Math.max(coinChance, 1)) == 0) {
+					int coins = getRandomCoinDropAmount();
+					dropItem(GOTItems.coin, coins * MathHelper.getRandomIntegerInRange(rand, 1, i + 1));
+				}
+				int rareChance = 50 - i * 5;
+				if (rand.nextInt(Math.max(rareChance, 1)) == 0) {
+					dropChestContents(GOTChestContents.TREASURE, 1, 1);
+				}
 			}
-			int rareChance = 50 - i * 5;
-			if (rand.nextInt(Math.max(rareChance, 1)) == 0) {
-				dropChestContents(GOTChestContents.TREASURE, 1, 1);
-			}
-		}
-		if (flag) {
-			int modChance = 60;
-			modChance -= i * 5;
-			if (rand.nextInt(Math.max(modChance, 1)) == 0) {
-				ItemStack modItem = GOTItemModifierTemplate.getRandomCommonTemplate(rand);
-				entityDropItem(modItem, 0.0f);
+			if (flag) {
+				int modChance = 60;
+				modChance -= i * 5;
+				if (rand.nextInt(Math.max(modChance, 1)) == 0) {
+					ItemStack modItem = GOTItemModifierTemplate.getRandomCommonTemplate(rand);
+					entityDropItem(modItem, 0.0f);
+				}
 			}
 		}
 	}
@@ -970,6 +978,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public void playTradeSound() {
 		playSound("got:event.trade", 0.5f, 1.0f + (rand.nextFloat() - rand.nextFloat()) * 0.1f);
+	}
+
+	public Set<Object> getDrops() {
+		return drops;
 	}
 
 	@Override

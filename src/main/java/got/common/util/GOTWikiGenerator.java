@@ -47,10 +47,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSword;
+import net.minecraft.item.*;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
@@ -267,6 +264,7 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityBuys);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityCharacter);
+				suppliers.add(GOTWikiGenerator::genTemplateEntityDrops);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
 				suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
@@ -1095,6 +1093,49 @@ public class GOTWikiGenerator {
 			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
 				sb.append(NL).append("| ");
 				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
+			}
+		}
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityDrops() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Drops");
+		sb.append(BEGIN);
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
+				List<String> sortable = new ArrayList<>();
+
+				sb.append(NL).append("| ");
+				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
+
+				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
+
+				npc.dropFewItems(true, 999);
+
+				Collection<Object> drops = npc.getDrops();
+				Collection<ItemStack> itemStacks = new HashSet<>();
+
+				for (Object obj : drops) {
+					if (obj instanceof Item) {
+						ItemStack itemStack = new ItemStack((Item) obj);
+						itemStacks.add(itemStack);
+					}
+				}
+
+				if (itemStacks.isEmpty()) {
+					//sb.append(Lang.MOB_NO_DROPS);
+				} else {
+					//sb.append(Lang.MOB_HAS_DROPS);
+					for (ItemStack itemStack : itemStacks) {
+						sortable.add(NL + "* " + itemStack.getDisplayName() + ';');
+					}
+				}
+
+				appendSortedList(sb, sortable);
 			}
 		}
 		sb.append(END);

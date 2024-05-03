@@ -12,6 +12,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -63,8 +64,7 @@ public class GOTEntityLotharFrey extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		super.dropFewItems(flag, i);
-		dropNPCCrossbowBolts(i);
+		dropItem(Items.gold_ingot, 2);
 	}
 
 	@Override

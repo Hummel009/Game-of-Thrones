@@ -52,7 +52,6 @@ public class GOTEntityBuGai extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-
 		dropItem(GOTItems.katana, 1);
 	}
 
