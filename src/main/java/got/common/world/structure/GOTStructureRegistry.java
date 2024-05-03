@@ -18,6 +18,7 @@ public class GOTStructureRegistry {
 	public static final Map<Integer, StructureColorInfo> STRUCTURE_ITEM_SPAWNERS = new LinkedHashMap<>();
 	public static final Map<Class<? extends WorldGenerator>, String> CLASS_TO_NAME_MAPPING = new HashMap<>();
 	public static final Map<Class<? extends WorldGenerator>, GOTFaction> CLASS_TO_FACTION_MAPPING = new HashMap<>();
+	public static final Map<Class<?>, Set<String>> S_CLASS_TO_NAME_MAPPING = new HashMap<>();
 
 	private static final Map<Integer, IStructureProvider> ID_TO_CLASS_MAPPING = new HashMap<>();
 	private static final Map<Integer, String> ID_TO_STRING_MAPPING = new HashMap<>();
@@ -72,7 +73,13 @@ public class GOTStructureRegistry {
 				return true;
 			}
 		};
+		registerName(settlement, name);
 		registerStructure(id, strProvider, name, faction.getEggColor(), faction.getEggColor(), false);
+	}
+
+	private static void registerName(GOTStructureBaseSettlement settlement, String name) {
+		S_CLASS_TO_NAME_MAPPING.computeIfAbsent(settlement.getClass(), k -> new HashSet<>());
+		S_CLASS_TO_NAME_MAPPING.get(settlement.getClass()).add(name);
 	}
 
 	@SuppressWarnings("rawtypes")

@@ -294,6 +294,10 @@ public abstract class GOTStructureBaseSettlement {
 		return Collections.emptyList();
 	}
 
+	public float getSpawnChance() {
+		return spawnChance;
+	}
+
 	public abstract static class AbstractInstance {
 		protected final Collection<GOTFixer.SpawnInfo> spawnInfos;
 		protected final LocationInfo locationInfo;

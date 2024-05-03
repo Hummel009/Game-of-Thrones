@@ -237,7 +237,7 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeName);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeRainfall);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeSpawnNPCs);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeStructures);
+				suppliers.add(GOTWikiGenerator::genTemplateBiomeStructuresSettlements);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeTemperature);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeTrees);
 				suppliers.add(GOTWikiGenerator::genTemplateBiomeVariants);
@@ -291,6 +291,18 @@ public class GOTWikiGenerator {
 				suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
 
 				suppliers.add(() -> genTemplateEntityWaypoint(world));
+
+				// структуры - лут
+				// структуры - мобы
+				// структуры - поселения
+
+				// мобы - структуры
+				// мобы - поселения
+
+				// поселения - мобы
+				// поселения - структуры
+				// поселения - лут
+				// поселения - биомы
 
 				suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
 				sbs.forEach(xmlBuilder::append);
@@ -445,8 +457,8 @@ public class GOTWikiGenerator {
 							sb.append(Lang.RIDER);
 						}
 
-						float cost = entry.getInitialCost();
-						float alignment = entry.getAlignmentRequired();
+						int cost = entry.getInitialCost();
+						int alignment = (int) entry.getAlignmentRequired();
 
 						if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
 							sb.append(TR).append("{{Coins|").append(cost * 2).append("}}");
@@ -456,7 +468,7 @@ public class GOTWikiGenerator {
 						} else {
 							sb.append(TR).append(" N/A");
 							sb.append(TR).append("{{Coins|").append(cost).append("}}");
-							sb.append(TR).append('+').append(Math.max(alignment, 100.0f));
+							sb.append(TR).append('+').append(Math.max(alignment, 100));
 							sb.append(TR).append('+');
 						}
 						sb.append(NTRE);
@@ -842,7 +854,7 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateBiomeStructures() {
+	private static StringBuilder genTemplateBiomeStructuresSettlements() {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append("Template:DB Biome-Structures");
@@ -856,12 +868,26 @@ public class GOTWikiGenerator {
 				sb.append(Lang.BIOME_NO_STRUCTURES);
 			} else {
 				sb.append(Lang.BIOME_HAS_STRUCTURES);
+
 				for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
 					sortable.add("\n* [[" + getStructureName(structure.getStructureGen().getClass()) + "]];");
 				}
-			}
 
-			appendSortedList(sb, sortable);
+				appendSortedList(sb, sortable);
+
+				for (GOTStructureBaseSettlement settlement : biome.getDecorator().getSettlements()) {
+					if (settlement.getSpawnChance() != 0.0f) {
+						Set<String> names = GOTStructureRegistry.S_CLASS_TO_NAME_MAPPING.get(settlement.getClass());
+						if (names != null) {
+							for (String name : names) {
+								sortable.add("\n* " + getSettlementName(name) + ';');
+							}
+						}
+					}
+				}
+
+				appendSortedList(sb, sortable);
+			}
 		}
 		sb.append(END);
 
@@ -1115,7 +1141,7 @@ public class GOTWikiGenerator {
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
 			EntityLivingBase entity = (EntityLivingBase) entityEntry.getValue();
 			sb.append(NTRB);
-			sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(entity.getMaxHealth());
+			sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append((int) entity.getMaxHealth());
 		}
 		sb.append(END);
 
@@ -1134,10 +1160,13 @@ public class GOTWikiGenerator {
 					if (entry.getEntityClass() == entityClass) {
 						sb.append(NTRB);
 						sb.append(getEntityPagename(entityClass)).append(" = ");
-						if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE || entry.getAlignmentRequired() >= 101.0f) {
-							sb.append(entry.getAlignmentRequired());
+
+						int alignment = (int) entry.getAlignmentRequired();
+
+						if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+							sb.append('+').append(alignment);
 						} else {
-							sb.append('+').append(100.0);
+							sb.append('+').append(Math.max(alignment, 100));
 						}
 						continue next;
 					}
@@ -1158,8 +1187,11 @@ public class GOTWikiGenerator {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 				sb.append(NTRB);
 				sb.append(getEntityPagename(entry.getEntityClass())).append(" = ");
+
+				int cost = entry.getInitialCost();
+
 				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					sb.append("{{Coins|").append(entry.getInitialCost() * 2).append("}}");
+					sb.append("{{Coins|").append(cost * 2).append("}}");
 				} else {
 					sb.append("N/A");
 				}
@@ -1178,7 +1210,11 @@ public class GOTWikiGenerator {
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 				sb.append(NTRB);
-				sb.append(getEntityPagename(entry.getEntityClass())).append(" = {{Coins|").append(entry.getInitialCost()).append("}}");
+				sb.append(getEntityPagename(entry.getEntityClass())).append(" = ");
+
+				int cost = entry.getInitialCost();
+
+				sb.append("{{Coins|").append(cost).append("}}");
 			}
 		}
 		sb.append(END);
@@ -1263,7 +1299,7 @@ public class GOTWikiGenerator {
 		sb.append(BEGIN);
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_ENTITY_MAPPING.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC) {
-				float bonus = ((GOTEntityNPC) entityEntry.getValue()).getAlignmentBonus();
+				int bonus = (int) ((GOTEntityNPC) entityEntry.getValue()).getAlignmentBonus();
 				sb.append(NTRB);
 				sb.append(getEntityPagename(entityEntry.getKey())).append(" = +").append(bonus);
 			}
@@ -1425,8 +1461,8 @@ public class GOTWikiGenerator {
 					}
 					sb.append(": ");
 
-					float cost = entry.getInitialCost();
-					float alignment = entry.getAlignmentRequired();
+					int cost = entry.getInitialCost();
+					int alignment = (int) entry.getAlignmentRequired();
 
 					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
 						sb.append("{{Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
@@ -1435,7 +1471,7 @@ public class GOTWikiGenerator {
 					} else {
 						sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", ");
 						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append('+').append(Math.max(alignment, 100.0f)).append(Lang.REPUTATION).append(';');
+						sb.append('+').append(Math.max(alignment, 100)).append(Lang.REPUTATION).append(';');
 					}
 				}
 			}
@@ -1941,7 +1977,7 @@ public class GOTWikiGenerator {
 					sb.append('/').append(femRank);
 				}
 
-				sb.append(" (+").append(fac.getPledgeAlignment()).append(')');
+				sb.append(" (+").append((int) fac.getPledgeAlignment()).append(')');
 			}
 		}
 		sb.append(END);
@@ -1969,7 +2005,7 @@ public class GOTWikiGenerator {
 						sb.append('/').append(femRank);
 					}
 
-					sb.append(" (+").append(rank.getAlignment()).append(");");
+					sb.append(" (+").append((int) rank.getAlignment()).append(");");
 				}
 			}
 		}
@@ -2645,6 +2681,10 @@ public class GOTWikiGenerator {
 
 		public static String getStructureName(Class<? extends WorldGenerator> structureClass) {
 			return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name");
+		}
+
+		public static String getSettlementName(String nameAlias) {
+			return StatCollector.translateToLocal("got.structure." + nameAlias + ".name");
 		}
 
 		public static String getTreeName(GOTTreeType tree) {

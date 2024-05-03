@@ -16,19 +16,16 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTBiomeDecorator {
-	private final Collection<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
-	private final Collection<GOTStructureBaseSettlement> settlements = new ArrayList<>();
-	private final Collection<GOTStructureBaseSettlement> fixedSettlements = new ArrayList<>();
-	private final Collection<OreGenerant> biomeOres = new ArrayList<>();
-	private final Collection<OreGenerant> biomeGems = new ArrayList<>();
-	private final Collection<Structure> structures = new ArrayList<>();
+	private final Collection<GOTTreeType.WeightedTreeType> treeTypes = new HashSet<>();
+	private final Collection<GOTStructureBaseSettlement> settlements = new HashSet<>();
+	private final Collection<GOTStructureBaseSettlement> fixedSettlements = new HashSet<>();
+	private final Collection<OreGenerant> biomeOres = new HashSet<>();
+	private final Collection<OreGenerant> biomeGems = new HashSet<>();
+	private final Collection<Structure> structures = new HashSet<>();
 
 	private final List<OreGenerant> biomeSoils = new ArrayList<>();
 
@@ -573,6 +570,10 @@ public class GOTBiomeDecorator {
 
 	public Collection<Structure> getStructures() {
 		return structures;
+	}
+
+	public Collection<GOTStructureBaseSettlement> getSettlements() {
+		return settlements;
 	}
 
 	public Collection<GOTTreeType.WeightedTreeType> getTreeTypes() {
