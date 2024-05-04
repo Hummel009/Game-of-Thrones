@@ -146,7 +146,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 		}
 	}
 
-	public abstract static class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
+	private abstract static class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
 		protected GameProfile playerProfile;
 
 		protected OnePlayerUpdate() {

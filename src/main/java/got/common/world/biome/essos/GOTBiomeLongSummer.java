@@ -4,7 +4,6 @@ import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
@@ -68,11 +67,6 @@ public class GOTBiomeLongSummer extends GOTBiomeEssosPlains {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterLongSummer;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.VALYRIA;
 	}
 
 	@Override

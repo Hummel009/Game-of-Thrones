@@ -3,7 +3,6 @@ package got.common.world.biome.essos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.essos.qarth.GOTStructureQarthFortress;
@@ -45,8 +44,4 @@ public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 		return GOTAchievement.enterQarth;
 	}
 
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.QARTH;
-	}
 }

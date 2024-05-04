@@ -119,6 +119,7 @@ public class GOTCommandDragon extends CommandBase {
 		}
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	private interface EntityModifier {
 		void modify(GOTEntityDragon dragon);
 	}

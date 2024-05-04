@@ -2630,15 +2630,16 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	public static class Utils {
+	@SuppressWarnings({"ProtectedInnerClass", "WeakerAccess"})
+	protected static class Utils {
 		private Utils() {
 		}
 
-		public static String getBannerName(GOTItemBanner.BannerType banner) {
+		protected static String getBannerName(GOTItemBanner.BannerType banner) {
 			return StatCollector.translateToLocal("item.got:banner." + banner.getBannerName() + ".name");
 		}
 
-		public static String getBiomeLink(GOTBiome biome) {
+		protected static String getBiomeLink(GOTBiome biome) {
 			String biomeName = getBiomeName(biome);
 			String biomePagename = getBiomePagename(biome);
 			if (biomeName.equals(biomePagename)) {
@@ -2647,31 +2648,31 @@ public class GOTWikiGenerator {
 			return "[[" + biomePagename + '|' + biomeName + "]]";
 		}
 
-		public static String getBiomeName(GOTBiome biome) {
+		protected static String getBiomeName(GOTBiome biome) {
 			return StatCollector.translateToLocal("got.biome." + biome.biomeName + ".name");
 		}
 
-		public static String getBiomePagename(GOTBiome biome) {
+		protected static String getBiomePagename(GOTBiome biome) {
 			return BIOME_TO_PAGE.get(getBiomeName(biome));
 		}
 
-		public static String getBiomeVariantName(GOTBiomeVariant variant) {
+		protected static String getBiomeVariantName(GOTBiomeVariant variant) {
 			return StatCollector.translateToLocal("got.variant." + variant.getVariantName() + ".name");
 		}
 
-		public static String getBlockMetaName(Block block, int meta) {
+		protected static String getBlockMetaName(Block block, int meta) {
 			return StatCollector.translateToLocal(block.getUnlocalizedName() + '.' + meta + ".name");
 		}
 
-		public static String getBlockName(Block block) {
+		protected static String getBlockName(Block block) {
 			return StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
 		}
 
-		public static String getCapeFilename(GOTCapes cape) {
+		protected static String getCapeFilename(GOTCapes cape) {
 			return "[[File:Cape " + cape.name().toLowerCase(Locale.ROOT) + ".png]]";
 		}
 
-		public static String getEntityLink(Class<? extends Entity> entityClass) {
+		protected static String getEntityLink(Class<? extends Entity> entityClass) {
 			String entityName = getEntityName(entityClass);
 			String entityPagename = getEntityPagename(entityClass);
 			if (entityName.equals(entityPagename)) {
@@ -2680,19 +2681,19 @@ public class GOTWikiGenerator {
 			return "[[" + entityPagename + '|' + entityName + "]]";
 		}
 
-		public static String getEntityName(Class<? extends Entity> entityClass) {
+		protected static String getEntityName(Class<? extends Entity> entityClass) {
 			return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.CLASS_TO_NAME_MAPPING.get(entityClass) + ".name");
 		}
 
-		public static String getEntityPagename(Class<? extends Entity> entityClass) {
+		protected static String getEntityPagename(Class<? extends Entity> entityClass) {
 			return ENTITY_TO_PAGE.get(getEntityName(entityClass));
 		}
 
-		public static String getEntityVanillaName(Class<? extends Entity> entityClass) {
+		protected static String getEntityVanillaName(Class<? extends Entity> entityClass) {
 			return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
 		}
 
-		public static String getFactionLink(GOTFaction fac) {
+		protected static String getFactionLink(GOTFaction fac) {
 			String facName = getFactionName(fac);
 			String facPagename = getFactionPagename(fac);
 			if (facName.equals(facPagename)) {
@@ -2701,39 +2702,39 @@ public class GOTWikiGenerator {
 			return "[[" + facPagename + '|' + facName + "]]";
 		}
 
-		public static String getFactionName(GOTFaction fac) {
+		protected static String getFactionName(GOTFaction fac) {
 			return StatCollector.translateToLocal("got.faction." + fac.codeName() + ".name");
 		}
 
-		public static String getFactionPagename(GOTFaction fac) {
+		protected static String getFactionPagename(GOTFaction fac) {
 			return FACTION_TO_PAGE.get(getFactionName(fac));
 		}
 
-		public static String getItemFilename(Item item) {
+		protected static String getItemFilename(Item item) {
 			return "[[File:" + item.getUnlocalizedName().substring("item.got:".length()) + ".png|32px|link=]]";
 		}
 
-		public static String getItemName(Item item) {
+		protected static String getItemName(Item item) {
 			return StatCollector.translateToLocal(item.getUnlocalizedName() + ".name");
 		}
 
-		public static String getShieldFilename(GOTShields shield) {
+		protected static String getShieldFilename(GOTShields shield) {
 			return "[[File:Shield " + shield.name().toLowerCase(Locale.ROOT) + ".png]]";
 		}
 
-		public static String getStructureName(Class<? extends WorldGenerator> structureClass) {
+		protected static String getStructureName(Class<? extends WorldGenerator> structureClass) {
 			return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name");
 		}
 
-		public static String getSettlementName(String nameAlias) {
+		protected static String getSettlementName(String nameAlias) {
 			return StatCollector.translateToLocal("got.structure." + nameAlias + ".name");
 		}
 
-		public static String getTreeName(GOTTreeType tree) {
+		protected static String getTreeName(GOTTreeType tree) {
 			return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name");
 		}
 
-		public static void appendSortedList(StringBuilder sb, List<String> sortable) {
+		protected static void appendSortedList(StringBuilder sb, List<String> sortable) {
 			Collections.sort(sortable);
 
 			for (String item : sortable) {

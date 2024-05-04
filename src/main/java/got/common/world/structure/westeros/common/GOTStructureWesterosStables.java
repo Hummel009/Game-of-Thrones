@@ -1,7 +1,6 @@
 package got.common.world.structure.westeros.common;
 
 import got.common.database.GOTBlocks;
-import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;

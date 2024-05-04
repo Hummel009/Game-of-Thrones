@@ -146,6 +146,7 @@ public class GOTStructureRegistry {
 		void apply(V var1);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public interface IStructureProvider {
 		boolean generateStructure(World var1, EntityPlayer var2, int var3, int var4, int var5);
 

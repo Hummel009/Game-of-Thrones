@@ -395,7 +395,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
-	@SuppressWarnings({"MethodMayBeStatic", "CommentedOutCode"})
+	@SuppressWarnings({"MethodMayBeStatic", "CommentedOutCode", "EmptyMethod"})
 	public void onMissingMappings(FMLMissingMappingsEvent event) {
 		/*for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
 			Item item;

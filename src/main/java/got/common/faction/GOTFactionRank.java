@@ -86,6 +86,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return StatCollector.translateToLocal(getCodeName());
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public String getDisplayNameFem() {
 		return StatCollector.translateToLocal(getCodeNameFem());
 	}

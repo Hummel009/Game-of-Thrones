@@ -54,6 +54,7 @@ public class GOTBannerProtection {
 			}
 
 			@Override
+			@SuppressWarnings("EmptyMethod")
 			public void warnProtection(IChatComponent message) {
 			}
 		};
@@ -177,6 +178,7 @@ public class GOTBannerProtection {
 			}
 
 			@Override
+			@SuppressWarnings("EmptyMethod")
 			public void warnProtection(IChatComponent message) {
 			}
 		};
@@ -194,6 +196,7 @@ public class GOTBannerProtection {
 			}
 
 			@Override
+			@SuppressWarnings("EmptyMethod")
 			public void warnProtection(IChatComponent message) {
 			}
 		};
@@ -308,6 +311,7 @@ public class GOTBannerProtection {
 		NONE, FACTION, PLAYER_SPECIFIC, STRUCTURE
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public interface IFilter {
 		ProtectType protects(GOTEntityBanner var1);
 
