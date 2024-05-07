@@ -79,7 +79,6 @@ public class GOTWikiGenerator {
 
 	private static final Iterable<Item> ITEMS = new ArrayList<>(GOTItems.CONTENT);
 	private static final Iterable<GOTUnitTradeEntries> UNIT_TRADE_ENTRIES = new ArrayList<>(GOTUnitTradeEntries.CONTENT);
-
 	private static final Iterable<Class<? extends Entity>> ENTITIES = new HashSet<>(GOTEntityRegistry.CONTENT);
 	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
 
@@ -165,36 +164,41 @@ public class GOTWikiGenerator {
 
 	public static void generate(String type, World world, EntityPlayer player) {
 		long time = System.nanoTime();
+
 		try {
 			Files.createDirectories(Paths.get("hummel"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-			Collection<Runnable> pRunnables = new HashSet<>();
+		Collection<Runnable> pRunnables = new HashSet<>();
 
-			pRunnables.add(() -> searchForEntities(world));
-			pRunnables.add(() -> searchForMinerals(BIOMES, MINERALS));
-			pRunnables.add(() -> searchForStructures(BIOMES, STRUCTURES));
-			pRunnables.add(() -> searchForHireable(HIREABLE, UNIT_TRADE_ENTRIES));
-			pRunnables.add(() -> searchForPagenamesEntity(BIOMES, FACTIONS));
-			pRunnables.add(() -> searchForPagenamesBiome(BIOMES, FACTIONS));
-			pRunnables.add(() -> searchForPagenamesFaction(BIOMES, FACTIONS));
+		pRunnables.add(() -> searchForEntities(world));
+		pRunnables.add(() -> searchForMinerals(BIOMES, MINERALS));
+		pRunnables.add(() -> searchForStructures(BIOMES, STRUCTURES));
+		pRunnables.add(() -> searchForHireable(HIREABLE, UNIT_TRADE_ENTRIES));
+		pRunnables.add(() -> searchForPagenamesEntity(BIOMES, FACTIONS));
+		pRunnables.add(() -> searchForPagenamesBiome(BIOMES, FACTIONS));
+		pRunnables.add(() -> searchForPagenamesFaction(BIOMES, FACTIONS));
 
-			pRunnables.parallelStream().forEach(Runnable::run);
+		pRunnables.parallelStream().forEach(Runnable::run);
 
-			if ("tables".equalsIgnoreCase(type)) {
-				Collection<Runnable> runnables = new HashSet<>();
+		if ("tables".equalsIgnoreCase(type)) {
+			Collection<Runnable> runnables = new HashSet<>();
 
-				runnables.add(() -> genTableAchievements(player));
-				runnables.add(GOTWikiGenerator::genTableShields);
-				runnables.add(GOTWikiGenerator::genTableCapes);
-				runnables.add(GOTWikiGenerator::genTableUnits);
-				runnables.add(GOTWikiGenerator::genTableArmor);
-				runnables.add(GOTWikiGenerator::genTableWaypoints);
-				runnables.add(GOTWikiGenerator::genTableWeapons);
-				runnables.add(GOTWikiGenerator::genTableFood);
+			runnables.add(() -> genTableAchievements(player));
+			runnables.add(GOTWikiGenerator::genTableShields);
+			runnables.add(GOTWikiGenerator::genTableCapes);
+			runnables.add(GOTWikiGenerator::genTableUnits);
+			runnables.add(GOTWikiGenerator::genTableArmor);
+			runnables.add(GOTWikiGenerator::genTableWaypoints);
+			runnables.add(GOTWikiGenerator::genTableWeapons);
+			runnables.add(GOTWikiGenerator::genTableFood);
 
-				runnables.parallelStream().forEach(Runnable::run);
+			runnables.parallelStream().forEach(Runnable::run);
 
-			} else if ("xml".equalsIgnoreCase(type)) {
+		} else if ("xml".equalsIgnoreCase(type)) {
+			try (PrintWriter printWriter = new PrintWriter("hummel/import.xml", UTF_8)) {
 				StringBuilder xmlBuilder = new StringBuilder();
 
 				GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
@@ -314,12 +318,10 @@ public class GOTWikiGenerator {
 
 				GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 
-				PrintWriter xml = new PrintWriter("hummel/import.xml", UTF_8);
-				xml.write(xmlBuilder.toString());
-				xml.close();
+				printWriter.write(xmlBuilder.toString());
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		long newTime = System.nanoTime();
 
@@ -329,7 +331,7 @@ public class GOTWikiGenerator {
 	}
 
 	private static void genTableAchievements(EntityPlayer player) {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/achievements.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			List<String> sortable = new ArrayList<>();
@@ -342,16 +344,14 @@ public class GOTWikiGenerator {
 
 			appendSortedList(sb, sortable);
 
-			PrintWriter printWriter = new PrintWriter("hummel/achievements.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void genTableArmor() {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/armor.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			for (Item item : ITEMS) {
@@ -369,25 +369,21 @@ public class GOTWikiGenerator {
 					sb.append(NL).append("|-");
 				}
 			}
-			PrintWriter printWriter = new PrintWriter("hummel/armor.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void genTableCapes() {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/capes.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			for (GOTCapes cape : CAPES) {
 				sb.append(NL).append("| ");
 				sb.append(cape.getCapeName()).append(" || ").append(cape.getCapeDesc()).append(" || ").append(getCapeFilename(cape)).append(NL).append("|-");
 			}
-			PrintWriter printWriter = new PrintWriter("hummel/capes.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -395,7 +391,7 @@ public class GOTWikiGenerator {
 
 	@SuppressWarnings("deprecation")
 	private static void genTableFood() {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/food.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			List<String> sortable = new ArrayList<>();
@@ -420,32 +416,28 @@ public class GOTWikiGenerator {
 
 			appendSortedList(sb, sortable);
 
-			PrintWriter printWriter = new PrintWriter("hummel/food.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void genTableShields() {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/shields.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			for (GOTShields shield : SHIELDS) {
 				sb.append(NL).append("| ");
 				sb.append(shield.getShieldName()).append(" || ").append(shield.getShieldDesc()).append(" || ").append(getShieldFilename(shield)).append(NL).append("|-");
 			}
-			PrintWriter printWriter = new PrintWriter("hummel/shields.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void genTableUnits() {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/units.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			for (GOTUnitTradeEntries unitTradeEntries : UNIT_TRADE_ENTRIES) {
@@ -475,16 +467,14 @@ public class GOTWikiGenerator {
 					}
 				}
 			}
-			PrintWriter printWriter = new PrintWriter("hummel/units.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void genTableWaypoints() {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/waypoints.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			List<String> sortable = new ArrayList<>();
@@ -495,16 +485,14 @@ public class GOTWikiGenerator {
 
 			appendSortedList(sb, sortable);
 
-			PrintWriter printWriter = new PrintWriter("hummel/waypoints.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void genTableWeapons() {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/weapon.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			List<String> sortable = new ArrayList<>();
@@ -531,9 +519,7 @@ public class GOTWikiGenerator {
 
 			appendSortedList(sb, sortable);
 
-			PrintWriter printWriter = new PrintWriter("hummel/weapon.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -697,8 +683,8 @@ public class GOTWikiGenerator {
 			oreGenerants.addAll(biome.getDecorator().getBiomeOres());
 			oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 			for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
-				Block block = GOTReflection.getOreBlock(oreGenerant.getOreGen());
-				int meta = GOTReflection.getOreMeta(oreGenerant.getOreGen());
+				Block block = GOTReflection.getOreGenBlock(oreGenerant.getOreGen());
+				int meta = GOTReflection.getOreGenMeta(oreGenerant.getOreGen());
 
 				String stats = " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ");";
 
@@ -2272,8 +2258,8 @@ public class GOTWikiGenerator {
 				oreGenerants.addAll(biome.getDecorator().getBiomeOres());
 				oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 				for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
-					Block block = GOTReflection.getOreBlock(oreGenerant.getOreGen());
-					int meta = GOTReflection.getOreMeta(oreGenerant.getOreGen());
+					Block block = GOTReflection.getOreGenBlock(oreGenerant.getOreGen());
+					int meta = GOTReflection.getOreGenMeta(oreGenerant.getOreGen());
 					if (getBlockMetaName(block, meta).equals(mineral) || getBlockName(block).equals(mineral)) {
 						sortable.add(NL + "* " + getBiomeLink(biome) + " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ");");
 						break;
@@ -2478,7 +2464,7 @@ public class GOTWikiGenerator {
 	}
 
 	private static void markPagesForRemoval(Collection<String> neededPages, Iterable<String> existingPages) {
-		try {
+		try (PrintWriter printWriter = new PrintWriter("hummel/removal.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			for (String existing : existingPages) {
@@ -2486,9 +2472,7 @@ public class GOTWikiGenerator {
 					sb.append(existing).append('\n');
 				}
 			}
-			PrintWriter printWriter = new PrintWriter("hummel/removal.txt", UTF_8);
 			printWriter.write(sb.toString());
-			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -2515,8 +2499,8 @@ public class GOTWikiGenerator {
 			oreGenerants.addAll(biome.getDecorator().getBiomeGems());
 			for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
 				WorldGenMinable gen = oreGenerant.getOreGen();
-				Block block = GOTReflection.getOreBlock(gen);
-				int meta = GOTReflection.getOreMeta(gen);
+				Block block = GOTReflection.getOreGenBlock(gen);
+				int meta = GOTReflection.getOreGenMeta(gen);
 				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
 					minerals.add(getBlockMetaName(block, meta));
 				} else {

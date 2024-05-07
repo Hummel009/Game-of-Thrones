@@ -112,7 +112,7 @@ public class GOTReflection {
 		}
 	}
 
-	public static Block getOreBlock(WorldGenMinable ore) {
+	public static Block getOreGenBlock(WorldGenMinable ore) {
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "field_150519_a");
 			if (privateField != null) {
@@ -125,7 +125,7 @@ public class GOTReflection {
 		return null;
 	}
 
-	public static int getOreMeta(WorldGenMinable ore) {
+	public static int getOreGenMeta(WorldGenMinable ore) {
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "mineableBlockMeta");
 			if (privateField != null) {
