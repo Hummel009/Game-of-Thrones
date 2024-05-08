@@ -183,150 +183,156 @@ public class GOTWikiGenerator {
 
 		pRunnables.parallelStream().forEach(Runnable::run);
 
-		if ("tables".equalsIgnoreCase(type)) {
-			Collection<Runnable> runnables = new HashSet<>();
+		switch (type) {
+			case "tables":
+			case "TABLES":
+				Collection<Runnable> runnables = new HashSet<>();
 
-			runnables.add(() -> genTableAchievements(entityPlayer));
-			runnables.add(() -> genTableWaypoints(entityPlayer));
-			runnables.add(GOTWikiGenerator::genTableShields);
-			runnables.add(GOTWikiGenerator::genTableCapes);
-			runnables.add(GOTWikiGenerator::genTableUnits);
-			runnables.add(GOTWikiGenerator::genTableArmor);
-			runnables.add(GOTWikiGenerator::genTableWeapons);
-			runnables.add(GOTWikiGenerator::genTableFood);
+				runnables.add(() -> genTableAchievements(entityPlayer));
+				runnables.add(() -> genTableWaypoints(entityPlayer));
+				runnables.add(GOTWikiGenerator::genTableShields);
+				runnables.add(GOTWikiGenerator::genTableCapes);
+				runnables.add(GOTWikiGenerator::genTableUnits);
+				runnables.add(GOTWikiGenerator::genTableArmor);
+				runnables.add(GOTWikiGenerator::genTableWeapons);
+				runnables.add(GOTWikiGenerator::genTableFood);
 
-			runnables.parallelStream().forEach(Runnable::run);
+				runnables.parallelStream().forEach(Runnable::run);
 
-		} else if ("xml".equalsIgnoreCase(type)) {
-			try (PrintWriter printWriter = new PrintWriter("hummel/import.xml", UTF_8)) {
-				StringBuilder xmlBuilder = new StringBuilder();
+				break;
+			case "xml":
+			case "XML":
+				try (PrintWriter printWriter = new PrintWriter("hummel/import.xml", UTF_8)) {
+					StringBuilder xmlBuilder = new StringBuilder();
 
-				GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
+					GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
 
-				xmlBuilder.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
+					xmlBuilder.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
-				Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
-				Collection<StringBuilder> sbs = new HashSet<>();
+					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
+					Collection<StringBuilder> sbs = new HashSet<>();
 
-				Set<String> existingPages = getExistingPages();
-				Collection<String> neededPages = new HashSet<>();
+					Set<String> existingPages = getExistingPages();
+					Collection<String> neededPages = new HashSet<>();
 
-				suppliers.add(() -> addPagesMinerals(neededPages, existingPages));
-				suppliers.add(() -> addPagesEntities(neededPages, existingPages));
-				suppliers.add(() -> addPagesBiomes(neededPages, existingPages));
-				suppliers.add(() -> addPagesFactions(neededPages, existingPages));
-				suppliers.add(() -> addPagesTrees(neededPages, existingPages));
-				suppliers.add(() -> addPagesStructures(neededPages, existingPages));
+					suppliers.add(() -> addPagesMinerals(neededPages, existingPages));
+					suppliers.add(() -> addPagesEntities(neededPages, existingPages));
+					suppliers.add(() -> addPagesBiomes(neededPages, existingPages));
+					suppliers.add(() -> addPagesFactions(neededPages, existingPages));
+					suppliers.add(() -> addPagesTrees(neededPages, existingPages));
+					suppliers.add(() -> addPagesStructures(neededPages, existingPages));
 
-				suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
-				sbs.forEach(xmlBuilder::append);
+					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
+					sbs.forEach(xmlBuilder::append);
 
-				suppliers.clear();
-				sbs.clear();
+					suppliers.clear();
+					sbs.clear();
 
-				markPagesForRemoval(neededPages, existingPages);
+					markPagesForRemoval(neededPages, existingPages);
 
-				suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
-				suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
-				suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
 
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeConquestFactions);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeInvasionFactions);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeMinerals);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeMobs);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeMusic);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeName);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeRainfall);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeSpawnNPCs);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeStructuresSettlements);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeTemperature);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeTrees);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeVariants);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeVisitAchievement);
-				suppliers.add(GOTWikiGenerator::genTemplateBiomeWaypoints);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeConquestFactions);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeInvasionFactions);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeMinerals);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeMobs);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeMusic);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeName);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeRainfall);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeSpawnNPCs);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeStructuresSettlements);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeTemperature);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeTrees);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeVariants);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeVisitAchievement);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeWaypoints);
 
-				suppliers.add(GOTWikiGenerator::genTemplateFactionBanners);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionChars);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionCodename);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionConquestBiomes);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionEnemies);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionFriends);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionInvasionBiomes);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionNPCs);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionName);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionPledgeRank);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionRanks);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionRegion);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionShieldsCapes);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionSpawnBiomes);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionStructures);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionWarCrimes);
-				suppliers.add(GOTWikiGenerator::genTemplateFactionWaypoints);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionBanners);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionChars);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionCodename);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionConquestBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionEnemies);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionFriends);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionInvasionBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionNPCs);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionName);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionPledgeRank);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionRanks);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionRegion);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionShieldsCapes);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionSpawnBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionStructures);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionWarCrimes);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionWaypoints);
 
-				suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityBuys);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityCharacter);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityHireAlignment);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityHirePrice);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityHirePricePledge);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFire);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFrost);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToHeat);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityKillAchievement);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityKillAlignment);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityOwner);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityRideableMob);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityRideableNPC);
-				suppliers.add(GOTWikiGenerator::genTemplateEntitySells);
-				suppliers.add(GOTWikiGenerator::genTemplateEntitySellsUnits);
-				suppliers.add(GOTWikiGenerator::genTemplateEntitySmith);
-				suppliers.add(GOTWikiGenerator::genTemplateEntitySpawn);
-				suppliers.add(GOTWikiGenerator::genTemplateEntitySpawnsInDarkness);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityTargetSeeker);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityTradeable);
-				suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityBuys);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityCharacter);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHireAlignment);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePrice);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePricePledge);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFire);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFrost);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToHeat);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityKillAchievement);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityKillAlignment);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityOwner);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableMob);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableNPC);
+					suppliers.add(GOTWikiGenerator::genTemplateEntitySells);
+					suppliers.add(GOTWikiGenerator::genTemplateEntitySellsUnits);
+					suppliers.add(GOTWikiGenerator::genTemplateEntitySmith);
+					suppliers.add(GOTWikiGenerator::genTemplateEntitySpawn);
+					suppliers.add(GOTWikiGenerator::genTemplateEntitySpawnsInDarkness);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityTargetSeeker);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityTradeable);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
 
-				suppliers.add(() -> genTemplateEntityWaypoint(world));
+					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
-				// структуры - лут
-				// структуры - мобы
-				// структуры - поселения
+					// структуры - лут
+					// структуры - мобы
+					// структуры - поселения
 
-				// мобы - структуры
-				// мобы - поселения
+					// мобы - структуры
+					// мобы - поселения
 
-				// поселения - мобы
-				// поселения - структуры
-				// поселения - лут
-				// поселения - биомы
+					// поселения - мобы
+					// поселения - структуры
+					// поселения - лут
+					// поселения - биомы
 
-				suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
-				sbs.forEach(xmlBuilder::append);
+					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
+					sbs.forEach(xmlBuilder::append);
 
-				suppliers.clear();
-				sbs.clear();
+					suppliers.clear();
+					sbs.clear();
 
-				xmlBuilder.append("</mediawiki>");
+					xmlBuilder.append("</mediawiki>");
 
-				GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
 
-				printWriter.write(xmlBuilder.toString());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+					printWriter.write(xmlBuilder.toString());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				break;
 		}
+
 		long newTime = System.nanoTime();
 
-		//noinspection StringConcatenationMissingWhitespace
-		IChatComponent component = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + 's');
+		IChatComponent component = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E6 + " milliseconds");
 		entityPlayer.addChatMessage(component);
 	}
 
