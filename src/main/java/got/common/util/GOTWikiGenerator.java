@@ -579,11 +579,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeConquestFactions(World world) {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestNPC");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -623,6 +618,11 @@ public class GOTWikiGenerator {
 			}
 		}
 
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestNPC");
+		sb.append(BEGIN);
+
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
@@ -636,11 +636,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeInvasionFactions() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Invasions");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -666,6 +661,11 @@ public class GOTWikiGenerator {
 			}
 		}
 
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Invasions");
+		sb.append(BEGIN);
+
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
@@ -679,11 +679,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeMinerals() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Minerals");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -709,6 +704,11 @@ public class GOTWikiGenerator {
 			}
 		}
 
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Minerals");
+		sb.append(BEGIN);
+
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
@@ -722,11 +722,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeMobs() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -747,6 +742,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -828,11 +828,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeNPCs() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-SpawnNPC");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -867,6 +862,11 @@ public class GOTWikiGenerator {
 			}
 		}
 
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-SpawnNPC");
+		sb.append(BEGIN);
+
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
@@ -880,11 +880,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeStructuresSettlements() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Structures");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -911,6 +906,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Structures");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -954,11 +954,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeTrees() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Trees");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -998,6 +993,11 @@ public class GOTWikiGenerator {
 			}
 		}
 
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Trees");
+		sb.append(BEGIN);
+
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
@@ -1011,11 +1011,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeVariants() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Variants");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -1029,6 +1024,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Variants");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1067,11 +1067,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeWaypoints() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Waypoints");
-		sb.append(BEGIN);
-
 		Map<GOTBiome, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -1089,6 +1084,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Waypoints");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1122,11 +1122,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityBuys() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Buys");
-		sb.append(BEGIN);
-
 		Map<Class<? extends Entity>, Section> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
@@ -1140,6 +1135,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Buys");
+		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1173,11 +1173,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityLegendaryDrop() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-LegendaryDrop");
-		sb.append(BEGIN);
-
 		Map<Class<? extends Entity>, Section> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
@@ -1207,6 +1202,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-LegendaryDrop");
+		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1541,11 +1541,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntitySells() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Sells");
-		sb.append(BEGIN);
-
 		Map<Class<? extends Entity>, Section> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
@@ -1559,6 +1554,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Sells");
+		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1630,11 +1630,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityBiomes() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
-		sb.append(BEGIN);
-
 		Map<Class<? extends Entity>, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -1678,6 +1673,11 @@ public class GOTWikiGenerator {
 				data.get(entry.getEntityClass()).getItems().add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_INVASION + ';');
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
+		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1795,11 +1795,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionBanners() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Banners");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTFaction faction : FACTIONS) {
@@ -1810,12 +1805,17 @@ public class GOTWikiGenerator {
 			if (bannerTypes.isEmpty()) {
 				data.get(faction).setDesc(Lang.FACTION_NO_BANNERS.toString());
 			} else {
-				sb.append(Lang.FACTION_HAS_BANNERS);
+				data.get(faction).setDesc(Lang.FACTION_HAS_BANNERS.toString());
 				for (GOTItemBanner.BannerType banner : bannerTypes) {
 					data.get(faction).getItems().add(NL + "* " + getBannerName(banner) + ';');
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Banners");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1830,11 +1830,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionCharacters() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Chars");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
@@ -1847,6 +1842,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Chars");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -1878,11 +1878,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionConquestBiomes(World world) {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Conquest");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTBiome biome : BIOMES) {
@@ -1910,6 +1905,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Conquest");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -2004,11 +2004,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionInvasionBiomes() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Invasions");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTBiome biome : BIOMES) {
@@ -2026,6 +2021,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Invasions");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -2055,11 +2055,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionNPCs() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-NPC");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
@@ -2072,6 +2067,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-NPC");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -2217,11 +2217,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionSpawnBiomes(World world) {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Spawn");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTBiome biome : BIOMES) {
@@ -2250,6 +2245,11 @@ public class GOTWikiGenerator {
 			}
 		}
 
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Spawn");
+		sb.append(BEGIN);
+
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
@@ -2263,17 +2263,17 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionStructures() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Structures");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (Map.Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.CLASS_TO_FACTION_MAPPING.entrySet()) {
 			data.computeIfAbsent(entry.getValue(), s -> new Section());
 			data.get(entry.getValue()).getItems().add(NL + "* " + getStructureLink(entry.getKey()) + ';');
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Structures");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -2310,17 +2310,17 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionWaypoints() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Waypoints");
-		sb.append(BEGIN);
-
 		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTWaypoint wp : WAYPOINTS) {
 			data.computeIfAbsent(wp.getFaction(), s -> new Section());
 			data.get(wp.getFaction()).getItems().add(NL + "* " + wp.getDisplayName() + ';');
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Waypoints");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -2335,11 +2335,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateMineralBiomes() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mineral-Biomes");
-		sb.append(BEGIN);
-
 		Map<String, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -2362,6 +2357,11 @@ public class GOTWikiGenerator {
 				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Mineral-Biomes");
+		sb.append(BEGIN);
 
 		for (Map.Entry<String, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -2433,11 +2433,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateStructureBiomes() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Biomes");
-		sb.append(BEGIN);
-
 		Map<Class<? extends WorldGenerator>, Section> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -2446,6 +2441,11 @@ public class GOTWikiGenerator {
 				data.get(structure.getStructureGen().getClass()).getItems().add(NL + "* " + getBiomeLink(biome) + ';');
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Biomes");
+		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends WorldGenerator>, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
@@ -2460,11 +2460,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateTreeBiomes() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Tree-Biomes");
-		sb.append(BEGIN);
-
 		Map<GOTTreeType, Section> data = new EnumMap<>(GOTTreeType.class);
 
 		for (GOTBiome biome : BIOMES) {
@@ -2493,6 +2488,11 @@ public class GOTWikiGenerator {
 				data.get(treeEntry.getKey()).getItems().add(NL + "* " + getBiomeLink(biome) + " (" + Lang.TREE_VARIANT_ONLY + ");");
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Tree-Biomes");
+		sb.append(BEGIN);
 
 		for (Map.Entry<GOTTreeType, Section> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
