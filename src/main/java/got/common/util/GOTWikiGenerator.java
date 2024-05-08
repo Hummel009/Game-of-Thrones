@@ -300,16 +300,8 @@ public class GOTWikiGenerator {
 
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
-					// структуры - лут
-					// структуры - мобы
 					// структуры - поселения
-
-					// мобы - структуры
-					// мобы - поселения
-
-					// поселения - мобы
 					// поселения - структуры
-					// поселения - лут
 					// поселения - биомы
 
 					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
