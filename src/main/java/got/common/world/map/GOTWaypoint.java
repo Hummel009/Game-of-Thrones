@@ -771,7 +771,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 
 		private final Collection<GOTWaypoint> waypoints = new ArrayList<>();
 
-		private Collection<GOTWaypoint> getWaypoints() {
+		public Collection<GOTWaypoint> getWaypoints() {
 			return waypoints;
 		}
 	}
