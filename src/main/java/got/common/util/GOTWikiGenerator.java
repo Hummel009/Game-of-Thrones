@@ -2889,6 +2889,7 @@ public class GOTWikiGenerator {
 
 		protected static void appendSection(StringBuilder sb, Section section) {
 			sb.append(section.getDesc());
+
 			for (String item : section.getItems()) {
 				sb.append(item);
 			}
