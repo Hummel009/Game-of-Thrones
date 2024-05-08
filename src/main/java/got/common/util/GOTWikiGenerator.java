@@ -67,8 +67,6 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static got.common.util.GOTWikiGenerator.Utils.*;
-
 public class GOTWikiGenerator {
 	private static final Map<Class<? extends Entity>, Entity> ENTITY_CLASS_TO_ENTITY = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> ENTITY_CLASS_TO_WP = new HashMap<>();
@@ -2515,8 +2513,8 @@ public class GOTWikiGenerator {
 			String pageName = getBiomePagename(biome);
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
-				String page = PAGE_LEFT + "{{Статья Биом}}" + PAGE_RIGHT;
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{Статья Биом}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2530,8 +2528,8 @@ public class GOTWikiGenerator {
 			String pageName = getEntityPagename(entityClass);
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
-				String page = PAGE_LEFT + "{{Статья Моб}}" + PAGE_RIGHT;
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{Статья Моб}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2545,8 +2543,8 @@ public class GOTWikiGenerator {
 			String pageName = getFactionPagename(faction);
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
-				String page = PAGE_LEFT + "{{Статья Фракция}}" + PAGE_RIGHT;
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{Статья Фракция}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2559,8 +2557,8 @@ public class GOTWikiGenerator {
 		for (String pageName : MINERALS) {
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
-				String page = PAGE_LEFT + "{{Статья Ископаемое}}" + PAGE_RIGHT;
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{Статья Ископаемое}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2574,8 +2572,8 @@ public class GOTWikiGenerator {
 			String pageName = getStructureName(strClass);
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
-				String page = PAGE_LEFT + "{{Статья Структура}}" + PAGE_RIGHT;
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{Статья Структура}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2589,8 +2587,8 @@ public class GOTWikiGenerator {
 			String pageName = getTreeName(tree);
 			neededPages.add(pageName);
 			if (!existingPages.contains(pageName)) {
-				String page = PAGE_LEFT + "{{Статья Дерево}}" + PAGE_RIGHT;
-				sb.append(TITLE_SINGLE).append(pageName).append(page);
+				sb.append(TITLE_SINGLE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{Статья Дерево}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2776,125 +2774,119 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	@SuppressWarnings("all")
-	protected static class Utils {
-		private Utils() {
+	private static String getBannerName(GOTItemBanner.BannerType banner) {
+		return StatCollector.translateToLocal("item.got:banner." + banner.getBannerName() + ".name");
+	}
+
+	private static String getBiomeLink(GOTBiome biome) {
+		String biomeName = getBiomeName(biome);
+		String biomePagename = getBiomePagename(biome);
+		if (biomeName.equals(biomePagename)) {
+			return "[[" + biomeName + "]]";
+		}
+		return "[[" + biomePagename + '|' + biomeName + "]]";
+	}
+
+	private static String getBiomeName(GOTBiome biome) {
+		return StatCollector.translateToLocal("got.biome." + biome.biomeName + ".name");
+	}
+
+	private static String getBiomePagename(GOTBiome biome) {
+		return BIOME_TO_PAGENAME.get(getBiomeName(biome));
+	}
+
+	private static String getBiomeVariantName(GOTBiomeVariant variant) {
+		return StatCollector.translateToLocal("got.variant." + variant.getVariantName() + ".name");
+	}
+
+	private static String getBlockMetaName(Block block, int meta) {
+		return StatCollector.translateToLocal(block.getUnlocalizedName() + '.' + meta + ".name");
+	}
+
+	private static String getBlockName(Block block) {
+		return StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
+	}
+
+	private static String getCapeFilename(GOTCapes cape) {
+		return "[[File:Cape " + cape.name().toLowerCase(Locale.ROOT) + ".png]]";
+	}
+
+	private static String getEntityLink(Class<? extends Entity> entityClass) {
+		if (!GOTEntityRegistry.CLASS_TO_NAME_MAPPING.containsKey(entityClass)) {
+			return getEntityVanillaName(entityClass);
+		}
+		String entityName = getEntityName(entityClass);
+		String entityPagename = getEntityPagename(entityClass);
+		if (entityName.equals(entityPagename)) {
+			return "[[" + entityPagename + "]]";
+		}
+		return "[[" + entityPagename + '|' + entityName + "]]";
+	}
+
+	private static String getEntityName(Class<? extends Entity> entityClass) {
+		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.CLASS_TO_NAME_MAPPING.get(entityClass) + ".name");
+	}
+
+	private static String getEntityVanillaName(Class<? extends Entity> entityClass) {
+		return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
+	}
+
+	private static String getEntityPagename(Class<? extends Entity> entityClass) {
+		return ENTITY_TO_PAGENAME.get(getEntityName(entityClass));
+	}
+
+	private static String getFactionLink(GOTFaction fac) {
+		String facName = getFactionName(fac);
+		String facPagename = getFactionPagename(fac);
+		if (facName.equals(facPagename)) {
+			return "[[" + facPagename + "]]";
+		}
+		return "[[" + facPagename + '|' + facName + "]]";
+	}
+
+	private static String getFactionName(GOTFaction fac) {
+		return StatCollector.translateToLocal("got.faction." + fac.codeName() + ".name");
+	}
+
+	private static String getFactionPagename(GOTFaction fac) {
+		return FACTION_TO_PAGENAME.get(getFactionName(fac));
+	}
+
+	private static String getItemFilename(Item item) {
+		return "[[File:" + item.getUnlocalizedName().substring("item.got:".length()) + ".png|32px|link=]]";
+	}
+
+	private static String getItemName(Item item) {
+		return StatCollector.translateToLocal(item.getUnlocalizedName() + ".name");
+	}
+
+	private static String getShieldFilename(GOTShields shield) {
+		return "[[File:Shield " + shield.name().toLowerCase(Locale.ROOT) + ".png]]";
+	}
+
+	private static String getStructureLink(Class<? extends WorldGenerator> structureClass) {
+		return "[[" + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name") + "]]";
+	}
+
+	private static String getStructureName(Class<? extends WorldGenerator> structureClass) {
+		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name");
+	}
+
+	private static String getSettlementName(String nameAlias) {
+		return StatCollector.translateToLocal("got.structure." + nameAlias + ".name");
+	}
+
+	private static String getTreeName(GOTTreeType tree) {
+		return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name");
+	}
+
+	private static void appendSection(StringBuilder sb, Section section) {
+		sb.append(section.getDesc());
+
+		for (String item : section.getItems()) {
+			sb.append(item);
 		}
 
-		protected static String getBannerName(GOTItemBanner.BannerType banner) {
-			return StatCollector.translateToLocal("item.got:banner." + banner.getBannerName() + ".name");
-		}
-
-		protected static String getBiomeLink(GOTBiome biome) {
-			String biomeName = getBiomeName(biome);
-			String biomePagename = getBiomePagename(biome);
-			if (biomeName.equals(biomePagename)) {
-				return "[[" + biomeName + "]]";
-			}
-			return "[[" + biomePagename + '|' + biomeName + "]]";
-		}
-
-		protected static String getBiomeName(GOTBiome biome) {
-			return StatCollector.translateToLocal("got.biome." + biome.biomeName + ".name");
-		}
-
-		protected static String getBiomePagename(GOTBiome biome) {
-			return BIOME_TO_PAGENAME.get(getBiomeName(biome));
-		}
-
-		protected static String getBiomeVariantName(GOTBiomeVariant variant) {
-			return StatCollector.translateToLocal("got.variant." + variant.getVariantName() + ".name");
-		}
-
-		protected static String getBlockMetaName(Block block, int meta) {
-			return StatCollector.translateToLocal(block.getUnlocalizedName() + '.' + meta + ".name");
-		}
-
-		protected static String getBlockName(Block block) {
-			return StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
-		}
-
-		protected static String getCapeFilename(GOTCapes cape) {
-			return "[[File:Cape " + cape.name().toLowerCase(Locale.ROOT) + ".png]]";
-		}
-
-		protected static String getEntityLink(Class<? extends Entity> entityClass) {
-			if (!GOTEntityRegistry.CLASS_TO_NAME_MAPPING.containsKey(entityClass)) {
-				return getEntityVanillaName(entityClass);
-			}
-			String entityName = getEntityName(entityClass);
-			String entityPagename = getEntityPagename(entityClass);
-			if (entityName.equals(entityPagename)) {
-				return "[[" + entityPagename + "]]";
-			}
-			return "[[" + entityPagename + '|' + entityName + "]]";
-		}
-
-		protected static String getEntityName(Class<? extends Entity> entityClass) {
-			return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.CLASS_TO_NAME_MAPPING.get(entityClass) + ".name");
-		}
-
-		protected static String getEntityVanillaName(Class<? extends Entity> entityClass) {
-			return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
-		}
-
-		protected static String getEntityPagename(Class<? extends Entity> entityClass) {
-			return ENTITY_TO_PAGENAME.get(getEntityName(entityClass));
-		}
-
-		protected static String getFactionLink(GOTFaction fac) {
-			String facName = getFactionName(fac);
-			String facPagename = getFactionPagename(fac);
-			if (facName.equals(facPagename)) {
-				return "[[" + facPagename + "]]";
-			}
-			return "[[" + facPagename + '|' + facName + "]]";
-		}
-
-		protected static String getFactionName(GOTFaction fac) {
-			return StatCollector.translateToLocal("got.faction." + fac.codeName() + ".name");
-		}
-
-		protected static String getFactionPagename(GOTFaction fac) {
-			return FACTION_TO_PAGENAME.get(getFactionName(fac));
-		}
-
-		protected static String getItemFilename(Item item) {
-			return "[[File:" + item.getUnlocalizedName().substring("item.got:".length()) + ".png|32px|link=]]";
-		}
-
-		protected static String getItemName(Item item) {
-			return StatCollector.translateToLocal(item.getUnlocalizedName() + ".name");
-		}
-
-		protected static String getShieldFilename(GOTShields shield) {
-			return "[[File:Shield " + shield.name().toLowerCase(Locale.ROOT) + ".png]]";
-		}
-
-		protected static String getStructureLink(Class<? extends WorldGenerator> structureClass) {
-			return "[[" + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name") + "]]";
-		}
-
-		protected static String getStructureName(Class<? extends WorldGenerator> structureClass) {
-			return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name");
-		}
-
-		protected static String getSettlementName(String nameAlias) {
-			return StatCollector.translateToLocal("got.structure." + nameAlias + ".name");
-		}
-
-		protected static String getTreeName(GOTTreeType tree) {
-			return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name");
-		}
-
-		protected static void appendSection(StringBuilder sb, Section section) {
-			sb.append(section.getDesc());
-
-			for (String item : section.getItems()) {
-				sb.append(item);
-			}
-
-			section.getItems().clear();
-		}
+		section.getItems().clear();
 	}
 }
