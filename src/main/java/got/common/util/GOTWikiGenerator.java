@@ -230,11 +230,9 @@ public class GOTWikiGenerator {
 
 					markPagesForRemoval(neededPages, existingPages);
 
+					suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
-
-					suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
-					suppliers.add(GOTWikiGenerator::genTemplateStructureMobs);
 
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
@@ -2266,34 +2264,6 @@ public class GOTWikiGenerator {
 					int meta = GOTReflection.getOreGenMeta(oreGenerant.getOreGen());
 					if (getBlockMetaName(block, meta).equals(mineral) || getBlockName(block).equals(mineral)) {
 						content.add(NL + "* " + getBiomeLink(biome) + " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ");");
-						break;
-					}
-				}
-			}
-
-			appendSortedSet(sb, content);
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateStructureMobs() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Biomes");
-		sb.append(BEGIN);
-
-		for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
-			Collection<String> content = new TreeSet<>();
-
-			sb.append(NL).append("| ");
-			sb.append(getStructureName(strClass)).append(" = ").append(Lang.STRUCTURE_BIOMES);
-			for (GOTBiome biome : BIOMES) {
-				for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
-					if (structure.getStructureGen().getClass() == strClass) {
-						content.add(NL + "* " + getBiomeLink(biome) + ';');
 						break;
 					}
 				}
