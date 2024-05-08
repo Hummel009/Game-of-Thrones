@@ -2648,7 +2648,7 @@ public class GOTWikiGenerator {
 
 		protected static String getEntityLink(Class<? extends Entity> entityClass) {
 			if (!GOTEntityRegistry.CLASS_TO_NAME_MAPPING.containsKey(entityClass)) {
-				return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
+				return getEntityVanillaName(entityClass);
 			}
 			String entityName = getEntityName(entityClass);
 			String entityPagename = getEntityPagename(entityClass);
@@ -2660,6 +2660,10 @@ public class GOTWikiGenerator {
 
 		protected static String getEntityName(Class<? extends Entity> entityClass) {
 			return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.CLASS_TO_NAME_MAPPING.get(entityClass) + ".name");
+		}
+
+		protected static String getEntityVanillaName(Class<? extends Entity> entityClass) {
+			return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
 		}
 
 		protected static String getEntityPagename(Class<? extends Entity> entityClass) {
