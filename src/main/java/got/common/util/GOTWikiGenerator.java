@@ -336,7 +336,7 @@ public class GOTWikiGenerator {
 		entityPlayer.addChatMessage(component);
 	}
 
-	private static void genTableAchievements(EntityPlayer player) {
+	private static void genTableAchievements(EntityPlayer entityPlayer) {
 		try (PrintWriter printWriter = new PrintWriter("hummel/achievements.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
@@ -344,7 +344,7 @@ public class GOTWikiGenerator {
 
 			for (GOTAchievement ach : ACHIEVEMENTS) {
 				if (!(ach instanceof GOTAchievementRank)) {
-					content.add(NL + "| " + ach.getTitle(player) + " || " + ach.getDescription() + NL + "|-");
+					content.add(NL + "| " + ach.getTitle(entityPlayer) + " || " + ach.getDescription() + NL + "|-");
 				}
 			}
 
