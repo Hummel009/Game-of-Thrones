@@ -300,8 +300,16 @@ public class GOTWikiGenerator {
 
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
+					// структуры - лут
+					// структуры - мобы
 					// структуры - поселения
+
+					// мобы - структуры
+					// мобы - поселения
+
+					// поселения - мобы
 					// поселения - структуры
+					// поселения - лут
 					// поселения - биомы
 
 					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
@@ -720,11 +728,7 @@ public class GOTWikiGenerator {
 			} else {
 				sb.append(Lang.BIOME_HAS_ANIMALS);
 				for (BiomeGenBase.SpawnListEntry entry : entries) {
-					if (GOTEntityRegistry.CLASS_TO_NAME_MAPPING.containsKey(entry.entityClass)) {
-						content.add(NL + "* " + getEntityLink(entry.entityClass) + ';');
-					} else {
-						content.add(NL + "* " + getEntityVanillaName(entry.entityClass) + ';');
-					}
+					content.add(NL + "* " + getEntityLink(entry.entityClass) + ';');
 				}
 			}
 
@@ -2643,6 +2647,9 @@ public class GOTWikiGenerator {
 		}
 
 		protected static String getEntityLink(Class<? extends Entity> entityClass) {
+			if (!GOTEntityRegistry.CLASS_TO_NAME_MAPPING.containsKey(entityClass)) {
+				return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
+			}
 			String entityName = getEntityName(entityClass);
 			String entityPagename = getEntityPagename(entityClass);
 			if (entityName.equals(entityPagename)) {
@@ -2657,10 +2664,6 @@ public class GOTWikiGenerator {
 
 		protected static String getEntityPagename(Class<? extends Entity> entityClass) {
 			return ENTITY_TO_PAGE.get(getEntityName(entityClass));
-		}
-
-		protected static String getEntityVanillaName(Class<? extends Entity> entityClass) {
-			return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
 		}
 
 		protected static String getFactionLink(GOTFaction fac) {
