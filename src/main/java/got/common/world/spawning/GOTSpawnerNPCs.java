@@ -48,13 +48,17 @@ public class GOTSpawnerNPCs {
 
 	private static int countNPCs(World world) {
 		int count = 0;
-		for (Object element : world.loadedEntityList) {
-			Entity entity = (Entity) element;
-			if (!(entity instanceof GOTEntityNPC)) {
-				continue;
+		try {
+			for (Object element : world.loadedEntityList) {
+				Entity entity = (Entity) element;
+				if (!(entity instanceof GOTEntityNPC)) {
+					continue;
+				}
+				int spawnCountValue = ((GOTEntityNPC) entity).getSpawnCountValue();
+				count += spawnCountValue;
 			}
-			int spawnCountValue = ((GOTEntityNPC) entity).getSpawnCountValue();
-			count += spawnCountValue;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return count;
 	}
