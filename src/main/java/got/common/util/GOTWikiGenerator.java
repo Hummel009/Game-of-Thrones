@@ -162,7 +162,7 @@ public class GOTWikiGenerator {
 	private GOTWikiGenerator() {
 	}
 
-	public static void generate(String type, World world, EntityPlayer player) {
+	public static void generate(String type, World world, EntityPlayer entityPlayer) {
 		long time = System.nanoTime();
 
 		try {
@@ -186,12 +186,12 @@ public class GOTWikiGenerator {
 		if ("tables".equalsIgnoreCase(type)) {
 			Collection<Runnable> runnables = new HashSet<>();
 
-			runnables.add(() -> genTableAchievements(player));
+			runnables.add(() -> genTableAchievements(entityPlayer));
+			runnables.add(() -> genTableWaypoints(entityPlayer));
 			runnables.add(GOTWikiGenerator::genTableShields);
 			runnables.add(GOTWikiGenerator::genTableCapes);
 			runnables.add(GOTWikiGenerator::genTableUnits);
 			runnables.add(GOTWikiGenerator::genTableArmor);
-			runnables.add(GOTWikiGenerator::genTableWaypoints);
 			runnables.add(GOTWikiGenerator::genTableWeapons);
 			runnables.add(GOTWikiGenerator::genTableFood);
 
@@ -327,7 +327,7 @@ public class GOTWikiGenerator {
 
 		//noinspection StringConcatenationMissingWhitespace
 		IChatComponent component = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + 's');
-		player.addChatMessage(component);
+		entityPlayer.addChatMessage(component);
 	}
 
 	private static void genTableAchievements(EntityPlayer player) {
@@ -473,14 +473,14 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	private static void genTableWaypoints() {
+	private static void genTableWaypoints(EntityPlayer entityPlayer) {
 		try (PrintWriter printWriter = new PrintWriter("hummel/waypoints.txt", UTF_8)) {
 			StringBuilder sb = new StringBuilder();
 
 			List<String> sortable = new ArrayList<>();
 
 			for (GOTWaypoint wp : WAYPOINTS) {
-				sortable.add(NL + "| " + wp.getDisplayName() + " || " + wp.getLoreText(null) + NL + "|-");
+				sortable.add(NL + "| " + wp.getDisplayName() + " || " + wp.getLoreText(entityPlayer) + NL + "|-");
 			}
 
 			appendSortedList(sb, sortable);
