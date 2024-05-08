@@ -296,8 +296,7 @@ public class GOTWikiGenerator {
 					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
 					suppliers.clear();
 
-					sb.append(genTemplateStructureEntities(world));
-					sb.append(genTemplateEntityStructures(world));
+					sb.append(genTemplateMtmEntitiesStructures(world));
 
 					sb.append("</mediawiki>");
 
@@ -2378,16 +2377,14 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateEntityStructures(World world) {
+	private static StringBuilder genTemplateMtmEntitiesStructures(World world) {
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Structures");
-		sb.append(BEGIN);
-
-		Map<Class<? extends WorldGenerator>, Section> data = new HashMap<>();
+		Map<Class<? extends WorldGenerator>, Section> dataES = new HashMap<>();
+		Map<Class<? extends Entity>, Section> dataSE = new HashMap<>();
 
 		for (Class<? extends WorldGenerator> strClass : STRUCTURE_CLASSES) {
-			data.put(strClass, new Section());
+			dataES.put(strClass, new Section());
 
 			WorldGenerator generator = null;
 			try {
@@ -2403,12 +2400,17 @@ public class GOTWikiGenerator {
 
 				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
 				for (Class<? extends Entity> entityClass : entityClasses) {
-					data.get(strClass).getItems().add(NL + "* " + getEntityLink(entityClass) + ';');
+					dataES.get(strClass).getItems().add(NL + "* " + getEntityLink(entityClass) + ';');
+					dataSE.computeIfAbsent(entityClass, s -> new Section());
+					dataSE.get(entityClass).getItems().add(NL + "* " + getStructureLink(strClass) + ';');
 				}
 			}
 		}
 
-		for (Map.Entry<Class<? extends WorldGenerator>, Section> entry : data.entrySet()) {
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Structures");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends WorldGenerator>, Section> entry : dataES.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getStructureName(entry.getKey())).append(" = ");
 
@@ -2417,39 +2419,10 @@ public class GOTWikiGenerator {
 
 		sb.append(END);
 
-		return sb;
-	}
-
-	private static StringBuilder genTemplateStructureEntities(World world) {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Entities");
+		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Mobs");
 		sb.append(BEGIN);
 
-		Map<Class<? extends Entity>, Section> data = new HashMap<>();
-
-		for (Class<? extends WorldGenerator> strClass : STRUCTURE_CLASSES) {
-			WorldGenerator generator = null;
-			try {
-				generator = strClass.getConstructor(Boolean.TYPE).newInstance(true);
-			} catch (Exception ignored) {
-			}
-
-			if (generator instanceof GOTStructureBase) {
-				GOTStructureBase structure = (GOTStructureBase) generator;
-				structure.setRestrictions(false);
-				structure.setWikiGen(true);
-				structure.generate(world, world.rand, 0, 0, 0, 0);
-
-				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
-				for (Class<? extends Entity> entityClass : entityClasses) {
-					data.computeIfAbsent(entityClass, s -> new Section());
-					data.get(entityClass).getItems().add(NL + "* " + getStructureLink(strClass) + ';');
-				}
-			}
-		}
-
-		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, Section> entry : dataSE.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
@@ -2803,7 +2776,7 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	@SuppressWarnings({"ProtectedInnerClass", "WeakerAccess"})
+	@SuppressWarnings("all")
 	protected static class Utils {
 		private Utils() {
 		}
