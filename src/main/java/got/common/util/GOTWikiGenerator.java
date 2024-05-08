@@ -315,7 +315,7 @@ public class GOTWikiGenerator {
 
 				break;
 			case SUSPEND:
-				try (PrintWriter printWriter = new PrintWriter("hummel/exp.xml", UTF_8)) {
+				try (PrintWriter printWriter = new PrintWriter("hummel/suspend.xml", UTF_8)) {
 					StringBuilder sb = new StringBuilder();
 
 					sb.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
