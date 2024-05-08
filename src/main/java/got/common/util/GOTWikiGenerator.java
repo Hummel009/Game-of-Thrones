@@ -315,8 +315,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static void genTableAchievements(EntityPlayer entityPlayer) {
-		StringBuilder sb = new StringBuilder();
-
 		Collection<String> content = new TreeSet<>();
 
 		for (GOTAchievement ach : ACHIEVEMENTS) {
@@ -324,6 +322,8 @@ public class GOTWikiGenerator {
 				content.add(NL + "| " + ach.getTitle(entityPlayer) + " || " + ach.getDescription() + NL + "|-");
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
 
 		for (String s : content) {
 			sb.append(s);
@@ -379,27 +379,27 @@ public class GOTWikiGenerator {
 
 	@SuppressWarnings("deprecation")
 	private static void genTableFood() {
-		StringBuilder sb = new StringBuilder();
-
 		Collection<String> content = new TreeSet<>();
 
 		for (Item item : ITEMS) {
 			if (item instanceof ItemFood) {
-				StringBuilder localSb = new StringBuilder();
+				StringBuilder sb = new StringBuilder();
 
 				int heal = ((ItemFood) item).func_150905_g(null);
 				float saturation = ((ItemFood) item).func_150906_h(null);
-				localSb.append(NL).append("| ");
-				localSb.append(getItemName(item));
-				localSb.append(" || ").append(getItemFilename(item));
-				localSb.append(" || ").append("{{Bar|bread|").append(new DecimalFormat("#.##").format(saturation * heal * 2)).append("}}");
-				localSb.append(" || ").append("{{Bar|food|").append(heal).append("}}");
-				localSb.append(" || ").append(item.getItemStackLimit());
-				localSb.append(NL).append("|-");
+				sb.append(NL).append("| ");
+				sb.append(getItemName(item));
+				sb.append(" || ").append(getItemFilename(item));
+				sb.append(" || ").append("{{Bar|bread|").append(new DecimalFormat("#.##").format(saturation * heal * 2)).append("}}");
+				sb.append(" || ").append("{{Bar|food|").append(heal).append("}}");
+				sb.append(" || ").append(item.getItemStackLimit());
+				sb.append(NL).append("|-");
 
-				content.add(localSb.toString());
+				content.add(sb.toString());
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
 
 		for (String s : content) {
 			sb.append(s);
