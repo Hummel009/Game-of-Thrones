@@ -2281,7 +2281,6 @@ public class GOTWikiGenerator {
 					Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
 					for (Class<? extends Entity> entityClass : entityClasses) {
 						content.add(NL + "* " + getEntityLink(entityClass) + ';');
-
 					}
 
 					appendSortedSet(sb, content);
