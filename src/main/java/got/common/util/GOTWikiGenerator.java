@@ -224,9 +224,10 @@ public class GOTWikiGenerator {
 
 					markPagesForRemoval(neededPages, existingPages);
 
-					suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
+					suppliers.add(() -> genTemplateStructureMobs(world));
 
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
@@ -299,40 +300,6 @@ public class GOTWikiGenerator {
 					sb.append("</mediawiki>");
 
 					GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
-
-					printWriter.write(sb.toString());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-				break;
-			case SUSPEND:
-				try (PrintWriter printWriter = new PrintWriter("hummel/suspend.xml", UTF_8)) {
-					StringBuilder sb = new StringBuilder();
-
-					sb.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
-
-					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
-
-					suppliers.add(() -> genTemplateStructureMobs(world));
-
-					// структуры - лут
-					// структуры - мобы
-					// структуры - поселения
-
-					// мобы - структуры
-					// мобы - поселения
-
-					// поселения - мобы
-					// поселения - структуры
-					// поселения - лут
-					// поселения - биомы
-
-					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
-
-					suppliers.clear();
-
-					sb.append("</mediawiki>");
 
 					printWriter.write(sb.toString());
 				} catch (Exception e) {
@@ -2634,7 +2601,7 @@ public class GOTWikiGenerator {
 	}
 
 	public enum Type {
-		XML("xml"), TABLES("tables"), SUSPEND("suspend");
+		XML("xml"), TABLES("tables");
 
 		private final String codeName;
 
