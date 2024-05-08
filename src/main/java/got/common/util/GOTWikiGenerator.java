@@ -39,6 +39,7 @@ import got.common.world.spawning.GOTFactionContainer;
 import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.GOTStructureRegistry;
+import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -163,7 +164,7 @@ public class GOTWikiGenerator {
 	private GOTWikiGenerator() {
 	}
 
-	public static void generate(String type, World world, EntityPlayer entityPlayer) {
+	public static void generate(Type type, World world, EntityPlayer entityPlayer) {
 		long time = System.nanoTime();
 
 		try {
@@ -184,30 +185,28 @@ public class GOTWikiGenerator {
 		pRunnables.parallelStream().forEach(Runnable::run);
 
 		switch (type) {
-			case "tables":
-			case "TABLES":
+			case TABLES:
 				Collection<Runnable> runnables = new HashSet<>();
 
-				runnables.add(() -> genTableAchievements(entityPlayer));
-				runnables.add(() -> genTableWaypoints(entityPlayer));
 				runnables.add(GOTWikiGenerator::genTableShields);
 				runnables.add(GOTWikiGenerator::genTableCapes);
 				runnables.add(GOTWikiGenerator::genTableUnits);
 				runnables.add(GOTWikiGenerator::genTableArmor);
 				runnables.add(GOTWikiGenerator::genTableWeapons);
 				runnables.add(GOTWikiGenerator::genTableFood);
+				runnables.add(() -> genTableAchievements(entityPlayer));
+				runnables.add(() -> genTableWaypoints(entityPlayer));
 
 				runnables.parallelStream().forEach(Runnable::run);
 
 				break;
-			case "xml":
-			case "XML":
+			case XML:
 				try (PrintWriter printWriter = new PrintWriter("hummel/import.xml", UTF_8)) {
-					StringBuilder xmlBuilder = new StringBuilder();
+					StringBuilder sb = new StringBuilder();
 
 					GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
 
-					xmlBuilder.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
+					sb.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
 					Collection<StringBuilder> sbs = new HashSet<>();
@@ -223,7 +222,7 @@ public class GOTWikiGenerator {
 					suppliers.add(() -> addPagesStructures(neededPages, existingPages));
 
 					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
-					sbs.forEach(xmlBuilder::append);
+					sbs.forEach(sb::append);
 
 					suppliers.clear();
 					sbs.clear();
@@ -297,8 +296,34 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityTargetSeeker);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityTradeable);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
-
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
+
+					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
+					sbs.forEach(sb::append);
+
+					suppliers.clear();
+					sbs.clear();
+
+					sb.append("</mediawiki>");
+
+					GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
+
+					printWriter.write(sb.toString());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				break;
+			case SUSPEND:
+				try (PrintWriter printWriter = new PrintWriter("hummel/exp.xml", UTF_8)) {
+					StringBuilder sb = new StringBuilder();
+
+					sb.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
+
+					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
+					Collection<StringBuilder> sbs = new HashSet<>();
+
+					suppliers.add(() -> genTemplateStructureMobs(world));
 
 					// структуры - лут
 					// структуры - мобы
@@ -313,16 +338,14 @@ public class GOTWikiGenerator {
 					// поселения - биомы
 
 					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
-					sbs.forEach(xmlBuilder::append);
+					sbs.forEach(sb::append);
 
 					suppliers.clear();
 					sbs.clear();
 
-					xmlBuilder.append("</mediawiki>");
+					sb.append("</mediawiki>");
 
-					GOTDate.AegonCalendar.getDate().getMonth().setSeason(season);
-
-					printWriter.write(xmlBuilder.toString());
+					printWriter.write(sb.toString());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -332,7 +355,7 @@ public class GOTWikiGenerator {
 
 		long newTime = System.nanoTime();
 
-		IChatComponent component = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E6 + " milliseconds");
+		IChatComponent component = new ChatComponentText("Generated in " + (newTime - time) / 1.0E6 + " milliseconds");
 		entityPlayer.addChatMessage(component);
 	}
 
@@ -2273,6 +2296,49 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
+	private static StringBuilder genTemplateStructureMobs(World world) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Mobs");
+		sb.append(BEGIN);
+
+		for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
+			Collection<String> content = new TreeSet<>();
+
+			sb.append(NL).append("| ");
+			sb.append(getStructureName(strClass)).append(" = ");//.append(Lang.STRUCTURE_MOBS);
+
+			WorldGenerator generator = null;
+			try {
+				generator = strClass.getConstructor(Boolean.TYPE).newInstance(true);
+			} catch (Exception ignored) {
+			}
+
+			if (generator instanceof GOTStructureBase) {
+				try {
+					GOTStructureBase structure = (GOTStructureBase) generator;
+					structure.setRestrictions(false);
+					structure.setWikiGen(true);
+					structure.generate(world, world.rand, 0, 0, 0, 0);
+
+					Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
+					for (Class<? extends Entity> entityClass : entityClasses) {
+						content.add(NL + "* " + getEntityLink(entityClass) + ';');
+
+					}
+
+					appendSortedSet(sb, content);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
 	private static StringBuilder genTemplateStructureBiomes() {
 		StringBuilder sb = new StringBuilder();
 
@@ -2578,7 +2644,7 @@ public class GOTWikiGenerator {
 	}
 
 	public enum Type {
-		XML("xml"), TABLES("tables");
+		XML("xml"), TABLES("tables"), SUSPEND("suspend");
 
 		private final String codeName;
 

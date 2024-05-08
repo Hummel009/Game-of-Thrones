@@ -39,7 +39,13 @@ public class GOTCommandWikiGen extends CommandBase {
 		} else {
 			func_152373_a(sender, this, "Database \"" + type + "\" is prepared.");
 
-			new Thread(() -> GOTWikiGenerator.generate(type.toString(), world, (EntityPlayer) sender)).start();
+			Runnable runnable = () -> GOTWikiGenerator.generate(type, world, (EntityPlayer) sender);
+
+			if (type == GOTWikiGenerator.Type.SUSPEND) {
+				runnable.run();
+			} else {
+				new Thread(runnable).start();
+			}
 		}
 	}
 }
