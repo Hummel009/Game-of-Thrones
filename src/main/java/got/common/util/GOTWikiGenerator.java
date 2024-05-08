@@ -293,11 +293,11 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
-					//suppliers.add(() -> genTemplateStructureEntities(world));
-					//suppliers.add(() -> genTemplateEntityStructures(world));
-
 					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
 					suppliers.clear();
+
+					sb.append(genTemplateStructureEntities(world));
+					sb.append(genTemplateEntityStructures(world));
 
 					sb.append("</mediawiki>");
 
