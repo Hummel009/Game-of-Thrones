@@ -69,7 +69,6 @@ import java.util.stream.Stream;
 
 import static got.common.util.GOTWikiGenerator.Utils.*;
 
-@SuppressWarnings("StreamToLoop")
 public class GOTWikiGenerator {
 	private static final Map<Class<? extends Entity>, Entity> CLASS_TO_ENTITY_MAPPING = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> CLASS_TO_WP_MAPPING = new HashMap<>();
@@ -209,7 +208,6 @@ public class GOTWikiGenerator {
 					sb.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
-					Collection<StringBuilder> sbs = new HashSet<>();
 
 					Set<String> existingPages = getExistingPages();
 					Collection<String> neededPages = new HashSet<>();
@@ -221,11 +219,8 @@ public class GOTWikiGenerator {
 					suppliers.add(() -> addPagesTrees(neededPages, existingPages));
 					suppliers.add(() -> addPagesStructures(neededPages, existingPages));
 
-					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
-					sbs.forEach(sb::append);
-
+					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
 					suppliers.clear();
-					sbs.clear();
 
 					markPagesForRemoval(neededPages, existingPages);
 
@@ -298,11 +293,8 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
-					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
-					sbs.forEach(sb::append);
-
+					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
 					suppliers.clear();
-					sbs.clear();
 
 					sb.append("</mediawiki>");
 
@@ -321,7 +313,6 @@ public class GOTWikiGenerator {
 					sb.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
-					Collection<StringBuilder> sbs = new HashSet<>();
 
 					suppliers.add(() -> genTemplateStructureMobs(world));
 
@@ -337,11 +328,9 @@ public class GOTWikiGenerator {
 					// поселения - лут
 					// поселения - биомы
 
-					suppliers.parallelStream().map(Supplier::get).forEach(sbs::add);
-					sbs.forEach(sb::append);
+					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
 
 					suppliers.clear();
-					sbs.clear();
 
 					sb.append("</mediawiki>");
 
@@ -1610,6 +1599,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entityClass)).append(" = ");
 
+			//noinspection StreamToLoop
 			if (Stream.of(spawnBiomes, conquestBiomes, invasionBiomes).allMatch(Collection::isEmpty)) {
 				sb.append(Lang.ENTITY_NO_BIOMES);
 			} else {
