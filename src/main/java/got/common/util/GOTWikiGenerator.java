@@ -1705,11 +1705,11 @@ public class GOTWikiGenerator {
 					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
 						sb.append("{{Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
 						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append('+').append(alignment).append(Lang.REPUTATION).append(';');
+						sb.append('+').append(alignment).append(' ').append(Lang.REPUTATION).append(';');
 					} else {
 						sb.append("N/A ").append(Lang.NO_PLEDGE).append(", ");
 						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append('+').append(Math.max(alignment, 100)).append(Lang.REPUTATION).append(';');
+						sb.append('+').append(Math.max(alignment, 100)).append(' ').append(Lang.REPUTATION).append(';');
 					}
 
 					data.get(entityEntry.getKey()).add(sb.toString());
