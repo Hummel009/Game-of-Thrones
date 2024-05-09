@@ -850,11 +850,11 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			data.put(biome, new TreeSet<>());
 
-			for (GOTFactionContainer facContainer : biome.getNPCSpawnList().getFactionContainers()) {
-				if (facContainer.getBaseWeight() > 0) {
-					for (GOTSpawnListContainer container : facContainer.getSpawnListContainers()) {
-						for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
-							data.get(biome).add(NL + "* " + getEntityLink(entry.entityClass) + ';');
+			for (GOTFactionContainer factionContainer : biome.getNPCSpawnList().getFactionContainers()) {
+				if (factionContainer.getBaseWeight() > 0) {
+					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
+							data.get(biome).add(NL + "* " + getEntityLink(spawnEntry.entityClass) + ';');
 						}
 					}
 				}
@@ -1771,14 +1771,14 @@ public class GOTWikiGenerator {
 			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 			spawnListEntries.addAll(biome.getSpawnableGOTAmbientList());
 
-			for (GOTFactionContainer facContainer : biome.getNPCSpawnList().getFactionContainers()) {
-				if (facContainer.getBaseWeight() > 0) {
-					for (GOTSpawnListContainer container : facContainer.getSpawnListContainers()) {
-						spawnListEntries.addAll(container.getSpawnList().getSpawnEntries());
+			for (GOTFactionContainer factionContainer : biome.getNPCSpawnList().getFactionContainers()) {
+				if (factionContainer.getBaseWeight() > 0) {
+					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
+						spawnListEntries.addAll(spawnListContainer.getSpawnList().getSpawnEntries());
 					}
 				} else {
-					for (GOTSpawnListContainer container : facContainer.getSpawnListContainers()) {
-						for (GOTSpawnEntry spawnEntry : container.getSpawnList().getSpawnEntries()) {
+					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
 							data.computeIfAbsent(spawnEntry.entityClass, s -> new TreeSet<>());
 							data.get(spawnEntry.entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST + ';');
 						}
