@@ -1575,7 +1575,7 @@ public class GOTWikiGenerator {
 				GOTUnitTradeable tradeable = (GOTUnitTradeable) entityEntry.getValue();
 				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
 					data.computeIfAbsent(entry.getEntityClass(), s -> new TreeSet<>());
-					data.get(entry.getEntityClass()).add(getEntityLink(entityEntry.getKey()));
+					data.get(entry.getEntityClass()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
 				}
 			}
 		}
