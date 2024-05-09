@@ -533,7 +533,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -583,7 +583,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -622,7 +622,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -657,7 +657,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -701,7 +701,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -735,7 +735,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -763,7 +763,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -787,7 +787,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -832,7 +832,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -866,7 +866,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -903,7 +903,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -948,7 +948,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -994,7 +994,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -1022,7 +1022,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -1052,7 +1052,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -1080,7 +1080,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomeName(entry.getKey())).append(" = ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
