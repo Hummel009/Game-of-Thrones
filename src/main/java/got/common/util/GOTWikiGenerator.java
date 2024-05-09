@@ -89,7 +89,6 @@ public class GOTWikiGenerator {
 	private static final Iterable<GOTShields> SHIELDS = EnumSet.allOf(GOTShields.class);
 
 	private static final Collection<String> MINERALS = new HashSet<>();
-	private static final Collection<Class<? extends Entity>> UNIT_CLASSES = new HashSet<>();
 
 	private static final Iterable<Class<? extends WorldGenerator>> STRUCTURE_CLASSES = new HashSet<>(GOTStructureRegistry.CONTENT);
 
@@ -174,7 +173,6 @@ public class GOTWikiGenerator {
 
 		pRunnables.add(() -> searchForEntities(world));
 		pRunnables.add(() -> searchForMinerals(BIOMES, MINERALS));
-		pRunnables.add(() -> searchForUnitClasses(UNIT_CLASSES, UNIT_TRADE_ENTRIES));
 		pRunnables.add(() -> searchForPagenamesEntity(BIOMES, FACTIONS));
 		pRunnables.add(() -> searchForPagenamesBiome(BIOMES, FACTIONS));
 		pRunnables.add(() -> searchForPagenamesFaction(BIOMES, FACTIONS));
@@ -2781,14 +2779,6 @@ public class GOTWikiGenerator {
 	private static void searchForEntities(World world) {
 		for (Class<? extends Entity> entityClass : ENTITY_CLASSES) {
 			ENTITY_CLASS_TO_ENTITY.put(entityClass, GOTReflection.newEntity(entityClass, world));
-		}
-	}
-
-	private static void searchForUnitClasses(Collection<Class<? extends Entity>> hireable, Iterable<GOTUnitTradeEntries> units) {
-		for (GOTUnitTradeEntries entries : units) {
-			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				hireable.add(entry.getEntityClass());
-			}
 		}
 	}
 
