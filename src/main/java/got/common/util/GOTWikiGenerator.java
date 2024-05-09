@@ -528,7 +528,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestNPC");
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Bandits");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
@@ -966,14 +966,22 @@ public class GOTWikiGenerator {
 
 			Collection<GOTTreeType.WeightedTreeType> weightedTreeTypes = biome.getDecorator().getTreeTypes();
 
+			Collection<GOTTreeType> excludedTrees = EnumSet.noneOf(GOTTreeType.class);
+
 			for (GOTTreeType.WeightedTreeType weightedTreeType : weightedTreeTypes) {
-				data.get(biome).add(NL + "* " + getTreeLink(weightedTreeType.getTreeType()) + ';');
+				GOTTreeType treeType = weightedTreeType.getTreeType();
+
+				data.get(biome).add(NL + "* " + getTreeLink(treeType) + ';');
+
+				excludedTrees.add(treeType);
 			}
 
 			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
 				for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
-					if (!weightedTreeTypes.contains(weightedTreeType)) {
-						data.get(biome).add(NL + "* " + getTreeLink(weightedTreeType.getTreeType()) + " (" + getBiomeVariantName(variantBucket.getVariant()).toLowerCase(Locale.ROOT) + ");");
+					GOTTreeType treeType = weightedTreeType.getTreeType();
+
+					if (!excludedTrees.contains(treeType)) {
+						data.get(biome).add(NL + "* " + getTreeLink(treeType) + " (" + getBiomeVariantName(variantBucket.getVariant()).toLowerCase(Locale.ROOT) + ");");
 					}
 				}
 			}
@@ -2231,10 +2239,9 @@ public class GOTWikiGenerator {
 			if (rank != null) {
 				StringBuilder sb = new StringBuilder();
 
-				sb.append(NL).append("| ");
-				sb.append(getFactionPagename(faction)).append(" = ").append(rank.getDisplayName());
+				sb.append(rank.getDisplayName());
 
-				String femRank = rank.getDisplayFullNameFem();
+				String femRank = rank.getDisplayNameFem();
 				if (!femRank.contains("got")) {
 					sb.append('/').append(femRank);
 				}
@@ -2563,16 +2570,24 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			Collection<GOTTreeType.WeightedTreeType> weightedTreeTypes = biome.getDecorator().getTreeTypes();
 
+			Collection<GOTTreeType> excludedTrees = EnumSet.noneOf(GOTTreeType.class);
+
 			for (GOTTreeType.WeightedTreeType weightedTreeType : weightedTreeTypes) {
-				data.computeIfAbsent(weightedTreeType.getTreeType(), s -> new TreeSet<>());
-				data.get(weightedTreeType.getTreeType()).add(NL + "* " + getBiomeLink(biome) + ';');
+				GOTTreeType treeType = weightedTreeType.getTreeType();
+
+				data.computeIfAbsent(treeType, s -> new TreeSet<>());
+				data.get(treeType).add(NL + "* " + getBiomeLink(biome) + ';');
+
+				excludedTrees.add(treeType);
 			}
 
 			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
 				for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
-					if (!weightedTreeTypes.contains(weightedTreeType)) {
-						data.computeIfAbsent(weightedTreeType.getTreeType(), s -> new TreeSet<>());
-						data.get(weightedTreeType.getTreeType()).add(NL + "* " + getBiomeLink(biome) + " (" + getBiomeVariantName(variantBucket.getVariant()) + ");");
+					GOTTreeType treeType = weightedTreeType.getTreeType();
+
+					if (!excludedTrees.contains(treeType)) {
+						data.computeIfAbsent(treeType, s -> new TreeSet<>());
+						data.get(treeType).add(NL + "* " + getBiomeLink(biome) + " (" + getBiomeVariantName(variantBucket.getVariant()) + ");");
 					}
 				}
 			}
