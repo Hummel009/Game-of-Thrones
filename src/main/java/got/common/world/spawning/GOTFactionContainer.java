@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTFactionContainer {
-	private final Collection<GOTSpawnListContainer> spawnLists = new ArrayList<>();
+	private final Collection<GOTSpawnListContainer> spawnListContainers = new ArrayList<>();
 	private final GOTBiomeSpawnList parent;
 	private final int baseWeight;
 
@@ -24,12 +24,12 @@ public class GOTFactionContainer {
 	}
 
 	public void add(Collection<GOTSpawnListContainer> list) {
-		spawnLists.addAll(list);
+		spawnListContainers.addAll(list);
 	}
 
 	public void determineFaction(World world) {
 		if (theFaction == null) {
-			for (GOTSpawnListContainer cont : spawnLists) {
+			for (GOTSpawnListContainer cont : spawnListContainers) {
 				GOTSpawnList list = cont.getSpawnList();
 				GOTFaction fac = list.getListCommonFaction(world);
 				if (theFaction == null) {
@@ -68,7 +68,7 @@ public class GOTFactionContainer {
 
 	public GOTSpawnListContainer getRandomSpawnList(Random rand, float conq) {
 		int totalWeight = 0;
-		for (GOTSpawnListContainer cont : spawnLists) {
+		for (GOTSpawnListContainer cont : spawnListContainers) {
 			if (!GOTSpawnListContainer.canSpawnAtConquestLevel(conq)) {
 				continue;
 			}
@@ -76,7 +76,7 @@ public class GOTFactionContainer {
 		}
 		if (totalWeight > 0) {
 			int w = rand.nextInt(totalWeight);
-			for (GOTSpawnListContainer cont : spawnLists) {
+			for (GOTSpawnListContainer cont : spawnListContainers) {
 				if (!GOTSpawnListContainer.canSpawnAtConquestLevel(conq) || (w -= cont.getWeight()) >= 0) {
 					continue;
 				}
@@ -88,11 +88,11 @@ public class GOTFactionContainer {
 	}
 
 	public boolean isEmpty() {
-		return spawnLists.isEmpty();
+		return spawnListContainers.isEmpty();
 	}
 
-	public Collection<GOTSpawnListContainer> getSpawnLists() {
-		return spawnLists;
+	public Collection<GOTSpawnListContainer> getSpawnListContainers() {
+		return spawnListContainers;
 	}
 
 	public int getBaseWeight() {

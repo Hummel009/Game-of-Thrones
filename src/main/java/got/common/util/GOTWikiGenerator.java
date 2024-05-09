@@ -228,6 +228,7 @@ public class GOTWikiGenerator {
 
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeConquestFactions);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeInvasionFactions);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeMinerals);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeMobs);
@@ -241,11 +242,11 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeVariants);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeVisitAchievement);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeWaypoints);
-					suppliers.add(() -> genTemplateBiomeConquestFactions(world));
 
 					suppliers.add(GOTWikiGenerator::genTemplateFactionBanners);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionCharacters);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionCodename);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionConquestBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionEnemies);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionFriends);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionInvasionBiomes);
@@ -255,11 +256,10 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateFactionRanks);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionRegion);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionShieldsCapes);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionSpawnBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionStructures);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionWarCrimes);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionWaypoints);
-					suppliers.add(() -> genTemplateFactionConquestBiomes(world));
-					suppliers.add(() -> genTemplateFactionSpawnBiomes(world));
 
 					suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityBuys);
@@ -278,7 +278,7 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityKillAlignment);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityOwner);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityOwners);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableMob);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableNPC);
 					suppliers.add(GOTWikiGenerator::genTemplateEntitySells);
@@ -522,15 +522,22 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeBandits() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Bandits");
-		sb.append(BEGIN);
+		Map<GOTBiome, String> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
+			data.put(biome, biome.getBanditChance().toString());
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestNPC");
+		sb.append(BEGIN);
+
+		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(biome)).append(" = ");
-			sb.append(biome.getBanditChance());
+			sb.append(getBiomeName(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -539,42 +546,48 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeClimate() {
+		Map<GOTBiome, String> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			if (biome.getClimateType() != null) {
+				switch (biome.getClimateType()) {
+					case COLD:
+						data.put(biome, Lang.CLIMATE_COLD.toString());
+						break;
+					case COLD_AZ:
+						data.put(biome, Lang.CLIMATE_COLD_AZ.toString());
+						break;
+					case NORMAL:
+						data.put(biome, Lang.CLIMATE_NORMAL.toString());
+						break;
+					case NORMAL_AZ:
+						data.put(biome, Lang.CLIMATE_NORMAL_AZ.toString());
+						break;
+					case SUMMER:
+						data.put(biome, Lang.CLIMATE_SUMMER.toString());
+						break;
+					case SUMMER_AZ:
+						data.put(biome, Lang.CLIMATE_SUMMER_AZ.toString());
+						break;
+					case WINTER:
+						data.put(biome, Lang.CLIMATE_WINTER.toString());
+						break;
+				}
+			} else {
+				data.put(biome, Lang.CLIMATE_NULL.toString());
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Climate");
 		sb.append(BEGIN);
 
-		for (GOTBiome biome : BIOMES) {
+		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(biome)).append(" = ");
+			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
-			if (biome.getClimateType() != null) {
-				switch (biome.getClimateType()) {
-					case COLD:
-						sb.append(Lang.CLIMATE_COLD);
-						break;
-					case COLD_AZ:
-						sb.append(Lang.CLIMATE_COLD_AZ);
-						break;
-					case NORMAL:
-						sb.append(Lang.CLIMATE_NORMAL);
-						break;
-					case NORMAL_AZ:
-						sb.append(Lang.CLIMATE_NORMAL_AZ);
-						break;
-					case SUMMER:
-						sb.append(Lang.CLIMATE_SUMMER);
-						break;
-					case SUMMER_AZ:
-						sb.append(Lang.CLIMATE_SUMMER_AZ);
-						break;
-					case WINTER:
-						sb.append(Lang.CLIMATE_WINTER);
-						break;
-				}
-			} else {
-				sb.append(Lang.CLIMATE_NULL);
-			}
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -582,39 +595,21 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateBiomeConquestFactions(World world) {
-		Map<GOTBiome, Section> data = new HashMap<>();
+	private static StringBuilder genTemplateBiomeConquestFactions() {
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
-
-			if (facContainers.isEmpty()) {
-				data.get(biome).setDesc(Lang.BIOME_NO_CONQUEST.toString());
-			} else {
-				Collection<GOTFactionContainer> conquestContainers = new HashSet<>();
-
-				for (GOTFactionContainer facContainer : facContainers) {
-					if (facContainer.getBaseWeight() <= 0) {
-						conquestContainers.add(facContainer);
-					}
-				}
-
-				if (conquestContainers.isEmpty()) {
-					data.get(biome).setDesc(Lang.BIOME_SPAWN_ONLY.toString());
-				} else {
-					data.get(biome).setDesc(Lang.BIOME_HAS_CONQUEST.toString());
-
-					for (GOTFactionContainer facContainer : conquestContainers) {
-						for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
-							for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
-								Entity entity = GOTReflection.newEntity(entry.entityClass, world);
-								if (entity instanceof GOTEntityNPC) {
-									GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
-									data.get(biome).getItems().add(NL + "* " + getFactionLink(fac) + ';');
-									break;
-								}
+			for (GOTFactionContainer factionContainer : biome.getNPCSpawnList().getFactionContainers()) {
+				if (factionContainer.getBaseWeight() <= 0) {
+					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
+							Entity entity = ENTITY_CLASS_TO_ENTITY.get(spawnEntry.entityClass);
+							if (entity instanceof GOTEntityNPC) {
+								GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
+								data.get(biome).add(NL + "* " + getFactionLink(fac) + ';');
+								break;
 							}
 						}
 					}
@@ -627,7 +622,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestNPC");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -640,26 +635,18 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeInvasionFactions() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			Collection<GOTInvasions> invasions = biome.getInvasionSpawns().getRegisteredInvasions();
-
-			if (invasions.isEmpty()) {
-				data.get(biome).setDesc(Lang.BIOME_NO_INVASIONS.toString());
-			} else {
-				data.get(biome).setDesc(Lang.BIOME_HAS_INVASIONS.toString());
-
-				for (GOTInvasions invasion : invasions) {
-					for (GOTInvasions.InvasionSpawnEntry entry : invasion.getInvasionMobs()) {
-						Entity entity = ENTITY_CLASS_TO_ENTITY.get(entry.getEntityClass());
-						if (entity instanceof GOTEntityNPC) {
-							GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
-							data.get(biome).getItems().add(NL + "* " + getFactionLink(fac) + ';');
-							break;
-						}
+			for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
+				for (GOTInvasions.InvasionSpawnEntry invasionSpawnEntry : invasion.getInvasionMobs()) {
+					Entity entity = ENTITY_CLASS_TO_ENTITY.get(invasionSpawnEntry.getEntityClass());
+					if (entity instanceof GOTEntityNPC) {
+						GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
+						data.get(biome).add(NL + "* " + getFactionLink(fac) + ';');
+						break;
 					}
 				}
 			}
@@ -670,7 +657,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Invasions");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -683,12 +670,10 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeMinerals() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
-
-			data.get(biome).setDesc(Lang.BIOME_HAS_MINERALS.toString());
+			data.put(biome, new TreeSet<>());
 
 			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new HashSet<>(biome.getDecorator().getBiomeSoils());
 			oreGenerants.addAll(biome.getDecorator().getBiomeOres());
@@ -698,13 +683,16 @@ public class GOTWikiGenerator {
 				Block block = GOTReflection.getOreGenBlock(oreGenerant.getOreGen());
 				int meta = GOTReflection.getOreGenMeta(oreGenerant.getOreGen());
 
-				String stats = " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ");";
-
+				String blockName;
 				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-					data.get(biome).getItems().add(NL + "* [[" + getBlockMetaName(block, meta) + "]]" + stats);
+					blockName = getBlockMetaName(block, meta);
 				} else {
-					data.get(biome).getItems().add(NL + "* [[" + getBlockName(block) + "]]" + stats);
+					blockName = getBlockName(block);
 				}
+
+				String stats = "(" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ')';
+
+				data.get(biome).add(NL + "* " + getBlockLink(blockName) + ' ' + stats + ';');
 			}
 		}
 
@@ -713,7 +701,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Minerals");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -726,24 +714,19 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeMobs() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			Collection<BiomeGenBase.SpawnListEntry> entries = new HashSet<>(biome.getSpawnableList(EnumCreatureType.ambient));
-			entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
-			entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
-			entries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-			entries.addAll(biome.getSpawnableList(GOTBiome.CREATURE_TYPE_GOT_AMBIENT));
+			Collection<BiomeGenBase.SpawnListEntry> spawnListEntries = new HashSet<>(biome.getSpawnableList(EnumCreatureType.ambient));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
+			spawnListEntries.addAll(biome.getSpawnableList(GOTBiome.CREATURE_TYPE_GOT_AMBIENT));
 
-			if (entries.isEmpty()) {
-				data.get(biome).setDesc(Lang.BIOME_NO_ANIMALS.toString());
-			} else {
-				data.get(biome).setDesc(Lang.BIOME_HAS_ANIMALS.toString());
-				for (BiomeGenBase.SpawnListEntry entry : entries) {
-					data.get(biome).getItems().add(NL + "* " + getEntityLink(entry.entityClass) + ';');
-				}
+			for (BiomeGenBase.SpawnListEntry spawnListEntry : spawnListEntries) {
+				data.get(biome).add(NL + "* " + getEntityLink(spawnListEntry.entityClass) + ';');
 			}
 		}
 
@@ -752,7 +735,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -765,19 +748,26 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeMusic() {
+		Map<GOTBiome, String> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			if (biome.getBiomeMusic() == null) {
+				data.put(biome, "N/A");
+			} else {
+				data.put(biome, biome.getBiomeMusic().getSubregion());
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Music");
 		sb.append(BEGIN);
 
-		for (GOTBiome biome : BIOMES) {
+		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(biome)).append(" = ");
-			if (biome.getBiomeMusic() == null) {
-				sb.append("N/A");
-			} else {
-				sb.append(biome.getBiomeMusic().getSubregion());
-			}
+			sb.append(getBiomeName(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -786,15 +776,22 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeName() {
+		Map<GOTBiome, String> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			data.put(biome, getBiomeName(biome));
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Name");
 		sb.append(BEGIN);
 
-		for (GOTBiome biome : BIOMES) {
+		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(biome)).append(" = ");
-			sb.append(getBiomeName(biome));
+			sb.append(getBiomeName(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -803,27 +800,43 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeRainfall() {
+		Map<GOTBiome, String> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			StringBuilder sb = new StringBuilder();
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.WINTER);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append(Lang.SEASON_WINTER).append(": ").append(biome.rainfall);
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SPRING);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append("&lt;br&gt;");
+			sb.append(Lang.SEASON_SPRING).append(": ").append(biome.rainfall);
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SUMMER);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append("&lt;br&gt;");
+			sb.append(Lang.SEASON_SUMMER).append(": ").append(biome.rainfall);
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.AUTUMN);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append("&lt;br&gt;");
+			sb.append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
+
+			data.put(biome, sb.toString());
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Rainfall");
 		sb.append(BEGIN);
 
-		for (GOTBiome biome : BIOMES) {
+		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(biome)).append(" = ");
+			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.WINTER);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append(Lang.SEASON_WINTER).append(": ").append(biome.rainfall);
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SPRING);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append("&lt;br&gt;").append(Lang.SEASON_SPRING).append(": ").append(biome.rainfall);
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SUMMER);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append("&lt;br&gt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.rainfall);
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.AUTUMN);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -832,34 +845,16 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeNPCs() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
-
-			if (facContainers.isEmpty()) {
-				data.get(biome).setDesc(Lang.BIOME_NO_SPAWN.toString());
-			} else {
-				Collection<GOTFactionContainer> spawnContainers = new HashSet<>();
-
-				for (GOTFactionContainer facContainer : facContainers) {
-					if (facContainer.getBaseWeight() > 0) {
-						spawnContainers.add(facContainer);
-					}
-				}
-
-				if (spawnContainers.isEmpty()) {
-					data.get(biome).setDesc(Lang.BIOME_CONQUEST_ONLY.toString());
-				} else {
-					data.get(biome).setDesc(Lang.BIOME_HAS_SPAWN.toString());
-
-					for (GOTFactionContainer facContainer : spawnContainers) {
-						for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
-							for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
-								data.get(biome).getItems().add(NL + "* " + getEntityLink(entry.entityClass) + ';');
-							}
+			for (GOTFactionContainer facContainer : biome.getNPCSpawnList().getFactionContainers()) {
+				if (facContainer.getBaseWeight() > 0) {
+					for (GOTSpawnListContainer container : facContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
+							data.get(biome).add(NL + "* " + getEntityLink(entry.entityClass) + ';');
 						}
 					}
 				}
@@ -871,7 +866,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-SpawnNPC");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -884,28 +879,20 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeStructuresSettlements() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			if (biome.getDecorator().getStructures().isEmpty()) {
-				data.get(biome).setDesc(Lang.BIOME_NO_STRUCTURES.toString());
-			} else {
-				data.get(biome).setDesc(Lang.BIOME_HAS_STRUCTURES.toString());
+			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+				data.get(biome).add(NL + "* " + getStructureLink(structure.getStructureGen().getClass()) + ';');
+			}
 
-				for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
-					data.get(biome).getItems().add(NL + "* " + getStructureLink(structure.getStructureGen().getClass()) + ';');
-				}
-
-				for (GOTStructureBaseSettlement settlement : biome.getDecorator().getSettlements()) {
-					if (settlement.getSpawnChance() != 0.0f) {
-						Set<String> names = GOTStructureRegistry.S_CLASS_TO_NAME_MAPPING.get(settlement.getClass());
-						if (names != null) {
-							for (String name : names) {
-								data.get(biome).getItems().add(NL + "* " + getSettlementName(name) + ';');
-							}
-						}
+			for (GOTStructureBaseSettlement settlement : biome.getDecorator().getSettlements()) {
+				if (settlement.getSpawnChance() != 0.0f) {
+					Set<String> names = getSettlementNames(settlement.getClass());
+					for (String name : names) {
+						data.get(biome).add(NL + "* " + getSettlementName(name) + ';');
 					}
 				}
 			}
@@ -916,7 +903,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Structures");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -929,27 +916,43 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeTemperature() {
+		Map<GOTBiome, String> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			StringBuilder sb = new StringBuilder();
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.WINTER);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append(Lang.SEASON_WINTER).append(": ").append(biome.temperature);
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SPRING);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append("&lt;br&gt;");
+			sb.append(Lang.SEASON_SPRING).append(": ").append(biome.temperature);
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SUMMER);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append("&lt;br&gt;");
+			sb.append(Lang.SEASON_SUMMER).append(": ").append(biome.temperature);
+
+			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.AUTUMN);
+			GOTClimateType.performSeasonalChangesServerSide();
+			sb.append("&lt;br&gt;");
+			sb.append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
+
+			data.put(biome, sb.toString());
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Temperature");
 		sb.append(BEGIN);
 
-		for (GOTBiome biome : BIOMES) {
+		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(biome)).append(" = ");
+			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.WINTER);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append(Lang.SEASON_WINTER).append(": ").append(biome.temperature);
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SPRING);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append("&lt;br&gt;").append(Lang.SEASON_SPRING).append(": ").append(biome.temperature);
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.SUMMER);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append("&lt;br&gt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.temperature);
-			GOTDate.AegonCalendar.getDate().getMonth().setSeason(GOTDate.Season.AUTUMN);
-			GOTClimateType.performSeasonalChangesServerSide();
-			sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -958,41 +961,22 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeTrees() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			Collection<GOTTreeType> biomeTrees = EnumSet.noneOf(GOTTreeType.class);
-			Map<GOTTreeType, GOTBiomeVariant> biomeVariantTrees = new EnumMap<>(GOTTreeType.class);
+			Collection<GOTTreeType.WeightedTreeType> weightedTreeTypes = biome.getDecorator().getTreeTypes();
 
-			for (GOTTreeType.WeightedTreeType weightedTreeType : biome.getDecorator().getTreeTypes()) {
-				biomeTrees.add(weightedTreeType.getTreeType());
+			for (GOTTreeType.WeightedTreeType weightedTreeType : weightedTreeTypes) {
+				data.get(biome).add(NL + "* " + getTreeLink(weightedTreeType.getTreeType()) + ';');
 			}
 
 			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
 				for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
-					if (!biomeTrees.contains(weightedTreeType.getTreeType())) {
-						biomeVariantTrees.put(weightedTreeType.getTreeType(), variantBucket.getVariant());
+					if (!weightedTreeTypes.contains(weightedTreeType)) {
+						data.get(biome).add(NL + "* " + getTreeLink(weightedTreeType.getTreeType()) + " (" + getBiomeVariantName(variantBucket.getVariant()).toLowerCase(Locale.ROOT) + ");");
 					}
-				}
-			}
-
-			if (biomeTrees.isEmpty() && biomeVariantTrees.isEmpty()) {
-				data.get(biome).setDesc(Lang.BIOME_NO_TREES.toString());
-			} else {
-				if (biomeVariantTrees.isEmpty()) {
-					data.get(biome).setDesc(Lang.BIOME_HAS_TREES_BIOME_ONLY.toString());
-				} else {
-					data.get(biome).setDesc(Lang.BIOME_HAS_TREES.toString());
-				}
-
-				for (GOTTreeType tree : biomeTrees) {
-					data.get(biome).getItems().add(NL + "* [[" + getTreeName(tree) + "]];");
-				}
-
-				for (Map.Entry<GOTTreeType, GOTBiomeVariant> tree : biomeVariantTrees.entrySet()) {
-					data.get(biome).getItems().add(NL + "* [[" + getTreeName(tree.getKey()) + "]] (" + getBiomeVariantName(tree.getValue()).toLowerCase(Locale.ROOT) + ");");
 				}
 			}
 		}
@@ -1002,7 +986,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Trees");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -1015,17 +999,13 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeVariants() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			if (biome.getBiomeVariants().getVariantList().isEmpty()) {
-				data.get(biome).setDesc(Lang.BIOME_NO_VARIANTS.toString());
-			} else {
-				for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
-					data.get(biome).getItems().add(NL + "* " + getBiomeVariantName(variantBucket.getVariant()) + ';');
-				}
+			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
+				data.get(biome).add(NL + "* " + getBiomeVariantName(variantBucket.getVariant()) + ';');
 			}
 		}
 
@@ -1034,7 +1014,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Variants");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -1047,22 +1027,28 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeVisitAchievement() {
+		Map<GOTBiome, String> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			GOTAchievement achievement = biome.getBiomeAchievement();
+
+			if (achievement == null) {
+				data.put(biome, "N/A");
+			} else {
+				data.put(biome, '«' + achievement.getTitle() + '»');
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Achievement");
 		sb.append(BEGIN);
 
-		for (GOTBiome biome : BIOMES) {
+		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(biome)).append(" = ");
+			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
-			GOTAchievement ach = biome.getBiomeAchievement();
-
-			if (ach == null) {
-				sb.append(Lang.BIOME_NO_ACHIEVEMENT);
-			} else {
-				sb.append('«').append(ach.getTitle()).append('»');
-			}
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1071,21 +1057,13 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateBiomeWaypoints() {
-		Map<GOTBiome, Section> data = new HashMap<>();
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new Section());
+			data.put(biome, new TreeSet<>());
 
-			GOTWaypoint.Region region = biome.getBiomeWaypoints();
-
-			if (region == null) {
-				data.get(biome).setDesc(Lang.BIOME_NO_WAYPOINTS.toString());
-			} else {
-				data.get(biome).setDesc(Lang.BIOME_HAS_WAYPOINTS.toString());
-
-				for (GOTWaypoint wp : region.getWaypoints()) {
-					data.get(biome).getItems().add(NL + "* " + wp.getDisplayName() + " (" + getFactionLink(wp.getFaction()) + ");");
-				}
+			for (GOTWaypoint wp : biome.getBiomeWaypoints().getWaypoints()) {
+				data.get(biome).add(NL + "* " + wp.getDisplayName() + " (" + getFactionLink(wp.getFaction()) + ");");
 			}
 		}
 
@@ -1094,7 +1072,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Waypoints");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTBiome, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomeName(entry.getKey())).append(" = ");
 
@@ -1107,17 +1085,24 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityBannerBearer() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTBannerBearer) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-BannerBearer");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTBannerBearer) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-				sb.append(TRUE);
-			}
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1126,16 +1111,16 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityBuys() {
-		Map<Class<? extends Entity>, Section> data = new HashMap<>();
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTTradeable) {
-				data.put(entityEntry.getKey(), new Section());
+				data.put(entityEntry.getKey(), new TreeSet<>());
 
-				GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getSellPool();
+				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
 
-				for (GOTTradeEntry entry : entries.getTradeEntries()) {
-					data.get(entityEntry.getKey()).getItems().add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
+				for (GOTTradeEntry entry : tradeable.getSellPool().getTradeEntries()) {
+					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 				}
 			}
 		}
@@ -1145,7 +1130,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Buys");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
@@ -1158,17 +1143,24 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityCharacter() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Character");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-				sb.append(TRUE);
-			}
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1177,31 +1169,20 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityLegendaryDrop() {
-		Map<Class<? extends Entity>, Section> data = new HashMap<>();
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
-				data.put(entityEntry.getKey(), new Section());
+				data.put(entityEntry.getKey(), new TreeSet<>());
 
 				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
 
 				npc.dropFewItems(true, 999);
 
-				Collection<Object> drops = npc.getDrops();
-				Collection<ItemStack> itemStacks = new HashSet<>();
-
-				for (Object obj : drops) {
+				for (Object obj : npc.getDrops()) {
 					if (obj instanceof Item) {
 						ItemStack itemStack = new ItemStack((Item) obj);
-						itemStacks.add(itemStack);
-					}
-				}
-
-				if (itemStacks.isEmpty()) {
-					data.get(entityEntry.getKey()).setDesc(Lang.MOB_NO_LEGENDARY_DROP.toString());
-				} else {
-					for (ItemStack itemStack : itemStacks) {
-						data.get(entityEntry.getKey()).getItems().add(NL + "* " + itemStack.getDisplayName() + ';');
+						data.get(entityEntry.getKey()).add(NL + "* " + itemStack.getDisplayName() + ';');
 					}
 				}
 			}
@@ -1212,7 +1193,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-LegendaryDrop");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
@@ -1225,336 +1206,460 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityFaction() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
+				data.put(entityEntry.getKey(), getFactionLink(npc.getFaction()));
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Faction");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC) {
-				GOTFaction fac = ((GOTEntityNPC) entityEntry.getValue()).getFaction();
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(getFactionLink(fac));
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityFarmhand() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTFarmhand) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Farmhand");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTFarmhand) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityHealth() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			EntityLivingBase entity = (EntityLivingBase) entityEntry.getValue();
+			data.put(entityEntry.getKey(), String.valueOf((int) entity.getMaxHealth()));
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Health");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			EntityLivingBase entity = (EntityLivingBase) entityEntry.getValue();
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append((int) entity.getMaxHealth());
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityHireAlignment() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
+				int alignment = (int) entry.getAlignmentRequired();
+
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+					data.put(entry.getEntityClass(), "+" + alignment);
+				} else {
+					data.put(entry.getEntityClass(), "+" + Math.max(alignment, 100));
+				}
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Alignment");
 		sb.append(BEGIN);
-		next:
-		for (Class<? extends Entity> entityClass : UNIT_CLASSES) {
-			for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
-				for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-					if (entry.getEntityClass() == entityClass) {
-						sb.append(NL).append("| ");
-						sb.append(getEntityPagename(entityClass)).append(" = ");
 
-						int alignment = (int) entry.getAlignmentRequired();
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-						if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-							sb.append('+').append(alignment);
-						} else {
-							sb.append('+').append(Math.max(alignment, 100));
-						}
-						continue next;
-					}
-				}
-			}
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityHirePrice() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
+				int cost = entry.getInitialCost();
+
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+					data.put(entry.getEntityClass(), "{{Coins|" + cost * 2 + "}}");
+				} else {
+					data.put(entry.getEntityClass(), "N/A");
+				}
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Price");
 		sb.append(BEGIN);
-		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
-			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entry.getEntityClass())).append(" = ");
 
-				int cost = entry.getInitialCost();
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					sb.append("{{Coins|").append(cost * 2).append("}}");
-				} else {
-					sb.append("N/A");
-				}
-			}
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityHirePricePledge() {
-		StringBuilder sb = new StringBuilder();
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-PricePledge");
-		sb.append(BEGIN);
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entry.getEntityClass())).append(" = ");
-
 				int cost = entry.getInitialCost();
 
-				sb.append("{{Coins|").append(cost).append("}}");
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+					data.put(entry.getEntityClass(), "{{Coins|" + cost + "}}");
+				} else {
+					data.put(entry.getEntityClass(), "N/A");
+				}
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Price");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityImmuneToFire() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue().isImmuneToFire()) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-ImmuneToFire");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue().isImmuneToFire()) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityImmuneToFrost() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && entityEntry.getValue() instanceof GOTBiome.ImmuneToFrost) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-ImmuneToFrost");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && entityEntry.getValue() instanceof GOTBiome.ImmuneToFrost) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityImmuneToHeat() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTBiome.ImmuneToHeat) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-ImmuneToHeat");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTBiome.ImmuneToHeat) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityKillAchievement() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC) {
+				GOTAchievement achievement = ((GOTEntityNPC) entityEntry.getValue()).getKillAchievement();
+				if (achievement == null) {
+					data.put(entityEntry.getKey(), "N/A");
+				} else {
+					data.put(entityEntry.getKey(), '«' + achievement.getTitle() + '»');
+				}
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Achievement");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC) {
-				GOTAchievement ach = ((GOTEntityNPC) entityEntry.getValue()).getKillAchievement();
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-				if (ach == null) {
-					sb.append("N/A");
-				} else {
-					sb.append('«').append(ach.getTitle()).append('»');
-				}
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityKillAlignment() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
+				data.put(entityEntry.getKey(), "+" + (int) npc.getAlignmentBonus());
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Bonus");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC) {
-				int bonus = (int) ((GOTEntityNPC) entityEntry.getValue()).getAlignmentBonus();
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append('+').append(bonus);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityMarriage() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && GOTEntityUtils.canBeMarried((GOTEntityNPC) entityEntry.getValue())) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Marriage");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && GOTEntityUtils.canBeMarried((GOTEntityNPC) entityEntry.getValue())) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityMercenary() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTMercenary) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Mercenary");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTMercenary) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
-	private static StringBuilder genTemplateEntityOwner() {
-		StringBuilder sb = new StringBuilder();
+	private static StringBuilder genTemplateEntityOwners() {
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
 
-		sb.append(TITLE).append("DB Mob-Owner");
-		sb.append(BEGIN);
-		for (Class<? extends Entity> entityClass : UNIT_CLASSES) {
-			Map<Class<? extends Entity>, Class<? extends Entity>> owners = new HashMap<>();
-			loop:
-			for (Map.Entry<Class<? extends Entity>, Entity> ownerEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-				if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
-					GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
-					if (!((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
-						for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-							if (entry.getEntityClass() == entityClass) {
-								owners.put(entityClass, ownerEntry.getKey());
-								break loop;
-							}
-						}
-					}
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
+				GOTUnitTradeable tradeable = (GOTUnitTradeable) entityEntry.getValue();
+				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
+					data.computeIfAbsent(entry.getEntityClass(), s -> new TreeSet<>());
+					data.get(entry.getEntityClass()).add(getEntityLink(entityEntry.getKey()));
 				}
-			}
-			if (owners.isEmpty()) {
-				loop:
-				for (Map.Entry<Class<? extends Entity>, Entity> ownerEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-					if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
-						GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
-						if (((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
-							for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-								if (entry.getEntityClass() == entityClass) {
-									owners.put(entityClass, ownerEntry.getKey());
-									break loop;
-								}
-							}
-						}
-					}
-				}
-			}
-			if (!owners.isEmpty()) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityClass)).append(" = ").append(getEntityLink(owners.get(entityClass)));
 			}
 		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append("DB Mob-Owners");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityRideableMob() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTNPCMount) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Rideable2");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTNPCMount) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityRideableNPC() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntitySpiderBase) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append(" DB Mob-Rideable1");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntitySpiderBase) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntitySells() {
-		Map<Class<? extends Entity>, Section> data = new HashMap<>();
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTTradeable) {
-				data.put(entityEntry.getKey(), new Section());
+				data.put(entityEntry.getKey(), new TreeSet<>());
 
-				GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getBuyPool();
+				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
 
-				for (GOTTradeEntry entry : entries.getTradeEntries()) {
-					data.get(entityEntry.getKey()).getItems().add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
+				for (GOTTradeEntry entry : tradeable.getBuyPool().getTradeEntries()) {
+					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 				}
 			}
 		}
@@ -1564,7 +1669,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Sells");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
@@ -1577,19 +1682,17 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntitySellsUnits() {
-		StringBuilder sb = new StringBuilder();
+		Map<Class<? extends Entity>, List<String>> data = new HashMap<>();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Units");
-		sb.append(BEGIN);
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
+				data.put(entityEntry.getKey(), new ArrayList<>());
 
-		for (Map.Entry<Class<? extends Entity>, Entity> ownerEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
-				GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
-
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(ownerEntry.getKey())).append(" = ");
+				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entityEntry.getValue()).getUnits();
 
 				for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
+					StringBuilder sb = new StringBuilder();
+
 					sb.append(NL).append("* ").append(getEntityLink(entry.getEntityClass()));
 					if (entry.getMountClass() != null) {
 						sb.append(Lang.RIDER);
@@ -1608,8 +1711,22 @@ public class GOTWikiGenerator {
 						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
 						sb.append('+').append(Math.max(alignment, 100)).append(Lang.REPUTATION).append(';');
 					}
+
+					data.get(entityEntry.getKey()).add(sb.toString());
 				}
 			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Units");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, List<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1618,63 +1735,67 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntitySmith() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTTradeable.Smith) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Smith");
 		sb.append(BEGIN);
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTTradeable.Smith) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ").append(TRUE);
-			}
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateEntityBiomes() {
-		Map<Class<? extends Entity>, Section> data = new HashMap<>();
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			Collection<BiomeGenBase.SpawnListEntry> spawnEntries = new HashSet<>();
-			Collection<BiomeGenBase.SpawnListEntry> conquestEntries = new HashSet<>();
-			Collection<GOTInvasions.InvasionSpawnEntry> invasionEntries = new HashSet<>();
-			spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
-			spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
-			spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
-			spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-			spawnEntries.addAll(biome.getSpawnableGOTAmbientList());
+			Collection<BiomeGenBase.SpawnListEntry> spawnListEntries = new HashSet<>();
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
+			spawnListEntries.addAll(biome.getSpawnableGOTAmbientList());
 
 			for (GOTFactionContainer facContainer : biome.getNPCSpawnList().getFactionContainers()) {
 				if (facContainer.getBaseWeight() > 0) {
-					for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
-						spawnEntries.addAll(container.getSpawnList().getSpawnEntries());
+					for (GOTSpawnListContainer container : facContainer.getSpawnListContainers()) {
+						spawnListEntries.addAll(container.getSpawnList().getSpawnEntries());
 					}
 				} else {
-					for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
-						conquestEntries.addAll(container.getSpawnList().getSpawnEntries());
+					for (GOTSpawnListContainer container : facContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry spawnEntry : container.getSpawnList().getSpawnEntries()) {
+							data.computeIfAbsent(spawnEntry.entityClass, s -> new TreeSet<>());
+							data.get(spawnEntry.entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST + ';');
+						}
 					}
 				}
 			}
 
 			for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
-				invasionEntries.addAll(invasion.getInvasionMobs());
+				for (GOTInvasions.InvasionSpawnEntry invasionSpawnEntry : invasion.getInvasionMobs()) {
+					data.computeIfAbsent(invasionSpawnEntry.getEntityClass(), s -> new TreeSet<>());
+					data.get(invasionSpawnEntry.getEntityClass()).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_INVASION + ';');
+				}
 			}
 
-			for (BiomeGenBase.SpawnListEntry entry : spawnEntries) {
-				data.computeIfAbsent(entry.entityClass, s -> new Section());
-				data.get(entry.entityClass).getItems().add(NL + "* " + getBiomeLink(biome) + ';');
-			}
-
-			for (BiomeGenBase.SpawnListEntry entry : conquestEntries) {
-				data.computeIfAbsent(entry.entityClass, s -> new Section());
-				data.get(entry.entityClass).getItems().add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST + ';');
-			}
-
-			for (GOTInvasions.InvasionSpawnEntry entry : invasionEntries) {
-				data.computeIfAbsent(entry.getEntityClass(), s -> new Section());
-				data.get(entry.getEntityClass()).getItems().add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_INVASION + ';');
+			for (BiomeGenBase.SpawnListEntry entry : spawnListEntries) {
+				data.computeIfAbsent(entry.entityClass, s -> new TreeSet<>());
+				data.get(entry.entityClass).add(NL + "* " + getBiomeLink(biome) + ';');
 			}
 		}
 
@@ -1683,7 +1804,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Section> entry : data.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
@@ -1696,17 +1817,24 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntitySpawnsInDarkness() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isSpawnsInDarkness()) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-SpawnsInDarkness");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isSpawnsInDarkness()) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-				sb.append(TRUE);
-			}
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1715,17 +1843,24 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityTargetSeeker() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isTargetSeeker()) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-TargetSeeker");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isTargetSeeker()) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-				sb.append(TRUE);
-			}
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1734,17 +1869,24 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityTradeable() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTTradeable) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Tradeable");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTTradeable) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-				sb.append(TRUE);
-			}
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1753,17 +1895,24 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityUnitTradeable() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-UnitTradeable");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-				sb.append(TRUE);
-			}
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1772,25 +1921,30 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateEntityWaypoint(World world) {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : ENTITY_CLASS_TO_WP.entrySet()) {
+			data.put(entityEntry.getKey(), entityEntry.getValue().getDisplayName());
+		}
+
+		for (Map.Entry<GOTAbstractWaypoint, GOTStructureBaseSettlement> spawnerEntry : GOTFixer.SPAWNERS.entrySet()) {
+			GOTStructureBaseSettlement spawner = spawnerEntry.getValue();
+			spawner.getLegendaryNPCs(world);
+			for (GOTFixer.SpawnInfo info : spawner.getLegendaryNPCs(world)) {
+				data.put(info.getNPC().getClass(), spawnerEntry.getKey().getDisplayName());
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Waypoint");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : ENTITY_CLASS_TO_WP.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entityEntry.getKey())).append(" = ");
-			sb.append(entityEntry.getValue().getDisplayName());
-		}
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-		for (Map.Entry<GOTAbstractWaypoint, GOTStructureBaseSettlement> entry : GOTFixer.SPAWNERS.entrySet()) {
-			GOTStructureBaseSettlement spawner = entry.getValue();
-			spawner.getLegendaryNPCs(world);
-			for (GOTFixer.SpawnInfo info : spawner.getLegendaryNPCs(world)) {
-				sb.append(NL).append("| ");
-				sb.append(getEntityPagename(info.getNPC().getClass())).append(" = ");
-				sb.append(entry.getKey().getDisplayName());
-			}
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1799,20 +1953,13 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionBanners() {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTFaction faction : FACTIONS) {
-			data.put(faction, new Section());
+			data.put(faction, new TreeSet<>());
 
-			Collection<GOTItemBanner.BannerType> bannerTypes = faction.getFactionBanners();
-
-			if (bannerTypes.isEmpty()) {
-				data.get(faction).setDesc(Lang.FACTION_NO_BANNERS.toString());
-			} else {
-				data.get(faction).setDesc(Lang.FACTION_HAS_BANNERS.toString());
-				for (GOTItemBanner.BannerType banner : bannerTypes) {
-					data.get(faction).getItems().add(NL + "* " + getBannerName(banner) + ';');
-				}
+			for (GOTItemBanner.BannerType banner : faction.getFactionBanners()) {
+				data.get(faction).add(NL + "* " + getBannerName(banner) + ';');
 			}
 		}
 
@@ -1821,7 +1968,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Banners");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -1834,15 +1981,15 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionCharacters() {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			Entity entity = entityEntry.getValue();
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
 				if (npc.isLegendaryNPC()) {
-					data.computeIfAbsent(npc.getFaction(), s -> new Section());
-					data.get(npc.getFaction()).getItems().add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
+					data.computeIfAbsent(npc.getFaction(), s -> new TreeSet<>());
+					data.get(npc.getFaction()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
 				}
 			}
 		}
@@ -1852,7 +1999,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Chars");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -1865,15 +2012,22 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionCodename() {
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			data.put(faction, faction.codeName());
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Codename");
 		sb.append(BEGIN);
 
-		for (GOTFaction faction : FACTIONS) {
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(faction)).append(" = ");
-			sb.append(faction.codeName());
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -1881,29 +2035,21 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateFactionConquestBiomes(World world) {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+	private static StringBuilder genTemplateFactionConquestBiomes() {
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTBiome biome : BIOMES) {
-			List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
-
-			Collection<GOTFactionContainer> conquestContainers = new HashSet<>();
-
-			for (GOTFactionContainer facContainer : facContainers) {
-				if (facContainer.getBaseWeight() <= 0) {
-					conquestContainers.add(facContainer);
-				}
-			}
-
-			for (GOTFactionContainer facContainer : conquestContainers) {
-				for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
-					for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
-						Entity entity = GOTReflection.newEntity(entry.entityClass, world);
-						if (entity instanceof GOTEntityNPC) {
-							GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
-							data.computeIfAbsent(faction, s -> new Section());
-							data.get(faction).getItems().add(NL + "* " + getBiomeLink(biome) + ';');
-							break;
+			for (GOTFactionContainer factionContainer : biome.getNPCSpawnList().getFactionContainers()) {
+				if (factionContainer.getBaseWeight() <= 0) {
+					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
+							Entity entity = ENTITY_CLASS_TO_ENTITY.get(spawnEntry.entityClass);
+							if (entity instanceof GOTEntityNPC) {
+								GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
+								data.computeIfAbsent(faction, s -> new TreeSet<>());
+								data.get(faction).add(NL + "* " + getBiomeLink(biome) + ';');
+								break;
+							}
 						}
 					}
 				}
@@ -1915,7 +2061,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Conquest");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -1928,98 +2074,78 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionEnemies() {
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			StringJoiner sj = new StringJoiner(" • ");
+
+			for (GOTFaction otherFaction : FACTIONS) {
+				if (faction.isBadRelation(otherFaction) && faction != otherFaction) {
+					sj.add(getFactionLink(otherFaction));
+				}
+			}
+
+			data.put(faction, sj.toString());
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Enemies");
 		sb.append(BEGIN);
 
-		for (GOTFaction faction1 : FACTIONS) {
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(faction1)).append(" = ");
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			Collection<GOTFaction> facEnemies = EnumSet.noneOf(GOTFaction.class);
-			for (GOTFaction faction2 : FACTIONS) {
-				if (faction1.isBadRelation(faction2) && faction1 != faction2) {
-					facEnemies.add(faction2);
-				}
-			}
-
-			if (facEnemies.isEmpty()) {
-				sb.append(Lang.FACTION_NO_ENEMIES);
-			} else {
-				Collection<String> content = new TreeSet<>();
-
-				for (GOTFaction faction : facEnemies) {
-					content.add(getFactionLink(faction));
-				}
-
-				StringJoiner sj = new StringJoiner(" • ");
-				for (String item : content) {
-					sj.add(item);
-				}
-
-				sb.append(sj);
-			}
+			appendSection(sb, entry.getValue());
 		}
-
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateFactionFriends() {
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			StringJoiner sj = new StringJoiner(" • ");
+
+			for (GOTFaction otherFaction : FACTIONS) {
+				if (faction.isGoodRelation(otherFaction) && faction != otherFaction) {
+					sj.add(getFactionLink(otherFaction));
+				}
+			}
+
+			data.put(faction, sj.toString());
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Friends");
 		sb.append(BEGIN);
 
-		for (GOTFaction faction1 : FACTIONS) {
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(faction1)).append(" = ");
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			Collection<GOTFaction> facFriends = EnumSet.noneOf(GOTFaction.class);
-			for (GOTFaction faction2 : FACTIONS) {
-				if (faction1.isGoodRelation(faction2) && faction1 != faction2) {
-					facFriends.add(faction2);
-				}
-			}
-
-			if (facFriends.isEmpty()) {
-				sb.append(Lang.FACTION_NO_FRIENDS);
-			} else {
-				Collection<String> content = new TreeSet<>();
-
-				for (GOTFaction faction : facFriends) {
-					content.add(getFactionLink(faction));
-				}
-
-				StringJoiner sj = new StringJoiner(" • ");
-				for (String item : content) {
-					sj.add(item);
-				}
-
-				sb.append(sj);
-			}
+			appendSection(sb, entry.getValue());
 		}
-
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateFactionInvasionBiomes() {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTBiome biome : BIOMES) {
-			Collection<GOTInvasions> invasions = biome.getInvasionSpawns().getRegisteredInvasions();
-
-			for (GOTInvasions invasion : invasions) {
-				for (GOTInvasions.InvasionSpawnEntry entry : invasion.getInvasionMobs()) {
-					Entity entity = ENTITY_CLASS_TO_ENTITY.get(entry.getEntityClass());
+			for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
+				for (GOTInvasions.InvasionSpawnEntry invasionSpawnEntry : invasion.getInvasionMobs()) {
+					Entity entity = ENTITY_CLASS_TO_ENTITY.get(invasionSpawnEntry.getEntityClass());
 					if (entity instanceof GOTEntityNPC) {
 						GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
-						data.computeIfAbsent(faction, s -> new Section());
-						data.get(faction).getItems().add(NL + "* " + getBiomeLink(biome) + ';');
+						data.computeIfAbsent(faction, s -> new TreeSet<>());
+						data.get(faction).add(NL + "* " + getBiomeLink(biome) + ';');
 						break;
 					}
 				}
@@ -2031,7 +2157,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Invasions");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -2044,30 +2170,39 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionName() {
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			data.put(faction, getFactionName(faction));
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Name");
 		sb.append(BEGIN);
-		for (GOTFaction faction : FACTIONS) {
+
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(faction)).append(" = ");
-			sb.append(getFactionName(faction));
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateFactionNPCs() {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			Entity entity = entityEntry.getValue();
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
 				if (!npc.isLegendaryNPC()) {
-					data.computeIfAbsent(npc.getFaction(), s -> new Section());
-					data.get(npc.getFaction()).getItems().add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
+					data.computeIfAbsent(npc.getFaction(), s -> new TreeSet<>());
+					data.get(npc.getFaction()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
 				}
 			}
 		}
@@ -2077,7 +2212,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-NPC");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -2090,15 +2225,14 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionPledgeRank() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Pledge");
-		sb.append(BEGIN);
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTFaction faction : FACTIONS) {
 			GOTFactionRank rank = faction.getPledgeRank();
 
 			if (rank != null) {
+				StringBuilder sb = new StringBuilder();
+
 				sb.append(NL).append("| ");
 				sb.append(getFactionPagename(faction)).append(" = ").append(rank.getDisplayName());
 
@@ -2108,7 +2242,21 @@ public class GOTWikiGenerator {
 				}
 
 				sb.append(" (+").append((int) faction.getPledgeAlignment()).append(')');
+
+				data.put(faction, sb.toString());
 			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Pledge");
+		sb.append(BEGIN);
+
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -2117,29 +2265,37 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionRanks() {
+		Map<GOTFaction, List<String>> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			data.put(faction, new ArrayList<>());
+
+			for (GOTFactionRank rank : faction.getRanksSortedDescending()) {
+				StringBuilder sb = new StringBuilder();
+
+				sb.append(NL).append("* ").append(rank.getDisplayFullName());
+
+				String femRank = rank.getDisplayFullNameFem();
+				if (!femRank.contains("got")) {
+					sb.append('/').append(femRank);
+				}
+
+				sb.append(" (+").append((int) rank.getAlignment()).append(");");
+
+				data.get(faction).add(sb.toString());
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Ranks");
 		sb.append(BEGIN);
 
-		for (GOTFaction fac : FACTIONS) {
+		for (Map.Entry<GOTFaction, List<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(fac)).append(" = ");
-			if (fac.getRanksSortedDescending().isEmpty()) {
-				sb.append(Lang.FACTION_NO_RANKS);
-			} else {
-				sb.append(Lang.FACTION_HAS_RANKS);
-				for (GOTFactionRank rank : fac.getRanksSortedDescending()) {
-					sb.append(NL).append("* ").append(rank.getDisplayFullName());
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-					String femRank = rank.getDisplayFullNameFem();
-					if (!femRank.contains("got")) {
-						sb.append('/').append(femRank);
-					}
-
-					sb.append(" (+").append((int) rank.getAlignment()).append(");");
-				}
-			}
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -2148,101 +2304,90 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionRegion() {
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			if (faction.getFactionRegion() == null) {
+				data.put(faction, "N/A");
+			} else {
+				data.put(faction, faction.getFactionRegion().getRegionName());
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Region");
 		sb.append(BEGIN);
-		for (GOTFaction fac : FACTIONS) {
+
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(fac)).append(" = ");
-			if (fac.getFactionRegion() == null) {
-				sb.append("N/A");
-			} else {
-				sb.append(fac.getFactionRegion().getRegionName());
-			}
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
 	private static StringBuilder genTemplateFactionShieldsCapes() {
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.append(NL).append("&lt;table class=\"wikitable shields-capes\"&gt;");
+
+			for (GOTShields shield : SHIELDS) {
+				if (shield.getAlignmentFaction() == faction) {
+					sb.append(NL + "&lt;tr&gt;&lt;td&gt;").append(shield.getShieldName()).append("&lt;/td&gt;&lt;td&gt;").append(shield.getShieldDesc()).append("&lt;/td&gt;&lt;td&gt;").append(getShieldFilename(shield)).append("&lt;/td&gt;&lt;/tr&gt;");
+				}
+			}
+
+			for (GOTCapes cape : CAPES) {
+				if (cape.getAlignmentFaction() == faction) {
+					sb.append(NL + "&lt;tr&gt;&lt;td&gt;").append(cape.getCapeName()).append("&lt;/td&gt;&lt;td&gt;").append(cape.getCapeDesc()).append("&lt;/td&gt;&lt;td&gt;").append(getCapeFilename(cape)).append("&lt;/td&gt;&lt;/tr&gt;");
+				}
+			}
+
+			sb.append(NL).append("&lt;table&gt;");
+
+			data.put(faction, sb.toString());
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-ShieldsCapes");
 		sb.append(BEGIN);
-		for (GOTFaction fac : FACTIONS) {
+
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(fac)).append(" = ");
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			Collection<GOTShields> facShields = EnumSet.noneOf(GOTShields.class);
-			for (GOTShields shield : SHIELDS) {
-				if (shield.getAlignmentFaction() == fac) {
-					facShields.add(shield);
-				}
-			}
-
-			Collection<GOTCapes> facCapes = EnumSet.noneOf(GOTCapes.class);
-			for (GOTCapes cape : CAPES) {
-				if (cape.getAlignmentFaction() == fac) {
-					facCapes.add(cape);
-				}
-			}
-
-			if (facShields.isEmpty() && facCapes.isEmpty()) {
-				sb.append(Lang.FACTION_NO_ATTRIBUTES);
-			} else {
-				Collection<String> content = new TreeSet<>();
-
-				sb.append(NL).append("&lt;table class=\"wikitable shields-capes\"&gt;");
-
-				for (GOTShields shield : facShields) {
-					content.add(NL + "&lt;tr&gt;&lt;td&gt;" + shield.getShieldName() + "&lt;/td&gt;&lt;td&gt;" + shield.getShieldDesc() + "&lt;/td&gt;&lt;td&gt;" + getShieldFilename(shield) + "&lt;/td&gt;&lt;/tr&gt;");
-				}
-
-				for (String s : content) {
-					sb.append(s);
-				}
-
-				for (GOTCapes cape : facCapes) {
-					content.add(NL + "&lt;tr&gt;&lt;td&gt;" + cape.getCapeName() + "&lt;/td&gt;&lt;td&gt;" + cape.getCapeDesc() + "&lt;/td&gt;&lt;td&gt;" + getCapeFilename(cape) + "&lt;/td&gt;&lt;/tr&gt;");
-				}
-
-				for (String s : content) {
-					sb.append(s);
-				}
-
-				sb.append(NL).append("&lt;table&gt;");
-			}
+			appendSection(sb, entry.getValue());
 		}
+
 		sb.append(END);
 
 		return sb;
 	}
 
-	private static StringBuilder genTemplateFactionSpawnBiomes(World world) {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+	private static StringBuilder genTemplateFactionSpawnBiomes() {
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTBiome biome : BIOMES) {
-			List<GOTFactionContainer> facContainers = biome.getNPCSpawnList().getFactionContainers();
-
-			Collection<GOTFactionContainer> spawnContainers = new HashSet<>();
-
-			for (GOTFactionContainer facContainer : facContainers) {
-				if (facContainer.getBaseWeight() > 0) {
-					spawnContainers.add(facContainer);
-				}
-			}
-
-			for (GOTFactionContainer facContainer : spawnContainers) {
-				for (GOTSpawnListContainer container : facContainer.getSpawnLists()) {
-					for (GOTSpawnEntry entry : container.getSpawnList().getSpawnEntries()) {
-						Entity entity = GOTReflection.newEntity(entry.entityClass, world);
-						if (entity instanceof GOTEntityNPC) {
-							GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
-							data.computeIfAbsent(faction, s -> new Section());
-							data.get(faction).getItems().add(NL + "* " + getBiomeLink(biome) + ';');
-							break;
+			for (GOTFactionContainer factionContainer : biome.getNPCSpawnList().getFactionContainers()) {
+				if (factionContainer.getBaseWeight() > 0) {
+					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
+							Entity entity = ENTITY_CLASS_TO_ENTITY.get(spawnEntry.entityClass);
+							if (entity instanceof GOTEntityNPC) {
+								GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
+								data.computeIfAbsent(faction, s -> new TreeSet<>());
+								data.get(faction).add(NL + "* " + getBiomeLink(biome) + ';');
+								break;
+							}
 						}
 					}
 				}
@@ -2254,7 +2399,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Spawn");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -2267,11 +2412,11 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionStructures() {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (Map.Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.CLASS_TO_FACTION_MAPPING.entrySet()) {
-			data.computeIfAbsent(entry.getValue(), s -> new Section());
-			data.get(entry.getValue()).getItems().add(NL + "* " + getStructureLink(entry.getKey()) + ';');
+			data.computeIfAbsent(entry.getValue(), s -> new TreeSet<>());
+			data.get(entry.getValue()).add(NL + "* " + getStructureLink(entry.getKey()) + ';');
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -2279,7 +2424,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Structures");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -2292,20 +2437,26 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionWarCrimes() {
+		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
+
+		for (GOTFaction faction : FACTIONS) {
+			if (faction.isApprovesWarCrimes()) {
+				data.put(faction, Lang.FACTION_HAS_WAR_CRIMES.toString());
+			} else {
+				data.put(faction, Lang.FACTION_NO_WAR_CRIMES.toString());
+			}
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-WarCrimes");
 		sb.append(BEGIN);
 
-		for (GOTFaction fac : FACTIONS) {
+		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getFactionPagename(fac)).append(" = ");
+			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			if (fac.isApprovesWarCrimes()) {
-				sb.append(Lang.FACTION_HAS_WAR_CRIMES);
-			} else {
-				sb.append(Lang.FACTION_NO_WAR_CRIMES);
-			}
+			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
@@ -2314,11 +2465,11 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateFactionWaypoints() {
-		Map<GOTFaction, Section> data = new EnumMap<>(GOTFaction.class);
+		Map<GOTFaction, Set<String>> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTWaypoint wp : WAYPOINTS) {
-			data.computeIfAbsent(wp.getFaction(), s -> new Section());
-			data.get(wp.getFaction()).getItems().add(NL + "* " + wp.getDisplayName() + ';');
+			data.computeIfAbsent(wp.getFaction(), s -> new TreeSet<>());
+			data.get(wp.getFaction()).add(NL + "* " + wp.getDisplayName() + ';');
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -2326,7 +2477,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Waypoints");
 		sb.append(BEGIN);
 
-		for (Map.Entry<GOTFaction, Section> entry : data.entrySet()) {
+		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
@@ -2339,7 +2490,7 @@ public class GOTWikiGenerator {
 	}
 
 	private static StringBuilder genTemplateMineralBiomes() {
-		Map<String, Section> data = new HashMap<>();
+		Map<String, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
 			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new HashSet<>(biome.getDecorator().getBiomeSoils());
@@ -2350,15 +2501,17 @@ public class GOTWikiGenerator {
 				Block block = GOTReflection.getOreGenBlock(oreGenerant.getOreGen());
 				int meta = GOTReflection.getOreGenMeta(oreGenerant.getOreGen());
 
+				String blockName;
+				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
+					blockName = getBlockMetaName(block, meta);
+				} else {
+					blockName = getBlockName(block);
+				}
+
 				String stats = " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ");";
 
-				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-					data.computeIfAbsent(getBlockMetaName(block, meta), s -> new Section());
-					data.get(getBlockMetaName(block, meta)).getItems().add(NL + "* " + getBiomeLink(biome) + stats);
-				} else {
-					data.computeIfAbsent(getBlockName(block), s -> new Section());
-					data.get(getBlockName(block)).getItems().add(NL + "* " + getBiomeLink(biome) + stats);
-				}
+				data.computeIfAbsent(blockName, s -> new TreeSet<>());
+				data.get(blockName).add(NL + "* " + getBiomeLink(biome) + stats);
 			}
 		}
 
@@ -2367,9 +2520,75 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Mineral-Biomes");
 		sb.append(BEGIN);
 
-		for (Map.Entry<String, Section> entry : data.entrySet()) {
+		for (Map.Entry<String, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(entry.getKey()).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateStructureBiomes() {
+		Map<Class<? extends WorldGenerator>, Set<String>> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+				data.computeIfAbsent(structure.getStructureGen().getClass(), s -> new TreeSet<>());
+				data.get(structure.getStructureGen().getClass()).add(NL + "* " + getBiomeLink(biome) + ';');
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Biomes");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends WorldGenerator>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getStructureName(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateTreeBiomes() {
+		Map<GOTTreeType, Set<String>> data = new EnumMap<>(GOTTreeType.class);
+
+		for (GOTBiome biome : BIOMES) {
+			Collection<GOTTreeType.WeightedTreeType> weightedTreeTypes = biome.getDecorator().getTreeTypes();
+
+			for (GOTTreeType.WeightedTreeType weightedTreeType : weightedTreeTypes) {
+				data.computeIfAbsent(weightedTreeType.getTreeType(), s -> new TreeSet<>());
+				data.get(weightedTreeType.getTreeType()).add(NL + "* " + getBiomeLink(biome) + ';');
+			}
+
+			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
+				for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
+					if (!weightedTreeTypes.contains(weightedTreeType)) {
+						data.computeIfAbsent(weightedTreeType.getTreeType(), s -> new TreeSet<>());
+						data.get(weightedTreeType.getTreeType()).add(NL + "* " + getBiomeLink(biome) + " (" + getBiomeVariantName(variantBucket.getVariant()) + ");");
+					}
+				}
+			}
+
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Tree-Biomes");
+		sb.append(BEGIN);
+
+		for (Map.Entry<GOTTreeType, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getTreeName(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -2382,11 +2601,11 @@ public class GOTWikiGenerator {
 	private static StringBuilder genTemplateMtmEntitiesStructures(World world) {
 		StringBuilder sb = new StringBuilder();
 
-		Map<Class<? extends WorldGenerator>, Section> dataES = new HashMap<>();
-		Map<Class<? extends Entity>, Section> dataSE = new HashMap<>();
+		Map<Class<? extends WorldGenerator>, Set<String>> dataES = new HashMap<>();
+		Map<Class<? extends Entity>, Set<String>> dataSE = new HashMap<>();
 
 		for (Class<? extends WorldGenerator> strClass : STRUCTURE_CLASSES) {
-			dataES.put(strClass, new Section());
+			dataES.put(strClass, new TreeSet<>());
 
 			WorldGenerator generator = null;
 			try {
@@ -2402,9 +2621,9 @@ public class GOTWikiGenerator {
 
 				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
 				for (Class<? extends Entity> entityClass : entityClasses) {
-					dataES.get(strClass).getItems().add(NL + "* " + getEntityLink(entityClass) + ';');
-					dataSE.computeIfAbsent(entityClass, s -> new Section());
-					dataSE.get(entityClass).getItems().add(NL + "* " + getStructureLink(strClass) + ';');
+					dataSE.computeIfAbsent(entityClass, s -> new TreeSet<>());
+					dataSE.get(entityClass).add(NL + "* " + getStructureLink(strClass) + ';');
+					dataES.get(strClass).add(NL + "* " + getEntityLink(entityClass) + ';');
 				}
 			}
 		}
@@ -2412,7 +2631,7 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Structures");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends WorldGenerator>, Section> entry : dataES.entrySet()) {
+		for (Map.Entry<Class<? extends WorldGenerator>, Set<String>> entry : dataES.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getStructureName(entry.getKey())).append(" = ");
 
@@ -2424,83 +2643,9 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Mobs");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Section> entry : dataSE.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : dataSE.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateStructureBiomes() {
-		Map<Class<? extends WorldGenerator>, Section> data = new HashMap<>();
-
-		for (GOTBiome biome : BIOMES) {
-			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
-				data.computeIfAbsent(structure.getStructureGen().getClass(), s -> new Section());
-				data.get(structure.getStructureGen().getClass()).getItems().add(NL + "* " + getBiomeLink(biome) + ';');
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Biomes");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends WorldGenerator>, Section> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getStructureName(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateTreeBiomes() {
-		Map<GOTTreeType, Section> data = new EnumMap<>(GOTTreeType.class);
-
-		for (GOTBiome biome : BIOMES) {
-			Collection<GOTTreeType> biomeTrees = EnumSet.noneOf(GOTTreeType.class);
-			Map<GOTTreeType, GOTBiomeVariant> biomeVariantTrees = new EnumMap<>(GOTTreeType.class);
-
-			for (GOTTreeType.WeightedTreeType weightedTreeType : biome.getDecorator().getTreeTypes()) {
-				biomeTrees.add(weightedTreeType.getTreeType());
-			}
-
-			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
-				for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
-					if (!biomeTrees.contains(weightedTreeType.getTreeType())) {
-						biomeVariantTrees.put(weightedTreeType.getTreeType(), variantBucket.getVariant());
-					}
-				}
-			}
-
-			for (GOTTreeType tree : biomeTrees) {
-				data.computeIfAbsent(tree, s -> new Section());
-				data.get(tree).getItems().add(NL + "* " + getBiomeLink(biome) + ';');
-			}
-
-			for (Map.Entry<GOTTreeType, GOTBiomeVariant> treeEntry : biomeVariantTrees.entrySet()) {
-				data.computeIfAbsent(treeEntry.getKey(), s -> new Section());
-				data.get(treeEntry.getKey()).getItems().add(NL + "* " + getBiomeLink(biome) + " (" + Lang.TREE_VARIANT_ONLY + ");");
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Tree-Biomes");
-		sb.append(BEGIN);
-
-		for (Map.Entry<GOTTreeType, Section> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getTreeName(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -2761,23 +2906,6 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	private static class Section {
-		private final Set<String> items = new TreeSet<>();
-		private String desc = "";
-
-		public String getDesc() {
-			return desc;
-		}
-
-		public void setDesc(String desc) {
-			this.desc = desc;
-		}
-
-		public Set<String> getItems() {
-			return items;
-		}
-	}
-
 	private static String getBannerName(GOTItemBanner.BannerType banner) {
 		return StatCollector.translateToLocal("item.got:banner." + banner.getBannerName() + ".name");
 	}
@@ -2809,6 +2937,10 @@ public class GOTWikiGenerator {
 
 	private static String getBlockName(Block block) {
 		return StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
+	}
+
+	private static String getBlockLink(String name) {
+		return "[[" + name + "]]";
 	}
 
 	private static String getCapeFilename(GOTCapes cape) {
@@ -2880,17 +3012,31 @@ public class GOTWikiGenerator {
 		return StatCollector.translateToLocal("got.structure." + nameAlias + ".name");
 	}
 
+	private static Set<String> getSettlementNames(Class<? extends GOTStructureBaseSettlement> clazz) {
+		Set<String> names = GOTStructureRegistry.S_CLASS_TO_NAME_MAPPING.get(clazz);
+		if (names == null) {
+			return Collections.emptySet();
+		}
+		return GOTStructureRegistry.S_CLASS_TO_NAME_MAPPING.get(clazz);
+	}
+
 	private static String getTreeName(GOTTreeType tree) {
 		return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name");
 	}
 
-	private static void appendSection(StringBuilder sb, Section section) {
-		sb.append(section.getDesc());
+	private static String getTreeLink(GOTTreeType tree) {
+		return "[[" + StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name") + "]]";
+	}
 
-		for (String item : section.getItems()) {
+	private static void appendSection(StringBuilder sb, Collection<String> section) {
+		for (String item : section) {
 			sb.append(item);
 		}
 
-		section.getItems().clear();
+		section.clear();
+	}
+
+	private static void appendSection(StringBuilder sb, String value) {
+		sb.append(value);
 	}
 }
