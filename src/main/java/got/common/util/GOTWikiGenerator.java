@@ -313,19 +313,27 @@ public class GOTWikiGenerator {
 		entityPlayer.addChatMessage(component);
 	}
 
+	@SuppressWarnings("StringBufferReplaceableByString")
 	private static void genTableAchievements(EntityPlayer entityPlayer) {
-		Collection<String> content = new TreeSet<>();
+		Collection<String> data = new TreeSet<>();
 
-		for (GOTAchievement ach : ACHIEVEMENTS) {
-			if (!(ach instanceof GOTAchievementRank)) {
-				content.add(NL + "| " + ach.getTitle(entityPlayer) + " || " + ach.getDescription() + NL + "|-");
+		for (GOTAchievement achievement : ACHIEVEMENTS) {
+			if (!(achievement instanceof GOTAchievementRank)) {
+				StringBuilder sb = new StringBuilder();
+
+				sb.append(NL).append("| ");
+				sb.append(achievement.getTitle(entityPlayer));
+				sb.append(" || ").append(achievement.getDescription());
+				sb.append(NL).append("|-");
+
+				data.add(sb.toString());
 			}
 		}
 
 		StringBuilder sb = new StringBuilder();
 
-		for (String s : content) {
-			sb.append(s);
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/achievements.txt", UTF_8)) {
@@ -336,22 +344,38 @@ public class GOTWikiGenerator {
 	}
 
 	private static void genTableArmor() {
-		StringBuilder sb = new StringBuilder();
+		Collection<String> data = new TreeSet<>();
 
 		for (Item item : ITEMS) {
 			if (item instanceof ItemArmor) {
+				StringBuilder sb = new StringBuilder();
+
 				float damage = ((ItemArmor) item).damageReduceAmount;
 				ItemArmor.ArmorMaterial material = ((ItemArmor) item).getArmorMaterial();
 
 				sb.append(NL).append("| ");
-				sb.append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || ");
+				sb.append(getItemName(item));
+				sb.append(" || ").append(getItemFilename(item));
+				sb.append(" || ").append(item.getMaxDamage());
+				sb.append(" || ").append(damage);
+
+				sb.append(" || ");
 				if (material == null || material.customCraftingMaterial == null) {
 					sb.append("N/A");
 				} else {
 					sb.append(getItemName(material.customCraftingMaterial));
 				}
+
 				sb.append(NL).append("|-");
+
+				data.add(sb.toString());
 			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/armor.txt", UTF_8)) {
@@ -361,12 +385,26 @@ public class GOTWikiGenerator {
 		}
 	}
 
+	@SuppressWarnings("StringBufferReplaceableByString")
 	private static void genTableCapes() {
-		StringBuilder sb = new StringBuilder();
+		Collection<String> data = new TreeSet<>();
 
 		for (GOTCapes cape : CAPES) {
+			StringBuilder sb = new StringBuilder();
+
 			sb.append(NL).append("| ");
-			sb.append(cape.getCapeName()).append(" || ").append(cape.getCapeDesc()).append(" || ").append(getCapeFilename(cape)).append(NL).append("|-");
+			sb.append(cape.getCapeName());
+			sb.append(" || ").append(cape.getCapeDesc());
+			sb.append(" || ").append(getCapeFilename(cape));
+			sb.append(NL).append("|-");
+
+			data.add(sb.toString());
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/capes.txt", UTF_8)) {
@@ -378,7 +416,9 @@ public class GOTWikiGenerator {
 
 	@SuppressWarnings("deprecation")
 	private static void genTableFood() {
-		Collection<String> content = new TreeSet<>();
+		Collection<String> data = new TreeSet<>();
+
+		DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
 		for (Item item : ITEMS) {
 			if (item instanceof ItemFood) {
@@ -386,22 +426,23 @@ public class GOTWikiGenerator {
 
 				int heal = ((ItemFood) item).func_150905_g(null);
 				float saturation = ((ItemFood) item).func_150906_h(null);
+
 				sb.append(NL).append("| ");
 				sb.append(getItemName(item));
 				sb.append(" || ").append(getItemFilename(item));
-				sb.append(" || ").append("{{Bar|bread|").append(new DecimalFormat("#.##").format(saturation * heal * 2)).append("}}");
+				sb.append(" || ").append("{{Bar|bread|").append(decimalFormat.format(saturation * heal * 2)).append("}}");
 				sb.append(" || ").append("{{Bar|food|").append(heal).append("}}");
 				sb.append(" || ").append(item.getItemStackLimit());
 				sb.append(NL).append("|-");
 
-				content.add(sb.toString());
+				data.add(sb.toString());
 			}
 		}
 
 		StringBuilder sb = new StringBuilder();
 
-		for (String s : content) {
-			sb.append(s);
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/food.txt", UTF_8)) {
@@ -411,12 +452,26 @@ public class GOTWikiGenerator {
 		}
 	}
 
+	@SuppressWarnings("StringBufferReplaceableByString")
 	private static void genTableShields() {
-		StringBuilder sb = new StringBuilder();
+		Collection<String> data = new TreeSet<>();
 
 		for (GOTShields shield : SHIELDS) {
+			StringBuilder sb = new StringBuilder();
+
 			sb.append(NL).append("| ");
-			sb.append(shield.getShieldName()).append(" || ").append(shield.getShieldDesc()).append(" || ").append(getShieldFilename(shield)).append(NL).append("|-");
+			sb.append(shield.getShieldName());
+			sb.append(" || ").append(shield.getShieldDesc());
+			sb.append(" || ").append(getShieldFilename(shield));
+			sb.append(NL).append("|-");
+
+			data.add(sb.toString());
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/shields.txt", UTF_8)) {
@@ -427,34 +482,44 @@ public class GOTWikiGenerator {
 	}
 
 	private static void genTableUnits() {
-		StringBuilder sb = new StringBuilder();
+		Collection<String> data = new TreeSet<>();
 
 		for (GOTUnitTradeEntries unitTradeEntries : UNIT_TRADE_ENTRIES) {
 			for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
-				if (entry != null) {
-					sb.append(NL).append("| ");
-					sb.append(getEntityLink(entry.getEntityClass()));
-					if (entry.getMountClass() != null) {
-						sb.append(Lang.RIDER);
-					}
+				StringBuilder sb = new StringBuilder();
 
-					int cost = entry.getInitialCost();
-					int alignment = (int) entry.getAlignmentRequired();
+				sb.append(NL).append("| ");
+				sb.append(getEntityLink(entry.getEntityClass()));
 
-					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-						sb.append(" || ").append("{{Coins|").append(cost * 2).append("}}");
-						sb.append(" || ").append("{{Coins|").append(cost).append("}}");
-						sb.append(" || ").append('+').append(alignment);
-						sb.append(" || ").append('-');
-					} else {
-						sb.append(" || ").append("N/A");
-						sb.append(" || ").append("{{Coins|").append(cost).append("}}");
-						sb.append(" || ").append('+').append(Math.max(alignment, 100));
-						sb.append(" || ").append('+');
-					}
-					sb.append(NL).append("|-");
+				if (entry.getMountClass() != null) {
+					sb.append(Lang.RIDER);
 				}
+
+				int cost = entry.getInitialCost();
+				int alignment = (int) entry.getAlignmentRequired();
+
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+					sb.append(" || ").append("{{Coins|").append(cost * 2).append("}}");
+					sb.append(" || ").append("{{Coins|").append(cost).append("}}");
+					sb.append(" || ").append('+').append(alignment);
+					sb.append(" || ").append('-');
+				} else {
+					sb.append(" || ").append("N/A");
+					sb.append(" || ").append("{{Coins|").append(cost).append("}}");
+					sb.append(" || ").append('+').append(Math.max(alignment, 100));
+					sb.append(" || ").append('+');
+				}
+
+				sb.append(NL).append("|-");
+
+				data.add(sb.toString());
 			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/units.txt", UTF_8)) {
@@ -464,17 +529,25 @@ public class GOTWikiGenerator {
 		}
 	}
 
+	@SuppressWarnings("StringBufferReplaceableByString")
 	private static void genTableWaypoints(EntityPlayer entityPlayer) {
-		StringBuilder sb = new StringBuilder();
-
-		Collection<String> content = new TreeSet<>();
+		Collection<String> data = new TreeSet<>();
 
 		for (GOTWaypoint wp : WAYPOINTS) {
-			content.add(NL + "| " + wp.getDisplayName() + " || " + wp.getLoreText(entityPlayer) + NL + "|-");
+			StringBuilder sb = new StringBuilder();
+
+			sb.append(NL).append("| ");
+			sb.append(wp.getDisplayName());
+			sb.append(" || ").append(wp.getLoreText(entityPlayer));
+			sb.append(NL).append("|-");
+
+			data.add(sb.toString());
 		}
 
-		for (String s : content) {
-			sb.append(s);
+		StringBuilder sb = new StringBuilder();
+
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/waypoints.txt", UTF_8)) {
@@ -485,32 +558,38 @@ public class GOTWikiGenerator {
 	}
 
 	private static void genTableWeapons() {
-		StringBuilder sb = new StringBuilder();
-
-		Collection<String> content = new TreeSet<>();
+		Collection<String> data = new TreeSet<>();
 
 		for (Item item : ITEMS) {
 			if (item instanceof ItemSword) {
-				StringBuilder localSb = new StringBuilder();
+				StringBuilder sb = new StringBuilder();
 
 				float damage = GOTReflection.getDamageAmount(item);
 				Item.ToolMaterial material = GOTReflection.getToolMaterial(item);
 
-				localSb.append(NL).append("| ");
-				localSb.append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || ");
-				if (material == null || material.getRepairItemStack() == null) {
-					localSb.append("N/A");
-				} else {
-					localSb.append(getItemName(material.getRepairItemStack().getItem()));
-				}
-				localSb.append(NL).append("|-");
+				sb.append(NL).append("| ");
+				sb.append(getItemName(item));
+				sb.append(" || ").append(getItemFilename(item));
+				sb.append(" || ").append(item.getMaxDamage());
+				sb.append(" || ").append(damage);
 
-				content.add(localSb.toString());
+				sb.append(" || ");
+				if (material == null || material.getRepairItemStack() == null) {
+					sb.append("N/A");
+				} else {
+					sb.append(getItemName(material.getRepairItemStack().getItem()));
+				}
+
+				sb.append(NL).append("|-");
+
+				data.add(sb.toString());
 			}
 		}
 
-		for (String s : content) {
-			sb.append(s);
+		StringBuilder sb = new StringBuilder();
+
+		for (String datum : data) {
+			sb.append(datum);
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/weapon.txt", UTF_8)) {
