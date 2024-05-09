@@ -70,6 +70,7 @@ import java.util.stream.Stream;
 public class GOTWikiGenerator {
 	private static final Map<Class<? extends Entity>, Entity> ENTITY_CLASS_TO_ENTITY = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> ENTITY_CLASS_TO_WP = new HashMap<>();
+	private static final Map<Class<? extends WorldGenerator>, GOTStructureBase> STRUCTURE_CLASS_TO_STRUCTURE = new HashMap<>();
 
 	private static final Map<String, String> FACTION_TO_PAGENAME = new HashMap<>();
 	private static final Map<String, String> ENTITY_TO_PAGENAME = new HashMap<>();
@@ -78,6 +79,7 @@ public class GOTWikiGenerator {
 	private static final Iterable<Item> ITEMS = new ArrayList<>(GOTItems.CONTENT);
 	private static final Iterable<GOTUnitTradeEntries> UNIT_TRADE_ENTRIES = new ArrayList<>(GOTUnitTradeEntries.CONTENT);
 	private static final Iterable<Class<? extends Entity>> ENTITY_CLASSES = new HashSet<>(GOTEntityRegistry.CONTENT);
+	private static final Iterable<Class<? extends WorldGenerator>> STRUCTURE_CLASSES = new HashSet<>(GOTStructureRegistry.CONTENT);
 	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
 
 	private static final Collection<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
@@ -89,8 +91,6 @@ public class GOTWikiGenerator {
 	private static final Iterable<GOTShields> SHIELDS = EnumSet.allOf(GOTShields.class);
 
 	private static final Collection<String> MINERALS = new HashSet<>();
-
-	private static final Iterable<Class<? extends WorldGenerator>> STRUCTURE_CLASSES = new HashSet<>(GOTStructureRegistry.CONTENT);
 
 	private static final String BEGIN = "</title>\n<ns>10</ns>\n<revision>\n<text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text>\n</revision>\n</page>\n";
@@ -169,30 +169,20 @@ public class GOTWikiGenerator {
 			e.printStackTrace();
 		}
 
-		Collection<Runnable> pRunnables = new HashSet<>();
-
-		pRunnables.add(() -> searchForEntities(world));
-		pRunnables.add(() -> searchForMinerals(BIOMES, MINERALS));
-		pRunnables.add(() -> searchForPagenamesEntity(BIOMES, FACTIONS));
-		pRunnables.add(() -> searchForPagenamesBiome(BIOMES, FACTIONS));
-		pRunnables.add(() -> searchForPagenamesFaction(BIOMES, FACTIONS));
-
-		pRunnables.parallelStream().forEach(Runnable::run);
-
 		switch (type) {
 			case TABLES:
-				Collection<Runnable> runnables = new HashSet<>();
+				Collection<Runnable> tableGens = new HashSet<>();
 
-				runnables.add(GOTWikiGenerator::genTableShields);
-				runnables.add(GOTWikiGenerator::genTableCapes);
-				runnables.add(GOTWikiGenerator::genTableUnits);
-				runnables.add(GOTWikiGenerator::genTableArmor);
-				runnables.add(GOTWikiGenerator::genTableWeapons);
-				runnables.add(GOTWikiGenerator::genTableFood);
-				runnables.add(() -> genTableAchievements(entityPlayer));
-				runnables.add(() -> genTableWaypoints(entityPlayer));
+				tableGens.add(GOTWikiGenerator::genTableShields);
+				tableGens.add(GOTWikiGenerator::genTableCapes);
+				tableGens.add(GOTWikiGenerator::genTableUnits);
+				tableGens.add(GOTWikiGenerator::genTableArmor);
+				tableGens.add(GOTWikiGenerator::genTableWeapons);
+				tableGens.add(GOTWikiGenerator::genTableFood);
+				tableGens.add(() -> genTableAchievements(entityPlayer));
+				tableGens.add(() -> genTableWaypoints(entityPlayer));
 
-				runnables.parallelStream().forEach(Runnable::run);
+				tableGens.parallelStream().forEach(Runnable::run);
 
 				break;
 			case XML:
@@ -202,6 +192,17 @@ public class GOTWikiGenerator {
 					GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
 
 					sb.append("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
+
+					Collection<Runnable> runnables = new HashSet<>();
+
+					runnables.add(() -> searchForEntities(world));
+					runnables.add(() -> searchForStructures(world));
+					runnables.add(GOTWikiGenerator::searchForMinerals);
+					runnables.add(GOTWikiGenerator::searchForPagenamesEntity);
+					runnables.add(GOTWikiGenerator::searchForPagenamesBiome);
+					runnables.add(GOTWikiGenerator::searchForPagenamesFaction);
+
+					runnables.parallelStream().forEach(Runnable::run);
 
 					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
 
@@ -223,6 +224,7 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
+					suppliers.add(GOTWikiGenerator::genTemplateStructureEntities);
 
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
@@ -287,12 +289,11 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityTargetSeeker);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityTradeable);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityStructures);
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
 					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
 					suppliers.clear();
-
-					sb.append(genTemplateMtmEntitiesStructures(world));
 
 					sb.append("</mediawiki>");
 
@@ -605,8 +606,8 @@ public class GOTWikiGenerator {
 						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
 							Entity entity = ENTITY_CLASS_TO_ENTITY.get(spawnEntry.entityClass);
 							if (entity instanceof GOTEntityNPC) {
-								GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
-								data.get(biome).add(NL + "* " + getFactionLink(fac) + ';');
+								GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
+								data.get(biome).add(NL + "* " + getFactionLink(faction) + ';');
 								break;
 							}
 						}
@@ -642,8 +643,8 @@ public class GOTWikiGenerator {
 				for (GOTInvasions.InvasionSpawnEntry invasionSpawnEntry : invasion.getInvasionMobs()) {
 					Entity entity = ENTITY_CLASS_TO_ENTITY.get(invasionSpawnEntry.getEntityClass());
 					if (entity instanceof GOTEntityNPC) {
-						GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
-						data.get(biome).add(NL + "* " + getFactionLink(fac) + ';');
+						GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
+						data.get(biome).add(NL + "* " + getFactionLink(faction) + ';');
 						break;
 					}
 				}
@@ -2633,32 +2634,20 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateMtmEntitiesStructures(World world) {
+	private static StringBuilder genTemplateEntityStructures() {
 		StringBuilder sb = new StringBuilder();
 
-		Map<Class<? extends WorldGenerator>, Set<String>> dataES = new HashMap<>();
-		Map<Class<? extends Entity>, Set<String>> dataSE = new HashMap<>();
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
 
-		for (Class<? extends WorldGenerator> strClass : STRUCTURE_CLASSES) {
-			dataES.put(strClass, new TreeSet<>());
+		for (Map.Entry<Class<? extends WorldGenerator>, GOTStructureBase> structureEntry : STRUCTURE_CLASS_TO_STRUCTURE.entrySet()) {
+			Class<? extends WorldGenerator> structureClass = structureEntry.getKey();
+			GOTStructureBase structure = structureEntry.getValue();
 
-			WorldGenerator generator = null;
-			try {
-				generator = strClass.getConstructor(Boolean.TYPE).newInstance(true);
-			} catch (Exception ignored) {
-			}
-
-			if (generator instanceof GOTStructureBase) {
-				GOTStructureBase structure = (GOTStructureBase) generator;
-				structure.setRestrictions(false);
-				structure.setWikiGen(true);
-				structure.generate(world, world.rand, 0, 0, 0, 0);
-
+			if (structure != null) {
 				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
 				for (Class<? extends Entity> entityClass : entityClasses) {
-					dataSE.computeIfAbsent(entityClass, s -> new TreeSet<>());
-					dataSE.get(entityClass).add(NL + "* " + getStructureLink(strClass) + ';');
-					dataES.get(strClass).add(NL + "* " + getEntityLink(entityClass) + ';');
+					data.computeIfAbsent(entityClass, s -> new TreeSet<>());
+					data.get(entityClass).add(NL + "* " + getStructureLink(structureClass) + ';');
 				}
 			}
 		}
@@ -2666,21 +2655,43 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Structures");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends WorldGenerator>, Set<String>> entry : dataES.entrySet()) {
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getStructureName(entry.getKey())).append(" = ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
 
 		sb.append(END);
 
+		return sb;
+	}
+
+	private static StringBuilder genTemplateStructureEntities() {
+		StringBuilder sb = new StringBuilder();
+
+		Map<Class<? extends WorldGenerator>, Set<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends WorldGenerator>, GOTStructureBase> structureEntry : STRUCTURE_CLASS_TO_STRUCTURE.entrySet()) {
+			Class<? extends WorldGenerator> structureClass = structureEntry.getKey();
+			GOTStructureBase structure = structureEntry.getValue();
+
+			if (structure != null) {
+				data.put(structureClass, new TreeSet<>());
+
+				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
+				for (Class<? extends Entity> entityClass : entityClasses) {
+					data.get(structureClass).add(NL + "* " + getEntityLink(entityClass) + ';');
+				}
+			}
+		}
+
 		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Mobs");
 		sb.append(BEGIN);
 
-		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : dataSE.entrySet()) {
+		for (Map.Entry<Class<? extends WorldGenerator>, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+			sb.append(getStructureName(entry.getKey())).append(" = ");
 
 			appendSection(sb, entry.getValue());
 		}
@@ -2819,8 +2830,27 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	private static void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
-		for (GOTBiome biome : biomes) {
+	private static void searchForStructures(World world) {
+		for (Class<? extends WorldGenerator> structureClass : STRUCTURE_CLASSES) {
+			WorldGenerator generator = null;
+			try {
+				generator = structureClass.getConstructor(Boolean.TYPE).newInstance(true);
+			} catch (Exception ignored) {
+			}
+
+			if (generator instanceof GOTStructureBase) {
+				GOTStructureBase structure = (GOTStructureBase) generator;
+				structure.setRestrictions(false);
+				structure.setWikiGen(true);
+				structure.generate(world, world.rand, 0, 0, 0, 0);
+
+				STRUCTURE_CLASS_TO_STRUCTURE.put(structureClass, structure);
+			}
+		}
+	}
+
+	private static void searchForMinerals() {
+		for (GOTBiome biome : BIOMES) {
 			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new HashSet<>(biome.getDecorator().getBiomeSoils());
 			oreGenerants.addAll(biome.getDecorator().getBiomeOres());
 			oreGenerants.addAll(biome.getDecorator().getBiomeGems());
@@ -2829,20 +2859,20 @@ public class GOTWikiGenerator {
 				Block block = GOTReflection.getOreGenBlock(gen);
 				int meta = GOTReflection.getOreGenMeta(gen);
 				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-					minerals.add(getBlockMetaName(block, meta));
+					MINERALS.add(getBlockMetaName(block, meta));
 				} else {
-					minerals.add(getBlockName(block));
+					MINERALS.add(getBlockName(block));
 				}
 			}
 		}
 	}
 
-	private static void searchForPagenamesBiome(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
+	private static void searchForPagenamesBiome() {
 		next:
-		for (GOTBiome biome : biomes) {
+		for (GOTBiome biome : BIOMES) {
 			String preName = getBiomeName(biome);
-			for (GOTFaction fac : factions) {
-				if (preName.equals(getFactionName(fac))) {
+			for (GOTFaction faction : FACTIONS) {
+				if (preName.equals(getFactionName(faction))) {
 					BIOME_TO_PAGENAME.put(preName, preName + " (" + Lang.PAGE_BIOME + ')');
 					continue next;
 				}
@@ -2857,18 +2887,18 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	private static void searchForPagenamesEntity(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
+	private static void searchForPagenamesEntity() {
 		next:
 		for (Class<? extends Entity> entityClass : ENTITY_CLASSES) {
 			String preName = getEntityName(entityClass);
-			for (GOTBiome biome : biomes) {
+			for (GOTBiome biome : BIOMES) {
 				if (preName.equals(getBiomeName(biome))) {
 					ENTITY_TO_PAGENAME.put(preName, preName + " (" + Lang.PAGE_ENTITY + ')');
 					continue next;
 				}
 			}
-			for (GOTFaction fac : factions) {
-				if (preName.equals(getFactionName(fac))) {
+			for (GOTFaction faction : FACTIONS) {
+				if (preName.equals(getFactionName(faction))) {
 					ENTITY_TO_PAGENAME.put(preName, preName + " (" + Lang.PAGE_ENTITY + ')');
 					continue next;
 				}
@@ -2877,11 +2907,11 @@ public class GOTWikiGenerator {
 		}
 	}
 
-	private static void searchForPagenamesFaction(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
+	private static void searchForPagenamesFaction() {
 		next:
-		for (GOTFaction fac : factions) {
-			String preName = getFactionName(fac);
-			for (GOTBiome biome : biomes) {
+		for (GOTFaction faction : FACTIONS) {
+			String preName = getFactionName(faction);
+			for (GOTBiome biome : BIOMES) {
 				if (preName.equals(getBiomeName(biome))) {
 					FACTION_TO_PAGENAME.put(preName, preName + " (" + Lang.PAGE_FACTION + ')');
 					continue next;
