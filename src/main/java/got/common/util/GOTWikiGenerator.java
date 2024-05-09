@@ -966,21 +966,21 @@ public class GOTWikiGenerator {
 
 			Collection<GOTTreeType.WeightedTreeType> weightedTreeTypes = biome.getDecorator().getTreeTypes();
 
-			Collection<GOTTreeType> excludedTrees = EnumSet.noneOf(GOTTreeType.class);
+			Collection<GOTTreeType> excludedTreeTypes = EnumSet.noneOf(GOTTreeType.class);
 
 			for (GOTTreeType.WeightedTreeType weightedTreeType : weightedTreeTypes) {
 				GOTTreeType treeType = weightedTreeType.getTreeType();
 
 				data.get(biome).add(NL + "* " + getTreeLink(treeType) + ';');
 
-				excludedTrees.add(treeType);
+				excludedTreeTypes.add(treeType);
 			}
 
 			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
 				for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
 					GOTTreeType treeType = weightedTreeType.getTreeType();
 
-					if (!excludedTrees.contains(treeType)) {
+					if (!excludedTreeTypes.contains(treeType)) {
 						data.get(biome).add(NL + "* " + getTreeLink(treeType) + " (" + getBiomeVariantName(variantBucket.getVariant()).toLowerCase(Locale.ROOT) + ");");
 					}
 				}
@@ -1771,6 +1771,9 @@ public class GOTWikiGenerator {
 
 		for (GOTBiome biome : BIOMES) {
 			Collection<BiomeGenBase.SpawnListEntry> spawnListEntries = new HashSet<>();
+			Collection<Class<? extends Entity>> conquestEntityClasses = new HashSet<>();
+			Collection<Class<? extends Entity>> invasionEntityClasses = new HashSet<>();
+
 			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
 			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
@@ -1784,9 +1787,8 @@ public class GOTWikiGenerator {
 					}
 				} else {
 					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
-						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
-							data.computeIfAbsent(spawnEntry.entityClass, s -> new TreeSet<>());
-							data.get(spawnEntry.entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST + ';');
+						for (BiomeGenBase.SpawnListEntry spawnListEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
+							conquestEntityClasses.add(spawnListEntry.entityClass);
 						}
 					}
 				}
@@ -1794,20 +1796,40 @@ public class GOTWikiGenerator {
 
 			for (GOTInvasions invasion : biome.getInvasionSpawns().getRegisteredInvasions()) {
 				for (GOTInvasions.InvasionSpawnEntry invasionSpawnEntry : invasion.getInvasionMobs()) {
-					data.computeIfAbsent(invasionSpawnEntry.getEntityClass(), s -> new TreeSet<>());
-					data.get(invasionSpawnEntry.getEntityClass()).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_INVASION + ';');
+					invasionEntityClasses.add(invasionSpawnEntry.getEntityClass());
 				}
 			}
+
+			Collection<Class<? extends Entity>> bothConquestInvasion = new HashSet<>(conquestEntityClasses);
+			bothConquestInvasion.retainAll(invasionEntityClasses);
+
+			conquestEntityClasses.removeAll(bothConquestInvasion);
+			invasionEntityClasses.removeAll(bothConquestInvasion);
 
 			for (BiomeGenBase.SpawnListEntry entry : spawnListEntries) {
 				data.computeIfAbsent(entry.entityClass, s -> new TreeSet<>());
 				data.get(entry.entityClass).add(NL + "* " + getBiomeLink(biome) + ';');
 			}
+
+			for (Class<? extends Entity> entityClass : conquestEntityClasses) {
+				data.computeIfAbsent(entityClass, s -> new TreeSet<>());
+				data.get(entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST + ';');
+			}
+
+			for (Class<? extends Entity> entityClass : invasionEntityClasses) {
+				data.computeIfAbsent(entityClass, s -> new TreeSet<>());
+				data.get(entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_INVASION + ';');
+			}
+
+			for (Class<? extends Entity> entityClass : bothConquestInvasion) {
+				data.computeIfAbsent(entityClass, s -> new TreeSet<>());
+				data.get(entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST_INVASION + ';');
+			}
 		}
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Biomes");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
@@ -2570,7 +2592,7 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			Collection<GOTTreeType.WeightedTreeType> weightedTreeTypes = biome.getDecorator().getTreeTypes();
 
-			Collection<GOTTreeType> excludedTrees = EnumSet.noneOf(GOTTreeType.class);
+			Collection<GOTTreeType> excludedTreeTypes = EnumSet.noneOf(GOTTreeType.class);
 
 			for (GOTTreeType.WeightedTreeType weightedTreeType : weightedTreeTypes) {
 				GOTTreeType treeType = weightedTreeType.getTreeType();
@@ -2578,14 +2600,14 @@ public class GOTWikiGenerator {
 				data.computeIfAbsent(treeType, s -> new TreeSet<>());
 				data.get(treeType).add(NL + "* " + getBiomeLink(biome) + ';');
 
-				excludedTrees.add(treeType);
+				excludedTreeTypes.add(treeType);
 			}
 
 			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
 				for (GOTTreeType.WeightedTreeType weightedTreeType : variantBucket.getVariant().getTreeTypes()) {
 					GOTTreeType treeType = weightedTreeType.getTreeType();
 
-					if (!excludedTrees.contains(treeType)) {
+					if (!excludedTreeTypes.contains(treeType)) {
 						data.computeIfAbsent(treeType, s -> new TreeSet<>());
 						data.get(treeType).add(NL + "* " + getBiomeLink(biome) + " (" + getBiomeVariantName(variantBucket.getVariant()) + ");");
 					}
@@ -2876,7 +2898,7 @@ public class GOTWikiGenerator {
 	}
 
 	public enum Lang {
-		PAGE_BIOME, PAGE_FACTION, PAGE_ENTITY, FACTION_HAS_WAR_CRIMES, FACTION_NO_WAR_CRIMES, RIDER, NO_PLEDGE, NEED_PLEDGE, REPUTATION, ENTITY_CONQUEST, ENTITY_INVASION, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, CLIMATE_NULL, SEASON_WINTER, SEASON_AUTUMN, SEASON_SUMMER, SEASON_SPRING;
+		PAGE_BIOME, PAGE_FACTION, PAGE_ENTITY, FACTION_HAS_WAR_CRIMES, FACTION_NO_WAR_CRIMES, RIDER, NO_PLEDGE, NEED_PLEDGE, REPUTATION, ENTITY_CONQUEST_INVASION, ENTITY_CONQUEST, ENTITY_INVASION, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, CLIMATE_NULL, SEASON_WINTER, SEASON_AUTUMN, SEASON_SUMMER, SEASON_SPRING;
 
 		@Override
 		public String toString() {
