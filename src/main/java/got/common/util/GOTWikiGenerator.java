@@ -225,18 +225,19 @@ public class GOTWikiGenerator {
 
 					suppliers.add(GOTWikiGenerator::genTemplateMineralBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateTreeBiomes);
+
 					suppliers.add(GOTWikiGenerator::genTemplateStructureBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateStructureEntities);
 
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeAnimals);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeBandits);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeClimate);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeConquestFactions);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeInvasionFactions);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeMinerals);
-					suppliers.add(GOTWikiGenerator::genTemplateBiomeAnimals);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeMusic);
-					suppliers.add(GOTWikiGenerator::genTemplateBiomeName);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeNPCs);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeName);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeRainfall);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeStructures);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeTemperature);
@@ -264,21 +265,22 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateFactionWaypoints);
 
 					suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityBuyPools);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityCharacter);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityHireable);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHireAlignment);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePrice);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePricePledge);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHireable);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFire);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFrost);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToHeat);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityKillAchievement);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityKillAlignment);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityOwners);
@@ -287,12 +289,11 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntitySellPools);
 					suppliers.add(GOTWikiGenerator::genTemplateEntitySellUnitPools);
 					suppliers.add(GOTWikiGenerator::genTemplateEntitySmith);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateEntitySpawnsInDarkness);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityStructures);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityTargetSeeker);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityTradeable);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityStructures);
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
 					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
