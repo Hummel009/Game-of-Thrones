@@ -197,12 +197,12 @@ public class GOTWikiGenerator {
 
 					Collection<Runnable> runnables = new HashSet<>();
 
-					runnables.add(() -> searchForEntities(world));
-					runnables.add(() -> searchForStructures(world));
 					runnables.add(GOTWikiGenerator::searchForMinerals);
 					runnables.add(GOTWikiGenerator::searchForPagenamesEntity);
 					runnables.add(GOTWikiGenerator::searchForPagenamesBiome);
 					runnables.add(GOTWikiGenerator::searchForPagenamesFaction);
+					runnables.add(() -> searchForEntities(world));
+					runnables.add(() -> searchForStructures(world));
 
 					runnables.parallelStream().forEach(Runnable::run);
 
