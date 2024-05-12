@@ -12,7 +12,7 @@ public class GOTEntityRegistry {
 	public static final Collection<Class<? extends Entity>> CONTENT = new HashSet<>();
 
 	public static final Map<Integer, SpawnEggInfo> SPAWN_EGGS = new LinkedHashMap<>();
-	public static final Map<Class<? extends Entity>, String> CLASS_TO_NAME_MAPPING = new HashMap<>();
+	public static final Map<Class<? extends Entity>, String> ENTITY_CLASS_TO_NAME = new HashMap<>();
 
 	private static final Map<String, Integer> STRING_TO_ID_MAPPING = new HashMap<>();
 	private static final Map<Integer, String> ID_TO_STRING_MAPPING = new HashMap<>();
@@ -72,7 +72,7 @@ public class GOTEntityRegistry {
 		STRING_TO_ID_MAPPING.put(fullName, id);
 		ID_TO_STRING_MAPPING.put(id, fullName);
 		CLASS_TO_ID_MAPPING.put(entityClass, id);
-		CLASS_TO_NAME_MAPPING.put(entityClass, cut);
+		ENTITY_CLASS_TO_NAME.put(entityClass, cut);
 	}
 
 	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
