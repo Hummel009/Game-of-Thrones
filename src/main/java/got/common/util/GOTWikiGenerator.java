@@ -54,7 +54,6 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.io.File;
@@ -2702,17 +2701,17 @@ public class GOTWikiGenerator {
 				Block block = GOTReflection.getOreGenBlock(oreGenerant.getOreGen());
 				int meta = GOTReflection.getOreGenMeta(oreGenerant.getOreGen());
 
-				String blockName;
+				String blockLink;
 				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-					blockName = getMineralLink(block, meta);
+					blockLink = getMineralLink(block, meta);
 				} else {
-					blockName = getMineralLink(block);
+					blockLink = getMineralLink(block);
 				}
 
 				String stats = " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ')';
 
-				data.computeIfAbsent(blockName, s -> new TreeSet<>());
-				data.get(blockName).add(getBiomeLink(biome) + stats);
+				data.computeIfAbsent(blockLink, s -> new TreeSet<>());
+				data.get(blockLink).add(getBiomeLink(biome) + stats);
 			}
 		}
 
@@ -2997,14 +2996,15 @@ public class GOTWikiGenerator {
 			Collection<GOTBiomeDecorator.OreGenerant> oreGenerants = new HashSet<>(biome.getDecorator().getBiomeSoils());
 			oreGenerants.addAll(biome.getDecorator().getBiomeOres());
 			oreGenerants.addAll(biome.getDecorator().getBiomeGems());
+
 			for (GOTBiomeDecorator.OreGenerant oreGenerant : oreGenerants) {
-				WorldGenMinable gen = oreGenerant.getOreGen();
-				Block block = GOTReflection.getOreGenBlock(gen);
-				int meta = GOTReflection.getOreGenMeta(gen);
+				Block block = GOTReflection.getOreGenBlock(oreGenerant.getOreGen());
+				int meta = GOTReflection.getOreGenMeta(oreGenerant.getOreGen());
+
 				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-					MINERALS.add(getMineralLink(block, meta));
+					MINERALS.add(getMineralName(block, meta));
 				} else {
-					MINERALS.add(getMineralLink(block));
+					MINERALS.add(getMineralName(block));
 				}
 			}
 		}
@@ -3137,6 +3137,14 @@ public class GOTWikiGenerator {
 
 	private static String getMineralLink(Block block) {
 		return "[[" + StatCollector.translateToLocal(block.getUnlocalizedName() + ".name") + "]]";
+	}
+
+	private static String getMineralName(Block block, int meta) {
+		return StatCollector.translateToLocal(block.getUnlocalizedName() + '.' + meta + ".name");
+	}
+
+	private static String getMineralName(Block block) {
+		return StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
 	}
 
 	private static String getCapeFilename(GOTCapes cape) {
