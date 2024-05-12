@@ -698,11 +698,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Climate");
 		sb.append(BEGIN);
 
+		appendDefault(sb, Lang.CLIMATE_NULL.toString());
+
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, Lang.CLIMATE_NULL.toString());
 			appendSection(sb, entry.getValue());
 		}
 
@@ -742,7 +743,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
-			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_CONQUEST, Lang.BIOME_NO_CONQUEST);
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_CONQUEST_FACTIONS, Lang.BIOME_NO_CONQUEST_FACTIONS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -778,7 +779,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
-			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_INVASION, Lang.BIOME_NO_INVASION);
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_INVASION_FACTIONS, Lang.BIOME_NO_INVASION_FACTIONS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -846,11 +847,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Music");
 		sb.append(BEGIN);
 
+		appendDefault(sb, N_A);
+
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1136,11 +1138,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Biome-VisitAchievement");
 		sb.append(BEGIN);
 
+		appendDefault(sb, N_A);
+
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1192,11 +1195,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-BannerBearer");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1331,11 +1335,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Character");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1385,11 +1390,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Farmhand");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1437,11 +1443,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Hireable");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1560,11 +1567,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToFire");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1587,11 +1595,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToFrost");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1614,11 +1623,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToHeat");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1644,11 +1654,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-KillAchievement");
 		sb.append(BEGIN);
 
+		appendDefault(sb, N_A);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1736,11 +1747,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Marriage");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1763,11 +1775,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Mercenary");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1821,11 +1834,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-RideableAnimal");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1848,11 +1862,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append(" DB Entity-RideableNPC");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1962,11 +1977,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Smith");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1989,11 +2005,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-SpawnsInDarkness");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2050,11 +2067,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-TargetSeeker");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2077,11 +2095,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Tradeable");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2104,11 +2123,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-UnitTradeable");
 		sb.append(BEGIN);
 
+		appendDefault(sb, FALSE);
+
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2454,11 +2474,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-PledgeRank");
 		sb.append(BEGIN);
 
+		appendDefault(sb, N_A);
+
 		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2521,11 +2542,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Region");
 		sb.append(BEGIN);
 
+		appendDefault(sb, N_A);
+
 		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2568,7 +2590,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_ATTRIBUTES, Lang.FACTION_NO_ATTRIBUTES);
+			appendPreamble(sb, entry.getValue(), null, Lang.FACTION_NO_ATTRIBUTES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2656,11 +2678,12 @@ public class GOTWikiGenerator {
 		sb.append(TITLE).append(TEMPLATE).append("DB Faction-WarCrimes");
 		sb.append(BEGIN);
 
+		appendDefault(sb, Lang.FACTION_HAS_WAR_CRIMES.toString());
+
 		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
-			appendDefault(sb, Lang.FACTION_HAS_WAR_CRIMES.toString());
 			appendSection(sb, entry.getValue());
 		}
 
@@ -3076,7 +3099,7 @@ public class GOTWikiGenerator {
 	}
 
 	public enum Lang {
-		BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST, BIOME_HAS_INVASION, BIOME_HAS_MINERALS, BIOME_HAS_NPCS, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_VARIANTS, BIOME_HAS_WAYPOINTS, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST, BIOME_NO_INVASION, BIOME_NO_MINERALS, BIOME_NO_NPCS, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_NULL, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, ENTITY_CONQUEST, ENTITY_CONQUEST_INVASION, ENTITY_HAS_BIOMES, ENTITY_HAS_BUY_POOLS, ENTITY_HAS_LEGENDARY_DROP, ENTITY_HAS_OWNERS, ENTITY_HAS_SELL_UNIT_POOLS, ENTITY_HAS_STRUCTURES, ENTITY_HAS_WAYPOINT, ENTITY_INVASION, ENTITY_NO_BIOMES, ENTITY_NO_BUY_POOLS, ENTITY_NO_LEGENDARY_DROP, ENTITY_NO_OWNERS, ENTITY_NO_SELL_UNIT_POOLS, ENTITY_NO_STRUCTURES, ENTITY_NO_WAYPOINT, FACTION_HAS_ATTRIBUTES, FACTION_HAS_BANNERS, FACTION_HAS_CHARACTERS, FACTION_HAS_CONQUEST_BIOMES, FACTION_HAS_INVASION_BIOMES, FACTION_HAS_NPCS, FACTION_HAS_RANKS, FACTION_HAS_SPAWN_BIOMES, FACTION_HAS_STRUCTURES, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_ATTRIBUTES, FACTION_NO_BANNERS, FACTION_NO_CHARACTERS, FACTION_NO_CONQUEST_BIOMES, FACTION_NO_INVASION_BIOMES, FACTION_NO_NPCS, FACTION_NO_RANKS, FACTION_NO_SPAWN_BIOMES, FACTION_NO_STRUCTURES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, MINERAL_HAS_BIOMES, MINERAL_NO_BIOMES, NEED_PLEDGE, NO_PLEDGE, PAGE_BIOME, PAGE_ENTITY, PAGE_FACTION, REPUTATION, RIDER, SEASON_AUTUMN, SEASON_SPRING, SEASON_SUMMER, SEASON_WINTER, STRUCTURE_HAS_BIOMES, STRUCTURE_HAS_ENTITIES, STRUCTURE_NO_BIOMES, STRUCTURE_NO_ENTITIES, TREE_HAS_BIOMES, TREE_NO_BIOMES;
+		BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST_FACTIONS, BIOME_HAS_INVASION_FACTIONS, BIOME_HAS_MINERALS, BIOME_HAS_NPCS, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_VARIANTS, BIOME_HAS_WAYPOINTS, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST_FACTIONS, BIOME_NO_INVASION_FACTIONS, BIOME_NO_MINERALS, BIOME_NO_NPCS, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_NULL, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, ENTITY_CONQUEST, ENTITY_CONQUEST_INVASION, ENTITY_HAS_BIOMES, ENTITY_HAS_BUY_POOLS, ENTITY_HAS_LEGENDARY_DROP, ENTITY_HAS_OWNERS, ENTITY_HAS_SELL_UNIT_POOLS, ENTITY_HAS_STRUCTURES, ENTITY_HAS_WAYPOINT, ENTITY_INVASION, ENTITY_NO_BIOMES, ENTITY_NO_BUY_POOLS, ENTITY_NO_LEGENDARY_DROP, ENTITY_NO_OWNERS, ENTITY_NO_SELL_UNIT_POOLS, ENTITY_NO_STRUCTURES, ENTITY_NO_WAYPOINT, FACTION_HAS_ATTRIBUTES, FACTION_HAS_BANNERS, FACTION_HAS_CHARACTERS, FACTION_HAS_CONQUEST_BIOMES, FACTION_HAS_INVASION_BIOMES, FACTION_HAS_NPCS, FACTION_HAS_RANKS, FACTION_HAS_SPAWN_BIOMES, FACTION_HAS_STRUCTURES, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_ATTRIBUTES, FACTION_NO_BANNERS, FACTION_NO_CHARACTERS, FACTION_NO_CONQUEST_BIOMES, FACTION_NO_INVASION_BIOMES, FACTION_NO_NPCS, FACTION_NO_RANKS, FACTION_NO_SPAWN_BIOMES, FACTION_NO_STRUCTURES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, MINERAL_HAS_BIOMES, MINERAL_NO_BIOMES, NEED_PLEDGE, NO_PLEDGE, PAGE_BIOME, PAGE_ENTITY, PAGE_FACTION, REPUTATION, RIDER, SEASON_AUTUMN, SEASON_SPRING, SEASON_SUMMER, SEASON_WINTER, STRUCTURE_HAS_BIOMES, STRUCTURE_HAS_ENTITIES, STRUCTURE_NO_BIOMES, STRUCTURE_NO_ENTITIES, TREE_HAS_BIOMES, TREE_NO_BIOMES;
 
 		@Override
 		public String toString() {
@@ -3229,7 +3252,9 @@ public class GOTWikiGenerator {
 	}
 
 	private static void appendPreamble(StringBuilder sb, String value, Lang full, Lang empty) {
-		sb.append(value.isEmpty() ? empty : full);
+		if (full != null) {
+			sb.append(value.isEmpty() ? empty : full);
+		}
 	}
 
 	private static void appendSection(StringBuilder sb, Collection<String> section) {
