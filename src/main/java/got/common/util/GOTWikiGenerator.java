@@ -3144,12 +3144,11 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getEntityLink(Class<? extends Entity> entityClass) {
-		Object vanillaName = EntityList.classToStringMapping.get(entityClass);
-		if (vanillaName != null) {
-			return StatCollector.translateToLocal("entity." + vanillaName + ".name");
+		String entityName = getEntityName(entityClass);
+		if (entityName.contains("null")) {
+			return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
 		}
 
-		String entityName = getEntityName(entityClass);
 		String entityPagename = getEntityPagename(entityClass);
 		if (entityName.equals(entityPagename)) {
 			return "[[" + entityPagename + "]]";
