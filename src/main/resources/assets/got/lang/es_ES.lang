@@ -2075,7 +2075,6 @@ got.date.month.november=Noviembre
 got.date.month.october=Octubre
 got.date.month.september=Septiembre
 got.date=C.A.
-got.db.MOB_NO_LEGENDARY_DROP.name≠Nothing is dropped from this NPC after death.
 got.db.BIOME_CONQUEST_ONLY.name≠No NPCs will spawn in this biome; however, if you conquer the biome, your allies will spawn there.
 got.db.BIOME_HAS_ANIMALS.name≠Below is a list of all mobs that you may encounter as you travel through the biome.
 got.db.BIOME_HAS_CONQUEST_FACTIONS.name≠This biome can be [[Factions#Conquest|conquered]] by the following factions:
@@ -2085,6 +2084,7 @@ got.db.BIOME_HAS_NPCS.name≠The following NPCs spawn in this biome:
 got.db.BIOME_HAS_STRUCTURES.name≠The following buildings can be found in this biome:
 got.db.BIOME_HAS_TREES.name≠All tree species growing in the biome are listed below. If a tree species is found only in a certain biome variant, the variant will be indicated in brackets.
 got.db.BIOME_HAS_TREES_BIOME_ONLY.name≠The following tree species grow in this biome:
+got.db.BIOME_HAS_VARIANTS.name≠This biome has no variations.
 got.db.BIOME_HAS_WAYPOINTS.name≠When you visit that biome, the waypoints below will be unlocked. Remember: you must be on good or neutral terms with the waypoint faction to be able to teleport to them. Factions are indicated in brackets next to the waypoints.
 got.db.BIOME_NO_ACHIEVEMENT.name≠This biome has no achievement for visiting
 got.db.BIOME_NO_ANIMALS.name≠This biome has no animals, birds or fish.
@@ -2094,6 +2094,7 @@ got.db.BIOME_NO_NPCS.name≠No NPCs can spawn in this biome.
 got.db.BIOME_NO_STRUCTURES.name≠There are no structures in this biome.
 got.db.BIOME_NO_TREES.name≠There are no trees in this biome.
 got.db.BIOME_NO_VARIANTS.name≠This biome does not have any distinctive variations in topography and fauna.
+got.db.BIOME_NO_VARIANTS.name≠This biome has the following variations:
 got.db.BIOME_NO_WAYPOINTS.name≠No waypoints are unlocked when visiting this biome.
 got.db.BIOME_SPAWN_ONLY.name≠This biome cannot be conquered. Only the NPCs that were originally here will spawn here.
 got.db.CATEGORY.name≠Category:Templates
@@ -2108,14 +2109,25 @@ got.db.CLIMATE_WINTER.name≠There is snow and frost all year round in this biom
 got.db.ENTITY_CONQUEST.name≠(conquest)
 got.db.ENTITY_CONQUEST_INVASION.name≠(conquest/invasion)
 got.db.ENTITY_HAS_BIOMES.name≠This mob spawns in the biomes listed below.
+got.db.ENTITY_HAS_BUY_POOLS.name≠This mob buys the following items:
+got.db.ENTITY_HAS_LEGENDARY_DROP.name≠The following items are dropped from this character after death:
+got.db.ENTITY_HAS_OWNERS.name≠This mob can be hired from the following NPCs:
+got.db.ENTITY_HAS_SELL_UNIT_POOLS.name≠This mob sells the following items:
+got.db.ENTITY_HAS_STRUCTURES.name≠This mob spawns in the following structures:
 got.db.ENTITY_INVASION.name≠(invasion)
 got.db.ENTITY_NO_BIOMES.name≠This mob does not spawn in any biomes.
+got.db.ENTITY_NO_BUY_POOLS.name≠This mob is not buying anything.
+got.db.ENTITY_NO_LEGENDARY_DROP.name≠After death nothing is dropped from this character.
+got.db.ENTITY_NO_OWNERS.name≠This mob cannot be hired from anyone.
+got.db.ENTITY_NO_SELL_UNIT_POOLS.name≠This mob sells nothing.
+got.db.ENTITY_NO_STRUCTURES.name≠This mob does not spawn in any structures.
 got.db.FACTION_HAS_BANNERS.name≠This faction owns the following [[banners]]. If you have +1 reputation with this faction, you can put a banner on a Valyrian/Gold/Silver/Bronze block and own a territory in a certain radius (seen on F3). The banner is set up when you RMB on it.
 got.db.FACTION_HAS_CHARACTERS.name≠There are characters in the mod that belong to this faction. These are:
 got.db.FACTION_HAS_CONQUEST_BIOMES.name≠After [[Faction#Pledge|pledging]], the following biomes can be conquered on behalf of this faction:
 got.db.FACTION_HAS_INVASION_BIOMES.name≠This faction invades the following biomes:
+got.db.FACTION_HAS_NPCS.name≠No NPCs belong to this faction.
 got.db.FACTION_HAS_RANKS.name≠Faction ranks become available when you reach the reputation indicated in brackets. After it the rank also becomes a title, it can be chosen in the menu to be displayed in the chat next to the nickname.
-got.db.FACTION_HAS_SPAWN.name≠Mobs of this faction can spawn in the following biomes:
+got.db.FACTION_HAS_SPAWN_BIOMES.name≠Mobs of this faction can spawn in the following biomes:
 got.db.FACTION_HAS_WAR_CRIMES.name≠This faction encourages war crimes
 got.db.FACTION_HAS_WAYPOINTS.name≠This faction controls the waypoints listed below. You will not be able to teleport to them if you have a bad reputation.
 got.db.FACTION_NO_ATTRIBUTES.name≠This faction has no shields and capes.
@@ -2125,12 +2137,16 @@ got.db.FACTION_NO_CONQUEST_BIOMES.name≠No biomes can be conquered on behalf of
 got.db.FACTION_NO_ENEMIES.name≠This faction has no enemies.
 got.db.FACTION_NO_FRIENDS.name≠This faction has no allies.
 got.db.FACTION_NO_INVASION_BIOMES.name≠This faction does not invade any biomes.
+got.db.FACTION_NO_NPCS.name≠The following NPCs belong to this faction:
 got.db.FACTION_NO_RANKS.name≠This faction has no reputation ranks and titles.
-got.db.FACTION_NO_SPAWN.name≠Mobs of this faction do not spawn anywhere.
+got.db.FACTION_NO_SPAWN_BIOMES.name≠Mobs of this faction do not spawn anywhere.
 got.db.FACTION_NO_STRUCTURES.name≠This faction has no structures of its own.
 got.db.FACTION_NO_WAR_CRIMES.name≠This faction does not encourage the killing of civilians.
 got.db.FACTION_NO_WAYPOINTS.name≠This faction has no control over any waypoints.
 got.db.MINERAL_BIOMES.name≠Below are all the biomes in which you can find this mineral. The Y range is the height from and to which the fossil is found. The chance of spawning ore for each biome is given as a percentage.
+got.db.MINERAL_HAS_BIOMES.name≠This mineral can be mined in the following biomes:
+got.db.MINERAL_NO_BIOMES.name≠This mineral cannot be mined anywhere.
+got.db.MOB_NO_LEGENDARY_DROP.name≠Nothing is dropped from this NPC after death.
 got.db.NEED_PLEDGE.name≠with pledge
 got.db.NO_PLEDGE.name≠without pledge
 got.db.PAGE_BIOME.name≠biome
@@ -2143,6 +2159,10 @@ got.db.SEASON_SPRING.name≠Spring
 got.db.SEASON_SUMMER.name≠Summer
 got.db.SEASON_WINTER.name≠Winter
 got.db.STRUCTURE_BIOMES.name≠This construction is found in the following biomes:
+got.db.STRUCTURE_HAS_BIOMES.name≠This structure appears in the following biomes:
+got.db.STRUCTURE_HAS_ENTITIES.name≠The following mobs spawn in this structure:
+got.db.STRUCTURE_NO_BIOMES.name≠This structure does not appear in any biomes.
+got.db.STRUCTURE_NO_ENTITIES.name≠No mobs spawn in this structure.
 got.db.TREE_HAS_BIOMES.name≠This tree grows in the following biomes:
 got.db.TREE_NO_BIOMES.name≠This tree is considered extinct and cannot be found in the world at this time. However, it can be obtained by the player in creative mode.
 got.db.TREE_VARIANT_ONLY.name≠only in biome variants

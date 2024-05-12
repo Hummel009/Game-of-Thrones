@@ -2075,7 +2075,6 @@ got.date.month.november=Listopad
 got.date.month.october=Październik
 got.date.month.september=Wrzesień
 got.date=AC
-got.db.MOB_NO_LEGENDARY_DROP.name≠Nothing is dropped from this NPC after death.
 got.db.BIOME_CONQUEST_ONLY.name=Zadne NPCs nie pojawi się w tym biomie: jednakże, jeśli podbijesz biom, twoi sojusznicy będą się tutaj pojawiać.
 got.db.BIOME_HAS_ANIMALS.name=Poniżej znajduje się lista wszystkich mobów, które możesz spotkać w tym biomie.
 got.db.BIOME_HAS_CONQUEST_FACTIONS.name=ten biom może zostać podbity [[Factions#Conquest|conquered]] przez następujące frakcje:
@@ -2085,6 +2084,7 @@ got.db.BIOME_HAS_NPCS.name=Podane NPC będąsię pojawiać w tym biomie:
 got.db.BIOME_HAS_STRUCTURES.name=Podane budynki mogą się pojawić w tym biomie:
 got.db.BIOME_HAS_TREES.name=Wszystkie gatunki rosnących tu drzew są wypisane poniżej. Jeżeli gatunek drzewa występuje jedynie w wariancie biomu, wariant ten będzie zapisany w nawiasie.
 got.db.BIOME_HAS_TREES_BIOME_ONLY.name=Podane gatunki drzew rosną w tym biomie:
+got.db.BIOME_HAS_VARIANTS.name≠This biome has no variations.
 got.db.BIOME_HAS_WAYPOINTS.name=Kiedy odwiedzisz ten biom, wszystkie jego punkty orientacyjne się odblokują. Pamiętaj: musisz być w dobrych lub neutralnych stosunkach z frakcją punktów orientacyjnych, aby móc się do nich teleportować. Frakcje są wskazane w nawiasach obok punktów orientacyjnych.
 got.db.BIOME_NO_ACHIEVEMENT.name=Ten biom nie ma żadnych osiągnięć za odwiedzenie.
 got.db.BIOME_NO_ANIMALS.name=Ten biom nie ma żadnych zwierząt, ptaków czy ryb.
@@ -2094,6 +2094,7 @@ got.db.BIOME_NO_NPCS.name=Żadne NPC nie może pojawić się w tym biomie.
 got.db.BIOME_NO_STRUCTURES.name=W tym biomie nie ma żadnych struktur.
 got.db.BIOME_NO_TREES.name=W tym biomie nie ma żadnych drzew.
 got.db.BIOME_NO_VARIANTS.name=Ten biom nie ma żadnych wiariantów wyróżniających się ukształtowaniem czy fauną.
+got.db.BIOME_NO_VARIANTS.name≠This biome has the following variations:
 got.db.BIOME_NO_WAYPOINTS.name=Żadne punkty orientacyjne nie odblokowywują się po odkryciu tego biomu.
 got.db.BIOME_SPAWN_ONLY.name=Ten biom nie może zostać podbity. Tylko NPC, które pojawiały się tu oryginalnie będą się tu pojawiać.
 got.db.CATEGORY.name=Category:Templates
@@ -2108,14 +2109,25 @@ got.db.CLIMATE_WINTER.name=Jest tu wieczny śnieg i mróz, klimat się nie zmien
 got.db.ENTITY_CONQUEST.name=(conquest)
 got.db.ENTITY_CONQUEST_INVASION.name=(conquest/invasion)
 got.db.ENTITY_HAS_BIOMES.name=Ten mob pojawia się w biomach wypisanych poniżej.
+got.db.ENTITY_HAS_BUY_POOLS.name≠This mob buys the following items:
+got.db.ENTITY_HAS_LEGENDARY_DROP.name≠The following items are dropped from this character after death:
+got.db.ENTITY_HAS_OWNERS.name≠This mob can be hired from the following NPCs:
+got.db.ENTITY_HAS_SELL_UNIT_POOLS.name≠This mob sells the following items:
+got.db.ENTITY_HAS_STRUCTURES.name≠This mob spawns in the following structures:
 got.db.ENTITY_INVASION.name=(invasion)
 got.db.ENTITY_NO_BIOMES.name=Ten mob nie pojawia się w żadnym biomie.
+got.db.ENTITY_NO_BUY_POOLS.name≠This mob is not buying anything.
+got.db.ENTITY_NO_LEGENDARY_DROP.name≠After death nothing is dropped from this character.
+got.db.ENTITY_NO_OWNERS.name≠This mob cannot be hired from anyone.
+got.db.ENTITY_NO_SELL_UNIT_POOLS.name≠This mob sells nothing.
+got.db.ENTITY_NO_STRUCTURES.name≠This mob does not spawn in any structures.
 got.db.FACTION_HAS_BANNERS.name=Ta frakcja posiada podane [[banners]]. Jeśli masz +1 reputacji z frakcją, możesz postawić jej sztandar na blok valyrii/złota/srebra/brązu aby zająć ziemię w pewnym Reach (widzianym pod F3). sztandar jest gotowy kiedy klikniesz na niego prawym przyciskiem myszy.
 got.db.FACTION_HAS_CHARACTERS.name=W modzie występują postacie nalezące do tej frakcji. Są to:
 got.db.FACTION_HAS_CONQUEST_BIOMES.name=Po [[Faction#Pledge|pledging]], podane biomy mogą zostać podbite w imieniu frakcji:
 got.db.FACTION_HAS_INVASION_BIOMES.name=Ta frakcja najeżdza podane biomy:
+got.db.FACTION_HAS_NPCS.name≠No NPCs belong to this faction.
 got.db.FACTION_HAS_RANKS.name=Rangi frakcyjne są dostępne gdy uzyskasz potrzebą do ich odblokowania liczbę punktów reputacji podaną w nawiasach. Po tym ranga staje się też tytułem, może zostać on wybrany w menu aby pokazywał się obok nickname'u.
-got.db.FACTION_HAS_SPAWN.name=Moby tej frakcji mogą się pojawiać w podanych biomach:
+got.db.FACTION_HAS_SPAWN_BIOMES.name=Moby tej frakcji mogą się pojawiać w podanych biomach:
 got.db.FACTION_HAS_WAR_CRIMES.name=Ta frakcja zachęca do zbrodni wojennych
 got.db.FACTION_HAS_WAYPOINTS.name=Ta frakcja posiada punkty orientacyjne wypisane poniżeł. Nie będziesz mógł się do nich teleportować jeżeli będziesz miał z frakcją złe stosunki.
 got.db.FACTION_NO_ATTRIBUTES.name≠This faction has no shields and capes.
@@ -2125,12 +2137,16 @@ got.db.FACTION_NO_CONQUEST_BIOMES.name=Żadne biomy nie mogą zostać podbite w 
 got.db.FACTION_NO_ENEMIES.name=Ta frakcja nie maa żadnych wrogów.
 got.db.FACTION_NO_FRIENDS.name=Ta frakcja nie ma żadnych przyjaciół.
 got.db.FACTION_NO_INVASION_BIOMES.name=Ta frakcja nie najeżdża żadnych biomów.
+got.db.FACTION_NO_NPCS.name≠The following NPCs belong to this faction:
 got.db.FACTION_NO_RANKS.name=Ta frakcja nie ma żadnych rang lub tytułów za reputację.
-got.db.FACTION_NO_SPAWN.name=Moby tej frakcji nigdzie się nie pojawiają.
+got.db.FACTION_NO_SPAWN_BIOMES.name=Moby tej frakcji nigdzie się nie pojawiają.
 got.db.FACTION_NO_STRUCTURES.name=Ta frakcja nie ma własnych struktur.
 got.db.FACTION_NO_WAR_CRIMES.name=Ta frakcja nie zachęca do zabijania cywilów.
 got.db.FACTION_NO_WAYPOINTS.name=Ta frakcja nie ma kontroli nad żadnymi puntkami orientacyjnymi.
 got.db.MINERAL_BIOMES.name=Below are all the biomes in which you can find this mineral. The Y range is the height from and to which the fossil is found. The chance of spawning ore for each biome is given as a percentage.
+got.db.MINERAL_HAS_BIOMES.name≠This mineral can be mined in the following biomes:
+got.db.MINERAL_NO_BIOMES.name≠This mineral cannot be mined anywhere.
+got.db.MOB_NO_LEGENDARY_DROP.name≠Nothing is dropped from this NPC after death.
 got.db.NEED_PLEDGE.name=with pledge
 got.db.NO_PLEDGE.name=without pledge
 got.db.PAGE_BIOME.name=biome
@@ -2143,6 +2159,10 @@ got.db.SEASON_SPRING.name=Wiosna
 got.db.SEASON_SUMMER.name=Lato
 got.db.SEASON_WINTER.name=Zima
 got.db.STRUCTURE_BIOMES.name=Ta konstrukcja może znaleźć się w podanych biomach:
+got.db.STRUCTURE_HAS_BIOMES.name≠This structure appears in the following biomes:
+got.db.STRUCTURE_HAS_ENTITIES.name≠The following mobs spawn in this structure:
+got.db.STRUCTURE_NO_BIOMES.name≠This structure does not appear in any biomes.
+got.db.STRUCTURE_NO_ENTITIES.name≠No mobs spawn in this structure.
 got.db.TREE_HAS_BIOMES.name=Te drzewo rośnie w podanych biomach:
 got.db.TREE_NO_BIOMES.name=Te drzewo jest uważane za wyginięte i nie można go znaleźćna świecie w tym momencie. Gracz w trybie kreatywnym może jednak pozyskać sadzonkę tego drzewa.
 got.db.TREE_VARIANT_ONLY.name=only in biome variants
