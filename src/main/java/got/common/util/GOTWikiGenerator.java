@@ -616,7 +616,7 @@ public class GOTWikiGenerator {
 			spawnListEntries.addAll(biome.getSpawnableList(GOTBiome.CREATURE_TYPE_GOT_AMBIENT));
 
 			for (BiomeGenBase.SpawnListEntry spawnListEntry : spawnListEntries) {
-				data.get(biome).add(NL + "* " + getEntityLink(spawnListEntry.entityClass) + ';');
+				data.get(biome).add(getEntityLink(spawnListEntry.entityClass));
 			}
 		}
 
@@ -724,7 +724,7 @@ public class GOTWikiGenerator {
 							Entity entity = ENTITY_CLASS_TO_ENTITY.get(spawnEntry.entityClass);
 							if (entity instanceof GOTEntityNPC) {
 								GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
-								data.get(biome).add(NL + "* " + getFactionLink(faction) + ';');
+								data.get(biome).add(getFactionLink(faction));
 								break;
 							}
 						}
@@ -762,7 +762,7 @@ public class GOTWikiGenerator {
 					Entity entity = ENTITY_CLASS_TO_ENTITY.get(invasionSpawnEntry.getEntityClass());
 					if (entity instanceof GOTEntityNPC) {
 						GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
-						data.get(biome).add(NL + "* " + getFactionLink(faction) + ';');
+						data.get(biome).add(getFactionLink(faction));
 						break;
 					}
 				}
@@ -810,7 +810,7 @@ public class GOTWikiGenerator {
 
 				String stats = "(" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ')';
 
-				data.get(biome).add(NL + "* " + getBlockLink(blockName) + ' ' + stats + ';');
+				data.get(biome).add(getBlockLink(blockName) + ' ' + stats);
 			}
 		}
 
@@ -893,7 +893,7 @@ public class GOTWikiGenerator {
 				if (factionContainer.getBaseWeight() > 0) {
 					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
 						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
-							data.get(biome).add(NL + "* " + getEntityLink(spawnEntry.entityClass) + ';');
+							data.get(biome).add(getEntityLink(spawnEntry.entityClass));
 						}
 					}
 				}
@@ -970,14 +970,14 @@ public class GOTWikiGenerator {
 			data.put(biome, new TreeSet<>());
 
 			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
-				data.get(biome).add(NL + "* " + getStructureLink(structure.getStructureGen().getClass()) + ';');
+				data.get(biome).add(getStructureLink(structure.getStructureGen().getClass()));
 			}
 
 			for (GOTStructureBaseSettlement settlement : biome.getDecorator().getSettlements()) {
 				if (settlement.getSpawnChance() != 0.0f) {
 					Set<String> names = getSettlementNames(settlement.getClass());
 					for (String name : names) {
-						data.get(biome).add(NL + "* " + getSettlementName(name) + ';');
+						data.get(biome).add(getSettlementName(name));
 					}
 				}
 			}
@@ -1059,7 +1059,7 @@ public class GOTWikiGenerator {
 			for (GOTTreeType.WeightedTreeType weightedTreeType : weightedTreeTypes) {
 				GOTTreeType treeType = weightedTreeType.getTreeType();
 
-				data.get(biome).add(NL + "* " + getTreeLink(treeType) + ';');
+				data.get(biome).add(getTreeLink(treeType));
 
 				excludedTreeTypes.add(treeType);
 			}
@@ -1069,7 +1069,7 @@ public class GOTWikiGenerator {
 					GOTTreeType treeType = weightedTreeType.getTreeType();
 
 					if (!excludedTreeTypes.contains(treeType)) {
-						data.get(biome).add(NL + "* " + getTreeLink(treeType) + " (" + getBiomeVariantName(variantBucket.getVariant()).toLowerCase(Locale.ROOT) + ");");
+						data.get(biome).add(getTreeLink(treeType) + " (" + getBiomeVariantName(variantBucket.getVariant()).toLowerCase(Locale.ROOT) + ')');
 					}
 				}
 			}
@@ -1100,7 +1100,7 @@ public class GOTWikiGenerator {
 			data.put(biome, new TreeSet<>());
 
 			for (GOTBiomeVariantList.VariantBucket variantBucket : biome.getBiomeVariants().getVariantList()) {
-				data.get(biome).add(NL + "* " + getBiomeVariantName(variantBucket.getVariant()) + ';');
+				data.get(biome).add(getBiomeVariantName(variantBucket.getVariant()));
 			}
 		}
 
@@ -1158,7 +1158,7 @@ public class GOTWikiGenerator {
 			data.put(biome, new TreeSet<>());
 
 			for (GOTWaypoint wp : biome.getBiomeWaypoints().getWaypoints()) {
-				data.get(biome).add(NL + "* " + wp.getDisplayName() + " (" + getFactionLink(wp.getFaction()) + ");");
+				data.get(biome).add(wp.getDisplayName() + " (" + getFactionLink(wp.getFaction()) + ')');
 			}
 		}
 
@@ -1249,22 +1249,22 @@ public class GOTWikiGenerator {
 
 			for (BiomeGenBase.SpawnListEntry entry : spawnListEntries) {
 				data.computeIfAbsent(entry.entityClass, s -> new TreeSet<>());
-				data.get(entry.entityClass).add(NL + "* " + getBiomeLink(biome) + ';');
+				data.get(entry.entityClass).add(getBiomeLink(biome));
 			}
 
 			for (Class<? extends Entity> entityClass : conquestEntityClasses) {
 				data.computeIfAbsent(entityClass, s -> new TreeSet<>());
-				data.get(entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST + ';');
+				data.get(entityClass).add(getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST);
 			}
 
 			for (Class<? extends Entity> entityClass : invasionEntityClasses) {
 				data.computeIfAbsent(entityClass, s -> new TreeSet<>());
-				data.get(entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_INVASION + ';');
+				data.get(entityClass).add(getBiomeLink(biome) + ' ' + Lang.ENTITY_INVASION);
 			}
 
 			for (Class<? extends Entity> entityClass : bothConquestInvasion) {
 				data.computeIfAbsent(entityClass, s -> new TreeSet<>());
-				data.get(entityClass).add(NL + "* " + getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST_INVASION + ';');
+				data.get(entityClass).add(getBiomeLink(biome) + ' ' + Lang.ENTITY_CONQUEST_INVASION);
 			}
 		}
 
@@ -1296,7 +1296,7 @@ public class GOTWikiGenerator {
 				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
 
 				for (GOTTradeEntry entry : tradeable.getSellPool().getTradeEntries()) {
-					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
+					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 				}
 			}
 		}
@@ -1700,7 +1700,7 @@ public class GOTWikiGenerator {
 				for (Object obj : npc.getDrops()) {
 					if (obj instanceof Item) {
 						ItemStack itemStack = new ItemStack((Item) obj);
-						data.get(entityEntry.getKey()).add(NL + "* " + itemStack.getDisplayName() + ';');
+						data.get(entityEntry.getKey()).add(itemStack.getDisplayName());
 					}
 				}
 			}
@@ -1786,7 +1786,7 @@ public class GOTWikiGenerator {
 				GOTUnitTradeable tradeable = (GOTUnitTradeable) entityEntry.getValue();
 				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
 					data.computeIfAbsent(entry.getEntityClass(), s -> new TreeSet<>());
-					data.get(entry.getEntityClass()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
+					data.get(entry.getEntityClass()).add(getEntityLink(entityEntry.getKey()));
 				}
 			}
 		}
@@ -1873,7 +1873,7 @@ public class GOTWikiGenerator {
 				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
 
 				for (GOTTradeEntry entry : tradeable.getBuyPool().getTradeEntries()) {
-					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
+					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 				}
 			}
 		}
@@ -1908,7 +1908,7 @@ public class GOTWikiGenerator {
 				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
 					StringBuilder sb = new StringBuilder();
 
-					sb.append(NL).append("* ").append(getEntityLink(entry.getEntityClass()));
+					sb.append(getEntityLink(entry.getEntityClass()));
 					if (entry.getMountClass() != null) {
 						sb.append(Lang.RIDER);
 					}
@@ -2017,7 +2017,7 @@ public class GOTWikiGenerator {
 				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
 				for (Class<? extends Entity> entityClass : entityClasses) {
 					data.computeIfAbsent(entityClass, s -> new TreeSet<>());
-					data.get(entityClass).add(NL + "* " + getStructureLink(structureClass) + ';');
+					data.get(entityClass).add(getStructureLink(structureClass));
 				}
 			}
 		}
@@ -2159,7 +2159,7 @@ public class GOTWikiGenerator {
 			data.put(faction, new TreeSet<>());
 
 			for (GOTItemBanner.BannerType banner : faction.getFactionBanners()) {
-				data.get(faction).add(NL + "* " + getBannerName(banner) + ';');
+				data.get(faction).add(getBannerName(banner));
 			}
 		}
 
@@ -2190,7 +2190,7 @@ public class GOTWikiGenerator {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
 				if (npc.isLegendaryNPC()) {
 					data.computeIfAbsent(npc.getFaction(), s -> new TreeSet<>());
-					data.get(npc.getFaction()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
+					data.get(npc.getFaction()).add(getEntityLink(entityEntry.getKey()));
 				}
 			}
 		}
@@ -2249,7 +2249,7 @@ public class GOTWikiGenerator {
 							if (entity instanceof GOTEntityNPC) {
 								GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
 								data.computeIfAbsent(faction, s -> new TreeSet<>());
-								data.get(faction).add(NL + "* " + getBiomeLink(biome) + ';');
+								data.get(faction).add(getBiomeLink(biome));
 								break;
 							}
 						}
@@ -2348,7 +2348,7 @@ public class GOTWikiGenerator {
 					if (entity instanceof GOTEntityNPC) {
 						GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
 						data.computeIfAbsent(faction, s -> new TreeSet<>());
-						data.get(faction).add(NL + "* " + getBiomeLink(biome) + ';');
+						data.get(faction).add(getBiomeLink(biome));
 						break;
 					}
 				}
@@ -2406,7 +2406,7 @@ public class GOTWikiGenerator {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
 				if (!npc.isLegendaryNPC()) {
 					data.computeIfAbsent(npc.getFaction(), s -> new TreeSet<>());
-					data.get(npc.getFaction()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
+					data.get(npc.getFaction()).add(getEntityLink(entityEntry.getKey()));
 				}
 			}
 		}
@@ -2478,14 +2478,14 @@ public class GOTWikiGenerator {
 			for (GOTFactionRank rank : faction.getRanksSortedDescending()) {
 				StringBuilder sb = new StringBuilder();
 
-				sb.append(NL).append("* ").append(rank.getDisplayFullName());
+				sb.append(rank.getDisplayFullName());
 
 				String femRank = rank.getDisplayFullNameFem();
 				if (!femRank.contains("got")) {
 					sb.append('/').append(femRank);
 				}
 
-				sb.append(" (+").append((int) rank.getAlignment()).append(");");
+				sb.append(" (+").append((int) rank.getAlignment()).append(')');
 
 				data.get(faction).add(sb.toString());
 			}
@@ -2591,7 +2591,7 @@ public class GOTWikiGenerator {
 							if (entity instanceof GOTEntityNPC) {
 								GOTFaction faction = ((GOTEntityNPC) entity).getFaction();
 								data.computeIfAbsent(faction, s -> new TreeSet<>());
-								data.get(faction).add(NL + "* " + getBiomeLink(biome) + ';');
+								data.get(faction).add(getBiomeLink(biome));
 								break;
 							}
 						}
@@ -2623,7 +2623,7 @@ public class GOTWikiGenerator {
 
 		for (Map.Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.CLASS_TO_FACTION_MAPPING.entrySet()) {
 			data.computeIfAbsent(entry.getValue(), s -> new TreeSet<>());
-			data.get(entry.getValue()).add(NL + "* " + getStructureLink(entry.getKey()) + ';');
+			data.get(entry.getValue()).add(getStructureLink(entry.getKey()));
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -2676,7 +2676,7 @@ public class GOTWikiGenerator {
 
 		for (GOTWaypoint wp : WAYPOINTS) {
 			data.computeIfAbsent(wp.getFaction(), s -> new TreeSet<>());
-			data.get(wp.getFaction()).add(NL + "* " + wp.getDisplayName() + ';');
+			data.get(wp.getFaction()).add(wp.getDisplayName());
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -2716,10 +2716,10 @@ public class GOTWikiGenerator {
 					blockName = getBlockName(block);
 				}
 
-				String stats = " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ");";
+				String stats = " (" + oreGenerant.getOreChance() + "%; Y: " + oreGenerant.getMinHeight() + '-' + oreGenerant.getMaxHeight() + ')';
 
 				data.computeIfAbsent(blockName, s -> new TreeSet<>());
-				data.get(blockName).add(NL + "* " + getBiomeLink(biome) + stats);
+				data.get(blockName).add(getBiomeLink(biome) + stats);
 			}
 		}
 
@@ -2747,7 +2747,7 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
 				data.computeIfAbsent(structure.getStructureGen().getClass(), s -> new TreeSet<>());
-				data.get(structure.getStructureGen().getClass()).add(NL + "* " + getBiomeLink(biome) + ';');
+				data.get(structure.getStructureGen().getClass()).add(getBiomeLink(biome));
 			}
 		}
 
@@ -2783,7 +2783,7 @@ public class GOTWikiGenerator {
 
 				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
 				for (Class<? extends Entity> entityClass : entityClasses) {
-					data.get(structureClass).add(NL + "* " + getEntityLink(entityClass) + ';');
+					data.get(structureClass).add(getEntityLink(entityClass));
 				}
 			}
 		}
@@ -2816,7 +2816,7 @@ public class GOTWikiGenerator {
 				GOTTreeType treeType = weightedTreeType.getTreeType();
 
 				data.computeIfAbsent(treeType, s -> new TreeSet<>());
-				data.get(treeType).add(NL + "* " + getBiomeLink(biome) + ';');
+				data.get(treeType).add(getBiomeLink(biome));
 
 				excludedTreeTypes.add(treeType);
 			}
@@ -2827,7 +2827,7 @@ public class GOTWikiGenerator {
 
 					if (!excludedTreeTypes.contains(treeType)) {
 						data.computeIfAbsent(treeType, s -> new TreeSet<>());
-						data.get(treeType).add(NL + "* " + getBiomeLink(biome) + " (" + getBiomeVariantName(variantBucket.getVariant()) + ");");
+						data.get(treeType).add(getBiomeLink(biome) + " (" + getBiomeVariantName(variantBucket.getVariant()) + ')');
 					}
 				}
 			}
@@ -3245,7 +3245,7 @@ public class GOTWikiGenerator {
 
 	private static void appendSection(StringBuilder sb, Collection<String> section) {
 		for (String item : section) {
-			sb.append(item);
+			sb.append(NL).append("* ").append(item).append(';');
 		}
 
 		section.clear();
@@ -3256,7 +3256,6 @@ public class GOTWikiGenerator {
 	}
 
 	private static void appendDefault(StringBuilder sb, String value) {
-		sb.append("#default = ").append(value).append(NL);
-		sb.append(value);
+		sb.append(NL).append("#default = ").append(value);
 	}
 }
