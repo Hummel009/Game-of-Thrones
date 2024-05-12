@@ -102,6 +102,8 @@ public class GOTWikiGenerator {
 	private static final String TEMPLATE = "Template:";
 	private static final String NL = "\n";
 	private static final String TRUE = "True";
+	private static final String FALSE = "False";
+	private static final String N_A = "N/A";
 
 	static {
 		BIOMES.remove(GOTBiome.ocean1);
@@ -231,12 +233,12 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeConquestFactions);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeInvasionFactions);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeMinerals);
-					suppliers.add(GOTWikiGenerator::genTemplateBiomeMobs);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeAnimals);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeMusic);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeName);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeNPCs);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeRainfall);
-					suppliers.add(GOTWikiGenerator::genTemplateBiomeStructuresSettlements);
+					suppliers.add(GOTWikiGenerator::genTemplateBiomeStructures);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeTemperature);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeTrees);
 					suppliers.add(GOTWikiGenerator::genTemplateBiomeVariants);
@@ -262,12 +264,13 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateFactionWaypoints);
 
 					suppliers.add(GOTWikiGenerator::genTemplateEntityBannerBearer);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityBuys);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityBuyPools);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityCharacter);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHireable);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHireAlignment);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePrice);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePricePledge);
@@ -279,10 +282,10 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityOwners);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableMob);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableAnimal);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableNPC);
-					suppliers.add(GOTWikiGenerator::genTemplateEntitySells);
-					suppliers.add(GOTWikiGenerator::genTemplateEntitySellsUnits);
+					suppliers.add(GOTWikiGenerator::genTemplateEntitySellPools);
+					suppliers.add(GOTWikiGenerator::genTemplateEntitySellUnitPools);
 					suppliers.add(GOTWikiGenerator::genTemplateEntitySmith);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateEntitySpawnsInDarkness);
@@ -361,7 +364,7 @@ public class GOTWikiGenerator {
 
 				sb.append(" || ");
 				if (material == null || material.customCraftingMaterial == null) {
-					sb.append("N/A");
+					sb.append(N_A);
 				} else {
 					sb.append(getItemName(material.customCraftingMaterial));
 				}
@@ -504,7 +507,7 @@ public class GOTWikiGenerator {
 					sb.append(" || ").append('+').append(alignment);
 					sb.append(" || ").append('-');
 				} else {
-					sb.append(" || ").append("N/A");
+					sb.append(" || ").append(N_A);
 					sb.append(" || ").append("{{Coins|").append(cost).append("}}");
 					sb.append(" || ").append('+').append(Math.max(alignment, 100));
 					sb.append(" || ").append('+');
@@ -575,7 +578,7 @@ public class GOTWikiGenerator {
 
 				sb.append(" || ");
 				if (material == null || material.getRepairItemStack() == null) {
-					sb.append("N/A");
+					sb.append(N_A);
 				} else {
 					sb.append(getItemName(material.getRepairItemStack().getItem()));
 				}
@@ -597,6 +600,41 @@ public class GOTWikiGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static StringBuilder genTemplateBiomeAnimals() {
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			data.put(biome, new TreeSet<>());
+
+			Collection<BiomeGenBase.SpawnListEntry> spawnListEntries = new HashSet<>(biome.getSpawnableList(EnumCreatureType.ambient));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
+			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
+			spawnListEntries.addAll(biome.getSpawnableList(GOTBiome.CREATURE_TYPE_GOT_AMBIENT));
+
+			for (BiomeGenBase.SpawnListEntry spawnListEntry : spawnListEntries) {
+				data.get(biome).add(NL + "* " + getEntityLink(spawnListEntry.entityClass) + ';');
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Animals");
+		sb.append(BEGIN);
+
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_ANIMALS, Lang.BIOME_NO_ANIMALS);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
 	}
 
 	private static StringBuilder genTemplateBiomeBandits() {
@@ -651,8 +689,6 @@ public class GOTWikiGenerator {
 						data.put(biome, Lang.CLIMATE_WINTER.toString());
 						break;
 				}
-			} else {
-				data.put(biome, Lang.CLIMATE_NULL.toString());
 			}
 		}
 
@@ -665,6 +701,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, Lang.CLIMATE_NULL.toString());
 			appendSection(sb, entry.getValue());
 		}
 
@@ -697,13 +734,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestNPC");
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestFactions");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_CONQUEST, Lang.BIOME_NO_CONQUEST);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -732,13 +770,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Invasions");
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-InvasionFactions");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_INVASION, Lang.BIOME_NO_INVASION);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -783,40 +822,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateBiomeMobs() {
-		Map<GOTBiome, Set<String>> data = new HashMap<>();
-
-		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new TreeSet<>());
-
-			Collection<BiomeGenBase.SpawnListEntry> spawnListEntries = new HashSet<>(biome.getSpawnableList(EnumCreatureType.ambient));
-			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
-			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
-			spawnListEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-			spawnListEntries.addAll(biome.getSpawnableList(GOTBiome.CREATURE_TYPE_GOT_AMBIENT));
-
-			for (BiomeGenBase.SpawnListEntry spawnListEntry : spawnListEntries) {
-				data.get(biome).add(NL + "* " + getEntityLink(spawnListEntry.entityClass) + ';');
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Mobs");
-		sb.append(BEGIN);
-
-		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(entry.getKey())).append(" = ");
-
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_MINERALS, Lang.BIOME_NO_MINERALS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -829,9 +835,7 @@ public class GOTWikiGenerator {
 		Map<GOTBiome, String> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
-			if (biome.getBiomeMusic() == null) {
-				data.put(biome, "N/A");
-			} else {
+			if (biome.getBiomeMusic() != null) {
 				data.put(biome, biome.getBiomeMusic().getSubregion());
 			}
 		}
@@ -845,6 +849,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -869,6 +874,41 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateBiomeNPCs() {
+		Map<GOTBiome, Set<String>> data = new HashMap<>();
+
+		for (GOTBiome biome : BIOMES) {
+			data.put(biome, new TreeSet<>());
+
+			for (GOTFactionContainer factionContainer : biome.getNPCSpawnList().getFactionContainers()) {
+				if (factionContainer.getBaseWeight() > 0) {
+					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
+						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
+							data.get(biome).add(NL + "* " + getEntityLink(spawnEntry.entityClass) + ';');
+						}
+					}
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-NPCs");
+		sb.append(BEGIN);
+
+		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getBiomePagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_NPCS, Lang.BIOME_NO_NPCS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -922,41 +962,7 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateBiomeNPCs() {
-		Map<GOTBiome, Set<String>> data = new HashMap<>();
-
-		for (GOTBiome biome : BIOMES) {
-			data.put(biome, new TreeSet<>());
-
-			for (GOTFactionContainer factionContainer : biome.getNPCSpawnList().getFactionContainers()) {
-				if (factionContainer.getBaseWeight() > 0) {
-					for (GOTSpawnListContainer spawnListContainer : factionContainer.getSpawnListContainers()) {
-						for (GOTSpawnEntry spawnEntry : spawnListContainer.getSpawnList().getSpawnEntries()) {
-							data.get(biome).add(NL + "* " + getEntityLink(spawnEntry.entityClass) + ';');
-						}
-					}
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-SpawnNPC");
-		sb.append(BEGIN);
-
-		for (Map.Entry<GOTBiome, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getBiomePagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateBiomeStructuresSettlements() {
+	private static StringBuilder genTemplateBiomeStructures() {
 		Map<GOTBiome, Set<String>> data = new HashMap<>();
 
 		for (GOTBiome biome : BIOMES) {
@@ -985,6 +991,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_STRUCTURES, Lang.BIOME_NO_STRUCTURES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1076,6 +1083,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_TREES, Lang.BIOME_NO_TREES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1104,6 +1112,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_VARIANTS, Lang.BIOME_NO_VARIANTS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1118,22 +1127,21 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			GOTAchievement achievement = biome.getBiomeAchievement();
 
-			if (achievement == null) {
-				data.put(biome, "N/A");
-			} else {
+			if (achievement != null) {
 				data.put(biome, '«' + achievement.getTitle() + '»');
 			}
 		}
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Achievement");
+		sb.append(TITLE).append(TEMPLATE).append("DB Biome-VisitAchievement");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1162,6 +1170,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getBiomePagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.BIOME_HAS_WAYPOINTS, Lang.BIOME_NO_WAYPOINTS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1181,663 +1190,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-BannerBearer");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-BannerBearer");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityBuys() {
-		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTTradeable) {
-				data.put(entityEntry.getKey(), new TreeSet<>());
-
-				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
-
-				for (GOTTradeEntry entry : tradeable.getSellPool().getTradeEntries()) {
-					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Buys");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityCharacter() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Character");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityLegendaryDrop() {
-		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
-				data.put(entityEntry.getKey(), new TreeSet<>());
-
-				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
-
-				npc.dropFewItems(true, 999);
-
-				for (Object obj : npc.getDrops()) {
-					if (obj instanceof Item) {
-						ItemStack itemStack = new ItemStack((Item) obj);
-						data.get(entityEntry.getKey()).add(NL + "* " + itemStack.getDisplayName() + ';');
-					}
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-LegendaryDrop");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityFaction() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC) {
-				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
-				data.put(entityEntry.getKey(), getFactionLink(npc.getFaction()));
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Faction");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityFarmhand() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTFarmhand) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Farmhand");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityHealth() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			EntityLivingBase entity = (EntityLivingBase) entityEntry.getValue();
-			data.put(entityEntry.getKey(), String.valueOf((int) entity.getMaxHealth()));
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Health");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityHireAlignment() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
-			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				int alignment = (int) entry.getAlignmentRequired();
-
-				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					data.put(entry.getEntityClass(), "+" + alignment);
-				} else {
-					data.put(entry.getEntityClass(), "+" + Math.max(alignment, 100));
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Alignment");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityHirePrice() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
-			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				int cost = entry.getInitialCost();
-
-				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					data.put(entry.getEntityClass(), "{{Coins|" + cost * 2 + "}}");
-				} else {
-					data.put(entry.getEntityClass(), "N/A");
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Price");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityHirePricePledge() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
-			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				int cost = entry.getInitialCost();
-
-				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					data.put(entry.getEntityClass(), "{{Coins|" + cost + "}}");
-				} else {
-					data.put(entry.getEntityClass(), "N/A");
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Price");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityImmuneToFire() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue().isImmuneToFire()) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-ImmuneToFire");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityImmuneToFrost() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && entityEntry.getValue() instanceof GOTBiome.ImmuneToFrost) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-ImmuneToFrost");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityImmuneToHeat() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTBiome.ImmuneToHeat) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-ImmuneToHeat");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityKillAchievement() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC) {
-				GOTAchievement achievement = ((GOTEntityNPC) entityEntry.getValue()).getKillAchievement();
-				if (achievement == null) {
-					data.put(entityEntry.getKey(), "N/A");
-				} else {
-					data.put(entityEntry.getKey(), '«' + achievement.getTitle() + '»');
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Achievement");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityKillAlignment() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC) {
-				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
-				data.put(entityEntry.getKey(), "+" + (int) npc.getAlignmentBonus());
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Bonus");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityMarriage() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && GOTEntityUtils.canBeMarried((GOTEntityNPC) entityEntry.getValue())) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Marriage");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityMercenary() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTMercenary) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Mercenary");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityOwners() {
-		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
-				GOTUnitTradeable tradeable = (GOTUnitTradeable) entityEntry.getValue();
-				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
-					data.computeIfAbsent(entry.getEntityClass(), s -> new TreeSet<>());
-					data.get(entry.getEntityClass()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append("DB Mob-Owners");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityRideableMob() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTNPCMount) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Rideable2");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityRideableNPC() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntitySpiderBase) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append(" DB Mob-Rideable1");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntitySells() {
-		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTTradeable) {
-				data.put(entityEntry.getKey(), new TreeSet<>());
-
-				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
-
-				for (GOTTradeEntry entry : tradeable.getBuyPool().getTradeEntries()) {
-					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Sells");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntitySellsUnits() {
-		Map<Class<? extends Entity>, List<String>> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
-				data.put(entityEntry.getKey(), new ArrayList<>());
-
-				GOTUnitTradeable tradeable = (GOTUnitTradeable) entityEntry.getValue();
-
-				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
-					StringBuilder sb = new StringBuilder();
-
-					sb.append(NL).append("* ").append(getEntityLink(entry.getEntityClass()));
-					if (entry.getMountClass() != null) {
-						sb.append(Lang.RIDER);
-					}
-					sb.append(": ");
-
-					int cost = entry.getInitialCost();
-					int alignment = (int) entry.getAlignmentRequired();
-
-					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-						sb.append("{{Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
-						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append('+').append(alignment).append(' ').append(Lang.REPUTATION).append(';');
-					} else {
-						sb.append("N/A ").append(Lang.NO_PLEDGE).append(", ");
-						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append('+').append(Math.max(alignment, 100)).append(' ').append(Lang.REPUTATION).append(';');
-					}
-
-					data.get(entityEntry.getKey()).add(sb.toString());
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Units");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, List<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntitySmith() {
-		Map<Class<? extends Entity>, String> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTTradeable.Smith) {
-				data.put(entityEntry.getKey(), TRUE);
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Smith");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
+			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1916,6 +1276,698 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_BIOMES, Lang.ENTITY_NO_BIOMES);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityBuyPools() {
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTTradeable) {
+				data.put(entityEntry.getKey(), new TreeSet<>());
+
+				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
+
+				for (GOTTradeEntry entry : tradeable.getSellPool().getTradeEntries()) {
+					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-BuyPools");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_BUY_POOLS, Lang.ENTITY_NO_BUY_POOLS);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityCharacter() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Character");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityFaction() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
+				data.put(entityEntry.getKey(), getFactionLink(npc.getFaction()));
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Faction");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityFarmhand() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTFarmhand) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Farmhand");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityHealth() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			EntityLivingBase entity = (EntityLivingBase) entityEntry.getValue();
+			data.put(entityEntry.getKey(), String.valueOf((int) entity.getMaxHealth()));
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Health");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityHireable() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
+				data.put(entry.getEntityClass(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Hireable");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityHireAlignment() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
+				int alignment = (int) entry.getAlignmentRequired();
+
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+					data.put(entry.getEntityClass(), "+" + alignment);
+				} else {
+					data.put(entry.getEntityClass(), "+" + Math.max(alignment, 100));
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HireAlignment");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityHirePrice() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
+				int cost = entry.getInitialCost();
+
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+					data.put(entry.getEntityClass(), "{{Coins|" + cost * 2 + "}}");
+				} else {
+					data.put(entry.getEntityClass(), N_A);
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HirePrice");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityHirePricePledge() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
+				int cost = entry.getInitialCost();
+
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+					data.put(entry.getEntityClass(), "{{Coins|" + cost + "}}");
+				} else {
+					data.put(entry.getEntityClass(), N_A);
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HirePricePledge");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityImmuneToFire() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue().isImmuneToFire()) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToFire");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityImmuneToFrost() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && entityEntry.getValue() instanceof GOTBiome.ImmuneToFrost) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToFrost");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityImmuneToHeat() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTBiome.ImmuneToHeat) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToHeat");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityKillAchievement() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
+				if (npc.getKillAchievement() != null) {
+					data.put(entityEntry.getKey(), '«' + npc.getKillAchievement().getTitle() + '»');
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-KillAchievement");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, N_A);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityKillAlignment() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
+				data.put(entityEntry.getKey(), "+" + (int) npc.getAlignmentBonus());
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-KillAlignment");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityLegendaryDrop() {
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
+				data.put(entityEntry.getKey(), new TreeSet<>());
+
+				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
+
+				npc.dropFewItems(true, 999);
+
+				for (Object obj : npc.getDrops()) {
+					if (obj instanceof Item) {
+						ItemStack itemStack = new ItemStack((Item) obj);
+						data.get(entityEntry.getKey()).add(NL + "* " + itemStack.getDisplayName() + ';');
+					}
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-LegendaryDrop");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_LEGENDARY_DROP, Lang.ENTITY_NO_LEGENDARY_DROP);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityMarriage() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && GOTEntityUtils.canBeMarried((GOTEntityNPC) entityEntry.getValue())) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Marriage");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityMercenary() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTMercenary) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Mercenary");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityOwners() {
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
+				GOTUnitTradeable tradeable = (GOTUnitTradeable) entityEntry.getValue();
+				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
+					data.computeIfAbsent(entry.getEntityClass(), s -> new TreeSet<>());
+					data.get(entry.getEntityClass()).add(NL + "* " + getEntityLink(entityEntry.getKey()) + ';');
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append("DB Entity-Owners");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_OWNERS, Lang.ENTITY_NO_OWNERS);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityRideableAnimal() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTNPCMount) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-RideableAnimal");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityRideableNPC() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntitySpiderBase) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append(" DB Entity-RideableNPC");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntitySellPools() {
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTTradeable) {
+				data.put(entityEntry.getKey(), new TreeSet<>());
+
+				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
+
+				for (GOTTradeEntry entry : tradeable.getBuyPool().getTradeEntries()) {
+					data.get(entityEntry.getKey()).add(NL + "* " + entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-SellPools");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_SELL_UNIT_POOLS, Lang.ENTITY_NO_SELL_UNIT_POOLS);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntitySellUnitPools() {
+		Map<Class<? extends Entity>, List<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTUnitTradeable) {
+				data.put(entityEntry.getKey(), new ArrayList<>());
+
+				GOTUnitTradeable tradeable = (GOTUnitTradeable) entityEntry.getValue();
+
+				for (GOTUnitTradeEntry entry : tradeable.getUnits().getTradeEntries()) {
+					StringBuilder sb = new StringBuilder();
+
+					sb.append(NL).append("* ").append(getEntityLink(entry.getEntityClass()));
+					if (entry.getMountClass() != null) {
+						sb.append(Lang.RIDER);
+					}
+					sb.append(": ");
+
+					int cost = entry.getInitialCost();
+					int alignment = (int) entry.getAlignmentRequired();
+
+					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+						sb.append("{{Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
+						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
+						sb.append('+').append(alignment).append(' ').append(Lang.REPUTATION).append(';');
+					} else {
+						sb.append("N/A ").append(Lang.NO_PLEDGE).append(", ");
+						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
+						sb.append('+').append(Math.max(alignment, 100)).append(' ').append(Lang.REPUTATION).append(';');
+					}
+
+					data.get(entityEntry.getKey()).add(sb.toString());
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-SellUnitPools");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, List<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_SELL_UNIT_POOLS, Lang.ENTITY_NO_SELL_UNIT_POOLS);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntitySmith() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTTradeable.Smith) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Smith");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1935,13 +1987,48 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-SpawnsInDarkness");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-SpawnsInDarkness");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, FALSE);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityStructures() {
+		StringBuilder sb = new StringBuilder();
+
+		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends WorldGenerator>, GOTStructureBase> structureEntry : STRUCTURE_CLASS_TO_STRUCTURE.entrySet()) {
+			Class<? extends WorldGenerator> structureClass = structureEntry.getKey();
+			GOTStructureBase structure = structureEntry.getValue();
+
+			if (structure != null) {
+				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
+				for (Class<? extends Entity> entityClass : entityClasses) {
+					data.computeIfAbsent(entityClass, s -> new TreeSet<>());
+					data.get(entityClass).add(NL + "* " + getStructureLink(structureClass) + ';');
+				}
+			}
+		}
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Structures");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_STRUCTURES, Lang.ENTITY_NO_STRUCTURES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1961,13 +2048,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-TargetSeeker");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-TargetSeeker");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -1987,13 +2075,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Tradeable");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Tradeable");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2013,13 +2102,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-UnitTradeable");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-UnitTradeable");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, FALSE);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2045,13 +2135,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Waypoint");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Waypoint");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getEntityPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.ENTITY_HAS_WAYPOINT, Lang.ENTITY_NO_WAYPOINT);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2080,6 +2171,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_BANNERS, Lang.FACTION_NO_BANNERS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2104,13 +2196,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Chars");
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Characters");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_CHARACTERS, Lang.FACTION_NO_CHARACTERS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2166,13 +2259,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Conquest");
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-ConquestBiomes");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_CONQUEST_BIOMES, Lang.FACTION_NO_CONQUEST_BIOMES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2262,13 +2356,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Invasions");
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-InvasionBiomes");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_INVASION_BIOMES, Lang.FACTION_NO_INVASION_BIOMES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2317,13 +2412,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-NPC");
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-NPCs");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, Set<String>> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_NPCS, Lang.FACTION_NO_NPCS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2356,13 +2452,14 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Pledge");
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-PledgeRank");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2402,6 +2499,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_RANKS, Lang.FACTION_NO_RANKS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2414,9 +2512,7 @@ public class GOTWikiGenerator {
 		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTFaction faction : FACTIONS) {
-			if (faction.getFactionRegion() == null) {
-				data.put(faction, "N/A");
-			} else {
+			if (faction.getFactionRegion() != null) {
 				data.put(faction, faction.getFactionRegion().getRegionName());
 			}
 		}
@@ -2430,6 +2526,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, N_A);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2472,6 +2569,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_ATTRIBUTES, Lang.FACTION_NO_ATTRIBUTES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2510,6 +2608,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_SPAWN_BIOMES, Lang.FACTION_NO_SPAWN_BIOMES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2535,6 +2634,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_STRUCTURES, Lang.FACTION_NO_STRUCTURES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2547,9 +2647,7 @@ public class GOTWikiGenerator {
 		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTFaction faction : FACTIONS) {
-			if (faction.isApprovesWarCrimes()) {
-				data.put(faction, Lang.FACTION_HAS_WAR_CRIMES.toString());
-			} else {
+			if (!faction.isApprovesWarCrimes()) {
 				data.put(faction, Lang.FACTION_NO_WAR_CRIMES.toString());
 			}
 		}
@@ -2563,6 +2661,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendDefault(sb, Lang.FACTION_HAS_WAR_CRIMES.toString());
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2588,6 +2687,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getFactionPagename(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.FACTION_HAS_WAYPOINTS, Lang.FACTION_NO_WAYPOINTS);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2631,6 +2731,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(entry.getKey()).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.MINERAL_HAS_BIOMES, Lang.MINERAL_NO_BIOMES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2658,6 +2759,42 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getStructureName(entry.getKey())).append(" = ");
 
+			appendPreamble(sb, entry.getValue(), Lang.STRUCTURE_HAS_BIOMES, Lang.STRUCTURE_NO_BIOMES);
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateStructureEntities() {
+		StringBuilder sb = new StringBuilder();
+
+		Map<Class<? extends WorldGenerator>, Set<String>> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends WorldGenerator>, GOTStructureBase> structureEntry : STRUCTURE_CLASS_TO_STRUCTURE.entrySet()) {
+			Class<? extends WorldGenerator> structureClass = structureEntry.getKey();
+			GOTStructureBase structure = structureEntry.getValue();
+
+			if (structure != null) {
+				data.put(structureClass, new TreeSet<>());
+
+				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
+				for (Class<? extends Entity> entityClass : entityClasses) {
+					data.get(structureClass).add(NL + "* " + getEntityLink(entityClass) + ';');
+				}
+			}
+		}
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Entities");
+		sb.append(BEGIN);
+
+		for (Map.Entry<Class<? extends WorldGenerator>, Set<String>> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getStructureName(entry.getKey())).append(" = ");
+
+			appendPreamble(sb, entry.getValue(), Lang.STRUCTURE_HAS_ENTITIES, Lang.STRUCTURE_NO_ENTITIES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -2693,7 +2830,6 @@ public class GOTWikiGenerator {
 					}
 				}
 			}
-
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -2705,73 +2841,7 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("| ");
 			sb.append(getTreeName(entry.getKey())).append(" = ");
 
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateEntityStructures() {
-		StringBuilder sb = new StringBuilder();
-
-		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends WorldGenerator>, GOTStructureBase> structureEntry : STRUCTURE_CLASS_TO_STRUCTURE.entrySet()) {
-			Class<? extends WorldGenerator> structureClass = structureEntry.getKey();
-			GOTStructureBase structure = structureEntry.getValue();
-
-			if (structure != null) {
-				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
-				for (Class<? extends Entity> entityClass : entityClasses) {
-					data.computeIfAbsent(entityClass, s -> new TreeSet<>());
-					data.get(entityClass).add(NL + "* " + getStructureLink(structureClass) + ';');
-				}
-			}
-		}
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Mob-Structures");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends Entity>, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getEntityPagename(entry.getKey())).append(" = ");
-
-			appendSection(sb, entry.getValue());
-		}
-
-		sb.append(END);
-
-		return sb;
-	}
-
-	private static StringBuilder genTemplateStructureEntities() {
-		StringBuilder sb = new StringBuilder();
-
-		Map<Class<? extends WorldGenerator>, Set<String>> data = new HashMap<>();
-
-		for (Map.Entry<Class<? extends WorldGenerator>, GOTStructureBase> structureEntry : STRUCTURE_CLASS_TO_STRUCTURE.entrySet()) {
-			Class<? extends WorldGenerator> structureClass = structureEntry.getKey();
-			GOTStructureBase structure = structureEntry.getValue();
-
-			if (structure != null) {
-				data.put(structureClass, new TreeSet<>());
-
-				Set<Class<? extends Entity>> entityClasses = structure.getEntityClasses();
-				for (Class<? extends Entity> entityClass : entityClasses) {
-					data.get(structureClass).add(NL + "* " + getEntityLink(entityClass) + ';');
-				}
-			}
-		}
-
-		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Mobs");
-		sb.append(BEGIN);
-
-		for (Map.Entry<Class<? extends WorldGenerator>, Set<String>> entry : data.entrySet()) {
-			sb.append(NL).append("| ");
-			sb.append(getStructureName(entry.getKey())).append(" = ");
-
+			appendPreamble(sb, entry.getValue(), Lang.TREE_HAS_BIOMES, Lang.TREE_NO_BIOMES);
 			appendSection(sb, entry.getValue());
 		}
 
@@ -3007,7 +3077,7 @@ public class GOTWikiGenerator {
 	}
 
 	public enum Lang {
-		PAGE_BIOME, PAGE_FACTION, PAGE_ENTITY, FACTION_HAS_WAR_CRIMES, FACTION_NO_WAR_CRIMES, RIDER, NO_PLEDGE, NEED_PLEDGE, REPUTATION, ENTITY_CONQUEST_INVASION, ENTITY_CONQUEST, ENTITY_INVASION, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, CLIMATE_NULL, SEASON_WINTER, SEASON_AUTUMN, SEASON_SUMMER, SEASON_SPRING;
+		BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST, BIOME_HAS_INVASION, BIOME_HAS_MINERALS, BIOME_HAS_NPCS, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_VARIANTS, BIOME_HAS_WAYPOINTS, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST, BIOME_NO_INVASION, BIOME_NO_MINERALS, BIOME_NO_NPCS, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_NULL, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, ENTITY_CONQUEST, ENTITY_CONQUEST_INVASION, ENTITY_HAS_BIOMES, ENTITY_HAS_BUY_POOLS, ENTITY_HAS_LEGENDARY_DROP, ENTITY_HAS_OWNERS, ENTITY_HAS_SELL_UNIT_POOLS, ENTITY_HAS_STRUCTURES, ENTITY_HAS_WAYPOINT, ENTITY_INVASION, ENTITY_NO_BIOMES, ENTITY_NO_BUY_POOLS, ENTITY_NO_LEGENDARY_DROP, ENTITY_NO_OWNERS, ENTITY_NO_SELL_UNIT_POOLS, ENTITY_NO_STRUCTURES, ENTITY_NO_WAYPOINT, FACTION_HAS_ATTRIBUTES, FACTION_HAS_BANNERS, FACTION_HAS_CHARACTERS, FACTION_HAS_CONQUEST_BIOMES, FACTION_HAS_INVASION_BIOMES, FACTION_HAS_NPCS, FACTION_HAS_RANKS, FACTION_HAS_SPAWN_BIOMES, FACTION_HAS_STRUCTURES, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_ATTRIBUTES, FACTION_NO_BANNERS, FACTION_NO_CHARACTERS, FACTION_NO_CONQUEST_BIOMES, FACTION_NO_INVASION_BIOMES, FACTION_NO_NPCS, FACTION_NO_RANKS, FACTION_NO_SPAWN_BIOMES, FACTION_NO_STRUCTURES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, MINERAL_HAS_BIOMES, MINERAL_NO_BIOMES, NEED_PLEDGE, NO_PLEDGE, PAGE_BIOME, PAGE_ENTITY, PAGE_FACTION, REPUTATION, RIDER, SEASON_AUTUMN, SEASON_SPRING, SEASON_SUMMER, SEASON_WINTER, STRUCTURE_HAS_BIOMES, STRUCTURE_HAS_ENTITIES, STRUCTURE_NO_BIOMES, STRUCTURE_NO_ENTITIES, TREE_HAS_BIOMES, TREE_NO_BIOMES;
 
 		@Override
 		public String toString() {
@@ -3164,6 +3234,14 @@ public class GOTWikiGenerator {
 		return "[[" + StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name") + "]]";
 	}
 
+	private static void appendPreamble(StringBuilder sb, Collection<String> section, Lang full, Lang empty) {
+		sb.append(section.isEmpty() ? empty : full);
+	}
+
+	private static void appendPreamble(StringBuilder sb, String value, Lang full, Lang empty) {
+		sb.append(value.isEmpty() ? empty : full);
+	}
+
 	private static void appendSection(StringBuilder sb, Collection<String> section) {
 		for (String item : section) {
 			sb.append(item);
@@ -3173,6 +3251,11 @@ public class GOTWikiGenerator {
 	}
 
 	private static void appendSection(StringBuilder sb, String value) {
+		sb.append(value);
+	}
+
+	private static void appendDefault(StringBuilder sb, String value) {
+		sb.append("#default = ").append(value).append(NL);
 		sb.append(value);
 	}
 }
