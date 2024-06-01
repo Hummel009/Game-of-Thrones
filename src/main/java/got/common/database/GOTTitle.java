@@ -80,8 +80,6 @@ public class GOTTitle {
 
 	public boolean canPlayerUse(EntityPlayer entityplayer) {
 		switch (titleType) {
-			case STARTER:
-				return true;
 			case ACHIEVEMENT:
 				return GOTLevelData.getData(entityplayer).hasAchievement(titleAchievement);
 			case PLAYER_EXCLUSIVE:
