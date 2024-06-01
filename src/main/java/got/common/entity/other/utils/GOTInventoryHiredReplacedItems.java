@@ -14,6 +14,10 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		super("HiredReplacedItems", npc, 7);
 	}
 
+	private static int getNPCArmorSlot(int i) {
+		return 4 - i;
+	}
+
 	public void dropAllReplacedItems() {
 		for (int i = 0; i < 7; ++i) {
 			ItemStack itemstack;
@@ -44,12 +48,12 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 				}
 				updateHeldItem();
 				break;
-			case 6:
-				theNPC.getNpcItemsInv().setRangedWeapon(itemstack);
-				updateHeldItem();
-				break;
 			case 5:
 				theNPC.getNpcItemsInv().setBomb(itemstack);
+				updateHeldItem();
+				break;
+			case 6:
+				theNPC.getNpcItemsInv().setRangedWeapon(itemstack);
 				updateHeldItem();
 				break;
 			default:
@@ -62,18 +66,13 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		switch (i) {
 			case 4:
 				return theNPC.getNpcItemsInv().getMeleeWeapon();
-			case 6:
-				return theNPC.getNpcItemsInv().getRangedWeapon();
 			case 5:
 				return theNPC.getNpcItemsInv().getBomb();
+			case 6:
+				return theNPC.getNpcItemsInv().getRangedWeapon();
 			default:
-				break;
+				return theNPC.getEquipmentInSlot(getNPCArmorSlot(i));
 		}
-		return theNPC.getEquipmentInSlot(getNPCArmorSlot(i));
-	}
-
-	private static int getNPCArmorSlot(int i) {
-		return 4 - i;
 	}
 
 	private ItemStack getReplacedEquipment(int i) {

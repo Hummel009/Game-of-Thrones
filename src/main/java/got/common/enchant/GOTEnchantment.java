@@ -87,28 +87,6 @@ public abstract class GOTEnchantment {
 		return ENCHANTS_BY_NAME.get(s);
 	}
 
-	public boolean getApplyToProjectile() {
-		return applyToProjectile;
-	}
-
-	protected GOTEnchantment setApplyToProjectile(boolean applyToProjectile) {
-		this.applyToProjectile = applyToProjectile;
-		return this;
-	}
-
-	public boolean getBypassAnvilLimit() {
-		return bypassAnvilLimit;
-	}
-
-	public boolean canApply(ItemStack itemstack, boolean considering) {
-		for (GOTEnchantmentType type : itemTypes) {
-			if (type.canApply(itemstack)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	protected static String formatAdditive(float f) {
 		String s = formatDecimalNumber(f);
 		if (f >= 0.0F) {
@@ -134,6 +112,28 @@ public abstract class GOTEnchantment {
 	protected static String formatMultiplicative(float f) {
 		String s = formatDecimalNumber(f);
 		return 'x' + s;
+	}
+
+	public boolean getApplyToProjectile() {
+		return applyToProjectile;
+	}
+
+	protected GOTEnchantment setApplyToProjectile(boolean applyToProjectile) {
+		this.applyToProjectile = applyToProjectile;
+		return this;
+	}
+
+	public boolean getBypassAnvilLimit() {
+		return bypassAnvilLimit;
+	}
+
+	public boolean canApply(ItemStack itemstack, boolean considering) {
+		for (GOTEnchantmentType type : itemTypes) {
+			if (type.canApply(itemstack)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	protected abstract String getDescription(ItemStack paramItemStack);

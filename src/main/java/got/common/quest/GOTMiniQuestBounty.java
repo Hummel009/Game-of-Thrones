@@ -38,6 +38,36 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		super(pd);
 	}
 
+	private static GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
+		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+		if (pd.getPledgeFaction() != null) {
+			return pd.getPledgeFaction();
+		}
+		ArrayList<GOTFaction> highestFactions = new ArrayList<>();
+		float highestAlignment = min;
+		for (GOTFaction f : GOTFaction.getPlayableAlignmentFactions()) {
+			float alignment = pd.getAlignment(f);
+			if (alignment <= min) {
+				continue;
+			}
+			if (alignment > highestAlignment) {
+				highestFactions.clear();
+				highestFactions.add(f);
+				highestAlignment = alignment;
+				continue;
+			}
+			if (alignment != highestAlignment) {
+				continue;
+			}
+			highestFactions.add(f);
+		}
+		if (!highestFactions.isEmpty()) {
+			Random rand = entityplayer.getRNG();
+			return highestFactions.get(rand.nextInt(highestFactions.size()));
+		}
+		return null;
+	}
+
 	@Override
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
 		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(entityFaction) >= 100.0f) {
@@ -101,36 +131,6 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	@Override
 	public String getObjectiveInSpeech() {
 		return targetName;
-	}
-
-	private static GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
-		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		if (pd.getPledgeFaction() != null) {
-			return pd.getPledgeFaction();
-		}
-		ArrayList<GOTFaction> highestFactions = new ArrayList<>();
-		float highestAlignment = min;
-		for (GOTFaction f : GOTFaction.getPlayableAlignmentFactions()) {
-			float alignment = pd.getAlignment(f);
-			if (alignment <= min) {
-				continue;
-			}
-			if (alignment > highestAlignment) {
-				highestFactions.clear();
-				highestFactions.add(f);
-				highestAlignment = alignment;
-				continue;
-			}
-			if (alignment != highestAlignment) {
-				continue;
-			}
-			highestFactions.add(f);
-		}
-		if (!highestFactions.isEmpty()) {
-			Random rand = entityplayer.getRNG();
-			return highestFactions.get(rand.nextInt(highestFactions.size()));
-		}
-		return null;
 	}
 
 	@Override

@@ -8,12 +8,12 @@ import java.util.Map;
 public class GOTSettlementPositionCache {
 	private final Map<ChunkCoordIntPair, LocationInfo> cacheMap = new HashMap<>();
 
-	private void clearCache() {
-		cacheMap.clear();
-	}
-
 	private static ChunkCoordIntPair getChunkKey(int chunkX, int chunkZ) {
 		return new ChunkCoordIntPair(chunkX, chunkZ);
+	}
+
+	private void clearCache() {
+		cacheMap.clear();
 	}
 
 	public LocationInfo getLocationAt(int chunkX, int chunkZ) {

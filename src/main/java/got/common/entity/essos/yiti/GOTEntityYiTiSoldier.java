@@ -26,25 +26,19 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(8);
+		int i = rand.nextInt(9);
 		switch (i) {
 			case 0:
-			case 1:
-			case 2:
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiSword));
-				break;
-			case 4:
-			case 5:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiBattleaxe));
 				break;
-			case 6:
+			case 1:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiPolearm));
 				break;
-			case 7:
+			case 2:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiPike));
 				break;
 			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiSword));
 				break;
 		}
 		if (rand.nextInt(5) == 0) {

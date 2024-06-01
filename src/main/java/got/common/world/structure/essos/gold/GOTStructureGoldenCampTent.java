@@ -25,7 +25,7 @@ public class GOTStructureGoldenCampTent extends GOTStructureTentBase {
 				tentBlock = Blocks.wool;
 				tentMeta = 10;
 				break;
-			default:
+			case 2:
 				tentBlock = Blocks.wool;
 				tentMeta = 7;
 				break;

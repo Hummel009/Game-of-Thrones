@@ -95,6 +95,11 @@ public class GOTModelDragon extends ModelBase {
 		buildLegs();
 	}
 
+	private static void setLivingAnimations(GOTEntityDragon dragon, float partialTicks) {
+		GOTModelDragonAnimaton animator = dragon.getAnimator();
+		animator.setPartialTicks(partialTicks);
+	}
+
 	private void buildBody() {
 		body = new GOTModelDragonPart(this, "body");
 		body.setRotationPoint(0, 4, 8);
@@ -387,11 +392,6 @@ public class GOTModelDragon extends ModelBase {
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float moveTime, float moveSpeed, float partialTicks) {
 		setLivingAnimations((GOTEntityDragon) entity, partialTicks);
-	}
-
-	private static void setLivingAnimations(GOTEntityDragon dragon, float partialTicks) {
-		GOTModelDragonAnimaton animator = dragon.getAnimator();
-		animator.setPartialTicks(partialTicks);
 	}
 
 	public ResourceLocation getBodyTexture() {

@@ -53,6 +53,23 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureQohorFarm(false);
+			}
+			return new GOTStructureQohorPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureQohorSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureQohorStables(false);
+			}
+			return new GOTStructureQohorHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -121,23 +138,6 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureQohorFarm(false);
-			}
-			return new GOTStructureQohorPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureQohorSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureQohorStables(false);
-			}
-			return new GOTStructureQohorHouse(false);
 		}
 
 		@Override

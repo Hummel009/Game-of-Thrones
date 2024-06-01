@@ -334,6 +334,11 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
+	protected static ItemStack getFramedItem(Random random) {
+		ItemStack[] items = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.westerosSpear), new ItemStack(GOTItems.westerosBow), new ItemStack(Items.arrow), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.ironCrossbow), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTItems.copperRing)};
+		return items[random.nextInt(items.length)].copy();
+	}
+
 	private GOTItemBanner.BannerType getBanner() {
 		return BANNERS.get(kingdom);
 	}
@@ -364,11 +369,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 
 	protected GOTEntityNPC getFarmhand(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(FARMHANDS.get(kingdom), world);
-	}
-
-	protected static ItemStack getFramedItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.westerosSpear), new ItemStack(GOTItems.westerosBow), new ItemStack(Items.arrow), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.ironCrossbow), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTItems.copperRing)};
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	protected GOTEntityNPC getMan(World world) {
@@ -597,7 +597,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 					doorBlock = GOTBlocks.doorDatePalm;
 					trapdoorBlock = GOTBlocks.trapdoorDatePalm;
 					break;
-				default:
+				case 2:
 					plankBlock = GOTBlocks.planks3;
 					plankMeta = 3;
 					plankSlabBlock = GOTBlocks.woodSlabSingle5;

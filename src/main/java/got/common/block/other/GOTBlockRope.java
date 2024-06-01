@@ -42,9 +42,8 @@ public class GOTBlockRope extends BlockLadder {
 			case 5:
 				return world.isSideSolid(i - 1, j, k, ForgeDirection.EAST);
 			default:
-				break;
+				return false;
 		}
-		return false;
 	}
 
 	@Override

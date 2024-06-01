@@ -25,6 +25,33 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 	private final Map<IIcon, Integer> iconContrastColors = new HashMap<>();
 	private BufferedImage cachedBlockAtlasImage;
 
+	private static int calculateContrast(int color) {
+		Color c = new Color(color);
+		float[] hsb = Color.RGBtoHSB(c.getRed(), c.getGreen(), c.getBlue(), null);
+		float h = hsb[0];
+		float s = hsb[1];
+		float b = hsb[2];
+		b = b > 0.6f ? b - 0.6f : b + 0.4f;
+		b = MathHelper.clamp_float(b, 0.0f, 1.0f);
+		return Color.HSBtoRGB(h, s * 0.5f, b);
+	}
+
+	private static BufferedImage loadAndCacheBlockTextureAtlas() {
+		Minecraft mc = Minecraft.getMinecraft();
+		mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
+		int mipmapLvl = 0;
+		int width = GL11.glGetTexLevelParameteri(3553, mipmapLvl, 4096);
+		int height = GL11.glGetTexLevelParameteri(3553, mipmapLvl, 4097);
+		int pixelSize = width * height;
+		BufferedImage atlasImage = new BufferedImage(width, height, 2);
+		IntBuffer buffer = BufferUtils.createIntBuffer(pixelSize);
+		int[] imgData = new int[pixelSize];
+		GL11.glGetTexImage(3553, 0, 32993, 33639, buffer);
+		buffer.get(imgData);
+		atlasImage.setRGB(0, 0, width, height, imgData, 0, width);
+		return atlasImage;
+	}
+
 	private int averageIconColor(IIcon icon) {
 		if (iconAverageColors.containsKey(icon)) {
 			return iconAverageColors.get(icon);
@@ -62,17 +89,6 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		return avgColor;
 	}
 
-	private static int calculateContrast(int color) {
-		Color c = new Color(color);
-		float[] hsb = Color.RGBtoHSB(c.getRed(), c.getGreen(), c.getBlue(), null);
-		float h = hsb[0];
-		float s = hsb[1];
-		float b = hsb[2];
-		b = b > 0.6f ? b - 0.6f : b + 0.4f;
-		b = MathHelper.clamp_float(b, 0.0f, 1.0f);
-		return Color.HSBtoRGB(h, s * 0.5f, b);
-	}
-
 	private int getContrastingColor(IIcon icon) {
 		if (iconContrastColors.containsKey(icon)) {
 			return iconContrastColors.get(icon);
@@ -85,22 +101,6 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 
 	protected int getTextColor(GOTTileEntitySignCarved sign, float f) {
 		return getContrastingColor(sign.getOnBlockIcon());
-	}
-
-	private static BufferedImage loadAndCacheBlockTextureAtlas() {
-		Minecraft mc = Minecraft.getMinecraft();
-		mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		int mipmapLvl = 0;
-		int width = GL11.glGetTexLevelParameteri(3553, mipmapLvl, 4096);
-		int height = GL11.glGetTexLevelParameteri(3553, mipmapLvl, 4097);
-		int pixelSize = width * height;
-		BufferedImage atlasImage = new BufferedImage(width, height, 2);
-		IntBuffer buffer = BufferUtils.createIntBuffer(pixelSize);
-		int[] imgData = new int[pixelSize];
-		GL11.glGetTexImage(3553, 0, 32993, 33639, buffer);
-		buffer.get(imgData);
-		atlasImage.setRGB(0, 0, width, height, imgData, 0, width);
-		return atlasImage;
 	}
 
 	@Override

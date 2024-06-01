@@ -15,6 +15,14 @@ import java.util.Collections;
 import java.util.List;
 
 public class GOTCommandAchievement extends CommandBase {
+	private static GOTAchievement findAchievementByName(String name) {
+		GOTAchievement ach = GOTAchievement.findByName(name);
+		if (ach == null) {
+			throw new CommandException("got.command.got_achievement.unknown", name);
+		}
+		return ach;
+	}
+
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
@@ -22,7 +30,7 @@ public class GOTCommandAchievement extends CommandBase {
 				return getListOfStringsMatchingLastWord(args, "give", "remove");
 			case 2:
 				List<GOTAchievement> achievements = GOTAchievement.getAllAchievements();
-				ArrayList<String> names = new ArrayList<>();
+				List<String> names = new ArrayList<>();
 				for (GOTAchievement a : achievements) {
 					names.add(a.getName());
 				}
@@ -32,14 +40,6 @@ public class GOTCommandAchievement extends CommandBase {
 				return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
-	}
-
-	private static GOTAchievement findAchievementByName(String name) {
-		GOTAchievement ach = GOTAchievement.findByName(name);
-		if (ach == null) {
-			throw new CommandException("got.command.got_achievement.unknown", name);
-		}
-		return ach;
 	}
 
 	@Override

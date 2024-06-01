@@ -25,8 +25,10 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 				return Blocks.gravel.getIcon(i, 0);
 			case 1:
 				return GOTBlocks.basaltGravel.getIcon(i, 0);
-			default:
+			case 2:
 				return GOTBlocks.obsidianGravel.getIcon(i, 0);
+			default:
+				return null;
 		}
 	}
 

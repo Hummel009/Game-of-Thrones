@@ -67,8 +67,6 @@ public abstract class GOTBlockLeavesBase extends BlockLeaves {
 		}
 	}
 
-	protected abstract void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune);
-
 	protected static int calcFortuneModifiedDropChance(int baseChance, int fortune) {
 		int chance = baseChance;
 		if (fortune > 0) {
@@ -78,6 +76,8 @@ public abstract class GOTBlockLeavesBase extends BlockLeaves {
 		}
 		return chance;
 	}
+
+	protected abstract void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune);
 
 	@SideOnly(Side.CLIENT)
 	@Override

@@ -22,26 +22,6 @@ public class GOTGuiRendererMap {
 	private float zoomExp;
 	private float zoomStable;
 
-	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f) {
-		renderMap(mapGui, f, 0, 0, gui.width, gui.height);
-	}
-
-	public void renderMap(GOTGuiMap mapGui, float f, int x0, int y0, int x1, int y1) {
-		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		int oceanColor = GOTTextures.getMapOceanColor(sepia);
-		Gui.drawRect(x0, y0, x1, y1, oceanColor);
-		float zoom = (float) Math.pow(2.0, zoomExp);
-		double mapPosX = prevMapX + (mapX - prevMapX) * f;
-		double mapPosY = prevMapY + (mapY - prevMapY) * f;
-		mapGui.setFakeMapProperties((float) mapPosX, (float) mapPosY, zoom, zoomExp, zoomStable);
-		int[] statics = GOTGuiMap.setFakeStaticProperties(x1 - x0, y1 - y0, x0, x1, y0, y1);
-		mapGui.setEnableZoomOutWPFading(false);
-		mapGui.renderMapAndOverlay(sepia, 1.0f, true);
-		mapGui.renderBeziers(false);
-		mapGui.renderWaypoints(GOTWaypoint.listAllWaypoints(), 0, 0, 0, false, true);
-		GOTGuiMap.setFakeStaticProperties(statics[0], statics[1], statics[2], statics[3], statics[4], statics[5]);
-	}
-
 	private static void renderVignette(GuiScreen gui, double zLevel) {
 		renderVignette(gui, zLevel, 0, 0, gui.width, gui.height);
 	}
@@ -77,6 +57,26 @@ public class GOTGuiRendererMap {
 		for (int l = 0; l < count; ++l) {
 			renderVignette(gui, zLevel, x0, y0, x1, y1);
 		}
+	}
+
+	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f) {
+		renderMap(mapGui, f, 0, 0, gui.width, gui.height);
+	}
+
+	public void renderMap(GOTGuiMap mapGui, float f, int x0, int y0, int x1, int y1) {
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+		int oceanColor = GOTTextures.getMapOceanColor(sepia);
+		Gui.drawRect(x0, y0, x1, y1, oceanColor);
+		float zoom = (float) Math.pow(2.0, zoomExp);
+		double mapPosX = prevMapX + (mapX - prevMapX) * f;
+		double mapPosY = prevMapY + (mapY - prevMapY) * f;
+		mapGui.setFakeMapProperties((float) mapPosX, (float) mapPosY, zoom, zoomExp, zoomStable);
+		int[] statics = GOTGuiMap.setFakeStaticProperties(x1 - x0, y1 - y0, x0, x1, y0, y1);
+		mapGui.setEnableZoomOutWPFading(false);
+		mapGui.renderMapAndOverlay(sepia, 1.0f, true);
+		mapGui.renderBeziers(false);
+		mapGui.renderWaypoints(GOTWaypoint.listAllWaypoints(), 0, 0, 0, false, true);
+		GOTGuiMap.setFakeStaticProperties(statics[0], statics[1], statics[2], statics[3], statics[4], statics[5]);
 	}
 
 	public void updateTick() {

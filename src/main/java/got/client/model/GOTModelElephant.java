@@ -202,6 +202,12 @@ public class GOTModelElephant extends ModelBase {
 		target.rotationPointY = origin.rotationPointY + MathHelper.cos(origin.rotateAngleX) * distance;
 	}
 
+	private static void setRotation(ModelRenderer model, float x, float y, float z) {
+		model.rotateAngleX = x;
+		model.rotateAngleY = y;
+		model.rotateAngleZ = z;
+	}
+
 	private void AdjustY(float f) {
 		head.rotationPointY = f - 10.0f;
 		neck.rotationPointY = f - 8.0f;
@@ -278,12 +284,6 @@ public class GOTModelElephant extends ModelBase {
 		tailRoot.render(f5);
 		tail.render(f5);
 		tailPlush.render(f5);
-	}
-
-	private static void setRotation(ModelRenderer model, float x, float y, float z) {
-		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
 	}
 
 	private void setRotationAngles(float f, float f1, float f2, float f3) {

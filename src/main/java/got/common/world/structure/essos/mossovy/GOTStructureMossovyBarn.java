@@ -26,9 +26,8 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 			case 3:
 				return new EntityChicken(world);
 			default:
-				break;
+				return null;
 		}
-		return null;
 	}
 
 	@Override

@@ -29,8 +29,6 @@ public class GOTBlockSaplingFruit extends GOTBlockSaplingBase {
 			case 3:
 				treeGen = GOTTreeType.MANGO.create(true, random);
 				break;
-			default:
-				break;
 		}
 		world.setBlock(i, j, k, Blocks.air, 0, 4);
 		if (treeGen != null && !treeGen.generate(world, random, i, j, k)) {

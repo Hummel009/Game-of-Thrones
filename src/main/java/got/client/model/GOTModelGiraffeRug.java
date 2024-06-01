@@ -7,6 +7,17 @@ import org.lwjgl.opengl.GL11;
 public class GOTModelGiraffeRug extends ModelBase {
 	private static final GOTModelGiraffe GIRAFFE_MODEL = new GOTModelGiraffe(0.0f);
 
+	private static void setRotationAngles() {
+		GIRAFFE_MODEL.getLeg1().rotateAngleX = 0.5235987755982988f;
+		GIRAFFE_MODEL.getLeg1().rotateAngleZ = 1.5707963267948966f;
+		GIRAFFE_MODEL.getLeg2().rotateAngleX = 0.5235987755982988f;
+		GIRAFFE_MODEL.getLeg2().rotateAngleZ = -1.5707963267948966f;
+		GIRAFFE_MODEL.getLeg3().rotateAngleX = -0.3490658503988659f;
+		GIRAFFE_MODEL.getLeg3().rotateAngleZ = 1.5707963267948966f;
+		GIRAFFE_MODEL.getLeg4().rotateAngleX = -0.3490658503988659f;
+		GIRAFFE_MODEL.getLeg4().rotateAngleZ = -1.5707963267948966f;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		GIRAFFE_MODEL.setRiddenHeadNeckRotation();
@@ -33,16 +44,5 @@ public class GOTModelGiraffeRug extends ModelBase {
 		GIRAFFE_MODEL.getLeg2().render(f5);
 		GIRAFFE_MODEL.getLeg4().render(f5);
 		GL11.glPopMatrix();
-	}
-
-	private static void setRotationAngles() {
-		GIRAFFE_MODEL.getLeg1().rotateAngleX = 0.5235987755982988f;
-		GIRAFFE_MODEL.getLeg1().rotateAngleZ = 1.5707963267948966f;
-		GIRAFFE_MODEL.getLeg2().rotateAngleX = 0.5235987755982988f;
-		GIRAFFE_MODEL.getLeg2().rotateAngleZ = -1.5707963267948966f;
-		GIRAFFE_MODEL.getLeg3().rotateAngleX = -0.3490658503988659f;
-		GIRAFFE_MODEL.getLeg3().rotateAngleZ = 1.5707963267948966f;
-		GIRAFFE_MODEL.getLeg4().rotateAngleX = -0.3490658503988659f;
-		GIRAFFE_MODEL.getLeg4().rotateAngleZ = -1.5707963267948966f;
 	}
 }

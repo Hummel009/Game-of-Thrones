@@ -188,6 +188,79 @@ public class GOTPlayerData {
 		return MinecraftServer.getServer() != null && MinecraftServer.getServer().getTickCounter() % 200 == 0;
 	}
 
+	public static void customWaypointAddSharedFellowshipClient(GOTCustomWaypoint waypoint, GOTFellowshipClient fs) {
+		waypoint.addSharedFellowship(fs.getFellowshipID());
+	}
+
+	public static void customWaypointRemoveSharedFellowshipClient(GOTCustomWaypoint waypoint, UUID fsID) {
+		waypoint.removeSharedFellowship(fsID);
+	}
+
+	private static boolean doesFactionPreventPledge(GOTFaction pledgeFac, GOTFaction otherFac) {
+		return pledgeFac.isMortalEnemy(otherFac);
+	}
+
+	private static <T extends EntityLiving> T fastTravelEntity(WorldServer world, T entity, int i, int j, int k) {
+		String entityID = EntityList.getEntityString(entity);
+		NBTTagCompound nbt = new NBTTagCompound();
+		entity.writeToNBT(nbt);
+		entity.setDead();
+		EntityLiving entityLiving = (EntityLiving) EntityList.createEntityByName(entityID, world);
+		entityLiving.readFromNBT(nbt);
+		entityLiving.setLocationAndAngles(i + 0.5D, j, k + 0.5D, entityLiving.rotationYaw, entityLiving.rotationPitch);
+		entityLiving.fallDistance = 0.0F;
+		entityLiving.getNavigator().clearPathEntity();
+		entityLiving.setAttackTarget(null);
+		world.spawnEntityInWorld(entityLiving);
+		world.updateEntityWithOptionalForce(entityLiving, false);
+		return (T) entityLiving;
+	}
+
+	private static long getCurrentOnlineTime() {
+		return MinecraftServer.getServer().worldServerForDimension(0).getTotalWorldTime();
+	}
+
+	private static EntityPlayer getOtherPlayer(UUID uuid) {
+		for (WorldServer worldServer : MinecraftServer.getServer().worldServers) {
+			EntityPlayer entityplayer = worldServer.func_152378_a(uuid);
+			if (entityplayer != null) {
+				return entityplayer;
+			}
+		}
+		return null;
+	}
+
+	public static void renameCustomWaypointClient(GOTCustomWaypoint waypoint, String newName) {
+		waypoint.rename(newName);
+	}
+
+	private static void sendAchievementPacket(EntityPlayerMP entityplayer, GOTAchievement achievement, boolean display) {
+		IMessage packet = new GOTPacketAchievement(achievement, display);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
+	}
+
+	private static void sendAchievementRemovePacket(EntityPlayerMP entityplayer, GOTAchievement achievement) {
+		IMessage packet = new GOTPacketAchievementRemove(achievement);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
+	}
+
+	private static void sendFTBouncePacket(EntityPlayerMP entityplayer) {
+		IMessage packet = new GOTPacketFTBounceClient();
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
+	}
+
+	private static void sendFTPacket(EntityPlayerMP entityplayer, GOTAbstractWaypoint waypoint, int startX, int startZ) {
+		IMessage packet = new GOTPacketFTScreen(waypoint, startX, startZ);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
+	}
+
+	private static void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) {
+		NBTTagCompound nbt = new NBTTagCompound();
+		quest.writeToNBT(nbt);
+		IMessage packet = new GOTPacketMiniquest(nbt, completed);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
+	}
+
 	@SuppressWarnings("unused")
 	public boolean isShowWaypoints() {
 		return showWaypoints;
@@ -822,10 +895,6 @@ public class GOTPlayerData {
 		}
 	}
 
-	public static void customWaypointAddSharedFellowshipClient(GOTCustomWaypoint waypoint, GOTFellowshipClient fs) {
-		waypoint.addSharedFellowship(fs.getFellowshipID());
-	}
-
 	public void customWaypointRemoveSharedFellowship(GOTCustomWaypoint waypoint, GOTFellowship fs) {
 		UUID fsID = fs.getFellowshipID();
 		waypoint.removeSharedFellowship(fsID);
@@ -844,10 +913,6 @@ public class GOTPlayerData {
 				pd.checkCustomWaypointsSharedBy(ImmutableList.of(playerUUID));
 			}
 		}
-	}
-
-	public static void customWaypointRemoveSharedFellowshipClient(GOTCustomWaypoint waypoint, UUID fsID) {
-		waypoint.removeSharedFellowship(fsID);
 	}
 
 	public void disbandFellowship(GOTFellowship fs, String disbanderUsername) {
@@ -870,26 +935,6 @@ public class GOTPlayerData {
 				quest.handleEvent(event);
 			}
 		}
-	}
-
-	private static boolean doesFactionPreventPledge(GOTFaction pledgeFac, GOTFaction otherFac) {
-		return pledgeFac.isMortalEnemy(otherFac);
-	}
-
-	private static <T extends EntityLiving> T fastTravelEntity(WorldServer world, T entity, int i, int j, int k) {
-		String entityID = EntityList.getEntityString(entity);
-		NBTTagCompound nbt = new NBTTagCompound();
-		entity.writeToNBT(nbt);
-		entity.setDead();
-		EntityLiving entityLiving = (EntityLiving) EntityList.createEntityByName(entityID, world);
-		entityLiving.readFromNBT(nbt);
-		entityLiving.setLocationAndAngles(i + 0.5D, j, k + 0.5D, entityLiving.rotationYaw, entityLiving.rotationPitch);
-		entityLiving.fallDistance = 0.0F;
-		entityLiving.getNavigator().clearPathEntity();
-		entityLiving.setAttackTarget(null);
-		world.spawnEntityInWorld(entityLiving);
-		world.updateEntityWithOptionalForce(entityLiving, false);
-		return (T) entityLiving;
 	}
 
 	private void fastTravelTo(GOTAbstractWaypoint waypoint) {
@@ -1089,10 +1134,6 @@ public class GOTPlayerData {
 		return completedMiniquestCount;
 	}
 
-	private static long getCurrentOnlineTime() {
-		return MinecraftServer.getServer().worldServerForDimension(0).getTotalWorldTime();
-	}
-
 	public GOTCustomWaypoint getCustomWaypointByID(int ID) {
 		for (GOTCustomWaypoint waypoint : customWaypoints) {
 			if (waypoint.getID() == ID) {
@@ -1287,16 +1328,6 @@ public class GOTPlayerData {
 
 	public int getNextCwpID() {
 		return nextCwpID;
-	}
-
-	private static EntityPlayer getOtherPlayer(UUID uuid) {
-		for (WorldServer worldServer : MinecraftServer.getServer().worldServers) {
-			EntityPlayer entityplayer = worldServer.func_152378_a(uuid);
-			if (entityplayer != null) {
-				return entityplayer;
-			}
-		}
-		return null;
 	}
 
 	private EntityPlayer getPlayer() {
@@ -2319,10 +2350,6 @@ public class GOTPlayerData {
 		}
 	}
 
-	public static void renameCustomWaypointClient(GOTCustomWaypoint waypoint, String newName) {
-		waypoint.rename(newName);
-	}
-
 	public void renameFellowship(GOTFellowship fs, String name) {
 		if (fs.isOwner(playerUUID)) {
 			fs.setName(name);
@@ -2719,16 +2746,6 @@ public class GOTPlayerData {
 		return ret;
 	}
 
-	private static void sendAchievementPacket(EntityPlayerMP entityplayer, GOTAchievement achievement, boolean display) {
-		IMessage packet = new GOTPacketAchievement(achievement, display);
-		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
-	}
-
-	private static void sendAchievementRemovePacket(EntityPlayerMP entityplayer, GOTAchievement achievement) {
-		IMessage packet = new GOTPacketAchievementRemove(achievement);
-		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
-	}
-
 	private void sendAlignmentBonusPacket(GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionMap, float conqBonus, double posX, double posY, double posZ) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null) {
@@ -2769,16 +2786,6 @@ public class GOTPlayerData {
 		}
 	}
 
-	private static void sendFTBouncePacket(EntityPlayerMP entityplayer) {
-		IMessage packet = new GOTPacketFTBounceClient();
-		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
-	}
-
-	private static void sendFTPacket(EntityPlayerMP entityplayer, GOTAbstractWaypoint waypoint, int startX, int startZ) {
-		IMessage packet = new GOTPacketFTScreen(waypoint, startX, startZ);
-		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
-	}
-
 	public void sendMessageIfNotReceived(GOTGuiMessageTypes message) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
@@ -2790,13 +2797,6 @@ public class GOTPlayerData {
 				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
-	}
-
-	private static void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) {
-		NBTTagCompound nbt = new NBTTagCompound();
-		quest.writeToNBT(nbt);
-		IMessage packet = new GOTPacketMiniquest(nbt, completed);
-		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	private void sendOptionsPacket(int option, boolean flag) {

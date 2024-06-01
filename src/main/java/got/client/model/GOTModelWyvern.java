@@ -457,6 +457,12 @@ public class GOTModelWyvern extends ModelBase {
 		return origAngle % 360.0f;
 	}
 
+	private static void setRotation(ModelRenderer model, float x, float y, float z) {
+		model.rotateAngleX = x;
+		model.rotateAngleY = y;
+		model.rotateAngleZ = z;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles(f, f1, f3, f4);
@@ -479,12 +485,6 @@ public class GOTModelWyvern extends ModelBase {
 		leftUpLeg.render(f5);
 		rightUpLeg.render(f5);
 		GL11.glPopMatrix();
-	}
-
-	private static void setRotation(ModelRenderer model, float x, float y, float z) {
-		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
 	}
 
 	private void setRotationAngles(float f, float f1, float f3, float f4) {

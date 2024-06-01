@@ -29,14 +29,14 @@ public class GOTBannerProtection {
 	private static final Map<UUID, Integer> LAST_WARNING_TIMES = new HashMap<>();
 
 	static {
-		Pair<Block, Integer> BRONZE = Pair.of(GOTBlocks.blockMetal1, 2);
-		Pair<Block, Integer> SILVER = Pair.of(GOTBlocks.blockMetal1, 3);
-		Pair<Block, Integer> GOLD = Pair.of(Blocks.gold_block, 0);
-		Pair<Block, Integer> VALYRIAN = Pair.of(GOTBlocks.blockMetal1, 4);
-		PROTECTION_BLOCKS.put(BRONZE, 8);
-		PROTECTION_BLOCKS.put(SILVER, 16);
-		PROTECTION_BLOCKS.put(GOLD, 32);
-		PROTECTION_BLOCKS.put(VALYRIAN, 64);
+		Pair<Block, Integer> bronze = Pair.of(GOTBlocks.blockMetal1, 2);
+		Pair<Block, Integer> silver = Pair.of(GOTBlocks.blockMetal1, 3);
+		Pair<Block, Integer> golden = Pair.of(Blocks.gold_block, 0);
+		Pair<Block, Integer> valyrian = Pair.of(GOTBlocks.blockMetal1, 4);
+		PROTECTION_BLOCKS.put(bronze, 8);
+		PROTECTION_BLOCKS.put(silver, 16);
+		PROTECTION_BLOCKS.put(golden, 32);
+		PROTECTION_BLOCKS.put(valyrian, 64);
 	}
 
 	private GOTBannerProtection() {

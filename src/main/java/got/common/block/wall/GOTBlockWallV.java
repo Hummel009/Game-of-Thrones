@@ -36,7 +36,7 @@ public class GOTBlockWallV extends GOTBlockWallBase {
 			case 8:
 				return GOTBlocks.redBrick.getIcon(i, 1);
 			default:
-				return super.getIcon(i, j);
+				return null;
 		}
 	}
 }

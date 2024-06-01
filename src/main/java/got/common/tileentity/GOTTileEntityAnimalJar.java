@@ -1,9 +1,9 @@
 package got.common.tileentity;
 
 import got.common.block.other.GOTBlockAnimalJar;
+import got.common.entity.GOTEntityRegistry;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
-import got.common.entity.GOTEntityRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;

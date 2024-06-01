@@ -75,8 +75,6 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 									case 2:
 										hiredNPC.getHireableInfo().setGuardRange(value);
 										break;
-									default:
-										break;
 								}
 							}
 						} else if (task == GOTHireableInfo.Task.FARMER) {
@@ -89,8 +87,6 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 									break;
 								case 2:
 									entityplayer.openGui(GOT.instance, GOTGuiId.HIRED_FARMER_INVENTORY.ordinal(), world, hiredNPC.getEntityId(), 0, 0);
-									break;
-								default:
 									break;
 							}
 						}

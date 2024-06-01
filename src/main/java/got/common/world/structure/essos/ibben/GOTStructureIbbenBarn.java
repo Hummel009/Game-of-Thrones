@@ -24,8 +24,10 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 				return new EntityPig(world);
 			case 2:
 				return new EntitySheep(world);
-			default:
+			case 3:
 				return new EntityChicken(world);
+			default:
+				return null;
 		}
 	}
 
@@ -164,8 +166,6 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 						break;
 					case 0:
 						setBlockAndMetadata(world, i13, 4, k15, plankSlabBlock, plankSlabMeta | 8);
-						break;
-					default:
 						break;
 				}
 				setBlockAndMetadata(world, i13, 7, k15, fenceBlock, fenceMeta);

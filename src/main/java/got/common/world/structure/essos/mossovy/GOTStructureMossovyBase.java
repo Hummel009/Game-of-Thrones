@@ -55,12 +55,14 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 	protected static Block getRandomPieBlock(Random random) {
 		int i = random.nextInt(3);
 		switch (i) {
-			case 1:
+			case 0:
 				return GOTBlocks.cherryPie;
-			case 2:
+			case 1:
 				return GOTBlocks.berryPie;
-			default:
+			case 2:
 				return GOTBlocks.appleCrumble;
+			default:
+				return null;
 		}
 	}
 
@@ -172,8 +174,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceGateBlock = GOTBlocks.fenceGateAspen;
 				beamBlock = GOTBlocks.woodBeam7;
 				beamMeta = 0;
-				break;
-			default:
 				break;
 		}
 		doorBlock = GOTBlocks.doorBeech;

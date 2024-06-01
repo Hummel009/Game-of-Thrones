@@ -53,6 +53,31 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				if (random.nextBoolean()) {
+					return new GOTStructureReachVillageFarm.Animals(false);
+				}
+				return new GOTStructureReachVillageFarm.Crops(false);
+			}
+			return new GOTStructureReachVillageFarm.Tree(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(5) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+					case 0:
+						return new GOTStructureReachStables(false);
+					case 1:
+						return new GOTStructureReachSmithy(false);
+					case 2:
+						return new GOTStructureReachBarn(false);
+				}
+			}
+			return new GOTStructureReachHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -97,31 +122,6 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				if (random.nextBoolean()) {
-					return new GOTStructureReachVillageFarm.Animals(false);
-				}
-				return new GOTStructureReachVillageFarm.Crops(false);
-			}
-			return new GOTStructureReachVillageFarm.Tree(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(5) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-					case 0:
-						return new GOTStructureReachStables(false);
-					case 1:
-						return new GOTStructureReachSmithy(false);
-					default:
-						return new GOTStructureReachBarn(false);
-				}
-			}
-			return new GOTStructureReachHouse(false);
 		}
 
 		@Override

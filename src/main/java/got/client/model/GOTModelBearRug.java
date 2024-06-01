@@ -7,6 +7,17 @@ import org.lwjgl.opengl.GL11;
 public class GOTModelBearRug extends ModelBase {
 	private static final GOTModelBear BEAR_MODEL = new GOTModelBear();
 
+	private static void setRotationAngles() {
+		BEAR_MODEL.getLeg1().rotateAngleX = 0.5235987755982988f;
+		BEAR_MODEL.getLeg1().rotateAngleZ = 1.5707963267948966f;
+		BEAR_MODEL.getLeg2().rotateAngleX = 0.5235987755982988f;
+		BEAR_MODEL.getLeg2().rotateAngleZ = -1.5707963267948966f;
+		BEAR_MODEL.getLeg3().rotateAngleX = -0.3490658503988659f;
+		BEAR_MODEL.getLeg3().rotateAngleZ = 1.5707963267948966f;
+		BEAR_MODEL.getLeg4().rotateAngleX = -0.3490658503988659f;
+		BEAR_MODEL.getLeg4().rotateAngleZ = -1.5707963267948966f;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles();
@@ -30,16 +41,5 @@ public class GOTModelBearRug extends ModelBase {
 		BEAR_MODEL.getLeg2().render(f5);
 		BEAR_MODEL.getLeg4().render(f5);
 		GL11.glPopMatrix();
-	}
-
-	private static void setRotationAngles() {
-		BEAR_MODEL.getLeg1().rotateAngleX = 0.5235987755982988f;
-		BEAR_MODEL.getLeg1().rotateAngleZ = 1.5707963267948966f;
-		BEAR_MODEL.getLeg2().rotateAngleX = 0.5235987755982988f;
-		BEAR_MODEL.getLeg2().rotateAngleZ = -1.5707963267948966f;
-		BEAR_MODEL.getLeg3().rotateAngleX = -0.3490658503988659f;
-		BEAR_MODEL.getLeg3().rotateAngleZ = 1.5707963267948966f;
-		BEAR_MODEL.getLeg4().rotateAngleX = -0.3490658503988659f;
-		BEAR_MODEL.getLeg4().rotateAngleZ = -1.5707963267948966f;
 	}
 }

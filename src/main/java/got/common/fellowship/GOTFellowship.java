@@ -58,6 +58,14 @@ public class GOTFellowship {
 		fellowshipUUID = UUID.randomUUID();
 	}
 
+	public static void sendNotification(ICommandSender entityplayer, String key, Object... args) {
+		ChatComponentTranslation message = new ChatComponentTranslation(key, args);
+		message.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+		entityplayer.addChatMessage(message);
+		IMessage packet = new GOTPacketFellowshipNotification(message);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
+	}
+
 	public void addMember(UUID player) {
 		if (!isOwner(player) && !memberUUIDs.contains(player)) {
 			memberUUIDs.add(player);
@@ -357,14 +365,6 @@ public class GOTFellowship {
 				entityplayer.playerNetServerHandler.sendPacket(packetChat);
 			}
 		}
-	}
-
-	public static void sendNotification(ICommandSender entityplayer, String key, Object... args) {
-		ChatComponentTranslation message = new ChatComponentTranslation(key, args);
-		message.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		entityplayer.addChatMessage(message);
-		IMessage packet = new GOTPacketFellowshipNotification(message);
-		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public void setAdmin(UUID player, boolean flag) {

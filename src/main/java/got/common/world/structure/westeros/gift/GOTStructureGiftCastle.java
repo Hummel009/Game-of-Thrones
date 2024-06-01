@@ -78,7 +78,7 @@ public abstract class GOTStructureGiftCastle extends GOTStructureGiftBase {
 							case 1:
 								setBlockAndMetadata(world, i15, 0, k12, Blocks.dirt, 1);
 								break;
-							default:
+							case 2:
 								setBlockAndMetadata(world, i15, 0, k12, GOTBlocks.dirtPath, 0);
 								break;
 						}

@@ -53,6 +53,20 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getOtherSettlementStructure(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureYiTiStables(false);
+			}
+			return new GOTStructureYiTiSmithy(false);
+		}
+
+		private static GOTStructureBase getRandomVillageFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureYiTiVillageFarm.Animals(false);
+			}
+			return new GOTStructureYiTiVillageFarm.Crops(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -76,13 +90,6 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
 					break;
 			}
-		}
-
-		private static GOTStructureBase getOtherSettlementStructure(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureYiTiStables(false);
-			}
-			return new GOTStructureYiTiSmithy(false);
 		}
 
 		@Override
@@ -123,13 +130,6 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomVillageFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureYiTiVillageFarm.Animals(false);
-			}
-			return new GOTStructureYiTiVillageFarm.Crops(false);
 		}
 
 		@Override

@@ -351,10 +351,6 @@ public class GOTQuestInfo {
 		addOpenOfferPlayer(entityplayer);
 	}
 
-	public void setMinAlignment(float minAlignment) {
-		this.minAlignment = minAlignment;
-	}
-
 	private void setMiniQuestOffer(GOTMiniQuest quest, int time) {
 		miniquestOffer = quest;
 		offerTime = time;
@@ -409,5 +405,9 @@ public class GOTQuestInfo {
 	@SuppressWarnings("unused")
 	public float getMinAlignment() {
 		return minAlignment;
+	}
+
+	public void setMinAlignment(float minAlignment) {
+		this.minAlignment = minAlignment;
 	}
 }

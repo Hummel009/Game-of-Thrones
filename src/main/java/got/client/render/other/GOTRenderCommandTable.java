@@ -12,14 +12,6 @@ import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
-	public void renderInvTable() {
-		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
-		EntityLivingBase viewer = Minecraft.getMinecraft().renderViewEntity;
-		renderTableAt(0.0, 0.0, 0.0, viewer.posX, viewer.posZ, 0);
-		bindTexture(TextureMap.locationBlocksTexture);
-	}
-
 	private static void renderTableAt(double d, double d1, double d2, double viewerX, double viewerZ, int zoomExp) {
 		GL11.glEnable(32826);
 		GL11.glDisable(2884);
@@ -80,6 +72,14 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		GL11.glEnable(3553);
 		GL11.glPopMatrix();
 		GL11.glEnable(2896);
+	}
+
+	public void renderInvTable() {
+		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
+		EntityLivingBase viewer = Minecraft.getMinecraft().renderViewEntity;
+		renderTableAt(0.0, 0.0, 0.0, viewer.posX, viewer.posZ, 0);
+		bindTexture(TextureMap.locationBlocksTexture);
 	}
 
 	@Override

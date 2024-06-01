@@ -23,11 +23,6 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 		setTickRandomly(true);
 	}
 
-	@Override
-	public boolean canBlockStay(World world, int i, int j, int k) {
-		return super.canBlockStay(world, i, j, k) || GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
-	}
-
 	private static boolean isEntityVulnerable(EntityLivingBase entity) {
 		if (GOT.getNPCFaction(entity) == GOTFaction.ASSHAI) {
 			return false;
@@ -49,6 +44,11 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean canBlockStay(World world, int i, int j, int k) {
+		return super.canBlockStay(world, i, j, k) || GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
 	}
 
 	@Override

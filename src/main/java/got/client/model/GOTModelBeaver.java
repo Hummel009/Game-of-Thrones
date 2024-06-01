@@ -65,6 +65,12 @@ public class GOTModelBeaver extends ModelBase {
 		leg4.cubeList.add(new ModelBox(leg4, 0, 19, -1.0F, -1.0F, -1.0F, 2, 4, 2, 0.0F));
 	}
 
+	private static void setRotationAngle(ModelRenderer modelRenderer, float x, float y) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = 0.0f;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		bober.render(f5);
@@ -79,11 +85,5 @@ public class GOTModelBeaver extends ModelBase {
 		leg2.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
 		leg3.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
 		leg4.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
-	}
-
-	private static void setRotationAngle(ModelRenderer modelRenderer, float x, float y) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = 0.0f;
 	}
 }

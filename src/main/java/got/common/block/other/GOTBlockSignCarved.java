@@ -24,6 +24,18 @@ public class GOTBlockSignCarved extends BlockSign {
 		setHardness(0.5f);
 	}
 
+	public static IIcon getOnBlockIcon(IBlockAccess world, int i, int j, int k, int side) {
+		int onX = i - Facing.offsetsXForSide[side];
+		int onY = j - Facing.offsetsYForSide[side];
+		int onZ = k - Facing.offsetsZForSide[side];
+		Block onBlock = world.getBlock(onX, onY, onZ);
+		IIcon icon = onBlock.getIcon(world, onX, onY, onZ, side);
+		if (icon == null) {
+			return Blocks.stone.getIcon(0, 0);
+		}
+		return icon;
+	}
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
@@ -42,18 +54,6 @@ public class GOTBlockSignCarved extends BlockSign {
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
 		return null;
-	}
-
-	public static IIcon getOnBlockIcon(IBlockAccess world, int i, int j, int k, int side) {
-		int onX = i - Facing.offsetsXForSide[side];
-		int onY = j - Facing.offsetsYForSide[side];
-		int onZ = k - Facing.offsetsZForSide[side];
-		Block onBlock = world.getBlock(onX, onY, onZ);
-		IIcon icon = onBlock.getIcon(world, onX, onY, onZ, side);
-		if (icon == null) {
-			return Blocks.stone.getIcon(0, 0);
-		}
-		return icon;
 	}
 
 	@Override

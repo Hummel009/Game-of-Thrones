@@ -206,8 +206,6 @@ public class GOTBlockBarrel extends BlockContainer {
 			case 3:
 				meta = 4;
 				break;
-			default:
-				break;
 		}
 		world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		if (itemstack.hasDisplayName()) {

@@ -31,8 +31,10 @@ public class GOTBlockSlabV extends GOTBlockSlabBase {
 				return GOTBlocks.redBrick.getIcon(i, 1);
 			case 4:
 				return Blocks.mossy_cobblestone.getIcon(i, 0);
-			default:
+			case 5:
 				return Blocks.stone.getIcon(i, 0);
+			default:
+				return null;
 		}
 	}
 

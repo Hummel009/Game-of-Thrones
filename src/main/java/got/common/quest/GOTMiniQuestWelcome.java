@@ -150,9 +150,8 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 11:
 				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.factions", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
 			default:
-				break;
+				return StatCollector.translateToLocal("got.miniquest.welcome.speak");
 		}
-		return StatCollector.translateToLocal("got.miniquest.welcome.speak");
 	}
 
 	@Override
@@ -202,8 +201,6 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 					playerData.updateMiniQuest(this);
 					updateJaqenHghar();
 				}
-				break;
-			default:
 				break;
 		}
 	}
@@ -308,8 +305,6 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 				stage = 15;
 				playerData.updateMiniQuest(this);
 				complete(entityplayer, npc);
-				break;
-			default:
 				break;
 		}
 	}

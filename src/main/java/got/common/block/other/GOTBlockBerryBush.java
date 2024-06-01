@@ -49,28 +49,6 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		return getBerryType(meta);
 	}
 
-	@Override
-	public int damageDropped(int i) {
-		return i;
-	}
-
-	@Override
-	public boolean func_149851_a(World world, int i, int j, int k, boolean isRemote) {
-		return !hasBerries(world.getBlockMetadata(i, j, k));
-	}
-
-	@Override
-	public boolean func_149852_a(World world, Random random, int i, int j, int k) {
-		return true;
-	}
-
-	@Override
-	public void func_149853_b(World world, Random random, int i, int j, int k) {
-		if (random.nextInt(3) == 0) {
-			growBerries(world, i, j, k);
-		}
-	}
-
 	private static Collection<ItemStack> getBerryDrops(World world, int meta) {
 		Collection<ItemStack> drops = new ArrayList<>();
 		if (hasBerries(meta)) {
@@ -103,6 +81,33 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 			}
 		}
 		return drops;
+	}
+
+	private static void growBerries(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		world.setBlockMetadataWithNotify(i, j, k, setHasBerries(meta, true), 3);
+	}
+
+	@Override
+	public int damageDropped(int i) {
+		return i;
+	}
+
+	@Override
+	public boolean func_149851_a(World world, int i, int j, int k, boolean isRemote) {
+		return !hasBerries(world.getBlockMetadata(i, j, k));
+	}
+
+	@Override
+	public boolean func_149852_a(World world, Random random, int i, int j, int k) {
+		return true;
+	}
+
+	@Override
+	public void func_149853_b(World world, Random random, int i, int j, int k) {
+		if (random.nextInt(3) == 0) {
+			growBerries(world, i, j, k);
+		}
 	}
 
 	@Override
@@ -201,11 +206,6 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 			list.add(new ItemStack(item, 1, setHasBerries(meta, true)));
 			list.add(new ItemStack(item, 1, setHasBerries(meta, false)));
 		}
-	}
-
-	private static void growBerries(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, setHasBerries(meta, true), 3);
 	}
 
 	@Override

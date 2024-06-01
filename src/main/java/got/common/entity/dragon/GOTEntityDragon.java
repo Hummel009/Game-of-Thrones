@@ -142,6 +142,10 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		return itemStack != null && itemStack.getItemUseAction() != EnumAction.none;
 	}
 
+	private static void setTasksEnabled(EntityAITasks tasks, boolean flag) {
+		ReflectionHelper.setPrivateValue(EntityAITasks.class, tasks, flag ? 3 : Integer.MAX_VALUE, ENTITYAITASKS_TICKRATE);
+	}
+
 	private void addHelper(GOTDragonHelper helper) {
 		GOTLog.getLogger().trace("addHelper({})", helper.getClass().getName());
 		if (helpers == null) {
@@ -370,10 +374,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 	public void setMoveSpeedAirVert(double airSpeedVertical) {
 		GOTLog.getLogger().trace("setMoveSpeedAirVert({})", airSpeedVertical);
 		this.airSpeedVertical = airSpeedVertical;
-	}
-
-	private static void setTasksEnabled(EntityAITasks tasks, boolean flag) {
-		ReflectionHelper.setPrivateValue(EntityAITasks.class, tasks, flag ? 3 : Integer.MAX_VALUE, ENTITYAITASKS_TICKRATE);
 	}
 
 	@Override

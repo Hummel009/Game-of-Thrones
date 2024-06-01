@@ -108,6 +108,12 @@ public class GOTModelShadowcat extends ModelBase {
 		parent.addChild(child);
 	}
 
+	private static void setRotation(ModelRenderer model, float x) {
+		model.rotateAngleX = x;
+		model.rotateAngleY = 0.0f;
+		model.rotateAngleZ = 0.0f;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
@@ -156,12 +162,6 @@ public class GOTModelShadowcat extends ModelBase {
 		leg2.rotateAngleX = MathHelper.cos(f1 * 0.6662F + (float) Math.PI) * 1.4F * f2;
 		leg3.rotateAngleX = MathHelper.cos(f1 * 0.6662F + (float) Math.PI) * 1.4F * f2;
 		leg4.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
-	}
-
-	private static void setRotation(ModelRenderer model, float x) {
-		model.rotateAngleX = x;
-		model.rotateAngleY = 0.0f;
-		model.rotateAngleZ = 0.0f;
 	}
 
 	@Override

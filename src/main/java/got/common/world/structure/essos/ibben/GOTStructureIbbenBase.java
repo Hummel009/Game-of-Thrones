@@ -85,8 +85,10 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 				return GOTBlocks.appleCrumble;
 			case 1:
 				return GOTBlocks.cherryPie;
-			default:
+			case 2:
 				return GOTBlocks.berryPie;
+			default:
+				return null;
 		}
 	}
 
@@ -120,26 +122,24 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		brickCarvedMeta = 3;
 		cobbleBlock = Blocks.cobblestone;
 		cobbleMeta = 0;
-		int randomWood = random.nextInt(6);
-		switch (randomWood) {
+		int randomWood1 = random.nextInt(6);
+		switch (randomWood1) {
 			case 0:
-			case 1:
-			case 2:
-				logBlock = Blocks.log;
+				logBlock = GOTBlocks.wood5;
 				logMeta = 0;
-				plankBlock = Blocks.planks;
-				plankMeta = 0;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 0;
-				plankStairBlock = Blocks.oak_stairs;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 0;
-				fenceGateBlock = Blocks.fence_gate;
-				woodBeamBlock = GOTBlocks.woodBeamV1;
+				plankBlock = GOTBlocks.planks2;
+				plankMeta = 4;
+				plankSlabBlock = GOTBlocks.woodSlabSingle3;
+				plankSlabMeta = 4;
+				plankStairBlock = GOTBlocks.stairsPine;
+				fenceBlock = GOTBlocks.fence2;
+				fenceMeta = 4;
+				fenceGateBlock = GOTBlocks.fenceGatePine;
+				woodBeamBlock = GOTBlocks.woodBeam5;
 				woodBeamMeta = 0;
-				doorBlock = Blocks.wooden_door;
+				doorBlock = GOTBlocks.doorPine;
 				break;
-			case 3:
+			case 1:
 				logBlock = GOTBlocks.wood2;
 				logMeta = 1;
 				plankBlock = GOTBlocks.planks1;
@@ -154,7 +154,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 				woodBeamMeta = 1;
 				doorBlock = GOTBlocks.doorBeech;
 				break;
-			case 4:
+			case 2:
 				logBlock = GOTBlocks.fruitWood;
 				logMeta = 0;
 				plankBlock = GOTBlocks.planks1;
@@ -170,49 +170,55 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 				doorBlock = GOTBlocks.doorApple;
 				break;
 			default:
-				logBlock = GOTBlocks.wood5;
+				logBlock = Blocks.log;
 				logMeta = 0;
-				plankBlock = GOTBlocks.planks2;
-				plankMeta = 4;
-				plankSlabBlock = GOTBlocks.woodSlabSingle3;
-				plankSlabMeta = 4;
-				plankStairBlock = GOTBlocks.stairsPine;
-				fenceBlock = GOTBlocks.fence2;
-				fenceMeta = 4;
-				fenceGateBlock = GOTBlocks.fenceGatePine;
-				woodBeamBlock = GOTBlocks.woodBeam5;
+				plankBlock = Blocks.planks;
+				plankMeta = 0;
+				plankSlabBlock = Blocks.wooden_slab;
+				plankSlabMeta = 0;
+				plankStairBlock = Blocks.oak_stairs;
+				fenceBlock = Blocks.fence;
+				fenceMeta = 0;
+				fenceGateBlock = Blocks.fence_gate;
+				woodBeamBlock = GOTBlocks.woodBeamV1;
 				woodBeamMeta = 0;
-				doorBlock = GOTBlocks.doorPine;
+				doorBlock = Blocks.wooden_door;
 				break;
 		}
-		int randomWood2 = random.nextInt(4);
+
 		Block fenceGate2Block;
 		int log2Meta;
 		Block log2Block;
-		if (randomWood2 == 0 || randomWood2 == 1 || randomWood2 == 2) {
-			log2Block = Blocks.log;
-			log2Meta = 1;
-			plank2Block = Blocks.planks;
-			plank2Meta = 1;
-			plank2SlabBlock = Blocks.wooden_slab;
-			plank2SlabMeta = 1;
-			plank2StairBlock = Blocks.spruce_stairs;
-			fence2Block = Blocks.fence;
-			fence2Meta = 1;
-			fenceGate2Block = GOTBlocks.fenceGateSpruce;
-			woodBeam2Block = GOTBlocks.woodBeamV1;
-		} else {
-			log2Block = GOTBlocks.wood3;
-			log2Meta = 1;
-			plank2Block = GOTBlocks.planks1;
-			plank2Meta = 13;
-			plank2SlabBlock = GOTBlocks.woodSlabSingle2;
-			plank2SlabMeta = 5;
-			plank2StairBlock = GOTBlocks.stairsLarch;
-			fence2Block = GOTBlocks.fence;
-			fence2Meta = 13;
-			fenceGate2Block = GOTBlocks.fenceGateLarch;
-			woodBeam2Block = GOTBlocks.woodBeam3;
+
+		int randomWood2 = random.nextInt(4);
+
+		switch (randomWood2) {
+			case 0:
+				log2Block = GOTBlocks.wood3;
+				log2Meta = 1;
+				plank2Block = GOTBlocks.planks1;
+				plank2Meta = 13;
+				plank2SlabBlock = GOTBlocks.woodSlabSingle2;
+				plank2SlabMeta = 5;
+				plank2StairBlock = GOTBlocks.stairsLarch;
+				fence2Block = GOTBlocks.fence;
+				fence2Meta = 13;
+				fenceGate2Block = GOTBlocks.fenceGateLarch;
+				woodBeam2Block = GOTBlocks.woodBeam3;
+				break;
+			default:
+				log2Block = Blocks.log;
+				log2Meta = 1;
+				plank2Block = Blocks.planks;
+				plank2Meta = 1;
+				plank2SlabBlock = Blocks.wooden_slab;
+				plank2SlabMeta = 1;
+				plank2StairBlock = Blocks.spruce_stairs;
+				fence2Block = Blocks.fence;
+				fence2Meta = 1;
+				fenceGate2Block = GOTBlocks.fenceGateSpruce;
+				woodBeam2Block = GOTBlocks.woodBeamV1;
+				break;
 		}
 		woodBeam2Meta = 1;
 		if (oneWoodType() && random.nextInt(3) == 0) {
@@ -271,7 +277,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 					cropMeta = 7;
 					seedItem = GOTItems.leek;
 					break;
-				default:
+				case 4:
 					cropBlock = GOTBlocks.turnipCrop;
 					cropMeta = 7;
 					seedItem = GOTItems.turnip;

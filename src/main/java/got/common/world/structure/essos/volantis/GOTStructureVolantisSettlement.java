@@ -54,6 +54,23 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureVolantisFarm(false);
+			}
+			return new GOTStructureVolantisPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureVolantisSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureVolantisStables(false);
+			}
+			return new GOTStructureVolantisHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -122,23 +139,6 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureVolantisFarm(false);
-			}
-			return new GOTStructureVolantisPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureVolantisSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureVolantisStables(false);
-			}
-			return new GOTStructureVolantisHouse(false);
 		}
 
 		@Override

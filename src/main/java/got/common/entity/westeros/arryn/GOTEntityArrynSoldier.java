@@ -40,7 +40,7 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(10);
+		int i = rand.nextInt(12);
 		switch (i) {
 			case 0:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));

@@ -42,55 +42,56 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 				}
 			}
 		}
+		Block trapdoorBlock = null;
+		Block stairBlock = null;
+		int fenceMeta = 0;
+		Block fenceBlock = null;
+		int plankMeta = 0;
+		Block plankBlock = null;
+
 		int randomWood = random.nextInt(4);
-		Block trapdoorBlock;
-		Block stairBlock;
-		int fenceMeta;
-		Block fenceBlock;
-		int plankMeta;
-		Block plankBlock;
-		if (randomWood == 0) {
-			woodBlock = Blocks.log;
-			woodMeta = 0;
-			plankBlock = Blocks.planks;
-			plankMeta = 0;
-			fenceBlock = Blocks.fence;
-			fenceMeta = 0;
-			stairBlock = Blocks.oak_stairs;
-			trapdoorBlock = Blocks.trapdoor;
-		} else {
-			switch (randomWood) {
-				case 1:
-					woodBlock = Blocks.log;
-					woodMeta = 1;
-					plankBlock = Blocks.planks;
-					plankMeta = 1;
-					fenceBlock = Blocks.fence;
-					fenceMeta = 0;
-					stairBlock = Blocks.spruce_stairs;
-					trapdoorBlock = GOTBlocks.trapdoorSpruce;
-					break;
-				case 2:
-					woodBlock = GOTBlocks.wood2;
-					woodMeta = 1;
-					plankBlock = GOTBlocks.planks1;
-					plankMeta = 9;
-					fenceBlock = GOTBlocks.fence;
-					fenceMeta = 9;
-					stairBlock = GOTBlocks.stairsBeech;
-					trapdoorBlock = GOTBlocks.trapdoorBeech;
-					break;
-				default:
-					woodBlock = GOTBlocks.wood3;
-					woodMeta = 0;
-					plankBlock = GOTBlocks.planks1;
-					plankMeta = 12;
-					fenceBlock = GOTBlocks.fence;
-					fenceMeta = 12;
-					stairBlock = GOTBlocks.stairsMaple;
-					trapdoorBlock = GOTBlocks.trapdoorMaple;
-					break;
-			}
+
+		switch (randomWood) {
+			case 0:
+				woodBlock = Blocks.log;
+				woodMeta = 0;
+				plankBlock = Blocks.planks;
+				plankMeta = 0;
+				fenceBlock = Blocks.fence;
+				fenceMeta = 0;
+				stairBlock = Blocks.oak_stairs;
+				trapdoorBlock = Blocks.trapdoor;
+				break;
+			case 1:
+				woodBlock = Blocks.log;
+				woodMeta = 1;
+				plankBlock = Blocks.planks;
+				plankMeta = 1;
+				fenceBlock = Blocks.fence;
+				fenceMeta = 0;
+				stairBlock = Blocks.spruce_stairs;
+				trapdoorBlock = GOTBlocks.trapdoorSpruce;
+				break;
+			case 2:
+				woodBlock = GOTBlocks.wood2;
+				woodMeta = 1;
+				plankBlock = GOTBlocks.planks1;
+				plankMeta = 9;
+				fenceBlock = GOTBlocks.fence;
+				fenceMeta = 9;
+				stairBlock = GOTBlocks.stairsBeech;
+				trapdoorBlock = GOTBlocks.trapdoorBeech;
+				break;
+			case 3:
+				woodBlock = GOTBlocks.wood3;
+				woodMeta = 0;
+				plankBlock = GOTBlocks.planks1;
+				plankMeta = 12;
+				fenceBlock = GOTBlocks.fence;
+				fenceMeta = 12;
+				stairBlock = GOTBlocks.stairsMaple;
+				trapdoorBlock = GOTBlocks.trapdoorMaple;
+				break;
 		}
 		generateSupportPillar(world, -3, 4, -3);
 		generateSupportPillar(world, -3, 4, 3);

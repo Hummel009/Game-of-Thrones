@@ -112,8 +112,6 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 					case 3:
 						setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
 						break;
-					default:
-						break;
 				}
 				setGrassToDirt(world, i13, j12 - 1, k1);
 				j2 = j12 - 1;
@@ -138,8 +136,6 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 					break;
 				case 3:
 					setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
-					break;
-				default:
 					break;
 			}
 			setGrassToDirt(world, i12, j12 - 1, k1);

@@ -52,6 +52,16 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(5) == 0) {
+				return new GOTStructureSummerSmithy(false);
+			}
+			if (random.nextInt(4) == 0) {
+				return new GOTStructureSummerStables(false);
+			}
+			return new GOTStructureSummerHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -97,16 +107,6 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(5) == 0) {
-				return new GOTStructureSummerSmithy(false);
-			}
-			if (random.nextInt(4) == 0) {
-				return new GOTStructureSummerStables(false);
-			}
-			return new GOTStructureSummerHouse(false);
 		}
 
 		@Override

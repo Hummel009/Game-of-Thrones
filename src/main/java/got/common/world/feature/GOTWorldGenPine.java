@@ -75,7 +75,7 @@ public class GOTWorldGenPine extends WorldGenAbstractTree {
 					generateLeafLayer(world, i, leafHeight - 1, k, 1);
 					leafHeight -= 3;
 					continue;
-				default:
+				case 2:
 					leafHeight--;
 					generateLeafLayer(world, i, leafHeight + 1, k, 2);
 					generateLeafLayer(world, i, leafHeight, k, 3);

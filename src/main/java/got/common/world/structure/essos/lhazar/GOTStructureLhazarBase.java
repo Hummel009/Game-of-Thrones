@@ -53,13 +53,13 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected boolean canUseRedBrick() {
-		return true;
-	}
-
 	protected static ItemStack getRandomlhazarWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarDagger), new ItemStack(GOTItems.lhazarSpear), new ItemStack(GOTItems.lhazarClub)};
 		return items[random.nextInt(items.length)].copy();
+	}
+
+	protected boolean canUseRedBrick() {
+		return true;
 	}
 
 	@Override
@@ -129,7 +129,7 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 				beam2Block = GOTBlocks.woodBeam4;
 				beam2Meta = 2;
 				break;
-			default:
+			case 2:
 				plank2Block = GOTBlocks.planks3;
 				plank2Meta = 4;
 				plank2SlabBlock = GOTBlocks.woodSlabSingle5;

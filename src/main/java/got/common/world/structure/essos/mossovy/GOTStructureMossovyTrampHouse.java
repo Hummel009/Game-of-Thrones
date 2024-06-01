@@ -3,8 +3,8 @@ package got.common.world.structure.essos.mossovy;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -141,8 +141,6 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 							setBlockAndMetadata(world, i13, j12, k1, Blocks.mossy_cobblestone, 0);
 						}
 						break;
-					default:
-						break;
 				}
 				setGrassToDirt(world, i13, j12 - 1, k1);
 				j2 = j12 - 1;
@@ -171,8 +169,6 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 					} else {
 						setBlockAndMetadata(world, i12, j12, k1, Blocks.mossy_cobblestone, 0);
 					}
-					break;
-				default:
 					break;
 			}
 			setGrassToDirt(world, i12, j12 - 1, k1);

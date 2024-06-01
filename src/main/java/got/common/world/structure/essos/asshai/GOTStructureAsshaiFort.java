@@ -19,6 +19,11 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		super(flag);
 	}
 
+	private static ItemStack getRandomAsshaiWeapon(Random random) {
+		ItemStack[] items = {new ItemStack(GOTItems.asshaiSword), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiDaggerPoisoned), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiHammer)};
+		return items[random.nextInt(items.length)].copy();
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		setOriginAndRotation(world, i, j, k, rotation, 19);
@@ -177,11 +182,6 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		respawner.setSpawnRanges(24, -4, 8, 24);
 		placeNPCRespawner(respawner, world, 0, 0, 0);
 		return true;
-	}
-
-	private static ItemStack getRandomAsshaiWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.asshaiSword), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiDaggerPoisoned), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiHammer)};
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	private void placeAsshaiArmor(World world, Random random, int i, int j, int k, int meta) {

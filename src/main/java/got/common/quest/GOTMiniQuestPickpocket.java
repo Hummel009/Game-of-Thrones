@@ -10,9 +10,9 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.entity.other.utils.GOTUnitTradeEntry;
-import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTAlignmentValues;
 import got.common.item.other.GOTItemCoin;
 import got.common.item.other.GOTItemLeatherHat;
@@ -44,6 +44,36 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		GOTItemLeatherHat.setHatColor(hat, 0);
 		GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 		return hat;
+	}
+
+	private static boolean isEntityWatching(EntityLiving watcher, EntityLivingBase target) {
+		Vec3 look = watcher.getLookVec();
+		Vec3 watcherEyes = Vec3.createVectorHelper(watcher.posX, watcher.boundingBox.minY + watcher.getEyeHeight(), watcher.posZ);
+		Vec3 targetEyes = Vec3.createVectorHelper(target.posX, target.boundingBox.minY + target.getEyeHeight(), target.posZ);
+		Vec3 disp = Vec3.createVectorHelper(targetEyes.xCoord - watcherEyes.xCoord, targetEyes.yCoord - watcherEyes.yCoord, targetEyes.zCoord - watcherEyes.zCoord);
+		double dot = disp.normalize().dotProduct(look.normalize());
+		return dot >= MathHelper.cos(2.2689280275926285f / 2.0f) && watcher.getEntitySenses().canSee(target);
+	}
+
+	private static void spawnAngryFX(EntityLivingBase npc) {
+		GOT.proxy.spawnParticle("angry", npc.posX, npc.boundingBox.minY + npc.height * 2.0f, npc.posZ, npc.motionX, Math.max(0.0, npc.motionY), npc.motionZ);
+	}
+
+	private static void spawnPickingFX(String particle, double upSpeed, EntityLivingBase npc) {
+		Random rand = npc.getRNG();
+		int particles = 3 + rand.nextInt(8);
+		for (int p = 0; p < particles; ++p) {
+			double x = npc.posX;
+			double y = npc.boundingBox.minY + npc.height * 0.5f;
+			double z = npc.posZ;
+			float w = npc.width * 0.1f;
+			float ang = rand.nextFloat() * 3.1415927f * 2.0f;
+			double hSpeed = MathHelper.getRandomDoubleInRange(rand, 0.05, 0.08);
+			double vx = MathHelper.cos(ang) * hSpeed;
+			double vz = MathHelper.sin(ang) * hSpeed;
+			double vy = MathHelper.getRandomDoubleInRange(rand, 0.1, 0.25) * upSpeed;
+			GOT.proxy.spawnParticle(particle, x + MathHelper.cos(ang) * w, y, z + MathHelper.sin(ang) * w, vx, vy, vz);
+		}
 	}
 
 	@Override
@@ -164,15 +194,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public void handleEvent(GOTMiniQuestEvent event) {
 	}
 
-	private static boolean isEntityWatching(EntityLiving watcher, EntityLivingBase target) {
-		Vec3 look = watcher.getLookVec();
-		Vec3 watcherEyes = Vec3.createVectorHelper(watcher.posX, watcher.boundingBox.minY + watcher.getEyeHeight(), watcher.posZ);
-		Vec3 targetEyes = Vec3.createVectorHelper(target.posX, target.boundingBox.minY + target.getEyeHeight(), target.posZ);
-		Vec3 disp = Vec3.createVectorHelper(targetEyes.xCoord - watcherEyes.xCoord, targetEyes.yCoord - watcherEyes.yCoord, targetEyes.zCoord - watcherEyes.zCoord);
-		double dot = disp.normalize().dotProduct(look.normalize());
-		return dot >= MathHelper.cos(2.2689280275926285f / 2.0f) && watcher.getEntitySenses().canSee(target);
-	}
-
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
 		return GOTPickpoketableHelper.isPickpocketed(itemstack) && entityUUID.equals(GOTPickpoketableHelper.getWanterID(itemstack));
@@ -273,27 +294,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		for (int i = 0; i < ids.tagCount(); ++i) {
 			UUID id = UUID.fromString(ids.getStringTagAt(i));
 			pickpocketedEntityIDs.add(id);
-		}
-	}
-
-	private static void spawnAngryFX(EntityLivingBase npc) {
-		GOT.proxy.spawnParticle("angry", npc.posX, npc.boundingBox.minY + npc.height * 2.0f, npc.posZ, npc.motionX, Math.max(0.0, npc.motionY), npc.motionZ);
-	}
-
-	private static void spawnPickingFX(String particle, double upSpeed, EntityLivingBase npc) {
-		Random rand = npc.getRNG();
-		int particles = 3 + rand.nextInt(8);
-		for (int p = 0; p < particles; ++p) {
-			double x = npc.posX;
-			double y = npc.boundingBox.minY + npc.height * 0.5f;
-			double z = npc.posZ;
-			float w = npc.width * 0.1f;
-			float ang = rand.nextFloat() * 3.1415927f * 2.0f;
-			double hSpeed = MathHelper.getRandomDoubleInRange(rand, 0.05, 0.08);
-			double vx = MathHelper.cos(ang) * hSpeed;
-			double vz = MathHelper.sin(ang) * hSpeed;
-			double vy = MathHelper.getRandomDoubleInRange(rand, 0.1, 0.25) * upSpeed;
-			GOT.proxy.spawnParticle(particle, x + MathHelper.cos(ang) * w, y, z + MathHelper.sin(ang) * w, vx, vy, vz);
 		}
 	}
 

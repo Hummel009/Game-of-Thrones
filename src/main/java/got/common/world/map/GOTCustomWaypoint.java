@@ -88,6 +88,13 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return null;
 	}
 
+	private static boolean isSafeBlock(IBlockAccess world, int i, int j, int k) {
+		Block below = world.getBlock(i, j - 1, k);
+		Block block = world.getBlock(i, j, k);
+		Block above = world.getBlock(i, j + 1, k);
+		return below.getMaterial().blocksMovement() && !block.isNormalCube(world, i, j, k) && !above.isNormalCube(world, i, j + 1, k) && !block.getMaterial().isLiquid() && block.getMaterial() != Material.fire && !above.getMaterial().isLiquid() && above.getMaterial() != Material.fire;
+	}
+
 	public void addSharedFellowship(UUID fsID) {
 		if (!sharedFellowshipIDs.contains(fsID)) {
 			sharedFellowshipIDs.add(fsID);
@@ -356,13 +363,6 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public boolean isHidden() {
 		return false;
-	}
-
-	private static boolean isSafeBlock(IBlockAccess world, int i, int j, int k) {
-		Block below = world.getBlock(i, j - 1, k);
-		Block block = world.getBlock(i, j, k);
-		Block above = world.getBlock(i, j + 1, k);
-		return below.getMaterial().blocksMovement() && !block.isNormalCube(world, i, j, k) && !above.isNormalCube(world, i, j + 1, k) && !block.getMaterial().isLiquid() && block.getMaterial() != Material.fire && !above.getMaterial().isLiquid() && above.getMaterial() != Material.fire;
 	}
 
 	public boolean isShared() {

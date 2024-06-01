@@ -58,8 +58,6 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 							case 2:
 								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.basaltGravel, 0);
 								break;
-							default:
-								break;
 						}
 					} else {
 						switch (randomGround) {
@@ -75,8 +73,6 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 								break;
 							case 2:
 								setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
-								break;
-							default:
 								break;
 						}
 					}

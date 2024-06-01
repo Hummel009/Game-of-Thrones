@@ -63,17 +63,17 @@ public class GOTBlockBeacon extends BlockContainer {
 		}
 	}
 
-	@Override
-	public boolean canBlockStay(World world, int i, int j, int k) {
-		return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
-	}
-
 	private static boolean canItemLightBeacon(ItemStack itemstack) {
 		if (itemstack == null) {
 			return false;
 		}
 		Item item = itemstack.getItem();
 		return item == Items.flint_and_steel || item instanceof ItemBlock && ((ItemBlock) item).field_150939_a instanceof BlockTorch;
+	}
+
+	@Override
+	public boolean canBlockStay(World world, int i, int j, int k) {
+		return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
 	}
 
 	@Override

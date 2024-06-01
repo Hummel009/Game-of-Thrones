@@ -56,6 +56,20 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureLhazarFarm(false);
+			}
+			return new GOTStructureLhazarPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(5) == 0) {
+				return new GOTStructureLhazarSmithy(false);
+			}
+			return new GOTStructureLhazarHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -92,20 +106,6 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureLhazarFarm(false);
-			}
-			return new GOTStructureLhazarPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(5) == 0) {
-				return new GOTStructureLhazarSmithy(false);
-			}
-			return new GOTStructureLhazarHouse(false);
 		}
 
 		@Override

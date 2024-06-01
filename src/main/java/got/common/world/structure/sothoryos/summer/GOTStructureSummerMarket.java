@@ -269,6 +269,13 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			super(flag);
 		}
 
+		private static ItemStack getRandomFarmFood(Random random) {
+			ItemStack[] items = {new ItemStack(GOTItems.orange), new ItemStack(GOTItems.lemon), new ItemStack(GOTItems.lime), new ItemStack(Items.carrot), new ItemStack(Items.potato), new ItemStack(GOTItems.lettuce), new ItemStack(GOTItems.turnip)};
+			ItemStack ret = items[random.nextInt(items.length)].copy();
+			ret.stackSize = 1 + random.nextInt(3);
+			return ret;
+		}
+
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
@@ -282,13 +289,6 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			GOTEntitySummerFarmer trader = new GOTEntitySummerFarmer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
-		}
-
-		private static ItemStack getRandomFarmFood(Random random) {
-			ItemStack[] items = {new ItemStack(GOTItems.orange), new ItemStack(GOTItems.lemon), new ItemStack(GOTItems.lime), new ItemStack(Items.carrot), new ItemStack(Items.potato), new ItemStack(GOTItems.lettuce), new ItemStack(GOTItems.turnip)};
-			ItemStack ret = items[random.nextInt(items.length)].copy();
-			ret.stackSize = 1 + random.nextInt(3);
-			return ret;
 		}
 	}
 

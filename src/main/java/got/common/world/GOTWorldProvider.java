@@ -51,6 +51,14 @@ public class GOTWorldProvider extends WorldProvider {
 		return getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
 	}
 
+	public static float[] handleFinalFogColors(float[] rgb) {
+		return rgb;
+	}
+
+	public static void setRingPortalLocation(int i, int j, int k) {
+		GOTLevelData.markGameOfThronesPortalLocation(i, j, k);
+	}
+
 	@Override
 	public float calculateCelestialAngle(long time, float partialTick) {
 		float daytime = ((int) (time % GOTTime.DAY_LENGTH) + partialTick) / GOTTime.DAY_LENGTH - 0.25f;
@@ -285,10 +293,6 @@ public class GOTWorldProvider extends WorldProvider {
 		return StatCollector.translateToLocalFormatted("got.dimension.enter", GOTDimension.GAME_OF_THRONES.getTranslatedDimensionName());
 	}
 
-	public static float[] handleFinalFogColors(float[] rgb) {
-		return rgb;
-	}
-
 	public float[] modifyFogIntensity(float farPlane, int fogMode) {
 		Minecraft mc = Minecraft.getMinecraft();
 		int i = (int) mc.renderViewEntity.posX;
@@ -338,10 +342,6 @@ public class GOTWorldProvider extends WorldProvider {
 		if (GOT.doDayCycle(worldObj)) {
 			GOTTime.advanceToMorning();
 		}
-	}
-
-	public static void setRingPortalLocation(int i, int j, int k) {
-		GOTLevelData.markGameOfThronesPortalLocation(i, j, k);
 	}
 
 	@Override

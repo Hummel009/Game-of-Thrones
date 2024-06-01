@@ -6,8 +6,8 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.essos.yiti.GOTEntityYiTiBartender;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
-import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityLightSkinThief;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 

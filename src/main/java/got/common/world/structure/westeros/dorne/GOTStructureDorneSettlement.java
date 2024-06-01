@@ -56,6 +56,59 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				if (random.nextBoolean()) {
+					return new GOTStructureDorneVillageFarm.Animals(false);
+				}
+				return new GOTStructureDorneVillageFarm.Crops(false);
+			}
+			return new GOTStructureDorneVillageFarm.Tree(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(5) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+					case 0:
+						return new GOTStructureDorneStables(false);
+					case 1:
+						return new GOTStructureDorneSmithy(false);
+					case 2:
+						return new GOTStructureDorneBarn(false);
+				}
+			}
+			return new GOTStructureDorneHouse(false);
+		}
+
+		private static GOTStructureDorneTownWall getWallCentre(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -5, 5);
+		}
+
+		private static GOTStructureDorneTownWall getWallLeft(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -9, 6);
+		}
+
+		private static GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 6, -5, 6);
+		}
+
+		private static GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -5, 6);
+		}
+
+		private static GOTStructureDorneTownWall getWallRight(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 9);
+		}
+
+		private static GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 6, -6, 5);
+		}
+
+		private static GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 5);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -101,59 +154,6 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				if (random.nextBoolean()) {
-					return new GOTStructureDorneVillageFarm.Animals(false);
-				}
-				return new GOTStructureDorneVillageFarm.Crops(false);
-			}
-			return new GOTStructureDorneVillageFarm.Tree(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(5) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-					case 0:
-						return new GOTStructureDorneStables(false);
-					case 1:
-						return new GOTStructureDorneSmithy(false);
-					default:
-						return new GOTStructureDorneBarn(false);
-				}
-			}
-			return new GOTStructureDorneHouse(false);
-		}
-
-		private static GOTStructureDorneTownWall getWallCentre(boolean flag) {
-			return new GOTStructureDorneTownWall(flag, -5, 5);
-		}
-
-		private static GOTStructureDorneTownWall getWallLeft(boolean flag) {
-			return new GOTStructureDorneTownWall(flag, -9, 6);
-		}
-
-		private static GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
-			return new GOTStructureDorneTownWall(flag, -6, 6, -5, 6);
-		}
-
-		private static GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
-			return new GOTStructureDorneTownWall(flag, -5, 6);
-		}
-
-		private static GOTStructureDorneTownWall getWallRight(boolean flag) {
-			return new GOTStructureDorneTownWall(flag, -6, 9);
-		}
-
-		private static GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
-			return new GOTStructureDorneTownWall(flag, -6, 6, -6, 5);
-		}
-
-		private static GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
-			return new GOTStructureDorneTownWall(flag, -6, 5);
 		}
 
 		@Override

@@ -59,8 +59,6 @@ public class GOTPacketOptions implements IMessage {
 					case 9:
 						GOTLevelData.getData(entityplayer).setTableSwitched(enable);
 						break;
-					default:
-						break;
 				}
 			}
 			return null;

@@ -52,7 +52,7 @@ public class GOTBlockWall2 extends GOTBlockWallBase {
 			case 15:
 				return GOTBlocks.brick3.getIcon(i, 10);
 			default:
-				return super.getIcon(i, j);
+				return null;
 		}
 	}
 

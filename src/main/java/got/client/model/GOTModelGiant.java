@@ -60,8 +60,6 @@ public class GOTModelGiant extends ModelBase {
 				rightLeg.showModel = false;
 				leftLeg.showModel = false;
 				break;
-			default:
-				break;
 		}
 	}
 

@@ -277,6 +277,16 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
+	protected static ItemStack getRandomItem(Random random) {
+		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
+		return items[random.nextInt(items.length)].copy();
+	}
+
+	protected static ItemStack getRandomWeapon(Random random) {
+		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer)};
+		return items[random.nextInt(items.length)].copy();
+	}
+
 	private GOTItemBanner.BannerType getBannerType() {
 		return BANNERS.get(city);
 	}
@@ -311,16 +321,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 
 	protected GOTEntityNPC getMan(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(MEN.get(city), world);
-	}
-
-	protected static ItemStack getRandomItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
-	protected static ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer)};
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	protected GOTEntityNPC getSoldier(World world) {
@@ -472,7 +472,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			doorBlock = GOTBlocks.doorCedar;
 			trapdoorBlock = GOTBlocks.trapdoorCedar;
 		} else if (hasNorthernWood()) {
-			switch (random.nextInt(4)) {
+			switch (random.nextInt(3)) {
 				case 0:
 					woodBlock = GOTBlocks.wood2;
 					woodMeta = 1;
@@ -505,7 +505,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					doorBlock = GOTBlocks.doorCedar;
 					trapdoorBlock = GOTBlocks.trapdoorCedar;
 					break;
-				default:
+				case 2:
 					woodBlock = Blocks.log;
 					woodMeta = 0;
 					plankBlock = Blocks.planks;
@@ -556,7 +556,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					doorBlock = GOTBlocks.doorDatePalm;
 					trapdoorBlock = GOTBlocks.trapdoorDatePalm;
 					break;
-				default:
+				case 2:
 					woodBlock = GOTBlocks.wood8;
 					woodMeta = 3;
 					plankBlock = GOTBlocks.planks3;

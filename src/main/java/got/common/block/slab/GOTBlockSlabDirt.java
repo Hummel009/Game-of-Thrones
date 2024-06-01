@@ -31,8 +31,10 @@ public class GOTBlockSlabDirt extends GOTBlockSlabBase {
 				return GOTBlocks.asshaiDirt.getIcon(i, 0);
 			case 4:
 				return GOTBlocks.dirtPath.getIcon(i, 1);
-			default:
+			case 5:
 				return GOTBlocks.dirtPath.getIcon(i, 2);
+			default:
+				return null;
 		}
 	}
 

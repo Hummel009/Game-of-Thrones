@@ -14,6 +14,13 @@ public class GOTBlockAsshaiTorch extends BlockTorch {
 		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
+	private static TorchParticle createTorchParticle(Random random) {
+		double d3 = -0.05 + random.nextFloat() * 0.1;
+		double d4 = 0.1 + random.nextFloat() * 0.1;
+		double d5 = -0.05 + random.nextFloat() * 0.1;
+		return new TorchParticle("asshaiTorch", 0.0, 0.0, 0.0, d3, d4, d5);
+	}
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
@@ -41,13 +48,6 @@ public class GOTBlockAsshaiTorch extends BlockTorch {
 				particle.spawn(d, d1, d2);
 				break;
 		}
-	}
-
-	private static TorchParticle createTorchParticle(Random random) {
-		double d3 = -0.05 + random.nextFloat() * 0.1;
-		double d4 = 0.1 + random.nextFloat() * 0.1;
-		double d5 = -0.05 + random.nextFloat() * 0.1;
-		return new TorchParticle("asshaiTorch", 0.0, 0.0, 0.0, d3, d4, d5);
 	}
 
 	private static class TorchParticle {

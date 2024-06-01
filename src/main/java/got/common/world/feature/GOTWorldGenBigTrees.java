@@ -35,6 +35,10 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		leafMeta = i;
 	}
 
+	private static float leafSize(int par1) {
+		return par1 >= 0 && par1 < LEAF_DISTANCE_LIMIT ? par1 != 0 && par1 != LEAF_DISTANCE_LIMIT - 1 ? 3.0f : 2.0f : -1.0f;
+	}
+
 	private int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger) {
 		int i;
 		int[] aint2 = {0, 0, 0};
@@ -233,10 +237,6 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 
 	private boolean leafNodeNeedsBase(int par1) {
 		return par1 >= heightLimit * 0.2;
-	}
-
-	private static float leafSize(int par1) {
-		return par1 >= 0 && par1 < LEAF_DISTANCE_LIMIT ? par1 != 0 && par1 != LEAF_DISTANCE_LIMIT - 1 ? 3.0f : 2.0f : -1.0f;
 	}
 
 	private void placeBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger, Block block, int meta) {

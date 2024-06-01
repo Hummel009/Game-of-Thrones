@@ -74,6 +74,14 @@ public class GOTHireableInfo {
 		theEntity = npc;
 	}
 
+	public static int totalXPForLevel(int lvl) {
+		if (lvl <= 1) {
+			return 0;
+		}
+		double d = 3.0 * (lvl - 1) * Math.pow(1.08, lvl - 2);
+		return MathHelper.floor_double(d);
+	}
+
 	private void addExperience(int i) {
 		xp += i;
 		while (xp >= totalXPForLevel(xpLevel + 1)) {
@@ -495,14 +503,6 @@ public class GOTHireableInfo {
 
 	public boolean shouldFollowPlayer() {
 		return !guardMode && canMove;
-	}
-
-	public static int totalXPForLevel(int lvl) {
-		if (lvl <= 1) {
-			return 0;
-		}
-		double d = 3.0 * (lvl - 1) * Math.pow(1.08, lvl - 2);
-		return MathHelper.floor_double(d);
 	}
 
 	public void tryTeleportToHiringPlayer(boolean failsafe) {

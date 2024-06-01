@@ -164,6 +164,12 @@ public class GOTModelDirewolf extends ModelBase {
 		leg4D.setRotationPoint(-3.0F, 12.5F, 7.0F);
 	}
 
+	private static void setRotation(ModelRenderer model, float x, float y, float z) {
+		model.rotateAngleX = x;
+		model.rotateAngleY = y;
+		model.rotateAngleZ = z;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles(f, f1, f3, f4);
@@ -198,12 +204,6 @@ public class GOTModelDirewolf extends ModelBase {
 		leg1A.render(f5);
 		leg1B.render(f5);
 		leg1C.render(f5);
-	}
-
-	private static void setRotation(ModelRenderer model, float x, float y, float z) {
-		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
 	}
 
 	private void setRotationAngles(float f, float f1, float f3, float f4) {

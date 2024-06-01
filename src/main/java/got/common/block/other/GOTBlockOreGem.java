@@ -75,9 +75,8 @@ public class GOTBlockOreGem extends Block {
 			case 7:
 				return GOTItems.emerald;
 			default:
-				break;
+				return Item.getItemFromBlock(this);
 		}
-		return Item.getItemFromBlock(this);
 	}
 
 	@SideOnly(Side.CLIENT)

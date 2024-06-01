@@ -16,6 +16,11 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		super(flag);
 	}
 
+	private static ItemStack getRandomSothoryosWeapon(Random random) {
+		ItemStack[] items = {new ItemStack(GOTItems.sothoryosSword), new ItemStack(GOTItems.sothoryosDagger), new ItemStack(GOTItems.sothoryosSpear), new ItemStack(GOTItems.sothoryosPike), new ItemStack(GOTItems.sothoryosHammer), new ItemStack(GOTItems.sothoryosBattleaxe)};
+		return items[random.nextInt(items.length)].copy();
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
@@ -110,10 +115,5 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 	@Override
 	public int getOffset() {
 		return 6;
-	}
-
-	private static ItemStack getRandomSothoryosWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.sothoryosSword), new ItemStack(GOTItems.sothoryosDagger), new ItemStack(GOTItems.sothoryosSpear), new ItemStack(GOTItems.sothoryosPike), new ItemStack(GOTItems.sothoryosHammer), new ItemStack(GOTItems.sothoryosBattleaxe)};
-		return items[random.nextInt(items.length)].copy();
 	}
 }

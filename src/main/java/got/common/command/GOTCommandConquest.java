@@ -17,6 +17,20 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class GOTCommandConquest extends CommandBase {
+	private static Object[] parseCoordsAndZone(ICommandSender sender, String[] args, int specifyIndex) {
+		int posX = sender.getPlayerCoordinates().posX;
+		int posZ = sender.getPlayerCoordinates().posZ;
+		if (args.length >= specifyIndex + 2) {
+			posX = parseInt(sender, args[specifyIndex]);
+			posZ = parseInt(sender, args[specifyIndex + 1]);
+		}
+		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(posX, posZ);
+		if (zone.isDummyZone()) {
+			throw new WrongUsageException("got.command.conquest.outOfBounds", posX, posZ);
+		}
+		return new Object[]{posX, posZ, zone};
+	}
+
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -43,20 +57,6 @@ public class GOTCommandConquest extends CommandBase {
 	@Override
 	public int getRequiredPermissionLevel() {
 		return 2;
-	}
-
-	private static Object[] parseCoordsAndZone(ICommandSender sender, String[] args, int specifyIndex) {
-		int posX = sender.getPlayerCoordinates().posX;
-		int posZ = sender.getPlayerCoordinates().posZ;
-		if (args.length >= specifyIndex + 2) {
-			posX = parseInt(sender, args[specifyIndex]);
-			posZ = parseInt(sender, args[specifyIndex + 1]);
-		}
-		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(posX, posZ);
-		if (zone.isDummyZone()) {
-			throw new WrongUsageException("got.command.conquest.outOfBounds", posX, posZ);
-		}
-		return new Object[]{posX, posZ, zone};
 	}
 
 	@Override

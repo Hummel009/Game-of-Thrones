@@ -7,6 +7,17 @@ import org.lwjgl.opengl.GL11;
 public class GOTModelLionRug extends ModelBase {
 	private static final GOTModelLion LION_MODEL = new GOTModelLion();
 
+	private static void setRotationAngles() {
+		LION_MODEL.getLeg1().rotateAngleX = 0.5235987755982988f;
+		LION_MODEL.getLeg1().rotateAngleZ = 1.5707963267948966f;
+		LION_MODEL.getLeg2().rotateAngleX = 0.5235987755982988f;
+		LION_MODEL.getLeg2().rotateAngleZ = -1.5707963267948966f;
+		LION_MODEL.getLeg3().rotateAngleX = -0.3490658503988659f;
+		LION_MODEL.getLeg3().rotateAngleZ = 1.5707963267948966f;
+		LION_MODEL.getLeg4().rotateAngleX = -0.3490658503988659f;
+		LION_MODEL.getLeg4().rotateAngleZ = -1.5707963267948966f;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles();
@@ -35,16 +46,5 @@ public class GOTModelLionRug extends ModelBase {
 		LION_MODEL.getLeg2().render(f5);
 		LION_MODEL.getLeg4().render(f5);
 		GL11.glPopMatrix();
-	}
-
-	private static void setRotationAngles() {
-		LION_MODEL.getLeg1().rotateAngleX = 0.5235987755982988f;
-		LION_MODEL.getLeg1().rotateAngleZ = 1.5707963267948966f;
-		LION_MODEL.getLeg2().rotateAngleX = 0.5235987755982988f;
-		LION_MODEL.getLeg2().rotateAngleZ = -1.5707963267948966f;
-		LION_MODEL.getLeg3().rotateAngleX = -0.3490658503988659f;
-		LION_MODEL.getLeg3().rotateAngleZ = 1.5707963267948966f;
-		LION_MODEL.getLeg4().rotateAngleX = -0.3490658503988659f;
-		LION_MODEL.getLeg4().rotateAngleZ = -1.5707963267948966f;
 	}
 }

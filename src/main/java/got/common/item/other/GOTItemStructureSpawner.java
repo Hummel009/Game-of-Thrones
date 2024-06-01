@@ -46,6 +46,22 @@ public class GOTItemStructureSpawner extends Item {
 		GOTItemStructureSpawner.lastStructureSpawnTick = lastStructureSpawnTick;
 	}
 
+	private static boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
+		if (!GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.containsKey(id)) {
+			return false;
+		}
+		GOTStructureRegistry.IStructureProvider strProvider = GOTStructureRegistry.getStructureForID(id);
+		if (strProvider != null) {
+			boolean generated = strProvider.generateStructure(world, entityplayer, i, j, k);
+			if (generated) {
+				lastStructureSpawnTick = 20;
+				world.playSoundAtEntity(entityplayer, "got:item.structureSpawner", 1.0f, 1.0f);
+			}
+			return generated;
+		}
+		return false;
+	}
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
@@ -136,21 +152,5 @@ public class GOTItemStructureSpawner extends Item {
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;
-	}
-
-	private static boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
-		if (!GOTStructureRegistry.STRUCTURE_ITEM_SPAWNERS.containsKey(id)) {
-			return false;
-		}
-		GOTStructureRegistry.IStructureProvider strProvider = GOTStructureRegistry.getStructureForID(id);
-		if (strProvider != null) {
-			boolean generated = strProvider.generateStructure(world, entityplayer, i, j, k);
-			if (generated) {
-				lastStructureSpawnTick = 20;
-				world.playSoundAtEntity(entityplayer, "got:item.structureSpawner", 1.0f, 1.0f);
-			}
-			return generated;
-		}
-		return false;
 	}
 }

@@ -38,27 +38,17 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		if (rand.nextInt(3) == 0) {
-			int i = rand.nextInt(5);
-			switch (i) {
-				case 0:
-				case 1:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarSword));
-					break;
-				case 2:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarDagger));
-					break;
-				case 3:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarDaggerPoisoned));
-					break;
-				case 4:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
-					break;
-				default:
-					break;
-			}
-		} else {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarSword));
+		int i = rand.nextInt(6);
+		switch (i) {
+			case 0:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarBattleaxe));
+				break;
+			case 1:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
+				break;
+			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarSword));
+				break;
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());

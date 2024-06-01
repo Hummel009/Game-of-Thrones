@@ -1,7 +1,7 @@
 package got.common.entity.ai;
 
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.GOTEntityRegistry;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.world.World;

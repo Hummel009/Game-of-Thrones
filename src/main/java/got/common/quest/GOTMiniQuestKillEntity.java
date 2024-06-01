@@ -1,8 +1,8 @@
 package got.common.quest;
 
 import got.common.GOTPlayerData;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.GOTEntityRegistry;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

@@ -8,12 +8,10 @@ import net.minecraft.item.ItemStack;
 import java.util.Random;
 
 public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
-	private final int chanceToConsume;
-
 	protected final GOTEntityNPC theEntity;
 	protected final Random rand;
 	protected final GOTFoods foodPool;
-
+	private final int chanceToConsume;
 	private int consumeTick;
 
 	protected GOTEntityAIConsumeBase(GOTEntityNPC entity, GOTFoods foods, int chance) {

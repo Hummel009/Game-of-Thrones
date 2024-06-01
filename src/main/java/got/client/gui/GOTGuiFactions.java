@@ -105,6 +105,10 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		mapDrawGui = new GOTGuiMap();
 	}
 
+	private static boolean hasScrollBar() {
+		return currentFactionList.size() > 1;
+	}
+
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -509,10 +513,6 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		}
 	}
 
-	private static boolean hasScrollBar() {
-		return currentFactionList.size() > 1;
-	}
-
 	@Override
 	public void initGui() {
 		super.initGui();
@@ -645,8 +645,6 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 						}
 						rank = nextRank;
 					} while (true);
-					break;
-				default:
 					break;
 			}
 			scrollPaneAlliesEnemies.setHasScrollBar(false);

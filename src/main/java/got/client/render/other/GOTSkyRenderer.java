@@ -63,6 +63,17 @@ public class GOTSkyRenderer extends IRenderHandler {
 		GL11.glEndList();
 	}
 
+	private static void renderSkyboxSide(Tessellator tessellator, int side) {
+		double u = side % 3 / 3.0;
+		double v = (double) side / 3 / 2.0;
+		tessellator.startDrawingQuads();
+		tessellator.addVertexWithUV(-100.0, -100.0, -100.0, u, v);
+		tessellator.addVertexWithUV(-100.0, -100.0, 100.0, u, v + 0.5);
+		tessellator.addVertexWithUV(100.0, -100.0, 100.0, u + 0.3333333333333333, v + 0.5);
+		tessellator.addVertexWithUV(100.0, -100.0, -100.0, u + 0.3333333333333333, v);
+		tessellator.draw();
+	}
+
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		world.theProfiler.startSection("gotSky");
@@ -292,16 +303,5 @@ public class GOTSkyRenderer extends IRenderHandler {
 		GL11.glEnable(3553);
 		GL11.glDepthMask(true);
 		world.theProfiler.endSection();
-	}
-
-	private static void renderSkyboxSide(Tessellator tessellator, int side) {
-		double u = side % 3 / 3.0;
-		double v = (double) side / 3 / 2.0;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(-100.0, -100.0, -100.0, u, v);
-		tessellator.addVertexWithUV(-100.0, -100.0, 100.0, u, v + 0.5);
-		tessellator.addVertexWithUV(100.0, -100.0, 100.0, u + 0.3333333333333333, v + 0.5);
-		tessellator.addVertexWithUV(100.0, -100.0, -100.0, u + 0.3333333333333333, v);
-		tessellator.draw();
 	}
 }

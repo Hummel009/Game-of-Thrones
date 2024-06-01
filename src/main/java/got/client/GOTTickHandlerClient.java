@@ -22,7 +22,8 @@ import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityBarrowWight;
+import got.common.entity.other.GOTEntitySpiderBase;
 import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.entity.other.utils.GOTInvasionStatus;
 import got.common.entity.other.utils.GOTMountFunctions;
@@ -372,6 +373,138 @@ public class GOTTickHandlerClient {
 		GOTTickHandlerClient.renderMenuPrompt = renderMenuPrompt;
 	}
 
+	private static boolean isGamePaused(Minecraft mc) {
+		return mc.isSingleplayer() && mc.currentScreen != null && mc.currentScreen.doesGuiPauseGame() && !mc.getIntegratedServer().getPublic();
+	}
+
+	private static void renderOverlay(float[] rgb, float alpha, Minecraft mc, ResourceLocation texture) {
+		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+		int width = resolution.getScaledWidth();
+		int height = resolution.getScaledHeight();
+		GL11.glEnable(3042);
+		GL11.glBlendFunc(770, 771);
+		GL11.glDisable(2929);
+		GL11.glDepthMask(false);
+		if (rgb != null) {
+			GL11.glColor4f(rgb[0], rgb[1], rgb[2], alpha);
+		} else {
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
+		}
+		GL11.glDisable(3008);
+		if (texture != null) {
+			mc.getTextureManager().bindTexture(texture);
+		} else {
+			GL11.glDisable(3553);
+		}
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.startDrawingQuads();
+		tessellator.addVertexWithUV(0.0D, height, -90.0D, 0.0D, 1.0D);
+		tessellator.addVertexWithUV(width, height, -90.0D, 1.0D, 1.0D);
+		tessellator.addVertexWithUV(width, 0.0D, -90.0D, 1.0D, 0.0D);
+		tessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);
+		tessellator.draw();
+		if (texture == null) {
+			GL11.glEnable(3553);
+		}
+		GL11.glDepthMask(true);
+		GL11.glEnable(2929);
+		GL11.glEnable(3008);
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+	}
+
+	private static void renderOverlayWithVerticalGradients(float[] rgbEdge, float[] rgbCentre, float alphaEdge, float alphaCentre, Minecraft mc) {
+		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+		int width = resolution.getScaledWidth();
+		int height = resolution.getScaledHeight();
+		int heightThird = height / 3;
+		int heightTwoThirds = height * 2 / 3;
+		GL11.glEnable(3042);
+		GL11.glBlendFunc(770, 771);
+		GL11.glDisable(2929);
+		GL11.glDepthMask(false);
+		GL11.glDisable(3008);
+		GL11.glDisable(3553);
+		GL11.glShadeModel(7425);
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.startDrawingQuads();
+		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
+		tessellator.addVertex(0.0D, heightThird, -90.0D);
+		tessellator.addVertex(width, heightThird, -90.0D);
+		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
+		tessellator.addVertex(width, 0.0D, -90.0D);
+		tessellator.addVertex(0.0D, 0.0D, -90.0D);
+		tessellator.draw();
+		tessellator.startDrawingQuads();
+		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
+		tessellator.addVertex(0.0D, heightTwoThirds, -90.0D);
+		tessellator.addVertex(width, heightTwoThirds, -90.0D);
+		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
+		tessellator.addVertex(width, heightThird, -90.0D);
+		tessellator.addVertex(0.0D, heightThird, -90.0D);
+		tessellator.draw();
+		tessellator.startDrawingQuads();
+		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
+		tessellator.addVertex(0.0D, height, -90.0D);
+		tessellator.addVertex(width, height, -90.0D);
+		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
+		tessellator.addVertex(width, heightTwoThirds, -90.0D);
+		tessellator.addVertex(0.0D, heightTwoThirds, -90.0D);
+		tessellator.draw();
+		GL11.glShadeModel(7424);
+		GL11.glEnable(3553);
+		GL11.glDepthMask(true);
+		GL11.glEnable(2929);
+		GL11.glEnable(3008);
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+	}
+
+	private static void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
+		world.theProfiler.startSection("gotEnvironmentFX");
+		int i = MathHelper.floor_double(entityplayer.posX);
+		int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
+		int k = MathHelper.floor_double(entityplayer.posZ);
+		byte range = 16;
+		for (int l = 0; l < 1000; l++) {
+			int i1 = i + world.rand.nextInt(range) - world.rand.nextInt(range);
+			int j1 = j + world.rand.nextInt(range) - world.rand.nextInt(range);
+			int k1 = k + world.rand.nextInt(range) - world.rand.nextInt(range);
+			Block block = world.getBlock(i1, j1, k1);
+			int meta = world.getBlockMetadata(i1, j1, k1);
+			if (block.getMaterial() == Material.water) {
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i1, k1);
+				if (biome instanceof GOTBiomeYeen && world.rand.nextInt(20) == 0) {
+					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
+				}
+				if (biome instanceof GOTBiomeShadowLand && world.rand.nextInt(40) == 0) {
+					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
+				}
+				if (biome instanceof GOTBiomeMossovyMarshes && world.rand.nextInt(800) == 0) {
+					world.spawnEntityInWorld(new GOTEntityDeadMarshFace(world, i1 + world.rand.nextFloat(), j1 + 0.25D - world.rand.nextFloat(), k1 + world.rand.nextFloat()));
+				}
+			}
+			if (block.getMaterial() == Material.water && meta != 0) {
+				Block below = world.getBlock(i1, j1 - 1, k1);
+				if (below.getMaterial() == Material.water) {
+					for (int i2 = i1 - 1; i2 <= i1 + 1; i2++) {
+						for (int k2 = k1 - 1; k2 <= k1 + 1; k2++) {
+							Block adjBlock = world.getBlock(i2, j1 - 1, k2);
+							int adjMeta = world.getBlockMetadata(i2, j1 - 1, k2);
+							if (adjBlock.getMaterial() == Material.water && adjMeta == 0 && world.isAirBlock(i2, j1, k2)) {
+								for (int l1 = 0; l1 < 2; l1++) {
+									double d = i1 + 0.5D + (i2 - i1) * world.rand.nextFloat();
+									double d1 = j1 + world.rand.nextFloat() * 0.2F;
+									double d2 = k1 + 0.5D + (k2 - k1) * world.rand.nextFloat();
+									world.spawnParticle("explode", d, d1, d2, 0.0D, 0.0D, 0.0D);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		world.theProfiler.endSection();
+	}
+
 	@SubscribeEvent
 	@SuppressWarnings({"NonConstantStringShouldBeStringBuffer", "MethodMayBeStatic"})
 	public void getItemTooltip(ItemTooltipEvent event) {
@@ -552,10 +685,6 @@ public class GOTTickHandlerClient {
 		float f = prevWightLookTick + (wightLookTick - prevWightLookTick) * renderTick;
 		f /= 100.0F;
 		return f;
-	}
-
-	private static boolean isGamePaused(Minecraft mc) {
-		return mc.isSingleplayer() && mc.currentScreen != null && mc.currentScreen.doesGuiPauseGame() && !mc.getIntegratedServer().getPublic();
 	}
 
 	public void onBurnDamage() {
@@ -1345,134 +1474,6 @@ public class GOTTickHandlerClient {
 		boolean text = alignmentYCurrent == alignmentYBase;
 		float alignment = GOTAlignmentTicker.forFaction(viewingFac).getInterpolatedAlignment(f);
 		renderAlignmentBar(alignment, viewingFac, alignmentXF, alignmentYF, text, text, text, false);
-	}
-
-	private static void renderOverlay(float[] rgb, float alpha, Minecraft mc, ResourceLocation texture) {
-		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
-		int width = resolution.getScaledWidth();
-		int height = resolution.getScaledHeight();
-		GL11.glEnable(3042);
-		GL11.glBlendFunc(770, 771);
-		GL11.glDisable(2929);
-		GL11.glDepthMask(false);
-		if (rgb != null) {
-			GL11.glColor4f(rgb[0], rgb[1], rgb[2], alpha);
-		} else {
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
-		}
-		GL11.glDisable(3008);
-		if (texture != null) {
-			mc.getTextureManager().bindTexture(texture);
-		} else {
-			GL11.glDisable(3553);
-		}
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(0.0D, height, -90.0D, 0.0D, 1.0D);
-		tessellator.addVertexWithUV(width, height, -90.0D, 1.0D, 1.0D);
-		tessellator.addVertexWithUV(width, 0.0D, -90.0D, 1.0D, 0.0D);
-		tessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);
-		tessellator.draw();
-		if (texture == null) {
-			GL11.glEnable(3553);
-		}
-		GL11.glDepthMask(true);
-		GL11.glEnable(2929);
-		GL11.glEnable(3008);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-	}
-
-	private static void renderOverlayWithVerticalGradients(float[] rgbEdge, float[] rgbCentre, float alphaEdge, float alphaCentre, Minecraft mc) {
-		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
-		int width = resolution.getScaledWidth();
-		int height = resolution.getScaledHeight();
-		int heightThird = height / 3;
-		int heightTwoThirds = height * 2 / 3;
-		GL11.glEnable(3042);
-		GL11.glBlendFunc(770, 771);
-		GL11.glDisable(2929);
-		GL11.glDepthMask(false);
-		GL11.glDisable(3008);
-		GL11.glDisable(3553);
-		GL11.glShadeModel(7425);
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(0.0D, heightThird, -90.0D);
-		tessellator.addVertex(width, heightThird, -90.0D);
-		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
-		tessellator.addVertex(width, 0.0D, -90.0D);
-		tessellator.addVertex(0.0D, 0.0D, -90.0D);
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(0.0D, heightTwoThirds, -90.0D);
-		tessellator.addVertex(width, heightTwoThirds, -90.0D);
-		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(width, heightThird, -90.0D);
-		tessellator.addVertex(0.0D, heightThird, -90.0D);
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
-		tessellator.addVertex(0.0D, height, -90.0D);
-		tessellator.addVertex(width, height, -90.0D);
-		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(width, heightTwoThirds, -90.0D);
-		tessellator.addVertex(0.0D, heightTwoThirds, -90.0D);
-		tessellator.draw();
-		GL11.glShadeModel(7424);
-		GL11.glEnable(3553);
-		GL11.glDepthMask(true);
-		GL11.glEnable(2929);
-		GL11.glEnable(3008);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-	}
-
-	private static void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
-		world.theProfiler.startSection("gotEnvironmentFX");
-		int i = MathHelper.floor_double(entityplayer.posX);
-		int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
-		int k = MathHelper.floor_double(entityplayer.posZ);
-		byte range = 16;
-		for (int l = 0; l < 1000; l++) {
-			int i1 = i + world.rand.nextInt(range) - world.rand.nextInt(range);
-			int j1 = j + world.rand.nextInt(range) - world.rand.nextInt(range);
-			int k1 = k + world.rand.nextInt(range) - world.rand.nextInt(range);
-			Block block = world.getBlock(i1, j1, k1);
-			int meta = world.getBlockMetadata(i1, j1, k1);
-			if (block.getMaterial() == Material.water) {
-				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i1, k1);
-				if (biome instanceof GOTBiomeYeen && world.rand.nextInt(20) == 0) {
-					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
-				}
-				if (biome instanceof GOTBiomeShadowLand && world.rand.nextInt(40) == 0) {
-					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
-				}
-				if (biome instanceof GOTBiomeMossovyMarshes && world.rand.nextInt(800) == 0) {
-					world.spawnEntityInWorld(new GOTEntityDeadMarshFace(world, i1 + world.rand.nextFloat(), j1 + 0.25D - world.rand.nextFloat(), k1 + world.rand.nextFloat()));
-				}
-			}
-			if (block.getMaterial() == Material.water && meta != 0) {
-				Block below = world.getBlock(i1, j1 - 1, k1);
-				if (below.getMaterial() == Material.water) {
-					for (int i2 = i1 - 1; i2 <= i1 + 1; i2++) {
-						for (int k2 = k1 - 1; k2 <= k1 + 1; k2++) {
-							Block adjBlock = world.getBlock(i2, j1 - 1, k2);
-							int adjMeta = world.getBlockMetadata(i2, j1 - 1, k2);
-							if (adjBlock.getMaterial() == Material.water && adjMeta == 0 && world.isAirBlock(i2, j1, k2)) {
-								for (int l1 = 0; l1 < 2; l1++) {
-									double d = i1 + 0.5D + (i2 - i1) * world.rand.nextFloat();
-									double d1 = j1 + world.rand.nextFloat() * 0.2F;
-									double d2 = k1 + 0.5D + (k2 - k1) * world.rand.nextFloat();
-									world.spawnParticle("explode", d, d1, d2, 0.0D, 0.0D, 0.0D);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		world.theProfiler.endSection();
 	}
 
 	public void updateDate() {

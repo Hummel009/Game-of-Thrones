@@ -57,6 +57,23 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureGhiscarFarm(false);
+			}
+			return new GOTStructureGhiscarPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureGhiscarSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureGhiscarStables(false);
+			}
+			return new GOTStructureGhiscarHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -137,23 +154,6 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureGhiscarFarm(false);
-			}
-			return new GOTStructureGhiscarPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureGhiscarSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureGhiscarStables(false);
-			}
-			return new GOTStructureGhiscarHouse(false);
 		}
 
 		@Override

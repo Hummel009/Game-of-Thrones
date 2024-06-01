@@ -101,8 +101,9 @@ public class GOTTitle {
 					return !requirePledge || pd.isPledgedTo(fac);
 				}
 				return false;
+			default:
+				return true;
 		}
-		return true;
 	}
 
 	public String getDescription(EntityPlayer entityplayer) {
@@ -120,8 +121,9 @@ public class GOTTitle {
 					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.getFaction().factionName(), alignS);
 				}
 				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.getFaction().factionName(), alignS);
+			default:
+				return "If you can read this, something has gone hideously wrong";
 		}
-		return "If you can read this, something has gone hideously wrong";
 	}
 
 	public String getDisplayName(EntityPlayer entityplayer) {

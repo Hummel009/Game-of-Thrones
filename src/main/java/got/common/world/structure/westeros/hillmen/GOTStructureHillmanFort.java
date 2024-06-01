@@ -66,7 +66,7 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 						case 1:
 							setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 							break;
-						default:
+						case 2:
 							setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 							break;
 					}

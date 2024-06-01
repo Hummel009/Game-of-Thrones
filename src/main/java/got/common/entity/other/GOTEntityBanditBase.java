@@ -45,6 +45,20 @@ public abstract class GOTEntityBanditBase extends GOTEntityHumanBase implements 
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetBandit.class);
 	}
 
+	public static IChatComponent getTheftChatMsg() {
+		return new ChatComponentTranslation("got.chat.banditSteal");
+	}
+
+	public static boolean canStealFromPlayerInv(EntityPlayer entityplayer) {
+		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
+			if (slot == entityplayer.inventory.currentItem || entityplayer.inventory.getStackInSlot(slot) == null) {
+				continue;
+			}
+			return true;
+		}
+		return false;
+	}
+
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -92,10 +106,6 @@ public abstract class GOTEntityBanditBase extends GOTEntityHumanBase implements 
 		return "standard/special/bandit";
 	}
 
-	public static IChatComponent getTheftChatMsg() {
-		return new ChatComponentTranslation("got.chat.banditSteal");
-	}
-
 	public String getTheftSpeechBank(EntityPlayer player) {
 		return getSpeechBank(player);
 	}
@@ -136,15 +146,5 @@ public abstract class GOTEntityBanditBase extends GOTEntityHumanBase implements 
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		banditInventory.writeToNBT(nbt);
-	}
-
-	public static boolean canStealFromPlayerInv(EntityPlayer entityplayer) {
-		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
-			if (slot == entityplayer.inventory.currentItem || entityplayer.inventory.getStackInSlot(slot) == null) {
-				continue;
-			}
-			return true;
-		}
-		return false;
 	}
 }

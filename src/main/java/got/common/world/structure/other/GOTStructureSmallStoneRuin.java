@@ -185,8 +185,6 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 						case 4:
 							setBlockAndMetadata(world, m, pitBottom, k1, Blocks.dirt, 0);
 							break;
-						default:
-							break;
 					}
 					int j1;
 					for (j1 = pitBottom + 1; j1 <= pitBottom + pitHeight; j1++) {
@@ -404,8 +402,6 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 									case 2:
 										setBlockAndMetadata(world, i1, m + 2, k1, GOTBlocks.wallStoneV, 1);
 										break;
-									default:
-										break;
 								}
 							}
 						}
@@ -507,8 +503,6 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					plankSlabMeta = 0;
 					woodBeamBlock = GOTBlocks.woodBeamRotten;
 					woodBeamMeta = 0;
-					break;
-				default:
 					break;
 			}
 			int randomBar = random.nextInt(2);
@@ -755,8 +749,6 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 						case 4:
 							setBlockAndMetadata(world, i1, 0, k1, Blocks.brick_block, 0);
 							break;
-						default:
-							break;
 					}
 					if (i2 == width || k2 == width) {
 						if (random.nextInt(10) != 0) {
@@ -824,8 +816,6 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 									break;
 								case 3:
 									setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.fenceRotten, 0);
-									break;
-								default:
 									break;
 							}
 						}

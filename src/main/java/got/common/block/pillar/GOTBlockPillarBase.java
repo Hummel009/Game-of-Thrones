@@ -40,6 +40,11 @@ public abstract class GOTBlockPillarBase extends Block {
 		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
+	private static boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		return block instanceof GOTBlockPillarBase;
+	}
+
 	@Override
 	public int damageDropped(int i) {
 		return i;
@@ -89,11 +94,6 @@ public abstract class GOTBlockPillarBase extends Block {
 		for (int i = 0; i < pillarNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));
 		}
-	}
-
-	private static boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		return block instanceof GOTBlockPillarBase;
 	}
 
 	@SideOnly(Side.CLIENT)

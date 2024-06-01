@@ -56,6 +56,23 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureNorvosFarm(false);
+			}
+			return new GOTStructureNorvosPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureNorvosSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureNorvosStables(false);
+			}
+			return new GOTStructureNorvosHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -124,23 +141,6 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureNorvosFarm(false);
-			}
-			return new GOTStructureNorvosPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureNorvosSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureNorvosStables(false);
-			}
-			return new GOTStructureNorvosHouse(false);
 		}
 
 		@Override

@@ -215,6 +215,39 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		GOTGuiMap.showHiddenSWP = showHiddenSWP;
 	}
 
+	private static void endMapClipping() {
+		GL11.glDisable(3089);
+	}
+
+	private static boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
+		return keybinding.getKeyCode() >= 0 && GameSettings.isKeyDown(keybinding);
+	}
+
+	private static boolean isValidWaypointName(CharSequence name) {
+		return !StringUtils.isBlank(name);
+	}
+
+	private static boolean isWaypointVisible(GOTAbstractWaypoint wp) {
+		if (wp instanceof GOTCustomWaypoint) {
+			GOTCustomWaypoint cwp = (GOTCustomWaypoint) wp;
+			return (!cwp.isShared() || !cwp.isSharedHidden() || showHiddenSWP) && showCWP;
+		}
+		return showWP;
+	}
+
+	private static void renderGraduatedRects(int x1, int y1, int x2, int y2, int c1, int c2, int w) {
+		float[] rgb1 = new Color(c1).getColorComponents(null);
+		float[] rgb2 = new Color(c2).getColorComponents(null);
+		for (int l = w - 1; l >= 0; --l) {
+			float f = (float) l / (w - 1);
+			float r = rgb1[0] + (rgb2[0] - rgb1[0]) * f;
+			float g = rgb1[1] + (rgb2[1] - rgb1[1]) * f;
+			float b = rgb1[2] + (rgb2[2] - rgb1[2]) * f;
+			int color = new Color(r, g, b).getRGB() - 16777216;
+			drawRect(x1 - l, y1 - l, x2 + l, y2 + l, color);
+		}
+	}
+
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -927,10 +960,6 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		}
 	}
 
-	private static void endMapClipping() {
-		GL11.glDisable(3089);
-	}
-
 	private GOTFellowshipClient getFellowshipByName(String name) {
 		String fsName = StringUtils.strip(name);
 		return GOTLevelData.getData(mc.thePlayer).getClientFellowshipByName(fsName);
@@ -1090,22 +1119,6 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 
 	private boolean isGameOfThrones() {
 		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID();
-	}
-
-	private static boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
-		return keybinding.getKeyCode() >= 0 && GameSettings.isKeyDown(keybinding);
-	}
-
-	private static boolean isValidWaypointName(CharSequence name) {
-		return !StringUtils.isBlank(name);
-	}
-
-	private static boolean isWaypointVisible(GOTAbstractWaypoint wp) {
-		if (wp instanceof GOTCustomWaypoint) {
-			GOTCustomWaypoint cwp = (GOTCustomWaypoint) wp;
-			return (!cwp.isShared() || !cwp.isSharedHidden() || showHiddenSWP) && showCWP;
-		}
-		return showWP;
 	}
 
 	@Override
@@ -1498,19 +1511,6 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		for (String s : lines) {
 			drawCenteredString(s, strX, strY, 16777215);
 			strY += border;
-		}
-	}
-
-	private static void renderGraduatedRects(int x1, int y1, int x2, int y2, int c1, int c2, int w) {
-		float[] rgb1 = new Color(c1).getColorComponents(null);
-		float[] rgb2 = new Color(c2).getColorComponents(null);
-		for (int l = w - 1; l >= 0; --l) {
-			float f = (float) l / (w - 1);
-			float r = rgb1[0] + (rgb2[0] - rgb1[0]) * f;
-			float g = rgb1[1] + (rgb2[1] - rgb1[1]) * f;
-			float b = rgb1[2] + (rgb2[2] - rgb1[2]) * f;
-			int color = new Color(r, g, b).getRGB() - 16777216;
-			drawRect(x1 - l, y1 - l, x2 + l, y2 + l, color);
 		}
 	}
 

@@ -190,6 +190,38 @@ public class GOTModelDragonAnimaton {
 		return r1 + clamp(normDeg(r2 - r1), -step, step);
 	}
 
+	private static void slerpArrays(float[] a, float[] b, float[] c, float x) {
+		if (a.length != b.length || b.length != c.length) {
+			throw new IllegalArgumentException();
+		}
+		if (x <= 0) {
+			System.arraycopy(a, 0, c, 0, a.length);
+			return;
+		}
+		if (x >= 1) {
+			System.arraycopy(b, 0, c, 0, a.length);
+			return;
+		}
+		for (int i = 0; i < c.length; i++) {
+			c[i] = slerp(a[i], b[i], x);
+		}
+	}
+
+	private static void splineArrays(float x, boolean shift, float[] result, float[]... nodes) {
+		int i1 = (int) x % nodes.length;
+		int i2 = (i1 + 1) % nodes.length;
+		int i3 = (i1 + 2) % nodes.length;
+		float[] a1 = nodes[i1];
+		float[] a2 = nodes[i2];
+		float[] a3 = nodes[i3];
+		float xn = x % nodes.length - i1;
+		if (shift) {
+			interp(xn, result, a2, a3, a1, a2);
+		} else {
+			interp(xn, result, a1, a2, a3, a1);
+		}
+	}
+
 	public void animate(GOTModelDragon model) {
 		float anim = animTimer.get(partialTicks);
 		ground = groundTimer.get(partialTicks);
@@ -458,38 +490,6 @@ public class GOTModelDragonAnimaton {
 
 	public void setTicksExisted(float ticksExisted) {
 		this.ticksExisted = ticksExisted;
-	}
-
-	private static void slerpArrays(float[] a, float[] b, float[] c, float x) {
-		if (a.length != b.length || b.length != c.length) {
-			throw new IllegalArgumentException();
-		}
-		if (x <= 0) {
-			System.arraycopy(a, 0, c, 0, a.length);
-			return;
-		}
-		if (x >= 1) {
-			System.arraycopy(b, 0, c, 0, a.length);
-			return;
-		}
-		for (int i = 0; i < c.length; i++) {
-			c[i] = slerp(a[i], b[i], x);
-		}
-	}
-
-	private static void splineArrays(float x, boolean shift, float[] result, float[]... nodes) {
-		int i1 = (int) x % nodes.length;
-		int i2 = (i1 + 1) % nodes.length;
-		int i3 = (i1 + 2) % nodes.length;
-		float[] a1 = nodes[i1];
-		float[] a2 = nodes[i2];
-		float[] a3 = nodes[i3];
-		float xn = x % nodes.length - i1;
-		if (shift) {
-			interp(xn, result, a2, a3, a1, a2);
-		} else {
-			interp(xn, result, a1, a2, a3, a1);
-		}
 	}
 
 	public void update() {

@@ -26,6 +26,28 @@ public class GOTSwingHandler {
 
 	private static final float SWING_FACTOR = 0.8f;
 
+	private static void tryUpdateSwing(EntityLivingBase entity) {
+		if (entity == MINECRAFT.thePlayer) {
+			if (GOTAttackTiming.getFullAttackTime() > 0) {
+				float max = GOTAttackTiming.getFullAttackTime();
+				float swing = (max - GOTAttackTiming.getAttackTime()) / max;
+				float pre = (max - GOTAttackTiming.getPrevAttackTime()) / max;
+				swing /= SWING_FACTOR;
+				pre /= SWING_FACTOR;
+				if (swing <= 1.0f) {
+					entity.swingProgress = swing;
+					entity.prevSwingProgress = pre;
+				}
+			}
+		} else {
+			SwingTime swt = ENTITY_SWINGS.get(entity);
+			if (swt != null) {
+				entity.swingProgress = (float) swt.getSwing() / swt.getSwingMax();
+				entity.prevSwingProgress = (float) swt.getSwingPrev() / swt.getSwingMax();
+			}
+		}
+	}
+
 	@SubscribeEvent
 	@SuppressWarnings("MethodMayBeStatic")
 	public void onClientTick(TickEvent.ClientTickEvent event) {
@@ -88,28 +110,6 @@ public class GOTSwingHandler {
 	@SuppressWarnings("MethodMayBeStatic")
 	public void preRenderPlayer(RenderPlayerEvent.Pre event) {
 		tryUpdateSwing(event.entityPlayer);
-	}
-
-	private static void tryUpdateSwing(EntityLivingBase entity) {
-		if (entity == MINECRAFT.thePlayer) {
-			if (GOTAttackTiming.getFullAttackTime() > 0) {
-				float max = GOTAttackTiming.getFullAttackTime();
-				float swing = (max - GOTAttackTiming.getAttackTime()) / max;
-				float pre = (max - GOTAttackTiming.getPrevAttackTime()) / max;
-				swing /= SWING_FACTOR;
-				pre /= SWING_FACTOR;
-				if (swing <= 1.0f) {
-					entity.swingProgress = swing;
-					entity.prevSwingProgress = pre;
-				}
-			}
-		} else {
-			SwingTime swt = ENTITY_SWINGS.get(entity);
-			if (swt != null) {
-				entity.swingProgress = (float) swt.getSwing() / swt.getSwingMax();
-				entity.prevSwingProgress = (float) swt.getSwingPrev() / swt.getSwingMax();
-			}
-		}
 	}
 
 	private static class SwingTime {

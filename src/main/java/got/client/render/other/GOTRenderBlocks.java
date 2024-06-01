@@ -356,11 +356,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, meta);
 	}
 
-	@Override
-	public int getRenderId() {
-		return 0;
-	}
-
 	private static void renderBarrel(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
@@ -408,8 +403,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 				renderblocks.setRenderBounds(0.9375, 0.125, 0.46875, 1.0, 0.25, 0.53125);
 				renderblocks.renderStandardBlock(block, i, j, k);
 				break;
-			default:
-				break;
 		}
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
@@ -439,8 +432,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			case 8:
 				renderblocks.uvRotateSouth = 1;
 				renderblocks.uvRotateNorth = 2;
-				break;
-			default:
 				break;
 		}
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -947,72 +938,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	@Override
-	public void renderInventoryBlock(Block block, int meta, int id, RenderBlocks renderblocks) {
-		if (id == GOT.proxy.getBeaconRenderID()) {
-			((GOTRenderBeacon) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityBeacon.class)).renderInvBeacon();
-		}
-		if (id == GOT.proxy.getBarrelRenderID()) {
-			renderInvBarrel(block, renderblocks);
-		}
-		if (id == GOT.proxy.getBombRenderID()) {
-			renderInvBomb(block, meta, renderblocks);
-		}
-		if (id == GOT.proxy.getStalactiteRenderID()) {
-			renderInvStalactite(block, meta, renderblocks);
-		}
-		if (id == GOT.proxy.getPlantainRenderID()) {
-			renderInvPlantain(block, renderblocks, meta == 1 ? 4 : 3);
-		}
-		if (id == GOT.proxy.getCloverRenderID()) {
-			renderInvClover(block, renderblocks, meta == 1 ? 4 : 3);
-		}
-		if (id == GOT.proxy.getFenceRenderID()) {
-			renderInvFence(block, meta, renderblocks);
-		}
-		if (id == GOT.proxy.getLeavesRenderID()) {
-			renderStandardInvBlock(renderblocks, block, meta);
-		}
-		if (id == GOT.proxy.getCommandTableRenderID()) {
-			renderInvCommandTable(block, renderblocks);
-			((GOTRenderCommandTable) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityCommandTable.class)).renderInvTable();
-		}
-		if (id == GOT.proxy.getButterflyJarRenderID()) {
-			renderInvButterflyJar(block, renderblocks);
-		}
-		if (id == GOT.proxy.getUnsmelteryRenderID()) {
-			((GOTRenderUnsmeltery) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityUnsmeltery.class)).renderInvUnsmeltery();
-		}
-		if (id == GOT.proxy.getChestRenderID()) {
-			((GOTRenderChest) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityChest.class)).renderInvChest(block);
-		}
-		if (id == GOT.proxy.getWasteRenderID()) {
-			renderStandardInvBlock(renderblocks, block, meta);
-		}
-		if (id == GOT.proxy.getBeamRenderID()) {
-			renderStandardInvBlock(renderblocks, block, meta);
-		}
-		if (id == GOT.proxy.getTreasureRenderID()) {
-			GOTBlockTreasurePile.setTreasureBlockBounds(block, meta);
-			renderblocks.setRenderBoundsFromBlock(block);
-			renderblocks.lockBlockBounds = true;
-			renderStandardInvBlock(renderblocks, block, meta);
-			renderblocks.unlockBlockBounds();
-		}
-		if (id == GOT.proxy.getBirdCageRenderID()) {
-			renderInvBirdCage(block, renderblocks, meta);
-		}
-		if (id == GOT.proxy.getWildFireJarRenderID()) {
-			renderInvWildFireJar(block, renderblocks);
-		}
-		if (id == GOT.proxy.getCoralRenderID()) {
-			renderStandardInvBlock(renderblocks, block, meta);
-		}
-		if (id == GOT.proxy.getTrapdoorRenderID()) {
-			renderStandardInvBlock(renderblocks, block, meta);
-		}
-	}
-
 	private static void renderInvFence(Block block, int meta, RenderBlocks renderblocks) {
 		for (int k = 0; k < 4; ++k) {
 			float f = 0.125f;
@@ -1238,8 +1163,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 					renderblocks.uvRotateTop = 2;
 					renderblocks.uvRotateBottom = 1;
 					break;
-				default:
-					break;
 			}
 		}
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -1314,6 +1237,77 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		GOTBlockWildFireJar.setRenderingStage(0);
 		renderblocks.renderAllFaces = false;
 		setAO(ao);
+	}
+
+	@Override
+	public int getRenderId() {
+		return 0;
+	}
+
+	@Override
+	public void renderInventoryBlock(Block block, int meta, int id, RenderBlocks renderblocks) {
+		if (id == GOT.proxy.getBeaconRenderID()) {
+			((GOTRenderBeacon) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityBeacon.class)).renderInvBeacon();
+		}
+		if (id == GOT.proxy.getBarrelRenderID()) {
+			renderInvBarrel(block, renderblocks);
+		}
+		if (id == GOT.proxy.getBombRenderID()) {
+			renderInvBomb(block, meta, renderblocks);
+		}
+		if (id == GOT.proxy.getStalactiteRenderID()) {
+			renderInvStalactite(block, meta, renderblocks);
+		}
+		if (id == GOT.proxy.getPlantainRenderID()) {
+			renderInvPlantain(block, renderblocks, meta == 1 ? 4 : 3);
+		}
+		if (id == GOT.proxy.getCloverRenderID()) {
+			renderInvClover(block, renderblocks, meta == 1 ? 4 : 3);
+		}
+		if (id == GOT.proxy.getFenceRenderID()) {
+			renderInvFence(block, meta, renderblocks);
+		}
+		if (id == GOT.proxy.getLeavesRenderID()) {
+			renderStandardInvBlock(renderblocks, block, meta);
+		}
+		if (id == GOT.proxy.getCommandTableRenderID()) {
+			renderInvCommandTable(block, renderblocks);
+			((GOTRenderCommandTable) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityCommandTable.class)).renderInvTable();
+		}
+		if (id == GOT.proxy.getButterflyJarRenderID()) {
+			renderInvButterflyJar(block, renderblocks);
+		}
+		if (id == GOT.proxy.getUnsmelteryRenderID()) {
+			((GOTRenderUnsmeltery) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityUnsmeltery.class)).renderInvUnsmeltery();
+		}
+		if (id == GOT.proxy.getChestRenderID()) {
+			((GOTRenderChest) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityChest.class)).renderInvChest(block);
+		}
+		if (id == GOT.proxy.getWasteRenderID()) {
+			renderStandardInvBlock(renderblocks, block, meta);
+		}
+		if (id == GOT.proxy.getBeamRenderID()) {
+			renderStandardInvBlock(renderblocks, block, meta);
+		}
+		if (id == GOT.proxy.getTreasureRenderID()) {
+			GOTBlockTreasurePile.setTreasureBlockBounds(block, meta);
+			renderblocks.setRenderBoundsFromBlock(block);
+			renderblocks.lockBlockBounds = true;
+			renderStandardInvBlock(renderblocks, block, meta);
+			renderblocks.unlockBlockBounds();
+		}
+		if (id == GOT.proxy.getBirdCageRenderID()) {
+			renderInvBirdCage(block, renderblocks, meta);
+		}
+		if (id == GOT.proxy.getWildFireJarRenderID()) {
+			renderInvWildFireJar(block, renderblocks);
+		}
+		if (id == GOT.proxy.getCoralRenderID()) {
+			renderStandardInvBlock(renderblocks, block, meta);
+		}
+		if (id == GOT.proxy.getTrapdoorRenderID()) {
+			renderStandardInvBlock(renderblocks, block, meta);
+		}
 	}
 
 	@Override

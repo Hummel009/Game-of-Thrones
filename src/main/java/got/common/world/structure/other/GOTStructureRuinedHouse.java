@@ -124,8 +124,6 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 			case 3:
 				setBlockAndMetadata(world, i, j, k, stoneVariantBlock, stoneVariantMeta);
 				break;
-			default:
-				break;
 		}
 	}
 
@@ -152,8 +150,6 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 					setBlockAndMetadata(world, i, j, k, stairBlock, 2 + random.nextInt(2) | upsideDown);
 				}
 				break;
-			default:
-				break;
 		}
 	}
 
@@ -174,8 +170,6 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 				break;
 			case 3:
 				setBlockAndMetadata(world, i, j, k, stoneVariantBlock, stoneVariantMeta);
-				break;
-			default:
 				break;
 		}
 	}

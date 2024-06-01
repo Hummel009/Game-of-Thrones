@@ -89,7 +89,7 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 				case 2:
 					crop1Block = GOTBlocks.lettuceCrop;
 					break;
-				default:
+				case 3:
 					crop1Block = GOTBlocks.turnipCrop;
 					break;
 			}
@@ -110,8 +110,6 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 					break;
 				case 3:
 					crop2Block = GOTBlocks.turnipCrop;
-					break;
-				default:
 					break;
 			}
 		}

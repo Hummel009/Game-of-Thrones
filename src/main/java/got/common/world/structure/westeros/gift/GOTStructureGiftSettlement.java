@@ -51,6 +51,21 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(3) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+					case 0:
+						return new GOTStructureGiftSmithy(false);
+					case 1:
+						return new GOTStructureGiftStables(false);
+					case 2:
+						return new GOTStructureGiftLodge(false);
+				}
+			}
+			return new GOTStructureGiftHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -91,21 +106,6 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(3) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-					case 0:
-						return new GOTStructureGiftSmithy(false);
-					case 1:
-						return new GOTStructureGiftStables(false);
-					default:
-						return new GOTStructureGiftLodge(false);
-				}
-			}
-			return new GOTStructureGiftHouse(false);
 		}
 
 		@Override

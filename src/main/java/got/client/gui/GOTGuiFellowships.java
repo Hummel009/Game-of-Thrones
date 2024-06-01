@@ -113,6 +113,41 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
+	private static int countOnlineMembers(GOTFellowshipClient fs) {
+		int i = 0;
+		List<GameProfile> allPlayers = fs.getAllPlayerProfiles();
+		for (GameProfile player : allPlayers) {
+			if (isPlayerOnline(player)) {
+				i++;
+			}
+		}
+		return i;
+	}
+
+	private static void rejectInvitation(GOTFellowshipClient invite) {
+		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, false);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
+	}
+
+	private static List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {
+		List<GOTFellowshipClient> sorted = new ArrayList<>(list);
+		sorted.sort((fs1, fs2) -> {
+			int count1 = fs1.getPlayerCount();
+			int count2 = fs2.getPlayerCount();
+			if (count1 == count2) {
+				return fs1.getName().toLowerCase(Locale.ROOT).compareTo(fs2.getName().toLowerCase(Locale.ROOT));
+			}
+			return -Integer.compare(count1, count2);
+		});
+		return sorted;
+	}
+
+	private static List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
+		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
+		members.sort(Comparator.comparing(GOTGuiFellowships::isPlayerOnline).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase(Locale.ROOT)));
+		return members;
+	}
+
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -252,17 +287,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 
 	public void clearMouseOverFellowship() {
 		mouseOverFellowship = null;
-	}
-
-	private static int countOnlineMembers(GOTFellowshipClient fs) {
-		int i = 0;
-		List<GameProfile> allPlayers = fs.getAllPlayerProfiles();
-		for (GameProfile player : allPlayers) {
-			if (isPlayerOnline(player)) {
-				i++;
-			}
-		}
-		return i;
 	}
 
 	public void displayAcceptInvitationResult(UUID fellowshipID, String name, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult result) {
@@ -930,11 +954,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 		allFellowshipInvites.addAll(GOTLevelData.getData(mc.thePlayer).getClientFellowshipInvites());
 	}
 
-	private static void rejectInvitation(GOTFellowshipClient invite) {
-		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, false);
-		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
-	}
-
 	private void renderIconTooltip(int x, int y, String s) {
 		float z = zLevel;
 		int stringWidth = 200;
@@ -999,25 +1018,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBaseReturn {
 			scrollPaneInvites.setPaneY1(scrollPaneInvites.getPaneY0() + (fontRendererObj.FONT_HEIGHT + 5) * displayedInvites);
 			scrollPaneInvites.mouseDragScroll(i, j);
 		}
-	}
-
-	private static List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {
-		List<GOTFellowshipClient> sorted = new ArrayList<>(list);
-		sorted.sort((fs1, fs2) -> {
-			int count1 = fs1.getPlayerCount();
-			int count2 = fs2.getPlayerCount();
-			if (count1 == count2) {
-				return fs1.getName().toLowerCase(Locale.ROOT).compareTo(fs2.getName().toLowerCase(Locale.ROOT));
-			}
-			return -Integer.compare(count1, count2);
-		});
-		return sorted;
-	}
-
-	private static List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
-		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
-		members.sort(Comparator.comparing(GOTGuiFellowships::isPlayerOnline).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase(Locale.ROOT)));
-		return members;
 	}
 
 	@Override

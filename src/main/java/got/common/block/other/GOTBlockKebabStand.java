@@ -164,8 +164,6 @@ public class GOTBlockKebabStand extends BlockContainer {
 			case 3:
 				meta = 4;
 				break;
-			default:
-				break;
 		}
 		world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		TileEntity tileentity = world.getTileEntity(i, j, k);

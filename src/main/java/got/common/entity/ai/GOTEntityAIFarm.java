@@ -162,8 +162,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						case DEPOSITING:
 							suitable = isSuitableForDepositing(i, j, k);
 							break;
-						default:
-							break;
 					}
 				}
 			} else {
@@ -182,8 +180,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						break;
 					case PLANTING:
 						suitable = isSuitableForPlanting(i, j, k);
-						break;
-					default:
 						break;
 				}
 			}

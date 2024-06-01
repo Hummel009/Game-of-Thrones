@@ -201,8 +201,6 @@ public class GOTBlockWeaponRack extends BlockContainer {
 			case 7:
 				setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f - f * 2.0f, h, 1.0f);
 				break;
-			default:
-				break;
 		}
 	}
 }

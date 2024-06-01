@@ -90,7 +90,7 @@ public abstract class GOTStructureJogosBase extends GOTStructureBase {
 				beamMeta = 2;
 				trapdoorBlock = GOTBlocks.trapdoorCedar;
 				break;
-			default:
+			case 2:
 				plankBlock = GOTBlocks.planks1;
 				plankMeta = 14;
 				plankSlabBlock = GOTBlocks.woodSlabSingle2;

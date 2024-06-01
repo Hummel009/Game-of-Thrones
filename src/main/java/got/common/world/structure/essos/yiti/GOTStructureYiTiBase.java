@@ -169,7 +169,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 					woodBeamMeta = 2;
 					doorBlock = GOTBlocks.doorCypress;
 					break;
-				default:
+				case 3:
 					logBlock = GOTBlocks.wood6;
 					logMeta = 3;
 					plankBlock = GOTBlocks.planks2;
@@ -253,7 +253,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 					cropMeta = 7;
 					seedItem = GOTItems.leek;
 					break;
-				default:
+				case 4:
 					cropBlock = GOTBlocks.turnipCrop;
 					cropMeta = 7;
 					seedItem = GOTItems.turnip;

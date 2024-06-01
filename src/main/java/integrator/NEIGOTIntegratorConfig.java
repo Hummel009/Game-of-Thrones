@@ -13,16 +13,6 @@ import java.util.Collection;
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
 	public static final Collection<ItemStack> HIDDEN_ITEMS = new ArrayList<>();
 
-	@Override
-	public String getName() {
-		return GOT.NAME;
-	}
-
-	@Override
-	public String getVersion() {
-		return GOT.VERSION;
-	}
-
 	private static void hideItem(Block block) {
 		hideItem(false, block);
 	}
@@ -39,6 +29,16 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 			HIDDEN_ITEMS.add(s);
 			i++;
 		}
+	}
+
+	@Override
+	public String getName() {
+		return GOT.NAME;
+	}
+
+	@Override
+	public String getVersion() {
+		return GOT.VERSION;
 	}
 
 	@Override

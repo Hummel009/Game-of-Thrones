@@ -56,6 +56,23 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructurePentosFarm(false);
+			}
+			return new GOTStructurePentosPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructurePentosSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructurePentosStables(false);
+			}
+			return new GOTStructurePentosHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -124,23 +141,6 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructurePentosFarm(false);
-			}
-			return new GOTStructurePentosPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructurePentosSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructurePentosStables(false);
-			}
-			return new GOTStructurePentosHouse(false);
 		}
 
 		@Override

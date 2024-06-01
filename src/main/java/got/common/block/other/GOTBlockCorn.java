@@ -54,6 +54,35 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 
+	public static Collection<ItemStack> getCornDrops(World world, int meta) {
+		Collection<ItemStack> drops = new ArrayList<>();
+		if (metaHasCorn(meta)) {
+			int corns = 1;
+			if (world.rand.nextInt(4) == 0) {
+				++corns;
+			}
+			for (int l = 0; l < corns; ++l) {
+				drops.add(new ItemStack(GOTItems.corn));
+			}
+		}
+		return drops;
+	}
+
+	private static float getGrowthFactor(World world, int i, int j, int k) {
+		float growth = 1.0f;
+		Block below = world.getBlock(i, j - 1, k);
+		if (below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
+			growth = 3.0f;
+			if (below.isFertile(world, i, j - 1, k)) {
+				growth = 9.0f;
+			}
+		}
+		if (world.isRaining()) {
+			growth *= 3.0f;
+		}
+		return growth / 250.0f;
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		return canPlaceBlockAt(world, i, j, k);
@@ -107,40 +136,11 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return null;
 	}
 
-	public static Collection<ItemStack> getCornDrops(World world, int meta) {
-		Collection<ItemStack> drops = new ArrayList<>();
-		if (metaHasCorn(meta)) {
-			int corns = 1;
-			if (world.rand.nextInt(4) == 0) {
-				++corns;
-			}
-			for (int l = 0; l < corns; ++l) {
-				drops.add(new ItemStack(GOTItems.corn));
-			}
-		}
-		return drops;
-	}
-
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>(super.getDrops(world, i, j, k, meta, fortune));
 		drops.addAll(getCornDrops(world, meta));
 		return drops;
-	}
-
-	private static float getGrowthFactor(World world, int i, int j, int k) {
-		float growth = 1.0f;
-		Block below = world.getBlock(i, j - 1, k);
-		if (below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
-			growth = 3.0f;
-			if (below.isFertile(world, i, j - 1, k)) {
-				growth = 9.0f;
-			}
-		}
-		if (world.isRaining()) {
-			growth *= 3.0f;
-		}
-		return growth / 250.0f;
 	}
 
 	@SideOnly(Side.CLIENT)

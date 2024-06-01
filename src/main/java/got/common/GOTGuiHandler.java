@@ -53,6 +53,14 @@ public class GOTGuiHandler implements IGuiHandler {
 		return guiID | slotNo << 16;
 	}
 
+	public static void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
+		if (world.isRemote && GOT.proxy.isClient()) {
+			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
+		} else {
+			entityplayer.openGui(GOT.instance, packGuiIDWithSlot(GOTGuiId.POUCH_CHEST.ordinal(), pouchSlot), world, i, j, k);
+		}
+	}
+
 	@Override
 	@SuppressWarnings("CastConflictsWithInstanceof")
 	public Object getClientGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
@@ -532,13 +540,5 @@ public class GOTGuiHandler implements IGuiHandler {
 				break;
 		}
 		return null;
-	}
-
-	public static void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
-		if (world.isRemote && GOT.proxy.isClient()) {
-			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
-		} else {
-			entityplayer.openGui(GOT.instance, packGuiIDWithSlot(GOTGuiId.POUCH_CHEST.ordinal(), pouchSlot), world, i, j, k);
-		}
 	}
 }

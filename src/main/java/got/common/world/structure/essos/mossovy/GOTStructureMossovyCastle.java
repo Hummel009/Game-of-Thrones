@@ -72,8 +72,6 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 							case 2:
 								setBlockAndMetadata(world, i15, 0, k12, GOTBlocks.dirtPath, 0);
 								break;
-							default:
-								break;
 						}
 						if (random.nextInt(3) == 0) {
 							setBlockAndMetadata(world, i15, 1, k12, GOTBlocks.thatchFloor, 0);

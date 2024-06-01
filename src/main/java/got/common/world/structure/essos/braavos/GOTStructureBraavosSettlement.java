@@ -54,6 +54,23 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureBraavosFarm(false);
+			}
+			return new GOTStructureBraavosPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureBraavosSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureBraavosStables(false);
+			}
+			return new GOTStructureBraavosHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -122,23 +139,6 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureBraavosFarm(false);
-			}
-			return new GOTStructureBraavosPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureBraavosSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureBraavosStables(false);
-			}
-			return new GOTStructureBraavosHouse(false);
 		}
 
 		@Override

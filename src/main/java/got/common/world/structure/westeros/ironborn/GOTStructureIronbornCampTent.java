@@ -25,7 +25,7 @@ public class GOTStructureIronbornCampTent extends GOTStructureTentBase {
 				tentBlock = Blocks.wool;
 				tentMeta = 15;
 				break;
-			default:
+			case 2:
 				tentBlock = Blocks.wool;
 				tentMeta = 7;
 				break;

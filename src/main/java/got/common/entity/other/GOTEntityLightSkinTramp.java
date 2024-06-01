@@ -54,13 +54,13 @@ public class GOTEntityLightSkinTramp extends GOTEntityTrampBase {
 			case 0:
 				familyInfo.setName(GOTNames.getWesterosName(rand, true));
 				break;
-			case 2:
+			case 1:
 				familyInfo.setName(GOTNames.getEssosName(rand, true));
 				break;
-			case 3:
+			case 2:
 				familyInfo.setName(GOTNames.getQarthName(rand, true));
 				break;
-			default:
+			case 3:
 				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}

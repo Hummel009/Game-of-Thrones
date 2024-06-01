@@ -56,6 +56,23 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureTyroshFarm(false);
+			}
+			return new GOTStructureTyroshPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureTyroshSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureTyroshStables(false);
+			}
+			return new GOTStructureTyroshHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -124,23 +141,6 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureTyroshFarm(false);
-			}
-			return new GOTStructureTyroshPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureTyroshSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureTyroshStables(false);
-			}
-			return new GOTStructureTyroshHouse(false);
 		}
 
 		@Override

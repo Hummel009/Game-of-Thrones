@@ -39,6 +39,13 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		super(model, f);
 	}
 
+	private static void renderNPCCape(GOTEntityNPC entity) {
+		GOTCapes cape = entity.getCape();
+		if (cape != null) {
+			GOTRenderCape.renderCape(cape, CAPE_MODEL);
+		}
+	}
+
 	@Override
 	public void doRender(EntityLiving entity, double d, double d1, double d2, float f, float f1) {
 		super.doRender(entity, d, d1, d2, f, f1);
@@ -217,13 +224,6 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		}
 		renderNPCShield((GOTEntityNPC) entity);
 		renderNPCCape((GOTEntityNPC) entity);
-	}
-
-	private static void renderNPCCape(GOTEntityNPC entity) {
-		GOTCapes cape = entity.getCape();
-		if (cape != null) {
-			GOTRenderCape.renderCape(cape, CAPE_MODEL);
-		}
 	}
 
 	private void renderNPCShield(GOTEntityNPC entity) {

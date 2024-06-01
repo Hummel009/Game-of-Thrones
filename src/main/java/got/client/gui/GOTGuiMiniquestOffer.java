@@ -60,6 +60,21 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		openTick = 0;
 	}
 
+	private static boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
+		if (base == match) {
+			return true;
+		}
+		if (base.childModels != null) {
+			for (Object obj : base.childModels) {
+				ModelRenderer part = (ModelRenderer) obj;
+				if (recursiveCheckForModel(part, match)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -133,21 +148,6 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			GOTPacketMiniquestOffer.sendClosePacket(mc.thePlayer, theNPC, false);
 			sentClosePacket = true;
 		}
-	}
-
-	private static boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
-		if (base == match) {
-			return true;
-		}
-		if (base.childModels != null) {
-			for (Object obj : base.childModels) {
-				ModelRenderer part = (ModelRenderer) obj;
-				if (recursiveCheckForModel(part, match)) {
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 
 	private void renderNPC(int i, int j, float dx, float dy, float f) {

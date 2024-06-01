@@ -19,14 +19,6 @@ public class GOTRenderFish extends RenderLiving {
 		super(new GOTModelFish(), 0.0f);
 	}
 
-	@Override
-	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityFish fish = (GOTEntityFish) entity;
-		String type = fish.getFishTextureDir();
-		GOTRandomSkins skins = getFishSkins(type);
-		return skins.getRandomSkin(fish);
-	}
-
 	private static GOTRandomSkins getFishSkins(String s) {
 		GOTRandomSkins skins = FISH_TEXTURES.get(s);
 		if (skins == null) {
@@ -34,6 +26,14 @@ public class GOTRenderFish extends RenderLiving {
 			FISH_TEXTURES.put(s, skins);
 		}
 		return skins;
+	}
+
+	@Override
+	public ResourceLocation getEntityTexture(Entity entity) {
+		GOTEntityFish fish = (GOTEntityFish) entity;
+		String type = fish.getFishTextureDir();
+		GOTRandomSkins skins = getFishSkins(type);
+		return skins.getRandomSkin(fish);
 	}
 
 	@Override

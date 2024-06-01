@@ -16,6 +16,10 @@ public class GOTWorldGenLogs extends WorldGenerator {
 		super(false);
 	}
 
+	private static boolean isSuitablePositionForLog(IBlockAccess world, int i, int j, int k) {
+		return world.getBlock(i, j - 1, k).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) && world.getBlock(i, j, k).isReplaceable(world, i, j, k);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		if (!isSuitablePositionForLog(world, i, j, k)) {
@@ -41,9 +45,5 @@ public class GOTWorldGenLogs extends WorldGenerator {
 		setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.rottenLog, 0);
 		world.getBlock(i, j - 1, k).onPlantGrow(world, i, j - 1, k, i, j, k);
 		return true;
-	}
-
-	private static boolean isSuitablePositionForLog(IBlockAccess world, int i, int j, int k) {
-		return world.getBlock(i, j - 1, k).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) && world.getBlock(i, j, k).isReplaceable(world, i, j, k);
 	}
 }

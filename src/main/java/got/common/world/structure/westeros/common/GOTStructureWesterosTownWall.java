@@ -82,8 +82,6 @@ public class GOTStructureWesterosTownWall extends GOTStructureWesterosBase {
 					case 1:
 						setBlockAndMetadata(world, i1, 6, k1, brickStairBlock, 0);
 						break;
-					default:
-						break;
 				}
 			}
 			if (i1 < xMinInner || i1 > xMaxInner) {

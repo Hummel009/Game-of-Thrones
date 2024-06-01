@@ -43,19 +43,19 @@ public class GOTEntityDarkSkinThief extends GOTEntityThiefBase {
 			case 0:
 				familyInfo.setName(GOTNames.getGhiscarName(rand, true));
 				break;
-			case 2:
+			case 1:
 				familyInfo.setName(GOTNames.getLhazarName(rand, true));
 				break;
-			case 3:
+			case 2:
 				familyInfo.setName(GOTNames.getJogosName(rand, true));
 				break;
-			case 4:
+			case 3:
 				familyInfo.setName(GOTNames.getDothrakiName(rand, true));
 				break;
-			case 5:
+			case 4:
 				familyInfo.setName(GOTNames.getSothoryosName(rand, true));
 				break;
-			default:
+			case 5:
 				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}

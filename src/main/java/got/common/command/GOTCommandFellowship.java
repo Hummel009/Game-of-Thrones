@@ -83,6 +83,19 @@ public class GOTCommandFellowship extends CommandBase {
 		return getListOfStringsMatchingLastWord(argsOriginal, autocompletes.toArray(new String[0]));
 	}
 
+	private static UUID getPlayerIDByName(ICommandSender sender, String username) {
+		try {
+			EntityPlayerMP entityplayer = getPlayer(sender, username);
+			return entityplayer.getUniqueID();
+		} catch (PlayerNotFoundException ignored) {
+		}
+		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(username);
+		if (profile != null) {
+			return profile.getId();
+		}
+		return null;
+	}
+
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		String[] args1 = args;
@@ -178,19 +191,6 @@ public class GOTCommandFellowship extends CommandBase {
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
 		return "got.command.fellowship.usage";
-	}
-
-	private static UUID getPlayerIDByName(ICommandSender sender, String username) {
-		try {
-			EntityPlayerMP entityplayer = getPlayer(sender, username);
-			return entityplayer.getUniqueID();
-		} catch (PlayerNotFoundException ignored) {
-		}
-		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(username);
-		if (profile != null) {
-			return profile.getId();
-		}
-		return null;
 	}
 
 	@Override

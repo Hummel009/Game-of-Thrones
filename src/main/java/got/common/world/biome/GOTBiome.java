@@ -865,9 +865,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 			case 1:
 				doubleFlowerGen.func_150548_a(4);
 				return doubleFlowerGen;
-			default:
+			case 2:
 				doubleFlowerGen.func_150548_a(5);
 				return doubleFlowerGen;
+			default:
+				return null;
 		}
 	}
 

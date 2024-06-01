@@ -32,6 +32,31 @@ public class GOTBlockSpawnerChest extends BlockChest {
 		setCreativeTab(null);
 	}
 
+	private static void spawnEntity(World world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (!(tileentity instanceof GOTTileEntitySpawnerChest)) {
+			return;
+		}
+		Entity entity = ((GOTTileEntitySpawnerChest) tileentity).createMob();
+		if (!(entity instanceof EntityLiving)) {
+			return;
+		}
+		EntityLiving entityliving = (EntityLiving) entity;
+		entityliving.setLocationAndAngles(i + 0.5, j + 1, k + 0.5, 0.0f, 0.0f);
+		entityliving.spawnExplosionParticle();
+		if (!world.isRemote) {
+			entityliving.onSpawnWithEgg(null);
+			if (entityliving instanceof GOTEntityNPC) {
+				((GOTEntityNPC) entityliving).setNPCPersistent(true);
+			}
+			world.spawnEntityInWorld(entityliving);
+			world.playSoundAtEntity(entityliving, "got:wraith.spawn", 1.0f, 0.7f + world.rand.nextFloat() * 0.6f);
+			if (entityliving instanceof GOTEntityBarrowWight) {
+				world.addWeatherEffect(new EntityLightningBolt(world, entityliving.posX, entityliving.posY, entityliving.posZ));
+			}
+		}
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
 		if (dropChestItems) {
@@ -99,31 +124,6 @@ public class GOTBlockSpawnerChest extends BlockChest {
 		}
 		dropChestItems = true;
 		return true;
-	}
-
-	private static void spawnEntity(World world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (!(tileentity instanceof GOTTileEntitySpawnerChest)) {
-			return;
-		}
-		Entity entity = ((GOTTileEntitySpawnerChest) tileentity).createMob();
-		if (!(entity instanceof EntityLiving)) {
-			return;
-		}
-		EntityLiving entityliving = (EntityLiving) entity;
-		entityliving.setLocationAndAngles(i + 0.5, j + 1, k + 0.5, 0.0f, 0.0f);
-		entityliving.spawnExplosionParticle();
-		if (!world.isRemote) {
-			entityliving.onSpawnWithEgg(null);
-			if (entityliving instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entityliving).setNPCPersistent(true);
-			}
-			world.spawnEntityInWorld(entityliving);
-			world.playSoundAtEntity(entityliving, "got:wraith.spawn", 1.0f, 0.7f + world.rand.nextFloat() * 0.6f);
-			if (entityliving instanceof GOTEntityBarrowWight) {
-				world.addWeatherEffect(new EntityLightningBolt(world, entityliving.posX, entityliving.posY, entityliving.posZ));
-			}
-		}
 	}
 
 	public Block getChestModel() {

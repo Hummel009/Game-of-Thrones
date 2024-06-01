@@ -281,6 +281,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		}
 	}
 
+	public static void update() {
+		GOTMusicTicker.update(MUSIC_RAND);
+	}
+
 	@SubscribeEvent
 	@SuppressWarnings("MethodMayBeStatic")
 	public void onPlaySound(PlaySoundEvent17 event) {
@@ -298,10 +302,6 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	@Override
 	public void onResourceManagerReload(IResourceManager resourcemanager) {
 		loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
-	}
-
-	public static void update() {
-		GOTMusicTicker.update(MUSIC_RAND);
 	}
 
 	public static class Reflect {

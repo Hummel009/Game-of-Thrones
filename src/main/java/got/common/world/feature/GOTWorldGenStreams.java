@@ -16,6 +16,11 @@ public class GOTWorldGenStreams extends WorldGenerator {
 		liquidBlock = block;
 	}
 
+	private static boolean isRock(IBlockAccess world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		return block == Blocks.stone || block == Blocks.sandstone || block == GOTBlocks.rock;
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		if (!isRock(world, i, j + 1, k) || !isRock(world, i, j - 1, k) || !world.isAirBlock(i, j, k) && !isRock(world, i, j, k)) {
@@ -54,10 +59,5 @@ public class GOTWorldGenStreams extends WorldGenerator {
 			world.scheduledUpdatesAreImmediate = false;
 		}
 		return true;
-	}
-
-	private static boolean isRock(IBlockAccess world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		return block == Blocks.stone || block == Blocks.sandstone || block == GOTBlocks.rock;
 	}
 }

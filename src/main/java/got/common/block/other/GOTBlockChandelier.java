@@ -34,6 +34,18 @@ public class GOTBlockChandelier extends Block {
 		setBlockBounds(0.0625f, 0.1875f, 0.0625f, 0.9375f, 1.0f, 0.9375f);
 	}
 
+	private static void spawnChandelierParticles(World world, double d, double d1, double d2, Random random, int meta) {
+		if (meta == 12) {
+			double d3 = -0.05 + random.nextFloat() * 0.1;
+			double d4 = 0.1 + random.nextFloat() * 0.1;
+			double d5 = -0.05 + random.nextFloat() * 0.1;
+			GOT.proxy.spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
+		} else {
+			world.spawnParticle("smoke", d, d1, d2, 0.0, 0.0, 0.0);
+			world.spawnParticle("flame", d, d1, d2, 0.0, 0.0, 0.0);
+		}
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j + 1, k);
@@ -120,17 +132,5 @@ public class GOTBlockChandelier extends Block {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
-	}
-
-	private static void spawnChandelierParticles(World world, double d, double d1, double d2, Random random, int meta) {
-		if (meta == 12) {
-			double d3 = -0.05 + random.nextFloat() * 0.1;
-			double d4 = 0.1 + random.nextFloat() * 0.1;
-			double d5 = -0.05 + random.nextFloat() * 0.1;
-			GOT.proxy.spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
-		} else {
-			world.spawnParticle("smoke", d, d1, d2, 0.0, 0.0, 0.0);
-			world.spawnParticle("flame", d, d1, d2, 0.0, 0.0, 0.0);
-		}
 	}
 }

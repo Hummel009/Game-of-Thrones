@@ -23,6 +23,19 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		dataWatcher.addObject(dataIndexReproCount, 0);
 	}
 
+	private static String fixChildName(String nameOld) {
+		if (nameOld == null || nameOld.isEmpty()) {
+			return nameOld;
+		}
+		char[] chars = nameOld.toLowerCase(Locale.ROOT).toCharArray();
+		chars[0] = Character.toUpperCase(chars[0]);
+		String nameNew = new String(chars);
+		if (!nameOld.equals(nameNew)) {
+			GOTLog.getLogger().debug("Fixed child name {} -> {}");
+		}
+		return nameNew;
+	}
+
 	private void addReproduced() {
 		setReproCount(getReproCount() + 1);
 	}
@@ -76,19 +89,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		parent1.getReproductionHelper().addReproduced();
 		parent2.getReproductionHelper().addReproduced();
 		return baby;
-	}
-
-	private static String fixChildName(String nameOld) {
-		if (nameOld == null || nameOld.isEmpty()) {
-			return nameOld;
-		}
-		char[] chars = nameOld.toLowerCase(Locale.ROOT).toCharArray();
-		chars[0] = Character.toUpperCase(chars[0]);
-		String nameNew = new String(chars);
-		if (!nameOld.equals(nameNew)) {
-			GOTLog.getLogger().debug("Fixed child name {} -> {}");
-		}
-		return nameNew;
 	}
 
 	private String getBreederName() {

@@ -75,7 +75,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 							case 2:
 								setBlockAndMetadata(world, i13, j1, k1, cobbleBlock, cobbleMeta);
 								break;
-							default:
+							case 3:
 								setBlockAndMetadata(world, i13, j1, k1, rockBlock, rockMeta);
 								break;
 						}

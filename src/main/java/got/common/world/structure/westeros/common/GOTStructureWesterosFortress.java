@@ -375,7 +375,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 							case 1:
 								setBlockAndMetadata(world, i5, 1, i12, Blocks.red_flower, 6);
 								break;
-							default:
+							case 2:
 								setBlockAndMetadata(world, i5, 1, i12, Blocks.red_flower, 4);
 								break;
 						}

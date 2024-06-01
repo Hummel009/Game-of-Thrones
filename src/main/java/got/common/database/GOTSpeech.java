@@ -200,6 +200,10 @@ public class GOTSpeech {
 			speeches = spc;
 		}
 
+		private static String internalFormatSpeech(String s) {
+			return s;
+		}
+
 		private String getRandomSpeech() {
 			if (!isRandom) {
 				return "ERROR: Tried to retrieve random speech from non-random speech bank " + name;
@@ -218,10 +222,6 @@ public class GOTSpeech {
 				return internalFormatSpeech(s);
 			}
 			return "ERROR: Speech line " + line + " is out of range!";
-		}
-
-		private static String internalFormatSpeech(String s) {
-			return s;
 		}
 	}
 }

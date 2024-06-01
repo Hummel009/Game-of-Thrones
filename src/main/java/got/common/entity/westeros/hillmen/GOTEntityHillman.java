@@ -146,32 +146,13 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements GOTBiome.Imm
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(9);
+		int i = rand.nextInt(3);
 		switch (i) {
 			case 0:
-			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.club));
-				break;
-			case 2:
-			case 3:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
 				break;
-			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(Items.wooden_sword));
-				break;
-			case 5:
-				npcItemsInv.setMeleeWeapon(new ItemStack(Items.stone_sword));
-				break;
-			case 6:
-				npcItemsInv.setMeleeWeapon(new ItemStack(Items.stone_axe));
-				break;
-			case 7:
-				npcItemsInv.setMeleeWeapon(new ItemStack(Items.stone_hoe));
-				break;
-			case 8:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.stoneSpear));
-				break;
 			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.club));
 				break;
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());

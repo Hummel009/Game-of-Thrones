@@ -77,7 +77,7 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 				roofBlock = Blocks.wool;
 				roofMeta = 11;
 				break;
-			default:
+			case 2:
 				roofBlock = Blocks.wool;
 				roofMeta = 8;
 				break;

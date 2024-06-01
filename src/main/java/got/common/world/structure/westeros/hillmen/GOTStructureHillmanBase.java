@@ -69,7 +69,7 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 				floorBlock = Blocks.stained_hardened_clay;
 				floorMeta = 12;
 				break;
-			default:
+			case 4:
 				floorBlock = Blocks.stained_hardened_clay;
 				floorMeta = 15;
 				break;

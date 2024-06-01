@@ -69,8 +69,6 @@ public class GOTBlockSapling2 extends GOTBlockSaplingBase {
 			case 3:
 				treeGen = GOTTreeType.BANANA.create(true, random);
 				break;
-			default:
-				break;
 		}
 		for (i1 = -trunkNeg; i1 <= trunkPos; ++i1) {
 			for (k1 = -trunkNeg; k1 <= trunkPos; ++k1) {

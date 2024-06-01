@@ -25,16 +25,16 @@ public class GOTThirdPersonViewer {
 	private GOTThirdPersonViewer() {
 	}
 
-	public void init() {
-		defaultThirdPersonDistance = getThirdPersonDistance();
-	}
-
 	private static float getThirdPersonDistance() {
 		return ReflectionHelper.getPrivateValue(EntityRenderer.class, MC.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	private static void setThirdPersonDistance(float thirdPersonDistance) {
 		ReflectionHelper.setPrivateValue(EntityRenderer.class, MC.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
+	}
+
+	public void init() {
+		defaultThirdPersonDistance = getThirdPersonDistance();
 	}
 
 	@SubscribeEvent

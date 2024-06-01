@@ -103,8 +103,6 @@ public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
 				beamMeta = 2;
 				trapdoorBlock = GOTBlocks.trapdoorDatePalm;
 				break;
-			default:
-				break;
 		}
 		bedBlock = GOTBlocks.strawBed;
 	}

@@ -23,11 +23,12 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 		if (!super.generate(world, random, i, j, k, rotation)) {
 			return false;
 		}
-		int randomCrop = random.nextInt(8);
 		boolean melon;
 		Item seedItem;
 		int cropMeta;
 		Block cropBlock;
+
+		int randomCrop = random.nextInt(8);
 		switch (randomCrop) {
 			case 0:
 			case 1:

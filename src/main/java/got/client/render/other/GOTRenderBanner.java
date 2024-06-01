@@ -39,6 +39,11 @@ public class GOTRenderBanner extends Render {
 		return r;
 	}
 
+	private static ResourceLocation getBannerTexture(Entity entity) {
+		GOTEntityBanner banner = (GOTEntityBanner) entity;
+		return getBannerTexture(banner.getBannerType());
+	}
+
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
@@ -102,11 +107,6 @@ public class GOTRenderBanner extends Render {
 			GL11.glDepthMask(true);
 			GL11.glPopMatrix();
 		}
-	}
-
-	private static ResourceLocation getBannerTexture(Entity entity) {
-		GOTEntityBanner banner = (GOTEntityBanner) entity;
-		return getBannerTexture(banner.getBannerType());
 	}
 
 	@Override

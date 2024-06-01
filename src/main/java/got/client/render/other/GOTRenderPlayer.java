@@ -30,6 +30,39 @@ public class GOTRenderPlayer {
 	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 	private static final RenderManager RENDER_MANAGER = RenderManager.instance;
 
+	private static boolean shouldRenderAlignment(EntityPlayer entityplayer) {
+		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
+			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
+				UUID playerUuid = entityplayer.getUniqueID();
+				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
+				for (GOTFellowshipClient fs : fellowships) {
+					if (fs.containsPlayer(playerUuid)) {
+						return true;
+					}
+				}
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
+
+	private static boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
+		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
+			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
+			for (GOTFellowshipClient fs : fellowships) {
+				if (fs.containsPlayer(entityplayer.getUniqueID())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private static boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
+		return Minecraft.isGuiEnabled() && entityplayer != RENDER_MANAGER.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(MINECRAFT.thePlayer);
+	}
+
 	@SubscribeEvent
 	@SuppressWarnings("MethodMayBeStatic")
 	public void postRender(RenderPlayerEvent.Post event) {
@@ -170,38 +203,5 @@ public class GOTRenderPlayer {
 				GL11.glDepthMask(true);
 			}
 		}
-	}
-
-	private static boolean shouldRenderAlignment(EntityPlayer entityplayer) {
-		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
-			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
-				UUID playerUuid = entityplayer.getUniqueID();
-				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
-				for (GOTFellowshipClient fs : fellowships) {
-					if (fs.containsPlayer(playerUuid)) {
-						return true;
-					}
-				}
-				return false;
-			}
-			return true;
-		}
-		return false;
-	}
-
-	private static boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
-		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
-			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
-			for (GOTFellowshipClient fs : fellowships) {
-				if (fs.containsPlayer(entityplayer.getUniqueID())) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private static boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
-		return Minecraft.isGuiEnabled() && entityplayer != RENDER_MANAGER.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(MINECRAFT.thePlayer);
 	}
 }

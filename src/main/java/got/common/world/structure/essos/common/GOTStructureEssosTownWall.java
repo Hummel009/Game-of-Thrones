@@ -62,8 +62,6 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 					setBlockAndMetadata(world, i1, 6, k1 - 1, brickBlock, brickMeta);
 					setBlockAndMetadata(world, i1, 7, k1 - 1, brickSlabBlock, brickSlabMeta);
 					break;
-				default:
-					break;
 			}
 			if (pillarOffset % 2 == 0) {
 				setBlockAndMetadata(world, i1, 4, k1 + 2, plankStairBlock, 7);

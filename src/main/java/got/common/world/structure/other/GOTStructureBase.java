@@ -47,13 +47,10 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.*;
 
 public abstract class GOTStructureBase extends WorldGenerator {
+	protected final boolean notifyChanges;
 	private final Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	private final Map<String, Float> scanAliasChances = new HashMap<>();
-
 	private final Set<Class<? extends Entity>> entityClasses = new HashSet<>();
-
-	protected final boolean notifyChanges;
-
 	protected EntityPlayer usingPlayer;
 	protected boolean restrictions = true;
 	protected int originX;
@@ -870,8 +867,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					case 3:
 						i = 0;
 						continue;
-					default:
-						break;
 				}
 				i = 2;
 			}
@@ -940,8 +935,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					case 3:
 						i = 2;
 						continue;
-					default:
-						break;
 				}
 				if (i != 2) {
 					continue;
@@ -976,8 +969,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					case 2:
 						i = 0;
 						continue;
-					default:
-						break;
 				}
 				i = 1;
 			}
@@ -1043,8 +1034,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 						case 3:
 							i = 2;
 							continue;
-						default:
-							break;
 					}
 					i = 4;
 				}
@@ -1065,8 +1054,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					case 3:
 						i = 2;
 						continue;
-					default:
-						break;
 				}
 				if (i != 2) {
 					continue;
@@ -1181,8 +1168,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				i1 += shift;
 				k1 -= shiftX;
 				break;
-			default:
-				break;
 		}
 		originX = i1;
 		originY = j1;
@@ -1295,13 +1280,13 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return entityClasses;
 	}
 
-	public void setWikiGen(boolean wikiGen) {
-		this.wikiGen = wikiGen;
-	}
-
 	@SuppressWarnings("unused")
 	public boolean isWikiGen() {
 		return wikiGen;
+	}
+
+	public void setWikiGen(boolean wikiGen) {
+		this.wikiGen = wikiGen;
 	}
 
 	private static class BlockAliasPool {

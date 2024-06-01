@@ -20,6 +20,10 @@ public class GOTBlockWildFire extends BlockFire {
 		setLightLevel(1.0f);
 	}
 
+	private static boolean isBannered(World world, int i, int j, int k) {
+		return GOTBannerProtection.isProtected(world, i, j, k, GOTBannerProtection.anyBanner(), false);
+	}
+
 	private boolean canCatchFireNotBannered(World world, int i, int j, int k, ForgeDirection face) {
 		return !isBannered(world, i, j, k) && canCatchFire(world, i, j, k, face);
 	}
@@ -50,10 +54,6 @@ public class GOTBlockWildFire extends BlockFire {
 	public int getChanceToEncourageFire(IBlockAccess world, int i, int j, int k, int oldChance, ForgeDirection face) {
 		int chance = super.getChanceToEncourageFire(world, i, j, k, oldChance, face);
 		return (int) (chance * 1.25f);
-	}
-
-	private static boolean isBannered(World world, int i, int j, int k) {
-		return GOTBannerProtection.isProtected(world, i, j, k, GOTBannerProtection.anyBanner(), false);
 	}
 
 	@Override

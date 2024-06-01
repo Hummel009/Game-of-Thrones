@@ -23,6 +23,12 @@ public class GOTBlockTermite extends Block {
 		setResistance(3.0f);
 	}
 
+	private static void spawnTermite(World world, int i, int j, int k) {
+		GOTEntityTermite termite = new GOTEntityTermite(world);
+		termite.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
+		world.spawnEntityInWorld(termite);
+	}
+
 	@Override
 	public ItemStack createStackedBlock(int i) {
 		return new ItemStack(this, 1, 1);
@@ -64,11 +70,5 @@ public class GOTBlockTermite extends Block {
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random) {
 		return meta == 1 ? 1 : 0;
-	}
-
-	private static void spawnTermite(World world, int i, int j, int k) {
-		GOTEntityTermite termite = new GOTEntityTermite(world);
-		termite.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-		world.spawnEntityInWorld(termite);
 	}
 }

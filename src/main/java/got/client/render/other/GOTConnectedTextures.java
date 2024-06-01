@@ -182,8 +182,6 @@ public class GOTConnectedTextures {
 							k1 -= x;
 							j1 -= y;
 							break;
-						default:
-							break;
 					}
 					match = block.areBlocksConnected(world, i, j, k, i1, j1, k1);
 				}

@@ -72,8 +72,6 @@ public class GOTBlockSapling6 extends GOTBlockSaplingBase {
 					treeGen = GOTTreeType.OLIVE.create(true, random);
 				}
 				break;
-			default:
-				break;
 		}
 		for (i1 = 0; i1 <= extraTrunkWidth; ++i1) {
 			for (k1 = 0; k1 <= extraTrunkWidth; ++k1) {

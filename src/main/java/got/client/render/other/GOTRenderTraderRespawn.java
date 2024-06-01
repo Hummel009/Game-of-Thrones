@@ -16,6 +16,17 @@ import org.lwjgl.opengl.GL11;
 public class GOTRenderTraderRespawn extends Render {
 	private ItemStack theItemStack;
 
+	@SuppressWarnings("StatementWithEmptyBody")
+	private static float interpolateRotation(float prevRotation, float newRotation, float tick) {
+		float interval;
+		for (interval = newRotation - prevRotation; interval < -180.0f; interval += 360.0f) {
+		}
+		while (interval >= 180.0f) {
+			interval -= 360.0f;
+		}
+		return prevRotation + tick * interval;
+	}
+
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		if (theItemStack == null) {
@@ -48,16 +59,5 @@ public class GOTRenderTraderRespawn extends Render {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		return TextureMap.locationItemsTexture;
-	}
-
-	@SuppressWarnings("StatementWithEmptyBody")
-	private static float interpolateRotation(float prevRotation, float newRotation, float tick) {
-		float interval;
-		for (interval = newRotation - prevRotation; interval < -180.0f; interval += 360.0f) {
-		}
-		while (interval >= 180.0f) {
-			interval -= 360.0f;
-		}
-		return prevRotation + tick * interval;
 	}
 }

@@ -9,6 +9,11 @@ public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 		super(flag);
 	}
 
+	private static String getRandomStatueStrscan(Random random) {
+		String[] statues = {"mumak", "bird", "snake"};
+		return "essos_statue_" + statues[random.nextInt(statues.length)];
+	}
+
 	private void assocStatueBlocks() {
 		associateBlockMetaAlias("STONE", stoneBlock, stoneMeta);
 		associateBlockMetaAlias("BRICK", brickBlock, brickMeta);
@@ -63,11 +68,6 @@ public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 		assocStatueBlocks();
 		generateStrScan(world, random, 0, 4, 0);
 		return true;
-	}
-
-	private static String getRandomStatueStrscan(Random random) {
-		String[] statues = {"mumak", "bird", "snake"};
-		return "essos_statue_" + statues[random.nextInt(statues.length)];
 	}
 
 	@Override

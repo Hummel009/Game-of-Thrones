@@ -55,8 +55,6 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 				case 3:
 					i2 += 8;
 					break;
-				default:
-					break;
 			}
 			if (restrictions && world.getBlock(i2, world.getTopSolidOrLiquidBlock(i2, k2) - 1, k2) != Blocks.grass) {
 				return false;
@@ -168,8 +166,6 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 					case 3:
 						i3 += radius;
 						break;
-					default:
-						break;
 				}
 			}
 			int sections = 4 + random.nextInt(3);
@@ -277,8 +273,6 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 							setBlockAndNotifyAdequately(world, i3 - radius, j1, k13, Blocks.air, 0);
 						}
 					}
-					break;
-				default:
 					break;
 			}
 			for (int l = 0; l < 16; ++l) {

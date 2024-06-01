@@ -19,21 +19,19 @@ public class GOTEntityTyroshSoldier extends GOTEntityTyroshLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(6);
+		int i = rand.nextInt(9);
 		switch (i) {
 			case 0:
-			case 1:
-			case 2:
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSword));
-				break;
-			case 4:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosHammer));
 				break;
-			case 5:
+			case 1:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
 				break;
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
+				break;
 			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSword));
 				break;
 		}
 		if (rand.nextInt(3) == 0) {

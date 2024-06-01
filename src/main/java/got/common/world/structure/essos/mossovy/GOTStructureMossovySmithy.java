@@ -16,6 +16,19 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		super(flag);
 	}
 
+	private static ItemStack[] getDisplayArmorOrNull(World world, Random random) {
+		if (random.nextBoolean()) {
+			GOTEntityMossovyWitcher armorGuard = new GOTEntityMossovyWitcher(world);
+			armorGuard.onSpawnWithEgg(null);
+			return new ItemStack[]{armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null};
+		}
+		return null;
+	}
+
+	private static ItemStack getDisplayWeaponOrNull(Random random) {
+		return random.nextBoolean() ? getRandomWeapon(random) : null;
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
@@ -92,18 +105,5 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		GOTEntityMossovyBlacksmith blacksmith = new GOTEntityMossovyBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 1, -1, 8);
 		return true;
-	}
-
-	private static ItemStack[] getDisplayArmorOrNull(World world, Random random) {
-		if (random.nextBoolean()) {
-			GOTEntityMossovyWitcher armorGuard = new GOTEntityMossovyWitcher(world);
-			armorGuard.onSpawnWithEgg(null);
-			return new ItemStack[]{armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null};
-		}
-		return null;
-	}
-
-	private static ItemStack getDisplayWeaponOrNull(Random random) {
-		return random.nextBoolean() ? getRandomWeapon(random) : null;
 	}
 }

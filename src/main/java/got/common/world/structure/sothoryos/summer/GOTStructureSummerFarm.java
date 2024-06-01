@@ -147,7 +147,7 @@ public class GOTStructureSummerFarm extends GOTStructureSummerBase {
 					crop1Block = GOTBlocks.lettuceCrop;
 					seed1 = GOTItems.lettuce;
 					break;
-				default:
+				case 3:
 					crop1Block = GOTBlocks.turnipCrop;
 					seed1 = GOTItems.turnip;
 					break;
@@ -171,7 +171,7 @@ public class GOTStructureSummerFarm extends GOTStructureSummerBase {
 					crop2Block = GOTBlocks.lettuceCrop;
 					seed2 = GOTItems.lettuce;
 					break;
-				default:
+				case 3:
 					crop2Block = GOTBlocks.turnipCrop;
 					seed2 = GOTItems.turnip;
 					break;

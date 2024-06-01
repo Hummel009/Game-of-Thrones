@@ -368,8 +368,6 @@ public class GOTEventHandler {
 							case 8:
 								onInnerFace = side == 2 || side == 3;
 								break;
-							default:
-								break;
 						}
 						if (onInnerFace) {
 							meta |= 0xC;

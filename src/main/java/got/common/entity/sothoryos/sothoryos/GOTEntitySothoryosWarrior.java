@@ -22,29 +22,19 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(8);
+		int i = rand.nextInt(9);
 		switch (i) {
 			case 0:
-			case 1:
-			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosSword));
-				break;
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDagger));
-				break;
-			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDaggerPoisoned));
-				break;
-			case 5:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHammer));
 				break;
-			case 6:
+			case 1:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosBattleaxe));
 				break;
-			case 7:
+			case 2:
 				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosPike));
 				break;
 			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosSword));
 				break;
 		}
 		if (rand.nextInt(5) == 0) {

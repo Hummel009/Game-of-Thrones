@@ -56,6 +56,23 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				return new GOTStructureQarthFarm(false);
+			}
+			return new GOTStructureQarthPasture(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureQarthSmithy(false);
+			}
+			if (random.nextInt(6) == 0) {
+				return new GOTStructureQarthStables(false);
+			}
+			return new GOTStructureQarthHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -133,23 +150,6 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				return new GOTStructureQarthFarm(false);
-			}
-			return new GOTStructureQarthPasture(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureQarthSmithy(false);
-			}
-			if (random.nextInt(6) == 0) {
-				return new GOTStructureQarthStables(false);
-			}
-			return new GOTStructureQarthHouse(false);
 		}
 
 		@Override

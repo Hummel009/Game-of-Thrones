@@ -46,6 +46,26 @@ public class GOTBlockOven extends BlockContainer {
 		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
 	}
 
+	private static void setDefaultDirection(World world, int i, int j, int k) {
+		if (!world.isRemote) {
+			Block i1 = world.getBlock(i, j, k - 1);
+			Block j1 = world.getBlock(i, j, k + 1);
+			Block k1 = world.getBlock(i - 1, j, k);
+			Block l1 = world.getBlock(i + 1, j, k);
+			int meta = 3;
+			if (j1.isOpaqueCube() && !i1.isOpaqueCube()) {
+				meta = 2;
+			}
+			if (k1.isOpaqueCube() && !l1.isOpaqueCube()) {
+				meta = 5;
+			}
+			if (l1.isOpaqueCube() && !k1.isOpaqueCube()) {
+				meta = 4;
+			}
+			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
+		}
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
 		IInventory oven = (IInventory) world.getTileEntity(i, j, k);
@@ -153,8 +173,6 @@ public class GOTBlockOven extends BlockContainer {
 					world.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
 					world.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
 					break;
-				default:
-					break;
 			}
 		}
 	}
@@ -167,25 +185,5 @@ public class GOTBlockOven extends BlockContainer {
 		ovenIcons[1] = iconregister.registerIcon(getTextureName() + "_top");
 		ovenIcons[2] = iconregister.registerIcon(getTextureName() + "_front");
 		ovenIcons[3] = iconregister.registerIcon(getTextureName() + "_active");
-	}
-
-	private static void setDefaultDirection(World world, int i, int j, int k) {
-		if (!world.isRemote) {
-			Block i1 = world.getBlock(i, j, k - 1);
-			Block j1 = world.getBlock(i, j, k + 1);
-			Block k1 = world.getBlock(i - 1, j, k);
-			Block l1 = world.getBlock(i + 1, j, k);
-			int meta = 3;
-			if (j1.isOpaqueCube() && !i1.isOpaqueCube()) {
-				meta = 2;
-			}
-			if (k1.isOpaqueCube() && !l1.isOpaqueCube()) {
-				meta = 5;
-			}
-			if (l1.isOpaqueCube() && !k1.isOpaqueCube()) {
-				meta = 4;
-			}
-			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
-		}
 	}
 }

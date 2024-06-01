@@ -64,7 +64,7 @@ public class GOTStructureSummerPalisade extends GOTStructureSummerBase {
 				woodBlock = Blocks.log;
 				woodMeta = 0;
 				break;
-			default:
+			case 2:
 				woodBlock = GOTBlocks.wood6;
 				woodMeta = 3;
 				break;

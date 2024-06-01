@@ -53,6 +53,31 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				if (random.nextBoolean()) {
+					return new GOTStructureWesterlandsVillageFarm.Animals(false);
+				}
+				return new GOTStructureWesterlandsVillageFarm.Crops(false);
+			}
+			return new GOTStructureWesterlandsVillageFarm.Tree(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(5) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+					case 0:
+						return new GOTStructureWesterlandsStables(false);
+					case 1:
+						return new GOTStructureWesterlandsSmithy(false);
+					case 2:
+						return new GOTStructureWesterlandsBarn(false);
+				}
+			}
+			return new GOTStructureWesterlandsHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -97,31 +122,6 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				if (random.nextBoolean()) {
-					return new GOTStructureWesterlandsVillageFarm.Animals(false);
-				}
-				return new GOTStructureWesterlandsVillageFarm.Crops(false);
-			}
-			return new GOTStructureWesterlandsVillageFarm.Tree(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(5) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-					case 0:
-						return new GOTStructureWesterlandsStables(false);
-					case 1:
-						return new GOTStructureWesterlandsSmithy(false);
-					default:
-						return new GOTStructureWesterlandsBarn(false);
-				}
-			}
-			return new GOTStructureWesterlandsHouse(false);
 		}
 
 		@Override

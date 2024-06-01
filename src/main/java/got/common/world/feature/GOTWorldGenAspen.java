@@ -111,7 +111,7 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 						case 2:
 							--k2;
 							continue;
-						default:
+						case 3:
 							++k2;
 					}
 				}

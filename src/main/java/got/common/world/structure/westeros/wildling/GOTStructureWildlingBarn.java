@@ -27,8 +27,10 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 				return new EntityPig(world);
 			case 2:
 				return new EntitySheep(world);
-			default:
+			case 3:
 				return new EntityChicken(world);
+			default:
+				return null;
 		}
 	}
 
@@ -167,8 +169,6 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 						break;
 					case 0:
 						setBlockAndMetadata(world, i14, 4, k15, plankSlabBlock, plankSlabMeta | 8);
-						break;
-					default:
 						break;
 				}
 				setBlockAndMetadata(world, i14, 7, k15, fenceBlock, fenceMeta);

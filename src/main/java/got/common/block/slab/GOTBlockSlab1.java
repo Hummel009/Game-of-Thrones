@@ -37,8 +37,10 @@ public class GOTBlockSlab1 extends GOTBlockSlabBase {
 				return GOTBlocks.brick1.getIcon(i, 3);
 			case 6:
 				return GOTBlocks.brick1.getIcon(i, 4);
-			default:
+			case 7:
 				return GOTBlocks.brick1.getIcon(i, 6);
+			default:
+				return null;
 		}
 	}
 

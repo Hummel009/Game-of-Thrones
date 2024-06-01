@@ -20,6 +20,20 @@ public class GOTItemNPCRespawner extends Item {
 		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
+	private static void placeSpawnerAt(World world, int i, int j, int k) {
+		GOTEntityNPCRespawner spawner = new GOTEntityNPCRespawner(world);
+		double f = 0.1;
+		double f1 = 1.0 - f;
+		List<GOTEntityNPCRespawner> entities = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, AxisAlignedBB.getBoundingBox(i + f, j + f, k + f, i + f1, j + f1, k + f1));
+		if (entities.isEmpty()) {
+			spawner.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
+			double c = 0.01;
+			if (world.getCollidingBoundingBoxes(spawner, spawner.boundingBox.contract(c, c, c)).isEmpty()) {
+				world.spawnEntityInWorld(spawner);
+			}
+		}
+	}
+
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (entityplayer.capabilities.isCreativeMode && !world.isRemote) {
@@ -46,19 +60,5 @@ public class GOTItemNPCRespawner extends Item {
 			return true;
 		}
 		return false;
-	}
-
-	private static void placeSpawnerAt(World world, int i, int j, int k) {
-		GOTEntityNPCRespawner spawner = new GOTEntityNPCRespawner(world);
-		double f = 0.1;
-		double f1 = 1.0 - f;
-		List<GOTEntityNPCRespawner> entities = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, AxisAlignedBB.getBoundingBox(i + f, j + f, k + f, i + f1, j + f1, k + f1));
-		if (entities.isEmpty()) {
-			spawner.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
-			double c = 0.01;
-			if (world.getCollidingBoundingBoxes(spawner, spawner.boundingBox.contract(c, c, c)).isEmpty()) {
-				world.spawnEntityInWorld(spawner);
-			}
-		}
 	}
 }

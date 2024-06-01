@@ -24,37 +24,6 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 
-	@Override
-	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		return repairItem.getItem() == Items.stick;
-	}
-
-	@Override
-	public int getItemEnchantability() {
-		return 0;
-	}
-
-	@Override
-	public EnumAction getItemUseAction(ItemStack itemstack) {
-		return EnumAction.bow;
-	}
-
-	@Override
-	public int getMaxItemUseDuration(ItemStack itemstack) {
-		return 20;
-	}
-
-	@Override
-	public boolean hitEntity(ItemStack itemstack, EntityLivingBase hitEntity, EntityLivingBase user) {
-		if (super.hitEntity(itemstack, hitEntity, user)) {
-			if (!user.worldObj.isRemote && hitEntity.hurtTime == hitEntity.maxHurtTime) {
-				launchWhip(user, hitEntity);
-			}
-			return true;
-		}
-		return false;
-	}
-
 	private static void launchWhip(EntityLivingBase user, EntityLivingBase hitEntity) {
 		user.worldObj.playSoundAtEntity(user, "got:item.whip", 2.0f, 0.7f + itemRand.nextFloat() * 0.6f);
 		double range = 16.0;
@@ -115,6 +84,37 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 				continue block2;
 			}
 		}
+	}
+
+	@Override
+	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
+		return repairItem.getItem() == Items.stick;
+	}
+
+	@Override
+	public int getItemEnchantability() {
+		return 0;
+	}
+
+	@Override
+	public EnumAction getItemUseAction(ItemStack itemstack) {
+		return EnumAction.bow;
+	}
+
+	@Override
+	public int getMaxItemUseDuration(ItemStack itemstack) {
+		return 20;
+	}
+
+	@Override
+	public boolean hitEntity(ItemStack itemstack, EntityLivingBase hitEntity, EntityLivingBase user) {
+		if (super.hitEntity(itemstack, hitEntity, user)) {
+			if (!user.worldObj.isRemote && hitEntity.hurtTime == hitEntity.maxHurtTime) {
+				launchWhip(user, hitEntity);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override

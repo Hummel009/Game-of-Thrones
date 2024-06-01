@@ -82,6 +82,21 @@ public class GOTItemBow extends ItemBow {
 		return f;
 	}
 
+	private static int getInvArrowSlot(EntityPlayer entityplayer) {
+		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
+			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
+			if (invItem == null || invItem.getItem() != Items.arrow && invItem.getItem() != GOTItems.arrowPoisoned && invItem.getItem() != GOTItems.arrowFire) {
+				continue;
+			}
+			return slot;
+		}
+		return -1;
+	}
+
+	private static boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
+		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
+	}
+
 	public BowState getBowState(EntityLivingBase entity, ItemStack usingItem, int useRemaining) {
 		if (entity instanceof EntityPlayer && usingItem != null && usingItem.getItem() == this) {
 			int ticksInUse = usingItem.getMaxItemUseDuration() - useRemaining;
@@ -113,17 +128,6 @@ public class GOTItemBow extends ItemBow {
 			return bowPullIcons[2];
 		}
 		return itemIcon;
-	}
-
-	private static int getInvArrowSlot(EntityPlayer entityplayer) {
-		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
-			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
-			if (invItem == null || invItem.getItem() != Items.arrow && invItem.getItem() != GOTItems.arrowPoisoned && invItem.getItem() != GOTItems.arrowFire) {
-				continue;
-			}
-			return slot;
-		}
-		return -1;
 	}
 
 	@Override
@@ -220,10 +224,6 @@ public class GOTItemBow extends ItemBow {
 	public GOTItemBow setDrawTime(int i) {
 		bowPullTime = i;
 		return this;
-	}
-
-	private static boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
-		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
 	}
 
 	public double getArrowDamageFactor() {

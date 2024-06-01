@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -34,30 +33,16 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(7);
+		int i = rand.nextInt(6);
 		switch (i) {
 			case 0:
-				npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
 				break;
 			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeSword));
-				break;
-			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
-				break;
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeDagger));
-				break;
-			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
-				break;
-			case 5:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeBattleaxe));
-				break;
-			case 6:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironPike));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.club));
 				break;
 			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
 				break;
 		}
 		if (rand.nextInt(5) == 0) {

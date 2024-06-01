@@ -65,8 +65,6 @@ public class GOTPacketSetOption implements IMessage {
 					flag = pd.getTableSwitched();
 					pd.setTableSwitched(!flag);
 					break;
-				default:
-					break;
 			}
 			return null;
 		}

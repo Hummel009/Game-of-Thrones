@@ -13,10 +13,10 @@ import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentCombining;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
-import got.common.entity.other.GOTEntityTrampBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.utils.GOTTradeEntry;
+import got.common.entity.other.GOTEntityTrampBase;
 import got.common.entity.other.iface.GOTTradeable;
+import got.common.entity.other.utils.GOTTradeEntry;
 import got.common.item.other.*;
 import got.common.item.weapon.GOTItemSarbacane;
 import got.common.item.weapon.GOTItemThrowingAxe;
@@ -140,6 +140,37 @@ public class GOTContainerAnvil extends Container {
 		return name1;
 	}
 
+	public static boolean canEngraveNewOwner(ItemStack itemstack, ICommandSender entityplayer) {
+		String currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
+		return currentOwner == null || !currentOwner.equals(entityplayer.getCommandSenderName());
+	}
+
+	private static boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
+		if (inputItem.getItem().getIsRepairable(inputItem, materialItem)) {
+			return true;
+		}
+		Item item = inputItem.getItem();
+		if (item == Items.bow && materialItem.getItem() == Items.string || item instanceof ItemFishingRod && materialItem.getItem() == Items.string) {
+			return true;
+		}
+		if (item instanceof ItemShears && materialItem.getItem() == Items.iron_ingot || item instanceof GOTItemChisel && materialItem.getItem() == Items.iron_ingot) {
+			return true;
+		}
+		if (item instanceof ItemEnchantedBook && materialItem.getItem() == Items.paper) {
+			return true;
+		}
+		Item.ToolMaterial material = null;
+		if (item instanceof ItemTool) {
+			material = Item.ToolMaterial.valueOf(((ItemTool) item).getToolMaterialName());
+		} else if (item instanceof ItemSword) {
+			material = Item.ToolMaterial.valueOf(((ItemSword) item).getToolMaterialName());
+		}
+		if (material == Item.ToolMaterial.WOOD) {
+			return GOT.isOreNameEqual(materialItem, "plankWood");
+		}
+		return item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE && GOT.isOreNameEqual(materialItem, "bone");
+	}
+
 	private boolean applyMischief(ItemStack itemstack) {
 		boolean changed = false;
 		Random rand = theWorld.rand;
@@ -157,11 +188,6 @@ public class GOTContainerAnvil extends Container {
 			return true;
 		}
 		return changed;
-	}
-
-	public static boolean canEngraveNewOwner(ItemStack itemstack, ICommandSender entityplayer) {
-		String currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
-		return currentOwner == null || !currentOwner.equals(entityplayer.getCommandSenderName());
 	}
 
 	@Override
@@ -247,32 +273,6 @@ public class GOTContainerAnvil extends Container {
 		ItemStack inputItem = invInput.getStackInSlot(0);
 		ItemStack materialItem = invInput.getStackInSlot(2);
 		return materialItem != null && isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
-	}
-
-	private static boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
-		if (inputItem.getItem().getIsRepairable(inputItem, materialItem)) {
-			return true;
-		}
-		Item item = inputItem.getItem();
-		if (item == Items.bow && materialItem.getItem() == Items.string || item instanceof ItemFishingRod && materialItem.getItem() == Items.string) {
-			return true;
-		}
-		if (item instanceof ItemShears && materialItem.getItem() == Items.iron_ingot || item instanceof GOTItemChisel && materialItem.getItem() == Items.iron_ingot) {
-			return true;
-		}
-		if (item instanceof ItemEnchantedBook && materialItem.getItem() == Items.paper) {
-			return true;
-		}
-		Item.ToolMaterial material = null;
-		if (item instanceof ItemTool) {
-			material = Item.ToolMaterial.valueOf(((ItemTool) item).getToolMaterialName());
-		} else if (item instanceof ItemSword) {
-			material = Item.ToolMaterial.valueOf(((ItemSword) item).getToolMaterialName());
-		}
-		if (material == Item.ToolMaterial.WOOD) {
-			return GOT.isOreNameEqual(materialItem, "plankWood");
-		}
-		return item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE && GOT.isOreNameEqual(materialItem, "bone");
 	}
 
 	@Override
@@ -620,8 +620,6 @@ public class GOTContainerAnvil extends Container {
 							case 10:
 								costPerLevel = 1;
 								break;
-							default:
-								break;
 						}
 						combineCost += costPerLevel * levelsAdded;
 					}
@@ -689,8 +687,6 @@ public class GOTContainerAnvil extends Container {
 						break;
 					case 10:
 						costPerLevel = 1;
-						break;
-					default:
 						break;
 				}
 				baseAnvilCost += numEnchants + enchLevel * costPerLevel;

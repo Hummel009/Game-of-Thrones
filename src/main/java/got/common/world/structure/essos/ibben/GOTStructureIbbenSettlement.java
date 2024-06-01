@@ -54,6 +54,28 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			forcedType = b;
 		}
 
+		private static GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextInt(3) == 0) {
+				return new GOTStructureIbbenVillagePasture(false);
+			}
+			return new GOTStructureIbbenVillageFarm(false);
+		}
+
+		private static GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(4) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+					case 0:
+						return new GOTStructureIbbenSmithy(false);
+					case 1:
+						return new GOTStructureIbbenStables(false);
+					case 2:
+						return new GOTStructureIbbenBarn(false);
+				}
+			}
+			return new GOTStructureIbbenHouse(false);
+		}
+
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
@@ -100,28 +122,6 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			return null;
-		}
-
-		private static GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextInt(3) == 0) {
-				return new GOTStructureIbbenVillagePasture(false);
-			}
-			return new GOTStructureIbbenVillageFarm(false);
-		}
-
-		private static GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(4) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-					case 0:
-						return new GOTStructureIbbenSmithy(false);
-					case 1:
-						return new GOTStructureIbbenStables(false);
-					default:
-						return new GOTStructureIbbenBarn(false);
-				}
-			}
-			return new GOTStructureIbbenHouse(false);
 		}
 
 		@Override

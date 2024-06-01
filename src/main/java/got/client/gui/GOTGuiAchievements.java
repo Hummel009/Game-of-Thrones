@@ -47,6 +47,14 @@ public class GOTGuiAchievements extends GOTGuiMenuBaseReturn {
 	private int mouseX;
 	private int mouseY;
 
+	private static GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
+		List<GOTAchievement.Category> categories = currentDimension.getAchievementCategories();
+		int index = categories.indexOf(currentCategory);
+		index += i;
+		index = IntMath.mod(index, currentDimension.getAchievementCategories().size());
+		return currentDimension.getAchievementCategories().get(index);
+	}
+
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -205,14 +213,6 @@ public class GOTGuiAchievements extends GOTGuiMenuBaseReturn {
 			drawTexturedModalRect(scrollBarX0, scrollBarY0, 200, 0, 10, 17);
 		}
 		drawAchievements();
-	}
-
-	private static GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
-		List<GOTAchievement.Category> categories = currentDimension.getAchievementCategories();
-		int index = categories.indexOf(currentCategory);
-		index += i;
-		index = IntMath.mod(index, currentDimension.getAchievementCategories().size());
-		return currentDimension.getAchievementCategories().get(index);
 	}
 
 	@Override

@@ -28,6 +28,18 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 	private int fuelTime;
 	private int meatAmountClient;
 
+	public static boolean isMeat(ItemStack meat) {
+		if (meat == null) {
+			return false;
+		}
+		Item item = meat.getItem();
+		if (item instanceof ItemFood && ((ItemFood) item).isWolfsFavoriteMeat()) {
+			ItemStack cookedFood = FurnaceRecipes.smelting().getSmeltingResult(meat);
+			return cookedFood != null;
+		}
+		return false;
+	}
+
 	private void addFuel(int i) {
 		fuelTime += i;
 	}
@@ -212,18 +224,6 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
-		return false;
-	}
-
-	public static boolean isMeat(ItemStack meat) {
-		if (meat == null) {
-			return false;
-		}
-		Item item = meat.getItem();
-		if (item instanceof ItemFood && ((ItemFood) item).isWolfsFavoriteMeat()) {
-			ItemStack cookedFood = FurnaceRecipes.smelting().getSmeltingResult(meat);
-			return cookedFood != null;
-		}
 		return false;
 	}
 

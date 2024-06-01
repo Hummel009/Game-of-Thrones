@@ -10,6 +10,17 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderInvasionSpawner extends Render {
+	@SuppressWarnings("StatementWithEmptyBody")
+	private static float interpolateRotation(float prevRotation, float newRotation, float tick) {
+		float interval;
+		for (interval = newRotation - prevRotation; interval < -180.0F; interval += 360.0F) {
+		}
+		while (interval >= 180.0F) {
+			interval -= 360.0F;
+		}
+		return prevRotation + tick * interval;
+	}
+
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityInvasionSpawner spawner = (GOTEntityInvasionSpawner) entity;
@@ -29,16 +40,5 @@ public class GOTRenderInvasionSpawner extends Render {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		return TextureMap.locationItemsTexture;
-	}
-
-	@SuppressWarnings("StatementWithEmptyBody")
-	private static float interpolateRotation(float prevRotation, float newRotation, float tick) {
-		float interval;
-		for (interval = newRotation - prevRotation; interval < -180.0F; interval += 360.0F) {
-		}
-		while (interval >= 180.0F) {
-			interval -= 360.0F;
-		}
-		return prevRotation + tick * interval;
 	}
 }
