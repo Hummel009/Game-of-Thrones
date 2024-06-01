@@ -95,11 +95,6 @@ public class GOTTextBody {
 		list.get(i).setText(s);
 	}
 
-	@SuppressWarnings("unused")
-	public int getTextWidth() {
-		return textWidth;
-	}
-
 	public void setTextWidth(int w) {
 		textWidth = w;
 	}

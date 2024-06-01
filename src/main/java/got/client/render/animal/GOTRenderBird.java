@@ -24,11 +24,6 @@ public class GOTRenderBird extends RenderLiving {
 		super(new GOTModelBird(), 0.2f);
 	}
 
-	@SuppressWarnings("unused")
-	public static boolean isRenderStolenItem() {
-		return renderStolenItem;
-	}
-
 	public static void setRenderStolenItem(boolean renderStolenItem) {
 		GOTRenderBird.renderStolenItem = renderStolenItem;
 	}

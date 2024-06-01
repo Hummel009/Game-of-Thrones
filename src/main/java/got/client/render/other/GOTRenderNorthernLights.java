@@ -452,11 +452,6 @@ public class GOTRenderNorthernLights {
 			this.age = age;
 		}
 
-		@SuppressWarnings("unused")
-		private int getMaxAge() {
-			return maxAge;
-		}
-
 		private void setMaxAge(int maxAge) {
 			this.maxAge = maxAge;
 		}

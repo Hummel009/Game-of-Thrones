@@ -187,11 +187,6 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			return 0;
 		}
 
-		@SuppressWarnings("unused")
-		private boolean isFixedResult() {
-			return fixedResult;
-		}
-
 		private void setFixedResult(boolean fixedResult) {
 			this.fixedResult = fixedResult;
 		}

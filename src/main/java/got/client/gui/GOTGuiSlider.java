@@ -104,18 +104,8 @@ public class GOTGuiSlider extends GuiButton {
 		valueOnly = true;
 	}
 
-	@SuppressWarnings("unused")
-	public String getOverrideStateString() {
-		return overrideStateString;
-	}
-
 	public void setOverrideStateString(String s) {
 		overrideStateString = s;
-	}
-
-	@SuppressWarnings("unused")
-	public int getNumberDigits() {
-		return numberDigits;
 	}
 
 	public void setNumberDigits(int i) {

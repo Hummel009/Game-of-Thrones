@@ -50,18 +50,8 @@ public class GOTGuiButtonPledge extends GuiButton {
 		return flag ? 2 : 1;
 	}
 
-	@SuppressWarnings("unused")
-	public List<String> getDisplayLines() {
-		return displayLines;
-	}
-
 	public void setDisplayLines(String... s) {
 		displayLines = s == null ? null : Arrays.asList(s);
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isBroken() {
-		return isBroken;
 	}
 
 	public void setBroken(boolean broken) {

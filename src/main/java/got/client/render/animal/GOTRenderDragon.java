@@ -88,7 +88,7 @@ public class GOTRenderDragon extends RenderLiving {
 			glEnable(GL_ALPHA_TEST);
 			glAlphaFunc(GL_GREATER, alpha);
 			bindTexture(DISSOLVE);
-			model.render(dragon, moveTime, moveSpeed, ticksExisted, lookYaw, lookPitch, scale);
+			model.render(dragon, moveTime, moveSpeed, lookYaw, lookPitch, scale);
 			glAlphaFunc(GL_GREATER, 0.1f);
 			glDepthFunc(GL_EQUAL);
 		}
@@ -124,10 +124,5 @@ public class GOTRenderDragon extends RenderLiving {
 				break;
 		}
 		return -1;
-	}
-
-	@SuppressWarnings("unused")
-	public GOTModelDragon getModel() {
-		return model;
 	}
 }

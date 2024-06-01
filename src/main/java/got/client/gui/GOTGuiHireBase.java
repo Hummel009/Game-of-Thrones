@@ -297,11 +297,6 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		squadronNameField.updateCursorCounter();
 	}
 
-	@SuppressWarnings("unused")
-	public GOTUnitTradeEntries getTrades() {
-		return trades;
-	}
-
 	protected void setTrades(GOTUnitTradeEntries t) {
 		trades = t;
 	}

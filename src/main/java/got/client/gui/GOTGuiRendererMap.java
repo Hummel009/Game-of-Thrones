@@ -84,18 +84,8 @@ public class GOTGuiRendererMap {
 		prevMapY = mapY;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isSepia() {
-		return sepia;
-	}
-
 	public void setSepia(boolean flag) {
 		sepia = flag;
-	}
-
-	@SuppressWarnings("unused")
-	public double getPrevMapX() {
-		return prevMapX;
 	}
 
 	public void setPrevMapX(double prevMapX) {
@@ -108,11 +98,6 @@ public class GOTGuiRendererMap {
 
 	public void setMapX(double mapX) {
 		this.mapX = mapX;
-	}
-
-	@SuppressWarnings("unused")
-	public double getPrevMapY() {
-		return prevMapY;
 	}
 
 	public void setPrevMapY(double prevMapY) {
@@ -133,11 +118,6 @@ public class GOTGuiRendererMap {
 
 	public void setZoomExp(float zoomExp) {
 		this.zoomExp = zoomExp;
-	}
-
-	@SuppressWarnings("unused")
-	public float getZoomStable() {
-		return zoomStable;
 	}
 
 	public void setZoomStable(float zoomStable) {

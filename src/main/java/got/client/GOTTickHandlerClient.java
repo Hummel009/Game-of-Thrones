@@ -1480,11 +1480,6 @@ public class GOTTickHandlerClient {
 		newDate = 200;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isCancelItemHighlight() {
-		return cancelItemHighlight;
-	}
-
 	public void setCancelItemHighlight(boolean cancelItemHighlight) {
 		this.cancelItemHighlight = cancelItemHighlight;
 	}

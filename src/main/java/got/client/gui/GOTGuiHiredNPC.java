@@ -18,7 +18,9 @@ import java.util.Collection;
 public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	protected static final int Y_SIZE = 220;
 	protected static final int X_SIZE = 200;
+
 	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/npc/hired.png");
+
 	protected final GOTEntityNPC theNPC;
 	protected int guiLeft;
 	protected int guiTop;

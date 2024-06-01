@@ -308,14 +308,13 @@ public class GOTModelDragon extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float moveTime, float moveSpeed, float ticksExisted, float lookYaw, float lookPitch, float scale) {
-		render((GOTEntityDragon) entity, moveTime, moveSpeed, ticksExisted, lookYaw, lookPitch, scale);
+		render((GOTEntityDragon) entity, moveTime, moveSpeed, lookYaw, lookPitch, scale);
 	}
 
-	public void render(GOTEntityDragon dragon, float moveTime, float moveSpeed, float ticksExisted, float lookYaw, float lookPitch, float scale) {
+	public void render(GOTEntityDragon dragon, float moveTime, float moveSpeed, float lookYaw, float lookPitch, float scale) {
 		GOTModelDragonAnimaton animator = dragon.getAnimator();
 		animator.setMovement(moveTime, moveSpeed * dragon.getScale());
 		animator.setLook(lookYaw, lookPitch);
-		animator.setTicksExisted(ticksExisted);
 		animator.animate(this);
 		size = dragon.getScale();
 		renderModel(scale);
@@ -478,45 +477,20 @@ public class GOTModelDragon extends ModelBase {
 		return wingForearm;
 	}
 
-	@SuppressWarnings("unused")
-	public float getPitch() {
-		return pitch;
-	}
-
 	public void setPitch(float pitch) {
 		this.pitch = pitch;
-	}
-
-	@SuppressWarnings("unused")
-	public float getOffsetZ() {
-		return offsetZ;
 	}
 
 	public void setOffsetZ(float offsetZ) {
 		this.offsetZ = offsetZ;
 	}
 
-	@SuppressWarnings("unused")
-	public float getOffsetY() {
-		return offsetY;
-	}
-
 	public void setOffsetY(float offsetY) {
 		this.offsetY = offsetY;
 	}
 
-	@SuppressWarnings("unused")
-	public float getOffsetX() {
-		return offsetX;
-	}
-
 	public void setOffsetX(float offsetX) {
 		this.offsetX = offsetX;
-	}
-
-	@SuppressWarnings("unused")
-	public int getRenderPass() {
-		return renderPass;
 	}
 
 	public void setRenderPass(int renderPass) {

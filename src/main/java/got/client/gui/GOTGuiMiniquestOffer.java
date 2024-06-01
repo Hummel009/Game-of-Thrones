@@ -333,10 +333,5 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			}
 			return null;
 		}
-
-		@SuppressWarnings("unused")
-		public float getWeight() {
-			return weight;
-		}
 	}
 }

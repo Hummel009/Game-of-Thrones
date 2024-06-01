@@ -47,11 +47,6 @@ public class GOTGuiMapWidget {
 		return visible && mouseX >= getMapXPos(mapWidth) && mouseX < getMapXPos(mapWidth) + width && mouseY >= getMapYPos(mapHeight) && mouseY < getMapYPos(mapHeight) + width;
 	}
 
-	@SuppressWarnings("unused")
-	public int getTexVIndex() {
-		return texVIndex;
-	}
-
 	public void setTexVIndex(int i) {
 		texVIndex = i;
 	}

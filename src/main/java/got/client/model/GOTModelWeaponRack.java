@@ -62,11 +62,6 @@ public class GOTModelWeaponRack extends ModelBase {
 		base.render(f5);
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isOnWall() {
-		return onWall;
-	}
-
 	public void setOnWall(boolean onWall) {
 		this.onWall = onWall;
 	}

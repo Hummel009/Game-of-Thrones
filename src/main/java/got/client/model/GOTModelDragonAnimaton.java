@@ -66,7 +66,6 @@ public class GOTModelDragonAnimaton {
 	private double yawAbs;
 
 	private float partialTicks;
-	private float ticksExisted;
 	private float moveTime;
 	private float moveSpeed;
 	private float lookYaw;
@@ -455,11 +454,6 @@ public class GOTModelDragonAnimaton {
 		return slerp(pitchHover, pitchMoving, speed);
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isOnGround() {
-		return onGround;
-	}
-
 	public void setOnGround(boolean onGround) {
 		this.onGround = onGround;
 	}
@@ -474,22 +468,8 @@ public class GOTModelDragonAnimaton {
 		this.moveSpeed = moveSpeed;
 	}
 
-	@SuppressWarnings("unused")
-	public float getPartialTicks() {
-		return partialTicks;
-	}
-
 	public void setPartialTicks(float partialTicks) {
 		this.partialTicks = partialTicks;
-	}
-
-	@SuppressWarnings("unused")
-	public float getTicksExisted() {
-		return ticksExisted;
-	}
-
-	public void setTicksExisted(float ticksExisted) {
-		this.ticksExisted = ticksExisted;
 	}
 
 	public void update() {

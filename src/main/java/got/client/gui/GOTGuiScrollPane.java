@@ -113,11 +113,6 @@ public class GOTGuiScrollPane {
 		this.scrollBarX0 = scrollBarX0;
 	}
 
-	@SuppressWarnings("unused")
-	public int getPaneX0() {
-		return paneX0;
-	}
-
 	public void setPaneX0(int paneX0) {
 		this.paneX0 = paneX0;
 	}

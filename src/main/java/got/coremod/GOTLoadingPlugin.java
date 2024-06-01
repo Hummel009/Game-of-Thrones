@@ -4,10 +4,10 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
 
-@SuppressWarnings("all")
 @IFMLLoadingPlugin.TransformerExclusions("got.coremod")
 @IFMLLoadingPlugin.SortingIndex(1001)
 @IFMLLoadingPlugin.MCVersion("1.7.10")
+@SuppressWarnings("all")
 public class GOTLoadingPlugin implements IFMLLoadingPlugin {
 	@Override
 	public String getAccessTransformerClass() {

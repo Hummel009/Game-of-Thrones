@@ -413,18 +413,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public static ResourceLocation getMapTexture() {
-		return mapTexture;
-	}
-
 	public static void setMapTexture(ResourceLocation mapTexture) {
 		GOTTextures.mapTexture = mapTexture;
-	}
-
-	@SuppressWarnings("unused")
-	public static ResourceLocation getSepiaMapTexture() {
-		return sepiaMapTexture;
 	}
 
 	public static void setSepiaMapTexture(ResourceLocation sepiaMapTexture) {
@@ -440,7 +430,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	@SubscribeEvent
-	@SuppressWarnings({"WeakerAccess", "MethodMayBeStatic"})
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 0) {

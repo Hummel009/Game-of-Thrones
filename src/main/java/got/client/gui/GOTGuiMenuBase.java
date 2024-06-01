@@ -35,9 +35,4 @@ public abstract class GOTGuiMenuBase extends GOTGuiScreenBase {
 	protected int getSizeX() {
 		return sizeX;
 	}
-
-	@SuppressWarnings("unused")
-	protected int getSizeY() {
-		return sizeY;
-	}
 }

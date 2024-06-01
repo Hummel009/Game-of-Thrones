@@ -2225,18 +2225,8 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		zoom(-1);
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isPlayerOp() {
-		return isPlayerOp;
-	}
-
 	public void setPlayerOp(boolean playerOp) {
 		isPlayerOp = playerOp;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isEnableZoomOutWPFading() {
-		return enableZoomOutWPFading;
 	}
 
 	public void setEnableZoomOutWPFading(boolean enableZoomOutWPFading) {
