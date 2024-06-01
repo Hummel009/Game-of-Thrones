@@ -72,11 +72,6 @@ public class GOTBlockBed extends BlockBed {
 		bedIconsSide = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_side"), iconregister.registerIcon(getTextureName() + "_head_side")};
 	}
 
-	@SuppressWarnings("unused")
-	public Item getBedItem() {
-		return bedItem;
-	}
-
 	public void setBedItem(Item bedItem) {
 		this.bedItem = bedItem;
 	}

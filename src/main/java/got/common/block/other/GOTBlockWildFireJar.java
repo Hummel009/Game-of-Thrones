@@ -74,18 +74,8 @@ public class GOTBlockWildFireJar extends BlockFalling {
 		setStepSound(soundTypeStone);
 	}
 
-	@SuppressWarnings("unused")
-	public static boolean isExplodeOnAdded() {
-		return explodeOnAdded;
-	}
-
 	public static void setExplodeOnAdded(boolean explodeOnAdded) {
 		GOTBlockWildFireJar.explodeOnAdded = explodeOnAdded;
-	}
-
-	@SuppressWarnings("unused")
-	public static int getRenderingStage() {
-		return renderingStage;
 	}
 
 	public static void setRenderingStage(int renderingStage) {

@@ -158,11 +158,6 @@ public class GOTBlockDoubleTorch extends Block {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public Item getTorchItem() {
-		return torchItem;
-	}
-
 	public void setTorchItem(Item torchItem) {
 		this.torchItem = torchItem;
 	}

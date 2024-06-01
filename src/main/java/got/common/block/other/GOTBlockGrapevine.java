@@ -80,11 +80,6 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return block instanceof GOTBlockGrapevine && ((GOTBlockGrapevine) block).hasGrapes && meta >= 7;
 	}
 
-	@SuppressWarnings("unused")
-	public static boolean isHoeing() {
-		return hoeing;
-	}
-
 	public static void setHoeing(boolean hoeing) {
 		GOTBlockGrapevine.hoeing = hoeing;
 	}

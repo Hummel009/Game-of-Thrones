@@ -188,11 +188,6 @@ public class GOTBlockPlate extends BlockContainer {
 		return false;
 	}
 
-	@SuppressWarnings("unused")
-	public Item getPlateItem() {
-		return plateItem;
-	}
-
 	public void setPlateItem(Item item) {
 		plateItem = item;
 	}
