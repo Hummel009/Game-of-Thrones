@@ -17,7 +17,7 @@ public class GOTPacketFamilyInfo implements IMessage {
 	private boolean isDrunk;
 	private int entityID;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFamilyInfo() {
 	}
 

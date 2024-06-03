@@ -9,7 +9,7 @@ import net.minecraft.potion.PotionEffect;
 
 import java.util.UUID;
 
-@SuppressWarnings("PublicField")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTPoisonedDrinks {
 	public static Potion killingPoison;
 

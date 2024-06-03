@@ -10,7 +10,7 @@ public class GOTPacketFTCooldown implements IMessage {
 	private int cooldownMax;
 	private int cooldownMin;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFTCooldown() {
 	}
 

@@ -89,11 +89,6 @@ public enum GOTCapes {
 		return StatCollector.translateToLocal("got.capes." + name() + ".name");
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isHidden() {
-		return isHidden;
-	}
-
 	public void setHidden(boolean hidden) {
 		isHidden = hidden;
 	}

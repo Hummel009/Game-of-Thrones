@@ -11,7 +11,7 @@ public class GOTPacketPortalPos implements IMessage {
 	private int portalY;
 	private int portalZ;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketPortalPos() {
 	}
 

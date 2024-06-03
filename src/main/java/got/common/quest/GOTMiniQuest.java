@@ -443,11 +443,6 @@ public abstract class GOTMiniQuest {
 		return speechBankTooMany;
 	}
 
-	@SuppressWarnings("unused")
-	public GOTPlayerData getPlayerData() {
-		return playerData;
-	}
-
 	public void setPlayerData(GOTPlayerData playerData) {
 		this.playerData = playerData;
 	}
@@ -494,11 +489,6 @@ public abstract class GOTMiniQuest {
 
 	public String getEntityName() {
 		return entityName;
-	}
-
-	@SuppressWarnings("unused")
-	public GOTMiniQuestFactory getQuestGroup() {
-		return questGroup;
 	}
 
 	public void setQuestGroup(GOTMiniQuestFactory questGroup) {
@@ -653,11 +643,6 @@ public abstract class GOTMiniQuest {
 			return null;
 		}
 
-		@SuppressWarnings("unused")
-		public GOTMiniQuestFactory getFactoryGroup() {
-			return questFactoryGroup;
-		}
-
 		public void setFactoryGroup(GOTMiniQuestFactory factory) {
 			questFactoryGroup = factory;
 		}
@@ -673,11 +658,6 @@ public abstract class GOTMiniQuest {
 		public QuestFactoryBase<Q> setIsLegendary() {
 			isLegendary = true;
 			return this;
-		}
-
-		@SuppressWarnings("unused")
-		public float getRewardFactor() {
-			return rewardFactor;
 		}
 
 		public QuestFactoryBase<Q> setRewardFactor(float f) {

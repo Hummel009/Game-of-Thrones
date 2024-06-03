@@ -261,19 +261,9 @@ public class GOTPlayerData {
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isShowWaypoints() {
-		return showWaypoints;
-	}
-
 	public void setShowWaypoints(boolean flag) {
 		showWaypoints = flag;
 		markDirty();
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isShowHiddenSharedWaypoints() {
-		return showHiddenSharedWaypoints;
 	}
 
 	public void setShowHiddenSharedWaypoints(boolean flag) {
@@ -281,19 +271,9 @@ public class GOTPlayerData {
 		markDirty();
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isShowCustomWaypoints() {
-		return showCustomWaypoints;
-	}
-
 	public void setShowCustomWaypoints(boolean flag) {
 		showCustomWaypoints = flag;
 		markDirty();
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isCheckedMenu() {
-		return checkedMenu;
 	}
 
 	public void setCheckedMenu(boolean flag) {
@@ -301,11 +281,6 @@ public class GOTPlayerData {
 			checkedMenu = flag;
 			markDirty();
 		}
-	}
-
-	@SuppressWarnings("unused")
-	public UUID getTrackingMiniQuestID() {
-		return trackingMiniQuestID;
 	}
 
 	public void setTrackingMiniQuestID(UUID npcID) {
@@ -318,19 +293,9 @@ public class GOTPlayerData {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public UUID getChatBoundFellowshipID() {
-		return chatBoundFellowshipID;
-	}
-
 	public void setChatBoundFellowshipID(UUID fsID) {
 		chatBoundFellowshipID = fsID;
 		markDirty();
-	}
-
-	@SuppressWarnings("unused")
-	public int getTicksUntilFT() {
-		return ticksUntilFT;
 	}
 
 	private void setTicksUntilFT(int i) {
@@ -3102,11 +3067,6 @@ public class GOTPlayerData {
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			sendMiniQuestPacket((EntityPlayerMP) entityplayer, quest, false);
 		}
-	}
-
-	@SuppressWarnings("unused")
-	public GOTAbstractWaypoint getTargetFTWaypoint() {
-		return targetFTWaypoint;
 	}
 
 	public void setTargetFTWaypoint(GOTAbstractWaypoint wp) {

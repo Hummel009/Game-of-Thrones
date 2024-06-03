@@ -7,7 +7,6 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
 	private final float speedFactor;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentMeleeSpeed(String s, float speed) {
 		super(s, GOTEnchantmentType.MELEE);
 		speedFactor = speed;

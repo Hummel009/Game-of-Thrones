@@ -18,7 +18,7 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 	private int action;
 	private int value;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketHiredUnitCommand() {
 	}
 

@@ -12,7 +12,7 @@ public class GOTPacketOptions implements IMessage {
 	private int option;
 	private boolean enable;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketOptions() {
 	}
 

@@ -13,7 +13,7 @@ public class GOTPacketClientsideGUI implements IMessage {
 	private int guiY;
 	private int guiZ;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketClientsideGUI() {
 	}
 

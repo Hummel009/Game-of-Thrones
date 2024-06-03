@@ -15,7 +15,7 @@ import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraftforge.common.MinecraftForge;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
+@SuppressWarnings("unused")
 public class GOTClientFactory {
 	private static GOTAmbience ambienceTicker;
 	private static GOTArmorModels armorModels;
@@ -97,6 +97,7 @@ public class GOTClientFactory {
 		IResourceManager resourceManager = mc.getResourceManager();
 		EventBus forgeBus = MinecraftForge.EVENT_BUS;
 		EventBus fmlBus = FMLCommonHandler.instance().bus();
+
 		musicHandler = GOTMusic.INSTANCE;
 		((IReloadableResourceManager) resourceManager).registerReloadListener(musicHandler);
 		forgeBus.register(musicHandler);

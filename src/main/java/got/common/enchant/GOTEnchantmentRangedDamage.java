@@ -6,7 +6,6 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentRangedDamage extends GOTEnchantment {
 	private final float damageFactor;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentRangedDamage(String s, float damage) {
 		super(s, GOTEnchantmentType.RANGED_LAUNCHER);
 		damageFactor = damage;

@@ -60,18 +60,15 @@ public class GOTItemMug extends Item {
 	private int foodHealAmount;
 	private int damageAmount;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTItemMug(float alc) {
 		this(true, false, true, alc);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTItemMug(boolean full, boolean food) {
 		this(full, food, false, 0.0f);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTItemMug(boolean full, boolean food, boolean brew, float alc) {
+	private GOTItemMug(boolean full, boolean food, boolean brew, float alc) {
 		if (full) {
 			setMaxStackSize(1);
 			setHasSubtypes(true);
@@ -493,11 +490,6 @@ public class GOTItemMug extends Item {
 	public GOTItemMug setCuresEffects() {
 		curesEffects = true;
 		return this;
-	}
-
-	@SuppressWarnings("unused")
-	public int getDamageAmount() {
-		return damageAmount;
 	}
 
 	public GOTItemMug setDamageAmount(int i) {

@@ -68,135 +68,60 @@ public class GOTPacketLogin implements IMessage {
 		data.writeInt(customWaypointMinY);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getSwordPortalX() {
-		return swordPortalX;
-	}
-
 	public void setSwordPortalX(int swordPortalX) {
 		this.swordPortalX = swordPortalX;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getSwordPortalY() {
-		return swordPortalY;
 	}
 
 	public void setSwordPortalY(int swordPortalY) {
 		this.swordPortalY = swordPortalY;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getSwordPortalZ() {
-		return swordPortalZ;
-	}
-
 	public void setSwordPortalZ(int swordPortalZ) {
 		this.swordPortalZ = swordPortalZ;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getFtCooldownMax() {
-		return ftCooldownMax;
 	}
 
 	public void setFtCooldownMax(int ftCooldownMax) {
 		this.ftCooldownMax = ftCooldownMax;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getFtCooldownMin() {
-		return ftCooldownMin;
-	}
-
 	public void setFtCooldownMin(int ftCooldownMin) {
 		this.ftCooldownMin = ftCooldownMin;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public EnumDifficulty getDifficulty() {
-		return difficulty;
 	}
 
 	public void setDifficulty(EnumDifficulty difficulty) {
 		this.difficulty = difficulty;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isDifficultyLocked() {
-		return difficultyLocked;
-	}
-
 	public void setDifficultyLocked(boolean difficultyLocked) {
 		this.difficultyLocked = difficultyLocked;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isAlignmentZones() {
-		return alignmentZones;
 	}
 
 	public void setAlignmentZones(boolean alignmentZones) {
 		this.alignmentZones = alignmentZones;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isFeastMode() {
-		return feastMode;
-	}
-
 	public void setFeastMode(boolean feastMode) {
 		this.feastMode = feastMode;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isFellowshipCreation() {
-		return fellowshipCreation;
 	}
 
 	public void setFellowshipCreation(boolean fellowshipCreation) {
 		this.fellowshipCreation = fellowshipCreation;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getFellowshipMaxSize() {
-		return fellowshipMaxSize;
-	}
-
 	public void setFellowshipMaxSize(int fellowshipMaxSize) {
 		this.fellowshipMaxSize = fellowshipMaxSize;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isEnchanting() {
-		return enchanting;
 	}
 
 	public void setEnchanting(boolean enchanting) {
 		this.enchanting = enchanting;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isEnchantingGOT() {
-		return enchantingGOT;
-	}
-
 	public void setEnchantingGOT(boolean enchantingGOT) {
 		this.enchantingGOT = enchantingGOT;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isStrictFactionTitleRequirements() {
-		return strictFactionTitleRequirements;
-	}
-
 	public void setStrictFactionTitleRequirements(boolean strictFactionTitleRequirements) {
 		this.strictFactionTitleRequirements = strictFactionTitleRequirements;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getCustomWaypointMinY() {
-		return customWaypointMinY;
 	}
 
 	public void setCustomWaypointMinY(int customWaypointMinY) {

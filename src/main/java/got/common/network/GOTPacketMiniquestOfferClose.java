@@ -13,7 +13,7 @@ public class GOTPacketMiniquestOfferClose implements IMessage {
 	private int npcID;
 	private boolean accept;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquestOfferClose() {
 	}
 

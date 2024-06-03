@@ -21,7 +21,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
-@SuppressWarnings({"PublicField", "WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTAchievement {
 	public static final Collection<GOTAchievement> CONTENT = new ArrayList<>();
 
@@ -358,17 +358,17 @@ public class GOTAchievement {
 	private boolean isBiomeAchievement;
 	private GOTTitle achievementTitle;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTAchievement(Category c, int i, Item item, String s) {
 		this(c, i, new ItemStack(item), s);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTAchievement(Category c, int i, Block block, String s) {
 		this(c, i, new ItemStack(block), s);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
 		category = c;
 		id = i;
@@ -886,11 +886,6 @@ public class GOTAchievement {
 	private GOTAchievement setBiomeAchievement() {
 		isBiomeAchievement = true;
 		return this;
-	}
-
-	@SuppressWarnings("unused")
-	public GOTTitle getAchievementTitle() {
-		return achievementTitle;
 	}
 
 	public void setAchievementTitle(GOTTitle achievementTitle) {

@@ -222,11 +222,6 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 		this.textureName = textureName;
 	}
 
-	@SuppressWarnings("unused")
-	public String getCustomName() {
-		return customName;
-	}
-
 	public void setCustomName(String s) {
 		customName = s;
 	}

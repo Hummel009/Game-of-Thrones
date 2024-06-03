@@ -13,7 +13,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketFellowshipRespondInvite extends GOTPacketFellowshipDo {
 	private boolean accept;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipRespondInvite() {
 	}
 

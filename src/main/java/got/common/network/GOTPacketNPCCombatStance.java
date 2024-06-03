@@ -13,7 +13,7 @@ public class GOTPacketNPCCombatStance implements IMessage {
 	private int entityID;
 	private boolean combatStance;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketNPCCombatStance() {
 	}
 

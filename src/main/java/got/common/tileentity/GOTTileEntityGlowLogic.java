@@ -46,11 +46,6 @@ public class GOTTileEntityGlowLogic {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public int getPlayerRange() {
-		return playerRange;
-	}
-
 	public GOTTileEntityGlowLogic setPlayerRange(int i) {
 		playerRange = i;
 		return this;

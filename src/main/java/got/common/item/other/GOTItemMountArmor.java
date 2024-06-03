@@ -113,11 +113,6 @@ public class GOTItemMountArmor extends Item {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public Item getTemplateItem() {
-		return templateItem;
-	}
-
 	public GOTItemMountArmor setTemplateItem(Item item) {
 		templateItem = item;
 		return this;

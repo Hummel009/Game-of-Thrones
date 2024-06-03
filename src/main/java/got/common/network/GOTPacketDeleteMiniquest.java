@@ -16,7 +16,7 @@ public class GOTPacketDeleteMiniquest implements IMessage {
 	private UUID questUUID;
 	private boolean completed;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketDeleteMiniquest() {
 	}
 

@@ -9,7 +9,7 @@ import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketMercenaryInteract extends GOTPacketUnitTraderInteract {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketMercenaryInteract() {
 	}
 

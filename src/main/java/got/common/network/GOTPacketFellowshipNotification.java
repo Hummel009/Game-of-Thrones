@@ -11,7 +11,7 @@ import net.minecraft.util.IChatComponent;
 public class GOTPacketFellowshipNotification implements IMessage {
 	private IChatComponent message;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipNotification() {
 	}
 

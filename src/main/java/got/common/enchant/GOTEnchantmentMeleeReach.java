@@ -7,7 +7,6 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentMeleeReach extends GOTEnchantment {
 	private final float reachFactor;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentMeleeReach(String s, float reach) {
 		super(s, GOTEnchantmentType.MELEE);
 		reachFactor = reach;

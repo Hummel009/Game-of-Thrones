@@ -18,7 +18,7 @@ public class GOTPacketEditSign implements IMessage {
 	private int posZ;
 	private String[] signText;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketEditSign() {
 	}
 

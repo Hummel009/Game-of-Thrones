@@ -68,11 +68,6 @@ public class GOTVertex {
 		return x;
 	}
 
-	@SuppressWarnings("unused")
-	public double getY() {
-		return y;
-	}
-
 	public double getZ() {
 		return z;
 	}

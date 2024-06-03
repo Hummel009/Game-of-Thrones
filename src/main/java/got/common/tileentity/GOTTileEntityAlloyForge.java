@@ -59,7 +59,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	private int currentSmeltTime;
 	private String specialForgeName;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTTileEntityAlloyForge() {
 		setupForgeSlots();
 	}
@@ -453,11 +452,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 
 	public void setCurrentSmeltTime(int currentSmeltTime) {
 		this.currentSmeltTime = currentSmeltTime;
-	}
-
-	@SuppressWarnings("unused")
-	public String getSpecialForgeName() {
-		return specialForgeName;
 	}
 
 	public void setSpecialForgeName(String s) {

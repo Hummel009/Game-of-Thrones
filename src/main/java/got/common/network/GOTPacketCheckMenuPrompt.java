@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketCheckMenuPrompt implements IMessage {
 	private GOTPacketMenuPrompt.Type type;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketCheckMenuPrompt() {
 	}
 

@@ -32,7 +32,7 @@ public class GOTPacketBannerData implements IMessage {
 	private int[] whitelistPerms;
 	private String[] whitelistSlots;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketBannerData() {
 	}
 
@@ -96,90 +96,40 @@ public class GOTPacketBannerData implements IMessage {
 		data.writeBoolean(thisPlayerHasPermission);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isPlayerSpecificProtection() {
-		return playerSpecificProtection;
-	}
-
 	public void setPlayerSpecificProtection(boolean playerSpecificProtection) {
 		this.playerSpecificProtection = playerSpecificProtection;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isSelfProtection() {
-		return selfProtection;
 	}
 
 	public void setSelfProtection(boolean selfProtection) {
 		this.selfProtection = selfProtection;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isStructureProtection() {
-		return structureProtection;
-	}
-
 	public void setStructureProtection(boolean structureProtection) {
 		this.structureProtection = structureProtection;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getCustomRange() {
-		return customRange;
 	}
 
 	public void setCustomRange(int customRange) {
 		this.customRange = customRange;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public float getAlignmentProtection() {
-		return alignmentProtection;
-	}
-
 	public void setAlignmentProtection(float alignmentProtection) {
 		this.alignmentProtection = alignmentProtection;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getWhitelistLength() {
-		return whitelistLength;
 	}
 
 	public void setWhitelistLength(int whitelistLength) {
 		this.whitelistLength = whitelistLength;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public String[] getWhitelistSlots() {
-		return whitelistSlots;
-	}
-
 	public void setWhitelistSlots(String[] whitelistSlots) {
 		this.whitelistSlots = whitelistSlots;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int[] getWhitelistPerms() {
-		return whitelistPerms;
 	}
 
 	public void setWhitelistPerms(int[] whitelistPerms) {
 		this.whitelistPerms = whitelistPerms;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public int getDefaultPerms() {
-		return defaultPerms;
-	}
-
 	public void setDefaultPerms(int defaultPerms) {
 		this.defaultPerms = defaultPerms;
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public boolean isThisPlayerHasPermission() {
-		return thisPlayerHasPermission;
 	}
 
 	public void setThisPlayerHasPermission(boolean thisPlayerHasPermission) {

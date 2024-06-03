@@ -501,7 +501,7 @@ public class GOTSpawnList {
 
 	private GOTFaction discoveredFaction;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTSpawnList(List<GOTSpawnEntry> entries) {
 		spawnEntries = entries;
 	}

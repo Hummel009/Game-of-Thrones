@@ -8,7 +8,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionRanged extends GOTEnchantmentProtectionSpecial {
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentProtectionRanged(String s, int level) {
 		super(s, level);
 	}

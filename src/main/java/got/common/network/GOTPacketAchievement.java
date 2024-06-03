@@ -13,7 +13,7 @@ public class GOTPacketAchievement implements IMessage {
 	private GOTAchievement achievement;
 	private boolean display;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketAchievement() {
 	}
 

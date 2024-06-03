@@ -41,20 +41,17 @@ public class GOTFellowship {
 	private boolean showMapLocations = true;
 	private boolean doneRetroactiveWaypointSharerCheck = true;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTFellowship(UUID fsID) {
 		fellowshipUUID = fsID;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTFellowship(UUID owner, String name) {
 		this();
 		ownerUUID = owner;
 		fellowshipName = name;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTFellowship() {
+	private GOTFellowship() {
 		fellowshipUUID = UUID.randomUUID();
 	}
 

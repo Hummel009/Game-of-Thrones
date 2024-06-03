@@ -17,7 +17,7 @@ public class GOTPacketAlignmentSee implements IMessage {
 
 	private String username;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketAlignmentSee() {
 	}
 

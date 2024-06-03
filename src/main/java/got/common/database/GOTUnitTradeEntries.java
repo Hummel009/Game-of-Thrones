@@ -520,7 +520,7 @@ public class GOTUnitTradeEntries {
 
 	private final GOTUnitTradeEntry[] tradeEntries;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTUnitTradeEntries(float baseAlignment, List<GOTUnitTradeEntry> list) {
 		GOTUnitTradeEntry[] arr = new GOTUnitTradeEntry[list.size()];
 		arr = list.toArray(arr);

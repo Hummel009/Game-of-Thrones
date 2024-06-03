@@ -16,7 +16,7 @@ public class GOTPacketMountControl implements IMessage {
 	private float rotationYaw;
 	private float rotationPitch;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketMountControl() {
 	}
 

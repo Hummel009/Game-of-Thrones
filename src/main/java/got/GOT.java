@@ -48,7 +48,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 
-@SuppressWarnings({"PublicField", "WeakerAccess"})
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 @Mod(modid = "got", useMetadata = true)
 public class GOT {
 	public static final String NAME = "Game of Thrones";

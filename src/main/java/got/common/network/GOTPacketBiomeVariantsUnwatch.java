@@ -14,7 +14,7 @@ public class GOTPacketBiomeVariantsUnwatch implements IMessage {
 	private int chunkX;
 	private int chunkZ;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketBiomeVariantsUnwatch() {
 	}
 

@@ -19,7 +19,7 @@ public class GOTPacketAlignment implements IMessage {
 	private UUID player;
 	private boolean hideAlignment;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketAlignment() {
 	}
 

@@ -13,7 +13,7 @@ public class GOTPacketNPCIsEating implements IMessage {
 	private int entityID;
 	private boolean isEating;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketNPCIsEating() {
 	}
 

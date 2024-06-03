@@ -58,14 +58,12 @@ public class GOTContainerAnvil extends Container {
 	private long lastReforgeTime = -1L;
 	private boolean doneMischief;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTContainerAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		this(entityplayer, true);
 		theNPC = npc;
 		theTrader = (GOTTradeable) npc;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTContainerAnvil(EntityPlayer entityplayer, int i, int j, int k) {
 		this(entityplayer, false);
 		xCoord = i;
@@ -73,8 +71,7 @@ public class GOTContainerAnvil extends Container {
 		zCoord = k;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTContainerAnvil(EntityPlayer entityplayer, boolean trader) {
+	private GOTContainerAnvil(EntityPlayer entityplayer, boolean trader) {
 		thePlayer = entityplayer;
 		theWorld = entityplayer.worldObj;
 		isTrader = trader;

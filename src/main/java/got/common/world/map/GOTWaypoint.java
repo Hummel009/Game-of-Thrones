@@ -620,10 +620,6 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		return StatCollector.translateToLocal("got.wp." + getCodeName() + ".info");
 	}
 
-	public List<Region> getRegions() {
-		return regions;
-	}
-
 	@Override
 	public int getRotation() {
 		return 0;

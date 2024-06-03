@@ -41,7 +41,7 @@ public class GOTPacketFellowship implements IMessage {
 	private boolean preventHiredFF;
 	private boolean showMapLocations;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFellowship() {
 	}
 

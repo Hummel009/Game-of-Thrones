@@ -14,7 +14,7 @@ import net.minecraft.util.MathHelper;
 
 import java.util.*;
 
-@SuppressWarnings({"unused", "ConstantMathCall"})
+@SuppressWarnings({"ConstantMathCall", "unused"})
 public class GOTTradeEntries {
 	public static final GOTTradeEntries BAELISH_BUY;
 	public static final GOTTradeEntries C_ALCHEMIST_BUY;
@@ -1039,7 +1039,7 @@ public class GOTTradeEntries {
 
 	private GOTItemMug.Vessel[] drinkVessels;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTTradeEntries(GOTTradeEntries.TradeType t, List<GOTTradeEntry> list) {
 		GOTTradeEntry[] arr = new GOTTradeEntry[list.size()];
 		arr = list.toArray(arr);
@@ -1102,12 +1102,12 @@ public class GOTTradeEntries {
 		return trades;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTTradeEntries setVessels(GOTFoods foods) {
 		return setVessels(foods.getDrinkVessels());
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTTradeEntries setVessels(GOTItemMug.Vessel... v) {
 		if (tradeType != GOTTradeEntries.TradeType.WE_CAN_BUY) {
 			throw new IllegalArgumentException("Cannot set the vessel types for a sell list");

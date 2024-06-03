@@ -15,7 +15,7 @@ public class GOTPacketBrokenPledge implements IMessage {
 	private int cooldownStart;
 	private GOTFaction brokenFac;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketBrokenPledge() {
 	}
 

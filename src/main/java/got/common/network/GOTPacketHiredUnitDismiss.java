@@ -13,7 +13,7 @@ public class GOTPacketHiredUnitDismiss implements IMessage {
 	private int entityID;
 	private int action;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketHiredUnitDismiss() {
 	}
 

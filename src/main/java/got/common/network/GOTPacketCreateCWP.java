@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class GOTPacketCreateCWP implements IMessage {
 	private String name;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketCreateCWP() {
 	}
 

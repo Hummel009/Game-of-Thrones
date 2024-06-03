@@ -19,7 +19,7 @@ public class GOTPacketBannerRequestInvalidName implements IMessage {
 	private int slot;
 	private String username;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketBannerRequestInvalidName() {
 	}
 

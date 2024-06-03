@@ -8,7 +8,6 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentDamage extends GOTEnchantment {
 	private final float baseDamageBoost;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentDamage(String s, float boost) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE});
 		baseDamageBoost = boost;

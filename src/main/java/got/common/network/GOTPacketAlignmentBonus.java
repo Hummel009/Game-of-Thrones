@@ -27,7 +27,7 @@ public class GOTPacketAlignmentBonus implements IMessage {
 	private boolean isKill;
 	private boolean isHiredKill;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketAlignmentBonus() {
 	}
 

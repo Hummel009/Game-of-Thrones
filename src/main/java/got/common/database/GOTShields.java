@@ -112,11 +112,6 @@ public enum GOTShields {
 		return StatCollector.translateToLocal("got.shields." + name() + ".name");
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isHidden() {
-		return isHidden;
-	}
-
 	public void setHidden(boolean hidden) {
 		isHidden = hidden;
 	}

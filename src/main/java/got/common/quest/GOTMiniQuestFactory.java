@@ -726,18 +726,8 @@ public enum GOTMiniQuestFactory {
 		return questFactories;
 	}
 
-	@SuppressWarnings("unused")
-	public GOTAchievement getQuestAchievement() {
-		return questAchievement;
-	}
-
 	public void setQuestAchievement(GOTAchievement questAchievement) {
 		this.questAchievement = questAchievement;
-	}
-
-	@SuppressWarnings("unused")
-	public GOTFaction getAlignmentRewardOverride() {
-		return alignmentRewardOverride;
 	}
 
 	public void setAlignmentRewardOverride(GOTFaction alignmentRewardOverride) {

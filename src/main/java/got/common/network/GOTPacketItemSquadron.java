@@ -13,7 +13,7 @@ import net.minecraft.util.StringUtils;
 public class GOTPacketItemSquadron implements IMessage {
 	private String squadron;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketItemSquadron() {
 	}
 

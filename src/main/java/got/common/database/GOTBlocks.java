@@ -35,7 +35,7 @@ import java.util.Collection;
 import java.util.EnumMap;
 import java.util.Map;
 
-@SuppressWarnings({"PublicField", "WeakerAccess"})
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTBlocks {
 	public static final Collection<Block> CONTENT = new ArrayList<>();
 

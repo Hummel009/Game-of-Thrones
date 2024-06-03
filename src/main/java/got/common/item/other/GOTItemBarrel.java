@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemBarrel extends ItemBlock {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTItemBarrel(Block block) {
 		super(block);
 	}

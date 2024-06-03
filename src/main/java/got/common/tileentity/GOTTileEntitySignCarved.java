@@ -29,7 +29,7 @@ public class GOTTileEntitySignCarved extends TileEntity {
 	private boolean isFakeGuiSign;
 	private boolean editable = true;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTTileEntitySignCarved() {
 		Arrays.fill(signText, "");
 	}

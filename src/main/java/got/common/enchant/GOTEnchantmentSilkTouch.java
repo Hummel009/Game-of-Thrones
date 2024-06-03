@@ -4,7 +4,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentSilkTouch extends GOTEnchantment {
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentSilkTouch(String s) {
 		super(s, GOTEnchantmentType.TOOL);
 		valueModifier = 3.0F;

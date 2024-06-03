@@ -8,7 +8,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
 
-@SuppressWarnings("PublicField")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTConfig {
 	private static final String CATEGORY_LANGUAGE = "1_language";
 	private static final String CATEGORY_GAMEPLAY = "2_gameplay";

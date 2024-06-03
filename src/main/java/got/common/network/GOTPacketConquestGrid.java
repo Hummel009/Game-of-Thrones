@@ -18,7 +18,7 @@ public class GOTPacketConquestGrid implements IMessage {
 	private List<GOTConquestZone> allZones;
 	private long worldTime;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketConquestGrid() {
 	}
 

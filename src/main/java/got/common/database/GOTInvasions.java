@@ -297,7 +297,7 @@ public enum GOTInvasions {
 	public static class InvasionSpawnEntry extends WeightedRandom.Item {
 		private final Class<? extends GOTEntityNPC> entityClass;
 
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("WeakerAccess")
 		public InvasionSpawnEntry(Class<? extends GOTEntityNPC> c, int chance) {
 			super(chance);
 			entityClass = c;

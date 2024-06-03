@@ -2,7 +2,7 @@ package got.common.util;
 
 import net.minecraft.util.IIcon;
 
-@SuppressWarnings("PublicField")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTCommonIcons {
 	public static IIcon iconEmptyBlock;
 	public static IIcon iconMeleeWeapon;

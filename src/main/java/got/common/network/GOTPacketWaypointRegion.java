@@ -14,7 +14,7 @@ public class GOTPacketWaypointRegion implements IMessage {
 	private GOTWaypoint.Region region;
 	private boolean unlocking;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketWaypointRegion() {
 	}
 

@@ -18,7 +18,7 @@ public class GOTPacketRenameCWPClient implements IMessage {
 	private String name;
 	private UUID sharingPlayer;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketRenameCWPClient() {
 	}
 
@@ -50,11 +50,6 @@ public class GOTPacketRenameCWPClient implements IMessage {
 			data.writeLong(sharingPlayer.getMostSignificantBits());
 			data.writeLong(sharingPlayer.getLeastSignificantBits());
 		}
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public UUID getSharingPlayer() {
-		return sharingPlayer;
 	}
 
 	public GOTPacketRenameCWPClient setSharingPlayer(UUID player) {

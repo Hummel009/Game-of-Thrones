@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class GOTPacketSetOption implements IMessage {
 	private int option;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketSetOption() {
 	}
 

@@ -12,7 +12,7 @@ public class GOTPacketConquestNotification implements IMessage {
 	private float conqVal;
 	private boolean isCleansing;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketConquestNotification() {
 	}
 

@@ -13,7 +13,7 @@ import net.minecraft.util.EnumChatFormatting;
 public class GOTPacketSelectTitle implements IMessage {
 	private GOTTitle.PlayerTitle playerTitle;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketSelectTitle() {
 	}
 

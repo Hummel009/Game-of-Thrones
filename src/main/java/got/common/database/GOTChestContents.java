@@ -1161,7 +1161,7 @@ public class GOTChestContents {
 	private List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	private int loreChance = 10;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTChestContents(int i, int j, List<WeightedRandomChestContent> list) {
 		WeightedRandomChestContent[] w = new WeightedRandomChestContent[list.size()];
 		w = list.toArray(w);
@@ -1256,24 +1256,24 @@ public class GOTChestContents {
 		return item;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTChestContents enablePouches() {
 		pouches = true;
 		return this;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTChestContents setDrinkVessels(GOTFoods foods) {
 		return setDrinkVessels(foods.getDrinkVessels());
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {
 		vesselTypes = v;
 		return this;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTChestContents setLore(int chance, GOTLore.LoreCategory... categories) {
 		loreCategories = Arrays.asList(categories);
 		loreChance = chance;

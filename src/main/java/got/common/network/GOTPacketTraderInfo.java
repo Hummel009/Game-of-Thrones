@@ -17,7 +17,7 @@ import java.io.IOException;
 public class GOTPacketTraderInfo implements IMessage {
 	private NBTTagCompound traderData;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketTraderInfo() {
 	}
 

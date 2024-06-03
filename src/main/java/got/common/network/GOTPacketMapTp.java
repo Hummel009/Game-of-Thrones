@@ -13,7 +13,7 @@ public class GOTPacketMapTp implements IMessage {
 	private int xCoord;
 	private int zCoord;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketMapTp() {
 	}
 

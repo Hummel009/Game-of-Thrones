@@ -265,11 +265,6 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		this.currentMillTime = currentMillTime;
 	}
 
-	@SuppressWarnings("unused")
-	public String getSpecialMillstoneName() {
-		return specialMillstoneName;
-	}
-
 	public void setSpecialMillstoneName(String s) {
 		specialMillstoneName = s;
 	}

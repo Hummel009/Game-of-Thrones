@@ -15,7 +15,7 @@ public class GOTPacketRenameCWP implements IMessage {
 	private int wpID;
 	private String name;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketRenameCWP() {
 	}
 

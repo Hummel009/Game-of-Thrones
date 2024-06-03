@@ -16,7 +16,7 @@ public class GOTPacketDate implements IMessage {
 	private NBTTagCompound dateData;
 	private boolean doUpdate;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketDate() {
 	}
 

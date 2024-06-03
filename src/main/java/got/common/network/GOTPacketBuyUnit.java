@@ -22,7 +22,7 @@ public class GOTPacketBuyUnit implements IMessage {
 	private int tradeIndex;
 	private String squadron;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketBuyUnit() {
 	}
 

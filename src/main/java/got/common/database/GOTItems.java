@@ -22,7 +22,7 @@ import net.minecraft.util.EnumChatFormatting;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@SuppressWarnings({"PublicField", "WeakerAccess"})
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTItems {
 	public static final Collection<Item> CONTENT = new ArrayList<>();
 

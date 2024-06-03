@@ -311,7 +311,6 @@ public class GOTBannerProtection {
 		NONE, FACTION, PLAYER_SPECIFIC, STRUCTURE
 	}
 
-	@SuppressWarnings("WeakerAccess")
 	public interface IFilter {
 		ProtectType protects(GOTEntityBanner var1);
 

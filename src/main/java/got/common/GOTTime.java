@@ -89,11 +89,6 @@ public class GOTTime {
 		GOTTime.needsLoad = needsLoad;
 	}
 
-	@SuppressWarnings("unused")
-	public static long getWorldTime() {
-		return worldTime;
-	}
-
 	public static void setWorldTime(long time) {
 		worldTime = time;
 	}

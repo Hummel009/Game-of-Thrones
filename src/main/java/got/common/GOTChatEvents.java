@@ -4,7 +4,7 @@ import got.common.util.GOTReflection;
 import net.minecraft.event.HoverEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
-@SuppressWarnings("PublicField")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTChatEvents {
 	private static final Class<?>[][] HOVER_PARAMS = new Class[][]{{HoverEvent.Action.class, String.class, Boolean.TYPE}};
 

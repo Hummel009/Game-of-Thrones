@@ -23,7 +23,7 @@ public class GOTPacketMoneyGive extends GOTPacketMoney {
 
 	private ItemStack item;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketMoneyGive() {
 	}
 

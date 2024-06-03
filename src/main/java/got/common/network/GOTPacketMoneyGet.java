@@ -20,7 +20,7 @@ import java.io.IOException;
 public class GOTPacketMoneyGet extends GOTPacketMoney {
 	private ItemStack item;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketMoneyGet() {
 	}
 

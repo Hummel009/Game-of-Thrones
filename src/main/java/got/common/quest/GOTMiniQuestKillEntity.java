@@ -14,7 +14,7 @@ import java.util.Random;
 public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	private Class<? extends Entity> entityType;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTMiniQuestKillEntity(GOTPlayerData pd) {
 		super(pd);
 	}
@@ -65,7 +65,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	public static class QFKillEntity extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillEntity> {
 		protected Class<? extends Entity> entityType;
 
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("WeakerAccess")
 		public QFKillEntity(String name) {
 			super(name);
 		}

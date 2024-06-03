@@ -10,7 +10,7 @@ import got.common.fellowship.GOTFellowshipClient;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipDisband extends GOTPacketFellowshipDo {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipDisband() {
 	}
 

@@ -15,7 +15,7 @@ public class GOTPacketCWPSharedUnlockClient implements IMessage {
 	private int cwpID;
 	private UUID sharingPlayer;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketCWPSharedUnlockClient() {
 	}
 

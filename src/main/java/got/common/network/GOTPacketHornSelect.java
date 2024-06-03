@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 public class GOTPacketHornSelect implements IMessage {
 	private int hornType;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketHornSelect() {
 	}
 

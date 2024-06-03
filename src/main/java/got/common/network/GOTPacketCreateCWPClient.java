@@ -29,7 +29,7 @@ public class GOTPacketCreateCWPClient implements IMessage {
 	private boolean sharedUnlocked;
 	private boolean sharedHidden;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketCreateCWPClient() {
 	}
 

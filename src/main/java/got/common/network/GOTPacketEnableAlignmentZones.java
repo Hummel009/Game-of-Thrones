@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 public class GOTPacketEnableAlignmentZones implements IMessage {
 	private boolean enable;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketEnableAlignmentZones() {
 	}
 

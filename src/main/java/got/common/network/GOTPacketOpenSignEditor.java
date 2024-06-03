@@ -18,7 +18,7 @@ public class GOTPacketOpenSignEditor implements IMessage {
 	private Block blockType;
 	private int blockMeta;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketOpenSignEditor() {
 	}
 

@@ -9,13 +9,11 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentProtection extends GOTEnchantment {
 	private final int protectLevel;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentProtection(String s, int level) {
 		this(s, GOTEnchantmentType.ARMOR, level);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEnchantmentProtection(String s, GOTEnchantmentType type, int level) {
+	private GOTEnchantmentProtection(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
 		protectLevel = level;
 		if (protectLevel >= 0) {

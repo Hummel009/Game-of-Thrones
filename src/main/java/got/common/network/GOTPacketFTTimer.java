@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 public class GOTPacketFTTimer implements IMessage {
 	private int timer;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFTTimer() {
 	}
 

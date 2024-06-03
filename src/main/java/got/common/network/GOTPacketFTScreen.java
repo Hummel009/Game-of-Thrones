@@ -21,7 +21,7 @@ public class GOTPacketFTScreen implements IMessage {
 	private int startX;
 	private int startZ;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFTScreen() {
 	}
 

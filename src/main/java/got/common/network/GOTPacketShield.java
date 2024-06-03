@@ -15,7 +15,7 @@ public class GOTPacketShield implements IMessage {
 	private UUID player;
 	private GOTShields shield;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketShield() {
 	}
 

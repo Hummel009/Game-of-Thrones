@@ -22,7 +22,7 @@ public class GOTPacketMiniquestOffer implements IMessage {
 	private int entityID;
 	private NBTTagCompound miniquestData;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquestOffer() {
 	}
 

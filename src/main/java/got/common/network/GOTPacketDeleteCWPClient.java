@@ -16,7 +16,7 @@ public class GOTPacketDeleteCWPClient implements IMessage {
 	private int cwpID;
 	private UUID sharingPlayer;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketDeleteCWPClient() {
 	}
 
@@ -42,11 +42,6 @@ public class GOTPacketDeleteCWPClient implements IMessage {
 			data.writeLong(sharingPlayer.getMostSignificantBits());
 			data.writeLong(sharingPlayer.getLeastSignificantBits());
 		}
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public UUID getSharingPlayer() {
-		return sharingPlayer;
 	}
 
 	public GOTPacketDeleteCWPClient setSharingPlayer(UUID player) {

@@ -20,7 +20,7 @@ import java.util.UUID;
 public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
 	private String invitedUsername;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipInvitePlayer() {
 	}
 

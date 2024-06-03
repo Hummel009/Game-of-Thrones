@@ -15,7 +15,7 @@ public class GOTPacketFellowshipAcceptInviteResult implements IMessage {
 	private String fellowshipName;
 	private AcceptInviteResult result;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipAcceptInviteResult() {
 	}
 

@@ -21,18 +21,15 @@ public class GOTRecipePouch implements IRecipe {
 	private final int overrideColor;
 	private final boolean hasOverrideColor;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTRecipePouch() {
 		this(-1, false);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTRecipePouch(GOTFaction f) {
 		this(f.getFactionColor(), true);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTRecipePouch(int color, boolean flag) {
+	private GOTRecipePouch(int color, boolean flag) {
 		overrideColor = color;
 		hasOverrideColor = flag;
 	}

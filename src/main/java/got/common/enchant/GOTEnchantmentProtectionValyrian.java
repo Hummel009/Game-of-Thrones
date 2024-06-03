@@ -11,7 +11,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSpecial {
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentProtectionValyrian(String s) {
 		super(s, 1);
 		valueModifier = 2.0F;

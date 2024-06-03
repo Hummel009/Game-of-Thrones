@@ -23,7 +23,7 @@ public class GOTPacketHiredInfo implements IMessage {
 	private int xpLvl;
 	private int entityID;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketHiredInfo() {
 	}
 

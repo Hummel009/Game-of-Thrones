@@ -20,7 +20,7 @@ public class GOTPacketNPCRespawner implements IMessage {
 	private int spawnerID;
 	private NBTTagCompound spawnerData;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketNPCRespawner() {
 	}
 

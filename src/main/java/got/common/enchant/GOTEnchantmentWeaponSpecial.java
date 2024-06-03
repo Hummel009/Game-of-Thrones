@@ -17,7 +17,6 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	private boolean compatibleOtherSpecial;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEnchantmentWeaponSpecial(String s) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER});
 		valueModifier = 3.0F;
@@ -62,12 +61,6 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		return compatibleOtherSpecial || !(other instanceof GOTEnchantmentWeaponSpecial) || ((GOTEnchantmentWeaponSpecial) other).compatibleOtherSpecial;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isCompatibleOtherSpecial() {
-		return compatibleOtherSpecial;
-	}
-
-	@SuppressWarnings("unused")
 	public GOTEnchantmentWeaponSpecial setCompatibleOtherSpecial(boolean compatibleOtherSpecial) {
 		this.compatibleOtherSpecial = compatibleOtherSpecial;
 		return this;

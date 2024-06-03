@@ -14,7 +14,7 @@ public class GOTPacketLocationFX implements IMessage {
 	private double posY;
 	private double posZ;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketLocationFX() {
 	}
 

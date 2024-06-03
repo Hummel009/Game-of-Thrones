@@ -11,7 +11,7 @@ public class GOTPacketCargocart implements IMessage {
 	private int load;
 	private int cartId;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketCargocart() {
 	}
 

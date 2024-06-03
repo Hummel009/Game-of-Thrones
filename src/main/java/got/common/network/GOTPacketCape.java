@@ -15,7 +15,7 @@ public class GOTPacketCape implements IMessage {
 	private UUID player;
 	private GOTCapes cape;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketCape() {
 	}
 

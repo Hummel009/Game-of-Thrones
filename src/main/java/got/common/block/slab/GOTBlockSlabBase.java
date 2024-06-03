@@ -106,7 +106,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		return flag ? l == 0 || l == 1 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 || l == 0 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
 	}
 
-	@SuppressWarnings({"EmptyClass", "unused"})
+	@SuppressWarnings("EmptyClass")
 	public static class SlabItems {
 		public static class BoneDouble extends ItemSlab {
 			public BoneDouble(Block block) {

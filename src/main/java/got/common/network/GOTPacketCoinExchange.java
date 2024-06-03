@@ -11,7 +11,7 @@ import net.minecraft.inventory.Container;
 public class GOTPacketCoinExchange implements IMessage {
 	private int button;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketCoinExchange() {
 	}
 

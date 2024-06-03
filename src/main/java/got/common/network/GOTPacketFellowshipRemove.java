@@ -15,7 +15,7 @@ public class GOTPacketFellowshipRemove implements IMessage {
 	private UUID fellowshipID;
 	private boolean isInvite;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipRemove() {
 	}
 

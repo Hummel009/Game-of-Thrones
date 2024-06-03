@@ -20,7 +20,7 @@ public class GOTPacketWaypointUseCount implements IMessage {
 	private int useCount;
 	private UUID sharingPlayer;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTPacketWaypointUseCount() {
 	}
 

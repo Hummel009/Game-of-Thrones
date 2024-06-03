@@ -26,12 +26,11 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	private boolean movedOn;
 	private int stage;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTMiniQuestWelcome(GOTPlayerData pd) {
 		super(pd);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTMiniQuestWelcome(GOTPlayerData pd, GOTEntityJaqenHghar jaqen) {
 		this(pd);
 		setNPCInfo(jaqen);
