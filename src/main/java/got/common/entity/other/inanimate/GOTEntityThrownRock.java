@@ -99,11 +99,6 @@ public class GOTEntityThrownRock extends EntityThrowable {
 		damage = nbt.getFloat("RockDamage");
 	}
 
-	@SuppressWarnings("unused")
-	public float getDamage() {
-		return damage;
-	}
-
 	public void setDamage(float f) {
 		damage = f;
 	}

@@ -385,11 +385,6 @@ public class GOTQuestInfo {
 		nbt.setTag("ActiveQuestPlayers", activeQuestTags);
 	}
 
-	@SuppressWarnings("unused")
-	public int getOfferChance() {
-		return offerChance;
-	}
-
 	public void setOfferChance(int offerChance) {
 		this.offerChance = offerChance;
 	}
@@ -400,11 +395,6 @@ public class GOTQuestInfo {
 
 	public int getClientOfferColor() {
 		return clientOfferColor;
-	}
-
-	@SuppressWarnings("unused")
-	public float getMinAlignment() {
-		return minAlignment;
 	}
 
 	public void setMinAlignment(float minAlignment) {

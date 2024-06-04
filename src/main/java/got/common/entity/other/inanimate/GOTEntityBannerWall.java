@@ -205,11 +205,6 @@ public class GOTEntityBannerWall extends EntityHanging {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public NBTTagCompound getProtectData() {
-		return protectData;
-	}
-
 	public void setProtectData(NBTTagCompound nbt) {
 		protectData = nbt;
 	}

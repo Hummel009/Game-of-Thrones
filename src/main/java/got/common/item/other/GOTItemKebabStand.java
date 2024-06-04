@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 import java.util.List;
 
 public class GOTItemKebabStand extends ItemBlock {
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings("unused")
 	public GOTItemKebabStand(Block block) {
 		super(block);
 	}

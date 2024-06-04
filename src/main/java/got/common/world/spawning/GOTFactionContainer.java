@@ -103,11 +103,6 @@ public class GOTFactionContainer {
 		return theFaction;
 	}
 
-	@SuppressWarnings("unused")
-	public float getConquestSensitivity() {
-		return conquestSensitivity;
-	}
-
 	public void setConquestSensitivity(float conquestSensitivity) {
 		this.conquestSensitivity = conquestSensitivity;
 	}

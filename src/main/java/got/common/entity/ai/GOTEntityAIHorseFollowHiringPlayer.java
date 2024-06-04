@@ -20,7 +20,6 @@ public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
 	private double moveSpeed;
 	private int followTick;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIHorseFollowHiringPlayer(GOTNPCMount entity) {
 		theHorse = entity;
 		livingHorse = (EntityCreature) theHorse;

@@ -1093,7 +1093,7 @@ public class GOTFixer {
 		private final int i;
 		private final int k;
 
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("WeakerAccess")
 		public SpawnInfo(GOTEntityNPC npc, int i, int k) {
 			this.npc = npc;
 			this.i = i;

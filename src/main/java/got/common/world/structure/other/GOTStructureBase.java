@@ -88,11 +88,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public EntityPlayer getUsingPlayer() {
-		return usingPlayer;
-	}
-
 	public void setUsingPlayer(EntityPlayer usingPlayer) {
 		this.usingPlayer = usingPlayer;
 	}
@@ -1186,11 +1181,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public void setupRandomBlocks(Random random) {
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isShouldFindSurface() {
-		return shouldFindSurface;
-	}
-
 	public void setShouldFindSurface(boolean shouldFindSurface) {
 		this.shouldFindSurface = shouldFindSurface;
 	}
@@ -1257,19 +1247,9 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return GOTStructureRegistry.getRotationFromPlayer(usingPlayer);
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isRestrictions() {
-		return restrictions;
-	}
-
 	public GOTStructureBase setRestrictions(boolean b) {
 		restrictions = b;
 		return this;
-	}
-
-	@SuppressWarnings("unused")
-	public GOTStructureBaseSettlement.AbstractInstance getSettlementInstance() {
-		return settlementInstance;
 	}
 
 	public void setSettlementInstance(GOTStructureBaseSettlement.AbstractInstance settlementInstance) {
@@ -1278,11 +1258,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public Set<Class<? extends Entity>> getEntityClasses() {
 		return entityClasses;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isWikiGen() {
-		return wikiGen;
 	}
 
 	public void setWikiGen(boolean wikiGen) {

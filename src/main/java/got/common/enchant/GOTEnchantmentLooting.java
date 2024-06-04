@@ -6,6 +6,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentLooting extends GOTEnchantment {
 	private final int lootLevel;
 
+	@SuppressWarnings("unused")
 	public GOTEnchantmentLooting(String s, int level) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.TOOL, GOTEnchantmentType.MELEE});
 		lootLevel = level;

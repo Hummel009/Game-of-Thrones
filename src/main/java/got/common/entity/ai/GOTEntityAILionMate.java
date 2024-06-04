@@ -20,7 +20,6 @@ public class GOTEntityAILionMate extends EntityAIBase {
 	private EntityAnimal targetMate;
 	private int breeding;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAILionMate(GOTEntityLionBase animal, double d) {
 		theAnimal = animal;
 		theWorld = animal.worldObj;

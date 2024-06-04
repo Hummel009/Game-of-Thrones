@@ -26,7 +26,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	private boolean movedOn;
 	private int stage;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTMiniQuestWelcome(GOTPlayerData pd) {
 		super(pd);
 	}

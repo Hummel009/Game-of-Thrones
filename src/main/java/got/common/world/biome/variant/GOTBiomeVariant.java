@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTBiomeVariant {
-	public static final GOTBiomeVariant[] ALL_VARIANTS = new GOTBiomeVariant[256];
+	private static final GOTBiomeVariant[] ALL_VARIANTS = new GOTBiomeVariant[256];
 
 	public static final GOTBiomeVariant STANDARD = new GOTBiomeVariant(0, "standard");
 	public static final GOTBiomeVariant FLOWERS = new GOTBiomeVariant(1, "flowers").setFlowers(10.0f);
@@ -66,8 +65,7 @@ public class GOTBiomeVariant {
 	private boolean disableStructures;
 	private boolean disableSettlements;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTBiomeVariant(int i, String s) {
+	protected GOTBiomeVariant(int i, String s) {
 		if (ALL_VARIANTS[i] != null) {
 			throw new IllegalArgumentException("got Biome variant already exists at index " + i);
 		}
@@ -84,7 +82,7 @@ public class GOTBiomeVariant {
 		return variant;
 	}
 
-	public GOTBiomeVariant addTreeTypes(float f, Object... trees) {
+	protected GOTBiomeVariant addTreeTypes(float f, Object... trees) {
 		variantTreeChance = f;
 		for (int i = 0; i < trees.length / 2; ++i) {
 			Object obj1 = trees[i * 2];
@@ -97,7 +95,7 @@ public class GOTBiomeVariant {
 	public void decorateVariant(World world, Random random, int i, int k) {
 	}
 
-	public void disableSettlements() {
+	protected void disableSettlements() {
 		disableSettlements = true;
 	}
 
@@ -133,17 +131,17 @@ public class GOTBiomeVariant {
 		return this;
 	}
 
-	public GOTBiomeVariant setFlowers(float f) {
+	private GOTBiomeVariant setFlowers(float f) {
 		flowerFactor = f;
 		return this;
 	}
 
-	public GOTBiomeVariant setGrass(float f) {
+	protected GOTBiomeVariant setGrass(float f) {
 		grassFactor = f;
 		return this;
 	}
 
-	public GOTBiomeVariant setHeight(float height, float hills) {
+	protected GOTBiomeVariant setHeight(float height, float hills) {
 		heightBoost = height;
 		hillFactor = hills;
 		return this;
@@ -154,7 +152,7 @@ public class GOTBiomeVariant {
 		return this;
 	}
 
-	public GOTBiomeVariant setTrees(float f) {
+	protected GOTBiomeVariant setTrees(float f) {
 		treeFactor = f;
 		return this;
 	}

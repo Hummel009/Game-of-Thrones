@@ -15,7 +15,6 @@ import net.minecraft.util.MathHelper;
 import java.util.List;
 
 public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIDrink(GOTEntityNPC entity, GOTFoods foods, int chance) {
 		super(entity, foods, chance);
 	}

@@ -23,12 +23,11 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 
 	private EntityLivingBase targetEntity;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight) {
 		this(entity, cls, chance, checkSight, false, null);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
 		super(entity, checkSight, nearby);
 		targetClass = cls;
@@ -38,7 +37,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		targetSelector = new EntitySelectorImpl(selector, this);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, IEntitySelector selector) {
 		this(entity, cls, chance, checkSight, false, selector);
 	}

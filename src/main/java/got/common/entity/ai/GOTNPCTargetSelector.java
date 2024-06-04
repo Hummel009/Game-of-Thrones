@@ -14,7 +14,6 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 	private final EntityLiving owner;
 	private final GOTFaction ownerFaction;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTNPCTargetSelector(EntityLiving entity) {
 		owner = entity;
 		ownerFaction = GOT.getNPCFaction(entity);

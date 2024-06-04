@@ -20,7 +20,6 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 	private PathEntity entityPathEntity;
 	private int rePathDelay;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIBombardierAttack(GOTEntityYiTiBombardier entity, double speed) {
 		attacker = entity;
 		worldObj = entity.worldObj;

@@ -121,11 +121,6 @@ public class GOTFishing {
 			return result;
 		}
 
-		@SuppressWarnings("unused")
-		private float getMaxDurability() {
-			return maxDurability;
-		}
-
 		private FishingItem setMaxDurability(float f) {
 			maxDurability = f;
 			return this;

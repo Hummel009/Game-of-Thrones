@@ -465,27 +465,12 @@ public class GOTBeziers {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public static BezierPointDatabase getLinkerPointDatabase() {
-		return linkerPointDatabase;
-	}
-
 	public static void setLinkerPointDatabase(BezierPointDatabase linkerPointDatabase) {
 		GOTBeziers.linkerPointDatabase = linkerPointDatabase;
 	}
 
-	@SuppressWarnings("unused")
-	public static BezierPointDatabase getRoadPointDatabase() {
-		return roadPointDatabase;
-	}
-
 	public static void setRoadPointDatabase(BezierPointDatabase roadPointDatabase) {
 		GOTBeziers.roadPointDatabase = roadPointDatabase;
-	}
-
-	@SuppressWarnings("unused")
-	public static BezierPointDatabase getWallPointDatabase() {
-		return wallPointDatabase;
 	}
 
 	public static void setWallPointDatabase(BezierPointDatabase wallPointDatabase) {

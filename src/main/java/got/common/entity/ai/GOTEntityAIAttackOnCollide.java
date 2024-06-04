@@ -25,7 +25,6 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 	private int attackTick;
 	private int pathCheckTimer;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIAttackOnCollide(EntityCreature entity, double speed, boolean flag) {
 		theOwner = entity;
 		worldObj = entity.worldObj;

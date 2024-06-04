@@ -80,11 +80,6 @@ public class GOTWorldGenBoulder extends WorldGenerator {
 		return true;
 	}
 
-	@SuppressWarnings("unused")
-	public int getHeightCheck() {
-		return heightCheck;
-	}
-
 	public GOTWorldGenBoulder setHeightCheck(int i) {
 		heightCheck = i;
 		return this;

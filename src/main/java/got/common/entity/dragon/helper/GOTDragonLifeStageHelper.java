@@ -25,7 +25,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 	@Override
 	public void applyEntityAttributes() {
-		scaleModifier.setScale(getScale());
 		dragon.getEntityAttribute(SharedMonsterAttributes.maxHealth).applyModifier(scaleModifier);
 		dragon.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(scaleModifier);
 	}
@@ -120,7 +119,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 			IAttributeInstance damageAttrib = dragon.getEntityAttribute(SharedMonsterAttributes.attackDamage);
 			healthAttrib.removeModifier(scaleModifier);
 			damageAttrib.removeModifier(scaleModifier);
-			scaleModifier.setScale(getScale());
 			healthAttrib.applyModifier(scaleModifier);
 			damageAttrib.applyModifier(scaleModifier);
 			dragon.setHealth(dragon.getMaxHealth());

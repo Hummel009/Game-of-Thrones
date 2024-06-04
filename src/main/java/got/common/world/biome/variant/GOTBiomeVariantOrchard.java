@@ -11,7 +11,6 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import java.util.Random;
 
 public class GOTBiomeVariantOrchard extends GOTBiomeVariant {
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTBiomeVariantOrchard(int i, String s) {
 		super(i, s);
 		setHeight(0.0f, 0.4f);

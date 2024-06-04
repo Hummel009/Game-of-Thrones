@@ -227,11 +227,6 @@ public class GOTMapGenCaves extends MapGenBase {
 		return rand.nextInt(rand.nextInt(120) + 8);
 	}
 
-	@SuppressWarnings("unused")
-	public GOTChunkProvider.ChunkFlags getChunkFlags() {
-		return chunkFlags;
-	}
-
 	public void setChunkFlags(GOTChunkProvider.ChunkFlags chunkFlags) {
 		this.chunkFlags = chunkFlags;
 	}

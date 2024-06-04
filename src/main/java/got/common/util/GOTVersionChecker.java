@@ -56,11 +56,6 @@ public class GOTVersionChecker {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public static boolean isCheckedUpdate() {
-		return checkedUpdate;
-	}
-
 	public static void setCheckedUpdate(boolean checkedUpdate) {
 		GOTVersionChecker.checkedUpdate = checkedUpdate;
 	}

@@ -9,7 +9,6 @@ public class GOTDragonFlightWaypoint {
 	private static final String NBT_WAYPOINT_Y = "Waypoint-Y";
 	private static final String NBT_WAYPOINT_Z = "Waypoint-Z";
 
-	@SuppressWarnings("FieldHasSetterButNoGetter")
 	private final Entity entity;
 
 	private int posX;

@@ -190,11 +190,6 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 		return true;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isGenerateRoom() {
-		return generateRoom;
-	}
-
 	public void setGenerateRoom(boolean generateRoom) {
 		this.generateRoom = generateRoom;
 	}

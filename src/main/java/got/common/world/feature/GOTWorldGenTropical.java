@@ -187,11 +187,6 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 		return false;
 	}
 
-	@SuppressWarnings("unused")
-	public int getExtraTrunkWidth() {
-		return extraTrunkWidth;
-	}
-
 	public GOTWorldGenTropical setExtraTrunkWidth(int i) {
 		extraTrunkWidth = i;
 		return this;

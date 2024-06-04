@@ -11,7 +11,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenLogs extends WorldGenerator {
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTWorldGenLogs() {
 		super(false);
 	}

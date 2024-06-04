@@ -11,6 +11,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSpecial {
+	@SuppressWarnings("unused")
 	public GOTEnchantmentProtectionValyrian(String s) {
 		super(s, 1);
 		valueModifier = 2.0F;
@@ -22,6 +23,7 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 	}
 
 	@Override
+	@SuppressWarnings("unused")
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			Item item = itemstack.getItem();
@@ -31,11 +33,13 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 	}
 
 	@Override
+	@SuppressWarnings("unused")
 	public String getDescription(ItemStack itemstack) {
 		return StatCollector.translateToLocalFormatted("got.enchant.protectValyrian.desc", formatAdditiveInt(calcIntProtection()));
 	}
 
 	@Override
+	@SuppressWarnings("unused")
 	public boolean protectsAgainst(DamageSource source) {
 		Entity attacker = source.getEntity();
 		Entity entity = source.getSourceOfDamage();

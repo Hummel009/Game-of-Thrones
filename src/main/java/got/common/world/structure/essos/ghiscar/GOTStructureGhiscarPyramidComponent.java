@@ -17,11 +17,10 @@ public class GOTStructureGhiscarPyramidComponent extends StructureComponent {
 	private int direction;
 	private long pyramidSeed = -1L;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureGhiscarPyramidComponent() {
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTStructureGhiscarPyramidComponent(int l, Random random, int i, int k) {
 		super(l);
 		int r = GOTStructureGhiscarPyramid.RADIUS + 5;

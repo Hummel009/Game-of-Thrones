@@ -10,7 +10,6 @@ public class GOTEntityAINPCFollowSpouse extends EntityAIBase {
 	private GOTEntityNPC theSpouse;
 	private int followTick;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINPCFollowSpouse(GOTEntityNPC npc, double d) {
 		theNPC = npc;
 		moveSpeed = d;

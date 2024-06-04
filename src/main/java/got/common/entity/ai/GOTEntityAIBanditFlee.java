@@ -18,7 +18,6 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 
 	private EntityPlayer targetPlayer;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIBanditFlee(GOTEntityBanditBase bandit, double d) {
 		theBandit = bandit;
 		theBanditAsNPC = theBandit.getBanditAsNPC();

@@ -10,7 +10,6 @@ import java.util.Random;
 public class GOTWorldGenReeds extends WorldGenerator {
 	private final Block reedBlock;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTWorldGenReeds(Block block) {
 		reedBlock = block;
 	}

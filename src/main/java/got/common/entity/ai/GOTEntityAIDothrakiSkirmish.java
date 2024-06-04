@@ -9,7 +9,6 @@ import java.util.List;
 public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTargetBasic {
 	private final GOTEntityDothraki theDothraki;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIDothrakiSkirmish(GOTEntityDothraki dothraki, boolean flag) {
 		super(dothraki, GOTEntityDothraki.class, 0, flag, null);
 		theDothraki = dothraki;

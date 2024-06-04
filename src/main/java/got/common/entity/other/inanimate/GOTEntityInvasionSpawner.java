@@ -489,18 +489,8 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isWarhorn() {
-		return isWarhorn;
-	}
-
 	public void setWarhorn(boolean warhorn) {
 		isWarhorn = warhorn;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isSpawnsPersistent() {
-		return spawnsPersistent;
 	}
 
 	public void setSpawnsPersistent(boolean spawnsPersistent) {

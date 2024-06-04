@@ -16,13 +16,11 @@ public class GOTBiomeSpawnList {
 	private final List<GOTFactionContainer> factionContainers = new ArrayList<>();
 	private final String biomeIdentifier;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTBiomeSpawnList(GOTBiome biome) {
 		this(biome.getClass().getName());
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTBiomeSpawnList(String s) {
+	private GOTBiomeSpawnList(String s) {
 		biomeIdentifier = s;
 	}
 

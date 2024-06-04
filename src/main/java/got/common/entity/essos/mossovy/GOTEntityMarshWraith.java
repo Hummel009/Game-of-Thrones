@@ -235,11 +235,6 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public UUID getAttackTargetUUID() {
-		return attackTargetUUID;
-	}
-
 	public void setAttackTargetUUID(UUID attackTargetUUID) {
 		this.attackTargetUUID = attackTargetUUID;
 	}

@@ -13,7 +13,6 @@ public class GOTEntityAINPCFollowNPC extends EntityAIBase {
 	private GOTEntityNPC entityToFollow;
 	private int followDelay;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINPCFollowNPC(GOTEntityNPC npc, Class<? extends Entity> target) {
 		entityFollowing = npc;
 		entityClassToFollow = target;

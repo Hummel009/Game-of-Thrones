@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.ironborn;
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
 public class GOTStructureIronbornVillageFarm extends GOTStructureWesterosVillageFarm {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureIronbornVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.IRONBORN;

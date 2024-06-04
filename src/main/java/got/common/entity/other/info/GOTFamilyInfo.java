@@ -301,11 +301,6 @@ public class GOTFamilyInfo {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public int getDrunkTime() {
-		return drunkTime;
-	}
-
 	public void setDrunkTime(int i) {
 		boolean prevDrunk = isDrunk();
 		drunkTime = i;
@@ -338,27 +333,12 @@ public class GOTFamilyInfo {
 		this.children = children;
 	}
 
-	@SuppressWarnings("unused")
-	public int getMaxChildren() {
-		return maxChildren;
-	}
-
 	public void setMaxChildren(int maxChildren) {
 		this.maxChildren = maxChildren;
 	}
 
-	@SuppressWarnings("unused")
-	public UUID getMaleParentID() {
-		return maleParentID;
-	}
-
 	public void setMaleParentID(UUID maleParentID) {
 		this.maleParentID = maleParentID;
-	}
-
-	@SuppressWarnings("unused")
-	public UUID getFemaleParentID() {
-		return femaleParentID;
 	}
 
 	public void setFemaleParentID(UUID femaleParentID) {

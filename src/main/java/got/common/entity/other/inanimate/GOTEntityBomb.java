@@ -99,27 +99,12 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		nbt.setInteger("BombFuse", bombFuse);
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isDroppedTargetingPlayer() {
-		return droppedTargetingPlayer;
-	}
-
 	public void setDroppedTargetingPlayer(boolean droppedTargetingPlayer) {
 		this.droppedTargetingPlayer = droppedTargetingPlayer;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isDroppedByHiredUnit() {
-		return droppedByHiredUnit;
-	}
-
 	public void setDroppedByHiredUnit(boolean droppedByHiredUnit) {
 		this.droppedByHiredUnit = droppedByHiredUnit;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isDroppedByPlayer() {
-		return droppedByPlayer;
 	}
 
 	public void setDroppedByPlayer(boolean droppedByPlayer) {

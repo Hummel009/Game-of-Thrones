@@ -481,18 +481,8 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		return shake;
 	}
 
-	@SuppressWarnings("unused")
-	public int getCanBePickedUp() {
-		return canBePickedUp;
-	}
-
 	public void setCanBePickedUp(int canBePickedUp) {
 		this.canBePickedUp = canBePickedUp;
-	}
-
-	@SuppressWarnings("unused")
-	public int getKnockbackStrength() {
-		return knockbackStrength;
 	}
 
 	public void setKnockbackStrength(int knockbackStrength) {

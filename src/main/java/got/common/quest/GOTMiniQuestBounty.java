@@ -33,7 +33,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	private boolean bountyClaimedByOther;
 	private boolean killedByBounty;
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings("unused")
 	public GOTMiniQuestBounty(GOTPlayerData pd) {
 		super(pd);
 	}
@@ -372,7 +372,6 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	}
 
 	public static class QFBounty<Q extends GOTMiniQuestBounty> extends GOTMiniQuest.QuestFactoryBase<Q> {
-		@SuppressWarnings("WeakerAccess")
 		public QFBounty() {
 			super("bounty");
 		}

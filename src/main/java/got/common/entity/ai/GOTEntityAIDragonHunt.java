@@ -6,7 +6,6 @@ import net.minecraft.entity.ai.EntityAITargetNonTamed;
 public class GOTEntityAIDragonHunt extends EntityAITargetNonTamed {
 	private final GOTEntityDragon dragon;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIDragonHunt(GOTEntityDragon dragon, Class<?> clazz, int par3, boolean par4) {
 		super(dragon, clazz, par3, par4);
 		this.dragon = dragon;

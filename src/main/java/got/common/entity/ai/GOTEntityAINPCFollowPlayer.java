@@ -15,7 +15,6 @@ public class GOTEntityAINPCFollowPlayer extends EntityAIBase {
 	private EntityPlayer playerToFollow;
 	private int followDelay;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINPCFollowPlayer(GOTEntityNPC npc, float f, double d) {
 		entityFollowing = npc;
 		range = f;

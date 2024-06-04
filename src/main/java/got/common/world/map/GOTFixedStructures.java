@@ -8,8 +8,6 @@ import net.minecraft.world.World;
 public enum GOTFixedStructures {
 	NIGHT_KING(613, 314);
 
-	private static long nanoTimeElapsed;
-
 	private final int xCoord;
 	private final int zCoord;
 
@@ -18,8 +16,7 @@ public enum GOTFixedStructures {
 		zCoord = GOTWaypoint.mapToWorldZ(z);
 	}
 
-	public static boolean[] _mountainNear_structureNear(World world, int x, int z) {
-		long l = System.nanoTime();
+	public static boolean[] isMountainOrStructureNear(World world, int x, int z) {
 		boolean mountainNear = false;
 		boolean structureNear = false;
 		if (hasMapFeatures(world)) {
@@ -48,7 +45,6 @@ public enum GOTFixedStructures {
 				structureNear = true;
 			}
 		}
-		nanoTimeElapsed += System.nanoTime() - l;
 		return new boolean[]{mountainNear, structureNear};
 	}
 
@@ -78,15 +74,6 @@ public enum GOTFixedStructures {
 			return true;
 		}
 		return false;
-	}
-
-	@SuppressWarnings("unused")
-	private static long getNanoTimeElapsed() {
-		return nanoTimeElapsed;
-	}
-
-	public static void setNanoTimeElapsed(long nanoTimeElapsed) {
-		GOTFixedStructures.nanoTimeElapsed = nanoTimeElapsed;
 	}
 
 	public double distanceSqTo(EntityLivingBase entity) {

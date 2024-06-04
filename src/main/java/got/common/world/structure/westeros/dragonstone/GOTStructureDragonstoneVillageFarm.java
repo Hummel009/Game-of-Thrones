@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.dragonstone;
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
 public class GOTStructureDragonstoneVillageFarm extends GOTStructureWesterosVillageFarm {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureDragonstoneVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.DRAGONSTONE;

@@ -3,7 +3,7 @@ package got.common.world.structure.essos.ghiscar;
 import got.common.world.structure.essos.common.GOTStructureEssosFortWall;
 
 public class GOTStructureGhiscarFortWall extends GOTStructureEssosFortWall {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureGhiscarFortWall(boolean flag) {
 		super(flag);
 		city = City.GHISCAR;

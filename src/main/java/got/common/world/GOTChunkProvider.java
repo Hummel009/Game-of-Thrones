@@ -422,7 +422,6 @@ public class GOTChunkProvider implements IChunkProvider {
 		}
 		GOTBiomeVariantStorage.setChunkBiomeVariants(worldObj, chunk, variants);
 		chunk.generateSkylightMap();
-		GOTFixedStructures.setNanoTimeElapsed(0L);
 		return chunk;
 	}
 

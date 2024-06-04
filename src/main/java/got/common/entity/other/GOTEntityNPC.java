@@ -1395,54 +1395,24 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		this.clientIsEating = clientIsEating;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isNPCPersistent() {
-		return isNPCPersistent;
-	}
-
 	public void setNPCPersistent(boolean NPCPersistent) {
 		isNPCPersistent = NPCPersistent;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isLiftBannerRestrictions() {
-		return liftBannerRestrictions;
 	}
 
 	public void setLiftBannerRestrictions(boolean liftBannerRestrictions) {
 		this.liftBannerRestrictions = liftBannerRestrictions;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isConquestSpawning() {
-		return isConquestSpawning;
-	}
-
 	public void setConquestSpawning(boolean flag) {
 		isConquestSpawning = flag;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isLiftSpawnRestrictions() {
-		return liftSpawnRestrictions;
 	}
 
 	public void setLiftSpawnRestrictions(boolean liftSpawnRestrictions) {
 		this.liftSpawnRestrictions = liftSpawnRestrictions;
 	}
 
-	@SuppressWarnings("unused")
-	public boolean isSpawnRidingHorse() {
-		return spawnRidingHorse;
-	}
-
 	public void setSpawnRidingHorse(boolean spawnRidingHorse) {
 		this.spawnRidingHorse = spawnRidingHorse;
-	}
-
-	@SuppressWarnings("unused")
-	public int getNpcTalkTick() {
-		return npcTalkTick;
 	}
 
 	public void setNpcTalkTick(int npcTalkTick) {

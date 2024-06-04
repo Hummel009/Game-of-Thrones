@@ -9,6 +9,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentProtection extends GOTEnchantment {
 	private final int protectLevel;
 
+	@SuppressWarnings("unused")
 	public GOTEnchantmentProtection(String s, int level) {
 		this(s, GOTEnchantmentType.ARMOR, level);
 	}

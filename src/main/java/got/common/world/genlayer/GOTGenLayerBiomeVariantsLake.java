@@ -44,11 +44,6 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 		return ints;
 	}
 
-	@SuppressWarnings("unused")
-	public int getLakeFlags() {
-		return lakeFlags;
-	}
-
 	public GOTGenLayerBiomeVariantsLake setLakeFlags(int... flags) {
 		for (int f : flags) {
 			lakeFlags = setFlag(lakeFlags, f);

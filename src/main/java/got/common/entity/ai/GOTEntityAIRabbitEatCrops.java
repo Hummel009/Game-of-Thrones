@@ -24,7 +24,6 @@ public class GOTEntityAIRabbitEatCrops extends EntityAIBase {
 	private int eatingTick;
 	private int rePathDelay;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIRabbitEatCrops(GOTEntityRabbit rabbit, double d) {
 		theRabbit = rabbit;
 		moveSpeed = d;

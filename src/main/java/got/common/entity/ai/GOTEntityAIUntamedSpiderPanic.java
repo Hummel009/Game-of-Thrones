@@ -14,7 +14,6 @@ public class GOTEntityAIUntamedSpiderPanic extends EntityAIBase {
 	private double targetY;
 	private double targetZ;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIUntamedSpiderPanic(GOTEntitySpiderBase mount, double d) {
 		theMount = mount;
 		speed = d;

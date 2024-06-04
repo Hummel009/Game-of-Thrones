@@ -10,13 +10,11 @@ import net.minecraft.entity.player.EntityPlayer;
 public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearestAttackableTargetBasic {
 	private final GOTEntityBanditBase taskOwnerAsBandit;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag) {
 		super(entity, targetClass, chance, flag);
 		taskOwnerAsBandit = (GOTEntityBanditBase) entity;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag, IEntitySelector selector) {
 		super(entity, targetClass, chance, flag, selector);
 		taskOwnerAsBandit = (GOTEntityBanditBase) entity;

@@ -189,19 +189,9 @@ public class GOTWorldGenRedwood extends WorldGenAbstractTree {
 		return false;
 	}
 
-	@SuppressWarnings("unused")
-	public int getTrunkWidth() {
-		return trunkWidth;
-	}
-
 	public GOTWorldGenRedwood setTrunkWidth(int i) {
 		trunkWidth = i;
 		return this;
-	}
-
-	@SuppressWarnings("unused")
-	public int getExtraTrunkWidth() {
-		return extraTrunkWidth;
 	}
 
 	public GOTWorldGenRedwood setExtraTrunkWidth(int i) {

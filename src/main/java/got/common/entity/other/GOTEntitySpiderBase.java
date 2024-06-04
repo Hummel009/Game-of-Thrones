@@ -10,7 +10,6 @@ import got.common.entity.ai.GOTEntityAIUntamedSpiderPanic;
 import got.common.entity.other.iface.GOTNPCMount;
 import got.common.entity.other.utils.GOTMountFunctions;
 import got.common.faction.GOTAlignmentValues;
-import got.common.item.other.GOTItemMountArmor;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -387,15 +386,6 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 
 	public void increaseNPCTemper(int i) {
 		npcTemper = MathHelper.clamp_int(npcTemper + i, 0, 100);
-	}
-
-	@Override
-	public boolean isMountArmorValid(ItemStack itemstack) {
-		if (itemstack != null && itemstack.getItem() instanceof GOTItemMountArmor) {
-			GOTItemMountArmor armor = (GOTItemMountArmor) itemstack.getItem();
-			return armor.isValid(this);
-		}
-		return false;
 	}
 
 	public boolean isNPCTamed() {

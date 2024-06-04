@@ -27,11 +27,6 @@ public class GOTInvasionStatus {
 		return watchedInvasion != null;
 	}
 
-	@SuppressWarnings("unused")
-	public GOTEntityInvasionSpawner getWatchedInvasion() {
-		return watchedInvasion;
-	}
-
 	public void setWatchedInvasion(GOTEntityInvasionSpawner invasion) {
 		watchedInvasion = invasion;
 		ticksSinceRelevance = 0;

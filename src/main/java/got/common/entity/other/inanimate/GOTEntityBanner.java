@@ -654,21 +654,11 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	public int getCustomRange() {
-		return customRange;
-	}
-
 	public void setCustomRange(int i) {
 		customRange = MathHelper.clamp_int(i, 0, 64);
 		if (!worldObj.isRemote) {
 			updateForAllWatchers(worldObj);
 		}
-	}
-
-	@SuppressWarnings("unused")
-	public Set<GOTBannerProtection.Permission> getDefaultPermissions() {
-		return defaultPermissions;
 	}
 
 	public void setDefaultPermissions(Iterable<GOTBannerProtection.Permission> perms) {

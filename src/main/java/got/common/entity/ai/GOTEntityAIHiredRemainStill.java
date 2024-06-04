@@ -7,7 +7,6 @@ import net.minecraft.util.Vec3;
 public class GOTEntityAIHiredRemainStill extends EntityAIBase {
 	private final GOTEntityNPC theNPC;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIHiredRemainStill(GOTEntityNPC entity) {
 		theNPC = entity;
 		setMutexBits(6);

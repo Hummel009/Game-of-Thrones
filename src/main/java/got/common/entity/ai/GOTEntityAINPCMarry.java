@@ -21,7 +21,6 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 	private GOTEntityNPC theSpouse;
 	private int marryDelay;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAINPCMarry(GOTEntityNPC npc, double d) {
 		theNPC = npc;
 		theWorld = npc.worldObj;

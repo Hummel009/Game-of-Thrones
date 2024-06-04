@@ -432,11 +432,6 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		@SuppressWarnings("unused")
-		public Type getType() {
-			return type;
-		}
-
 		public void setType(Type type) {
 			this.type = type;
 		}

@@ -3,7 +3,7 @@ package got.common.world.structure.essos.tyrosh;
 import got.common.world.structure.essos.common.GOTStructureEssosTownWall;
 
 public class GOTStructureTyroshTownWall extends GOTStructureEssosTownWall {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureTyroshTownWall(boolean flag) {
 		super(flag);
 		city = City.TYROSH;

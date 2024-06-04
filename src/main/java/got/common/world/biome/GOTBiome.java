@@ -52,7 +52,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
-@SuppressWarnings({"PublicField", "WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public abstract class GOTBiome extends BiomeGenBase {
 	public static final Set<GOTBiome> CONTENT = new HashSet<>();
 	public static final int SPAWN = 600;
@@ -253,16 +253,15 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTiTropicalForest;
 	public static GOTBiome yiTiBorderZone;
 
+	protected final List<SpawnListEntry> spawnableGOTAmbientList = new ArrayList<>();
 	protected final GOTBiomeVariantList biomeVariants = new GOTBiomeVariantList();
+	protected final GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
+	protected final BiomeColors biomeColors = new BiomeColors(this);
 
 	private final GOTDimension biomeDimension;
 
-	protected List<SpawnListEntry> spawnableGOTAmbientList = new ArrayList<>();
-
-	protected BiomeColors biomeColors = new BiomeColors(this);
 	protected GOTBiomeDecorator decorator;
 	protected GOTBiomeInvasionSpawns invasionSpawns;
-	protected GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
 	protected Class<? extends GOTEntityNPC> banditEntityClass;
 	protected GOTEventSpawner.EventChance banditChance;
 

@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.westerlands;
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
 public class GOTStructureWesterlandsVillageFarm extends GOTStructureWesterosVillageFarm {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureWesterlandsVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.WESTERLANDS;

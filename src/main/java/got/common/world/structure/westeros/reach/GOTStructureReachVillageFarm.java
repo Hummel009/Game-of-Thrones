@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.reach;
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
 public class GOTStructureReachVillageFarm extends GOTStructureWesterosVillageFarm {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureReachVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.REACH;

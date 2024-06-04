@@ -18,7 +18,6 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.*;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTBiomeDecorator {
 	private final Collection<GOTTreeType.WeightedTreeType> treeTypes = new HashSet<>();
 	private final Collection<GOTStructureBaseSettlement> settlements = new HashSet<>();
@@ -464,48 +463,24 @@ public class GOTBiomeDecorator {
 		return biomeSoils;
 	}
 
-	public float getBiomeOreFactor() {
-		return biomeOreFactor;
-	}
-
 	public void setBiomeOreFactor(float biomeOreFactor) {
 		this.biomeOreFactor = biomeOreFactor;
-	}
-
-	public float getBiomeGemFactor() {
-		return biomeGemFactor;
 	}
 
 	public void setBiomeGemFactor(float biomeGemFactor) {
 		this.biomeGemFactor = biomeGemFactor;
 	}
 
-	public WorldGenerator getClayGen() {
-		return clayGen;
-	}
-
 	public void setClayGen(WorldGenerator clayGen) {
 		this.clayGen = clayGen;
-	}
-
-	public int getSandPerChunk() {
-		return sandPerChunk;
 	}
 
 	public void setSandPerChunk(int sandPerChunk) {
 		this.sandPerChunk = sandPerChunk;
 	}
 
-	public int getClayPerChunk() {
-		return clayPerChunk;
-	}
-
 	public void setClayPerChunk(int clayPerChunk) {
 		this.clayPerChunk = clayPerChunk;
-	}
-
-	public int getQuagmirePerChunk() {
-		return quagmirePerChunk;
 	}
 
 	public void setQuagmirePerChunk(int quagmirePerChunk) {
@@ -520,24 +495,12 @@ public class GOTBiomeDecorator {
 		this.treesPerChunk = treesPerChunk;
 	}
 
-	public int getLogsPerChunk() {
-		return logsPerChunk;
-	}
-
 	public void setLogsPerChunk(int logsPerChunk) {
 		this.logsPerChunk = logsPerChunk;
 	}
 
-	public int getFlowersPerChunk() {
-		return flowersPerChunk;
-	}
-
 	public void setFlowersPerChunk(int flowersPerChunk) {
 		this.flowersPerChunk = flowersPerChunk;
-	}
-
-	public int getDoubleFlowersPerChunk() {
-		return doubleFlowersPerChunk;
 	}
 
 	public void setDoubleFlowersPerChunk(int doubleFlowersPerChunk) {
@@ -550,10 +513,6 @@ public class GOTBiomeDecorator {
 
 	public void setGrassPerChunk(int grassPerChunk) {
 		this.grassPerChunk = grassPerChunk;
-	}
-
-	public int getDoubleGrassPerChunk() {
-		return doubleGrassPerChunk;
 	}
 
 	public void setDoubleGrassPerChunk(int doubleGrassPerChunk) {
@@ -580,64 +539,32 @@ public class GOTBiomeDecorator {
 		return treeTypes;
 	}
 
-	public boolean isGenerateAgriculture() {
-		return generateAgriculture;
-	}
-
 	public void setGenerateAgriculture(boolean generateAgriculture) {
 		this.generateAgriculture = generateAgriculture;
-	}
-
-	public int getCactiPerChunk() {
-		return cactiPerChunk;
 	}
 
 	public void setCactiPerChunk(int cactiPerChunk) {
 		this.cactiPerChunk = cactiPerChunk;
 	}
 
-	public int getCornPerChunk() {
-		return cornPerChunk;
-	}
-
 	public void setCornPerChunk(int cornPerChunk) {
 		this.cornPerChunk = cornPerChunk;
-	}
-
-	public float getDryReedChance() {
-		return dryReedChance;
 	}
 
 	public void setDryReedChance(float dryReedChance) {
 		this.dryReedChance = dryReedChance;
 	}
 
-	public int getReedPerChunk() {
-		return reedPerChunk;
-	}
-
 	public void setReedPerChunk(int reedPerChunk) {
 		this.reedPerChunk = reedPerChunk;
-	}
-
-	public int getCanePerChunk() {
-		return canePerChunk;
 	}
 
 	public void setCanePerChunk(int canePerChunk) {
 		this.canePerChunk = canePerChunk;
 	}
 
-	public int getWaterlilyPerChunk() {
-		return waterlilyPerChunk;
-	}
-
 	public void setWaterlilyPerChunk(int waterlilyPerChunk) {
 		this.waterlilyPerChunk = waterlilyPerChunk;
-	}
-
-	public int getDeadBushPerChunk() {
-		return deadBushPerChunk;
 	}
 
 	public void setDeadBushPerChunk(int deadBushPerChunk) {

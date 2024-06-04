@@ -3,7 +3,7 @@ package got.common.world.structure.essos.volantis;
 import got.common.world.structure.essos.common.GOTStructureEssosFortWall;
 
 public class GOTStructureVolantisFortWall extends GOTStructureEssosFortWall {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureVolantisFortWall(boolean flag) {
 		super(flag);
 		city = City.VOLANTIS;

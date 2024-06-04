@@ -6,6 +6,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentDurability extends GOTEnchantment {
 	private final float durabilityFactor;
 
+	@SuppressWarnings("unused")
 	public GOTEnchantmentDurability(String s, float f) {
 		super(s, GOTEnchantmentType.BREAKABLE);
 		durabilityFactor = f;

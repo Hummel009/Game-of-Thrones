@@ -136,7 +136,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	protected GOTBezierType() {
 	}
 
@@ -189,7 +189,7 @@ public abstract class GOTBezierType {
 		private final Block block;
 		private final int meta;
 
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("WeakerAccess")
 		public BezierBlock(Block b, int i) {
 			block = b;
 			meta = i;

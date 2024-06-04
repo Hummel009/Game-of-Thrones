@@ -27,9 +27,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Baker extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Baker(boolean flag) {
 			super(flag);
 		}
@@ -50,9 +50,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Blacksmith extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Blacksmith(boolean flag) {
 			super(flag);
 		}
@@ -73,9 +73,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Brewer extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Brewer(boolean flag) {
 			super(flag);
 		}
@@ -96,9 +96,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Butcher extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Butcher(boolean flag) {
 			super(flag);
 		}
@@ -122,9 +122,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Farmer extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Farmer(boolean flag) {
 			super(flag);
 		}
@@ -150,9 +150,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Fish extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Fish(boolean flag) {
 			super(flag);
 		}
@@ -178,9 +178,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Flowers extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Flowers(boolean flag) {
 			super(flag);
 		}
@@ -201,9 +201,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Goldsmith extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Goldsmith(boolean flag) {
 			super(flag);
 		}
@@ -224,9 +224,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Lumber extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Lumber(boolean flag) {
 			super(flag);
 		}
@@ -248,9 +248,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Mason extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Mason(boolean flag) {
 			super(flag);
 		}
@@ -272,9 +272,9 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Miner extends GOTStructureArrynMarketStall {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Miner(boolean flag) {
 			super(flag);
 		}

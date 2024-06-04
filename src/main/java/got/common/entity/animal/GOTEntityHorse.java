@@ -309,7 +309,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount, GOTBiome
 		return (!isMoving || !getBelongsToNPC()) && super.isHorseSaddled();
 	}
 
-	@Override
 	public boolean isMountArmorValid(ItemStack itemstack) {
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemMountArmor) {
 			GOTItemMountArmor armor = (GOTItemMountArmor) itemstack.getItem();

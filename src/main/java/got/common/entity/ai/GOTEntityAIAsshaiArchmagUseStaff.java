@@ -18,7 +18,6 @@ public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
 
 	private int attackTick;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIAsshaiArchmagUseStaff(GOTEntityAsshaiArchmag archmag) {
 		wizard = archmag;
 		theWorld = wizard.worldObj;

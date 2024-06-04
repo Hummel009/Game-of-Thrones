@@ -805,8 +805,8 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 							drawRect(x0, y0, x1, y1, color);
 						} else if (l % 2 == 0) {
 							String keyLabel = GOTAlignmentValues.formatConqForDisplay(strFrac, false);
-							int strX = (int) ((x0 + keyWidth / 2) / labelScaleRel);
-							int strY = (int) ((y0 + keyHeight / 2) / labelScaleRel) - fontRendererObj.FONT_HEIGHT / 2;
+							int strX = (int) ((x0 + (float) keyWidth / 2) / labelScaleRel);
+							int strY = (int) ((y0 + (float) keyHeight / 2) / labelScaleRel) - fontRendererObj.FONT_HEIGHT / 2;
 							GL11.glPushMatrix();
 							GL11.glScalef(labelScaleRel, labelScaleRel, 1.0f);
 							drawCenteredString(keyLabel, strX, strY, 16777215);

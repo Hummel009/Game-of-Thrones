@@ -29,7 +29,6 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 	private int chaseTimer;
 	private int rePathDelay;
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAIBanditSteal(GOTEntityBanditBase bandit, double d) {
 		theBandit = bandit;
 		theBanditAsNPC = theBandit.getBanditAsNPC();

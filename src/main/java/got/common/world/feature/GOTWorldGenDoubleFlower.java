@@ -26,11 +26,6 @@ public class GOTWorldGenDoubleFlower extends WorldGenerator {
 		return flag;
 	}
 
-	@SuppressWarnings("unused")
-	public int getFlowerType() {
-		return flowerType;
-	}
-
 	public void setFlowerType(int i) {
 		flowerType = i;
 	}

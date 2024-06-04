@@ -181,7 +181,6 @@ public class GOTStructureScan {
 					if (step != null) {
 						step.setFillDown(fillDown);
 						step.setFindLowest(findLowest);
-						step.setLineNumber(curLine);
 						scan.addScanStep(step);
 						continue;
 					}
@@ -345,7 +344,6 @@ public class GOTStructureScan {
 
 		private boolean fillDown;
 		private boolean findLowest;
-		private int lineNumber;
 
 		protected ScanStepBase(int _x, int _y, int _z) {
 			x = _x;
@@ -360,15 +358,6 @@ public class GOTStructureScan {
 		public abstract int getMeta(int var1);
 
 		public abstract boolean hasAlias();
-
-		@SuppressWarnings("unused")
-		public int getLineNumber() {
-			return lineNumber;
-		}
-
-		protected void setLineNumber(int lineNumber) {
-			this.lineNumber = lineNumber;
-		}
 
 		public int getY() {
 			return y;

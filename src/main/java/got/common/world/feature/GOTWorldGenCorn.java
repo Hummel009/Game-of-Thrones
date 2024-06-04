@@ -9,15 +9,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTWorldGenCorn extends WorldGenerator {
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTWorldGenCorn() {
-	}
-
-	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTWorldGenCorn(boolean b) {
-		super(b);
-	}
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		for (int l = 0; l < 20; ++l) {

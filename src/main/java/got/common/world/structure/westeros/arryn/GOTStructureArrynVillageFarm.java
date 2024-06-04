@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.arryn;
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
 public class GOTStructureArrynVillageFarm extends GOTStructureWesterosVillageFarm {
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("unused")
 	public GOTStructureArrynVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.ARRYN;

@@ -39,10 +39,10 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		if (maxY >= GOTGenLayerWorld.getImageHeight()) {
 			posY = GOTGenLayerWorld.getImageHeight() - (float) viewportWidth / 2;
 		}
-		double minU = (double) (posX - viewportWidth / 2) / GOTGenLayerWorld.getImageWidth();
-		double maxU = (double) (posX + viewportWidth / 2) / GOTGenLayerWorld.getImageWidth();
-		double minV = (double) (posY - viewportWidth / 2) / GOTGenLayerWorld.getImageHeight();
-		double maxV = (double) (posY + viewportWidth / 2) / GOTGenLayerWorld.getImageHeight();
+		double minU = (double) (posX - (float) viewportWidth / 2) / GOTGenLayerWorld.getImageWidth();
+		double maxU = (double) (posX + (float) viewportWidth / 2) / GOTGenLayerWorld.getImageWidth();
+		double minV = (double) (posY - (float) viewportWidth / 2) / GOTGenLayerWorld.getImageHeight();
+		double maxV = (double) (posY + (float) viewportWidth / 2) / GOTGenLayerWorld.getImageHeight();
 		GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GOTTextures.drawMap(true, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV, 1.0f);

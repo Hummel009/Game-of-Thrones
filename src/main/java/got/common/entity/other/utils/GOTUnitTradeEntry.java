@@ -200,18 +200,8 @@ public class GOTUnitTradeEntry {
 		return this;
 	}
 
-	@SuppressWarnings("unused")
-	public Item getMountArmor() {
-		return mountArmor;
-	}
-
 	public GOTUnitTradeEntry setMountArmor(Item item) {
 		return setMountArmor(item, 1.0f);
-	}
-
-	@SuppressWarnings("unused")
-	public String getExtraInfo() {
-		return extraInfo;
 	}
 
 	public enum PledgeType {

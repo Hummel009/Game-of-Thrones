@@ -97,9 +97,9 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 		return true;
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Armourer extends GOTStructureBase {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Armourer(boolean flag) {
 			super(flag);
 		}
@@ -115,9 +115,9 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Brewer extends GOTStructureBase {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Brewer(boolean flag) {
 			super(flag);
 		}
@@ -138,9 +138,9 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Mason extends GOTStructureBase {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Mason(boolean flag) {
 			super(flag);
 		}
@@ -164,9 +164,9 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 		}
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
+	@SuppressWarnings("WeakerAccess")
 	public static class Miner extends GOTStructureBase {
-		@SuppressWarnings({"WeakerAccess", "unused"})
+		@SuppressWarnings("unused")
 		public Miner(boolean flag) {
 			super(flag);
 		}
