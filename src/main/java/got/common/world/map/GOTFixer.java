@@ -89,64 +89,568 @@ public class GOTFixer {
 	}
 
 	public static void onInit() {
-		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.BLOODY_GATE.info(0, -0.5), GOTWaypoint.COLDWATER_BURN, GOTWaypoint.GREY_GLEN, GOTWaypoint.OLD_ANCHOR, GOTWaypoint.PEBBLE, GOTWaypoint.SNAKEWOOD, GOTWaypoint.THE_PAPS, GOTWaypoint.WICKENDEN, GOTWaypoint.WITCH_ISLE, GOTWaypoint.GATE_OF_THE_MOON.info(0.5, 0, Dir.EAST));
-		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.TOWN, 6), GOTWaypoint.SISTERTON);
-		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.FORT, 3), GOTWaypoint.ANTLERS.info(0.1, -0.5), GOTWaypoint.BROWNHOLLOW, GOTWaypoint.DYRE_DEN, GOTWaypoint.STOKEWORTH.info(-0.4, 0, Dir.WEST), GOTWaypoint.HAYFORD.info(0.1, -0.5), GOTWaypoint.ROOKS_REST.info(0, -0.4), GOTWaypoint.ROSBY.info(-0.5, -0.1, Dir.WEST));
-		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.RED_KEEP, 3), GOTWaypoint.KINGS_LANDING.info(2, 0, Dir.EAST));
-		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.TOWN, 6), GOTWaypoint.DUSKENDALE.info(-0.1, -1.1));
-		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.VILLAGE, 6), GOTWaypoint.BRIARWHITE.info(0, -0.7), GOTWaypoint.ROSBY.info(0.7, 0));
-		registerLocation(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.BLACKMONT.info(0.5, 0, Dir.EAST), GOTWaypoint.GHOST_HILL, GOTWaypoint.GODSGRACE, GOTWaypoint.THE_TOR, GOTWaypoint.VAITH, GOTWaypoint.WATER_GARDENS, GOTWaypoint.SPOTTSWOOD, GOTWaypoint.LEMONWOOD, GOTWaypoint.SALT_SHORE, GOTWaypoint.KINGSGRAVE.info(0.5, 0, Dir.EAST), GOTWaypoint.WYL.info(-0.55, 0, Dir.WEST));
-		registerLocation(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDorneSettlement.Type.TOWN, 6), GOTWaypoint.GHASTON_GREY, GOTWaypoint.PLANKY_TOWN);
-		registerLocation(new GOTStructureDothrakiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDothrakiSettlement.Type.BIG, 5), GOTWaypoint.HORNOTH.info(0.5, 0), GOTWaypoint.KYTH.info(0.3, -0.4), GOTWaypoint.SATHAR.info(0.5, 0), GOTWaypoint.RATHYLAR.info(0.6, -0.2), GOTWaypoint.SAATH.info(0, -0.5), GOTWaypoint.VAES_ATHJIKHARI.info(0, -0.5), GOTWaypoint.VAES_DIAF, GOTWaypoint.VAES_DOTHRAK, GOTWaypoint.VAES_GORQOYI.info(0.3, -0.4), GOTWaypoint.VAES_GRADDAKH, GOTWaypoint.VAES_JINI.info(0, 0.5), GOTWaypoint.VOJJOR_SAMVI.info(0, -0.5), GOTWaypoint.VAES_KHADOKH.info(-0.1, -0.5), GOTWaypoint.VAES_KHEWO.info(0, -0.5), GOTWaypoint.VAES_LEQSE.info(0.5, 0), GOTWaypoint.VAES_MEJHAH.info(0, -0.5), GOTWaypoint.KRAZAAJ_HAS.info(0, -0.6));
-		registerLocation(new GOTStructureDragonstoneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDragonstoneSettlement.Type.FORT, 3), GOTWaypoint.HIGH_TIDE, GOTWaypoint.SHARP_POINT, GOTWaypoint.STONEDANCE, GOTWaypoint.SWEETPORT_SOUND);
-		registerLocation(new GOTStructureDragonstoneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDragonstoneSettlement.Type.TOWN, 6), GOTWaypoint.HULL);
-		registerLocation(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGhiscarSettlement.Type.COLONY, 4), GOTWaypoint.ISLE_OF_WHIPS, GOTWaypoint.BARTER_BEACH, GOTWaypoint.GOGOSSOS, GOTWaypoint.GOROSH, GOTWaypoint.ZAMETTAR.info(0, -0.5, Dir.SOUTH));
-		registerLocation(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGhiscarSettlement.Type.PYRAMID, 3), GOTWaypoint.MEEREEN.info(toEssosTownGate(0.0, true), -1.5), GOTWaypoint.ASTAPOR.info(-1.5, toEssosTownGate(0.0, false)), GOTWaypoint.NEW_GHIS.info(-1, 0), GOTWaypoint.YUNKAI.info(-1.5, toEssosTownGate(0.0, false)));
-		registerLocation(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGhiscarSettlement.Type.TOWN, 6), GOTWaypoint.BHORASH.info(toEssosTownGate(0.0, false) + 0.26, 0.7), GOTWaypoint.VELOS, GOTWaypoint.GHOZAI, GOTWaypoint.ELYRIA, GOTWaypoint.TOLOS.info(toEssosTownGate(0.0, false), 0.5), GOTWaypoint.NEW_GHIS);
-		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.ABANDONED, 2), GOTWaypoint.GREENGUARD, GOTWaypoint.THE_TORCHES, GOTWaypoint.THE_LONG_BARROW, GOTWaypoint.RIMEGATE, GOTWaypoint.SABLE_HALL, GOTWaypoint.WOODSWATCH, GOTWaypoint.NIGHTFORT, GOTWaypoint.DEEP_LAKE, GOTWaypoint.OAKENSHIELD, GOTWaypoint.ICEMARK, GOTWaypoint.HOARFROST_HILL, GOTWaypoint.STONEDOOR, GOTWaypoint.GREYGUARD, GOTWaypoint.QUEENSGATE, GOTWaypoint.SENTINEL_STAND);
-		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.CASTLE_BLACK, 2), GOTWaypoint.CASTLE_BLACK);
-		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.EAST_WATCH, 2), GOTWaypoint.EASTWATCH);
-		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.SHADOW_TOWER, 2), GOTWaypoint.SHADOW_TOWER);
-		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.VILLAGE, 4), GOTWaypoint.MOLETOWN, GOTWaypoint.QUEENSCROWN);
-		registerLocation(new GOTStructureIbbenSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIbbenSettlement.Type.VILLAGE, 6), GOTWaypoint.IB_NOR, GOTWaypoint.IB_SAR, GOTWaypoint.PORT_OF_IBBEN);
-		registerLocation(new GOTStructureIbbenSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIbbenSettlement.Type.FORT, 6), GOTWaypoint.NEW_IBBISH);
-		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.CAMP, 5), GOTWaypoint.VICTARION_LANDING);
-		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.CATFISH_ROCK, GOTWaypoint.CORPSE_LAKE, GOTWaypoint.CROW_SPIKE_KEEP, GOTWaypoint.DOWNDELVING, GOTWaypoint.HARLAW_HALL, GOTWaypoint.HARRIDAN_HILL, GOTWaypoint.IRON_HOLT, GOTWaypoint.MYRE_CASTLE, GOTWaypoint.ORKWOOD, GOTWaypoint.SALTCLIFFE, GOTWaypoint.SEALSKIN_POINT, GOTWaypoint.SHATTERSTONE, GOTWaypoint.SPARR_CASTLE, GOTWaypoint.STONEHOUSE, GOTWaypoint.STONETREE_CASTLE, GOTWaypoint.SUNDERLY, GOTWaypoint.TAWNEY_CASTLE);
-		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.VILLAGE, 6), GOTWaypoint.PEBBLETON);
-		registerLocation(new GOTStructureLhazarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureLhazarSettlement.Type.TOWN, 6), GOTWaypoint.HESH.info(1.2, 0, Dir.WEST), GOTWaypoint.KOSRAK.info(1, 0, Dir.WEST), GOTWaypoint.LHAZOSH.info(1, 0, Dir.WEST));
-		registerLocation(new GOTStructureLorathSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureLorathSettlement.Type.TOWN, 6), GOTWaypoint.LORATH, GOTWaypoint.MOROSH);
-		registerLocation(new GOTStructureMossovySettlement(GOTBiome.ocean, 0.0f).type(GOTStructureMossovySettlement.Type.VILLAGE, 6), GOTWaypoint.KUURULGAN, GOTWaypoint.SUUDAN_KORKUU, GOTWaypoint.KANDUU_BET, GOTWaypoint.TASHTOO, GOTWaypoint.BASHKARUUCHU, GOTWaypoint.AZUU_KAN, GOTWaypoint.KUJRUK, GOTWaypoint.KORKUNUCHTUU, GOTWaypoint.NYMDUU_OOZ, GOTWaypoint.AZHYDAAR, GOTWaypoint.AK_SHAAR, GOTWaypoint.SUU_NYM, GOTWaypoint.SHYLUUN_UUSU, GOTWaypoint.KADAR, GOTWaypoint.NEFER, GOTWaypoint.K_DATH);
-		registerLocation(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.CATFISH_ROCK, GOTWaypoint.GOLDGRASS.info(0, 0.4, Dir.SOUTH), GOTWaypoint.BLACK_POOL, GOTWaypoint.DEEPWOOD_MOTTE, GOTWaypoint.FLINTS_FINGER, GOTWaypoint.HIGHPOINT, GOTWaypoint.WIDOWS_WATCH, GOTWaypoint.HORNWOOD, GOTWaypoint.IRONRATH, GOTWaypoint.MOAT_KAILIN, GOTWaypoint.OLDCASTLE, GOTWaypoint.RAMSGATE, GOTWaypoint.RILLWATER_CROSSING.info(-0.4, 0, Dir.WEST));
-		registerLocation(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureNorthSettlement.Type.HILLMAN, 6), GOTWaypoint.BREAKSTONE_HILL, GOTWaypoint.SKANE, GOTWaypoint.DEEPDOWN, GOTWaypoint.DRIFTWOOD_HALL, GOTWaypoint.KINGSHOUSE);
-		registerLocation(new GOTStructurePentosSettlement(GOTBiome.ocean, 0.0f).type(GOTStructurePentosSettlement.Type.VILLAGE, 5), GOTWaypoint.GHOYAN_DROHE.info(0, 0.7));
-		registerLocation(new GOTStructureQarthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureQarthSettlement.Type.COLONY, 4), GOTWaypoint.TERIMAN, GOTWaypoint.BATARGAS, GOTWaypoint.KARIMAGAR);
-		registerLocation(new GOTStructureQarthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureQarthSettlement.Type.TOWN, 6), GOTWaypoint.PORT_YHOS.info(toEssosTownGate(0.0, false), 0.5), GOTWaypoint.QARKASH.info(toEssosTownGate(0.0, false), 0.5));
-		registerLocation(new GOTStructureQohorSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureQohorSettlement.Type.TOWN, 6), GOTWaypoint.QOHOR.info(-0.6, toEssosTownGate(0.0, false), Dir.EAST));
-		registerLocation(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureReachSettlement.Type.FORT, 3), GOTWaypoint.APPLETON.info(0, -0.51), GOTWaypoint.ASHFORD, GOTWaypoint.BANDALLON, GOTWaypoint.GRASSY_VALE, GOTWaypoint.GRIMSTON, GOTWaypoint.HAMMERHAL.info(0.5, 0, Dir.EAST), GOTWaypoint.RED_LAKE.info(0, 0.5, Dir.SOUTH), GOTWaypoint.SOUTHSHIELD, GOTWaypoint.UPLANDS, GOTWaypoint.HOLYHALL.info(0.5, 0, Dir.EAST), GOTWaypoint.HONEYHOLT, GOTWaypoint.IVY_HALL.info(0, 0.5, Dir.SOUTH), GOTWaypoint.NEW_BARREL, GOTWaypoint.BLACKCROWN, GOTWaypoint.CIDER_HALL, GOTWaypoint.COLDMOAT.info(0, 0.5, Dir.SOUTH), GOTWaypoint.DARKDELL.info(-0.5, 0, Dir.WEST), GOTWaypoint.DUNSTONBURY, GOTWaypoint.BITTERBRIDGE.info(0, 0.5, Dir.SOUTH), GOTWaypoint.GARNETGROVE.info(-0.5, 0, Dir.WEST), GOTWaypoint.LORD_HEWETTS_TOWN, GOTWaypoint.OLD_OAK.info(0, 0.5, Dir.SOUTH), GOTWaypoint.SUNHOUSE.info(0, 0.5, Dir.SOUTH), GOTWaypoint.WHITEGROVE.info(-0.5, 0, Dir.WEST));
-		registerLocation(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureReachSettlement.Type.TOWN, 6), GOTWaypoint.APPLETON.info(0.1, 1.1, Dir.SOUTH), GOTWaypoint.ASHFORD, GOTWaypoint.LORD_HEWETTS_TOWN, GOTWaypoint.SMITHYTON.info(0, 0.9, Dir.SOUTH), GOTWaypoint.VINETOWN, GOTWaypoint.RYAMSPORT, GOTWaypoint.TUMBLETON.info(0, -1.0));
-		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.CROSSROADS, 2), GOTWaypoint.CROSSROADS_INN);
-		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.DARRY, GOTWaypoint.WAYFARERS_REST.info(-0.4, 0, Dir.WEST), GOTWaypoint.ACORN_HALL.info(-0.5, -0.1, Dir.WEST), GOTWaypoint.ATRANTA);
-		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.TOWN, 6), GOTWaypoint.HARROWAY.info(0, 0.9, Dir.SOUTH), GOTWaypoint.MAIDENPOOL.info(0, 0.9, Dir.SOUTH), GOTWaypoint.SALTPANS.info(0.8, 0, Dir.EAST), GOTWaypoint.STONEY_SEPT.info(-0.8, 0, Dir.WEST), GOTWaypoint.SEAGARD.info(0, 0.8, Dir.SOUTH));
-		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.VILLAGE, 6), GOTWaypoint.FAIRMARKET, GOTWaypoint.PENNYTREE, GOTWaypoint.SEVENSTREAMS);
-		registerLocation(new GOTStructureRuins(GOTBiome.ocean, 0.0f), GOTWaypoint.WESTWATCH.info(-0.3, 0), GOTWaypoint.VAES_LEISI.info(0, 0.3), GOTWaypoint.MORNE.info(0, 0.3), GOTWaypoint.NY_SAR.info(0, 0.15), GOTWaypoint.OLD_GHIS.info(0, 0.3), GOTWaypoint.SAR_MELL.info(0, -0.25), GOTWaypoint.SARHOY.info(0, 0.3), GOTWaypoint.SHANDYSTONE.info(0, 0.3), GOTWaypoint.STARPIKE.info(0, 0.3), GOTWaypoint.TELYRIA.info(0, 0.3), GOTWaypoint.TORTURERS_DEEP.info(0, 0.3), GOTWaypoint.VAES_ORVIK.info(0.3, 0), GOTWaypoint.VAES_QOSAR.info(0, 0.3), GOTWaypoint.VAES_SHIROSI.info(0, 0.3), GOTWaypoint.VAES_TOLORRO.info(0, 0.3), GOTWaypoint.VALYRIAN_ROAD.info(-0.2, 0), GOTWaypoint.GREY_GALLOWS.info(0, 0.3), GOTWaypoint.BLOODSTONE.info(0, 0.3), GOTWaypoint.KAYAKAYANAYA.info(0, 0.3), GOTWaypoint.AEGON.info(0, 0.3), GOTWaypoint.RAENYS.info(0, 0.3), GOTWaypoint.VISENYA.info(0, 0.3), GOTWaypoint.CHROYANE.info(0.3, 0), GOTWaypoint.FOURTEEN_FLAMES.info(0, 0.3), GOTWaypoint.IBBISH.info(0, 0.3), GOTWaypoint.SAMYRIANA.info(0, 0.3), GOTWaypoint.BAYASABHAD.info(0, 0.3), GOTWaypoint.AR_NOY.info(-0.1, -0.25), GOTWaypoint.ADAKHAKILEKI.info(0, 0.3), GOTWaypoint.CASTLE_LYCHESTER.info(0, -0.3), GOTWaypoint.MHYSA_FAER.info(0, 0.3), GOTWaypoint.AQUOS_DHAEN.info(0, 0.3), GOTWaypoint.DRACONYS.info(0, 0.3), GOTWaypoint.TYRIA.info(0, 0.3), GOTWaypoint.RHYOS.info(0, 0.3), GOTWaypoint.OROS.info(0, 0.2), GOTWaypoint.VULTURES_ROOST.info(0, 0.3), GOTWaypoint.SPICETOWN.info(0, 0.3), GOTWaypoint.CASTAMERE.info(0, 0.3), GOTWaypoint.GOLDENHILL.info(0, 0.3), GOTWaypoint.GREYIRON_CASTLE.info(0, 0.3), GOTWaypoint.HOARE_CASTLE.info(0, 0.3), GOTWaypoint.HOARE_KEEP.info(0, 0.3), GOTWaypoint.HOGG_HALL.info(0.2, -0.2), GOTWaypoint.HOLLARD_CASTLE.info(0.3, 0), GOTWaypoint.OLDSTONES.info(0, 0.3), GOTWaypoint.SUMMERHALL.info(-0.3, 0), GOTWaypoint.TARBECK_HALL.info(0, 0.3), GOTWaypoint.TOWER_OF_JOY.info(-0.3, 0), GOTWaypoint.WHISPERS.info(0, 0.3), GOTWaypoint.WHITEWALLS.info(0.2, -0.2));
-		registerLocation(new GOTStructureRuinsBig(GOTBiome.ocean, 0.0f), GOTWaypoint.EAST_BAY.info(0, 0.4), GOTWaypoint.EAST_COAST.info(0, 0.4), GOTWaypoint.NORTH_FORESTS.info(0, 0.4), GOTWaypoint.WHITE_MOUNTAINS.info(0, 0.4), GOTWaypoint.CENTRAL_FORESTS.info(0, 0.4), GOTWaypoint.MARSHES.info(0, 0.4), GOTWaypoint.RED_FORESTS.info(0, 0.4), GOTWaypoint.SOUTH_ULTHOS.info(0, 0.4), GOTWaypoint.SOUTH_TAIGA.info(0, 0.4), GOTWaypoint.BONETOWN.info(0, 0.4), GOTWaypoint.HARRENHAL.info(-0.4, 0), GOTWaypoint.STYGAI.info(0, 0.4), GOTWaypoint.ULOS.info(0, 0.4), GOTWaypoint.YEEN.info(0, 0.4));
-		registerLocation(new GOTStructureSothoryosSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSothoryosSettlement.Type.PYRAMID, 3), GOTWaypoint.RAUMATI);
-		registerLocation(new GOTStructureSothoryosSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSothoryosSettlement.Type.VILLAGE, 3), GOTWaypoint.MAUNGA, GOTWaypoint.DRAGON_PLACE, GOTWaypoint.SOUTH_POINT, GOTWaypoint.BIG_LAKE);
-		registerLocation(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureStormlandsSettlement.Type.FORT, 3), GOTWaypoint.CROWS_NEST, GOTWaypoint.GRIFFINS_ROOST, GOTWaypoint.BLACKHAVEN.info(-0.5, 0, Dir.WEST), GOTWaypoint.BRONZEGATE.info(0, -0.5), GOTWaypoint.DEAD_HEAD, GOTWaypoint.FAWNTOWN, GOTWaypoint.AMBERLY, GOTWaypoint.BLACK_HEART, GOTWaypoint.BROAD_ARCH, GOTWaypoint.PARCHMENTS.info(0, -0.5), GOTWaypoint.PODDINGFIELD.info(0, -0.5), GOTWaypoint.RAIN_HOUSE, GOTWaypoint.SEAWORTH_CASTLE, GOTWaypoint.TUDBURY_HOLL, GOTWaypoint.GALLOWSGREY.info(0, -0.5), GOTWaypoint.GRANDVIEW.info(-0.5, 0, Dir.WEST), GOTWaypoint.HARVEST_HALL.info(0, -0.5), GOTWaypoint.HAYSTACK_HALL.info(0, -0.5), GOTWaypoint.MISTWOOD, GOTWaypoint.FELWOOD.info(0, -0.5), GOTWaypoint.NIGHTSONG.info(0, -0.5));
-		registerLocation(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureStormlandsSettlement.Type.TOWN, 6), GOTWaypoint.WEEPING_TOWN);
-		registerLocation(new GOTStructureSummerSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSummerSettlement.Type.FORT, 3), GOTWaypoint.HAUAURU, GOTWaypoint.MATAHAU, GOTWaypoint.TAKUTAI, GOTWaypoint.ATAAHUA, GOTWaypoint.PEREKI, GOTWaypoint.NGARARA, GOTWaypoint.TAURANGA, GOTWaypoint.MATAO, GOTWaypoint.NGAHERE, GOTWaypoint.KOHURU);
-		registerLocation(new GOTStructureSummerSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSummerSettlement.Type.VILLAGE, 5), GOTWaypoint.DOQUU, GOTWaypoint.EBONHEAD, GOTWaypoint.GOLDEN_HEAD, GOTWaypoint.KOJ, GOTWaypoint.LAST_LAMENT, GOTWaypoint.LIZARD_HEAD, GOTWaypoint.LOTUS_POINT, GOTWaypoint.NAATH, GOTWaypoint.OMBORU, GOTWaypoint.PEARL_PALACE, GOTWaypoint.RED_FLOWER_VALE, GOTWaypoint.SWEET_LOTUS_VALE, GOTWaypoint.TALL_TREES_TOWN, GOTWaypoint.WALANO, GOTWaypoint.XON);
-		registerLocation(new GOTStructureTower(GOTBiome.ocean, 0.0f), GOTWaypoint.THREE_TOWERS.info(-0.5, -0.5, Dir.WEST), GOTWaypoint.THREE_TOWERS.info(-0.5, 0, Dir.WEST), GOTWaypoint.THREE_TOWERS.info(-0.5, 0.5, Dir.WEST), GOTWaypoint.TOWER_OF_GLIMMERING, GOTWaypoint.BAELISH_KEEP, GOTWaypoint.RAMSEY_TOWER, GOTWaypoint.STANDFAST);
-		registerLocation(new GOTStructureVolantisSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureVolantisSettlement.Type.TOWN, 6), GOTWaypoint.LITTLE_VALYRIA.info(toEssosTownGate(0.0, false) + 0.26, 0.6), GOTWaypoint.ANOGARIA.info(toEssosTownGate(0.0, false) + 0.26, 0.6), GOTWaypoint.MANTARYS.info(toEssosTownGate(0.0, true), -0.5, Dir.SOUTH), GOTWaypoint.SELHORYS.info(-0.5, toEssosTownGate(0.0, false), Dir.EAST), GOTWaypoint.VALYSAR.info(-0.6, toEssosTownGate(0.0, false) + 0.25, Dir.EAST), GOTWaypoint.VOLON_THERYS.info(toEssosTownGate(0.0, false), 0.5));
-		registerLocation(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWesterlandsSettlement.Type.FORT, 3), GOTWaypoint.KAYCE, GOTWaypoint.SARSFIELD.info(-0.1, -0.5), GOTWaypoint.SILVERHILL, GOTWaypoint.WYNDHALL, GOTWaypoint.PLUMWOOD, GOTWaypoint.RIVERSPRING, GOTWaypoint.GREENFIELD, GOTWaypoint.DEEP_DEN, GOTWaypoint.CRAG);
-		registerLocation(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWesterlandsSettlement.Type.TOWN, 6), GOTWaypoint.KAYCE);
-		registerLocation(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWesterlandsSettlement.Type.VILLAGE, 6), GOTWaypoint.OXCROSS.info(0.2, 0.6));
-		registerLocation(new GOTStructureWildlingSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWildlingSettlement.Type.CRASTER, 1), GOTWaypoint.CRASTERS_KEEP);
-		registerLocation(new GOTStructureWildlingSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWildlingSettlement.Type.HARDHOME, 7), GOTWaypoint.HARDHOME);
-		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.GATE, 2), GOTWaypoint.JIANMEN, GOTWaypoint.ANGUO, GOTWaypoint.DINGGUO, GOTWaypoint.PINNU, GOTWaypoint.PINGJIANG, GOTWaypoint.WUDE, GOTWaypoint.WUSHENG, GOTWaypoint.ZHENGUO, GOTWaypoint.LUNGMEN);
-		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.GATE_ROAD, 2), GOTWaypoint.ANJIANG);
-		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.TOWER, 9), GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5);
-		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.TOWN, 7), GOTWaypoint.ASABHAD.info(-1, 0, Dir.WEST), GOTWaypoint.BAOJI.info(0, -1), GOTWaypoint.EIJIANG.info(0, 1, Dir.SOUTH), GOTWaypoint.JINQI.info(-1, 0, Dir.WEST), GOTWaypoint.LIZHAO.info(1, 0, Dir.EAST), GOTWaypoint.MANJIN.info(1.1, -0.2, Dir.EAST), GOTWaypoint.SI_QO.info(1, 0, Dir.EAST), GOTWaypoint.TIQUI.info(0, -1), GOTWaypoint.TRADER_TOWN.info(0, -1), GOTWaypoint.VAIBEI.info(0, -1), GOTWaypoint.YIBIN.info(0, -1), GOTWaypoint.YUNNAN.info(1, 0, Dir.EAST), GOTWaypoint.CHANGAN.info(1, 0, Dir.EAST), GOTWaypoint.FU_NING.info(1.1, 0.1, Dir.EAST), GOTWaypoint.ZABHAD, GOTWaypoint.TURRANI, GOTWaypoint.VAHAR, GOTWaypoint.FAROS, GOTWaypoint.HUIJI, GOTWaypoint.LENG_MA, GOTWaypoint.LENG_YI, GOTWaypoint.LESSER_MORAQ, GOTWaypoint.MARAHAI, GOTWaypoint.PORT_MORAQ);
+		List<GOTAbstractWaypoint> wps = new ArrayList<>();
+
+		wps.add(GOTWaypoint.BLOODY_GATE.info(0, -0.5));
+		wps.add(GOTWaypoint.COLDWATER_BURN);
+		wps.add(GOTWaypoint.GREY_GLEN);
+		wps.add(GOTWaypoint.OLD_ANCHOR);
+		wps.add(GOTWaypoint.PEBBLE);
+		wps.add(GOTWaypoint.SNAKEWOOD);
+		wps.add(GOTWaypoint.THE_PAPS);
+		wps.add(GOTWaypoint.WICKENDEN);
+		wps.add(GOTWaypoint.WITCH_ISLE);
+		wps.add(GOTWaypoint.GATE_OF_THE_MOON.info(0.5, 0, Dir.EAST));
+
+		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.SISTERTON);
+
+		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.ANTLERS.info(0.1, -0.5));
+		wps.add(GOTWaypoint.BROWNHOLLOW);
+		wps.add(GOTWaypoint.DYRE_DEN);
+		wps.add(GOTWaypoint.STOKEWORTH.info(-0.4, 0, Dir.WEST));
+		wps.add(GOTWaypoint.HAYFORD.info(0.1, -0.5));
+		wps.add(GOTWaypoint.ROOKS_REST.info(0, -0.4));
+		wps.add(GOTWaypoint.ROSBY.info(-0.5, -0.1, Dir.WEST));
+
+		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.KINGS_LANDING.info(2, 0, Dir.EAST));
+
+		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.RED_KEEP, 3), wps);
+
+		wps.add(GOTWaypoint.DUSKENDALE.info(-0.1, -1.1));
+
+		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.BRIARWHITE.info(0, -0.7));
+		wps.add(GOTWaypoint.ROSBY.info(0.7, 0));
+
+		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.VILLAGE, 6), wps);
+
+		wps.add(GOTWaypoint.BLACKMONT.info(0.5, 0, Dir.EAST));
+		wps.add(GOTWaypoint.GHOST_HILL);
+		wps.add(GOTWaypoint.GODSGRACE);
+		wps.add(GOTWaypoint.THE_TOR);
+		wps.add(GOTWaypoint.VAITH);
+		wps.add(GOTWaypoint.WATER_GARDENS);
+		wps.add(GOTWaypoint.SPOTTSWOOD);
+		wps.add(GOTWaypoint.LEMONWOOD);
+		wps.add(GOTWaypoint.SALT_SHORE);
+		wps.add(GOTWaypoint.KINGSGRAVE.info(0.5, 0, Dir.EAST));
+		wps.add(GOTWaypoint.WYL.info(-0.55, 0, Dir.WEST));
+
+		registerLocation(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDorneSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.GHASTON_GREY);
+		wps.add(GOTWaypoint.PLANKY_TOWN);
+
+		registerLocation(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDorneSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.HORNOTH.info(0.5, 0));
+		wps.add(GOTWaypoint.KYTH.info(0.3, -0.4));
+		wps.add(GOTWaypoint.SATHAR.info(0.5, 0));
+		wps.add(GOTWaypoint.RATHYLAR.info(0.6, -0.2));
+		wps.add(GOTWaypoint.SAATH.info(0, -0.5));
+		wps.add(GOTWaypoint.VAES_ATHJIKHARI.info(0, -0.5));
+		wps.add(GOTWaypoint.VAES_DIAF);
+		wps.add(GOTWaypoint.VAES_DOTHRAK);
+		wps.add(GOTWaypoint.VAES_GORQOYI.info(0.3, -0.4));
+		wps.add(GOTWaypoint.VAES_GRADDAKH);
+		wps.add(GOTWaypoint.VAES_JINI.info(0, 0.5));
+		wps.add(GOTWaypoint.VOJJOR_SAMVI.info(0, -0.5));
+		wps.add(GOTWaypoint.VAES_KHADOKH.info(-0.1, -0.5));
+		wps.add(GOTWaypoint.VAES_KHEWO.info(0, -0.5));
+		wps.add(GOTWaypoint.VAES_LEQSE.info(0.5, 0));
+		wps.add(GOTWaypoint.VAES_MEJHAH.info(0, -0.5));
+		wps.add(GOTWaypoint.KRAZAAJ_HAS.info(0, -0.6));
+
+		registerLocation(new GOTStructureDothrakiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDothrakiSettlement.Type.BIG, 5), wps);
+
+		wps.add(GOTWaypoint.HIGH_TIDE);
+		wps.add(GOTWaypoint.SHARP_POINT);
+		wps.add(GOTWaypoint.STONEDANCE);
+		wps.add(GOTWaypoint.SWEETPORT_SOUND);
+
+		registerLocation(new GOTStructureDragonstoneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDragonstoneSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.HULL);
+
+		registerLocation(new GOTStructureDragonstoneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDragonstoneSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.ISLE_OF_WHIPS);
+		wps.add(GOTWaypoint.BARTER_BEACH);
+		wps.add(GOTWaypoint.GOGOSSOS);
+		wps.add(GOTWaypoint.GOROSH);
+		wps.add(GOTWaypoint.ZAMETTAR.info(0, -0.5, Dir.SOUTH));
+
+		registerLocation(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGhiscarSettlement.Type.COLONY, 4), wps);
+
+		wps.add(GOTWaypoint.MEEREEN.info(toEssosTownGate(0.0, true), -1.5));
+		wps.add(GOTWaypoint.ASTAPOR.info(-1.5, toEssosTownGate(0.0, false)));
+		wps.add(GOTWaypoint.NEW_GHIS.info(-1, 0));
+		wps.add(GOTWaypoint.YUNKAI.info(-1.5, toEssosTownGate(0.0, false)));
+
+		registerLocation(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGhiscarSettlement.Type.PYRAMID, 3), wps);
+
+		wps.add(GOTWaypoint.BHORASH.info(toEssosTownGate(0.0, false) + 0.26, 0.7));
+		wps.add(GOTWaypoint.VELOS);
+		wps.add(GOTWaypoint.GHOZAI);
+		wps.add(GOTWaypoint.ELYRIA);
+		wps.add(GOTWaypoint.TOLOS.info(toEssosTownGate(0.0, false), 0.5));
+		wps.add(GOTWaypoint.NEW_GHIS);
+
+		registerLocation(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGhiscarSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.GREENGUARD);
+		wps.add(GOTWaypoint.THE_TORCHES);
+		wps.add(GOTWaypoint.THE_LONG_BARROW);
+		wps.add(GOTWaypoint.RIMEGATE);
+		wps.add(GOTWaypoint.SABLE_HALL);
+		wps.add(GOTWaypoint.WOODSWATCH);
+		wps.add(GOTWaypoint.NIGHTFORT);
+		wps.add(GOTWaypoint.DEEP_LAKE);
+		wps.add(GOTWaypoint.OAKENSHIELD);
+		wps.add(GOTWaypoint.ICEMARK);
+		wps.add(GOTWaypoint.HOARFROST_HILL);
+		wps.add(GOTWaypoint.STONEDOOR);
+		wps.add(GOTWaypoint.GREYGUARD);
+		wps.add(GOTWaypoint.QUEENSGATE);
+		wps.add(GOTWaypoint.SENTINEL_STAND);
+
+		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.ABANDONED, 2), wps);
+
+		wps.add(GOTWaypoint.CASTLE_BLACK);
+
+		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.CASTLE_BLACK, 2), wps);
+
+		wps.add(GOTWaypoint.EASTWATCH);
+
+		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.EAST_WATCH, 2), wps);
+
+		wps.add(GOTWaypoint.SHADOW_TOWER);
+
+		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.SHADOW_TOWER, 2), wps);
+
+		wps.add(GOTWaypoint.MOLETOWN);
+		wps.add(GOTWaypoint.QUEENSCROWN);
+
+		registerLocation(new GOTStructureGiftSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureGiftSettlement.Type.VILLAGE, 4), wps);
+
+		wps.add(GOTWaypoint.IB_NOR);
+		wps.add(GOTWaypoint.IB_SAR);
+		wps.add(GOTWaypoint.PORT_OF_IBBEN);
+
+		registerLocation(new GOTStructureIbbenSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIbbenSettlement.Type.VILLAGE, 6), wps);
+
+		wps.add(GOTWaypoint.NEW_IBBISH);
+
+		registerLocation(new GOTStructureIbbenSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIbbenSettlement.Type.FORT, 6), wps);
+
+		wps.add(GOTWaypoint.VICTARION_LANDING);
+
+		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.CAMP, 5), wps);
+
+		wps.add(GOTWaypoint.CATFISH_ROCK);
+		wps.add(GOTWaypoint.CORPSE_LAKE);
+		wps.add(GOTWaypoint.CROW_SPIKE_KEEP);
+		wps.add(GOTWaypoint.DOWNDELVING);
+		wps.add(GOTWaypoint.HARLAW_HALL);
+		wps.add(GOTWaypoint.HARRIDAN_HILL);
+		wps.add(GOTWaypoint.IRON_HOLT);
+		wps.add(GOTWaypoint.MYRE_CASTLE);
+		wps.add(GOTWaypoint.ORKWOOD);
+		wps.add(GOTWaypoint.SALTCLIFFE);
+		wps.add(GOTWaypoint.SEALSKIN_POINT);
+		wps.add(GOTWaypoint.SHATTERSTONE);
+		wps.add(GOTWaypoint.SPARR_CASTLE);
+		wps.add(GOTWaypoint.STONEHOUSE);
+		wps.add(GOTWaypoint.STONETREE_CASTLE);
+		wps.add(GOTWaypoint.SUNDERLY);
+		wps.add(GOTWaypoint.TAWNEY_CASTLE);
+
+		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.PEBBLETON);
+
+		registerLocation(new GOTStructureIronbornSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureIronbornSettlement.Type.VILLAGE, 6), wps);
+
+		wps.add(GOTWaypoint.HESH.info(1.2, 0, Dir.WEST));
+		wps.add(GOTWaypoint.KOSRAK.info(1, 0, Dir.WEST));
+		wps.add(GOTWaypoint.LHAZOSH.info(1, 0, Dir.WEST));
+
+		registerLocation(new GOTStructureLhazarSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureLhazarSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.LORATH);
+		wps.add(GOTWaypoint.MOROSH);
+
+		registerLocation(new GOTStructureLorathSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureLorathSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.KUURULGAN);
+		wps.add(GOTWaypoint.SUUDAN_KORKUU);
+		wps.add(GOTWaypoint.KANDUU_BET);
+		wps.add(GOTWaypoint.TASHTOO);
+		wps.add(GOTWaypoint.BASHKARUUCHU);
+		wps.add(GOTWaypoint.AZUU_KAN);
+		wps.add(GOTWaypoint.KUJRUK);
+		wps.add(GOTWaypoint.KORKUNUCHTUU);
+		wps.add(GOTWaypoint.NYMDUU_OOZ);
+		wps.add(GOTWaypoint.AZHYDAAR);
+		wps.add(GOTWaypoint.AK_SHAAR);
+		wps.add(GOTWaypoint.SUU_NYM);
+		wps.add(GOTWaypoint.SHYLUUN_UUSU);
+		wps.add(GOTWaypoint.KADAR);
+		wps.add(GOTWaypoint.NEFER);
+		wps.add(GOTWaypoint.K_DATH);
+
+		registerLocation(new GOTStructureMossovySettlement(GOTBiome.ocean, 0.0f).type(GOTStructureMossovySettlement.Type.VILLAGE, 6), wps);
+
+		wps.add(GOTWaypoint.CATFISH_ROCK);
+		wps.add(GOTWaypoint.GOLDGRASS.info(0, 0.4, Dir.SOUTH));
+		wps.add(GOTWaypoint.BLACK_POOL);
+		wps.add(GOTWaypoint.DEEPWOOD_MOTTE);
+		wps.add(GOTWaypoint.FLINTS_FINGER);
+		wps.add(GOTWaypoint.HIGHPOINT);
+		wps.add(GOTWaypoint.WIDOWS_WATCH);
+		wps.add(GOTWaypoint.HORNWOOD);
+		wps.add(GOTWaypoint.IRONRATH);
+		wps.add(GOTWaypoint.MOAT_KAILIN);
+		wps.add(GOTWaypoint.OLDCASTLE);
+		wps.add(GOTWaypoint.RAMSGATE);
+		wps.add(GOTWaypoint.RILLWATER_CROSSING.info(-0.4, 0, Dir.WEST));
+
+		registerLocation(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureNorthSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.BREAKSTONE_HILL);
+		wps.add(GOTWaypoint.SKANE);
+		wps.add(GOTWaypoint.DEEPDOWN);
+		wps.add(GOTWaypoint.DRIFTWOOD_HALL);
+		wps.add(GOTWaypoint.KINGSHOUSE);
+
+		registerLocation(new GOTStructureNorthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureNorthSettlement.Type.HILLMAN, 6), wps);
+
+		wps.add(GOTWaypoint.GHOYAN_DROHE.info(0, 0.7));
+
+		registerLocation(new GOTStructurePentosSettlement(GOTBiome.ocean, 0.0f).type(GOTStructurePentosSettlement.Type.VILLAGE, 5), wps);
+
+		wps.add(GOTWaypoint.TERIMAN);
+		wps.add(GOTWaypoint.BATARGAS);
+		wps.add(GOTWaypoint.KARIMAGAR);
+
+		registerLocation(new GOTStructureQarthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureQarthSettlement.Type.COLONY, 4), wps);
+
+		wps.add(GOTWaypoint.PORT_YHOS.info(toEssosTownGate(0.0, false), 0.5));
+		wps.add(GOTWaypoint.QARKASH.info(toEssosTownGate(0.0, false), 0.5));
+
+		registerLocation(new GOTStructureQarthSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureQarthSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.QOHOR.info(-0.6, toEssosTownGate(0.0, false), Dir.EAST));
+
+		registerLocation(new GOTStructureQohorSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureQohorSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.APPLETON.info(0, -0.51));
+		wps.add(GOTWaypoint.ASHFORD);
+		wps.add(GOTWaypoint.BANDALLON);
+		wps.add(GOTWaypoint.GRASSY_VALE);
+		wps.add(GOTWaypoint.GRIMSTON);
+		wps.add(GOTWaypoint.HAMMERHAL.info(0.5, 0, Dir.EAST));
+		wps.add(GOTWaypoint.RED_LAKE.info(0, 0.5, Dir.SOUTH));
+		wps.add(GOTWaypoint.SOUTHSHIELD);
+		wps.add(GOTWaypoint.UPLANDS);
+		wps.add(GOTWaypoint.HOLYHALL.info(0.5, 0, Dir.EAST));
+		wps.add(GOTWaypoint.HONEYHOLT);
+		wps.add(GOTWaypoint.IVY_HALL.info(0, 0.5, Dir.SOUTH));
+		wps.add(GOTWaypoint.NEW_BARREL);
+		wps.add(GOTWaypoint.BLACKCROWN);
+		wps.add(GOTWaypoint.CIDER_HALL);
+		wps.add(GOTWaypoint.COLDMOAT.info(0, 0.5, Dir.SOUTH));
+		wps.add(GOTWaypoint.DARKDELL.info(-0.5, 0, Dir.WEST));
+		wps.add(GOTWaypoint.DUNSTONBURY);
+		wps.add(GOTWaypoint.BITTERBRIDGE.info(0, 0.5, Dir.SOUTH));
+		wps.add(GOTWaypoint.GARNETGROVE.info(-0.5, 0, Dir.WEST));
+		wps.add(GOTWaypoint.LORD_HEWETTS_TOWN);
+		wps.add(GOTWaypoint.OLD_OAK.info(0, 0.5, Dir.SOUTH));
+		wps.add(GOTWaypoint.SUNHOUSE.info(0, 0.5, Dir.SOUTH));
+		wps.add(GOTWaypoint.WHITEGROVE.info(-0.5, 0, Dir.WEST));
+
+		registerLocation(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureReachSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.APPLETON.info(0.1, 1.1, Dir.SOUTH));
+		wps.add(GOTWaypoint.ASHFORD);
+		wps.add(GOTWaypoint.LORD_HEWETTS_TOWN);
+		wps.add(GOTWaypoint.SMITHYTON.info(0, 0.9, Dir.SOUTH));
+		wps.add(GOTWaypoint.VINETOWN);
+		wps.add(GOTWaypoint.RYAMSPORT);
+		wps.add(GOTWaypoint.TUMBLETON.info(0, -1.0));
+
+		registerLocation(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureReachSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.CROSSROADS_INN);
+
+		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.CROSSROADS, 2), wps);
+
+		wps.add(GOTWaypoint.DARRY);
+		wps.add(GOTWaypoint.WAYFARERS_REST.info(-0.4, 0, Dir.WEST));
+		wps.add(GOTWaypoint.ACORN_HALL.info(-0.5, -0.1, Dir.WEST));
+		wps.add(GOTWaypoint.ATRANTA);
+
+		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.HARROWAY.info(0, 0.9, Dir.SOUTH));
+		wps.add(GOTWaypoint.MAIDENPOOL.info(0, 0.9, Dir.SOUTH));
+		wps.add(GOTWaypoint.SALTPANS.info(0.8, 0, Dir.EAST));
+		wps.add(GOTWaypoint.STONEY_SEPT.info(-0.8, 0, Dir.WEST));
+		wps.add(GOTWaypoint.SEAGARD.info(0, 0.8, Dir.SOUTH));
+
+		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.FAIRMARKET);
+		wps.add(GOTWaypoint.PENNYTREE);
+		wps.add(GOTWaypoint.SEVENSTREAMS);
+
+		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.VILLAGE, 6), wps);
+
+		wps.add(GOTWaypoint.WESTWATCH.info(-0.3, 0));
+		wps.add(GOTWaypoint.VAES_LEISI.info(0, 0.3));
+		wps.add(GOTWaypoint.MORNE.info(0, 0.3));
+		wps.add(GOTWaypoint.NY_SAR.info(0, 0.15));
+		wps.add(GOTWaypoint.OLD_GHIS.info(0, 0.3));
+		wps.add(GOTWaypoint.SAR_MELL.info(0, -0.25));
+		wps.add(GOTWaypoint.SARHOY.info(0, 0.3));
+		wps.add(GOTWaypoint.SHANDYSTONE.info(0, 0.3));
+		wps.add(GOTWaypoint.STARPIKE.info(0, 0.3));
+		wps.add(GOTWaypoint.TELYRIA.info(0, 0.3));
+		wps.add(GOTWaypoint.TORTURERS_DEEP.info(0, 0.3));
+		wps.add(GOTWaypoint.VAES_ORVIK.info(0.3, 0));
+		wps.add(GOTWaypoint.VAES_QOSAR.info(0, 0.3));
+		wps.add(GOTWaypoint.VAES_SHIROSI.info(0, 0.3));
+		wps.add(GOTWaypoint.VAES_TOLORRO.info(0, 0.3));
+		wps.add(GOTWaypoint.VALYRIAN_ROAD.info(-0.2, 0));
+		wps.add(GOTWaypoint.GREY_GALLOWS.info(0, 0.3));
+		wps.add(GOTWaypoint.BLOODSTONE.info(0, 0.3));
+		wps.add(GOTWaypoint.KAYAKAYANAYA.info(0, 0.3));
+		wps.add(GOTWaypoint.AEGON.info(0, 0.3));
+		wps.add(GOTWaypoint.RAENYS.info(0, 0.3));
+		wps.add(GOTWaypoint.VISENYA.info(0, 0.3));
+		wps.add(GOTWaypoint.CHROYANE.info(0.3, 0));
+		wps.add(GOTWaypoint.FOURTEEN_FLAMES.info(0, 0.3));
+		wps.add(GOTWaypoint.IBBISH.info(0, 0.3));
+		wps.add(GOTWaypoint.SAMYRIANA.info(0, 0.3));
+		wps.add(GOTWaypoint.BAYASABHAD.info(0, 0.3));
+		wps.add(GOTWaypoint.AR_NOY.info(-0.1, -0.25));
+		wps.add(GOTWaypoint.ADAKHAKILEKI.info(0, 0.3));
+		wps.add(GOTWaypoint.CASTLE_LYCHESTER.info(0, -0.3));
+		wps.add(GOTWaypoint.MHYSA_FAER.info(0, 0.3));
+		wps.add(GOTWaypoint.AQUOS_DHAEN.info(0, 0.3));
+		wps.add(GOTWaypoint.DRACONYS.info(0, 0.3));
+		wps.add(GOTWaypoint.TYRIA.info(0, 0.3));
+		wps.add(GOTWaypoint.RHYOS.info(0, 0.3));
+		wps.add(GOTWaypoint.OROS.info(0, 0.2));
+		wps.add(GOTWaypoint.VULTURES_ROOST.info(0, 0.3));
+		wps.add(GOTWaypoint.SPICETOWN.info(0, 0.3));
+		wps.add(GOTWaypoint.CASTAMERE.info(0, 0.3));
+		wps.add(GOTWaypoint.GOLDENHILL.info(0, 0.3));
+		wps.add(GOTWaypoint.GREYIRON_CASTLE.info(0, 0.3));
+		wps.add(GOTWaypoint.HOARE_CASTLE.info(0, 0.3));
+		wps.add(GOTWaypoint.HOARE_KEEP.info(0, 0.3));
+		wps.add(GOTWaypoint.HOGG_HALL.info(0.2, -0.2));
+		wps.add(GOTWaypoint.HOLLARD_CASTLE.info(0.3, 0));
+		wps.add(GOTWaypoint.OLDSTONES.info(0, 0.3));
+		wps.add(GOTWaypoint.SUMMERHALL.info(-0.3, 0));
+		wps.add(GOTWaypoint.TARBECK_HALL.info(0, 0.3));
+		wps.add(GOTWaypoint.TOWER_OF_JOY.info(-0.3, 0));
+		wps.add(GOTWaypoint.WHISPERS.info(0, 0.3));
+		wps.add(GOTWaypoint.WHITEWALLS.info(0.2, -0.2));
+
+		registerLocation(new GOTStructureRuins(GOTBiome.ocean, 0.0f), wps);
+
+		wps.add(GOTWaypoint.EAST_BAY.info(0, 0.4));
+		wps.add(GOTWaypoint.EAST_COAST.info(0, 0.4));
+		wps.add(GOTWaypoint.NORTH_FORESTS.info(0, 0.4));
+		wps.add(GOTWaypoint.WHITE_MOUNTAINS.info(0, 0.4));
+		wps.add(GOTWaypoint.CENTRAL_FORESTS.info(0, 0.4));
+		wps.add(GOTWaypoint.MARSHES.info(0, 0.4));
+		wps.add(GOTWaypoint.RED_FORESTS.info(0, 0.4));
+		wps.add(GOTWaypoint.SOUTH_ULTHOS.info(0, 0.4));
+		wps.add(GOTWaypoint.SOUTH_TAIGA.info(0, 0.4));
+		wps.add(GOTWaypoint.BONETOWN.info(0, 0.4));
+		wps.add(GOTWaypoint.HARRENHAL.info(-0.4, 0));
+		wps.add(GOTWaypoint.STYGAI.info(0, 0.4));
+		wps.add(GOTWaypoint.ULOS.info(0, 0.4));
+		wps.add(GOTWaypoint.YEEN.info(0, 0.4));
+
+		registerLocation(new GOTStructureRuinsBig(GOTBiome.ocean, 0.0f), wps);
+
+		wps.add(GOTWaypoint.RAUMATI);
+
+		registerLocation(new GOTStructureSothoryosSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSothoryosSettlement.Type.PYRAMID, 3), wps);
+
+		wps.add(GOTWaypoint.MAUNGA);
+		wps.add(GOTWaypoint.DRAGON_PLACE);
+		wps.add(GOTWaypoint.SOUTH_POINT);
+		wps.add(GOTWaypoint.BIG_LAKE);
+
+		registerLocation(new GOTStructureSothoryosSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSothoryosSettlement.Type.VILLAGE, 3), wps);
+
+		wps.add(GOTWaypoint.CROWS_NEST);
+		wps.add(GOTWaypoint.GRIFFINS_ROOST);
+		wps.add(GOTWaypoint.BLACKHAVEN.info(-0.5, 0, Dir.WEST));
+		wps.add(GOTWaypoint.BRONZEGATE.info(0, -0.5));
+		wps.add(GOTWaypoint.DEAD_HEAD);
+		wps.add(GOTWaypoint.FAWNTOWN);
+		wps.add(GOTWaypoint.AMBERLY);
+		wps.add(GOTWaypoint.BLACK_HEART);
+		wps.add(GOTWaypoint.BROAD_ARCH);
+		wps.add(GOTWaypoint.PARCHMENTS.info(0, -0.5));
+		wps.add(GOTWaypoint.PODDINGFIELD.info(0, -0.5));
+		wps.add(GOTWaypoint.RAIN_HOUSE);
+		wps.add(GOTWaypoint.SEAWORTH_CASTLE);
+		wps.add(GOTWaypoint.TUDBURY_HOLL);
+		wps.add(GOTWaypoint.GALLOWSGREY.info(0, -0.5));
+		wps.add(GOTWaypoint.GRANDVIEW.info(-0.5, 0, Dir.WEST));
+		wps.add(GOTWaypoint.HARVEST_HALL.info(0, -0.5));
+		wps.add(GOTWaypoint.HAYSTACK_HALL.info(0, -0.5));
+		wps.add(GOTWaypoint.MISTWOOD);
+		wps.add(GOTWaypoint.FELWOOD.info(0, -0.5));
+		wps.add(GOTWaypoint.NIGHTSONG.info(0, -0.5));
+
+		registerLocation(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureStormlandsSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.WEEPING_TOWN);
+
+		registerLocation(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureStormlandsSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.HAUAURU);
+		wps.add(GOTWaypoint.MATAHAU);
+		wps.add(GOTWaypoint.TAKUTAI);
+		wps.add(GOTWaypoint.ATAAHUA);
+		wps.add(GOTWaypoint.PEREKI);
+		wps.add(GOTWaypoint.NGARARA);
+		wps.add(GOTWaypoint.TAURANGA);
+		wps.add(GOTWaypoint.MATAO);
+		wps.add(GOTWaypoint.NGAHERE);
+		wps.add(GOTWaypoint.KOHURU);
+
+		registerLocation(new GOTStructureSummerSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSummerSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.DOQUU);
+		wps.add(GOTWaypoint.EBONHEAD);
+		wps.add(GOTWaypoint.GOLDEN_HEAD);
+		wps.add(GOTWaypoint.KOJ);
+		wps.add(GOTWaypoint.LAST_LAMENT);
+		wps.add(GOTWaypoint.LIZARD_HEAD);
+		wps.add(GOTWaypoint.LOTUS_POINT);
+		wps.add(GOTWaypoint.NAATH);
+		wps.add(GOTWaypoint.OMBORU);
+		wps.add(GOTWaypoint.PEARL_PALACE);
+		wps.add(GOTWaypoint.RED_FLOWER_VALE);
+		wps.add(GOTWaypoint.SWEET_LOTUS_VALE);
+		wps.add(GOTWaypoint.TALL_TREES_TOWN);
+		wps.add(GOTWaypoint.WALANO);
+		wps.add(GOTWaypoint.XON);
+
+		registerLocation(new GOTStructureSummerSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSummerSettlement.Type.VILLAGE, 5), wps);
+
+		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.5, -0.5, Dir.WEST));
+		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.5, 0, Dir.WEST));
+		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.5, 0.5, Dir.WEST));
+		wps.add(GOTWaypoint.TOWER_OF_GLIMMERING);
+		wps.add(GOTWaypoint.BAELISH_KEEP);
+		wps.add(GOTWaypoint.RAMSEY_TOWER);
+		wps.add(GOTWaypoint.STANDFAST);
+
+		registerLocation(new GOTStructureTower(GOTBiome.ocean, 0.0f), wps);
+
+		wps.add(GOTWaypoint.LITTLE_VALYRIA.info(toEssosTownGate(0.0, false) + 0.26, 0.6));
+		wps.add(GOTWaypoint.ANOGARIA.info(toEssosTownGate(0.0, false) + 0.26, 0.6));
+		wps.add(GOTWaypoint.MANTARYS.info(toEssosTownGate(0.0, true), -0.5, Dir.SOUTH));
+		wps.add(GOTWaypoint.SELHORYS.info(-0.5, toEssosTownGate(0.0, false), Dir.EAST));
+		wps.add(GOTWaypoint.VALYSAR.info(-0.6, toEssosTownGate(0.0, false) + 0.25, Dir.EAST));
+		wps.add(GOTWaypoint.VOLON_THERYS.info(toEssosTownGate(0.0, false), 0.5));
+
+		registerLocation(new GOTStructureVolantisSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureVolantisSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.KAYCE);
+		wps.add(GOTWaypoint.SARSFIELD.info(-0.1, -0.5));
+		wps.add(GOTWaypoint.SILVERHILL);
+		wps.add(GOTWaypoint.WYNDHALL);
+		wps.add(GOTWaypoint.PLUMWOOD);
+		wps.add(GOTWaypoint.RIVERSPRING);
+		wps.add(GOTWaypoint.GREENFIELD);
+		wps.add(GOTWaypoint.DEEP_DEN);
+		wps.add(GOTWaypoint.CRAG);
+
+		registerLocation(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWesterlandsSettlement.Type.FORT, 3), wps);
+
+		wps.add(GOTWaypoint.KAYCE);
+
+		registerLocation(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWesterlandsSettlement.Type.TOWN, 6), wps);
+
+		wps.add(GOTWaypoint.OXCROSS.info(0.2, 0.6));
+
+		registerLocation(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWesterlandsSettlement.Type.VILLAGE, 6), wps);
+
+		wps.add(GOTWaypoint.CRASTERS_KEEP);
+
+		registerLocation(new GOTStructureWildlingSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWildlingSettlement.Type.CRASTER, 1), wps);
+
+		wps.add(GOTWaypoint.HARDHOME);
+
+		registerLocation(new GOTStructureWildlingSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureWildlingSettlement.Type.HARDHOME, 7), wps);
+
+		wps.add(GOTWaypoint.JIANMEN);
+		wps.add(GOTWaypoint.ANGUO);
+		wps.add(GOTWaypoint.DINGGUO);
+		wps.add(GOTWaypoint.PINNU);
+		wps.add(GOTWaypoint.PINGJIANG);
+		wps.add(GOTWaypoint.WUDE);
+		wps.add(GOTWaypoint.WUSHENG);
+		wps.add(GOTWaypoint.ZHENGUO);
+		wps.add(GOTWaypoint.LUNGMEN);
+
+		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.GATE, 2), wps);
+
+		wps.add(GOTWaypoint.ANJIANG);
+
+		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.GATE_ROAD, 2), wps);
+
+		wps.add(GOTWaypoint.FIVE_FORTS_1);
+		wps.add(GOTWaypoint.FIVE_FORTS_2);
+		wps.add(GOTWaypoint.FIVE_FORTS_3);
+		wps.add(GOTWaypoint.FIVE_FORTS_4);
+		wps.add(GOTWaypoint.FIVE_FORTS_5);
+
+		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.TOWER, 9), wps);
+
+		wps.add(GOTWaypoint.ASABHAD.info(-1, 0, Dir.WEST));
+		wps.add(GOTWaypoint.BAOJI.info(0, -1));
+		wps.add(GOTWaypoint.EIJIANG.info(0, 1, Dir.SOUTH));
+		wps.add(GOTWaypoint.JINQI.info(-1, 0, Dir.WEST));
+		wps.add(GOTWaypoint.LIZHAO.info(1, 0, Dir.EAST));
+		wps.add(GOTWaypoint.MANJIN.info(1.1, -0.2, Dir.EAST));
+		wps.add(GOTWaypoint.SI_QO.info(1, 0, Dir.EAST));
+		wps.add(GOTWaypoint.TIQUI.info(0, -1));
+		wps.add(GOTWaypoint.TRADER_TOWN.info(0, -1));
+		wps.add(GOTWaypoint.VAIBEI.info(0, -1));
+		wps.add(GOTWaypoint.YIBIN.info(0, -1));
+		wps.add(GOTWaypoint.YUNNAN.info(1, 0, Dir.EAST));
+		wps.add(GOTWaypoint.CHANGAN.info(1, 0, Dir.EAST));
+		wps.add(GOTWaypoint.FU_NING.info(1.1, 0.1, Dir.EAST));
+		wps.add(GOTWaypoint.ZABHAD);
+		wps.add(GOTWaypoint.TURRANI);
+		wps.add(GOTWaypoint.VAHAR);
+		wps.add(GOTWaypoint.FAROS);
+		wps.add(GOTWaypoint.HUIJI);
+		wps.add(GOTWaypoint.LENG_MA);
+		wps.add(GOTWaypoint.LENG_YI);
+		wps.add(GOTWaypoint.LESSER_MORAQ);
+		wps.add(GOTWaypoint.MARAHAI);
+		wps.add(GOTWaypoint.PORT_MORAQ);
+
+		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.TOWN, 7), wps);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -1058,13 +1562,14 @@ public class GOTFixer {
 		LOCATIONS.clear();
 	}
 
-	private static void registerLocation(GOTStructureBaseSettlement settlement, GOTAbstractWaypoint... wps) {
-		settlement.affix(wps);
+	private static void registerLocation(GOTStructureBaseSettlement settlement, List<GOTAbstractWaypoint> wps) {
+		settlement.affix(new ArrayList<>(wps));
 		LOCATIONS.add(settlement);
+		wps.clear();
 	}
 
 	private static void registerSpawner(GOTStructureBaseSettlement spawner, GOTAbstractWaypoint wp) {
-		spawner.affix(wp);
+		spawner.affix(Collections.singletonList(wp));
 		LOCATIONS.add(spawner);
 		SPAWNERS.put(wp, spawner);
 	}

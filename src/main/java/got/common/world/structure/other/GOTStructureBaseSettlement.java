@@ -145,7 +145,7 @@ public abstract class GOTStructureBaseSettlement {
 		return -1;
 	}
 
-	public void affix(GOTAbstractWaypoint... wps) {
+	public void affix(Iterable<GOTAbstractWaypoint> wps) {
 		for (GOTAbstractWaypoint wp : wps) {
 			LocationInfo loc = new LocationInfo(wp.getCoordX(), wp.getCoordZ(), wp.getRotation()).setFixedLocation();
 			fixedLocations.add(loc);
