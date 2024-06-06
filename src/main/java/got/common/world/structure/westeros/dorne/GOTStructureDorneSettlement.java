@@ -78,7 +78,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureDorneBarn(false);
 				}
 			}
-			return new GOTStructureDorneHouse(false);
+			return new GOTStructureDorneHouseSmall(false);
 		}
 
 		private static GOTStructureDorneTownWall getWallCentre(boolean flag) {
@@ -199,8 +199,8 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureDorneStables(false), -24, -2, 2);
 			addStructure(new GOTStructureDorneSmithy(false), 24, 1, 0);
 			addStructure(new GOTStructureDorneSmithy(false), 24, -1, 2);
-			addStructure(new GOTStructureDorneStoneHouse(false), -3, -25, 1);
-			addStructure(new GOTStructureDorneStoneHouse(false), 3, -25, 3);
+			addStructure(new GOTStructureDorneHouseLarge(false), -3, -25, 1);
+			addStructure(new GOTStructureDorneHouseLarge(false), 3, -25, 3);
 			addStructure(new GOTStructureDorneVillageFarm.Crops(false), -18, -21, 1);
 			addStructure(new GOTStructureDorneVillageFarm.Crops(false), 18, -21, 3);
 			addStructure(new GOTStructureDorneWell(false), -12, 27, 1);
@@ -269,14 +269,14 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == 1) {
-					addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDorneHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDorneHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (k1 == 0) {
 					continue;
 				}
-				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 0, true);
-				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 2, true);
+				addStructure(new GOTStructureDorneHouseLarge(false), houseZ, houseX, 0, true);
+				addStructure(new GOTStructureDorneHouseLarge(false), houseZ, -houseX, 2, true);
 			}
 			addStructure(new GOTStructureDorneSmithy(false), 0, -26, 2, true);
 			addStructure(new GOTStructureDorneObelisk(false), 0, 27, 0, true);
@@ -303,11 +303,11 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			for (int k1 = -2; k1 <= 2; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == -2 || k1 >= 1) {
-					addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 3, true);
-					addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDorneHouseLarge(false), -houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDorneHouseLarge(false), houseX, houseZ, 1, true);
 				}
-				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 2, true);
-				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 0, true);
+				addStructure(new GOTStructureDorneHouseLarge(false), houseZ, houseX, 2, true);
+				addStructure(new GOTStructureDorneHouseLarge(false), houseZ, -houseX, 0, true);
 			}
 			int treeX = 47;
 			int treeZ = 35;
@@ -326,19 +326,19 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureDorneVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
 					addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
 				} else {
-					addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDorneHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDorneHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (treepiece) {
 					addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
-					addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 2, true);
+					addStructure(new GOTStructureDorneHouseLarge(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
 					if (treepiece) {
 						addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
-						addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 0, true);
+						addStructure(new GOTStructureDorneHouseLarge(false), houseZ, houseX, 0, true);
 					}
 				}
 				addStructure(new GOTStructureDorneLampPost(false), -lampX, houseZ, 1, true);
@@ -429,9 +429,9 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);
-			addStructure(new GOTStructureDorneCottage(false), -21, 0, 1);
-			addStructure(new GOTStructureDorneCottage(false), 0, -21, 2);
-			addStructure(new GOTStructureDorneCottage(false), 21, 0, 3);
+			addStructure(new GOTStructureDorneHouse(false), -21, 0, 1);
+			addStructure(new GOTStructureDorneHouse(false), 0, -21, 2);
+			addStructure(new GOTStructureDorneHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureDorneTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
 				if (random.nextInt(3) == 0) {

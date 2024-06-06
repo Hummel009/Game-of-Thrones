@@ -237,12 +237,12 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(new GOTStructureQohorMansion(false), i, k, r, true);
+				addStructure(new GOTStructureQohorHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureQohorLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(new GOTStructureQohorMansion(false), i, k, r, true);
+				addStructure(new GOTStructureQohorHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureQohorLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(new GOTStructureQohorSmithy(false), -25, 9, 1, true);
@@ -364,9 +364,9 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureQohorWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureQohorTavern(false), 0, rSquareEdge, 0, true);
-			addStructure(new GOTStructureQohorMansion(false), -3, -rSquareEdge, 2, true);
-			addStructure(new GOTStructureQohorMansion(false), -rSquareEdge, 3, 1, true);
-			addStructure(new GOTStructureQohorMansion(false), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureQohorHouseLarge(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureQohorHouseLarge(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureQohorHouseLarge(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;

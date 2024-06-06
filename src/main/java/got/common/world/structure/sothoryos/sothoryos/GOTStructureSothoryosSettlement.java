@@ -80,7 +80,7 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 
 		private void setupVillage(Random random) {
 			int smithyPos = random.nextInt(4);
-			addStructure(new GOTStructureSothoryosChieftainPyramid(false), 0, -11, 0, true);
+			addStructure(new GOTStructureSothoryosTemple(false), 0, -11, 0, true);
 			addStructure(new GOTStructureSothoryosVillageTree(false), 0, -16, 2);
 			addStructure(new GOTStructureSothoryosVillageFarm(false), -16, -19, 2);
 			addStructure(new GOTStructureSothoryosVillageFarm(false), 16, -19, 2);

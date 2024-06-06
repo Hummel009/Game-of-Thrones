@@ -2896,442 +2896,413 @@ got.shields.YITI_SAMURAI.name=Yi Ti Samurai Schild
 got.shields.category.ACHIEVABLE=Schilde der Errungenschaften
 got.shields.category.ALIGNMENT=Schilde der Reputationspunkte
 got.shields.category.EXCLUSIVE=Reservierte Schilde
-got.structure.ArrynBarn.name=Tal von Arryn Scheune
-got.structure.ArrynBath.name=Tal von Arryn Schwimmbad
-got.structure.ArrynCityBig.name=Tal von Arryn Stadt
-got.structure.ArrynCityLittle.name=Tal von Arryn Dorf
-got.structure.ArrynCityMedium.name=Tal von Arryn Schloss
-got.structure.ArrynCottage.name=Tal von Arryn Hütte
-got.structure.ArrynFortress.name=Festung im Arryn-Tal
-got.structure.ArrynHouse.name=Tal von Arryn Haus
-got.structure.ArrynSmithy.name=Tal von Arryn Schmiede
-got.structure.ArrynStables.name=Arryn Vale Ställe
-got.structure.ArrynStoneHouse.name=Tal von Arryn Villa
-got.structure.ArrynTavern.name=Tal von Arryn Taverne
-got.structure.ArrynTower.name=Tal von Arryn Turm
-got.structure.ArrynWatchfort.name=Tal von Arryn Fort
-got.structure.ArrynWatchtower.name=Tal von Arryn Turm
-got.structure.AsshaiAltar.name=Altar aus Assai
-got.structure.AsshaiCity.name=Asshai Stadt
-got.structure.AsshaiFort.name=Asshai Festung
-got.structure.AsshaiHouse.name=Asshai Haus
-got.structure.AsshaiLaboratory.name=Asshai Labor
-got.structure.AsshaiOblivionAltar.name=Asshai Altar des Vergessens
-got.structure.AsshaiSpiderPit.name=Spinnenarena von Assai
-got.structure.AsshaiTavern.name=Asshai Taverne
-got.structure.AsshaiTower.name=Asshai Turm
-got.structure.Barrow.name=Kurgan
-got.structure.BraavosBarracks.name=Braavos Kaserne
-got.structure.BraavosBazaar.name=Braavos Basar
-got.structure.BraavosCityBig.name=Braavos Schloss
-got.structure.BraavosCityLittle.name=Braavos Dorf
-got.structure.BraavosCityMedium.name=Stadt von Braavos
-got.structure.BraavosFortress.name=Festung Braavos
-got.structure.BraavosHouse.name=Haus von Braavos
-got.structure.BraavosMansion.name=Braavos Villa
-got.structure.BraavosSmithy.name=Braavos Schmiede
-got.structure.BraavosStables.name=Braavos Ställe
-got.structure.BraavosTavern.name=Braavos Taverne
-got.structure.BraavosTower.name=Turm von Braavos
-got.structure.BraavosTraining.name=Braavos Trainingslager
-got.structure.BurntHouse.name=Niedergebranntes Haus
-got.structure.CrownlandsBarn.name=Kronlanden Scheune
-got.structure.CrownlandsBath.name=Kronlanden Schwimmbad
-got.structure.CrownlandsCityBig.name=Kronlanden Stadt
-got.structure.CrownlandsCityLittle.name=Kronlanden Dorf
-got.structure.CrownlandsCityMedium.name=Kronlanden Schloss
-got.structure.CrownlandsCottage.name=Kronlanden Hütte
-got.structure.CrownlandsFortress.name=Kronlanden Festung
-got.structure.CrownlandsHouse.name=Kronlanden Haus
-got.structure.CrownlandsSmithy.name=Kronlanden Schmiede
-got.structure.CrownlandsStables.name=Kronlanden Ställe
-got.structure.CrownlandsStoneHouse.name=Kronlanden Villa
-got.structure.CrownlandsTavern.name=Kronlanden Taverne
-got.structure.CrownlandsTower.name=Kronlanden Turm
-got.structure.CrownlandsWatchfort.name=Kronlanden Fort
-got.structure.CrownlandsWatchtower.name=Kronlanden Wachturm
-got.structure.DatabaseGenerator.name=Datenbank Generator
-got.structure.DorneBarn.name=Dorne Scheune
-got.structure.DorneBath.name=Dorne Schwimmbad
-got.structure.DorneCityBig.name=Dorne Stadt
-got.structure.DorneCityLittle.name=Dorne Dorf
-got.structure.DorneCityMedium.name=Dorne Schloss
-got.structure.DorneCottage.name=Dorne Hütte
-got.structure.DorneFortress.name=Dorne Festung
-got.structure.DorneHouse.name=Dorne Haus
-got.structure.DorneSmithy.name=Dorne Schmiede
-got.structure.DorneStables.name=Dorne Ställe
-got.structure.DorneStoneHouse.name=Dorne Villa
-got.structure.DorneTavern.name=Dorne Taverne
-got.structure.DorneTower.name=Dorne Turm
-got.structure.DorneWatchfort.name=Dorne Fort
-got.structure.DorneWatchtower.name=Dorne Turm
-got.structure.DothrakiKhalTent.name=Dothraki Khal Zelt
-got.structure.DothrakiKhalinTent.name=Dosh Khalin Zelt
-got.structure.DothrakiTent.name=Dothraki Zelt
-got.structure.DothrakiTentLarge.name=Großes Dothraki-Zelt
-got.structure.DothrakiVillageBig.name=Dothraki Dorf
-got.structure.DothrakiVillageLittle.name=Dothraki Zeltlager
-got.structure.DragonstoneBarn.name=Drachenstein Scheune
-got.structure.DragonstoneBath.name=Drachenstein Schwimmbad
-got.structure.DragonstoneCityBig.name=Drachenstein Stadt
-got.structure.DragonstoneCityLittle.name=Drachenstein Dorf
-got.structure.DragonstoneCityMedium.name=Drachenstein Schloss
-got.structure.DragonstoneCottage.name=Drachenstein Hütte
-got.structure.DragonstoneFortress.name=Drachenstein Festung
-got.structure.DragonstoneHouse.name=Drachenstein Villa
-got.structure.DragonstoneSmithy.name=Drachenstein Schmiede
-got.structure.DragonstoneStables.name=Drachenstein Ställe
-got.structure.DragonstoneStoneHouse.name=Drachenstein Villa
-got.structure.DragonstoneTavern.name=Drachenstein Taverne
-got.structure.DragonstoneTower.name=Drachenstein Turm
-got.structure.DragonstoneWatchfort.name=Drachenstein Fort
-got.structure.DragonstoneWatchtower.name=Drachenstein Turm
-got.structure.GhiscarBarracks.name=Ghiscar Barracken
-got.structure.GhiscarBazaar.name=Ghiscar Basar
-got.structure.GhiscarCamp.name=Ghiscar Zeltlager
-got.structure.GhiscarCityBig.name=Ghiscar Schloss
-got.structure.GhiscarCityLittle.name=Ghiscar Dorf
-got.structure.GhiscarCityMedium.name=Ghiscar Stadt
-got.structure.GhiscarFightingPit.name=Meereens Kampfgrube
-got.structure.GhiscarFortress.name=Ghiscar Festung
-got.structure.GhiscarHouse.name=Ghiscar Haus
-got.structure.GhiscarMansion.name=Ghiscar Villa
-got.structure.GhiscarPyramid.name=Ghiscar Pyramide
-got.structure.GhiscarSmithy.name=Ghiscar Schmiede
-got.structure.GhiscarStables.name=Ghiscar Ställe
-got.structure.GhiscarTavern.name=Ghiscar Taverne
-got.structure.GhiscarTower.name=Ghiscar Turm
-got.structure.GhiscarTraining.name=Ghiscar Trainingslager
-got.structure.GiftBurntHouse.name=Abgebranntes Haus
-got.structure.GiftCamp.name=Lager der Nachtwache
-got.structure.GiftHouse.name=Nachtwächterhütte
-got.structure.GiftLodge.name=Haus der Nachtwache
-got.structure.GiftRottenHouse.name=Heruntergekommenes Haus
-got.structure.GiftRuinedHouse.name=Hausruinen
-got.structure.GiftRuinedTower.name=Ruinen des Nachtwächterturms
-got.structure.GiftSmithy.name=Die Nachtwächterschmiede
-got.structure.GiftStables.name=Nachtwachenställe
-got.structure.GiftTent.name=Nachtwächterzelt
-got.structure.GiftVillage.name=Nachtwächterdorf
-got.structure.GiftVillageLight.name=Nachtwache Dorf Lantern
-got.structure.GiftWatchtower.name=Wachtturm der Nachtwache
-got.structure.GoldenCamp.name=Zeltlager der goldenen Gemeinschaft
-got.structure.GoldenCampWatchtower.name=Wachturm der Goldenen Kompanie
-got.structure.HillmanCampfire.name=Hügelmenschen Zeltlager
-got.structure.HillmanFort.name=Hügelmenschen Fort
-got.structure.HillmanHouse.name=Hügelmenschen Haus
-got.structure.HillmanTavern.name=Hügelmenschen Taverne
-got.structure.HillmanVillage.name=Dorf der Hügelmenschen
-got.structure.HorthHillmanCamp.name=Nördliche Hügelmenschen Zeltlager
-got.structure.IbbenBarn.name=Ibben Stall
-got.structure.IbbenFortVillage.name=Ibben Siedlung
-got.structure.IbbenFortress.name=Ibben Festung
-got.structure.IbbenHouse.name=Ibben Haus
-got.structure.IbbenSmithy.name=Ibben Schmiede
-got.structure.IbbenStables.name=Ibben Ställe
-got.structure.IbbenTavern.name=Ibben Taverne
-got.structure.IbbenVillage.name=Ibben Dorf
-got.structure.IbbenWatchtower.name=Ibben Turm
-got.structure.IronbornBarn.name=Eiseninseln Scheune
-got.structure.IronbornBath.name=Eiseninseln Schwimmbad
-got.structure.IronbornCityBig.name=Eiseninseln Stadt
-got.structure.IronbornCityLittle.name=Eiseninseln Dorf
-got.structure.IronbornCityMedium.name=Eiseninseln Schloss
-got.structure.IronbornCottage.name=Eiseninseln Hütte
-got.structure.IronbornFortress.name=Eiseninseln Festung
-got.structure.IronbornHouse.name=Eiseninseln Haus
-got.structure.IronbornSmithy.name=Eiseninseln Schmiede
-got.structure.IronbornStables.name=Eiseninseln Ställe
-got.structure.IronbornStoneHouse.name=Eiseninseln Herrenhaus
-got.structure.IronbornTavern.name=Eiseninseln Taverne
-got.structure.IronbornTower.name=Eiseninseln Turm
-got.structure.IronbornWatchfort.name=Eiseninseln Fort
-got.structure.IronbornWatchtower.name=Eiseninseln Turm
-got.structure.JogosChiefTent.name=Jogos Nhai Häuptlingszelt
-got.structure.JogosShamanTent.name=Jogos Nhai SchamanenZelt
-got.structure.JogosTent.name=Jogos Nhai Zelt
-got.structure.JogosTentLarge.name=Jogos Nhai großes Zelt
-got.structure.JogosVillageBig.name=Jogos Nhai Dorf
-got.structure.JogosVillageLittle.name=Jogos Nhai Zeltlager
-got.structure.LhazarAltar.name=Lhazar Altar
-got.structure.LhazarBazaar.name=Lhazar Basar
-got.structure.LhazarCityBig.name=Lhazar Stadt
-got.structure.LhazarCityLittle.name=Lhazar Dorf
-got.structure.LhazarCityMedium.name=Lhazar Stadt
-got.structure.LhazarFarm.name=Lhazar Farm
-got.structure.LhazarHouse.name=Lhazar Haus
-got.structure.LhazarPyramid.name=Lhazar Pyramide
-got.structure.LhazarSmithy.name=Lhazar Schmiede
-got.structure.LhazarTavern.name=Lhazar Taverne
-got.structure.LhazarTotem.name=Lhazar Totem
-got.structure.LhazarTower.name=Lhazar Turm
-got.structure.LhazarWarCamp.name=Lhazar Kriegslager
-got.structure.LorathBarracks.name=Lorath Barracken
-got.structure.LorathBazaar.name=Lorath Basar
-got.structure.LorathCityBig.name=Lorath Schloss
-got.structure.LorathCityLittle.name=Lorath Dorf
-got.structure.LorathCityMedium.name=Lorath Stadt
-got.structure.LorathFortress.name=Lorath Festung
-got.structure.LorathHouse.name=Lorath Haus
-got.structure.LorathMansion.name=Lorath Villa
-got.structure.LorathSmithy.name=Lorath Schmiede
-got.structure.LorathStables.name=Lorath Ställe
-got.structure.LorathTavern.name=Lorath Taverne
-got.structure.LorathTower.name=Lorath Turm
-got.structure.LorathTraining.name=Lorath Trainingslager
-got.structure.LysBarracks.name=Lys Barracken
-got.structure.LysBazaar.name=Lys Basar
-got.structure.LysCityBig.name=Lys Schloss
-got.structure.LysCityLittle.name=Lys Dorf
-got.structure.LysCityMedium.name=Lys Stadt
-got.structure.LysFortress.name=Lys Festung
-got.structure.LysHouse.name=Lys Haus
-got.structure.LysMansion.name=Lys Villa
-got.structure.LysSmithy.name=Lys Schmied
-got.structure.LysStables.name=Lys Ställe
-got.structure.LysTavern.name=Lys Taverne
-got.structure.LysTower.name=Lys Turm
-got.structure.LysTraining.name=Lys Trainingslager
-got.structure.MossovyBarn.name=Mossovy Scheune
-got.structure.MossovyCamp.name=Mossovy Zeltlager
-got.structure.MossovyCastle.name=Mossovy Festung
-got.structure.MossovyHouse.name=Mossovy Haus
-got.structure.MossovyInn.name=Mossovy Taverne
-got.structure.MossovyOffice.name=Mossovy Villa
-got.structure.MossovySmithy.name=Mossovy Schmied
-got.structure.MossovyStable.name=Mossovy Ställe
-got.structure.MossovyTrampHouse.name=Mossovy Schlammhaus
-got.structure.MossovyVillage.name=Mossovy Dorf
-got.structure.MyrBarracks.name=Myr Kaserne
-got.structure.MyrBazaar.name=Myr Basar
-got.structure.MyrCityBig.name=Myr Schloss
-got.structure.MyrCityLittle.name=Myr Dorf
-got.structure.MyrCityMedium.name=Myr Stadt
-got.structure.MyrFortress.name=Mar Festung
-got.structure.MyrHouse.name=Myr Haus
-got.structure.MyrMansion.name=Myr Villa
-got.structure.MyrSmithy.name=Myr Schmiede
-got.structure.MyrStables.name=Myr Ställe
-got.structure.MyrTavern.name=Myr Taverne
-got.structure.MyrTower.name=Myr Turm
-got.structure.MyrTraining.name=Myr Trainingslager
-got.structure.NorthBarn.name=Norden Scheune
-got.structure.NorthBath.name=Norden Schwimmbad
-got.structure.NorthCottage.name=Norden Hütte
-got.structure.NorthFortVillage.name=Norden Schloss
-got.structure.NorthFortress.name=Norden Festung
-got.structure.NorthHillmanCamp.name=Norden Zeltlager der Hügelmenschen
-got.structure.NorthHillmanChieftainHouse.name=Norden Stammesfürstenhaus der Hügelmenschen
-got.structure.NorthHillmanHouse.name=Norden Haus der Hügelmenschen
-got.structure.NorthHillmanVillage.name=Norden Dorf der Hügelmenschen
-got.structure.NorthHouse.name=Norden Haus
-got.structure.NorthSmithy.name=Norden Schmiede
-got.structure.NorthStables.name=Norden Ställe
-got.structure.NorthStoneHouse.name=Norden Villa
-got.structure.NorthTavern.name=Norden Taverne
-got.structure.NorthTower.name=Norden Turm
-got.structure.NorthTown.name=Norden Stadt
-got.structure.NorthVillage.name=Norden Dorf
-got.structure.NorthWatchfort.name=Norden Fort
-got.structure.NorthWatchtower.name=Norden Turm
-got.structure.NorvosBarracks.name=Norvos Barracken
-got.structure.NorvosBazaar.name=Norvos Basar
-got.structure.NorvosCityBig.name=Norvos Schloss
-got.structure.NorvosCityLittle.name=Norvos Dorf
-got.structure.NorvosCityMedium.name=Norvos Stadt
-got.structure.NorvosFortress.name=Norvos Festung
-got.structure.NorvosHouse.name=Norvos Haus
-got.structure.NorvosMansion.name=Norvos Villa
-got.structure.NorvosSmithy.name=Norvos Schmiede
-got.structure.NorvosStables.name=Norvos Ställe
-got.structure.NorvosTavern.name=Norvos Taverne
-got.structure.NorvosTower.name=Norvos Turm
-got.structure.NorvosTraining.name=Norvos Trainingslager
-got.structure.PentosBarracks.name=Pentos Kaserne
-got.structure.PentosBazaar.name=Pentos Basar
-got.structure.PentosCityBig.name=Pentos Schloss
-got.structure.PentosCityLittle.name=Pentos Dorf
-got.structure.PentosCityMedium.name=Pentos Stadt
-got.structure.PentosFortress.name=Pentos Festung
-got.structure.PentosHouse.name=Pentos Haus
-got.structure.PentosMansion.name=Pentos Villa
-got.structure.PentosSmithy.name=Pentos Schmiede
-got.structure.PentosStables.name=Pentos Ställe
-got.structure.PentosTavern.name=Pentos Taverne
-got.structure.PentosTower.name=Pentos Turm
-got.structure.PentosTraining.name=Pentos Trainingslager
-got.structure.QarthBarracks.name=Qarth Barracken
-got.structure.QarthBazaar.name=Qarth Basar
-got.structure.QarthCityBig.name=Qarth Schloss
-got.structure.QarthCityLittle.name=Qarth Dorf
-got.structure.QarthCityMedium.name=Qarth Stadt
-got.structure.QarthFortress.name=Qarth Festung
-got.structure.QarthHouse.name=Qarth Haus
-got.structure.QarthMansion.name=Qarth Villa
-got.structure.QarthSmithy.name=Qarth Schmiede
-got.structure.QarthStables.name=Qarth Ställe
-got.structure.QarthTavern.name=Qarth Taverne
-got.structure.QarthTower.name=Qarth Turm
-got.structure.QarthTraining.name=Qarth Trainingslager
-got.structure.QohorBarracks.name=Qohor Barracken
-got.structure.QohorBazaar.name=Qohor Basar
-got.structure.QohorCityBig.name=Qohor Schloss
-got.structure.QohorCityLittle.name=Qohor Dorf
-got.structure.QohorCityMedium.name=Qohor Stadt
-got.structure.QohorFortress.name=Qohor Festung
-got.structure.QohorHouse.name=Qohor Haus
-got.structure.QohorMansion.name=Qohor Villa
-got.structure.QohorSmithy.name=Qohor Schmiede
-got.structure.QohorStables.name=Qohor Ställe
-got.structure.QohorTavern.name=Qohor Taverne
-got.structure.QohorTower.name=Qohor Turm
-got.structure.QohorTraining.name=Qohor Trainingslager
-got.structure.ReachBarn.name=Weite Scheune
-got.structure.ReachBath.name=Weite Schwimmbad
-got.structure.ReachBrewery.name=Weite Weingut
-got.structure.ReachCityBig.name=Weite Stadt
-got.structure.ReachCityLittle.name=Weite Dorf
-got.structure.ReachCityMedium.name=Weite Schloss
-got.structure.ReachCottage.name=Weite Hütte
-got.structure.ReachFortress.name=Weite Festung
-got.structure.ReachHouse.name=Weite Haus
-got.structure.ReachSmithy.name=Weite Schmiede
-got.structure.ReachStables.name=Weite Ställe
-got.structure.ReachStoneHouse.name=Weite Villa
-got.structure.ReachTavern.name=Weite Taverne
-got.structure.ReachTower.name=Weite Turm
-got.structure.ReachWatchfort.name=Weite Fort
-got.structure.ReachWatchtower.name=Weite Wachturm
-got.structure.RiverlandsBarn.name=Flusslanden Scheune
-got.structure.RiverlandsBath.name=Flusslanden Schwimmbad
-got.structure.RiverlandsCityBig.name=Flusslanden Stadt
-got.structure.RiverlandsCityLittle.name=Flusslanden Dorf
-got.structure.RiverlandsCityMedium.name=Flusslanden Schloss
-got.structure.RiverlandsCottage.name=Flusslanden Hütte
-got.structure.RiverlandsFortress.name=Flusslanden Festung
-got.structure.RiverlandsHouse.name=Flusslanden Haus
-got.structure.RiverlandsSmithy.name=Flusslanden Schmiede
-got.structure.RiverlandsStables.name=Flusslanden Ställe
-got.structure.RiverlandsStoneHouse.name=Flusslanden Villa
-got.structure.RiverlandsTavern.name=Flusslanden Taverne
-got.structure.RiverlandsTower.name=Flusslanden Turm
-got.structure.RiverlandsWatchfort.name=Flusslanden Fort
-got.structure.RiverlandsWatchtower.name=Flusslanden Turm
-got.structure.RottenHouse.name=Vermodertes Haus
-got.structure.RuinAsshai.name=Asshai Ruine
-got.structure.RuinSandstone.name=Essos Ruine
-got.structure.RuinSothoryos.name=Sothoryos Ruine
-got.structure.RuinStone.name=Ruine
-got.structure.RuinYiTi.name=Yi Ti Ruine
-got.structure.RuinedGiftHouse.name=Ruinen von Daras Haus
-got.structure.RuinedGiftTower.name=Ruinen des Dara-Turms
-got.structure.RuinedHouse.name=Zerfallenes Haus
-got.structure.RuinedNorthTower.name=Ruinen des Wachtturms von Norden
-got.structure.RuinedTower.name=Ruinen des Leuchtturms von Norden
-got.structure.SmallStoneRuin.name=Kleine Ruine
-got.structure.SothoryosChieftainPyramid.name=Sothoryos Pyramide des Häuptlings
-got.structure.SothoryosHouseLarge.name=Sothoryos Villa
-got.structure.SothoryosHouseSimple.name=Sothoryos Haus
-got.structure.SothoryosHouseStilts.name=Sothoryos Haus auf Stelzen
-got.structure.SothoryosPyramid.name=Pyramide von Sothoryos
-got.structure.SothoryosSmithy.name=Sothoryos Schmiede
-got.structure.SothoryosVillage.name=Sothoryos Dorf
-got.structure.SothoryosWatchtower.name=Sothoryos WatchTurm
-got.structure.StormlandsBarn.name=Sturmlanden Scheune
-got.structure.StormlandsBath.name=Sturmlanden Schwimmbad
-got.structure.StormlandsCityBig.name=Sturmlanden Stadt
-got.structure.StormlandsCityLittle.name=Sturmlanden Dorf
-got.structure.StormlandsCityMedium.name=Sturmlanden Schloss
-got.structure.StormlandsCottage.name=Sturmlanden Hütte
-got.structure.StormlandsFortress.name=Sturmlanden Festung
-got.structure.StormlandsHouse.name=Sturmlanden Haus
-got.structure.StormlandsSmithy.name=Sturmlanden Schmiede
-got.structure.StormlandsStables.name=Sturmlanden Ställe
-got.structure.StormlandsStoneHouse.name=Sturmlanden Villa
-got.structure.StormlandsTavern.name=Sturmlanden Taverne
-got.structure.StormlandsTower.name=Sturmlanden Turm
-got.structure.StormlandsWatchfort.name=Sturmlanden Fort
-got.structure.StormlandsWatchtower.name=Sturmlanden Wachturm
-got.structure.SummerFort.name=Sommerinseln Fort
-got.structure.SummerFortVillage.name=Sommerinseln befestigtes Dorf
-got.structure.SummerHouse.name=Sommerinseln Haus
-got.structure.SummerHouseRuined.name=Sommerinseln Hausruinen
-got.structure.SummerSmithy.name=Sommerinseln Schmiede
-got.structure.SummerStables.name=Sommerinseln Ställe
-got.structure.SummerTavern.name=Sommerinseln Taverne
-got.structure.SummerTavernRuined.name=Sommerinseln Ruinen der Taverne
-got.structure.SummerTower.name=Sommerinseln Turm
-got.structure.SummerVillage.name=Sommerinseln Siedlung
-got.structure.SummerVillageRuined.name=Sommerinseln Verlassenes Dorf
-got.structure.ThennCamp.name=Thennen Zeltlager
-got.structure.ThennHouse.name=Thennen Haus
-got.structure.ThennMagnarHouse.name=Thennen Magner Haus
-got.structure.ThennVillage.name=Thennen Dorf
-got.structure.TyroshBarracks.name=Tyrosh Kaserne
-got.structure.TyroshBazaar.name=Tyrosh Basar
-got.structure.TyroshCityBig.name=Tyrosh große Stadt
-got.structure.TyroshCityLittle.name=Tyrosh Dorf
-got.structure.TyroshCityMedium.name=Tyrosh Stadt
-got.structure.TyroshFortress.name=Tyrosh Festung
-got.structure.TyroshHouse.name=Tyroshs Haus
-got.structure.TyroshMansion.name=Tyrosh Villa
-got.structure.TyroshSmithy.name=Tyrosh Schmiede
-got.structure.TyroshStables.name=Tyrosh Ställe
-got.structure.TyroshTavern.name=Tyrosh Taverne
-got.structure.TyroshTower.name=Tyrosh Turm
-got.structure.TyroshTraining.name=Tyrosh Trainingslager
-got.structure.VolantisBarracks.name=Volantis Barracken
-got.structure.VolantisBazaar.name=Volantis Basar
-got.structure.VolantisCityBig.name=Volantis Schloss
-got.structure.VolantisCityLittle.name=Volantis Dorf
-got.structure.VolantisCityMedium.name=Volantis Stadt
-got.structure.VolantisFortress.name=Volantis Festung
-got.structure.VolantisHouse.name=Volantis Haus
-got.structure.VolantisMansion.name=Volantis Villa
-got.structure.VolantisSmithy.name=Volantis Schmiede
-got.structure.VolantisStables.name=Volantis Ställe
-got.structure.VolantisTavern.name=Volantis Taverne
-got.structure.VolantisTower.name=Volantis Turm
-got.structure.VolantisTraining.name=Volantis Trainingslager
-got.structure.WesterlandsBarn.name=Westlande Scheune
-got.structure.WesterlandsBath.name=Westlande Schwimmbad
-got.structure.WesterlandsCityBig.name=Westlande Stadt
-got.structure.WesterlandsCityLittle.name=Westlande Dorf
-got.structure.WesterlandsCityMedium.name=Westlande Schloss
-got.structure.WesterlandsCottage.name=Westlande Hütte
-got.structure.WesterlandsFortress.name=Westlande Festung
-got.structure.WesterlandsHouse.name=Westlande Haus
-got.structure.WesterlandsSmithy.name=Westlande Schmiede
-got.structure.WesterlandsStables.name=Westlande Ställe
-got.structure.WesterlandsStoneHouse.name=Westlande Villa
-got.structure.WesterlandsTavern.name=Westlande Taverne
-got.structure.WesterlandsTower.name=Turm der Westlande
-got.structure.WesterlandsWatchfort.name=Westlande Fort
-got.structure.WesterlandsWatchtower.name=Westlande Turm
-got.structure.WildlingCamp.name=Wildling Zeltlager
-got.structure.WildlingChieftainHouse.name=Haus des Wildling-Häuptlings
-got.structure.WildlingHouse.name=Wildling Haus
-got.structure.WildlingTent.name=Wildling Zelt
-got.structure.WildlingVillage.name=Wildlings Dorf
-got.structure.YiTiBath.name=Yi Ti Schwimmbad
-got.structure.YiTiBrewery.name=Yi Ti Winery
-got.structure.YiTiCaptainTent.name=Yi Ti Zelt des Oberbefehlshabers
-got.structure.YiTiFortVillage.name=Yi Ti befestigtes Dorf
-got.structure.YiTiFortress.name=Yi Ti Fort
-got.structure.YiTiGarden.name=Yi Ti Gewächshaus
-got.structure.YiTiGatehouse.name=YiTi Pförtnerhaus
-got.structure.YiTiHouse.name=Yi Ti Haus
-got.structure.YiTiLargeTownHouse.name=Yi Ti Herrenhaus
-got.structure.YiTiSmithy.name=Yi Ti Schmiede
-got.structure.YiTiStables.name=Yi Ti Ställe
-got.structure.YiTiTavern.name=Yi Ti Taverne
-got.structure.YiTiTavernTown.name=Yi Ti Stadttaverne
-got.structure.YiTiTent.name=Yi Ti Wächterzelt
-got.structure.YiTiTower.name=Yi Ti Turm
-got.structure.YiTiTown.name=Yi Ti Stadt
-got.structure.YiTiTownHouse.name=Yi Ti Stadthaus
-got.structure.YiTiVillage.name=Yi Ti Dorf
+got.structure.ArrynBarn.name≠Barn of Arryn Vale
+got.structure.ArrynBath.name≠Bath of Arryn Vale
+got.structure.ArrynFortress.name≠Fortress of Arryn Vale
+got.structure.ArrynHouse.name≠House of Arryn Vale
+got.structure.ArrynHouseLarge.name≠Mansion of Arryn Vale
+got.structure.ArrynHouseSmall.name≠Shack of Arryn Vale
+got.structure.ArrynSettle.name≠Village of Arryn Vale
+got.structure.ArrynSettleForted.name≠Castle of Arryn Vale
+got.structure.ArrynSettleLarge.name≠Town of Arryn Vale
+got.structure.ArrynSmithy.name≠Smithy of Arryn Vale
+got.structure.ArrynStables.name≠Stables of Arryn Vale
+got.structure.ArrynTavern.name≠Tavern of Arryn Vale
+got.structure.ArrynTower.name≠Tower of Arryn Vale
+got.structure.ArrynWatchfort.name≠Watchfort of Arryn Vale
+got.structure.ArrynWatchtower.name≠Watchtower of Arryn Vale
+got.structure.AsshaiAltar.name≠Altar of Asshai
+got.structure.AsshaiBiolab.name≠Biolab of Asshai
+got.structure.AsshaiFort.name≠Fortress of Asshai
+got.structure.AsshaiHouse.name≠House of Asshai
+got.structure.AsshaiSettle.name≠Town of Asshai
+got.structure.AsshaiTavern.name≠Tavern of Asshai
+got.structure.AsshaiTower.name≠Tower of Asshai
+got.structure.Barrow.name≠Barrow
+got.structure.BraavosBarracks.name≠Barracks of Braavos
+got.structure.BraavosBazaar.name≠Bazaar of Braavos
+got.structure.BraavosFortress.name≠Fortress of Braavos
+got.structure.BraavosHouse.name≠House of Braavos
+got.structure.BraavosHouseLarge.name≠Mansion of Braavos
+got.structure.BraavosSettle.name≠Village of Braavos
+got.structure.BraavosSettleForted.name≠Fortification of Braavos
+got.structure.BraavosSettleLarge.name≠Town of Braavos
+got.structure.BraavosSmithy.name≠Smithy of Braavos
+got.structure.BraavosStables.name≠Stables of Braavos
+got.structure.BraavosTavern.name≠Tavern of Braavos
+got.structure.BraavosTower.name≠Tower of Braavos
+got.structure.BraavosTraining.name≠Training of Braavos
+got.structure.BurntHouse.name≠Burnt House
+got.structure.CrownlandsBarn.name≠Barn of Crownlands
+got.structure.CrownlandsBath.name≠Bath of Crownlands
+got.structure.CrownlandsFortress.name≠Fortress of Crownlands
+got.structure.CrownlandsHouse.name≠House of Crownlands
+got.structure.CrownlandsHouseLarge.name≠Mansion of Crownlands
+got.structure.CrownlandsHouseSmall.name≠Shack of Crownlands
+got.structure.CrownlandsSettle.name≠Village of Crownlands
+got.structure.CrownlandsSettleForted.name≠Castle of Crownlands
+got.structure.CrownlandsSettleLarge.name≠Town of Crownlands
+got.structure.CrownlandsSmithy.name≠Smithy of Crownlands
+got.structure.CrownlandsStables.name≠Stables of Crownlands
+got.structure.CrownlandsTavern.name≠Tavern of Crownlands
+got.structure.CrownlandsTower.name≠Tower of Crownlands
+got.structure.CrownlandsWatchfort.name≠Watchfort of Crownlands
+got.structure.CrownlandsWatchtower.name≠Watchtower of Crownlands
+got.structure.DorneBarn.name≠Barn of Dorne
+got.structure.DorneBath.name≠Bath of Dorne
+got.structure.DorneFortress.name≠Fortress of Dorne
+got.structure.DorneHouse.name≠House of Dorne
+got.structure.DorneHouseLarge.name≠Mansion of Dorne
+got.structure.DorneHouseSmall.name≠Shack of Dorne
+got.structure.DorneSettle.name≠Village of Dorne
+got.structure.DorneSettleForted.name≠Castle of Dorne
+got.structure.DorneSettleLarge.name≠Town of Dorne
+got.structure.DorneSmithy.name≠Smithy of Dorne
+got.structure.DorneStables.name≠Stables of Dorne
+got.structure.DorneTavern.name≠Tavern of Dorne
+got.structure.DorneTower.name≠Tower of Dorne
+got.structure.DorneWatchfort.name≠Watchfort of Dorne
+got.structure.DorneWatchtower.name≠Watchtower of Dorne
+got.structure.DothrakiKhalTent.name≠Dothraki Khal's Tent
+got.structure.DothrakiKhalinTent.name≠Dothraki Khalin's Tent
+got.structure.DothrakiSettle.name≠Dothraki Camp
+got.structure.DothrakiSettleLarge.name≠Dothraki Village
+got.structure.DothrakiTent.name≠Dothraki Tent
+got.structure.DothrakiTentLarge.name≠Dothraki Large Tent
+got.structure.DragonstoneBarn.name≠Barn of Dragonstone
+got.structure.DragonstoneBath.name≠Bath of Dragonstone
+got.structure.DragonstoneFortress.name≠Fortress of Dragonstone
+got.structure.DragonstoneHouse.name≠House of Dragonstone
+got.structure.DragonstoneHouseLarge.name≠Mansion of Dragonstone
+got.structure.DragonstoneHouseSmall.name≠Shack of Dragonstone
+got.structure.DragonstoneSettle.name≠Village of Dragonstone
+got.structure.DragonstoneSettleForted.name≠Castle of Dragonstone
+got.structure.DragonstoneSettleLarge.name≠Town of Dragonstone
+got.structure.DragonstoneSmithy.name≠Smithy of Dragonstone
+got.structure.DragonstoneStables.name≠Stables of Dragonstone
+got.structure.DragonstoneTavern.name≠Tavern of Dragonstone
+got.structure.DragonstoneTower.name≠Tower of Dragonstone
+got.structure.DragonstoneWatchfort.name≠Watchfort of Dragonstone
+got.structure.DragonstoneWatchtower.name≠Watchtower of Dragonstone
+got.structure.GhiscarBarracks.name≠Barracks of Ghiscar
+got.structure.GhiscarBazaar.name≠Bazaar of Ghiscar
+got.structure.GhiscarCamp.name≠Corsair Camp of Ghiscar
+got.structure.GhiscarFightingPit.name≠Fighting Pit of Ghiscar
+got.structure.GhiscarFortress.name≠Fortress of Ghiscar
+got.structure.GhiscarHouse.name≠House of Ghiscar
+got.structure.GhiscarHouseLarge.name≠Mansion of Ghiscar
+got.structure.GhiscarPyramid.name≠Pyramid of Ghiscar
+got.structure.GhiscarSettle.name≠Village of Ghiscar
+got.structure.GhiscarSettleForted.name≠Fortification of Ghiscar
+got.structure.GhiscarSettleLarge.name≠Town of Ghiscar
+got.structure.GhiscarSmithy.name≠Smithy of Ghiscar
+got.structure.GhiscarStables.name≠Stables of Ghiscar
+got.structure.GhiscarTavern.name≠Tavern of Ghiscar
+got.structure.GhiscarTower.name≠Tower of Ghiscar
+got.structure.GhiscarTraining.name≠Training of Ghiscar
+got.structure.GiftHouse.name≠House of Night's Watch
+got.structure.GiftHouseSmall.name≠Shack of Night's Watch
+got.structure.GiftSettle.name≠Village of Night's Watch
+got.structure.GiftSmithy.name≠Smithy of Night's Watch
+got.structure.GiftStables.name≠Stables of Night's Watch
+got.structure.GoldenSettle.name≠Camp of Golden Company
+got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.HillmanCampfire.name≠Hillmen Camp
+got.structure.HillmanFortress.name≠Hillmen Fortress
+got.structure.HillmanHouse.name≠Hillmen House
+got.structure.HillmanSettle.name≠Hillmen Village
+got.structure.HillmanTavern.name≠Hillmen Tavern
+got.structure.IbbenBarn.name≠Barn of Ibben
+got.structure.IbbenFortress.name≠Fortress of Ibben
+got.structure.IbbenHouse.name≠House of Ibben
+got.structure.IbbenSettle.name≠Village of Ibben
+got.structure.IbbenSettleForted.name≠Fortification of Ibben
+got.structure.IbbenSmithy.name≠Smithy of Ibben
+got.structure.IbbenStables.name≠Stables of Ibben
+got.structure.IbbenTavern.name≠Tavern of Ibben
+got.structure.IbbenWatchtower.name≠Watchtower of Ibben
+got.structure.IronbornBarn.name≠Barn of Iron Islands
+got.structure.IronbornBath.name≠Bath of Iron Islands
+got.structure.IronbornFortress.name≠Fortress of Iron Islands
+got.structure.IronbornHouse.name≠House of Iron Islands
+got.structure.IronbornHouseLarge.name≠Mansion of Iron Islands
+got.structure.IronbornHouseSmall.name≠Shack of Iron Islands
+got.structure.IronbornSettle.name≠Village of Iron Islands
+got.structure.IronbornSettleForted.name≠Castle of Iron Islands
+got.structure.IronbornSettleLarge.name≠Town of Iron Islands
+got.structure.IronbornSmithy.name≠Smithy of Iron Islands
+got.structure.IronbornStables.name≠Stables of Iron Islands
+got.structure.IronbornTavern.name≠Tavern of Iron Islands
+got.structure.IronbornTower.name≠Tower of Iron Islands
+got.structure.IronbornWatchfort.name≠Watchfort of Iron Islands
+got.structure.IronbornWatchtower.name≠Watchtower of Iron Islands
+got.structure.JogosChiefTent.name≠Chieftain's Tent of Jogos Nhai
+got.structure.JogosSettle.name≠Camp of Jogos Nhai
+got.structure.JogosSettleLarge.name≠Village of Jogos Nhai
+got.structure.JogosShamanTent.name≠Shaman's Tent of Jogos Nhai
+got.structure.JogosTent.name≠Tent of Jogos Nhai
+got.structure.JogosTentLarge.name≠Large Tent of Jogos Nhai
+got.structure.LhazarAltar.name≠Altar of Lhazar
+got.structure.LhazarBazaar.name≠Bazaar of Lhazar
+got.structure.LhazarFarm.name≠Farm of Lhazar
+got.structure.LhazarHouse.name≠House of Lhazar
+got.structure.LhazarPyramid.name≠Pyramid of Lhazar
+got.structure.LhazarSettle.name≠Village of Lhazar
+got.structure.LhazarSettleForted.name≠Fortification of Lhazar
+got.structure.LhazarSettleLarge.name≠Town of Lhazar
+got.structure.LhazarSmithy.name≠Smithy of Lhazar
+got.structure.LhazarTavern.name≠Tavern of Lhazar
+got.structure.LhazarTotem.name≠Totem of Lhazar
+got.structure.LhazarTower.name≠Tower of Lhazar
+got.structure.LhazarWarCamp.name≠War Camp of Lhazar
+got.structure.LorathBarracks.name≠Barracks of Lorath
+got.structure.LorathBazaar.name≠Bazaar of Lorath
+got.structure.LorathFortress.name≠Fortress of Lorath
+got.structure.LorathHouse.name≠House of Lorath
+got.structure.LorathHouseLarge.name≠Mansion of Lorath
+got.structure.LorathSettle.name≠Village of Lorath
+got.structure.LorathSettleForted.name≠Fortification of Lorath
+got.structure.LorathSettleLarge.name≠Town of Lorath
+got.structure.LorathSmithy.name≠Smithy of Lorath
+got.structure.LorathStables.name≠Stables of Lorath
+got.structure.LorathTavern.name≠Tavern of Lorath
+got.structure.LorathTower.name≠Tower of Lorath
+got.structure.LorathTraining.name≠Training of Lorath
+got.structure.LysBarracks.name≠Barracks of Lys
+got.structure.LysBazaar.name≠Bazaar of Lys
+got.structure.LysFortress.name≠Fortress of Lys
+got.structure.LysHouse.name≠House of Lys
+got.structure.LysHouseLarge.name≠Mansion of Lys
+got.structure.LysSettle.name≠Village of Lys
+got.structure.LysSettleForted.name≠Fortification of Lys
+got.structure.LysSettleLarge.name≠Town of Lys
+got.structure.LysSmithy.name≠Smithy of Lys
+got.structure.LysStables.name≠Stables of Lys
+got.structure.LysTavern.name≠Brothel of Lys
+got.structure.LysTower.name≠Tower of Lys
+got.structure.LysTraining.name≠Training of Lys
+got.structure.MossovyBarn.name≠Barn of Mossovy
+got.structure.MossovyFortress.name≠Fortress of Mossovy
+got.structure.MossovyHouse.name≠House of Mossovy
+got.structure.MossovyHouseLarge.name≠Mansion of Mossovy
+got.structure.MossovyHouseSmall.name≠Shack of Mossovy
+got.structure.MossovySettle.name≠Village of Mossovy
+got.structure.MossovySmithy.name≠Smithy of Mossovy
+got.structure.MossovyStable.name≠Stables of Mossovy
+got.structure.MossovyTavern.name≠Tavern of Mossovy
+got.structure.MyrBarracks.name≠Barracks of Myr
+got.structure.MyrBazaar.name≠Bazaar of Myr
+got.structure.MyrFortress.name≠Fortress of Myr
+got.structure.MyrHouse.name≠House of Myr
+got.structure.MyrHouseLarge.name≠Mansion of Myr
+got.structure.MyrSettle.name≠Village of Myr
+got.structure.MyrSettleForted.name≠Fortification of Myr
+got.structure.MyrSettleLarge.name≠Town of Myr
+got.structure.MyrSmithy.name≠Smithy of Myr
+got.structure.MyrStables.name≠Stables of Myr
+got.structure.MyrTavern.name≠Tavern of Myr
+got.structure.MyrTower.name≠Tower of Myr
+got.structure.MyrTraining.name≠Training of Myr
+got.structure.NorthBarn.name≠Barn of North
+got.structure.NorthBath.name≠Bath of North
+got.structure.NorthFortress.name≠Fortress of North
+got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
+got.structure.NorthHillmanHouse.name≠North Hillmen House
+got.structure.NorthHillmanSettle.name≠North Hillmen Village
+got.structure.NorthHouse.name≠House of North
+got.structure.NorthHouseLarge.name≠Mansion of North
+got.structure.NorthHouseSmall.name≠Shack of North
+got.structure.NorthSettle.name≠Village of North
+got.structure.NorthSettleForted.name≠Castle of North
+got.structure.NorthSettleLarge.name≠Town of North
+got.structure.NorthSmithy.name≠Smithy of North
+got.structure.NorthStables.name≠Stables of North
+got.structure.NorthTavern.name≠Tavern of North
+got.structure.NorthTower.name≠Tower of North
+got.structure.NorthWatchfort.name≠Watchfort of North
+got.structure.NorthWatchtower.name≠Watchtower of North
+got.structure.NorvosBarracks.name≠Barracks of Norvos
+got.structure.NorvosBazaar.name≠Bazaar of Norvos
+got.structure.NorvosFortress.name≠Fortress of Norvos
+got.structure.NorvosHouse.name≠House of Norvos
+got.structure.NorvosHouseLarge.name≠Mansion of Norvos
+got.structure.NorvosSettle.name≠Village of Norvos
+got.structure.NorvosSettleForted.name≠Fortification of Norvos
+got.structure.NorvosSettleLarge.name≠Town of Norvos
+got.structure.NorvosSmithy.name≠Smithy of Norvos
+got.structure.NorvosStables.name≠Stables of Norvos
+got.structure.NorvosTavern.name≠Tavern of Norvos
+got.structure.NorvosTower.name≠Tower of Norvos
+got.structure.NorvosTraining.name≠Training of Norvos
+got.structure.PentosBarracks.name≠Barracks of Pentos
+got.structure.PentosBazaar.name≠Bazaar of Pentos
+got.structure.PentosFortress.name≠Fortress of Pentos
+got.structure.PentosHouse.name≠House of Pentos
+got.structure.PentosHouseLarge.name≠Mansion of Pentos
+got.structure.PentosSettle.name≠Village of Pentos
+got.structure.PentosSettleForted.name≠Fortification of Pentos
+got.structure.PentosSettleLarge.name≠Town of Pentos
+got.structure.PentosSmithy.name≠Smithy of Pentos
+got.structure.PentosStables.name≠Stables of Pentos
+got.structure.PentosTavern.name≠Tavern of Pentos
+got.structure.PentosTower.name≠Tower of Pentos
+got.structure.PentosTraining.name≠Training of Pentos
+got.structure.QarthBarracks.name≠Barracks of Qarth
+got.structure.QarthBazaar.name≠Bazaar of Qarth
+got.structure.QarthFortress.name≠Fortress of Qarth
+got.structure.QarthHouse.name≠House of Qarth
+got.structure.QarthHouseLarge.name≠Mansion of Qarth
+got.structure.QarthSettle.name≠Village of Qarth
+got.structure.QarthSettleForted.name≠Fortification of Qarth
+got.structure.QarthSettleLarge.name≠Town of Qarth
+got.structure.QarthSmithy.name≠Smithy of Qarth
+got.structure.QarthStables.name≠Stables of Qarth
+got.structure.QarthTavern.name≠Tavern of Qarth
+got.structure.QarthTower.name≠Tower of Qarth
+got.structure.QarthTraining.name≠Training of Qarth
+got.structure.QohorBarracks.name≠Barracks of Qohor
+got.structure.QohorBazaar.name≠Bazaar of Qohor
+got.structure.QohorFortress.name≠Fortress of Qohor
+got.structure.QohorHouse.name≠House of Qohor
+got.structure.QohorHouseLarge.name≠Mansion of Qohor
+got.structure.QohorSettle.name≠Village of Qohor
+got.structure.QohorSettleForted.name≠Fortification of Qohor
+got.structure.QohorSettleLarge.name≠Town of Qohor
+got.structure.QohorSmithy.name≠Smithy of Qohor
+got.structure.QohorStables.name≠Stables of Qohor
+got.structure.QohorTavern.name≠Tavern of Qohor
+got.structure.QohorTower.name≠Tower of Qohor
+got.structure.QohorTraining.name≠Training of Qohor
+got.structure.ReachBarn.name≠Barn of Reach
+got.structure.ReachBath.name≠Bath of Reach
+got.structure.ReachBrewery.name≠Brewery of Reach
+got.structure.ReachFortress.name≠Fortress of Reach
+got.structure.ReachHouse.name≠House of Reach
+got.structure.ReachHouseLarge.name≠Mansion of Reach
+got.structure.ReachHouseSmall.name≠Shack of Reach
+got.structure.ReachSettle.name≠Village of Reach
+got.structure.ReachSettleForted.name≠Castle of Reach
+got.structure.ReachSettleLarge.name≠Town of Reach
+got.structure.ReachSmithy.name≠Smithy of Reach
+got.structure.ReachStables.name≠Stables of Reach
+got.structure.ReachTavern.name≠Tavern of Reach
+got.structure.ReachTower.name≠Tower of Reach
+got.structure.ReachWatchfort.name≠Watchfort of Reach
+got.structure.ReachWatchtower.name≠Watchtower of Reach
+got.structure.RiverlandsBarn.name≠Barn of Riverlands
+got.structure.RiverlandsBath.name≠Bath of Riverlands
+got.structure.RiverlandsFortress.name≠Fortress of Riverlands
+got.structure.RiverlandsHouse.name≠House of Riverlands
+got.structure.RiverlandsHouseLarge.name≠Mansion of Riverlands
+got.structure.RiverlandsHouseSmall.name≠Shack of Riverlands
+got.structure.RiverlandsSettle.name≠Village of Riverlands
+got.structure.RiverlandsSettleForted.name≠Castle of Riverlands
+got.structure.RiverlandsSettleLarge.name≠Town of Riverlands
+got.structure.RiverlandsSmithy.name≠Smithy of Riverlands
+got.structure.RiverlandsStables.name≠Stables of Riverlands
+got.structure.RiverlandsTavern.name≠Tavern of Riverlands
+got.structure.RiverlandsTower.name≠Tower of Riverlands
+got.structure.RiverlandsWatchfort.name≠Watchfort of Riverlands
+got.structure.RiverlandsWatchtower.name≠Watchtower of Riverlands
+got.structure.RottenHouse.name≠Rotten House
+got.structure.RuinSandstone.name≠Sandstone Ruins
+got.structure.RuinStone.name≠Stone Ruins
+got.structure.RuinedHouse.name≠Ruined House
+got.structure.SmallStoneRuin.name≠Small Stone Ruins
+got.structure.SothoryosHouseLarge.name≠Mansion of Sothoryos
+got.structure.SothoryosHouseSimple.name≠Simple House of Sothoryos
+got.structure.SothoryosHouseStilts.name≠Stilted House of Sothoryos
+got.structure.SothoryosPyramid.name≠Pyramid of Sothoryos
+got.structure.SothoryosTemple.name≠Temple of Sothoryos
+got.structure.SothoryosSettle.name≠Village of Sothoryos
+got.structure.SothoryosSmithy.name≠Smithy of Sothoryos
+got.structure.SothoryosWatchtower.name≠Watchtower of Sothoryos
+got.structure.StormlandsBarn.name≠Barn of Stormlands
+got.structure.StormlandsBath.name≠Bath of Stormlands
+got.structure.StormlandsFortress.name≠Fortress of Stormlands
+got.structure.StormlandsHouse.name≠House of Stormlands
+got.structure.StormlandsHouseLarge.name≠Mansion of Stormlands
+got.structure.StormlandsHouseSmall.name≠Shack of Stormlands
+got.structure.StormlandsSettle.name≠Village of Stormlands
+got.structure.StormlandsSettleForted.name≠Castle of Stormlands
+got.structure.StormlandsSettleLarge.name≠Town of Stormlands
+got.structure.StormlandsSmithy.name≠Smithy of Stormlands
+got.structure.StormlandsStables.name≠Stables of Stormlands
+got.structure.StormlandsTavern.name≠Tavern of Stormlands
+got.structure.StormlandsTower.name≠Tower of Stormlands
+got.structure.StormlandsWatchfort.name≠Watchfort of Stormlands
+got.structure.StormlandsWatchtower.name≠Watchtower of Stormlands
+got.structure.SummerFortress.name≠Fortress of Summer Islands
+got.structure.SummerHouse.name≠House of Summer Islands
+got.structure.SummerHouseRuined.name≠Riuned House of Summer Islands
+got.structure.SummerSettle.name≠Village of Summer Islands
+got.structure.SummerSettleForted.name≠Fortification of Summer Islands
+got.structure.SummerSettleRuined.name≠Ruined Village of Summer Islands
+got.structure.SummerSmithy.name≠Smithy of Summer Islands
+got.structure.SummerStables.name≠Stables of Summer Islands
+got.structure.SummerTavern.name≠Tavern of Summer Islands
+got.structure.SummerTavernRuined.name≠Ruined Tavern of Summer Islands
+got.structure.SummerTower.name≠Tower of Summer Islands
+got.structure.ThennCamp.name≠Thenn Camp
+got.structure.ThennHouse.name≠Thenn House
+got.structure.ThennMagnarHouse.name≠Thenn Magnar's House
+got.structure.ThennSettle.name≠Thenn Village
+got.structure.TyroshBarracks.name≠Barracks of Tyrosh
+got.structure.TyroshBazaar.name≠Bazaar of Tyrosh
+got.structure.TyroshFortress.name≠Fortress of Tyrosh
+got.structure.TyroshHouse.name≠House of Tyrosh
+got.structure.TyroshHouseLarge.name≠Mansion of Tyrosh
+got.structure.TyroshSettle.name≠Village of Tyrosh
+got.structure.TyroshSettleForted.name≠Fortification of Tyrosh
+got.structure.TyroshSettleLarge.name≠Town of Tyrosh
+got.structure.TyroshSmithy.name≠Smithy of Tyrosh
+got.structure.TyroshStables.name≠Stables of Tyrosh
+got.structure.TyroshTavern.name≠Tavern of Tyrosh
+got.structure.TyroshTower.name≠Tower of Tyrosh
+got.structure.TyroshTraining.name≠Training of Tyrosh
+got.structure.VolantisBarracks.name≠Barracks of Volantis
+got.structure.VolantisBazaar.name≠Bazaar of Volantis
+got.structure.VolantisFortress.name≠Fortress of Volantis
+got.structure.VolantisHouse.name≠House of Volantis
+got.structure.VolantisHouseLarge.name≠Mansion of Volantis
+got.structure.VolantisSettle.name≠Village of Volantis
+got.structure.VolantisSettleForted.name≠Fortification of Volantis
+got.structure.VolantisSettleLarge.name≠Town of Volantis
+got.structure.VolantisSmithy.name≠Smithy of Volantis
+got.structure.VolantisStables.name≠Stables of Volantis
+got.structure.VolantisTavern.name≠Tavern of Volantis
+got.structure.VolantisTower.name≠Tower of Volantis
+got.structure.VolantisTraining.name≠Training of Volantis
+got.structure.WesterlandsBarn.name≠Barn of Westerlands
+got.structure.WesterlandsBath.name≠Bath of Westerlands
+got.structure.WesterlandsFortress.name≠Fortress of Westerlands
+got.structure.WesterlandsHouse.name≠House of Westerlands
+got.structure.WesterlandsHouseLarge.name≠Mansion of Westerlands
+got.structure.WesterlandsHouseSmall.name≠Shack of Westerlands
+got.structure.WesterlandsSettle.name≠Village of Westerlands
+got.structure.WesterlandsSettleForted.name≠Castle of Westerlands
+got.structure.WesterlandsSettleLarge.name≠Town of Westerlands
+got.structure.WesterlandsSmithy.name≠Smithy of Westerlands
+got.structure.WesterlandsStables.name≠Stables of Westerlands
+got.structure.WesterlandsTavern.name≠Tavern of Westerlands
+got.structure.WesterlandsTower.name≠Tower of Westerlands
+got.structure.WesterlandsWatchfort.name≠Watchfort of Westerlands
+got.structure.WesterlandsWatchtower.name≠Watchtower of Westerlands
+got.structure.WildlingChieftainHouse.name≠Wildling Chieftain's House
+got.structure.WildlingHouse.name≠Wildling House
+got.structure.WildlingSettle.name≠Wildling Village
+got.structure.YiTiFortress.name≠Fortress of Yi Ti
+got.structure.YiTiHouse.name≠House of Yi Ti
+got.structure.YiTiHouseLarge.name≠Mansion of Yi Ti
+got.structure.YiTiHouseSmall.name≠Shack of Yi Ti
+got.structure.YiTiSettle.name≠Village of Yi Ti
+got.structure.YiTiSettleForted.name≠Castle of Yi Ti
+got.structure.YiTiSettleLarge.name≠Town of Yi Ti
+got.structure.YiTiSmithy.name≠Smithy of Yi Ti
+got.structure.YiTiStables.name≠Stables of Yi Ti
+got.structure.YiTiTavern.name≠Tavern of Yi Ti
+got.structure.YiTiTavernTown.name≠Town Tavern of Yi Ti
+got.structure.YiTiTower.name≠Tower of Yi Ti
 got.tab.banner=GoT-Banner
 got.tab.blocks=GoT-Blöcke
 got.tab.combat=GoT-Ausrüstung

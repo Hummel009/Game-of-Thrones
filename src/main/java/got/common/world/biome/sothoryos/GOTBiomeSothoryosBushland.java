@@ -61,7 +61,6 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.addTree(GOTTreeType.KANUKA, 50);
 		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
 		decorator.addSettlement(new GOTStructureSothoryosSettlement(this, 1.0f));
-		decorator.addStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

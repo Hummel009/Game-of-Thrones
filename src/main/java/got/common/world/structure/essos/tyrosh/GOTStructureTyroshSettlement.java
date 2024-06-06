@@ -242,12 +242,12 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(new GOTStructureTyroshMansion(false), i, k, r, true);
+				addStructure(new GOTStructureTyroshHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureTyroshLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(new GOTStructureTyroshMansion(false), i, k, r, true);
+				addStructure(new GOTStructureTyroshHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureTyroshLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(new GOTStructureTyroshSmithy(false), -25, 9, 1, true);
@@ -369,9 +369,9 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureTyroshWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureTyroshTavern(false), 0, rSquareEdge, 0, true);
-			addStructure(new GOTStructureTyroshMansion(false), -3, -rSquareEdge, 2, true);
-			addStructure(new GOTStructureTyroshMansion(false), -rSquareEdge, 3, 1, true);
-			addStructure(new GOTStructureTyroshMansion(false), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureTyroshHouseLarge(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureTyroshHouseLarge(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureTyroshHouseLarge(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;

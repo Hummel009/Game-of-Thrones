@@ -255,12 +255,12 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(new GOTStructureGhiscarMansion(false), i, k, r, true);
+				addStructure(new GOTStructureGhiscarHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureGhiscarLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(new GOTStructureGhiscarMansion(false), i, k, r, true);
+				addStructure(new GOTStructureGhiscarHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureGhiscarLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(new GOTStructureGhiscarSmithy(false), -25, 9, 1, true);
@@ -382,9 +382,9 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureGhiscarWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureGhiscarTavern(false), 0, rSquareEdge, 0, true);
-			addStructure(new GOTStructureGhiscarMansion(false), -3, -rSquareEdge, 2, true);
-			addStructure(new GOTStructureGhiscarMansion(false), -rSquareEdge, 3, 1, true);
-			addStructure(new GOTStructureGhiscarMansion(false), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureGhiscarHouseLarge(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureGhiscarHouseLarge(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureGhiscarHouseLarge(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;

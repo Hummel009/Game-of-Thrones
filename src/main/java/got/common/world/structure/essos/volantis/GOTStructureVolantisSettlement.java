@@ -238,12 +238,12 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(new GOTStructureVolantisMansion(false), i, k, r, true);
+				addStructure(new GOTStructureVolantisHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureVolantisLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(new GOTStructureVolantisMansion(false), i, k, r, true);
+				addStructure(new GOTStructureVolantisHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureVolantisLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(new GOTStructureVolantisSmithy(false), -25, 9, 1, true);
@@ -365,9 +365,9 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureVolantisWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureVolantisTavern(false), 0, rSquareEdge, 0, true);
-			addStructure(new GOTStructureVolantisMansion(false), -3, -rSquareEdge, 2, true);
-			addStructure(new GOTStructureVolantisMansion(false), -rSquareEdge, 3, 1, true);
-			addStructure(new GOTStructureVolantisMansion(false), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureVolantisHouseLarge(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureVolantisHouseLarge(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureVolantisHouseLarge(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;

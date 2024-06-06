@@ -242,12 +242,12 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(new GOTStructureMyrMansion(false), i, k, r, true);
+				addStructure(new GOTStructureMyrHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureMyrLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(new GOTStructureMyrMansion(false), i, k, r, true);
+				addStructure(new GOTStructureMyrHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureMyrLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(new GOTStructureMyrSmithy(false), -25, 9, 1, true);
@@ -369,9 +369,9 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMyrWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureMyrTavern(false), 0, rSquareEdge, 0, true);
-			addStructure(new GOTStructureMyrMansion(false), -3, -rSquareEdge, 2, true);
-			addStructure(new GOTStructureMyrMansion(false), -rSquareEdge, 3, 1, true);
-			addStructure(new GOTStructureMyrMansion(false), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureMyrHouseLarge(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureMyrHouseLarge(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureMyrHouseLarge(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;

@@ -75,7 +75,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 						return new GOTStructureRiverlandsBarn(false);
 				}
 			}
-			return new GOTStructureRiverlandsHouse(false);
+			return new GOTStructureRiverlandsHouseSmall(false);
 		}
 
 		@Override
@@ -163,8 +163,8 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			addStructure(new GOTStructureRiverlandsStables(false), -24, -2, 2);
 			addStructure(new GOTStructureRiverlandsSmithy(false), 24, 1, 0);
 			addStructure(new GOTStructureRiverlandsSmithy(false), 24, -1, 2);
-			addStructure(new GOTStructureRiverlandsStoneHouse(false), -3, -25, 1);
-			addStructure(new GOTStructureRiverlandsStoneHouse(false), 3, -25, 3);
+			addStructure(new GOTStructureRiverlandsHouseLarge(false), -3, -25, 1);
+			addStructure(new GOTStructureRiverlandsHouseLarge(false), 3, -25, 3);
 			addStructure(new GOTStructureRiverlandsVillageFarm.Crops(false), -18, -21, 1);
 			addStructure(new GOTStructureRiverlandsVillageFarm.Crops(false), 18, -21, 3);
 			addStructure(new GOTStructureWesterosWell(false), -12, 27, 1);
@@ -233,14 +233,14 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == 1) {
-					addStructure(new GOTStructureRiverlandsStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureRiverlandsStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureRiverlandsHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureRiverlandsHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (k1 == 0) {
 					continue;
 				}
-				addStructure(new GOTStructureRiverlandsStoneHouse(false), houseZ, houseX, 0, true);
-				addStructure(new GOTStructureRiverlandsStoneHouse(false), houseZ, -houseX, 2, true);
+				addStructure(new GOTStructureRiverlandsHouseLarge(false), houseZ, houseX, 0, true);
+				addStructure(new GOTStructureRiverlandsHouseLarge(false), houseZ, -houseX, 2, true);
 			}
 			addStructure(new GOTStructureRiverlandsSmithy(false), 0, -26, 2, true);
 			addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
@@ -267,11 +267,11 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			for (int k1 = -2; k1 <= 2; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == -2 || k1 >= 1) {
-					addStructure(new GOTStructureRiverlandsStoneHouse(false), -houseX, houseZ, 3, true);
-					addStructure(new GOTStructureRiverlandsStoneHouse(false), houseX, houseZ, 1, true);
+					addStructure(new GOTStructureRiverlandsHouseLarge(false), -houseX, houseZ, 3, true);
+					addStructure(new GOTStructureRiverlandsHouseLarge(false), houseX, houseZ, 1, true);
 				}
-				addStructure(new GOTStructureRiverlandsStoneHouse(false), houseZ, houseX, 2, true);
-				addStructure(new GOTStructureRiverlandsStoneHouse(false), houseZ, -houseX, 0, true);
+				addStructure(new GOTStructureRiverlandsHouseLarge(false), houseZ, houseX, 2, true);
+				addStructure(new GOTStructureRiverlandsHouseLarge(false), houseZ, -houseX, 0, true);
 			}
 			int treeX = 47;
 			int treeZ = 35;
@@ -290,19 +290,19 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 					addStructure(new GOTStructureRiverlandsVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
 					addStructure(new GOTStructureRiverlandsVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
 				} else {
-					addStructure(new GOTStructureRiverlandsStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureRiverlandsStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureRiverlandsHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureRiverlandsHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (treepiece) {
 					addStructure(new GOTStructureRiverlandsVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
-					addStructure(new GOTStructureRiverlandsStoneHouse(false), houseZ, -houseX, 2, true);
+					addStructure(new GOTStructureRiverlandsHouseLarge(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
 					if (treepiece) {
 						addStructure(new GOTStructureRiverlandsVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
-						addStructure(new GOTStructureRiverlandsStoneHouse(false), houseZ, houseX, 0, true);
+						addStructure(new GOTStructureRiverlandsHouseLarge(false), houseZ, houseX, 0, true);
 					}
 				}
 				addStructure(new GOTStructureWesterosLampPost(false), -lampX, houseZ, 1, true);
@@ -393,9 +393,9 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);
-			addStructure(new GOTStructureRiverlandsCottage(false), -21, 0, 1);
-			addStructure(new GOTStructureRiverlandsCottage(false), 0, -21, 2);
-			addStructure(new GOTStructureRiverlandsCottage(false), 21, 0, 3);
+			addStructure(new GOTStructureRiverlandsHouse(false), -21, 0, 1);
+			addStructure(new GOTStructureRiverlandsHouse(false), 0, -21, 2);
+			addStructure(new GOTStructureRiverlandsHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureRiverlandsTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
 				if (random.nextInt(3) == 0) {

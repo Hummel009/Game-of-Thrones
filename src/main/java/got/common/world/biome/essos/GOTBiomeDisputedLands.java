@@ -8,7 +8,7 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
-import got.common.world.structure.essos.gold.GOTStructureGoldenCamp;
+import got.common.world.structure.essos.gold.GOTStructureGoldenSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.Collection;
 public class GOTBiomeDisputedLands extends GOTBiomeEssos {
 	public GOTBiomeDisputedLands(int i, boolean major) {
 		super(i, major);
-		decorator.addSettlement(new GOTStructureGoldenCamp(this, 1.0f));
+		decorator.addSettlement(new GOTStructureGoldenSettlement(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.MYR, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);

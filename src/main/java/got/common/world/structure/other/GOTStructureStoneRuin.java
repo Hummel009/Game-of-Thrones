@@ -100,36 +100,6 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 
 	protected abstract void placeRandomSlab(World var1, Random var2, int var3, int var4, int var5);
 
-	public static class RuinAsshai extends GOTStructureStoneRuin {
-		public RuinAsshai(int i, int j) {
-			super(i, j);
-		}
-
-		@Override
-		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
-			int l = random.nextInt(2);
-			switch (l) {
-				case 0:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 0);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 7);
-			}
-		}
-
-		@Override
-		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
-			int l = random.nextInt(2);
-			switch (l) {
-				case 0:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle1, 1);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle2, 2);
-			}
-		}
-	}
-
 	public static class RuinSandstone extends GOTStructureStoneRuin {
 		public RuinSandstone(int i, int j) {
 			super(i, j);
@@ -156,46 +126,6 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 					break;
 				case 1:
 					setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle7, 1);
-			}
-		}
-	}
-
-	public static class RuinSothoryos extends GOTStructureStoneRuin {
-		public RuinSothoryos(int i, int j) {
-			super(i, j);
-		}
-
-		@Override
-		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
-			int l = random.nextInt(3);
-			switch (l) {
-				case 0:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 0);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 1);
-					break;
-				case 2:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 2);
-			}
-		}
-
-		@Override
-		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
-			if (random.nextInt(4) == 0) {
-				setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 5);
-			} else {
-				int l = random.nextInt(3);
-				switch (l) {
-					case 0:
-						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 0);
-						break;
-					case 1:
-						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 1);
-						break;
-					case 2:
-						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 2);
-				}
 			}
 		}
 	}
@@ -235,46 +165,6 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 						break;
 					case 2:
 						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingleV, 1);
-				}
-			}
-		}
-	}
-
-	public static class RuinYiTi extends GOTStructureStoneRuin {
-		public RuinYiTi(int i, int j) {
-			super(i, j);
-		}
-
-		@Override
-		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
-			int l = random.nextInt(3);
-			switch (l) {
-				case 0:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick5, 11);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick5, 13);
-					break;
-				case 2:
-					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick5, 14);
-			}
-		}
-
-		@Override
-		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
-			if (random.nextInt(4) == 0) {
-				setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 4);
-			} else {
-				int l = random.nextInt(3);
-				switch (l) {
-					case 0:
-						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 0);
-						break;
-					case 1:
-						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 1);
-						break;
-					case 2:
-						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 2);
 				}
 			}
 		}

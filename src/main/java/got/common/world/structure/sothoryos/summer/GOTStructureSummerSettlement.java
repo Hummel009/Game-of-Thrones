@@ -116,7 +116,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 		private void setupFortress() {
 			addStructure(new StructureRespawner1(), 0, 0, 0);
-			addStructure(new GOTStructureSummerFort(false), 0, -12, 0, true);
+			addStructure(new GOTStructureSummerFortress(false), 0, -12, 0, true);
 			addStructure(new GOTStructureSummerTower(false), -24, -24, 0, true);
 			addStructure(new GOTStructureSummerTower(false), 24, -24, 0, true);
 			addStructure(new GOTStructureSummerTower(false), -24, 24, 2, true);

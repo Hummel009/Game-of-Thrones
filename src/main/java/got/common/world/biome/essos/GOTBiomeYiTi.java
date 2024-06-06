@@ -14,7 +14,6 @@ import got.common.world.structure.essos.yiti.GOTStructureYiTiSettlement;
 import got.common.world.structure.other.GOTStructureBurntHouse;
 import got.common.world.structure.other.GOTStructureRottenHouse;
 import got.common.world.structure.other.GOTStructureRuinedHouse;
-import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,7 +41,6 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addStructure(new GOTStructureStoneRuin.RuinYiTi(1, 4), 400);
 		decorator.addSettlement(new GOTStructureYiTiSettlement(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();

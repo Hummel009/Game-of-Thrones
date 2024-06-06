@@ -78,7 +78,7 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureArrynBarn(false);
 				}
 			}
-			return new GOTStructureArrynHouse(false);
+			return new GOTStructureArrynHouseSmall(false);
 		}
 
 		@Override
@@ -168,8 +168,8 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureArrynStables(false), -24, -2, 2);
 			addStructure(new GOTStructureArrynSmithy(false), 24, 1, 0);
 			addStructure(new GOTStructureArrynSmithy(false), 24, -1, 2);
-			addStructure(new GOTStructureArrynStoneHouse(false), -3, -25, 1);
-			addStructure(new GOTStructureArrynStoneHouse(false), 3, -25, 3);
+			addStructure(new GOTStructureArrynHouseLarge(false), -3, -25, 1);
+			addStructure(new GOTStructureArrynHouseLarge(false), 3, -25, 3);
 			addStructure(new GOTStructureArrynVillageFarm.Crops(false), -18, -21, 1);
 			addStructure(new GOTStructureArrynVillageFarm.Crops(false), 18, -21, 3);
 			addStructure(new GOTStructureWesterosWell(false), -12, 27, 1);
@@ -238,14 +238,14 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == 1) {
-					addStructure(new GOTStructureArrynStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureArrynStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureArrynHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureArrynHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (k1 == 0) {
 					continue;
 				}
-				addStructure(new GOTStructureArrynStoneHouse(false), houseZ, houseX, 0, true);
-				addStructure(new GOTStructureArrynStoneHouse(false), houseZ, -houseX, 2, true);
+				addStructure(new GOTStructureArrynHouseLarge(false), houseZ, houseX, 0, true);
+				addStructure(new GOTStructureArrynHouseLarge(false), houseZ, -houseX, 2, true);
 			}
 			addStructure(new GOTStructureArrynSmithy(false), 0, -26, 2, true);
 			addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
@@ -272,11 +272,11 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 			for (int k1 = -2; k1 <= 2; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == -2 || k1 >= 1) {
-					addStructure(new GOTStructureArrynStoneHouse(false), -houseX, houseZ, 3, true);
-					addStructure(new GOTStructureArrynStoneHouse(false), houseX, houseZ, 1, true);
+					addStructure(new GOTStructureArrynHouseLarge(false), -houseX, houseZ, 3, true);
+					addStructure(new GOTStructureArrynHouseLarge(false), houseX, houseZ, 1, true);
 				}
-				addStructure(new GOTStructureArrynStoneHouse(false), houseZ, houseX, 2, true);
-				addStructure(new GOTStructureArrynStoneHouse(false), houseZ, -houseX, 0, true);
+				addStructure(new GOTStructureArrynHouseLarge(false), houseZ, houseX, 2, true);
+				addStructure(new GOTStructureArrynHouseLarge(false), houseZ, -houseX, 0, true);
 			}
 			int treeX = 47;
 			int treeZ = 35;
@@ -295,19 +295,19 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureArrynVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
 					addStructure(new GOTStructureArrynVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
 				} else {
-					addStructure(new GOTStructureArrynStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureArrynStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureArrynHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureArrynHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (treepiece) {
 					addStructure(new GOTStructureArrynVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
-					addStructure(new GOTStructureArrynStoneHouse(false), houseZ, -houseX, 2, true);
+					addStructure(new GOTStructureArrynHouseLarge(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
 					if (treepiece) {
 						addStructure(new GOTStructureArrynVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
-						addStructure(new GOTStructureArrynStoneHouse(false), houseZ, houseX, 0, true);
+						addStructure(new GOTStructureArrynHouseLarge(false), houseZ, houseX, 0, true);
 					}
 				}
 				addStructure(new GOTStructureWesterosLampPost(false), -lampX, houseZ, 1, true);
@@ -398,9 +398,9 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);
-			addStructure(new GOTStructureArrynCottage(false), -21, 0, 1);
-			addStructure(new GOTStructureArrynCottage(false), 0, -21, 2);
-			addStructure(new GOTStructureArrynCottage(false), 21, 0, 3);
+			addStructure(new GOTStructureArrynHouse(false), -21, 0, 1);
+			addStructure(new GOTStructureArrynHouse(false), 0, -21, 2);
+			addStructure(new GOTStructureArrynHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureArrynTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
 				if (random.nextInt(3) == 0) {

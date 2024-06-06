@@ -60,10 +60,10 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 					case 1:
 						return new GOTStructureGiftStables(false);
 					case 2:
-						return new GOTStructureGiftLodge(false);
+						return new GOTStructureGiftHouse(false);
 				}
 			}
-			return new GOTStructureGiftHouse(false);
+			return new GOTStructureGiftHouseSmall(false);
 		}
 
 		@Override

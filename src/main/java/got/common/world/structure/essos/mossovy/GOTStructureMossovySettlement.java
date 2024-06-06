@@ -62,7 +62,7 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 					setupVillage(random);
 					break;
 				case FORT:
-					addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
+					addStructure(new GOTStructureMossovyFortress(false), 0, 0, 0, true);
 					break;
 			}
 		}
@@ -106,10 +106,10 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner1(), 0, 0, 0);
 			addStructure(new StructureRespawner2(), 0, 0, 0);
-			addStructure(new GOTStructureMossovyOffice(false), -21, 0, 1);
+			addStructure(new GOTStructureMossovyHouseLarge(false), -21, 0, 1);
 			addStructure(new GOTStructureMossovyBarn(false), 0, -21, 2);
 			addStructure(new GOTStructureMossovySmithy(false), 21, 0, 3);
-			addStructure(new GOTStructureMossovyInn(false), 0, 21, 0);
+			addStructure(new GOTStructureMossovyTavern(false), 0, 21, 0);
 			int houses = 20;
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
@@ -153,12 +153,12 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;
-			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, -farmZ, 1);
-			addStructure(new GOTStructureMossovyTrampHouse(false), -farmZ + farmSize, -farmX, 1);
-			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, -farmZ, 3);
-			addStructure(new GOTStructureMossovyTrampHouse(false), farmZ - farmSize, -farmX, 3);
-			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
-			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
+			addStructure(new GOTStructureMossovyHouseSmall(false), -farmX + farmSize, -farmZ, 1);
+			addStructure(new GOTStructureMossovyHouseSmall(false), -farmZ + farmSize, -farmX, 1);
+			addStructure(new GOTStructureMossovyHouseSmall(false), farmX - farmSize, -farmZ, 3);
+			addStructure(new GOTStructureMossovyHouseSmall(false), farmZ - farmSize, -farmX, 3);
+			addStructure(new GOTStructureMossovyHouseSmall(false), -farmX + farmSize, farmZ, 1);
+			addStructure(new GOTStructureMossovyHouseSmall(false), farmX - farmSize, farmZ, 3);
 		}
 
 		private static class StructureRespawner1 extends GOTStructureNPCRespawner {

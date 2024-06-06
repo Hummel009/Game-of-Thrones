@@ -75,7 +75,7 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 						return new GOTStructureWesterlandsBarn(false);
 				}
 			}
-			return new GOTStructureWesterlandsHouse(false);
+			return new GOTStructureWesterlandsHouseSmall(false);
 		}
 
 		@Override
@@ -165,8 +165,8 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			addStructure(new GOTStructureWesterlandsStables(false), -24, -2, 2);
 			addStructure(new GOTStructureWesterlandsSmithy(false), 24, 1, 0);
 			addStructure(new GOTStructureWesterlandsSmithy(false), 24, -1, 2);
-			addStructure(new GOTStructureWesterlandsStoneHouse(false), -3, -25, 1);
-			addStructure(new GOTStructureWesterlandsStoneHouse(false), 3, -25, 3);
+			addStructure(new GOTStructureWesterlandsHouseLarge(false), -3, -25, 1);
+			addStructure(new GOTStructureWesterlandsHouseLarge(false), 3, -25, 3);
 			addStructure(new GOTStructureWesterlandsVillageFarm.Crops(false), -18, -21, 1);
 			addStructure(new GOTStructureWesterlandsVillageFarm.Crops(false), 18, -21, 3);
 			addStructure(new GOTStructureWesterosWell(false), -12, 27, 1);
@@ -235,14 +235,14 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == 1) {
-					addStructure(new GOTStructureWesterlandsStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureWesterlandsStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureWesterlandsHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureWesterlandsHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (k1 == 0) {
 					continue;
 				}
-				addStructure(new GOTStructureWesterlandsStoneHouse(false), houseZ, houseX, 0, true);
-				addStructure(new GOTStructureWesterlandsStoneHouse(false), houseZ, -houseX, 2, true);
+				addStructure(new GOTStructureWesterlandsHouseLarge(false), houseZ, houseX, 0, true);
+				addStructure(new GOTStructureWesterlandsHouseLarge(false), houseZ, -houseX, 2, true);
 			}
 			addStructure(new GOTStructureWesterlandsSmithy(false), 0, -26, 2, true);
 			addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
@@ -269,11 +269,11 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			for (int k1 = -2; k1 <= 2; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == -2 || k1 >= 1) {
-					addStructure(new GOTStructureWesterlandsStoneHouse(false), -houseX, houseZ, 3, true);
-					addStructure(new GOTStructureWesterlandsStoneHouse(false), houseX, houseZ, 1, true);
+					addStructure(new GOTStructureWesterlandsHouseLarge(false), -houseX, houseZ, 3, true);
+					addStructure(new GOTStructureWesterlandsHouseLarge(false), houseX, houseZ, 1, true);
 				}
-				addStructure(new GOTStructureWesterlandsStoneHouse(false), houseZ, houseX, 2, true);
-				addStructure(new GOTStructureWesterlandsStoneHouse(false), houseZ, -houseX, 0, true);
+				addStructure(new GOTStructureWesterlandsHouseLarge(false), houseZ, houseX, 2, true);
+				addStructure(new GOTStructureWesterlandsHouseLarge(false), houseZ, -houseX, 0, true);
 			}
 			int treeX = 47;
 			int treeZ = 35;
@@ -292,19 +292,19 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 					addStructure(new GOTStructureWesterlandsVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
 					addStructure(new GOTStructureWesterlandsVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
 				} else {
-					addStructure(new GOTStructureWesterlandsStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureWesterlandsStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureWesterlandsHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureWesterlandsHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (treepiece) {
 					addStructure(new GOTStructureWesterlandsVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
-					addStructure(new GOTStructureWesterlandsStoneHouse(false), houseZ, -houseX, 2, true);
+					addStructure(new GOTStructureWesterlandsHouseLarge(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
 					if (treepiece) {
 						addStructure(new GOTStructureWesterlandsVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
-						addStructure(new GOTStructureWesterlandsStoneHouse(false), houseZ, houseX, 0, true);
+						addStructure(new GOTStructureWesterlandsHouseLarge(false), houseZ, houseX, 0, true);
 					}
 				}
 				addStructure(new GOTStructureWesterosLampPost(false), -lampX, houseZ, 1, true);
@@ -395,9 +395,9 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);
-			addStructure(new GOTStructureWesterlandsCottage(false), -21, 0, 1);
-			addStructure(new GOTStructureWesterlandsCottage(false), 0, -21, 2);
-			addStructure(new GOTStructureWesterlandsCottage(false), 21, 0, 3);
+			addStructure(new GOTStructureWesterlandsHouse(false), -21, 0, 1);
+			addStructure(new GOTStructureWesterlandsHouse(false), 0, -21, 2);
+			addStructure(new GOTStructureWesterlandsHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureWesterlandsTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
 				if (random.nextInt(3) == 0) {

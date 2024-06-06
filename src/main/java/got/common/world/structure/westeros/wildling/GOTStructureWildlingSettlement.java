@@ -48,7 +48,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public enum Type {
-		VILLAGE, HARDHOME, CRASTER, THENN
+		DEFAULT, HARDHOME, CRASTER, THENN
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance {
@@ -68,7 +68,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 				case HARDHOME:
 					setupHardhome();
 					break;
-				case VILLAGE:
+				case DEFAULT:
 					setupVillage();
 					break;
 				case THENN:
@@ -87,7 +87,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			int outerOut;
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
-			if (type == Type.VILLAGE || type == Type.THENN) {
+			if (type == Type.DEFAULT || type == Type.THENN) {
 				int dSq = i * i + k * k;
 				int imn = 15 + random.nextInt(4);
 				if (dSq < imn * imn || i1 <= 64 && k1 <= 3 + random.nextInt(2)) {
@@ -175,7 +175,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void setupSettlementProperties(Random random) {
 			if (!forcedType) {
-				type = Type.VILLAGE;
+				type = Type.DEFAULT;
 			}
 		}
 

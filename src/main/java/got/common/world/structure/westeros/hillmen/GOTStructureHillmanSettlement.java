@@ -46,7 +46,7 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			addStructure(new GOTStructureHillmanHouse(false), 0, -centreSide, 2, true);
-			addStructure(new GOTStructureHillmanFort(false), -pathEnd, 0, 1, true);
+			addStructure(new GOTStructureHillmanFortress(false), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureHillmanTavern(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {

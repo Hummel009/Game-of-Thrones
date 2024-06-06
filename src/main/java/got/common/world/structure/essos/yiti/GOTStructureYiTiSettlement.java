@@ -240,14 +240,14 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 			int mansionX = 12;
 			int mansionZ = 20;
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), -mansionX, -mansionZ, 2, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), mansionX, -mansionZ, 2, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), -mansionX, mansionZ, 0, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), mansionX, mansionZ, 0, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), -mansionZ, -mansionX, 1, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), -mansionZ, mansionX, 1, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), mansionZ, -mansionX, 3, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), mansionZ, mansionX, 3, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), -mansionX, -mansionZ, 2, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), mansionX, -mansionZ, 2, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), -mansionX, mansionZ, 0, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), mansionX, mansionZ, 0, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), -mansionZ, -mansionX, 1, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), -mansionZ, mansionX, 1, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), mansionZ, -mansionX, 3, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), mansionZ, mansionX, 3, true);
 			for (int l = 0; l <= 3; ++l) {
 				int houseX = 10 + 14 * l;
 				int houseZ1 = 58;
@@ -258,17 +258,17 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 							addStructure(new GOTStructureYiTiTavernTown(false), -houseX - 7, -houseZ1, 0, true);
 						}
 					} else {
-						addStructure(new GOTStructureYiTiTownHouse(false), -houseX, -houseZ1, 0, true);
+						addStructure(new GOTStructureYiTiHouse(false), -houseX, -houseZ1, 0, true);
 					}
-					addStructure(new GOTStructureYiTiTownHouse(false), houseX, -houseZ1, 0, true);
+					addStructure(new GOTStructureYiTiHouse(false), houseX, -houseZ1, 0, true);
 					if (l >= 1) {
-						addStructure(new GOTStructureYiTiTownHouse(false), -houseX, houseZ1, 2, true);
-						addStructure(new GOTStructureYiTiTownHouse(false), houseX, houseZ1, 2, true);
+						addStructure(new GOTStructureYiTiHouse(false), -houseX, houseZ1, 2, true);
+						addStructure(new GOTStructureYiTiHouse(false), houseX, houseZ1, 2, true);
 					}
-					addStructure(new GOTStructureYiTiTownHouse(false), -houseZ1, -houseX, 3, true);
-					addStructure(new GOTStructureYiTiTownHouse(false), -houseZ1, houseX, 3, true);
-					addStructure(new GOTStructureYiTiTownHouse(false), houseZ1, -houseX, 1, true);
-					addStructure(new GOTStructureYiTiTownHouse(false), houseZ1, houseX, 1, true);
+					addStructure(new GOTStructureYiTiHouse(false), -houseZ1, -houseX, 3, true);
+					addStructure(new GOTStructureYiTiHouse(false), -houseZ1, houseX, 3, true);
+					addStructure(new GOTStructureYiTiHouse(false), houseZ1, -houseX, 1, true);
+					addStructure(new GOTStructureYiTiHouse(false), houseZ1, houseX, 1, true);
 				}
 				if (l == 1) {
 					addStructure(new GOTStructureYiTiVillageFarm.Tree(false), -houseX, -houseZ2, 2, true);
@@ -281,14 +281,14 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureYiTiVillageFarm.Tree(false), houseZ2, houseX, 3, true);
 					continue;
 				}
-				addStructure(new GOTStructureYiTiTownHouse(false), -houseX, -houseZ2, 2, true);
-				addStructure(l == 3 ? new GOTStructureYiTiSmithy(false) : new GOTStructureYiTiTownHouse(false), houseX, -houseZ2, 2, true);
-				addStructure(new GOTStructureYiTiTownHouse(false), -houseX, houseZ2, 0, true);
-				addStructure(new GOTStructureYiTiTownHouse(false), houseX, houseZ2, 0, true);
-				addStructure(new GOTStructureYiTiTownHouse(false), -houseZ2, -houseX, 1, true);
-				addStructure(new GOTStructureYiTiTownHouse(false), -houseZ2, houseX, 1, true);
-				addStructure(new GOTStructureYiTiTownHouse(false), houseZ2, -houseX, 3, true);
-				addStructure(new GOTStructureYiTiTownHouse(false), houseZ2, houseX, 3, true);
+				addStructure(new GOTStructureYiTiHouse(false), -houseX, -houseZ2, 2, true);
+				addStructure(l == 3 ? new GOTStructureYiTiSmithy(false) : new GOTStructureYiTiHouse(false), houseX, -houseZ2, 2, true);
+				addStructure(new GOTStructureYiTiHouse(false), -houseX, houseZ2, 0, true);
+				addStructure(new GOTStructureYiTiHouse(false), houseX, houseZ2, 0, true);
+				addStructure(new GOTStructureYiTiHouse(false), -houseZ2, -houseX, 1, true);
+				addStructure(new GOTStructureYiTiHouse(false), -houseZ2, houseX, 1, true);
+				addStructure(new GOTStructureYiTiHouse(false), houseZ2, -houseX, 3, true);
+				addStructure(new GOTStructureYiTiHouse(false), houseZ2, houseX, 3, true);
 			}
 			int marketX = 4;
 			for (int l = 0; l <= 2; ++l) {
@@ -351,7 +351,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			int signX = 12;
 			addStructure(new GOTStructureYiTiVillageSign(false), -signX, 0, 1, true);
 			addStructure(new GOTStructureYiTiVillageSign(false), signX, 0, 3, true);
-			addStructure(new GOTStructureYiTiLargeTownHouse(false), 0, -centreSide, 2, true);
+			addStructure(new GOTStructureYiTiHouseLarge(false), 0, -centreSide, 2, true);
 			if (random.nextBoolean()) {
 				addStructure(new GOTStructureYiTiTavern(false), -pathEnd, 0, 1, true);
 				addStructure(getOtherSettlementStructure(random), pathEnd, 0, 3, true);
@@ -367,9 +367,9 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					k1 += 15 - pathSide;
 				}
 				if (Math.abs(l) >= 1) {
-					addStructure(new GOTStructureYiTiHouse(false), i1, -k1, 2);
+					addStructure(new GOTStructureYiTiHouseSmall(false), i1, -k1, 2);
 				}
-				addStructure(new GOTStructureYiTiHouse(false), i1, k1, 0);
+				addStructure(new GOTStructureYiTiHouseSmall(false), i1, k1, 0);
 				int k2 = k1 + 20;
 				if (l != 0) {
 					if (random.nextInt(3) == 0) {

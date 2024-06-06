@@ -7,7 +7,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.essos.asshai.GOTStructureAsshaiAltar;
-import got.common.world.structure.essos.asshai.GOTStructureAsshaiSpiderPit;
+import got.common.world.structure.essos.asshai.GOTStructureAsshaiBiolab;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
@@ -25,7 +25,7 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 		super(i, major);
 		decorator.setFlowersPerChunk(0);
 		decorator.addStructure(new GOTStructureAsshaiAltar(false), 250);
-		decorator.addStructure(new GOTStructureAsshaiSpiderPit(false), 150);
+		decorator.addStructure(new GOTStructureAsshaiBiolab(false), 150);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

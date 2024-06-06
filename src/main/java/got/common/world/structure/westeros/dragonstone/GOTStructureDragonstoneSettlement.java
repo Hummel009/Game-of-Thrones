@@ -78,7 +78,7 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 						return new GOTStructureDragonstoneBarn(false);
 				}
 			}
-			return new GOTStructureDragonstoneHouse(false);
+			return new GOTStructureDragonstoneHouseSmall(false);
 		}
 
 		@Override
@@ -164,8 +164,8 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 			addStructure(new GOTStructureDragonstoneStables(false), -24, -2, 2);
 			addStructure(new GOTStructureDragonstoneSmithy(false), 24, 1, 0);
 			addStructure(new GOTStructureDragonstoneSmithy(false), 24, -1, 2);
-			addStructure(new GOTStructureDragonstoneStoneHouse(false), -3, -25, 1);
-			addStructure(new GOTStructureDragonstoneStoneHouse(false), 3, -25, 3);
+			addStructure(new GOTStructureDragonstoneHouseLarge(false), -3, -25, 1);
+			addStructure(new GOTStructureDragonstoneHouseLarge(false), 3, -25, 3);
 			addStructure(new GOTStructureDragonstoneVillageFarm.Crops(false), -18, -21, 1);
 			addStructure(new GOTStructureDragonstoneVillageFarm.Crops(false), 18, -21, 3);
 			addStructure(new GOTStructureWesterosWell(false), -12, 27, 1);
@@ -234,14 +234,14 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == 1) {
-					addStructure(new GOTStructureDragonstoneStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureDragonstoneStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDragonstoneHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDragonstoneHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (k1 == 0) {
 					continue;
 				}
-				addStructure(new GOTStructureDragonstoneStoneHouse(false), houseZ, houseX, 0, true);
-				addStructure(new GOTStructureDragonstoneStoneHouse(false), houseZ, -houseX, 2, true);
+				addStructure(new GOTStructureDragonstoneHouseLarge(false), houseZ, houseX, 0, true);
+				addStructure(new GOTStructureDragonstoneHouseLarge(false), houseZ, -houseX, 2, true);
 			}
 			addStructure(new GOTStructureDragonstoneSmithy(false), 0, -26, 2, true);
 			addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
@@ -268,11 +268,11 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 			for (int k1 = -2; k1 <= 2; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == -2 || k1 >= 1) {
-					addStructure(new GOTStructureDragonstoneStoneHouse(false), -houseX, houseZ, 3, true);
-					addStructure(new GOTStructureDragonstoneStoneHouse(false), houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDragonstoneHouseLarge(false), -houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDragonstoneHouseLarge(false), houseX, houseZ, 1, true);
 				}
-				addStructure(new GOTStructureDragonstoneStoneHouse(false), houseZ, houseX, 2, true);
-				addStructure(new GOTStructureDragonstoneStoneHouse(false), houseZ, -houseX, 0, true);
+				addStructure(new GOTStructureDragonstoneHouseLarge(false), houseZ, houseX, 2, true);
+				addStructure(new GOTStructureDragonstoneHouseLarge(false), houseZ, -houseX, 0, true);
 			}
 			int treeX = 47;
 			int treeZ = 35;
@@ -291,19 +291,19 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 					addStructure(new GOTStructureDragonstoneVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
 					addStructure(new GOTStructureDragonstoneVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
 				} else {
-					addStructure(new GOTStructureDragonstoneStoneHouse(false), -houseX, houseZ, 1, true);
-					addStructure(new GOTStructureDragonstoneStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDragonstoneHouseLarge(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDragonstoneHouseLarge(false), houseX, houseZ, 3, true);
 				}
 				if (treepiece) {
 					addStructure(new GOTStructureDragonstoneVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
-					addStructure(new GOTStructureDragonstoneStoneHouse(false), houseZ, -houseX, 2, true);
+					addStructure(new GOTStructureDragonstoneHouseLarge(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
 					if (treepiece) {
 						addStructure(new GOTStructureDragonstoneVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
-						addStructure(new GOTStructureDragonstoneStoneHouse(false), houseZ, houseX, 0, true);
+						addStructure(new GOTStructureDragonstoneHouseLarge(false), houseZ, houseX, 0, true);
 					}
 				}
 				addStructure(new GOTStructureWesterosLampPost(false), -lampX, houseZ, 1, true);
@@ -394,9 +394,9 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner5(), 0, 0, 0);
 			addStructure(new StructureRespawner6(), 0, 0, 0);
-			addStructure(new GOTStructureDragonstoneCottage(false), -21, 0, 1);
-			addStructure(new GOTStructureDragonstoneCottage(false), 0, -21, 2);
-			addStructure(new GOTStructureDragonstoneCottage(false), 21, 0, 3);
+			addStructure(new GOTStructureDragonstoneHouse(false), -21, 0, 1);
+			addStructure(new GOTStructureDragonstoneHouse(false), 0, -21, 2);
+			addStructure(new GOTStructureDragonstoneHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureDragonstoneTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
 				if (random.nextInt(3) == 0) {

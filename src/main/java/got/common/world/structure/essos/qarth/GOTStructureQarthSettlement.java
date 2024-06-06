@@ -251,12 +251,12 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(new GOTStructureQarthMansion(false), i, k, r, true);
+				addStructure(new GOTStructureQarthHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureQarthLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(new GOTStructureQarthMansion(false), i, k, r, true);
+				addStructure(new GOTStructureQarthHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureQarthLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(new GOTStructureQarthSmithy(false), -25, 9, 1, true);
@@ -378,9 +378,9 @@ public class GOTStructureQarthSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureQarthWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureQarthTavern(false), 0, rSquareEdge, 0, true);
-			addStructure(new GOTStructureQarthMansion(false), -3, -rSquareEdge, 2, true);
-			addStructure(new GOTStructureQarthMansion(false), -rSquareEdge, 3, 1, true);
-			addStructure(new GOTStructureQarthMansion(false), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureQarthHouseLarge(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureQarthHouseLarge(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureQarthHouseLarge(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;

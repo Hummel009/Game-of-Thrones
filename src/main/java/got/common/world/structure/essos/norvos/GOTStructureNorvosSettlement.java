@@ -241,12 +241,12 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(new GOTStructureNorvosMansion(false), i, k, r, true);
+				addStructure(new GOTStructureNorvosHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureNorvosLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(new GOTStructureNorvosMansion(false), i, k, r, true);
+				addStructure(new GOTStructureNorvosHouseLarge(false), i, k, r, true);
 				addStructure(new GOTStructureNorvosLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(new GOTStructureNorvosSmithy(false), -25, 9, 1, true);
@@ -368,9 +368,9 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureNorvosWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(new GOTStructureNorvosTavern(false), 0, rSquareEdge, 0, true);
-			addStructure(new GOTStructureNorvosMansion(false), -3, -rSquareEdge, 2, true);
-			addStructure(new GOTStructureNorvosMansion(false), -rSquareEdge, 3, 1, true);
-			addStructure(new GOTStructureNorvosMansion(false), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureNorvosHouseLarge(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureNorvosHouseLarge(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureNorvosHouseLarge(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;
