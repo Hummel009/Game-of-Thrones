@@ -102,6 +102,10 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		public void setType(GOTStructureMossovySettlement.Type type) {
+			this.type = type;
+		}
+
 		private void setupVillage(Random random) {
 			addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner1(), 0, 0, 0);

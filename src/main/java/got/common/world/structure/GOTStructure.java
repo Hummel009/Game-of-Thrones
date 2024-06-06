@@ -508,8 +508,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureJogosSettlement(GOTBiome.ocean, 1.0f), "JogosSettle", GOTFaction.JOGOS, (GOTStructureRegistry.ISettlementProperties<GOTStructureJogosSettlement.Instance>) instance -> instance.setType(GOTStructureJogosSettlement.Type.SMALL));
 		GOTStructureRegistry.register(id++, new GOTStructureJogosSettlement(GOTBiome.ocean, 1.0f), "JogosSettleLarge", GOTFaction.JOGOS, (GOTStructureRegistry.ISettlementProperties<GOTStructureJogosSettlement.Instance>) instance -> instance.setType(GOTStructureJogosSettlement.Type.BIG));
 
-		GOTStructureRegistry.register(id++, new GOTStructureMossovySettlement(GOTBiome.ocean, 1.0f), "MossovySettle", GOTFaction.MOSSOVY, (GOTStructureRegistry.ISettlementProperties<GOTStructureMossovySettlement.Instance>) instance -> {
-		});
+		GOTStructureRegistry.register(id++, new GOTStructureMossovySettlement(GOTBiome.ocean, 1.0f), "MossovySettle", GOTFaction.JOGOS, (GOTStructureRegistry.ISettlementProperties<GOTStructureMossovySettlement.Instance>) instance -> instance.setType(GOTStructureMossovySettlement.Type.VILLAGE));
 
 		GOTStructureRegistry.register(id++, new GOTStructureYiTiSettlement(GOTBiome.ocean, 1.0f), "YiTiSettle", GOTFaction.YI_TI, (GOTStructureRegistry.ISettlementProperties<GOTStructureYiTiSettlement.Instance>) instance -> instance.setType(GOTStructureYiTiSettlement.Type.VILLAGE));
 		GOTStructureRegistry.register(id++, new GOTStructureYiTiSettlement(GOTBiome.ocean, 1.0f), "YiTiSettleForted", GOTFaction.YI_TI, (GOTStructureRegistry.ISettlementProperties<GOTStructureYiTiSettlement.Instance>) instance -> instance.setType(GOTStructureYiTiSettlement.Type.FORT));
