@@ -1714,13 +1714,6 @@ public class GOTBlocks {
 
 		/* misc */
 
-		register(buttonAndesite, "buttonAndesite");
-		register(buttonBasalt, "buttonBasalt");
-		register(buttonChalk, "buttonChalk");
-		register(buttonDiorite, "buttonDiorite");
-		register(buttonGranite, "buttonGranite");
-		register(buttonLabradorite, "buttonLabradorite");
-		register(buttonRhyolite, "buttonRhyolite");
 		register(pressurePlateAndesite, "pressurePlateAndesite");
 		register(pressurePlateBasalt, "pressurePlateBasalt");
 		register(pressurePlateChalk, "pressurePlateChalk");
@@ -1728,6 +1721,14 @@ public class GOTBlocks {
 		register(pressurePlateGranite, "pressurePlateGranite");
 		register(pressurePlateLabradorite, "pressurePlateLabradorite");
 		register(pressurePlateRhyolite, "pressurePlateRhyolite");
+
+		register(buttonAndesite, "buttonAndesite");
+		register(buttonBasalt, "buttonBasalt");
+		register(buttonChalk, "buttonChalk");
+		register(buttonDiorite, "buttonDiorite");
+		register(buttonGranite, "buttonGranite");
+		register(buttonLabradorite, "buttonLabradorite");
+		register(buttonRhyolite, "buttonRhyolite");
 
 		/* null */
 
@@ -1830,39 +1831,42 @@ public class GOTBlocks {
 
 		/* util */
 
-		register(tableArryn, "tableArryn");
-		register(tableAsshai, "tableAsshai");
-		register(tableBraavos, "tableBraavos");
-		register(tableCrownlands, "tableCrownlands");
-		register(tableDorne, "tableDorne");
-		register(tableDothraki, "tableDothraki");
-		register(tableDragonstone, "tableDragonstone");
-		register(tableGhiscar, "tableGhiscar");
-		register(tableGift, "tableGift");
-		register(tableHillTribes, "tableHillTribes");
-		register(tableIbben, "tableIbben");
-		register(tableIronborn, "tableIronborn");
-		register(tableJogos, "tableJogos");
-		register(tableLhazar, "tableLhazar");
-		register(tableLorath, "tableLorath");
-		register(tableLys, "tableLys");
-		register(tableMossovy, "tableMossovy");
-		register(tableMyr, "tableMyr");
-		register(tableNorth, "tableNorth");
-		register(tableNorvos, "tableNorvos");
-		register(tablePentos, "tablePentos");
-		register(tableQarth, "tableQarth");
-		register(tableQohor, "tableQohor");
-		register(tableReach, "tableReach");
-		register(tableRiverlands, "tableRiverlands");
-		register(tableSothoryos, "tableSothoryos");
-		register(tableStormlands, "tableStormlands");
-		register(tableSummer, "tableSummer");
-		register(tableTyrosh, "tableTyrosh");
-		register(tableVolantis, "tableVolantis");
-		register(tableWesterlands, "tableWesterlands");
 		register(tableWildling, "tableWildling");
+		register(tableGift, "tableGift");
+		register(tableNorth, "tableNorth");
+		register(tableIronborn, "tableIronborn");
+		register(tableWesterlands, "tableWesterlands");
+		register(tableRiverlands, "tableRiverlands");
+		register(tableHillTribes, "tableHillTribes");
+		register(tableArryn, "tableArryn");
+		register(tableDragonstone, "tableDragonstone");
+		register(tableCrownlands, "tableCrownlands");
+		register(tableStormlands, "tableStormlands");
+		register(tableReach, "tableReach");
+		register(tableDorne, "tableDorne");
+
+		register(tableBraavos, "tableBraavos");
+		register(tableVolantis, "tableVolantis");
+		register(tablePentos, "tablePentos");
+		register(tableNorvos, "tableNorvos");
+		register(tableLorath, "tableLorath");
+		register(tableQohor, "tableQohor");
+		register(tableMyr, "tableMyr");
+		register(tableLys, "tableLys");
+		register(tableTyrosh, "tableTyrosh");
+		register(tableGhiscar, "tableGhiscar");
+		register(tableQarth, "tableQarth");
+		register(tableLhazar, "tableLhazar");
+		register(tableDothraki, "tableDothraki");
+
+		register(tableIbben, "tableIbben");
+		register(tableJogos, "tableJogos");
+		register(tableMossovy, "tableMossovy");
 		register(tableYiTi, "tableYiTi");
+		register(tableAsshai, "tableAsshai");
+
+		register(tableSummer, "tableSummer");
+		register(tableSothoryos, "tableSothoryos");
 
 		register(oven, "oven");
 		register(alloyForge, "alloyForge");

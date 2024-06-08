@@ -662,7 +662,7 @@ public class GOTAchievement {
 		enterSothoryosDesertCold = new GOTAchievement(Category.ENTER, entId++, Blocks.sand, "ENTER_SOTHORYOS_DESERT_COLD").setBiomeAchievement();
 		enterSothoryosForest = new GOTAchievement(Category.ENTER, entId++, GOTItems.sothoryosHelmetGold, "ENTER_SOTHORYOS_FOREST").setBiomeAchievement();
 		enterSothoryosFrost = new GOTAchievement(Category.ENTER, entId++, Blocks.packed_ice, "ENTER_SOTHORYOS_FROST").setBiomeAchievement();
-		enterSothoryosHell = new GOTAchievement(Category.ENTER, entId++, GOTItems.sothoryosAmulet, "ENTER_SOTHORYOS_HELL").setBiomeAchievement();
+		enterSothoryosHell = new GOTAchievement(Category.ENTER, entId++, GOTItems.sothoryosHelmet, "ENTER_SOTHORYOS_HELL").setBiomeAchievement();
 		enterSothoryosJungle = new GOTAchievement(Category.ENTER, entId++, GOTItems.sothoryosHelmet, "ENTER_SOTHORYOS_JUNGLE").setBiomeAchievement();
 		enterSothoryosMangrove = new GOTAchievement(Category.ENTER, entId++, Blocks.water, "ENTER_SOTHORYOS_MANGROVE").setBiomeAchievement();
 		enterSothoryosMountains = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.rock, 1, 6), "ENTER_SOTHORYOS_MOUNTAINS").setBiomeAchievement();
@@ -699,7 +699,7 @@ public class GOTAchievement {
 		enterGhiscarAstapor = new GOTAchievement(Category.ENTER, entId++, GOTItems.unsulliedHelmet, "ENTER_GHISCAR_ASTAPOR").setBiomeAchievement();
 		enterGhiscarMeereen = new GOTAchievement(Category.ENTER, entId++, GOTItems.harpy, "ENTER_GHISCAR_MEEREEN").setBiomeAchievement();
 		enterGhiscarNewGhis = new GOTAchievement(Category.ENTER, entId++, GOTItems.ghiscarHelmet, "ENTER_GHISCAR_NEW_GHIS").setBiomeAchievement();
-		enterGhiscarYunkai = new GOTAchievement(Category.ENTER, entId++, GOTItems.gemsbokHelmet, "ENTER_GHISCAR_YUNKAI").setBiomeAchievement();
+		enterGhiscarYunkai = new GOTAchievement(Category.ENTER, entId++, GOTItems.ghiscarHelmetGemsbok, "ENTER_GHISCAR_YUNKAI").setBiomeAchievement();
 		enterIbbenColony = new GOTAchievement(Category.ENTER, entId++, GOTItems.ibbenHarpoon, "ENTER_IBBEN_COLONY").setBiomeAchievement();
 		enterIbbenMountains = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.rock, 1, 2), "ENTER_IBBEN_MOUNTAINS").setBiomeAchievement();
 		enterIbbenTaiga = new GOTAchievement(Category.ENTER, entId++, new ItemStack(GOTBlocks.wood1, 1, 0), "ENTER_IBBEN_TAIGA").setBiomeAchievement();
@@ -720,7 +720,7 @@ public class GOTAchievement {
 		wearFullDothraki = createArmorAchievement(Category.WEAR, wearId++, GOTItems.dothrakiChestplate, "WEAR_FULL_DOTHRAKI");
 		wearFullDragonstone = createArmorAchievement(Category.WEAR, wearId++, GOTItems.dragonstoneChestplate, "WEAR_FULL_DRAGONSTONE");
 		wearFullFur = createArmorAchievement(Category.WEAR, wearId++, GOTItems.furChestplate, "WEAR_FULL_FUR");
-		wearFullGemsbok = createArmorAchievement(Category.WEAR, wearId++, GOTItems.gemsbokChestplate, "WEAR_FULL_GEMSBOK");
+		wearFullGemsbok = createArmorAchievement(Category.WEAR, wearId++, GOTItems.ghiscarChestplateGemsbok, "WEAR_FULL_GEMSBOK");
 		wearFullGhiscar = createArmorAchievement(Category.WEAR, wearId++, GOTItems.ghiscarChestplate, "WEAR_FULL_GHISCAR");
 		wearFullGift = createArmorAchievement(Category.WEAR, wearId++, GOTItems.giftChestplate, "WEAR_FULL_GIFT");
 		wearFullGoldencompany = createArmorAchievement(Category.WEAR, wearId++, GOTItems.goldChestplate, "WEAR_FULL_GOLDENCOMPANY");

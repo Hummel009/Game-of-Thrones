@@ -28,10 +28,10 @@ public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.gemsbokBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.gemsbokLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.gemsbokChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.gemsbokHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ghiscarBootsGemsbok));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ghiscarLeggingsGemsbok));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ghiscarChestplateGemsbok));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.ghiscarHelmetGemsbok));
 		return entityData;
 	}
 }

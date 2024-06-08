@@ -50,7 +50,6 @@ public abstract class GOTEnchantment {
 	public static final GOTEnchantment PROTECT_RANGED_1 = new GOTEnchantmentProtectionRanged("protectRanged1", 1).setEnchantWeight(5);
 	public static final GOTEnchantment PROTECT_RANGED_2 = new GOTEnchantmentProtectionRanged("protectRanged2", 2).setEnchantWeight(2).setSkilful(true);
 	public static final GOTEnchantment PROTECT_RANGED_3 = new GOTEnchantmentProtectionRanged("protectRanged3", 3).setEnchantWeight(1).setSkilful(true);
-	public static final GOTEnchantment PROTECT_VALYRIAN = new GOTEnchantmentProtectionValyrian("protectValyrian").setEnchantWeight(0);
 	public static final GOTEnchantment RANGED_STRONG_1 = new GOTEnchantmentRangedDamage("rangedStrong1", 1.1F).setEnchantWeight(10);
 	public static final GOTEnchantment RANGED_STRONG_2 = new GOTEnchantmentRangedDamage("rangedStrong2", 1.2F).setEnchantWeight(3);
 	public static final GOTEnchantment RANGED_STRONG_3 = new GOTEnchantmentRangedDamage("rangedStrong3", 1.3F).setEnchantWeight(1).setSkilful(true);

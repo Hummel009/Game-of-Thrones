@@ -185,7 +185,6 @@ public enum GOTMiniQuestFactory {
 			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.westerosDaggerPoisoned), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.westerosHammer), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.westerosHorseArmor), 1, 5).setRewardFactor(3.0f));
-			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.westerosLance), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.westerosPike), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.westerosSpear), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.westerosSword), 1, 5).setRewardFactor(3.0f));
@@ -524,7 +523,6 @@ public enum GOTMiniQuestFactory {
 		SOTHORYOS.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.mango), 4, 6).setRewardFactor(4.0f));
 		SOTHORYOS.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.melonSoup), 3, 8).setRewardFactor(2.0f));
 		SOTHORYOS.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.obsidianShard), 10, 30).setRewardFactor(0.75f));
-		SOTHORYOS.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.sothoryosAmulet), 1, 4).setRewardFactor(20.0f));
 		SOTHORYOS.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.sothoryosAxe), 1, 4).setRewardFactor(5.0f));
 		SOTHORYOS.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.sothoryosBattleaxe), 1, 4).setRewardFactor(5.0f));
 		SOTHORYOS.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.sothoryosDagger), 1, 4).setRewardFactor(4.0f));

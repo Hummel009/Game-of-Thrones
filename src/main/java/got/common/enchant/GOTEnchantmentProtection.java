@@ -36,7 +36,6 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 				int prot = armor.damageReduceAmount;
 				int total = prot + protectLevel;
 				return total > 0 && (considering || total <= GOTMaterial.VALYRIAN.getDamageReductionAmount(armor.armorType));
-
 			}
 			return true;
 		}

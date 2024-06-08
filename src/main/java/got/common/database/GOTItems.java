@@ -146,7 +146,7 @@ public class GOTItems {
 	public static Item clayMug;
 	public static Item clayPlate;
 	public static Item club;
-	public static Item cobaltIngot;
+	public static Item cobaltBlue;
 	public static Item coin;
 	public static Item commandHorn;
 	public static Item commandSword;
@@ -223,12 +223,12 @@ public class GOTItems {
 	public static Item fuse;
 	public static Item gammon;
 	public static Item gateGear;
-	public static Item gemsbokBoots;
-	public static Item gemsbokChestplate;
-	public static Item gemsbokHelmet;
+	public static Item ghiscarBootsGemsbok;
+	public static Item ghiscarChestplateGemsbok;
+	public static Item ghiscarHelmetGemsbok;
 	public static Item gemsbokHide;
 	public static Item gemsbokHorn;
-	public static Item gemsbokLeggings;
+	public static Item ghiscarLeggingsGemsbok;
 	public static Item gendryHammer;
 	public static Item gendryHelmet;
 	public static Item ghiscarBoots;
@@ -531,7 +531,6 @@ public class GOTItems {
 	public static Item skullStaff;
 	public static Item sling;
 	public static Item smithScroll;
-	public static Item sothoryosAmulet;
 	public static Item sothoryosAxe;
 	public static Item sothoryosBattleaxe;
 	public static Item sothoryosBoots;
@@ -601,7 +600,6 @@ public class GOTItems {
 	public static Item unsulliedLeggings;
 	public static Item valyrianAxe;
 	public static Item valyrianBattleaxe;
-	public static Item valyrianBook;
 	public static Item valyrianBoots;
 	public static Item valyrianChainmailBoots;
 	public static Item valyrianChainmailChestplate;
@@ -653,7 +651,6 @@ public class GOTItems {
 	public static Item westerosGreatsword;
 	public static Item westerosHammer;
 	public static Item westerosHorseArmor;
-	public static Item westerosLance;
 	public static Item westerosLongsword;
 	public static Item westerosPike;
 	public static Item westerosSpear;
@@ -678,7 +675,6 @@ public class GOTItems {
 	public static Item wildlingSpear;
 	public static Item wildlingSword;
 	public static Item wineGlass;
-	public static Item woodPlate;
 	public static Item yam;
 	public static Item yamRoast;
 	public static Item yitiBattleaxe;
@@ -777,7 +773,7 @@ public class GOTItems {
 		blackfyreLeggings = new GOTItemArmor(GOTMaterial.BLACKFYRE, 2).setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		blackskinChestplate = new GOTItemArmor(GOTMaterial.BLACKSKIN, 1).setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		blacksmithHammer = new GOTItemHammer(Item.ToolMaterial.IRON);
-		bloodOfTrueKings = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		bloodOfTrueKings = new Item().setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		blueberry = new GOTItemBerry();
 		boltonDagger = new GOTItemLegendaryDagger(GOTMaterial.VALYRIAN_TOOL);
 		boneBoots = new GOTItemArmor(GOTMaterial.BONE, 3);
@@ -828,7 +824,7 @@ public class GOTItems {
 		clayMug = new Item().setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		clayPlate = new Item().setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		club = new GOTItemHammer(Item.ToolMaterial.WOOD);
-		cobaltIngot = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		cobaltBlue = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		coin = new GOTItemCoin().setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		commandHorn = new GOTItemCommandHorn();
 		commandSword = new GOTItemCommandSword();
@@ -905,12 +901,12 @@ public class GOTItems {
 		fuse = new GOTItemDoubleTorch(GOTBlocks.fuse).setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		gammon = new GOTItemFood(8, 0.8f, true);
 		gateGear = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		gemsbokBoots = new GOTItemArmor(GOTMaterial.GEMSBOK, 3);
-		gemsbokChestplate = new GOTItemArmor(GOTMaterial.GEMSBOK, 1);
-		gemsbokHelmet = new GOTItemArmor(GOTMaterial.GEMSBOK, 0);
+		ghiscarBootsGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 3);
+		ghiscarChestplateGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 1);
+		ghiscarHelmetGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 0);
 		gemsbokHide = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		gemsbokHorn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		gemsbokLeggings = new GOTItemArmor(GOTMaterial.GEMSBOK, 2);
+		ghiscarLeggingsGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 2);
 		gendryHammer = new GOTItemLegendaryHammer(Item.ToolMaterial.IRON);
 		gendryHelmet = new GOTItemArmor(GOTMaterial.HELMET, 0, "gendry").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		ghiscarBoots = new GOTItemArmor(GOTMaterial.GHISCAR, 3);
@@ -963,7 +959,7 @@ public class GOTItems {
 		ironDagger = new GOTItemDagger(Item.ToolMaterial.IRON);
 		ironDaggerPoisoned = new GOTItemDagger(Item.ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		ironHorseArmor = new GOTItemMountArmor(ItemArmor.ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, null).setTemplateItem(Items.iron_horse_armor);
-		ironNugget = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		ironNugget = new Item().setCreativeTab(CreativeTabs.tabMaterials);
 		ironPike = new GOTItemPike(Item.ToolMaterial.IRON);
 		ironSpear = new GOTItemSpear(Item.ToolMaterial.IRON);
 		ironThrowingAxe = new GOTItemThrowingAxe(Item.ToolMaterial.IRON);
@@ -1213,7 +1209,6 @@ public class GOTItems {
 		skullStaff = new GOTItemSkullStaff();
 		sling = new GOTItemSling();
 		smithScroll = new GOTItemModifierTemplate();
-		sothoryosAmulet = new Item().setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		sothoryosAxe = new GOTItemAxe(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosBattleaxe = new GOTItemBattleaxe(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosBoots = new GOTItemArmor(GOTMaterial.SOTHORYOS, 3);
@@ -1284,7 +1279,6 @@ public class GOTItems {
 		unsulliedLeggings = new GOTItemArmor(GOTMaterial.UNSULLIED, 2);
 		valyrianAxe = new GOTItemAxe(GOTMaterial.VALYRIAN_TOOL);
 		valyrianBattleaxe = new GOTItemBattleaxe(GOTMaterial.VALYRIAN_TOOL);
-		valyrianBook = new GOTItemEnchantment(GOTEnchantment.PROTECT_VALYRIAN);
 		valyrianBoots = new GOTItemArmor(GOTMaterial.VALYRIAN, 3);
 		valyrianChainmailBoots = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 3);
 		valyrianChainmailChestplate = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 1);
@@ -1338,7 +1332,6 @@ public class GOTItems {
 		westerosGreatsword = new GOTItemGreatsword(Item.ToolMaterial.IRON);
 		westerosHammer = new GOTItemHammer(Item.ToolMaterial.IRON);
 		westerosHorseArmor = new GOTItemMountArmor(ItemArmor.ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, "horse_westeros");
-		westerosLance = new GOTItemLance(Item.ToolMaterial.IRON);
 		westerosLongsword = new GOTItemLongsword(Item.ToolMaterial.IRON);
 		westerosPike = new GOTItemPike(Item.ToolMaterial.IRON);
 		westerosSpear = new GOTItemSpear(Item.ToolMaterial.IRON);
@@ -1363,7 +1356,6 @@ public class GOTItems {
 		wildlingSpear = new GOTItemSpear(Item.ToolMaterial.IRON);
 		wildlingSword = new GOTItemSword(Item.ToolMaterial.IRON);
 		wineGlass = new GOTItemVessel();
-		woodPlate = new GOTItemPlate(GOTBlocks.woodPlate);
 		yam = new ItemSeedFood(1, 0.4f, GOTBlocks.yamCrop, Blocks.farmland).setPotionEffect(Potion.hunger.id, 15, 0, 0.4f);
 		yamRoast = new GOTItemFood(6, 0.6f, false);
 		yitiBattleaxe = new GOTItemBattleaxe(Item.ToolMaterial.IRON);
@@ -1410,430 +1402,721 @@ public class GOTItems {
 	}
 
 	private static void registerContent() {
-		register(goldRing, "goldRing");
-		register(pouch, "pouch");
-		register(copperIngot, "copperIngot");
-		register(tinIngot, "tinIngot");
-		register(bronzeIngot, "bronzeIngot");
-		register(silverIngot, "silverIngot");
-		register(cobaltIngot, "cobaltBlue");
-		register(valyrianIngot, "valyrianIngot");
-		register(bronzeShovel, "bronzeShovel");
-		register(bronzePickaxe, "bronzePickaxe");
-		register(bronzeAxe, "bronzeAxe");
+		/* banner */
+
+		register(banner, "banner");
+
+		/* brewing */
+
+		register(lingeringPotion, "lingeringPotion");
+
+		/* combat */
+
+		register(bronzeBattleaxe, "bronzeBattleaxe");
+		register(bronzeCrossbow, "bronzeCrossbow");
+		register(bronzeDagger, "bronzeDagger");
+		register(bronzeDaggerPoisoned, "bronzeDaggerPoisoned");
+		register(bronzeSpear, "bronzeSpear");
 		register(bronzeSword, "bronzeSword");
-		register(bronzeHoe, "bronzeHoe");
+		register(bronzeThrowingAxe, "bronzeThrowingAxe");
+
+		register(ironBattleaxe, "ironBattleaxe");
+		register(ironCrossbow, "ironCrossbow");
+		register(ironDagger, "ironDagger");
+		register(ironDaggerPoisoned, "ironDaggerPoisoned");
+		register(ironPike, "ironPike");
+		register(ironSpear, "ironSpear");
+		register(ironThrowingAxe, "ironThrowingAxe");
+
+		register(alloySteelDagger, "alloySteelDagger");
+		register(alloySteelDaggerPoisoned, "alloySteelDaggerPoisoned");
+		register(alloySteelHalberd, "alloySteelHalberd");
+		register(alloySteelSword, "alloySteelSword");
+
+		register(valyrianBattleaxe, "valyrianBattleaxe");
+		register(valyrianCrossbow, "valyrianCrossbow");
+		register(valyrianDagger, "valyrianDagger");
+		register(valyrianDaggerPoisoned, "valyrianDaggerPoisoned");
+		register(valyrianHalberd, "valyrianHalberd");
+		register(valyrianHammer, "valyrianHammer");
+		register(valyrianSpear, "valyrianSpear");
+		register(valyrianSword, "valyrianSword");
+
+		register(sarbacane, "sarbacane");
+		register(dart, "dart");
+		register(dartPoisoned, "dartPoisoned");
+
+		register(sling, "sling");
+		register(pebble, "pebble");
+
+		register(firePot, "firePot");
+
+		register(arrowFire, "arrowFire");
+		register(arrowPoisoned, "arrowPoisoned");
+		register(crossbowBolt, "crossbowBolt");
+		register(crossbowBoltPoisoned, "crossbowBoltPoisoned");
+
+		register(westerosBow, "westerosBow");
+		register(westerosDagger, "westerosDagger");
+		register(westerosDaggerPoisoned, "westerosDaggerPoisoned");
+		register(westerosGreatsword, "westerosGreatsword");
+		register(westerosHammer, "westerosHammer");
+		register(westerosLongsword, "westerosLongsword");
+		register(westerosPike, "westerosPike");
+		register(westerosSpear, "westerosSpear");
+		register(westerosSword, "westerosSword");
+
+		register(essosBow, "essosBow");
+		register(essosDagger, "essosDagger");
+		register(essosDaggerPoisoned, "essosDaggerPoisoned");
+		register(essosHammer, "essosHammer");
+		register(essosPike, "essosPike");
+		register(essosPolearm, "essosPolearm");
+		register(essosSpear, "essosSpear");
+		register(essosSword, "essosSword");
+
+		register(wildlingBattleaxe, "wildlingBattleaxe");
+		register(wildlingDagger, "wildlingDagger");
+		register(wildlingDaggerPoisoned, "wildlingDaggerPoisoned");
+		register(wildlingHammer, "wildlingHammer");
+		register(wildlingPolearm, "wildlingPolearm");
+		register(wildlingSpear, "wildlingSpear");
+		register(wildlingSword, "wildlingSword");
+
+		register(nomadBattleaxe, "nomadBattleaxe");
+		register(nomadBow, "nomadBow");
+		register(nomadSpear, "nomadSpear");
+		register(nomadSword, "nomadSword");
+
+		register(lhazarBattleaxe, "lhazarBattleaxe");
+		register(lhazarClub, "lhazarClub");
+		register(lhazarDagger, "lhazarDagger");
+		register(lhazarDaggerPoisoned, "lhazarDaggerPoisoned");
+		register(lhazarSpear, "lhazarSpear");
+		register(lhazarSword, "lhazarSword");
+
+		register(ibbenHarpoon, "ibbenHarpoon");
+		register(ibbenSword, "ibbenSword");
+
+		register(mossovyDagger, "mossovyDagger");
+		register(mossovySword, "mossovySword");
+
+		register(yitiBattleaxe, "yitiBattleaxe");
+		register(yitiBow, "yitiBow");
+		register(yitiDagger, "yitiDagger");
+		register(yitiDaggerPoisoned, "yitiDaggerPoisoned");
+		register(yitiPike, "yitiPike");
+		register(yitiPolearm, "yitiPolearm");
+		register(yitiSpear, "yitiSpear");
+		register(yitiSword, "yitiSword");
+
+		register(asshaiBattleaxe, "asshaiBattleaxe");
+		register(asshaiBow, "asshaiBow");
+		register(asshaiDagger, "asshaiDagger");
+		register(asshaiDaggerPoisoned, "asshaiDaggerPoisoned");
+		register(asshaiHammer, "asshaiHammer");
+		register(asshaiSpear, "asshaiSpear");
+		register(asshaiStaff, "asshaiStaff");
+		register(asshaiSword, "asshaiSword");
+
+		register(summerDagger, "summerDagger");
+		register(summerDaggerPoisoned, "summerDaggerPoisoned");
+		register(summerPike, "summerPike");
+		register(summerSpear, "summerSpear");
+		register(summerSword, "summerSword");
+
+		register(sothoryosBattleaxe, "sothoryosBattleaxe");
+		register(sothoryosDagger, "sothoryosDagger");
+		register(sothoryosDaggerPoisoned, "sothoryosDaggerPoisoned");
+		register(sothoryosHammer, "sothoryosHammer");
+		register(sothoryosPike, "sothoryosPike");
+		register(sothoryosSpear, "sothoryosSpear");
+		register(sothoryosSword, "sothoryosSword");
+
+		register(stoneSpear, "stoneSpear");
+
+		register(flintDagger, "flintDagger");
+		register(flintSpear, "flintSpear");
+
+		register(iceHeavySword, "iceHeavySword");
+		register(iceSpear, "iceSpear");
+		register(iceSword, "iceSword");
+
+		register(ironHorseArmor, "horseArmorIron");
+		register(goldHorseArmor, "horseArmorGold");
+		register(diamondHorseArmor, "horseArmorDiamond");
+		register(valyrianHorseArmor, "valyrianHorseArmor");
+
+		register(westerosHorseArmor, "westerosHorseArmor");
+		register(essosHorseArmor, "essosHorseArmor");
+		register(dothrakiHorseArmor, "dothrakiHorseArmor");
+		register(yitiHorseArmor, "yitiHorseArmor");
+
+		register(rhinoArmor, "rhinoArmor");
+
+		register(club, "club");
+		register(trident, "trident");
+		register(blacksmithHammer, "blacksmithHammer");
+		register(rollingPin, "rollingPin");
+		register(skullStaff, "skullStaff");
+		register(walkingStick, "walkingStick");
+
+		register(commandSword, "commandSword");
+		register(commandHorn, "commandHorn");
+		register(conquestHorn, "conquestHorn");
+
+		register(asshaiMask, "asshaiMask");
+		register(harpy, "harpy");
+
 		register(bronzeHelmet, "bronzeHelmet");
 		register(bronzeChestplate, "bronzeChestplate");
 		register(bronzeLeggings, "bronzeLeggings");
 		register(bronzeBoots, "bronzeBoots");
-		register(silverNugget, "silverNugget");
-		register(copperNugget, "copperNugget");
-		register(silverRing, "silverRing");
-		register(valyrianNugget, "valyrianNugget");
-		register(valyrianRing, "valyrianRing");
-		register(pipe, "pipe");
-		register(pipeweed, "pipeweed");
-		register(clayMug, "clayMug");
-		register(mug, "mug");
-		register(mugWater, "mugWater");
-		register(mugMilk, "mugMilk");
-		register(mugAle, "mugAle");
-		register(mugChocolate, "mugChocolate");
-		register(appleCrumble, "appleCrumble");
-		register(mugUnsulliedTonic, "mugUnsulliedTonic");
-		register(spawnEgg, "spawnEgg");
-		register(pipeweedLeaf, "pipeweedLeaf");
-		register(pipeweedSeeds, "pipeweedSeeds");
-		register(structureSpawner, "structureSpawner");
-		register(lettuce, "lettuce");
-		register(valyrianShovel, "valyrianShovel");
-		register(valyrianPickaxe, "valyrianPickaxe");
-		register(valyrianAxe, "valyrianAxe");
-		register(valyrianSword, "valyrianSword");
-		register(valyrianHoe, "valyrianHoe");
-		register(fuse, "fuse");
-		register(westerosSword, "westerosSword");
-		register(northHelmet, "northHelmet");
-		register(northChestplate, "northChestplate");
-		register(northLeggings, "northLeggings");
-		register(northBoots, "northBoots");
+
+		register(bronzeChainmailHelmet, "bronzeChainmailHelmet");
+		register(bronzeChainmailChestplate, "bronzeChainmailChestplate");
+		register(bronzeChainmailLeggings, "bronzeChainmailLeggings");
+		register(bronzeChainmailBoots, "bronzeChainmailBoots");
+
 		register(valyrianHelmet, "valyrianHelmet");
 		register(valyrianChestplate, "valyrianChestplate");
 		register(valyrianLeggings, "valyrianLeggings");
 		register(valyrianBoots, "valyrianBoots");
-		register(westerosSpear, "westerosSpear");
-		register(bronzeSpear, "bronzeSpear");
-		register(ironSpear, "ironSpear");
-		register(valyrianSpear, "valyrianSpear");
-		register(dye, "dye");
-		register(coin, "coin");
-		register(gammon, "gammon");
-		register(clayPlate, "clayPlate");
-		register(plate, "plate");
-		register(fur, "fur");
-		register(furHelmet, "furHelmet");
-		register(furChestplate, "furChestplate");
-		register(furLeggings, "furLeggings");
-		register(furBoots, "furBoots");
-		register(mugMead, "mugMead");
-		register(blacksmithHammer, "blacksmithHammer");
-		register(westerosDagger, "westerosDagger");
-		register(appleGreen, "appleGreen");
-		register(pear, "pear");
-		register(cherry, "cherry");
-		register(bronzeDagger, "bronzeDagger");
-		register(ironDagger, "ironDagger");
-		register(valyrianDagger, "valyrianDagger");
-		register(valyrianBattleaxe, "valyrianBattleaxe");
-		register(valyrianHammer, "valyrianHammer");
-		register(westerosHammer, "westerosHammer");
-		register(commandHorn, "commandHorn");
-		register(mossovyChestplate, "mossovyChestplate");
-		register(mossovyLeggings, "mossovyLeggings");
-		register(mossovyBoots, "mossovyBoots");
-		register(crossbowBolt, "crossbowBolt");
-		register(cherryPie, "cherryPie");
-		register(ironCrossbow, "ironCrossbow");
-		register(valyrianCrossbow, "valyrianCrossbow");
-		register(mugRedWine, "mugRedWine");
-		register(mugWhisky, "mugWhisky");
-		register(nomadSword, "nomadSword");
-		register(nomadSpear, "nomadSpear");
-		register(mugCider, "mugCider");
-		register(mugPerry, "mugPerry");
-		register(mugCherryLiqueur, "mugCherryLiqueur");
-		register(mugRum, "mugRum");
-		register(mugPlantainBrew, "mugPlantainBrew");
-		register(armorStand, "armorStand");
-		register(pebble, "pebble");
-		register(sling, "sling");
-		register(mysteryWeb, "mysteryWeb");
-		register(giftHelmet, "giftHelmet");
-		register(giftChestplate, "giftChestplate");
-		register(giftLeggings, "giftLeggings");
-		register(giftBoots, "giftBoots");
-		register(hillmenHelmet, "hillmenHelmet");
-		register(hillmenChestplate, "hillmenChestplate");
-		register(hillmenLeggings, "hillmenLeggings");
-		register(hillmenBoots, "hillmenBoots");
-		register(club, "club");
-		register(trident, "trident");
-		register(leatherHat, "leatherHat");
-		register(featherDyed, "featherDyed");
-		register(rabbitRaw, "rabbitRaw");
-		register(rabbitCooked, "rabbitCooked");
-		register(rabbitStew, "rabbitStew");
-		register(mugVodka, "mugVodka");
-		register(sulfur, "sulfur");
-		register(saltpeter, "saltpeter");
-		register(commandSword, "commandSword");
-		register(pancake, "pancake");
-		register(bottlePoison, "bottlePoison");
-		register(bronzeDaggerPoisoned, "bronzeDaggerPoisoned");
-		register(ironDaggerPoisoned, "ironDaggerPoisoned");
-		register(valyrianDaggerPoisoned, "valyrianDaggerPoisoned");
-		register(westerosDaggerPoisoned, "westerosDaggerPoisoned");
-		register(banner, "banner");
-		register(sulfurMatch, "sulfurMatch");
-		register(wildlingSword, "wildlingSword");
-		register(wildlingDagger, "wildlingDagger");
-		register(wildlingDaggerPoisoned, "wildlingDaggerPoisoned");
-		register(wildlingBattleaxe, "wildlingBattleaxe");
-		register(wildlingHammer, "wildlingHammer");
-		register(wildlingSpear, "wildlingSpear");
-		register(wildlingAxe, "wildlingAxe");
-		register(mango, "mango");
-		register(mugMangoJuice, "mugMangoJuice");
-		register(banana, "banana");
-		register(bananaBread, "bananaBread");
-		register(bananaCake, "bananaCake");
-		register(lionFur, "lionFur");
-		register(lionRaw, "lionRaw");
-		register(lionCooked, "lionCooked");
-		register(zebraRaw, "zebraRaw");
-		register(zebraCooked, "zebraCooked");
-		register(rhinoRaw, "rhinoRaw");
-		register(rhinoCooked, "rhinoCooked");
-		register(rhinoHorn, "rhinoHorn");
-		register(nomadBattleaxe, "nomadBattleaxe");
-		register(lionBed, "lionBed");
-		register(essosSword, "essosSword");
-		register(gemsbokHide, "gemsbokHide");
-		register(gemsbokHorn, "gemsbokHorn");
-		register(gemsbokHelmet, "gemsbokHelmet");
-		register(gemsbokChestplate, "gemsbokChestplate");
-		register(gemsbokLeggings, "gemsbokLeggings");
-		register(gemsbokBoots, "gemsbokBoots");
-		register(mapleSyrup, "mapleSyrup");
-		register(mugMapleBeer, "mugMapleBeer");
-		register(essosDagger, "essosDagger");
-		register(essosDaggerPoisoned, "essosDaggerPoisoned");
-		register(essosSpear, "essosSpear");
-		register(essosBow, "essosBow");
-		register(date, "date");
-		register(mugAraq, "mugAraq");
-		register(ironHorseArmor, "horseArmorIron");
-		register(goldHorseArmor, "horseArmorGold");
-		register(diamondHorseArmor, "horseArmorDiamond");
-		register(westerosHorseArmor, "westerosHorseArmor");
-		register(dothrakiHorseArmor, "dothrakiHorseArmor");
-		register(valyrianHorseArmor, "valyrianHorseArmor");
-		register(mugCarrotWine, "mugCarrotWine");
-		register(mugBananaBeer, "mugBananaBeer");
-		register(mugMelonLiqueur, "mugMelonLiqueur");
-		register(strawBed, "strawBed");
-		register(skullStaff, "skullStaff");
-		register(pastry, "pastry");
-		register(questBook, "questBook");
-		register(termite, "termite");
-		register(flaxSeeds, "flaxSeeds");
-		register(flax, "flax");
-		register(blueberry, "blueberry");
-		register(blackberry, "blackberry");
-		register(raspberry, "raspberry");
-		register(cranberry, "cranberry");
-		register(elderberry, "elderberry");
-		register(chestnut, "chestnut");
-		register(chestnutRoast, "chestnutRoast");
-		register(asshaiSword, "asshaiSword");
-		register(asshaiDagger, "asshaiDagger");
-		register(asshaiDaggerPoisoned, "asshaiDaggerPoisoned");
-		register(asshaiSpear, "asshaiSpear");
-		register(asshaiBattleaxe, "asshaiBattleaxe");
-		register(asshaiHammer, "asshaiHammer");
-		register(asshaiHelmet, "asshaiHelmet");
-		register(asshaiChestplate, "asshaiChestplate");
-		register(asshaiLeggings, "asshaiLeggings");
-		register(asshaiBoots, "asshaiBoots");
-		register(asshaiBow, "asshaiBow");
-		register(mugCactusLiqueur, "mugCactusLiqueur");
-		register(mugGin, "mugGin");
-		register(mugBrandy, "mugBrandy");
-		register(nomadBow, "nomadBow");
-		register(westerosBow, "westerosBow");
-		register(ironBattleaxe, "ironBattleaxe");
-		register(bronzeBattleaxe, "bronzeBattleaxe");
-		register(bronzeCrossbow, "bronzeCrossbow");
-		register(walkingStick, "walkingStick");
-		register(conquestHorn, "conquestHorn");
-		register(berryPie, "berryPie");
-		register(mugBlueberryJuice, "mugBlueberryJuice");
-		register(mugBlackberryJuice, "mugBlackberryJuice");
-		register(mugRaspberryJuice, "mugRaspberryJuice");
-		register(mugCranberryJuice, "mugCranberryJuice");
-		register(mugElderberryJuice, "mugElderberryJuice");
-		register(rhinoArmor, "rhinoArmor");
-		register(swanFeather, "swanFeather");
-		register(lhazarDagger, "lhazarDagger");
-		register(lhazarDaggerPoisoned, "lhazarDaggerPoisoned");
-		register(lhazarBattleaxe, "lhazarBattleaxe");
-		register(lhazarSpear, "lhazarSpear");
-		register(lhazarHelmet, "lhazarHelmet");
-		register(lhazarChestplate, "lhazarChestplate");
-		register(lhazarLeggings, "lhazarLeggings");
-		register(lhazarBoots, "lhazarBoots");
-		register(lhazarHelmetLion, "lhazarHelmetLion");
-		register(lhazarChestplateLion, "lhazarChestplateLion");
-		register(lhazarLeggingsLion, "lhazarLeggingsLion");
-		register(lhazarBootsLion, "lhazarBootsLion");
-		register(robesHelmet, "robesHelmet");
-		register(robesChestplate, "robesChestplate");
-		register(robesLeggings, "robesLeggings");
-		register(robesBoots, "robesBoots");
+
+		register(valyrianChainmailHelmet, "valyrianChainmailHelmet");
+		register(valyrianChainmailChestplate, "valyrianChainmailChestplate");
+		register(valyrianChainmailLeggings, "valyrianChainmailLeggings");
+		register(valyrianChainmailBoots, "valyrianChainmailBoots");
+
 		register(boneHelmet, "boneHelmet");
 		register(boneChestplate, "boneChestplate");
 		register(boneLeggings, "boneLeggings");
 		register(boneBoots, "boneBoots");
-		register(gingerbread, "gingerbread");
-		register(brandingIron, "brandingIron");
-		register(bronzeThrowingAxe, "bronzeThrowingAxe");
-		register(ironThrowingAxe, "ironThrowingAxe");
-		register(lemon, "lemon");
-		register(lemonCake, "lemonCake");
-		register(orange, "orange");
-		register(mugOrangeJuice, "mugOrangeJuice");
-		register(mugLemonLiqueur, "mugLemonLiqueur");
-		register(mugSambuca, "mugSambuca");
-		register(mugLemonade, "mugLemonade");
-		register(lime, "lime");
-		register(mugLimeLiqueur, "mugLimeLiqueur");
-		register(obsidianShard, "obsidianShard");
-		register(sothoryosShovel, "sothoryosShovel");
-		register(sothoryosPickaxe, "sothoryosPickaxe");
-		register(sothoryosAxe, "sothoryosAxe");
-		register(sothoryosHoe, "sothoryosHoe");
-		register(sothoryosDagger, "sothoryosDagger");
-		register(sothoryosDaggerPoisoned, "sothoryosDaggerPoisoned");
-		register(sothoryosSpear, "sothoryosSpear");
-		register(sothoryosSword, "sothoryosSword");
-		register(sothoryosHelmet, "sothoryosHelmet");
-		register(sothoryosChestplate, "sothoryosChestplate");
-		register(sothoryosLeggings, "sothoryosLeggings");
-		register(sothoryosBoots, "sothoryosBoots");
-		register(sothoryosHelmetChieftain, "sothoryosHelmetChieftain");
-		register(essosPolearm, "essosPolearm");
-		register(essosHorseArmor, "essosHorseArmor");
-		register(sarbacane, "sarbacane");
-		register(dart, "dart");
-		register(dartPoisoned, "dartPoisoned");
-		register(muttonRaw, "muttonRaw");
-		register(muttonCooked, "muttonCooked");
-		register(essosHammer, "essosHammer");
-		register(mugCocoa, "mugCocoa");
-		register(ironPike, "ironPike");
-		register(sothoryosDoubleTorch, "sothoryosDoubleTorch");
-		register(sothoryosHelmetGold, "sothoryosHelmetGold");
-		register(sothoryosChestplateGold, "sothoryosChestplateGold");
-		register(sothoryosLeggingsGold, "sothoryosLeggingsGold");
-		register(sothoryosBootsGold, "sothoryosBootsGold");
-		register(mugPoppyMilk, "mugPoppyMilk");
-		register(sothoryosAmulet, "sothoryosAmulet");
-		register(corn, "corn");
-		register(westerosLance, "westerosLance");
-		register(iceSword, "iceSword");
-		register(iceHeavySword, "iceHeavySword");
-		register(mugCornLiquor, "mugCornLiquor");
-		register(gateGear, "gateGear");
-		register(furBed, "furBed");
-		register(deerRaw, "deerRaw");
-		register(deerCooked, "deerCooked");
-		register(kebab, "kebab");
-		register(cornCooked, "cornCooked");
-		register(shishKebab, "shishKebab");
-		register(valyrianHalberd, "valyrianHalberd");
-		register(leek, "leek");
-		register(leekSoup, "leekSoup");
-		register(turnip, "turnip");
-		register(camelRaw, "camelRaw");
-		register(camelCooked, "camelCooked");
-		register(olive, "olive");
-		register(mugAppleJuice, "mugAppleJuice");
-		register(npcRespawner, "npcRespawner");
-		register(sothoryosHammer, "sothoryosHammer");
-		register(sothoryosBattleaxe, "sothoryosBattleaxe");
-		register(sothoryosPike, "sothoryosPike");
-		register(lhazarClub, "lhazarClub");
-		register(oliveBread, "oliveBread");
-		register(rollingPin, "rollingPin");
-		register(grapeRed, "grapeRed");
-		register(grapeWhite, "grapeWhite");
-		register(seedsGrapeRed, "seedsGrapeRed");
-		register(seedsGrapeWhite, "seedsGrapeWhite");
-		register(mugWhiteWine, "mugWhiteWine");
-		register(mugRedGrapeJuice, "mugRedGrapeJuice");
-		register(mugWhiteGrapeJuice, "mugWhiteGrapeJuice");
-		register(wildlingPolearm, "wildlingPolearm");
-		register(turnipCooked, "turnipCooked");
-		register(whiteBisonHorn, "whiteBisonHorn");
-		register(melonSoup, "melonSoup");
-		register(ceramicMug, "ceramicMug");
-		register(essosPike, "essosPike");
-		register(almond, "almond");
-		register(wildberry, "wildberry");
-		register(plum, "plum");
-		register(mugShadeEvening, "mugShadeEvening");
-		register(westerosPike, "westerosPike");
-		register(mugPlumKvass, "mugPlumKvass");
-		register(stoneSpear, "stoneSpear");
-		register(marzipan, "marzipan");
-		register(marzipanChocolate, "marzipanChocolate");
-		register(gobletGold, "gobletGold");
-		register(gobletSilver, "gobletSilver");
-		register(gobletCopper, "gobletCopper");
-		register(gobletWood, "gobletWood");
-		register(skullCup, "skullCup");
-		register(wineGlass, "wineGlass");
-		register(waterskin, "waterskin");
-		register(aleHorn, "aleHorn");
-		register(aleHornGold, "aleHornGold");
-		register(horn, "horn");
-		register(chisel, "chisel");
-		register(valyrianPowder, "valyrianPowder");
-		register(valyrianChisel, "valyrianChisel");
+
+		register(furHelmet, "furHelmet");
+		register(furChestplate, "furChestplate");
+		register(furLeggings, "furLeggings");
+		register(furBoots, "furBoots");
+
+		register(giftHelmet, "giftHelmet");
+		register(giftChestplate, "giftChestplate");
+		register(giftLeggings, "giftLeggings");
+		register(giftBoots, "giftBoots");
+
+		register(northHelmet, "northHelmet");
+		register(northChestplate, "northChestplate");
+		register(northLeggings, "northLeggings");
+		register(northBoots, "northBoots");
+
+		register(northguardHelmet, "northguardHelmet");
+		register(northguardChestplate, "northguardChestplate");
+		register(northguardLeggings, "northguardLeggings");
+		register(northguardBoots, "northguardBoots");
+
+		register(ironbornHelmet, "ironbornHelmet");
+		register(ironbornChestplate, "ironbornChestplate");
+		register(ironbornLeggings, "ironbornLeggings");
+		register(ironbornBoots, "ironbornBoots");
+
+		register(westerlandsHelmet, "westerlandsHelmet");
+		register(westerlandsChestplate, "westerlandsChestplate");
+		register(westerlandsLeggings, "westerlandsLeggings");
+		register(westerlandsBoots, "westerlandsBoots");
+
+		register(westerlandsguardHelmet, "westerlandsguardHelmet");
+		register(westerlandsguardChestplate, "westerlandsguardChestplate");
+		register(westerlandsguardLeggings, "westerlandsguardLeggings");
+		register(westerlandsguardBoots, "westerlandsguardBoots");
+
+		register(riverlandsHelmet, "riverlandsHelmet");
+		register(riverlandsChestplate, "riverlandsChestplate");
+		register(riverlandsLeggings, "riverlandsLeggings");
+		register(riverlandsBoots, "riverlandsBoots");
+
+		register(hillmenHelmet, "hillmenHelmet");
+		register(hillmenChestplate, "hillmenChestplate");
+		register(hillmenLeggings, "hillmenLeggings");
+		register(hillmenBoots, "hillmenBoots");
+
+		register(arrynHelmet, "arrynHelmet");
+		register(arrynChestplate, "arrynChestplate");
+		register(arrynLeggings, "arrynLeggings");
+		register(arrynBoots, "arrynBoots");
+
+		register(arrynguardHelmet, "arrynguardHelmet");
+		register(arrynguardChestplate, "arrynguardChestplate");
+		register(arrynguardLeggings, "arrynguardLeggings");
+		register(arrynguardBoots, "arrynguardBoots");
+
+		register(dragonstoneHelmet, "dragonstoneHelmet");
+		register(dragonstoneChestplate, "dragonstoneChestplate");
+		register(dragonstoneLeggings, "dragonstoneLeggings");
+		register(dragonstoneBoots, "dragonstoneBoots");
+
+		register(crownlandsHelmet, "crownlandsHelmet");
+		register(crownlandsChestplate, "crownlandsChestplate");
+		register(crownlandsLeggings, "crownlandsLeggings");
+		register(crownlandsBoots, "crownlandsBoots");
+
+		register(kingsguardHelmet, "kingsguardHelmet");
+		register(kingsguardChestplate, "kingsguardChestplate");
+		register(kingsguardLeggings, "kingsguardLeggings");
+		register(kingsguardBoots, "kingsguardBoots");
+
+		register(stormlandsHelmet, "stormlandsHelmet");
+		register(stormlandsChestplate, "stormlandsChestplate");
+		register(stormlandsLeggings, "stormlandsLeggings");
+		register(stormlandsBoots, "stormlandsBoots");
+
+		register(reachHelmet, "reachHelmet");
+		register(reachChestplate, "reachChestplate");
+		register(reachLeggings, "reachLeggings");
+		register(reachBoots, "reachBoots");
+
+		register(reachguardHelmet, "reachguardHelmet");
+		register(reachguardChestplate, "reachguardChestplate");
+		register(reachguardLeggings, "reachguardLeggings");
+		register(reachguardBoots, "reachguardBoots");
+
+		register(dorneHelmet, "dorneHelmet");
+		register(dorneChestplate, "dorneChestplate");
+		register(dorneLeggings, "dorneLeggings");
+		register(dorneBoots, "dorneBoots");
+
+		register(braavosHelmet, "braavosHelmet");
+		register(braavosChestplate, "braavosChestplate");
+		register(braavosLeggings, "braavosLeggings");
+		register(braavosBoots, "braavosBoots");
+
+		register(volantisHelmet, "volantisHelmet");
+		register(volantisChestplate, "volantisChestplate");
+		register(volantisLeggings, "volantisLeggings");
+		register(volantisBoots, "volantisBoots");
+
+		register(pentosHelmet, "pentosHelmet");
+		register(pentosChestplate, "pentosChestplate");
+		register(pentosLeggings, "pentosLeggings");
+		register(pentosBoots, "pentosBoots");
+
+		register(norvosHelmet, "norvosHelmet");
+		register(norvosChestplate, "norvosChestplate");
+		register(norvosLeggings, "norvosLeggings");
+		register(norvosBoots, "norvosBoots");
+
+		register(lorathHelmet, "lorathHelmet");
+		register(lorathChestplate, "lorathChestplate");
+		register(lorathLeggings, "lorathLeggings");
+		register(lorathBoots, "lorathBoots");
+
+		register(qohorHelmet, "qohorHelmet");
+		register(qohorChestplate, "qohorChestplate");
+		register(qohorLeggings, "qohorLeggings");
+		register(qohorBoots, "qohorBoots");
+
+		register(myrHelmet, "myrHelmet");
+		register(myrChestplate, "myrChestplate");
+		register(myrLeggings, "myrLeggings");
+		register(myrBoots, "myrBoots");
+
+		register(lysHelmet, "lysHelmet");
+		register(lysChestplate, "lysChestplate");
+		register(lysLeggings, "lysLeggings");
+		register(lysBoots, "lysBoots");
+
+		register(tyroshHelmet, "tyroshHelmet");
+		register(tyroshChestplate, "tyroshChestplate");
+		register(tyroshLeggings, "tyroshLeggings");
+		register(tyroshBoots, "tyroshBoots");
+
 		register(goldHelmet, "goldHelmet");
 		register(goldChestplate, "goldChestplate");
 		register(goldLeggings, "goldLeggings");
 		register(goldBoots, "goldBoots");
-		register(yitiSword, "yitiSword");
-		register(yitiDagger, "yitiDagger");
-		register(yitiDaggerPoisoned, "yitiDaggerPoisoned");
-		register(yitiSpear, "yitiSpear");
-		register(yitiPolearm, "yitiPolearm");
-		register(yitiPike, "yitiPike");
+
+		register(ghiscarHelmet, "ghiscarHelmet");
+		register(ghiscarChestplate, "ghiscarChestplate");
+		register(ghiscarLeggings, "ghiscarLeggings");
+		register(ghiscarBoots, "ghiscarBoots");
+
+		register(ghiscarHelmetGemsbok, "gemsbokHelmet");
+		register(ghiscarChestplateGemsbok, "gemsbokChestplate");
+		register(ghiscarLeggingsGemsbok, "gemsbokLeggings");
+		register(ghiscarBootsGemsbok, "gemsbokBoots");
+
+		register(qarthHelmet, "qarthHelmet");
+		register(qarthChestplate, "qarthChestplate");
+		register(qarthLeggings, "qarthLeggings");
+		register(qarthBoots, "qarthBoots");
+
+		register(lhazarHelmet, "lhazarHelmet");
+		register(lhazarChestplate, "lhazarChestplate");
+		register(lhazarLeggings, "lhazarLeggings");
+		register(lhazarBoots, "lhazarBoots");
+
+		register(lhazarHelmetLion, "lhazarHelmetLion");
+		register(lhazarChestplateLion, "lhazarChestplateLion");
+		register(lhazarLeggingsLion, "lhazarLeggingsLion");
+		register(lhazarBootsLion, "lhazarBootsLion");
+
+		register(dothrakiHelmet, "dothrakiHelmet");
+		register(dothrakiChestplate, "dothrakiChestplate");
+		register(dothrakiLeggings, "dothrakiLeggings");
+		register(dothrakiBoots, "dothrakiBoots");
+
+		register(ibbenChestplate, "ibbenChestplate");
+		register(ibbenLeggings, "ibbenLeggings");
+		register(ibbenBoots, "ibbenBoots");
+
+		register(jogosHelmet, "jogosHelmet");
+		register(jogosChestplate, "jogosChestplate");
+		register(jogosLeggings, "jogosLeggings");
+		register(jogosBoots, "jogosBoots");
+
+		register(mossovyChestplate, "mossovyChestplate");
+		register(mossovyLeggings, "mossovyLeggings");
+		register(mossovyBoots, "mossovyBoots");
+
 		register(yitiHelmet, "yitiHelmet");
 		register(yitiChestplate, "yitiChestplate");
 		register(yitiLeggings, "yitiLeggings");
 		register(yitiBoots, "yitiBoots");
-		register(yitiBow, "yitiBow");
-		register(yitiHorseArmor, "yitiHorseArmor");
-		register(yitiSteelIngot, "yitiSteelIngot");
-		register(mugTermiteTequila, "mugTermiteTequila");
-		register(mugWildFire, "mugWildFire");
-		register(mugEthanol, "mugEthanol");
-		register(firePot, "firePot");
-		register(yam, "yam");
-		register(yamRoast, "yamRoast");
-		register(kaftanChestplate, "kaftanChestplate");
-		register(kaftanLeggings, "kaftanLeggings");
+
+		register(yitiHelmetFrontier, "yitiHelmetFrontier");
+		register(yitiChestplateFrontier, "yitiChestplateFrontier");
+		register(yitiLeggingsFrontier, "yitiLeggingsFrontier");
+		register(yitiBootsFrontier, "yitiBootsFrontier");
+
 		register(yitiHelmetSamurai, "yitiHelmetSamurai");
 		register(yitiChestplateSamurai, "yitiChestplateSamurai");
 		register(yitiLeggingsSamurai, "yitiLeggingsSamurai");
 		register(yitiBootsSamurai, "yitiBootsSamurai");
+
 		register(yitiHelmetShogune, "yitiHelmetShogune");
-		register(mugSourMilk, "mugSourMilk");
-		register(pomegranate, "pomegranate");
-		register(mugPomegranateJuice, "mugPomegranateJuice");
-		register(mugPomegranateWine, "mugPomegranateWine");
-		register(valyrianMattock, "valyrianMattock");
-		register(salt, "salt");
-		register(saltedFlesh, "saltedFlesh");
-		register(yitiBattleaxe, "yitiBattleaxe");
-		register(cornBread, "cornBread");
-		register(raisins, "raisins");
-		register(arrowPoisoned, "arrowPoisoned");
-		register(crossbowBoltPoisoned, "crossbowBoltPoisoned");
-		register(topaz, "topaz");
-		register(amethyst, "amethyst");
-		register(sapphire, "sapphire");
-		register(ruby, "ruby");
-		register(amber, "amber");
-		register(diamond, "diamond");
-		register(pearl, "pearl");
-		register(coral, "coral");
-		register(opal, "opal");
-		register(mushroomPie, "mushroomPie");
-		register(emerald, "emerald");
-		register(bountyTrophy, "bountyTrophy");
-		register(lhazarSword, "lhazarSword");
-		register(smithScroll, "smithScroll");
-		register(valyrianBook, "valyrianBook");
+
+		register(asshaiHelmet, "asshaiHelmet");
+		register(asshaiChestplate, "asshaiChestplate");
+		register(asshaiLeggings, "asshaiLeggings");
+		register(asshaiBoots, "asshaiBoots");
+
 		register(summerHelmet, "summerHelmet");
 		register(summerChestplate, "summerChestplate");
 		register(summerLeggings, "summerLeggings");
 		register(summerBoots, "summerBoots");
-		register(summerSword, "summerSword");
-		register(summerDagger, "summerDagger");
-		register(summerDaggerPoisoned, "summerDaggerPoisoned");
-		register(summerSpear, "summerSpear");
-		register(summerPike, "summerPike");
-		register(lionRug, "lionRug");
+
+		register(sothoryosHelmet, "sothoryosHelmet");
+		register(sothoryosChestplate, "sothoryosChestplate");
+		register(sothoryosLeggings, "sothoryosLeggings");
+		register(sothoryosBoots, "sothoryosBoots");
+
+		register(sothoryosHelmetGold, "sothoryosHelmetGold");
+		register(sothoryosChestplateGold, "sothoryosChestplateGold");
+		register(sothoryosLeggingsGold, "sothoryosLeggingsGold");
+		register(sothoryosBootsGold, "sothoryosBootsGold");
+
+		register(sothoryosHelmetChieftain, "sothoryosHelmetChieftain");
+
+		register(unsulliedHelmet, "unsulliedHelmet");
+		register(unsulliedChestplate, "unsulliedChestplate");
+		register(unsulliedLeggings, "unsulliedLeggings");
+		register(unsulliedBoots, "unsulliedBoots");
+
+		register(whiteWalkersChestplate, "whiteWalkersChestplate");
+		register(whiteWalkersLeggings, "whiteWalkersLeggings");
+		register(whiteWalkersBoots, "whiteWalkersBoots");
+
+		/* decorations */
+
+		register(armorStand, "armorStand");
 		register(bearRug, "bearRug");
+		register(fuse, "fuse");
 		register(giraffeRug, "giraffeRug");
-		register(woodPlate, "woodPlate");
+		register(lionRug, "lionRug");
+		register(sothoryosDoubleTorch, "sothoryosDoubleTorch");
+
+		/* food */
+
+		register(plate, "plate");
+		register(clayPlate, "clayPlate");
 		register(ceramicPlate, "ceramicPlate");
-		register(flintSpear, "flintSpear");
-		register(flintDagger, "flintDagger");
+
+		register(mug, "mug");
+		register(clayMug, "clayMug");
+		register(ceramicMug, "ceramicMug");
+
+		register(gobletWood, "gobletWood");
+		register(gobletCopper, "gobletCopper");
+		register(gobletSilver, "gobletSilver");
+		register(gobletGold, "gobletGold");
+
+		register(aleHorn, "aleHorn");
+		register(aleHornGold, "aleHornGold");
+
+		register(waterskin, "waterskin");
+		register(skullCup, "skullCup");
+
+		register(wineGlass, "wineGlass");
+
+		register(mugMilk, "mugMilk");
+		register(mugWater, "mugWater");
+
+		register(mugAle, "mugAle");
+		register(mugAraq, "mugAraq");
+		register(mugBananaBeer, "mugBananaBeer");
+		register(mugBrandy, "mugBrandy");
+		register(mugCactusLiqueur, "mugCactusLiqueur");
+		register(mugCarrotWine, "mugCarrotWine");
+		register(mugCherryLiqueur, "mugCherryLiqueur");
+		register(mugCider, "mugCider");
+		register(mugCornLiquor, "mugCornLiquor");
+		register(mugGin, "mugGin");
+		register(mugLemonLiqueur, "mugLemonLiqueur");
+		register(mugLimeLiqueur, "mugLimeLiqueur");
+		register(mugMapleBeer, "mugMapleBeer");
+		register(mugMead, "mugMead");
+		register(mugMelonLiqueur, "mugMelonLiqueur");
+		register(mugPerry, "mugPerry");
+		register(mugPlantainBrew, "mugPlantainBrew");
+		register(mugPlumKvass, "mugPlumKvass");
+		register(mugPomegranateWine, "mugPomegranateWine");
+		register(mugRedWine, "mugRedWine");
+		register(mugRum, "mugRum");
+		register(mugSambuca, "mugSambuca");
+		register(mugSourMilk, "mugSourMilk");
+		register(mugVodka, "mugVodka");
+		register(mugWhisky, "mugWhisky");
+		register(mugWhiteWine, "mugWhiteWine");
+
+		register(mugChocolate, "mugChocolate");
+		register(mugAppleJuice, "mugAppleJuice");
+		register(mugBlackberryJuice, "mugBlackberryJuice");
+		register(mugBlueberryJuice, "mugBlueberryJuice");
+		register(mugCranberryJuice, "mugCranberryJuice");
+		register(mugElderberryJuice, "mugElderberryJuice");
+		register(mugLemonade, "mugLemonade");
+		register(mugMangoJuice, "mugMangoJuice");
+		register(mugOrangeJuice, "mugOrangeJuice");
+		register(mugPomegranateJuice, "mugPomegranateJuice");
+		register(mugRaspberryJuice, "mugRaspberryJuice");
+		register(mugRedGrapeJuice, "mugRedGrapeJuice");
+		register(mugWhiteGrapeJuice, "mugWhiteGrapeJuice");
+
+		register(mugCocoa, "mugCocoa");
+		register(mugPoppyMilk, "mugPoppyMilk");
+		register(mugShadeEvening, "mugShadeEvening");
+		register(mugUnsulliedTonic, "mugUnsulliedTonic");
+
+		register(mugEthanol, "mugEthanol");
+		register(mugTermiteTequila, "mugTermiteTequila");
+		register(mugWildFire, "mugWildFire");
+
+		register(beaverRaw, "beaverRaw");
+		register(beaverCooked, "beaverCooked");
+		register(camelRaw, "camelRaw");
+		register(camelCooked, "camelCooked");
+		register(deerRaw, "deerRaw");
+		register(deerCooked, "deerCooked");
+		register(elephantRaw, "elephantRaw");
+		register(elephantCooked, "elephantCooked");
+		register(lionRaw, "lionRaw");
+		register(lionCooked, "lionCooked");
+		register(muttonRaw, "muttonRaw");
+		register(muttonCooked, "muttonCooked");
+		register(rabbitRaw, "rabbitRaw");
+		register(rabbitCooked, "rabbitCooked");
+		register(rhinoRaw, "rhinoRaw");
+		register(rhinoCooked, "rhinoCooked");
+		register(walrusLardRaw, "walrusLardRaw");
+		register(walrusLardCooked, "walrusLardCooked");
+		register(zebraRaw, "zebraRaw");
+		register(zebraCooked, "zebraCooked");
+
+		register(kebab, "kebab");
+		register(shishKebab, "shishKebab");
+		register(gammon, "gammon");
+
+		register(almond, "almond");
+		register(appleGreen, "appleGreen");
+		register(banana, "banana");
+		register(cherry, "cherry");
+		register(corn, "corn");
+		register(cornCooked, "cornCooked");
+		register(date, "date");
+		register(grapeRed, "grapeRed");
+		register(grapeWhite, "grapeWhite");
+		register(leek, "leek");
+		register(lemon, "lemon");
+		register(lettuce, "lettuce");
+		register(lime, "lime");
+		register(mango, "mango");
+		register(olive, "olive");
+		register(orange, "orange");
+		register(pear, "pear");
+		register(plum, "plum");
+		register(pomegranate, "pomegranate");
+		register(raisins, "raisins");
+		register(turnip, "turnip");
+		register(turnipCooked, "turnipCooked");
+		register(yam, "yam");
+		register(yamRoast, "yamRoast");
+
+		register(blackberry, "blackberry");
+		register(blueberry, "blueberry");
+		register(cranberry, "cranberry");
+		register(elderberry, "elderberry");
+		register(raspberry, "raspberry");
+		register(wildberry, "wildberry");
+
+		register(berryPie, "berryPie");
+
+		register(appleCrumble, "appleCrumble");
+		register(cherryPie, "cherryPie");
+		register(mushroomPie, "mushroomPie");
+		register(pastry, "pastry");
+		register(bananaCake, "bananaCake");
+		register(lemonCake, "lemonCake");
+		register(pancake, "pancake");
+
+		register(bananaBread, "bananaBread");
+		register(cornBread, "cornBread");
+		register(oliveBread, "oliveBread");
+		register(gingerbread, "gingerbread");
+
+		register(rabbitStew, "rabbitStew");
+		register(leekSoup, "leekSoup");
+		register(mapleSyrup, "mapleSyrup");
+		register(melonSoup, "melonSoup");
+
+		register(marzipan, "marzipan");
+		register(marzipanChocolate, "marzipanChocolate");
+
+		register(saltedFlesh, "saltedFlesh");
+		register(chestnutRoast, "chestnutRoast");
+
+		register(salt, "salt");
+
+		/* vanilla materials */
+
+		register(ironNugget, "ironNugget");
+
+		/* materials */
+
+		register(amber, "amber");
+		register(amethyst, "amethyst");
+		register(diamond, "diamond");
+		register(emerald, "emerald");
+		register(opal, "opal");
+		register(pearl, "pearl");
+		register(ruby, "ruby");
+		register(sapphire, "sapphire");
+		register(topaz, "topaz");
+
+		register(coral, "coral");
+
+		register(alloySteelIngot, "alloySteelIngot");
+		register(bronzeIngot, "bronzeIngot");
+		register(copperIngot, "copperIngot");
+		register(tinIngot, "tinIngot");
+		register(silverIngot, "silverIngot");
+		register(valyrianIngot, "valyrianIngot");
+
+		register(yitiSteelIngot, "yitiSteelIngot");
+
+		register(alloySteelNugget, "alloySteelNugget");
+		register(bronzeNugget, "bronzeNugget");
+		register(copperNugget, "copperNugget");
+		register(silverNugget, "silverNugget");
+		register(valyrianNugget, "valyrianNugget");
+
+		register(cobaltBlue, "cobaltBlue");
+		register(saltpeter, "saltpeter");
+		register(sulfur, "sulfur");
+
+		register(iceShard, "iceShard");
+		register(obsidianShard, "obsidianShard");
+
 		register(redClayBall, "redClayBall");
-		register(royceHelmet, "royceHelmet");
-		register(royceChestplate, "royceChestplate");
-		register(royceLeggings, "royceLeggings");
-		register(royceBoots, "royceBoots");
-		register(targaryenHelmet, "targaryenHelmet");
-		register(targaryenChestplate, "targaryenChestplate");
-		register(targaryenLeggings, "targaryenLeggings");
-		register(targaryenBoots, "targaryenBoots");
-		register(blackskinChestplate, "blackskinChestplate");
+
+		register(gateGear, "gateGear");
+		register(bountyTrophy, "bountyTrophy");
+
+		register(pipeweedLeaf, "pipeweedLeaf");
+		register(flax, "flax");
+		register(pipeweedSeeds, "pipeweedSeeds");
+		register(flaxSeeds, "flaxSeeds");
+		register(seedsGrapeRed, "seedsGrapeRed");
+		register(seedsGrapeWhite, "seedsGrapeWhite");
+
+		register(fur, "fur");
+		register(lionFur, "lionFur");
+		register(gemsbokHide, "gemsbokHide");
+		register(horn, "horn");
+		register(gemsbokHorn, "gemsbokHorn");
+		register(whiteBisonHorn, "whiteBisonHorn");
+		register(rhinoHorn, "rhinoHorn");
+		register(beaverTail, "beaverTail");
+		register(swanFeather, "swanFeather");
+
+		register(dye, "dye");
+
+		register(valyrianPowder, "valyrianPowder");
+
+		/* misc */
+
+		register(questBook, "questBook");
+
+		register(pouch, "pouch");
+
+		register(coin, "coin");
+
+		register(copperRing, "copperRing");
+		register(bronzeRing, "bronzeRing");
+		register(silverRing, "silverRing");
+		register(goldRing, "goldRing");
+		register(valyrianRing, "valyrianRing");
+
+		register(pipe, "pipe");
+		register(pipeweed, "pipeweed");
+
+		register(robesHelmet, "robesHelmet");
+		register(robesChestplate, "robesChestplate");
+		register(robesLeggings, "robesLeggings");
+		register(robesBoots, "robesBoots");
+
+		register(leatherHat, "leatherHat");
+
+		register(kaftanChestplate, "kaftanChestplate");
+		register(kaftanLeggings, "kaftanLeggings");
+
+		register(wheel, "wheel");
+		register(cargocart, "cargocart");
+		register(plowcart, "plowcart");
+
+		register(bottlePoison, "bottlePoison");
+		register(bloodOfTrueKings, "bloodOfTrueKings");
+		register(chestnut, "chestnut");
+		register(mysteryWeb, "mysteryWeb");
+		register(termite, "termite");
+
+		register(npcRespawner, "npcRespawner");
+
+		/* null */
+
+		register(anonymousMask, "anonymousMask");
+		register(bannerTab, "bannerTab");
+		register(crowbar, "crowbar");
+		register(featherDyed, "featherDyed");
+
+		/* spawning */
+
+		register(spawnEgg, "spawnEgg");
+		register(structureSpawner, "structureSpawner");
+
+		/* story */
+
+		register(blackfyreHelmet, "blackfyreHelmet");
+		register(blackfyreChestplate, "blackfyreChestplate");
+		register(blackfyreBoots, "blackfyreBoots");
+		register(blackfyreLeggings, "blackfyreLeggings");
 		register(redkingHelmet, "redkingHelmet");
 		register(redkingChestplate, "redkingChestplate");
 		register(redkingLeggings, "redkingLeggings");
@@ -1842,253 +2125,133 @@ public class GOTItems {
 		register(renlyChestplate, "renlyChestplate");
 		register(renlyLeggings, "renlyLeggings");
 		register(renlyBoots, "renlyBoots");
+		register(royceHelmet, "royceHelmet");
+		register(royceChestplate, "royceChestplate");
+		register(royceLeggings, "royceLeggings");
+		register(royceBoots, "royceBoots");
+		register(targaryenHelmet, "targaryenHelmet");
+		register(targaryenChestplate, "targaryenChestplate");
+		register(targaryenLeggings, "targaryenLeggings");
+		register(targaryenBoots, "targaryenBoots");
 		register(westkingHelmet, "westkingHelmet");
 		register(westkingChestplate, "westkingChestplate");
 		register(westkingLeggings, "westkingLeggings");
 		register(westkingBoots, "westkingBoots");
-		register(blackfyreHelmet, "blackfyreHelmet");
-		register(blackfyreChestplate, "blackfyreChestplate");
-		register(blackfyreLeggings, "blackfyreLeggings");
-		register(blackfyreBoots, "blackfyreBoots");
+
+		register(aegonHelmet, "aegonHelmet");
+		register(bittersteelHelmet, "bittersteelHelmet");
+		register(gendryHelmet, "gendryHelmet");
 		register(robertHelmet, "robertHelmet");
 		register(sandorHelmet, "sandorHelmet");
-		register(gendryHelmet, "gendryHelmet");
-		register(bittersteelHelmet, "bittersteelHelmet");
 		register(victarionHelmet, "victarionHelmet");
-		register(aegonHelmet, "aegonHelmet");
-		register(handGold, "handGold");
+
+		register(blackskinChestplate, "blackskinChestplate");
+
 		register(handSilver, "handSilver");
+		register(handGold, "handGold");
+
 		register(baelishBrooch, "baelishBrooch");
 		register(lannisterBrooch, "lannisterBrooch");
 		register(velaryonBrooch, "velaryonBrooch");
-		register(lingeringPotion, "lingeringPotion");
-		register(bannerTab, "bannerTab");
-		register(crowbar, "crowbar");
-		register(ice, "ice");
-		register(longclaw, "longclaw");
-		register(oathkeeper, "oathkeeper");
-		register(widowWail, "widowWail");
-		register(blackfyre, "blackfyre");
-		register(darkSister, "darkSister");
-		register(lightbringer, "lightbringer");
-		register(heartsbane, "heartsbane");
-		register(nightfall, "nightfall");
-		register(brightroar, "brightroar");
-		register(dawn, "dawn");
-		register(bericSword, "bericSword");
-		register(justMaid, "justMaid");
-		register(ladyForlorn, "ladyForlorn");
-		register(orphanMaker, "orphanMaker");
-		register(redRain, "redRain");
-		register(truth, "truth");
-		register(vigilance, "vigilance");
-		register(lamentation, "lamentation");
+
+		register(archmagStaff, "archmagStaff");
+		register(areoHotahAxe, "areoHotahAxe");
+		register(baelishDagger, "baelishDagger");
 		register(bane, "bane");
+		register(bericSword, "bericSword");
+		register(blackArakh, "blackArakh");
+		register(blackfyre, "blackfyre");
+		register(boltonDagger, "boltonDagger");
+		register(brightroar, "brightroar");
+		register(celtigarAxe, "celtigarAxe");
 		register(cutwave, "cutwave");
+		register(daarioArakh, "daarioArakh");
+		register(darkSister, "darkSister");
+		register(darkstar, "darkstar");
+		register(dawn, "dawn");
+		register(eddardSword, "eddardSword");
+		register(euronDagger, "euronDagger");
 		register(fin, "fin");
-		register(honor, "honor");
-		register(pruner, "pruner");
-		register(reminder, "reminder");
-		register(indomitable, "indomitable");
-		register(tidewings, "tidewings");
-		register(needle, "needle");
-		register(hearteater, "hearteater");
+		register(gendryHammer, "gendryHammer");
 		register(gregorCleganeSword, "gregorCleganeSword");
+		register(hearteater, "hearteater");
+		register(heartsbane, "heartsbane");
+		register(honor, "honor");
+		register(ice, "ice");
+		register(indomitable, "indomitable");
+		register(jaimeSword, "jaimeSword");
+		register(justMaid, "justMaid");
+		register(katana, "katana");
+		register(ladyForlorn, "ladyForlorn");
+		register(lamentation, "lamentation");
+		register(lightbringer, "lightbringer");
+		register(longclaw, "longclaw");
+		register(needle, "needle");
+		register(nightKingSword, "nightKingSword");
+		register(nightfall, "nightfall");
+		register(oathkeeper, "oathkeeper");
+		register(obaraSpear, "obaraSpear");
+		register(orphanMaker, "orphanMaker");
+		register(pruner, "pruner");
+		register(redRain, "redRain");
+		register(reminder, "reminder");
+		register(rhaegarSword, "rhaegarSword");
+		register(robbSword, "robbSword");
+		register(robertHammer, "robertHammer");
 		register(sandorCleganeSword, "sandorCleganeSword");
 		register(sunspear, "sunspear");
-		register(celtigarAxe, "celtigarAxe");
-		register(baelishDagger, "baelishDagger");
-		register(boltonDagger, "boltonDagger");
-		register(euronDagger, "euronDagger");
-		register(nightKingSword, "nightKingSword");
-		register(blackArakh, "blackArakh");
-		register(gendryHammer, "gendryHammer");
-		register(robertHammer, "robertHammer");
-		register(joffreyCrossbow, "joffreyCrossbow");
-		register(eddardSword, "eddardSword");
-		register(jaimeSword, "jaimeSword");
-		register(rhaegarSword, "rhaegarSword");
+		register(tidewings, "tidewings");
 		register(tormundSword, "tormundSword");
+		register(truth, "truth");
+		register(trystaneSword, "trystaneSword");
+		register(tugarKhanSword, "tugarKhanSword");
+		register(tyeneDagger, "tyeneDagger");
 		register(tyrionAxe, "tyrionAxe");
 		register(victarionAxe, "victarionAxe");
-		register(katana, "katana");
-		register(westerlandsHelmet, "westerlandsHelmet");
-		register(westerlandsChestplate, "westerlandsChestplate");
-		register(westerlandsLeggings, "westerlandsLeggings");
-		register(westerlandsBoots, "westerlandsBoots");
-		register(westerlandsguardHelmet, "westerlandsguardHelmet");
-		register(westerlandsguardChestplate, "westerlandsguardChestplate");
-		register(westerlandsguardLeggings, "westerlandsguardLeggings");
-		register(westerlandsguardBoots, "westerlandsguardBoots");
-		register(riverlandsHelmet, "riverlandsHelmet");
-		register(riverlandsChestplate, "riverlandsChestplate");
-		register(riverlandsLeggings, "riverlandsLeggings");
-		register(riverlandsBoots, "riverlandsBoots");
-		register(arrynHelmet, "arrynHelmet");
-		register(arrynChestplate, "arrynChestplate");
-		register(arrynLeggings, "arrynLeggings");
-		register(arrynBoots, "arrynBoots");
-		register(arrynguardHelmet, "arrynguardHelmet");
-		register(arrynguardChestplate, "arrynguardChestplate");
-		register(arrynguardLeggings, "arrynguardLeggings");
-		register(arrynguardBoots, "arrynguardBoots");
-		register(crownlandsHelmet, "crownlandsHelmet");
-		register(crownlandsChestplate, "crownlandsChestplate");
-		register(crownlandsLeggings, "crownlandsLeggings");
-		register(crownlandsBoots, "crownlandsBoots");
-		register(dragonstoneHelmet, "dragonstoneHelmet");
-		register(dragonstoneChestplate, "dragonstoneChestplate");
-		register(dragonstoneLeggings, "dragonstoneLeggings");
-		register(dragonstoneBoots, "dragonstoneBoots");
-		register(stormlandsHelmet, "stormlandsHelmet");
-		register(stormlandsChestplate, "stormlandsChestplate");
-		register(stormlandsLeggings, "stormlandsLeggings");
-		register(stormlandsBoots, "stormlandsBoots");
-		register(reachHelmet, "reachHelmet");
-		register(reachChestplate, "reachChestplate");
-		register(reachLeggings, "reachLeggings");
-		register(reachBoots, "reachBoots");
-		register(reachguardHelmet, "reachguardHelmet");
-		register(reachguardChestplate, "reachguardChestplate");
-		register(reachguardLeggings, "reachguardLeggings");
-		register(reachguardBoots, "reachguardBoots");
-		register(dorneHelmet, "dorneHelmet");
-		register(dorneChestplate, "dorneChestplate");
-		register(dorneLeggings, "dorneLeggings");
-		register(dorneBoots, "dorneBoots");
-		register(ironbornHelmet, "ironbornHelmet");
-		register(ironbornChestplate, "ironbornChestplate");
-		register(ironbornLeggings, "ironbornLeggings");
-		register(ironbornBoots, "ironbornBoots");
-		register(northguardHelmet, "northguardHelmet");
-		register(northguardChestplate, "northguardChestplate");
-		register(northguardLeggings, "northguardLeggings");
-		register(northguardBoots, "northguardBoots");
-		register(robbSword, "robbSword");
-		register(areoHotahAxe, "areoHotahAxe");
-		register(trystaneSword, "trystaneSword");
-		register(obaraSpear, "obaraSpear");
-		register(tyeneDagger, "tyeneDagger");
+		register(vigilance, "vigilance");
+		register(widowWail, "widowWail");
+
 		register(nymeriaWhip, "nymeriaWhip");
-		register(darkstar, "darkstar");
-		register(daarioArakh, "daarioArakh");
-		register(volantisHelmet, "volantisHelmet");
-		register(volantisChestplate, "volantisChestplate");
-		register(volantisLeggings, "volantisLeggings");
-		register(volantisBoots, "volantisBoots");
-		register(braavosHelmet, "braavosHelmet");
-		register(braavosChestplate, "braavosChestplate");
-		register(braavosLeggings, "braavosLeggings");
-		register(braavosBoots, "braavosBoots");
-		register(pentosHelmet, "pentosHelmet");
-		register(pentosChestplate, "pentosChestplate");
-		register(pentosLeggings, "pentosLeggings");
-		register(pentosBoots, "pentosBoots");
-		register(qohorHelmet, "qohorHelmet");
-		register(qohorChestplate, "qohorChestplate");
-		register(qohorLeggings, "qohorLeggings");
-		register(qohorBoots, "qohorBoots");
-		register(tyroshHelmet, "tyroshHelmet");
-		register(tyroshChestplate, "tyroshChestplate");
-		register(tyroshLeggings, "tyroshLeggings");
-		register(tyroshBoots, "tyroshBoots");
-		register(lorathHelmet, "lorathHelmet");
-		register(lorathChestplate, "lorathChestplate");
-		register(lorathLeggings, "lorathLeggings");
-		register(lorathBoots, "lorathBoots");
-		register(lysHelmet, "lysHelmet");
-		register(lysChestplate, "lysChestplate");
-		register(lysLeggings, "lysLeggings");
-		register(lysBoots, "lysBoots");
-		register(myrHelmet, "myrHelmet");
-		register(myrChestplate, "myrChestplate");
-		register(myrLeggings, "myrLeggings");
-		register(myrBoots, "myrBoots");
-		register(norvosHelmet, "norvosHelmet");
-		register(norvosChestplate, "norvosChestplate");
-		register(norvosLeggings, "norvosLeggings");
-		register(norvosBoots, "norvosBoots");
-		register(ghiscarHelmet, "ghiscarHelmet");
-		register(ghiscarChestplate, "ghiscarChestplate");
-		register(ghiscarLeggings, "ghiscarLeggings");
-		register(ghiscarBoots, "ghiscarBoots");
-		register(qarthHelmet, "qarthHelmet");
-		register(qarthChestplate, "qarthChestplate");
-		register(qarthLeggings, "qarthLeggings");
-		register(qarthBoots, "qarthBoots");
-		register(unsulliedHelmet, "unsulliedHelmet");
-		register(unsulliedChestplate, "unsulliedChestplate");
-		register(unsulliedLeggings, "unsulliedLeggings");
-		register(unsulliedBoots, "unsulliedBoots");
-		register(harpy, "harpy");
-		register(mossovySword, "mossovySword");
-		register(asshaiMask, "asshaiMask");
-		register(asshaiStaff, "asshaiStaff");
-		register(archmagStaff, "archmagStaff");
-		register(cargocart, "cargocart");
-		register(wheel, "wheel");
-		register(plowcart, "plowcart");
-		register(kingsguardHelmet, "kingsguardHelmet");
-		register(kingsguardChestplate, "kingsguardChestplate");
-		register(kingsguardLeggings, "kingsguardLeggings");
-		register(kingsguardBoots, "kingsguardBoots");
-		register(bloodOfTrueKings, "bloodOfTrueKings");
-		register(arrowFire, "arrowFire");
-		register(anonymousMask, "anonymousMask");
-		register(alloySteelIngot, "alloySteelIngot");
-		register(alloySteelNugget, "alloySteelNugget");
+		register(joffreyCrossbow, "joffreyCrossbow");
+
+		/* tools */
+
+		register(bronzeAxe, "bronzeAxe");
+		register(bronzeHoe, "bronzeHoe");
+		register(bronzePickaxe, "bronzePickaxe");
+		register(bronzeShovel, "bronzeShovel");
+
 		register(alloySteelAxe, "alloySteelAxe");
-		register(alloySteelDagger, "alloySteelDagger");
-		register(alloySteelDaggerPoisoned, "alloySteelDaggerPoisoned");
 		register(alloySteelHoe, "alloySteelHoe");
-		register(alloySteelShovel, "alloySteelShovel");
-		register(alloySteelHalberd, "alloySteelHalberd");
 		register(alloySteelPickaxe, "alloySteelPickaxe");
-		register(alloySteelSword, "alloySteelSword");
-		register(iceShard, "iceShard");
-		register(whiteWalkersChestplate, "whiteWalkersChestplate");
-		register(whiteWalkersLeggings, "whiteWalkersLeggings");
-		register(whiteWalkersBoots, "whiteWalkersBoots");
-		register(iceSpear, "iceSpear");
-		register(ibbenChestplate, "ibbenChestplate");
-		register(ibbenLeggings, "ibbenLeggings");
-		register(ibbenBoots, "ibbenBoots");
-		register(ibbenHarpoon, "ibbenHarpoon");
-		register(ibbenSword, "ibbenSword");
-		register(yitiHelmetFrontier, "yitiHelmetFrontier");
-		register(yitiChestplateFrontier, "yitiChestplateFrontier");
-		register(yitiLeggingsFrontier, "yitiLeggingsFrontier");
-		register(yitiBootsFrontier, "yitiBootsFrontier");
-		register(dothrakiHelmet, "dothrakiHelmet");
-		register(dothrakiChestplate, "dothrakiChestplate");
-		register(dothrakiLeggings, "dothrakiLeggings");
-		register(dothrakiBoots, "dothrakiBoots");
-		register(mossovyDagger, "mossovyDagger");
-		register(jogosHelmet, "jogosHelmet");
-		register(jogosChestplate, "jogosChestplate");
-		register(jogosLeggings, "jogosLeggings");
-		register(jogosBoots, "jogosBoots");
-		register(tugarKhanSword, "tugarKhanSword");
-		register(westerosLongsword, "westerosLongsword");
-		register(westerosGreatsword, "westerosGreatsword");
-		register(elephantRaw, "elephantRaw");
-		register(elephantCooked, "elephantCooked");
-		register(walrusLardRaw, "walrusLardRaw");
-		register(walrusLardCooked, "walrusLardCooked");
-		register(ironNugget, "ironNugget");
-		register(bronzeNugget, "bronzeNugget");
-		register(bronzeChainmailHelmet, "bronzeChainmailHelmet");
-		register(bronzeChainmailChestplate, "bronzeChainmailChestplate");
-		register(bronzeChainmailLeggings, "bronzeChainmailLeggings");
-		register(bronzeChainmailBoots, "bronzeChainmailBoots");
-		register(valyrianChainmailHelmet, "valyrianChainmailHelmet");
-		register(valyrianChainmailChestplate, "valyrianChainmailChestplate");
-		register(valyrianChainmailLeggings, "valyrianChainmailLeggings");
-		register(valyrianChainmailBoots, "valyrianChainmailBoots");
-		register(copperRing, "copperRing");
-		register(bronzeRing, "bronzeRing");
-		register(beaverRaw, "beaverRaw");
-		register(beaverCooked, "beaverCooked");
-		register(beaverTail, "beaverTail");
+		register(alloySteelShovel, "alloySteelShovel");
+
+		register(valyrianAxe, "valyrianAxe");
+		register(valyrianHoe, "valyrianHoe");
+		register(valyrianPickaxe, "valyrianPickaxe");
+		register(valyrianShovel, "valyrianShovel");
+		register(valyrianMattock, "valyrianMattock");
+
+		register(sothoryosAxe, "sothoryosAxe");
+		register(sothoryosHoe, "sothoryosHoe");
+		register(sothoryosPickaxe, "sothoryosPickaxe");
+		register(sothoryosShovel, "sothoryosShovel");
+
+		register(wildlingAxe, "wildlingAxe");
+
+		register(chisel, "chisel");
+		register(valyrianChisel, "valyrianChisel");
+
+		register(brandingIron, "brandingIron");
+
+		register(sulfurMatch, "sulfurMatch");
+
+		register(smithScroll, "smithScroll");
+
+		/* util */
+
+		register(strawBed, "strawBed");
+		register(furBed, "furBed");
+		register(lionBed, "lionBed");
 	}
 }

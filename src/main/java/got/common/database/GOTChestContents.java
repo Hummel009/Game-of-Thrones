@@ -229,7 +229,6 @@ public class GOTChestContents {
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 4, 75));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 5, 100));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicPlate), 1, 3, 25));
-		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.woodPlate), 1, 3, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mug), 1, 3, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicMug), 1, 3, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.waterskin), 1, 3, 25));
@@ -276,7 +275,6 @@ public class GOTChestContents {
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(Items.potato), 1, 5, 100));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(Items.baked_potato), 1, 2, 25));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(Items.cooked_fished), 1, 3, 25));
-		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.woodPlate), 1, 3, 50));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mug), 1, 3, 25));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.waterskin), 1, 3, 25));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mugMelonLiqueur), 1, 1, 25));
@@ -689,7 +687,6 @@ public class GOTChestContents {
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 4, 75));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 5, 100));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicPlate), 1, 3, 25));
-		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.woodPlate), 1, 3, 25));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mug), 1, 3, 25));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicMug), 1, 3, 25));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.waterskin), 1, 3, 25));
@@ -793,7 +790,6 @@ public class GOTChestContents {
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 4, 75));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 5, 100));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicPlate), 1, 3, 25));
-		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.woodPlate), 1, 3, 25));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mug), 1, 3, 25));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicMug), 1, 3, 25));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.waterskin), 1, 3, 25));
@@ -848,7 +844,6 @@ public class GOTChestContents {
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 4, 75));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 5, 100));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicPlate), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.woodPlate), 1, 3, 25));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mug), 1, 3, 25));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicMug), 1, 3, 25));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.waterskin), 1, 3, 25));

@@ -13,7 +13,6 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
-import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

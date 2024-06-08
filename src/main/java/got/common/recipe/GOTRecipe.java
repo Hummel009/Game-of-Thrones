@@ -216,7 +216,6 @@ public class GOTRecipe {
 		COMMON_WESTEROS.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerosDagger), "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
 		COMMON_WESTEROS.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerosHammer), "XYX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
 		COMMON_WESTEROS.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerosHorseArmor), "X  ", "XYX", "XXX", 'X', "ingotIron", 'Y', Items.leather));
-		COMMON_WESTEROS.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerosLance), "  X", " X ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
 		COMMON_WESTEROS.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerosPike), "  X", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
 		COMMON_WESTEROS.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerosSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
 		COMMON_WESTEROS.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerosSword), "X", "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
@@ -287,6 +286,10 @@ public class GOTRecipe {
 		GHISCAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarBoots), "X X", "X X", 'X', "ingotIron"));
 		GHISCAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.GHISCAR.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		GHISCAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.harpy), "XXX", "X X", 'X', Items.gold_ingot));
+		GHISCAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarBootsGemsbok), "X X", "X X", 'X', GOTItems.gemsbokHide));
+		GHISCAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarChestplateGemsbok), "X X", "XXX", "XXX", 'X', GOTItems.gemsbokHide));
+		GHISCAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarHelmetGemsbok), "Y Y", "XXX", "X X", 'X', GOTItems.gemsbokHide, 'Y', GOTItems.gemsbokHorn));
+		GHISCAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarLeggingsGemsbok), "XXX", "X X", "X X", 'X', GOTItems.gemsbokHide));
 		GHISCAR.addAll(COMMON_ESSOS);
 	}
 
@@ -523,7 +526,7 @@ public class GOTRecipe {
 		GameRegistry.addSmelting(GOTBlocks.oreCopper, new ItemStack(GOTItems.copperIngot), 0.35f);
 		GameRegistry.addSmelting(GOTBlocks.oreTin, new ItemStack(GOTItems.tinIngot), 0.35f);
 		GameRegistry.addSmelting(GOTBlocks.oreSilver, new ItemStack(GOTItems.silverIngot), 0.8f);
-		GameRegistry.addSmelting(GOTBlocks.oreCobalt, new ItemStack(GOTItems.cobaltIngot), 0.8f);
+		GameRegistry.addSmelting(GOTBlocks.oreCobalt, new ItemStack(GOTItems.cobaltBlue), 0.8f);
 		GameRegistry.addSmelting(GOTBlocks.oreGlowstone, new ItemStack(Items.glowstone_dust), 1.0f);
 		GameRegistry.addSmelting(GOTBlocks.oreSulfur, new ItemStack(GOTItems.sulfur), 1.0f);
 		GameRegistry.addSmelting(GOTBlocks.oreSaltpeter, new ItemStack(GOTItems.saltpeter), 1.0f);
@@ -778,10 +781,6 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTItems.furChestplate), "X X", "XXX", "XXX", 'X', GOTItems.fur);
 		GameRegistry.addRecipe(new ItemStack(GOTItems.furHelmet), "XXX", "X X", 'X', GOTItems.fur);
 		GameRegistry.addRecipe(new ItemStack(GOTItems.furLeggings), "XXX", "X X", "X X", 'X', GOTItems.fur);
-		GameRegistry.addRecipe(new ItemStack(GOTItems.gemsbokBoots), "X X", "X X", 'X', GOTItems.gemsbokHide);
-		GameRegistry.addRecipe(new ItemStack(GOTItems.gemsbokChestplate), "X X", "XXX", "XXX", 'X', GOTItems.gemsbokHide);
-		GameRegistry.addRecipe(new ItemStack(GOTItems.gemsbokHelmet), "Y Y", "XXX", "X X", 'X', GOTItems.gemsbokHide, 'Y', GOTItems.gemsbokHorn);
-		GameRegistry.addRecipe(new ItemStack(GOTItems.gemsbokLeggings), "XXX", "X X", "X X", 'X', GOTItems.gemsbokHide);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.glass, 4), "XX", "XX", 'X', Blocks.glass);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.glassPane, 16), "XXX", "XXX", 'X', GOTBlocks.glass);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.hearth, 3), "XXX", "YYY", 'X', new ItemStack(Items.coal, 1, 32767), 'Y', Items.brick);
@@ -1215,7 +1214,6 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.weaponRack), "X X", "YYY", 'X', "stickWood", 'Y', "plankWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.wheel), "sss", "sps", "sss", 's', "stickWood", 'p', Blocks.planks));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.wineGlass, 2), "X X", " X ", " X ", 'X', Blocks.glass));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.woodPlate, 2), "XX", 'X', "logWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.arrow, 4), "X", "Y", "Z", 'X', "arrowTip", 'Y', "stickWood", 'Z', "feather"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.arrowFire, 4), " X ", "XYX", " X ", 'X', Items.arrow, 'Y', GOTItems.sulfur));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTItems.arrowPoisoned, 4), " X ", "XYX", " X ", 'X', Items.arrow, 'Y', "poison"));
@@ -1876,7 +1874,7 @@ public class GOTRecipe {
 		OreDictionary.registerOre("oreCopper", GOTBlocks.oreCopper);
 		OreDictionary.registerOre("oreTin", GOTBlocks.oreTin);
 		OreDictionary.registerOre("oreSilver", GOTBlocks.oreSilver);
-		OreDictionary.registerOre("oreCobalt", GOTItems.cobaltIngot);
+		OreDictionary.registerOre("oreCobalt", GOTItems.cobaltBlue);
 		OreDictionary.registerOre("oreSulfur", GOTBlocks.oreSulfur);
 		OreDictionary.registerOre("oreSaltpeter", GOTBlocks.oreSaltpeter);
 		OreDictionary.registerOre("oreSalt", GOTBlocks.oreSalt);

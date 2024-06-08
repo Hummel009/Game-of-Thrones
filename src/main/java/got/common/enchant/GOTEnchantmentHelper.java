@@ -299,7 +299,7 @@ public class GOTEnchantmentHelper {
 		return true;
 	}
 
-	public static void clearEnchants(ItemStack itemstack) {
+	private static void clearEnchants(ItemStack itemstack) {
 		NBTTagCompound itemData = itemstack.getTagCompound();
 		if (itemData != null && itemData.hasKey("GOTEnch")) {
 			itemData.removeTag("GOTEnch");

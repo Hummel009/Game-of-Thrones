@@ -1,7 +1,6 @@
 package got.common.tileentity;
 
 import got.common.block.other.GOTBlockBookshelfStorage;
-import got.common.database.GOTItems;
 import got.common.inventory.GOTContainerBookshelf;
 import got.common.item.other.GOTItemModifierTemplate;
 import got.common.item.other.GOTItemQuestBook;
@@ -24,7 +23,7 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 	public static boolean isBookItem(ItemStack itemstack) {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
-			return item instanceof ItemBook || item instanceof ItemWritableBook || item instanceof ItemEditableBook || item instanceof GOTItemQuestBook || item == GOTItems.valyrianBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase || item == Items.paper || item instanceof GOTItemModifierTemplate;
+			return item instanceof ItemBook || item instanceof ItemWritableBook || item instanceof ItemEditableBook || item instanceof GOTItemQuestBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase || item == Items.paper || item instanceof GOTItemModifierTemplate;
 		}
 		return false;
 	}

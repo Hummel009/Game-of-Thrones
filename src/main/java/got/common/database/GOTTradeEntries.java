@@ -166,7 +166,6 @@ public class GOTTradeEntries {
 		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianIngot), VALYRIAN_INGOT, true));
 		C_MINER_B_L.add(new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT, true));
 
-		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianBook), VALYRIAN_INGOT, true));
 		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianDagger), VALYRIAN_INGOT, true));
 		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianDaggerPoisoned), VALYRIAN_INGOT, true));
 		QOHOR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianHammer), VALYRIAN_INGOT * 4, true));
@@ -266,7 +265,6 @@ public class GOTTradeEntries {
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.rabbitStew), 10));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.shishKebab), 8));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.waterskin), 2));
-		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.woodPlate), 2));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(Items.baked_potato, 2), 7));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(Items.bread), 5));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(Items.cooked_beef), 7));

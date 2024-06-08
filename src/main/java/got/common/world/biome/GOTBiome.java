@@ -52,7 +52,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
-@SuppressWarnings({"WeakerAccess", "PublicField"})
+@SuppressWarnings({"WeakerAccess", "PublicField", "unused"})
 public abstract class GOTBiome extends BiomeGenBase {
 	public static final Set<GOTBiome> CONTENT = new HashSet<>();
 	public static final int SPAWN = 600;

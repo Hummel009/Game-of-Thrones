@@ -229,7 +229,7 @@ public class GOTArmorModels {
 			map.put(GOTItems.blackfyreHelmet, new GOTModelWingedHelmet(1.0f));
 			map.put(GOTItems.braavosHelmet, new GOTModelBraavosHelmet(1.0f));
 			map.put(GOTItems.ceramicPlate, new GOTModelPlateHead());
-			map.put(GOTItems.gemsbokHelmet, new GOTModelGemsbokHelmet(1.0f));
+			map.put(GOTItems.ghiscarHelmetGemsbok, new GOTModelGemsbokHelmet(1.0f));
 			map.put(GOTItems.harpy, new GOTModelHarpy(1.0f));
 			map.put(GOTItems.gendryHelmet, new GOTModelHarpy(1.0f));
 			map.put(GOTItems.renlyHelmet, new GOTModelDeerHelmet(1.0f));
@@ -255,7 +255,6 @@ public class GOTArmorModels {
 			map.put(GOTItems.victarionHelmet, new GOTModelWingedHelmet(1.0f));
 			map.put(GOTItems.westerlandsHelmet, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTItems.westkingHelmet, new GOTModelWesterlandsHelmet(1.0f));
-			map.put(GOTItems.woodPlate, new GOTModelPlateHead());
 			map.put(GOTItems.yitiHelmetSamurai, new GOTModelYiTiHelmet(1.0f, false));
 			map.put(GOTItems.yitiHelmetShogune, new GOTModelYiTiHelmet(1.0f, true));
 			for (ModelBiped armorModel : map.values()) {

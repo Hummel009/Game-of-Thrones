@@ -184,7 +184,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 				break;
 		}
 		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.westerosLance));
+			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.westerosPike));
 		} else {
 			npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		}

@@ -46,8 +46,8 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.widowWail}, new Object[]{GOTItems.oathkeeper}, GOTItems.ice));
 		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.oathkeeper}, new Object[]{GOTItems.widowWail}, GOTItems.ice));
 
-		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.cobaltIngot, GOTBlocks.oreCobalt}, new Object[]{Blocks.iron_ore, Items.iron_ingot}, GOTItems.alloySteelIngot));
-		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{Blocks.iron_ore, Items.iron_ingot}, new Object[]{GOTItems.cobaltIngot, GOTBlocks.oreCobalt}, GOTItems.alloySteelIngot));
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.cobaltBlue, GOTBlocks.oreCobalt}, new Object[]{Blocks.iron_ore, Items.iron_ingot}, GOTItems.alloySteelIngot));
+		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{Blocks.iron_ore, Items.iron_ingot}, new Object[]{GOTItems.cobaltBlue, GOTBlocks.oreCobalt}, GOTItems.alloySteelIngot));
 	}
 
 	protected ItemStack[] inventory = new ItemStack[getForgeInvSize()];
