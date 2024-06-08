@@ -607,16 +607,16 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureNorthHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureNorthTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), -9, -12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), 9, -12, 3);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), -9, 12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), 9, 12, 3);
 				}
 			}

@@ -403,16 +403,16 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureArrynHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureArrynTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), -9, -12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), 9, -12, 3);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), -9, 12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), 9, 12, 3);
 				}
 			}

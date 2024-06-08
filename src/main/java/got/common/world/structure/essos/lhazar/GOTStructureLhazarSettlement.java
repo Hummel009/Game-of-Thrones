@@ -203,7 +203,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				int l = 90 - 6;
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(new GOTStructureHayBales(false), i, k, r);
 					continue;
 				}
@@ -275,7 +275,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				int l = 52;
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(new GOTStructureHayBales(false), i, k, r);
 					continue;
 				}

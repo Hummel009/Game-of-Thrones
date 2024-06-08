@@ -400,16 +400,16 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			addStructure(new GOTStructureWesterlandsHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureWesterlandsTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureWesterlandsMarketStall.getRandomStall(random, false), -9, -12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureWesterlandsMarketStall.getRandomStall(random, false), 9, -12, 3);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureWesterlandsMarketStall.getRandomStall(random, false), -9, 12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureWesterlandsMarketStall.getRandomStall(random, false), 9, 12, 3);
 				}
 			}

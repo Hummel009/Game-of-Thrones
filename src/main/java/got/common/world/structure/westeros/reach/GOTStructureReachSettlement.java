@@ -400,16 +400,16 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureReachHouse(false), 21, 0, 3);
 			addStructure(new GOTStructureReachTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureReachMarketStall.getRandomStall(random, false), -9, -12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureReachMarketStall.getRandomStall(random, false), 9, -12, 3);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureReachMarketStall.getRandomStall(random, false), -9, 12, 1);
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(GOTStructureReachMarketStall.getRandomStall(random, false), 9, 12, 3);
 				}
 			}

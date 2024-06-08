@@ -157,7 +157,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			int farmZ = 27;
 			for (int l = -3; l <= 3; ++l) {
 				int farmX = l * 10;
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(new GOTStructureHayBales(false), farmX, -farmZ - 5, 2);
 					continue;
 				}
@@ -372,13 +372,13 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureYiTiHouseSmall(false), i1, k1, 0);
 				int k2 = k1 + 20;
 				if (l != 0) {
-					if (random.nextInt(3) == 0) {
+					if (random.nextBoolean()) {
 						addStructure(getRandomVillageFarm(random), i1, -k2, 2);
 					} else {
 						addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
 					}
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(getRandomVillageFarm(random), i1, k2, 0);
 					continue;
 				}

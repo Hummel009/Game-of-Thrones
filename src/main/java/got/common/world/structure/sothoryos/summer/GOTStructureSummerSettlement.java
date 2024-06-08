@@ -257,11 +257,11 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				if (k < 0 && Math.abs(i) < 10) {
 					continue;
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(new GOTStructureHayBales(false), i, k, r);
 					continue;
 				}
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(new GOTStructureSummerPasture(false), i, k, r);
 					continue;
 				}

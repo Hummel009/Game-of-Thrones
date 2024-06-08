@@ -407,14 +407,14 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 				int k = l * farmStep;
 				int i = -farmX;
 				int r = 1;
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(new GOTStructureHayBales(false), i, k, r);
 				} else {
 					addStructure(getRandomFarm(random), i, k, r);
 				}
 				i = farmX;
 				r = 3;
-				if (random.nextInt(3) == 0) {
+				if (random.nextBoolean()) {
 					addStructure(new GOTStructureHayBales(false), i, k, r);
 					continue;
 				}
