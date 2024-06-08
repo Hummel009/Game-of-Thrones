@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockSlabThatch extends GOTBlockSlabBase {
-	public GOTBlockSlabThatch(boolean flag) {
-		super(flag, Material.grass, 2);
+	public GOTBlockSlabThatch(boolean hidden) {
+		super(hidden, Material.grass, 2);
 		setHardness(0.5f);
 		setStepSound(soundTypeGrass);
 	}

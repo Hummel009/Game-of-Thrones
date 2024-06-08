@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockSlabRotten extends GOTBlockSlabBase {
-	public GOTBlockSlabRotten(boolean flag) {
-		super(flag, Material.wood, 1);
+	public GOTBlockSlabRotten(boolean hidden) {
+		super(hidden, Material.wood, 1);
 	}
 
 	@SideOnly(Side.CLIENT)

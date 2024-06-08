@@ -1516,7 +1516,6 @@ public class GOTBlocks {
 		register(boneBlock, "boneBlock");
 		register(wallBone, "wallBone", GOTItemBlockMetadata.class);
 		register(slabBoneSingle, "slabBoneSingle", GOTBlockSlabBase.SlabItems.BoneSingle.class);
-		register(slabBoneDouble, "slabBoneDouble", GOTBlockSlabBase.SlabItems.BoneDouble.class);
 		register(stairsBone, "stairsBone");
 
 		register(thatch, "thatch", GOTItemBlockMetadata.class);
@@ -1569,12 +1568,9 @@ public class GOTBlocks {
 		register(wallClayTileDyed, "wallClayTileDyed", GOTItemBlockMetadata.class);
 
 		register(slabClayTileSingle, "slabClayTileSingle", GOTBlockSlabBase.SlabItems.ClayTileSingle.class);
-		register(slabClayTileDouble, "slabClayTileDouble", GOTBlockSlabBase.SlabItems.ClayTileDouble.class);
 
 		register(slabClayTileDyedSingle1, "slabClayTileDyedSingle1", GOTBlockSlabBase.SlabItems.ClayTileDyedSingle.class);
-		register(slabClayTileDyedDouble1, "slabClayTileDyedDouble1", GOTBlockSlabBase.SlabItems.ClayTileDyedDouble.class);
 		register(slabClayTileDyedSingle2, "slabClayTileDyedSingle2", GOTBlockSlabBase.SlabItems.ClayTileDyed2Single.class);
-		register(slabClayTileDyedDouble2, "slabClayTileDyedDouble2", GOTBlockSlabBase.SlabItems.ClayTileDyed2Double.class);
 
 		register(stairsClayTile, "stairsClayTile");
 		register(stairsClayTileDyedBlack, "stairsClayTileDyedBlack");
@@ -1604,7 +1600,6 @@ public class GOTBlocks {
 		/* buildingBlocks */
 
 		register(redBrick, "redBrick", GOTItemBlockMetadata.class);
-		register(slabDoubleV, "slabDoubleV", GOTBlockSlabBase.SlabItems.SlabVDouble.class);
 		register(slabSingleV, "slabSingleV", GOTBlockSlabBase.SlabItems.SlabVSingle.class);
 		register(smoothStoneV, "smoothStoneV", GOTItemBlockMetadata.class);
 		register(stairsBrickCracked, "stairsBrickCracked");
@@ -1622,58 +1617,6 @@ public class GOTBlocks {
 
 		/* decorations */
 
-		register(aridGrass, "aridGrass");
-		register(asshaiBars, "asshaiBars");
-		register(asshaiFlower, "asshaiFlower");
-		register(asshaiGrass, "asshaiGrass");
-		register(asshaiMoss, "asshaiMoss");
-		register(asshaiThorn, "asshaiThorn");
-		register(asshaiTorch, "asshaiTorch");
-		register(berryBush, "berryBush", GOTItemBlockMetadata.class);
-		register(birdCage, "birdCage", GOTItemAnimalJar.class);
-		register(birdCageWood, "birdCageWood", GOTItemAnimalJar.class);
-		register(blackroot, "blackroot");
-		register(bluebell, "bluebell");
-		register(bronzeBars, "bronzeBars");
-		register(butterflyJar, "butterflyJar", GOTItemAnimalJar.class);
-		register(chandelier, "chandelier", GOTItemBlockMetadata.class);
-		register(clover, "clover", GOTItemBlockMetadata.class);
-		register(cornStalk, "cornStalk", GOTItemPlantableBlock.class);
-		register(deadMarshPlant, "deadMarshPlant");
-		register(doubleFlower, "doubleFlower", GOTItemDoubleFlower.class);
-		register(driedReeds, "driedReeds", GOTItemReeds.class);
-		register(essosFlower, "essosFlower", GOTItemBlockMetadata.class);
-		register(fallenLeaves1, "fallenLeaves1", GOTItemFallenLeaves.class);
-		register(fallenLeaves2, "fallenLeaves2", GOTItemFallenLeaves.class);
-		register(fallenLeaves3, "fallenLeaves3", GOTItemFallenLeaves.class);
-		register(fallenLeaves4, "fallenLeaves4", GOTItemFallenLeaves.class);
-		register(fence, "fence", GOTItemBlockMetadata.class);
-		register(fence2, "fence2", GOTItemBlockMetadata.class);
-		register(fence3, "fence3", GOTItemBlockMetadata.class);
-		register(fenceRotten, "fenceRotten", GOTItemBlockMetadata.class);
-		register(flaxPlant, "flaxPlant");
-		register(fruitLeaves, "fruitLeaves", GOTItemLeaves.class);
-		register(fruitSapling, "fruitSapling", GOTItemBlockMetadata.class);
-		register(glassPane, "glassPane");
-		register(goldBars, "goldBars");
-		register(grapevine, "grapevine");
-		register(kelp, "kelp", GOTItemKelp.class);
-		register(leaves1, "leaves1", GOTItemLeaves.class);
-		register(leaves2, "leaves2", GOTItemLeaves.class);
-		register(leaves3, "leaves3", GOTItemLeaves.class);
-		register(leaves4, "leaves4", GOTItemLeaves.class);
-		register(leaves5, "leaves5", GOTItemLeaves.class);
-		register(leaves6, "leaves6", GOTItemLeaves.class);
-		register(leaves7, "leaves7", GOTItemLeaves.class);
-		register(leaves8, "leaves8", GOTItemLeaves.class);
-		register(leaves9, "leaves9", GOTItemLeaves.class);
-		register(marigold, "marigold");
-		register(mirkVines, "mirkVines", GOTItemVine.class);
-		register(pipeweedPlant, "pipeweedPlant");
-		register(plantain, "plantain");
-		register(reedBars, "reedBars");
-		register(reeds, "reeds", GOTItemReeds.class);
-		register(rope, "rope");
 		register(sapling1, "sapling1", GOTItemBlockMetadata.class);
 		register(sapling2, "sapling2", GOTItemBlockMetadata.class);
 		register(sapling3, "sapling3", GOTItemBlockMetadata.class);
@@ -1683,20 +1626,85 @@ public class GOTBlocks {
 		register(sapling7, "sapling7", GOTItemBlockMetadata.class);
 		register(sapling8, "sapling8", GOTItemBlockMetadata.class);
 		register(sapling9, "sapling9", GOTItemBlockMetadata.class);
+		register(fruitSapling, "fruitSapling", GOTItemBlockMetadata.class);
+
+		register(leaves1, "leaves1", GOTItemLeaves.class);
+		register(leaves2, "leaves2", GOTItemLeaves.class);
+		register(leaves3, "leaves3", GOTItemLeaves.class);
+		register(leaves4, "leaves4", GOTItemLeaves.class);
+		register(leaves5, "leaves5", GOTItemLeaves.class);
+		register(leaves6, "leaves6", GOTItemLeaves.class);
+		register(leaves7, "leaves7", GOTItemLeaves.class);
+		register(leaves8, "leaves8", GOTItemLeaves.class);
+		register(leaves9, "leaves9", GOTItemLeaves.class);
+		register(fruitLeaves, "fruitLeaves", GOTItemLeaves.class);
+
+		register(fallenLeaves1, "fallenLeaves1", GOTItemFallenLeaves.class);
+		register(fallenLeaves2, "fallenLeaves2", GOTItemFallenLeaves.class);
+		register(fallenLeaves3, "fallenLeaves3", GOTItemFallenLeaves.class);
+		register(fallenLeaves4, "fallenLeaves4", GOTItemFallenLeaves.class);
+
+		register(fence, "fence", GOTItemBlockMetadata.class);
+		register(fence2, "fence2", GOTItemBlockMetadata.class);
+		register(fence3, "fence3", GOTItemBlockMetadata.class);
+		register(fenceRotten, "fenceRotten", GOTItemBlockMetadata.class);
+
+		register(berryBush, "berryBush", GOTItemBlockMetadata.class);
+
+		register(aridGrass, "aridGrass");
+		register(asshaiFlower, "asshaiFlower");
+		register(asshaiGrass, "asshaiGrass");
+		register(asshaiMoss, "asshaiMoss");
+		register(asshaiThorn, "asshaiThorn");
+		register(blackroot, "blackroot");
+		register(bluebell, "bluebell");
+		register(clover, "clover", GOTItemBlockMetadata.class);
+		register(cornStalk, "cornStalk", GOTItemPlantableBlock.class);
+		register(deadMarshPlant, "deadMarshPlant");
+		register(doubleFlower, "doubleFlower", GOTItemDoubleFlower.class);
+		register(driedReeds, "driedReeds", GOTItemReeds.class);
+		register(essosFlower, "essosFlower", GOTItemBlockMetadata.class);
+		register(flaxPlant, "flaxPlant");
+		register(grapevine, "grapevine");
+		register(kelp, "kelp", GOTItemKelp.class);
+		register(marigold, "marigold");
+		register(mirkVines, "mirkVines", GOTItemVine.class);
+		register(pipeweedPlant, "pipeweedPlant");
+		register(plantain, "plantain");
+		register(reeds, "reeds", GOTItemReeds.class);
+		register(tallGrass, "tallGrass", GOTItemTallGrass.class);
+		register(willowVines, "willowVines", GOTItemVine.class);
+		register(yitiFlower, "yitiFlower", GOTItemBlockMetadata.class);
+
+		register(treasureCopper, "treasureCopper", GOTItemTreasurePile.class);
+		register(treasureSilver, "treasureSilver", GOTItemTreasurePile.class);
+		register(treasureGold, "treasureGold", GOTItemTreasurePile.class);
+
+		register(bronzeBars, "bronzeBars");
 		register(silverBars, "silverBars");
+		register(goldBars, "goldBars");
+		register(valyrianBars, "valyrianBars");
+
+		register(chandelier, "chandelier", GOTItemBlockMetadata.class);
+
+		register(birdCage, "birdCage", GOTItemAnimalJar.class);
+		register(birdCageWood, "birdCageWood", GOTItemAnimalJar.class);
+
+		register(asshaiTorch, "asshaiTorch");
+		register(butterflyJar, "butterflyJar", GOTItemAnimalJar.class);
+		register(weaponRack, "weaponRack", GOTItemBlockWeaponRack.class);
+		register(rope, "rope");
+		register(thatchFloor, "thatchFloor");
+
+		register(reedBars, "reedBars");
+		register(asshaiBars, "asshaiBars");
+
+		register(glassPane, "glassPane");
 		register(stainedGlassPane, "stainedGlassPane", GOTItemBlockMetadata.class);
+
 		register(stalactite, "stalactite", GOTItemBlockMetadata.class);
 		register(stalactiteIce, "stalactiteIce", GOTItemBlockMetadata.class);
 		register(stalactiteObsidian, "stalactiteObsidian", GOTItemBlockMetadata.class);
-		register(tallGrass, "tallGrass", GOTItemTallGrass.class);
-		register(thatchFloor, "thatchFloor");
-		register(treasureCopper, "treasureCopper", GOTItemTreasurePile.class);
-		register(treasureGold, "treasureGold", GOTItemTreasurePile.class);
-		register(treasureSilver, "treasureSilver", GOTItemTreasurePile.class);
-		register(valyrianBars, "valyrianBars");
-		register(weaponRack, "weaponRack", GOTItemBlockWeaponRack.class);
-		register(willowVines, "willowVines", GOTItemVine.class);
-		register(yitiFlower, "yitiFlower", GOTItemBlockMetadata.class);
 
 		/* food */
 
@@ -1761,6 +1769,10 @@ public class GOTBlocks {
 		register(signCarved, "signCarved");
 		register(signCarvedGlowing, "signCarvedGlowing");
 		register(skullCup, "skullCup");
+		register(slabBoneDouble, "slabBoneDouble", GOTBlockSlabBase.SlabItems.BoneDouble.class);
+		register(slabClayTileDouble, "slabClayTileDouble", GOTBlockSlabBase.SlabItems.ClayTileDouble.class);
+		register(slabClayTileDyedDouble1, "slabClayTileDyedDouble1", GOTBlockSlabBase.SlabItems.ClayTileDyedDouble.class);
+		register(slabClayTileDyedDouble2, "slabClayTileDyedDouble2", GOTBlockSlabBase.SlabItems.ClayTileDyed2Double.class);
 		register(slabDouble1, "slabDouble1", GOTBlockSlabBase.SlabItems.Slab1Double.class);
 		register(slabDouble10, "slabDouble10", GOTBlockSlabBase.SlabItems.Slab10Double.class);
 		register(slabDouble11, "slabDouble11", GOTBlockSlabBase.SlabItems.Slab11Double.class);
@@ -1777,6 +1789,7 @@ public class GOTBlocks {
 		register(slabDoubleGravel, "slabDoubleGravel", GOTBlockSlabBase.SlabItems.GravelDouble.class);
 		register(slabDoubleSand, "slabDoubleSand", GOTBlockSlabBase.SlabItems.SandDouble.class);
 		register(slabDoubleThatch, "slabDoubleThatch", GOTBlockSlabBase.SlabItems.ThatchDouble.class);
+		register(slabDoubleV, "slabDoubleV", GOTBlockSlabBase.SlabItems.SlabVDouble.class);
 		register(sothoryosDoubleTorch, "sothoryosDoubleTorch");
 		register(spawnerChest, "spawnerChest");
 		register(spawnerChestAncientEssos, "spawnerChestAncientEssos");
@@ -1817,14 +1830,60 @@ public class GOTBlocks {
 
 		/* util */
 
+		register(tableArryn, "tableArryn");
+		register(tableAsshai, "tableAsshai");
+		register(tableBraavos, "tableBraavos");
+		register(tableCrownlands, "tableCrownlands");
+		register(tableDorne, "tableDorne");
+		register(tableDothraki, "tableDothraki");
+		register(tableDragonstone, "tableDragonstone");
+		register(tableGhiscar, "tableGhiscar");
+		register(tableGift, "tableGift");
+		register(tableHillTribes, "tableHillTribes");
+		register(tableIbben, "tableIbben");
+		register(tableIronborn, "tableIronborn");
+		register(tableJogos, "tableJogos");
+		register(tableLhazar, "tableLhazar");
+		register(tableLorath, "tableLorath");
+		register(tableLys, "tableLys");
+		register(tableMossovy, "tableMossovy");
+		register(tableMyr, "tableMyr");
+		register(tableNorth, "tableNorth");
+		register(tableNorvos, "tableNorvos");
+		register(tablePentos, "tablePentos");
+		register(tableQarth, "tableQarth");
+		register(tableQohor, "tableQohor");
+		register(tableReach, "tableReach");
+		register(tableRiverlands, "tableRiverlands");
+		register(tableSothoryos, "tableSothoryos");
+		register(tableStormlands, "tableStormlands");
+		register(tableSummer, "tableSummer");
+		register(tableTyrosh, "tableTyrosh");
+		register(tableVolantis, "tableVolantis");
+		register(tableWesterlands, "tableWesterlands");
+		register(tableWildling, "tableWildling");
+		register(tableYiTi, "tableYiTi");
+
+		register(oven, "oven");
 		register(alloyForge, "alloyForge");
+		register(unsmeltery, "unsmeltery");
+		register(millstone, "millstone");
 		register(bank, "bank");
+		register(kebabStand, "kebabStand", GOTItemKebabStand.class);
+		register(kebabStandSand, "kebabStandSand", GOTItemKebabStand.class);
 		register(beacon, "beacon");
-		register(chain, "chain");
+		register(commandTable, "commandTable");
+
+		register(sarbacaneTrap, "sarbacaneTrap");
+		register(sarbacaneTrapGold, "sarbacaneTrapGold");
+		register(sarbacaneTrapObsidian, "sarbacaneTrapObsidian");
+
 		register(chestBasket, "chestBasket");
 		register(chestSandstone, "chestSandstone");
 		register(chestStone, "chestStone");
-		register(commandTable, "commandTable");
+
+		register(chain, "chain");
+
 		register(doorAlmond, "doorAlmond", GOTItemDoor.class);
 		register(doorApple, "doorApple", GOTItemDoor.class);
 		register(doorAramant, "doorAramant", GOTItemDoor.class);
@@ -1865,6 +1924,7 @@ public class GOTBlocks {
 		register(doorUlthos, "doorUlthos", GOTItemDoor.class);
 		register(doorWeirwood, "doorWeirwood", GOTItemDoor.class);
 		register(doorWillow, "doorWillow", GOTItemDoor.class);
+
 		register(fenceGateAlmond, "fenceGateAlmond");
 		register(fenceGateApple, "fenceGateApple");
 		register(fenceGateAramant, "fenceGateAramant");
@@ -1905,58 +1965,7 @@ public class GOTBlocks {
 		register(fenceGateUlthos, "fenceGateUlthos");
 		register(fenceGateWeirwood, "fenceGateWeirwood");
 		register(fenceGateWillow, "fenceGateWillow");
-		register(gateBronzeBars, "gateBronzeBars", GOTItemGate.class);
-		register(gateEssos, "gateEssos", GOTItemGate.class);
-		register(gateGold, "gateGold", GOTItemGate.class);
-		register(gateIbben, "gateIbben", GOTItemGate.class);
-		register(gateIronBars, "gateIronBars", GOTItemGate.class);
-		register(gateSilver, "gateSilver", GOTItemGate.class);
-		register(gateSothoryos, "gateSothoryos", GOTItemGate.class);
-		register(gateValyrian, "gateValyrian", GOTItemGate.class);
-		register(gateWesteros, "gateWesteros", GOTItemGate.class);
-		register(gateWooden, "gateWooden", GOTItemGate.class);
-		register(gateWoodenCross, "gateWoodenCross", GOTItemGate.class);
-		register(gateYiTi, "gateYiTi", GOTItemGate.class);
-		register(kebabStand, "kebabStand", GOTItemKebabStand.class);
-		register(kebabStandSand, "kebabStandSand", GOTItemKebabStand.class);
-		register(millstone, "millstone");
-		register(oven, "oven");
-		register(sarbacaneTrap, "sarbacaneTrap");
-		register(sarbacaneTrapGold, "sarbacaneTrapGold");
-		register(sarbacaneTrapObsidian, "sarbacaneTrapObsidian");
-		register(tableArryn, "tableArryn");
-		register(tableAsshai, "tableAsshai");
-		register(tableBraavos, "tableBraavos");
-		register(tableCrownlands, "tableCrownlands");
-		register(tableDorne, "tableDorne");
-		register(tableDothraki, "tableDothraki");
-		register(tableDragonstone, "tableDragonstone");
-		register(tableGhiscar, "tableGhiscar");
-		register(tableGift, "tableGift");
-		register(tableHillTribes, "tableHillTribes");
-		register(tableIbben, "tableIbben");
-		register(tableIronborn, "tableIronborn");
-		register(tableJogos, "tableJogos");
-		register(tableLhazar, "tableLhazar");
-		register(tableLorath, "tableLorath");
-		register(tableLys, "tableLys");
-		register(tableMossovy, "tableMossovy");
-		register(tableMyr, "tableMyr");
-		register(tableNorth, "tableNorth");
-		register(tableNorvos, "tableNorvos");
-		register(tablePentos, "tablePentos");
-		register(tableQarth, "tableQarth");
-		register(tableQohor, "tableQohor");
-		register(tableReach, "tableReach");
-		register(tableRiverlands, "tableRiverlands");
-		register(tableSothoryos, "tableSothoryos");
-		register(tableStormlands, "tableStormlands");
-		register(tableSummer, "tableSummer");
-		register(tableTyrosh, "tableTyrosh");
-		register(tableVolantis, "tableVolantis");
-		register(tableWesterlands, "tableWesterlands");
-		register(tableWildling, "tableWildling");
-		register(tableYiTi, "tableYiTi");
+
 		register(trapdoorAlmond, "trapdoorAlmond");
 		register(trapdoorApple, "trapdoorApple");
 		register(trapdoorAramant, "trapdoorAramant");
@@ -1997,6 +2006,21 @@ public class GOTBlocks {
 		register(trapdoorUlthos, "trapdoorUlthos");
 		register(trapdoorWeirwood, "trapdoorWeirwood");
 		register(trapdoorWillow, "trapdoorWillow");
-		register(unsmeltery, "unsmeltery");
+
+		register(gateEssos, "gateEssos", GOTItemGate.class);
+		register(gateWesteros, "gateWesteros", GOTItemGate.class);
+		register(gateIbben, "gateIbben", GOTItemGate.class);
+		register(gateSothoryos, "gateSothoryos", GOTItemGate.class);
+		register(gateYiTi, "gateYiTi", GOTItemGate.class);
+
+		register(gateBronzeBars, "gateBronzeBars", GOTItemGate.class);
+		register(gateIronBars, "gateIronBars", GOTItemGate.class);
+
+		register(gateWoodenCross, "gateWoodenCross", GOTItemGate.class);
+		register(gateWooden, "gateWooden", GOTItemGate.class);
+
+		register(gateSilver, "gateSilver", GOTItemGate.class);
+		register(gateGold, "gateGold", GOTItemGate.class);
+		register(gateValyrian, "gateValyrian", GOTItemGate.class);
 	}
 }

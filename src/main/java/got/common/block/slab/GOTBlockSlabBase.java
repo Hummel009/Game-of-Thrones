@@ -25,18 +25,15 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 	private Block singleSlab;
 	private Block doubleSlab;
 
-	protected GOTBlockSlabBase(boolean flag, Material material, int n) {
-		super(flag, material);
+	protected GOTBlockSlabBase(boolean hidden, Material material, int n) {
+		super(hidden, material);
 		subtypes = n;
-		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
+		setCreativeTab(hidden ? null : GOTCreativeTabs.TAB_BLOCK);
 		useNeighborBrightness = true;
 		if (material == Material.wood) {
 			setHardness(2.0f);
 			setResistance(5.0f);
 			setStepSound(soundTypeWood);
-		}
-		if (flag) {
-			setCreativeTab(null);
 		}
 	}
 
@@ -102,8 +99,8 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		int i1 = i + Facing.offsetsXForSide[Facing.oppositeSide[l]];
 		int j1 = j + Facing.offsetsYForSide[Facing.oppositeSide[l]];
 		int k1 = k + Facing.offsetsZForSide[Facing.oppositeSide[l]];
-		boolean flag = (world.getBlockMetadata(i1, j1, k1) & 8) != 0;
-		return flag ? l == 0 || l == 1 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 || l == 0 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
+		boolean hidden = (world.getBlockMetadata(i1, j1, k1) & 8) != 0;
+		return hidden ? l == 0 || l == 1 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 || l == 0 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
 	}
 
 	@SuppressWarnings({"EmptyClass", "unused"})

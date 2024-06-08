@@ -13,8 +13,8 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockSlab5 extends GOTBlockSlabBase {
-	public GOTBlockSlab5(boolean flag) {
-		super(flag, Material.rock, 8);
+	public GOTBlockSlab5(boolean hidden) {
+		super(hidden, Material.rock, 8);
 	}
 
 	@SideOnly(Side.CLIENT)

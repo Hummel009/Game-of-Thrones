@@ -9,8 +9,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
-	public GOTBlockSlabGravel(boolean flag) {
-		super(flag, Material.sand, 3);
+	public GOTBlockSlabGravel(boolean hidden) {
+		super(hidden, Material.sand, 3);
 		setHardness(0.6f);
 		setStepSound(soundTypeGravel);
 	}

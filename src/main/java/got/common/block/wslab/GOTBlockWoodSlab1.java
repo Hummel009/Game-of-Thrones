@@ -9,8 +9,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockWoodSlab1 extends GOTBlockSlabBase {
-	public GOTBlockWoodSlab1(boolean flag) {
-		super(flag, Material.wood, 8);
+	public GOTBlockWoodSlab1(boolean hidden) {
+		super(hidden, Material.wood, 8);
 	}
 
 	@SideOnly(Side.CLIENT)

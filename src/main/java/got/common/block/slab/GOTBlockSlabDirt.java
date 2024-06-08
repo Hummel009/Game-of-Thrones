@@ -9,8 +9,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockSlabDirt extends GOTBlockSlabBase {
-	public GOTBlockSlabDirt(boolean flag) {
-		super(flag, Material.ground, 6);
+	public GOTBlockSlabDirt(boolean hidden) {
+		super(hidden, Material.ground, 6);
 		setHardness(0.5f);
 		setStepSound(soundTypeGravel);
 	}

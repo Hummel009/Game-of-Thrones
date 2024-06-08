@@ -9,8 +9,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockScorchedSlab extends GOTBlockSlabBase {
-	public GOTBlockScorchedSlab(boolean flag) {
-		super(flag, Material.rock, 1);
+	public GOTBlockScorchedSlab(boolean hidden) {
+		super(hidden, Material.rock, 1);
 	}
 
 	@SideOnly(Side.CLIENT)

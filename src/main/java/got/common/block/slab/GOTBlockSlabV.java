@@ -10,9 +10,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockSlabV extends GOTBlockSlabBase {
-	public GOTBlockSlabV(boolean flag) {
-		super(flag, Material.rock, 6);
-		setCreativeTab(CreativeTabs.tabBlock);
+	public GOTBlockSlabV(boolean hidden) {
+		super(hidden, Material.rock, 6);
+		setCreativeTab(hidden ? null : CreativeTabs.tabBlock);
 	}
 
 	@SideOnly(Side.CLIENT)
