@@ -4,14 +4,14 @@ import got.common.entity.other.iface.GOTBannerBearer;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 
-public class GOTEntityGoldenBannerBearer extends GOTEntityGoldenWarrior implements GOTBannerBearer {
+public class GOTEntityGoldenCompanyBannerBearer extends GOTEntityGoldenCompanyWarrior implements GOTBannerBearer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityGoldenBannerBearer(World world) {
+	public GOTEntityGoldenCompanyBannerBearer(World world) {
 		super(world);
 	}
 
 	@Override
 	public GOTItemBanner.BannerType getBannerType() {
-		return GOTItemBanner.BannerType.GOLDENCOMPANY;
+		return GOTItemBanner.BannerType.GOLDEN_COMPANY;
 	}
 }

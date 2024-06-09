@@ -3,7 +3,7 @@ package got.common.world.structure.essos.common;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyCaptain;
 import got.common.entity.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -138,7 +138,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		placeWallBanner(world, -2, 5, -15, bannerType, 0);
 		placeWallBanner(world, 2, 5, -15, bannerType, 0);
 		spawnNPCAndSetHome(getBartender(world), world, -2, 1, 8, 4);
-		spawnNPCAndSetHome(new GOTEntityGoldenCaptain(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityGoldenCompanyCaptain(world), world, 0, 1, 0, 16);
 		if (hasDarkSkinPeople()) {
 			spawnNPCAndSetHome(new GOTEntityDarkSkinThief(world), world, 0, 1, 0, 16);
 			spawnNPCAndSetHome(new GOTEntityDarkSkinTramp(world), world, 0, 1, 0, 16);

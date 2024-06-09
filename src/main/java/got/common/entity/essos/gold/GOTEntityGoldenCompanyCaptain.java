@@ -9,9 +9,9 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityGoldenCaptain extends GOTEntityGoldenWarrior implements GOTUnitTradeable {
+public class GOTEntityGoldenCompanyCaptain extends GOTEntityGoldenCompanyWarrior implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityGoldenCaptain(World world) {
+	public GOTEntityGoldenCompanyCaptain(World world) {
 		super(world);
 		addTargetTasks(false);
 	}

@@ -269,10 +269,10 @@ entity.got.GiftMan.name=赠地人
 entity.got.GilwoodHunter.name=杰伍德·杭特
 entity.got.Giraffe.name=长颈鹿
 entity.got.GiraffeRug.name=长颈鹿皮毯
-entity.got.GoldenBannerBearer.name=黄金团旗手
-entity.got.GoldenCaptain.name=黄金团指挥官
-entity.got.GoldenSpearman.name=黄金团掷矛手
-entity.got.GoldenWarrior.name=黄金团战士
+entity.got.GoldenCompanyBannerBearer.name=黄金团旗手
+entity.got.GoldenCompanyCaptain.name=黄金团指挥官
+entity.got.GoldenCompanySpearman.name=黄金团掷矛手
+entity.got.GoldenCompanyWarrior.name=黄金团战士
 entity.got.Gorcrow.name=乌鸦
 entity.got.GoroldGoodbrother.name=葛欧得·古柏勒
 entity.got.GregorCleganeAlive.name=格雷果·克里冈
@@ -1213,8 +1213,6 @@ got.achievement.HIRE_GOLDEN_COMPANY.desc=雇用10把金剑
 got.achievement.HIRE_GOLDEN_COMPANY.title=可销售的生物
 got.achievement.HUNDREDS.desc=雇佣100名单位
 got.achievement.HUNDREDS.title=随血与钢行进！
-got.achievement.KILLER.desc=杀死人类
-got.achievement.KILLER.title=杀手
 got.achievement.KILL_ALLISER_THORNE.desc=杀死艾里沙·索恩
 got.achievement.KILL_ALLISER_THORNE.title=复仇者
 got.achievement.KILL_ARDRIAN_CELTIGAR.desc=杀死阿德里安·赛提加
@@ -1303,6 +1301,8 @@ got.achievement.KILL_LANCEL_LANNISTER.desc=杀死信徒蓝赛尔·兰尼斯特
 got.achievement.KILL_LANCEL_LANNISTER.title=我选择暴力
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=用卵石把巨人打死
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=任何手段都是好的
+got.achievement.KILL_LEGENDARY_NPC.desc≠Kill a legendary character
+got.achievement.KILL_LEGENDARY_NPC.title≠Legendary Killer
 got.achievement.KILL_LORAS_TYRELL.desc=杀死洛拉斯·提瑞尔
 got.achievement.KILL_LORAS_TYRELL.title=杀不忠者
 got.achievement.KILL_MACE_TYRELL.desc=杀死梅斯·提利尔
@@ -1321,6 +1321,8 @@ got.achievement.KILL_NIGHT_KING.desc=杀死夜王
 got.achievement.KILL_NIGHT_KING.title=传奇杀手I
 got.achievement.KILL_NIGHT_WATCH_GUARD.desc=杀死守夜人
 got.achievement.KILL_NIGHT_WATCH_GUARD.title=夜魇
+got.achievement.KILL_NPC.desc=杀死人类
+got.achievement.KILL_NPC.title=杀手
 got.achievement.KILL_OBERYN_MARTELL.desc=杀死奥伯伦·马泰尔
 got.achievement.KILL_OBERYN_MARTELL.title=魔山
 got.achievement.KILL_PETYR_BAELISH.desc=杀死培提尔·贝里席
@@ -1371,8 +1373,6 @@ got.achievement.KILL_USING_ONLY_PLATES.desc=通过投掷盘子杀死某人
 got.achievement.KILL_USING_ONLY_PLATES.title=厨房斗士
 got.achievement.KILL_VARYS.desc=杀死瓦里斯
 got.achievement.KILL_VARYS.title=有些心门无法撬开
-got.achievement.KILL_VASSAL.desc=杀死大家族的臣民
-got.achievement.KILL_VASSAL.title=部分毁灭
 got.achievement.KILL_VICTARION_GREYJOY.desc=杀死维克塔利昂·葛雷乔伊
 got.achievement.KILL_VICTARION_GREYJOY.title=北境捍卫者
 got.achievement.KILL_WEREWOLF.desc=杀死狼人
@@ -1467,14 +1467,14 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=装备整套龙石岛铠甲
 got.achievement.WEAR_FULL_DRAGONSTONE.title=真王守卫
 got.achievement.WEAR_FULL_FUR.desc=装备整套毛皮铠甲
 got.achievement.WEAR_FULL_FUR.title=自由民
-got.achievement.WEAR_FULL_GEMSBOK.desc=装备整套大羚羊皮铠甲
-got.achievement.WEAR_FULL_GEMSBOK.title=拉札尔传统
 got.achievement.WEAR_FULL_GHISCAR.desc=装备整套吉斯卡铠甲
 got.achievement.WEAR_FULL_GHISCAR.title=奴隶主
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.desc=装备整套大羚羊皮铠甲
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.title=拉札尔传统
 got.achievement.WEAR_FULL_GIFT.desc=装备整套守夜人铠甲
 got.achievement.WEAR_FULL_GIFT.title=长城守卫
-got.achievement.WEAR_FULL_GOLDENCOMPANY.desc=装备整套黄金团铠甲
-got.achievement.WEAR_FULL_GOLDENCOMPANY.title=黄金团
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=装备整套黄金团铠甲
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=黄金团
 got.achievement.WEAR_FULL_HAND.desc=装备国王之手胸针
 got.achievement.WEAR_FULL_HAND.title=国王之手
 got.achievement.WEAR_FULL_HELMET.desc=装备传奇头盔
@@ -1547,8 +1547,8 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=装备整套西境守卫铠甲
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=西境守卫
 got.achievement.WEAR_FULL_WESTKING.desc=装备整套西境之王铠甲
 got.achievement.WEAR_FULL_WESTKING.title=西境之王
-got.achievement.WEAR_FULL_WHITEWALKERS.desc=装备整套异鬼铠甲
-got.achievement.WEAR_FULL_WHITEWALKERS.title=炮灰流水线
+got.achievement.WEAR_FULL_WHITE_WALKERS.desc=装备整套异鬼铠甲
+got.achievement.WEAR_FULL_WHITE_WALKERS.title=炮灰流水线
 got.achievement.WEAR_FULL_YITI.desc=装备整套夷地铠甲
 got.achievement.WEAR_FULL_YITI.title=夷地守卫
 got.achievement.WEAR_FULL_YITI_FRONTIER.desc=装备整套夷地边境守卫铠甲
@@ -3005,8 +3005,8 @@ got.structure.GiftHouseSmall.name≠Shack of Night's Watch
 got.structure.GiftSettle.name≠Village of Night's Watch
 got.structure.GiftSmithy.name≠Smithy of Night's Watch
 got.structure.GiftStables.name≠Stables of Night's Watch
-got.structure.GoldenSettle.name≠Camp of Golden Company
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCompanySettle.name≠Camp of Golden Company
+got.structure.GoldenCompanyWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name≠Hillmen Camp
 got.structure.HillmanFortress.name≠Hillmen Fortress
 got.structure.HillmanHouse.name≠Hillmen House
@@ -3213,9 +3213,9 @@ got.structure.SothoryosHouseLarge.name≠Mansion of Sothoryos
 got.structure.SothoryosHouseSimple.name≠Simple House of Sothoryos
 got.structure.SothoryosHouseStilts.name≠Stilted House of Sothoryos
 got.structure.SothoryosPyramid.name≠Pyramid of Sothoryos
-got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosSettle.name≠Village of Sothoryos
 got.structure.SothoryosSmithy.name≠Smithy of Sothoryos
+got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosWatchtower.name≠Watchtower of Sothoryos
 got.structure.StormlandsBarn.name≠Barn of Stormlands
 got.structure.StormlandsBath.name≠Bath of Stormlands
@@ -4761,7 +4761,7 @@ item.got:banner.gaunt.name=戈特的旗帜
 item.got:banner.ghiscar.name=吉斯卡的旗帜
 item.got:banner.glenmore.name=吉伦莫尔的旗帜
 item.got:banner.glover.name=葛洛佛的旗帜
-item.got:banner.goldencompany.name=黄金团的旗帜
+item.got:banner.golden_company.name=黄金团的旗帜
 item.got:banner.goodbrook.name=古柏克的旗帜
 item.got:banner.goodbrother.name=古柏勒的旗帜
 item.got:banner.goodbrotherCL.name=古柏勒CL的旗帜
@@ -5169,7 +5169,6 @@ item.got:banner.yitiQo.name=仇的旗帜
 item.got:banner.youngGriff.name=格里夫的旗帜
 item.got:banner.yronwood.name=伊伦伍德的旗帜
 item.got:banner.yunkai.name=渊凯的旗帜
-item.got:banner_tab.name=信誉之旗
 item.got:bear_rug.name=熊皮地毯
 item.got:beaver_cooked.name=油炸海狸肉
 item.got:beaver_raw.name=生海狸肉
@@ -5352,11 +5351,11 @@ item.got:goblet_copper.name=粘土杯
 item.got:goblet_gold.name=金杯
 item.got:goblet_silver.name=银杯
 item.got:goblet_wood.name=木杯
-item.got:gold_boots.name=黄金团靴子
-item.got:gold_chestplate.name=黄金团胸甲
-item.got:gold_helmet.name=黄金团头盔
-item.got:gold_leggings.name=黄金团护腿
 item.got:gold_ring.name=金戒
+item.got:golden_company_boots.name=黄金团靴子
+item.got:golden_company_chestplate.name=黄金团胸甲
+item.got:golden_company_helmet.name=黄金团头盔
+item.got:golden_company_leggings.name=黄金团护腿
 item.got:grape_red.name=红葡萄
 item.got:grape_white.name=绿葡萄
 item.got:gregor_clegane_sword.name=格雷果·克里冈的巨剑
@@ -5384,6 +5383,8 @@ item.got:ice_heavy_sword.name=冰重剑
 item.got:ice_shard.name=冰碎片
 item.got:ice_spear.name=冰矛
 item.got:ice_sword.name=冰剑
+item.got:icon_heraldry.name=???
+item.got:icon_sword.name=???
 item.got:indomitable.name=不屈
 item.got:iron_battleaxe.name=铁战斧
 item.got:iron_crossbow.name=铁弩

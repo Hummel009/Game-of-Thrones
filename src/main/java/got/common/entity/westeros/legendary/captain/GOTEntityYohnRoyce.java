@@ -68,11 +68,6 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVassal;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

@@ -269,10 +269,10 @@ entity.got.GiftMan.name=Civil de gift
 entity.got.GilwoodHunter.name=Chasseur Gilwood
 entity.got.Giraffe.name=Girafe
 entity.got.GiraffeRug.name=Peau de girafe
-entity.got.GoldenBannerBearer.name=Porte-bannière de la Compagnie dorée
-entity.got.GoldenCaptain.name=Capitaine de la Compagnie dorée
-entity.got.GoldenSpearman.name=Lancier de la Compagnie dorée
-entity.got.GoldenWarrior.name=Épéiste de la Compagnie dorée
+entity.got.GoldenCompanyBannerBearer.name=Porte-bannière de la Compagnie dorée
+entity.got.GoldenCompanyCaptain.name=Capitaine de la Compagnie dorée
+entity.got.GoldenCompanySpearman.name=Lancier de la Compagnie dorée
+entity.got.GoldenCompanyWarrior.name=Épéiste de la Compagnie dorée
 entity.got.Gorcrow.name=Corbeau noir
 entity.got.GoroldGoodbrother.name≠Gorold Goodbrother
 entity.got.GregorCleganeAlive.name=Gregor Clegane
@@ -1213,8 +1213,6 @@ got.achievement.HIRE_GOLDEN_COMPANY.desc=Engager 10 unités de la Compagnie Dor�
 got.achievement.HIRE_GOLDEN_COMPANY.title=Corrompu
 got.achievement.HUNDREDS.desc=Engager 100 unités
 got.achievement.HUNDREDS.title=Du fer et du sang
-got.achievement.KILLER.desc=Tuez un humain
-got.achievement.KILLER.title=Tueur
 got.achievement.KILL_ALLISER_THORNE.desc=Tuer Alliser Thorne
 got.achievement.KILL_ALLISER_THORNE.title=Vengeur
 got.achievement.KILL_ARDRIAN_CELTIGAR.desc=Tuer Ardrian Celtigar
@@ -1303,6 +1301,8 @@ got.achievement.KILL_LANCEL_LANNISTER.desc=Tuez le religieux Lancel Lannister
 got.achievement.KILL_LANCEL_LANNISTER.title=Je choisis la violence
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=Battre un géant à mort avec des cailloux
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=Tous les moyens sont bons
+got.achievement.KILL_LEGENDARY_NPC.desc≠Kill a legendary character
+got.achievement.KILL_LEGENDARY_NPC.title≠Legendary Killer
 got.achievement.KILL_LORAS_TYRELL.desc=Tuer Loras Tyrell
 got.achievement.KILL_LORAS_TYRELL.title=Tueur des malhonnêtes
 got.achievement.KILL_MACE_TYRELL.desc=Tuer Mace Tyrell
@@ -1321,6 +1321,8 @@ got.achievement.KILL_NIGHT_KING.desc=Tuer le roi de la nuit
 got.achievement.KILL_NIGHT_KING.title=Tueur légendaire I
 got.achievement.KILL_NIGHT_WATCH_GUARD.desc=Tuez le garde de nuit
 got.achievement.KILL_NIGHT_WATCH_GUARD.title=Cauchemar
+got.achievement.KILL_NPC.desc=Tuez un humain
+got.achievement.KILL_NPC.title=Tueur
 got.achievement.KILL_OBERYN_MARTELL.desc=Tuer Oberyn Martell
 got.achievement.KILL_OBERYN_MARTELL.title=Montagne
 got.achievement.KILL_PETYR_BAELISH.desc=Tuer Petyr Baelish
@@ -1371,8 +1373,6 @@ got.achievement.KILL_USING_ONLY_PLATES.desc=Tuer quelqu'un en lançant des assie
 got.achievement.KILL_USING_ONLY_PLATES.title=Bagarre en cuisine
 got.achievement.KILL_VARYS.desc=Tuer Varys
 got.achievement.KILL_VARYS.title=Certaines portes sont fermées en permanence
-got.achievement.KILL_VASSAL.desc=Tuer le vassal de la grande maison
-got.achievement.KILL_VASSAL.title=Détruire en plusieurs parties
 got.achievement.KILL_VICTARION_GREYJOY.desc=Tuer Victarion Greyjoy
 got.achievement.KILL_VICTARION_GREYJOY.title=Défenseur du Nord
 got.achievement.KILL_WEREWOLF.desc=Tuez le loup-garou
@@ -1467,14 +1467,14 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Portez un ensemble complet de Peyredr
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Garde de Peyredragon
 got.achievement.WEAR_FULL_FUR.desc=Portez un ensemble complet d'armure de fourrure
 got.achievement.WEAR_FULL_FUR.title=Wildling
-got.achievement.WEAR_FULL_GEMSBOK.desc=Porter un ensemble complet de из шкуры орикса
-got.achievement.WEAR_FULL_GEMSBOK.title=Traditions Lhazar
 got.achievement.WEAR_FULL_GHISCAR.desc=Portez un ensemble complet de Ghiscar
 got.achievement.WEAR_FULL_GHISCAR.title=Garde de Ghiscar
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.desc=Porter un ensemble complet de из шкуры орикса
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.title=Traditions Lhazar
 got.achievement.WEAR_FULL_GIFT.desc=Portez un ensemble complet de Night's Watch
 got.achievement.WEAR_FULL_GIFT.title=Garde du mur
-got.achievement.WEAR_FULL_GOLDENCOMPANY.desc=Portez un ensemble complet de Golden Company
-got.achievement.WEAR_FULL_GOLDENCOMPANY.title=Compagnie d'or
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Portez un ensemble complet de Golden Company
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Compagnie d'or
 got.achievement.WEAR_FULL_HAND.desc=Porter brouche de la main du roi
 got.achievement.WEAR_FULL_HAND.title=Main du roi
 got.achievement.WEAR_FULL_HELMET.desc=Portez un casque légendaire
@@ -1547,8 +1547,8 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=Portez un ensemble complet de ga
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=Capeitaine de garde des Terres de l'Ouest
 got.achievement.WEAR_FULL_WESTKING.desc=Portez un ensemble complet de rois de l'Ouest
 got.achievement.WEAR_FULL_WESTKING.title=Roi de l'Ouest
-got.achievement.WEAR_FULL_WHITEWALKERS.desc≠Wear full set of White Walkers
-got.achievement.WEAR_FULL_WHITEWALKERS.title≠Mint Orbit
+got.achievement.WEAR_FULL_WHITE_WALKERS.desc≠Wear full set of White Walkers
+got.achievement.WEAR_FULL_WHITE_WALKERS.title≠Mint Orbit
 got.achievement.WEAR_FULL_YITI.desc=Portez un ensemble complet de Yi Ti
 got.achievement.WEAR_FULL_YITI.title=Garde de Yi Ti
 got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠Wear full set of Yi Ti frontiers
@@ -3005,8 +3005,8 @@ got.structure.GiftHouseSmall.name≠Shack of Night's Watch
 got.structure.GiftSettle.name≠Village of Night's Watch
 got.structure.GiftSmithy.name≠Smithy of Night's Watch
 got.structure.GiftStables.name≠Stables of Night's Watch
-got.structure.GoldenSettle.name≠Camp of Golden Company
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCompanySettle.name≠Camp of Golden Company
+got.structure.GoldenCompanyWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name≠Hillmen Camp
 got.structure.HillmanFortress.name≠Hillmen Fortress
 got.structure.HillmanHouse.name≠Hillmen House
@@ -3213,9 +3213,9 @@ got.structure.SothoryosHouseLarge.name≠Mansion of Sothoryos
 got.structure.SothoryosHouseSimple.name≠Simple House of Sothoryos
 got.structure.SothoryosHouseStilts.name≠Stilted House of Sothoryos
 got.structure.SothoryosPyramid.name≠Pyramid of Sothoryos
-got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosSettle.name≠Village of Sothoryos
 got.structure.SothoryosSmithy.name≠Smithy of Sothoryos
+got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosWatchtower.name≠Watchtower of Sothoryos
 got.structure.StormlandsBarn.name≠Barn of Stormlands
 got.structure.StormlandsBath.name≠Bath of Stormlands
@@ -4761,7 +4761,7 @@ item.got:banner.gaunt.name=Bannière de Gaunt
 item.got:banner.ghiscar.name=Bannière de Ghiscar
 item.got:banner.glenmore.name=Bannière de Glenmore
 item.got:banner.glover.name=Bannière de Glover
-item.got:banner.goldencompany.name=Bannière de Golden Company
+item.got:banner.golden_company.name=Bannière de Golden Company
 item.got:banner.goodbrook.name=Bannière de Goodbrook
 item.got:banner.goodbrother.name=Bannière de Goodbrother
 item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
@@ -5169,7 +5169,6 @@ item.got:banner.yitiQo.name=Bannière de Qo
 item.got:banner.youngGriff.name≠Banner of Young Griff
 item.got:banner.yronwood.name=Bannière d'Yronwood
 item.got:banner.yunkai.name=Bannière de Yunkai
-item.got:banner_tab.name=Crédits
 item.got:bear_rug.name=Peau d'ours
 item.got:beaver_cooked.name≠Cooked Beaver
 item.got:beaver_raw.name≠Raw Beaver
@@ -5352,11 +5351,11 @@ item.got:goblet_copper.name=Coupe en cuivre
 item.got:goblet_gold.name=Coupe en or
 item.got:goblet_silver.name=Coupe en argent
 item.got:goblet_wood.name=Coupe en bois
-item.got:gold_boots.name=Bottes de la Golden Company
-item.got:gold_chestplate.name=Plastron de la Golden Company
-item.got:gold_helmet.name=Casque de la Golden Company
-item.got:gold_leggings.name=Jambières de la Golden Company
 item.got:gold_ring.name=Anneau d'or
+item.got:golden_company_boots.name=Bottes de la Golden Company
+item.got:golden_company_chestplate.name=Plastron de la Golden Company
+item.got:golden_company_helmet.name=Casque de la Golden Company
+item.got:golden_company_leggings.name=Jambières de la Golden Company
 item.got:grape_red.name=Raisin noir
 item.got:grape_white.name=Raisin blanc
 item.got:gregor_clegane_sword.name=Épée de Gregor Clegane
@@ -5384,6 +5383,8 @@ item.got:ice_heavy_sword.name=Grosse épée de glace
 item.got:ice_shard.name≠Ice shard
 item.got:ice_spear.name≠White Walkers Spear
 item.got:ice_sword.name=Épée de glace
+item.got:icon_heraldry.name=???
+item.got:icon_sword.name=???
 item.got:indomitable.name≠Indomitable
 item.got:iron_battleaxe.name=Hache de guerre en fer
 item.got:iron_crossbow.name=Arbalète en fer

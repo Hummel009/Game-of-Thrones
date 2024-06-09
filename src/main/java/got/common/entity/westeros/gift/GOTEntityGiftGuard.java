@@ -35,11 +35,6 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killNightWatchGuard;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hireableInfo.getHiringPlayer() == entityplayer) {

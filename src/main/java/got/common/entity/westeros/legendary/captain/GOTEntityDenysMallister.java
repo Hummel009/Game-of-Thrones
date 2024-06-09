@@ -60,11 +60,6 @@ public class GOTEntityDenysMallister extends GOTEntityHumanBase implements GOTUn
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killNightWatchGuard;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

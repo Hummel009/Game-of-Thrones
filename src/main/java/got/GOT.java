@@ -11,7 +11,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.GOTEntityRegistry;
-import got.common.entity.essos.gold.GOTEntityGoldenMan;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.entity.other.info.GOTHireableInfo;
@@ -169,7 +169,7 @@ public class GOT {
 		}
 		Entity targetNPC = null;
 		GOTFaction targetNPCFaction;
-		if (target instanceof GOTEntityGoldenMan && getNPCFaction(target) == GOTFaction.UNALIGNED || getNPCFaction(target) != GOTFaction.UNALIGNED) {
+		if (target instanceof GOTEntityGoldenCompanyMan && getNPCFaction(target) == GOTFaction.UNALIGNED || getNPCFaction(target) != GOTFaction.UNALIGNED) {
 			targetNPC = target;
 		} else if (getNPCFaction(target.riddenByEntity) != GOTFaction.UNALIGNED) {
 			targetNPC = target.riddenByEntity;

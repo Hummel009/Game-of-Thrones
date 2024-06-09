@@ -19,9 +19,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityGoldenMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
+public class GOTEntityGoldenCompanyMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityGoldenMan(World world) {
+	public GOTEntityGoldenCompanyMan(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);

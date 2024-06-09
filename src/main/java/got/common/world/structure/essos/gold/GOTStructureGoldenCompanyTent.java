@@ -7,8 +7,8 @@ import net.minecraft.init.Blocks;
 
 import java.util.Random;
 
-public class GOTStructureGoldenTent extends GOTStructureTentBase {
-	public GOTStructureGoldenTent(boolean flag) {
+public class GOTStructureGoldenCompanyTent extends GOTStructureTentBase {
+	public GOTStructureGoldenCompanyTent(boolean flag) {
 		super(flag);
 	}
 

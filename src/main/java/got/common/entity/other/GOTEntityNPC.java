@@ -97,6 +97,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	protected boolean liftSpawnRestrictions;
 	protected boolean spawnsInDarkness;
 	protected boolean notAttackable;
+	protected boolean isLegendaryNPC;
 
 	private AttackMode currentAttackMode = AttackMode.IDLE;
 	private GOTInventoryHiredReplacedItems hiredReplacedInv;
@@ -108,7 +109,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private boolean clientCombatStance;
 	private boolean clientIsEating;
 	private boolean liftBannerRestrictions;
-	private boolean isLegendaryNPC;
 	private boolean addedBurningPanic;
 	private boolean combatStance;
 	private boolean enpouchNPCDrops;

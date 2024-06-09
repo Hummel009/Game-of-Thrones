@@ -8,7 +8,7 @@ import got.common.block.table.GOTBlockCraftingTable;
 import got.common.command.GOTCommandAdminHideMap;
 import got.common.database.*;
 import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.essos.gold.GOTEntityGoldenMan;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.*;
 import got.common.fellowship.*;
@@ -2441,7 +2441,7 @@ public class GOTPlayerData {
 		}
 		if (!hasAchievement(GOTAchievement.hireGoldenCompany) && pdTick % 20 == 0) {
 			int hiredUnits = 0;
-			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
+			List<GOTEntityGoldenCompanyMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenCompanyMan.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
 			for (GOTEntityNPC npc : nearbyNPCs) {
 				if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() == entityplayer) {
 					hiredUnits++;
@@ -2455,21 +2455,13 @@ public class GOTPlayerData {
 		if (GOTAchievement.ARMOR_ACHIEVEMENTS.containsKey(fullMaterial)) {
 			addAchievement(GOTAchievement.ARMOR_ACHIEVEMENTS.get(fullMaterial));
 		}
-		fullMaterial = getBodyMaterial(entityplayer);
-		if (fullMaterial != null && fullMaterial == GOTMaterial.HAND) {
-			addAchievement(GOTAchievement.wearFullHand);
-		}
-		fullMaterial = getHelmetMaterial(entityplayer);
-		if (fullMaterial != null && fullMaterial == GOTMaterial.HELMET) {
-			addAchievement(GOTAchievement.wearFullHelmet);
-		}
 		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.MOSSOVY) {
 			addAchievement(GOTAchievement.wearFullMossovy);
 		}
 		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.ICE) {
-			addAchievement(GOTAchievement.wearFullWhitewalkers);
+			addAchievement(GOTAchievement.wearFullWhiteWalkers);
 		}
 	}
 

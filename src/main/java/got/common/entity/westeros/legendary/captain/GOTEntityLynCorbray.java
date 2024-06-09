@@ -64,11 +64,6 @@ public class GOTEntityLynCorbray extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVassal;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

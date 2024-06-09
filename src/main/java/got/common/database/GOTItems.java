@@ -81,7 +81,8 @@ public class GOTItems {
 	public static Item bananaCake;
 	public static Item bane;
 	public static Item banner;
-	public static Item bannerTab;
+	public static Item iconHeraldry;
+	public static Item iconSword;
 	public static Item bearRug;
 	public static Item bericSword;
 	public static Item berryPie;
@@ -245,11 +246,11 @@ public class GOTItems {
 	public static Item gobletGold;
 	public static Item gobletSilver;
 	public static Item gobletWood;
-	public static Item goldBoots;
-	public static Item goldChestplate;
-	public static Item goldHelmet;
+	public static Item goldenCompanyBoots;
+	public static Item goldenCompanyChestplate;
+	public static Item goldenCompanyHelmet;
 	public static Item goldHorseArmor;
-	public static Item goldLeggings;
+	public static Item goldenCompanyLeggings;
 	public static Item goldRing;
 	public static Item grapeRed;
 	public static Item grapeWhite;
@@ -759,7 +760,8 @@ public class GOTItems {
 		bananaCake = new GOTItemPlaceableFood(GOTBlocks.bananaCake);
 		bane = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		banner = new GOTItemBanner();
-		bannerTab = new GOTItemBannerTab();
+		iconHeraldry = new Item();
+		iconSword = new Item();
 		bearRug = new GOTItemBearRug();
 		bericSword = new GOTItemLegendarySword(Item.ToolMaterial.IRON, GOTItemSword.HitEffect.FIRE);
 		berryPie = new GOTItemPlaceableFood(GOTBlocks.berryPie);
@@ -923,11 +925,11 @@ public class GOTItems {
 		gobletGold = new GOTItemVessel();
 		gobletSilver = new GOTItemVessel();
 		gobletWood = new GOTItemVessel();
-		goldBoots = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 3);
-		goldChestplate = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 1);
-		goldHelmet = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 0);
+		goldenCompanyBoots = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 3);
+		goldenCompanyChestplate = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 1);
+		goldenCompanyHelmet = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 0);
 		goldHorseArmor = new GOTItemMountArmor(ItemArmor.ArmorMaterial.GOLD, GOTItemMountArmor.Mount.HORSE, null).setTemplateItem(Items.golden_horse_armor);
-		goldLeggings = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 2);
+		goldenCompanyLeggings = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 2);
 		goldRing = new GOTItemRing();
 		grapeRed = new GOTItemFood(2, 0.2f, false);
 		grapeWhite = new GOTItemFood(2, 0.2f, false);
@@ -1728,10 +1730,10 @@ public class GOTItems {
 		register(tyroshLeggings, "tyroshLeggings");
 		register(tyroshBoots, "tyroshBoots");
 
-		register(goldHelmet, "goldHelmet");
-		register(goldChestplate, "goldChestplate");
-		register(goldLeggings, "goldLeggings");
-		register(goldBoots, "goldBoots");
+		register(goldenCompanyHelmet, "goldenCompanyHelmet");
+		register(goldenCompanyChestplate, "goldenCompanyChestplate");
+		register(goldenCompanyLeggings, "goldenCompanyLeggings");
+		register(goldenCompanyBoots, "goldenCompanyBoots");
 
 		register(ghiscarHelmet, "ghiscarHelmet");
 		register(ghiscarChestplate, "ghiscarChestplate");
@@ -2102,7 +2104,8 @@ public class GOTItems {
 		/* null */
 
 		register(anonymousMask, "anonymousMask");
-		register(bannerTab, "bannerTab");
+		register(iconHeraldry, "iconHeraldry");
+		register(iconSword, "iconSword");
 		register(crowbar, "crowbar");
 		register(featherDyed, "featherDyed");
 
@@ -2117,22 +2120,27 @@ public class GOTItems {
 		register(blackfyreChestplate, "blackfyreChestplate");
 		register(blackfyreBoots, "blackfyreBoots");
 		register(blackfyreLeggings, "blackfyreLeggings");
+
 		register(redkingHelmet, "redkingHelmet");
 		register(redkingChestplate, "redkingChestplate");
 		register(redkingLeggings, "redkingLeggings");
 		register(redkingBoots, "redkingBoots");
+
 		register(renlyHelmet, "renlyHelmet");
 		register(renlyChestplate, "renlyChestplate");
 		register(renlyLeggings, "renlyLeggings");
 		register(renlyBoots, "renlyBoots");
+
 		register(royceHelmet, "royceHelmet");
 		register(royceChestplate, "royceChestplate");
 		register(royceLeggings, "royceLeggings");
 		register(royceBoots, "royceBoots");
+
 		register(targaryenHelmet, "targaryenHelmet");
 		register(targaryenChestplate, "targaryenChestplate");
 		register(targaryenLeggings, "targaryenLeggings");
 		register(targaryenBoots, "targaryenBoots");
+
 		register(westkingHelmet, "westkingHelmet");
 		register(westkingChestplate, "westkingChestplate");
 		register(westkingLeggings, "westkingLeggings");

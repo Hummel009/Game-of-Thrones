@@ -13,10 +13,10 @@ import got.common.entity.essos.dothraki.GOTEntityDothrakiArcher;
 import got.common.entity.essos.dothraki.GOTEntityDothrakiKhal;
 import got.common.entity.essos.dothraki.GOTEntityDothrakiKhalin;
 import got.common.entity.essos.ghiscar.*;
-import got.common.entity.essos.gold.GOTEntityGoldenBannerBearer;
-import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
-import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
-import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyBannerBearer;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyCaptain;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanySpearman;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyWarrior;
 import got.common.entity.essos.ibben.*;
 import got.common.entity.essos.jogos.*;
 import got.common.entity.essos.legendary.GOTEntityMissandei;
@@ -573,10 +573,10 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityMyrMason.class, id++, GOTFaction.MYR);
 		GOTEntityRegistry.register(GOTEntityMyrMiner.class, id++, GOTFaction.MYR);
 
-		GOTEntityRegistry.register(GOTEntityGoldenWarrior.class, id++, 0xffd700);
-		GOTEntityRegistry.register(GOTEntityGoldenSpearman.class, id++, 0xffd700);
-		GOTEntityRegistry.register(GOTEntityGoldenBannerBearer.class, id++, 0xffd700);
-		GOTEntityRegistry.register(GOTEntityGoldenCaptain.class, id++, 0xffd700);
+		GOTEntityRegistry.register(GOTEntityGoldenCompanyWarrior.class, id++, 0xffd700);
+		GOTEntityRegistry.register(GOTEntityGoldenCompanySpearman.class, id++, 0xffd700);
+		GOTEntityRegistry.register(GOTEntityGoldenCompanyBannerBearer.class, id++, 0xffd700);
+		GOTEntityRegistry.register(GOTEntityGoldenCompanyCaptain.class, id++, 0xffd700);
 
 		GOTEntityRegistry.register(GOTEntityTyroshMan.class, id++, GOTFaction.TYROSH);
 		GOTEntityRegistry.register(GOTEntityTyroshLevyman.class, id++, GOTFaction.TYROSH);

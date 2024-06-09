@@ -43,11 +43,6 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killKhal;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

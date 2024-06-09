@@ -2,9 +2,9 @@ package got.common.world.structure.essos.gold;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
-import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
-import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyCaptain;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanySpearman;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyWarrior;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -14,11 +14,11 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class GOTStructureGoldenWatchtower extends GOTStructureBase {
+public class GOTStructureGoldenCompanyWatchtower extends GOTStructureBase {
 	private Block woodBlock;
 	private int woodMeta;
 
-	public GOTStructureGoldenWatchtower(boolean flag) {
+	public GOTStructureGoldenCompanyWatchtower(boolean flag) {
 		super(flag);
 	}
 
@@ -135,7 +135,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 			setBlockAndMetadata(world, 0, j1 + 2, 3, Blocks.torch, 5);
 			setBlockAndMetadata(world, -3, j1 + 2, 0, Blocks.torch, 5);
 			setBlockAndMetadata(world, 3, j1 + 2, 0, Blocks.torch, 5);
-			spawnNPCAndSetHome(new GOTEntityGoldenCaptain(world), world, -1, j1 + 1, 0, 8);
+			spawnNPCAndSetHome(new GOTEntityGoldenCompanyCaptain(world), world, -1, j1 + 1, 0, 8);
 		}
 		for (i12 = -2; i12 <= 2; ++i12) {
 			for (k1 = -2; k1 <= 2; ++k1) {
@@ -183,10 +183,10 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 				setBlockAndMetadata(world, 2 - step, 20 + step, k1, stairBlock, 0);
 			}
 		}
-		placeWallBanner(world, -2, 15, 0, GOTItemBanner.BannerType.GOLDENCOMPANY, 3);
-		placeWallBanner(world, 2, 15, 0, GOTItemBanner.BannerType.GOLDENCOMPANY, 1);
-		placeWallBanner(world, 0, 15, -2, GOTItemBanner.BannerType.GOLDENCOMPANY, 2);
-		placeWallBanner(world, 0, 15, 2, GOTItemBanner.BannerType.GOLDENCOMPANY, 0);
+		placeWallBanner(world, -2, 15, 0, GOTItemBanner.BannerType.GOLDEN_COMPANY, 3);
+		placeWallBanner(world, 2, 15, 0, GOTItemBanner.BannerType.GOLDEN_COMPANY, 1);
+		placeWallBanner(world, 0, 15, -2, GOTItemBanner.BannerType.GOLDEN_COMPANY, 2);
+		placeWallBanner(world, 0, 15, 2, GOTItemBanner.BannerType.GOLDEN_COMPANY, 0);
 		for (j1 = 24; j1 <= 25; ++j1) {
 			setBlockAndMetadata(world, 1, j1, 0, Blocks.wool, 10);
 			setBlockAndMetadata(world, 2, j1, 1, Blocks.wool, 10);
@@ -194,8 +194,8 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 			setBlockAndMetadata(world, 3, j1, 3, Blocks.wool, 10);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass1(GOTEntityGoldenWarrior.class);
-		respawner.setSpawnClass2(GOTEntityGoldenSpearman.class);
+		respawner.setSpawnClass1(GOTEntityGoldenCompanyWarrior.class);
+		respawner.setSpawnClass2(GOTEntityGoldenCompanySpearman.class);
 		respawner.setCheckRanges(80, -12, 0, 30);
 		respawner.setSpawnRanges(80, -12, 0, 80);
 		respawner.setSpawnInterval(1);

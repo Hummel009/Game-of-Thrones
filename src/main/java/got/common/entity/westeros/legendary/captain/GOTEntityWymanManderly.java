@@ -64,11 +64,6 @@ public class GOTEntityWymanManderly extends GOTEntityHumanBase implements GOTUni
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVassal;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

@@ -5,9 +5,9 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityGoldenSpearman extends GOTEntityGoldenWarrior {
+public class GOTEntityGoldenCompanySpearman extends GOTEntityGoldenCompanyWarrior {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityGoldenSpearman(World world) {
+	public GOTEntityGoldenCompanySpearman(World world) {
 		super(world);
 	}
 

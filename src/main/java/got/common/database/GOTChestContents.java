@@ -1100,10 +1100,10 @@ public class GOTChestContents {
 		VOLANTIS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosSpear), 1, 1, 25));
 		VOLANTIS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosBow), 1, 1, 50));
 
-		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldHelmet), 1, 1, 25));
-		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldChestplate), 1, 1, 25));
-		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldLeggings), 1, 1, 25));
-		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldBoots), 1, 1, 25));
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldenCompanyHelmet), 1, 1, 25));
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldenCompanyChestplate), 1, 1, 25));
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldenCompanyLeggings), 1, 1, 25));
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldenCompanyBoots), 1, 1, 25));
 		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosSword), 1, 1, 50));
 		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosPolearm), 1, 1, 25));
 		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosDagger), 1, 1, 25));

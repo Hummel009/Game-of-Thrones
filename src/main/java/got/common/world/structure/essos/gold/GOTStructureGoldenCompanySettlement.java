@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.gold;
 
-import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
-import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanySpearman;
+import got.common.entity.essos.gold.GOTEntityGoldenCompanyWarrior;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 import java.util.Collection;
 import java.util.Random;
 
-public class GOTStructureGoldenSettlement extends GOTStructureBaseSettlement {
-	public GOTStructureGoldenSettlement(GOTBiome biome, float f) {
+public class GOTStructureGoldenCompanySettlement extends GOTStructureBaseSettlement {
+	public GOTStructureGoldenCompanySettlement(GOTBiome biome, float f) {
 		super(biome);
 		spawnChance = f;
 		settlementChunkRadius = 5;
@@ -38,12 +38,12 @@ public class GOTStructureGoldenSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
-			addStructure(new GOTStructureGoldenWatchtower(false), 0, -4, 0, true);
+			addStructure(new GOTStructureGoldenCompanyWatchtower(false), 0, -4, 0, true);
 			addStructure(new StructureRespawner(), 0, 0, 0);
-			addStructure(new GOTStructureGoldenTent(false), -21, 0, 1);
-			addStructure(new GOTStructureGoldenTent(false), 0, -21, 2);
-			addStructure(new GOTStructureGoldenTent(false), 21, 0, 3);
-			addStructure(new GOTStructureGoldenTent(false), 0, 21, 0);
+			addStructure(new GOTStructureGoldenCompanyTent(false), -21, 0, 1);
+			addStructure(new GOTStructureGoldenCompanyTent(false), 0, -21, 2);
+			addStructure(new GOTStructureGoldenCompanyTent(false), 21, 0, 3);
+			addStructure(new GOTStructureGoldenCompanyTent(false), 0, 21, 0);
 			int houses = 20;
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
@@ -67,18 +67,18 @@ public class GOTStructureGoldenSettlement extends GOTStructureBaseSettlement {
 					l = 61;
 					i = Math.round(l * cos);
 					k = Math.round(l * sin);
-					addStructure(new GOTStructureGoldenTent(false), i, k, r);
+					addStructure(new GOTStructureGoldenCompanyTent(false), i, k, r);
 				}
 			}
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;
-			addStructure(new GOTStructureGoldenTent(false), -farmX + farmSize, -farmZ, 1);
-			addStructure(new GOTStructureGoldenTent(false), -farmZ + farmSize, -farmX, 1);
-			addStructure(new GOTStructureGoldenTent(false), farmX - farmSize, -farmZ, 3);
-			addStructure(new GOTStructureGoldenTent(false), farmZ - farmSize, -farmX, 3);
-			addStructure(new GOTStructureGoldenTent(false), -farmX + farmSize, farmZ, 1);
-			addStructure(new GOTStructureGoldenTent(false), farmX - farmSize, farmZ, 3);
+			addStructure(new GOTStructureGoldenCompanyTent(false), -farmX + farmSize, -farmZ, 1);
+			addStructure(new GOTStructureGoldenCompanyTent(false), -farmZ + farmSize, -farmX, 1);
+			addStructure(new GOTStructureGoldenCompanyTent(false), farmX - farmSize, -farmZ, 3);
+			addStructure(new GOTStructureGoldenCompanyTent(false), farmZ - farmSize, -farmX, 3);
+			addStructure(new GOTStructureGoldenCompanyTent(false), -farmX + farmSize, farmZ, 1);
+			addStructure(new GOTStructureGoldenCompanyTent(false), farmX - farmSize, farmZ, 3);
 		}
 
 		@Override
@@ -116,8 +116,8 @@ public class GOTStructureGoldenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityGoldenWarrior.class);
-				spawner.setSpawnClass2(GOTEntityGoldenSpearman.class);
+				spawner.setSpawnClass1(GOTEntityGoldenCompanyWarrior.class);
+				spawner.setSpawnClass2(GOTEntityGoldenCompanySpearman.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);

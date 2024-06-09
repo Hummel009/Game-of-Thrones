@@ -65,11 +65,6 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVassal;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

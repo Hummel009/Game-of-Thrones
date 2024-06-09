@@ -6,8 +6,8 @@ import got.common.world.structure.essos.asshai.*;
 import got.common.world.structure.essos.braavos.*;
 import got.common.world.structure.essos.dothraki.*;
 import got.common.world.structure.essos.ghiscar.*;
-import got.common.world.structure.essos.gold.GOTStructureGoldenSettlement;
-import got.common.world.structure.essos.gold.GOTStructureGoldenWatchtower;
+import got.common.world.structure.essos.gold.GOTStructureGoldenCompanySettlement;
+import got.common.world.structure.essos.gold.GOTStructureGoldenCompanyWatchtower;
 import got.common.world.structure.essos.ibben.*;
 import got.common.world.structure.essos.jogos.*;
 import got.common.world.structure.essos.lhazar.*;
@@ -302,7 +302,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTavern.class, GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTower.class, GOTFaction.TYROSH);
 
-		GOTStructureRegistry.register(id++, GOTStructureGoldenWatchtower.class, 0xffd700);
+		GOTStructureRegistry.register(id++, GOTStructureGoldenCompanyWatchtower.class, 0xffd700);
 
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarBarracks.class, GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarBazaar.class, GOTFaction.GHISCAR);
@@ -484,7 +484,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureTyroshSettlement(GOTBiome.ocean, 1.0f), "TyroshSettleForted", GOTFaction.TYROSH, (GOTStructureRegistry.ISettlementProperties<GOTStructureTyroshSettlement.Instance>) instance -> instance.setType(GOTStructureTyroshSettlement.Type.FORT));
 		GOTStructureRegistry.register(id++, new GOTStructureTyroshSettlement(GOTBiome.ocean, 1.0f), "TyroshSettleLarge", GOTFaction.TYROSH, (GOTStructureRegistry.ISettlementProperties<GOTStructureTyroshSettlement.Instance>) instance -> instance.setType(GOTStructureTyroshSettlement.Type.TOWN));
 
-		GOTStructureRegistry.register(id++, new GOTStructureGoldenSettlement(GOTBiome.ocean, 1.0f), "GoldenSettle", 0xffd700, (GOTStructureRegistry.ISettlementProperties<GOTStructureGoldenSettlement.Instance>) instance -> {
+		GOTStructureRegistry.register(id++, new GOTStructureGoldenCompanySettlement(GOTBiome.ocean, 1.0f), "GoldenCompanySettle", 0xffd700, (GOTStructureRegistry.ISettlementProperties<GOTStructureGoldenCompanySettlement.Instance>) instance -> {
 		});
 
 		GOTStructureRegistry.register(id++, new GOTStructureGhiscarSettlement(GOTBiome.ocean, 1.0f), "GhiscarSettle", GOTFaction.GHISCAR, (GOTStructureRegistry.ISettlementProperties<GOTStructureGhiscarSettlement.Instance>) instance -> instance.setType(GOTStructureGhiscarSettlement.Type.VILLAGE));

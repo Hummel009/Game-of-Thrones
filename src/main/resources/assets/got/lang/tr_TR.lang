@@ -269,10 +269,10 @@ entity.got.GiftMan.name=Hediye Yerleşik
 entity.got.GilwoodHunter.name=Gilwood Avcısı
 entity.got.Giraffe.name=Zürafa
 entity.got.GiraffeRug.name=Zürafa Postu
-entity.got.GoldenBannerBearer.name=Altın Bölüğün Bayraktar
-entity.got.GoldenCaptain.name=Altın Bölüğün Kaptanı
-entity.got.GoldenSpearman.name=Altın Bölüğün Mızrakçısı
-entity.got.GoldenWarrior.name=Altın Bölüğün Savaşçı
+entity.got.GoldenCompanyBannerBearer.name=Altın Bölüğün Bayraktar
+entity.got.GoldenCompanyCaptain.name=Altın Bölüğün Kaptanı
+entity.got.GoldenCompanySpearman.name=Altın Bölüğün Mızrakçısı
+entity.got.GoldenCompanyWarrior.name=Altın Bölüğün Savaşçı
 entity.got.Gorcrow.name=Karga
 entity.got.GoroldGoodbrother.name=Güzel kardeş
 entity.got.GregorCleganeAlive.name=Gregor Clegane
@@ -1213,8 +1213,6 @@ got.achievement.HIRE_GOLDEN_COMPANY.desc≠Hire 10 G.C. units
 got.achievement.HIRE_GOLDEN_COMPANY.title≠Corrupt creatures
 got.achievement.HUNDREDS.desc=Binlerce....
 got.achievement.HUNDREDS.title=Yüzlercesi Ölecek!
-got.achievement.KILLER.desc=Insanı öldür
-got.achievement.KILLER.title=Katil
 got.achievement.KILL_ALLISER_THORNE.desc=Alliser Thorne'u öldür
 got.achievement.KILL_ALLISER_THORNE.title=İntikamcı
 got.achievement.KILL_ARDRIAN_CELTIGAR.desc=Ardrian Celtigar'ı öldür
@@ -1303,6 +1301,8 @@ got.achievement.KILL_LANCEL_LANNISTER.desc=Dindar Lancel Lannister'ı öldür
 got.achievement.KILL_LANCEL_LANNISTER.title=şiddeti seçiyorum
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=Devi çakıl taşlarıyla öldürerek öldür
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=Her şey işe yarar
+got.achievement.KILL_LEGENDARY_NPC.desc≠Kill a legendary character
+got.achievement.KILL_LEGENDARY_NPC.title≠Legendary Killer
 got.achievement.KILL_LORAS_TYRELL.desc=Loras Tyrell'i öldür
 got.achievement.KILL_LORAS_TYRELL.title=Şerefsizlerin katili
 got.achievement.KILL_MACE_TYRELL.desc=Mace Tyrell'i öldür
@@ -1321,6 +1321,8 @@ got.achievement.KILL_NIGHT_KING.desc=Gece Kralı'nı öldür
 got.achievement.KILL_NIGHT_KING.title=Efsanevi Katil I
 got.achievement.KILL_NIGHT_WATCH_GUARD.desc=Gece Nöbetçisini Öldür
 got.achievement.KILL_NIGHT_WATCH_GUARD.title=Kâbus
+got.achievement.KILL_NPC.desc=Insanı öldür
+got.achievement.KILL_NPC.title=Katil
 got.achievement.KILL_OBERYN_MARTELL.desc=Oberyn Martell'i öldür
 got.achievement.KILL_OBERYN_MARTELL.title=Dağ
 got.achievement.KILL_PETYR_BAELISH.desc=Petyr Baelish'i öldür
@@ -1371,8 +1373,6 @@ got.achievement.KILL_USING_ONLY_PLATES.desc=Tabak fırlatan birini öldür.
 got.achievement.KILL_USING_ONLY_PLATES.title=Birini tabak fırlatıcı ile öldür
 got.achievement.KILL_VARYS.desc=Varys'i öldür
 got.achievement.KILL_VARYS.title=Bazı kapılar kalıcı olarak kapalı!
-got.achievement.KILL_VASSAL.desc=Büyük Evin Vassal'ını öldür
-got.achievement.KILL_VASSAL.title=Parçalar halinde yok et
 got.achievement.KILL_VICTARION_GREYJOY.desc=Victarion Greyjoy'u öldür
 got.achievement.KILL_VICTARION_GREYJOY.title=Kuzeyin savunucusu
 got.achievement.KILL_WEREWOLF.desc=Kurt Yerleşik öldür
@@ -1467,14 +1467,14 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Dragonstone'un tam setini giyin
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Ejderha Kayası Muhafız
 got.achievement.WEAR_FULL_FUR.desc=Tam bir kürk zırh seti giyin
 got.achievement.WEAR_FULL_FUR.title=Yaban hayatı
-got.achievement.WEAR_FULL_GEMSBOK.desc=из шкуры орикса tam takım giyin
-got.achievement.WEAR_FULL_GEMSBOK.title=Lhazar gelenekleri
 got.achievement.WEAR_FULL_GHISCAR.desc=Ghiscar'ın tam setini giyin
 got.achievement.WEAR_FULL_GHISCAR.title=Ghiscar'ın Muhafız
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.desc=из шкуры орикса tam takım giyin
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.title=Lhazar gelenekleri
 got.achievement.WEAR_FULL_GIFT.desc=Gece Saatinin tam setini giyin
 got.achievement.WEAR_FULL_GIFT.title=Duvar Muhafız
-got.achievement.WEAR_FULL_GOLDENCOMPANY.desc=Altın Mürettebat'ın tam setini giyin
-got.achievement.WEAR_FULL_GOLDENCOMPANY.title=Altın Şirket
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Altın Mürettebat'ın tam setini giyin
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Altın Şirket
 got.achievement.WEAR_FULL_HAND.desc=Kralın Elinin broşunu giyin
 got.achievement.WEAR_FULL_HAND.title=Kralın Eli
 got.achievement.WEAR_FULL_HELMET.desc=Efsanevi kask giy
@@ -1547,8 +1547,8 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=Tam set Batı Toprakları Muhaf�
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=Batı Toprakları Muhafız Kaptanı
 got.achievement.WEAR_FULL_WESTKING.desc=Batı krallarının tam setini giyin
 got.achievement.WEAR_FULL_WESTKING.title=Batı Kralı
-got.achievement.WEAR_FULL_WHITEWALKERS.desc=Beyaz Yürüteçlerin tam setini giyin
-got.achievement.WEAR_FULL_WHITEWALKERS.title=Nane Yörüngesi
+got.achievement.WEAR_FULL_WHITE_WALKERS.desc=Beyaz Yürüteçlerin tam setini giyin
+got.achievement.WEAR_FULL_WHITE_WALKERS.title=Nane Yörüngesi
 got.achievement.WEAR_FULL_YITI.desc=Yi Ti'nin tam setini giyin
 got.achievement.WEAR_FULL_YITI.title=Yi Ti'nin Muhafız
 got.achievement.WEAR_FULL_YITI_FRONTIER.desc=Yi Ti sınırlarının tamamını giyin
@@ -3005,8 +3005,8 @@ got.structure.GiftHouseSmall.name≠Shack of Night's Watch
 got.structure.GiftSettle.name≠Village of Night's Watch
 got.structure.GiftSmithy.name≠Smithy of Night's Watch
 got.structure.GiftStables.name≠Stables of Night's Watch
-got.structure.GoldenSettle.name≠Camp of Golden Company
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCompanySettle.name≠Camp of Golden Company
+got.structure.GoldenCompanyWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name≠Hillmen Camp
 got.structure.HillmanFortress.name≠Hillmen Fortress
 got.structure.HillmanHouse.name≠Hillmen House
@@ -3213,9 +3213,9 @@ got.structure.SothoryosHouseLarge.name≠Mansion of Sothoryos
 got.structure.SothoryosHouseSimple.name≠Simple House of Sothoryos
 got.structure.SothoryosHouseStilts.name≠Stilted House of Sothoryos
 got.structure.SothoryosPyramid.name≠Pyramid of Sothoryos
-got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosSettle.name≠Village of Sothoryos
 got.structure.SothoryosSmithy.name≠Smithy of Sothoryos
+got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosWatchtower.name≠Watchtower of Sothoryos
 got.structure.StormlandsBarn.name≠Barn of Stormlands
 got.structure.StormlandsBath.name≠Bath of Stormlands
@@ -4761,7 +4761,7 @@ item.got:banner.gaunt.name=Sıska Bayrağı
 item.got:banner.ghiscar.name=Ghiscar Bayrağı
 item.got:banner.glenmore.name=Glenmore Bayrağı
 item.got:banner.glover.name=Glover Bayrağı
-item.got:banner.goldencompany.name=Altın Şirket Afişi
+item.got:banner.golden_company.name=Altın Şirket Afişi
 item.got:banner.goodbrook.name=Goodbrook Bayrağı
 item.got:banner.goodbrother.name=Goodbrother Bayrağı
 item.got:banner.goodbrotherCL.name=Dead Lake Goodbrother Bayrağı
@@ -5169,7 +5169,6 @@ item.got:banner.yitiQo.name=Qo Bayrağı
 item.got:banner.youngGriff.name=Genç Griff Bayrağı
 item.got:banner.yronwood.name=Yronwood Bayrağı
 item.got:banner.yunkai.name=Yunkai Bayrağı
-item.got:banner_tab.name=Kredi
 item.got:bear_rug.name=Ayı Postu
 item.got:beaver_cooked.name≠Cooked Beaver
 item.got:beaver_raw.name≠Raw Beaver
@@ -5352,11 +5351,11 @@ item.got:goblet_copper.name=Bakır Kadeh
 item.got:goblet_gold.name=Altın Kadeh
 item.got:goblet_silver.name=Gümüş Kadeh
 item.got:goblet_wood.name=Tahta Kupa
-item.got:gold_boots.name=Altın Şirket Bot
-item.got:gold_chestplate.name=Altın Şirket Zırh
-item.got:gold_helmet.name=Altın Şirket Kask
-item.got:gold_leggings.name=Altın Şirket Pantolon
 item.got:gold_ring.name=Altın Yüzük
+item.got:golden_company_boots.name=Altın Şirket Bot
+item.got:golden_company_chestplate.name=Altın Şirket Zırh
+item.got:golden_company_helmet.name=Altın Şirket Kask
+item.got:golden_company_leggings.name=Altın Şirket Pantolon
 item.got:grape_red.name=Kırmızı Asma
 item.got:grape_white.name=Yeşil Asma
 item.got:gregor_clegane_sword.name=Gregor Clegane Kılıcı
@@ -5384,6 +5383,8 @@ item.got:ice_heavy_sword.name=Buz Ağır Kılıç
 item.got:ice_shard.name=Buz parçası
 item.got:ice_spear.name=Ak Gezenler Mızrağı
 item.got:ice_sword.name=Buz Kılıcı
+item.got:icon_heraldry.name=???
+item.got:icon_sword.name=???
 item.got:indomitable.name=Yılmaz
 item.got:iron_battleaxe.name=Demir Savaş Baltası
 item.got:iron_crossbow.name=Demir Kundaklı Yay

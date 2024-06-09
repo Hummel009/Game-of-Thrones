@@ -60,11 +60,6 @@ public class GOTEntityCotterPyke extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killNightWatchGuard;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

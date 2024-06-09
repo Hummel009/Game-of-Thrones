@@ -32,7 +32,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killer;
+		return isLegendaryNPC ? GOTAchievement.killLegendaryNPC : GOTAchievement.killNPC;
 	}
 
 	@Override

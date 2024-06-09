@@ -38,7 +38,7 @@ public class GOTCreativeTabs extends CreativeTabs {
 		TAB_COMBAT.theIcon = new ItemStack(GOTItems.ironbornHelmet);
 		TAB_STORY.theIcon = new ItemStack(GOTItems.bane);
 		TAB_SPAWN.theIcon = new ItemStack(GOTItems.spawnEgg, 1, 248);
-		TAB_BANNER.theIcon = new ItemStack(GOTItems.bannerTab);
+		TAB_BANNER.theIcon = new ItemStack(GOTItems.iconHeraldry);
 	}
 
 	@Override

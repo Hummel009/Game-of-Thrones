@@ -63,11 +63,6 @@ public class GOTEntityRodrikHarlaw extends GOTEntityHumanBase implements GOTUnit
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVassal;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

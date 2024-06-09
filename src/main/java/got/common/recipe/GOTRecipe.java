@@ -1533,10 +1533,10 @@ public class GOTRecipe {
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.renlyLeggings), "XXX", "X X", "X X", 'X', GOTItems.alloySteelIngot));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.renlyBoots), "X X", "X X", 'X', GOTItems.alloySteelIngot));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.blacksmithHammer), "XYX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
-		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldHelmet), "XXX", "X X", 'X', "ingotIron"));
-		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
-		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
-		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldBoots), "X X", "X X", 'X', "ingotIron"));
+		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldenCompanyHelmet), "XXX", "X X", 'X', "ingotIron"));
+		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldenCompanyChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
+		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldenCompanyLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
+		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.goldenCompanyBoots), "X X", "X X", 'X', "ingotIron"));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.redkingHelmet), "XXX", "X X", 'X', GOTItems.alloySteelIngot));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.redkingChestplate), "X X", "XXX", "XXX", 'X', GOTItems.alloySteelIngot));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.redkingLeggings), "XXX", "X X", "X X", 'X', GOTItems.alloySteelIngot));

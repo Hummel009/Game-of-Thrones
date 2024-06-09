@@ -1,6 +1,5 @@
 package got.common.entity.essos.legendary.warrior;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.ai.*;
@@ -47,11 +46,6 @@ public class GOTEntityJonConnington extends GOTEntityHumanBase {
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.TYROSH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVassal;
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package got.common.entity.westeros.legendary.deco;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIDrink;
@@ -53,11 +52,6 @@ public class GOTEntityWillasTyrell extends GOTEntityHumanBase {
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.REACH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVassal;
 	}
 
 	@Override

@@ -269,10 +269,10 @@ entity.got.GiftMan.name=Poddany Podmurza
 entity.got.GilwoodHunter.name=Gilwood Hunter
 entity.got.Giraffe.name=Żyrafa
 entity.got.GiraffeRug.name=Dywan z żyrafy
-entity.got.GoldenBannerBearer.name=Chorąży Złotej Kompanii
-entity.got.GoldenCaptain.name=Dowódca Złotej Kompanii
-entity.got.GoldenSpearman.name=Włócznik Złotej Kompanii
-entity.got.GoldenWarrior.name=Wojownik Złotej Kompanii
+entity.got.GoldenCompanyBannerBearer.name=Chorąży Złotej Kompanii
+entity.got.GoldenCompanyCaptain.name=Dowódca Złotej Kompanii
+entity.got.GoldenCompanySpearman.name=Włócznik Złotej Kompanii
+entity.got.GoldenCompanyWarrior.name=Wojownik Złotej Kompanii
 entity.got.Gorcrow.name=Gawron
 entity.got.GoroldGoodbrother.name=Gorold Goodbrother
 entity.got.GregorCleganeAlive.name=Gregor "Góra" Clegane
@@ -1213,8 +1213,6 @@ got.achievement.HIRE_GOLDEN_COMPANY.desc=Kup kilku najemników Złotej Kompani
 got.achievement.HIRE_GOLDEN_COMPANY.title=Jak złote
 got.achievement.HUNDREDS.desc=Tysiące...
 got.achievement.HUNDREDS.title=Zginą setki!
-got.achievement.KILLER.desc=Zabij człowieka
-got.achievement.KILLER.title=Zabójca
 got.achievement.KILL_ALLISER_THORNE.desc=Zabij Allisera Thorne'a
 got.achievement.KILL_ALLISER_THORNE.title=Mściciel
 got.achievement.KILL_ARDRIAN_CELTIGAR.desc=Zabij Ardriana Celtigara
@@ -1303,6 +1301,8 @@ got.achievement.KILL_LANCEL_LANNISTER.desc=Zabij religijnego Lancela Lannistera
 got.achievement.KILL_LANCEL_LANNISTER.title=Wybieram przemoc
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=Zabij giganta przy użyciu kamyków
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=Wszystkie sposoby są dobre
+got.achievement.KILL_LEGENDARY_NPC.desc≠Kill a legendary character
+got.achievement.KILL_LEGENDARY_NPC.title≠Legendary Killer
 got.achievement.KILL_LORAS_TYRELL.desc=Zabij Lorasa Tyrella
 got.achievement.KILL_LORAS_TYRELL.title=Zabójca nieuczciwych
 got.achievement.KILL_MACE_TYRELL.desc=Zabij Mace Tyrella
@@ -1321,6 +1321,8 @@ got.achievement.KILL_NIGHT_KING.desc=Zabij Nocnego Króla
 got.achievement.KILL_NIGHT_KING.title=Legendarny zabójca I
 got.achievement.KILL_NIGHT_WATCH_GUARD.desc=Zabij strażnika nocnego straży
 got.achievement.KILL_NIGHT_WATCH_GUARD.title=Klacz Nocny
+got.achievement.KILL_NPC.desc=Zabij człowieka
+got.achievement.KILL_NPC.title=Zabójca
 got.achievement.KILL_OBERYN_MARTELL.desc=Zabij Oberyna Martella
 got.achievement.KILL_OBERYN_MARTELL.title=Góra
 got.achievement.KILL_PETYR_BAELISH.desc=Zabij Petyra Baelisha
@@ -1371,8 +1373,6 @@ got.achievement.KILL_USING_ONLY_PLATES.desc=Zabij kogoś rzucając talerzami
 got.achievement.KILL_USING_ONLY_PLATES.title=Kuchenny awanturnik
 got.achievement.KILL_VARYS.desc=Zabij Varysa
 got.achievement.KILL_VARYS.title=Niektóre drzwi są zamknięte na stałe
-got.achievement.KILL_VASSAL.desc=Zabij Wasala Wielkiego Domu
-got.achievement.KILL_VASSAL.title=Zniszcz w częściach
 got.achievement.KILL_VICTARION_GREYJOY.desc=Zabij Victariona Greyjoya
 got.achievement.KILL_VICTARION_GREYJOY.title=Obrońca Północy
 got.achievement.KILL_WEREWOLF.desc=Zabij wilkołaka
@@ -1467,14 +1467,14 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Załóż pełną zbroję Smoczej Ska�
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Strażnik Smoczej Skały
 got.achievement.WEAR_FULL_FUR.desc=Załóż pełną futrzaną zbroję
 got.achievement.WEAR_FULL_FUR.title=Dziki
-got.achievement.WEAR_FULL_GEMSBOK.desc=Załóż pełną zbroję ihazarski
-got.achievement.WEAR_FULL_GEMSBOK.title=Tradycje lhazarskie
 got.achievement.WEAR_FULL_GHISCAR.desc=Załóż pełną zbroję Ghiscar
 got.achievement.WEAR_FULL_GHISCAR.title=Strażnik Ghiscara
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.desc=Załóż pełną zbroję ihazarski
+got.achievement.WEAR_FULL_GHISCAR_GEMSBOK.title=Tradycje lhazarskie
 got.achievement.WEAR_FULL_GIFT.desc=Załóż pełną zbroję Nocnej Straży
 got.achievement.WEAR_FULL_GIFT.title=Strażnik muru
-got.achievement.WEAR_FULL_GOLDENCOMPANY.desc=Załóż pełną zbroję Złotej Kompanii
-got.achievement.WEAR_FULL_GOLDENCOMPANY.title=Złota Firma
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Załóż pełną zbroję Złotej Kompanii
+got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Złota Firma
 got.achievement.WEAR_FULL_HAND.desc=Noś szmizjerkę Ręki Króla
 got.achievement.WEAR_FULL_HAND.title=Ręka króla
 got.achievement.WEAR_FULL_HELMET.desc=Załóż legendarny hełm
@@ -1547,8 +1547,8 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=Załóż pełną zbroję strażn
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=Dowódca straży Krainy zachodu
 got.achievement.WEAR_FULL_WESTKING.desc=Załóż pełną zbroję zachodnich królów
 got.achievement.WEAR_FULL_WESTKING.title=Król Zachodu
-got.achievement.WEAR_FULL_WHITEWALKERS.desc=Załóż pełną zbroję Białych wędrowców
-got.achievement.WEAR_FULL_WHITEWALKERS.title=Miętowy Orbit
+got.achievement.WEAR_FULL_WHITE_WALKERS.desc=Załóż pełną zbroję Białych wędrowców
+got.achievement.WEAR_FULL_WHITE_WALKERS.title=Miętowy Orbit
 got.achievement.WEAR_FULL_YITI.desc=Załóż pełną zbroję Yi Ti
 got.achievement.WEAR_FULL_YITI.title=Strażnik Yi Ti
 got.achievement.WEAR_FULL_YITI_FRONTIER.desc=Załóż pełną zbroję granicznika Yi Ti
@@ -3005,8 +3005,8 @@ got.structure.GiftHouseSmall.name≠Shack of Night's Watch
 got.structure.GiftSettle.name≠Village of Night's Watch
 got.structure.GiftSmithy.name≠Smithy of Night's Watch
 got.structure.GiftStables.name≠Stables of Night's Watch
-got.structure.GoldenSettle.name≠Camp of Golden Company
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCompanySettle.name≠Camp of Golden Company
+got.structure.GoldenCompanyWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name≠Hillmen Camp
 got.structure.HillmanFortress.name≠Hillmen Fortress
 got.structure.HillmanHouse.name≠Hillmen House
@@ -3213,9 +3213,9 @@ got.structure.SothoryosHouseLarge.name≠Mansion of Sothoryos
 got.structure.SothoryosHouseSimple.name≠Simple House of Sothoryos
 got.structure.SothoryosHouseStilts.name≠Stilted House of Sothoryos
 got.structure.SothoryosPyramid.name≠Pyramid of Sothoryos
-got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosSettle.name≠Village of Sothoryos
 got.structure.SothoryosSmithy.name≠Smithy of Sothoryos
+got.structure.SothoryosTemple.name≠Temple of Sothoryos
 got.structure.SothoryosWatchtower.name≠Watchtower of Sothoryos
 got.structure.StormlandsBarn.name≠Barn of Stormlands
 got.structure.StormlandsBath.name≠Bath of Stormlands
@@ -4761,7 +4761,7 @@ item.got:banner.gaunt.name=Sztandar chudy
 item.got:banner.ghiscar.name=Sztandar Ghiscara
 item.got:banner.glenmore.name=Sztandar Glenmore
 item.got:banner.glover.name=Sztandar Glovera
-item.got:banner.goldencompany.name=Sztandar Złotej Firmy
+item.got:banner.golden_company.name=Sztandar Złotej Firmy
 item.got:banner.goodbrook.name=Sztandar Goodbrook
 item.got:banner.goodbrother.name=Sztandar Goodbrother
 item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
@@ -5169,7 +5169,6 @@ item.got:banner.yitiQo.name=Sztandar Qo
 item.got:banner.youngGriff.name≠Banner of Young Griff
 item.got:banner.yronwood.name=Sztandar Yronwood
 item.got:banner.yunkai.name=Sztandar Yunkai
-item.got:banner_tab.name=Kredyty
 item.got:bear_rug.name=Dywan z niedźwiedziej skóry
 item.got:beaver_cooked.name≠Cooked Beaver
 item.got:beaver_raw.name≠Raw Beaver
@@ -5352,11 +5351,11 @@ item.got:goblet_copper.name=Miedziany kielich
 item.got:goblet_gold.name=Złoty kielich
 item.got:goblet_silver.name=Srebrny kielich
 item.got:goblet_wood.name=Drewniany kubek
-item.got:gold_boots.name=Buty Złotej Kompani
-item.got:gold_chestplate.name=Napierśnik złotej firmy
-item.got:gold_helmet.name=Hełm złoty
-item.got:gold_leggings.name=Nogawice Golden Company
 item.got:gold_ring.name=Złoty pierścień
+item.got:golden_company_boots.name=Buty Złotej Kompani
+item.got:golden_company_chestplate.name=Napierśnik złotej firmy
+item.got:golden_company_helmet.name=Hełm złoty
+item.got:golden_company_leggings.name=Nogawice Golden Company
 item.got:grape_red.name=Czerwone winogrona
 item.got:grape_white.name=Zielone winogrona
 item.got:gregor_clegane_sword.name=Miecz Gregora Clegane'a
@@ -5384,6 +5383,8 @@ item.got:ice_heavy_sword.name≠Ice Heavy Sword
 item.got:ice_shard.name≠Ice shard
 item.got:ice_spear.name≠White Walkers Spear
 item.got:ice_sword.name=Lodowy Miecz
+item.got:icon_heraldry.name=???
+item.got:icon_sword.name=???
 item.got:indomitable.name≠Indomitable
 item.got:iron_battleaxe.name=Żelazny topór bojowy
 item.got:iron_crossbow.name=Żelazna kusza
