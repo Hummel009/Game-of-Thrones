@@ -261,7 +261,7 @@ entity.got.GhiscarSlave.name=Esclave de Ghiscar
 entity.got.GhiscarSlaver.name=Esclavagiste de Ghiscar
 entity.got.GhiscarUnsullied.name=Immaculé de Ghiscar
 entity.got.Giant.name=Géant
-entity.got.GiantSpider.name=Araignée géante
+entity.got.UlthosSpider.name=Araignée géante
 entity.got.GiftBannerBearer.name=Porte-bannière de la garde de nuit
 entity.got.GiftBlacksmith.name=Forgeron de gift
 entity.got.GiftGuard.name=Guerrier de la garde de nuit
@@ -1205,14 +1205,12 @@ got.achievement.KILL_BERIC_DONDARRION.desc=Tuer Beric Dondarrion 6 fois
 got.achievement.KILL_BERIC_DONDARRION.title=Gaspillé
 got.achievement.KILL_BLIZZARD.desc≠Kill the blizzard
 got.achievement.KILL_BLIZZARD.title≠Another kind of walker?
-got.achievement.KILL_BOMBARDIER.desc≠Kill the bombardier
-got.achievement.KILL_BOMBARDIER.title≠Counter-Terrorists win
+got.achievement.KILL_YI_TI_BOMBARDIER.desc≠Kill the bombardier
+got.achievement.KILL_YI_TI_BOMBARDIER.title≠Counter-Terrorists win
 got.achievement.KILL_BRIENNE_TARTH.desc=Tuer Brienne Tarth
 got.achievement.KILL_BRIENNE_TARTH.title=Est-ce une femme?
 got.achievement.KILL_BRYNDEN_TULLY.desc=Tuer Brynden Tully
 got.achievement.KILL_BRYNDEN_TULLY.title=Pêcheur noir
-got.achievement.KILL_BUTTERFLY.desc=Tuer un papillon
-got.achievement.KILL_BUTTERFLY.title=Monstre
 got.achievement.KILL_BU_GAI.desc=Tuer Bu Gau
 got.achievement.KILL_BU_GAI.title=Jhattar légendaire
 got.achievement.KILL_CERSEI_LANNISTER.desc=Tuer Cersei Lannister
@@ -1235,8 +1233,8 @@ got.achievement.KILL_GENDRY_BARATHEON.desc=Tuer Gendry Baratheon
 got.achievement.KILL_GENDRY_BARATHEON.title=Tuez les salauds!
 got.achievement.KILL_GIANT.desc=Tuez le géant
 got.achievement.KILL_GIANT.title=Ennemi des géants
-got.achievement.KILL_GLADIATOR.desc=Tuez un gladiateur
-got.achievement.KILL_GLADIATOR.title=Formation
+got.achievement.KILL_GHISCAR_GLADIATOR.desc=Tuez un gladiateur
+got.achievement.KILL_GHISCAR_GLADIATOR.title=Formation
 got.achievement.KILL_GREGOR_CLEGANE.desc=Tuer Gregor Clegane
 got.achievement.KILL_GREGOR_CLEGANE.title=Tueur légendaire III
 got.achievement.KILL_HODOR.desc=Tuer Hodor
@@ -1323,8 +1321,8 @@ got.achievement.KILL_TYRION_LANNISTER.desc=Tuer Tyrion Lannister
 got.achievement.KILL_TYRION_LANNISTER.title=Comment veux-tu mourir, Tyrion, fils de Tywin?
 got.achievement.KILL_TYWIN_LANNISTER.desc=Tuer Tywin Lannister
 got.achievement.KILL_TYWIN_LANNISTER.title=Statham
-got.achievement.KILL_ULTHOS.desc=Tuez l'araignée d'Ulthos
-got.achievement.KILL_ULTHOS.title=Que fais-tu ici?
+got.achievement.KILL_ULTHOS_SPIDER.desc=Tuez l'araignée d'Ulthos
+got.achievement.KILL_ULTHOS_SPIDER.title=Que fais-tu ici?
 got.achievement.KILL_UNSULLIED.desc=Tuer les immaculés
 got.achievement.KILL_UNSULLIED.title=Et qui est intact?
 got.achievement.KILL_USING_ONLY_PLATES.desc=Tuer quelqu'un en lançant des assiettes
@@ -1343,8 +1341,8 @@ got.achievement.KILL_WIGHT.desc=Tuez le wight
 got.achievement.KILL_WIGHT.title=Avec le feu et l'épée
 got.achievement.KILL_WIGHT_GIANT.desc=Tuez le géant wight
 got.achievement.KILL_WIGHT_GIANT.title=Avec le feu et l'épée II
-got.achievement.KILL_WITCHER.desc=Tuez le chasseur
-got.achievement.KILL_WITCHER.title=Chasseur pour chasseurs
+got.achievement.KILL_MOSSOVY_WITCHER.desc=Tuez le chasseur
+got.achievement.KILL_MOSSOVY_WITCHER.title=Chasseur pour chasseurs
 got.achievement.KILL_XARO_XHOAN_DAXOS.desc=Tuer Xaro Xhoan Daxos
 got.achievement.KILL_XARO_XHOAN_DAXOS.title=Verrouillé dans le coffre-fort
 got.achievement.KILL_YARA_GREYJOY.desc=Tuer Yara Greyjoy
@@ -1369,8 +1367,6 @@ got.achievement.PLEDGE_SERVICE.desc=Prêter allégence à une faction
 got.achievement.PLEDGE_SERVICE.title=Engagé!
 got.achievement.REFORGE.desc=Reforger un objet
 got.achievement.REFORGE.title=Seconde vie
-got.achievement.RIDE_ELEPHANT.desc=Monter à dos de chameau
-got.achievement.RIDE_ELEPHANT.title=Voyage tranquile
 got.achievement.SHOOT_DOWN_MIDGES.desc=Laissez vos archers tuer des moucherons
 got.achievement.SHOOT_DOWN_MIDGES.title=DÉFENSE AÉRIENNE!
 got.achievement.SMELT_OBSIDIAN_SHARD.desc=Obtenir le verre dragon

@@ -139,6 +139,16 @@ public class GOTEntityElephant extends GOTEntityHorse {
 	}
 
 	@Override
+	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
+		EntityPlayer entityplayer;
+		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			entityplayer = (EntityPlayer) damagesource.getEntity();
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killElephant);
+		}
+	}
+
+	@Override
 	public void onGOTHorseSpawn() {
 		double maxHealth = getEntityAttribute(SharedMonsterAttributes.maxHealth).getAttributeValue();
 		maxHealth *= 1.5;

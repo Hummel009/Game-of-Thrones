@@ -1,6 +1,7 @@
 package got.common.entity.other;
 
 import got.GOT;
+import got.common.database.GOTAchievement;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
@@ -36,6 +37,11 @@ public class GOTEntityBarrowWight extends GOTEntityNPC implements GOTBiome.Immun
 		tasks.addTask(7, new EntityAILookIdle(this));
 		addTargetTasks(true);
 		isImmuneToFire = true;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killBarrowWight;
 	}
 
 	@Override

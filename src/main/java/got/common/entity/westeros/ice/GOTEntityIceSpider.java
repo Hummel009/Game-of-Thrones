@@ -2,6 +2,7 @@ package got.common.entity.westeros.ice;
 
 import got.GOT;
 import got.common.GOTConfig;
+import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
@@ -11,6 +12,7 @@ import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -66,6 +68,9 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && isMountSaddled()) {
+			GOTLevelData.getData((EntityPlayer) riddenByEntity).addAchievement(GOTAchievement.rideIceSpider);
+		}
 		if (motionX * motionX + motionY * motionY + motionZ * motionZ >= 0.01) {
 			double d = posX + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
 			double d1 = boundingBox.minY + MathHelper.randomFloatClamp(rand, 0.2f, 0.7f) * height;

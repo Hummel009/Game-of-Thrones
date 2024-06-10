@@ -1,5 +1,6 @@
 package got.common.entity.essos.asshai;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAsshaiShadowbinderUseStaff;
 import net.minecraft.entity.IEntityLivingData;
@@ -14,6 +15,11 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 		tasks.addTask(1, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
 		isImmuneToFire = true;
 		shield = null;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAsshaiShadowbinder;
 	}
 
 	@Override

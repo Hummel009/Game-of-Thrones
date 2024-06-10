@@ -1,5 +1,6 @@
 package got.common.entity.essos.ghiscar;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import net.minecraft.entity.IEntityLivingData;
@@ -11,6 +12,11 @@ public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarHarpy(World world) {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killGhiscarHarpy;
 	}
 
 	@Override

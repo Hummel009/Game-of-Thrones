@@ -50,7 +50,7 @@ import got.common.entity.essos.volantis.GOTEntityVolantisLevymanArcher;
 import got.common.entity.essos.volantis.GOTEntityVolantisSoldier;
 import got.common.entity.essos.volantis.GOTEntityVolantisSoldierArcher;
 import got.common.entity.essos.yiti.*;
-import got.common.entity.other.GOTEntityGiantSpider;
+import got.common.entity.other.GOTEntityUlthosSpider;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityWerewolf;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBlowgunner;
@@ -382,7 +382,7 @@ public class GOTSpawnList {
 		TYROSH_CONQUEST_L.add(new GOTSpawnEntry(GOTEntityTyroshSoldierArcher.class, 5, 1, 2));
 		TYROSH_MILITARY_L.add(new GOTSpawnEntry(GOTEntityTyroshLevyman.class, 10, 1, 2));
 		TYROSH_MILITARY_L.add(new GOTSpawnEntry(GOTEntityTyroshLevymanArcher.class, 5, 1, 2));
-		ULTHOS_L.add(new GOTSpawnEntry(GOTEntityGiantSpider.class, 10, 1, 2));
+		ULTHOS_L.add(new GOTSpawnEntry(GOTEntityUlthosSpider.class, 10, 1, 2));
 		VALYRIA_L.add(new GOTSpawnEntry(GOTEntityStoneMan.class, 10, 1, 2));
 		VOLANTIS_CONQUEST_L.add(new GOTSpawnEntry(GOTEntityVolantisSoldier.class, 10, 1, 2));
 		VOLANTIS_CONQUEST_L.add(new GOTSpawnEntry(GOTEntityVolantisSoldierArcher.class, 5, 1, 2));

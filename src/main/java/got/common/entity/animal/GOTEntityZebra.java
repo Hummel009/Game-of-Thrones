@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,6 +29,14 @@ public class GOTEntityZebra extends GOTEntityHorse {
 				continue;
 			}
 			dropItem(GOTItems.zebraRaw, 1);
+		}
+	}
+
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && isMountSaddled()) {
+			GOTLevelData.getData((EntityPlayer) riddenByEntity).addAchievement(GOTAchievement.rideZebra);
 		}
 	}
 

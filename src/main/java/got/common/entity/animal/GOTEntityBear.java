@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.GOTEntityRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
@@ -58,6 +60,15 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
+	}
+
+	@Override
+	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
+		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killBear);
+		}
 	}
 
 	@Override

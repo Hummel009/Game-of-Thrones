@@ -1,13 +1,15 @@
 package got.common.entity.other;
 
+import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityGiantSpider extends GOTEntitySpiderBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
+public class GOTEntityUlthosSpider extends GOTEntitySpiderBase implements GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityGiantSpider(World world) {
+	public GOTEntityUlthosSpider(World world) {
 		super(world);
 		spawnsInDarkness = true;
 	}
@@ -24,7 +26,15 @@ public class GOTEntityGiantSpider extends GOTEntitySpiderBase implements GOTBiom
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killGiantSpider;
+		return GOTAchievement.killUlthosSpider;
+	}
+
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && isMountSaddled()) {
+			GOTLevelData.getData((EntityPlayer) riddenByEntity).addAchievement(GOTAchievement.rideUlthosSpider);
+		}
 	}
 
 	@Override

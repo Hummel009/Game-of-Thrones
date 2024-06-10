@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTCrashHandler;
@@ -42,6 +44,15 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 		tasks.addTask(8, new EntityAILookIdle(this));
 		targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
 		targetTasks.addTask(1, targetNearAI);
+	}
+
+	@Override
+	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
+		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killWalrus);
+		}
 	}
 
 	@Override

@@ -5,6 +5,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.model.GOTModelDragonAnimaton;
 import got.client.model.GOTModelDragonBodyHelper;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.entity.ai.*;
 import got.common.entity.dragon.helper.GOTDragonHelper;
 import got.common.entity.dragon.helper.GOTDragonLifeStageHelper;
@@ -132,6 +134,15 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		return null;
 	}
 
+	@Override
+	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
+		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killDragon);
+		}
+	}
+
 	public static boolean hasEquipped(EntityPlayer player, Item item) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
 		return itemStack != null && itemStack.getItem() == item;
@@ -174,7 +185,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		addHelper(new GOTDragonLifeStageHelper(this));
 		addHelper(new GOTDragonReproductionHelper(this, INDEX_BREEDER, INDEX_REPRO_COUNT));
 		addHelper(new GOTDragonParticleHelper(this));
-		if (isClient()) {
+		if (worldObj.isRemote) {
 			animator = new GOTModelDragonAnimaton(this);
 		}
 	}
@@ -209,10 +220,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		dataWatcher.updateObject(INDEX_CAN_FLY, (byte) (canFly ? 1 : 0));
 	}
 
-	public boolean isClient() {
-		return worldObj.isRemote;
-	}
-
 	public boolean isFlying() {
 		return (dataWatcher.getWatchableObjectByte(INDEX_FLYING) & 1) != 0;
 	}
@@ -237,10 +244,13 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 
 	@Override
 	public void onLivingUpdate() {
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && isSaddled()) {
+			GOTLevelData.getData((EntityPlayer) riddenByEntity).addAchievement(GOTAchievement.rideDragon);
+		}
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.onLivingUpdate();
 		}
-		if (isClient()) {
+		if (worldObj.isRemote) {
 			if (!isEgg()) {
 				animator.setOnGround(!isFlying());
 				animator.update();
@@ -269,7 +279,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 			setFlying(inAirTicks > IN_AIR_THRESH);
 		}
 		if (isFlying()) {
-			if (isClient()) {
+			if (worldObj.isRemote) {
 				onUpdateFlyingClient();
 			} else {
 				onUpdateFlyingServer();
@@ -639,7 +649,7 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 					setPathToEntity(null);
 				}
 			} else if (getReproductionHelper().canReproduce() && consumeEquipped(player, FAVORITE_FOOD) != null) {
-				if (isClient()) {
+				if (worldObj.isRemote) {
 					getParticleHelper().spawnBodyParticles("heart");
 				}
 				func_146082_f(player);

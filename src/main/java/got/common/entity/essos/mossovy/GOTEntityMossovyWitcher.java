@@ -78,7 +78,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killWitcher;
+		return GOTAchievement.killMossovyWitcher;
 	}
 
 	@Override

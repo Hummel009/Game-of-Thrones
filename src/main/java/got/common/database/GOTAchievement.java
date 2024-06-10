@@ -186,13 +186,12 @@ public class GOTAchievement {
 	public static GOTAchievement killBenjenStark;
 	public static GOTAchievement killBericDondarrion;
 	public static GOTAchievement killBlizzard;
-	public static GOTAchievement killBombardier;
+	public static GOTAchievement killYiTiBombardier;
 	public static GOTAchievement killBranStark;
 	public static GOTAchievement killBrienneTarth;
 	public static GOTAchievement killBronn;
 	public static GOTAchievement killBryndenTully;
 	public static GOTAchievement killBuGai;
-	public static GOTAchievement killButterfly;
 	public static GOTAchievement killCatelynStark;
 	public static GOTAchievement killCerseiLannister;
 	public static GOTAchievement killCraster;
@@ -206,8 +205,8 @@ public class GOTAchievement {
 	public static GOTAchievement killGarlanTyrell;
 	public static GOTAchievement killGendryBaratheon;
 	public static GOTAchievement killGiant;
-	public static GOTAchievement killGiantSpider;
-	public static GOTAchievement killGladiator;
+	public static GOTAchievement killUlthosSpider;
+	public static GOTAchievement killGhiscarGladiator;
 	public static GOTAchievement killGregorClegane;
 	public static GOTAchievement killGreyWorm;
 	public static GOTAchievement killHarryStrickland;
@@ -297,7 +296,7 @@ public class GOTAchievement {
 	public static GOTAchievement killWight;
 	public static GOTAchievement killWightGiant;
 	public static GOTAchievement killWillasTyrell;
-	public static GOTAchievement killWitcher;
+	public static GOTAchievement killMossovyWitcher;
 	public static GOTAchievement killWymanManderly;
 	public static GOTAchievement killXaroXhoanDaxos;
 	public static GOTAchievement killYaraGreyjoy;
@@ -386,6 +385,28 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYiti;
 	public static GOTAchievement wearFullYitiFrontier;
 	public static GOTAchievement wearFullYitiSamurai;
+	public static GOTAchievement killBear;
+	public static GOTAchievement killWyvern;
+	public static GOTAchievement killManticore;
+	public static GOTAchievement killRedScorpion;
+	public static GOTAchievement killTermite;
+	public static GOTAchievement killWalrus;
+	public static GOTAchievement killDragon;
+	public static GOTAchievement killAsshaiShadowbinder;
+	public static GOTAchievement killAsshaiSpherebinder;
+	public static GOTAchievement killGhiscarHarpy;
+	public static GOTAchievement killIfekevron;
+	public static GOTAchievement killKingsguard;
+	public static GOTAchievement killBarrowWight;
+	public static GOTAchievement killElephant;
+	public static GOTAchievement rideCamel;
+	public static GOTAchievement rideMammoth;
+	public static GOTAchievement rideRhino;
+	public static GOTAchievement rideWoolyRhino;
+	public static GOTAchievement rideZebra;
+	public static GOTAchievement rideDragon;
+	public static GOTAchievement rideIceSpider;
+	public static GOTAchievement rideUlthosSpider;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 	private final Category category;
@@ -445,6 +466,10 @@ public class GOTAchievement {
 			}
 		}
 		return null;
+	}
+
+	private static GOTAchievement createKillAchievement(int id, String name) {
+		return new GOTAchievement(Category.KILL, id, Items.iron_sword, name);
 	}
 
 	private static GOTAchievement createLegendaryAchievement(int id, String name) {
@@ -526,52 +551,77 @@ public class GOTAchievement {
 		obama = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banana, "OBAMA");
 		pledgeService = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "PLEDGE_SERVICE");
 		reforge = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "REFORGE");
-		rideElephant = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_ELEPHANT");
 		shootDownMidges = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "SHOOT_DOWN_MIDGES");
 		smeltObsidianShard = new GOTAchievement(Category.GENERAL, genId++, GOTItems.obsidianShard, "SMELT_OBSIDIAN_SHARD");
 		speakToDrunkard = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "SPEAK_TO_DRUNKARD");
 		pickpocket = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "PICKPOCKET");
 		stealArborGrapes = new GOTAchievement(Category.GENERAL, genId++, GOTItems.grapeRed, "STEAL_ARBOR_GRAPES");
 		trade = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "TRADE");
+		unsmelt = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.unsmeltery, "UNSMELT");
+
+		useCrossbow = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "USE_CROSSBOW");
+		useSpearFromFar = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironSpear, "USE_SPEAR_FROM_FAR");
+		useThrowingAxe = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironThrowingAxe, "USE_THROWING_AXE");
+
 		travel20 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL20");
 		travel40 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL40");
 		travel60 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL60");
 		travel80 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL80");
 		travel100 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL100");
-		unsmelt = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.unsmeltery, "UNSMELT");
-		useCrossbow = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "USE_CROSSBOW");
-		useSpearFromFar = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironSpear, "USE_SPEAR_FROM_FAR");
-		useThrowingAxe = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironThrowingAxe, "USE_THROWING_AXE");
+
+		rideCamel = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_CAMEL");
+		rideDragon = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_DRAGON");
+		rideElephant = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_ELEPHANT");
+		rideMammoth = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_MAMMOTH");
+		rideRhino = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_RHINO");
+		rideWoolyRhino = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_WOOLY_RHINO");
+		rideZebra = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_ZEBRA");
+		rideUlthosSpider = new GOTAchievement(Category.GENERAL, genId++, Items.spider_eye, "RIDE_ULTHOS_SPIDER");
+		rideIceSpider = new GOTAchievement(Category.GENERAL, genId++, Items.spider_eye, "RIDE_ICE_SPIDER");
 
 		int killId = 1;
 
-		killNPC = new GOTAchievement(Category.KILL, killId++, Items.iron_axe, "KILL_NPC");
+		killNPC = createKillAchievement(killId++, "KILL_NPC");
 
-		killBeaver = new GOTAchievement(Category.KILL, killId++, GOTItems.beaverTail, "KILL_BEAVER");
-		killBombardier = new GOTAchievement(Category.KILL, killId++, GOTBlocks.bomb, "KILL_BOMBARDIER");
-		killBlizzard = new GOTAchievement(Category.KILL, killId++, GOTBlocks.stalactiteIce, "KILL_BLIZZARD");
-		killButterfly = new GOTAchievement(Category.KILL, killId++, Items.iron_sword, "KILL_BUTTERFLY");
-		killGiant = new GOTAchievement(Category.KILL, killId++, GOTItems.club, "KILL_GIANT");
-		killGladiator = new GOTAchievement(Category.KILL, killId++, GOTItems.essosSword, "KILL_GLADIATOR");
-		killHuntingPlayer = new GOTAchievement(Category.KILL, killId++, Items.iron_sword, "KILL_HUNTING_PLAYER");
-		killIceSpider = new GOTAchievement(Category.KILL, killId++, GOTItems.valyrianSword, "KILL_ICE_SPIDER");
-		killLargeMobWithSlingshot = new GOTAchievement(Category.KILL, killId++, GOTItems.sling, "KILL_LARGE_MOB_WITH_SLINGSHOT");
-		killMaester = new GOTAchievement(Category.KILL, killId++, Items.book, "KILL_MAESTER");
-		killMammoth = new GOTAchievement(Category.KILL, killId++, GOTItems.stoneSpear, "KILL_MAMMOTH");
-		killPriest = new GOTAchievement(Category.KILL, killId++, Blocks.fire, "KILL_PRIEST");
-		killProstitute = new GOTAchievement(Category.KILL, killId++, GOTItems.ironCrossbow, "KILL_PROSTITUTE");
-		killShryke = new GOTAchievement(Category.KILL, killId++, GOTItems.bottlePoison, "KILL_SHRYKE");
-		killStoneMan = new GOTAchievement(Category.KILL, killId++, Blocks.cobblestone, "KILL_STONE_MAN");
-		killThievingBandit = new GOTAchievement(Category.KILL, killId++, GOTItems.leatherHat, "KILL_THIEVING_BANDIT");
-		killGiantSpider = new GOTAchievement(Category.KILL, killId++, GOTItems.mysteryWeb, "KILL_ULTHOS");
-		killUnsullied = new GOTAchievement(Category.KILL, killId++, GOTItems.essosPike, "KILL_UNSULLIED");
-		killUsingOnlyPlates = new GOTAchievement(Category.KILL, killId++, GOTItems.plate, "KILL_USING_ONLY_PLATES");
-		killWerewolf = new GOTAchievement(Category.KILL, killId++, GOTItems.mossovySword, "KILL_WEREWOLF");
-		killWhileDrunk = new GOTAchievement(Category.KILL, killId++, GOTItems.mugAle, "KILL_WHILE_DRUNK");
-		killWhiteWalker = new GOTAchievement(Category.KILL, killId++, GOTItems.valyrianSword, "KILL_WHITE_WALKER");
-		killWight = new GOTAchievement(Category.KILL, killId++, GOTItems.bericSword, "KILL_WIGHT");
-		killWightGiant = new GOTAchievement(Category.KILL, killId++, GOTItems.bericSword, "KILL_WIGHT_GIANT");
-		killWitcher = new GOTAchievement(Category.KILL, killId++, GOTItems.mossovySword, "KILL_WITCHER");
+		killHuntingPlayer = createKillAchievement(killId++, "KILL_HUNTING_PLAYER");
+		killLargeMobWithSlingshot = createKillAchievement(killId++, "KILL_LARGE_MOB_WITH_SLINGSHOT");
+		killUsingOnlyPlates = createKillAchievement(killId++, "KILL_USING_ONLY_PLATES");
+		killThievingBandit = createKillAchievement(killId++, "KILL_THIEVING_BANDIT");
+		killWhileDrunk = createKillAchievement(killId++, "KILL_WHILE_DRUNK");
+
+		killAsshaiShadowbinder = createKillAchievement(killId++, "KILL_ASSHAI_SHADOWBINDER");
+		killAsshaiSpherebinder = createKillAchievement(killId++, "KILL_ASSHAI_SPHEREBINDER");
+		killBarrowWight = createKillAchievement(killId++, "KILL_BARROW_WIGHT");
+		killBear = createKillAchievement(killId++, "KILL_BEAR");
+		killBeaver = createKillAchievement(killId++, "KILL_BEAVER");
+		killBlizzard = createKillAchievement(killId++, "KILL_BLIZZARD");
+		killDragon = createKillAchievement(killId++, "KILL_DRAGON");
+		killElephant = createKillAchievement(killId++, "KILL_ELEPHANT");
+		killGhiscarGladiator = createKillAchievement(killId++, "KILL_GHISCAR_GLADIATOR");
+		killGhiscarHarpy = createKillAchievement(killId++, "KILL_GHISCAR_HARPY");
+		killGiant = createKillAchievement(killId++, "KILL_GIANT");
+		killUlthosSpider = createKillAchievement(killId++, "KILL_ULTHOS_SPIDER");
+		killIceSpider = createKillAchievement(killId++, "KILL_ICE_SPIDER");
+		killIfekevron = createKillAchievement(killId++, "KILL_IFEKEVRON");
+		killKingsguard = createKillAchievement(killId++, "KILL_KINGSGUARD");
+		killMaester = createKillAchievement(killId++, "KILL_MAESTER");
+		killMammoth = createKillAchievement(killId++, "KILL_MAMMOTH");
+		killManticore = createKillAchievement(killId++, "KILL_MANTICORE");
+		killMossovyWitcher = createKillAchievement(killId++, "KILL_MOSSOVY_WITCHER");
+		killPriest = createKillAchievement(killId++, "KILL_PRIEST");
+		killProstitute = createKillAchievement(killId++, "KILL_PROSTITUTE");
+		killRedScorpion = createKillAchievement(killId++, "KILL_RED_SCORPION");
+		killShryke = createKillAchievement(killId++, "KILL_SHRYKE");
+		killStoneMan = createKillAchievement(killId++, "KILL_STONE_MAN");
+		killTermite = createKillAchievement(killId++, "KILL_TERMITE");
+		killUnsullied = createKillAchievement(killId++, "KILL_UNSULLIED");
+		killWalrus = createKillAchievement(killId++, "KILL_WALRUS");
+		killWerewolf = createKillAchievement(killId++, "KILL_WEREWOLF");
+		killWhiteWalker = createKillAchievement(killId++, "KILL_WHITE_WALKER");
+		killWight = createKillAchievement(killId++, "KILL_WIGHT");
+		killWightGiant = createKillAchievement(killId++, "KILL_WIGHT_GIANT");
+		killWyvern = createKillAchievement(killId++, "KILL_WYVERN");
+		killYiTiBombardier = createKillAchievement(killId++, "KILL_YI_TI_BOMBARDIER");
 
 		int legId = 1;
 

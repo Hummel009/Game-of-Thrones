@@ -164,6 +164,9 @@ public class GOTEntityMammoth extends GOTEntityHorse {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && isMountSaddled()) {
+			GOTLevelData.getData((EntityPlayer) riddenByEntity).addAchievement(GOTAchievement.rideMammoth);
+		}
 		if (!worldObj.isRemote) {
 			if (riddenByEntity instanceof EntityLivingBase) {
 				EntityLivingBase rhinoRider = (EntityLivingBase) riddenByEntity;

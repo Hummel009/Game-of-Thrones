@@ -1,7 +1,7 @@
 package got.common.entity.other.inanimate;
 
 import got.common.database.GOTChestContents;
-import got.common.entity.other.GOTEntityGiantSpider;
+import got.common.entity.other.GOTEntityUlthosSpider;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -46,7 +46,7 @@ public class GOTEntityMysteryWeb extends EntityThrowable {
 		if (!worldObj.isRemote) {
 			boolean spawnedSpider = false;
 			if (rand.nextInt(4) == 0) {
-				GOTEntityGiantSpider spider = new GOTEntityGiantSpider(worldObj);
+				GOTEntityUlthosSpider spider = new GOTEntityUlthosSpider(worldObj);
 				spider.setSpiderScale(0);
 				spider.setLiftSpawnRestrictions(true);
 				for (int i = -2; i <= -2 && !spawnedSpider; ++i) {

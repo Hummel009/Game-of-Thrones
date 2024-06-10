@@ -1,6 +1,8 @@
 package got.common.entity.animal;
 
 import got.GOT;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.GOTEntityRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
@@ -111,6 +113,8 @@ public class GOTEntityTermite extends EntityMob implements GOTBiome.ImmuneToHeat
 	public void onDeath(DamageSource damagesource) {
 		super.onDeath(damagesource);
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killTermite);
 			dropItem(GOTItems.termite, 1);
 			setDead();
 		}

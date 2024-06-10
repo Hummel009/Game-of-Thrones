@@ -20,7 +20,6 @@ import got.common.database.*;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.enchant.GOTEnchantmentWeaponSpecial;
-import got.common.entity.animal.GOTEntityButterfly;
 import got.common.entity.animal.GOTEntityJungleScorpion;
 import got.common.entity.animal.GOTEntityZebra;
 import got.common.entity.dragon.GOTDragonLifeStage;
@@ -993,10 +992,6 @@ public class GOTEventHandler {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useSpearFromFar);
 			}
 		}
-		if (!world.isRemote && entity instanceof GOTEntityButterfly && source.getEntity() instanceof EntityPlayer) {
-			EntityPlayer entityplayer = (EntityPlayer) source.getEntity();
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killButterfly);
-		}
 		if (!world.isRemote) {
 			EntityPlayer attackingPlayer = null;
 			GOTEntityNPC attackingHiredUnit = null;
@@ -1016,7 +1011,7 @@ public class GOTEventHandler {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killWhileDrunk);
 					}
 					if (entity instanceof GOTEntityYiTiBombardier && ((GOTEntityNPC) entity).getNpcItemsInv().getBomb() != null) {
-						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killBombardier);
+						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killYiTiBombardier);
 					}
 					if (source.getSourceOfDamage() instanceof GOTEntityCrossbowBolt) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.useCrossbow);

@@ -1,5 +1,6 @@
 package got.common.entity.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
@@ -25,6 +26,11 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		spawnsInDarkness = true;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killIfekevron;
 	}
 
 	@Override

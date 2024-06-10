@@ -78,7 +78,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 	@Override
 	public void onDeath() {
-		if (dragon.isClient() && isEgg()) {
+		if (dragon.worldObj.isRemote && isEgg()) {
 			playEggCrackEffect();
 		}
 	}
@@ -104,7 +104,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
 	private void onNewLifeStage(GOTDragonLifeStage lifeStage, GOTDragonLifeStage prevLifeStage) {
 		GOTLog.getLogger().trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
-		if (dragon.isClient()) {
+		if (dragon.worldObj.isRemote) {
 			if (prevLifeStage == GOTDragonLifeStage.EGG && lifeStage == GOTDragonLifeStage.HATCHLING) {
 				playEggCrackEffect();
 			}

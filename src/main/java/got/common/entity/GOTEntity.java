@@ -763,7 +763,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntitySummerFlorist.class, id++, GOTFaction.SUMMER_ISLANDS);
 		GOTEntityRegistry.register(GOTEntitySummerGoldsmith.class, id++, GOTFaction.SUMMER_ISLANDS);
 
-		GOTEntityRegistry.register(GOTEntityGiantSpider.class, id++, GOTFaction.ULTHOS);
+		GOTEntityRegistry.register(GOTEntityUlthosSpider.class, id++, GOTFaction.ULTHOS);
 		GOTEntityRegistry.register(GOTEntityBlizzard.class, id++, GOTFaction.WHITE_WALKER);
 
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityNightKing.class, id++, GOTFaction.WHITE_WALKER);

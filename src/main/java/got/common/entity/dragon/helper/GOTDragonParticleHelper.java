@@ -18,7 +18,7 @@ public class GOTDragonParticleHelper extends GOTDragonHelper {
 
 	@Override
 	public void onDeathUpdate() {
-		if (dragon.isClient() && !dragon.isEgg() && dragon.deathTime < 100) {
+		if (dragon.worldObj.isRemote && !dragon.isEgg() && dragon.deathTime < 100) {
 			spawnBodyParticles("cloud", 4);
 		}
 	}

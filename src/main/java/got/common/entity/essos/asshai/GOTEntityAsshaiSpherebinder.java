@@ -1,5 +1,6 @@
 package got.common.entity.essos.asshai;
 
+import got.common.database.GOTAchievement;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
@@ -19,6 +20,11 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 		super(world);
 		isImmuneToFire = true;
 		shield = null;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAsshaiSpherebinder;
 	}
 
 	@Override

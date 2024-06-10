@@ -430,7 +430,7 @@ public class GOTRender {
 		RENDERS.put(GOTEntityThrownTermite.class, new RenderSnowball(GOTItems.termite));
 		RENDERS.put(GOTEntityTraderRespawn.class, new GOTRenderTraderRespawn());
 		RENDERS.put(GOTEntityTyrionLannister.class, new GOTRenderTyrionLannister());
-		RENDERS.put(GOTEntityGiantSpider.class, new GOTRenderGiantSpider());
+		RENDERS.put(GOTEntityUlthosSpider.class, new GOTRenderUlthosSpider());
 		RENDERS.put(GOTEntityShadowcat.class, new GOTRenderShadowcat());
 		RENDERS.put(GOTEntityWalrus.class, new GOTRenderWalrus());
 		RENDERS.put(GOTEntityWhiteOryx.class, new GOTRenderWhiteOryx());

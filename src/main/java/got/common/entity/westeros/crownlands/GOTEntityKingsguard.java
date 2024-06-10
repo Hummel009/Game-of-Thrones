@@ -1,5 +1,6 @@
 package got.common.entity.westeros.crownlands;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
@@ -13,6 +14,11 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 		super(world);
 		cape = GOTCapes.ROYALGUARD;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killKingsguard;
 	}
 
 	@Override
