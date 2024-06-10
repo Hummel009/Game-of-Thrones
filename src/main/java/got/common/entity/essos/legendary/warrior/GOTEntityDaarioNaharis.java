@@ -38,6 +38,11 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killDaarioNaharis;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);

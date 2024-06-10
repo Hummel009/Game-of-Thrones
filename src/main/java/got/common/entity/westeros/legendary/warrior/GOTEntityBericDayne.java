@@ -1,6 +1,5 @@
 package got.common.entity.westeros.legendary.warrior;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.ai.*;
@@ -56,11 +55,6 @@ public class GOTEntityBericDayne extends GOTEntityHumanBase {
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.DORNE;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBericDayne;
 	}
 
 	@Override

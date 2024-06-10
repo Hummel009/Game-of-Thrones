@@ -40,6 +40,11 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTTradeab
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killTobhoMott;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);

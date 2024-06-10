@@ -76,7 +76,7 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killTheKing;
+		return GOTAchievement.killRenlyBaratheon;
 	}
 
 	@Override

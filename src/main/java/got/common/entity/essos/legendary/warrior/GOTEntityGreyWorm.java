@@ -40,6 +40,11 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killGreyWorm;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
@@ -58,11 +63,6 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 		dropItem(GOTItems.unsulliedLeggings, 1);
 		dropItem(GOTItems.unsulliedChestplate, 1);
 		dropItem(GOTItems.unsulliedHelmet, 1);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killUnsullied;
 	}
 
 	@Override

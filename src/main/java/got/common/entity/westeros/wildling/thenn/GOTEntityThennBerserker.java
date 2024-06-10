@@ -1,6 +1,5 @@
 package got.common.entity.westeros.wildling.thenn;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,11 +19,6 @@ public class GOTEntityThennBerserker extends GOTEntityThenn {
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThennBerserker;
 	}
 
 	@Override

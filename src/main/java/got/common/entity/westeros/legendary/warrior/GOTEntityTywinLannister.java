@@ -66,7 +66,7 @@ public class GOTEntityTywinLannister extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killTywin;
+		return GOTAchievement.killTywinLannister;
 	}
 
 	@Override

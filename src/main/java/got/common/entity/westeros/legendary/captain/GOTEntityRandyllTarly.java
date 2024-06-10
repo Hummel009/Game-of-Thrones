@@ -37,6 +37,11 @@ public class GOTEntityRandyllTarly extends GOTEntityHumanBase implements GOTUnit
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killRandyllTarly;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);

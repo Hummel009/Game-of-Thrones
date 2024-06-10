@@ -40,6 +40,11 @@ public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTra
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killTychoNestoris;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);

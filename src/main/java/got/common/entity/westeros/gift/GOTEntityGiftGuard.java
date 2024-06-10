@@ -1,6 +1,5 @@
 package got.common.entity.westeros.gift;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.entity.westeros.legendary.warrior.GOTEntityAlliserThorne;

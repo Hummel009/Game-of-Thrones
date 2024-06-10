@@ -37,6 +37,11 @@ public class GOTEntitySalladhorSaan extends GOTEntityHumanBase implements GOTUni
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killSalladhorSaan;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);

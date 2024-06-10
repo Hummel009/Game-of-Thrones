@@ -1,5 +1,6 @@
 package got.common.entity.westeros.legendary.warrior;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityHumanBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,6 +14,11 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killThreeEyedRaven;
 	}
 
 	@Override

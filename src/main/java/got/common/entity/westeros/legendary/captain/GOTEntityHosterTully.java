@@ -37,6 +37,11 @@ public class GOTEntityHosterTully extends GOTEntityHumanBase implements GOTUnitT
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killHosterTully;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);

@@ -136,14 +136,6 @@ public class GOTPlayerData {
 		ftSinceTick = GOTLevelData.getWaypointCooldownMax() * 20;
 	}
 
-	private static ItemArmor.ArmorMaterial getBodyMaterial(EntityLivingBase entity) {
-		ItemStack item = entity.getEquipmentInSlot(3);
-		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
-			return null;
-		}
-		return ((ItemArmor) item.getItem()).getArmorMaterial();
-	}
-
 	private static ItemArmor.ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
 		ItemArmor.ArmorMaterial material = null;
 		for (int i = 1; i <= 4; ++i) {
@@ -160,28 +152,22 @@ public class GOTPlayerData {
 		return material;
 	}
 
-	private static ItemArmor.ArmorMaterial getFullArmorMaterialWithoutHelmet(EntityLivingBase entity) {
+	private static ItemArmor.ArmorMaterial getFullArmorMaterialExceptSlot(EntityLivingBase entity, int slot) {
 		ItemArmor.ArmorMaterial material = null;
-		for (int i = 1; i <= 3; ++i) {
-			ItemStack item = entity.getEquipmentInSlot(i);
-			if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
-				return null;
+		for (int i = 0; i <= 3; ++i) {
+			if (i != slot) {
+				ItemStack item = entity.getEquipmentInSlot(i);
+				if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
+					return null;
+				}
+				ItemArmor.ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
+				if (material != null && itemMaterial != material) {
+					return null;
+				}
+				material = itemMaterial;
 			}
-			ItemArmor.ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
-			if (material != null && itemMaterial != material) {
-				return null;
-			}
-			material = itemMaterial;
 		}
 		return material;
-	}
-
-	private static ItemArmor.ArmorMaterial getHelmetMaterial(EntityLivingBase entity) {
-		ItemStack item = entity.getEquipmentInSlot(4);
-		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
-			return null;
-		}
-		return ((ItemArmor) item.getItem()).getArmorMaterial();
 	}
 
 	private static boolean isTimerAutosaveTick() {
@@ -1130,7 +1116,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null) {
 			for (GOTAchievement achievement : achievements) {
-				if (achievement.getDimension() == dimension && achievement.canPlayerEarn(entityplayer)) {
+				if (achievement.getCategory().getDimension() == dimension && achievement.canPlayerEarn(entityplayer)) {
 					earnedAchievements.add(achievement);
 				}
 			}
@@ -2455,13 +2441,17 @@ public class GOTPlayerData {
 		if (GOTAchievement.ARMOR_ACHIEVEMENTS.containsKey(fullMaterial)) {
 			addAchievement(GOTAchievement.ARMOR_ACHIEVEMENTS.get(fullMaterial));
 		}
-		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
+		fullMaterial = getFullArmorMaterialExceptSlot(entityplayer, 0);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.MOSSOVY) {
 			addAchievement(GOTAchievement.wearFullMossovy);
 		}
-		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
+		fullMaterial = getFullArmorMaterialExceptSlot(entityplayer, 0);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.ICE) {
 			addAchievement(GOTAchievement.wearFullWhiteWalkers);
+		}
+		fullMaterial = getFullArmorMaterialExceptSlot(entityplayer, 0);
+		if (fullMaterial != null && fullMaterial == GOTMaterial.IBBEN) {
+			addAchievement(GOTAchievement.wearFullIbben);
 		}
 	}
 

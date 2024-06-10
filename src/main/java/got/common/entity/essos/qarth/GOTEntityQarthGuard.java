@@ -1,6 +1,5 @@
 package got.common.entity.essos.qarth;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
@@ -16,11 +15,6 @@ public class GOTEntityQarthGuard extends GOTEntityQarthLevyman {
 		cape = GOTCapes.QARTH;
 		shield = GOTShields.QARTH;
 		addTargetTasks(false);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThePolice;
 	}
 
 	@Override

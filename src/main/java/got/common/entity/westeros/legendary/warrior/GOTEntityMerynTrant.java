@@ -1,5 +1,6 @@
 package got.common.entity.westeros.legendary.warrior;
 
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
@@ -35,6 +36,11 @@ public class GOTEntityMerynTrant extends GOTEntityHumanBase {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		cape = GOTCapes.ROYALGUARD;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMerynTrant;
 	}
 
 	@Override

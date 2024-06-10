@@ -1,6 +1,5 @@
 package got.common.entity.westeros.reach;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
@@ -14,11 +13,6 @@ public class GOTEntityReachGuard extends GOTEntityReachSoldier {
 		shield = GOTShields.REACHGUARD;
 		spawnRidingHorse = false;
 		addTargetTasks(false);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThePolice;
 	}
 
 	@Override

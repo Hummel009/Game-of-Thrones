@@ -24,7 +24,7 @@ public class GOTEntityGiantSpider extends GOTEntitySpiderBase implements GOTBiom
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killUlthos;
+		return GOTAchievement.killGiantSpider;
 	}
 
 	@Override

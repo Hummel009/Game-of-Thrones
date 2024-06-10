@@ -36,6 +36,11 @@ public class GOTEntityHarryStrickland extends GOTEntityHumanBase implements GOTU
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killHarryStrickland;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);

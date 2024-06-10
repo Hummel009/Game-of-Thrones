@@ -1,6 +1,5 @@
 package got.common.entity.westeros.westerlands;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
@@ -14,11 +13,6 @@ public class GOTEntityWesterlandsGuard extends GOTEntityWesterlandsSoldier {
 		spawnRidingHorse = false;
 		addTargetTasks(false);
 		shield = GOTShields.WESTERLANDSGUARD;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThePolice;
 	}
 
 	@Override

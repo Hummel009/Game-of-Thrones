@@ -413,9 +413,6 @@ public class GOTItemMug extends Item {
 		if (!world.isRemote && curesEffects) {
 			entityplayer.curePotionEffects(new ItemStack(Items.milk_bucket));
 		}
-		if (vessel == Vessel.SKULL) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkSkull);
-		}
 		if (!world.isRemote && this == GOTItems.mugPlantainBrew) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkPlantainBrew);
 			for (Potion potion : Potion.potionTypes) {

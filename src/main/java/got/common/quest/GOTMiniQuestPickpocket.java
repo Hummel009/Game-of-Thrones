@@ -220,7 +220,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					spawnPickingFX("pickpocket", 1.0, npc);
 					pickpocketedEntityIDs.add(id);
 					playerData.updateMiniQuest(this);
-					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.steal);
+					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.pickpocket);
 				} else {
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.GOLD + StatCollector.translateToLocalFormatted("got.chat.pickpocket.missed", npc.getNPCName())));
 					npc.playSound(Blocks.wool.stepSound.getBreakSound(), 0.5f, ((rand.nextFloat() - rand.nextFloat()) * 0.7f + 1.0f) * 2.0f);

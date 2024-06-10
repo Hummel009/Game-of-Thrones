@@ -1,6 +1,5 @@
 package got.common.entity.essos.ghiscar;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
@@ -15,11 +14,6 @@ public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 		cape = GOTCapes.GHISCAR;
 		shield = GOTShields.GHISCAR;
 		addTargetTasks(false);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThePolice;
 	}
 
 	@Override

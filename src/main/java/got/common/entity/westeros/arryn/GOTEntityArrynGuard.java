@@ -1,6 +1,5 @@
 package got.common.entity.westeros.arryn;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
@@ -16,11 +15,6 @@ public class GOTEntityArrynGuard extends GOTEntityArrynSoldier {
 		cape = GOTCapes.ARRYNGUARD;
 		spawnRidingHorse = false;
 		addTargetTasks(false);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThePolice;
 	}
 
 	@Override

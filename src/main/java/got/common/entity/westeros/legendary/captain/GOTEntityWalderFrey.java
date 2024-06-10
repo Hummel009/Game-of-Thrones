@@ -37,6 +37,11 @@ public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTr
 		tasks.addTask(9, new EntityAILookIdle(this));
 	}
 
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killWalderFrey;
+	}
+
 	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRobbStark.class, 0, true));

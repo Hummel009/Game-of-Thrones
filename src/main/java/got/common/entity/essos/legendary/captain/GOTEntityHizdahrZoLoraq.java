@@ -39,6 +39,11 @@ public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTTr
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killHizdahrZoLoraq;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);

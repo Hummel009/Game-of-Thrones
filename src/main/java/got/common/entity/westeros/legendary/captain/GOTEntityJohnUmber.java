@@ -37,6 +37,11 @@ public class GOTEntityJohnUmber extends GOTEntityHumanBase implements GOTUnitTra
 	}
 
 	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killJohnUmber;
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);

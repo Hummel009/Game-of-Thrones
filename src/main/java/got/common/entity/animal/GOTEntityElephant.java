@@ -1,6 +1,8 @@
 package got.common.entity.animal;
 
 import got.GOT;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTReflection;
@@ -151,6 +153,9 @@ public class GOTEntityElephant extends GOTEntityHorse {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && isMountSaddled()) {
+			GOTLevelData.getData((EntityPlayer) riddenByEntity).addAchievement(GOTAchievement.rideElephant);
+		}
 		if (!worldObj.isRemote) {
 			if (riddenByEntity instanceof EntityLivingBase) {
 				EntityLivingBase rhinoRider = (EntityLivingBase) riddenByEntity;

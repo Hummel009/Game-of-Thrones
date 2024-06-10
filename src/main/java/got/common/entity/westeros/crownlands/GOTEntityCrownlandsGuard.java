@@ -1,6 +1,5 @@
 package got.common.entity.westeros.crownlands;
 
-import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
@@ -15,11 +14,6 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 		shield = GOTShields.CROWNLANDS;
 		cape = GOTCapes.CROWNLANDS;
 		addTargetTasks(false);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThePolice;
 	}
 
 	@Override

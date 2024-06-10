@@ -64,11 +64,6 @@ public class GOTEntityArdrianCeltigar extends GOTEntityHumanBase implements GOTU
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killArdrianCeltigar;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
