@@ -2,10 +2,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -22,15 +19,6 @@ public class GOTBlockBanana extends GOTBlockHangingFruit {
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
 		return GOTItems.banana;
-	}
-
-	@Override
-	public boolean removedByPlayer(World world, EntityPlayer entityplayer, int i, int j, int k, boolean willHarvest) {
-		boolean flag = super.removedByPlayer(world, entityplayer, i, j, k, willHarvest);
-		if (flag && !world.isRemote) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.obama);
-		}
-		return flag;
 	}
 
 	@Override

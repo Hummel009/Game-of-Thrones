@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class GOTItemMugFire extends GOTItemMug {
-	public GOTItemMugFire(float f) {
+public class GOTItemMugWildFire extends GOTItemMug {
+	public GOTItemMugWildFire(float f) {
 		super(f);
 	}
 
@@ -41,7 +41,7 @@ public class GOTItemMugFire extends GOTItemMug {
 				entityplayer.removePotionEffect(potion.id);
 			}
 		}
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkFire);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkWildFire);
 		return result;
 	}
 }

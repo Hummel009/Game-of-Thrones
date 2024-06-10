@@ -511,7 +511,13 @@ public class GOTEventHandler {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftSaddle);
 			}
 			if (itemstack.getItem() == GOTItems.bronzeIngot) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBronze);
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getBronze);
+			}
+			if (itemstack.getItem() == GOTItems.pouch) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftPouch);
+			}
+			if (itemstack.getItem() == GOTItems.cargocart) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftCargocart);
 			}
 			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.bomb)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBomb);
@@ -521,7 +527,7 @@ public class GOTEventHandler {
 			}
 			for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
 				if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.CONCRETE_POWDER.get(color))) {
-					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getConcrete);
+					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftConcrete);
 				}
 			}
 		}
@@ -776,9 +782,6 @@ public class GOTEventHandler {
 				if (itemstack.stackSize <= 0) {
 					event.setResult(Event.Result.ALLOW);
 				}
-			}
-			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.plantain)) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.findPlantain);
 			}
 			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.clover) && itemstack.getItemDamage() == 1) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.findFourLeafClover);
@@ -1606,10 +1609,13 @@ public class GOTEventHandler {
 		ItemStack itemstack = event.smelting;
 		if (!entityplayer.worldObj.isRemote) {
 			if (itemstack.getItem() == GOTItems.bronzeIngot) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBronze);
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getBronze);
 			}
-			if (itemstack.getItem() == GOTItems.copperIngot) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftCopper);
+			if (itemstack.getItem() == GOTItems.valyrianIngot) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getValyrianSteel);
+			}
+			if (itemstack.getItem() == GOTItems.ice) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getIce);
 			}
 		}
 	}
@@ -1651,7 +1657,6 @@ public class GOTEventHandler {
 	@SubscribeEvent
 	@SuppressWarnings("MethodMayBeStatic")
 	public void onUseBonemeal(BonemealEvent event) {
-		EntityPlayer entityplayer = event.entityPlayer;
 		World world = event.world;
 		Random rand = world.rand;
 		int i = event.x;
@@ -1660,12 +1665,8 @@ public class GOTEventHandler {
 		if (!world.isRemote) {
 			if (event.block instanceof GOTBlockSaplingBase) {
 				GOTBlockSaplingBase sapling = (GOTBlockSaplingBase) event.block;
-				int meta = world.getBlockMetadata(i, j, k);
 				if (rand.nextFloat() < 0.45D) {
 					sapling.incrementGrowth(world, i, j, k, rand);
-				}
-				if (sapling == GOTBlocks.sapling4 && (meta & 0x7) == 1 && world.getBlock(i, j, k) == GOTBlocks.wood4 && world.getBlockMetadata(i, j, k) == 1) {
-					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.growBaobab);
 				}
 				event.setResult(Event.Result.ALLOW);
 				return;

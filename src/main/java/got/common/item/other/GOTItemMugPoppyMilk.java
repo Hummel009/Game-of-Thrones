@@ -1,5 +1,7 @@
 package got.common.item.other;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.util.GOTReflection;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -22,6 +24,7 @@ public class GOTItemMugPoppyMilk extends GOTItemMug {
 				entityplayer.removePotionEffect(potion.id);
 			}
 		}
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkPoppyMilk);
 		return result;
 	}
 }

@@ -30,23 +30,20 @@ public class GOTAchievement {
 	public static GOTAchievement bannerProtect;
 	public static GOTAchievement brewDrinkInBarrel;
 	public static GOTAchievement catchButterfly;
-	public static GOTAchievement collectCraftingTables;
-	public static GOTAchievement collectCrossbowBolts;
 	public static GOTAchievement combineSmithScrolls;
 	public static GOTAchievement cookKebab;
 	public static GOTAchievement craftBomb;
-	public static GOTAchievement craftBronze;
-	public static GOTAchievement craftCopper;
+	public static GOTAchievement getBronze;
 	public static GOTAchievement craftSaddle;
 	public static GOTAchievement craftWildFire;
 	public static GOTAchievement defeatInvasion;
-	public static GOTAchievement doLegendaryQuest;
+	public static GOTAchievement doMiniquestLegendary;
 	public static GOTAchievement doMiniquestHunter5;
 	public static GOTAchievement doMiniquestHunter;
-	public static GOTAchievement doQuest;
-	public static GOTAchievement drinkFire;
+	public static GOTAchievement doMiniquest;
+	public static GOTAchievement drinkWildFire;
 	public static GOTAchievement drinkPlantainBrew;
-	public static GOTAchievement drinkTermite;
+	public static GOTAchievement drinkTermiteTequila;
 	public static GOTAchievement earnManyCoins;
 	public static GOTAchievement engraveOwnership;
 	public static GOTAchievement enterAlwaysWinter;
@@ -164,15 +161,11 @@ public class GOTAchievement {
 	public static GOTAchievement enterYiTiBorderZone;
 	public static GOTAchievement factionConquest;
 	public static GOTAchievement findFourLeafClover;
-	public static GOTAchievement findPlantain;
 	public static GOTAchievement fishRing;
 	public static GOTAchievement freeman;
 	public static GOTAchievement gainHighAlcoholTolerance;
-	public static GOTAchievement getConcrete;
+	public static GOTAchievement craftConcrete;
 	public static GOTAchievement getDrunk;
-	public static GOTAchievement getPouch;
-	public static GOTAchievement growBaobab;
-	public static GOTAchievement hireGoldenCompany;
 	public static GOTAchievement hundreds;
 	public static GOTAchievement killAeronGreyjoy;
 	public static GOTAchievement killAlliserThorne;
@@ -306,15 +299,9 @@ public class GOTAchievement {
 	public static GOTAchievement killYoungGriff;
 	public static GOTAchievement lightBeacon;
 	public static GOTAchievement marry;
-	public static GOTAchievement mineGlowstone;
-	public static GOTAchievement mineValyrian;
-	public static GOTAchievement obama;
 	public static GOTAchievement pledgeService;
 	public static GOTAchievement reforge;
 	public static GOTAchievement rideElephant;
-	public static GOTAchievement shootDownMidges;
-	public static GOTAchievement smeltObsidianShard;
-	public static GOTAchievement speakToDrunkard;
 	public static GOTAchievement pickpocket;
 	public static GOTAchievement stealArborGrapes;
 	public static GOTAchievement trade;
@@ -323,7 +310,7 @@ public class GOTAchievement {
 	public static GOTAchievement travel40;
 	public static GOTAchievement travel60;
 	public static GOTAchievement travel80;
-	public static GOTAchievement unsmelt;
+	public static GOTAchievement useUnsmeltery;
 	public static GOTAchievement useCrossbow;
 	public static GOTAchievement useSpearFromFar;
 	public static GOTAchievement useThrowingAxe;
@@ -407,6 +394,15 @@ public class GOTAchievement {
 	public static GOTAchievement rideDragon;
 	public static GOTAchievement rideIceSpider;
 	public static GOTAchievement rideUlthosSpider;
+	public static GOTAchievement drinkShadeEvening;
+	public static GOTAchievement drinkPoppyMilk;
+	public static GOTAchievement drinkUnsulliedTonic;
+	public static GOTAchievement craftCargocart;
+	public static GOTAchievement craftPouch;
+	public static GOTAchievement getValyrianSteel;
+	public static GOTAchievement getIce;
+	public static GOTAchievement hireGoldenCompany;
+	public static GOTAchievement useMillstone;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 	private final Category category;
@@ -508,60 +504,62 @@ public class GOTAchievement {
 	@SuppressWarnings({"UnusedAssignment", "ValueOfIncrementOrDecrementUsed"})
 	public static void onInit() {
 		int genId = 1;
+
 		enterKnownWorld = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "ENTER_KNOWN_WORLD");
 		freeman = new GOTAchievement(Category.GENERAL, genId++, GOTItems.crowbar, "FREEMAN");
-
-		bannerProtect = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banner, "BANNER_PROTECT");
-		brewDrinkInBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugEthanol, "BREW_DRINK_IN_BARREL");
-		catchButterfly = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.butterflyJar, "CATCH_BUTTERFLY");
-		collectCraftingTables = new GOTAchievement(Category.GENERAL, genId++, Blocks.crafting_table, "COLLECT_CRAFTING_TABLES");
-		collectCrossbowBolts = new GOTAchievement(Category.GENERAL, genId++, GOTItems.crossbowBolt, "COLLECT_CROSSBOW_BOLTS");
-		combineSmithScrolls = new GOTAchievement(Category.GENERAL, genId++, GOTItems.smithScroll, "COMBINE_SMITH_SCROLLS");
-		cookKebab = new GOTAchievement(Category.GENERAL, genId++, GOTItems.kebab, "COOK_KEBAB");
-		craftBomb = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.bomb, "CRAFT_BOMB");
-		craftBronze = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bronzeIngot, "GET_BRONZE");
-		craftCopper = new GOTAchievement(Category.GENERAL, genId++, GOTItems.copperIngot, "GET_COPPER");
-		craftSaddle = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "CRAFT_SADDLE");
-		craftWildFire = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.wildFireJar, "CRAFT_WILD_FIRE");
-		defeatInvasion = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "DEFEAT_INVASION");
-		doLegendaryQuest = new GOTAchievement(Category.GENERAL, genId++, Blocks.dragon_egg, "DO_LEGENDARY_QUEST");
-		doMiniquestHunter = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_MINIQUEST_HUNTER");
-		doMiniquestHunter5 = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bountyTrophy, "DO_MINIQUEST_HUNTER5");
-		doQuest = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_QUEST");
-		drinkFire = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugWildFire, "DRINK_FIRE");
-		drinkPlantainBrew = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugPlantainBrew, "DRINK_PLANTAIN_BREW");
-		drinkTermite = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugTermiteTequila, "DRINK_TERMITE");
-		earnManyCoins = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "EARN_MANY_COINS");
-		engraveOwnership = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "ENGRAVE_OWNERSHIP");
-		factionConquest = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "FACTION_CONQUEST");
-		findFourLeafClover = new GOTAchievement(Category.GENERAL, genId++, new ItemStack(GOTBlocks.clover, 1, 1), "FIND_FOUR_LEAF_CLOVER");
-		findPlantain = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.plantain, "FIND_PLANTAIN");
-		fishRing = new GOTAchievement(Category.GENERAL, genId++, Items.fishing_rod, "FISH_RING");
-		gainHighAlcoholTolerance = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GAIN_HIGH_ALCOHOL_TOLERANCE");
-		getConcrete = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.CONCRETE_POWDER.get(GOTEnumDyeColor.LIME), "GET_CONCRETE");
-		getDrunk = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GET_DRUNK");
-		getPouch = new GOTAchievement(Category.GENERAL, genId++, GOTItems.pouch, "GET_POUCH");
-		growBaobab = new GOTAchievement(Category.GENERAL, genId++, new ItemStack(GOTBlocks.sapling4, 1, 1), "GROW_BAOBAB");
-		hireGoldenCompany = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldenCompanyHelmet, "HIRE_GOLDEN_COMPANY");
-		hundreds = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "HUNDREDS");
-		lightBeacon = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.beacon, "LIGHT_BEACON");
-		marry = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldRing, "MARRY");
-		mineGlowstone = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.oreGlowstone, "MINE_GLOWSTONE");
-		mineValyrian = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.oreValyrian, "MINE_VALYRIAN");
-		obama = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banana, "OBAMA");
-		pledgeService = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "PLEDGE_SERVICE");
-		reforge = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "REFORGE");
-		shootDownMidges = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "SHOOT_DOWN_MIDGES");
-		smeltObsidianShard = new GOTAchievement(Category.GENERAL, genId++, GOTItems.obsidianShard, "SMELT_OBSIDIAN_SHARD");
-		speakToDrunkard = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "SPEAK_TO_DRUNKARD");
-		pickpocket = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "PICKPOCKET");
-		stealArborGrapes = new GOTAchievement(Category.GENERAL, genId++, GOTItems.grapeRed, "STEAL_ARBOR_GRAPES");
-		trade = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "TRADE");
-		unsmelt = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.unsmeltery, "UNSMELT");
 
 		useCrossbow = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "USE_CROSSBOW");
 		useSpearFromFar = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironSpear, "USE_SPEAR_FROM_FAR");
 		useThrowingAxe = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironThrowingAxe, "USE_THROWING_AXE");
+
+		getBronze = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bronzeIngot, "GET_BRONZE");
+		getValyrianSteel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.valyrianIngot, "GET_VALYRIAN_STEEL");
+		getIce = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ice, "GET_ICE");
+
+		craftBomb = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.bomb, "CRAFT_BOMB");
+		craftConcrete = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.CONCRETE_POWDER.get(GOTEnumDyeColor.LIME), "CRAFT_CONCRETE");
+		craftPouch = new GOTAchievement(Category.GENERAL, genId++, GOTItems.pouch, "CRAFT_POUCH");
+		craftSaddle = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "CRAFT_SADDLE");
+		craftWildFire = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.wildFireJar, "CRAFT_WILD_FIRE");
+		craftCargocart = new GOTAchievement(Category.GENERAL, genId++, GOTItems.cargocart, "CRAFT_CARGOCART");
+
+		useUnsmeltery = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.unsmeltery, "USE_UNSMELTERY");
+		useMillstone = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.millstone, "USE_MILLSTONE");
+
+		bannerProtect = new GOTAchievement(Category.GENERAL, genId++, GOTItems.iconHeraldry, "BANNER_PROTECT");
+		brewDrinkInBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugEthanol, "BREW_DRINK_IN_BARREL");
+		catchButterfly = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.butterflyJar, "CATCH_BUTTERFLY");
+		combineSmithScrolls = new GOTAchievement(Category.GENERAL, genId++, GOTItems.smithScroll, "COMBINE_SMITH_SCROLLS");
+		cookKebab = new GOTAchievement(Category.GENERAL, genId++, GOTItems.kebab, "COOK_KEBAB");
+		defeatInvasion = new GOTAchievement(Category.GENERAL, genId++, GOTItems.westerosSword, "DEFEAT_INVASION");
+		earnManyCoins = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "EARN_MANY_COINS");
+		engraveOwnership = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "ENGRAVE_OWNERSHIP");
+		factionConquest = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "FACTION_CONQUEST");
+		findFourLeafClover = new GOTAchievement(Category.GENERAL, genId++, new ItemStack(GOTBlocks.clover, 1, 1), "FIND_FOUR_LEAF_CLOVER");
+		fishRing = new GOTAchievement(Category.GENERAL, genId++, Items.fishing_rod, "FISH_RING");
+		gainHighAlcoholTolerance = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GAIN_HIGH_ALCOHOL_TOLERANCE");
+		getDrunk = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GET_DRUNK");
+		hundreds = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "HUNDREDS");
+		hireGoldenCompany = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldenCompanyHelmet, "HIRE_GOLDEN_COMPANY");
+		lightBeacon = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.beacon, "LIGHT_BEACON");
+		marry = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldRing, "MARRY");
+		pickpocket = new GOTAchievement(Category.GENERAL, genId++, GOTItems.silverRing, "PICKPOCKET");
+		pledgeService = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "PLEDGE_SERVICE");
+		reforge = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "REFORGE");
+		stealArborGrapes = new GOTAchievement(Category.GENERAL, genId++, GOTItems.grapeRed, "STEAL_ARBOR_GRAPES");
+		trade = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "TRADE");
+
+		drinkWildFire = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugWildFire, "DRINK_WILD_FIRE");
+		drinkPlantainBrew = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugPlantainBrew, "DRINK_PLANTAIN_BREW");
+		drinkTermiteTequila = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugTermiteTequila, "DRINK_TERMITE_TEQUILA");
+		drinkPoppyMilk = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugPoppyMilk, "DRINK_POPPY_MILK");
+		drinkShadeEvening = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugShadeEvening, "DRINK_SHADE_EVENING");
+		drinkUnsulliedTonic = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugUnsulliedTonic, "DRINK_UNSULLIED_TONIC");
+
+		doMiniquest = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_MINIQUEST");
+		doMiniquestHunter = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_MINIQUEST_HUNTER");
+		doMiniquestHunter5 = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_MINIQUEST_HUNTER5");
+		doMiniquestLegendary = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_MINIQUEST_LEGENDARY");
 
 		travel20 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL20");
 		travel40 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL40");
@@ -572,12 +570,12 @@ public class GOTAchievement {
 		rideCamel = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_CAMEL");
 		rideDragon = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_DRAGON");
 		rideElephant = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_ELEPHANT");
+		rideIceSpider = new GOTAchievement(Category.GENERAL, genId++, Items.spider_eye, "RIDE_ICE_SPIDER");
 		rideMammoth = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_MAMMOTH");
 		rideRhino = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_RHINO");
+		rideUlthosSpider = new GOTAchievement(Category.GENERAL, genId++, Items.spider_eye, "RIDE_ULTHOS_SPIDER");
 		rideWoolyRhino = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_WOOLY_RHINO");
 		rideZebra = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_ZEBRA");
-		rideUlthosSpider = new GOTAchievement(Category.GENERAL, genId++, Items.spider_eye, "RIDE_ULTHOS_SPIDER");
-		rideIceSpider = new GOTAchievement(Category.GENERAL, genId++, Items.spider_eye, "RIDE_ICE_SPIDER");
 
 		int killId = 1;
 

@@ -422,6 +422,9 @@ public class GOTItemMug extends Item {
 				entityplayer.removePotionEffect(potion.id);
 			}
 		}
+		if (!world.isRemote && this == GOTItems.mugUnsulliedTonic) {
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkUnsulliedTonic);
+		}
 		if (!entityplayer.capabilities.isCreativeMode) {
 			return new ItemStack(vessel.getEmptyVesselItem());
 		}

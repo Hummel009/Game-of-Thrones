@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
-import got.common.block.table.GOTBlockCraftingTable;
 import got.common.command.GOTCommandAdminHideMap;
 import got.common.database.*;
 import got.common.entity.dragon.GOTEntityDragon;
@@ -13,7 +12,6 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.*;
 import got.common.fellowship.*;
 import got.common.item.other.GOTItemArmor;
-import got.common.item.weapon.GOTItemCrossbowBolt;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestEvent;
@@ -24,7 +22,6 @@ import got.common.util.GOTLog;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
-import net.minecraft.block.Block;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -34,7 +31,6 @@ import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -2390,28 +2386,6 @@ public class GOTPlayerData {
 		}
 		if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			addAchievement(GOTAchievement.enterKnownWorld);
-		}
-		if (entityplayer.inventory.hasItem(GOTItems.pouch)) {
-			addAchievement(GOTAchievement.getPouch);
-		}
-		Collection<Block> tables = new HashSet<>();
-		int crossbowBolts = 0;
-		for (ItemStack item : entityplayer.inventory.mainInventory) {
-			if (item != null && item.getItem() instanceof ItemBlock) {
-				Block block = Block.getBlockFromItem(item.getItem());
-				if (block instanceof GOTBlockCraftingTable) {
-					tables.add(block);
-				}
-			}
-			if (item != null && item.getItem() instanceof GOTItemCrossbowBolt) {
-				crossbowBolts += item.stackSize;
-			}
-		}
-		if (tables.size() >= 10) {
-			addAchievement(GOTAchievement.collectCraftingTables);
-		}
-		if (crossbowBolts >= 128) {
-			addAchievement(GOTAchievement.collectCrossbowBolts);
 		}
 		if (!hasAchievement(GOTAchievement.hundreds) && pdTick % 20 == 0) {
 			int hiredUnits = 0;

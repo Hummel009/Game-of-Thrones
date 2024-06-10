@@ -47,10 +47,10 @@ public enum GOTMiniQuestFactory {
 	GOTMiniQuestFactory(boolean isStandard) {
 		if (isStandard) {
 			baseName = "standard";
-			setAchievement(GOTAchievement.doQuest);
+			setAchievement(GOTAchievement.doMiniquest);
 		} else {
 			baseName = "legendary";
-			setAchievement(GOTAchievement.doLegendaryQuest);
+			setAchievement(GOTAchievement.doMiniquestLegendary);
 		}
 	}
 

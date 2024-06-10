@@ -1,11 +1,9 @@
 package got.common.entity.other;
 
-import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.entity.ai.*;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityHumanBase extends GOTEntityNPC {
@@ -50,14 +48,5 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
-	public boolean speakTo(EntityPlayer entityplayer) {
-		boolean flag = super.speakTo(entityplayer);
-		if (flag && isDrunkard() && entityplayer.isPotionActive(Potion.confusion.id)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.speakToDrunkard);
-		}
-		return flag;
 	}
 }

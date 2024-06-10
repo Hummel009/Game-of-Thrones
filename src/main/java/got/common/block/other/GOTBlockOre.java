@@ -1,13 +1,10 @@
 package got.common.block.other;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
@@ -56,21 +53,7 @@ public class GOTBlockOre extends Block {
 	}
 
 	@Override
-	public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l) {
-		super.harvestBlock(world, entityplayer, i, j, k, l);
-		if (!world.isRemote) {
-			if (this == GOTBlocks.oreValyrian) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.mineValyrian);
-			}
-			if (this == GOTBlocks.oreGlowstone) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.mineGlowstone);
-			}
-		}
-	}
-
-	@Override
 	public int quantityDropped(Random random) {
-
 		if (this == GOTBlocks.oreGlowstone) {
 			return 2 + random.nextInt(4);
 		}

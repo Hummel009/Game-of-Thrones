@@ -1073,16 +1073,16 @@ public class GOTItems {
 		mugRedWine = new GOTItemMug(1.0f).setDrinkStats(4, 0.4f);
 		mugRum = new GOTItemMug(1.5f).setDrinkStats(3, 0.3f);
 		mugSambuca = new GOTItemMug(1.0f).setDrinkStats(3, 0.3f);
-		mugShadeEvening = new GOTItemMugWarlockDraught().setDrinkStats(4, 0.4f).setDamageAmount(3).addPotionEffect(Potion.nightVision.id, 300);
+		mugShadeEvening = new GOTItemMugShadeEvening().setDrinkStats(4, 0.4f).setDamageAmount(3).addPotionEffect(Potion.nightVision.id, 300);
 		mugSourMilk = new GOTItemMug(0.2f).setDrinkStats(5, 0.5f);
-		mugTermiteTequila = new GOTItemMugTermite(0.0f).setDrinkStats(3, 0.3f);
+		mugTermiteTequila = new GOTItemMugTermiteTequila(0.0f).setDrinkStats(3, 0.3f);
 		mugUnsulliedTonic = new GOTItemMug(0.0f).setDrinkStats(6, 0.6f).addPotionEffect(Potion.damageBoost.id, 60).addPotionEffect(Potion.moveSpeed.id, 60).setDamageAmount(2);
 		mugVodka = new GOTItemMug(1.75f).setDrinkStats(3, 0.3f);
 		mugWater = new GOTItemMug(true, false);
 		mugWhisky = new GOTItemMug(1.0f).setDrinkStats(4, 0.4f);
 		mugWhiteGrapeJuice = new GOTItemMug(true, true).setDrinkStats(5, 0.5f);
 		mugWhiteWine = new GOTItemMug(0.9f).setDrinkStats(4, 0.4f);
-		mugWildFire = new GOTItemMugFire(0.0f).setDrinkStats(3, 0.3f);
+		mugWildFire = new GOTItemMugWildFire(0.0f).setDrinkStats(3, 0.3f);
 		mushroomPie = new GOTItemFood(8, 0.3f, false);
 		muttonCooked = new GOTItemFood(8, 0.8f, true);
 		muttonRaw = new GOTItemFood(3, 0.3f, true);
@@ -1877,7 +1877,6 @@ public class GOTItems {
 		register(mugMead, "mugMead");
 		register(mugMelonLiqueur, "mugMelonLiqueur");
 		register(mugPerry, "mugPerry");
-		register(mugPlantainBrew, "mugPlantainBrew");
 		register(mugPlumKvass, "mugPlumKvass");
 		register(mugPomegranateWine, "mugPomegranateWine");
 		register(mugRedWine, "mugRedWine");
@@ -1906,6 +1905,7 @@ public class GOTItems {
 		register(mugPoppyMilk, "mugPoppyMilk");
 		register(mugShadeEvening, "mugShadeEvening");
 		register(mugUnsulliedTonic, "mugUnsulliedTonic");
+		register(mugPlantainBrew, "mugPlantainBrew");
 
 		register(mugEthanol, "mugEthanol");
 		register(mugTermiteTequila, "mugTermiteTequila");

@@ -1,10 +1,7 @@
 package got.common.entity.animal;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.GOTEntityRegistry;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTAmbientCreature;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
@@ -14,7 +11,9 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -106,19 +105,6 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature,
 	@Override
 	public boolean isAIEnabled() {
 		return true;
-	}
-
-	@Override
-	public void onDeath(DamageSource damagesource) {
-		Entity attacker;
-		super.onDeath(damagesource);
-		if (!worldObj.isRemote && damagesource instanceof EntityDamageSourceIndirect && (attacker = damagesource.getEntity()) instanceof GOTEntityNPC) {
-			GOTEntityNPC npc = (GOTEntityNPC) attacker;
-			if (npc.getHireableInfo().isActive() && npc.getHireableInfo().getHiringPlayer() != null) {
-				EntityPlayer entityplayer = npc.getHireableInfo().getHiringPlayer();
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.shootDownMidges);
-			}
-		}
 	}
 
 	@Override

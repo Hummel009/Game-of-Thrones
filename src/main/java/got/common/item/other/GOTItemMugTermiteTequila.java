@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class GOTItemMugTermite extends GOTItemMug {
-	public GOTItemMugTermite(float f) {
+public class GOTItemMugTermiteTequila extends GOTItemMug {
+	public GOTItemMugTermiteTequila(float f) {
 		super(f);
 	}
 
@@ -41,7 +41,7 @@ public class GOTItemMugTermite extends GOTItemMug {
 				entityplayer.removePotionEffect(potion.id);
 			}
 		}
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkTermite);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkTermiteTequila);
 		return result;
 	}
 }
