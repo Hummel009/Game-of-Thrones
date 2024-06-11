@@ -1414,6 +1414,8 @@ public class GOTItems {
 
 		/* combat */
 
+		register(fuse, "fuse");
+
 		register(bronzeBattleaxe, "bronzeBattleaxe");
 		register(bronzeCrossbow, "bronzeCrossbow");
 		register(bronzeDagger, "bronzeDagger");
@@ -1830,7 +1832,6 @@ public class GOTItems {
 
 		register(armorStand, "armorStand");
 		register(bearRug, "bearRug");
-		register(fuse, "fuse");
 		register(giraffeRug, "giraffeRug");
 		register(lionRug, "lionRug");
 		register(sothoryosDoubleTorch, "sothoryosDoubleTorch");

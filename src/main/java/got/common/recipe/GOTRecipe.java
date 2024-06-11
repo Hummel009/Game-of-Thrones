@@ -1528,6 +1528,7 @@ public class GOTRecipe {
 	}
 
 	private static void createUnsmeltingRecipes() {
+		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiArchmagStaff), "  X", " Y ", "Y  ", 'X', GOTItems.sapphire, 'Y', "stickWood"));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.renlyHelmet), "XXX", "X X", 'X', GOTItems.alloySteelIngot));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.renlyChestplate), "X X", "XXX", "XXX", 'X', GOTItems.alloySteelIngot));
 		UNSMELT.add(new ShapedOreRecipe(new ItemStack(GOTItems.renlyLeggings), "XXX", "X X", "X X", 'X', GOTItems.alloySteelIngot));

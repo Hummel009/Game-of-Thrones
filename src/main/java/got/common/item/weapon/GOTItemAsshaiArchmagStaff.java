@@ -4,13 +4,10 @@ import got.GOT;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
-import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.other.GOTEntitySpiderBase;
-import net.minecraft.entity.EntityCreature;
+import got.common.database.GOTMaterial;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
@@ -21,42 +18,58 @@ import java.util.List;
 
 public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 	public GOTItemAsshaiArchmagStaff() {
-		super(ToolMaterial.WOOD);
+		super(GOTMaterial.SAPPHIRE);
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
-		setMaxDamage(1500);
-		gotWeaponDamage = 8.0f;
+		setMaxDamage(128);
 	}
 
-	private static void useStaff(World world, EntityPlayer user) {
-		user.swingItem();
+	public static void useStaff(World world, EntityLivingBase attacker) {
+		attacker.swingItem();
+
 		if (!world.isRemote) {
-			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(64, 64, 64));
-			for (EntityLivingBase entity : entities) {
-				if (entity == user || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof GOTEntityDragon && ((EntityTameable) entity).isTamed() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntitySpiderBase && ((GOTEntitySpiderBase) entity).isNPCTamed()) {
+			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, attacker.boundingBox.expand(64.0, 64.0, 64.0));
+
+			for (EntityLivingBase target : entities) {
+				if (target == attacker) {
 					continue;
 				}
-				entity.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", entity, user).setMagicDamage().setDamageBypassesArmor().setDamageAllowedInCreativeMode(), 5);
-				if (GOT.canPlayerAttackEntity(user, entity, false)) {
-					world.addWeatherEffect(new EntityLightningBolt(world, entity.posX, entity.posY, entity.posZ));
+				if (target.riddenByEntity == attacker) {
+					continue;
+				}
+				if (target instanceof EntityPlayer && ((EntityPlayer) target).capabilities.isCreativeMode) {
+					continue;
+				}
+
+				target.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", target, attacker).setMagicDamage().setDamageBypassesArmor(), 5.0f);
+
+				if (attacker instanceof EntityPlayer) {
+					EntityPlayer player = (EntityPlayer) attacker;
+
+					if (!GOT.canPlayerAttackEntity(player, (EntityLivingBase) target.riddenByEntity, false)) {
+						continue;
+					}
+					if (!GOT.canPlayerAttackEntity(player, target, false)) {
+						continue;
+					}
+
+					world.addWeatherEffect(new EntityLightningBolt(world, target.posX, target.posY, target.posZ));
+				} else if (attacker instanceof GOTEntityNPC) {
+					GOTEntityNPC npc = (GOTEntityNPC) attacker;
+
+					if (!GOT.canNPCAttackEntity(npc, (EntityLivingBase) target.riddenByEntity, false)) {
+						continue;
+					}
+					if (!GOT.canNPCAttackEntity(npc, target, false)) {
+						continue;
+					}
+
+					world.addWeatherEffect(new EntityLightningBolt(world, target.posX, target.posY, target.posZ));
 				}
 			}
 
-			GOTLevelData.getData(user).addAchievement(GOTAchievement.useAsshaiArchmagStaff);
-		}
-	}
-
-	public static void npcUseStaff(World world, EntityCreature user) {
-		user.swingItem();
-		if (!world.isRemote) {
-			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(64, 64, 64));
-			for (EntityLivingBase entity : entities) {
-				if (entity == user || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof GOTEntityDragon && ((EntityTameable) entity).isTamed() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntitySpiderBase && ((GOTEntitySpiderBase) entity).isNPCTamed()) {
-					continue;
-				}
-				entity.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", entity, user).setMagicDamage().setDamageBypassesArmor().setDamageAllowedInCreativeMode(), 5);
-				if (GOT.canNPCAttackEntity(user, entity, false)) {
-					world.addWeatherEffect(new EntityLightningBolt(world, entity.posX, entity.posY, entity.posZ));
-				}
+			if (attacker instanceof EntityPlayer) {
+				EntityPlayer player = (EntityPlayer) attacker;
+				GOTLevelData.getData(player).addAchievement(GOTAchievement.useAsshaiArchmagStaff);
 			}
 		}
 	}
@@ -73,7 +86,7 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		itemstack.damageItem(2, entityplayer);
+		itemstack.damageItem(1, entityplayer);
 		useStaff(world, entityplayer);
 		return itemstack;
 	}

@@ -82,6 +82,9 @@ public class GOTMaterial {
 	public static final Item.ToolMaterial VALYRIAN_TOOL = EnumHelper.addToolMaterial("GOT_VALYRIAN_TOOL", 4, 2500, 9.0F, 5.0F, 8);
 	public static final Item.ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("GOT_ASSHAI_TOOL", 2, 450, 6.0F, 2.0F, 14);
 
+	public static final Item.ToolMaterial SAPPHIRE = EnumHelper.addToolMaterial("GOT_SAPPHIRE", 2, 450, 6.0F, 2.0F, 14);
+	public static final Item.ToolMaterial RUBY = EnumHelper.addToolMaterial("GOT_RUBY", 2, 450, 6.0F, 2.0F, 14);
+
 	private GOTMaterial() {
 	}
 
@@ -167,5 +170,8 @@ public class GOTMaterial {
 		SILVER_TOOL.setRepairItem(new ItemStack(GOTItems.silverIngot));
 		VALYRIAN_TOOL.setRepairItem(new ItemStack(GOTItems.valyrianIngot));
 		ASSHAI_TOOL.setRepairItem(new ItemStack(Items.iron_ingot));
+
+		SAPPHIRE.setRepairItem(new ItemStack(GOTItems.sapphire));
+		RUBY.setRepairItem(new ItemStack(GOTItems.ruby));
 	}
 }

@@ -1613,7 +1613,6 @@ public class GOTBlocks {
 		/* combat */
 
 		register(bomb, "bomb", GOTItemBomb.class);
-		register(fuse, "fuse");
 		register(wildFireJar, "wildFireJar", GOTItemWildFireJar.class);
 
 		/* decorations */
@@ -1748,6 +1747,7 @@ public class GOTBlocks {
 		register(flaxCrop, "flax");
 		register(flowerPot, "flowerPot");
 		register(furBed, "furBed");
+		register(fuse, "fuse");
 		register(glassBottle, "glassBottle");
 		register(gobletCopper, "gobletCopper");
 		register(gobletGold, "gobletGold");
