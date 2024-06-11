@@ -250,6 +250,10 @@ public class GOTPlayerData {
 		return dragonFireballSinceTick;
 	}
 
+	public void setTimeSinceDragonFireball(int i) {
+		setTimeSinceDragonFireball(i, false);
+	}
+
 	public void setShowWaypoints(boolean flag) {
 		showWaypoints = flag;
 		markDirty();
@@ -1463,10 +1467,6 @@ public class GOTPlayerData {
 
 	public void setTimeSinceFT(int i) {
 		setTimeSinceFT(i, false);
-	}
-
-	public void setTimeSinceDragonFireball(int i) {
-		setTimeSinceDragonFireball(i, false);
 	}
 
 	public GOTMiniQuest getTrackingMiniQuest() {

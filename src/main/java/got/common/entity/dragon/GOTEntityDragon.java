@@ -134,15 +134,6 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 		return null;
 	}
 
-	@Override
-	public void onDeath(DamageSource damagesource) {
-		super.onDeath(damagesource);
-		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
-			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killDragon);
-		}
-	}
-
 	public static boolean hasEquipped(EntityPlayer player, Item item) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
 		return itemStack != null && itemStack.getItem() == item;
@@ -155,6 +146,15 @@ public class GOTEntityDragon extends EntityTameable implements GOTBiome.ImmuneTo
 
 	private static void setTasksEnabled(EntityAITasks tasks, boolean flag) {
 		ReflectionHelper.setPrivateValue(EntityAITasks.class, tasks, flag ? 3 : Integer.MAX_VALUE, ENTITYAITASKS_TICKRATE);
+	}
+
+	@Override
+	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
+		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killDragon);
+		}
 	}
 
 	private void addHelper(GOTDragonHelper helper) {
