@@ -5,7 +5,6 @@ import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
-import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.HoverEvent;
@@ -29,7 +28,7 @@ public class GOTAchievement {
 
 	public static GOTAchievement combineSmithScrolls;
 	public static GOTAchievement craftCargocart;
-	public static GOTAchievement craftConcrete;
+	public static GOTAchievement craftConcretePowder;
 	public static GOTAchievement craftPlowcart;
 	public static GOTAchievement craftPouch;
 	public static GOTAchievement craftSaddle;
@@ -535,7 +534,7 @@ public class GOTAchievement {
 		getValyrianSteel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.valyrianIngot, "GET_VALYRIAN_STEEL");
 		getIce = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ice, "GET_ICE");
 
-		craftConcrete = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.CONCRETE_POWDER.get(GOTEnumDyeColor.LIME), "CRAFT_CONCRETE");
+		craftConcretePowder = new GOTAchievement(Category.GENERAL, genId++, new ItemStack(GOTBlocks.concretePowder, 1, 13), "CRAFT_CONCRETE_POWDER");
 		craftPouch = new GOTAchievement(Category.GENERAL, genId++, GOTItems.pouch, "CRAFT_POUCH");
 		craftSaddle = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "CRAFT_SADDLE");
 		craftWildFire = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.wildFireJar, "CRAFT_WILD_FIRE");

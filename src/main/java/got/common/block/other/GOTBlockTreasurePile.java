@@ -151,10 +151,8 @@ public class GOTBlockTreasurePile extends Block {
 				}
 				world.playSoundEffect(i + 0.5f, j + 0.5f, k + 0.5f, stepSound.func_150496_b(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
 				if (!entityplayer.capabilities.isCreativeMode) {
-					if (itemMeta < 0) {
-						--itemstack.stackSize;
-					} else {
-						--itemstack.stackSize;
+					--itemstack.stackSize;
+					if (itemMeta >= 0) {
 						ItemStack remainder = itemstack.copy();
 						remainder.stackSize = 1;
 						remainder.setItemDamage(itemMeta);

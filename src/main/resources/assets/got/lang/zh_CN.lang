@@ -1,21 +1,37 @@
 ﻿
+tile.got:concrete.0.name≠White Concrete
+tile.got:concrete.1.name≠Orange Concrete
+tile.got:concrete.10.name≠Purple Concrete
+tile.got:concrete.11.name≠Blue Concrete
+tile.got:concrete.12.name≠Brown Concrete
+tile.got:concrete.13.name≠Green Concrete
+tile.got:concrete.14.name≠Red Concrete
+tile.got:concrete.15.name≠Black Concrete
+tile.got:concrete.2.name≠Magenta Concrete
+tile.got:concrete.3.name≠Light Blue Concrete
+tile.got:concrete.4.name≠Yellow Concrete
+tile.got:concrete.5.name≠Lime Concrete
+tile.got:concrete.6.name≠Pink Concrete
+tile.got:concrete.7.name≠Gray Concrete
+tile.got:concrete.8.name≠Light Gray Concrete
+tile.got:concrete.9.name≠Cyan Concrete
+tile.got:concrete_powder.0.name≠White Concrete Powder
+tile.got:concrete_powder.1.name≠Orange Concrete Powder
+tile.got:concrete_powder.10.name≠Purple Concrete Powder
+tile.got:concrete_powder.11.name≠Blue Concrete Powder
+tile.got:concrete_powder.12.name≠Brown Concrete Powder
+tile.got:concrete_powder.13.name≠Green Concrete Powder
+tile.got:concrete_powder.14.name≠Red Concrete Powder
+tile.got:concrete_powder.15.name≠Black Concrete Powder
+tile.got:concrete_powder.2.name≠Magenta Concrete Powder
+tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
+tile.got:concrete_powder.4.name≠Yellow Concrete Powder
+tile.got:concrete_powder.5.name≠Lime Concrete Powder
+tile.got:concrete_powder.6.name≠Pink Concrete Powder
+tile.got:concrete_powder.7.name≠Gray Concrete Powder
+tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
+tile.got:concrete_powder.9.name≠Cyan Concrete Powder
 attribute.name.generic.movementSpeedAir=速度(Air)
-color.black=黑色
-color.blue=蓝色
-color.brown=棕色
-color.cyan=青色
-color.gray=灰色
-color.green=绿色
-color.lightBlue=淡蓝色
-color.lime=酸橙色
-color.magenta=品红色
-color.orange=橙色
-color.pink=粉色
-color.purple=紫色
-color.red=红色
-color.silver=淡灰色
-color.white=白色
-color.yellow=黄色
 death.attack.got.frost=%1$s冻结了
 death.attack.got.plantHurt=%1$s在花草上绊了一跤
 death.attack.got.poisonDrink=%1$s错饮毒酒
@@ -900,8 +916,8 @@ got.achieve.ENTER_GHISCAR_ASTAPOR.title=无垢者之城
 got.achieve.ENTER_SOTHORYOS_DESERT_COLD.desc=探访索托瑞欧斯的寒冷沙漠
 got.achievement.COMBINE_SMITH_SCROLLS.desc=连接几个卷轴
 got.achievement.COMBINE_SMITH_SCROLLS.title=笔菠萝苹果笔
-got.achievement.CRAFT_CONCRETE.desc=得到水泥
-got.achievement.CRAFT_CONCRETE.title=预制混凝土
+got.achievement.CRAFT_CONCRETE_POWDER.desc=得到水泥
+got.achievement.CRAFT_CONCRETE_POWDER.title=预制混凝土
 got.achievement.CRAFT_POUCH.desc=得到袋子
 got.achievement.CRAFT_POUCH.title=真能装！
 got.achievement.CRAFT_SADDLE.desc=创建一个轿子
@@ -5751,8 +5767,6 @@ item.got:yiti_steel_ingot.name=镀金铁锭
 item.got:yiti_sword.name=夷地剑
 item.got:zebra_cooked.name=熟斑马肉
 item.got:zebra_raw.name=生斑马肉
-tile.concrete.name=%s混凝土
-tile.concrete_powder.name=%s混凝土粉末
 tile.dirt.0.name=泥土
 tile.dirt.coarse.name=无草泥土
 tile.got.bomb.double_strength=两倍的力量

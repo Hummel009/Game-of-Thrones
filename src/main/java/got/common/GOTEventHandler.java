@@ -51,7 +51,6 @@ import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.GOTTileEntityPlate;
 import got.common.util.GOTCrashHandler;
-import got.common.util.GOTEnumDyeColor;
 import got.common.util.GOTModChecker;
 import got.common.world.GOTTeleporter;
 import got.common.world.GOTWorldProvider;
@@ -507,14 +506,8 @@ public class GOTEventHandler {
 		EntityPlayer entityplayer = event.player;
 		ItemStack itemstack = event.crafting;
 		if (!entityplayer.worldObj.isRemote) {
-			if (itemstack.getItem() == Items.saddle) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftSaddle);
-			}
 			if (itemstack.getItem() == GOTItems.bronzeIngot) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getBronze);
-			}
-			if (itemstack.getItem() == GOTItems.pouch) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftPouch);
 			}
 			if (itemstack.getItem() == GOTItems.cargocart) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftCargocart);
@@ -522,13 +515,17 @@ public class GOTEventHandler {
 			if (itemstack.getItem() == GOTItems.cargocart) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftPlowcart);
 			}
+			if (itemstack.getItem() == GOTItems.pouch) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftPouch);
+			}
+			if (itemstack.getItem() == Items.saddle) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftSaddle);
+			}
 			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.wildFireJar)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftWildFire);
 			}
-			for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
-				if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.CONCRETE_POWDER.get(color))) {
-					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftConcrete);
-				}
+			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.concretePowder)) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftConcretePowder);
 			}
 		}
 	}

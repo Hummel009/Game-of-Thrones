@@ -21,7 +21,6 @@ import got.common.item.other.*;
 import got.common.item.weapon.GOTItemBomb;
 import got.common.tileentity.GOTTileEntitySignCarved;
 import got.common.tileentity.GOTTileEntitySignCarvedValyrian;
-import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
@@ -32,15 +31,10 @@ import net.minecraft.item.ItemLeaves;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.EnumMap;
-import java.util.Map;
 
 @SuppressWarnings({"WeakerAccess", "PublicField"})
 public class GOTBlocks {
 	public static final Collection<Block> CONTENT = new ArrayList<>();
-
-	public static final Map<GOTEnumDyeColor, GOTBlockConcretePowder> CONCRETE_POWDER = new EnumMap<>(GOTEnumDyeColor.class);
-	public static final Map<GOTEnumDyeColor, GOTBlockConcrete> CONCRETE = new EnumMap<>(GOTEnumDyeColor.class);
 
 	public static Block aleHorn;
 	public static Block aleHornGold;
@@ -100,6 +94,8 @@ public class GOTBlocks {
 	public static Block chestStone;
 	public static Block clayTile;
 	public static Block clayTileDyed;
+	public static Block concrete;
+	public static Block concretePowder;
 	public static Block clover;
 	public static Block cobblebrick;
 	public static Block commandTable;
@@ -701,6 +697,8 @@ public class GOTBlocks {
 		clover = new GOTBlockClover();
 		cobblebrick = new GOTBlockCobblebrick();
 		commandTable = new GOTBlockCommandTable();
+		concrete = new GOTBlockConcrete();
+		concretePowder = new GOTBlockConcretePowder();
 		coralReef = new GOTBlockCoralReef();
 		cornStalk = new GOTBlockCorn();
 		date = new GOTBlockDate().setHardness(0.0f).setResistance(1.0f).setStepSound(Block.soundTypeWood);
@@ -1590,12 +1588,8 @@ public class GOTBlocks {
 		register(stairsClayTileDyedWhite, "stairsClayTileDyedWhite");
 		register(stairsClayTileDyedYellow, "stairsClayTileDyedYellow");
 
-		for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
-			CONCRETE_POWDER.put(color, new GOTBlockConcretePowder(color));
-			CONCRETE.put(color, new GOTBlockConcrete(color));
-			register(CONCRETE_POWDER.get(color), "concrete_powder_" + color.getUnlocalizedName(), GOTItemBlockConcrete.class);
-			register(CONCRETE.get(color), "concrete_" + color.getUnlocalizedName(), GOTItemBlockConcrete.class);
-		}
+		register(concretePowder, "concretePowder", GOTItemBlockMetadata.class);
+		register(concrete, "concrete", GOTItemBlockMetadata.class);
 
 		/* buildingBlocks */
 

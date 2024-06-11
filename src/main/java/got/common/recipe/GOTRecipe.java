@@ -3,7 +3,6 @@ package got.common.recipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.GOTConfig;
 import got.common.block.leaves.GOTBlockLeavesBase;
-import got.common.block.other.GOTBlockConcretePowder;
 import got.common.block.other.GOTBlockFallenLeaves;
 import got.common.block.other.GOTBlockStairs;
 import got.common.block.other.GOTBlockTreasurePile;
@@ -17,7 +16,6 @@ import got.common.database.GOTMaterial;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemBerry;
 import got.common.item.other.GOTItemRobes;
-import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
 import net.minecraft.block.material.Material;
@@ -1411,8 +1409,8 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new GOTRecipePipe());
 		GameRegistry.addRecipe(new GOTRecipePoisonDrinks());
 		GameRegistry.addRecipe(new GOTRecipePouch());
-		for (GOTEnumDyeColor dye : GOTEnumDyeColor.values()) {
-			GameRegistry.addShapelessRecipe(new ItemStack(getPowderFromDye(dye), 8), Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.gravel, Blocks.gravel, Blocks.gravel, Blocks.gravel, new ItemStack(Items.dye, 1, dye.getDyeDamage()));
+		for (i = 0; i <= 15; ++i) {
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.concretePowder, 8, i), "ZXX", "XXY", "YYY", 'X', Blocks.sand, 'Y', Blocks.gravel, 'Z', DYE_ORE_NAMES[BlockColored.func_150032_b(i)]));
 		}
 		for (i = 0; i <= 2; ++i) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeam9, 3, i), "X", "X", "X", 'X', new ItemStack(GOTBlocks.wood9, 1, i)));
@@ -1744,10 +1742,6 @@ public class GOTRecipe {
 			return recipe.getCraftingResult(inv);
 		}
 		return null;
-	}
-
-	private static GOTBlockConcretePowder getPowderFromDye(GOTEnumDyeColor dye) {
-		return GOTBlocks.CONCRETE_POWDER.get(dye);
 	}
 
 	private static void modifyStandardRecipes() {

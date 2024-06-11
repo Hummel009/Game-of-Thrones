@@ -1,21 +1,37 @@
 ﻿
+tile.got:concrete.0.name≠White Concrete
+tile.got:concrete.1.name≠Orange Concrete
+tile.got:concrete.10.name≠Purple Concrete
+tile.got:concrete.11.name≠Blue Concrete
+tile.got:concrete.12.name≠Brown Concrete
+tile.got:concrete.13.name≠Green Concrete
+tile.got:concrete.14.name≠Red Concrete
+tile.got:concrete.15.name≠Black Concrete
+tile.got:concrete.2.name≠Magenta Concrete
+tile.got:concrete.3.name≠Light Blue Concrete
+tile.got:concrete.4.name≠Yellow Concrete
+tile.got:concrete.5.name≠Lime Concrete
+tile.got:concrete.6.name≠Pink Concrete
+tile.got:concrete.7.name≠Gray Concrete
+tile.got:concrete.8.name≠Light Gray Concrete
+tile.got:concrete.9.name≠Cyan Concrete
+tile.got:concrete_powder.0.name≠White Concrete Powder
+tile.got:concrete_powder.1.name≠Orange Concrete Powder
+tile.got:concrete_powder.10.name≠Purple Concrete Powder
+tile.got:concrete_powder.11.name≠Blue Concrete Powder
+tile.got:concrete_powder.12.name≠Brown Concrete Powder
+tile.got:concrete_powder.13.name≠Green Concrete Powder
+tile.got:concrete_powder.14.name≠Red Concrete Powder
+tile.got:concrete_powder.15.name≠Black Concrete Powder
+tile.got:concrete_powder.2.name≠Magenta Concrete Powder
+tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
+tile.got:concrete_powder.4.name≠Yellow Concrete Powder
+tile.got:concrete_powder.5.name≠Lime Concrete Powder
+tile.got:concrete_powder.6.name≠Pink Concrete Powder
+tile.got:concrete_powder.7.name≠Gray Concrete Powder
+tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
+tile.got:concrete_powder.9.name≠Cyan Concrete Powder
 attribute.name.generic.movementSpeedAir=Prędkość (powietrze)
-color.black=Czarny
-color.blue=Niebieski
-color.brown=Brązowy
-color.cyan=Cyjanowy
-color.gray=Szary
-color.green=Zielony
-color.lightBlue=Jasny niebieski
-color.lime=Limonka
-color.magenta=Magentowy
-color.orange=Pomarańczowy
-color.pink=Różowy
-color.purple=Purpurowy
-color.red=Czerwony
-color.silver=Jasny szary
-color.white=Biały
-color.yellow=Żółty
 death.attack.got.frost=Gracz %1$s zamarzł
 death.attack.got.plantHurt=Gracz %1$s został zabity przez roślinę
 death.attack.got.poisonDrink=Gracz %1$s wypił niewłaściwy napój
@@ -897,8 +913,8 @@ generator.gotEmpty.info=Pojawisz się w GOT World z mapą, ale bez miast, zamkó
 generator.gotEmpty=GOT Empty
 got.achievement.COMBINE_SMITH_SCROLLS.desc=Połącz kilka zwojów
 got.achievement.COMBINE_SMITH_SCROLLS.title=Pen pineapple apple pen
-got.achievement.CRAFT_CONCRETE.desc=Zrób cement
-got.achievement.CRAFT_CONCRETE.title=Beton wstępny
+got.achievement.CRAFT_CONCRETE_POWDER.desc=Zrób cement
+got.achievement.CRAFT_CONCRETE_POWDER.title=Beton wstępny
 got.achievement.CRAFT_POUCH.desc=Zdobądź sakiewkę
 got.achievement.CRAFT_POUCH.title=Więcej, że wcześniej
 got.achievement.CRAFT_SADDLE.desc=Utwórz siodełko
@@ -5751,8 +5767,6 @@ item.got:yiti_steel_ingot.name=Pozłacana sztabka żelaza
 item.got:yiti_sword.name=Yi Ti Katana
 item.got:zebra_cooked.name=Pieczona zebra
 item.got:zebra_raw.name=Surowa zebra
-tile.concrete.name=%s betonu
-tile.concrete_powder.name=%s Proszek do betonu
 tile.dirt.0.name≠Dirt
 tile.dirt.coarse.name=Jałowa ziemia
 tile.got.bomb.double_strength=Двухкратная сила

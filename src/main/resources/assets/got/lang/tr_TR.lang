@@ -1,21 +1,37 @@
 ﻿
+tile.got:concrete.0.name≠White Concrete
+tile.got:concrete.1.name≠Orange Concrete
+tile.got:concrete.10.name≠Purple Concrete
+tile.got:concrete.11.name≠Blue Concrete
+tile.got:concrete.12.name≠Brown Concrete
+tile.got:concrete.13.name≠Green Concrete
+tile.got:concrete.14.name≠Red Concrete
+tile.got:concrete.15.name≠Black Concrete
+tile.got:concrete.2.name≠Magenta Concrete
+tile.got:concrete.3.name≠Light Blue Concrete
+tile.got:concrete.4.name≠Yellow Concrete
+tile.got:concrete.5.name≠Lime Concrete
+tile.got:concrete.6.name≠Pink Concrete
+tile.got:concrete.7.name≠Gray Concrete
+tile.got:concrete.8.name≠Light Gray Concrete
+tile.got:concrete.9.name≠Cyan Concrete
+tile.got:concrete_powder.0.name≠White Concrete Powder
+tile.got:concrete_powder.1.name≠Orange Concrete Powder
+tile.got:concrete_powder.10.name≠Purple Concrete Powder
+tile.got:concrete_powder.11.name≠Blue Concrete Powder
+tile.got:concrete_powder.12.name≠Brown Concrete Powder
+tile.got:concrete_powder.13.name≠Green Concrete Powder
+tile.got:concrete_powder.14.name≠Red Concrete Powder
+tile.got:concrete_powder.15.name≠Black Concrete Powder
+tile.got:concrete_powder.2.name≠Magenta Concrete Powder
+tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
+tile.got:concrete_powder.4.name≠Yellow Concrete Powder
+tile.got:concrete_powder.5.name≠Lime Concrete Powder
+tile.got:concrete_powder.6.name≠Pink Concrete Powder
+tile.got:concrete_powder.7.name≠Gray Concrete Powder
+tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
+tile.got:concrete_powder.9.name≠Cyan Concrete Powder
 attribute.name.generic.movementSpeedAir=Hız (Hava)
-color.black=Siyah
-color.blue=Mavi
-color.brown=Kahverengi
-color.cyan=Camgöbeği
-color.gray=Gri
-color.green=Yeşil
-color.lightBlue=Açık mavi
-color.lime=Kireç
-color.magenta=Macenta
-color.orange=Portakal
-color.pink=Pembe
-color.purple=Mor
-color.red=Kırmızı
-color.silver=Açık gri
-color.white=Beyaz
-color.yellow=Sarı
 death.attack.got.frost=%1$s Donarak Hayata Veda Etti
 death.attack.got.plantHurt=%1$s Bitki Tarafından Şişlendi
 death.attack.got.poisonDrink=%1$s Yanlış İçkiyi İçti
@@ -897,8 +913,8 @@ generator.gotEmpty.info≠You will appear in GOT World with map, but without cit
 generator.gotEmpty≠GOT Empty
 got.achievement.COMBINE_SMITH_SCROLLS.desc=Çoklu Parşömen Topla
 got.achievement.COMBINE_SMITH_SCROLLS.title=Kalem ananas elma kalem
-got.achievement.CRAFT_CONCRETE.desc=Stelle Beton onu
-got.achievement.CRAFT_CONCRETE.title=1.12?
+got.achievement.CRAFT_CONCRETE_POWDER.desc=Stelle Beton onu
+got.achievement.CRAFT_CONCRETE_POWDER.title=1.12?
 got.achievement.CRAFT_POUCH.desc=Kese al
 got.achievement.CRAFT_POUCH.title=Dahası, daha önce
 got.achievement.CRAFT_SADDLE.desc=Sedir oluştur
@@ -5751,8 +5767,6 @@ item.got:yiti_steel_ingot.name=Yaldızlı Demir Külçe
 item.got:yiti_sword.name=Yi Ti Katana
 item.got:zebra_cooked.name=Pişmiş Zebra
 item.got:zebra_raw.name=Çiğ Zebra
-tile.concrete.name=%s Beton
-tile.concrete_powder.name=%s Beton Tozu
 tile.dirt.0.name≠Dirt
 tile.dirt.coarse.name=Çorak Toprak
 tile.got.bomb.double_strength=Двухкратная сила
