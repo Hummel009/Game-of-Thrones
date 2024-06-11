@@ -528,7 +528,7 @@ public class GOTAchievement {
 		useTermite = new GOTAchievement(Category.GENERAL, genId++, GOTItems.termite, "USE_TERMITE");
 		useFirePot = new GOTAchievement(Category.GENERAL, genId++, GOTItems.firePot, "USE_FIRE_POT");
 		useLingeringPotion = new GOTAchievement(Category.GENERAL, genId++, GOTItems.lingeringPotion, "USE_LINGERING_POTION");
-		useBomb = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.bomb, "USE_BOMB");
+		useBomb = new GOTAchievement(Category.GENERAL, genId++, GOTItems.fuse, "USE_BOMB");
 
 		getBronze = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bronzeIngot, "GET_BRONZE");
 		getValyrianSteel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.valyrianIngot, "GET_VALYRIAN_STEEL");
@@ -546,9 +546,9 @@ public class GOTAchievement {
 		useUnsmeltery = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.unsmeltery, "USE_UNSMELTERY");
 		useMillstone = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.millstone, "USE_MILLSTONE");
 		useIronBank = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.ironBank, "USE_IRON_BANK");
-		useBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.barrel, "USE_BARREL");
-		useKebabStand = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.kebabStand, "USE_KEBAB_STAND");
-		useBeacon = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.beacon, "USE_BEACON");
+		useBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugEthanol, "USE_BARREL");
+		useKebabStand = new GOTAchievement(Category.GENERAL, genId++, GOTItems.shishKebab, "USE_KEBAB_STAND");
+		useBeacon = new GOTAchievement(Category.GENERAL, genId++, Items.flint_and_steel, "USE_BEACON");
 		useBanner = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banner, "USE_BANNER");
 		useButterflyJar = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.butterflyJar, "USE_BUTTERFLY_JAR");
 

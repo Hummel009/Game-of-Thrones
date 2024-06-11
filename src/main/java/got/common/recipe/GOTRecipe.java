@@ -1631,7 +1631,6 @@ public class GOTRecipe {
 		WILDLING.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingBattleaxe), "XXX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
 		WILDLING.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingDagger), "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
 		WILDLING.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
-		WILDLING.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingAxe), "XX", "XY", " Y", 'X', "ingotIron", 'Y', "stickWood"));
 		WILDLING.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingHammer), "XYX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
 		WILDLING.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.WILDLING.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		WILDLING.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingPolearm), " XX", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));

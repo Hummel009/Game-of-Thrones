@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityWildling extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
+	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
 	private static final ItemStack[] SPEARS = {new ItemStack(GOTItems.wildlingSpear)};
 
 	@SuppressWarnings({"WeakerAccess", "unused"})

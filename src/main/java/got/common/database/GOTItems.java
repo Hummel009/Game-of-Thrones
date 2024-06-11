@@ -667,7 +667,6 @@ public class GOTItems {
 	public static Item whiteWalkersLeggings;
 	public static Item widowWail;
 	public static Item wildberry;
-	public static Item wildlingAxe;
 	public static Item wildlingBattleaxe;
 	public static Item wildlingDagger;
 	public static Item wildlingDaggerPoisoned;
@@ -1349,7 +1348,6 @@ public class GOTItems {
 		whiteWalkersLeggings = new GOTItemArmor(GOTMaterial.ICE, 2);
 		widowWail = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		wildberry = new GOTItemBerry().setPoisonous();
-		wildlingAxe = new GOTItemAxe(Item.ToolMaterial.IRON);
 		wildlingBattleaxe = new GOTItemBattleaxe(Item.ToolMaterial.IRON);
 		wildlingDagger = new GOTItemDagger(Item.ToolMaterial.IRON);
 		wildlingDaggerPoisoned = new GOTItemDagger(Item.ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
@@ -2245,8 +2243,6 @@ public class GOTItems {
 		register(sothoryosHoe, "sothoryosHoe");
 		register(sothoryosPickaxe, "sothoryosPickaxe");
 		register(sothoryosShovel, "sothoryosShovel");
-
-		register(wildlingAxe, "wildlingAxe");
 
 		register(chisel, "chisel");
 		register(valyrianChisel, "valyrianChisel");
