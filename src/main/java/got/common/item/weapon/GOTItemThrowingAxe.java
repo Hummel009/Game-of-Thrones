@@ -1,5 +1,7 @@
 package got.common.item.weapon;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseThrowingAxe;
 import got.common.enchant.GOTEnchantment;
@@ -72,6 +74,8 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 		world.playSoundAtEntity(entityplayer, "random.bow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + 0.25f);
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(axe);
+
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useThrowingAxe);
 		}
 		if (!entityplayer.capabilities.isCreativeMode) {
 			--itemstack.stackSize;

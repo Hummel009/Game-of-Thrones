@@ -553,7 +553,7 @@ public class GOTChestContents {
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.asshaiBattleaxe), 1, 1, 25));
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.asshaiSpear), 1, 1, 25));
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.asshaiHammer), 1, 1, 25));
-		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.asshaiStaff), 1, 1, 25));
+		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.asshaiShadowbinderStaff), 1, 1, 25));
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bottlePoison), 1, 1, 50));
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(Items.saddle), 1, 1, 50));
 

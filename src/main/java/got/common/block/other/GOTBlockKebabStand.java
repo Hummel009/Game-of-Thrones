@@ -127,7 +127,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 						entityplayer.inventoryContainer.detectAndSendChanges();
 						world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
 						if (wasCooked) {
-							GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.cookKebab);
+							GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useKebabStand);
 						}
 					}
 				}

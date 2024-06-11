@@ -74,7 +74,7 @@ public class GOTEntityAIAsshaiShadowbinderUseStaff extends EntityAIBase {
 		attackTick = Math.max(attackTick - 1, 0);
 		if (attackTick == 0) {
 			attackTick = 40;
-			GOTItemAsshaiShadowbinderStaff.wizardUseStaff(theWorld, wizard);
+			GOTItemAsshaiShadowbinderStaff.npcUseStaff(theWorld, wizard);
 			wizard.setIsUsingStaff(false);
 		}
 	}

@@ -1,5 +1,7 @@
 package got.common.item.weapon;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseFirePot;
 import got.common.entity.other.inanimate.GOTEntityFirePot;
@@ -24,6 +26,8 @@ public class GOTItemFirePot extends Item {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 			}
+
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useFirePot);
 		}
 		return itemstack;
 	}

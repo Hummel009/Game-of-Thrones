@@ -2,6 +2,8 @@ package got.common.item.weapon;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
@@ -213,6 +215,8 @@ public class GOTItemCrossbow extends ItemBow {
 				}
 				if (!world.isRemote) {
 					world.spawnEntityInWorld(bolt);
+
+					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useCrossbow);
 				}
 				world.playSoundAtEntity(entityplayer, "got:item.crossbow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + 0.5f);
 				itemstack.damageItem(1, entityplayer);

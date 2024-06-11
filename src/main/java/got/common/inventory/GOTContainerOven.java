@@ -8,7 +8,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
@@ -27,7 +26,7 @@ public class GOTContainerOven extends Container {
 			addSlotToContainer(new Slot(oven, i, 8 + i * 18, 21));
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new SlotFurnace(inv.player, oven, i + 9, 8 + i * 18, 67));
+			addSlotToContainer(new GOTSlotOvenResult(inv, oven, i));
 		}
 		addSlotToContainer(new Slot(oven, 18, 80, 111));
 		for (i = 0; i < 3; ++i) {
@@ -115,4 +114,5 @@ public class GOTContainerOven extends Container {
 			theOven.setCurrentItemFuelValue(j);
 		}
 	}
+
 }

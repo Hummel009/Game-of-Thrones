@@ -4,6 +4,8 @@ import com.google.common.collect.HashMultimap;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTRenderLingeringDispenser;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.entity.other.inanimate.GOTEntityLingeringPotion;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -209,6 +211,8 @@ public class GOTItemLingeringPotion extends ItemPotion {
 
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(new GOTEntityLingeringPotion(world, player, stack));
+
+			GOTLevelData.getData(player).addAchievement(GOTAchievement.useLingeringPotion);
 		}
 		return stack;
 	}

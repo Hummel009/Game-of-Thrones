@@ -50,7 +50,7 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.archmagStaff, 1);
+		dropItem(GOTItems.asshaiArchmagStaff, 1);
 	}
 
 	@Override
@@ -123,8 +123,8 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTItems.archmagStaff));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.archmagStaff));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.asshaiArchmagStaff));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiArchmagStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.asshaiBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));

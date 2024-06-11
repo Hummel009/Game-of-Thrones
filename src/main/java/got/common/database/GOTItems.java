@@ -48,7 +48,7 @@ public class GOTItems {
 	public static Item anonymousMask;
 	public static Item appleCrumble;
 	public static Item appleGreen;
-	public static Item archmagStaff;
+	public static Item asshaiArchmagStaff;
 	public static Item areoHotahAxe;
 	public static Item armorStand;
 	public static Item arrowFire;
@@ -72,7 +72,7 @@ public class GOTItems {
 	public static Item asshaiLeggings;
 	public static Item asshaiMask;
 	public static Item asshaiSpear;
-	public static Item asshaiStaff;
+	public static Item asshaiShadowbinderStaff;
 	public static Item asshaiSword;
 	public static Item baelishBrooch;
 	public static Item baelishDagger;
@@ -727,7 +727,6 @@ public class GOTItems {
 		anonymousMask = new GOTItemArmor(GOTMaterial.ANONYMOUS, 0).setCreativeTab(null);
 		appleCrumble = new GOTItemPlaceableFood(GOTBlocks.appleCrumble);
 		appleGreen = new GOTItemFood(4, 0.3f, false);
-		archmagStaff = new GOTItemAsshaiArchmagStaff();
 		areoHotahAxe = new GOTItemLegendaryBattleaxe(Item.ToolMaterial.IRON);
 		armorStand = new GOTItemArmorStand();
 		arrowFire = new GOTItemArrowFire();
@@ -751,7 +750,8 @@ public class GOTItems {
 		asshaiLeggings = new GOTItemArmor(GOTMaterial.ASSHAI, 2);
 		asshaiMask = new GOTItemArmor(GOTMaterial.ASSHAI, 0, "mask");
 		asshaiSpear = new GOTItemSpear(GOTMaterial.ASSHAI_TOOL);
-		asshaiStaff = new GOTItemAsshaiShadowbinderStaff();
+		asshaiArchmagStaff = new GOTItemAsshaiArchmagStaff();
+		asshaiShadowbinderStaff = new GOTItemAsshaiShadowbinderStaff();
 		asshaiSword = new GOTItemSword(GOTMaterial.ASSHAI_TOOL);
 		baelishBrooch = new GOTItemArmor(GOTMaterial.HAND, 1, "baelish").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		baelishDagger = new GOTItemLegendaryDagger(GOTMaterial.VALYRIAN_TOOL);
@@ -900,7 +900,7 @@ public class GOTItems {
 		furChestplate = new GOTItemArmor(GOTMaterial.FUR, 1);
 		furHelmet = new GOTItemArmor(GOTMaterial.FUR, 0);
 		furLeggings = new GOTItemArmor(GOTMaterial.FUR, 2);
-		fuse = new GOTItemDoubleTorch(GOTBlocks.fuse).setCreativeTab(GOTCreativeTabs.TAB_DECO);
+		fuse = new GOTItemDoubleTorch(GOTBlocks.fuse).setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		gammon = new GOTItemFood(8, 0.8f, true);
 		gateGear = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		ghiscarBootsGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 3);
@@ -1512,13 +1512,13 @@ public class GOTItems {
 		register(yitiSpear, "yitiSpear");
 		register(yitiSword, "yitiSword");
 
+		register(asshaiShadowbinderStaff, "asshaiShadowbinderStaff");
 		register(asshaiBattleaxe, "asshaiBattleaxe");
 		register(asshaiBow, "asshaiBow");
 		register(asshaiDagger, "asshaiDagger");
 		register(asshaiDaggerPoisoned, "asshaiDaggerPoisoned");
 		register(asshaiHammer, "asshaiHammer");
 		register(asshaiSpear, "asshaiSpear");
-		register(asshaiStaff, "asshaiStaff");
 		register(asshaiSword, "asshaiSword");
 
 		register(summerDagger, "summerDagger");
@@ -2162,7 +2162,7 @@ public class GOTItems {
 		register(lannisterBrooch, "lannisterBrooch");
 		register(velaryonBrooch, "velaryonBrooch");
 
-		register(archmagStaff, "archmagStaff");
+		register(asshaiArchmagStaff, "asshaiArchmagStaff");
 		register(areoHotahAxe, "areoHotahAxe");
 		register(baelishDagger, "baelishDagger");
 		register(bane, "bane");

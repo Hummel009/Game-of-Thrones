@@ -1,5 +1,7 @@
 package got.common.item.weapon;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
@@ -125,6 +127,8 @@ public class GOTItemSarbacane extends Item {
 					dart.setCanBePickedUp(2);
 				}
 				world.spawnEntityInWorld(dart);
+
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useSarbacane);
 			}
 		}
 	}

@@ -8,7 +8,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
@@ -29,7 +28,7 @@ public class GOTContainerAlloyForge extends Container {
 			addSlotToContainer(new Slot(forge, i + 4, 53 + i * 18, 39));
 		}
 		for (i = 0; i < 4; ++i) {
-			addSlotToContainer(new SlotFurnace(inv.player, forge, i + 8, 53 + i * 18, 85));
+			addSlotToContainer(new GOTSlotAlloyResult(inv, forge, i));
 		}
 		addSlotToContainer(new Slot(forge, 12, 80, 129));
 		for (i = 0; i < 3; ++i) {

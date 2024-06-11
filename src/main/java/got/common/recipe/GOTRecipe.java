@@ -179,7 +179,7 @@ public class GOTRecipe {
 		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiBoots), "X X", "X X", 'X', "ingotIron"));
-		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiStaff), "  X", " Y ", "Y  ", 'X', GOTItems.ruby, 'Y', "stickWood"));
+		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiShadowbinderStaff), "  X", " Y ", "Y  ", 'X', GOTItems.ruby, 'Y', "stickWood"));
 		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiMask), "XXX", "X X", 'X', "plankWood"));
 		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.asshaiBars, 16), "XXX", "XXX", 'X', "ingotIron"));
 		ASSHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ASSHAI.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
@@ -733,7 +733,7 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTItems.alloySteelIngot), "XXX", "XXX", "XXX", 'X', GOTItems.alloySteelNugget);
 		GameRegistry.addRecipe(new ItemStack(GOTItems.bananaBread), "XYX", 'X', Items.wheat, 'Y', GOTItems.banana);
 		GameRegistry.addRecipe(new ItemStack(GOTItems.bananaCake), "AAA", "BCB", "DDD", 'A', Items.milk_bucket, 'B', GOTItems.banana, 'C', Items.egg, 'D', Items.wheat);
-		GameRegistry.addRecipe(new ItemStack(GOTBlocks.bank), "XXX", "XYX", "XXX", 'X', Blocks.cobblestone, 'Y', GOTItems.coin);
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.ironBank), "XXX", "XYX", "XXX", 'X', Blocks.cobblestone, 'Y', GOTItems.coin);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockGem, 1, 0), "XXX", "XXX", "XXX", 'X', GOTItems.topaz);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockGem, 1, 1), "XXX", "XXX", "XXX", 'X', GOTItems.amethyst);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockGem, 1, 2), "XXX", "XXX", "XXX", 'X', GOTItems.sapphire);

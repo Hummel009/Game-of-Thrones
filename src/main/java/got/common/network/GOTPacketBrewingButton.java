@@ -26,7 +26,7 @@ public class GOTPacketBrewingButton implements IMessage {
 			Container container = entityplayer.openContainer;
 			if (container instanceof GOTContainerBarrel) {
 				((GOTContainerBarrel) container).getTheBarrel().handleBrewingButtonPress();
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.brewDrinkInBarrel);
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useBarrel);
 			}
 			return null;
 		}

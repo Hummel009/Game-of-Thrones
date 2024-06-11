@@ -1,5 +1,7 @@
 package got.common.item.weapon;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.dispense.GOTDispenseSpear;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
@@ -65,6 +67,8 @@ public class GOTItemSpear extends GOTItemSword {
 		world.playSoundAtEntity(entityplayer, "random.bow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(spear);
+
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useSpear);
 		}
 		if (!entityplayer.capabilities.isCreativeMode) {
 			--itemstack.stackSize;

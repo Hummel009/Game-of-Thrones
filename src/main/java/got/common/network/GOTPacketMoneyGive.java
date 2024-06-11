@@ -7,6 +7,7 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.block.other.GOTBlockIronBank;
+import got.common.database.GOTAchievement;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -65,6 +66,7 @@ public class GOTPacketMoneyGive extends GOTPacketMoney {
 					int money = pd.getBalance();
 					money -= cost;
 					pd.setBalance(money);
+					pd.addAchievement(GOTAchievement.useIronBank);
 					GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, player);
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.give", item.getDisplayName())));
 				} else {

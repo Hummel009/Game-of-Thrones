@@ -3,6 +3,8 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import got.common.entity.other.inanimate.GOTEntityBomb;
@@ -116,6 +118,9 @@ public class GOTBlockBomb extends Block {
 		if (entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() == GOTItems.fuse) {
 			onBlockDestroyedByPlayer(world, i, j, k, -1);
 			world.setBlockToAir(i, j, k);
+			if (!world.isRemote) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useBomb);
+			}
 			return true;
 		}
 		return false;

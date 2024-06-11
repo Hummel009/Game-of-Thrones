@@ -34,9 +34,6 @@ public class GOTSlotMillstone extends Slot {
 	public void onCrafting(ItemStack itemstack) {
 		itemstack.onCrafting(thePlayer.worldObj, thePlayer, itemsTaken);
 		itemsTaken = 0;
-		if (!thePlayer.worldObj.isRemote) {
-			GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.useMillstone);
-		}
 	}
 
 	@Override
@@ -49,5 +46,8 @@ public class GOTSlotMillstone extends Slot {
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
 		onCrafting(itemstack);
 		super.onPickupFromSlot(entityplayer, itemstack);
+		if (!thePlayer.worldObj.isRemote) {
+			GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.useMillstone);
+		}
 	}
 }

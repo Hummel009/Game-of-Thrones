@@ -519,8 +519,8 @@ public class GOTEventHandler {
 			if (itemstack.getItem() == GOTItems.cargocart) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftCargocart);
 			}
-			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.bomb)) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBomb);
+			if (itemstack.getItem() == GOTItems.cargocart) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftPlowcart);
 			}
 			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.wildFireJar)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftWildFire);
@@ -989,12 +989,6 @@ public class GOTEventHandler {
 				}
 			}
 		}
-		if (!world.isRemote && source.getEntity() instanceof EntityPlayer && source.getSourceOfDamage() != null && source.getSourceOfDamage().getClass() == GOTEntitySpear.class) {
-			EntityPlayer entityplayer = (EntityPlayer) source.getEntity();
-			if (entity != entityplayer && entityplayer.getDistanceSqToEntity(entity) >= 2500.0D) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useSpearFromFar);
-			}
-		}
 		if (!world.isRemote) {
 			EntityPlayer attackingPlayer = null;
 			GOTEntityNPC attackingHiredUnit = null;
@@ -1015,12 +1009,6 @@ public class GOTEventHandler {
 					}
 					if (entity instanceof GOTEntityYiTiBombardier && ((GOTEntityNPC) entity).getNpcItemsInv().getBomb() != null) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killYiTiBombardier);
-					}
-					if (source.getSourceOfDamage() instanceof GOTEntityCrossbowBolt) {
-						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.useCrossbow);
-					}
-					if (source.getSourceOfDamage() instanceof GOTEntityThrowingAxe) {
-						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.useThrowingAxe);
 					}
 				}
 			}

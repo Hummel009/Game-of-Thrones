@@ -57,7 +57,7 @@ public class GOTBlocks {
 	public static Block asshaiTorch;
 	public static Block banana;
 	public static Block bananaCake;
-	public static Block bank;
+	public static Block ironBank;
 	public static Block barrel;
 	public static Block barrier;
 	public static Block basaltGravel;
@@ -655,7 +655,7 @@ public class GOTBlocks {
 		asshaiTorch = new GOTBlockAsshaiTorch().setHardness(0.0f).setStepSound(Block.soundTypeWood).setLightLevel(0.875f);
 		banana = new GOTBlockBanana().setHardness(0.0f).setResistance(1.0f).setStepSound(Block.soundTypeWood);
 		bananaCake = new GOTBlockPlaceableFood();
-		bank = new GOTBlockIronBank();
+		ironBank = new GOTBlockIronBank();
 		barrel = new GOTBlockBarrel();
 		barrier = new GOTBlockBarrier();
 		basaltGravel = new GOTBlockGravel();
@@ -1613,6 +1613,7 @@ public class GOTBlocks {
 		/* combat */
 
 		register(bomb, "bomb", GOTItemBomb.class);
+		register(fuse, "fuse");
 		register(wildFireJar, "wildFireJar", GOTItemWildFireJar.class);
 
 		/* decorations */
@@ -1747,7 +1748,6 @@ public class GOTBlocks {
 		register(flaxCrop, "flax");
 		register(flowerPot, "flowerPot");
 		register(furBed, "furBed");
-		register(fuse, "fuse");
 		register(glassBottle, "glassBottle");
 		register(gobletCopper, "gobletCopper");
 		register(gobletGold, "gobletGold");
@@ -1872,7 +1872,7 @@ public class GOTBlocks {
 		register(alloyForge, "alloyForge");
 		register(unsmeltery, "unsmeltery");
 		register(millstone, "millstone");
-		register(bank, "bank");
+		register(ironBank, "ironBank");
 		register(kebabStand, "kebabStand", GOTItemKebabStand.class);
 		register(kebabStandSand, "kebabStandSand", GOTItemKebabStand.class);
 		register(beacon, "beacon");

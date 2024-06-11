@@ -1,15 +1,18 @@
 package got.common.item.weapon;
 
-import got.common.GOTBannerProtection;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -55,34 +58,10 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 				entity.attackEntityFrom(DamageSource.causeMobDamage(user), 1.0f);
 			}
 		}
-		Vec3 eyeHeight = position.addVector(0.0, user.getEyeHeight(), 0.0);
-		block2:
-		for (int l = 4; l < (int) range; ++l) {
-			double d = l / range;
-			double dx = sight.xCoord - eyeHeight.xCoord;
-			double dy = sight.yCoord - eyeHeight.yCoord;
-			double dz = sight.zCoord - eyeHeight.zCoord;
-			double x = eyeHeight.xCoord + dx * d;
-			double y = eyeHeight.yCoord + dy * d;
-			double z = eyeHeight.zCoord + dz * d;
-			int i = MathHelper.floor_double(x);
-			int j = MathHelper.floor_double(y);
-			int k = MathHelper.floor_double(z);
-			for (int j1 = j - 3; j1 <= j + 3; ++j1) {
-				if (!World.doesBlockHaveSolidTopSurface(user.worldObj, i, j1 - 1, k) || !user.worldObj.getBlock(i, j1, k).isReplaceable(user.worldObj, i, j1, k)) {
-					continue;
-				}
-				boolean protection = false;
-				if (user instanceof EntityPlayer) {
-					protection = GOTBannerProtection.isProtected(user.worldObj, i, j1, k, GOTBannerProtection.forPlayer((EntityPlayer) user), false);
-				} else if (user instanceof EntityLiving) {
-					protection = GOTBannerProtection.isProtected(user.worldObj, i, j1, k, GOTBannerProtection.forNPC((EntityLiving) user), false);
-				}
-				if (protection) {
-					continue;
-				}
-				continue block2;
-			}
+		if (user instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) user;
+
+			GOTLevelData.getData(player).addAchievement(GOTAchievement.useNymeriaWhip);
 		}
 	}
 

@@ -117,7 +117,8 @@ public class GOTBlockBeacon extends BlockContainer {
 			}
 			if (!world.isRemote) {
 				setLit(world, i, j, k, true);
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.lightBeacon);
+
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useBeacon);
 			}
 			return true;
 		}

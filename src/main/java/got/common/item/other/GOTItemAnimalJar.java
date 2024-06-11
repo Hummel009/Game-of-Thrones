@@ -72,7 +72,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 				entity.playSound("random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
 				entity.setDead();
 				if (entity instanceof GOTEntityButterfly) {
-					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.catchButterfly);
+					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useButterflyJar);
 				}
 			}
 			return true;
