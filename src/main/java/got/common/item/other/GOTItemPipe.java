@@ -2,6 +2,8 @@ package got.common.item.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTItems;
 import got.common.entity.other.inanimate.GOTEntitySmokeRing;
@@ -90,6 +92,8 @@ public class GOTItemPipe extends Item {
 				int color = getSmokeColor(itemstack);
 				smoke.setSmokeColour(color);
 				world.spawnEntityInWorld(smoke);
+
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.smoke);
 			}
 			world.playSoundAtEntity(entityplayer, "got:item.puff", 1.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
 		}

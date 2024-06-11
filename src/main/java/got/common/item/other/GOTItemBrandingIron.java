@@ -3,6 +3,8 @@ package got.common.item.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTGuiId;
 import got.common.tileentity.GOTTileEntityAlloyForge;
@@ -149,6 +151,8 @@ public class GOTItemBrandingIron extends Item {
 					}
 					if (!world.isRemote) {
 						setBrandingPlayer(entityliving, entityplayer.getUniqueID());
+
+						GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.brandEntity);
 					}
 					return true;
 				}

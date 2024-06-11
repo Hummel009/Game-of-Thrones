@@ -1,4 +1,12 @@
 ﻿
+got.achievement.POISON_MUG.desc=Отравите кружку бутылкой яда
+got.achievement.POISON_MUG.title=Кубок крысы I
+got.achievement.POISON_BARREL.desc=Отравите бочку бутылкой яда
+got.achievement.POISON_BARREL.title=Кубок крысы II
+got.achievement.SMOKE.desc=Выкурите табак при помощи трубки
+got.achievement.SMOKE.title=Сладко дунул
+got.achievement.BRAND_ENTITY.desc=Используйте нагретое клеймо на мобе
+got.achievement.BRAND_ENTITY.title=Предвзятость
 got.achievement.CRAFT_CARGOCART.desc=Создайте повозку
 got.achievement.CRAFT_CARGOCART.title=Телега
 got.achievement.CRAFT_PLOWCART.desc=Создайте плуг
@@ -1533,7 +1541,7 @@ got.achievement.KILL_YI_TI_BOMBARDIER.desc=Убейте бомбардира
 got.achievement.KILL_YI_TI_BOMBARDIER.title=Counter-Terrorists win
 got.achievement.KILL_YOHN_ROYCE.desc=Убейте Джона Ройса
 got.achievement.KILL_YOHN_ROYCE.title=Такая себе броня
-got.achievement.MARRY.desc=Проведите свадьбу
+got.achievement.MARRY.desc=Проведите свадьбу — ПКМ золотым кольцом
 got.achievement.MARRY.title=Хороший тамада, и конкурсы интересные
 got.achievement.PICKPOCKET.desc=Украдите что-нибудь
 got.achievement.PICKPOCKET.title=Ah shit, here we go again

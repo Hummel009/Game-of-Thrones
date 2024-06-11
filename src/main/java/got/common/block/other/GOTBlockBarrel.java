@@ -3,6 +3,8 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTGuiId;
 import got.common.item.other.GOTItemBarrel;
@@ -165,6 +167,9 @@ public class GOTBlockBarrel extends BlockContainer {
 		if (itemstack != null && item instanceof GOTItemBottlePoison && barrel.canPoisonBarrel()) {
 			if (!world.isRemote) {
 				barrel.poisonBarrel(entityplayer);
+
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.poisonBarrel);
+
 				if (!entityplayer.capabilities.isCreativeMode) {
 					ItemStack containerItem = itemstack.getItem().getContainerItem(itemstack);
 					entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, containerItem);

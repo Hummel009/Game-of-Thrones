@@ -2,6 +2,8 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemBottlePoison;
 import got.common.item.other.GOTItemMug;
@@ -147,6 +149,9 @@ public class GOTBlockMug extends BlockContainer {
 				if (itemstack != null && itemstack.getItem() instanceof GOTItemBottlePoison && mug.canPoisonMug()) {
 					if (!world.isRemote) {
 						mug.poisonMug(entityplayer);
+
+						GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.poisonMug);
+
 						if (!entityplayer.capabilities.isCreativeMode) {
 							ItemStack containerItem = itemstack.getItem().getContainerItem(itemstack);
 							entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, containerItem);
