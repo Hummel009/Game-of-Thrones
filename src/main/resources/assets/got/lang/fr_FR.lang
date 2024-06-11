@@ -24,7 +24,7 @@ dragon.lifeStage.adult=Adulte
 dragon.lifeStage.egg=Œuf
 dragon.lifeStage.hatchling=Enfant
 dragon.lifeStage.juvenile=Jeune
-dragon.mountNotice=Appuyez sur %s et %s pour voler de haut en bas
+dragon.mountNotice≠%s — fly up; %s — fly down; %s — dracarys
 dragon.owned=Ce n'est pas votre dragon.
 entity.got.AddamMarbrand.name=Addam Marbrand
 entity.got.AemonTargaryen.name=Aemon Targaryen

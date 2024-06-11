@@ -35,6 +35,7 @@ public class GOTKeyHandler {
 	public static final KeyBinding KEY_BINDING_ALIGNMENT_GROUP_NEXT = new KeyBinding("Alignment Group Next", 208, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_DRAGON_UP = new KeyBinding("Dragon: Fly Up", Keyboard.KEY_G, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_DRAGON_DOWN = new KeyBinding("Dragon: Fly Down", Keyboard.KEY_H, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_DRAGON_DRACARYS = new KeyBinding("Dragon: Dracarys", Keyboard.KEY_J, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_RETURN = new KeyBinding("Clear", Keyboard.KEY_RETURN, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_CARGO_CART = new KeyBinding("Enable cargocart", 19, "Game of Thrones");
 
@@ -52,6 +53,7 @@ public class GOTKeyHandler {
 		ClientRegistry.registerKeyBinding(KEY_BINDING_ALIGNMENT_GROUP_NEXT);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_UP);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_DOWN);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_DRACARYS);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_CARGO_CART);
 	}
 
@@ -146,6 +148,7 @@ public class GOTKeyHandler {
 		BitSet flags = dcm.getFlags();
 		flags.set(0, KEY_BINDING_DRAGON_UP.getIsKeyPressed());
 		flags.set(1, KEY_BINDING_DRAGON_DOWN.getIsKeyPressed());
+		flags.set(2, KEY_BINDING_DRAGON_DRACARYS.getIsKeyPressed());
 		if (dcm.hasChanged()) {
 			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(dcm);
 		}

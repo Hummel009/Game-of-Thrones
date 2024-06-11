@@ -58,6 +58,7 @@ public class GOTPacketHandler {
 		NETWORK_WRAPPER.registerMessage(GOTPacketDeleteCWPClient.Handler.class, GOTPacketDeleteCWPClient.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketDeleteMiniquest.Handler.class, GOTPacketDeleteMiniquest.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketDragonControl.Handler.class, GOTPacketDragonControl.class, id++, Side.SERVER);
+		NETWORK_WRAPPER.registerMessage(GOTPacketDragonFireballTimer.Handler.class, GOTPacketDragonFireballTimer.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketEditBanner.Handler.class, GOTPacketEditBanner.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketEditNPCRespawner.Handler.class, GOTPacketEditNPCRespawner.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketEditSign.Handler.class, GOTPacketEditSign.class, id++, Side.SERVER);

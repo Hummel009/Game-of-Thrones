@@ -24,7 +24,7 @@ dragon.lifeStage.adult=成年
 dragon.lifeStage.egg=蛋
 dragon.lifeStage.hatchling=幼年
 dragon.lifeStage.juvenile=青年
-dragon.mountNotice=按下%s和%s以起飞降落(可在设置内更改)
+dragon.mountNotice≠%s — fly up; %s — fly down; %s — dracarys
 dragon.owned=这不是你的龙
 entity.got.AddamMarbrand.name=亚当·马尔布兰
 entity.got.AemonTargaryen.name=伊蒙·坦格利安

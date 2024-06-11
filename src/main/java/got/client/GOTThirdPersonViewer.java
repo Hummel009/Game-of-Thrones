@@ -63,7 +63,8 @@ public class GOTThirdPersonViewer {
 			if (noticeTicks == 1) {
 				String keyUpName = GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_DRAGON_UP.getKeyCode());
 				String keyDownName = GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_DRAGON_DOWN.getKeyCode());
-				MC.ingameGUI.func_110326_a(I18n.format("dragon.mountNotice", keyUpName, keyDownName), false);
+				String keyDracarysName = GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_DRAGON_DRACARYS.getKeyCode());
+				MC.ingameGUI.func_110326_a(I18n.format("dragon.mountNotice", keyUpName, keyDownName, keyDracarysName), false);
 			}
 		}
 		ridingDragonPrev = ridingDragon;

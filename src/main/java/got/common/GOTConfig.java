@@ -83,6 +83,7 @@ public class GOTConfig {
 	public static int fellowshipMaxSize;
 	public static int forceMapLocations;
 	public static int gridScale;
+	public static int dragonFireballCooldown;
 	public static int mobSpawnInterval;
 	public static int musicIntervalMax;
 	public static int musicIntervalMenuMax;
@@ -150,6 +151,7 @@ public class GOTConfig {
 		canAlwaysEat = config.get(CATEGORY_GAMEPLAY, "Feast Mode", true, "Food can always be eaten regardless of hunger").getBoolean();
 		changedHunger = config.get(CATEGORY_GAMEPLAY, "Hunger changes", true, "Food meter decreases more slowly").getBoolean();
 		customWaypointMinY = config.get(CATEGORY_GAMEPLAY, "Custom waypoint minimum y-level", -1, "Minimum y-coordinate at which a player can create a custom waypoint. Negative value = no limit").getInt();
+		dragonFireballCooldown = config.get(CATEGORY_GAMEPLAY, "Dragon Fireball Cooldown", 3).getInt();
 		dropMutton = config.get(CATEGORY_GAMEPLAY, "Mutton Drops", true, "Enable or disable sheep dropping the mod's mutton items").getBoolean();
 		drunkMessages = config.get(CATEGORY_GAMEPLAY, "Enable Drunken Messages", true).getBoolean();
 		enableConquest = config.get(CATEGORY_GAMEPLAY, "Enable Conquest", true).getBoolean();

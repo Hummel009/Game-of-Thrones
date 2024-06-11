@@ -65,6 +65,7 @@ public class GOTEntityAIDragonRideAir extends GOTEntityAIDragonRide {
 			} else if (isFlyDown()) {
 				verticalSpeed = -0.5f;
 			}
+			dracarys();
 			dragon.setMoveSpeedAirVert(verticalSpeed);
 		}
 	}

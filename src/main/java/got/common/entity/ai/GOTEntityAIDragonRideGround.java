@@ -42,5 +42,6 @@ public class GOTEntityAIDragonRideGround extends GOTEntityAIDragonRide {
 		if (isFlyUp()) {
 			dragon.liftOff();
 		}
+		dracarys();
 	}
 }

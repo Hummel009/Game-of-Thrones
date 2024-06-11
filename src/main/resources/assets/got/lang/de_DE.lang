@@ -24,7 +24,7 @@ dragon.lifeStage.adult=Erwachsener Drache
 dragon.lifeStage.egg=Drachenei
 dragon.lifeStage.hatchling=Drachenküken
 dragon.lifeStage.juvenile=Jungdrache
-dragon.mountNotice=Drücke %s und %s, um auf und ab zu fliegen
+dragon.mountNotice≠%s — fly up; %s — fly down; %s — dracarys
 dragon.owned=Dieser Drache folgt nicht deinen Befehlen. Er ist entweder zu jung oder gehört schon jemand anderem.
 entity.got.AddamMarbrand.name=Addam Marbrand
 entity.got.AemonTargaryen.name=Aemon Targaryen

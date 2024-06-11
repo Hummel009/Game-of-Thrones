@@ -990,6 +990,7 @@ public class GOTEntity {
 		GOTEntityRegistry.registerHidden(GOTEntityPlowcart.class, id++, 80, 20, false);
 		GOTEntityRegistry.registerHidden(GOTEntityMarshWraithBall.class, id++, 64, 10, true);
 		GOTEntityRegistry.registerHidden(GOTEntitySnowball.class, id++, 64, 1, true);
+		GOTEntityRegistry.registerHidden(GOTEntityDragonFireball.class, id++, 64, 1, true);
 
 		GOTEntityRegistry.registerHidden(GOTEntityHummel009.class, id++);
 	}

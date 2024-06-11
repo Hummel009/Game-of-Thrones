@@ -115,6 +115,7 @@ public class GOTPlayerData {
 	private int completedMiniquestCount;
 	private int deathDim;
 	private int ftSinceTick;
+	private int dragonFireballSinceTick;
 	private int nextCwpID = 20000;
 	private int pdTick;
 	private int pledgeBreakCooldown;
@@ -126,10 +127,12 @@ public class GOTPlayerData {
 
 	private long lastOnlineTime = -1L;
 
+
 	public GOTPlayerData(UUID uuid) {
 		playerUUID = uuid;
 		viewingFaction = GOTFaction.NORTH;
 		ftSinceTick = GOTLevelData.getWaypointCooldownMax() * 20;
+		dragonFireballSinceTick = GOTConfig.dragonFireballCooldown * 20;
 	}
 
 	private static ItemArmor.ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
@@ -241,6 +244,10 @@ public class GOTPlayerData {
 		quest.writeToNBT(nbt);
 		IMessage packet = new GOTPacketMiniquest(nbt, completed);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
+	}
+
+	public int getTimeSinceDragonFireball() {
+		return dragonFireballSinceTick;
 	}
 
 	public void setShowWaypoints(boolean flag) {
@@ -1458,6 +1465,10 @@ public class GOTPlayerData {
 		setTimeSinceFT(i, false);
 	}
 
+	public void setTimeSinceDragonFireball(int i) {
+		setTimeSinceDragonFireball(i, false);
+	}
+
 	public GOTMiniQuest getTrackingMiniQuest() {
 		if (trackingMiniQuestID == null) {
 			return null;
@@ -1858,6 +1869,9 @@ public class GOTPlayerData {
 		if (playerData.hasKey("FTSince")) {
 			ftSinceTick = playerData.getInteger("FTSince");
 		}
+		if (playerData.hasKey("DragonFireballSince")) {
+			dragonFireballSinceTick = playerData.getInteger("DragonFireballSince");
+		}
 		targetFTWaypoint = null;
 		uuidToMount = null;
 		if (playerData.hasKey("MountUUID")) {
@@ -2052,6 +2066,7 @@ public class GOTPlayerData {
 			markDirty();
 		}
 		setTimeSinceFT(ftSinceTick + 1);
+		setTimeSinceDragonFireball(dragonFireballSinceTick + 1);
 		if (targetFTWaypoint != null) {
 			if (entityplayer.isPlayerSleeping()) {
 				entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.inBed"));
@@ -2856,6 +2871,22 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				IMessage packet = new GOTPacketFTTimer(ftSinceTick);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
+			}
+		}
+	}
+
+	private void setTimeSinceDragonFireball(int i, boolean forceUpdate) {
+		int preTick = dragonFireballSinceTick;
+		dragonFireballSinceTick = Math.max(0, i);
+		boolean bigChange = (dragonFireballSinceTick == 0 || preTick == 0) && dragonFireballSinceTick != preTick || preTick < 0;
+		if (bigChange || isTimerAutosaveTick() || forceUpdate) {
+			markDirty();
+		}
+		if (bigChange || dragonFireballSinceTick % 5 == 0 || forceUpdate) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				IMessage packet = new GOTPacketDragonFireballTimer(dragonFireballSinceTick);
 				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
