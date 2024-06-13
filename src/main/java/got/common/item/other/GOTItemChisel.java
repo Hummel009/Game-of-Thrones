@@ -1,5 +1,7 @@
 package got.common.item.other;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
 import got.common.tileentity.GOTTileEntitySignCarved;
 import net.minecraft.block.Block;
@@ -9,7 +11,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTItemChisel extends Item {
 	private final Block signBlock;
@@ -47,5 +52,13 @@ public class GOTItemChisel extends Item {
 			return true;
 		}
 		return false;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	@SuppressWarnings("rawtypes")
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		list.add(StatCollector.translateToLocal("item.got.chisel1"));
+		list.add(StatCollector.translateToLocal("item.got.chisel2"));
 	}
 }

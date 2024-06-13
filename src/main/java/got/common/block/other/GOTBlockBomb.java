@@ -116,7 +116,7 @@ public class GOTBlockBomb extends Block {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int l, float f, float f1, float f2) {
 		if (entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() == GOTItems.fuse) {
-			onBlockDestroyedByPlayer(world, i, j, k, -1);
+			onBlockDestroyedByPlayer(world, i, j, k, -1, entityplayer);
 			world.setBlockToAir(i, j, k);
 			if (!world.isRemote) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useBomb);
@@ -137,11 +137,14 @@ public class GOTBlockBomb extends Block {
 
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int i, int j, int k, int meta) {
-		int meta1 = meta;
-		if (!world.isRemote && meta1 == -1) {
-			meta1 = world.getBlockMetadata(i, j, k);
-			GOTEntityBomb bomb = new GOTEntityBomb(world, i + 0.5f, j + 0.5f, k + 0.5f, null);
-			bomb.setBombStrengthLevel(meta1);
+		onBlockDestroyedByPlayer(world, i, j, k, meta, null);
+	}
+
+	private static void onBlockDestroyedByPlayer(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
+		if (!world.isRemote && meta == -1) {
+			int stength = world.getBlockMetadata(i, j, k);
+			GOTEntityBomb bomb = new GOTEntityBomb(world, i + 0.5f, j + 0.5f, k + 0.5f, entityplayer);
+			bomb.setBombStrengthLevel(stength);
 			bomb.setDroppedByPlayer(true);
 			world.spawnEntityInWorld(bomb);
 			world.playSoundAtEntity(bomb, "game.tnt.primed", 1.0f, 1.0f);
@@ -149,7 +152,7 @@ public class GOTBlockBomb extends Block {
 	}
 
 	@Override
-	public void onBlockExploded(World world, int i, int j, int k, Explosion explosion) {
+	public void onBlockDestroyedByExplosion(World world, int i, int j, int k, Explosion explosion) {
 		if (!world.isRemote) {
 			int meta = world.getBlockMetadata(i, j, k);
 			GOTEntityBomb bomb = new GOTEntityBomb(world, i + 0.5f, j + 0.5f, k + 0.5f, explosion.getExplosivePlacedBy());
@@ -158,12 +161,11 @@ public class GOTBlockBomb extends Block {
 			bomb.setDroppedByPlayer(true);
 			world.spawnEntityInWorld(bomb);
 		}
-		super.onBlockExploded(world, i, j, k, explosion);
 	}
 
 	@Override
 	public void onNeighborBlockChange(World world, int i, int j, int k, Block block) {
-		if (block.getMaterial() != Material.air && block.canProvidePower() && world.isBlockIndirectlyGettingPowered(i, j, k)) {
+		if (world.isBlockIndirectlyGettingPowered(i, j, k)) {
 			onBlockDestroyedByPlayer(world, i, j, k, -1);
 			world.setBlockToAir(i, j, k);
 		}

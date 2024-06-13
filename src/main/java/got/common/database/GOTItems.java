@@ -899,7 +899,7 @@ public class GOTItems {
 		furChestplate = new GOTItemArmor(GOTMaterial.FUR, 1);
 		furHelmet = new GOTItemArmor(GOTMaterial.FUR, 0);
 		furLeggings = new GOTItemArmor(GOTMaterial.FUR, 2);
-		fuse = new GOTItemDoubleTorch(GOTBlocks.fuse).setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
+		fuse = new GOTItemFuse();
 		gammon = new GOTItemFood(8, 0.8f, true);
 		gateGear = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		ghiscarBootsGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 3);

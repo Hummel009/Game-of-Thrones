@@ -1,7 +1,10 @@
 package got.common.entity.other.inanimate;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,6 +15,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityPebble extends EntityThrowable {
 	private boolean isSling;
+	private EntityLivingBase thrower;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPebble(World world) {
@@ -26,6 +30,7 @@ public class GOTEntityPebble extends EntityThrowable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPebble(World world, EntityLivingBase entityliving) {
 		super(world, entityliving);
+		thrower = entityliving;
 	}
 
 	@Override
@@ -63,6 +68,14 @@ public class GOTEntityPebble extends EntityThrowable {
 			motionX *= factor;
 			motionZ *= factor;
 			motionY += factor;
+
+			if (!worldObj.isRemote) {
+				if (thrower != null) {
+					EntityPlayer entityPlayer = (EntityPlayer) thrower;
+
+					GOTLevelData.getData(entityPlayer).addAchievement(GOTAchievement.throwSlingIntoWater);
+				}
+			}
 		}
 	}
 

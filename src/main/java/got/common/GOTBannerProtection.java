@@ -156,6 +156,27 @@ public class GOTBannerProtection {
 		};
 	}
 
+	public static IFilter forDragonFireball(EntityPlayer dragonRider) {
+		return new IFilter() {
+
+			@Override
+			public ProtectType protects(GOTEntityBanner banner) {
+				if (banner.isStructureProtection()) {
+					return ProtectType.STRUCTURE;
+				}
+				if (dragonRider == null) {
+					return ProtectType.FACTION;
+				}
+				return forPlayer(dragonRider, Permission.FULL).protects(banner);
+			}
+
+			@Override
+			@SuppressWarnings("EmptyMethod")
+			public void warnProtection(IChatComponent message) {
+			}
+		};
+	}
+
 	public static IFilter forTNT(EntityTNTPrimed bomb) {
 		return new IFilter() {
 
@@ -231,9 +252,9 @@ public class GOTBannerProtection {
 		List<GOTEntityBanner> banners = world.getEntitiesWithinAABB(GOTEntityBanner.class, searchCube);
 		if (!banners.isEmpty()) {
 			for (GOTEntityBanner banner : banners) {
-				ProtectType result;
+				ProtectType result = protectFilter.protects(banner);
 				AxisAlignedBB protectionCube = banner.createProtectionCube();
-				if (banner.isProtectingTerritory() && protectionCube.intersectsWith(searchCube) && protectionCube.intersectsWith(originCube) && (result = protectFilter.protects(banner)) != ProtectType.NONE) {
+				if (banner.isProtectingTerritory() && protectionCube.intersectsWith(searchCube) && protectionCube.intersectsWith(originCube) && result != ProtectType.NONE) {
 
 					if (result == ProtectType.FACTION) {
 						protectorName = banner.getBannerType().getFaction().factionName();

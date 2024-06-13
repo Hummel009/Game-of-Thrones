@@ -1702,9 +1702,9 @@ public class GOTBlocks {
 
 		/* food */
 
-		register(barrel, "barrel", GOTItemBarrel.class);
 		register(kebabBlock, "kebabBlock");
 		register(marzipanBlock, "marzipanBlock");
+		register(barrel, "barrel", GOTItemBarrel.class);
 
 		/* misc */
 

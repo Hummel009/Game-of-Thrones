@@ -1,13 +1,18 @@
 package got.common.item.other;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
 import got.common.entity.other.inanimate.GOTEntityPlowcart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.StatCollector;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTItemPlowcart extends Item {
 	public GOTItemPlowcart() {
@@ -27,5 +32,13 @@ public class GOTItemPlowcart extends Item {
 			}
 		}
 		return itemStackIn;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	@SuppressWarnings("rawtypes")
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		list.add(StatCollector.translateToLocal("item.got.plowcart1"));
+		list.add(StatCollector.translateToLocal("item.got.plowcart2"));
 	}
 }

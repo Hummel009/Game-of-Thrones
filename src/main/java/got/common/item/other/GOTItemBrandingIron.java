@@ -29,6 +29,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
 import java.util.UUID;
 
 public class GOTItemBrandingIron extends Item {
@@ -126,6 +127,15 @@ public class GOTItemBrandingIron extends Item {
 			return StatCollector.translateToLocalFormatted("item.got.brandingIron.named", name, brandName);
 		}
 		return StatCollector.translateToLocalFormatted("item.got.brandingIron.unnamed", name);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	@SuppressWarnings("rawtypes")
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		list.add(StatCollector.translateToLocal("item.got.branding_iron1"));
+		list.add(StatCollector.translateToLocal("item.got.branding_iron2"));
+		list.add(StatCollector.translateToLocal("item.got.branding_iron3"));
 	}
 
 	@Override

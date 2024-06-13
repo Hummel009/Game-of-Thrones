@@ -417,6 +417,8 @@ public class GOTAchievement {
 	public static GOTAchievement smoke;
 	public static GOTAchievement poisonBarrel;
 	public static GOTAchievement poisonMug;
+	public static GOTAchievement throwSlingIntoWater;
+	public static GOTAchievement throwConker;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 	private final Category category;
@@ -558,15 +560,9 @@ public class GOTAchievement {
 
 		//покрасить тюрбан
 		//украсить тюрбан
-		//яд инфа
-		//огни инфа
-		//банка бабочек инфа
-		//плуг и повозка инфа
-		//каштан - еда и оружие
-		//камешек по воде
-		//зубило
-		//факел инфа
-		//яйцо дракона инфа
+
+		throwConker = new GOTAchievement(Category.GENERAL, genId++, GOTItems.chestnut, "THROW_CONKER");
+		throwSlingIntoWater = new GOTAchievement(Category.GENERAL, genId++, GOTItems.sling, "THROW_SLING_INTO_WATER");
 		poisonMug = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bottlePoison, "POISON_MUG");
 		poisonBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bottlePoison, "POISON_BARREL");
 		smoke = new GOTAchievement(Category.GENERAL, genId++, GOTItems.pipe, "SMOKE");

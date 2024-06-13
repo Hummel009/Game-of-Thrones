@@ -78,7 +78,7 @@ public class GOTEntityDragonFireball extends EntityLargeFireball {
 				rayTrace.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, shootingEntity), 6.0f);
 			}
 			boolean doTerrainDamage = GOT.canGrief(worldObj);
-			worldObj.newExplosion(null, posX, posY, posZ, 15.0f, true, doTerrainDamage);
+			worldObj.newExplosion(shootingEntity, posX, posY, posZ, 10.0f, true, doTerrainDamage);
 			setDead();
 		}
 	}
@@ -207,6 +207,10 @@ public class GOTEntityDragonFireball extends EntityLargeFireball {
 
 	public void setPlayer(EntityPlayer player) {
 		this.player = player;
+	}
+
+	public EntityLivingBase getShootingEntity() {
+		return shootingEntity;
 	}
 }
 

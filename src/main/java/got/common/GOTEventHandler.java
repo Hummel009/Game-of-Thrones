@@ -714,6 +714,8 @@ public class GOTEventHandler {
 				protectFilter = GOTBannerProtection.forThrown((EntityThrowable) exploder);
 			} else if (exploder instanceof EntityTNTPrimed) {
 				protectFilter = GOTBannerProtection.forTNT((EntityTNTPrimed) exploder);
+			} else if (exploder instanceof EntityPlayer) {
+				protectFilter = GOTBannerProtection.forDragonFireball((EntityPlayer) exploder);
 			} else if (exploder instanceof EntityMinecartTNT) {
 				protectFilter = GOTBannerProtection.forTNTMinecart();
 			}

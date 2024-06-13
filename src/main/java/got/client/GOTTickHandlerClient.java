@@ -18,6 +18,7 @@ import got.client.sound.GOTMusicTicker;
 import got.client.sound.GOTMusicTrack;
 import got.common.*;
 import got.common.block.leaves.GOTBlockLeavesBase;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.enchant.GOTEnchantment;
@@ -664,6 +665,36 @@ public class GOTTickHandlerClient {
 		}
 		if (itemstack.getItem() == Item.getItemFromBlock(Blocks.monster_egg)) {
 			tooltip.set(0, EnumChatFormatting.RED + tooltip.get(0));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(Blocks.dragon_egg)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.dragon_egg"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(Blocks.cauldron)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.cauldron1"));
+			tooltip.add(StatCollector.translateToLocal("item.got.cauldron2"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(Blocks.anvil)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.anvil1"));
+			tooltip.add(StatCollector.translateToLocal("item.got.anvil2"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.beacon)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.beacon"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.birdCage) || itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.birdCageWood)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.bird_cage"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.butterflyJar)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.butterfly_jar"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.weaponRack)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.weapon_rack"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.millstone)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.millstone"));
+		}
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.kebabStand) || itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.kebabStandSand)) {
+			tooltip.add(StatCollector.translateToLocal("item.got.kebab_stand1"));
+			tooltip.add(StatCollector.translateToLocal("item.got.kebab_stand2"));
 		}
 		if (itemstack.getItem() instanceof GOTMaterialFinder) {
 			if (itemstack.getItem() != GOTItems.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {

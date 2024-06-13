@@ -1,5 +1,7 @@
 package got.common.item.other;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseConker;
 import got.common.entity.other.inanimate.GOTEntityConker;
@@ -24,6 +26,8 @@ public class GOTItemConker extends Item {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 			}
+
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.throwConker);
 		}
 		return itemstack;
 	}
