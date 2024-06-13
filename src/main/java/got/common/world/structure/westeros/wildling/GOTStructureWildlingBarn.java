@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.wildling;
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.entity.passive.*;
@@ -458,7 +458,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i19, 6, 1, Blocks.hay_block, 0);
 		}
 		for (int l = 0; l <= 10; ++l) {
-			GOTEntityHumanBase wife = new GOTEntityCrasterWife(world);
+			GOTEntityNPC wife = new GOTEntityCrasterWife(world);
 			if (random.nextBoolean()) {
 				wife.getFamilyInfo().setChild();
 			}

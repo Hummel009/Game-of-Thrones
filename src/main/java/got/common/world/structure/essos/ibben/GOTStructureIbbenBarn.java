@@ -4,6 +4,7 @@ import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.essos.ibben.GOTEntityIbbenFarmer;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -454,7 +455,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 			}
 			setBlockAndMetadata(world, i18, 6, 1, Blocks.hay_block, 0);
 		}
-		GOTEntityIbbenFarmer farmer = new GOTEntityIbbenFarmer(world);
+		GOTEntityNPC farmer = new GOTEntityIbbenFarmer(world);
 		spawnNPCAndSetHome(farmer, world, 0, 1, 8, 16);
 		return true;
 	}

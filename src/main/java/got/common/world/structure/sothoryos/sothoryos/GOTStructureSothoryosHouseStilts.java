@@ -3,6 +3,7 @@ package got.common.world.structure.sothoryos.sothoryos;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosShaman;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -153,7 +154,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 		setBlockAndMetadata(world, 1, 4, 2, Blocks.crafting_table, 0);
 		placeSothoryosTorch(world, -1, 5, -5);
 		placeSothoryosTorch(world, 1, 5, -5);
-		GOTEntitySothoryosShaman shaman = new GOTEntitySothoryosShaman(world);
+		GOTEntityNPC shaman = new GOTEntitySothoryosShaman(world);
 		spawnNPCAndSetHome(shaman, world, 0, 4, 0, 2);
 		return true;
 	}

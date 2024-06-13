@@ -2,6 +2,7 @@ package got.common.world.structure.sothoryos.sothoryos;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosChieftain;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -261,7 +262,7 @@ public class GOTStructureSothoryosTemple extends GOTStructureSothoryosHouse {
 		setBlockAndMetadata(world, 2, 6, 1, Blocks.torch, 1);
 		spawnItemFrame(world, -1, 6, 3, 2, new ItemStack(GOTBlocks.sarbacaneTrap));
 		spawnItemFrame(world, 1, 6, 3, 2, new ItemStack(GOTItems.sothoryosDagger));
-		GOTEntitySothoryosChieftain chieftain = new GOTEntitySothoryosChieftain(world);
+		GOTEntityNPC chieftain = new GOTEntitySothoryosChieftain(world);
 		spawnNPCAndSetHome(chieftain, world, 0, 5, 0, 8);
 		return true;
 	}

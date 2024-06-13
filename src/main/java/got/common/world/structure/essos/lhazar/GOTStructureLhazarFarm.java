@@ -2,6 +2,7 @@ package got.common.world.structure.essos.lhazar;
 
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.lhazar.GOTEntityLhazarFarmer;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -65,7 +66,7 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
 		generateStrScan(world, random, 0, 0, 0);
 		if (random.nextInt(4) == 0) {
-			GOTEntityLhazarFarmer farmer = new GOTEntityLhazarFarmer(world);
+			GOTEntityNPC farmer = new GOTEntityLhazarFarmer(world);
 			spawnNPCAndSetHome(farmer, world, 0, 1, -1, 8);
 		}
 		return true;

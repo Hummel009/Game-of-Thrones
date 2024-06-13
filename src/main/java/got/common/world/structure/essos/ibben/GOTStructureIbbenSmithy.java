@@ -2,6 +2,7 @@ package got.common.world.structure.essos.ibben;
 
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.GOTEntityIbbenBlacksmith;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -229,7 +230,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -8, 2, 3, rockSlabDoubleBlock, rockSlabDoubleMeta);
 		setBlockAndMetadata(world, -7, 2, 3, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, -6, 2, 3, rockSlabDoubleBlock, rockSlabDoubleMeta);
-		GOTEntityIbbenBlacksmith blacksmith = new GOTEntityIbbenBlacksmith(world);
+		GOTEntityNPC blacksmith = new GOTEntityIbbenBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 2, 0, 8);
 		return true;
 	}

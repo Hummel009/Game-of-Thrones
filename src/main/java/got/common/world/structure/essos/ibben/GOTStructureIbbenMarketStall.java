@@ -3,6 +3,7 @@ package got.common.world.structure.essos.ibben;
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -26,7 +27,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	protected abstract GOTEntityIbbenMan createTrader(World var1);
+	protected abstract GOTEntityNPC createTrader(World var1);
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -100,7 +101,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, 3, -2, fenceBlock, fenceMeta);
 		}
-		GOTEntityIbbenMan trader = createTrader(world);
+		GOTEntityNPC trader = createTrader(world);
 		spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 		return true;
 	}
@@ -115,7 +116,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenBaker(world);
 		}
 
@@ -138,7 +139,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenBlacksmith(world);
 		}
 
@@ -161,7 +162,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenBrewer(world);
 		}
 
@@ -184,7 +185,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenButcher(world);
 		}
 
@@ -206,7 +207,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenFarmer(world);
 		}
 
@@ -228,7 +229,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenFishmonger(world);
 		}
 
@@ -254,7 +255,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenFlorist(world);
 		}
 
@@ -277,7 +278,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenGoldsmith(world);
 		}
 
@@ -300,7 +301,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenLumberman(world);
 		}
 
@@ -323,7 +324,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenMason(world);
 		}
 
@@ -347,7 +348,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 
 		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIbbenMiner(world);
 		}
 

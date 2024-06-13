@@ -4,6 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.essos.jogos.GOTEntityJogos;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -67,17 +68,17 @@ public class GOTStructureJogosTent extends GOTStructureJogosBase {
 		setBlockAndMetadata(world, -4, 1, 2, bedBlock, 11);
 		placeWeaponRack(world, 0, 3, 5, 6, getRandomNomadWeapon(random));
 		placeChest(world, random, 0, 1, 5, GOTBlocks.chestBasket, 2, GOTChestContents.JOGOS);
-		GOTEntityJogos male = new GOTEntityJogos(world);
+		GOTEntityNPC male = new GOTEntityJogos(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		male.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(male, world, 0, 1, -1, 16);
-		GOTEntityJogos female = new GOTEntityJogos(world);
+		GOTEntityNPC female = new GOTEntityJogos(world);
 		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		female.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(female, world, 0, 1, -1, 16);
-		GOTEntityJogos child = new GOTEntityJogos(world);
+		GOTEntityNPC child = new GOTEntityJogos(world);
 		child.getFamilyInfo().setMale(random.nextBoolean());
 		child.getFamilyInfo().setChild();
 		child.setSpawnRidingHorse(false);

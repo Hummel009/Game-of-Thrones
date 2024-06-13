@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.north;
 
 import com.google.common.math.IntMath;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.north.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
@@ -35,7 +36,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthBaker(world);
 		}
 
@@ -58,7 +59,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthBlacksmith(world);
 		}
 
@@ -81,7 +82,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthBrewer(world);
 		}
 
@@ -104,7 +105,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthButcher(world);
 		}
 
@@ -130,7 +131,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthFarmer(world);
 		}
 
@@ -158,7 +159,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthFishmonger(world);
 		}
 
@@ -186,7 +187,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthFlorist(world);
 		}
 
@@ -209,7 +210,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthGoldsmith(world);
 		}
 
@@ -232,7 +233,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthLumberman(world);
 		}
 
@@ -256,7 +257,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthMason(world);
 		}
 
@@ -280,7 +281,7 @@ public abstract class GOTStructureNorthMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityNorthMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityNorthMiner(world);
 		}
 

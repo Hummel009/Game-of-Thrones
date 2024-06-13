@@ -3,6 +3,7 @@ package got.common.world.structure.westeros.gift;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.gift.GOTEntityGiftBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -249,7 +250,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -5, 1, -1, GOTBlocks.unsmeltery, 4);
 		setBlockAndMetadata(world, -5, 1, -3, Blocks.anvil, 1);
 		setBlockAndMetadata(world, -3, 1, -3, Blocks.anvil, 1);
-		GOTEntityGiftBlacksmith blacksmith = new GOTEntityGiftBlacksmith(world);
+		GOTEntityNPC blacksmith = new GOTEntityGiftBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 1, 0, 8);
 		return true;
 	}

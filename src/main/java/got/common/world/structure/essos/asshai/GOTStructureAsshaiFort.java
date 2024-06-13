@@ -8,6 +8,7 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
 import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiSpherebinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -162,16 +163,16 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 				placeMug(world, random, i1, 5, k1, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
 			}
 		}
-		GOTEntityAsshaiCaptain captain = new GOTEntityAsshaiCaptain(world);
+		GOTEntityNPC captain = new GOTEntityAsshaiCaptain(world);
 		captain.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(captain, world, 0, 1, 0, 8);
 		for (int l = 0; l < 5; ++l) {
-			GOTEntityAsshaiShadowbinder shadowbinder = new GOTEntityAsshaiShadowbinder(world);
+			GOTEntityNPC shadowbinder = new GOTEntityAsshaiShadowbinder(world);
 			shadowbinder.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(shadowbinder, world, 0, 1, 0, 32);
 		}
 		for (int l = 0; l < 2; ++l) {
-			GOTEntityAsshaiSpherebinder spherebinder = new GOTEntityAsshaiSpherebinder(world);
+			GOTEntityNPC spherebinder = new GOTEntityAsshaiSpherebinder(world);
 			spherebinder.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(spherebinder, world, 0, 1, 0, 32);
 		}

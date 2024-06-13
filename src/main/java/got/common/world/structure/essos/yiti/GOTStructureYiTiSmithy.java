@@ -5,6 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.essos.yiti.GOTEntityYiTiBlacksmith;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -319,7 +320,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -3, 3, 5, brickStairBlock, 0);
 		setBlockAndMetadata(world, -3, 1, 0, Blocks.anvil, 1);
 		setBlockAndMetadata(world, -5, 1, 0, Blocks.cauldron, 3);
-		GOTEntityYiTiBlacksmith blacksmith = new GOTEntityYiTiBlacksmith(world);
+		GOTEntityNPC blacksmith = new GOTEntityYiTiBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 1, 0, 16);
 		return true;
 	}

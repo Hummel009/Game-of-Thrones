@@ -21,14 +21,14 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockConcretePowder extends BlockFalling {
+	@SideOnly(Side.CLIENT)
+	private IIcon[] concretePowderIcons;
+
 	public GOTBlockConcretePowder() {
 		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(0.5f);
 		setStepSound(soundTypeSand);
 	}
-
-	@SideOnly(Side.CLIENT)
-	private IIcon[] concretePowderIcons;
 
 	@Override
 	public int damageDropped(int i) {

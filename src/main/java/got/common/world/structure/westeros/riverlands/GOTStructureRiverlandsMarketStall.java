@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.riverlands;
 
 import com.google.common.math.IntMath;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.riverlands.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
@@ -35,7 +36,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsBaker(world);
 		}
 
@@ -58,7 +59,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsBlacksmith(world);
 		}
 
@@ -81,7 +82,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsBrewer(world);
 		}
 
@@ -104,7 +105,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsButcher(world);
 		}
 
@@ -130,7 +131,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsFarmer(world);
 		}
 
@@ -158,7 +159,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsFishmonger(world);
 		}
 
@@ -186,7 +187,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsFlorist(world);
 		}
 
@@ -209,7 +210,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsGoldsmith(world);
 		}
 
@@ -232,7 +233,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsLumberman(world);
 		}
 
@@ -256,7 +257,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsMason(world);
 		}
 
@@ -280,7 +281,7 @@ public abstract class GOTStructureRiverlandsMarketStall extends GOTStructureWest
 		}
 
 		@Override
-		public GOTEntityRiverlandsMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityRiverlandsMiner(world);
 		}
 

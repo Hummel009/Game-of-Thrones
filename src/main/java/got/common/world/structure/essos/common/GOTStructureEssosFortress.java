@@ -146,7 +146,7 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 		GOTEntityNPC captain = getGeneral(world);
 		captain.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(captain, world, 0, 1, 4, 8);
-		GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
+		GOTEntityNPC priest = new GOTEntityRedPriest(world);
 		priest.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(priest, world, 0, 1, 4, 8);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);

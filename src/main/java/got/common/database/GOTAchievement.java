@@ -558,9 +558,6 @@ public class GOTAchievement {
 		useBanner = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banner, "USE_BANNER");
 		useButterflyJar = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.butterflyJar, "USE_BUTTERFLY_JAR");
 
-		//покрасить тюрбан
-		//украсить тюрбан
-
 		throwConker = new GOTAchievement(Category.GENERAL, genId++, GOTItems.chestnut, "THROW_CONKER");
 		throwSlingIntoWater = new GOTAchievement(Category.GENERAL, genId++, GOTItems.sling, "THROW_SLING_INTO_WATER");
 		poisonMug = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bottlePoison, "POISON_MUG");

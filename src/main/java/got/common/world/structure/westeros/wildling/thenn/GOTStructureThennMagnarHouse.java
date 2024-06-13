@@ -2,6 +2,7 @@ package got.common.world.structure.westeros.wildling.thenn;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennMagnar;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -323,7 +324,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, -2, 1, 2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 2, 1, 3, Blocks.furnace, 5);
 		placeChest(world, random, 2, 1, 2, 5, GOTChestContents.BEYOND_WALL);
-		GOTEntityThennMagnar chieftain = new GOTEntityThennMagnar(world);
+		GOTEntityNPC chieftain = new GOTEntityThennMagnar(world);
 		spawnNPCAndSetHome(chieftain, world, 0, 1, 0, 8);
 		return true;
 	}

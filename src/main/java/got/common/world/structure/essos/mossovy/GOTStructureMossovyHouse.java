@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -170,15 +171,15 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		if (random.nextBoolean()) {
 			spawnItemFrame(world, 2, 3, 0, 3, new ItemStack(Items.clock));
 		}
-		GOTEntityMossovyMan male = new GOTEntityMossovyMan(world);
+		GOTEntityNPC male = new GOTEntityMossovyMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
-		GOTEntityMossovyMan female = new GOTEntityMossovyMan(world);
+		GOTEntityNPC female = new GOTEntityMossovyMan(world);
 		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
-		GOTEntityMossovyMan child = new GOTEntityMossovyMan(world);
+		GOTEntityNPC child = new GOTEntityMossovyMan(world);
 		child.getFamilyInfo().setMale(random.nextBoolean());
 		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);

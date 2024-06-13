@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -120,7 +121,7 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		placeBarrel(world, random, -1, 2, 7, 2, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, -3, 1, 7, 4, GOTChestContents.MOSSOVY);
 		placeWeaponRack(world, 0, 2, 3, 6, getRandomWeapon(random));
-		GOTEntityMossovyMan stabler = new GOTEntityMossovyMan(world);
+		GOTEntityNPC stabler = new GOTEntityMossovyMan(world);
 		spawnNPCAndSetHome(stabler, world, 0, 1, -1, 16);
 		spawnHorse(world, random, -6, 1, -2);
 		spawnHorse(world, random, 6, 1, -2);

@@ -6,6 +6,7 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.other.GOTEntityLightSkinTramp;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanBartender;
 import got.common.item.other.GOTItemBanner;
@@ -121,7 +122,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 			placeHillmanItemFrame(world, random, -3, 2, k1, 1);
 			placeHillmanItemFrame(world, random, 3, 2, k1, 3);
 		}
-		GOTEntityHillmanBartender bartender = new GOTEntityHillmanBartender(world);
+		GOTEntityNPC bartender = new GOTEntityHillmanBartender(world);
 		if (random.nextBoolean()) {
 			spawnNPCAndSetHome(bartender, world, 5, 1, -4, 2);
 		} else {
@@ -129,7 +130,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 		}
 		int men = MathHelper.getRandomIntegerInRange(random, 3, 8);
 		for (int l = 0; l < men; ++l) {
-			GOTEntityHillman man = new GOTEntityHillman(world);
+			GOTEntityNPC man = new GOTEntityHillman(world);
 			spawnNPCAndSetHome(man, world, 0, 1, 0, 16);
 		}
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);

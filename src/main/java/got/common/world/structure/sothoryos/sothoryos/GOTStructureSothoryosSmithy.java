@@ -4,6 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosSmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -107,7 +108,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		placeSothoryosTorch(world, 4, 2, -4);
 		placeWeaponRack(world, -3, -2, 2, 5, getRandomSothoryosWeapon(random));
 		placeArmorStand(world, 3, -3, 2, 1, new ItemStack[]{null, new ItemStack(GOTItems.sothoryosChestplate), null, null});
-		GOTEntitySothoryosSmith smith = new GOTEntitySothoryosSmith(world);
+		GOTEntityNPC smith = new GOTEntitySothoryosSmith(world);
 		spawnNPCAndSetHome(smith, world, 0, -3, 3, 12);
 		return true;
 	}

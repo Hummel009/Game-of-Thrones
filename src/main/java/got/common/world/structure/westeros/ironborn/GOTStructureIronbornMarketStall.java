@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.ironborn;
 
 import com.google.common.math.IntMath;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.ironborn.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
@@ -35,7 +36,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornBaker(world);
 		}
 
@@ -58,7 +59,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornBlacksmith(world);
 		}
 
@@ -81,7 +82,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornBrewer(world);
 		}
 
@@ -104,7 +105,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornButcher(world);
 		}
 
@@ -130,7 +131,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornFarmer(world);
 		}
 
@@ -158,7 +159,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornFishmonger(world);
 		}
 
@@ -186,7 +187,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornFlorist(world);
 		}
 
@@ -209,7 +210,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornGoldsmith(world);
 		}
 
@@ -232,7 +233,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornLumberman(world);
 		}
 
@@ -256,7 +257,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornMason(world);
 		}
 
@@ -280,7 +281,7 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 
 		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityIronbornMiner(world);
 		}
 

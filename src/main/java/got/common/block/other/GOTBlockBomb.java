@@ -42,6 +42,17 @@ public class GOTBlockBomb extends Block {
 		return (meta & 8) != 0;
 	}
 
+	private static void onBlockDestroyedByPlayer(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
+		if (!world.isRemote && meta == -1) {
+			int stength = world.getBlockMetadata(i, j, k);
+			GOTEntityBomb bomb = new GOTEntityBomb(world, i + 0.5f, j + 0.5f, k + 0.5f, entityplayer);
+			bomb.setBombStrengthLevel(stength);
+			bomb.setDroppedByPlayer(true);
+			world.spawnEntityInWorld(bomb);
+			world.playSoundAtEntity(bomb, "game.tnt.primed", 1.0f, 1.0f);
+		}
+	}
+
 	@Override
 	public boolean canDropFromExplosion(Explosion explosion) {
 		return false;
@@ -138,17 +149,6 @@ public class GOTBlockBomb extends Block {
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int i, int j, int k, int meta) {
 		onBlockDestroyedByPlayer(world, i, j, k, meta, null);
-	}
-
-	private static void onBlockDestroyedByPlayer(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
-		if (!world.isRemote && meta == -1) {
-			int stength = world.getBlockMetadata(i, j, k);
-			GOTEntityBomb bomb = new GOTEntityBomb(world, i + 0.5f, j + 0.5f, k + 0.5f, entityplayer);
-			bomb.setBombStrengthLevel(stength);
-			bomb.setDroppedByPlayer(true);
-			world.spawnEntityInWorld(bomb);
-			world.playSoundAtEntity(bomb, "game.tnt.primed", 1.0f, 1.0f);
-		}
 	}
 
 	@Override

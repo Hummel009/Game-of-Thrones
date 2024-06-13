@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarlord;
@@ -127,7 +128,7 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 		placeWallBanner(world, 3, 4, -13, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, 0, 6, 8, GOTItemBanner.BannerType.SUMMER, 2);
 		setBlockAndMetadata(world, 7, 1, 5, GOTBlocks.commandTable, 0);
-		GOTEntitySummerWarlord warlord = new GOTEntitySummerWarlord(world);
+		GOTEntityNPC warlord = new GOTEntitySummerWarlord(world);
 		warlord.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(warlord, world, 0, 3, 7, 4);
 		int warriors = 4 + random.nextInt(4);

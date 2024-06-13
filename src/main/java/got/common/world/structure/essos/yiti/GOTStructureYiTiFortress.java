@@ -6,6 +6,7 @@ import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.yiti.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -557,7 +558,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -10, 2, -8, Blocks.furnace, 4);
 		setBlockAndMetadata(world, -7, 1, -6, Blocks.anvil, 1);
 		setBlockAndMetadata(world, -6, 1, -7, Blocks.cauldron, 3);
-		GOTEntityYiTiBlacksmith blacksmith = new GOTEntityYiTiBlacksmith(world);
+		GOTEntityNPC blacksmith = new GOTEntityYiTiBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, -8, 1, -8, 8);
 		for (j1 = 1; j1 <= 4; ++j1) {
 			setBlockAndMetadata(world, 6, j1, -6, woodBeamBlock, woodBeamMeta);
@@ -670,10 +671,10 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 			horse.detachHome();
 			leashEntityTo(horse, world, i110, 2, 6);
 		}
-		GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
+		GOTEntityNPC priest = new GOTEntityRedPriest(world);
 		priest.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
-		GOTEntityYiTiShogune captain = new GOTEntityYiTiShogune(world);
+		GOTEntityNPC captain = new GOTEntityYiTiShogune(world);
 		captain.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
 		int soldiers = 4 + random.nextInt(4);

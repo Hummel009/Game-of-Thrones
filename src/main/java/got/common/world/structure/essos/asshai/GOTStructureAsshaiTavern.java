@@ -7,6 +7,7 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -745,11 +746,11 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		}
 		setBlockAndMetadata(world, -1, 11, 7, GOTBlocks.chandelier, 12);
 		setBlockAndMetadata(world, 7, 11, 7, GOTBlocks.chandelier, 12);
-		GOTEntityAsshaiAlchemist bartender = new GOTEntityAsshaiAlchemist(world);
+		GOTEntityNPC bartender = new GOTEntityAsshaiAlchemist(world);
 		spawnNPCAndSetHome(bartender, world, -4, 1, 7, 2);
 		int men = 6 + random.nextInt(7);
 		for (int l = 0; l < men; ++l) {
-			GOTEntityAsshaiMan asshaiMan = new GOTEntityAsshaiMan(world);
+			GOTEntityNPC asshaiMan = new GOTEntityAsshaiMan(world);
 			spawnNPCAndSetHome(asshaiMan, world, 2, 1, 7, 16);
 		}
 		return true;

@@ -3,6 +3,7 @@ package got.common.world.structure.essos.yiti;
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.GOTEntityYiTiFarmer;
 import got.common.entity.essos.yiti.GOTEntityYiTiFarmhand;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
@@ -199,7 +200,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 				farmhand.setSeedsItem(seedItem);
 			}
 			if (random.nextInt(3) == 0) {
-				GOTEntityYiTiFarmer farmer = new GOTEntityYiTiFarmer(world);
+				GOTEntityNPC farmer = new GOTEntityYiTiFarmer(world);
 				spawnNPCAndSetHome(farmer, world, 0, 1, -1, 8);
 			}
 			return true;

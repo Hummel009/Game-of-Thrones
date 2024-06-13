@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.arryn;
 
 import com.google.common.math.IntMath;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.arryn.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
@@ -35,7 +36,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynBaker(world);
 		}
 
@@ -58,7 +59,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynBlacksmith(world);
 		}
 
@@ -81,7 +82,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynBrewer(world);
 		}
 
@@ -104,7 +105,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynButcher(world);
 		}
 
@@ -130,7 +131,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynFarmer(world);
 		}
 
@@ -158,7 +159,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynFishmonger(world);
 		}
 
@@ -186,7 +187,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynFlorist(world);
 		}
 
@@ -209,7 +210,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynGoldsmith(world);
 		}
 
@@ -232,7 +233,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynLumberman(world);
 		}
 
@@ -256,7 +257,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynMason(world);
 		}
 
@@ -280,7 +281,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityArrynMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityArrynMiner(world);
 		}
 

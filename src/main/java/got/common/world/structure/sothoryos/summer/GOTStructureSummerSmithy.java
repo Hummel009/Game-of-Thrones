@@ -4,6 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.summer.GOTEntitySummerBlacksmith;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -89,7 +90,7 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		placeFlowerPot(world, -4, 2, 3, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -8, 1, 1, bedBlock, 3);
 		setBlockAndMetadata(world, -9, 1, 1, bedBlock, 11);
-		GOTEntitySummerBlacksmith smith = new GOTEntitySummerBlacksmith(world);
+		GOTEntityNPC smith = new GOTEntitySummerBlacksmith(world);
 		spawnNPCAndSetHome(smith, world, 0, 1, 0, 8);
 		return true;
 	}

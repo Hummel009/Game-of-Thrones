@@ -488,21 +488,21 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 3, 3, 6, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, -5, 1, 2, GOTBlocks.commandTable, 0);
 		if (hasMaester()) {
-			GOTEntityMaester maester = new GOTEntityMaester(world);
+			GOTEntityNPC maester = new GOTEntityMaester(world);
 			maester.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(maester, world, 0, 1, 0, 12);
 		}
 		if (hasSepton()) {
-			GOTEntitySepton septon = new GOTEntitySepton(world);
+			GOTEntityNPC septon = new GOTEntitySepton(world);
 			septon.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(septon, world, 0, 1, 0, 12);
 		}
 		if (kingdom == Kingdom.DRAGONSTONE) {
-			GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
+			GOTEntityNPC priest = new GOTEntityRedPriest(world);
 			priest.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
 		} else if (kingdom == Kingdom.IRONBORN) {
-			GOTEntityIronbornPriest priest = new GOTEntityIronbornPriest(world);
+			GOTEntityNPC priest = new GOTEntityIronbornPriest(world);
 			priest.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
 		} else if (kingdom == Kingdom.CROWNLANDS_RED) {

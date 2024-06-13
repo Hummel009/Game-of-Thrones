@@ -5,6 +5,7 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.essos.lhazar.GOTEntityLhazarBartender;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -122,11 +123,11 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 			placeFoodOrDrink(world, random, i12, 2, -3);
 			placeFoodOrDrink(world, random, i12, 2, 3);
 		}
-		GOTEntityLhazarBartender bartender = new GOTEntityLhazarBartender(world);
+		GOTEntityNPC bartender = new GOTEntityLhazarBartender(world);
 		spawnNPCAndSetHome(bartender, world, 0, 1, 0, 4);
 		int men = MathHelper.getRandomIntegerInRange(random, 3, 8);
 		for (int l = 0; l < men; ++l) {
-			GOTEntityLhazarMan haradrim = new GOTEntityLhazarMan(world);
+			GOTEntityNPC haradrim = new GOTEntityLhazarMan(world);
 			spawnNPCAndSetHome(haradrim, world, random.nextBoolean() ? -5 : 5, 1, 0, 16);
 		}
 		for (i1 = -1; i1 <= 1; ++i1) {

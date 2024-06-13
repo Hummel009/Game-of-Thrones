@@ -2,6 +2,7 @@ package got.common.world.structure.essos.lhazar;
 
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -129,7 +130,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 				setBlockAndMetadata(world, i1, j1 - 1, k1, plankSlabBlock, plankSlabMeta | 8);
 			}
 		}
-		GOTEntityLhazarMan lhazarman = new GOTEntityLhazarMan(world);
+		GOTEntityNPC lhazarman = new GOTEntityLhazarMan(world);
 		spawnNPCAndSetHome(lhazarman, world, 0, 7, -1, 4);
 		return true;
 	}

@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.dorne;
 
 import com.google.common.math.IntMath;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.dorne.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
@@ -35,7 +36,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneBaker(world);
 		}
 
@@ -58,7 +59,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneBlacksmith(world);
 		}
 
@@ -81,7 +82,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneBrewer(world);
 		}
 
@@ -104,7 +105,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneButcher(world);
 		}
 
@@ -130,7 +131,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneFarmer(world);
 		}
 
@@ -158,7 +159,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneFishmonger(world);
 		}
 
@@ -186,7 +187,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneFlorist(world);
 		}
 
@@ -209,7 +210,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneGoldsmith(world);
 		}
 
@@ -232,7 +233,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneLumberman(world);
 		}
 
@@ -256,7 +257,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneMason(world);
 		}
 
@@ -280,7 +281,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityDorneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDorneMiner(world);
 		}
 

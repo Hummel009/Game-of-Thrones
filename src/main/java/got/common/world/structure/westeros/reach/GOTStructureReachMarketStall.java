@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.reach;
 
 import com.google.common.math.IntMath;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.reach.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
@@ -35,7 +36,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachBaker(world);
 		}
 
@@ -58,7 +59,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachBlacksmith(world);
 		}
 
@@ -81,7 +82,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachBrewer(world);
 		}
 
@@ -104,7 +105,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachButcher(world);
 		}
 
@@ -130,7 +131,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachFarmer(world);
 		}
 
@@ -158,7 +159,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachFishmonger(world);
 		}
 
@@ -186,7 +187,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachFlorist(world);
 		}
 
@@ -209,7 +210,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachGoldsmith(world);
 		}
 
@@ -232,7 +233,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachLumberman(world);
 		}
 
@@ -256,7 +257,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachMason(world);
 		}
 
@@ -280,7 +281,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 
 		@Override
-		public GOTEntityReachMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityReachMiner(world);
 		}
 

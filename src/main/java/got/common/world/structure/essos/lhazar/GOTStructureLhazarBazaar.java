@@ -5,6 +5,7 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.essos.lhazar.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
@@ -111,7 +112,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		for (int i1 : new int[]{-7, 7}) {
 			j1 = 1;
 			int k1 = -11;
-			GOTEntityLhazarWarrior guard = new GOTEntityLhazarWarrior(world);
+			GOTEntityNPC guard = new GOTEntityLhazarWarrior(world);
 			guard.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(guard, world, i1, j1, k1, 4);
 		}
@@ -149,7 +150,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			placePlateItem(world, random, 1, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
 			setBlockAndMetadata(world, 3, 2, 2, GOTBlocks.bananaCake, 0);
 			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTItems.rollingPin));
-			GOTEntityLhazarBaker trader = new GOTEntityLhazarBaker(world);
+			GOTEntityNPC trader = new GOTEntityLhazarBaker(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -169,7 +170,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
 			placeWeaponRack(world, 0, 2, 2, 1, getRandomlhazarWeapon(random));
 			placeWeaponRack(world, 3, 2, 2, 3, getRandomlhazarWeapon(random));
-			GOTEntityLhazarBlacksmith trader = new GOTEntityLhazarBlacksmith(world);
+			GOTEntityNPC trader = new GOTEntityLhazarBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -190,7 +191,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			placeMug(world, random, 0, 2, 2, 3, GOTFoods.NOMAD_DRINK);
 			placeMug(world, random, 3, 2, 1, 1, GOTFoods.NOMAD_DRINK);
 			placeFlowerPot(world, 2, 2, 3, getRandomFlower(world, random));
-			GOTEntityLhazarBrewer trader = new GOTEntityLhazarBrewer(world);
+			GOTEntityNPC trader = new GOTEntityLhazarBrewer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -210,7 +211,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			placePlateItem(world, random, 0, 2, 2, GOTBlocks.woodPlate, new ItemStack(GOTItems.camelRaw, 1 + random.nextInt(3)), true);
 			placePlateItem(world, random, 3, 2, 1, GOTBlocks.woodPlate, new ItemStack(GOTItems.muttonRaw, 1 + random.nextInt(3)), true);
 			placeSkull(world, random, 2, 2, 3);
-			GOTEntityLhazarButcher trader = new GOTEntityLhazarButcher(world);
+			GOTEntityNPC trader = new GOTEntityLhazarButcher(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -230,7 +231,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 1, 2, 3, Blocks.hay_block, 0);
 			placePlateItem(world, random, 3, 2, 1, GOTBlocks.woodPlate, new ItemStack(GOTItems.orange, 1 + random.nextInt(3)), true);
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
-			GOTEntityLhazarFarmer trader = new GOTEntityLhazarFarmer(world);
+			GOTEntityNPC trader = new GOTEntityLhazarFarmer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -251,7 +252,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			placePlateItem(world, random, 0, 2, 2, GOTBlocks.woodPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
 			placePlateItem(world, random, 3, 2, 1, GOTBlocks.woodPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			placeWeaponRack(world, 1, 2, 3, 0, new ItemStack(Items.fishing_rod));
-			GOTEntityLhazarFishmonger trader = new GOTEntityLhazarFishmonger(world);
+			GOTEntityNPC trader = new GOTEntityLhazarFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -270,7 +271,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.birdCage, 1);
 			setBlockAndMetadata(world, 2, 3, 2, GOTBlocks.bronzeBars, 0);
 			placeFlowerPot(world, 0, 2, 1, getRandomFlower(world, random));
-			GOTEntityLhazarGoldsmith trader = new GOTEntityLhazarGoldsmith(world);
+			GOTEntityNPC trader = new GOTEntityLhazarGoldsmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -290,7 +291,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.wood8, 3);
 			placeFlowerPot(world, 0, 2, 2, new ItemStack(Blocks.sapling, 1, 4));
 			placeFlowerPot(world, 3, 2, 1, new ItemStack(GOTBlocks.sapling8, 1, 3));
-			GOTEntityLhazarLumberman trader = new GOTEntityLhazarLumberman(world);
+			GOTEntityNPC trader = new GOTEntityLhazarLumberman(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -310,7 +311,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.brick3, 13);
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
 			placeWeaponRack(world, 3, 2, 2, 3, new ItemStack(GOTItems.bronzePickaxe));
-			GOTEntityLhazarMason trader = new GOTEntityLhazarMason(world);
+			GOTEntityNPC trader = new GOTEntityLhazarMason(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}
@@ -330,7 +331,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.oreTin, 0);
 			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.oreCopper, 0);
 			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTItems.bronzePickaxe));
-			GOTEntityLhazarMiner trader = new GOTEntityLhazarMiner(world);
+			GOTEntityNPC trader = new GOTEntityLhazarMiner(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}

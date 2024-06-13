@@ -6,9 +6,9 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBartender;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
-import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.other.GOTEntityLightSkinTramp;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -122,11 +122,11 @@ public class GOTStructureMossovyTavern extends GOTStructureMossovyBase {
 		placeSign(world, -1, 4, -6, Blocks.wall_sign, 4, tavernNameSign);
 		placeSign(world, -3, 4, -6, Blocks.wall_sign, 5, tavernNameSign);
 
-		GOTEntityMossovyBartender innkeeper = new GOTEntityMossovyBartender(world);
+		GOTEntityNPC innkeeper = new GOTEntityMossovyBartender(world);
 		spawnNPCAndSetHome(innkeeper, world, -5, 1, 0, 4);
 		int men = 8 + random.nextInt(6);
 		for (int l = 0; l < men; ++l) {
-			GOTEntityHumanBase mossovylander = new GOTEntityMossovyMan(world);
+			GOTEntityNPC mossovylander = new GOTEntityMossovyMan(world);
 			spawnNPCAndSetHome(mossovylander, world, -2, 1, 0, 16);
 		}
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, -2, 1, 0, 16);

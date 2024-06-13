@@ -5,6 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -217,7 +218,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 		}
 		int men = 1 + random.nextInt(2);
 		for (int l = 0; l < men; ++l) {
-			GOTEntityYiTiMan yitish = new GOTEntityYiTiMan(world);
+			GOTEntityNPC yitish = new GOTEntityYiTiMan(world);
 			spawnNPCAndSetHome(yitish, world, 0, 1, 3, 8);
 		}
 		return true;

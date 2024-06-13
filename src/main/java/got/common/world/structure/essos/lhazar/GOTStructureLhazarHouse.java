@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -82,15 +83,15 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 			}
 			placeMug(world, random, i1, j12, k1, 3, GOTFoods.NOMAD_DRINK);
 		}
-		GOTEntityLhazarMan male = new GOTEntityLhazarMan(world);
+		GOTEntityNPC male = new GOTEntityLhazarMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 0, 0, 16);
-		GOTEntityLhazarMan female = new GOTEntityLhazarMan(world);
+		GOTEntityNPC female = new GOTEntityLhazarMan(world);
 		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 0, 0, 16);
-		GOTEntityLhazarMan child = new GOTEntityLhazarMan(world);
+		GOTEntityNPC child = new GOTEntityLhazarMan(world);
 		child.getFamilyInfo().setMale(random.nextBoolean());
 		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 0, 0, 16);

@@ -1,6 +1,7 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
 import got.common.database.GOTBlocks;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmer;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmhand;
 import net.minecraft.block.Block;
@@ -97,7 +98,7 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 			}
 		}
 		if (random.nextInt(3) == 0) {
-			GOTEntitySothoryosFarmer farmer = new GOTEntitySothoryosFarmer(world);
+			GOTEntityNPC farmer = new GOTEntitySothoryosFarmer(world);
 			spawnNPCAndSetHome(farmer, world, 0, 2, 1, 4);
 		}
 		GOTEntitySothoryosFarmhand farmhand1 = new GOTEntitySothoryosFarmhand(world);

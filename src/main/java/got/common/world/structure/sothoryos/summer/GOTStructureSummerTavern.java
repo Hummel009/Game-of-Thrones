@@ -4,6 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.summer.GOTEntitySummerBartender;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.item.other.GOTItemBanner;
@@ -150,11 +151,11 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			placeWallBanner(world, 0, 6, 4, GOTItemBanner.BannerType.SUMMER, 2);
 			placeWallBanner(world, -9, 5, 0, GOTItemBanner.BannerType.SUMMER, 1);
 			placeWallBanner(world, 9, 5, 0, GOTItemBanner.BannerType.SUMMER, 3);
-			GOTEntitySummerBartender bartender = new GOTEntitySummerBartender(world);
+			GOTEntityNPC bartender = new GOTEntitySummerBartender(world);
 			spawnNPCAndSetHome(bartender, world, -10, 1, 0, 4);
 			int numnpc = MathHelper.getRandomIntegerInRange(random, 3, 8);
 			for (int l = 0; l < numnpc; ++l) {
-				GOTEntitySummerMan npc = new GOTEntitySummerMan(world);
+				GOTEntityNPC npc = new GOTEntitySummerMan(world);
 				spawnNPCAndSetHome(npc, world, 0, 1, 0, 16);
 			}
 		}

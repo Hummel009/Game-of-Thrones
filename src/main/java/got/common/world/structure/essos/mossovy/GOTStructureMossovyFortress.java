@@ -7,6 +7,7 @@ import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBlacksmith;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -372,7 +373,7 @@ public class GOTStructureMossovyFortress extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, -9, 2, -5, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, -5, Blocks.anvil, 1);
 		setBlockAndMetadata(world, -5, 1, -6, Blocks.cauldron, 3);
-		GOTEntityMossovyBlacksmith blacksmith = new GOTEntityMossovyBlacksmith(world);
+		GOTEntityNPC blacksmith = new GOTEntityMossovyBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, -4, 1, -4, 8);
 		for (k12 = 5; k12 <= 9; ++k12) {
 			for (i12 = -9; i12 <= -5; ++i12) {

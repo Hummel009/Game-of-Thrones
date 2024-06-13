@@ -196,15 +196,15 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 					break;
 			}
 		} else {
-			GOTEntityNorthHillman male = new GOTEntityNorthHillman(world);
+			GOTEntityNPC male = new GOTEntityNorthHillman(world);
 			male.getFamilyInfo().setMale(true);
 			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, 0, 8);
-			GOTEntityNorthHillman female = new GOTEntityNorthHillman(world);
+			GOTEntityNPC female = new GOTEntityNorthHillman(world);
 			female.getFamilyInfo().setMale(false);
 			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, 0, 8);
-			GOTEntityNorthHillman child = new GOTEntityNorthHillman(world);
+			GOTEntityNPC child = new GOTEntityNorthHillman(world);
 			child.getFamilyInfo().setMale(random.nextBoolean());
 			child.getFamilyInfo().setChild();
 			spawnNPCAndSetHome(child, world, 0, 1, 0, 8);

@@ -9,6 +9,7 @@ import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenBlacksmith;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarlord;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -373,7 +374,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -9, 2, -5, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, -5, GOTBlocks.tableIbben, 1);
 		setBlockAndMetadata(world, -5, 1, -6, Blocks.cauldron, 3);
-		GOTEntityIbbenBlacksmith blacksmith = new GOTEntityIbbenBlacksmith(world);
+		GOTEntityNPC blacksmith = new GOTEntityIbbenBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, -4, 1, -4, 8);
 		for (k12 = 5; k12 <= 9; ++k12) {
 			for (i14 = -9; i14 <= -5; ++i14) {
@@ -474,7 +475,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		}
 		setBlockAndMetadata(world, 0, 1, 9, GOTBlocks.commandTable, 0);
 		placeWallBanner(world, 0, 3, 11, bannerType, 2);
-		GOTEntityIbbenWarlord marshal = new GOTEntityIbbenWarlord(world);
+		GOTEntityNPC marshal = new GOTEntityIbbenWarlord(world);
 		marshal.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(marshal, world, 0, 1, 0, 8);
 		for (int l = 0; l < 8; ++l) {

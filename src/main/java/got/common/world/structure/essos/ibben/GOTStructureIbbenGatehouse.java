@@ -1,6 +1,7 @@
 package got.common.world.structure.essos.ibben;
 
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -165,7 +166,7 @@ public class GOTStructureIbbenGatehouse extends GOTStructureIbbenBase {
 		for (int i12 : new int[]{-3, 3}) {
 			j1 = 6;
 			int k14 = 0;
-			GOTEntityIbbenWarrior guard = new GOTEntityIbbenWarrior(world);
+			GOTEntityNPC guard = new GOTEntityIbbenWarrior(world);
 			spawnNPCAndSetHome(guard, world, i12, j1, k14, 8);
 		}
 		for (int k15 = 3; k15 <= 4; ++k15) {

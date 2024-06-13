@@ -4,6 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -69,17 +70,17 @@ public class GOTStructureDothrakiTentLarge extends GOTStructureDothrakiBase {
 		setBlockAndMetadata(world, -4, 1, 5, bedBlock, 8);
 		placeWeaponRack(world, 0, 3, 6, 6, getRandomNomadWeapon(random));
 		placeChest(world, random, -4, 1, -5, GOTBlocks.chestBasket, 3, GOTChestContents.DOTHRAKI);
-		GOTEntityDothraki male = new GOTEntityDothraki(world);
+		GOTEntityNPC male = new GOTEntityDothraki(world);
 		male.getFamilyInfo().setMale(true);
 		male.setSpawnRidingHorse(false);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
-		GOTEntityDothraki female = new GOTEntityDothraki(world);
+		GOTEntityNPC female = new GOTEntityDothraki(world);
 		female.getFamilyInfo().setMale(false);
 		female.setSpawnRidingHorse(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
-		GOTEntityDothraki child = new GOTEntityDothraki(world);
+		GOTEntityNPC child = new GOTEntityDothraki(world);
 		child.getFamilyInfo().setMale(random.nextBoolean());
 		child.setSpawnRidingHorse(false);
 		child.getFamilyInfo().setChild();

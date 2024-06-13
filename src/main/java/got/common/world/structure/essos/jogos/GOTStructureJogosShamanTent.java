@@ -6,6 +6,7 @@ import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
 import got.common.entity.essos.jogos.GOTEntityJogosShaman;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -109,7 +110,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.anvil, 1);
 			placeWeaponRack(world, -1, 2, -2, 2, getRandomNomadWeapon(random));
-			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
+			GOTEntityNPC trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -132,7 +133,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.barrel, 2);
 			placeMug(world, random, -1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
 			placeMug(world, random, 1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
-			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
+			GOTEntityNPC trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -158,7 +159,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.brick1, 15);
 			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.slabSingle4, 0);
 			placeWeaponRack(world, 1, 3, 1, 6, new ItemStack(GOTItems.bronzePickaxe));
-			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
+			GOTEntityNPC trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -181,7 +182,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 			setBlockAndMetadata(world, 1, 2, 1, Blocks.lapis_ore, 0);
 			setBlockAndMetadata(world, 1, 1, 0, Blocks.lapis_ore, 0);
 			placeWeaponRack(world, 0, 2, 1, 6, new ItemStack(GOTItems.bronzePickaxe));
-			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
+			GOTEntityNPC trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}

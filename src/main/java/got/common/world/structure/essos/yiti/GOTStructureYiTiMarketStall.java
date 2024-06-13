@@ -3,6 +3,7 @@ package got.common.world.structure.essos.yiti;
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -26,7 +27,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
-	protected abstract GOTEntityYiTiMan createTrader(World var1);
+	protected abstract GOTEntityNPC createTrader(World var1);
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -88,7 +89,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -2, 1, 0, fenceGateBlock, 1);
 		setBlockAndMetadata(world, -1, 1, 1, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 1, 1, 1, Blocks.chest, 2);
-		GOTEntityYiTiMan trader = createTrader(world);
+		GOTEntityNPC trader = createTrader(world);
 		spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 		return true;
 	}
@@ -103,7 +104,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiBaker(world);
 		}
 
@@ -126,7 +127,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiBlacksmith(world);
 		}
 
@@ -149,7 +150,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiBrewer(world);
 		}
 
@@ -172,7 +173,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiButcher(world);
 		}
 
@@ -198,7 +199,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiFarmer(world);
 		}
 
@@ -226,7 +227,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiFishmonger(world);
 		}
 
@@ -254,7 +255,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiFlorist(world);
 		}
 
@@ -276,7 +277,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiGoldsmith(world);
 		}
 
@@ -294,7 +295,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiLumberman(world);
 		}
 
@@ -318,7 +319,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiMason(world);
 		}
 
@@ -342,7 +343,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 
 		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityYiTiMiner(world);
 		}
 

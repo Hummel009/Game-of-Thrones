@@ -5,6 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -293,15 +294,15 @@ public class GOTStructureGiftHouseSmall extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, -6, 3, 0, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, -6, 4, 0, Blocks.pumpkin, 3);
 		}
-		GOTEntityGiftMan male = new GOTEntityGiftMan(world);
+		GOTEntityNPC male = new GOTEntityGiftMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 2, 1, 0, 16);
-		GOTEntityGiftMan female = new GOTEntityGiftMan(world);
+		GOTEntityNPC female = new GOTEntityGiftMan(world);
 		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 2, 1, 0, 16);
-		GOTEntityGiftMan child = new GOTEntityGiftMan(world);
+		GOTEntityNPC child = new GOTEntityGiftMan(world);
 		child.getFamilyInfo().setMale(random.nextBoolean());
 		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 2, 1, 0, 16);

@@ -4,6 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.essos.norvos.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.structure.essos.common.GOTStructureEssosBazaar;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
@@ -42,7 +43,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			placePlateItem(world, random, -1, 2, 1, GOTBlocks.ceramicPlate, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
 			placePlateItem(world, random, 1, 2, 1, GOTBlocks.ceramicPlate, new ItemStack(GOTItems.oliveBread, 1 + random.nextInt(3)), true);
 			placeFlowerPot(world, random.nextBoolean() ? -2 : 2, 2, 0, getRandomFlower(world, random));
-			GOTEntityNorvosBaker trader = new GOTEntityNorvosBaker(world);
+			GOTEntityNPC trader = new GOTEntityNorvosBaker(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -61,7 +62,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.anvil, 3);
 			placeWeaponRack(world, -2, 2, 0, 1, getRandomWeapon(random));
 			placeWeaponRack(world, 2, 2, 0, 3, getRandomWeapon(random));
-			GOTEntityNorvosBlacksmith trader = new GOTEntityNorvosBlacksmith(world);
+			GOTEntityNPC trader = new GOTEntityNorvosBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -83,7 +84,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.barrel, 2);
 			placeMug(world, random, -2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
 			placeMug(world, random, 2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
-			GOTEntityNorvosBrewer trader = new GOTEntityNorvosBrewer(world);
+			GOTEntityNPC trader = new GOTEntityNorvosBrewer(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -103,7 +104,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			placeKebabStand(world, random, 0, 2, 1, GOTBlocks.kebabStand, 3);
 			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(GOTItems.muttonRaw, 1 + random.nextInt(3), 0), true);
 			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(GOTItems.camelRaw, 1 + random.nextInt(3), 1), true);
-			GOTEntityNorvosButcher trader = new GOTEntityNorvosButcher(world);
+			GOTEntityNPC trader = new GOTEntityNorvosButcher(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -124,7 +125,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.hay_block, 0);
 			placePlateItem(world, random, -2, 2, 0, GOTBlocks.woodPlate, new ItemStack(GOTItems.orange, 1 + random.nextInt(3), 0), true);
 			placePlateItem(world, random, 2, 2, 0, GOTBlocks.woodPlate, new ItemStack(GOTItems.lettuce, 1 + random.nextInt(3), 1), true);
-			GOTEntityNorvosFarmer trader = new GOTEntityNorvosFarmer(world);
+			GOTEntityNPC trader = new GOTEntityNorvosFarmer(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -144,7 +145,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.sponge, 0);
 			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
-			GOTEntityNorvosFishmonger trader = new GOTEntityNorvosFishmonger(world);
+			GOTEntityNPC trader = new GOTEntityNorvosFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -169,7 +170,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			plantFlower(world, random, 1, 2, 1);
 			setBlockAndMetadata(world, 1, 1, 0, Blocks.trapdoor, 12);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.trapdoor, 15);
-			GOTEntityNorvosFlorist trader = new GOTEntityNorvosFlorist(world);
+			GOTEntityNPC trader = new GOTEntityNorvosFlorist(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -191,7 +192,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.bronzeBars, 0);
 			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, -1, GOTBlocks.birdCage, 1);
 			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, 1, GOTBlocks.birdCage, 1);
-			GOTEntityNorvosGoldsmith trader = new GOTEntityNorvosGoldsmith(world);
+			GOTEntityNPC trader = new GOTEntityNorvosGoldsmith(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -212,7 +213,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.wood4, 2);
 			placeFlowerPot(world, -2, 2, 0, new ItemStack(GOTBlocks.sapling4, 1, 2));
 			placeFlowerPot(world, 2, 2, 0, new ItemStack(GOTBlocks.sapling8, 1, 3));
-			GOTEntityNorvosLumberman trader = new GOTEntityNorvosLumberman(world);
+			GOTEntityNPC trader = new GOTEntityNorvosLumberman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -232,7 +233,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.slabSingle1, 3);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.brick1, 5);
 			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTItems.bronzePickaxe));
-			GOTEntityNorvosMason trader = new GOTEntityNorvosMason(world);
+			GOTEntityNPC trader = new GOTEntityNorvosMason(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}
@@ -252,7 +253,7 @@ public class GOTStructureNorvosBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.oreCopper, 0);
 			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTItems.bronzePickaxe));
-			GOTEntityNorvosMiner trader = new GOTEntityNorvosMiner(world);
+			GOTEntityNPC trader = new GOTEntityNorvosMiner(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
 		}

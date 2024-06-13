@@ -6,6 +6,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -491,15 +492,15 @@ public class GOTStructureYiTiHouseLarge extends GOTStructureYiTiBaseTown {
 		} else {
 			spawnItemFrame(world, 2, 7, -7, 0, new ItemStack(Items.clock));
 		}
-		GOTEntityYiTiMan male = new GOTEntityYiTiMan(world);
+		GOTEntityNPC male = new GOTEntityYiTiMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 5, 3, 16);
-		GOTEntityYiTiMan female = new GOTEntityYiTiMan(world);
+		GOTEntityNPC female = new GOTEntityYiTiMan(world);
 		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 5, 3, 16);
-		GOTEntityYiTiMan child = new GOTEntityYiTiMan(world);
+		GOTEntityNPC child = new GOTEntityYiTiMan(world);
 		child.getFamilyInfo().setMale(random.nextBoolean());
 		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 5, 3, 16);

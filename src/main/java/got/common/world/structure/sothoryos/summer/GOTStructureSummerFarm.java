@@ -2,6 +2,7 @@ package got.common.world.structure.sothoryos.summer;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.summer.GOTEntitySummerFarmer;
 import got.common.entity.sothoryos.summer.GOTEntitySummerFarmhand;
 import net.minecraft.block.Block;
@@ -113,7 +114,7 @@ public class GOTStructureSummerFarm extends GOTStructureSummerBase {
 			}
 		}
 		if (random.nextInt(4) == 0) {
-			GOTEntitySummerFarmer farmer = new GOTEntitySummerFarmer(world);
+			GOTEntityNPC farmer = new GOTEntitySummerFarmer(world);
 			spawnNPCAndSetHome(farmer, world, 0, 1, 1, 8);
 		}
 		GOTEntitySummerFarmhand farmhand1 = new GOTEntitySummerFarmhand(world);

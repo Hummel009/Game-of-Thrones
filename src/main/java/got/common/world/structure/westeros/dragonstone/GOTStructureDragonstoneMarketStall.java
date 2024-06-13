@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.dragonstone;
 
 import com.google.common.math.IntMath;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.dragonstone.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
@@ -35,7 +36,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneBaker(world);
 		}
 
@@ -58,7 +59,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneBlacksmith(world);
 		}
 
@@ -81,7 +82,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneBrewer(world);
 		}
 
@@ -104,7 +105,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneButcher(world);
 		}
 
@@ -130,7 +131,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneFarmer(world);
 		}
 
@@ -158,7 +159,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneFishmonger(world);
 		}
 
@@ -186,7 +187,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneFlorist(world);
 		}
 
@@ -209,7 +210,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneGoldsmith(world);
 		}
 
@@ -232,7 +233,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneLumberman(world);
 		}
 
@@ -256,7 +257,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneMason(world);
 		}
 
@@ -280,7 +281,7 @@ public abstract class GOTStructureDragonstoneMarketStall extends GOTStructureWes
 		}
 
 		@Override
-		public GOTEntityDragonstoneMan createTrader(World world) {
+		public GOTEntityNPC createTrader(World world) {
 			return new GOTEntityDragonstoneMiner(world);
 		}
 

@@ -7,6 +7,7 @@ import got.common.entity.essos.ibben.GOTEntityIbbenBartender;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.other.GOTEntityLightSkinTramp;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -425,13 +426,13 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -1, 5, 23, brickCarvedBlock, brickCarvedMeta);
 		setBlockAndMetadata(world, 1, 5, 23, brickCarvedBlock, brickCarvedMeta);
 		placeWeaponRack(world, 0, 5, 22, 6, getRandomWeapon(random));
-		GOTEntityIbbenBartender meadhost = new GOTEntityIbbenBartender(world);
+		GOTEntityNPC meadhost = new GOTEntityIbbenBartender(world);
 		spawnNPCAndSetHome(meadhost, world, 0, 2, 21, 8);
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
 		spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 		int men = 5 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {
-			GOTEntityIbbenMan ibbenese = new GOTEntityIbbenMan(world);
+			GOTEntityNPC ibbenese = new GOTEntityIbbenMan(world);
 			spawnNPCAndSetHome(ibbenese, world, 2, 2, 12, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);

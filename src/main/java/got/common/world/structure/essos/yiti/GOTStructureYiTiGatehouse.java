@@ -1,6 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -308,7 +309,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 			i13 = 0;
 			int j111 = 8;
 			int k17 = 0;
-			GOTEntityYiTiSoldier guard = new GOTEntityYiTiSoldier(world);
+			GOTEntityNPC guard = new GOTEntityYiTiSoldier(world);
 			guard.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(guard, world, i13, j111, k17, 8);
 		}

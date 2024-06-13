@@ -5,6 +5,7 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.summer.*;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -189,7 +190,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.woodSlabSingle4, 15);
 			setBlockAndMetadata(world, 3, 2, 3, GOTBlocks.marzipanBlock, 0);
 			placeWeaponRack(world, 2, 2, 4, 7, new ItemStack(GOTItems.rollingPin));
-			GOTEntitySummerBaker trader = new GOTEntitySummerBaker(world);
+			GOTEntityNPC trader = new GOTEntitySummerBaker(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -211,7 +212,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.anvil, 1);
 			placeArmorStand(world, 4, 1, 2, 0, new ItemStack[]{new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), null, null});
 			placeArmorStand(world, 2, 1, 4, 1, null);
-			GOTEntitySummerBlacksmith trader = new GOTEntitySummerBlacksmith(world);
+			GOTEntityNPC trader = new GOTEntitySummerBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -232,7 +233,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 0, 2, 4, GOTBlocks.barrel, 4);
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.woodSlabSingle4, 15);
 			setBlockAndMetadata(world, 3, 2, 3, GOTBlocks.barrel, 2);
-			GOTEntitySummerBrewer trader = new GOTEntitySummerBrewer(world);
+			GOTEntityNPC trader = new GOTEntitySummerBrewer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -256,7 +257,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 2, 3, 3, GOTBlocks.kebabBlock, 0);
 			setBlockAndMetadata(world, 2, 4, 3, GOTBlocks.fence2, 2);
 			setBlockAndMetadata(world, 2, 5, 3, GOTBlocks.fence2, 2);
-			GOTEntitySummerButcher trader = new GOTEntitySummerButcher(world);
+			GOTEntityNPC trader = new GOTEntitySummerButcher(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -286,7 +287,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			placePlateItem(world, random, 3, 2, 0, GOTBlocks.woodPlate, getRandomFarmFood(random), true);
 			placePlateItem(world, random, 0, 2, 2, GOTBlocks.woodPlate, getRandomFarmFood(random), true);
 			placePlateItem(world, random, 0, 2, 4, GOTBlocks.woodPlate, getRandomFarmFood(random), true);
-			GOTEntitySummerFarmer trader = new GOTEntitySummerFarmer(world);
+			GOTEntityNPC trader = new GOTEntitySummerFarmer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -309,7 +310,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			placePlateItem(world, random, 3, 2, 3, GOTBlocks.woodPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			setBlockAndMetadata(world, 2, 1, 4, Blocks.cauldron, 3);
 			placeWeaponRack(world, 4, 2, 2, 6, new ItemStack(Items.fishing_rod));
-			GOTEntitySummerFishmonger trader = new GOTEntitySummerFishmonger(world);
+			GOTEntityNPC trader = new GOTEntitySummerFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -329,7 +330,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 2, GOTBlocks.essosFlower, 9);
 			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.yitiFlower, 9);
-			GOTEntitySummerFlorist trader = new GOTEntitySummerFlorist(world);
+			GOTEntityNPC trader = new GOTEntitySummerFlorist(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -352,7 +353,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.oreTin, 0);
 			setBlockAndMetadata(world, 3, 2, 3, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 2, 1, 4, GOTBlocks.oreTin, 0);
-			GOTEntitySummerGoldsmith trader = new GOTEntitySummerGoldsmith(world);
+			GOTEntityNPC trader = new GOTEntitySummerGoldsmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -377,7 +378,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 2, 1, 3, GOTBlocks.wood6, 11);
 			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.woodBeam8, 11);
 			placeWeaponRack(world, 2, 2, 4, 7, new ItemStack(GOTItems.bronzeAxe));
-			GOTEntitySummerLumberman trader = new GOTEntitySummerLumberman(world);
+			GOTEntityNPC trader = new GOTEntitySummerLumberman(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -400,7 +401,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.redSandstone, 0);
 			setBlockAndMetadata(world, 3, 2, 3, GOTBlocks.redSandstone, 0);
 			setBlockAndMetadata(world, 2, 1, 4, GOTBlocks.redSandstone, 0);
-			GOTEntitySummerMason trader = new GOTEntitySummerMason(world);
+			GOTEntityNPC trader = new GOTEntitySummerMason(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}
@@ -423,7 +424,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.oreTin, 0);
 			setBlockAndMetadata(world, 3, 2, 3, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 2, 1, 4, GOTBlocks.oreTin, 0);
-			GOTEntitySummerMiner trader = new GOTEntitySummerMiner(world);
+			GOTEntityNPC trader = new GOTEntitySummerMiner(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}

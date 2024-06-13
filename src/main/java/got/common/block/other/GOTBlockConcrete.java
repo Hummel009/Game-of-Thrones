@@ -16,6 +16,9 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockConcrete extends Block {
+	@SideOnly(Side.CLIENT)
+	private IIcon[] concreteIcons;
+
 	public GOTBlockConcrete() {
 		super(Material.rock);
 		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
@@ -24,9 +27,6 @@ public class GOTBlockConcrete extends Block {
 		setResistance(10.0f);
 		setStepSound(soundTypeStone);
 	}
-
-	@SideOnly(Side.CLIENT)
-	private IIcon[] concreteIcons;
 
 	@Override
 	public int damageDropped(int i) {

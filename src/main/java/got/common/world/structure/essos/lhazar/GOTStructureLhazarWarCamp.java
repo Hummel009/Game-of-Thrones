@@ -8,6 +8,7 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarlord;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -162,7 +163,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 			horse.detachHome();
 			leashEntityTo(horse, world, i13, j1, k1);
 		}
-		GOTEntityLhazarWarlord warlord = new GOTEntityLhazarWarlord(world);
+		GOTEntityNPC warlord = new GOTEntityLhazarWarlord(world);
 		warlord.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(warlord, world, 0, 9, -3, 6);
 		setBlockAndMetadata(world, 0, 9, 3, GOTBlocks.commandTable, 0);

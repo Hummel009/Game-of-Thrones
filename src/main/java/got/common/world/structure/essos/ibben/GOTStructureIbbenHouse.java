@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -354,15 +355,15 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				placeChest(world, random, i15, j110, k12, 3, GOTChestContents.IBBEN);
 			}
 		}
-		GOTEntityIbbenMan male = new GOTEntityIbbenMan(world);
+		GOTEntityNPC male = new GOTEntityIbbenMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
-		GOTEntityIbbenMan female = new GOTEntityIbbenMan(world);
+		GOTEntityNPC female = new GOTEntityIbbenMan(world);
 		female.getFamilyInfo().setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
-		GOTEntityIbbenMan child = new GOTEntityIbbenMan(world);
+		GOTEntityNPC child = new GOTEntityIbbenMan(world);
 		child.getFamilyInfo().setMale(random.nextBoolean());
 		child.getFamilyInfo().setChild();
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);

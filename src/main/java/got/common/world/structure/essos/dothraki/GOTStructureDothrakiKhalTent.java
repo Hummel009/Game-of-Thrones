@@ -6,6 +6,7 @@ import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityCamel;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import got.common.entity.essos.dothraki.GOTEntityDothrakiKhal;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -82,11 +83,11 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
 		setBlockAndMetadata(world, -1, 4, -9, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 4, -9, Blocks.skull, 2);
-		GOTEntityDothrakiKhal chief = new GOTEntityDothrakiKhal(world);
+		GOTEntityNPC chief = new GOTEntityDothrakiKhal(world);
 		spawnNPCAndSetHome(chief, world, 0, 1, 0, 8);
 		int warriors = 2 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityDothraki warrior = new GOTEntityDothraki(world);
+			GOTEntityNPC warrior = new GOTEntityDothraki(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, random.nextBoolean() ? -6 : 6, 1, 0, 8);
 		}

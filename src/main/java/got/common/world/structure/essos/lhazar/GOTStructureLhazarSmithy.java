@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.essos.lhazar.GOTEntityLhazarBlacksmith;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -95,7 +96,7 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
 		}
 		placeWeaponRack(world, -13, 3, 0, 5, getRandomlhazarWeapon(random));
-		GOTEntityLhazarBlacksmith smith = new GOTEntityLhazarBlacksmith(world);
+		GOTEntityNPC smith = new GOTEntityLhazarBlacksmith(world);
 		spawnNPCAndSetHome(smith, world, -6, 1, 0, 8);
 		int maxSteps = 12;
 		for (int step = 0; step < maxSteps && !isOpaque(world, i1 = -9, j1 = -step, k1 = -5 - step); ++step) {

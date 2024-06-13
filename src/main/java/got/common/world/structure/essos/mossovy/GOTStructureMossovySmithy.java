@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBlacksmith;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -18,7 +19,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 
 	private static ItemStack[] getDisplayArmorOrNull(World world, Random random) {
 		if (random.nextBoolean()) {
-			GOTEntityMossovyWitcher armorGuard = new GOTEntityMossovyWitcher(world);
+			GOTEntityNPC armorGuard = new GOTEntityMossovyWitcher(world);
 			armorGuard.onSpawnWithEgg(null);
 			return new ItemStack[]{armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null};
 		}
@@ -102,7 +103,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		placeMug(world, random, -2, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -3, 2, 1, 3, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, 0, 2, -3, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
-		GOTEntityMossovyBlacksmith blacksmith = new GOTEntityMossovyBlacksmith(world);
+		GOTEntityNPC blacksmith = new GOTEntityMossovyBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 1, -1, 8);
 		return true;
 	}

@@ -6,6 +6,7 @@ import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityCamel;
 import got.common.entity.essos.jogos.GOTEntityJogos;
 import got.common.entity.essos.jogos.GOTEntityJogosChief;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -89,11 +90,11 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 		placeWallBanner(world, 0, 5, -8, GOTItemBanner.BannerType.JOGOS, 2);
 		setBlockAndMetadata(world, -1, 4, -9, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 4, -9, Blocks.skull, 2);
-		GOTEntityJogosChief chief = new GOTEntityJogosChief(world);
+		GOTEntityNPC chief = new GOTEntityJogosChief(world);
 		spawnNPCAndSetHome(chief, world, 0, 1, 0, 8);
 		int warriors = 2 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityJogos warrior = new GOTEntityJogos(world);
+			GOTEntityNPC warrior = new GOTEntityJogos(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, random.nextBoolean() ? -6 : 6, 1, 0, 8);
 		}

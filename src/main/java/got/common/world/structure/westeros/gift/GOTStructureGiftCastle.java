@@ -5,6 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityHorse;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.GOTEntityGiftBlacksmith;
 import got.common.entity.westeros.gift.GOTEntityGiftGuard;
@@ -398,7 +399,7 @@ public abstract class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -6, 1, -5, Blocks.anvil, 1);
 		setBlockAndMetadata(world, -5, 1, -6, Blocks.cauldron, 3);
 		if (!isAbandoned) {
-			GOTEntityGiftBlacksmith blacksmith = new GOTEntityGiftBlacksmith(world);
+			GOTEntityNPC blacksmith = new GOTEntityGiftBlacksmith(world);
 			spawnNPCAndSetHome(blacksmith, world, -4, 1, -4, 8);
 		}
 		for (k12 = 5; k12 <= 9; ++k12) {

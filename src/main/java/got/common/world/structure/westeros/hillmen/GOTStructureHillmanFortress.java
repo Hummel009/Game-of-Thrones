@@ -5,6 +5,7 @@ import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBear;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityBearRug;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanArcher;
@@ -136,7 +137,7 @@ public class GOTStructureHillmanFortress extends GOTStructureHillmanBase {
 		GOTEntityBear.BearType[] bearTypes = GOTEntityBear.BearType.values();
 		rug.setRugType(bearTypes[random.nextInt(bearTypes.length)]);
 		placeRug(rug, world, -5, 1, -4, -45.0f);
-		GOTEntityHillmanWarlord warlord = new GOTEntityHillmanWarlord(world);
+		GOTEntityNPC warlord = new GOTEntityHillmanWarlord(world);
 		spawnNPCAndSetHome(warlord, world, 0, 1, 2, 8);
 		int warriors = 6;
 		for (int l = 0; l < warriors; ++l) {

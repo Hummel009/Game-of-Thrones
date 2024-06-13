@@ -3,6 +3,7 @@ package got.common.world.structure.westeros.wildling.thenn;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.wildling.thenn.*;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -179,15 +180,15 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 			spawnNPCAndSetHome(new GOTEntityThennAxeThrower(world), world, 0, 1, 0, 8);
 			spawnNPCAndSetHome(new GOTEntityThennBerserker(world), world, 0, 1, 0, 8);
 		} else {
-			GOTEntityThenn male = new GOTEntityThenn(world);
+			GOTEntityNPC male = new GOTEntityThenn(world);
 			male.getFamilyInfo().setMale(true);
 			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
-			GOTEntityThenn female = new GOTEntityThenn(world);
+			GOTEntityNPC female = new GOTEntityThenn(world);
 			female.getFamilyInfo().setMale(false);
 			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
-			GOTEntityThenn child = new GOTEntityThenn(world);
+			GOTEntityNPC child = new GOTEntityThenn(world);
 			child.getFamilyInfo().setMale(random.nextBoolean());
 			child.getFamilyInfo().setChild();
 			spawnNPCAndSetHome(child, world, 0, 1, 0, 16);
