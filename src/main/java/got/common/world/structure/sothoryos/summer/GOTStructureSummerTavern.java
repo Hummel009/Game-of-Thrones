@@ -125,8 +125,8 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			placeFoodOrDrink(world, random, -12, 2, -2);
 			placeFoodOrDrink(world, random, -12, 2, 1);
 			placeFoodOrDrink(world, random, -12, 2, 2);
-			placeBarrel(world, random, -12, 2, 3, 4, GOTFoods.SOTHORYOS_DRINK);
-			placeBarrel(world, random, -11, 2, 4, 2, GOTFoods.SOTHORYOS_DRINK);
+			placeBarrel(world, random, -12, 2, 3, 4, GOTFoods.DEFAULT_DRINK);
+			placeBarrel(world, random, -11, 2, 4, 2, GOTFoods.DEFAULT_DRINK);
 			placeKebabStand(world, random, -10, 2, -4, GOTBlocks.kebabStand, 3);
 			setBlockAndMetadata(world, 11, 1, -3, bedBlock, 2);
 			setBlockAndMetadata(world, 11, 1, -4, bedBlock, 10);
@@ -213,13 +213,13 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 	private void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 			} else {
 				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {
-					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.SOTHORYOS);
+					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.DEFAULT);
 				}
 			}
 		}

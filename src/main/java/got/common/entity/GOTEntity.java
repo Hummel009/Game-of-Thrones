@@ -2,10 +2,7 @@ package got.common.entity;
 
 import got.common.entity.animal.*;
 import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.essos.GOTEntityIfekevron;
-import got.common.entity.essos.GOTEntityRedPriest;
-import got.common.entity.essos.GOTEntityShryke;
-import got.common.entity.essos.GOTEntityStoneMan;
+import got.common.entity.essos.*;
 import got.common.entity.essos.asshai.*;
 import got.common.entity.essos.braavos.*;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
@@ -20,7 +17,10 @@ import got.common.entity.essos.gold.GOTEntityGoldenCompanyWarrior;
 import got.common.entity.essos.ibben.*;
 import got.common.entity.essos.jogos.*;
 import got.common.entity.essos.legendary.GOTEntityMissandei;
+import got.common.entity.essos.legendary.boss.GOTEntityAsshaiArchmag;
 import got.common.entity.essos.legendary.captain.*;
+import got.common.entity.essos.legendary.mercenary.GOTEntityDaarioNaharis;
+import got.common.entity.essos.legendary.mercenary.GOTEntityGreyWorm;
 import got.common.entity.essos.legendary.quest.GOTEntityBuGai;
 import got.common.entity.essos.legendary.quest.GOTEntityDaenerysTargaryen;
 import got.common.entity.essos.legendary.quest.GOTEntityJaqenHghar;
@@ -29,7 +29,10 @@ import got.common.entity.essos.legendary.trader.GOTEntityIllyrioMopatis;
 import got.common.entity.essos.legendary.trader.GOTEntityMoqorro;
 import got.common.entity.essos.legendary.trader.GOTEntityTychoNestoris;
 import got.common.entity.essos.legendary.trader.GOTEntityXaroXhoanDaxos;
-import got.common.entity.essos.legendary.warrior.*;
+import got.common.entity.essos.legendary.warrior.GOTEntityJonConnington;
+import got.common.entity.essos.legendary.warrior.GOTEntityJorahMormont;
+import got.common.entity.essos.legendary.warrior.GOTEntityTugarKhan;
+import got.common.entity.essos.legendary.warrior.GOTEntityYoungGriff;
 import got.common.entity.essos.lhazar.*;
 import got.common.entity.essos.lorath.*;
 import got.common.entity.essos.lys.*;
@@ -66,6 +69,10 @@ import got.common.entity.westeros.ironborn.*;
 import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
+import got.common.entity.westeros.legendary.mercenary.GOTEntityAndrikTheUnsmilling;
+import got.common.entity.westeros.legendary.mercenary.GOTEntityBronn;
+import got.common.entity.westeros.legendary.mercenary.GOTEntityDagmer;
+import got.common.entity.westeros.legendary.mercenary.GOTEntityVargoHoat;
 import got.common.entity.westeros.legendary.quest.*;
 import got.common.entity.westeros.legendary.reborn.*;
 import got.common.entity.westeros.legendary.trader.*;
@@ -153,6 +160,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityWightGiant.class, id++, GOTFaction.WHITE_WALKER);
 
 		GOTEntityRegistry.register(GOTEntityWildling.class, id++, GOTFaction.WILDLING);
+		GOTEntityRegistry.register(GOTEntityWildlingWarrior.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityWildlingArcher.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityWildlingAxeThrower.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityWildlingBannerBearer.class, id++, GOTFaction.WILDLING);
@@ -160,10 +168,10 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityGiant.class, id++, GOTFaction.WILDLING);
 
 		GOTEntityRegistry.register(GOTEntityThenn.class, id++, GOTFaction.WILDLING);
+		GOTEntityRegistry.register(GOTEntityThennWarrior.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityThennArcher.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityThennAxeThrower.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityThennBannerBearer.class, id++, GOTFaction.WILDLING);
-		GOTEntityRegistry.register(GOTEntityThennBerserker.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityThennMagnar.class, id++, GOTFaction.WILDLING);
 		GOTEntityRegistry.register(GOTEntityThennBlacksmith.class, id++, GOTFaction.WILDLING);
 
@@ -203,7 +211,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityNorthHillmanArcher.class, id++, GOTFaction.NORTH);
 		GOTEntityRegistry.register(GOTEntityNorthHillmanAxeThrower.class, id++, GOTFaction.NORTH);
 		GOTEntityRegistry.register(GOTEntityNorthHillmanBannerBearer.class, id++, GOTFaction.NORTH);
-		GOTEntityRegistry.register(GOTEntityNorthHillmanChieftain.class, id++, GOTFaction.NORTH);
+		GOTEntityRegistry.register(GOTEntityNorthHillmanWarlord.class, id++, GOTFaction.NORTH);
 
 		GOTEntityRegistry.register(GOTEntityIronbornMan.class, id++, GOTFaction.IRONBORN);
 		GOTEntityRegistry.register(GOTEntityIronbornLevyman.class, id++, GOTFaction.IRONBORN);

@@ -29,8 +29,8 @@ public class GOTEntityHummel009 extends GOTEntityNPC implements GOTBiome.ImmuneT
 		tasks.addTask(1, new GOTEntityAIAttackOnCollide(this, 1.4, true));
 		tasks.addTask(2, new EntityAIOpenDoor(this, true));
 		tasks.addTask(3, new EntityAIWander(this, 1.0));
-		tasks.addTask(4, new GOTEntityAIEat(this, GOTFoods.WESTEROS, 8000));
-		tasks.addTask(5, new GOTEntityAIDrink(this, GOTFoods.WESTEROS_DRINK, 8000));
+		tasks.addTask(4, new GOTEntityAIEat(this, GOTFoods.DEFAULT, 8000));
+		tasks.addTask(5, new GOTEntityAIDrink(this, GOTFoods.DEFAULT_DRINK, 8000));
 		tasks.addTask(6, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
@@ -58,8 +58,8 @@ public class GOTEntityHummel009 extends GOTEntityNPC implements GOTBiome.ImmuneT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		return "legendary/hummel";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return "special/hummel";
 	}
 
 	@Override

@@ -151,9 +151,9 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 2, 7, 0, Blocks.stone_slab, 8);
 		setBlockAndMetadata(world, 2, 7, 1, Blocks.stone_slab, 8);
 		setBlockAndMetadata(world, 2, 7, 2, Blocks.stone_slab, 8);
-		placeMug(world, random, 2, 8, 0, 1, GOTFoods.WESTEROS_DRINK);
-		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.WESTEROS);
-		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 2, 8, 0, 1, GOTFoods.DEFAULT_DRINK);
+		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.DEFAULT);
+		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 0, 9, 0, GOTBlocks.chandelier, 12);
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -4; k1 <= 4; ++k1) {

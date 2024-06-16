@@ -278,10 +278,10 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 2, 1, -2, plankStairBlock, 6);
 		setBlockAndMetadata(world, 2, 1, -1, Blocks.cauldron, 3);
-		placeBarrel(world, random, 2, 2, -4, 5, GOTFoods.WILD_DRINK);
-		placeMug(world, random, 2, 2, -3, 1, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 2, 2, -4, 5, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, 2, 2, -3, 1, GOTFoods.DEFAULT_DRINK);
 		if (random.nextBoolean()) {
-			placePlateWithCertainty(world, random, 2, 2, -2, plateBlock, GOTFoods.WILD);
+			placePlateWithCertainty(world, random, 2, 2, -2, plateBlock, GOTFoods.DEFAULT);
 		} else {
 			setBlockAndMetadata(world, 2, 2, -2, plateBlock, 0);
 		}

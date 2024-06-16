@@ -1,7 +1,10 @@
 package got.common.entity.westeros.north.hillmen;
 
+import got.common.database.GOTItems;
 import got.common.entity.other.iface.GOTBannerBearer;
 import got.common.item.other.GOTItemBanner;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorthHillmanBannerBearer extends GOTEntityNorthHillmanWarrior implements GOTBannerBearer {
@@ -13,5 +16,15 @@ public class GOTEntityNorthHillmanBannerBearer extends GOTEntityNorthHillmanWarr
 	@Override
 	public GOTItemBanner.BannerType getBannerType() {
 		return GOTItemBanner.BannerType.EDDARD;
+	}
+
+	@Override
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+
+		return entityData;
 	}
 }

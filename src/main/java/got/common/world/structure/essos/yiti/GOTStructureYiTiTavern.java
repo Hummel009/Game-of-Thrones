@@ -476,18 +476,18 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -1, 1, 2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -4, 1, 1, Blocks.cauldron, 3);
 		placeChest(world, random, -1, 0, -1, 3, GOTChestContents.YI_TI);
-		placeBarrel(world, random, -3, 2, -2, 2, GOTFoods.YITI_DRINK);
-		placeBarrel(world, random, 0, 2, -1, 4, GOTFoods.YITI_DRINK);
+		placeBarrel(world, random, -3, 2, -2, 2, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 0, 2, -1, 4, GOTFoods.DEFAULT_DRINK);
 		for (i12 = -4; i12 <= 0; ++i12) {
 			for (k12 = -2; k12 <= 2; ++k12) {
 				if ((i12 != -4 || k12 < -1 || k12 > 0) && (k12 != -2 || i12 < -2 || i12 > -1) && (i12 != 0 || k12 < 0 || k12 > 1)) {
 					continue;
 				}
 				if (random.nextBoolean()) {
-					placeMug(world, random, i12, 2, k12, random.nextInt(4), GOTFoods.YITI_DRINK);
+					placeMug(world, random, i12, 2, k12, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 					continue;
 				}
-				placePlate(world, random, i12, 2, k12, plateBlock, GOTFoods.YITI);
+				placePlate(world, random, i12, 2, k12, plateBlock, GOTFoods.DEFAULT);
 			}
 		}
 		for (i12 = -3; i12 <= -1; ++i12) {
@@ -569,26 +569,26 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, 2, 6, -2, doorBlock, 8);
 		setBlockAndMetadata(world, -3, 5, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, -3, 5, -5, plankBlock, plankMeta);
-		placePlateWithCertainty(world, random, -3, 6, -5, plateBlock, GOTFoods.YITI);
+		placePlateWithCertainty(world, random, -3, 6, -5, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, -3, 5, -6, Blocks.chest, 4);
 		for (int i1521 : new int[]{-3, -1}) {
 			setBlockAndMetadata(world, i1521, 5, -7, bedBlock, 2);
 			setBlockAndMetadata(world, i1521, 5, -8, bedBlock, 10);
 		}
-		spawnItemFrame(world, 0, 6, -5, 3, GOTFoods.YITI_DRINK.getRandomVessel(random).getEmptyVessel());
+		spawnItemFrame(world, 0, 6, -5, 3, GOTFoods.DEFAULT_DRINK.getRandomVessel(random).getEmptyVessel());
 		setBlockAndMetadata(world, -3, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -1, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -3, 6, -8, Blocks.torch, 3);
 		setBlockAndMetadata(world, -1, 6, -8, Blocks.torch, 3);
 		setBlockAndMetadata(world, 3, 5, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, 3, 5, -5, plankBlock, plankMeta);
-		placePlateWithCertainty(world, random, 3, 6, -5, plateBlock, GOTFoods.YITI);
+		placePlateWithCertainty(world, random, 3, 6, -5, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, 3, 5, -6, Blocks.chest, 5);
 		for (int i1521 : new int[]{1, 3}) {
 			setBlockAndMetadata(world, i1521, 5, -7, bedBlock, 2);
 			setBlockAndMetadata(world, i1521, 5, -8, bedBlock, 10);
 		}
-		spawnItemFrame(world, 0, 6, -5, 1, GOTFoods.YITI_DRINK.getRandomVessel(random).getEmptyVessel());
+		spawnItemFrame(world, 0, 6, -5, 1, GOTFoods.DEFAULT_DRINK.getRandomVessel(random).getEmptyVessel());
 		setBlockAndMetadata(world, 3, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, 1, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, 3, 6, -8, Blocks.torch, 3);
@@ -613,10 +613,10 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 					continue;
 				}
 				if (random.nextBoolean()) {
-					placeMug(world, random, i, j + 1, k, random.nextInt(4), GOTFoods.YITI_DRINK);
+					placeMug(world, random, i, j + 1, k, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 					continue;
 				}
-				placePlate(world, random, i, j + 1, k, plateBlock, GOTFoods.YITI);
+				placePlate(world, random, i, j + 1, k, plateBlock, GOTFoods.DEFAULT);
 			}
 		}
 	}

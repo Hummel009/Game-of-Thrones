@@ -197,13 +197,13 @@ public class GOTStructureGiftHouseSmall extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, 0, 3, -2, Blocks.torch, 3);
 			setBlockAndMetadata(world, -1, 1, -1, tableBlock, 0);
 			setBlockAndMetadata(world, -1, 1, 0, plankBlock, plankMeta);
-			placePlateWithCertainty(world, random, -1, 2, 0, plateBlock, GOTFoods.WESTEROS);
+			placePlateWithCertainty(world, random, -1, 2, 0, plateBlock, GOTFoods.DEFAULT);
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.crafting_table, 0);
 			setBlockAndMetadata(world, -1, 1, 2, plankBlock, plankMeta);
-			placeMug(world, random, -1, 2, 2, random.nextInt(3), GOTFoods.WESTEROS_DRINK);
+			placeMug(world, random, -1, 2, 2, random.nextInt(3), GOTFoods.DEFAULT_DRINK);
 			placeChest(world, random, 0, 1, 2, 2, GOTChestContents.GIFT);
 			setBlockAndMetadata(world, 1, 1, 2, plankBlock, plankMeta);
-			placeBarrel(world, random, 1, 2, 2, 2, GOTFoods.WESTEROS_DRINK);
+			placeBarrel(world, random, 1, 2, 2, 2, GOTFoods.DEFAULT_DRINK);
 			for (int k151 : new int[]{-2, 2}) {
 				setBlockAndMetadata(world, 3, 1, k151, bedBlock, 1);
 				setBlockAndMetadata(world, 4, 1, k151, bedBlock, 9);

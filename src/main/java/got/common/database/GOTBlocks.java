@@ -925,10 +925,10 @@ public class GOTBlocks {
 		slabBoneDouble = new GOTBlockSlabBone(true);
 		slabBoneSingle = new GOTBlockSlabBone(false);
 		slabClayTileDouble = new GOTBlockSlabClayTile(true);
-		slabClayTileDyedDouble1 = new GOTBlockSlabClayTileDyed(true);
-		slabClayTileDyedDouble2 = new GOTBlockSlabClayTileDyed2(true);
 		slabClayTileDyedSingle1 = new GOTBlockSlabClayTileDyed(false);
 		slabClayTileDyedSingle2 = new GOTBlockSlabClayTileDyed2(false);
+		slabClayTileDyedDouble1 = new GOTBlockSlabClayTileDyed(true);
+		slabClayTileDyedDouble2 = new GOTBlockSlabClayTileDyed2(true);
 		slabClayTileSingle = new GOTBlockSlabClayTile(false);
 		slabDouble1 = new GOTBlockSlab1(true).setHardness(2.0f).setResistance(10.0f).setStepSound(Block.soundTypeStone);
 		slabDouble10 = new GOTBlockSlab10(true).setHardness(2.0f).setResistance(10.0f).setStepSound(Block.soundTypeStone);

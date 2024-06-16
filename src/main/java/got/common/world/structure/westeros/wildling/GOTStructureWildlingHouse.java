@@ -7,8 +7,6 @@ import got.common.entity.other.GOTEntityLightSkinThief;
 import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
-import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
-import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -183,9 +181,6 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 			} else {
 				spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 			}
-		} else if (random.nextInt(4) == 1) {
-			spawnNPCAndSetHome(new GOTEntityWildlingArcher(world), world, 0, 1, 0, 8);
-			spawnNPCAndSetHome(new GOTEntityWildlingAxeThrower(world), world, 0, 1, 0, 8);
 		} else {
 			GOTEntityNPC male = new GOTEntityWildling(world);
 			male.getFamilyInfo().setMale(true);

@@ -4,7 +4,8 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.wildling.thenn.*;
+import got.common.entity.westeros.wildling.thenn.GOTEntityThenn;
+import got.common.entity.westeros.wildling.thenn.GOTEntityThennBlacksmith;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -175,10 +176,6 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 1, 3, 4, Blocks.skull, 2);
 		if (isBlacksmith) {
 			spawnNPCAndSetHome(new GOTEntityThennBlacksmith(world), world, 0, 1, 0, 8);
-		} else if (random.nextInt(4) == 1) {
-			spawnNPCAndSetHome(new GOTEntityThennArcher(world), world, 0, 1, 0, 8);
-			spawnNPCAndSetHome(new GOTEntityThennAxeThrower(world), world, 0, 1, 0, 8);
-			spawnNPCAndSetHome(new GOTEntityThennBerserker(world), world, 0, 1, 0, 8);
 		} else {
 			GOTEntityNPC male = new GOTEntityThenn(world);
 			male.getFamilyInfo().setMale(true);

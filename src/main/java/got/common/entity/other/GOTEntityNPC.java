@@ -75,10 +75,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public static final float MOUNT_RANGE_BONUS = 1.5f;
 
 	public static final IAttribute NPC_ATTACK_DAMAGE = new RangedAttribute("got.npcAttackDamage", 2.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Attack Damage");
-	public static final IAttribute NPC_ATTACK_DAMAGE_EXTRA = new RangedAttribute("got.npcAttackDamageExtra", 0.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Extra Attack Damage");
-	public static final IAttribute NPC_RANGED_ACCURACY = new RangedAttribute("got.npcRangedAccuracy", 1.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Ranged Accuracy");
-	public static final IAttribute HORSE_ATTACK_SPEED = new RangedAttribute("got.horseAttackSpeed", 1.7, 0.0, Double.MAX_VALUE).setDescription("GOT Horse Attack Speed");
-	public static final IAttribute NPC_ATTACK_DAMAGE_DRUNK = new RangedAttribute("got.npcAttackDamageDrunk", 4.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Drunken Attack Damage");
 
 	private final List<ItemStack> enpouchedDrops = new ArrayList<>();
 	private final List<GOTFaction> killBonusFactions = new ArrayList<>();
@@ -193,10 +189,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getAttributeMap().registerAttribute(NPC_ATTACK_DAMAGE);
-		getAttributeMap().registerAttribute(NPC_ATTACK_DAMAGE_EXTRA);
-		getAttributeMap().registerAttribute(NPC_ATTACK_DAMAGE_DRUNK);
-		getAttributeMap().registerAttribute(NPC_RANGED_ACCURACY);
-		getAttributeMap().registerAttribute(HORSE_ATTACK_SPEED);
 	}
 
 	@Override
@@ -209,10 +201,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		if (weaponDamage > 0.0f) {
 			damage = weaponDamage;
-		}
-		damage += (float) getEntityAttribute(NPC_ATTACK_DAMAGE_EXTRA).getAttributeValue();
-		if (isDrunkard()) {
-			damage += (float) getEntityAttribute(NPC_ATTACK_DAMAGE_DRUNK).getAttributeValue();
 		}
 		damage += nearbyBannerFactor * 0.5f;
 		int knockbackModifier = 0;
@@ -293,10 +281,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public boolean canPickUpLoot() {
 		return false;
-	}
-
-	public GOTMiniQuest createMiniQuest() {
-		return null;
 	}
 
 	public GOTNPCMount createMountToRide() {
@@ -481,7 +465,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return l <= rand.nextInt(8);
 	}
 
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+	public GOTMiniQuestFactory getMiniQuestFactory() {
 		return null;
 	}
 
@@ -628,7 +612,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return 1;
 	}
 
-	public String getSpeechBank(EntityPlayer entityplayer) {
+	public String getSpeechBank(EntityPlayer entityPlayer) {
 		return null;
 	}
 
@@ -692,6 +676,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
 
+	public boolean isFriendlyAndStronglyAligned(EntityPlayer entityplayer) {
+		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
+	}
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isInRangeToRenderDist(double dist) {
@@ -714,10 +702,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private void npcArrowAttack(EntityLivingBase target) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.3f + getDistanceToEntity(target) / 80.0f;
-		float accuracy = (float) getEntityAttribute(NPC_RANGED_ACCURACY).getAttributeValue();
 		float poisonChance = getPoisonedArrowChance();
 		float fireChance = getFireArrowChance();
-		EntityArrow arrow = rand.nextFloat() < fireChance ? new GOTEntityArrowFire(worldObj, this, target, str, accuracy) : rand.nextFloat() < poisonChance ? new GOTEntityArrowPoisoned(worldObj, this, target, str, accuracy) : new EntityArrow(worldObj, this, target, str * GOTItemBow.getLaunchSpeedFactor(heldItem), accuracy);
+		EntityArrow arrow = rand.nextFloat() < fireChance ? new GOTEntityArrowFire(worldObj, this, target, str, 1.0f) : rand.nextFloat() < poisonChance ? new GOTEntityArrowPoisoned(worldObj, this, target, str, 1.0f) : new EntityArrow(worldObj, this, target, str * GOTItemBow.getLaunchSpeedFactor(heldItem), 1.0f);
 		if (heldItem != null) {
 			GOTItemBow.applyBowModifiers(arrow, heldItem);
 		}
@@ -1069,11 +1056,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, CharSequence location, CharSequence objective) {
-		if (GOT.isUkraine()) {
-			GOTSpeech.sendSpeech(entityplayer, this, "Слава Україні!");
-		} else {
-			GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
-		}
+		GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
 		markNPCSpoken();
 	}
 

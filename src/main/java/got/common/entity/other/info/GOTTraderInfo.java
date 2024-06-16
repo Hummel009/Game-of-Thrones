@@ -2,7 +2,6 @@ package got.common.entity.other.info;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
-import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.entity.other.utils.GOTTradeEntry;
@@ -73,13 +72,13 @@ public class GOTTraderInfo {
 		return lockValueDecayTicks;
 	}
 
-	public void onTrade(EntityPlayer entityplayer, GOTTradeEntry trade, GOTTradeEntries.TradeType type, int value) {
-		((GOTTradeable) theEntity).onPlayerTrade(entityplayer, type, trade.createTradeItem());
-		GOTLevelData.getData(entityplayer).getFactionData(theEntity.getFaction()).addTrade();
+	public void onTrade(EntityPlayer entityPlayer, GOTTradeEntry trade, int value) {
+		((GOTTradeable) theEntity).onPlayerTrade(entityPlayer);
+		GOTLevelData.getData(entityPlayer).getFactionData(theEntity.getFaction()).addTrade();
 		trade.doTransaction(value);
 		timeSinceTrade = 0;
 		valueSinceRefresh += value;
-		sendClientPacket(entityplayer);
+		sendClientPacket(entityPlayer);
 	}
 
 	public void onUpdate() {

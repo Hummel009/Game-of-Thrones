@@ -8,7 +8,6 @@ import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -20,8 +19,8 @@ public class GOTEntityBraavosFarmer extends GOTEntityBraavosMan implements GOTTr
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return GOTLevelData.getData(entityPlayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityPlayer);
 	}
 
 	@Override
@@ -40,14 +39,8 @@ public class GOTEntityBraavosFarmer extends GOTEntityBraavosMan implements GOTTr
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
@@ -61,13 +54,6 @@ public class GOTEntityBraavosFarmer extends GOTEntityBraavosMan implements GOTTr
 	}
 
 	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		if (type == GOTTradeEntries.TradeType.WE_CAN_BUY && itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.pipeweedPlant)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-		}
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
@@ -76,10 +62,5 @@ public class GOTEntityBraavosFarmer extends GOTEntityBraavosMan implements GOTTr
 		GOTItemLeatherHat.setHatColor(hat, 10390131);
 		setCurrentItemOrArmor(4, hat);
 		return entityData;
-	}
-
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

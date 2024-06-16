@@ -149,7 +149,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 		belowTop = getBelowTop(world, 2, -1, 0);
 		setBlockAndMetadata(world, 2, belowTop, 0, plankBlock, plankMeta);
 		setGrassToDirt(world, 2, belowTop - 1, 0);
-		placeBarrel(world, random, 2, belowTop + 1, 0, 5, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 2, belowTop + 1, 0, 5, GOTFoods.DEFAULT_DRINK);
 		belowTop = getBelowTop(world, -2, -1, 1);
 		setBlockAndMetadata(world, -2, belowTop, 1, Blocks.hay_block, 0);
 		setGrassToDirt(world, -2, belowTop - 1, 1);

@@ -2,7 +2,7 @@ package got.client.gui;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.iface.GOTTradeable;
+import got.common.entity.other.iface.GOTSmith;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketTraderInteract;
 import net.minecraft.client.gui.GuiButton;
@@ -29,7 +29,7 @@ public class GOTGuiTradeInteract extends GOTGuiNPCInteract {
 		buttonList.add(buttonTalk);
 		buttonList.add(buttonTrade);
 		buttonList.add(buttonExchange);
-		if (theEntity instanceof GOTTradeable.Smith) {
+		if (theEntity instanceof GOTSmith) {
 			buttonTalk.xPosition -= 35;
 			buttonTrade.xPosition -= 35;
 			GuiButton buttonSmith = new GOTGuiButton(3, width / 2 + 40, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.smith"));

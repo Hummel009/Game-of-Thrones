@@ -485,7 +485,7 @@ public abstract class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		}
 		setBlockAndMetadata(world, 10, 1, 8, plankBlock, plankMeta);
 		if (!isAbandoned) {
-			placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WESTEROS_DRINK);
+			placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.DEFAULT_DRINK);
 		}
 		for (int j18 = 1; j18 <= 4; ++j18) {
 			setBlockAndMetadata(world, 6, j18, -9, woodBeamBlock, woodBeamMeta);

@@ -8,15 +8,9 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -32,14 +26,17 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
-		tasks.addTask(0, new GOTEntityAIAttackOnCollide(this, 1.4, true));
-		tasks.addTask(1, new EntityAIOpenDoor(this, true));
-		tasks.addTask(2, new EntityAIWander(this, 1.0));
-		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
-		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		isImmuneToFire = true;
-		spawnsInDarkness = true;
+		tasks.addTask(0, new EntityAISwimming(this));
+		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, true));
+		tasks.addTask(4, new EntityAIOpenDoor(this, true));
+		tasks.addTask(5, new EntityAIWander(this, 1.0));
+		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
+		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
+		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
+		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		spawnsInDarkness = true;
+		isImmuneToFire = true;
 	}
 
 	@Override
@@ -70,20 +67,6 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
 	}
 
 	@Override
@@ -123,15 +106,6 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 	}
 
 	@Override
-	public void onAttackModeChange(AttackMode mode, boolean mounted) {
-		if (mode == AttackMode.IDLE) {
-			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-		}
-	}
-
-	@Override
 	public void onKillEntity(EntityLivingBase entity) {
 		super.onKillEntity(entity);
 		IceUtils.createNewWight(this, entity, worldObj);
@@ -140,14 +114,17 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData livingData = super.onSpawnWithEgg(data);
+
 		int i = rand.nextInt(WEAPONS.length);
 		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		if (rand.nextInt(8) == 0) {
+
+		if (rand.nextInt(6) == 0) {
 			setCurrentItemOrArmor(1, new ItemStack(GOTItems.whiteWalkersBoots));
 			setCurrentItemOrArmor(2, new ItemStack(GOTItems.whiteWalkersLeggings));
 			setCurrentItemOrArmor(3, new ItemStack(GOTItems.whiteWalkersChestplate));
 		}
+
 		return livingData;
 	}
 }

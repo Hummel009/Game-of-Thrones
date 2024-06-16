@@ -228,8 +228,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			placeMug(world, random, 3, 2, 0, 0, GOTFoods.SOTHORYOS_DRINK);
-			placeMug(world, random, 0, 2, 2, 1, GOTFoods.SOTHORYOS_DRINK);
+			placeMug(world, random, 3, 2, 0, 0, GOTFoods.DEFAULT_DRINK);
+			placeMug(world, random, 0, 2, 2, 1, GOTFoods.DEFAULT_DRINK);
 			setBlockAndMetadata(world, 0, 2, 4, GOTBlocks.barrel, 4);
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.woodSlabSingle4, 15);
 			setBlockAndMetadata(world, 3, 2, 3, GOTBlocks.barrel, 2);

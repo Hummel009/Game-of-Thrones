@@ -143,14 +143,14 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 		setBlockAndMetadata(world, -2, 4, -2, woodBlock, woodMeta);
 		placeChest(world, random, -2, 5, -2, 3, GOTChestContents.SOTHORYOS);
 		setBlockAndMetadata(world, 2, 4, -2, woodBlock, woodMeta);
-		placeBarrel(world, random, 2, 5, -2, 3, GOTFoods.SOTHORYOS_DRINK);
+		placeBarrel(world, random, 2, 5, -2, 3, GOTFoods.DEFAULT_DRINK);
 		for (int i14 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, i14, 4, 1, bedBlock, 0);
 			setBlockAndMetadata(world, i14, 4, 2, bedBlock, 8);
 		}
 		setBlockAndMetadata(world, -1, 4, 2, GOTBlocks.tableSothoryos, 0);
 		setBlockAndMetadata(world, 0, 4, 2, woodBlock, woodMeta);
-		placeMug(world, random, 0, 5, 2, 0, GOTFoods.SOTHORYOS_DRINK);
+		placeMug(world, random, 0, 5, 2, 0, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 1, 4, 2, Blocks.crafting_table, 0);
 		placeSothoryosTorch(world, -1, 5, -5);
 		placeSothoryosTorch(world, 1, 5, -5);

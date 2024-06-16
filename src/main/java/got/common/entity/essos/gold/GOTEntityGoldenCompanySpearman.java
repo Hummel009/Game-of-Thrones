@@ -14,8 +14,10 @@ public class GOTEntityGoldenCompanySpearman extends GOTEntityGoldenCompanyWarrio
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
+
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		return data;
 	}
 }

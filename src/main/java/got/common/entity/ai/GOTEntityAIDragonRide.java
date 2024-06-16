@@ -35,7 +35,7 @@ public abstract class GOTEntityAIDragonRide extends EntityAIBase {
 		return getControlFlag(0);
 	}
 
-	public boolean isDracarys() {
+	private boolean isDracarys() {
 		return getControlFlag(2);
 	}
 

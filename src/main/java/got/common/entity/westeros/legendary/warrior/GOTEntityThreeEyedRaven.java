@@ -3,7 +3,6 @@ package got.common.entity.westeros.legendary.warrior;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityHumanBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -13,19 +12,11 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		setSize(0.6f, 1.8f);
 	}
 
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killThreeEyedRaven;
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.1);
 	}
 
 	@Override
@@ -35,13 +26,8 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
+	public String getSpeechBank(EntityPlayer entityPlayer) {
 		return "legendary/ter";
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 15;
 	}
 
 	@Override

@@ -36,7 +36,7 @@ import got.common.world.structure.westeros.hillmen.GOTStructureHillmanSettlement
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanTavern;
 import got.common.world.structure.westeros.ironborn.*;
 import got.common.world.structure.westeros.north.*;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanChieftainHouse;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanWarlordHouse;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
 import got.common.world.structure.westeros.reach.*;
 import got.common.world.structure.westeros.riverlands.*;
@@ -75,7 +75,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureGiftSmithy.class, GOTFaction.NIGHT_WATCH);
 
 		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanHouse.class, GOTFaction.NORTH);
-		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanChieftainHouse.class, GOTFaction.NORTH);
+		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanWarlordHouse.class, GOTFaction.NORTH);
 
 		GOTStructureRegistry.register(id++, GOTStructureNorthBarn.class, GOTFaction.NORTH);
 		GOTStructureRegistry.register(id++, GOTStructureNorthBath.class, GOTFaction.NORTH);

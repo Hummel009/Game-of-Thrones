@@ -1,13 +1,11 @@
 package got.common.entity.essos.dothraki;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
+import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -17,14 +15,6 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 	public GOTEntityDothrakiKhal(World world) {
 		super(world);
 		addTargetTasks(false);
-		cape = null;
-		spawnRidingHorse = false;
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
 	}
 
 	@Override
@@ -33,8 +23,8 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndStronglyAligned(entityPlayer);
 	}
 
 	@Override
@@ -43,14 +33,8 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/wild/usual_friendly";
-			}
-			return "standard/wild/usual_neutral";
-		}
-		return "standard/wild/usual_hostile";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
@@ -66,16 +50,15 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadSword));
-		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(4, null);
+
 		return entityData;
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

@@ -7,6 +7,7 @@ import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTDrunkenSpeech;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.iface.GOTHireableBase;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketNPCSpeech;
 import net.minecraft.command.ICommandSender;
@@ -29,6 +30,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTSpeech {
+	public static final String HOSTILE = "standard/hostile";
 	private static final Map<String, SpeechBank> ALL_SPEECH_BANKS = new HashMap<>();
 	private static final Random RANDOM = new Random();
 
@@ -187,6 +189,37 @@ public class GOTSpeech {
 		IChatComponent component = new ChatComponentText(message);
 		entityplayer.addChatMessage(component);
 		sendSpeech(entityplayer, entity, speech);
+	}
+
+	public static String getDefaultSpeech(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendlyAndAligned(entityPlayer)) {
+			return "standard/friendly";
+		}
+		return "standard/hostile";
+	}
+
+	public static String getCaptainSpeech(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendlyAndAligned(entityPlayer)) {
+			if (((GOTHireableBase) npc).canTradeWith(entityPlayer)) {
+				return "standard/friendly";
+			}
+			return "standard/neutral";
+		}
+		return "standard/hostile";
+	}
+
+	public static String getFatherGrigoriSpeech(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendlyAndAligned(entityPlayer)) {
+			return "special/father_friendly";
+		}
+		return "special/father_hostile";
+	}
+
+	public static String getCriminalSpeech(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendlyAndAligned(entityPlayer)) {
+			return "special/criminal_friendly";
+		}
+		return "special/criminal_hostile";
 	}
 
 	private static class SpeechBank {

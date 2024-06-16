@@ -1,7 +1,10 @@
 package got.common.entity.westeros.ironborn;
 
+import got.common.database.GOTItems;
 import got.common.entity.other.iface.GOTBannerBearer;
 import got.common.item.other.GOTItemBanner;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityIronbornBannerBearer extends GOTEntityIronbornSoldier implements GOTBannerBearer {
@@ -13,5 +16,15 @@ public class GOTEntityIronbornBannerBearer extends GOTEntityIronbornSoldier impl
 	@Override
 	public GOTItemBanner.BannerType getBannerType() {
 		return GOTItemBanner.BannerType.GREYJOY;
+	}
+
+	@Override
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+
+		return entityData;
 	}
 }

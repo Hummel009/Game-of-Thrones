@@ -83,8 +83,8 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		String[] tavernName = GOTNames.getTavernName(random);
 		placeSign(world, 0, 3, -10, Blocks.wall_sign, 2, new String[]{"", tavernName[0], tavernName[1], ""});
 		placeSign(world, 0, 3, 10, Blocks.wall_sign, 3, new String[]{"", tavernName[0], tavernName[1], ""});
-		placeBarrel(world, random, -3, 2, -2, 4, GOTFoods.NOMAD_DRINK);
-		placeBarrel(world, random, 3, 2, 1, 5, GOTFoods.NOMAD_DRINK);
+		placeBarrel(world, random, -3, 2, -2, 4, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 3, 2, 1, 5, GOTFoods.DEFAULT_DRINK);
 		placeFlowerPot(world, 3, 2, -2, getRandomFlower(world, random));
 		placeFlowerPot(world, -3, 2, 1, getRandomFlower(world, random));
 		placeKebabStand(world, random, -2, 2, 2, GOTBlocks.kebabStand, 2);
@@ -160,13 +160,13 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 	private void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.NOMAD_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 			} else {
 				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {
-					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.NOMAD);
+					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.DEFAULT);
 				}
 			}
 		}

@@ -2,12 +2,10 @@ package got.common.entity.westeros.legendary;
 
 import got.common.database.GOTNames;
 import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -15,25 +13,12 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrasterWife(World world) {
 		super(world);
-		setSize(0.6f, 1.8f);
-		getNavigator().setAvoidsWater(true);
-		tasks.addTask(0, new EntityAISwimming(this));
-		tasks.addTask(2, new EntityAIPanic(this, 1.7));
-		tasks.addTask(4, new EntityAIOpenDoor(this, true));
-		tasks.addTask(5, new EntityAIWander(this, 1.0));
-		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
-		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
-		tasks.addTask(9, new EntityAILookIdle(this));
 		notAttackable = true;
-		addTargetTasks(false);
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
+	public EntityAIBase getAttackAI() {
+		return new EntityAIPanic(this, 1.4);
 	}
 
 	@Override
@@ -42,13 +27,13 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome
 	}
 
 	@Override
-	public String getNPCName() {
-		return familyInfo.getName();
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		if (isFriendly(entityPlayer)) {
 			return "legendary/cwife_friendly";
 		}
 		return "legendary/cwife_hostile";

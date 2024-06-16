@@ -99,10 +99,10 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 			int j13 = 1;
 			int k1 = 9;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i1, j13, k1, GOTBlocks.ceramicPlate, GOTFoods.SOTHORYOS);
+				placePlate(world, random, i1, j13, k1, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
 				continue;
 			}
-			placeMug(world, random, i1, j13, k1, 0, GOTFoods.SOTHORYOS_DRINK);
+			placeMug(world, random, i1, j13, k1, 0, GOTFoods.DEFAULT_DRINK);
 		}
 		placeWeaponRack(world, 4, 2, -1, 6, getRandomWeapon(random));
 		placeWeaponRack(world, 5, 2, 0, 5, getRandomWeapon(random));
@@ -133,7 +133,7 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 		spawnNPCAndSetHome(warlord, world, 0, 3, 7, 4);
 		int warriors = 4 + random.nextInt(4);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntitySummerWarrior warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
+			GOTEntityNPC warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 1, 0, 16);
 		}

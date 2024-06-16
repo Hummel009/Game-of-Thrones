@@ -1,9 +1,9 @@
 package got.common.entity.essos.tyrosh;
 
 import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
+import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.iface.GOTUnitTradeable;
@@ -29,8 +29,8 @@ public class GOTEntityTyroshGeneral extends GOTEntityTyroshSoldier implements GO
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return GOTLevelData.getData(entityPlayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityPlayer);
 	}
 
 	@Override
@@ -44,14 +44,8 @@ public class GOTEntityTyroshGeneral extends GOTEntityTyroshSoldier implements GO
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
@@ -71,10 +65,5 @@ public class GOTEntityTyroshGeneral extends GOTEntityTyroshSoldier implements GO
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
 		return entityData;
-	}
-
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

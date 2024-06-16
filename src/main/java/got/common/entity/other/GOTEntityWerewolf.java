@@ -6,7 +6,6 @@ import got.common.database.GOTMaterial;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTMaterialFinder;
-import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -16,7 +15,6 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
@@ -58,20 +56,6 @@ public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneTo
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
 	}
 
 	@Override

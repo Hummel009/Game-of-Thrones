@@ -1,10 +1,9 @@
 package got.common.entity.essos.braavos;
 
 import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.iface.GOTTradeable;
+import got.common.entity.other.iface.GOTSmith;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,7 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityBraavosBlacksmith extends GOTEntityBraavosMan implements GOTTradeable.Smith {
+public class GOTEntityBraavosBlacksmith extends GOTEntityBraavosMan implements GOTSmith {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosBlacksmith(World world) {
 		super(world);
@@ -57,11 +56,6 @@ public class GOTEntityBraavosBlacksmith extends GOTEntityBraavosMan implements G
 	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.C_BLACKSMITH_SELL;
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

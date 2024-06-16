@@ -211,10 +211,10 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 4, 1, -3, bedBlock, 10);
 		setBlockAndMetadata(world, -4, 1, 0, Blocks.furnace, 4);
 		setBlockAndMetadata(world, -4, 1, 1, rockSlabDoubleBlock, rockSlabDoubleMeta);
-		placePlateWithCertainty(world, random, -4, 2, 1, plateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, -4, 2, 1, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, -4, 1, 2, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, -4, 1, 3, rockSlabDoubleBlock, rockSlabDoubleMeta);
-		placeMug(world, random, -4, 2, 3, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -4, 2, 3, 3, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, -3, 1, 4, rockSlabDoubleBlock, rockSlabDoubleMeta);
 		placeFlowerPot(world, -3, 2, 4, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -2, 1, 4, Blocks.hay_block, 0);

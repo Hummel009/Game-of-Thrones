@@ -293,14 +293,14 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			}
 		}
 		placeRandomSlab(world, random, -4, 2, -4, true);
-		placeBarrel(world, random, -4, 3, -4, 4, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -4, 3, -4, 4, GOTFoods.DEFAULT_DRINK);
 		placeRandomSlab(world, random, -4, 2, -3, true);
-		placeBarrel(world, random, -4, 3, -3, 4, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -4, 3, -3, 4, GOTFoods.DEFAULT_DRINK);
 		placeChest(world, random, -4, 2, -2, getChest(), 4, getChestContents());
 		placeRandomSlab(world, random, 4, 2, -4, true);
-		placeBarrel(world, random, 4, 3, -4, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 4, 3, -4, 5, GOTFoods.DEFAULT_DRINK);
 		placeRandomSlab(world, random, 4, 2, -3, true);
-		placeBarrel(world, random, 4, 3, -3, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 4, 3, -3, 5, GOTFoods.DEFAULT_DRINK);
 		placeChest(world, random, 4, 2, -2, getChest(), 5, getChestContents());
 		setBlockAndMetadata(world, -4, 2, 4, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 4, 2, 4, tableBlock, 0);

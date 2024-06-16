@@ -76,8 +76,8 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, -3, 1, 6, bedBlock, 0);
 		setBlockAndMetadata(world, -3, 1, 7, bedBlock, 8);
 		placeChest(world, random, -4, 1, 6, GOTBlocks.chestBasket, 4, GOTChestContents.SUMMER);
-		placePlateWithCertainty(world, random, 4, 2, 6, GOTBlocks.woodPlate, GOTFoods.SOTHORYOS);
-		placeMug(world, random, 4, 2, 5, 1, GOTFoods.SOTHORYOS_DRINK);
+		placePlateWithCertainty(world, random, 4, 2, 6, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
+		placeMug(world, random, 4, 2, 5, 1, GOTFoods.DEFAULT_DRINK);
 		GOTEntityNPC summer = new GOTEntitySummerMan(world);
 		spawnNPCAndSetHome(summer, world, 0, 1, 0, 12);
 		for (int k1 : new int[]{-2, 2}) {

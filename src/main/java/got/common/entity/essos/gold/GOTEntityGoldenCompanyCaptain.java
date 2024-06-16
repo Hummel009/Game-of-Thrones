@@ -1,41 +1,29 @@
 package got.common.entity.essos.gold;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
+import got.common.database.GOTItems;
+import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityGoldenCompanyCaptain extends GOTEntityGoldenCompanyWarrior implements GOTUnitTradeable {
+public class GOTEntityGoldenCompanyCaptain extends GOTEntityGoldenCompanyMan implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGoldenCompanyCaptain(World world) {
 		super(world);
-		addTargetTasks(false);
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendly(entityplayer);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
@@ -49,7 +37,16 @@ public class GOTEntityGoldenCompanyCaptain extends GOTEntityGoldenCompanyWarrior
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		super.onSpawnWithEgg(data);
+
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.goldenCompanyBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.goldenCompanyLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.goldenCompanyChestplate));
+
+		return data;
 	}
 }

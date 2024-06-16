@@ -3,7 +3,6 @@ package got.common.entity.essos.volantis;
 import got.common.database.GOTItems;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -17,25 +16,8 @@ public class GOTEntityVolantisLevyman extends GOTEntityVolantisMan {
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hireableInfo.getHiringPlayer() == entityplayer) {
-				return "standard/civilized/hired_soldier";
-			}
-			return "standard/civilized/usual_friendly";
-		}
-		return "standard/civilized/usual_hostile";
 	}
 
 	@Override
@@ -48,7 +30,7 @@ public class GOTEntityVolantisLevyman extends GOTEntityVolantisMan {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		GOTEntityUtils.setLevymanArmor(this, rand, true);
+		GOTEntityUtils.setupEssosLevymanArmor(this, rand);
 		return entityData;
 	}
 

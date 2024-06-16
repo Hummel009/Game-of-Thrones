@@ -1,32 +1,30 @@
 package got.common.entity.westeros.north;
 
-import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.other.iface.GOTTradeable;
-import got.common.entity.other.iface.GOTUnitTradeable;
+import got.common.database.GOTItems;
+import got.common.database.GOTTradeEntries;
+import got.common.database.GOTUnitTradeEntries;
+import got.common.entity.other.iface.GOTFarmer;
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityNorthFarmer extends GOTEntityNorthMan implements GOTTradeable, GOTUnitTradeable {
+public class GOTEntityNorthFarmer extends GOTEntityNorthMan implements GOTFarmer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthFarmer(World world) {
 		super(world);
-		addTargetTasks(false);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
 
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -40,46 +38,21 @@ public class GOTEntityNorthFarmer extends GOTEntityNorthMan implements GOTTradea
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
-	}
-
-	@Override
 	public GOTUnitTradeEntries getUnits() {
 		return GOTUnitTradeEntries.NORTH_FARMER;
 	}
 
 	@Override
-	public GOTInvasions getWarhorn() {
-		return null;
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		if (type == GOTTradeEntries.TradeType.WE_CAN_BUY && itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.pipeweedPlant)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-		}
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 10390131);
 		setCurrentItemOrArmor(4, hat);
-		return entityData;
-	}
 
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+		return entityData;
 	}
 }

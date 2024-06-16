@@ -60,10 +60,10 @@ public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 		generateStrScan(world, random, 0, 0, 0);
 		placeChest(world, random, -2, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.LHAZAR);
 		placeSkull(world, random, 2, 2, 1);
-		placeBarrel(world, random, -2, 2, -1, 4, GOTFoods.NOMAD_DRINK);
-		placeMug(world, random, 2, 2, -1, 2, GOTFoods.NOMAD_DRINK);
-		placePlate(world, random, 2, 2, 0, GOTBlocks.woodPlate, GOTFoods.NOMAD);
-		placePlate(world, random, -2, 2, 1, GOTBlocks.woodPlate, GOTFoods.NOMAD);
+		placeBarrel(world, random, -2, 2, -1, 4, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, 2, 2, -1, 2, GOTFoods.DEFAULT_DRINK);
+		placePlate(world, random, 2, 2, 0, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
+		placePlate(world, random, -2, 2, 1, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 		placeWallBanner(world, 0, 8, -3, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, 0, 8, 3, GOTItemBanner.BannerType.LHAZAR, 0);
 		int warriors = 1 + random.nextInt(2);

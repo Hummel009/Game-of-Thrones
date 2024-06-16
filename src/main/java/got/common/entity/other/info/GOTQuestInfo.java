@@ -96,7 +96,7 @@ public class GOTQuestInfo {
 	private GOTMiniQuest generateRandomMiniQuest() {
 		int tries = 8;
 		for (int l = 0; l < tries; ++l) {
-			GOTMiniQuest quest = theNPC.createMiniQuest();
+			GOTMiniQuest quest = theNPC.getMiniQuestFactory().createQuest(theNPC);
 			if (quest == null) {
 				continue;
 			}
@@ -159,7 +159,7 @@ public class GOTQuestInfo {
 				theNPC.sendSpeechBank(entityplayer, offer.getSpeechBankTooMany(), offer);
 				return true;
 			}
-			GOTMiniQuestFactory bountyHelpSpeechDir = theNPC.getBountyHelpSpeechDir();
+			GOTMiniQuestFactory bountyHelpSpeechDir = theNPC.getMiniQuestFactory();
 			if (bountyHelpSpeechDir != null && bountyHelpPredicate.test(entityplayer) && !(bountyQuests = playerData.selectMiniQuests(activeBountySelector)).isEmpty()) {
 				GOTWaypoint lastWP;
 				GOTMiniQuestBounty bQuest = (GOTMiniQuestBounty) bountyQuests.get(theNPC.getRNG().nextInt(bountyQuests.size()));

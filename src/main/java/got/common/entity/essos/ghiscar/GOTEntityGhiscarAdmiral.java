@@ -26,8 +26,8 @@ public class GOTEntityGhiscarAdmiral extends GOTEntityGhiscarCorsair implements 
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return GOTLevelData.getData(entityPlayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityPlayer);
 	}
 
 	@Override
@@ -41,14 +41,8 @@ public class GOTEntityGhiscarAdmiral extends GOTEntityGhiscarCorsair implements 
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
@@ -71,10 +65,5 @@ public class GOTEntityGhiscarAdmiral extends GOTEntityGhiscarCorsair implements 
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ghiscarChestplate));
 		setCurrentItemOrArmor(4, null);
 		return entityData;
-	}
-
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

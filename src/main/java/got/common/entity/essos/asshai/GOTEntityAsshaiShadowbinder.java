@@ -4,7 +4,6 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAsshaiShadowbinderUseStaff;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -12,9 +11,25 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiShadowbinder(World world) {
 		super(world);
-		tasks.addTask(1, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
+		tasks.addTask(2, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
 		isImmuneToFire = true;
-		shield = null;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 3.0f;
+	}
+
+	@Override
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiShadowbinderStaff));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
+
+		return entityData;
 	}
 
 	@Override
@@ -23,21 +38,9 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(25.0);
-	}
-
-	@Override
 	public void entityInit() {
 		super.entityInit();
 		dataWatcher.addObject(17, (byte) 0);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
 	}
 
 	public boolean getIsUsingStaff() {
@@ -73,18 +76,5 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 				worldObj.spawnParticle("smoke", d, d1, d2, d8, d9, d10);
 			}
 		}
-	}
-
-	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTItems.asshaiShadowbinderStaff));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiShadowbinderStaff));
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.asshaiBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
-		return entityData;
 	}
 }

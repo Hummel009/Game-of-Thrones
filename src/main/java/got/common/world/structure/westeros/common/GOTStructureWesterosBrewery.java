@@ -234,7 +234,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 5, 17, Blocks.torch, 4);
 		placeWallBanner(world, 0, 5, 1, GOTItemBanner.BannerType.TYRELL, 0);
 		placeWallBanner(world, 0, 5, 18, GOTItemBanner.BannerType.TYRELL, 2);
-		ItemStack drink = GOTFoods.WESTEROS_DRINK.getRandomBrewableDrink(random);
+		ItemStack drink = GOTFoods.DEFAULT_DRINK.getRandomBrewableDrink(random);
 		for (k1 = 2; k1 <= 17; ++k1) {
 			for (i1 = -4; i1 <= 4; ++i1) {
 				if (Math.abs(i1) < 3) {
@@ -271,8 +271,8 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 				}
 				setBlockAndMetadata(world, i1, 1, k1, plankSlabBlock, plankSlabMeta | 8);
 			}
-			placeMug(world, random, -1, 2, k1, 1, drink, GOTFoods.WESTEROS_DRINK);
-			placeMug(world, random, 1, 2, k1, 3, drink, GOTFoods.WESTEROS_DRINK);
+			placeMug(world, random, -1, 2, k1, 1, drink, GOTFoods.DEFAULT_DRINK);
+			placeMug(world, random, 1, 2, k1, 3, drink, GOTFoods.DEFAULT_DRINK);
 		}
 		setBlockAndMetadata(world, 0, 1, 17, tableBlock, 0);
 		for (i13 = -2; i13 <= 2; ++i13) {
@@ -290,7 +290,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 				ItemStack chestDrinkItem = drink.copy();
 				chestDrinkItem.stackSize = 1;
 				GOTItemMug.setStrengthMeta(chestDrinkItem, MathHelper.getRandomIntegerInRange(random, 1, 4));
-				GOTItemMug.Vessel[] chestVessels = GOTFoods.WESTEROS_DRINK.getDrinkVessels();
+				GOTItemMug.Vessel[] chestVessels = GOTFoods.DEFAULT_DRINK.getDrinkVessels();
 				GOTItemMug.Vessel v = chestVessels[random.nextInt(chestVessels.length)];
 				GOTItemMug.setVessel(chestDrinkItem, v, true);
 				chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), chestDrinkItem);

@@ -153,20 +153,20 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			}
 		}
 		setBlockAndMetadata(world, -2, 1, -3, plankBlock, plankMeta);
-		placePlate(world, random, -2, 2, -3, plateBlock, GOTFoods.WESTEROS);
+		placePlate(world, random, -2, 2, -3, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, -3, 1, -3, plankBlock, plankMeta);
-		placePlate(world, random, -3, 2, -3, plateBlock, GOTFoods.WESTEROS);
+		placePlate(world, random, -3, 2, -3, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, -4, 1, -2, plankBlock, plankMeta);
-		placeMug(world, random, -4, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -4, 2, -2, 3, GOTFoods.DEFAULT_DRINK);
 		placeChest(world, random, -4, 1, -1, 4, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, -4, 1, 0, Blocks.crafting_table, 0);
 		placeChest(world, random, -4, 1, 1, 4, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, -4, 1, 2, plankBlock, plankMeta);
-		placeBarrel(world, random, -4, 2, 2, 4, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -4, 2, 2, 4, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, -3, 1, 3, plankBlock, plankMeta);
-		placeBarrel(world, random, -3, 2, 3, 2, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -3, 2, 3, 2, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, -2, 1, 3, plankBlock, plankMeta);
-		placeMug(world, random, -2, 2, 3, 0, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -2, 2, 3, 0, GOTFoods.DEFAULT_DRINK);
 		int[] k15 = {-3, 3};
 		k12 = k15.length;
 		for (i2 = 0; i2 < k12; ++i2) {

@@ -39,13 +39,16 @@ import got.common.entity.westeros.westerlands.GOTEntityWesterlandsMan;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThenn;
 import got.common.item.other.GOTItemRobes;
+import got.common.item.other.GOTItemTurban;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 
+import java.awt.*;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Random;
@@ -171,11 +174,54 @@ public class GOTEntityUtils {
 		return null;
 	}
 
-	public static void setLevymanArmor(GOTEntityNPC npc, Random rand) {
-		setLevymanArmor(npc, rand, false);
+	public static void setupComboAttackModeChange(GOTEntityNPC npc, GOTEntityNPC.AttackMode mode, EntityAIBase meleeAttackAI, EntityAIBase rangedAttackAI) {
+		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
+
+		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+			npc.tasks.removeTask(meleeAttackAI);
+			npc.tasks.removeTask(rangedAttackAI);
+			npc.setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
+		}
+		if (mode == GOTEntityNPC.AttackMode.MELEE) {
+			npc.tasks.removeTask(meleeAttackAI);
+			npc.tasks.removeTask(rangedAttackAI);
+			npc.tasks.addTask(2, meleeAttackAI);
+			npc.setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
+		}
+		if (mode == GOTEntityNPC.AttackMode.RANGED) {
+			npc.tasks.removeTask(meleeAttackAI);
+			npc.tasks.removeTask(rangedAttackAI);
+			npc.tasks.addTask(2, rangedAttackAI);
+			npc.setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
+		}
 	}
 
-	public static void setLevymanArmor(GOTEntityNPC npc, Random rand, boolean forceTurban) {
+	public static void setupRangedAttackModeChange(GOTEntityNPC npc, GOTEntityNPC.AttackMode mode) {
+		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
+
+		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+			npc.setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
+		} else {
+			npc.setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
+		}
+	}
+
+	public static void setupWesterosLevymanArmor(GOTEntityNPC npc, Random rand) {
+		setupLevymanArmor(npc, rand);
+
+		npc.setCurrentItemOrArmor(4, dyeLeather(new ItemStack(Items.leather_helmet), rand));
+	}
+
+	public static void setupEssosLevymanArmor(GOTEntityNPC npc, Random rand) {
+		setupLevymanArmor(npc, rand);
+
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
+		int robeColor = TURBAN_COLORS[rand.nextInt(TURBAN_COLORS.length)];
+		GOTItemRobes.setRobesColor(turban, robeColor);
+		npc.setCurrentItemOrArmor(4, turban);
+	}
+
+	private static void setupLevymanArmor(GOTEntityNPC npc, Random rand) {
 		boolean alreadyHasChain = false;
 		npc.setCurrentItemOrArmor(1, dyeLeather(new ItemStack(Items.leather_boots), rand));
 
@@ -197,13 +243,19 @@ public class GOTEntityUtils {
 		} else {
 			npc.setCurrentItemOrArmor(3, dyeLeather(new ItemStack(Items.leather_chestplate), rand));
 		}
-		if (forceTurban) {
-			ItemStack turban = new ItemStack(GOTItems.robesHelmet);
-			int robeColor = TURBAN_COLORS[rand.nextInt(TURBAN_COLORS.length)];
-			GOTItemRobes.setRobesColor(turban, robeColor);
-			npc.setCurrentItemOrArmor(4, turban);
-		} else if (rand.nextInt(5) != 0) {
-			npc.setCurrentItemOrArmor(4, dyeLeather(new ItemStack(Items.leather_helmet), rand));
+	}
+
+	public static void setupTurban(GOTEntityNPC npc, Random random) {
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
+		if (random.nextInt(3) == 0) {
+			GOTItemTurban.setHasOrnament(turban, true);
 		}
+		float h = random.nextFloat() * 360.0f;
+		float s = MathHelper.randomFloatClamp(random, 0.6f, 0.8f);
+		float b = MathHelper.randomFloatClamp(random, 0.5f, 0.75f);
+		int turbanColor = Color.HSBtoRGB(h, s, b) & 0xFFFFFF;
+		GOTItemRobes.setRobesColor(turban, turbanColor);
+
+		npc.setCurrentItemOrArmor(4, turban);
 	}
 }

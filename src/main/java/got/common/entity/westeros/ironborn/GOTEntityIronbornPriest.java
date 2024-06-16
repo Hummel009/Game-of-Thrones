@@ -1,8 +1,8 @@
 package got.common.entity.westeros.ironborn;
 
-import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
+import got.common.database.GOTSpeech;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -17,8 +17,13 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	}
 
 	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -27,33 +32,27 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killPriest;
-	}
-
-	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.C_TRAMP_SELL;
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "standard/special/father_friendly";
-		}
-		return "standard/special/father_hostile";
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getFatherGrigoriSpeech(this, entityPlayer);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
+
 		return entityData;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killPriest;
 	}
 }

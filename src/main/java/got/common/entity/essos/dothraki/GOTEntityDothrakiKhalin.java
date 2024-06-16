@@ -1,7 +1,5 @@
 package got.common.entity.essos.dothraki;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
@@ -15,7 +13,6 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 	public GOTEntityDothrakiKhalin(World world) {
 		super(world);
 		addTargetTasks(false);
-		spawnRidingHorse = false;
 	}
 
 	@Override
@@ -24,8 +21,8 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -44,27 +41,16 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 	}
 
 	@Override
-	public void onAttackModeChange(AttackMode mode, boolean mounted) {
-		if (mode == AttackMode.IDLE) {
-			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-		}
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
+
 		setCurrentItemOrArmor(1, null);
 		setCurrentItemOrArmor(2, null);
 		setCurrentItemOrArmor(3, null);
 		setCurrentItemOrArmor(4, null);
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
+
 		return entityData;
 	}
 

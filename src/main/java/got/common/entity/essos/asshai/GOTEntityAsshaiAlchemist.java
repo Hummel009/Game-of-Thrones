@@ -1,7 +1,5 @@
 package got.common.entity.essos.asshai;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
@@ -19,8 +17,13 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 	}
 
 	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -34,15 +37,12 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 	}
 
 	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		return entityData;
 	}
 }

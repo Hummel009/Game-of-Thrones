@@ -1,16 +1,12 @@
 package got.common.entity.essos.lorath;
 
-import got.common.database.GOTChestContents;
-import got.common.database.GOTFoods;
-import got.common.database.GOTItems;
-import got.common.database.GOTNames;
+import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTNPCMount;
 import got.common.faction.GOTFaction;
-import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.essos.GOTBiomeLorath;
@@ -21,7 +17,6 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -38,8 +33,8 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 		tasks.addTask(3, new GOTEntityAIFollowHiringPlayer(this));
 		tasks.addTask(4, new EntityAIOpenDoor(this, true));
 		tasks.addTask(5, new EntityAIWander(this, 1.0));
-		tasks.addTask(6, new GOTEntityAIEat(this, GOTFoods.ESSOS, 8000));
-		tasks.addTask(6, new GOTEntityAIDrink(this, GOTFoods.ESSOS_DRINK, 6000));
+		tasks.addTask(6, new GOTEntityAIEat(this, GOTFoods.DEFAULT, 8000));
+		tasks.addTask(6, new GOTEntityAIDrink(this, GOTFoods.DEFAULT_DRINK, 6000));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 10.0f, 0.02f));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
@@ -56,11 +51,6 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 
 	protected EntityAIBase createLorathAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
-	}
-
-	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.LORATH.createQuest(this);
 	}
 
 	@Override
@@ -102,22 +92,8 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+	public GOTMiniQuestFactory getMiniQuestFactory() {
 		return GOTMiniQuestFactory.LORATH;
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
 	}
 
 	@Override
@@ -126,25 +102,11 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getNPCName() {
-		return familyInfo.getName();
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		if (isFriendly(entityPlayer)) {
 			return "standard/civilized/usual_friendly";
 		}
-		return "standard/civilized/usual_hostile";
-	}
-
-	@Override
-	public void onAttackModeChange(AttackMode mode, boolean mounted) {
-		if (mode == AttackMode.IDLE) {
-			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-		}
+		return GOTSpeech.HOSTILE;
 	}
 
 	@Override

@@ -2,8 +2,8 @@ package got.common.entity.westeros.hillmen;
 
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
+import got.common.entity.other.utils.GOTWeaponSetFactory;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -11,6 +11,7 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillmanWarrior(World world) {
 		super(world);
+		addTargetTasks(true);
 		shield = GOTShields.HILLMEN;
 	}
 
@@ -20,46 +21,16 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hireableInfo.getHiringPlayer() == entityplayer) {
-				return "standard/civilized/hired_soldier";
-			}
-			return "standard/civilized/usual_friendly";
-		}
-		return "standard/civilized/usual_hostile";
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(6);
-		switch (i) {
-			case 0:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
-				break;
-			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.club));
-				break;
-			default:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
-				break;
-		}
-		if (rand.nextInt(5) == 0) {
-			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			if (rand.nextBoolean()) {
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironSpear));
-			} else {
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeSpear));
-			}
-		}
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+		GOTWeaponSetFactory.setupHillmenWeaponSet(this, rand);
+
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.hillmenBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.hillmenLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.hillmenChestplate));
-		if (rand.nextInt(10) != 0) {
-			setCurrentItemOrArmor(4, new ItemStack(GOTItems.hillmenHelmet));
-		}
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.hillmenHelmet));
+
 		return entityData;
 	}
 

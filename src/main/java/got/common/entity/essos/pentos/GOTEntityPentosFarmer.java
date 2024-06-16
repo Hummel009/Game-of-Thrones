@@ -1,14 +1,16 @@
 package got.common.entity.essos.pentos;
 
 import got.common.GOTLevelData;
-import got.common.database.*;
+import got.common.database.GOTInvasions;
+import got.common.database.GOTItems;
+import got.common.database.GOTTradeEntries;
+import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -20,8 +22,8 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTTrad
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return GOTLevelData.getData(entityPlayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityPlayer);
 	}
 
 	@Override
@@ -40,17 +42,6 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTTrad
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
-	}
-
-	@Override
 	public GOTUnitTradeEntries getUnits() {
 		return GOTUnitTradeEntries.PENTOS_FARMER;
 	}
@@ -58,13 +49,6 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTTrad
 	@Override
 	public GOTInvasions getWarhorn() {
 		return null;
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		if (type == GOTTradeEntries.TradeType.WE_CAN_BUY && itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.pipeweedPlant)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-		}
 	}
 
 	@Override
@@ -76,10 +60,5 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTTrad
 		GOTItemLeatherHat.setHatColor(hat, 10390131);
 		setCurrentItemOrArmor(4, hat);
 		return entityData;
-	}
-
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

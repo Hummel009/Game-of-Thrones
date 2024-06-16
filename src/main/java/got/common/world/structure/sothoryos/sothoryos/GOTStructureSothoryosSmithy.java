@@ -103,7 +103,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		setBlockAndMetadata(world, 1, 5, 5, bedBlock, 9);
 		placeChest(world, random, 2, 5, 4, GOTBlocks.chestBasket, 5, GOTChestContents.SOTHORYOS);
 		placeSothoryosFlowerPot(world, 2, 6, 5, random);
-		placePlateWithCertainty(world, random, 2, 6, 3, GOTBlocks.woodPlate, GOTFoods.SOTHORYOS);
+		placePlateWithCertainty(world, random, 2, 6, 3, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 		placeSothoryosTorch(world, -4, 2, -4);
 		placeSothoryosTorch(world, 4, 2, -4);
 		placeWeaponRack(world, -3, -2, 2, 5, getRandomSothoryosWeapon(random));

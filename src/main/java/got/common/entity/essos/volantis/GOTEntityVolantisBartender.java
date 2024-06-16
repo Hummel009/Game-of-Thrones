@@ -1,15 +1,17 @@
 package got.common.entity.essos.volantis;
 
 import got.common.GOTLevelData;
-import got.common.database.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
+import got.common.database.GOTTradeEntries;
+import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTBartender;
-import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements GOTBartender, GOTTradeable {
+public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements GOTBartender {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisBartender(World world) {
 		super(world);
@@ -17,8 +19,8 @@ public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements 
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return GOTLevelData.getData(entityPlayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityPlayer);
 	}
 
 	@Override
@@ -26,7 +28,7 @@ public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements 
 		super.dropFewItems(flag, i);
 		int drinks = 1 + rand.nextInt(4) + i;
 		for (int l = 0; l < drinks; ++l) {
-			ItemStack drink = GOTFoods.ESSOS_DRINK.getRandomFood(rand);
+			ItemStack drink = GOTFoods.DEFAULT_DRINK.getRandomFood(rand);
 			entityDropItem(drink, 0.0f);
 		}
 	}
@@ -52,16 +54,6 @@ public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements 
 	}
 
 	@Override
-	public GOTInvasions getWarhorn() {
-		return null;
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
@@ -69,6 +61,6 @@ public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements 
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer var1) {
+	public void onUnitTrade(EntityPlayer entityPlayer) {
 	}
 }

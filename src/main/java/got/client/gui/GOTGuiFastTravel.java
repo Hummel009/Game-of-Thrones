@@ -44,7 +44,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 
 	public GOTGuiFastTravel(GOTAbstractWaypoint waypoint, int x, int z) {
 		theWaypoint = waypoint;
-		message = GOTSpeech.getRandomSpeech("standard/special/fast_travel");
+		message = GOTSpeech.getRandomSpeech("special/fast_travel");
 		mapGui = new GOTGuiMap();
 		mapRenderer = new GOTGuiRendererMap();
 		mapRenderer.setSepia(true);

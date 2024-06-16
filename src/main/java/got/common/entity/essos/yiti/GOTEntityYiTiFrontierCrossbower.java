@@ -21,7 +21,7 @@ public class GOTEntityYiTiFrontierCrossbower extends GOTEntityYiTiFrontier {
 	}
 
 	@Override
-	public EntityAIBase createYiTiAttackAI() {
+	public EntityAIBase getAttackAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 16.0f);
 	}
 

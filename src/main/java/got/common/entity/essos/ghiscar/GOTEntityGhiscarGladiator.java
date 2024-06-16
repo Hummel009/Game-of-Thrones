@@ -24,12 +24,6 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 	}
 
@@ -44,8 +38,8 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		return "standard/special/gladiator";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return "special/gladiator";
 	}
 
 	@Override

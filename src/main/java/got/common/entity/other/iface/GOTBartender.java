@@ -1,4 +1,10 @@
 package got.common.entity.other.iface;
 
-public interface GOTBartender extends GOTUnitTradeable {
+import got.common.database.GOTInvasions;
+
+public interface GOTBartender extends GOTUnitTradeable, GOTTradeable {
+	@Override
+	default GOTInvasions getWarhorn() {
+		return null;
+	}
 }

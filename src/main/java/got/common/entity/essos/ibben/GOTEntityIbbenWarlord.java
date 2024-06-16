@@ -1,33 +1,19 @@
 package got.common.entity.essos.ibben;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
+import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTUnitTradeable {
+public class GOTEntityIbbenWarlord extends GOTEntityIbbenMan implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenWarlord(World world) {
 		super(world);
-		addTargetTasks(false);
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
 	}
 
 	@Override
@@ -36,14 +22,13 @@ public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTU
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndStronglyAligned(entityPlayer);
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
@@ -53,21 +38,25 @@ public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTU
 
 	@Override
 	public GOTInvasions getWarhorn() {
-		return null;
+		return GOTInvasions.IBBEN;
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ibbenSword));
-		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
+
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ibbenBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ibbenLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ibbenChestplate));
+
 		return entityData;
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

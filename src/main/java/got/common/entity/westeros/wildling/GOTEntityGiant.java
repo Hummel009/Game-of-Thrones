@@ -6,7 +6,6 @@ import got.common.entity.other.GOTEntityGiantBase;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 public class GOTEntityGiant extends GOTEntityGiantBase {
@@ -28,13 +27,12 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(Items.beef, 10);
 		dropItem(GOTItems.fur, 10);
 	}
 
 	@Override
 	public float getAlignmentBonus() {
-		return 5.0f;
+		return 10.0f;
 	}
 
 	@Override
@@ -43,10 +41,10 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "standard/special/giant_friendly";
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		if (isFriendly(entityPlayer)) {
+			return "special/giant_friendly";
 		}
-		return "standard/special/giant_hostile";
+		return "special/giant_hostile";
 	}
 }

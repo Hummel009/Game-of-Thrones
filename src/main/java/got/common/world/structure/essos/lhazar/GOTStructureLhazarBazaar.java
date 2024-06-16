@@ -187,9 +187,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.barrel, 3);
-			placeMug(world, random, 1, 2, 0, 0, GOTFoods.NOMAD_DRINK);
-			placeMug(world, random, 0, 2, 2, 3, GOTFoods.NOMAD_DRINK);
-			placeMug(world, random, 3, 2, 1, 1, GOTFoods.NOMAD_DRINK);
+			placeMug(world, random, 1, 2, 0, 0, GOTFoods.DEFAULT_DRINK);
+			placeMug(world, random, 0, 2, 2, 3, GOTFoods.DEFAULT_DRINK);
+			placeMug(world, random, 3, 2, 1, 1, GOTFoods.DEFAULT_DRINK);
 			placeFlowerPot(world, 2, 2, 3, getRandomFlower(world, random));
 			GOTEntityNPC trader = new GOTEntityLhazarBrewer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);

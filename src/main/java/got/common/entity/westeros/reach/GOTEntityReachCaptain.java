@@ -1,32 +1,17 @@
 package got.common.entity.westeros.reach;
 
-import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityReachCaptain extends GOTEntityReachSoldier implements GOTUnitTradeable {
+public class GOTEntityReachCaptain extends GOTEntityReachMan implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityReachCaptain(World world) {
 		super(world);
-		addTargetTasks(false);
 		cape = GOTCapes.REACH;
-		spawnRidingHorse = false;
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
 	}
 
 	@Override
@@ -35,14 +20,8 @@ public class GOTEntityReachCaptain extends GOTEntityReachSoldier implements GOTU
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndStronglyAligned(entityPlayer);
 	}
 
 	@Override
@@ -56,18 +35,26 @@ public class GOTEntityReachCaptain extends GOTEntityReachSoldier implements GOTU
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
+	}
+
+	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
-		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(4, null);
+
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.reachBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachChestplate));
+
 		return entityData;
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

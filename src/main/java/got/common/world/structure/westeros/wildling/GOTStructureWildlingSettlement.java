@@ -1,9 +1,9 @@
 package got.common.world.structure.westeros.wildling;
 
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
 import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;
+import got.common.entity.westeros.wildling.GOTEntityWildlingWarrior;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennArcher;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennAxeThrower;
 import got.common.world.biome.GOTBiome;
@@ -248,7 +248,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityWildling.class);
+				spawner.setSpawnClass1(GOTEntityWildlingWarrior.class);
 				spawner.setCheckRanges(80, -12, 12, 100);
 				spawner.setSpawnRanges(60, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);
@@ -307,7 +307,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityWildling.class);
+				spawner.setSpawnClass1(GOTEntityWildlingWarrior.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);

@@ -1,32 +1,17 @@
 package got.common.entity.westeros.dragonstone;
 
-import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneSoldier implements GOTUnitTradeable {
+public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneMan implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneCaptain(World world) {
 		super(world);
-		addTargetTasks(false);
 		cape = GOTCapes.DRAGONSTONE;
-		spawnRidingHorse = false;
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
 	}
 
 	@Override
@@ -35,14 +20,8 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneSoldier imp
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndStronglyAligned(entityPlayer);
 	}
 
 	@Override
@@ -56,18 +35,24 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneSoldier imp
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
+	}
+
+	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
-		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(4, null);
+
+		setupFactionArmor(true);
+
 		return entityData;
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

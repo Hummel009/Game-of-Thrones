@@ -53,8 +53,8 @@ public class GOTStructureEssosTower extends GOTStructureEssosBase {
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
 		generateStrScan(world, random, 0, 0, 0);
 		placeChest(world, random, -1, 1, -1, getChest(), 4, getChestContents());
-		placeMug(world, random, -1, 2, 1, 0, GOTFoods.ESSOS_DRINK);
-		placeBarrel(world, random, 1, 2, 1, 2, GOTFoods.ESSOS_DRINK);
+		placeMug(world, random, -1, 2, 1, 0, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 1, 2, 1, 2, GOTFoods.DEFAULT_DRINK);
 		placeWeaponRack(world, -1, 8, 0, 5, getRandomWeapon(random));
 		placeWeaponRack(world, 1, 8, 0, 7, getRandomWeapon(random));
 		placeWallBanner(world, 0, 14, -3, bannerType, 2);

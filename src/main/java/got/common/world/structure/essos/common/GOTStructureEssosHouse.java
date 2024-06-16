@@ -115,10 +115,10 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 			int i13 = -1;
 			int j13 = 2;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i13, j13, k12, GOTBlocks.woodPlate, GOTFoods.ESSOS);
+				placePlate(world, random, i13, j13, k12, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 				continue;
 			}
-			placeMug(world, random, i13, j13, k12, 1, GOTFoods.ESSOS_DRINK);
+			placeMug(world, random, i13, j13, k12, 1, GOTFoods.DEFAULT_DRINK);
 		}
 		setBlockAndMetadata(world, -1, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, -1, 5, -3, bedBlock, 10);

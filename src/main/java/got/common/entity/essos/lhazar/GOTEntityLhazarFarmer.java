@@ -1,11 +1,9 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
-import got.common.item.other.GOTItemLeatherHat;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,17 +13,16 @@ public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTrad
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarFarmer(World world) {
 		super(world);
-		addTargetTasks(false);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
 
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityplayer) {
+		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -39,18 +36,14 @@ public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTrad
 	}
 
 	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
-		GOTItemLeatherHat.setHatColor(turban, 10390131);
-		setCurrentItemOrArmor(4, turban);
+
+		GOTEntityUtils.setupTurban(this, rand);
+
 		return entityData;
 	}
 }

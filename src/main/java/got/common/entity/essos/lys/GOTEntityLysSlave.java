@@ -23,7 +23,7 @@ public class GOTEntityLysSlave extends GOTEntityLysMan implements GOTFarmhand {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
+	public String getSpeechBank(EntityPlayer entityPlayer) {
 		return "standard/civilized/hired_slave";
 	}
 

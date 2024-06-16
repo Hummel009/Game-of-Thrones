@@ -17,14 +17,15 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
-		addTargetTasks(true);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, true));
+		tasks.addTask(4, new EntityAIOpenDoor(this, true));
 		tasks.addTask(5, new EntityAIWander(this, 1.0));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
+		addTargetTasks(true);
 		spawnsInDarkness = true;
 	}
 
@@ -68,15 +69,6 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 	@Override
 	public String getLivingSound() {
 		return "mob.zombie.say";
-	}
-
-	@Override
-	public void onAttackModeChange(AttackMode mode, boolean mounted) {
-		if (mode == AttackMode.IDLE) {
-			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-		}
 	}
 
 	@Override

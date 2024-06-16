@@ -2,15 +2,27 @@ package got.common.entity.essos.yiti;
 
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
+import got.common.entity.other.iface.GOTTradeable;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityYiTiButcher extends GOTEntityYiTiMarketTrader {
+public class GOTEntityYiTiButcher extends GOTEntityYiTiMan implements GOTTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiButcher(World world) {
 		super(world);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityplayer) {
+		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -26,7 +38,9 @@ public class GOTEntityYiTiButcher extends GOTEntityYiTiMarketTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.rabbitRaw));
+
 		int robeColor = 14509656;
 		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
 		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
@@ -34,6 +48,7 @@ public class GOTEntityYiTiButcher extends GOTEntityYiTiMarketTrader {
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
+
 		return entityData;
 	}
 }

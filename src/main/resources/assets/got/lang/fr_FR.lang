@@ -530,7 +530,7 @@ entity.got.NorthHillmanArcher.name=Archer des Montagnes du Nord
 entity.got.NorthHillmanAxeThrower.name=Lanceur de hache des Montagnes du Nord
 entity.got.NorthHillmanBannerBearer.name=Porte-bannière des Montagnes du Nord
 entity.got.NorthHillmanCannibal.name=Cannibale des Montagnes du Nord
-entity.got.NorthHillmanChieftain.name=Chef des Montagnes Nord
+entity.got.NorthHillmanWarlord.name=Chef des Montagnes Nord
 entity.got.NorthHillmanMercenary.name=Mercenaire des Montagnes Nord
 entity.got.NorthHillmanWarrior.name=Guerrier des Montagnes Nord
 entity.got.NorthLevyman.name=Milicien du Nord
@@ -768,7 +768,8 @@ entity.got.Thenn.name=Sauvageon
 entity.got.ThennArcher.name=Archer Sauvageon
 entity.got.ThennAxeThrower.name=Lanceur de hache Sauvageon
 entity.got.ThennBannerBearer.name=Porte-bannière Sauvageon
-entity.got.ThennBerserker.name=Berserker Sauvageon
+entity.got.WildlingWarrior.name≠Wildling Warrior
+entity.got.ThennWarrior.name=Warrior Sauvageon
 entity.got.ThennBlacksmith.name=Forgeron Sauvageon
 entity.got.ThennMagnar.name=Magnar Sauvageon
 entity.got.TheonGreyjoyNormal.name=Theon Greyjoy
@@ -2810,8 +2811,8 @@ got.shields.CROWNLANDS.name=Bouclier des terres de la Couronne
 got.shields.DORNE.name=Bouclier de Dorne
 got.shields.DRAGONSTONE.name=Bouclier de Peyredragon
 got.shields.GHISCAR.name=Bouclier de Ghiscar
-got.shields.GOLDENCOMPANY.desc≠Reward for hiring 10 G.C. mercenaries
-got.shields.GOLDENCOMPANY.name≠Shield of Golden Company
+got.shields.GOLDEN_COMPANY.desc≠Reward for hiring 10 G.C. mercenaries
+got.shields.GOLDEN_COMPANY.name≠Shield of Golden Company
 got.shields.HILLMEN.name=Bouclier des collines
 got.shields.IRONBORN.name=Bouclier des Îles de Fer
 got.shields.LORATH.name=Bouclier de Lorath
@@ -3052,7 +3053,7 @@ got.structure.MyrTraining.name≠Training of Myr
 got.structure.NorthBarn.name≠Barn of North
 got.structure.NorthBath.name≠Bath of North
 got.structure.NorthFortress.name≠Fortress of North
-got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
+got.structure.NorthHillmanWarlordHouse.name≠North Hillmen Chieftain's House
 got.structure.NorthHillmanHouse.name≠North Hillmen House
 got.structure.NorthHillmanSettle.name≠North Hillmen Village
 got.structure.NorthHouse.name≠House of North

@@ -1,0 +1,12 @@
+﻿#title:Golden Empire
+#author:Li Zhong
+#types:yiti
+#
+
+Yi Ti is a region in the far east of the continent of Essos. Officially known as the "Golden Empire of Yi Ti", it lies near the eastern limits of the known world and is sometimes mentioned in the same breath as Asshai, indicating its extreme distance from Westeros. Qarth is located on the narrow straits at the western end of the Jade Sea, and Yi Ti lies on that sea's northeastern shores. Merchant ships from Yi Ti and Asshai regularly visit Qarth to conduct trade.
+
+Yi Ti is one of the oldest and most advanced societies in the known world. It was already ancient when the Valyrians were still shepherds and had not yet trained dragons (over 5,000 years ago); even the ruins of fallen cities in Yi Ti dwarf the largest cities in Westeros. Many valuable commodities - such as rare spices, gems, and silks - are found in Yi Ti, making the region incredibly wealthy; its princes are said to live opulently in houses of solid gold, feasting on meat powdered with pearls and jade - if the stories can be believed..
+
+Unlike the other ancient civilizations of Essos, such as the Ghiscari Empire and the Valyrian Freehold, Yi Ti never collapsed due to internal instability. Nor has it ever been been conquered by outside forces. Thus Yi Tish culture has endured unbroken longer than any other civilization on record.
+
+Yi Ti's religion includes several gods but is focused around two primary deities: the Maiden-Made-of-Light and the Lion of Night.

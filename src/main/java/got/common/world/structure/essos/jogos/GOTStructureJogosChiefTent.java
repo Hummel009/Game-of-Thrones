@@ -78,10 +78,10 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 		setBlockAndMetadata(world, 6, 1, 5, bedBlock, 8);
 		placeChest(world, random, -11, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.JOGOS);
 		placeChest(world, random, 11, 1, 0, GOTBlocks.chestBasket, 5, GOTChestContents.JOGOS);
-		placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
-		placePlateWithCertainty(world, random, -6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.NOMAD);
-		placePlateWithCertainty(world, random, 6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.NOMAD);
-		placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
+		placeMug(world, random, -4, 2, -5, 2, GOTFoods.DEFAULT_DRINK);
+		placePlateWithCertainty(world, random, -6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
+		placePlateWithCertainty(world, random, 6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
+		placeMug(world, random, 4, 2, -5, 2, GOTFoods.DEFAULT_DRINK);
 		placeWallBanner(world, 0, 3, 7, GOTItemBanner.BannerType.JOGOS, 2);
 		placeWallBanner(world, -5, 4, 6, GOTItemBanner.BannerType.JOGOS, 2);
 		placeWallBanner(world, 5, 4, 6, GOTItemBanner.BannerType.JOGOS, 2);

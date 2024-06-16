@@ -102,7 +102,7 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, 1, 1, -3, Blocks.wool, 15);
 		setBlockAndMetadata(world, -2, 1, 0, bedBlock, 0);
 		setBlockAndMetadata(world, -2, 1, 1, bedBlock, 8);
-		placeBarrel(world, random, -1, 1, 2, 2, GOTFoods.SOTHORYOS_DRINK);
+		placeBarrel(world, random, -1, 1, 2, 2, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 0, 1, 2, GOTBlocks.tableSummer, 0);
 		placeChest(world, random, 1, 1, 2, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
 		placeChest(world, random, 2, 1, 1, GOTBlocks.chestBasket, 5, GOTChestContents.SUMMER);

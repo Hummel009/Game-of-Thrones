@@ -679,7 +679,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
 		int soldiers = 4 + random.nextInt(4);
 		for (int l = 0; l < soldiers; ++l) {
-			GOTEntityYiTiSoldier soldier = random.nextInt(3) == 0 ? new GOTEntityYiTiSoldierCrossbower(world) : new GOTEntityYiTiSoldier(world);
+			GOTEntityNPC soldier = random.nextInt(3) == 0 ? new GOTEntityYiTiSoldierCrossbower(world) : new GOTEntityYiTiSoldier(world);
 			if (random.nextInt(3) == 0) {
 				soldier = new GOTEntityYiTiSamurai(world);
 			}

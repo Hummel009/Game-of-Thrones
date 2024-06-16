@@ -20,7 +20,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
-@SuppressWarnings({"WeakerAccess", "PublicField"})
+@SuppressWarnings({"WeakerAccess", "PublicField", "unused"})
 public class GOTAchievement {
 	public static final Collection<GOTAchievement> CONTENT = new ArrayList<>();
 
@@ -265,7 +265,6 @@ public class GOTAchievement {
 	public static GOTAchievement killRedScorpion;
 	public static GOTAchievement killRenlyBaratheon;
 	public static GOTAchievement killRickardKarstark;
-	public static GOTAchievement killRickonStark;
 	public static GOTAchievement killRobbStark;
 	public static GOTAchievement killRobinArryn;
 	public static GOTAchievement killRooseBolton;
@@ -728,7 +727,6 @@ public class GOTAchievement {
 		killRandyllTarly = createLegendaryAchievement(legId++, "KILL_RANDYLL_TARLY");
 		killRenlyBaratheon = createLegendaryAchievement(legId++, "KILL_RENLY_BARATHEON");
 		killRickardKarstark = createLegendaryAchievement(legId++, "KILL_RICKARD_KARSTARK");
-		killRickonStark = createLegendaryAchievement(legId++, "KILL_RICKON_STARK");
 		killRobbStark = createLegendaryAchievement(legId++, "KILL_ROBB_STARK");
 		killRobinArryn = createLegendaryAchievement(legId++, "KILL_ROBIN_ARRYN");
 		killRooseBolton = createLegendaryAchievement(legId++, "KILL_ROOSE_BOLTON");

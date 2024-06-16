@@ -20,7 +20,7 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 
 	public GOTEntityAIBanditFlee(GOTEntityBanditBase bandit, double d) {
 		theBandit = bandit;
-		theBanditAsNPC = theBandit.getBanditAsNPC();
+		theBanditAsNPC = bandit;
 		speed = d;
 		range = theBanditAsNPC.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
 		setMutexBits(3);

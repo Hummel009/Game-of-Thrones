@@ -10,31 +10,23 @@ public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillmanBerserker(World world) {
 		super(world);
-		shield = null;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(4);
-		if (i == 0 || i == 1 || i == 2) {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
-		} else {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeBattleaxe));
-		}
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.boneChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.hillmenHelmet));
+
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironBattleaxe));
+		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+
+		setCurrentItemOrArmor(4, null);
+
 		return entityData;
 	}
 }

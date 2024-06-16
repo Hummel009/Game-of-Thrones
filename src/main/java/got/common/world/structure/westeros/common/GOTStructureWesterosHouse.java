@@ -142,15 +142,15 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i1, 1, -2, plankBlock, plankMeta);
 			setBlockAndMetadata(world, i1, 1, -1, plankStairBlock, 2);
 			if (random.nextBoolean()) {
-				placePlateWithCertainty(world, random, i1, 2, -2, plateBlock, GOTFoods.WESTEROS);
+				placePlateWithCertainty(world, random, i1, 2, -2, plateBlock, GOTFoods.DEFAULT);
 				continue;
 			}
 			int drinkMeta = random.nextInt(4);
-			placeMug(world, random, i1, 2, -2, drinkMeta, GOTFoods.WESTEROS_DRINK);
+			placeMug(world, random, i1, 2, -2, drinkMeta, GOTFoods.DEFAULT_DRINK);
 		}
 		setBlockAndMetadata(world, 2, 1, -3, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 3, 1, -3, plankBlock, plankMeta);
-		placePlateWithCertainty(world, random, 3, 2, -3, plateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 3, 2, -3, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, 3, 1, -2, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, 3, 1, -1, tableBlock, 0);
 		setBlockAndMetadata(world, -2, 1, 1, bedBlock, 3);

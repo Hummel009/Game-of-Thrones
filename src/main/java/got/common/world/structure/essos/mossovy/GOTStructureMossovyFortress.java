@@ -445,7 +445,7 @@ public class GOTStructureMossovyFortress extends GOTStructureMossovyBase {
 		placeChest(world, random, 8, 1, 6, 3, GOTChestContents.MOSSOVY);
 		placeChest(world, random, 8, 1, 10, 2, GOTChestContents.MOSSOVY);
 		setBlockAndMetadata(world, 10, 1, 8, plankBlock, plankMeta);
-		placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.DEFAULT_DRINK);
 		for (int j18 = 1; j18 <= 4; ++j18) {
 			setBlockAndMetadata(world, 6, j18, -9, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, 7, j18, -9, plankBlock, plankMeta);

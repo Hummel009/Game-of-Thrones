@@ -47,6 +47,7 @@ public class GOTBiomeVariant {
 	public static final GOTBiomeVariant FOREST_LIME = new GOTBiomeVariantForest(54, "forest_lime").addTreeTypes(0.8f, GOTTreeType.LIME, 1000);
 	public static final GOTBiomeVariant FOREST_CEDAR = new GOTBiomeVariantForest(60, "forest_cedar").addTreeTypes(0.8f, GOTTreeType.CEDAR, 1000, GOTTreeType.CEDAR_LARGE, 50);
 	public static final GOTBiomeVariant FOREST_CYPRESS = new GOTBiomeVariantForest(61, "forest_cypress").addTreeTypes(0.8f, GOTTreeType.CYPRESS, 1000, GOTTreeType.CYPRESS_LARGE, 50);
+
 	public static final NoiseGeneratorPerlin MARSH_NOISE = new NoiseGeneratorPerlin(new Random(444L), 1);
 
 	private final int variantID;

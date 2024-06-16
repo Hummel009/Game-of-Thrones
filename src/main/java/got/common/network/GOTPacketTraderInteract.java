@@ -6,6 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.database.GOTGuiId;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.iface.GOTSmith;
 import got.common.entity.other.iface.GOTTradeable;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -56,7 +57,7 @@ public class GOTPacketTraderInteract implements IMessage {
 					entityplayer.openGui(GOT.instance, GOTGuiId.TRADE.ordinal(), world, livingTrader.getEntityId(), 0, 0);
 				} else if (action == 2 && tradeableTrader.canTradeWith(entityplayer)) {
 					entityplayer.openGui(GOT.instance, GOTGuiId.COIN_EXCHANGE.ordinal(), world, livingTrader.getEntityId(), 0, 0);
-				} else if (action == 3 && tradeableTrader.canTradeWith(entityplayer) && tradeableTrader instanceof GOTTradeable.Smith) {
+				} else if (action == 3 && tradeableTrader.canTradeWith(entityplayer) && tradeableTrader instanceof GOTSmith) {
 					entityplayer.openGui(GOT.instance, GOTGuiId.ANVIL_NPC.ordinal(), world, livingTrader.getEntityId(), 0, 0);
 				}
 				if (closeScreen) {

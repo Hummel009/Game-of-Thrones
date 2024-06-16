@@ -1,7 +1,7 @@
 package got.client.render.npc;
 
 import got.client.model.GOTModelMarshWraith;
-import got.common.entity.essos.mossovy.GOTEntityMarshWraith;
+import got.common.entity.essos.GOTEntityMarshWraith;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

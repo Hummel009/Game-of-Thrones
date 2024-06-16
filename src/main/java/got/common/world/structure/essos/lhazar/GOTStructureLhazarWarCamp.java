@@ -138,8 +138,8 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		placeSkull(world, random, -12, 3, 2);
 		placeWeaponRack(world, 11, 2, -4, 7, new ItemStack(GOTItems.nomadBow));
 		placeWeaponRack(world, 11, 2, 4, 7, new ItemStack(GOTItems.nomadBow));
-		placeBarrel(world, random, -13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
-		placeBarrel(world, random, 13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
+		placeBarrel(world, random, -13, 2, 9, 3, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 13, 2, 9, 3, GOTFoods.DEFAULT_DRINK);
 		placeWallBanner(world, 0, 6, -15, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, -2, 5, -15, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, 2, 5, -15, GOTItemBanner.BannerType.LHAZAR, 2);

@@ -530,7 +530,7 @@ entity.got.NorthHillmanArcher.name=Kuzey Hillman Milis Okçusu
 entity.got.NorthHillmanAxeThrower.name=Kuzey Hillman Balta Atıcı
 entity.got.NorthHillmanBannerBearer.name=Kuzey Hillman Bayraktar
 entity.got.NorthHillmanCannibal.name=Kuzey Hillman Yamyam
-entity.got.NorthHillmanChieftain.name=Kuzey Hillman Reisi
+entity.got.NorthHillmanWarlord.name=Kuzey Hillman Reisi
 entity.got.NorthHillmanMercenary.name=Kuzey Hillman Paralı Asker
 entity.got.NorthHillmanWarrior.name=Kuzey Hillman Savaşçı
 entity.got.NorthLevyman.name=Kuzeyli Milis
@@ -768,7 +768,8 @@ entity.got.Thenn.name=Sonra
 entity.got.ThennArcher.name=Sonra Okçu
 entity.got.ThennAxeThrower.name=Thenn Balta Atıcı
 entity.got.ThennBannerBearer.name=Thenn Bayraktar
-entity.got.ThennBerserker.name=Sonra Vahşi
+entity.got.WildlingWarrior.name≠Wildling Warrior
+entity.got.ThennWarrior.name=Sonra Warrior
 entity.got.ThennBlacksmith.name=Sonra Demircisi
 entity.got.ThennMagnar.name=Sonra Magnar
 entity.got.TheonGreyjoyNormal.name=Theon Greyjoy
@@ -2810,8 +2811,8 @@ got.shields.CROWNLANDS.name=Taç Toprakları Kalkanı
 got.shields.DORNE.name=Dorne'un Kalkanı
 got.shields.DRAGONSTONE.name=Ejderha Taşı Kalkanı
 got.shields.GHISCAR.name=Ghiscar Kalkanı
-got.shields.GOLDENCOMPANY.desc≠Reward for hiring 10 G.C. mercenaries
-got.shields.GOLDENCOMPANY.name≠Shield of Golden Company
+got.shields.GOLDEN_COMPANY.desc≠Reward for hiring 10 G.C. mercenaries
+got.shields.GOLDEN_COMPANY.name≠Shield of Golden Company
 got.shields.HILLMEN.name=Tepe Kabilelerinin Kalkanı
 got.shields.IRONBORN.name=Demir Adalar Kalkanı
 got.shields.LORATH.name=Lorath'ın Kalkanı
@@ -3052,7 +3053,7 @@ got.structure.MyrTraining.name≠Training of Myr
 got.structure.NorthBarn.name≠Barn of North
 got.structure.NorthBath.name≠Bath of North
 got.structure.NorthFortress.name≠Fortress of North
-got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
+got.structure.NorthHillmanWarlordHouse.name≠North Hillmen Chieftain's House
 got.structure.NorthHillmanHouse.name≠North Hillmen House
 got.structure.NorthHillmanSettle.name≠North Hillmen Village
 got.structure.NorthHouse.name≠House of North

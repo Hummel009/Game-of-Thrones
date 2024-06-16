@@ -11,6 +11,7 @@ tile.got:concrete.2.name≠Magenta Concrete
 tile.got:concrete.3.name≠Light Blue Concrete
 tile.got:concrete.4.name≠Yellow Concrete
 tile.got:concrete.5.name≠Lime Concrete
+entity.got.WildlingWarrior.name≠Wildling Warrior
 tile.got:concrete.6.name≠Pink Concrete
 tile.got:concrete.7.name≠Gray Concrete
 tile.got:concrete.8.name≠Light Gray Concrete
@@ -530,7 +531,7 @@ entity.got.NorthHillmanArcher.name=北境山区民弓箭手
 entity.got.NorthHillmanAxeThrower.name=北境山区民掷斧者
 entity.got.NorthHillmanBannerBearer.name=北境山区民旗手
 entity.got.NorthHillmanCannibal.name=北境山区民嗜血者
-entity.got.NorthHillmanChieftain.name=北境山区民头领
+entity.got.NorthHillmanWarlord.name=北境山区民头领
 entity.got.NorthHillmanMercenary.name=北境山区民佣兵
 entity.got.NorthHillmanWarrior.name=北境山区民战士
 entity.got.NorthLevyman.name=北境民兵
@@ -768,7 +769,7 @@ entity.got.Thenn.name=瑟恩人
 entity.got.ThennArcher.name=瑟恩弓箭手
 entity.got.ThennAxeThrower.name=瑟恩掷斧者
 entity.got.ThennBannerBearer.name=瑟恩旗手
-entity.got.ThennBerserker.name=瑟恩狂战士
+entity.got.ThennWarrior.name=瑟恩狂战士
 entity.got.ThennBlacksmith.name=瑟恩铁匠
 entity.got.ThennMagnar.name=马格纳
 entity.got.TheonGreyjoyNormal.name=席恩·葛雷乔伊
@@ -2810,8 +2811,8 @@ got.shields.CROWNLANDS.name=王领的之盾
 got.shields.DORNE.name=多恩之盾
 got.shields.DRAGONSTONE.name=龙石岛之盾
 got.shields.GHISCAR.name=吉斯卡之盾
-got.shields.GOLDENCOMPANY.desc=雇佣10名雇佣兵的奖励
-got.shields.GOLDENCOMPANY.name=黄金公司的之盾
+got.shields.GOLDEN_COMPANY.desc=雇佣10名雇佣兵的奖励
+got.shields.GOLDEN_COMPANY.name=黄金公司的之盾
 got.shields.HILLMEN.name=高山氏族部落的之盾
 got.shields.IRONBORN.name=铁群岛之盾
 got.shields.LORATH.name=罗拉斯之盾
@@ -3052,7 +3053,7 @@ got.structure.MyrTraining.name≠Training of Myr
 got.structure.NorthBarn.name≠Barn of North
 got.structure.NorthBath.name≠Bath of North
 got.structure.NorthFortress.name≠Fortress of North
-got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
+got.structure.NorthHillmanWarlordHouse.name≠North Hillmen Chieftain's House
 got.structure.NorthHillmanHouse.name≠North Hillmen House
 got.structure.NorthHillmanSettle.name≠North Hillmen Village
 got.structure.NorthHouse.name≠House of North

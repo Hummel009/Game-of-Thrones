@@ -2,6 +2,7 @@ package got.common.entity.essos.yiti;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -16,12 +17,22 @@ public class GOTEntityYiTiSoldierCrossbower extends GOTEntityYiTiSoldier {
 	}
 
 	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcCrossbowAttack(target);
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		GOTEntityUtils.setupRangedAttackModeChange(this, mode);
 	}
 
 	@Override
-	public EntityAIBase createYiTiAttackAI() {
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
+		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+
+		return entityData;
+	}
+
+	@Override
+	public EntityAIBase getAttackAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 16.0f);
 	}
 
@@ -32,19 +43,7 @@ public class GOTEntityYiTiSoldierCrossbower extends GOTEntityYiTiSoldier {
 	}
 
 	@Override
-	public void onAttackModeChange(AttackMode mode, boolean mounted) {
-		if (mode == AttackMode.IDLE) {
-			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
-		}
-	}
-
-	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
-		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return entityData;
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
+		npcCrossbowAttack(target);
 	}
 }

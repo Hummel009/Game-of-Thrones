@@ -164,8 +164,8 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		plantFlower(world, random, 8, 6, -1);
 		placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
 		placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
-		placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
-		placePlateWithCertainty(world, random, 3, 2, -3, GOTBlocks.plate, GOTFoods.WESTEROS);
+		placeMug(world, random, 3, 2, -2, 3, GOTFoods.DEFAULT_DRINK);
+		placePlateWithCertainty(world, random, 3, 2, -3, GOTBlocks.plate, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
 		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
 		if (random.nextBoolean()) {

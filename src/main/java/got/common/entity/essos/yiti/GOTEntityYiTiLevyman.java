@@ -3,7 +3,6 @@ package got.common.entity.essos.yiti;
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -25,17 +24,6 @@ public class GOTEntityYiTiLevyman extends GOTEntityYiTiMan {
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hireableInfo.getHiringPlayer() == entityplayer) {
-				return "standard/civilized/hired_soldier";
-			}
-			return "standard/civilized/usual_friendly";
-		}
-		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

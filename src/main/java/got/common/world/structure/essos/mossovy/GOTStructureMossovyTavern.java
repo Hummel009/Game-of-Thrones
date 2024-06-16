@@ -80,8 +80,8 @@ public class GOTStructureMossovyTavern extends GOTStructureMossovyBase {
 		plantFlower(world, random, 8, 6, 1);
 		placeChest(world, random, -5, 1, -3, 3, GOTChestContents.MOSSOVY);
 		setBlockAndMetadata(world, -6, 2, -3, getRandomPieBlock(random), 0);
-		placeBarrel(world, random, -6, 2, 1, 4, GOTFoods.WESTEROS_DRINK);
-		placeBarrel(world, random, -4, 2, 4, 2, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -6, 2, 1, 4, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, -4, 2, 4, 2, GOTFoods.DEFAULT_DRINK);
 		placeFoodOrDrink(world, random, 6, 2, -3);
 		placeFoodOrDrink(world, random, 5, 2, -3);
 		placeFoodOrDrink(world, random, 1, 2, -3);
@@ -137,14 +137,14 @@ public class GOTStructureMossovyTavern extends GOTStructureMossovyBase {
 	private void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 			} else {
 				Block[] plates = {GOTBlocks.plate, GOTBlocks.ceramicPlate, GOTBlocks.woodPlate};
 				Block plateBlock = plates[random.nextInt(plates.length)];
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {
-					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.WESTEROS);
+					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.DEFAULT);
 				}
 			}
 		}

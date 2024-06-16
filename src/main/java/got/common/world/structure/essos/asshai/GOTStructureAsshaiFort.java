@@ -157,10 +157,10 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		for (int k1 = -7; k1 <= -4; ++k1) {
 			for (int i1 : new int[]{-13, -11}) {
 				if (random.nextBoolean()) {
-					placePlate(world, random, i1, 5, k1, GOTBlocks.woodPlate, GOTFoods.WESTEROS);
+					placePlate(world, random, i1, 5, k1, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 					continue;
 				}
-				placeMug(world, random, i1, 5, k1, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
+				placeMug(world, random, i1, 5, k1, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 			}
 		}
 		GOTEntityNPC captain = new GOTEntityAsshaiCaptain(world);

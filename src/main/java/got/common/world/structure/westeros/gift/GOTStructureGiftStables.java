@@ -212,13 +212,13 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -3, 1, 3, Blocks.crafting_table, 0);
 		placeChest(world, random, -2, 1, 3, 2, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, -1, 1, 3, plankBlock, plankMeta);
-		placePlateWithCertainty(world, random, -1, 2, 3, plateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, -1, 2, 3, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, 0, 1, 3, plankBlock, plankMeta);
-		placeBarrel(world, random, 0, 2, 3, 2, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 0, 2, 3, 2, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 1, 1, 3, plankBlock, plankMeta);
-		placeMug(world, random, 1, 2, 3, 0, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 1, 2, 3, 0, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 3, 1, 3, plankBlock, plankMeta);
-		placeMug(world, random, 3, 2, 3, 1, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 3, 2, 3, 1, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 2, 1, 1, bedBlock, 1);
 		setBlockAndMetadata(world, 3, 1, 1, bedBlock, 9);
 		setBlockAndMetadata(world, -3, 3, 2, Blocks.torch, 2);

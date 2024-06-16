@@ -185,15 +185,15 @@ public class GOTStructureMossovyHouseSmall extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, 4, -2, 1, bedBlock, 1);
 		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
 		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
-		placePlateWithCertainty(world, random, 1, -1, -4, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
-		placeMug(world, random, 0, -1, -4, 0, GOTFoods.WESTEROS_DRINK);
-		placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.WESTEROS_DRINK);
-		placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.WESTEROS_DRINK);
+		placePlateWithCertainty(world, random, 1, -1, -4, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
+		placeMug(world, random, 0, -1, -4, 0, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.DEFAULT_DRINK);
 		placeChest(world, random, 3, -2, -3, 2, GOTChestContents.MOSSOVY);
 		placeChest(world, random, -2, -2, 0, 4, GOTChestContents.MOSSOVY);
 		placeChest(world, random, 3, -2, 1, 2, GOTChestContents.MOSSOVY);
-		placePlateWithCertainty(world, random, 3, 2, -3, GOTBlocks.plate, GOTFoods.WESTEROS);
-		placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
+		placePlateWithCertainty(world, random, 3, 2, -3, GOTBlocks.plate, GOTFoods.DEFAULT);
+		placeMug(world, random, 3, 2, -2, 3, GOTFoods.DEFAULT_DRINK);
 		placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
 		placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
 		for (i13 = -6; i13 <= -3; ++i13) {

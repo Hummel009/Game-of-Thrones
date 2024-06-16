@@ -1,39 +1,36 @@
 package got.common.entity.westeros.legendary.trader;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAemonTargaryen(World world) {
 		super(world);
-		addTargetTasks(false);
 		setupLegendaryNPC(true);
-		setSize(0.6f, 1.8f);
-		tasks.addTask(2, new EntityAIOpenDoor(this, true));
-		tasks.addTask(3, new EntityAIWander(this, 1.0));
+	}
+
+	@Override
+	public EntityAIBase getAttackAI() {
+		return new EntityAIPanic(this, 1.4);
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.16);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.05);
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -52,26 +49,8 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killMaester;
-	}
-
-	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.C_MAESTER_SELL;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "standard/civilized/usual_friendly";
-		}
-		return "standard/civilized/usual_hostile";
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

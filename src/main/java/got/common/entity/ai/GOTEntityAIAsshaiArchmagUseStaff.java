@@ -2,7 +2,7 @@ package got.common.entity.ai;
 
 import got.GOT;
 import got.common.GOTLevelData;
-import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
+import got.common.entity.essos.legendary.boss.GOTEntityAsshaiArchmag;
 import got.common.item.weapon.GOTItemAsshaiArchmagStaff;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

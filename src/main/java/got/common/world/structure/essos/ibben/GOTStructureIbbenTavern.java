@@ -359,17 +359,17 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				}
 				if (i16 == 0 && random.nextBoolean()) {
 					if (random.nextBoolean()) {
-						placeBarrel(world, random, 0, 3, k13, random.nextBoolean() ? 4 : 5, GOTFoods.WILD_DRINK);
+						placeBarrel(world, random, 0, 3, k13, random.nextBoolean() ? 4 : 5, GOTFoods.DEFAULT_DRINK);
 						continue;
 					}
 					setBlockAndMetadata(world, 0, 3, k13, getRandomCakeBlock(random), 0);
 					continue;
 				}
 				if (random.nextInt(3) == 0) {
-					placeMug(world, random, i16, 3, k13, random.nextInt(4), GOTFoods.WILD_DRINK);
+					placeMug(world, random, i16, 3, k13, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 					continue;
 				}
-				placePlate(world, random, i16, 3, k13, plateBlock, GOTFoods.WILD);
+				placePlate(world, random, i16, 3, k13, plateBlock, GOTFoods.DEFAULT);
 			}
 		}
 		for (k13 = 8; k13 <= 20; ++k13) {
@@ -389,19 +389,19 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -4, 2, 4, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -4, 2, 5, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, -4, 2, 6, plankBlock, plankMeta);
-		placeMug(world, random, -2, 3, 4, 2, GOTFoods.WILD_DRINK);
-		placeBarrel(world, random, -3, 3, 4, 3, GOTFoods.WILD_DRINK);
-		placeBarrel(world, random, -4, 3, 5, 4, GOTFoods.WILD_DRINK);
-		placeMug(world, random, -4, 3, 6, 3, GOTFoods.WILD_DRINK);
+		placeMug(world, random, -2, 3, 4, 2, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, -3, 3, 4, 3, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, -4, 3, 5, 4, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, -4, 3, 6, 3, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 2, 2, 4, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 2, 4, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 4, 2, 4, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 4, 2, 5, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 4, 2, 6, plankBlock, plankMeta);
-		placeMug(world, random, 2, 3, 4, 2, GOTFoods.WILD_DRINK);
-		placeBarrel(world, random, 3, 3, 4, 3, GOTFoods.WILD_DRINK);
-		placeBarrel(world, random, 4, 3, 5, 5, GOTFoods.WILD_DRINK);
-		placeMug(world, random, 4, 3, 6, 1, GOTFoods.WILD_DRINK);
+		placeMug(world, random, 2, 3, 4, 2, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 3, 3, 4, 3, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 4, 3, 5, 5, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, 4, 3, 6, 1, GOTFoods.DEFAULT_DRINK);
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, 1, 24, GOTBlocks.hearth, 0);
 			setBlockAndMetadata(world, i1, 2, 24, Blocks.fire, 0);

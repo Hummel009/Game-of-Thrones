@@ -21,14 +21,14 @@ public class GOTEntityIbbenAxeThrower extends GOTEntityIbbenWarrior {
 		if (axeItem == null) {
 			axeItem = new ItemStack(GOTItems.ironThrowingAxe);
 		}
-		GOTEntityThrowingAxe axe = new GOTEntityThrowingAxe(worldObj, this, target, axeItem, 1.0f, (float) getEntityAttribute(NPC_RANGED_ACCURACY).getAttributeValue());
+		GOTEntityThrowingAxe axe = new GOTEntityThrowingAxe(worldObj, this, target, axeItem, 1.0f, 1.0f);
 		playSound("random.bow", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.8f));
 		worldObj.spawnEntityInWorld(axe);
 		swingItem();
 	}
 
 	@Override
-	public EntityAIBase createIbbenAttackAI() {
+	public EntityAIBase getAttackAI() {
 		return new GOTEntityAIRangedAttack(this, 1.4, 40, 60, 12.0f);
 	}
 

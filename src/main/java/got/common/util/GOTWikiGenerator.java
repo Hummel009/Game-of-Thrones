@@ -15,6 +15,8 @@ import got.common.entity.other.utils.GOTUnitTradeEntry;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.GOTEntityMyrcellaBaratheon;
 import got.common.entity.westeros.legendary.deco.GOTEntityTommenBaratheon;
+import got.common.entity.westeros.legendary.mercenary.GOTEntityBronn;
+import got.common.entity.westeros.legendary.mercenary.GOTEntityVargoHoat;
 import got.common.entity.westeros.legendary.quest.GOTEntityCerseiLannister;
 import got.common.entity.westeros.legendary.quest.GOTEntitySamwellTarly;
 import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;
@@ -1965,7 +1967,7 @@ public class GOTWikiGenerator {
 		Map<Class<? extends Entity>, String> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTTradeable.Smith) {
+			if (entityEntry.getValue() instanceof GOTSmith) {
 				data.put(entityEntry.getKey(), TRUE);
 			}
 		}

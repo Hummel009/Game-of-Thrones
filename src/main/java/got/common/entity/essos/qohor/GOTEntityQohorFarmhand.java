@@ -3,7 +3,6 @@ package got.common.entity.essos.qohor;
 import got.common.entity.ai.GOTEntityAIFarm;
 import got.common.entity.other.iface.GOTFarmhand;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,14 +19,6 @@ public class GOTEntityQohorFarmhand extends GOTEntityQohorMan implements GOTFarm
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.0f));
 		targetTasks.taskEntries.clear();
 		addTargetTasks(false);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (hireableInfo.getHiringPlayer() == entityplayer) {
-			return "standard/civilized/hired_farmhand";
-		}
-		return super.getSpeechBank(entityplayer);
 	}
 
 	@Override

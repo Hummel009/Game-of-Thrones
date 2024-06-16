@@ -18,7 +18,7 @@ public class GOTBlockSlabClayTileDyed2 extends GOTBlockSlabBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return GOTBlocks.clayTileDyed.getIcon(i, j & 7 + 8);
+		return GOTBlocks.clayTileDyed.getIcon(i, (j & 7) + 8);
 	}
 
 	@SideOnly(Side.CLIENT)

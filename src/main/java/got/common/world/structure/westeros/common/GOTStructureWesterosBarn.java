@@ -237,9 +237,9 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 6, k13, plankBlock, plankMeta);
 			}
 		}
-		placeBarrel(world, random, -3, 6, 6, 4, GOTFoods.WESTEROS_DRINK);
-		placeMug(world, random, -2, 7, 7, 3, GOTFoods.WESTEROS_DRINK);
-		placePlateWithCertainty(world, random, -2, 7, 8, plateBlock, GOTFoods.WESTEROS);
+		placeBarrel(world, random, -3, 6, 6, 4, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, -2, 7, 7, 3, GOTFoods.DEFAULT_DRINK);
+		placePlateWithCertainty(world, random, -2, 7, 8, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, 0, 9, 4, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, 0, 9, 9, GOTBlocks.chandelier, 1);
 		for (k1 = 1; k1 <= 5; ++k1) {

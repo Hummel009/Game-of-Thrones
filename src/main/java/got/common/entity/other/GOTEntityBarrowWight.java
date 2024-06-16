@@ -6,7 +6,6 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.faction.GOTFaction;
-import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
@@ -85,20 +84,6 @@ public class GOTEntityBarrowWight extends GOTEntityNPC implements GOTBiome.Immun
 
 	@Override
 	public void func_145780_a(int i, int j, int k, Block block) {
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
 	}
 
 	@Override

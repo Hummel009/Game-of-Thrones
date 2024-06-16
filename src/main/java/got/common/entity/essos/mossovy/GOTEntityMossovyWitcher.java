@@ -1,20 +1,17 @@
 package got.common.entity.essos.mossovy;
 
-import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.iface.GOTMercenary;
-import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTMercenary {
@@ -31,8 +28,6 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(1.0);
 	}
 
 	@Override
@@ -42,11 +37,11 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
-	public EntityAIBase createMossovyAttackAI() {
+	public EntityAIBase getAttackAI() {
 		meleeAttackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 		return meleeAttackAI;
 	}
@@ -63,27 +58,8 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killMossovyWitcher;
-	}
-
-	@Override
-	public float getMercAlignmentRequired() {
-		return 10.0f;
 	}
 
 	@Override
@@ -92,14 +68,8 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hireableInfo.getHiringPlayer() == entityplayer) {
-				return "standard/civilized/hired_soldier";
-			}
-			return "standard/civilized/usual_friendly";
-		}
-		return "standard/civilized/usual_hostile";
+	public float getMercAlignmentRequired() {
+		return GOTUnitTradeEntries.SOLDIERE_F;
 	}
 
 	@Override
@@ -126,18 +96,15 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mossovySword));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
+
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.mossovyBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.mossovyLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.mossovyChestplate));
-		setCurrentItemOrArmor(4, null);
-		return entityData;
-	}
 
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+		return entityData;
 	}
 
 	@Override

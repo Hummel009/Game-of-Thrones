@@ -2,6 +2,7 @@ package got.common.world.structure.sothoryos.summer;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
@@ -66,7 +67,7 @@ public class GOTStructureSummerTower extends GOTStructureSummerBase {
 		placeChest(world, random, -2, 11, 2, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
 		int warriors = 1 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntitySummerWarrior warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
+			GOTEntityNPC warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 13, 0, 8);
 		}

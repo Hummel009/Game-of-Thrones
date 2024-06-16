@@ -168,9 +168,9 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, -3, 7, 9, bedBlock, 11);
 		setBlockAndMetadata(world, -2, 7, 11, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 11, bedBlock, 11);
-		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.ESSOS_DRINK);
-		placeMug(world, random, 3, 8, 10, 1, GOTFoods.ESSOS_DRINK);
-		placePlateWithCertainty(world, random, 3, 8, 9, GOTBlocks.woodPlate, GOTFoods.ESSOS);
+		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, 3, 8, 10, 1, GOTFoods.DEFAULT_DRINK);
+		placePlateWithCertainty(world, random, 3, 8, 9, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 		int maxStep = 12;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (step = 0; step < 2 && !isSideSolid(world, i12, j12 = 5 - step, k12 = -9 - step, ForgeDirection.UP); ++step) {

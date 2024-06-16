@@ -105,11 +105,6 @@ public abstract class GOTEntityGiantBase extends GOTEntityNPC implements GOTBiom
 	}
 
 	@Override
-	public String getNPCName() {
-		return familyInfo.getName();
-	}
-
-	@Override
 	public float getSoundVolume() {
 		return 1.5f;
 	}

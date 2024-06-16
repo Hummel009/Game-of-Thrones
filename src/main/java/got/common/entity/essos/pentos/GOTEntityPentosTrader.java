@@ -1,9 +1,7 @@
 package got.common.entity.essos.pentos;
 
 import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.item.other.GOTItemRobes;
 import got.common.item.other.GOTItemTurban;
@@ -43,11 +41,6 @@ public abstract class GOTEntityPentosTrader extends GOTEntityPentosMan implement
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

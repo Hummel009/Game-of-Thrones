@@ -91,8 +91,8 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 		placeFlowerPot(world, -8, 2, -4, getRandomFlower(world, random));
 		placeFlowerPot(world, -8, 2, 4, getRandomFlower(world, random));
 		placeChest(world, random, 7, 1, -5, GOTBlocks.chestBasket, 5, GOTChestContents.HILLMEN);
-		placeBarrel(world, random, 7, 2, 6, 2, GOTFoods.WILD_DRINK);
-		placeBarrel(world, random, 4, 2, 6, 2, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 7, 2, 6, 2, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 4, 2, 6, 2, GOTFoods.DEFAULT_DRINK);
 		placeFoodOrDrink(world, random, -6, 2, -6);
 		placeFoodOrDrink(world, random, -5, 2, -6);
 		placeFoodOrDrink(world, random, -6, 2, -1);
@@ -141,13 +141,13 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 	private void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WILD_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 			} else {
 				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {
-					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.WILD);
+					placePlateWithCertainty(world, random, i, j, k, plateBlock, GOTFoods.DEFAULT);
 				}
 			}
 		}

@@ -188,7 +188,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		}
 		for (k1 = -3; k1 <= -2; ++k1) {
 			setBlockAndMetadata(world, -3, 1, k1, plankBlock, plankMeta);
-			placeMug(world, random, -3, 2, k1, 3, GOTFoods.WESTEROS_DRINK);
+			placeMug(world, random, -3, 2, k1, 3, GOTFoods.DEFAULT_DRINK);
 			setBlockAndMetadata(world, -3, 3, k1, plankStairBlock, 4);
 		}
 		for (k1 = 3; k1 <= 4; ++k1) {
@@ -196,7 +196,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		}
 		setBlockAndMetadata(world, -3, 1, 3, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, -3, 1, 4, plankBlock, plankMeta);
-		placePlateWithCertainty(world, random, -3, 2, 4, plateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, -3, 2, 4, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, -2, 1, 4, GOTBlocks.tableAsshai, 0);
 		for (k1 = 0; k1 <= 3; ++k1) {
 			setAir(world, 3, 4, k1);
@@ -241,7 +241,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -2, 5, 0, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -2, 6, 0, GOTBlocks.plate, 0);
 		setBlockAndMetadata(world, -2, 5, 1, plankBlock, plankMeta);
-		placeMug(world, random, -2, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -2, 6, 1, 3, GOTFoods.DEFAULT_DRINK);
 		int[] j15 = {-1, 2};
 		j1 = j15.length;
 		for (j12 = 0; j12 < j1; ++j12) {

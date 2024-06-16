@@ -3,7 +3,6 @@ package got.common.entity.essos.yiti;
 import got.common.block.other.GOTBlockBomb;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIBombardierAttack;
 import got.common.entity.ai.GOTEntityAISmoke;
 import got.common.entity.other.inanimate.GOTEntityBomb;
@@ -11,7 +10,6 @@ import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -21,13 +19,8 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 		super(world);
 		spawnRidingHorse = false;
 		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityBomb.class, 12.0f, 1.5, 2.0));
-		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);
-	}
-
-	@Override
-	public EntityAIBase createYiTiAttackAI() {
 		tasks.addTask(2, new GOTEntityAIBombardierAttack(this, 1.4));
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
+		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);
 	}
 
 	@Override
@@ -48,10 +41,8 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		if (npcItemsInv.getBomb() != null) {
 			setCurrentItemOrArmor(0, npcItemsInv.getBombingItem());
-		} else if (mode == AttackMode.IDLE) {
-			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
+			super.onAttackModeChange(mode, mounted);
 		}
 	}
 
@@ -78,8 +69,10 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuse));
 		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 10));
+
 		return entityData;
 	}
 }

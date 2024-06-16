@@ -68,7 +68,7 @@ public class GOTPacketSell implements IMessage {
 					for (Map.Entry<GOTTradeEntry, Integer> e : tradesUsed.entrySet()) {
 						GOTTradeEntry trade = e.getKey();
 						int value = e.getValue();
-						trader.getTraderInfo().onTrade(entityplayer, trade, GOTTradeEntries.TradeType.WE_CAN_SELL, value);
+						trader.getTraderInfo().onTrade(entityplayer, trade, value);
 					}
 					GOTItemCoin.giveCoins(totalCoins, entityplayer);
 					if (totalCoins >= 1000) {

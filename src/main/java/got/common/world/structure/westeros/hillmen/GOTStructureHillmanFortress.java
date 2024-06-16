@@ -122,7 +122,7 @@ public class GOTStructureHillmanFortress extends GOTStructureHillmanBase {
 			placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTItems.furHelmet), new ItemStack(GOTItems.furChestplate), new ItemStack(GOTItems.furLeggings), new ItemStack(GOTItems.furBoots)});
 		}
 		placeWeaponRack(world, -7, 2, -3, 5, getRandomHillmanWeapon(random));
-		placeBarrel(world, random, 8, 2, 7, 2, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 8, 2, 7, 2, GOTFoods.DEFAULT_DRINK);
 		placeSkull(world, random, -2, 7, -11);
 		placeSkull(world, random, 2, 7, -11);
 		placeSkull(world, random, -11, 7, 2);
@@ -141,7 +141,7 @@ public class GOTStructureHillmanFortress extends GOTStructureHillmanBase {
 		spawnNPCAndSetHome(warlord, world, 0, 1, 2, 8);
 		int warriors = 6;
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityHillmanWarrior warrior = random.nextInt(3) == 0 ? new GOTEntityHillmanArcher(world) : new GOTEntityHillmanWarrior(world);
+			GOTEntityNPC warrior = random.nextInt(3) == 0 ? new GOTEntityHillmanArcher(world) : new GOTEntityHillmanWarrior(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 1, 2, 16);
 		}

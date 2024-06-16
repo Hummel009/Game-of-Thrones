@@ -1,12 +1,12 @@
 package got.common.entity.essos.asshai;
 
 import got.common.database.GOTAchievement;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.S27PacketExplosion;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -19,29 +19,28 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	public GOTEntityAsshaiSpherebinder(World world) {
 		super(world);
 		isImmuneToFire = true;
-		shield = null;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killAsshaiSpherebinder;
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(25.0);
-	}
-
-	@Override
-	public EntityAIBase createAsshaiAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 0, false);
 	}
 
 	@Override
 	public float getAlignmentBonus() {
 		return 3.0f;
+	}
+
+	@Override
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTBlocks.asshaiTorch));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
+
+		return entityData;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAsshaiSpherebinder;
 	}
 
 	@Override
@@ -65,7 +64,7 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 				x *= force;
 				y *= force;
 				z *= force;
-				if (entity instanceof EntityPlayerMP) {
+				if (entity instanceof EntityPlayerMP && entity == getAttackTarget()) {
 					((EntityPlayerMP) entity).playerNetServerHandler.sendPacket(new S27PacketExplosion(posX, posY, posZ, 0.0f, new ArrayList<>(), Vec3.createVectorHelper(x, y, z)));
 					continue;
 				}
@@ -74,14 +73,5 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 				entity.motionZ += z;
 			}
 		}
-	}
-
-	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(null);
-		npcItemsInv.setIdleItem(null);
-		setCurrentItemOrArmor(4, null);
-		return entityData;
 	}
 }

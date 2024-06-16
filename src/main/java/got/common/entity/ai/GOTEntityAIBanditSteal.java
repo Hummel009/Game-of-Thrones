@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.MathHelper;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 
 	public GOTEntityAIBanditSteal(GOTEntityBanditBase bandit, double d) {
 		theBandit = bandit;
-		theBanditAsNPC = theBandit.getBanditAsNPC();
+		theBanditAsNPC = bandit;
 		speed = d;
 		setMutexBits(3);
 	}
@@ -74,7 +75,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 		targetPlayer = validTargets.get(theBanditAsNPC.getRNG().nextInt(validTargets.size()));
 		if (targetPlayer != prevTargetPlayer) {
-			theBanditAsNPC.sendSpeechBank(targetPlayer, theBandit.getTheftSpeechBank(targetPlayer));
+			theBanditAsNPC.sendSpeechBank(targetPlayer, theBandit.getSpeechBank(targetPlayer));
 		}
 		return true;
 	}
@@ -106,7 +107,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 			stolenSomething = true;
 		}
 		if (stolenSomething) {
-			targetPlayer.addChatMessage(GOTEntityBanditBase.getTheftChatMsg());
+			targetPlayer.addChatMessage(new ChatComponentTranslation("got.chat.banditSteal"));
 			theBanditAsNPC.playSound("mob.horse.leather", 0.5f, 1.0f);
 			if (theBanditAsNPC.getAttackTarget() != null) {
 				theBanditAsNPC.setAttackTarget(null);

@@ -73,8 +73,8 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		associateBlockMetaAlias("CARPET2", carpet2Block, carpet2Meta);
 		generateStrScan(world, random, 0, 1, 0);
 		placeSkull(world, random, -8, 2, -4);
-		placeBarrel(world, random, 7, 2, -4, 3, GOTFoods.NOMAD_DRINK);
-		placeBarrel(world, random, 8, 2, -4, 3, GOTFoods.NOMAD_DRINK);
+		placeBarrel(world, random, 7, 2, -4, 3, GOTFoods.DEFAULT_DRINK);
+		placeBarrel(world, random, 8, 2, -4, 3, GOTFoods.DEFAULT_DRINK);
 		placeAnimalJar(world, -7, 2, -4, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, 9, 1, 5, GOTBlocks.birdCageWood, 0, null);
 		placeAnimalJar(world, 4, 3, 2, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
@@ -131,8 +131,8 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.stairsCedar, 6);
 			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.barrel, 2);
-			placeMug(world, random, -1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
-			placeMug(world, random, 1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
+			placeMug(world, random, -1, 2, -2, 0, GOTFoods.DEFAULT_DRINK);
+			placeMug(world, random, 1, 2, -2, 0, GOTFoods.DEFAULT_DRINK);
 			GOTEntityNPC trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

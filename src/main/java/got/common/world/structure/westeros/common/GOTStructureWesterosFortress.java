@@ -478,12 +478,12 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		placeWallBanner(world, 2, 3, 9, bannerType, 2);
 		setBlockAndMetadata(world, -4, 1, 5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -3, 1, 5, plankBlock, plankMeta);
-		placeBarrel(world, random, -4, 2, 5, 3, GOTFoods.WESTEROS_DRINK);
-		placeMug(world, random, -3, 2, 5, 2, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -4, 2, 5, 3, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, -3, 2, 5, 2, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 3, 1, 5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 4, 1, 5, plankBlock, plankMeta);
-		placePlateWithCertainty(world, random, 3, 2, 5, plateBlock, GOTFoods.WESTEROS);
-		placePlateWithCertainty(world, random, 4, 2, 5, plateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 3, 2, 5, plateBlock, GOTFoods.DEFAULT);
+		placePlateWithCertainty(world, random, 4, 2, 5, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, -3, 3, 6, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, 3, 3, 6, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, -5, 1, 2, GOTBlocks.commandTable, 0);

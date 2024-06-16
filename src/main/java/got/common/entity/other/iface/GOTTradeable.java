@@ -1,8 +1,9 @@
 package got.common.entity.other.iface;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
 public interface GOTTradeable {
 	boolean canTradeWith(EntityPlayer var1);
@@ -11,8 +12,7 @@ public interface GOTTradeable {
 
 	GOTTradeEntries getSellPool();
 
-	void onPlayerTrade(EntityPlayer var1, GOTTradeEntries.TradeType var2, ItemStack var3);
-
-	interface Smith extends GOTTradeable {
+	default void onPlayerTrade(EntityPlayer entityPlayer) {
+		GOTLevelData.getData(entityPlayer).addAchievement(GOTAchievement.trade);
 	}
 }

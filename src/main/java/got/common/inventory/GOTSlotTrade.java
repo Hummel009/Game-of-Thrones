@@ -68,7 +68,7 @@ public class GOTSlotTrade extends GOTSlotProtected {
 			if (!entityplayer.worldObj.isRemote && trade != null) {
 				putStack(trade.createTradeItem());
 				((EntityPlayerMP) entityplayer).sendContainerToPlayer(theContainer);
-				theEntity.getTraderInfo().onTrade(entityplayer, trade, GOTTradeEntries.TradeType.WE_CAN_BUY, cost());
+				theEntity.getTraderInfo().onTrade(entityplayer, trade, cost());
 				theEntity.playTradeSound();
 			}
 		}

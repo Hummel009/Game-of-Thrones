@@ -221,10 +221,10 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 			for (k1 = 0; k1 <= 3; ++k1) {
 				setBlockAndMetadata(world, i12, 1, k1, plankBlock, plankMeta);
 				if ((i12 + k1) % 2 == 0) {
-					placePlateWithCertainty(world, random, i12, 2, k1, plateBlock, GOTFoods.SOTHORYOS);
+					placePlateWithCertainty(world, random, i12, 2, k1, plateBlock, GOTFoods.DEFAULT);
 					continue;
 				}
-				placeMug(world, random, i12, 2, k1, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
+				placeMug(world, random, i12, 2, k1, random.nextInt(4), GOTFoods.DEFAULT_DRINK);
 			}
 		}
 		for (i12 = -5; i12 <= -4; ++i12) {
@@ -241,14 +241,14 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 		setBlockAndMetadata(world, -5, 1, -3, woodBlock, woodMeta);
 		setBlockAndMetadata(world, -5, 1, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -5, 1, -1, woodBlock, woodMeta);
-		placeBarrel(world, random, -5, 2, -3, 4, GOTFoods.SOTHORYOS_DRINK);
-		placeMug(world, random, -5, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);
-		placeMug(world, random, -5, 2, -1, 3, GOTFoods.SOTHORYOS_DRINK);
+		placeBarrel(world, random, -5, 2, -3, 4, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, -5, 2, -2, 3, GOTFoods.DEFAULT_DRINK);
+		placeMug(world, random, -5, 2, -1, 3, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 4, 1, -3, woodBlock, woodMeta);
 		setBlockAndMetadata(world, 4, 1, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 4, 1, -1, woodBlock, woodMeta);
 		for (int k18 = -3; k18 <= -1; ++k18) {
-			placePlate(world, random, 4, 2, k18, plateBlock, GOTFoods.SOTHORYOS);
+			placePlate(world, random, 4, 2, k18, plateBlock, GOTFoods.DEFAULT);
 		}
 		setBlockAndMetadata(world, -1, 0, -4, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 0, 0, -4, plankBlock, plankMeta);

@@ -23,7 +23,7 @@ public class GOTEntityTyroshSlave extends GOTEntityTyroshMan implements GOTFarmh
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
+	public String getSpeechBank(EntityPlayer entityPlayer) {
 		return "standard/civilized/hired_slave";
 	}
 

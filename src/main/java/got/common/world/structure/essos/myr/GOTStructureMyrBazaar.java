@@ -82,8 +82,8 @@ public class GOTStructureMyrBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.barrel, 2);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.stairsCedar, 6);
 			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.barrel, 2);
-			placeMug(world, random, -2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
-			placeMug(world, random, 2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
+			placeMug(world, random, -2, 2, 0, 1, GOTFoods.DEFAULT_DRINK);
+			placeMug(world, random, 2, 2, 0, 1, GOTFoods.DEFAULT_DRINK);
 			GOTEntityNPC trader = new GOTEntityMyrBrewer(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

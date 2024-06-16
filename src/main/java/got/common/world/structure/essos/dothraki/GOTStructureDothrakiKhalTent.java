@@ -77,10 +77,10 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		setBlockAndMetadata(world, 6, 1, 5, bedBlock, 8);
 		placeChest(world, random, -11, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.DOTHRAKI);
 		placeChest(world, random, 11, 1, 0, GOTBlocks.chestBasket, 5, GOTChestContents.DOTHRAKI);
-		placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
-		placePlateWithCertainty(world, random, -6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.NOMAD);
-		placePlateWithCertainty(world, random, 6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.NOMAD);
-		placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
+		placeMug(world, random, -4, 2, -5, 2, GOTFoods.DEFAULT_DRINK);
+		placePlateWithCertainty(world, random, -6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
+		placePlateWithCertainty(world, random, 6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
+		placeMug(world, random, 4, 2, -5, 2, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, -1, 4, -9, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 4, -9, Blocks.skull, 2);
 		GOTEntityNPC chief = new GOTEntityDothrakiKhal(world);

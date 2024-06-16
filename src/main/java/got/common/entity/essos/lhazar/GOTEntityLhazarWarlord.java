@@ -1,33 +1,19 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
+import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GOTUnitTradeable {
+public class GOTEntityLhazarWarlord extends GOTEntityLhazarMan implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarWarlord(World world) {
 		super(world);
-		addTargetTasks(false);
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
 	}
 
 	@Override
@@ -36,14 +22,13 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GO
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/civilized/usual_friendly";
-			}
-			return "standard/civilized/usual_neutral";
-		}
-		return "standard/civilized/usual_hostile";
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndStronglyAligned(entityPlayer);
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
@@ -59,18 +44,15 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GO
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.lhazarBootsLion));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.lhazarLeggingsLion));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.lhazarChestplateLion));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.lhazarHelmetLion));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(4, null);
-		return entityData;
-	}
 
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+		return entityData;
 	}
 }

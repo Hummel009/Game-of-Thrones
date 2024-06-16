@@ -3,7 +3,6 @@ package got.common.entity.westeros.crownlands;
 import got.common.database.GOTItems;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -23,23 +22,15 @@ public class GOTEntityCrownlandsLevyman extends GOTEntityCrownlandsMan {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hireableInfo.getHiringPlayer() == entityplayer) {
-				return "standard/civilized/hired_soldier";
-			}
-			return "standard/civilized/usual_friendly";
-		}
-		return "standard/civilized/usual_hostile";
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		int i = rand.nextInt(WEAPONS.length);
 		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		GOTEntityUtils.setLevymanArmor(this, rand);
+
+		GOTEntityUtils.setupWesterosLevymanArmor(this, rand);
+
 		return entityData;
 	}
 

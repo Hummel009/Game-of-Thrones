@@ -79,8 +79,8 @@ public class GOTStructureSothoryosHouseSimple extends GOTStructureSothoryosHouse
 		placeSothoryosFlowerPot(world, -1, 2, 2, random);
 		placeSothoryosFlowerPot(world, 0, 4, -2, random);
 		placeSothoryosFlowerPot(world, 0, 4, 2, random);
-		placePlateWithCertainty(world, random, 1, 2, 2, GOTBlocks.woodPlate, GOTFoods.SOTHORYOS);
-		placeMug(world, random, 2, 2, 0, 3, GOTFoods.SOTHORYOS_DRINK);
+		placePlateWithCertainty(world, random, 1, 2, 2, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
+		placeMug(world, random, 2, 2, 0, 3, GOTFoods.DEFAULT_DRINK);
 		GOTEntityNPC male = new GOTEntitySothoryosMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));

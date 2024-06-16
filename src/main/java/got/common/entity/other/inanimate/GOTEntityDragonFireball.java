@@ -209,8 +209,5 @@ public class GOTEntityDragonFireball extends EntityLargeFireball {
 		this.player = player;
 	}
 
-	public EntityLivingBase getShootingEntity() {
-		return shootingEntity;
-	}
 }
 

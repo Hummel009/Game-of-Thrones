@@ -1,33 +1,19 @@
 package got.common.entity.westeros.hillmen;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
+import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements GOTUnitTradeable {
+public class GOTEntityHillmanWarlord extends GOTEntityHillman implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillmanWarlord(World world) {
 		super(world);
-		addTargetTasks(false);
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
 	}
 
 	@Override
@@ -36,14 +22,8 @@ public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements 
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "standard/wild/usual_friendly";
-			}
-			return "standard/wild/usual_neutral";
-		}
-		return "standard/wild/usual_hostile";
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndStronglyAligned(entityPlayer);
 	}
 
 	@Override
@@ -53,18 +33,31 @@ public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements 
 
 	@Override
 	public GOTInvasions getWarhorn() {
-		return null;
+		return GOTInvasions.HILL_TRIBES;
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityPlayer) {
+		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.furHelmet));
+
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.hillmenBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.hillmenLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.hillmenChestplate));
+
 		return entityData;
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

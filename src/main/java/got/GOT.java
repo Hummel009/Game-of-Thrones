@@ -317,11 +317,6 @@ public class GOT {
 		return false;
 	}
 
-	public static boolean isUkraine() {
-		LocalDate calendar = LocalDate.now();
-		return calendar.getMonth() == Month.AUGUST && calendar.getDayOfMonth() == 24;
-	}
-
 	public static IEntitySelector selectLivingExceptCreativePlayers() {
 		return new EntitySelectorImpl1();
 	}

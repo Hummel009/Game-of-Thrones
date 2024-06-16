@@ -5,7 +5,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.other.utils.GOTWeaponSetFactory;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTCrashHandler;
@@ -15,7 +15,6 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.westeros.GOTBiomeReachArbor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -26,12 +25,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.List;
 
-public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
+public class GOTEntityReachSoldier extends GOTEntityReachMan {
 	private int grapeAlert;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityReachSoldier(World world) {
 		super(world);
+		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		shield = GOTShields.REACH;
 		cape = GOTCapes.REACH;
@@ -42,7 +42,6 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 			BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 			GOTBiomeVariant variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
 			if (biome instanceof GOTBiomeReachArbor && variant == GOTBiomeVariant.VINEYARD) {
-				GOTEntityReachSoldier guard;
 				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.REACH);
 				boolean evil = alignment < 0.0f;
 				float limit = 2000.0f;
@@ -54,8 +53,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 					int nearbyGuards = 0;
 					int spawnRange = 8;
 					List<GOTEntityReachSoldier> guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(spawnRange, spawnRange, spawnRange));
-					for (GOTEntityReachSoldier obj : guardList) {
-						guard = obj;
+					for (GOTEntityReachSoldier guard : guardList) {
 						if (!guard.getHireableInfo().isActive()) {
 							++nearbyGuards;
 						}
@@ -64,10 +62,11 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 						int guardSpawns = 1 + world.rand.nextInt(6);
 						block1:
 						for (int l = 0; l < guardSpawns; ++l) {
-							guard = new GOTEntityReachSoldier(world);
+							GOTEntityReachSoldier guard = new GOTEntityReachSoldier(world);
 							if (world.rand.nextBoolean()) {
 								guard = new GOTEntityReachSoldierArcher(world);
 							}
+							guard.setSpawnRidingHorse(false);
 							int attempts = 16;
 							for (int a = 0; a < attempts; ++a) {
 								int i1 = i + MathHelper.getRandomIntegerInRange(world.rand, -spawnRange, spawnRange);
@@ -96,8 +95,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 				int range = 16;
 				List<GOTEntityReachSoldier> guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(range, range, range));
 				boolean anyAlert = false;
-				for (GOTEntityReachSoldier obj : guardList) {
-					guard = obj;
+				for (GOTEntityReachSoldier guard : guardList) {
 					if (guard.getHireableInfo().isActive()) {
 						continue;
 					}
@@ -126,78 +124,37 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(NPC_RANGED_ACCURACY).setBaseValue(0.75);
-	}
-
-	@Override
-	public EntityAIBase createReachAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
-	public void onAttackModeChange(AttackMode mode, boolean mounted) {
-		if (mode == AttackMode.IDLE) {
-			if (mounted) {
-				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
-			} else {
-				setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-			}
-		} else if (mounted) {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeaponMounted());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-		}
-	}
-
-	@Override
-	public void onDeath(DamageSource damagesource) {
-		super.onDeath(damagesource);
-		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
-			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
-			if (grapeAlert >= 3) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.stealArborGrapes);
-			}
-		}
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(12);
-		switch (i) {
-			case 0:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
-				break;
-			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
-				break;
-			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosLongsword));
-				break;
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosGreatsword));
-				break;
-			default:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
-				break;
-		}
-		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.westerosPike));
-		} else {
-			npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
-		}
-		if (rand.nextInt(5) == 0) {
-			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSpear));
-		}
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
+
+		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
+
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.reachBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachHelmet));
+
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
+
+	@Override
+	public void onDeath(DamageSource damageSource) {
+		super.onDeath(damageSource);
+		if (!worldObj.isRemote && damageSource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damageSource.getEntity();
+			if (grapeAlert >= 3) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.stealArborGrapes);
+			}
+		}
 	}
 }

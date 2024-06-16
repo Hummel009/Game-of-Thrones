@@ -181,16 +181,16 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 			}
 		}
 		setBlockAndMetadata(world, 3, 1, -2, plankBlock, plankMeta);
-		placePlate(world, random, 3, 2, -2, plateBlock, GOTFoods.WESTEROS);
+		placePlate(world, random, 3, 2, -2, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, 4, 1, -3, plankBlock, plankMeta);
-		placePlate(world, random, 4, 2, -3, plateBlock, GOTFoods.WESTEROS);
+		placePlate(world, random, 4, 2, -3, plateBlock, GOTFoods.DEFAULT);
 		setBlockAndMetadata(world, 5, 1, -3, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 6, 1, -3, plankBlock, plankMeta);
-		placeMug(world, random, 6, 2, -3, 2, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 6, 2, -3, 2, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 7, 1, -2, plankBlock, plankMeta);
-		placeBarrel(world, random, 7, 2, -2, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 7, 2, -2, 5, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 3, 1, 2, plankBlock, plankMeta);
-		placeMug(world, random, 3, 2, 2, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 3, 2, 2, 3, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 5, 1, 3, bedBlock, 1);
 		setBlockAndMetadata(world, 6, 1, 3, bedBlock, 9);
 		placeChest(world, random, 7, 1, 2, 5, GOTChestContents.GIFT);

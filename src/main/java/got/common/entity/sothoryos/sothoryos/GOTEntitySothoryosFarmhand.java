@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIFarm;
 import got.common.entity.other.iface.GOTFarmhand;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,15 +19,6 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 		super(world);
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.2f));
 		targetTasks.taskEntries.clear();
-		addTargetTasks(false);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (hireableInfo.getHiringPlayer() == entityplayer) {
-			return "standard/civilized/hired_farmhand";
-		}
-		return super.getSpeechBank(entityplayer);
 	}
 
 	@Override
@@ -47,8 +37,10 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		return entityData;
 	}
 

@@ -1,44 +1,27 @@
 package got.common.entity.essos.ibben;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.iface.GOTTradeable;
+import got.common.entity.other.iface.GOTSmith;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTradeable.Smith {
+public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTSmith {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenBlacksmith(World world) {
 		super(world);
-		addTargetTasks(false);
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
-	}
-
-	@Override
-	public void dropFewItems(boolean flag, int i) {
-		super.dropFewItems(flag, i);
-		dropItem(Items.iron_ingot, 1 + rand.nextInt(3) + rand.nextInt(i + 1));
 	}
 
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityplayer) {
+		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -49,11 +32,6 @@ public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTr
 	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.C_BLACKSMITH_SELL;
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

@@ -1,29 +1,28 @@
 package got.common.entity.sothoryos.sothoryos;
 
-import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.other.iface.GOTTradeable;
-import got.common.entity.other.iface.GOTUnitTradeable;
+import got.common.database.GOTItems;
+import got.common.database.GOTTradeEntries;
+import got.common.database.GOTUnitTradeEntries;
+import got.common.entity.other.iface.GOTFarmer;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements GOTTradeable, GOTUnitTradeable {
+public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements GOTFarmer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosFarmer(World world) {
 		super(world);
-		addTargetTasks(false);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
 
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -42,25 +41,12 @@ public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements G
 	}
 
 	@Override
-	public GOTInvasions getWarhorn() {
-		return null;
-	}
-
-	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return entityData;
-	}
 
-	@Override
-	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
+		return entityData;
 	}
 }

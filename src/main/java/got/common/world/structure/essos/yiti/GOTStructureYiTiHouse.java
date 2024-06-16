@@ -264,13 +264,13 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -2, 1, -5, plankStairBlock, 7);
 		setBlockAndMetadata(world, -3, 1, -5, plankStairBlock, 7);
 		setBlockAndMetadata(world, -3, 1, -4, plankStairBlock, 4);
-		placePlate(world, random, -2, 2, -5, plateBlock, GOTFoods.YITI);
-		placePlate(world, random, -3, 2, -5, plateBlock, GOTFoods.YITI);
-		placeMug(world, random, -3, 2, -4, 3, GOTFoods.YITI_DRINK);
+		placePlate(world, random, -2, 2, -5, plateBlock, GOTFoods.DEFAULT);
+		placePlate(world, random, -3, 2, -5, plateBlock, GOTFoods.DEFAULT);
+		placeMug(world, random, -3, 2, -4, 3, GOTFoods.DEFAULT_DRINK);
 		setBlockAndMetadata(world, 3, 1, -4, tableBlock, 0);
 		for (int k131 : new int[]{-1, 1}) {
 			setBlockAndMetadata(world, -3, 1, k131, plankSlabBlock, plankSlabMeta | 8);
-			placeBarrel(world, random, -3, 2, k131, 4, GOTFoods.YITI_DRINK);
+			placeBarrel(world, random, -3, 2, k131, 4, GOTFoods.DEFAULT_DRINK);
 		}
 		for (i1 = -3; i1 <= 3; ++i1) {
 			setBlockAndMetadata(world, i1, 1, 5, plankStairBlock, 6);
@@ -278,10 +278,10 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBaseTown {
 				continue;
 			}
 			if (random.nextBoolean()) {
-				placePlate(world, random, i1, 2, 5, plateBlock, GOTFoods.YITI);
+				placePlate(world, random, i1, 2, 5, plateBlock, GOTFoods.DEFAULT);
 				continue;
 			}
-			placeMug(world, random, i1, 2, 5, 0, GOTFoods.YITI_DRINK);
+			placeMug(world, random, i1, 2, 5, 0, GOTFoods.DEFAULT_DRINK);
 		}
 		setBlockAndMetadata(world, -1, 1, 5, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 1, 1, 5, Blocks.cauldron, 3);

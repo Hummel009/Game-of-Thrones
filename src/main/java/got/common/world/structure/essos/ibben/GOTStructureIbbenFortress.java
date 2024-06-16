@@ -448,7 +448,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 7, 1, 8, carpetBlock, carpetMeta);
 		setBlockAndMetadata(world, 8, 1, 8, carpetBlock, carpetMeta);
 		setBlockAndMetadata(world, 10, 1, 8, plankBlock, plankMeta);
-		placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.DEFAULT_DRINK);
 		for (int j18 = 1; j18 <= 4; ++j18) {
 			setBlockAndMetadata(world, 6, j18, -9, woodBeam2Block, woodBeam2Meta);
 			setBlockAndMetadata(world, 7, j18, -9, plank2Block, plank2Meta);

@@ -8,7 +8,7 @@ import got.client.render.other.GOTRenderBiped;
 import got.common.entity.essos.GOTEntityIfekevron;
 import got.common.entity.essos.GOTEntityShryke;
 import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
-import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
+import got.common.entity.essos.legendary.boss.GOTEntityAsshaiArchmag;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

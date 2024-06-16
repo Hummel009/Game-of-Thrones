@@ -1,6 +1,6 @@
 package got.client.model;
 
-import got.common.entity.essos.mossovy.GOTEntityMarshWraith;
+import got.common.entity.essos.GOTEntityMarshWraith;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
