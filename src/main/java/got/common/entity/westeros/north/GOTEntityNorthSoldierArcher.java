@@ -32,7 +32,7 @@ public class GOTEntityNorthSoldierArcher extends GOTEntityNorthSoldier {
 
 	@Override
 	public EntityAIBase getAttackAI() {
-		return new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 16.0f);
+		return new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 20.0f);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLotharFrey extends GOTEntityHumanBase {
-	private final EntityAIBase rangedAttackAI = new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 16.0f);
+	private final EntityAIBase rangedAttackAI = new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 20.0f);
 	private EntityAIBase meleeAttackAI;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
