@@ -1,15 +1,16 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.iface.GOTTradeable;
+import got.common.database.GOTUnitTradeEntries;
+import got.common.entity.other.iface.GOTFarmer;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTradeable {
+public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTFarmer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarFarmer(World world) {
 		super(world);
@@ -36,10 +37,15 @@ public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTrad
 	}
 
 	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.LHAZAR_FARMER;
+	}
+
+	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		GOTEntityUtils.setupTurban(this, rand);

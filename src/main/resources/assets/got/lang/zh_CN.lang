@@ -11,7 +11,11 @@ tile.got:concrete.2.name≠Magenta Concrete
 tile.got:concrete.3.name≠Light Blue Concrete
 tile.got:concrete.4.name≠Yellow Concrete
 tile.got:concrete.5.name≠Lime Concrete
+entity.got.LhazarLevyman.name=Levyman of Lhazar
+entity.got.LhazarFlorist.name=Florist of Lhazar
+entity.got.LhazarLevymanArcher.name=Levyman Archer of Lhazar
 entity.got.WildlingWarrior.name≠Wildling Warrior
+entity.got.LhazarFarmhand.name=Lhazar Farmhand
 tile.got:concrete.6.name≠Pink Concrete
 tile.got:concrete.7.name≠Gray Concrete
 tile.got:concrete.8.name≠Light Gray Concrete
@@ -391,7 +395,7 @@ entity.got.LancelLannisterNormal.name=蓝赛尔·兰尼斯特
 entity.got.LancelLannisterReligious.name=蓝赛尔·兰尼斯特
 entity.got.LeoLefford.name=里奥·莱佛德
 entity.got.LeytonHightower.name=雷顿·海塔尔
-entity.got.LhazarArcher.name=拉札弓箭手
+entity.got.LhazarSoldierArcher.name=拉札弓箭手
 entity.got.LhazarBaker.name=拉札烘焙师
 entity.got.LhazarBannerBearer.name=拉札旗手
 entity.got.LhazarBartender.name=拉札酒保
@@ -407,7 +411,7 @@ entity.got.LhazarMan.name=拉札人
 entity.got.LhazarMason.name=拉札石工
 entity.got.LhazarMiner.name=拉札矿工
 entity.got.LhazarWarlord.name=拉闸军阀
-entity.got.LhazarWarrior.name=拉札战士
+entity.got.LhazarSoldier.name=拉札战士
 entity.got.LightSkinBandit.name=强盗
 entity.got.LightSkinThief.name=盗贼
 entity.got.LightSkinTramp.name=废品交易商

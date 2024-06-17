@@ -1,11 +1,11 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -39,7 +39,7 @@ public class GOTEntityLhazarLumberman extends GOTEntityLhazarMan implements GOTT
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeAxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		GOTEntityUtils.setupTurban(this, rand);

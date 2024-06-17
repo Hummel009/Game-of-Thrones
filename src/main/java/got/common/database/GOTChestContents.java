@@ -799,60 +799,6 @@ public class GOTChestContents {
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mugAraq), 1, 1, 200));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
 
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeChainmailHelmet), 1, 1, 5));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeChainmailChestplate), 1, 1, 5));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeChainmailLeggings), 1, 1, 5));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeChainmailBoots), 1, 1, 5));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ironNugget), 1, 6, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeNugget), 1, 6, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.copperNugget), 1, 6, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.goldRing), 1, 1, 10));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.silverRing), 1, 1, 10));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.copperRing), 1, 1, 10));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeRing), 1, 1, 10));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarSword), 1, 1, 100));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarDagger), 1, 1, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarDaggerPoisoned), 1, 1, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarClub), 1, 1, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarHelmet), 1, 1, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarChestplate), 1, 1, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarLeggings), 1, 1, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarBoots), 1, 1, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarSpear), 1, 1, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.bucket), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.water_bucket), 1, 1, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.bone), 1, 4, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.feather), 1, 2, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeIngot), 1, 3, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_ingot), 1, 3, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.string), 1, 3, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.stick), 1, 8, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.bread), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.oliveBread), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.date), 1, 3, 100));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.cooked_beef), 1, 2, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.rabbitCooked), 1, 2, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.muttonCooked), 1, 2, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.camelCooked), 1, 2, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lionCooked), 1, 2, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.zebraCooked), 1, 2, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.kebab), 1, 4, 100));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.shishKebab), 1, 2, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.saltedFlesh), 1, 3, 100));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 4, 75));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 5, 100));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicPlate), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mug), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicMug), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.waterskin), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.gobletCopper), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.gobletWood), 1, 3, 25));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.glass_bottle), 1, 2, 50));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mugAraq), 1, 1, 200));
-		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
-
 		ARRYN_L.addAll(NORD_L);
 		BRAAVOS_L.addAll(NORD_L);
 		CROWNLANDS_L.addAll(NORD_L);
@@ -869,6 +815,7 @@ public class GOTChestContents {
 
 		DORNE_L.addAll(SUD_L);
 		GHISCAR_L.addAll(SUD_L);
+		LHAZAR_L.addAll(SUD_L);
 		GOLDEN_L.addAll(SUD_L);
 		LYS_L.addAll(SUD_L);
 		MYR_L.addAll(SUD_L);
@@ -1010,6 +957,16 @@ public class GOTChestContents {
 		GHISCAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosSpear), 1, 1, 25));
 		GHISCAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosBow), 1, 1, 50));
 
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarHelmet), 1, 1, 25));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarChestplate), 1, 1, 25));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarLeggings), 1, 1, 25));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lhazarBoots), 1, 1, 25));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosSword), 1, 1, 50));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosPolearm), 1, 1, 25));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosDagger), 1, 1, 25));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosSpear), 1, 1, 25));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.essosBow), 1, 1, 50));
+
 		LORATH_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lorathHelmet), 1, 1, 25));
 		LORATH_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lorathChestplate), 1, 1, 25));
 		LORATH_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lorathLeggings), 1, 1, 25));
@@ -1125,7 +1082,7 @@ public class GOTChestContents {
 		IBBEN = new GOTChestContents(4, 6, IBBEN_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK);
 		IRONBORN = new GOTChestContents(4, 6, IRONBORN_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
 		JOGOS = new GOTChestContents(4, 6, JOGOS_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK);
-		LHAZAR = new GOTChestContents(4, 6, LHAZAR_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK);
+		LHAZAR = new GOTChestContents(4, 6, LHAZAR_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
 		LORATH = new GOTChestContents(4, 6, LORATH_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
 		LYS = new GOTChestContents(4, 6, LYS_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
 		MOSSOVY = new GOTChestContents(4, 6, MOSSOVY_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.MOSSOVY);

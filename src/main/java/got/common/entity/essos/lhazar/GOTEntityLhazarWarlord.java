@@ -45,13 +45,12 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarMan implements GOTUni
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.lhazarBootsLion));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.lhazarLeggingsLion));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.lhazarChestplateLion));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.lhazarHelmetLion));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.lhazarBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.lhazarLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.lhazarChestplate));
 
 		return entityData;
 	}

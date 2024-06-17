@@ -6,9 +6,9 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
+public class GOTEntityLhazarSoldier extends GOTEntityLhazarMan {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityLhazarWarrior(World world) {
+	public GOTEntityLhazarSoldier(World world) {
 		super(world);
 		addTargetTasks(true);
 	}
@@ -22,7 +22,7 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupLhazarWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.lhazarBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.lhazarLeggings));

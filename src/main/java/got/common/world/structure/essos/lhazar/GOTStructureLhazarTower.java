@@ -3,8 +3,8 @@ package got.common.world.structure.essos.lhazar;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
-import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
+import got.common.entity.essos.lhazar.GOTEntityLhazarSoldierArcher;
+import got.common.entity.essos.lhazar.GOTEntityLhazarSoldier;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
@@ -68,13 +68,13 @@ public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 		placeWallBanner(world, 0, 8, 3, GOTItemBanner.BannerType.LHAZAR, 0);
 		int warriors = 1 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityLhazarWarrior warrior = random.nextInt(3) == 0 ? new GOTEntityLhazarArcher(world) : new GOTEntityLhazarWarrior(world);
+			GOTEntityLhazarSoldier warrior = random.nextInt(3) == 0 ? new GOTEntityLhazarSoldierArcher(world) : new GOTEntityLhazarSoldier(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 14, 0, 8);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass1(GOTEntityLhazarWarrior.class);
-		respawner.setSpawnClass2(GOTEntityLhazarArcher.class);
+		respawner.setSpawnClass1(GOTEntityLhazarSoldier.class);
+		respawner.setSpawnClass2(GOTEntityLhazarSoldierArcher.class);
 		respawner.setCheckRanges(6, -20, 4, 4);
 		respawner.setSpawnRanges(1, -2, 1, 8);
 		placeNPCRespawner(respawner, world, 0, 14, 0);

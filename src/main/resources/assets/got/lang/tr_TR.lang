@@ -11,7 +11,11 @@ tile.got:concrete.2.name≠Magenta Concrete
 tile.got:concrete.3.name≠Light Blue Concrete
 tile.got:concrete.4.name≠Yellow Concrete
 tile.got:concrete.5.name≠Lime Concrete
+entity.got.LhazarLevyman.name=Levyman of Lhazar
+entity.got.LhazarFlorist.name=Florist of Lhazar
+entity.got.LhazarLevymanArcher.name=Levyman Archer of Lhazar
 tile.got:concrete.6.name≠Pink Concrete
+entity.got.LhazarFarmhand.name=Lhazar Farmhand
 tile.got:concrete.7.name≠Gray Concrete
 tile.got:concrete.8.name≠Light Gray Concrete
 tile.got:concrete.9.name≠Cyan Concrete
@@ -390,7 +394,7 @@ entity.got.LancelLannisterNormal.name=Lancel Lannister
 entity.got.LancelLannisterReligious.name=Lancel Lannister
 entity.got.LeoLefford.name=Leo Lefford
 entity.got.LeytonHightower.name=Leyton Hightower
-entity.got.LhazarArcher.name=Lhazar Milis Okçusu
+entity.got.LhazarSoldierArcher.name=Lhazar Milis Okçusu
 entity.got.LhazarBaker.name=Lhazar Fırıncı
 entity.got.LhazarBannerBearer.name=Lhazar Bayraktar
 entity.got.LhazarBartender.name=Lhazar Hancı
@@ -406,7 +410,7 @@ entity.got.LhazarMan.name=Lhazar Yerleşik
 entity.got.LhazarMason.name=Lhazar Duvarcı
 entity.got.LhazarMiner.name=Lhazar Madenci
 entity.got.LhazarWarlord.name=Lhazar Savaş Lordu
-entity.got.LhazarWarrior.name=Lhazar Savaşçı
+entity.got.LhazarSoldier.name=Lhazar Savaşçı
 entity.got.LightSkinBandit.name≠Bandit
 entity.got.LightSkinThief.name≠Thief
 entity.got.LightSkinTramp.name≠Tramp

@@ -27,7 +27,7 @@ public class GOTEntityLhazarBlacksmith extends GOTEntityLhazarMan implements GOT
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.LHAZAR_BLACKSMITH_BUY;
+		return GOTTradeEntries.ESSOS_BLACKSMITH_BUY;
 	}
 
 	@Override

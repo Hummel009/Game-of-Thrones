@@ -39,7 +39,7 @@ public class GOTEntityLhazarBartender extends GOTEntityLhazarMan implements GOTT
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.skullCup));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
 
 		GOTEntityUtils.setupTurban(this, rand);
 

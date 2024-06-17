@@ -112,7 +112,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		for (int i1 : new int[]{-7, 7}) {
 			j1 = 1;
 			int k1 = -11;
-			GOTEntityNPC guard = new GOTEntityLhazarWarrior(world);
+			GOTEntityNPC guard = new GOTEntityLhazarSoldier(world);
 			guard.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(guard, world, i1, j1, k1, 4);
 		}
@@ -168,8 +168,8 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.anvil, 3);
 			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
-			placeWeaponRack(world, 0, 2, 2, 1, getRandomlhazarWeapon(random));
-			placeWeaponRack(world, 3, 2, 2, 3, getRandomlhazarWeapon(random));
+			placeWeaponRack(world, 0, 2, 2, 1, getRandomWeapon(random));
+			placeWeaponRack(world, 3, 2, 2, 3, getRandomWeapon(random));
 			GOTEntityNPC trader = new GOTEntityLhazarBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -272,6 +272,24 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 2, 3, 2, GOTBlocks.bronzeBars, 0);
 			placeFlowerPot(world, 0, 2, 1, getRandomFlower(world, random));
 			GOTEntityNPC trader = new GOTEntityLhazarGoldsmith(world);
+			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
+			return true;
+		}
+	}
+
+	@SuppressWarnings("WeakerAccess")
+	public static class Florist extends GOTStructureBase {
+		@SuppressWarnings("unused")
+		public Florist(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			setOriginAndRotation(world, i, j, k, rotation, 0);
+			setBlockAndMetadata(world, 1, 1, 1, Blocks.grass, 0);
+			placeFlowerPot(world, 2, 2, 3, getRandomFlower(world, random));
+			GOTEntityNPC trader = new GOTEntityLhazarFlorist(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}

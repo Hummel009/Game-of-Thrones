@@ -438,7 +438,6 @@ public class GOTBlocks {
 	public static Block stairsLabradoriteBrickMossy;
 	public static Block stairsLarch;
 	public static Block stairsLemon;
-	public static Block stairsLhazarBrick;
 	public static Block stairsLime;
 	public static Block stairsMahogany;
 	public static Block stairsMango;
@@ -1034,7 +1033,6 @@ public class GOTBlocks {
 		stairsLabradoriteBrickMossy = new GOTBlockStairs(brick6, 7);
 		stairsLarch = new GOTBlockStairs(planks1, 13);
 		stairsLemon = new GOTBlockStairs(planks2, 5);
-		stairsLhazarBrick = new GOTBlockStairs(brick3, 10);
 		stairsLime = new GOTBlockStairs(planks2, 7);
 		stairsMahogany = new GOTBlockStairs(planks2, 8);
 		stairsMango = new GOTBlockStairs(planks1, 7);
@@ -1426,7 +1424,6 @@ public class GOTBlocks {
 		register(stairsYiTiBrickFlowers, "stairsYiTiBrickFlowers");
 		register(stairsYiTiBrickMossy, "stairsYiTiBrickMossy");
 		register(stairsYiTiBrickRed, "stairsYiTiBrickRed");
-		register(stairsLhazarBrick, "stairsLhazarBrick");
 
 		register(wood1, "wood1", GOTItemBlockMetadata.class);
 		register(wood2, "wood2", GOTItemBlockMetadata.class);

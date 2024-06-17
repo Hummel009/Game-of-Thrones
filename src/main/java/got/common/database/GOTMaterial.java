@@ -36,8 +36,7 @@ public class GOTMaterial {
 	public static final ItemArmor.ArmorMaterial JOGOS = EnumHelper.addArmorMaterial("GOT_JOGOS", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial KAFTAN = EnumHelper.addArmorMaterial("GOT_KAFTAN", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial KINGSGUARD = EnumHelper.addArmorMaterial("GOT_KINGSGUARD", 25, new int[]{2, 7, 6, 3}, 9);
-	public static final ItemArmor.ArmorMaterial LHAZAR = EnumHelper.addArmorMaterial("GOT_LHAZAR", 10, new int[]{1, 3, 2, 1}, 15);
-	public static final ItemArmor.ArmorMaterial LHAZAR_LION = EnumHelper.addArmorMaterial("GOT_LHAZAR_LION", 10, new int[]{1, 3, 2, 1}, 15);
+	public static final ItemArmor.ArmorMaterial LHAZAR = EnumHelper.addArmorMaterial("GOT_LHAZAR", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial LORATH = EnumHelper.addArmorMaterial("GOT_LORATH", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial LYS = EnumHelper.addArmorMaterial("GOT_LYS", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial MOSSOVY = EnumHelper.addArmorMaterial("GOT_MOSSOVY", 20, new int[]{2, 6, 5, 2}, 9);
@@ -75,7 +74,6 @@ public class GOTMaterial {
 	public static final Item.ToolMaterial BRONZE_TOOL = EnumHelper.addToolMaterial("GOT_BRONZE_TOOL", 2, 250, 5.0F, 1.5F, 10);
 	public static final Item.ToolMaterial COBALT_TOOL = EnumHelper.addToolMaterial("GOT_COBALT_TOOL", 3, 1500, 8.0F, 3.0F, 10);
 	public static final Item.ToolMaterial FLINT_TOOL = EnumHelper.addToolMaterial("GOT_FLINT_TOOL", 1, 200, 4.0F, 1.0F, 5);
-	public static final Item.ToolMaterial HORN_TOOL = EnumHelper.addToolMaterial("GOT_HORN_TOOL", 1, 200, 4.0F, 1.0F, 5);
 	public static final Item.ToolMaterial ICE_TOOL = EnumHelper.addToolMaterial("GOT_ICE_TOOL", 2, 450, 6.0F, 2.0F, 14);
 	public static final Item.ToolMaterial OBSIDIAN_TOOL = EnumHelper.addToolMaterial("GOT_OBSIDIAN_TOOL", 2, 450, 6.0F, 2.0F, 14);
 	public static final Item.ToolMaterial SILVER_TOOL = EnumHelper.addToolMaterial("GOT_SILVER_TOOL", 2, 450, 6.0F, 2.0F, 14);
@@ -126,7 +124,6 @@ public class GOTMaterial {
 		KAFTAN.customCraftingMaterial = Item.getItemFromBlock(Blocks.wool);
 		KINGSGUARD.customCraftingMaterial = Items.iron_ingot;
 		LHAZAR.customCraftingMaterial = GOTItems.gemsbokHide;
-		LHAZAR_LION.customCraftingMaterial = GOTItems.lionFur;
 		LORATH.customCraftingMaterial = Items.iron_ingot;
 		LYS.customCraftingMaterial = Items.iron_ingot;
 		MOSSOVY.customCraftingMaterial = Items.iron_ingot;
@@ -164,7 +161,6 @@ public class GOTMaterial {
 		BRONZE_TOOL.setRepairItem(new ItemStack(GOTItems.bronzeIngot));
 		COBALT_TOOL.setRepairItem(new ItemStack(GOTItems.alloySteelIngot));
 		FLINT_TOOL.setRepairItem(new ItemStack(Items.flint));
-		HORN_TOOL.setRepairItem(new ItemStack(GOTItems.horn));
 		ICE_TOOL.setRepairItem(new ItemStack(GOTItems.iceShard));
 		OBSIDIAN_TOOL.setRepairItem(new ItemStack(GOTItems.obsidianShard));
 		SILVER_TOOL.setRepairItem(new ItemStack(GOTItems.silverIngot));

@@ -20,7 +20,6 @@ public class GOTWeaponSetFactory {
 	private static final Map<Item, Integer> SUMMER_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> NOMAD_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> IBBEN_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> LHAZAR_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> YITI_WEAPON_PERCENTS = new HashMap<>();
 
 	static {
@@ -66,10 +65,6 @@ public class GOTWeaponSetFactory {
 		IBBEN_WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 10);
 		IBBEN_WEAPON_PERCENTS.put(GOTItems.ironDagger, 5);
 
-		LHAZAR_WEAPON_PERCENTS.put(GOTItems.lhazarSword, 40);
-		LHAZAR_WEAPON_PERCENTS.put(GOTItems.lhazarBattleaxe, 30);
-		LHAZAR_WEAPON_PERCENTS.put(GOTItems.lhazarClub, 30);
-
 		YITI_WEAPON_PERCENTS.put(GOTItems.yitiBattleaxe, 40);
 		YITI_WEAPON_PERCENTS.put(GOTItems.yitiPike, 30);
 		YITI_WEAPON_PERCENTS.put(GOTItems.yitiPolearm, 30);
@@ -91,15 +86,7 @@ public class GOTWeaponSetFactory {
 		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
 
 		setupRandomWeapon(rand, YITI_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.lhazarSpear);
-		setupIdleItems(npcItemsInv);
-	}
-
-	public static void setupLhazarWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, LHAZAR_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.lhazarSpear);
+		setupSpearWithChance(rand, npcItemsInv, GOTItems.yitiSpear);
 		setupIdleItems(npcItemsInv);
 	}
 

@@ -6,6 +6,7 @@ import got.common.entity.other.iface.GOTTradeable;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -40,7 +41,7 @@ public class GOTEntityLhazarBaker extends GOTEntityLhazarMan implements GOTTrade
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.rollingPin));
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.oliveBread));
+		npcItemsInv.setIdleItem(new ItemStack(Items.bread));
 
 		GOTEntityUtils.setupTurban(this, rand);
 

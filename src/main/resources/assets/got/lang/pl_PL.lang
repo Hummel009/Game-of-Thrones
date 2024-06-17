@@ -9,8 +9,12 @@ tile.got:concrete.14.name≠Red Concrete
 tile.got:concrete.15.name≠Black Concrete
 tile.got:concrete.2.name≠Magenta Concrete
 tile.got:concrete.3.name≠Light Blue Concrete
+entity.got.LhazarFlorist.name=Florist of Lhazar
+entity.got.LhazarLevyman.name=Levyman of Lhazar
+entity.got.LhazarLevymanArcher.name=Levyman Archer of Lhazar
 tile.got:concrete.4.name≠Yellow Concrete
 tile.got:concrete.5.name≠Lime Concrete
+entity.got.LhazarFarmhand.name=Lhazar Farmhand
 tile.got:concrete.6.name≠Pink Concrete
 tile.got:concrete.7.name≠Gray Concrete
 tile.got:concrete.8.name≠Light Gray Concrete
@@ -390,7 +394,7 @@ entity.got.LancelLannisterNormal.name=Lancel Lannister
 entity.got.LancelLannisterReligious.name=Lancel Lannister
 entity.got.LeoLefford.name=Leo Lefford
 entity.got.LeytonHightower.name=Leyton Hightower
-entity.got.LhazarArcher.name=Lhazarski Łucznik
+entity.got.LhazarSoldierArcher.name=Lhazarski Łucznik
 entity.got.LhazarBaker.name=Lhazarski Piekarz
 entity.got.LhazarBannerBearer.name=Lhazarski Chorąży
 entity.got.LhazarBartender.name=Lhazarski Karczmarz
@@ -406,7 +410,7 @@ entity.got.LhazarMan.name=Lhazarski Człowiek
 entity.got.LhazarMason.name=Lhazarski Murarz
 entity.got.LhazarMiner.name=Lhazarski Górnik
 entity.got.LhazarWarlord.name=Lhazarski Wódz
-entity.got.LhazarWarrior.name=Lhazarski Wojownik
+entity.got.LhazarSoldier.name=Lhazarski Wojownik
 entity.got.LightSkinBandit.name=Bandyt
 entity.got.LightSkinThief.name=Złodziej
 entity.got.LightSkinTramp.name=Włóczęga

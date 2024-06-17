@@ -50,7 +50,6 @@ public class GOTTradeEntries {
 	public static final GOTTradeEntries SUD_MASON_BUY;
 	public static final GOTTradeEntries IBBEN_BLACKSMITH_BUY;
 	public static final GOTTradeEntries IBBEN_MASON_BUY;
-	public static final GOTTradeEntries LHAZAR_BLACKSMITH_BUY;
 	public static final GOTTradeEntries MOSSOVY_BLACKSMITH_BUY;
 	public static final GOTTradeEntries QOHOR_BLACKSMITH_BUY;
 	public static final GOTTradeEntries SOTHORYOS_BLACKSMITH_BUY;
@@ -98,7 +97,6 @@ public class GOTTradeEntries {
 	private static final List<GOTTradeEntry> NORD_MASON_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> ESSOS_BLACKSMITH_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> IBBEN_BLACKSMITH_B_L = new ArrayList<>();
-	private static final List<GOTTradeEntry> LHAZAR_BLACKSMITH_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> MOSSOVY_BLACKSMITH_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> QOHOR_BLACKSMITH_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> SOTHORYOS_BLACKSMITH_B_L = new ArrayList<>();
@@ -835,24 +833,6 @@ public class GOTTradeEntries {
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.thatchFloor, 16, 0), 2));
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.woodBeamV1, 3, 0), 2));
 		IBBEN_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.woodBeamV1, 3, 1), 2));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.blacksmithHammer), 18));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.bronzeBars, 8), 20));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzeCrossbow), 12));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.crossbowBolt, 4), 3));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarBoots), 17));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarChestplate), 32));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarClub), 15));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarDagger), 8));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarDaggerPoisoned), 14));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarHelmet), 20));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarLeggings), 26));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarSpear), 15));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lhazarSword), 15));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.tableLhazar), 100));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzeChainmailHelmet), 9));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzeChainmailChestplate), 13));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzeChainmailLeggings), 11));
-		LHAZAR_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzeChainmailBoots), 7));
 		MOSSOVY_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.iron_bars, 8), 20));
 		MOSSOVY_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.blacksmithHammer), 18));
 		MOSSOVY_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.bronzeBars, 8), 20));
@@ -1020,7 +1000,6 @@ public class GOTTradeEntries {
 		SUD_MASON_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, SUD_MASON_B_L);
 		IBBEN_BLACKSMITH_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, IBBEN_BLACKSMITH_B_L);
 		IBBEN_MASON_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, IBBEN_MASON_B_L);
-		LHAZAR_BLACKSMITH_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, LHAZAR_BLACKSMITH_B_L);
 		MOSSOVY_BLACKSMITH_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, MOSSOVY_BLACKSMITH_B_L);
 		QOHOR_BLACKSMITH_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, QOHOR_BLACKSMITH_B_L);
 		SOTHORYOS_BLACKSMITH_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, SOTHORYOS_BLACKSMITH_B_L);

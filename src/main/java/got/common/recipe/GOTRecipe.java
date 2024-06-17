@@ -361,23 +361,11 @@ public class GOTRecipe {
 	private static void createLhazarRecipes() {
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableLhazar), "XX", "XX", 'X', "plankWood"));
 		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LHAZAR.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarHelmet), "XXX", "X X", 'X', GOTItems.gemsbokHide));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarChestplate), "X X", "XXX", "XXX", 'X', GOTItems.gemsbokHide));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarLeggings), "XXX", "X X", "X X", 'X', GOTItems.gemsbokHide));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarBoots), "X X", "X X", 'X', GOTItems.gemsbokHide));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick3, 4, 10), "XX", "XX", 'X', GOTBlocks.redClay));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle7, 6, 0), "XXX", 'X', new ItemStack(GOTBlocks.brick3, 4, 10)));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsLhazarBrick, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick3, 4, 10)));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone2, 6, 15), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick3, 4, 10)));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarBattleaxe), "XXX", "XYX", " Y ", 'X', GOTItems.rhinoHorn, 'Y', "stickWood"));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarDagger), "X", "Y", 'X', GOTItems.rhinoHorn, 'Y', "stickWood"));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarSpear), "  X", " Y ", "Y  ", 'X', GOTItems.rhinoHorn, 'Y', "stickWood"));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarHelmetLion), "XXX", "X X", 'X', GOTItems.lionFur));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarChestplateLion), "X X", "XXX", "XXX", 'X', GOTItems.lionFur));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarLeggingsLion), "XXX", "X X", "X X", 'X', GOTItems.lionFur));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarBootsLion), "X X", "X X", 'X', GOTItems.lionFur));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarClub), "X", "X", "X", 'X', "plankWood"));
-		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarSword), "X", "X", "Y", 'X', "ingotBronze", 'Y', "stickWood"));
+		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarHelmet), "XXX", "X X", 'X', "ingotIron"));
+		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
+		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
+		LHAZAR.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarBoots), "X X", "X X", 'X', "ingotIron"));
+		LHAZAR.addAll(COMMON_ESSOS);
 	}
 
 	private static void createLorathRecipes() {
@@ -1395,7 +1383,6 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.essosDaggerPoisoned, GOTItems.essosDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.asshaiDaggerPoisoned, GOTItems.asshaiDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.alloySteelDaggerPoisoned, GOTItems.alloySteelDagger, GOTItems.bottlePoison));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.lhazarDaggerPoisoned, GOTItems.lhazarDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.sothoryosDaggerPoisoned, GOTItems.sothoryosDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.yitiDaggerPoisoned, GOTItems.yitiDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.summerDaggerPoisoned, GOTItems.summerDagger, GOTItems.bottlePoison));

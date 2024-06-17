@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.lhazar;
 
 import got.common.database.GOTBlocks;
-import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
+import got.common.entity.essos.lhazar.GOTEntityLhazarSoldierArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
-import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
+import got.common.entity.essos.lhazar.GOTEntityLhazarSoldier;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
@@ -322,8 +322,8 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityLhazarWarrior.class);
-				spawner.setSpawnClass2(GOTEntityLhazarArcher.class);
+				spawner.setSpawnClass1(GOTEntityLhazarSoldier.class);
+				spawner.setSpawnClass2(GOTEntityLhazarSoldierArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 20);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 				spawner.setBlockEnemySpawns(64);
@@ -351,8 +351,8 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityLhazarWarrior.class);
-				spawner.setSpawnClass2(GOTEntityLhazarArcher.class);
+				spawner.setSpawnClass1(GOTEntityLhazarSoldier.class);
+				spawner.setSpawnClass2(GOTEntityLhazarSoldierArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 12);
 				spawner.setSpawnRanges(32, -6, 6, 32);
 				spawner.setBlockEnemySpawns(64);

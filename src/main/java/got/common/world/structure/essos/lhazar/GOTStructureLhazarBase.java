@@ -53,8 +53,8 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected static ItemStack getRandomlhazarWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarDagger), new ItemStack(GOTItems.lhazarSpear), new ItemStack(GOTItems.lhazarClub)};
+	protected static ItemStack getRandomWeapon(Random random) {
+		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer)};
 		return items[random.nextInt(items.length)].copy();
 	}
 

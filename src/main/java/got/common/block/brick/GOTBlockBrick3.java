@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GOTBlockBrick3 extends GOTBlockBrickBase {
 	public GOTBlockBrick3() {
-		brickNames = new String[]{"diorite_carved", "granite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "sandstone_carved", "diorite_carved", "lhazar", "sandstone_cracked", "diorite_carved", "sandstone_red", "sandstone_red_cracked", "sandstone_red_carved"};
+		brickNames = new String[]{"diorite_carved", "granite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "diorite_carved", "sandstone_carved", "diorite_carved", "diorite_carved", "sandstone_cracked", "diorite_carved", "sandstone_red", "sandstone_red_cracked", "sandstone_red_carved"};
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -20,7 +20,6 @@ public class GOTBlockBrick3 extends GOTBlockBrickBase {
 		list.add(new ItemStack(item, 1, 0));
 		list.add(new ItemStack(item, 1, 1));
 		list.add(new ItemStack(item, 1, 8));
-		list.add(new ItemStack(item, 1, 10));
 		list.add(new ItemStack(item, 1, 11));
 		list.add(new ItemStack(item, 1, 13));
 		list.add(new ItemStack(item, 1, 14));

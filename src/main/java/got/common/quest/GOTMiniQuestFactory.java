@@ -150,6 +150,7 @@ public enum GOTMiniQuestFactory {
 		cities.put(VOLANTIS, GOTFaction.VOLANTIS);
 		cities.put(GHISCAR, GOTFaction.GHISCAR);
 		cities.put(QARTH, GOTFaction.QARTH);
+		cities.put(LHAZAR, GOTFaction.LHAZAR);
 
 		for (Map.Entry<GOTMiniQuestFactory, GOTFaction> kingdom : kingdoms.entrySet()) {
 			kingdom.getKey().addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.deerCooked), 5, 20).setRewardFactor(2.0f));
@@ -437,33 +438,6 @@ public enum GOTMiniQuestFactory {
 		JOGOS.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.JOGOS), 30, 50));
 		JOGOS.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.JOGOS), 50, 70));
 		JOGOS.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.JOGOS), 70, 100));
-
-		LHAZAR.addQuest(new GOTMiniQuestBounty.QFBounty<>());
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.date), 8, 15).setRewardFactor(2.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarClub), 2, 3).setRewardFactor(6.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarSpear), 2, 3).setRewardFactor(4.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarSword), 2, 3).setRewardFactor(5.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.bottlePoison), 2, 4).setRewardFactor(5.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarDagger), 1, 2).setRewardFactor(20.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugLemonLiqueur), 2, 6).setRewardFactor(4.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarBoots), 1, 1).setRewardFactor(8.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarChestplate), 1, 1).setRewardFactor(8.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarHelmet), 1, 1).setRewardFactor(8.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lhazarLeggings), 1, 1).setRewardFactor(8.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugOrangeJuice), 2, 6).setRewardFactor(4.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(Blocks.sandstone, 1, 0), 30, 80).setRewardFactor(0.25f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.boneBlock, 1, 0), 5, 10).setRewardFactor(2.0f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.brick1, 1, 15), 30, 60).setRewardFactor(0.5f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.brick3, 1, 13), 30, 60).setRewardFactor(0.5f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.planks3, 1, 3), 60, 120).setRewardFactor(0.125f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.planks3, 1, 4), 60, 120).setRewardFactor(0.125f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.thatch, 1, 1), 10, 20).setRewardFactor(0.5f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.wood8, 1, 3), 30, 60).setRewardFactor(0.25f));
-		LHAZAR.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.wood9, 1, 0), 30, 60).setRewardFactor(0.25f));
-		LHAZAR.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.LHAZAR), 10, 30));
-		LHAZAR.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.LHAZAR), 30, 50));
-		LHAZAR.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.LHAZAR), 50, 70));
-		LHAZAR.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.LHAZAR), 70, 100));
 
 		MOSSOVY.addQuest(new GOTMiniQuestBounty.QFBounty<>());
 		MOSSOVY.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(Items.bucket), 1, 4).setRewardFactor(3.0f));

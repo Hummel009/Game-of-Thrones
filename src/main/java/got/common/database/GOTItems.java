@@ -314,20 +314,10 @@ public class GOTItems {
 	public static Item lemon;
 	public static Item lemonCake;
 	public static Item lettuce;
-	public static Item lhazarBattleaxe;
 	public static Item lhazarBoots;
-	public static Item lhazarBootsLion;
 	public static Item lhazarChestplate;
-	public static Item lhazarChestplateLion;
-	public static Item lhazarClub;
-	public static Item lhazarDagger;
-	public static Item lhazarDaggerPoisoned;
 	public static Item lhazarHelmet;
-	public static Item lhazarHelmetLion;
 	public static Item lhazarLeggings;
-	public static Item lhazarLeggingsLion;
-	public static Item lhazarSpear;
-	public static Item lhazarSword;
 	public static Item lightbringer;
 	public static Item lime;
 	public static Item lingeringPotion;
@@ -992,20 +982,10 @@ public class GOTItems {
 		lemon = new GOTItemFood(2, 0.2f, false);
 		lemonCake = new GOTItemPlaceableFood(GOTBlocks.lemonCake);
 		lettuce = new ItemSeedFood(3, 0.4f, GOTBlocks.lettuceCrop, Blocks.farmland).setCreativeTab(GOTCreativeTabs.TAB_FOOD);
-		lhazarBattleaxe = new GOTItemBattleaxe(GOTMaterial.HORN_TOOL);
 		lhazarBoots = new GOTItemArmor(GOTMaterial.LHAZAR, 3);
-		lhazarBootsLion = new GOTItemArmor(GOTMaterial.LHAZAR_LION, 3);
 		lhazarChestplate = new GOTItemArmor(GOTMaterial.LHAZAR, 1);
-		lhazarChestplateLion = new GOTItemArmor(GOTMaterial.LHAZAR_LION, 1);
-		lhazarClub = new GOTItemHammer(Item.ToolMaterial.WOOD);
-		lhazarDagger = new GOTItemDagger(GOTMaterial.HORN_TOOL);
-		lhazarDaggerPoisoned = new GOTItemDagger(GOTMaterial.HORN_TOOL, GOTItemSword.HitEffect.POISON);
 		lhazarHelmet = new GOTItemArmor(GOTMaterial.LHAZAR, 0);
-		lhazarHelmetLion = new GOTItemArmor(GOTMaterial.LHAZAR_LION, 0, "helmet");
 		lhazarLeggings = new GOTItemArmor(GOTMaterial.LHAZAR, 2);
-		lhazarLeggingsLion = new GOTItemArmor(GOTMaterial.LHAZAR_LION, 2);
-		lhazarSpear = new GOTItemSpear(GOTMaterial.HORN_TOOL);
-		lhazarSword = new GOTItemSword(GOTMaterial.BRONZE_TOOL);
 		lightbringer = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		lime = new GOTItemFood(2, 0.2f, false);
 		lingeringPotion = new GOTItemLingeringPotion();
@@ -1490,13 +1470,6 @@ public class GOTItems {
 		register(nomadSpear, "nomadSpear");
 		register(nomadSword, "nomadSword");
 
-		register(lhazarBattleaxe, "lhazarBattleaxe");
-		register(lhazarClub, "lhazarClub");
-		register(lhazarDagger, "lhazarDagger");
-		register(lhazarDaggerPoisoned, "lhazarDaggerPoisoned");
-		register(lhazarSpear, "lhazarSpear");
-		register(lhazarSword, "lhazarSword");
-
 		register(ibbenHarpoon, "ibbenHarpoon");
 		register(ibbenSword, "ibbenSword");
 
@@ -1754,11 +1727,6 @@ public class GOTItems {
 		register(lhazarChestplate, "lhazarChestplate");
 		register(lhazarLeggings, "lhazarLeggings");
 		register(lhazarBoots, "lhazarBoots");
-
-		register(lhazarHelmetLion, "lhazarHelmetLion");
-		register(lhazarChestplateLion, "lhazarChestplateLion");
-		register(lhazarLeggingsLion, "lhazarLeggingsLion");
-		register(lhazarBootsLion, "lhazarBootsLion");
 
 		register(dothrakiHelmet, "dothrakiHelmet");
 		register(dothrakiChestplate, "dothrakiChestplate");

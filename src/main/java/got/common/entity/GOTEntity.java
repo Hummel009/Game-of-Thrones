@@ -654,21 +654,25 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityQarthMiner.class, id++, GOTFaction.QARTH);
 
 		GOTEntityRegistry.register(GOTEntityLhazarMan.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarWarrior.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarArcher.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarLevyman.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarLevymanArcher.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarSoldier.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarSoldierArcher.class, id++, GOTFaction.LHAZAR);
 		GOTEntityRegistry.register(GOTEntityLhazarBannerBearer.class, id++, GOTFaction.LHAZAR);
 		GOTEntityRegistry.register(GOTEntityLhazarWarlord.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarBlacksmith.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarMason.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarButcher.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarBrewer.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarFishmonger.class, id++, GOTFaction.LHAZAR);
 		GOTEntityRegistry.register(GOTEntityLhazarBaker.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarMiner.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarBartender.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarBlacksmith.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarBrewer.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarButcher.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarFarmer.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarFarmhand.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarFishmonger.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarFlorist.class, id++, GOTFaction.LHAZAR);
 		GOTEntityRegistry.register(GOTEntityLhazarGoldsmith.class, id++, GOTFaction.LHAZAR);
 		GOTEntityRegistry.register(GOTEntityLhazarLumberman.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarBartender.class, id++, GOTFaction.LHAZAR);
-		GOTEntityRegistry.register(GOTEntityLhazarFarmer.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarMason.class, id++, GOTFaction.LHAZAR);
+		GOTEntityRegistry.register(GOTEntityLhazarMiner.class, id++, GOTFaction.LHAZAR);
 
 		GOTEntityRegistry.register(GOTEntityDothraki.class, id++, GOTFaction.DOTHRAKI);
 		GOTEntityRegistry.register(GOTEntityDothrakiArcher.class, id++, GOTFaction.DOTHRAKI);

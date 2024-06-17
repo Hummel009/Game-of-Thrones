@@ -1,11 +1,9 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.entity.other.utils.GOTEntityUtils;
-import got.common.item.other.GOTItemMug;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -41,9 +39,7 @@ public class GOTEntityLhazarBrewer extends GOTEntityLhazarMan implements GOTTrad
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		ItemStack drink = new ItemStack(GOTItems.mugAraq);
-		GOTItemMug.setVessel(drink, GOTFoods.DEFAULT_DRINK.getRandomVessel(rand), true);
-		npcItemsInv.setIdleItem(drink);
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAle));
 
 		GOTEntityUtils.setupTurban(this, rand);
 

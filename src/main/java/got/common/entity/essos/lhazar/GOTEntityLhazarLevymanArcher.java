@@ -8,9 +8,9 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityLhazarArcher extends GOTEntityLhazarWarrior {
+public class GOTEntityLhazarLevymanArcher extends GOTEntityLhazarLevyman {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityLhazarArcher(World world) {
+	public GOTEntityLhazarLevymanArcher(World world) {
 		super(world);
 	}
 
@@ -23,7 +23,7 @@ public class GOTEntityLhazarArcher extends GOTEntityLhazarWarrior {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.nomadBow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.essosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

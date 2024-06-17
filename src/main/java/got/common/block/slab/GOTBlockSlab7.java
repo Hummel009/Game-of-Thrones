@@ -48,7 +48,6 @@ public class GOTBlockSlab7 extends GOTBlockSlabBase {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		list.add(new ItemStack(item, 1, 0));
 		list.add(new ItemStack(item, 1, 1));
 		list.add(new ItemStack(item, 1, 2));
 		list.add(new ItemStack(item, 1, 3));

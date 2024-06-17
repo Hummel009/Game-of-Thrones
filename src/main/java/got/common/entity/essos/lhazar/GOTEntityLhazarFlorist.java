@@ -2,16 +2,15 @@ package got.common.entity.essos.lhazar;
 
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
-import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityLhazarButcher extends GOTEntityLhazarMan implements GOTTradeable {
+public class GOTEntityLhazarFlorist extends GOTEntityLhazarMan implements GOTTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityLhazarButcher(World world) {
+	public GOTEntityLhazarFlorist(World world) {
 		super(world);
 	}
 
@@ -27,21 +26,19 @@ public class GOTEntityLhazarButcher extends GOTEntityLhazarMan implements GOTTra
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_BUTCHER_BUY;
+		return GOTTradeEntries.C_FLORIST_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BUTCHER_SELL;
+		return GOTTradeEntries.C_FARMER_SELL;
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(Items.porkchop));
-
-		GOTEntityUtils.setupTurban(this, rand);
+		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower));
 
 		return entityData;
 	}

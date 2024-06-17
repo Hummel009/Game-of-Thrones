@@ -377,7 +377,6 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullJogos;
 	public static GOTAchievement wearFullKingsguard;
 	public static GOTAchievement wearFullLhazar;
-	public static GOTAchievement wearFullLhazarLion;
 	public static GOTAchievement wearFullLorath;
 	public static GOTAchievement wearFullLys;
 	public static GOTAchievement wearFullMossovy;
@@ -918,7 +917,6 @@ public class GOTAchievement {
 		wearFullGhiscarGemsbok = createArmorAchievement(armorId++, GOTItems.ghiscarChestplateGemsbok, "WEAR_FULL_GHISCAR_GEMSBOK");
 		wearFullQarth = createArmorAchievement(armorId++, GOTItems.qarthChestplate, "WEAR_FULL_QARTH");
 		wearFullLhazar = createArmorAchievement(armorId++, GOTItems.lhazarChestplate, "WEAR_FULL_LHAZAR");
-		wearFullLhazarLion = createArmorAchievement(armorId++, GOTItems.lhazarChestplateLion, "WEAR_FULL_LHAZAR_LION");
 		wearFullDothraki = createArmorAchievement(armorId++, GOTItems.dothrakiChestplate, "WEAR_FULL_DOTHRAKI");
 		wearFullIbben = createArmorAchievement(armorId++, GOTItems.ibbenChestplate, "WEAR_FULL_IBBEN");
 		wearFullJogos = createArmorAchievement(armorId++, GOTItems.jogosChestplate, "WEAR_FULL_JOGOS");

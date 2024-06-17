@@ -95,7 +95,7 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		} else {
 			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
 		}
-		placeWeaponRack(world, -13, 3, 0, 5, getRandomlhazarWeapon(random));
+		placeWeaponRack(world, -13, 3, 0, 5, getRandomWeapon(random));
 		GOTEntityNPC smith = new GOTEntityLhazarBlacksmith(world);
 		spawnNPCAndSetHome(smith, world, -6, 1, 0, 8);
 		int maxSteps = 12;

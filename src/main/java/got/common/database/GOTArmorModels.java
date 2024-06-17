@@ -236,7 +236,6 @@ public class GOTArmorModels {
 			map.put(GOTItems.robertHelmet, new GOTModelDeerHelmet(1.0f));
 			map.put(GOTItems.sandorHelmet, new GOTModelSandorHelmet(1.0f));
 			map.put(GOTItems.leatherHat, new GOTModelLeatherHat(0.0f));
-			map.put(GOTItems.lhazarHelmetLion, new GOTModelSandorHelmet(1.0f));
 			map.put(GOTItems.northHelmet, new GOTModelNorthHelmet(1.0f));
 			map.put(GOTItems.plate, new GOTModelPlateHead());
 			map.put(GOTItems.reachHelmet, new GOTModelReachHelmet(1.0f));
