@@ -31,7 +31,7 @@ public class GOTEntityQarthLevyman extends GOTEntityQarthMan {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		GOTEntityUtils.setupEssosLevymanArmor(this, rand);
+		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
 		return entityData;
 	}
 

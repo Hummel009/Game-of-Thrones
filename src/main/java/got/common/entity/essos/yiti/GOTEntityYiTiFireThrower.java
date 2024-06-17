@@ -61,7 +61,6 @@ public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiDagger));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.firePot));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 

@@ -1,9 +1,7 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
-import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -43,14 +41,6 @@ public class GOTEntityYiTiMason extends GOTEntityYiTiMan implements GOTTradeable
 
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
-
-		int robeColor = 10855057;
-		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
-		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
-		GOTItemRobes.setRobesColor(body, robeColor);
-		GOTItemRobes.setRobesColor(legs, robeColor);
-		setCurrentItemOrArmor(3, body);
-		setCurrentItemOrArmor(2, legs);
 
 		return entityData;
 	}

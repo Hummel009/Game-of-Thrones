@@ -25,7 +25,7 @@ public class GOTEntityNorthHillmanMercenary extends GOTEntityNorthHillman implem
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		GOTWeaponSetFactory.setupHillmenWeaponSet(this, rand);
-		GOTEntityUtils.setupWesterosLevymanArmor(this, rand);
+		GOTEntityUtils.setupLeathermanArmor(this, rand);
 
 		return entityData;
 	}

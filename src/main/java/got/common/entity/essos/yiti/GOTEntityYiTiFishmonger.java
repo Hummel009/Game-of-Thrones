@@ -3,7 +3,7 @@ package got.common.entity.essos.yiti;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
-import got.common.item.other.GOTItemRobes;
+import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -42,13 +42,9 @@ public class GOTEntityYiTiFishmonger extends GOTEntityYiTiMan implements GOTTrad
 
 		npcItemsInv.setIdleItem(new ItemStack(Items.fishing_rod));
 
-		int robeColor = 4882395;
-		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
-		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
-		GOTItemRobes.setRobesColor(body, robeColor);
-		GOTItemRobes.setRobesColor(legs, robeColor);
-		setCurrentItemOrArmor(3, body);
-		setCurrentItemOrArmor(2, legs);
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
+		GOTItemLeatherHat.setHatColor(hat, 9013900);
+		setCurrentItemOrArmor(4, hat);
 
 		return entityData;
 	}

@@ -3,7 +3,6 @@ package got.common.entity.essos.yiti;
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
-import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -39,15 +38,7 @@ public class GOTEntityYiTiBrewer extends GOTEntityYiTiMan implements GOTTradeabl
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAraq));
-
-		int robeColor = 12346368;
-		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
-		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
-		GOTItemRobes.setRobesColor(body, robeColor);
-		GOTItemRobes.setRobesColor(legs, robeColor);
-		setCurrentItemOrArmor(3, body);
-		setCurrentItemOrArmor(2, legs);
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAle));
 
 		return entityData;
 	}

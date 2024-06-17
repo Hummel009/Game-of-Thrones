@@ -22,7 +22,7 @@ public class GOTEntityBraavosLevyman extends GOTEntityBraavosMan {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
-		GOTEntityUtils.setupEssosLevymanArmor(this, rand);
+		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
 
 		return entityData;
 	}

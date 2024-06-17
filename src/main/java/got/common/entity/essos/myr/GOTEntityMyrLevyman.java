@@ -30,7 +30,7 @@ public class GOTEntityMyrLevyman extends GOTEntityMyrMan {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		GOTEntityUtils.setupEssosLevymanArmor(this, rand);
+		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
 		return entityData;
 	}
 

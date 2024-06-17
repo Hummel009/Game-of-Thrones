@@ -206,13 +206,13 @@ public class GOTEntityUtils {
 		}
 	}
 
-	public static void setupWesterosLevymanArmor(GOTEntityNPC npc, Random rand) {
+	public static void setupLeathermanArmor(GOTEntityNPC npc, Random rand) {
 		setupLevymanArmor(npc, rand);
 
 		npc.setCurrentItemOrArmor(4, dyeLeather(new ItemStack(Items.leather_helmet), rand));
 	}
 
-	public static void setupEssosLevymanArmor(GOTEntityNPC npc, Random rand) {
+	public static void setupLeathermanArmorTurban(GOTEntityNPC npc, Random rand) {
 		setupLevymanArmor(npc, rand);
 
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);

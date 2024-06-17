@@ -14,8 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiMan extends GOTEntityHumanBase {
-	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger)};
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiMan(World world) {
 		super(world);
@@ -59,8 +57,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		int i = rand.nextInt(WEAPONS.length);
-		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

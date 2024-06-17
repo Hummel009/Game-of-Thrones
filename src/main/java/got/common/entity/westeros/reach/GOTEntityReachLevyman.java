@@ -22,7 +22,7 @@ public class GOTEntityReachLevyman extends GOTEntityReachMan {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
-		GOTEntityUtils.setupWesterosLevymanArmor(this, rand);
+		GOTEntityUtils.setupLeathermanArmor(this, rand);
 
 		return entityData;
 	}

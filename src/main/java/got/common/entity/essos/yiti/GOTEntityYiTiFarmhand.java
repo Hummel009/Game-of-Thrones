@@ -1,6 +1,5 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIFarm;
 import got.common.entity.other.iface.GOTFarmhand;
 import net.minecraft.entity.IEntityLivingData;
@@ -38,7 +37,7 @@ public class GOTEntityYiTiFarmhand extends GOTEntityYiTiMan implements GOTFarmha
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
