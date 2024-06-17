@@ -705,7 +705,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityMossovyMan.class, id++, GOTFaction.MOSSOVY);
 		GOTEntityRegistry.register(GOTEntityMossovyWitcher.class, id++, GOTFaction.MOSSOVY);
 		GOTEntityRegistry.register(GOTEntityMossovyBlacksmith.class, id++, GOTFaction.MOSSOVY);
-		GOTEntityRegistry.register(GOTEntityMossovyFarmer.class, id++, GOTFaction.MOSSOVY);
+		GOTEntityRegistry.register(GOTEntityMossovyGoldsmith.class, id++, GOTFaction.MOSSOVY);
 		GOTEntityRegistry.register(GOTEntityMossovyBartender.class, id++, GOTFaction.MOSSOVY);
 
 		GOTEntityRegistry.register(GOTEntityYiTiMan.class, id++, GOTFaction.YI_TI);

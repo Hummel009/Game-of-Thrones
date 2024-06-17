@@ -2,7 +2,7 @@ package got.common.world.structure.essos.mossovy;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.essos.mossovy.GOTEntityMossovyFarmer;
+import got.common.entity.essos.mossovy.GOTEntityMossovyGoldsmith;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
@@ -129,7 +129,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		placeChest(world, random, 4, 5, -5, 5, GOTChestContents.MOSSOVY, 1 + random.nextInt(2));
 		placeChest(world, random, -4, 5, 0, 4, GOTChestContents.MOSSOVY, 1 + random.nextInt(2));
 		placeChest(world, random, -4, 5, 6, 4, GOTChestContents.MOSSOVY);
-		GOTEntityNPC farmer = new GOTEntityMossovyFarmer(world);
+		GOTEntityNPC farmer = new GOTEntityMossovyGoldsmith(world);
 		spawnNPCAndSetHome(farmer, world, 0, 1, 0, 16);
 		spawnAnimal(world, random, -3, 1, -2);
 		spawnAnimal(world, random, 3, 1, -2);
