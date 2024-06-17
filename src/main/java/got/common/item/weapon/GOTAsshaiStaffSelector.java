@@ -76,12 +76,14 @@ public class GOTAsshaiStaffSelector {
 		if (isEnemyPlayerForNPC(attacker, targetOwner, true)) {
 			return true;
 		}
-		EntityPlayer attackerOwner = ((GOTEntityNPC) attacker).getHireableInfo().getHiringPlayer();
-		GOTPlayerData attackerOwnerData = GOTLevelData.getData(attackerOwner);
 		GOTFaction targetFaction = target.getFaction();
-		if (attackerOwnerData.getAlignment(targetFaction) < 0) {
-			if (!target.isCivilianNPC() || attacker.getFaction().isApprovesWarCrimes()) {
-				return true;
+		EntityPlayer attackerOwner = ((GOTEntityNPC) attacker).getHireableInfo().getHiringPlayer();
+		if (attackerOwner != null) {
+			GOTPlayerData attackerOwnerData = GOTLevelData.getData(attackerOwner);
+			if (attackerOwnerData.getAlignment(targetFaction) < 0) {
+				if (!target.isCivilianNPC() || attacker.getFaction().isApprovesWarCrimes()) {
+					return true;
+				}
 			}
 		}
 		GOTFaction attackerFaction = attacker.getFaction();
