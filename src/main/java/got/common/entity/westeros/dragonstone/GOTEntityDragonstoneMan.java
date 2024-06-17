@@ -15,18 +15,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe)};
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneMan(World world) {
 		super(world);
-	}
-
-	protected void setupFactionArmor(boolean noHelmet) {
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dragonstoneBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dragonstoneLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dragonstoneChestplate));
-		setCurrentItemOrArmor(4, noHelmet ? null : new ItemStack(GOTItems.dragonstoneHelmet));
 	}
 
 	@Override
@@ -67,8 +58,7 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements GOTBi
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		int i = rand.nextInt(WEAPONS.length);
-		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

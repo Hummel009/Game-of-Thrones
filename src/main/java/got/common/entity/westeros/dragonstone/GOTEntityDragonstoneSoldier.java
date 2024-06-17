@@ -1,9 +1,11 @@
 package got.common.entity.westeros.dragonstone;
 
 import got.common.database.GOTCapes;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.other.utils.GOTWeaponSetFactory;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDragonstoneSoldier extends GOTEntityDragonstoneMan {
@@ -27,7 +29,10 @@ public class GOTEntityDragonstoneSoldier extends GOTEntityDragonstoneMan {
 
 		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
 
-		setupFactionArmor(false);
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dragonstoneBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dragonstoneLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dragonstoneChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.dragonstoneHelmet));
 
 		return entityData;
 	}

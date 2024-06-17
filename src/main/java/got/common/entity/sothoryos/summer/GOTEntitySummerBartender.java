@@ -39,7 +39,7 @@ public class GOTEntitySummerBartender extends GOTEntitySummerMan implements GOTT
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletWood));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
 
 		GOTEntityUtils.setupTurban(this, rand);
 

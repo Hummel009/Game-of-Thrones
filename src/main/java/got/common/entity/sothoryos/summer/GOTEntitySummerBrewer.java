@@ -39,7 +39,7 @@ public class GOTEntitySummerBrewer extends GOTEntitySummerMan implements GOTTrad
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAraq));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAle));
 
 		GOTEntityUtils.setupTurban(this, rand);
 

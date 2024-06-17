@@ -40,29 +40,26 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 					continue;
 				}
 
-				target.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", target, attacker).setMagicDamage().setDamageBypassesArmor(), 5.0f);
-
 				if (attacker instanceof EntityPlayer) {
 					EntityPlayer player = (EntityPlayer) attacker;
 
-					if (!GOT.canPlayerAttackEntity(player, (EntityLivingBase) target.riddenByEntity, false)) {
+					if (target.riddenByEntity != null && !GOT.canPlayerAttackEntity(player, (EntityLivingBase) target.riddenByEntity, false)) {
 						continue;
 					}
 					if (!GOT.canPlayerAttackEntity(player, target, false)) {
 						continue;
 					}
 
+					target.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", target, attacker).setMagicDamage().setDamageBypassesArmor(), 5.0f);
 					world.addWeatherEffect(new EntityLightningBolt(world, target.posX, target.posY, target.posZ));
 				} else if (attacker instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) attacker;
 
-					if (!GOT.canNPCAttackEntity(npc, (EntityLivingBase) target.riddenByEntity, false)) {
-						continue;
-					}
-					if (!GOT.canNPCAttackEntity(npc, target, false)) {
+					if (!GOTAsshaiStaffSelector.canNpcAttackTarget(npc, target)) {
 						continue;
 					}
 
+					target.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", target, attacker).setMagicDamage().setDamageBypassesArmor(), 5.0f);
 					world.addWeatherEffect(new EntityLightningBolt(world, target.posX, target.posY, target.posZ));
 				}
 			}

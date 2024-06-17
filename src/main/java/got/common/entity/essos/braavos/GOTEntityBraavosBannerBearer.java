@@ -1,7 +1,10 @@
 package got.common.entity.essos.braavos;
 
+import got.common.database.GOTItems;
 import got.common.entity.other.iface.GOTBannerBearer;
 import got.common.item.other.GOTItemBanner;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityBraavosBannerBearer extends GOTEntityBraavosSoldier implements GOTBannerBearer {
@@ -13,5 +16,15 @@ public class GOTEntityBraavosBannerBearer extends GOTEntityBraavosSoldier implem
 	@Override
 	public GOTItemBanner.BannerType getBannerType() {
 		return GOTItemBanner.BannerType.BRAAVOS;
+	}
+
+	@Override
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.essosDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+
+		return entityData;
 	}
 }

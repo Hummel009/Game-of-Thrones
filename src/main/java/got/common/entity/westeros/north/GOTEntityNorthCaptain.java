@@ -46,7 +46,9 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthMan implements GOTUnitT
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setupFactionArmor(true);
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northChestplate));
 
 		return entityData;
 	}

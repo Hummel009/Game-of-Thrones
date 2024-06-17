@@ -15,25 +15,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityNorthMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.westerosDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe)};
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthMan(World world) {
 		super(world);
-	}
-
-	protected void setupFactionArmor(boolean noHelmet) {
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northChestplate));
-		setCurrentItemOrArmor(4, noHelmet ? null : new ItemStack(GOTItems.northHelmet));
-	}
-
-	protected void setupFactionArmorElite() {
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northguardBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northguardLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northguardChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.northguardHelmet));
 	}
 
 	@Override
@@ -74,8 +58,7 @@ public class GOTEntityNorthMan extends GOTEntityHumanBase implements GOTBiome.Im
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		int i = rand.nextInt(WEAPONS.length);
-		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

@@ -1,9 +1,7 @@
 package got.common.entity.sothoryos.summer;
 
-import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIFarm;
 import got.common.entity.other.iface.GOTFarmhand;
-import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -39,10 +37,8 @@ public class GOTEntitySummerFarmhand extends GOTEntitySummerMan implements GOTFa
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-
-		GOTEntityUtils.setupTurban(this, rand);
 
 		return entityData;
 	}

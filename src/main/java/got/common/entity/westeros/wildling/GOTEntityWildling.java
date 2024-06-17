@@ -13,8 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityWildling extends GOTEntityHumanBase implements GOTBiome.ImmuneToFrost {
-	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger)};
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWildling(World world) {
 		super(world);
@@ -51,8 +49,7 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements GOTBiome.Im
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		int i = rand.nextInt(WEAPONS.length);
-		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

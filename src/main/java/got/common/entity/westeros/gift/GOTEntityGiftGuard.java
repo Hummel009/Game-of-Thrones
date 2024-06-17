@@ -1,8 +1,10 @@
 package got.common.entity.westeros.gift;
 
 import got.common.database.GOTCapes;
+import got.common.database.GOTItems;
 import got.common.entity.other.utils.GOTWeaponSetFactory;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftGuard extends GOTEntityGiftMan {
@@ -24,7 +26,10 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 
 		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
 
-		setupFactionArmor(false);
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.giftBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.giftLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.giftChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.giftHelmet));
 
 		return entityData;
 	}

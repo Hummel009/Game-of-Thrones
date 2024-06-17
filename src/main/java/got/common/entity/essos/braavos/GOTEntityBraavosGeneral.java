@@ -1,46 +1,29 @@
 package got.common.entity.essos.braavos;
 
-import got.common.GOTLevelData;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityBraavosGeneral extends GOTEntityBraavosSoldier implements GOTUnitTradeable {
+public class GOTEntityBraavosGeneral extends GOTEntityBraavosMan implements GOTUnitTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosGeneral(World world) {
 		super(world);
-		addTargetTasks(false);
-		spawnRidingHorse = false;
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return GOTLevelData.getData(entityPlayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityPlayer);
-	}
-
-	@Override
-	public EntityAIBase createBraavosAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
 	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityPlayer) {
+		return isFriendlyAndStronglyAligned(entityPlayer);
 	}
 
 	@Override
@@ -61,9 +44,14 @@ public class GOTEntityBraavosGeneral extends GOTEntityBraavosSoldier implements 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(4, null);
+
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.braavosBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.braavosLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.braavosChestplate));
+
 		return entityData;
 	}
 }

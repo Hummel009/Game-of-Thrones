@@ -14,7 +14,7 @@ public class GOTEntityBraavosLevymanArcher extends GOTEntityBraavosLevyman {
 	}
 
 	@Override
-	public EntityAIBase createBraavosAttackAI() {
+	public EntityAIBase getAttackAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 16.0f);
 	}
 

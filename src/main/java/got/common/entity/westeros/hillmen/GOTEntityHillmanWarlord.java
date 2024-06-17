@@ -48,7 +48,6 @@ public class GOTEntityHillmanWarlord extends GOTEntityHillman implements GOTUnit
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.hillmenBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.hillmenLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.hillmenChestplate));

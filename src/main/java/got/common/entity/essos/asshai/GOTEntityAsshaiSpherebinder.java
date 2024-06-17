@@ -3,8 +3,10 @@ package got.common.entity.essos.asshai;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.S27PacketExplosion;
@@ -19,6 +21,11 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	public GOTEntityAsshaiSpherebinder(World world) {
 		super(world);
 		isImmuneToFire = true;
+	}
+
+	@Override
+	public EntityAIBase getAttackAI() {
+		return new GOTEntityAIAttackOnCollide(this, 0.0, false);
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import java.util.Random;
 
 public class GOTWeaponSetFactory {
 	private static final Map<Item, Integer> WESTEROS_WEAPON_PERCENTS = new HashMap<>();
+	private static final Map<Item, Integer> ESSOS_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> HILLMEN_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> WILDLING_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> ASSHAI_WEAPON_PERCENTS = new HashMap<>();
@@ -28,6 +29,11 @@ public class GOTWeaponSetFactory {
 		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosPike, 10);
 		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosLongsword, 10);
 		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosGreatsword, 5);
+
+		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosSword, 50);
+		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosHammer, 25);
+		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosPike, 15);
+		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosPolearm, 10);
 
 		HILLMEN_WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 50);
 		HILLMEN_WEAPON_PERCENTS.put(GOTItems.trident, 25);
@@ -71,6 +77,14 @@ public class GOTWeaponSetFactory {
 	}
 
 	private GOTWeaponSetFactory() {
+	}
+
+	public static void setupEssosWeaponSet(GOTEntityNPC npc, Random rand) {
+		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
+
+		setupRandomWeapon(rand, ESSOS_WEAPON_PERCENTS, npcItemsInv);
+		setupSpearWithChance(rand, npcItemsInv, GOTItems.essosSpear);
+		setupIdleItems(npcItemsInv);
 	}
 
 	public static void setupYiTiWeaponSet(GOTEntityNPC npc, Random rand) {
@@ -167,6 +181,7 @@ public class GOTWeaponSetFactory {
 		}
 
 		npcItemsInv.setMeleeWeapon(new ItemStack(saved));
+		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 	}
 
 	private static void setupSpearWithChance(Random rand, GOTInventoryNPCItems npcItemsInv, Item summerSpear) {

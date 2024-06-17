@@ -102,7 +102,8 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 
 	@Override
 	public String getNPCName() {
-		return familyInfo.getName();
+		String name = familyInfo.getName();
+		return name == null ? super.getNPCName() : name;
 	}
 
 	@Override

@@ -1,9 +1,7 @@
 package got.common.entity.westeros.reach;
 
-import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
-import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -42,11 +40,6 @@ public class GOTEntityReachLumberman extends GOTEntityReachMan implements GOTTra
 
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-
-		ItemStack hat = new ItemStack(GOTItems.leatherHat);
-		GOTItemLeatherHat.setHatColor(hat, 6834742);
-		GOTItemLeatherHat.setFeatherColor(hat, 3916082);
-		setCurrentItemOrArmor(4, hat);
 
 		return entityData;
 	}

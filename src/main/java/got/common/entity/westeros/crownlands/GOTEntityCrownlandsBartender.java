@@ -44,7 +44,7 @@ public class GOTEntityCrownlandsBartender extends GOTEntityCrownlandsMan impleme
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mug));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
 
 		return entityData;
 	}

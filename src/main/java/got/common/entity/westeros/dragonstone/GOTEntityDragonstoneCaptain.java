@@ -46,7 +46,9 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneMan impleme
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setupFactionArmor(true);
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dragonstoneBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dragonstoneLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dragonstoneChestplate));
 
 		return entityData;
 	}

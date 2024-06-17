@@ -38,7 +38,7 @@ public class GOTEntityStormlandsFlorist extends GOTEntityStormlandsMan implement
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower, 1, 0));
+		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower));
 
 		return entityData;
 	}

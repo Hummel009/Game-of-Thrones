@@ -25,11 +25,7 @@ public class GOTEntityNorthHillmanAxeThrower extends GOTEntityNorthHillmanWarrio
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		if (rand.nextBoolean()) {
-			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironThrowingAxe));
-		} else {
-			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.bronzeThrowingAxe));
-		}
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironThrowingAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

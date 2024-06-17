@@ -36,11 +36,8 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 				if (target.riddenByEntity == attacker) {
 					continue;
 				}
-				if (target instanceof EntityPlayer && ((EntityPlayer) target).capabilities.isCreativeMode) {
-					continue;
-				}
 
-				float strength = 16.0f - attacker.getDistanceToEntity(target);
+				float strength = 8.0f - attacker.getDistanceToEntity(target) * 0.75f;
 				if (strength < 1.0f) {
 					strength = 1.0f;
 				}
@@ -50,29 +47,26 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 					knockback = 5.0f;
 				}
 
-				target.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", target, attacker).setMagicDamage().setDamageBypassesArmor(), strength);
-
 				if (attacker instanceof EntityPlayer) {
 					EntityPlayer player = (EntityPlayer) attacker;
 
-					if (!GOT.canPlayerAttackEntity(player, (EntityLivingBase) target.riddenByEntity, false)) {
+					if (target.riddenByEntity != null && !GOT.canPlayerAttackEntity(player, (EntityLivingBase) target.riddenByEntity, false)) {
 						continue;
 					}
 					if (!GOT.canPlayerAttackEntity(player, target, false)) {
 						continue;
 					}
 
+					target.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", target, attacker).setMagicDamage().setDamageBypassesArmor(), strength * 2.0f);
 					target.addVelocity(-MathHelper.sin(attacker.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(attacker.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
 				} else if (attacker instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) attacker;
 
-					if (!GOT.canNPCAttackEntity(npc, (EntityLivingBase) target.riddenByEntity, false)) {
-						continue;
-					}
-					if (!GOT.canNPCAttackEntity(npc, target, false)) {
+					if (!GOTAsshaiStaffSelector.canNpcAttackTarget(npc, target)) {
 						continue;
 					}
 
+					target.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", target, attacker).setMagicDamage().setDamageBypassesArmor(), strength * 2.0f);
 					target.addVelocity(-MathHelper.sin(attacker.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(attacker.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
 				}
 			}

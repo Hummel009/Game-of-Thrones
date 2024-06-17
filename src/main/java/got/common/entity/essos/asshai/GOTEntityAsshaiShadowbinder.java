@@ -11,7 +11,7 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiShadowbinder(World world) {
 		super(world);
-		tasks.addTask(2, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
+		tasks.addTask(1, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
 		isImmuneToFire = true;
 	}
 

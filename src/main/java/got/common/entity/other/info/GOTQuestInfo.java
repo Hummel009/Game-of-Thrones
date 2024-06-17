@@ -96,10 +96,11 @@ public class GOTQuestInfo {
 	private GOTMiniQuest generateRandomMiniQuest() {
 		int tries = 8;
 		for (int l = 0; l < tries; ++l) {
-			GOTMiniQuest quest = theNPC.getMiniQuestFactory().createQuest(theNPC);
-			if (quest == null) {
+			GOTMiniQuestFactory questFactory = theNPC.getMiniQuestFactory();
+			if (questFactory == null) {
 				continue;
 			}
+			GOTMiniQuest quest = questFactory.createQuest(theNPC);
 			if (quest.isValidQuest()) {
 				return quest;
 			}

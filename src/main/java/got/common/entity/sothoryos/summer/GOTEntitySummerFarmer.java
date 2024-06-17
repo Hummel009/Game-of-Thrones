@@ -1,12 +1,12 @@
 package got.common.entity.sothoryos.summer;
 
-import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTFarmer;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -45,7 +45,7 @@ public class GOTEntitySummerFarmer extends GOTEntitySummerMan implements GOTFarm
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		GOTEntityUtils.setupTurban(this, rand);
