@@ -2,7 +2,6 @@ package got.common.entity.other.utils;
 
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -13,13 +12,12 @@ import java.util.Random;
 public class GOTWeaponSetFactory {
 	private static final Map<Item, Integer> WESTEROS_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> ESSOS_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> HILLMEN_WEAPON_PERCENTS = new HashMap<>();
+	private static final Map<Item, Integer> PRIMITIVE_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> WILDLING_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> ASSHAI_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> SOTHORYOS_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> SUMMER_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> NOMAD_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> IBBEN_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> YITI_WEAPON_PERCENTS = new HashMap<>();
 
 	static {
@@ -34,10 +32,11 @@ public class GOTWeaponSetFactory {
 		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosPike, 15);
 		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosPolearm, 10);
 
-		HILLMEN_WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 50);
-		HILLMEN_WEAPON_PERCENTS.put(GOTItems.trident, 25);
-		HILLMEN_WEAPON_PERCENTS.put(GOTItems.club, 15);
-		HILLMEN_WEAPON_PERCENTS.put(Items.iron_sword, 10);
+		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 30);
+		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.trident, 25);
+		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.harpoon, 20);
+		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.club, 15);
+		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.ironPike, 10);
 
 		WILDLING_WEAPON_PERCENTS.put(GOTItems.wildlingSword, 40);
 		WILDLING_WEAPON_PERCENTS.put(GOTItems.wildlingBattleaxe, 30);
@@ -58,12 +57,6 @@ public class GOTWeaponSetFactory {
 
 		NOMAD_WEAPON_PERCENTS.put(GOTItems.nomadSword, 70);
 		NOMAD_WEAPON_PERCENTS.put(GOTItems.nomadBattleaxe, 30);
-
-		IBBEN_WEAPON_PERCENTS.put(GOTItems.ibbenSword, 50);
-		IBBEN_WEAPON_PERCENTS.put(GOTItems.ibbenHarpoon, 25);
-		IBBEN_WEAPON_PERCENTS.put(GOTItems.ironPike, 10);
-		IBBEN_WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 10);
-		IBBEN_WEAPON_PERCENTS.put(GOTItems.ironDagger, 5);
 
 		YITI_WEAPON_PERCENTS.put(GOTItems.yitiBattleaxe, 40);
 		YITI_WEAPON_PERCENTS.put(GOTItems.yitiPike, 30);
@@ -87,14 +80,6 @@ public class GOTWeaponSetFactory {
 
 		setupRandomWeapon(rand, YITI_WEAPON_PERCENTS, npcItemsInv);
 		setupSpearWithChance(rand, npcItemsInv, GOTItems.yitiSpear);
-		setupIdleItems(npcItemsInv);
-	}
-
-	public static void setupIbbenWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, IBBEN_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.ironSpear);
 		setupIdleItems(npcItemsInv);
 	}
 
@@ -138,10 +123,10 @@ public class GOTWeaponSetFactory {
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 	}
 
-	public static void setupHillmenWeaponSet(GOTEntityNPC npc, Random rand) {
+	public static void setupPrimitiveWeaponSet(GOTEntityNPC npc, Random rand) {
 		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
 
-		setupRandomWeapon(rand, HILLMEN_WEAPON_PERCENTS, npcItemsInv);
+		setupRandomWeapon(rand, PRIMITIVE_WEAPON_PERCENTS, npcItemsInv);
 		setupSpearWithChance(rand, npcItemsInv, GOTItems.ironSpear);
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 	}

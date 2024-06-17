@@ -803,9 +803,8 @@ public class GOTTradeEntries {
 		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.crossbowBolt, 4), 3));
 		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ibbenBoots), 16));
 		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ibbenChestplate), 28));
-		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ibbenHarpoon), 18));
+		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.harpoon), 18));
 		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ibbenLeggings), 24));
-		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ibbenSword), 15));
 		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ironCrossbow), 15));
 		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(Items.chainmail_helmet), 12));
 		IBBEN_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(Items.chainmail_chestplate), 16));

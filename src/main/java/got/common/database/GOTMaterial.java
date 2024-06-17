@@ -73,7 +73,6 @@ public class GOTMaterial {
 
 	public static final Item.ToolMaterial BRONZE_TOOL = EnumHelper.addToolMaterial("GOT_BRONZE_TOOL", 2, 250, 5.0F, 1.5F, 10);
 	public static final Item.ToolMaterial COBALT_TOOL = EnumHelper.addToolMaterial("GOT_COBALT_TOOL", 3, 1500, 8.0F, 3.0F, 10);
-	public static final Item.ToolMaterial FLINT_TOOL = EnumHelper.addToolMaterial("GOT_FLINT_TOOL", 1, 200, 4.0F, 1.0F, 5);
 	public static final Item.ToolMaterial ICE_TOOL = EnumHelper.addToolMaterial("GOT_ICE_TOOL", 2, 450, 6.0F, 2.0F, 14);
 	public static final Item.ToolMaterial OBSIDIAN_TOOL = EnumHelper.addToolMaterial("GOT_OBSIDIAN_TOOL", 2, 450, 6.0F, 2.0F, 14);
 	public static final Item.ToolMaterial SILVER_TOOL = EnumHelper.addToolMaterial("GOT_SILVER_TOOL", 2, 450, 6.0F, 2.0F, 14);
@@ -160,7 +159,6 @@ public class GOTMaterial {
 
 		BRONZE_TOOL.setRepairItem(new ItemStack(GOTItems.bronzeIngot));
 		COBALT_TOOL.setRepairItem(new ItemStack(GOTItems.alloySteelIngot));
-		FLINT_TOOL.setRepairItem(new ItemStack(Items.flint));
 		ICE_TOOL.setRepairItem(new ItemStack(GOTItems.iceShard));
 		OBSIDIAN_TOOL.setRepairItem(new ItemStack(GOTItems.obsidianShard));
 		SILVER_TOOL.setRepairItem(new ItemStack(GOTItems.silverIngot));

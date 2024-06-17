@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTFarmer;
-import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -49,9 +48,7 @@ public class GOTEntityNorthFarmer extends GOTEntityNorthMan implements GOTFarmer
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		ItemStack hat = new ItemStack(GOTItems.leatherHat);
-		GOTItemLeatherHat.setHatColor(hat, 10390131);
-		setCurrentItemOrArmor(4, hat);
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.leatherHat));
 
 		return entityData;
 	}

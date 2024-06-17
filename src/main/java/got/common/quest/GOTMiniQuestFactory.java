@@ -388,9 +388,8 @@ public enum GOTMiniQuestFactory {
 		IBBEN.addQuest(new GOTMiniQuestBounty.QFBounty<>());
 		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.ibbenBoots), 1, 4).setRewardFactor(3.0f));
 		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.ibbenChestplate), 1, 4).setRewardFactor(3.0f));
-		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.ibbenHarpoon), 1, 4).setRewardFactor(3.0f));
+		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.harpoon), 1, 4).setRewardFactor(3.0f));
 		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.ibbenLeggings), 1, 4).setRewardFactor(3.0f));
-		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.ibbenSword), 1, 4).setRewardFactor(3.0f));
 		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(Items.iron_ingot), 3, 8).setRewardFactor(2.0f));
 		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.deerCooked), 3, 8).setRewardFactor(2.0f));
 		IBBEN.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.muttonCooked), 3, 8).setRewardFactor(2.0f));

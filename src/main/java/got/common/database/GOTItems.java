@@ -213,8 +213,6 @@ public class GOTItems {
 	public static Item firePot;
 	public static Item flax;
 	public static Item flaxSeeds;
-	public static Item flintDagger;
-	public static Item flintSpear;
 	public static Item fur;
 	public static Item furBed;
 	public static Item furBoots;
@@ -268,9 +266,8 @@ public class GOTItems {
 	public static Item horn;
 	public static Item ibbenBoots;
 	public static Item ibbenChestplate;
-	public static Item ibbenHarpoon;
+	public static Item harpoon;
 	public static Item ibbenLeggings;
-	public static Item ibbenSword;
 	public static Item ice;
 	public static Item iceHeavySword;
 	public static Item iceShard;
@@ -881,8 +878,6 @@ public class GOTItems {
 		firePot = new GOTItemFirePot();
 		flax = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		flaxSeeds = new GOTItemSeeds(GOTBlocks.flaxCrop, Blocks.farmland);
-		flintDagger = new GOTItemDagger(GOTMaterial.FLINT_TOOL);
-		flintSpear = new GOTItemSpear(GOTMaterial.FLINT_TOOL);
 		fur = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		furBed = new GOTItemBed(GOTBlocks.furBed);
 		furBoots = new GOTItemArmor(GOTMaterial.FUR, 3);
@@ -936,9 +931,8 @@ public class GOTItems {
 		horn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		ibbenBoots = new GOTItemArmor(GOTMaterial.IBBEN, 3);
 		ibbenChestplate = new GOTItemArmor(GOTMaterial.IBBEN, 1);
-		ibbenHarpoon = new GOTItemSpear(Item.ToolMaterial.IRON);
+		harpoon = new GOTItemSpear(Item.ToolMaterial.IRON);
 		ibbenLeggings = new GOTItemArmor(GOTMaterial.IBBEN, 2);
-		ibbenSword = new GOTItemSword(Item.ToolMaterial.IRON);
 		ice = new GOTItemLegendaryGreatsword(GOTMaterial.VALYRIAN_TOOL);
 		iceHeavySword = new GOTItemBattleaxe(GOTMaterial.ICE_TOOL);
 		iceShard = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
@@ -1470,9 +1464,6 @@ public class GOTItems {
 		register(nomadSpear, "nomadSpear");
 		register(nomadSword, "nomadSword");
 
-		register(ibbenHarpoon, "ibbenHarpoon");
-		register(ibbenSword, "ibbenSword");
-
 		register(mossovyDagger, "mossovyDagger");
 		register(mossovySword, "mossovySword");
 
@@ -1510,9 +1501,6 @@ public class GOTItems {
 
 		register(stoneSpear, "stoneSpear");
 
-		register(flintDagger, "flintDagger");
-		register(flintSpear, "flintSpear");
-
 		register(iceHeavySword, "iceHeavySword");
 		register(iceSpear, "iceSpear");
 		register(iceSword, "iceSword");
@@ -1531,6 +1519,7 @@ public class GOTItems {
 
 		register(club, "club");
 		register(trident, "trident");
+		register(harpoon, "harpoon");
 		register(blacksmithHammer, "blacksmithHammer");
 		register(rollingPin, "rollingPin");
 		register(skullStaff, "skullStaff");

@@ -13,8 +13,8 @@ import got.common.world.map.GOTFixer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanWarlordHouse;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanWarlordHouse;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 

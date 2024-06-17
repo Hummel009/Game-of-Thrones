@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.lhazar;
 
 import got.common.database.GOTBlocks;
-import got.common.entity.essos.lhazar.GOTEntityLhazarSoldierArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import got.common.entity.essos.lhazar.GOTEntityLhazarSoldier;
+import got.common.entity.essos.lhazar.GOTEntityLhazarSoldierArcher;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;

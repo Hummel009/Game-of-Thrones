@@ -45,7 +45,7 @@ public class GOTEntityIbbenWarlord extends GOTEntityIbbenMan implements GOTUnitT
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ibbenSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ibbenBoots));

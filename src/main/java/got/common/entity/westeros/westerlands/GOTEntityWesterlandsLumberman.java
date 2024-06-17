@@ -1,5 +1,6 @@
 package got.common.entity.westeros.westerlands;
 
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -40,6 +41,8 @@ public class GOTEntityWesterlandsLumberman extends GOTEntityWesterlandsMan imple
 
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.leatherHat));
 
 		return entityData;
 	}

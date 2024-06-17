@@ -5326,7 +5326,7 @@ item.got:horse_armor_gold.name≠Golden horse armor
 item.got:horse_armor_iron.name≠Iron horse armor
 item.got:ibben_boots.name≠Ibben Boots
 item.got:ibben_chestplate.name≠Ibben Chestplate
-item.got:ibben_harpoon.name≠Ibben Harpoon
+item.got:harpoon.name≠Harpoon
 item.got:ibben_leggings.name≠Ibben Leggings
 item.got:ibben_sword.name≠Ibben Sword
 item.got:ice.name=Lód

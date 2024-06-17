@@ -641,9 +641,7 @@ public class GOTChestContents {
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.wooden_shovel), 1, 1, 10));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ironDagger), 1, 1, 10));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeDagger), 1, 1, 10));
-		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.flintDagger), 1, 1, 10));
-		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ibbenSword), 1, 1, 10));
-		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ibbenHarpoon), 1, 1, 10));
+		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.harpoon), 1, 1, 10));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ibbenChestplate), 1, 1, 10));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ibbenLeggings), 1, 1, 10));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ibbenBoots), 1, 1, 10));

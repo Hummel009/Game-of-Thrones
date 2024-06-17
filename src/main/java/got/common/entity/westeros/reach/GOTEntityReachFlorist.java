@@ -1,5 +1,6 @@
 package got.common.entity.westeros.reach;
 
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -39,6 +40,8 @@ public class GOTEntityReachFlorist extends GOTEntityReachMan implements GOTTrade
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower));
+
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.leatherHat));
 
 		return entityData;
 	}

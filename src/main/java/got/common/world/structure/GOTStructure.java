@@ -36,8 +36,8 @@ import got.common.world.structure.westeros.hillmen.GOTStructureHillmanSettlement
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanTavern;
 import got.common.world.structure.westeros.ironborn.*;
 import got.common.world.structure.westeros.north.*;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanWarlordHouse;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanWarlordHouse;
 import got.common.world.structure.westeros.reach.*;
 import got.common.world.structure.westeros.riverlands.*;
 import got.common.world.structure.westeros.stormlands.*;

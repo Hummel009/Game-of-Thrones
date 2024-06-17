@@ -136,7 +136,7 @@ public enum GOTInvasions {
 		MYR.invasionIcon = GOTItems.summerSword;
 		LYS.invasionIcon = GOTItems.summerSword;
 		IRONBORN.invasionIcon = GOTItems.westerosSword;
-		IBBEN.invasionIcon = GOTItems.flintSpear;
+		IBBEN.invasionIcon = GOTItems.harpoon;
 		WESTERLANDS.invasionIcon = GOTItems.westerosSword;
 		RIVERLANDS.invasionIcon = GOTItems.westerosSword;
 		ARRYN.invasionIcon = GOTItems.westerosSword;

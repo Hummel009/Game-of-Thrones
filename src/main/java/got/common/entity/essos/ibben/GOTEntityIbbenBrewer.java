@@ -38,7 +38,7 @@ public class GOTEntityIbbenBrewer extends GOTEntityIbbenMan implements GOTTradea
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAle));
 
 		return entityData;
 	}

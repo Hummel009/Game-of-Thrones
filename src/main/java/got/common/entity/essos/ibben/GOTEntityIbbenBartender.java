@@ -38,7 +38,7 @@ public class GOTEntityIbbenBartender extends GOTEntityIbbenMan implements GOTTra
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mugMead));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.gobletCopper));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

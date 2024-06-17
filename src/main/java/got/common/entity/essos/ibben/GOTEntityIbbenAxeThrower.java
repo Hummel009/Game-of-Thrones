@@ -3,6 +3,7 @@ package got.common.entity.essos.ibben;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.inanimate.GOTEntityThrowingAxe;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -34,22 +35,16 @@ public class GOTEntityIbbenAxeThrower extends GOTEntityIbbenWarrior {
 
 	@Override
 	public void onAttackModeChange(AttackMode mode, boolean mounted) {
-		if (mode == AttackMode.IDLE) {
-			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
-		}
+		GOTEntityUtils.setupRangedAttackModeChange(this, mode);
 	}
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironThrowingAxe));
-		} else {
-			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.bronzeThrowingAxe));
-		}
+
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironThrowingAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+
 		return entityData;
 	}
 }

@@ -38,7 +38,7 @@ public class GOTEntityIbbenGoldsmith extends GOTEntityIbbenMan implements GOTTra
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTItems.goldRing));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.silverRing));
 
 		return entityData;
 	}

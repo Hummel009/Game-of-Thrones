@@ -5,7 +5,7 @@ import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -38,11 +38,11 @@ public class GOTEntityIbbenFlorist extends GOTEntityIbbenMan implements GOTTrade
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		if (rand.nextBoolean()) {
-			npcItemsInv.setIdleItem(new ItemStack(Items.apple));
-		} else {
-			npcItemsInv.setIdleItem(new ItemStack(GOTItems.appleGreen));
-		}
+
+		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower));
+
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.leatherHat));
+
 		return entityData;
 	}
 }
