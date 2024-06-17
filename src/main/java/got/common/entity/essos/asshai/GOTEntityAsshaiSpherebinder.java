@@ -9,13 +9,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.server.S27PacketExplosion;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
@@ -55,9 +51,19 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (!worldObj.isRemote && getAttackTarget() != null) {
+
+		if (getAttackTarget() != null && !worldObj.isRemote) {
 			List<? extends Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(24.0, 24.0, 24.0));
+
+			if (rand.nextInt(20) == 0) {
+				worldObj.playSoundAtEntity(this, "portal.portal", 0.5f, rand.nextFloat() * 0.4f + 0.8f);
+			}
+
 			for (Entity entity : entities) {
+				double x = entity.posX - posX;
+				double y = entity.posY - posY;
+				double z = entity.posZ - posZ;
+
 				if (entity instanceof EntityLivingBase) {
 					EntityLivingBase target = (EntityLivingBase) entity;
 					if (GOTAsshaiStaffSelector.canNpcAttackTarget(this, target)) {
@@ -67,18 +73,12 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 						}
 						float strength = 0.5f;
 						double force = strength / dSq;
-						double x = target.posX - posX;
-						double y = target.posY - posY;
-						double z = target.posZ - posZ;
 						x *= force;
 						y *= force;
 						z *= force;
 						target.motionX += x;
 						target.motionY += y;
 						target.motionZ += z;
-						if (target instanceof EntityPlayerMP) {
-							((EntityPlayerMP) target).playerNetServerHandler.sendPacket(new S27PacketExplosion(posX, posY, posZ, 0.0f, new ArrayList<>(), Vec3.createVectorHelper(x, y, z)));
-						}
 					}
 				}
 			}

@@ -58,7 +58,7 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 
 	@Override
 	public void startExecuting() {
-		speed = 1.7;
+		speed = 3.2;
 		livingHorse.getNavigator().setPath(entityPathEntity, speed);
 		pathCheckTimer = 0;
 	}
