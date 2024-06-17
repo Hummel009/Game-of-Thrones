@@ -101,6 +101,9 @@ public class GOTQuestInfo {
 				continue;
 			}
 			GOTMiniQuest quest = questFactory.createQuest(theNPC);
+			if (quest == null) {
+				continue;
+			}
 			if (quest.isValidQuest()) {
 				return quest;
 			}
