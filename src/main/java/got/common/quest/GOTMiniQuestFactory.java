@@ -535,7 +535,6 @@ public enum GOTMiniQuestFactory {
 		SUMMER.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.bottlePoison), 2, 4).setRewardFactor(5.0f));
 		SUMMER.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(Items.arrow), 20, 40).setRewardFactor(0.5f));
 		SUMMER.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTBlocks.doubleFlower, 1, 3), 5, 15).setRewardFactor(1.5f));
-		SUMMER.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.lionFur), 3, 6).setRewardFactor(3.0f));
 		SUMMER.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.olive), 10, 20).setRewardFactor(1.0f));
 		SUMMER.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(Items.dye, 1, 4), 3, 8).setRewardFactor(3.0f));
 		SUMMER.addQuest(new GOTMiniQuestCollect.QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugLemonLiqueur), 2, 6).setRewardFactor(4.0f));

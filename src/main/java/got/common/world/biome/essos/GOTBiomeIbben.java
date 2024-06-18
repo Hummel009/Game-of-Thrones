@@ -19,12 +19,17 @@ public class GOTBiomeIbben extends GOTBiomeEssosCold {
 		decorator.addTree(GOTTreeType.IBBEN_PINE, 500);
 		decorator.addSettlement(new GOTStructureIbbenSettlement(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.LORATH, GOTEventSpawner.EventChance.UNCOMMON);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 4).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CONQUEST, 4).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.LORATH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(0).add(c2);
 	}
 
 	@Override

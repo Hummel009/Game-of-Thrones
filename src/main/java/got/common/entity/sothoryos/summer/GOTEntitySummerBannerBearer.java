@@ -7,7 +7,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntitySummerBannerBearer extends GOTEntitySummerWarrior implements GOTBannerBearer {
+public class GOTEntitySummerBannerBearer extends GOTEntitySummerSoldier implements GOTBannerBearer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerBannerBearer(World world) {
 		super(world);
@@ -22,8 +22,8 @@ public class GOTEntitySummerBannerBearer extends GOTEntitySummerWarrior implemen
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.summerDagger));
-		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.summerDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
 	}

@@ -9,21 +9,24 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
+public class GOTEntityQohorUnsullied extends GOTEntityQohorMan {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQohorUnsullied(World world) {
 		super(world);
+		addTargetTasks(true);
 		cape = GOTCapes.UNSULLIED;
 		shield = GOTShields.UNSULLIED;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
-		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(40.0);
 	}
 
 	@Override
@@ -34,12 +37,20 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.unsulliedBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.unsulliedLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.unsulliedChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.unsulliedHelmet));
+
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

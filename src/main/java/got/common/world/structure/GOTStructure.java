@@ -37,7 +37,7 @@ import got.common.world.structure.westeros.hillmen.GOTStructureHillmanTavern;
 import got.common.world.structure.westeros.ironborn.*;
 import got.common.world.structure.westeros.north.*;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanWarlordHouse;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanChieftainHouse;
 import got.common.world.structure.westeros.reach.*;
 import got.common.world.structure.westeros.riverlands.*;
 import got.common.world.structure.westeros.stormlands.*;
@@ -46,7 +46,7 @@ import got.common.world.structure.westeros.wildling.GOTStructureWildlingChieftai
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingHouse;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse;
-import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagnarHouse;
+import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennChieftainHouse;
 
 public class GOTStructure {
 	private GOTStructure() {
@@ -67,7 +67,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureWildlingChieftainHouse.class, GOTFaction.WILDLING);
 
 		GOTStructureRegistry.register(id++, GOTStructureThennHouse.class, GOTFaction.WILDLING);
-		GOTStructureRegistry.register(id++, GOTStructureThennMagnarHouse.class, GOTFaction.WILDLING);
+		GOTStructureRegistry.register(id++, GOTStructureThennChieftainHouse.class, GOTFaction.WILDLING);
 
 		GOTStructureRegistry.register(id++, GOTStructureGiftHouseSmall.class, GOTFaction.NIGHT_WATCH);
 		GOTStructureRegistry.register(id++, GOTStructureGiftHouse.class, GOTFaction.NIGHT_WATCH);
@@ -75,7 +75,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureGiftSmithy.class, GOTFaction.NIGHT_WATCH);
 
 		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanHouse.class, GOTFaction.NORTH);
-		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanWarlordHouse.class, GOTFaction.NORTH);
+		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanChieftainHouse.class, GOTFaction.NORTH);
 
 		GOTStructureRegistry.register(id++, GOTStructureNorthBarn.class, GOTFaction.NORTH);
 		GOTStructureRegistry.register(id++, GOTStructureNorthBath.class, GOTFaction.NORTH);
@@ -339,8 +339,8 @@ public class GOTStructure {
 
 		GOTStructureRegistry.register(id++, GOTStructureDothrakiTent.class, GOTFaction.DOTHRAKI);
 		GOTStructureRegistry.register(id++, GOTStructureDothrakiTentLarge.class, GOTFaction.DOTHRAKI);
-		GOTStructureRegistry.register(id++, GOTStructureDothrakiKhalTent.class, GOTFaction.DOTHRAKI);
-		GOTStructureRegistry.register(id++, GOTStructureDothrakiKhalinTent.class, GOTFaction.DOTHRAKI);
+		GOTStructureRegistry.register(id++, GOTStructureDothrakiChieftainTent.class, GOTFaction.DOTHRAKI);
+		GOTStructureRegistry.register(id++, GOTStructureDothrakiShamanTent.class, GOTFaction.DOTHRAKI);
 
 		GOTStructureRegistry.register(id++, GOTStructureIbbenBarn.class, GOTFaction.IBBEN);
 		GOTStructureRegistry.register(id++, GOTStructureIbbenFortress.class, GOTFaction.IBBEN);
@@ -352,7 +352,7 @@ public class GOTStructure {
 
 		GOTStructureRegistry.register(id++, GOTStructureJogosTent.class, GOTFaction.JOGOS);
 		GOTStructureRegistry.register(id++, GOTStructureJogosTentLarge.class, GOTFaction.JOGOS);
-		GOTStructureRegistry.register(id++, GOTStructureJogosChiefTent.class, GOTFaction.JOGOS);
+		GOTStructureRegistry.register(id++, GOTStructureJogosChieftainTent.class, GOTFaction.JOGOS);
 		GOTStructureRegistry.register(id++, GOTStructureJogosShamanTent.class, GOTFaction.JOGOS);
 
 		GOTStructureRegistry.register(id++, GOTStructureMossovyBarn.class, GOTFaction.MOSSOVY);

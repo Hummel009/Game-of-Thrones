@@ -9,7 +9,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityBearRug;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanArcher;
-import got.common.entity.westeros.hillmen.GOTEntityHillmanWarlord;
+import got.common.entity.westeros.hillmen.GOTEntityHillmanChieftain;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -137,7 +137,7 @@ public class GOTStructureHillmanFortress extends GOTStructureHillmanBase {
 		GOTEntityBear.BearType[] bearTypes = GOTEntityBear.BearType.values();
 		rug.setRugType(bearTypes[random.nextInt(bearTypes.length)]);
 		placeRug(rug, world, -5, 1, -4, -45.0f);
-		GOTEntityNPC warlord = new GOTEntityHillmanWarlord(world);
+		GOTEntityNPC warlord = new GOTEntityHillmanChieftain(world);
 		spawnNPCAndSetHome(warlord, world, 0, 1, 2, 8);
 		int warriors = 6;
 		for (int l = 0; l < warriors; ++l) {

@@ -126,7 +126,7 @@ entity.got.BraavosFarmer.name=Braavos Çiftçi
 entity.got.BraavosFarmhand.name=Braavos Çiftliği
 entity.got.BraavosFishmonger.name=Braavos Balıkçı
 entity.got.BraavosFlorist.name=Braavos Çiçekçi
-entity.got.BraavosGeneral.name=Braavos Generali
+entity.got.BraavosCaptain.name=Braavos Generali
 entity.got.BraavosGoldsmith.name=Braavos Kuyumcu
 entity.got.BraavosLevyman.name=Braavoslu Milis
 entity.got.BraavosLevymanArcher.name=Braavoslu Milis Okçusu
@@ -211,8 +211,8 @@ entity.got.DorneSoldier.name=Dorne Savaşçı
 entity.got.DorneSoldierArcher.name=Dorne Savaşçı Okçusu
 entity.got.Dothraki.name=Dothraki
 entity.got.DothrakiArcher.name=Dothraki okçu
-entity.got.DothrakiKhal.name=Dothraki Khal
-entity.got.DothrakiKhalin.name=Dosh Khalin
+entity.got.DothrakiChieftain.name=Dothraki Khal
+entity.got.DothrakiShaman.name=Dosh Khalin
 entity.got.Dragon.name=Ejderha
 entity.got.DragonstoneBaker.name=Dragonstone Fırıncı
 entity.got.DragonstoneBannerBearer.name=Ejderha Taşı Bayraktar
@@ -256,15 +256,15 @@ entity.got.Gemsbok.name=Ceylan
 entity.got.GendryBaratheon.name=Gendry Baratheon
 entity.got.GeroldDayne.name=Gerold Dayne
 entity.got.GeroldGrafton.name=Gerold Grafton
-entity.got.GhiscarAdmiral.name=Ghiscar Amirali
+entity.got.GhiscarCaptain.name=Ghiscar Amirali
 entity.got.GhiscarBaker.name=Ghiscarlı Fırıncı
 entity.got.GhiscarBannerBearer.name=Ghiscar Bayraktar
 entity.got.GhiscarBartender.name=Ghiscar Hancı
 entity.got.GhiscarBlacksmith.name=Ghiscar Demircisi
 entity.got.GhiscarBrewer.name=Ghiscar Biracı
 entity.got.GhiscarButcher.name=Ghiscar Kasabı
-entity.got.GhiscarCorsair.name=Ghiscar Korsanı
-entity.got.GhiscarCorsairArcher.name=Ghiscar Korsan Milis Okçusu
+entity.got.GhiscarSoldier.name=Ghiscar Korsanı
+entity.got.GhiscarSoldierArcher.name=Ghiscar Korsan Milis Okçusu
 entity.got.GhiscarFishmonger.name=Ghiscar Balıkçı
 entity.got.GhiscarFlorist.name=Ghiscar Çiçekçi
 entity.got.GhiscarGladiator.name=Ghiscar Gladyatörü
@@ -313,7 +313,7 @@ entity.got.HillmanAxeThrower.name=Tepe Kabileleri Balta Atıcı
 entity.got.HillmanBannerBearer.name=Tepe Kabileleri Bayraktar
 entity.got.HillmanBartender.name=Tepe Kabileleri Hancı
 entity.got.HillmanBerserker.name=Tepe Kabileleri Vahşi
-entity.got.HillmanWarlord.name=Tepe Kabileleri Reisi
+entity.got.HillmanChieftain.name=Tepe Kabileleri Reisi
 entity.got.HillmanWarrior.name=Tepe Kabileleri Savaşçı
 entity.got.HizdahrZoLoraq.name=Hizdahr Zo Loraq
 entity.got.Hodor.name=Hodor
@@ -341,7 +341,7 @@ entity.got.IbbenMan.name=Ibben Yerleşik
 entity.got.IbbenMason.name=Ibben kurucusu
 entity.got.IbbenMiner.name≠Miner of Ibben
 entity.got.IbbenStablemaster.name=Ibben ahır ustası
-entity.got.IbbenWarlord.name=Ibben kaptanı
+entity.got.IbbenCaptain.name=Ibben kaptanı
 entity.got.IbbenWarrior.name=İbben Savaşçı
 entity.got.IceSpider.name=Buz Örümceği
 entity.got.Ifekevron.name=Ifekevron
@@ -378,7 +378,7 @@ entity.got.JoffreyBaratheon.name=Joffrey Baratheon
 entity.got.Jogos.name=Jogos Nhai Göçebesi
 entity.got.JogosArcher.name=Jogos Nhai Milis Okçusu
 entity.got.JogosBannerBearer.name=Jogos Nhai Bayraktar
-entity.got.JogosChief.name=Jogos Nhai reisi
+entity.got.JogosChieftain.name=Jogos Nhai reisi
 entity.got.JogosShaman.name=Jogos Nhai Şamanı
 entity.got.JohnUmber.name=John Umber
 entity.got.JonConnington.name=Jon Connington
@@ -409,7 +409,7 @@ entity.got.LhazarLumberman.name=Lhazar Oduncu
 entity.got.LhazarMan.name=Lhazar Yerleşik
 entity.got.LhazarMason.name=Lhazar Duvarcı
 entity.got.LhazarMiner.name=Lhazar Madenci
-entity.got.LhazarWarlord.name=Lhazar Savaş Lordu
+entity.got.LhazarCaptain.name=Lhazar Savaş Lordu
 entity.got.LhazarSoldier.name=Lhazar Savaşçı
 entity.got.LightSkinBandit.name≠Bandit
 entity.got.LightSkinThief.name≠Thief
@@ -430,7 +430,7 @@ entity.got.LorathFarmer.name=Lorath Çiftçi
 entity.got.LorathFarmhand.name=Lorath Çiftliği
 entity.got.LorathFishmonger.name=Lorath'lı Balıkçı
 entity.got.LorathFlorist.name=Lorath Çiçekçi
-entity.got.LorathGeneral.name=Lorath Generali
+entity.got.LorathCaptain.name=Lorath Generali
 entity.got.LorathGoldsmith.name=Lorath'lı Kuyumcu
 entity.got.LorathLevyman.name=Lorath'lı Milis
 entity.got.LorathLevymanArcher.name=Lorath'lı Milis Okçusu
@@ -452,7 +452,7 @@ entity.got.LysBrewer.name=Lys Biracı
 entity.got.LysButcher.name=Lys Kasabı
 entity.got.LysFishmonger.name=Lys Balıkçı
 entity.got.LysFlorist.name=Lys Çiçekçi
-entity.got.LysGeneral.name=Lys Generali
+entity.got.LysCaptain.name=Lys Generali
 entity.got.LysGoldsmith.name=Lys Kuyumcu
 entity.got.LysLevyman.name=Lys Milis
 entity.got.LysLevymanArcher.name=Lys Milis Okçusu
@@ -500,7 +500,7 @@ entity.got.MyrBrewer.name=Myr Biracı
 entity.got.MyrButcher.name=Myr Kasabı
 entity.got.MyrFishmonger.name=Myr Balıkçı
 entity.got.MyrFlorist.name=Myr çiçekçi
-entity.got.MyrGeneral.name=Myr Generali
+entity.got.MyrCaptain.name=Myr Generali
 entity.got.MyrGoldsmith.name=Myr kuyumcu
 entity.got.MyrLevyman.name=Myr Milis
 entity.got.MyrLevymanArcher.name=Myr Milis Okçusu
@@ -534,7 +534,7 @@ entity.got.NorthHillmanArcher.name=Kuzey Hillman Milis Okçusu
 entity.got.NorthHillmanAxeThrower.name=Kuzey Hillman Balta Atıcı
 entity.got.NorthHillmanBannerBearer.name=Kuzey Hillman Bayraktar
 entity.got.NorthHillmanCannibal.name=Kuzey Hillman Yamyam
-entity.got.NorthHillmanWarlord.name=Kuzey Hillman Reisi
+entity.got.NorthHillmanChieftain.name=Kuzey Hillman Reisi
 entity.got.NorthHillmanMercenary.name=Kuzey Hillman Paralı Asker
 entity.got.NorthHillmanWarrior.name=Kuzey Hillman Savaşçı
 entity.got.NorthLevyman.name=Kuzeyli Milis
@@ -557,7 +557,7 @@ entity.got.NorvosFishmonger.name=Norvos Balıkçı
 entity.got.NorvosFlorist.name=Norvos Çiçekçi
 entity.got.NorvosGoldsmith.name=Norvos Kuyumcu
 entity.got.NorvosGuard.name=Norvos Muhafız
-entity.got.NorvosGuardCaptain.name=Norvos Muhafız Kaptanı
+entity.got.NorvosCaptain.name=Norvos Muhafız Kaptanı
 entity.got.NorvosLevyman.name=Norvoslu Milis
 entity.got.NorvosLevymanArcher.name=Norvos Milis Okçusu
 entity.got.NorvosLumberman.name=Norvos Oduncu
@@ -582,7 +582,7 @@ entity.got.PentosFishmonger.name=Pentos Balıkçı
 entity.got.PentosFlorist.name=Pentos Çiçekçi
 entity.got.PentosGoldsmith.name=Pentos Kuyumcu
 entity.got.PentosGuard.name=Pentos Muhafız
-entity.got.PentosGuardCaptain.name=Pentos Muhafız Kaptanı
+entity.got.PentosCaptain.name=Pentos Muhafız Kaptanı
 entity.got.PentosLevyman.name=Pentoslu Milis
 entity.got.PentosLevymanArcher.name=Pentos Milis Okçusu
 entity.got.PentosLumberman.name=Pentoslu Oduncu
@@ -609,7 +609,7 @@ entity.got.QarthFishmonger.name=Qarth Balıkçı
 entity.got.QarthFlorist.name=Qarth Çiçekçi
 entity.got.QarthGoldsmith.name=Qarth Kuyumcu
 entity.got.QarthGuard.name=Qarth Muhafız
-entity.got.QarthGuardCaptain.name=Qarth Muhafız Kaptanı
+entity.got.QarthCaptain.name=Qarth Muhafız Kaptanı
 entity.got.QarthLevyman.name=Qarth'lı Milis
 entity.got.QarthLevymanArcher.name=Milis Qarth Milis Okçusu
 entity.got.QarthLumberman.name=Qarth'lı Oduncu
@@ -629,7 +629,7 @@ entity.got.QohorFishmonger.name=Qohor Balıkçı
 entity.got.QohorFlorist.name=Qohor Çiçekçi
 entity.got.QohorGoldsmith.name=Qohor kuyumcu
 entity.got.QohorGuard.name=Qohor Muhafız
-entity.got.QohorGuardCaptain.name=Qohor Muhafız Kaptanı
+entity.got.QohorCaptain.name=Qohor Muhafız Kaptanı
 entity.got.QohorLevyman.name=Qohorlu Milis
 entity.got.QohorLevymanArcher.name=Qohorlu Milis Okçusu
 entity.got.QohorLumberman.name=Qohorlu Oduncu
@@ -763,7 +763,7 @@ entity.got.SummerLumberman.name=Yaz Adaları Oduncu
 entity.got.SummerMan.name=Yaz Adaları Yerleşik
 entity.got.SummerMason.name=Yaz Adaları Duvarcı
 entity.got.SummerMiner.name≠Miner of Summer Islands
-entity.got.SummerWarlord.name=Yaz Adaları Savaş Lordu
+entity.got.SummerCaptain.name=Yaz Adaları Savaş Lordu
 entity.got.SummerWarrior.name=Yaz Adaları Savaşçı
 entity.got.Swan.name=Kuğu
 entity.got.SymondTempleton.name=Symond Templeton
@@ -775,7 +775,7 @@ entity.got.ThennBannerBearer.name=Thenn Bayraktar
 entity.got.WildlingWarrior.name≠Wildling Warrior
 entity.got.ThennWarrior.name=Sonra Warrior
 entity.got.ThennBlacksmith.name=Sonra Demircisi
-entity.got.ThennMagnar.name=Sonra Magnar
+entity.got.ThennChieftain.name=Sonra Magnar
 entity.got.TheonGreyjoyNormal.name=Theon Greyjoy
 entity.got.TheonGreyjoyTormented.name=Theon Greyjoy
 entity.got.Thoros.name=Thoros
@@ -799,7 +799,7 @@ entity.got.TyroshBrewer.name=Tyrosh Biracı
 entity.got.TyroshButcher.name=Tyrosh Kasabı
 entity.got.TyroshFishmonger.name=Tyrosh Balıkçı
 entity.got.TyroshFlorist.name=Tyrosh Çiçekçi
-entity.got.TyroshGeneral.name=Tyrosh Generali
+entity.got.TyroshCaptain.name=Tyrosh Generali
 entity.got.TyroshGoldsmith.name=Tyrosh Kuyumcu
 entity.got.TyroshLevyman.name=Tyrosh Milis
 entity.got.TyroshLevymanArcher.name=Tyrosh Milis Okçusu
@@ -826,7 +826,7 @@ entity.got.VolantisBrewer.name=Volantis Biracı
 entity.got.VolantisButcher.name=Volantis Kasabı
 entity.got.VolantisFishmonger.name=Volantis Balıkçı
 entity.got.VolantisFlorist.name=Volantis Çiçekçi
-entity.got.VolantisGeneral.name=Volantis Generali
+entity.got.VolantisCaptain.name=Volantis Generali
 entity.got.VolantisGoldsmith.name=Volantis Kuyumcu
 entity.got.VolantisLevyman.name=Volantisli Milis
 entity.got.VolantisLevymanArcher.name=Volantis Milis Okçusu
@@ -903,7 +903,7 @@ entity.got.YiTiMan.name=Yi Ti Yerleşik
 entity.got.YiTiMason.name=Yi Ti Duvarcı
 entity.got.YiTiMiner.name≠Miner of Yi Ti
 entity.got.YiTiSamurai.name=Yi Ti Samuray
-entity.got.YiTiShogune.name=Yi Ti Shogun
+entity.got.YiTiCaptain.name=Yi Ti Shogun
 entity.got.YiTiSoldier.name=Yi Ti askeri
 entity.got.YiTiSoldierCrossbower.name=Yi Ti Savaşçı Kundaklı Yay
 entity.got.YohnRoyce.name=Yohn Royce
@@ -1556,7 +1556,7 @@ got.biome.dorneForest.name≠Dorne Forest
 got.biome.dorneMesa.name=Kırmızı plato
 got.biome.dorneMountains.name=Kızıl Dağlar
 got.biome.dorneValley.name=Dorne Vadisi
-got.biome.doshKhalin.name=Dağların Annesi
+got.biome.doshShaman.name=Dağların Annesi
 got.biome.dothrakiSea.name=Dothraki Denizi
 got.biome.dothrakiSeaForest.name≠Dothraki Sea Forest
 got.biome.dothrakiSeaHills.name≠Dothraki Sea Hills
@@ -2914,8 +2914,8 @@ got.structure.DorneTavern.name≠Tavern of Dorne
 got.structure.DorneTower.name≠Tower of Dorne
 got.structure.DorneWatchfort.name≠Watchfort of Dorne
 got.structure.DorneWatchtower.name≠Watchtower of Dorne
-got.structure.DothrakiKhalTent.name≠Dothraki Khal's Tent
-got.structure.DothrakiKhalinTent.name≠Dothraki Khalin's Tent
+got.structure.DothrakiChieftainTent.name≠Dothraki Khal's Tent
+got.structure.DothrakiShamanTent.name≠Dothraki Khalin's Tent
 got.structure.DothrakiSettle.name≠Dothraki Camp
 got.structure.DothrakiSettleLarge.name≠Dothraki Village
 got.structure.DothrakiTent.name≠Dothraki Tent
@@ -2987,7 +2987,7 @@ got.structure.IronbornTavern.name≠Tavern of Iron Islands
 got.structure.IronbornTower.name≠Tower of Iron Islands
 got.structure.IronbornWatchfort.name≠Watchfort of Iron Islands
 got.structure.IronbornWatchtower.name≠Watchtower of Iron Islands
-got.structure.JogosChiefTent.name≠Chieftain's Tent of Jogos Nhai
+got.structure.JogosChieftainTent.name≠Chieftain's Tent of Jogos Nhai
 got.structure.JogosSettle.name≠Camp of Jogos Nhai
 got.structure.JogosSettleLarge.name≠Village of Jogos Nhai
 got.structure.JogosShamanTent.name≠Shaman's Tent of Jogos Nhai
@@ -3057,7 +3057,7 @@ got.structure.MyrTraining.name≠Training of Myr
 got.structure.NorthBarn.name≠Barn of North
 got.structure.NorthBath.name≠Bath of North
 got.structure.NorthFortress.name≠Fortress of North
-got.structure.NorthHillmanWarlordHouse.name≠North Hillmen Chieftain's House
+got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
 got.structure.NorthHillmanHouse.name≠North Hillmen House
 got.structure.NorthHillmanSettle.name≠North Hillmen Village
 got.structure.NorthHouse.name≠House of North
@@ -3196,7 +3196,7 @@ got.structure.SummerTavernRuined.name≠Ruined Tavern of Summer Islands
 got.structure.SummerTower.name≠Tower of Summer Islands
 got.structure.ThennCamp.name≠Thenn Camp
 got.structure.ThennHouse.name≠Thenn House
-got.structure.ThennMagnarHouse.name≠Thenn Magnar's House
+got.structure.ThennChieftainHouse.name≠Thenn Magnar's House
 got.structure.ThennSettle.name≠Thenn Village
 got.structure.TyroshBarracks.name≠Barracks of Tyrosh
 got.structure.TyroshBazaar.name≠Bazaar of Tyrosh
@@ -5200,7 +5200,7 @@ item.got:coin.64.name=Gümüş Yıldız
 item.got:coin.nominal.name=Nominal
 item.got:command_horn.name=Komut Borusu
 item.got:command_sword.name=Komut Kılıcı
-item.got:conquest_horn.name=Savaş Borusu
+item.got:warhorn.name=Savaş Borusu
 item.got:copper_ingot.name=Bakır Külçe
 item.got:copper_nugget.name=Bakır külçe
 item.got:copper_ring.name≠Copper Ring

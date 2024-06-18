@@ -46,7 +46,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 
 	static {
 		ARCHERS.put(City.BRAAVOS, GOTEntityBraavosSoldierArcher.class);
-		ARCHERS.put(City.GHISCAR, GOTEntityGhiscarCorsairArcher.class);
+		ARCHERS.put(City.GHISCAR, GOTEntityGhiscarSoldierArcher.class);
 		ARCHERS.put(City.LORATH, GOTEntityLorathSoldierArcher.class);
 		ARCHERS.put(City.LYS, GOTEntityLysSoldierArcher.class);
 		ARCHERS.put(City.MYR, GOTEntityMyrSoldierArcher.class);
@@ -78,17 +78,17 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		BARTENDERS.put(City.QOHOR, GOTEntityQohorBartender.class);
 		BARTENDERS.put(City.TYROSH, GOTEntityTyroshBartender.class);
 		BARTENDERS.put(City.VOLANTIS, GOTEntityVolantisBartender.class);
-		CAPTAINS.put(City.BRAAVOS, GOTEntityBraavosGeneral.class);
-		CAPTAINS.put(City.GHISCAR, GOTEntityGhiscarAdmiral.class);
-		CAPTAINS.put(City.LORATH, GOTEntityLorathGeneral.class);
-		CAPTAINS.put(City.LYS, GOTEntityLysGeneral.class);
-		CAPTAINS.put(City.MYR, GOTEntityMyrGeneral.class);
-		CAPTAINS.put(City.NORVOS, GOTEntityNorvosGuardCaptain.class);
-		CAPTAINS.put(City.PENTOS, GOTEntityPentosGuardCaptain.class);
-		CAPTAINS.put(City.QARTH, GOTEntityQarthGuardCaptain.class);
-		CAPTAINS.put(City.QOHOR, GOTEntityQohorGuardCaptain.class);
-		CAPTAINS.put(City.TYROSH, GOTEntityTyroshGeneral.class);
-		CAPTAINS.put(City.VOLANTIS, GOTEntityVolantisGeneral.class);
+		CAPTAINS.put(City.BRAAVOS, GOTEntityBraavosCaptain.class);
+		CAPTAINS.put(City.GHISCAR, GOTEntityGhiscarCaptain.class);
+		CAPTAINS.put(City.LORATH, GOTEntityLorathCaptain.class);
+		CAPTAINS.put(City.LYS, GOTEntityLysCaptain.class);
+		CAPTAINS.put(City.MYR, GOTEntityMyrCaptain.class);
+		CAPTAINS.put(City.NORVOS, GOTEntityNorvosCaptain.class);
+		CAPTAINS.put(City.PENTOS, GOTEntityPentosCaptain.class);
+		CAPTAINS.put(City.QARTH, GOTEntityQarthCaptain.class);
+		CAPTAINS.put(City.QOHOR, GOTEntityQohorCaptain.class);
+		CAPTAINS.put(City.TYROSH, GOTEntityTyroshCaptain.class);
+		CAPTAINS.put(City.VOLANTIS, GOTEntityVolantisCaptain.class);
 		CHESTS.put(City.BRAAVOS, GOTBlocks.chestStone);
 		CHESTS.put(City.GHISCAR, GOTBlocks.chestSandstone);
 		CHESTS.put(City.LORATH, GOTBlocks.chestStone);
@@ -156,7 +156,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		SMITHS.put(City.TYROSH, GOTEntityTyroshBlacksmith.class);
 		SMITHS.put(City.VOLANTIS, GOTEntityVolantisBlacksmith.class);
 		SOLDIERS.put(City.BRAAVOS, GOTEntityBraavosSoldier.class);
-		SOLDIERS.put(City.GHISCAR, GOTEntityGhiscarCorsair.class);
+		SOLDIERS.put(City.GHISCAR, GOTEntityGhiscarSoldier.class);
 		SOLDIERS.put(City.LORATH, GOTEntityLorathSoldier.class);
 		SOLDIERS.put(City.LYS, GOTEntityLysSoldier.class);
 		SOLDIERS.put(City.MYR, GOTEntityMyrSoldier.class);
@@ -278,7 +278,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	protected static ItemStack getRandomItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
+		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3)};
 		return items[random.nextInt(items.length)].copy();
 	}
 

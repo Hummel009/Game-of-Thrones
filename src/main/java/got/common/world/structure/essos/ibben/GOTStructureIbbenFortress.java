@@ -5,10 +5,10 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldierArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenBlacksmith;
-import got.common.entity.essos.ibben.GOTEntityIbbenWarlord;
-import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
+import got.common.entity.essos.ibben.GOTEntityIbbenCaptain;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldier;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
@@ -475,17 +475,17 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		}
 		setBlockAndMetadata(world, 0, 1, 9, GOTBlocks.commandTable, 0);
 		placeWallBanner(world, 0, 3, 11, bannerType, 2);
-		GOTEntityNPC marshal = new GOTEntityIbbenWarlord(world);
+		GOTEntityNPC marshal = new GOTEntityIbbenCaptain(world);
 		marshal.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(marshal, world, 0, 1, 0, 8);
 		for (int l = 0; l < 8; ++l) {
-			GOTEntityIbbenWarrior ibbenese = world.rand.nextInt(3) == 0 ? new GOTEntityIbbenArcher(world) : new GOTEntityIbbenWarrior(world);
+			GOTEntityIbbenSoldier ibbenese = world.rand.nextInt(3) == 0 ? new GOTEntityIbbenSoldierArcher(world) : new GOTEntityIbbenSoldier(world);
 			ibbenese.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(ibbenese, world, 0, 1, 0, 20);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass1(GOTEntityIbbenWarrior.class);
-		respawner.setSpawnClass2(GOTEntityIbbenArcher.class);
+		respawner.setSpawnClass1(GOTEntityIbbenSoldier.class);
+		respawner.setSpawnClass2(GOTEntityIbbenSoldierArcher.class);
 		respawner.setCheckRanges(16, -8, 10, 12);
 		respawner.setSpawnRanges(11, 1, 6, 20);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

@@ -44,17 +44,6 @@ public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToH
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		int j = 1 + rand.nextInt(4) + rand.nextInt(1 + i);
-		for (int k = 0; k < j; ++k) {
-			dropItem(GOTItems.gemsbokHide, 1);
-		}
-		if (rand.nextBoolean()) {
-			dropItem(GOTItems.gemsbokHorn, 1);
-		}
-	}
-
-	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
 			int i = MathHelper.floor_double(posX);

@@ -14,7 +14,7 @@ import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanWarlordHouse;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanChieftainHouse;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -195,7 +195,7 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			addStructure(new GOTStructureNorthHillmanHouse(false).setIsCannibal(), 0, -centreSide, 2, true);
 			addStructure(new GOTStructureNorthHillmanHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
-			addStructure(new GOTStructureNorthHillmanWarlordHouse(false), pathEnd, 0, 3, true);
+			addStructure(new GOTStructureNorthHillmanChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;

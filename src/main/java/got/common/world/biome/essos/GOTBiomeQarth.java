@@ -32,6 +32,7 @@ public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 		decorator.addStructure(new GOTStructureQarthFortress(false), 800);
 		npcSpawnList.clear();
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(8).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();

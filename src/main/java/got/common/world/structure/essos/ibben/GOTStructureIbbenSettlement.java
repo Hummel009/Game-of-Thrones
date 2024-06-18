@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.ibben;
 
-import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldierArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
-import got.common.entity.essos.ibben.GOTEntityIbbenWarlord;
-import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
+import got.common.entity.essos.ibben.GOTEntityIbbenCaptain;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldier;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
@@ -295,8 +295,8 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityIbbenWarrior.class);
-				spawner.setSpawnClass2(GOTEntityIbbenArcher.class);
+				spawner.setSpawnClass1(GOTEntityIbbenSoldier.class);
+				spawner.setSpawnClass2(GOTEntityIbbenSoldierArcher.class);
 				spawner.setCheckRanges(40, -12, 12, 30);
 				spawner.setSpawnRanges(32, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);
@@ -324,7 +324,7 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityIbbenWarlord.class);
+				spawner.setSpawnClass1(GOTEntityIbbenCaptain.class);
 				spawner.setCheckRanges(2, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);
@@ -338,7 +338,7 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityIbbenWarrior.class);
+				spawner.setSpawnClass1(GOTEntityIbbenSoldier.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);

@@ -254,7 +254,6 @@ public class GOTBlocks {
 	public static Block leekCrop;
 	public static Block lemonCake;
 	public static Block lettuceCrop;
-	public static Block lionBed;
 	public static Block marigold;
 	public static Block marshLights;
 	public static Block marzipanBlock;
@@ -853,7 +852,6 @@ public class GOTBlocks {
 		leekCrop = new GOTBlockLeekCrop();
 		lemonCake = new GOTBlockPlaceableFood();
 		lettuceCrop = new GOTBlockLettuceCrop();
-		lionBed = new GOTBlockBed(Blocks.planks, 0);
 		marigold = new GOTBlockFlower();
 		marshLights = new GOTBlockMarshLights();
 		marzipanBlock = new GOTBlockPlaceableFood(0.4375f, 0.375f).setFoodStats(3, 0.3f).setCreativeTab(GOTCreativeTabs.TAB_FOOD);
@@ -1749,7 +1747,6 @@ public class GOTBlocks {
 		register(leekCrop, "leek");
 		register(lemonCake, "lemonCake");
 		register(lettuceCrop, "lettuce");
-		register(lionBed, "lionBed");
 		register(marshLights, "marshLights");
 		register(mudFarmland, "mudFarmland");
 		register(mug, "mug");

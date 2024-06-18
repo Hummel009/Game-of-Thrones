@@ -22,8 +22,8 @@ public class GOTEntityDragonstoneBannerBearer extends GOTEntityDragonstoneSoldie
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosDagger));
-		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
 	}

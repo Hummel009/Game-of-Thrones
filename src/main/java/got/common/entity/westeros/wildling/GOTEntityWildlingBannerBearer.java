@@ -22,8 +22,8 @@ public class GOTEntityWildlingBannerBearer extends GOTEntityWildlingWarrior impl
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.wildlingDagger));
-		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
 	}

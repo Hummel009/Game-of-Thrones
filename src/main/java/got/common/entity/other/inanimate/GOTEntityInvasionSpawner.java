@@ -12,7 +12,7 @@ import got.common.database.GOTInvasions;
 import got.common.entity.GOTEntityRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.item.other.GOTItemConquestHorn;
+import got.common.item.other.GOTItemWarhorn;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketInvasionWatch;
 import net.minecraft.command.ICommandSender;
@@ -213,7 +213,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		GOTInvasions invasionType = getInvasionType();
 		if (invasionType != null) {
-			return GOTItemConquestHorn.createHorn(invasionType);
+			return GOTItemWarhorn.createHorn(invasionType);
 		}
 		return null;
 	}

@@ -15,7 +15,7 @@ import got.common.world.structure.other.GOTStructureHayBales;
 import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse;
-import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagnarHouse;
+import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennChieftainHouse;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -188,7 +188,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			addStructure(new GOTStructureThennHouse(false).setIsBlacksmith(), 0, -centreSide, 2, true);
 			addStructure(new GOTStructureThennHouse(false), -pathEnd, 0, 1, true);
-			addStructure(new GOTStructureThennMagnarHouse(false), pathEnd, 0, 3, true);
+			addStructure(new GOTStructureThennChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;

@@ -2,8 +2,9 @@ package got.common.world.structure.essos.pentos;
 
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
-import got.common.entity.essos.pentos.GOTEntityPentosGuard;
 import got.common.entity.essos.pentos.GOTEntityPentosMan;
+import got.common.entity.essos.pentos.GOTEntityPentosSoldier;
+import got.common.entity.essos.pentos.GOTEntityPentosSoldierArcher;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
@@ -462,7 +463,8 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityPentosGuard.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldier.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldierArcher.class);
 				spawner.setCheckRanges(35, -12, 12, 16);
 				spawner.setSpawnRanges(15, -6, 6, 40);
 				spawner.setBlockEnemySpawns(35);
@@ -476,7 +478,8 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityPentosGuard.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldier.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldierArcher.class);
 				spawner.setCheckRanges(60, -12, 12, 4);
 				spawner.setSpawnRanges(24, -6, 6, 32);
 			}
@@ -503,7 +506,8 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityPentosGuard.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldier.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldierArcher.class);
 				spawner.setCheckRanges(40, -12, 12, 16);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);
@@ -531,7 +535,8 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityPentosGuard.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldier.class);
+				spawner.setSpawnClass1(GOTEntityPentosSoldierArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 12);
 				spawner.setSpawnRanges(32, -6, 6, 32);
 				spawner.setBlockEnemySpawns(64);

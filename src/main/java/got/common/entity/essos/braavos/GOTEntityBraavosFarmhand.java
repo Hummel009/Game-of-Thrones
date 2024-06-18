@@ -18,7 +18,6 @@ public class GOTEntityBraavosFarmhand extends GOTEntityBraavosMan implements GOT
 		super(world);
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.0f));
 		targetTasks.taskEntries.clear();
-		addTargetTasks(false);
 	}
 
 	@Override

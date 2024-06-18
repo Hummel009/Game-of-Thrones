@@ -43,7 +43,6 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 
 	@Override
 	public void loadConfig() {
-		hideItem(true, GOTBlocks.lionBed);
 		hideItem(true, GOTBlocks.strawBed);
 		hideItem(true, GOTBlocks.furBed);
 		hideItem(true, GOTBlocks.berryPie);

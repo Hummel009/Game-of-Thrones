@@ -2,7 +2,7 @@ package got.common.world.structure.essos.yiti;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.essos.yiti.GOTEntityYiTiShogune;
+import got.common.entity.essos.yiti.GOTEntityYiTiCaptain;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -313,7 +313,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 			placeRandomStairs(world, random, 9, topHeight - 4, k12, 4);
 			placeRandomStairs(world, random, 8, topHeight - 5, k12, 4);
 		}
-		spawnNPCAndSetHome(new GOTEntityYiTiShogune(world), world, 0, topHeight + 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityYiTiCaptain(world), world, 0, topHeight + 1, 0, 16);
 		setBlockAndMetadata(world, 0, topHeight + 1, -4, GOTBlocks.commandTable, 0);
 		return true;
 	}

@@ -22,8 +22,8 @@ public class GOTEntityHillmanBannerBearer extends GOTEntityHillmanWarrior implem
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironDagger));
-		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
 	}

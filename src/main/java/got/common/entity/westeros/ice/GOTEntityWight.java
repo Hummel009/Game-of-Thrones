@@ -36,6 +36,15 @@ public class GOTEntityWight extends GOTEntityNPC implements GOTBiome.ImmuneToFro
 	}
 
 	@Override
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
+		} else {
+			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
+		}
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);

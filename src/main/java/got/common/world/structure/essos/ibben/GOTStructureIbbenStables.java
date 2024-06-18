@@ -4,7 +4,7 @@ import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
-import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldier;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -317,7 +317,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 		}
 		int men = 1 + random.nextInt(3);
 		for (int l = 0; l < men; ++l) {
-			GOTEntityIbbenMan stabler = random.nextBoolean() ? new GOTEntityIbbenWarrior(world) : new GOTEntityIbbenMan(world);
+			GOTEntityIbbenMan stabler = random.nextBoolean() ? new GOTEntityIbbenSoldier(world) : new GOTEntityIbbenMan(world);
 			spawnNPCAndSetHome(stabler, world, 0, 1, 6, 16);
 		}
 		return true;

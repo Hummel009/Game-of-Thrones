@@ -67,8 +67,8 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 				addStructure(new StructureRespawner3(), 0, 0, 0);
 				addStructure(new StructureRespawner4(), 0, 0, 0);
 				addStructure(new GOTStructureDothrakiWell(false), 0, 0, 0, true);
-				addStructure(new GOTStructureDothrakiKhalTent(false), 0, 14, 0, true);
-				addStructure(new GOTStructureDothrakiKhalinTent(false), 0, -14, 2, true);
+				addStructure(new GOTStructureDothrakiChieftainTent(false), 0, 14, 0, true);
+				addStructure(new GOTStructureDothrakiShamanTent(false), 0, -14, 2, true);
 				addStructure(new GOTStructureDothrakiTentLarge(false), -14, 0, 1, true);
 				addStructure(new GOTStructureDothrakiTentLarge(false), 14, 0, 3, true);
 			}

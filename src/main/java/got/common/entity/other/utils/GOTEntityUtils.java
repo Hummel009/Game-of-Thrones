@@ -212,6 +212,12 @@ public class GOTEntityUtils {
 		npc.setCurrentItemOrArmor(4, dyeLeather(new ItemStack(Items.leather_helmet), rand));
 	}
 
+	public static void setupLeathermanArmorNoHelmet(GOTEntityNPC npc, Random rand) {
+		setupLevymanArmor(npc, rand);
+
+		npc.setCurrentItemOrArmor(4, null);
+	}
+
 	public static void setupLeathermanArmorTurban(GOTEntityNPC npc, Random rand) {
 		setupLevymanArmor(npc, rand);
 

@@ -7,7 +7,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityIbbenBannerBearer extends GOTEntityIbbenWarrior implements GOTBannerBearer {
+public class GOTEntityIbbenBannerBearer extends GOTEntityIbbenSoldier implements GOTBannerBearer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenBannerBearer(World world) {
 		super(world);
@@ -22,8 +22,8 @@ public class GOTEntityIbbenBannerBearer extends GOTEntityIbbenWarrior implements
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironDagger));
-		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
 	}

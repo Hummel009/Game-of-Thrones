@@ -3,7 +3,6 @@ package got.common.entity.essos.volantis;
 import got.common.entity.ai.GOTEntityAIFarm;
 import got.common.entity.other.iface.GOTFarmhand;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,12 +18,6 @@ public class GOTEntityVolantisSlave extends GOTEntityVolantisMan implements GOTF
 		super(world);
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.0f));
 		targetTasks.taskEntries.clear();
-		addTargetTasks(false);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return "standard/civilized/hired_slave";
 	}
 
 	@Override
@@ -43,8 +36,10 @@ public class GOTEntityVolantisSlave extends GOTEntityVolantisMan implements GOTF
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		return entityData;
 	}
 

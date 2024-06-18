@@ -68,7 +68,7 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 				addStructure(new StructureRespawner3(), 0, 0, 0);
 				addStructure(new StructureRespawner4(), 0, 0, 0);
 				addStructure(new GOTStructureJogosWell(false), 0, 0, 0, true);
-				addStructure(new GOTStructureJogosChiefTent(false), 0, 14, 0, true);
+				addStructure(new GOTStructureJogosChieftainTent(false), 0, 14, 0, true);
 				addStructure(new GOTStructureJogosShamanTent(false), 0, -14, 2, true);
 				addStructure(new GOTStructureJogosTentLarge(false), -14, 0, 1, true);
 				addStructure(new GOTStructureJogosTentLarge(false), 14, 0, 3, true);

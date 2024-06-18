@@ -151,7 +151,7 @@ public class GOTItems {
 	public static Item coin;
 	public static Item commandHorn;
 	public static Item commandSword;
-	public static Item conquestHorn;
+	public static Item warhorn;
 	public static Item copperIngot;
 	public static Item copperNugget;
 	public static Item copperRing;
@@ -222,12 +222,6 @@ public class GOTItems {
 	public static Item fuse;
 	public static Item gammon;
 	public static Item gateGear;
-	public static Item ghiscarBootsGemsbok;
-	public static Item ghiscarChestplateGemsbok;
-	public static Item ghiscarHelmetGemsbok;
-	public static Item gemsbokHide;
-	public static Item gemsbokHorn;
-	public static Item ghiscarLeggingsGemsbok;
 	public static Item gendryHammer;
 	public static Item gendryHelmet;
 	public static Item ghiscarBoots;
@@ -318,9 +312,7 @@ public class GOTItems {
 	public static Item lightbringer;
 	public static Item lime;
 	public static Item lingeringPotion;
-	public static Item lionBed;
 	public static Item lionCooked;
-	public static Item lionFur;
 	public static Item lionRaw;
 	public static Item lionRug;
 	public static Item longclaw;
@@ -522,19 +514,14 @@ public class GOTItems {
 	public static Item sothoryosAxe;
 	public static Item sothoryosBattleaxe;
 	public static Item sothoryosBoots;
-	public static Item sothoryosBootsGold;
 	public static Item sothoryosChestplate;
-	public static Item sothoryosChestplateGold;
 	public static Item sothoryosDagger;
 	public static Item sothoryosDaggerPoisoned;
 	public static Item sothoryosDoubleTorch;
 	public static Item sothoryosHammer;
 	public static Item sothoryosHelmet;
-	public static Item sothoryosHelmetChieftain;
-	public static Item sothoryosHelmetGold;
 	public static Item sothoryosHoe;
 	public static Item sothoryosLeggings;
-	public static Item sothoryosLeggingsGold;
 	public static Item sothoryosPickaxe;
 	public static Item sothoryosPike;
 	public static Item sothoryosShovel;
@@ -816,7 +803,7 @@ public class GOTItems {
 		coin = new GOTItemCoin().setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		commandHorn = new GOTItemCommandHorn();
 		commandSword = new GOTItemCommandSword();
-		conquestHorn = new GOTItemConquestHorn();
+		warhorn = new GOTItemWarhorn();
 		copperIngot = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		copperNugget = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		copperRing = new GOTItemRing();
@@ -887,12 +874,6 @@ public class GOTItems {
 		fuse = new GOTItemFuse();
 		gammon = new GOTItemFood(8, 0.8f, true);
 		gateGear = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		ghiscarBootsGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 3);
-		ghiscarChestplateGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 1);
-		ghiscarHelmetGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 0);
-		gemsbokHide = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		gemsbokHorn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		ghiscarLeggingsGemsbok = new GOTItemArmor(GOTMaterial.GEMSBOK, 2);
 		gendryHammer = new GOTItemLegendaryHammer(Item.ToolMaterial.IRON);
 		gendryHelmet = new GOTItemArmor(GOTMaterial.HELMET, 0, "gendry").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		ghiscarBoots = new GOTItemArmor(GOTMaterial.GHISCAR, 3);
@@ -983,9 +964,7 @@ public class GOTItems {
 		lightbringer = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		lime = new GOTItemFood(2, 0.2f, false);
 		lingeringPotion = new GOTItemLingeringPotion();
-		lionBed = new GOTItemBed(GOTBlocks.lionBed);
 		lionCooked = new GOTItemFood(8, 0.8f, true);
-		lionFur = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		lionRaw = new GOTItemFood(3, 0.3f, true);
 		lionRug = new GOTItemLionRug();
 		longclaw = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
@@ -1187,19 +1166,14 @@ public class GOTItems {
 		sothoryosAxe = new GOTItemAxe(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosBattleaxe = new GOTItemBattleaxe(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosBoots = new GOTItemArmor(GOTMaterial.SOTHORYOS, 3);
-		sothoryosBootsGold = new GOTItemArmor(GOTMaterial.SOTHORYOS_GOLD, 3);
 		sothoryosChestplate = new GOTItemArmor(GOTMaterial.SOTHORYOS, 1);
-		sothoryosChestplateGold = new GOTItemArmor(GOTMaterial.SOTHORYOS_GOLD, 1);
 		sothoryosDagger = new GOTItemDagger(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosDaggerPoisoned = new GOTItemDagger(GOTMaterial.OBSIDIAN_TOOL, GOTItemSword.HitEffect.POISON);
 		sothoryosDoubleTorch = new GOTItemDoubleTorch(GOTBlocks.sothoryosDoubleTorch).setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		sothoryosHammer = new GOTItemHammer(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosHelmet = new GOTItemArmor(GOTMaterial.SOTHORYOS, 0);
-		sothoryosHelmetChieftain = new GOTItemArmor(GOTMaterial.SOTHORYOS, 0, "chieftainHelmet");
-		sothoryosHelmetGold = new GOTItemArmor(GOTMaterial.SOTHORYOS_GOLD, 0, "helmet");
 		sothoryosHoe = new GOTItemHoe(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosLeggings = new GOTItemArmor(GOTMaterial.SOTHORYOS, 2);
-		sothoryosLeggingsGold = new GOTItemArmor(GOTMaterial.SOTHORYOS_GOLD, 2);
 		sothoryosPickaxe = new GOTItemPickaxe(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosPike = new GOTItemPike(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosShovel = new GOTItemShovel(GOTMaterial.OBSIDIAN_TOOL);
@@ -1527,7 +1501,7 @@ public class GOTItems {
 
 		register(commandSword, "commandSword");
 		register(commandHorn, "commandHorn");
-		register(conquestHorn, "conquestHorn");
+		register(warhorn, "warhorn");
 
 		register(asshaiMask, "asshaiMask");
 		register(harpy, "harpy");
@@ -1702,11 +1676,6 @@ public class GOTItems {
 		register(ghiscarLeggings, "ghiscarLeggings");
 		register(ghiscarBoots, "ghiscarBoots");
 
-		register(ghiscarHelmetGemsbok, "gemsbokHelmet");
-		register(ghiscarChestplateGemsbok, "gemsbokChestplate");
-		register(ghiscarLeggingsGemsbok, "gemsbokLeggings");
-		register(ghiscarBootsGemsbok, "gemsbokBoots");
-
 		register(qarthHelmet, "qarthHelmet");
 		register(qarthChestplate, "qarthChestplate");
 		register(qarthLeggings, "qarthLeggings");
@@ -1766,13 +1735,6 @@ public class GOTItems {
 		register(sothoryosChestplate, "sothoryosChestplate");
 		register(sothoryosLeggings, "sothoryosLeggings");
 		register(sothoryosBoots, "sothoryosBoots");
-
-		register(sothoryosHelmetGold, "sothoryosHelmetGold");
-		register(sothoryosChestplateGold, "sothoryosChestplateGold");
-		register(sothoryosLeggingsGold, "sothoryosLeggingsGold");
-		register(sothoryosBootsGold, "sothoryosBootsGold");
-
-		register(sothoryosHelmetChieftain, "sothoryosHelmetChieftain");
 
 		register(unsulliedHelmet, "unsulliedHelmet");
 		register(unsulliedChestplate, "unsulliedChestplate");
@@ -2005,10 +1967,7 @@ public class GOTItems {
 		register(seedsGrapeWhite, "seedsGrapeWhite");
 
 		register(fur, "fur");
-		register(lionFur, "lionFur");
-		register(gemsbokHide, "gemsbokHide");
 		register(horn, "horn");
-		register(gemsbokHorn, "gemsbokHorn");
 		register(whiteBisonHorn, "whiteBisonHorn");
 		register(rhinoHorn, "rhinoHorn");
 		register(beaverTail, "beaverTail");
@@ -2214,6 +2173,5 @@ public class GOTItems {
 
 		register(strawBed, "strawBed");
 		register(furBed, "furBed");
-		register(lionBed, "lionBed");
 	}
 }

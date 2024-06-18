@@ -368,7 +368,6 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullDragonstone;
 	public static GOTAchievement wearFullFur;
 	public static GOTAchievement wearFullGhiscar;
-	public static GOTAchievement wearFullGhiscarGemsbok;
 	public static GOTAchievement wearFullGift;
 	public static GOTAchievement wearFullGoldenCompany;
 	public static GOTAchievement wearFullHillmen;
@@ -395,7 +394,6 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullRobes;
 	public static GOTAchievement wearFullRoyce;
 	public static GOTAchievement wearFullSothoryos;
-	public static GOTAchievement wearFullSothoryosGold;
 	public static GOTAchievement wearFullStormlands;
 	public static GOTAchievement wearFullSummer;
 	public static GOTAchievement wearFullTargaryen;
@@ -914,7 +912,6 @@ public class GOTAchievement {
 		wearFullGoldenCompany = createArmorAchievement(armorId++, GOTItems.goldenCompanyChestplate, "WEAR_FULL_GOLDEN_COMPANY");
 
 		wearFullGhiscar = createArmorAchievement(armorId++, GOTItems.ghiscarChestplate, "WEAR_FULL_GHISCAR");
-		wearFullGhiscarGemsbok = createArmorAchievement(armorId++, GOTItems.ghiscarChestplateGemsbok, "WEAR_FULL_GHISCAR_GEMSBOK");
 		wearFullQarth = createArmorAchievement(armorId++, GOTItems.qarthChestplate, "WEAR_FULL_QARTH");
 		wearFullLhazar = createArmorAchievement(armorId++, GOTItems.lhazarChestplate, "WEAR_FULL_LHAZAR");
 		wearFullDothraki = createArmorAchievement(armorId++, GOTItems.dothrakiChestplate, "WEAR_FULL_DOTHRAKI");
@@ -928,7 +925,6 @@ public class GOTAchievement {
 
 		wearFullSummer = createArmorAchievement(armorId++, GOTItems.summerChestplate, "WEAR_FULL_SUMMER");
 		wearFullSothoryos = createArmorAchievement(armorId++, GOTItems.sothoryosChestplate, "WEAR_FULL_SOTHORYOS");
-		wearFullSothoryosGold = createArmorAchievement(armorId++, GOTItems.sothoryosChestplateGold, "WEAR_FULL_SOTHORYOS_GOLD");
 
 		wearFullUnsullied = createArmorAchievement(armorId++, GOTItems.unsulliedChestplate, "WEAR_FULL_UNSULLIED");
 		wearFullWhiteWalkers = createArmorAchievement(armorId++, GOTItems.whiteWalkersChestplate, "WEAR_FULL_WHITE_WALKERS");

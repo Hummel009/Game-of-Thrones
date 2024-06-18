@@ -55,9 +55,8 @@ public class GOTBiomeNorvos extends GOTBiomeEssos {
 		decorator.addSettlement(new GOTStructureNorvosSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureNorvosFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 10).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_CONQUEST, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));

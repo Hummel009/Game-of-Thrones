@@ -748,7 +748,6 @@ public class GOTTradeEntries {
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.corn, 2), 1));
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.doubleFlower, 2, 2), 1));
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.doubleFlower, 2, 3), 1));
-		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gemsbokHorn), 4));
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.mango), 1));
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.mug), 1));
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.obsidianShard), 3));
@@ -853,7 +852,6 @@ public class GOTTradeEntries {
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosDagger), 12));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosHammer), 16));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosHelmet), 20));
-		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosHelmetChieftain), 40));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosLeggings), 25));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosPike), 18));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosSpear), 15));

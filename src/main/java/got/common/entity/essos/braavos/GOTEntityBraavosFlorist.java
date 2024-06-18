@@ -1,11 +1,11 @@
 package got.common.entity.essos.braavos;
 
-import got.common.database.GOTBlocks;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -39,7 +39,7 @@ public class GOTEntityBraavosFlorist extends GOTEntityBraavosMan implements GOTT
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.essosFlower, 1, rand.nextInt(4)));
+		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower));
 
 		GOTEntityUtils.setupTurban(this, rand);
 

@@ -58,7 +58,7 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LORATH_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);

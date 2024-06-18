@@ -674,7 +674,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		GOTEntityNPC priest = new GOTEntityRedPriest(world);
 		priest.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
-		GOTEntityNPC captain = new GOTEntityYiTiShogune(world);
+		GOTEntityNPC captain = new GOTEntityYiTiCaptain(world);
 		captain.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
 		int soldiers = 4 + random.nextInt(4);

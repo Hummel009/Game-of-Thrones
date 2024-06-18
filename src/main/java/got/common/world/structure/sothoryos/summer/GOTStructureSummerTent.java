@@ -4,7 +4,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -117,7 +117,7 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 		placeWallBanner(world, 1, 3, -3, GOTItemBanner.BannerType.SUMMER, 0);
 		placeWallBanner(world, -3, 3, 1, GOTItemBanner.BannerType.SUMMER, 1);
 		placeWallBanner(world, -3, 3, -1, GOTItemBanner.BannerType.SUMMER, 1);
-		GOTEntityNPC npc = new GOTEntitySummerWarrior(world);
+		GOTEntityNPC npc = new GOTEntitySummerSoldier(world);
 		npc.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(npc, world, 0, 1, -1, 16);
 		return true;

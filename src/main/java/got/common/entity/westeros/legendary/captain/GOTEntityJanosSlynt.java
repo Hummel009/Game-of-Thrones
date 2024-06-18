@@ -49,7 +49,7 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 
 	@Override
 	public GOTUnitTradeEntries getUnits() {
-		return GOTUnitTradeEntries.CROWNLANDS_GUARDIAN;
+		return GOTUnitTradeEntries.KINGSGUARD;
 	}
 
 	@Override

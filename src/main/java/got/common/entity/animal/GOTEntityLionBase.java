@@ -130,10 +130,6 @@ public abstract class GOTEntityLionBase extends EntityAnimal implements GOTBiome
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		int furs = 1 + rand.nextInt(3) + 1;
-		for (int l = 0; l < furs; ++l) {
-			dropItem(GOTItems.lionFur, 1);
-		}
 		int meats = rand.nextInt(2) + 1 + rand.nextInt(1 + i);
 		for (int l = 0; l < meats; ++l) {
 			if (isBurning()) {

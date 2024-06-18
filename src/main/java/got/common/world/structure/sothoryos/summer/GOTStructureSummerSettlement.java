@@ -1,9 +1,9 @@
 package got.common.world.structure.sothoryos.summer;
 
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
-import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
@@ -326,8 +326,8 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntitySummerWarrior.class);
-				spawner.setSpawnClass2(GOTEntitySummerArcher.class);
+				spawner.setSpawnClass1(GOTEntitySummerSoldier.class);
+				spawner.setSpawnClass2(GOTEntitySummerSoldierArcher.class);
 				spawner.setCheckRanges(64, -12, 12, 12);
 				spawner.setSpawnRanges(32, -6, 6, 32);
 				spawner.setBlockEnemySpawns(64);

@@ -18,7 +18,6 @@ public class GOTEntityNorvosFarmhand extends GOTEntityNorvosMan implements GOTFa
 		super(world);
 		tasks.addTask(3, new GOTEntityAIFarm(this, 1.0, 1.0f));
 		targetTasks.taskEntries.clear();
-		addTargetTasks(false);
 	}
 
 	@Override
@@ -37,8 +36,10 @@ public class GOTEntityNorvosFarmhand extends GOTEntityNorvosMan implements GOTFa
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
+
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
 		return entityData;
 	}
 

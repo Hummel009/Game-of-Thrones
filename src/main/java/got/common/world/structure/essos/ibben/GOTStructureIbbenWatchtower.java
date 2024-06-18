@@ -4,8 +4,8 @@ import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
-import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldierArcher;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldier;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -162,7 +162,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 		setGrassToDirt(world, -1, belowTop - 1, 2);
 		int soldiers = 1 + random.nextInt(3);
 		for (int l = 0; l < soldiers; ++l) {
-			GOTEntityIbbenWarrior ibbenese = random.nextInt(3) == 0 ? new GOTEntityIbbenArcher(world) : new GOTEntityIbbenWarrior(world);
+			GOTEntityIbbenSoldier ibbenese = random.nextInt(3) == 0 ? new GOTEntityIbbenSoldierArcher(world) : new GOTEntityIbbenSoldier(world);
 			ibbenese.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(ibbenese, world, 0, 1, 0, 4);
 		}

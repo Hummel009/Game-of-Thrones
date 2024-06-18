@@ -68,7 +68,7 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		int count = rand.nextInt(3) + rand.nextInt(i + 1);
+		int count = rand.nextInt(2) + rand.nextInt(i + 1);
 		for (int j = 0; j < count; ++j) {
 			int drop = rand.nextInt(5);
 			switch (drop) {
@@ -83,9 +83,6 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 					continue;
 				case 3:
 					dropItem(GOTItems.zebraRaw, 1);
-					continue;
-				case 4:
-					dropItem(GOTItems.gemsbokHide, 1);
 			}
 		}
 	}

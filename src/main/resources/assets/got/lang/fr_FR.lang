@@ -126,7 +126,7 @@ entity.got.BraavosFarmer.name=Fermier de Braavos
 entity.got.BraavosFarmhand.name=Agriculteur de Braavos
 entity.got.BraavosFishmonger.name=Poissonnier de Braavos
 entity.got.BraavosFlorist.name=Fleuriste de Braavos
-entity.got.BraavosGeneral.name=Général de Braavos
+entity.got.BraavosCaptain.name=Général de Braavos
 entity.got.BraavosGoldsmith.name=Orfèvre de Braavos
 entity.got.BraavosLevyman.name=Conscrit de Braavos
 entity.got.BraavosLevymanArcher.name=Conscrit Archer of Braavos
@@ -211,8 +211,8 @@ entity.got.DorneSoldier.name=Soldat de Dorne
 entity.got.DorneSoldierArcher.name=Archer de Dorne
 entity.got.Dothraki.name=Dothraki
 entity.got.DothrakiArcher.name=Archer Dothraki
-entity.got.DothrakiKhal.name=Khal Dothraki
-entity.got.DothrakiKhalin.name=Khalin Dosh
+entity.got.DothrakiChieftain.name=Khal Dothraki
+entity.got.DothrakiShaman.name=Khalin Dosh
 entity.got.Dragon.name=Dragon
 entity.got.DragonstoneBaker.name=Boulanger de Peyredragon
 entity.got.DragonstoneBannerBearer.name=Porte-bannière de Peyredragon
@@ -256,15 +256,15 @@ entity.got.Gemsbok.name=Gazelle
 entity.got.GendryBaratheon.name=Gendry Baratheon
 entity.got.GeroldDayne.name=Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
-entity.got.GhiscarAdmiral.name=Amiral de Ghiscar
+entity.got.GhiscarCaptain.name=Amiral de Ghiscar
 entity.got.GhiscarBaker.name=Boulanger de Ghiscar
 entity.got.GhiscarBannerBearer.name=Porte-bannière de Ghiscar
 entity.got.GhiscarBartender.name=Barman de Ghiscar
 entity.got.GhiscarBlacksmith.name=Forgeron de Ghiscar
 entity.got.GhiscarBrewer.name=Brasseur de Ghiscar
 entity.got.GhiscarButcher.name=Boucher de Ghiscar
-entity.got.GhiscarCorsair.name=Corsaire de Ghiscar
-entity.got.GhiscarCorsairArcher.name=Corsaire Archer de Ghiscar
+entity.got.GhiscarSoldier.name=Corsaire de Ghiscar
+entity.got.GhiscarSoldierArcher.name=Corsaire Archer de Ghiscar
 entity.got.GhiscarFishmonger.name=Poissonnier de Ghiscar
 entity.got.GhiscarFlorist.name=Fleuriste de Ghiscar
 entity.got.GhiscarGladiator.name=Gladiateur de Ghiscar
@@ -313,7 +313,7 @@ entity.got.HillmanAxeThrower.name=Lanceur de haches des tribus des collines
 entity.got.HillmanBannerBearer.name=Porte-bannière des tribus des collines
 entity.got.HillmanBartender.name=Barman des tribus des collines
 entity.got.HillmanBerserker.name=Berserker des tribus des collines
-entity.got.HillmanWarlord.name=Chef des tribus des collines
+entity.got.HillmanChieftain.name=Chef des tribus des collines
 entity.got.HillmanWarrior.name=Guerrier des tribus des collines
 entity.got.HizdahrZoLoraq.name≠Hizdahr Zo Loraq
 entity.got.Hodor.name=Hodor
@@ -341,7 +341,7 @@ entity.got.IbbenMan.name=Civil d'Ibben
 entity.got.IbbenMason.name=Maçon d'Ibben
 entity.got.IbbenMiner.name=Mineur d'Ibben
 entity.got.IbbenStablemaster.name=Maître des écuries d'Ibben
-entity.got.IbbenWarlord.name=Capitaine d'Ibben
+entity.got.IbbenCaptain.name=Capitaine d'Ibben
 entity.got.IbbenWarrior.name=Guerrier d'Ibben
 entity.got.IceSpider.name=Araignée de glace
 entity.got.Ifekevron.name=Ifekevron
@@ -378,7 +378,7 @@ entity.got.JoffreyBaratheon.name=Joffrey Baratheon
 entity.got.Jogos.name=Nomade de Jogos
 entity.got.JogosArcher.name=Archer de Jogos
 entity.got.JogosBannerBearer.name=Porte-bannière de Jogos
-entity.got.JogosChief.name=Chef de Jogos
+entity.got.JogosChieftain.name=Chef de Jogos
 entity.got.JogosShaman.name=Chaman de Jogos
 entity.got.JohnUmber.name=John Umber
 entity.got.JonConnington.name≠Jon Connington
@@ -409,7 +409,7 @@ entity.got.LhazarLumberman.name=Bûcheron de Lhazar
 entity.got.LhazarMan.name=Civil de Lhazar
 entity.got.LhazarMason.name=Maçon de Lhazar
 entity.got.LhazarMiner.name=Mineur de Lhazar
-entity.got.LhazarWarlord.name=Seigneur de guerre de Lhazar
+entity.got.LhazarCaptain.name=Seigneur de guerre de Lhazar
 entity.got.LhazarSoldier.name=Guerrier de Lhazar
 entity.got.LightSkinBandit.name=Bandit
 entity.got.LightSkinThief.name=Voleur
@@ -430,7 +430,7 @@ entity.got.LorathFarmer.name=Fermier de Lorath
 entity.got.LorathFarmhand.name=Artisan of Lorath
 entity.got.LorathFishmonger.name=Poissonnier de Lorath
 entity.got.LorathFlorist.name=Fleuriste de Lorath
-entity.got.LorathGeneral.name=Général de Lorath
+entity.got.LorathCaptain.name=Général de Lorath
 entity.got.LorathGoldsmith.name=Orfèvre de Lorath
 entity.got.LorathLevyman.name=Milicien de Lorath
 entity.got.LorathLevymanArcher.name=Milicien Archer de Lorath
@@ -452,7 +452,7 @@ entity.got.LysBrewer.name=Brasseur de Lys
 entity.got.LysButcher.name=Boucher de Lys
 entity.got.LysFishmonger.name=Poissonnier de Lys
 entity.got.LysFlorist.name=Fleuriste de Lys
-entity.got.LysGeneral.name=Général de Lys
+entity.got.LysCaptain.name=Général de Lys
 entity.got.LysGoldsmith.name=Orfèvre de Lys
 entity.got.LysLevyman.name=Milicien de Lys
 entity.got.LysLevymanArcher.name=Milicien Archer de Lys
@@ -500,7 +500,7 @@ entity.got.MyrBrewer.name=Brasseur de Myr
 entity.got.MyrButcher.name=Boucher de Myr
 entity.got.MyrFishmonger.name=Poissonnier de Myr
 entity.got.MyrFlorist.name=Fleuriste de Myr
-entity.got.MyrGeneral.name=Général de Myr
+entity.got.MyrCaptain.name=Général de Myr
 entity.got.MyrGoldsmith.name=Orfèvre de Myr
 entity.got.MyrLevyman.name=Milicien de Myr
 entity.got.MyrLevymanArcher.name=Milicien Archer de Myr
@@ -534,7 +534,7 @@ entity.got.NorthHillmanArcher.name=Archer des Montagnes du Nord
 entity.got.NorthHillmanAxeThrower.name=Lanceur de hache des Montagnes du Nord
 entity.got.NorthHillmanBannerBearer.name=Porte-bannière des Montagnes du Nord
 entity.got.NorthHillmanCannibal.name=Cannibale des Montagnes du Nord
-entity.got.NorthHillmanWarlord.name=Chef des Montagnes Nord
+entity.got.NorthHillmanChieftain.name=Chef des Montagnes Nord
 entity.got.NorthHillmanMercenary.name=Mercenaire des Montagnes Nord
 entity.got.NorthHillmanWarrior.name=Guerrier des Montagnes Nord
 entity.got.NorthLevyman.name=Milicien du Nord
@@ -557,7 +557,7 @@ entity.got.NorvosFishmonger.name=Poissonnier de Norvos
 entity.got.NorvosFlorist.name=Fleuriste de Norvos
 entity.got.NorvosGoldsmith.name=Orfèvre de Norvos
 entity.got.NorvosGuard.name=Garde de Norvos
-entity.got.NorvosGuardCaptain.name=Capitaine de garde de Norvos
+entity.got.NorvosCaptain.name=Capitaine de garde de Norvos
 entity.got.NorvosLevyman.name=Guerrier de Norvos
 entity.got.NorvosLevymanArcher.name=Archer de Norvos
 entity.got.NorvosLumberman.name=Bûcheron de Norvos
@@ -582,7 +582,7 @@ entity.got.PentosFishmonger.name=Poissonnier de Pentos
 entity.got.PentosFlorist.name=Fleuriste de Pentos
 entity.got.PentosGoldsmith.name=Orfèvre de Pentos
 entity.got.PentosGuard.name=Garde de Pentos
-entity.got.PentosGuardCaptain.name=Capitaine de garde de Pentos
+entity.got.PentosCaptain.name=Capitaine de garde de Pentos
 entity.got.PentosLevyman.name=Milicien de Pentos
 entity.got.PentosLevymanArcher.name=Archer de Pentos
 entity.got.PentosLumberman.name=Bûcheron de Pentos
@@ -609,7 +609,7 @@ entity.got.QarthFishmonger.name=Poissonnier de Qarth
 entity.got.QarthFlorist.name=Fleuriste de Qarth
 entity.got.QarthGoldsmith.name=Orfèvre de Qarth
 entity.got.QarthGuard.name=Garde de Qarth
-entity.got.QarthGuardCaptain.name=Capitaine de Qarth
+entity.got.QarthCaptain.name=Capitaine de Qarth
 entity.got.QarthLevyman.name=Milicien de Qarth
 entity.got.QarthLevymanArcher.name=Milicien Archer de Qarth
 entity.got.QarthLumberman.name=Bûcheron de Qarth
@@ -629,7 +629,7 @@ entity.got.QohorFishmonger.name=Poissonnier de Qohor
 entity.got.QohorFlorist.name=Fleuriste de Qohor
 entity.got.QohorGoldsmith.name=Orfèvre de Qohor
 entity.got.QohorGuard.name=Garde de Qohor
-entity.got.QohorGuardCaptain.name=Capitaine de la garde de Qohor
+entity.got.QohorCaptain.name=Capitaine de la garde de Qohor
 entity.got.QohorLevyman.name=Milicien de Qohor
 entity.got.QohorLevymanArcher.name=Milicien archer de Qohor
 entity.got.QohorLumberman.name=Bûcheron de Qohor
@@ -763,7 +763,7 @@ entity.got.SummerLumberman.name=Bûcheron des Îles d'Été
 entity.got.SummerMan.name=Civil des Îles d'Été
 entity.got.SummerMason.name=Maçon des Îles d'Été
 entity.got.SummerMiner.name=Mineur des Îles d'Été
-entity.got.SummerWarlord.name=Seigneur de guerre des Îles d'Été
+entity.got.SummerCaptain.name=Seigneur de guerre des Îles d'Été
 entity.got.SummerWarrior.name=Guerrier des Îles d'Été
 entity.got.Swan.name=Cygne
 entity.got.SymondTempleton.name≠Symond Templeton
@@ -775,7 +775,7 @@ entity.got.ThennBannerBearer.name=Porte-bannière Sauvageon
 entity.got.WildlingWarrior.name≠Wildling Warrior
 entity.got.ThennWarrior.name=Warrior Sauvageon
 entity.got.ThennBlacksmith.name=Forgeron Sauvageon
-entity.got.ThennMagnar.name=Magnar Sauvageon
+entity.got.ThennChieftain.name=Magnar Sauvageon
 entity.got.TheonGreyjoyNormal.name=Theon Greyjoy
 entity.got.TheonGreyjoyTormented.name=Theon Greyjoy
 entity.got.Thoros.name=Thoros
@@ -799,7 +799,7 @@ entity.got.TyroshBrewer.name=Brasseur de Tyrosh
 entity.got.TyroshButcher.name=Boucher de Tyrosh
 entity.got.TyroshFishmonger.name=Poissonnier de Tyrosh
 entity.got.TyroshFlorist.name=Fleuriste de Tyrosh
-entity.got.TyroshGeneral.name=Général de Tyrosh
+entity.got.TyroshCaptain.name=Général de Tyrosh
 entity.got.TyroshGoldsmith.name=Orfèvre de Tyrosh
 entity.got.TyroshLevyman.name=Milicien de Tyrosh
 entity.got.TyroshLevymanArcher.name=Milicien Archer de Tyrosh
@@ -826,7 +826,7 @@ entity.got.VolantisBrewer.name=Brasseur de Volantis
 entity.got.VolantisButcher.name=Boucher de Volantis
 entity.got.VolantisFishmonger.name=Poissonnier de Volantis
 entity.got.VolantisFlorist.name=Fleuriste de Volantis
-entity.got.VolantisGeneral.name=Général de Volantis
+entity.got.VolantisCaptain.name=Général de Volantis
 entity.got.VolantisGoldsmith.name=Orfèvre de Volantis
 entity.got.VolantisLevyman.name=Milicien de Volantis
 entity.got.VolantisLevymanArcher.name=Milicien Archer de Volantis
@@ -903,7 +903,7 @@ entity.got.YiTiMan.name=Civil de Yi Ti
 entity.got.YiTiMason.name=Maçon de Yi Ti
 entity.got.YiTiMiner.name=Mineur of Yi Ti
 entity.got.YiTiSamurai.name=Samouraï de Yi Ti
-entity.got.YiTiShogune.name=Shogun de Yi Ti
+entity.got.YiTiCaptain.name=Shogun de Yi Ti
 entity.got.YiTiSoldier.name=Soldat de Yi Ti
 entity.got.YiTiSoldierCrossbower.name=Arbalétier Yi Ti
 entity.got.YohnRoyce.name=Yohn Royce
@@ -1556,7 +1556,7 @@ got.biome.dorneForest.name=Fôret de Dorne
 got.biome.dorneMesa.name=Plateau rouge
 got.biome.dorneMountains.name=Montagnes rouges
 got.biome.dorneValley.name=Vallée de Dorne
-got.biome.doshKhalin.name=Mère des montagnes
+got.biome.doshShaman.name=Mère des montagnes
 got.biome.dothrakiSea.name=Mer Dothraki
 got.biome.dothrakiSeaForest.name=Fôret Dothraki
 got.biome.dothrakiSeaHills.name=Collines Dothraki
@@ -2914,8 +2914,8 @@ got.structure.DorneTavern.name≠Tavern of Dorne
 got.structure.DorneTower.name≠Tower of Dorne
 got.structure.DorneWatchfort.name≠Watchfort of Dorne
 got.structure.DorneWatchtower.name≠Watchtower of Dorne
-got.structure.DothrakiKhalTent.name≠Dothraki Khal's Tent
-got.structure.DothrakiKhalinTent.name≠Dothraki Khalin's Tent
+got.structure.DothrakiChieftainTent.name≠Dothraki Khal's Tent
+got.structure.DothrakiShamanTent.name≠Dothraki Khalin's Tent
 got.structure.DothrakiSettle.name≠Dothraki Camp
 got.structure.DothrakiSettleLarge.name≠Dothraki Village
 got.structure.DothrakiTent.name≠Dothraki Tent
@@ -2987,7 +2987,7 @@ got.structure.IronbornTavern.name≠Tavern of Iron Islands
 got.structure.IronbornTower.name≠Tower of Iron Islands
 got.structure.IronbornWatchfort.name≠Watchfort of Iron Islands
 got.structure.IronbornWatchtower.name≠Watchtower of Iron Islands
-got.structure.JogosChiefTent.name≠Chieftain's Tent of Jogos Nhai
+got.structure.JogosChieftainTent.name≠Chieftain's Tent of Jogos Nhai
 got.structure.JogosSettle.name≠Camp of Jogos Nhai
 got.structure.JogosSettleLarge.name≠Village of Jogos Nhai
 got.structure.JogosShamanTent.name≠Shaman's Tent of Jogos Nhai
@@ -3057,7 +3057,7 @@ got.structure.MyrTraining.name≠Training of Myr
 got.structure.NorthBarn.name≠Barn of North
 got.structure.NorthBath.name≠Bath of North
 got.structure.NorthFortress.name≠Fortress of North
-got.structure.NorthHillmanWarlordHouse.name≠North Hillmen Chieftain's House
+got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
 got.structure.NorthHillmanHouse.name≠North Hillmen House
 got.structure.NorthHillmanSettle.name≠North Hillmen Village
 got.structure.NorthHouse.name≠House of North
@@ -3196,7 +3196,7 @@ got.structure.SummerTavernRuined.name≠Ruined Tavern of Summer Islands
 got.structure.SummerTower.name≠Tower of Summer Islands
 got.structure.ThennCamp.name≠Thenn Camp
 got.structure.ThennHouse.name≠Thenn House
-got.structure.ThennMagnarHouse.name≠Thenn Magnar's House
+got.structure.ThennChieftainHouse.name≠Thenn Magnar's House
 got.structure.ThennSettle.name≠Thenn Village
 got.structure.TyroshBarracks.name≠Barracks of Tyrosh
 got.structure.TyroshBazaar.name≠Bazaar of Tyrosh
@@ -5200,7 +5200,7 @@ item.got:coin.64.name≠Silver star
 item.got:coin.nominal.name≠Nominal
 item.got:command_horn.name=Cor de commande
 item.got:command_sword.name=Épée de commandement
-item.got:conquest_horn.name=Cor de conquête
+item.got:warhorn.name=Cor de conquête
 item.got:copper_ingot.name=Lingot de cuivre
 item.got:copper_nugget.name=Pépite de cuivre
 item.got:copper_ring.name≠Copper Ring

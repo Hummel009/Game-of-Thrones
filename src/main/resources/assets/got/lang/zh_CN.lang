@@ -127,7 +127,7 @@ entity.got.BraavosFarmer.name=布拉佛斯农场主
 entity.got.BraavosFarmhand.name=布拉佛斯农工
 entity.got.BraavosFishmonger.name=布拉佛斯鱼贩
 entity.got.BraavosFlorist.name=布拉佛斯花贩
-entity.got.BraavosGeneral.name=布拉佛斯领主
+entity.got.BraavosCaptain.name=布拉佛斯领主
 entity.got.BraavosGoldsmith.name=布拉佛斯金匠
 entity.got.BraavosLevyman.name=布拉佛斯民兵
 entity.got.BraavosLevymanArcher.name=布拉佛斯民兵弓箭手
@@ -212,8 +212,8 @@ entity.got.DorneSoldier.name=多恩武装战士
 entity.got.DorneSoldierArcher.name=多恩武装弓箭手
 entity.got.Dothraki.name=多斯拉克人
 entity.got.DothrakiArcher.name=多斯拉克弓箭手
-entity.got.DothrakiKhal.name=多斯拉克卡奥
-entity.got.DothrakiKhalin.name=多希卡林
+entity.got.DothrakiChieftain.name=多斯拉克卡奥
+entity.got.DothrakiShaman.name=多希卡林
 entity.got.Dragon.name=龙
 entity.got.DragonstoneBaker.name=龙石岛烘焙师
 entity.got.DragonstoneBannerBearer.name=龙石岛旗手
@@ -257,15 +257,15 @@ entity.got.Gemsbok.name=大羚羊
 entity.got.GendryBaratheon.name=詹德利·拜拉席恩
 entity.got.GeroldDayne.name=杰洛·戴恩
 entity.got.GeroldGrafton.name=杰洛·格拉夫森
-entity.got.GhiscarAdmiral.name=吉斯卡海军上将
+entity.got.GhiscarCaptain.name=吉斯卡海军上将
 entity.got.GhiscarBaker.name=吉斯卡烘焙师
 entity.got.GhiscarBannerBearer.name=吉斯卡旗手
 entity.got.GhiscarBartender.name=吉斯卡酒保
 entity.got.GhiscarBlacksmith.name=吉斯卡铁匠
 entity.got.GhiscarBrewer.name=吉斯卡酒商
 entity.got.GhiscarButcher.name=吉斯卡肉贩
-entity.got.GhiscarCorsair.name=吉斯卡海盗
-entity.got.GhiscarCorsairArcher.name=吉斯卡海盗弓箭手
+entity.got.GhiscarSoldier.name=吉斯卡海盗
+entity.got.GhiscarSoldierArcher.name=吉斯卡海盗弓箭手
 entity.got.GhiscarFishmonger.name=吉斯卡鱼贩
 entity.got.GhiscarFlorist.name=吉斯卡花贩
 entity.got.GhiscarGladiator.name=吉斯卡角斗士
@@ -314,7 +314,7 @@ entity.got.HillmanAxeThrower.name=高山氏族部落投斧手
 entity.got.HillmanBannerBearer.name=高山氏族部落旗手
 entity.got.HillmanBartender.name=高山氏族部落酒保
 entity.got.HillmanBerserker.name=高山氏族部落狂战士
-entity.got.HillmanWarlord.name=高山氏族部落首领
+entity.got.HillmanChieftain.name=高山氏族部落首领
 entity.got.HillmanWarrior.name=高山氏族部落战士
 entity.got.HizdahrZoLoraq.name=西茨达拉·佐·洛拉克
 entity.got.Hodor.name=阿多
@@ -342,7 +342,7 @@ entity.got.IbbenMan.name=伊班人
 entity.got.IbbenMason.name=伊班工匠
 entity.got.IbbenMiner.name=伊班矿工
 entity.got.IbbenStablemaster.name=伊班马夫
-entity.got.IbbenWarlord.name=伊班守卫队长
+entity.got.IbbenCaptain.name=伊班守卫队长
 entity.got.IbbenWarrior.name=伊班战士
 entity.got.IceSpider.name=冰蜘蛛
 entity.got.Ifekevron.name=伊佛维隆人
@@ -379,7 +379,7 @@ entity.got.JoffreyBaratheon.name=乔佛里·拜拉席恩
 entity.got.Jogos.name=鸠格斯奈人
 entity.got.JogosArcher.name=鸠格斯奈射手
 entity.got.JogosBannerBearer.name=鸠格斯奈旗手
-entity.got.JogosChief.name=鸠格斯奈头颅
+entity.got.JogosChieftain.name=鸠格斯奈头颅
 entity.got.JogosShaman.name=鸠格斯奈萨满
 entity.got.JohnUmber.name=琼恩·安柏
 entity.got.JonConnington.name=琼恩·克林顿
@@ -410,7 +410,7 @@ entity.got.LhazarLumberman.name=拉札伐木工
 entity.got.LhazarMan.name=拉札人
 entity.got.LhazarMason.name=拉札石工
 entity.got.LhazarMiner.name=拉札矿工
-entity.got.LhazarWarlord.name=拉闸军阀
+entity.got.LhazarCaptain.name=拉闸军阀
 entity.got.LhazarSoldier.name=拉札战士
 entity.got.LightSkinBandit.name=强盗
 entity.got.LightSkinThief.name=盗贼
@@ -431,7 +431,7 @@ entity.got.LorathFarmer.name=罗拉斯农场主
 entity.got.LorathFarmhand.name=罗拉斯农工
 entity.got.LorathFishmonger.name=罗拉斯鱼贩
 entity.got.LorathFlorist.name=罗拉斯花贩
-entity.got.LorathGeneral.name=罗拉斯领主
+entity.got.LorathCaptain.name=罗拉斯领主
 entity.got.LorathGoldsmith.name=罗拉斯金匠
 entity.got.LorathLevyman.name=罗拉斯民兵
 entity.got.LorathLevymanArcher.name=罗拉斯民兵弓箭手
@@ -453,7 +453,7 @@ entity.got.LysBrewer.name=里斯酒商
 entity.got.LysButcher.name=里斯肉贩
 entity.got.LysFishmonger.name=里斯鱼贩
 entity.got.LysFlorist.name=里斯花贩
-entity.got.LysGeneral.name=里斯领主
+entity.got.LysCaptain.name=里斯领主
 entity.got.LysGoldsmith.name=里斯金匠
 entity.got.LysLevyman.name=里斯民兵
 entity.got.LysLevymanArcher.name=里斯民兵弓箭手
@@ -501,7 +501,7 @@ entity.got.MyrBrewer.name=密尔酒商
 entity.got.MyrButcher.name=密尔肉贩
 entity.got.MyrFishmonger.name=密尔鱼贩
 entity.got.MyrFlorist.name=密尔花贩
-entity.got.MyrGeneral.name=密尔领主
+entity.got.MyrCaptain.name=密尔领主
 entity.got.MyrGoldsmith.name=密尔金匠
 entity.got.MyrLevyman.name=密尔民兵
 entity.got.MyrLevymanArcher.name=密尔民兵弓箭手
@@ -535,7 +535,7 @@ entity.got.NorthHillmanArcher.name=北境山区民弓箭手
 entity.got.NorthHillmanAxeThrower.name=北境山区民掷斧者
 entity.got.NorthHillmanBannerBearer.name=北境山区民旗手
 entity.got.NorthHillmanCannibal.name=北境山区民嗜血者
-entity.got.NorthHillmanWarlord.name=北境山区民头领
+entity.got.NorthHillmanChieftain.name=北境山区民头领
 entity.got.NorthHillmanMercenary.name=北境山区民佣兵
 entity.got.NorthHillmanWarrior.name=北境山区民战士
 entity.got.NorthLevyman.name=北境民兵
@@ -558,7 +558,7 @@ entity.got.NorvosFishmonger.name=诺佛斯鱼贩
 entity.got.NorvosFlorist.name=诺佛斯花贩
 entity.got.NorvosGoldsmith.name=诺佛斯金匠
 entity.got.NorvosGuard.name=诺佛斯守卫
-entity.got.NorvosGuardCaptain.name=诺佛斯守卫队长
+entity.got.NorvosCaptain.name=诺佛斯守卫队长
 entity.got.NorvosLevyman.name=诺佛斯战士
 entity.got.NorvosLevymanArcher.name=诺佛斯弓箭手
 entity.got.NorvosLumberman.name=诺佛斯木材商
@@ -583,7 +583,7 @@ entity.got.PentosFishmonger.name=潘托斯鱼贩
 entity.got.PentosFlorist.name=潘托斯花贩
 entity.got.PentosGoldsmith.name=潘托斯金匠
 entity.got.PentosGuard.name=潘托斯守卫
-entity.got.PentosGuardCaptain.name=潘托斯守卫队长
+entity.got.PentosCaptain.name=潘托斯守卫队长
 entity.got.PentosLevyman.name=潘托斯民兵
 entity.got.PentosLevymanArcher.name=潘托斯民兵弓箭手
 entity.got.PentosLumberman.name=潘托斯木材商
@@ -610,7 +610,7 @@ entity.got.QarthFishmonger.name=魁尔斯鱼贩
 entity.got.QarthFlorist.name=魁尔斯花贩
 entity.got.QarthGoldsmith.name=魁尔斯金匠
 entity.got.QarthGuard.name=魁尔斯守护者
-entity.got.QarthGuardCaptain.name=魁尔斯警卫队长
+entity.got.QarthCaptain.name=魁尔斯警卫队长
 entity.got.QarthLevyman.name=魁尔斯民兵
 entity.got.QarthLevymanArcher.name=魁尔斯民兵弓箭手
 entity.got.QarthLumberman.name=魁尔斯木材商
@@ -630,7 +630,7 @@ entity.got.QohorFishmonger.name=科霍尔鱼贩
 entity.got.QohorFlorist.name=科霍尔花贩
 entity.got.QohorGoldsmith.name=科霍尔金匠
 entity.got.QohorGuard.name=科霍尔守卫
-entity.got.QohorGuardCaptain.name=科霍尔守卫队长
+entity.got.QohorCaptain.name=科霍尔守卫队长
 entity.got.QohorLevyman.name=科霍尔民兵
 entity.got.QohorLevymanArcher.name=科霍尔民兵弓箭手
 entity.got.QohorLumberman.name=科霍尔木材商
@@ -764,7 +764,7 @@ entity.got.SummerLumberman.name=盛夏群岛木材商
 entity.got.SummerMan.name=盛夏群岛人
 entity.got.SummerMason.name=盛夏群岛石匠
 entity.got.SummerMiner.name=盛夏群岛矿工
-entity.got.SummerWarlord.name=盛夏群岛领主
+entity.got.SummerCaptain.name=盛夏群岛领主
 entity.got.SummerWarrior.name=盛夏群岛战士
 entity.got.Swan.name=天鹅
 entity.got.SymondTempleton.name=赛蒙·坦帕顿
@@ -775,7 +775,7 @@ entity.got.ThennAxeThrower.name=瑟恩掷斧者
 entity.got.ThennBannerBearer.name=瑟恩旗手
 entity.got.ThennWarrior.name=瑟恩狂战士
 entity.got.ThennBlacksmith.name=瑟恩铁匠
-entity.got.ThennMagnar.name=马格纳
+entity.got.ThennChieftain.name=马格纳
 entity.got.TheonGreyjoyNormal.name=席恩·葛雷乔伊
 entity.got.TheonGreyjoyTormented.name=席恩·葛雷乔伊
 entity.got.Thoros.name=索罗斯
@@ -799,7 +799,7 @@ entity.got.TyroshBrewer.name=泰洛西酒商
 entity.got.TyroshButcher.name=泰洛西肉贩
 entity.got.TyroshFishmonger.name=泰洛西鱼贩
 entity.got.TyroshFlorist.name=泰洛西花贩
-entity.got.TyroshGeneral.name=泰洛西领主
+entity.got.TyroshCaptain.name=泰洛西领主
 entity.got.TyroshGoldsmith.name=泰洛西金匠
 entity.got.TyroshLevyman.name=泰洛西民兵
 entity.got.TyroshLevymanArcher.name=泰洛西民兵弓箭手
@@ -826,7 +826,7 @@ entity.got.VolantisBrewer.name=瓦兰提斯酒商
 entity.got.VolantisButcher.name=瓦兰提斯肉贩
 entity.got.VolantisFishmonger.name=瓦兰提斯鱼贩
 entity.got.VolantisFlorist.name=瓦兰提斯花贩
-entity.got.VolantisGeneral.name=瓦兰提斯领主
+entity.got.VolantisCaptain.name=瓦兰提斯领主
 entity.got.VolantisGoldsmith.name=瓦兰提斯金匠
 entity.got.VolantisLevyman.name=瓦兰提斯民兵
 entity.got.VolantisLevymanArcher.name=瓦兰提斯民兵弓箭手
@@ -903,7 +903,7 @@ entity.got.YiTiMan.name=夷地人
 entity.got.YiTiMason.name=夷地石匠
 entity.got.YiTiMiner.name=夷地矿工
 entity.got.YiTiSamurai.name=夷地武士
-entity.got.YiTiShogune.name=夷地将领
+entity.got.YiTiCaptain.name=夷地将领
 entity.got.YiTiSoldier.name=夷地士兵
 entity.got.YiTiSoldierCrossbower.name=夷地武装弩手
 entity.got.YohnRoyce.name=约恩·罗伊斯
@@ -1556,7 +1556,7 @@ got.biome.dorneForest.name=多恩的森林
 got.biome.dorneMesa.name=红色高原
 got.biome.dorneMountains.name=赤红山脉
 got.biome.dorneValley.name=多恩谷
-got.biome.doshKhalin.name=圣母山
+got.biome.doshShaman.name=圣母山
 got.biome.dothrakiSea.name=多斯拉克海
 got.biome.dothrakiSeaForest.name=多斯拉克海的森林
 got.biome.dothrakiSeaHills.name=多斯拉克海的山
@@ -2914,8 +2914,8 @@ got.structure.DorneTavern.name≠Tavern of Dorne
 got.structure.DorneTower.name≠Tower of Dorne
 got.structure.DorneWatchfort.name≠Watchfort of Dorne
 got.structure.DorneWatchtower.name≠Watchtower of Dorne
-got.structure.DothrakiKhalTent.name≠Dothraki Khal's Tent
-got.structure.DothrakiKhalinTent.name≠Dothraki Khalin's Tent
+got.structure.DothrakiChieftainTent.name≠Dothraki Khal's Tent
+got.structure.DothrakiShamanTent.name≠Dothraki Khalin's Tent
 got.structure.DothrakiSettle.name≠Dothraki Camp
 got.structure.DothrakiSettleLarge.name≠Dothraki Village
 got.structure.DothrakiTent.name≠Dothraki Tent
@@ -2987,7 +2987,7 @@ got.structure.IronbornTavern.name≠Tavern of Iron Islands
 got.structure.IronbornTower.name≠Tower of Iron Islands
 got.structure.IronbornWatchfort.name≠Watchfort of Iron Islands
 got.structure.IronbornWatchtower.name≠Watchtower of Iron Islands
-got.structure.JogosChiefTent.name≠Chieftain's Tent of Jogos Nhai
+got.structure.JogosChieftainTent.name≠Chieftain's Tent of Jogos Nhai
 got.structure.JogosSettle.name≠Camp of Jogos Nhai
 got.structure.JogosSettleLarge.name≠Village of Jogos Nhai
 got.structure.JogosShamanTent.name≠Shaman's Tent of Jogos Nhai
@@ -3057,7 +3057,7 @@ got.structure.MyrTraining.name≠Training of Myr
 got.structure.NorthBarn.name≠Barn of North
 got.structure.NorthBath.name≠Bath of North
 got.structure.NorthFortress.name≠Fortress of North
-got.structure.NorthHillmanWarlordHouse.name≠North Hillmen Chieftain's House
+got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
 got.structure.NorthHillmanHouse.name≠North Hillmen House
 got.structure.NorthHillmanSettle.name≠North Hillmen Village
 got.structure.NorthHouse.name≠House of North
@@ -3196,7 +3196,7 @@ got.structure.SummerTavernRuined.name≠Ruined Tavern of Summer Islands
 got.structure.SummerTower.name≠Tower of Summer Islands
 got.structure.ThennCamp.name≠Thenn Camp
 got.structure.ThennHouse.name≠Thenn House
-got.structure.ThennMagnarHouse.name≠Thenn Magnar's House
+got.structure.ThennChieftainHouse.name≠Thenn Magnar's House
 got.structure.ThennSettle.name≠Thenn Village
 got.structure.TyroshBarracks.name≠Barracks of Tyrosh
 got.structure.TyroshBazaar.name≠Bazaar of Tyrosh
@@ -5200,7 +5200,7 @@ item.got:coin.64.name=铜星
 item.got:coin.nominal.name=面值
 item.got:command_horn.name=命令号角
 item.got:command_sword.name=命令之剑
-item.got:conquest_horn.name=战争号角
+item.got:warhorn.name=战争号角
 item.got:copper_ingot.name=铜锭
 item.got:copper_nugget.name=铜粒
 item.got:copper_ring.name=铜环

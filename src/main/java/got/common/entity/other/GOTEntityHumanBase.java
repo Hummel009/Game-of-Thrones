@@ -73,7 +73,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 	}
 
 	protected EntityAIBase getAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
+		return familyInfo.isChild() ? new EntityAIPanic(this, 1.4) : new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
 	@Override

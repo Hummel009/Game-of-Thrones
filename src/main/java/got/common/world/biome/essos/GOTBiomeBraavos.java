@@ -55,7 +55,7 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);

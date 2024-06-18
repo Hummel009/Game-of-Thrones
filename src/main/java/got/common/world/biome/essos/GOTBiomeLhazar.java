@@ -16,13 +16,13 @@ import java.util.Collection;
 public class GOTBiomeLhazar extends GOTBiomeEssosPlains {
 	public GOTBiomeLhazar(int i, boolean major) {
 		super(i, major);
+		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.COMMON);
 		decorator.addSettlement(new GOTStructureLhazarSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.COMMON);
 	}
 
 	@Override

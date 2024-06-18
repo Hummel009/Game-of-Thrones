@@ -4,8 +4,8 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
-import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -67,13 +67,13 @@ public class GOTStructureSummerTower extends GOTStructureSummerBase {
 		placeChest(world, random, -2, 11, 2, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
 		int warriors = 1 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityNPC warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
+			GOTEntityNPC warrior = random.nextInt(3) == 0 ? new GOTEntitySummerSoldierArcher(world) : new GOTEntitySummerSoldier(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 13, 0, 8);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass1(GOTEntitySummerWarrior.class);
-		respawner.setSpawnClass2(GOTEntitySummerArcher.class);
+		respawner.setSpawnClass1(GOTEntitySummerSoldier.class);
+		respawner.setSpawnClass2(GOTEntitySummerSoldierArcher.class);
 		respawner.setCheckRanges(6, -16, 4, 4);
 		respawner.setSpawnRanges(2, -1, 1, 8);
 		placeNPCRespawner(respawner, world, 0, 13, 0);

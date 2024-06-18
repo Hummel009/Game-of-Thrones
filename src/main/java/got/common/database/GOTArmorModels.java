@@ -229,7 +229,6 @@ public class GOTArmorModels {
 			map.put(GOTItems.blackfyreHelmet, new GOTModelWingedHelmet(1.0f));
 			map.put(GOTItems.braavosHelmet, new GOTModelBraavosHelmet(1.0f));
 			map.put(GOTItems.ceramicPlate, new GOTModelPlateHead());
-			map.put(GOTItems.ghiscarHelmetGemsbok, new GOTModelGemsbokHelmet(1.0f));
 			map.put(GOTItems.harpy, new GOTModelHarpy(1.0f));
 			map.put(GOTItems.gendryHelmet, new GOTModelHarpy(1.0f));
 			map.put(GOTItems.renlyHelmet, new GOTModelDeerHelmet(1.0f));
@@ -245,8 +244,6 @@ public class GOTArmorModels {
 			map.put(GOTItems.robesHelmet, new GOTModelTurban(0.0f));
 			map.put(GOTItems.robesLeggings, new GOTModelRobes(0.5f));
 			map.put(GOTItems.royceHelmet, new GOTModelRoyceHelmet(1.0f));
-			map.put(GOTItems.sothoryosHelmetChieftain, new GOTModelDeerHelmet(1.0f));
-			map.put(GOTItems.sothoryosHelmetGold, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTItems.summerChestplate, new GOTModelSummerChestplate(1.0f));
 			map.put(GOTItems.hillmenHelmet, new GOTModelWingedHelmet(1.0f));
 			map.put(GOTItems.unsulliedHelmet, new GOTModelUnsulliedHelmet(1.0f));

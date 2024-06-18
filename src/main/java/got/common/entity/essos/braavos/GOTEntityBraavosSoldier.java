@@ -19,6 +19,11 @@ public class GOTEntityBraavosSoldier extends GOTEntityBraavosMan {
 	}
 
 	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
@@ -30,5 +35,10 @@ public class GOTEntityBraavosSoldier extends GOTEntityBraavosMan {
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.braavosHelmet));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

@@ -18,7 +18,7 @@ import got.common.entity.essos.ghiscar.GOTEntityGhiscarSlave;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarUnsullied;
 import got.common.entity.essos.gold.GOTEntityGoldenCompanyMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
-import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldier;
 import got.common.entity.essos.jogos.GOTEntityJogos;
 import got.common.entity.essos.legendary.GOTEntityMissandei;
 import got.common.entity.essos.legendary.boss.GOTEntityAsshaiArchmag;
@@ -134,7 +134,7 @@ public class GOTRender {
 		RENDERS.put(GOTEntityGiftMan.class, new GOTRenderFactionNPC("westeros/gift"));
 		RENDERS.put(GOTEntityGoldenCompanyMan.class, new GOTRenderFactionNPC("essos/free"));
 		RENDERS.put(GOTEntityHillmanWarrior.class, new GOTRenderFactionNPC("westeros/wild"));
-		RENDERS.put(GOTEntityIbbenWarrior.class, new GOTRenderFactionNPC("essos/ibben"));
+		RENDERS.put(GOTEntityIbbenSoldier.class, new GOTRenderFactionNPC("essos/ibben"));
 		RENDERS.put(GOTEntityIronbornMan.class, new GOTRenderFactionNPC("westeros/ironborn"));
 		RENDERS.put(GOTEntityJogos.class, new GOTRenderFactionNPC("essos/jogos"));
 		RENDERS.put(GOTEntityLhazarMan.class, new GOTRenderFactionNPC("essos/nomad"));

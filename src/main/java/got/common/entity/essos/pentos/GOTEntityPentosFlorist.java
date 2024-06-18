@@ -1,15 +1,28 @@
 package got.common.entity.essos.pentos;
 
-import got.common.database.GOTBlocks;
 import got.common.database.GOTTradeEntries;
+import got.common.entity.other.iface.GOTTradeable;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityPentosFlorist extends GOTEntityPentosTrader {
+public class GOTEntityPentosFlorist extends GOTEntityPentosMan implements GOTTradeable {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosFlorist(World world) {
 		super(world);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityplayer) {
+		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -25,7 +38,11 @@ public class GOTEntityPentosFlorist extends GOTEntityPentosTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.essosFlower, 1, rand.nextInt(4)));
+
+		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower));
+
+		GOTEntityUtils.setupTurban(this, rand);
+
 		return entityData;
 	}
 }

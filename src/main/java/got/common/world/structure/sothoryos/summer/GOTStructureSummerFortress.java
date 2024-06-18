@@ -7,9 +7,9 @@ import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
-import got.common.entity.sothoryos.summer.GOTEntitySummerWarlord;
-import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
+import got.common.entity.sothoryos.summer.GOTEntitySummerCaptain;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -128,12 +128,12 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 		placeWallBanner(world, 3, 4, -13, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, 0, 6, 8, GOTItemBanner.BannerType.SUMMER, 2);
 		setBlockAndMetadata(world, 7, 1, 5, GOTBlocks.commandTable, 0);
-		GOTEntityNPC warlord = new GOTEntitySummerWarlord(world);
+		GOTEntityNPC warlord = new GOTEntitySummerCaptain(world);
 		warlord.setSpawnRidingHorse(false);
 		spawnNPCAndSetHome(warlord, world, 0, 3, 7, 4);
 		int warriors = 4 + random.nextInt(4);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityNPC warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);
+			GOTEntityNPC warrior = random.nextInt(3) == 0 ? new GOTEntitySummerSoldierArcher(world) : new GOTEntitySummerSoldier(world);
 			warrior.setSpawnRidingHorse(false);
 			spawnNPCAndSetHome(warrior, world, 0, 1, 0, 16);
 		}
@@ -148,8 +148,8 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 			leashEntityTo(horse, world, i13, j1, k1);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass1(GOTEntitySummerWarrior.class);
-		respawner.setSpawnClass2(GOTEntitySummerArcher.class);
+		respawner.setSpawnClass1(GOTEntitySummerSoldier.class);
+		respawner.setSpawnClass2(GOTEntitySummerSoldierArcher.class);
 		respawner.setCheckRanges(16, -8, 12, 12);
 		respawner.setSpawnRanges(8, -2, 2, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

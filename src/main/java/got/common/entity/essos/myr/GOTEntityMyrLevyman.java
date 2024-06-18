@@ -1,14 +1,11 @@
 package got.common.entity.essos.myr;
 
-import got.common.database.GOTItems;
 import got.common.entity.other.utils.GOTEntityUtils;
+import got.common.entity.other.utils.GOTWeaponSetFactory;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityMyrLevyman extends GOTEntityMyrMan {
-	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMyrLevyman(World world) {
 		super(world);
@@ -23,14 +20,10 @@ public class GOTEntityMyrLevyman extends GOTEntityMyrMan {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(WEAPONS.length);
-		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
-		if (rand.nextInt(5) == 0) {
-			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSpear));
-		}
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
 		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
+
 		return entityData;
 	}
 
