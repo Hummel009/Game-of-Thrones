@@ -1,40 +1,4 @@
 ﻿
-tile.got:concrete.0.name≠White Concrete
-tile.got:concrete.1.name≠Orange Concrete
-tile.got:concrete.10.name≠Purple Concrete
-tile.got:concrete.11.name≠Blue Concrete
-tile.got:concrete.12.name≠Brown Concrete
-tile.got:concrete.13.name≠Green Concrete
-tile.got:concrete.14.name≠Red Concrete
-tile.got:concrete.15.name≠Black Concrete
-tile.got:concrete.2.name≠Magenta Concrete
-tile.got:concrete.3.name≠Light Blue Concrete
-entity.got.LhazarFlorist.name=Florist of Lhazar
-tile.got:concrete.4.name≠Yellow Concrete
-entity.got.LhazarLevyman.name=Levyman of Lhazar
-entity.got.LhazarLevymanArcher.name=Levyman Archer of Lhazar
-tile.got:concrete.5.name≠Lime Concrete
-entity.got.LhazarFarmhand.name=Lhazar Farmhand
-tile.got:concrete.6.name≠Pink Concrete
-tile.got:concrete.7.name≠Gray Concrete
-tile.got:concrete.8.name≠Light Gray Concrete
-tile.got:concrete.9.name≠Cyan Concrete
-tile.got:concrete_powder.0.name≠White Concrete Powder
-tile.got:concrete_powder.1.name≠Orange Concrete Powder
-tile.got:concrete_powder.10.name≠Purple Concrete Powder
-tile.got:concrete_powder.11.name≠Blue Concrete Powder
-tile.got:concrete_powder.12.name≠Brown Concrete Powder
-tile.got:concrete_powder.13.name≠Green Concrete Powder
-tile.got:concrete_powder.14.name≠Red Concrete Powder
-tile.got:concrete_powder.15.name≠Black Concrete Powder
-tile.got:concrete_powder.2.name≠Magenta Concrete Powder
-tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
-tile.got:concrete_powder.4.name≠Yellow Concrete Powder
-tile.got:concrete_powder.5.name≠Lime Concrete Powder
-tile.got:concrete_powder.6.name≠Pink Concrete Powder
-tile.got:concrete_powder.7.name≠Gray Concrete Powder
-tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
-tile.got:concrete_powder.9.name≠Cyan Concrete Powder
 attribute.name.generic.movementSpeedAir=Vitesse (Air)
 death.attack.got.frost=%1$s a succombé au froid
 death.attack.got.plantHurt=%1$s a été tué(e) par une plante
@@ -44,64 +8,64 @@ dragon.lifeStage.adult=Adulte
 dragon.lifeStage.egg=Œuf
 dragon.lifeStage.hatchling=Enfant
 dragon.lifeStage.juvenile=Jeune
-dragon.mountNotice≠%s — fly up; %s — fly down; %s — dracarys
+dragon.mountNotice≠%s - fly up; %s - fly down; %s - dracarys
 dragon.owned=Ce n'est pas votre dragon.
 entity.got.AddamMarbrand.name=Addam Marbrand
 entity.got.AemonTargaryen.name=Aemon Targaryen
-entity.got.AeronGreyjoy.name≠Aeron Greyjoy
+entity.got.AeronGreyjoy.name=Aeron Greyjoy
 entity.got.AlliserThorne.name=Alliser Thorne
-entity.got.AmoryLorch.name≠Amory Lorch
+entity.got.AmoryLorch.name=Amory Lorch
 entity.got.AndersYronwood.name=Anders Yronwood
-entity.got.AndrikTheUnsmilling.name≠Andrik The Unsmilling
-entity.got.AnyaWaynwood.name≠Anya Waynwood
+entity.got.AndrikTheUnsmilling.name=Andrik The Unsmilling
+entity.got.AnyaWaynwood.name=Anya Waynwood
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
-entity.got.AreoHotah.name≠Areo Hotah
-entity.got.ArianneMartell.name≠Arianne Martell
-entity.got.ArrowFire.name=Flèche enflammée
-entity.got.ArrowPoisoned.name=Flèche empoisonée
-entity.got.ArrynBaker.name=Boulanger du Val d'Arryn
-entity.got.ArrynBannerBearer.name=Porte-bannière du Val d'Arryn
-entity.got.ArrynBartender.name=Barman du Val d'Arryn
-entity.got.ArrynBlacksmith.name=Forgeron du Val d'Arryn
-entity.got.ArrynBrewer.name=Brasseur du Val d'Arryn
-entity.got.ArrynButcher.name=Boucher du Val d'Arryn
-entity.got.ArrynCaptain.name=Capitaine du Val d'Arryn
-entity.got.ArrynFarmer.name=Fermier du Val d'Arryn
-entity.got.ArrynFarmhand.name=Artisan du Val d'Arryn
-entity.got.ArrynFishmonger.name=Poissonnier du Val d'Arryn
-entity.got.ArrynFlorist.name=Fleuriste du Val d'Arryn
-entity.got.ArrynGoldsmith.name=Orfèvreduf Val d'Arryn
-entity.got.ArrynGuard.name=Gardien du Val d'Arryn
-entity.got.ArrynLevyman.name=Milicien du Val d'Arryn
-entity.got.ArrynLevymanArcher.name=Archer Milicien du Val d'Arryn
-entity.got.ArrynLumberman.name=Bûcheron du Val d'Arryn
-entity.got.ArrynMan.name=Civil du Val d'Arryn
-entity.got.ArrynMason.name=Maçon du Val d'Arryn
-entity.got.ArrynMiner.name=Marchand de légumes du Val d'Arryn
-entity.got.ArrynSoldier.name=Guerrier du Val d'Arryn
-entity.got.ArrynSoldierArcher.name=Archer du Val d'Arryn
+entity.got.AreoHotah.name=Areo Hotah
+entity.got.ArianneMartell.name=Arianne Martell
+entity.got.ArrowFire.name=Fire Arrow
+entity.got.ArrowPoisoned.name=Poisoned Arrow
+entity.got.ArrynBaker.name=Arryn Vale Baker
+entity.got.ArrynBannerBearer.name=Arryn Vale Banner Bearer
+entity.got.ArrynBartender.name=Arryn Vale Bartender
+entity.got.ArrynBlacksmith.name=Arryn Vale Smith
+entity.got.ArrynBrewer.name=Arryn Vale Brewer
+entity.got.ArrynButcher.name=Arryn Vale Butcher
+entity.got.ArrynCaptain.name=Arryn Vale Captain
+entity.got.ArrynFarmer.name=Arryn Vale Farmer
+entity.got.ArrynFarmhand.name=Arryn Vale Farmhand
+entity.got.ArrynFishmonger.name=Arryn Vale Fishmonger
+entity.got.ArrynFlorist.name=Arryn Vale Florist
+entity.got.ArrynGoldsmith.name=Arryn Vale Goldsmith
+entity.got.ArrynGuard.name=Gulltown Guardian
+entity.got.ArrynLevyman.name=Arryn Vale Levyman
+entity.got.ArrynLevymanArcher.name=Arryn Vale Levyman Archer
+entity.got.ArrynLumberman.name=Arryn Vale Lumberman
+entity.got.ArrynMan.name=Arryn Vale Man
+entity.got.ArrynMason.name=Arryn Vale Mason
+entity.got.ArrynMiner.name=Arryn Vale Miner
+entity.got.ArrynSoldier.name=Arryn Vale Warrior
+entity.got.ArrynSoldierArcher.name=Arryn Vale Warrior Archer
 entity.got.AryaStark.name=Arya Stark
-entity.got.AsshaiAlchemist.name=Alchimiste d'Asshai
-entity.got.AsshaiArchmag.name=Archma d'Asshaï
-entity.got.AsshaiBannerBearer.name=Porte-bannière d'Asshai
-entity.got.AsshaiCaptain.name=Capitaine de garde d'Asshai
-entity.got.AsshaiMan.name=Civile d'Asshai
-entity.got.AsshaiShadowbinder.name=Lieur des ombres d'Asshaï
-entity.got.AsshaiSpherebinder.name=Spherebinder d'Asshai
-entity.got.AsshaiWarrior.name=Garde d'Asshaï
-entity.got.AuraneWaters.name=Eaux Aurane
-entity.got.BaelorBlacktyde.name≠Baelor Blacktyde
+entity.got.AsshaiAlchemist.name=Asshai Alchemist
+entity.got.AsshaiArchmag.name=Asshai Archmah
+entity.got.AsshaiBannerBearer.name=Asshai Banner Bearer
+entity.got.AsshaiCaptain.name=Asshai Captain
+entity.got.AsshaiMan.name=Asshai Man
+entity.got.AsshaiShadowbinder.name=Asshai Shadowbinder
+entity.got.AsshaiSpherebinder.name=Asshai Spherebinder
+entity.got.AsshaiWarrior.name=Asshai Guard
+entity.got.AuraneWaters.name=Aurane Waters
+entity.got.BaelorBlacktyde.name=Baelor Blacktyde
 entity.got.BalonGreyjoy.name=Balon Greyjoy
-entity.got.Banner.name=Bannière
-entity.got.BannerWall.name=Bannière murale
-entity.got.BarbreyDustin.name≠Barbrey Dustin
-entity.got.Barrel.name=Tonneau
+entity.got.Banner.name=Banner
+entity.got.BannerWall.name=Wall Banner
+entity.got.BarbreyDustin.name=Barbrey Dustin
+entity.got.Barrel.name=Barrel
 entity.got.BarristanSelmy.name=Barristan Selmy
-entity.got.BarrowWight.name=Être des Galgals
-entity.got.Bear.name=Ours
-entity.got.BearRug.name=Peau d'ours
-entity.got.Beaver.name≠Beaver
-entity.got.BenedarBelmore.name≠Benedar Belmore
+entity.got.BarrowWight.name=Shadow
+entity.got.Bear.name=Bear
+entity.got.BearRug.name=Bear Rug
+entity.got.Beaver.name=Beaver
+entity.got.BenedarBelmore.name=Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
 entity.got.BericDondarrionLife1.name=Beric Dondarrion
@@ -110,806 +74,810 @@ entity.got.BericDondarrionLife3.name=Beric Dondarrion
 entity.got.BericDondarrionLife4.name=Beric Dondarrion
 entity.got.BericDondarrionLife5.name=Beric Dondarrion
 entity.got.BericDondarrionLife6.name=Beric Dondarrion
-entity.got.Bird.name=Oiseau
+entity.got.Bird.name=Bird
 entity.got.Bison.name=Bison
-entity.got.BlackWalderFrey.name≠Black Walder Frey
-entity.got.Blizzard.name≠Blizzard
-entity.got.Boar.name=Sanglier
-entity.got.Bomb.name=Bombe
-entity.got.BraavosBaker.name=Boulanger de Braavos
-entity.got.BraavosBannerBearer.name=Porte-bannière de Braavos
-entity.got.BraavosBartender.name=Barman de Braavos
-entity.got.BraavosBlacksmith.name=Forgeron de Braavos
-entity.got.BraavosBrewer.name=Brasseur de Braavos
-entity.got.BraavosButcher.name=Boucher de Braavos
-entity.got.BraavosFarmer.name=Fermier de Braavos
-entity.got.BraavosFarmhand.name=Agriculteur de Braavos
-entity.got.BraavosFishmonger.name=Poissonnier de Braavos
-entity.got.BraavosFlorist.name=Fleuriste de Braavos
-entity.got.BraavosCaptain.name=Général de Braavos
-entity.got.BraavosGoldsmith.name=Orfèvre de Braavos
-entity.got.BraavosLevyman.name=Conscrit de Braavos
-entity.got.BraavosLevymanArcher.name=Conscrit Archer of Braavos
-entity.got.BraavosLumberman.name=Bûcheron de Braavos
-entity.got.BraavosMan.name=Civile de Braavos
-entity.got.BraavosMason.name=Maçon de Braavos
-entity.got.BraavosMiner.name=Mineur de Braavos
-entity.got.BraavosSoldier.name=Soldat de Braavos
-entity.got.BraavosSoldierArcher.name=Archer of Braavos
-entity.got.BranStark.name≠Bran Stark
+entity.got.BlackWalderFrey.name=Black Walder Frey
+entity.got.Blizzard.name=Blizzard
+entity.got.Boar.name=Boar
+entity.got.Bomb.name=Bomb
+entity.got.BraavosBaker.name=Braavos Baker
+entity.got.BraavosBannerBearer.name=Braavos Banner Bearer
+entity.got.BraavosBartender.name=Braavos Bartender
+entity.got.BraavosBlacksmith.name=Braavos Blacksmith
+entity.got.BraavosBrewer.name=Braavos Brewer
+entity.got.BraavosButcher.name=Braavos Butcher
+entity.got.BraavosCaptain.name=Braavos Captain
+entity.got.BraavosFarmer.name=Braavos Farmer
+entity.got.BraavosFarmhand.name=Braavos Farmhand
+entity.got.BraavosFishmonger.name=Braavos Fishmonger
+entity.got.BraavosFlorist.name=Braavos Florist
+entity.got.BraavosGoldsmith.name=Braavos Goldsmith
+entity.got.BraavosLevyman.name=Braavos Levyman
+entity.got.BraavosLevymanArcher.name=Braavos Levyman Archer
+entity.got.BraavosLumberman.name=Braavos Lumberman
+entity.got.BraavosMan.name=Braavos Man
+entity.got.BraavosMason.name=Braavos Mason
+entity.got.BraavosMiner.name=Braavos Miner
+entity.got.BraavosSoldier.name=Braavos Warrior
+entity.got.BraavosSoldierArcher.name=Braavos Warrior Archer
+entity.got.BranStark.name=Bran Stark
 entity.got.BrienneTarth.name=Brienne Tarth
 entity.got.Bronn.name=Bronn
 entity.got.BryndenTully.name=Brynden Tully
 entity.got.BuGai.name=Bu Gai
-entity.got.Butterfly.name=Papillon
-entity.got.Camel.name=Chameau
-entity.got.Cargocart.name=Chariot de transport
-entity.got.CatelynStark.name≠Catelyn Stark
+entity.got.Butterfly.name=Butterfly
+entity.got.Camel.name=Camel
+entity.got.Cargocart.name=Cargo Cart
+entity.got.CatelynStark.name=Catelyn Stark
 entity.got.CerseiLannister.name=Cersei Lannister
-entity.got.ClementPiper.name≠Clement Piper
-entity.got.CleyCerwyn.name≠Cley Cerwyn
-entity.got.Conker.name=Châtaigne
+entity.got.ClementPiper.name=Clement Piper
+entity.got.CleyCerwyn.name=Cley Cerwyn
+entity.got.Conker.name=Conker
 entity.got.CotterPyke.name=Cotter Pyke
 entity.got.Craster.name=Craster
-entity.got.CrasterWife.name=Épouse de Craster
+entity.got.CrasterWife.name=Craster's Wife
 entity.got.Crocodile.name=Crocodile
-entity.got.CrossbowBolt.name=Carreau d'arbalète
-entity.got.CrownlandsAlchemist.name=Alchimiste des Terres de la Couronne
-entity.got.CrownlandsBaker.name=Boulanger des Terres de la Couronne
-entity.got.CrownlandsBannerBearer.name=Porte-bannière des terres de la Couronne
-entity.got.CrownlandsBartender.name=Barman des Terres de la Couronne
-entity.got.CrownlandsBlacksmith.name=Forgeron des Terres de la Couronne
-entity.got.CrownlandsBrewer.name=Brasseur des Terres de la Couronne
-entity.got.CrownlandsButcher.name=Boucher des Terres de la Couronne
-entity.got.CrownlandsCaptain.name=Capitaine des Terres de la Couronne
-entity.got.CrownlandsFarmer.name=Fermier des Terres de la Couronne
-entity.got.CrownlandsFarmhand.name=Artisan des Terres de la Couronne
-entity.got.CrownlandsFishmonger.name=Poissonnier des terres de la Couronne
-entity.got.CrownlandsFlorist.name=Fleuriste des Terres de la Couronne
-entity.got.CrownlandsGoldsmith.name=Orfèvre des Terres de la Couronne
-entity.got.CrownlandsGuard.name=Gardien des Terres de la Couronne
-entity.got.CrownlandsLevyman.name=Conscrit des Terres de la Couronne
-entity.got.CrownlandsLevymanArcher.name=Archer Conscrit des Terres de la Couronne
-entity.got.CrownlandsLumberman.name=Bûcheron des Terres de la Couronne
-entity.got.CrownlandsMan.name=Civil des Terres de la Couronne
-entity.got.CrownlandsMason.name=Maçon des Terres de la Couronne
-entity.got.CrownlandsMiner.name=Mineur des Terres de la Couronne
-entity.got.DaarioNaharis.name≠Daario Naharis
+entity.got.CrossbowBolt.name=Crossbow Bolt
+entity.got.CrownlandsAlchemist.name=Crownlands Alchemist
+entity.got.CrownlandsBaker.name=Crownlands Baker
+entity.got.CrownlandsBannerBearer.name=Crownlands Banner Bearer
+entity.got.CrownlandsBartender.name=Crownlands Bartender
+entity.got.CrownlandsBlacksmith.name=Crownlands Smith
+entity.got.CrownlandsBrewer.name=Crownlands Brewer
+entity.got.CrownlandsButcher.name=Crownlands Butcher
+entity.got.CrownlandsCaptain.name=Crownlands Captain
+entity.got.CrownlandsFarmer.name=Crownlands Farmer
+entity.got.CrownlandsFarmhand.name=Crownlands Farmhand
+entity.got.CrownlandsFishmonger.name=Crownlands Fishmonger
+entity.got.CrownlandsFlorist.name=Crownlands Florist
+entity.got.CrownlandsGoldsmith.name=Crownlands Goldsmith
+entity.got.CrownlandsGuard.name=King's Landing Guardian
+entity.got.CrownlandsLevyman.name=Crownlands Levyman
+entity.got.CrownlandsLevymanArcher.name=Crownlands Levyman Archer
+entity.got.CrownlandsLumberman.name=Crownlands Lumberman
+entity.got.CrownlandsMan.name=Crownlands Man
+entity.got.CrownlandsMason.name=Crownlands Mason
+entity.got.CrownlandsMiner.name=Crownlands Miner
+entity.got.DaarioNaharis.name=Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
-entity.got.Dagmer.name≠Dagmer
-entity.got.DarkSkinBandit.name=Bandit à la peau foncée
-entity.got.DarkSkinThief.name=Voleur à la peau foncée
-entity.got.DarkSkinTramp.name=Clochard à la peau foncée
-entity.got.Dart.name=Fléchette
-entity.got.DavenLannister.name≠Daven Lannister
+entity.got.Dagmer.name=Dagmer
+entity.got.DarkSkinBandit.name=Dark-skinned Bandit
+entity.got.DarkSkinThief.name=Dark-skinned Thief
+entity.got.DarkSkinTramp.name=Dark-skinned Tramp
+entity.got.Dart.name=Dart
+entity.got.DavenLannister.name=Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
-entity.got.Deer.name=Cerf
+entity.got.Deer.name=Deer
 entity.got.DenysMallister.name=Denys Mallister
-entity.got.DesertScorpion.name=Scorpion du désert
+entity.got.DesertScorpion.name=Desert Scorpion
 entity.got.DikDik.name=Dik-dik
-entity.got.Direwolf.name=Canis dirus
+entity.got.Direwolf.name=Direwolf
 entity.got.DoranMartell.name=Doran Martell
-entity.got.DorneBaker.name=Boulanger de Dorne
-entity.got.DorneBannerBearer.name=Porte-bannière de Dorne
-entity.got.DorneBartender.name=Barman de Dorne
-entity.got.DorneBlacksmith.name=Forgeron de Dorne
-entity.got.DorneBrewer.name=Brasseur de Dorne
-entity.got.DorneButcher.name=Boucher de Dorne
-entity.got.DorneCaptain.name=Capitaine de Dorne
-entity.got.DorneFarmer.name=Fermier de Dorne
-entity.got.DorneFarmhand.name=Artisan de Dorne
-entity.got.DorneFishmonger.name=Poissonnier de Dorne
-entity.got.DorneFlorist.name=Fleuriste de Dorne
-entity.got.DorneGoldsmith.name=Orfèvre of Dorne
-entity.got.DorneLevyman.name=Conscrit de Dorne
-entity.got.DorneLevymanArcher.name=Archer Conscrit de Dorne
-entity.got.DorneLumberman.name=Bûcheron de Dorne
-entity.got.DorneMan.name=Civil de Dorne
-entity.got.DorneMason.name=Maçon de Dorne
-entity.got.DorneMiner.name=Mineur de Dorne
-entity.got.DorneSoldier.name=Soldat de Dorne
-entity.got.DorneSoldierArcher.name=Archer de Dorne
+entity.got.DorneBaker.name=Dorne Baker
+entity.got.DorneBannerBearer.name=Dorne Banner Bearer
+entity.got.DorneBartender.name=Dorne Bartender
+entity.got.DorneBlacksmith.name=Dorne Smith
+entity.got.DorneBrewer.name=Dorne Brewer
+entity.got.DorneButcher.name=Dorne Butcher
+entity.got.DorneCaptain.name=Dorne Captain
+entity.got.DorneFarmer.name=Dorne Farmer
+entity.got.DorneFarmhand.name=Dorne Farmhand
+entity.got.DorneFishmonger.name=Dorne Fishmonger
+entity.got.DorneFlorist.name=Dorne Florist
+entity.got.DorneGoldsmith.name=Dorne Goldsmith
+entity.got.DorneLevyman.name=Dorne Levyman
+entity.got.DorneLevymanArcher.name=Dorne Levyman Archer
+entity.got.DorneLumberman.name=Dorne Lumberman
+entity.got.DorneMan.name=Dorne Man
+entity.got.DorneMason.name=Dorne Mason
+entity.got.DorneMiner.name=Dorne Miner
+entity.got.DorneSoldier.name=Dorne Warrior
+entity.got.DorneSoldierArcher.name=Dorne Warrior Archer
 entity.got.Dothraki.name=Dothraki
-entity.got.DothrakiArcher.name=Archer Dothraki
-entity.got.DothrakiChieftain.name=Khal Dothraki
-entity.got.DothrakiShaman.name=Khalin Dosh
+entity.got.DothrakiArcher.name=Dothraki Archer
+entity.got.DothrakiChieftain.name=Dothraki Khal
+entity.got.DothrakiShaman.name=Dothraki Shaman
 entity.got.Dragon.name=Dragon
-entity.got.DragonstoneBaker.name=Boulanger de Peyredragon
-entity.got.DragonstoneBannerBearer.name=Porte-bannière de Peyredragon
-entity.got.DragonstoneBartender.name=Barman de Peyredragon
-entity.got.DragonstoneBlacksmith.name=Forgeron de Peyredragon
-entity.got.DragonstoneBrewer.name=Brasseur de Peyredragon
-entity.got.DragonstoneButcher.name=Boucher de Peyredragon
-entity.got.DragonstoneCaptain.name=Capitaine de Peyredragon
-entity.got.DragonstoneFarmer.name=Fermier de Peyredragon
-entity.got.DragonstoneFarmhand.name=Artisan de Peyredragon
-entity.got.DragonstoneFishmonger.name=Poissonnier de Peyredragon
-entity.got.DragonstoneFlorist.name=Fleuriste de Peyredragon
-entity.got.DragonstoneGoldsmith.name=Orfèvre of Dragonstone
-entity.got.DragonstoneLevyman.name=Milicien de Peyredragon
-entity.got.DragonstoneLevymanArcher.name=Milicien Archer de Peyredragon
-entity.got.DragonstoneLumberman.name=Bûcheron de Peyredragon
-entity.got.DragonstoneMan.name=Civil de Peyredragon
-entity.got.DragonstoneMason.name=Maçon de Peyredragon
-entity.got.DragonstoneMiner.name=Mineur Peyredragon
-entity.got.DragonstoneSoldier.name=Guerrier de Peyredragon
-entity.got.DragonstoneSoldierArcher.name=Archer de Peyredragon
+entity.got.DragonstoneBaker.name=Dragonstone Baker
+entity.got.DragonstoneBannerBearer.name=Dragonstone Banner Bearer
+entity.got.DragonstoneBartender.name=Dragonstone Bartender
+entity.got.DragonstoneBlacksmith.name=Dragonstone Smith
+entity.got.DragonstoneBrewer.name=Dragonstone Brewer
+entity.got.DragonstoneButcher.name=Dragonstone Butcher
+entity.got.DragonstoneCaptain.name=Dragonstone Captain
+entity.got.DragonstoneFarmer.name=Dragonstone Farmer
+entity.got.DragonstoneFarmhand.name=Dragonstone Farmhand
+entity.got.DragonstoneFishmonger.name=Dragonstone Fishmonger
+entity.got.DragonstoneFlorist.name=Dragonstone Florist
+entity.got.DragonstoneGoldsmith.name=Dragonstone Goldsmith
+entity.got.DragonstoneLevyman.name=Dragonstone Levyman
+entity.got.DragonstoneLevymanArcher.name=Dragonstone Levyman Archer
+entity.got.DragonstoneLumberman.name=Dragonstone Lumberman
+entity.got.DragonstoneMan.name=Dragonstone Man
+entity.got.DragonstoneMason.name=Dragonstone Mason
+entity.got.DragonstoneMiner.name=Dragonstone Miner
+entity.got.DragonstoneSoldier.name=Dragonstone Warrior
+entity.got.DragonstoneSoldierArcher.name=Dragonstone Warrior Archer
 entity.got.DunstanDrumm.name=Dunstan Drumm
 entity.got.Ebrose.name=Ebrose
-entity.got.Edd.name≠Dolorous Edd
+entity.got.Edd.name=Dolorous Edd
 entity.got.EdmureTully.name=Edmure Tully
-entity.got.EldonEstermont.name≠Eldon Estermont
-entity.got.Elephant.name=Eléphant
+entity.got.EldonEstermont.name=Eldon Estermont
+entity.got.Elephant.name=Elephant
 entity.got.EllaryaSand.name=Ellarya Sand
-entity.got.ErikIronmaker.name≠Erik Ironmaker
+entity.got.ErikIronmaker.name=Erik Ironmaker
 entity.got.EuronGreyjoy.name=Euron Greyjoy
-entity.got.FallingFireJar.name=Bocal de feu tombant
-entity.got.FallingTreasure.name=Trésor tombant
-entity.got.FirePot.name=Pot à feu
-entity.got.Fish.name=Poisson
-entity.got.FishHook.name=Crochet à poisson
-entity.got.Flamingo.name=Flamant rose
+entity.got.FallingFireJar.name=Falling Fire Jar
+entity.got.FallingTreasure.name=Falling Treasure
+entity.got.FirePot.name=Fire Pot
+entity.got.Fish.name=Fish
+entity.got.FishHook.name=Fish Hook
+entity.got.Flamingo.name=Flamingo
 entity.got.ForleyPrester.name=Forley Prester
-entity.got.FranklynFowler.name≠Franklyn Fowler
+entity.got.FranklynFowler.name=Franklyn Fowler
 entity.got.GarlanTyrell.name=Garlan Tyrell
-entity.got.Gemsbok.name=Gazelle
+entity.got.Gemsbok.name=Gemsbok
 entity.got.GendryBaratheon.name=Gendry Baratheon
 entity.got.GeroldDayne.name=Gerold Dayne
-entity.got.GeroldGrafton.name≠Gerold Grafton
-entity.got.GhiscarCaptain.name=Amiral de Ghiscar
-entity.got.GhiscarBaker.name=Boulanger de Ghiscar
-entity.got.GhiscarBannerBearer.name=Porte-bannière de Ghiscar
-entity.got.GhiscarBartender.name=Barman de Ghiscar
-entity.got.GhiscarBlacksmith.name=Forgeron de Ghiscar
-entity.got.GhiscarBrewer.name=Brasseur de Ghiscar
-entity.got.GhiscarButcher.name=Boucher de Ghiscar
-entity.got.GhiscarSoldier.name=Corsaire de Ghiscar
-entity.got.GhiscarSoldierArcher.name=Corsaire Archer de Ghiscar
-entity.got.GhiscarFishmonger.name=Poissonnier de Ghiscar
-entity.got.GhiscarFlorist.name=Fleuriste de Ghiscar
-entity.got.GhiscarGladiator.name=Gladiateur de Ghiscar
-entity.got.GhiscarGoldsmith.name=Orfèvre de Ghiscar
-entity.got.GhiscarGuard.name=Garde de Yunkai
-entity.got.GhiscarHarpy.name=Fils de la harpie de Ghiscar
-entity.got.GhiscarLevyman.name=Milicien de Ghiscar
-entity.got.GhiscarLevymanArcher.name=Milicien Archer of Ghiscar
-entity.got.GhiscarLumberman.name=Bûcheron de Ghiscar
-entity.got.GhiscarMan.name=Civil de Ghiscar
-entity.got.GhiscarMason.name=Maçon de Ghiscar
-entity.got.GhiscarMiner.name=Mineur de Ghiscar
-entity.got.GhiscarSlave.name=Esclave de Ghiscar
-entity.got.GhiscarSlaver.name=Esclavagiste de Ghiscar
-entity.got.GhiscarUnsullied.name=Immaculé de Ghiscar
-entity.got.Giant.name=Géant
-entity.got.GiftBannerBearer.name=Porte-bannière de la garde de nuit
-entity.got.GiftBlacksmith.name=Forgeron de gift
-entity.got.GiftGuard.name=Guerrier de la garde de nuit
-entity.got.GiftMan.name=Civil de gift
-entity.got.GilwoodHunter.name=Chasseur Gilwood
-entity.got.Giraffe.name=Girafe
-entity.got.GiraffeRug.name=Peau de girafe
-entity.got.GoldenCompanyBannerBearer.name=Porte-bannière de la Compagnie dorée
-entity.got.GoldenCompanyCaptain.name=Capitaine de la Compagnie dorée
-entity.got.GoldenCompanySpearman.name=Lancier de la Compagnie dorée
-entity.got.GoldenCompanyWarrior.name=Épéiste de la Compagnie dorée
-entity.got.Gorcrow.name=Corbeau noir
-entity.got.GoroldGoodbrother.name≠Gorold Goodbrother
+entity.got.GeroldGrafton.name=Gerold Grafton
+entity.got.GhiscarBaker.name=Ghiscar Baker
+entity.got.GhiscarBannerBearer.name=Ghiscar Banner Bearer
+entity.got.GhiscarBartender.name=Ghiscar Bartender
+entity.got.GhiscarBlacksmith.name=Ghiscar Blacksmith
+entity.got.GhiscarBrewer.name=Ghiscar Brewer
+entity.got.GhiscarButcher.name=Ghiscar Butcher
+entity.got.GhiscarCaptain.name=Ghiscar Captain
+entity.got.GhiscarFishmonger.name=Ghiscar Fishmonger
+entity.got.GhiscarFlorist.name=Ghiscar Florist
+entity.got.GhiscarGladiator.name=Ghiscar Gladiator
+entity.got.GhiscarGoldsmith.name=Ghiscar Goldsmith
+entity.got.GhiscarGuard.name=Yunkai Guard
+entity.got.GhiscarHarpy.name=Ghiscar Son of the Harpy
+entity.got.GhiscarLevyman.name=Ghiscar Levyman
+entity.got.GhiscarLevymanArcher.name=Ghiscar Levyman Archer
+entity.got.GhiscarLumberman.name=Ghiscar Lumberman
+entity.got.GhiscarMan.name=Ghiscar Man
+entity.got.GhiscarMason.name=Ghiscar Mason
+entity.got.GhiscarMiner.name=Ghiscar Miner
+entity.got.GhiscarSlave.name=Ghiscar Slave
+entity.got.GhiscarSlaver.name=Ghiscar Slaver
+entity.got.GhiscarSoldier.name=Ghiscar Corsair
+entity.got.GhiscarSoldierArcher.name=Ghiscar Corsair Archer
+entity.got.GhiscarUnsullied.name=Ghiscar Unsulled
+entity.got.Giant.name=Giant
+entity.got.GiftBannerBearer.name=Night's Watch Banner Bearer
+entity.got.GiftBlacksmith.name=Gift Smith
+entity.got.GiftGuard.name=Night's Watch Warrior
+entity.got.GiftMan.name=Gift Man
+entity.got.GilwoodHunter.name=Gilwood Hunter
+entity.got.Giraffe.name=Giraffe
+entity.got.GiraffeRug.name=Giraffe Rug
+entity.got.GoldenCompanyBannerBearer.name=Golden Company Banner Bearer
+entity.got.GoldenCompanyCaptain.name=Golden Company Captain
+entity.got.GoldenCompanySpearman.name=Golden Company Spearman
+entity.got.GoldenCompanyWarrior.name=Golden Company Warrior
+entity.got.Gorcrow.name=Crow
+entity.got.GoroldGoodbrother.name=Gorold Goodbrother
 entity.got.GregorCleganeAlive.name=Gregor Clegane
 entity.got.GregorCleganeDead.name=Gregor Clegane
-entity.got.GreyWorm.name≠Grey Worm
-entity.got.GulianSwann.name≠Gulian Swann
-entity.got.GylbertFarwynd.name≠Gylbert Farwynd
-entity.got.HarmenUller.name≠Harmen Uller
-entity.got.Harmune.name≠Harmune
+entity.got.GreyWorm.name=Grey Worm
+entity.got.GulianSwann.name=Gulian Swann
+entity.got.GylbertFarwynd.name=Gylbert Farwynd
+entity.got.HarmenUller.name=Harmen Uller
+entity.got.Harmune.name=Harmune
 entity.got.HarrasHarlaw.name=Harras Harlaw
 entity.got.HarroldHardyng.name=Harrold Hardyng
-entity.got.HarryStrickland.name≠Harry Strickland
+entity.got.HarryStrickland.name=Harry Strickland
 entity.got.HarysSwyft.name=Harys Swyft
-entity.got.HelmanTallhart.name≠Helman Tallhart
-entity.got.HighSepton.name=Haut Septon
-entity.got.Hillman.name=Civil des tribus des collines
-entity.got.HillmanArcher.name=Archer des tribus des collines
-entity.got.HillmanAxeThrower.name=Lanceur de haches des tribus des collines
-entity.got.HillmanBannerBearer.name=Porte-bannière des tribus des collines
-entity.got.HillmanBartender.name=Barman des tribus des collines
-entity.got.HillmanBerserker.name=Berserker des tribus des collines
-entity.got.HillmanChieftain.name=Chef des tribus des collines
-entity.got.HillmanWarrior.name=Guerrier des tribus des collines
-entity.got.HizdahrZoLoraq.name≠Hizdahr Zo Loraq
+entity.got.HelmanTallhart.name=Helman Tallhart
+entity.got.HighSepton.name=High Septon
+entity.got.Hillman.name=Hill Tribes Man
+entity.got.HillmanArcher.name=Hill Tribes Archer
+entity.got.HillmanAxeThrower.name=Hill Tribes Axe Thrower
+entity.got.HillmanBannerBearer.name=Hill Tribes Banner Bearer
+entity.got.HillmanBartender.name=Hill Tribes Bartender
+entity.got.HillmanBerserker.name=Hill Tribes Berserker
+entity.got.HillmanChieftain.name=Hill Tribes Chieftain
+entity.got.HillmanWarrior.name=Hill Tribes Warrior
+entity.got.HizdahrZoLoraq.name=Hizdahr Zo Loraq
 entity.got.Hodor.name=Hodor
-entity.got.Horse.name=Cheval
+entity.got.Horse.name=Horse
 entity.got.HortonRedfort.name=Horton Redfort
-entity.got.HosterTully.name=Hébergeur Tully
-entity.got.HotPie.name=Tarte chaude
+entity.got.HosterTully.name=Hoster Tully
+entity.got.HotPie.name=Hot Pie
 entity.got.HowlandReed.name=Howland Reed
 entity.got.Hummel009.name=Hummel009
-entity.got.IbbenArcher.name=Archer d'Ibben
-entity.got.IbbenAxeThrower.name=Lanceur de haches d'Ibben
-entity.got.IbbenBaker.name=Boulanger d'Ibben
-entity.got.IbbenBannerBearer.name=Porte-bannière d'Ibben
-entity.got.IbbenBartender.name=Barman d'Ibben
-entity.got.IbbenBlacksmith.name=Forgeron d'Ibben
-entity.got.IbbenBrewer.name=Brasseur d'Ibben
-entity.got.IbbenButcher.name=Boucher d'Ibben
-entity.got.IbbenFarmer.name=Fermier d'Ibben
-entity.got.IbbenFarmhand.name=Artisan d'Ibben
-entity.got.IbbenFishmonger.name=Poissonnier d'Ibben
-entity.got.IbbenFlorist.name=Fleuriste d'Ibben
-entity.got.IbbenGoldsmith.name=Orfèvre of Ibben
-entity.got.IbbenLumberman.name=Bûcheron d'Ibben
-entity.got.IbbenMan.name=Civil d'Ibben
-entity.got.IbbenMason.name=Maçon d'Ibben
-entity.got.IbbenMiner.name=Mineur d'Ibben
-entity.got.IbbenStablemaster.name=Maître des écuries d'Ibben
-entity.got.IbbenCaptain.name=Capitaine d'Ibben
-entity.got.IbbenWarrior.name=Guerrier d'Ibben
-entity.got.IceSpider.name=Araignée de glace
+entity.got.IbbenArcher.name=Ibben Archer
+entity.got.IbbenAxeThrower.name=Ibben Axe-Thrower
+entity.got.IbbenBaker.name=Ibben Baker
+entity.got.IbbenBannerBearer.name=Ibben Banner Bearer
+entity.got.IbbenBartender.name=Ibben Meadhost
+entity.got.IbbenBlacksmith.name=Ibben Blacksmith
+entity.got.IbbenBrewer.name=Ibben Brewer
+entity.got.IbbenButcher.name=Ibben Butcher
+entity.got.IbbenCaptain.name=Ibben Captain
+entity.got.IbbenFarmer.name=Ibben Farmer
+entity.got.IbbenFarmhand.name=Ibben Farmhand
+entity.got.IbbenFishmonger.name=Ibben Fishmonger
+entity.got.IbbenFlorist.name=Ibben Florist
+entity.got.IbbenGoldsmith.name=Ibben Goldsmith
+entity.got.IbbenLumberman.name=Ibben Lumberman
+entity.got.IbbenMan.name=Ibben Man
+entity.got.IbbenMason.name=Ibben Builder
+entity.got.IbbenMiner.name=Ibben Miner
+entity.got.IbbenStablemaster.name=Ibben Stablemaster
+entity.got.IbbenWarrior.name=Ibben Warrior
+entity.got.IceSpider.name=Ice Spider
 entity.got.Ifekevron.name=Ifekevron
 entity.got.IllyrioMopatis.name=Illyrio Mopatis
 entity.got.IlynPayne.name=Ilyn Payne
-entity.got.InvasionSpawner.name=Spot d'Invasion
-entity.got.IronbornBaker.name=Boulanger des Îles de Fer
-entity.got.IronbornBannerBearer.name=Porte-bannière des Îles de Fer
-entity.got.IronbornBartender.name=Barman des Îles de Fer
-entity.got.IronbornBlacksmith.name=Forgeron des Îles de Fer
-entity.got.IronbornBrewer.name=Brasseur des Îles de Fer
-entity.got.IronbornButcher.name=Boucher des Îles de Fer
-entity.got.IronbornCaptain.name=Capitaine des Îles de Fer
-entity.got.IronbornFarmer.name=Fermier des Îles de Fer
-entity.got.IronbornFarmhand.name=Artisan des Îles de Fer
-entity.got.IronbornFishmonger.name=Poissonnier des Îles de Fer
-entity.got.IronbornFlorist.name=Fleuriste des Îles de Fer
-entity.got.IronbornGoldsmith.name=Orfèvre des Îles de Fer
-entity.got.IronbornLevyman.name=Milicien des Îles de Fer
-entity.got.IronbornLevymanArcher.name=Milicien archer des Îles de Fer
-entity.got.IronbornLumberman.name=Bûcheron des Îles de Fer
-entity.got.IronbornMan.name=Civil des Îles de Fer
-entity.got.IronbornMason.name=Maçon des Îles de Fer
-entity.got.IronbornMiner.name=Mineur des Îles de Fer
-entity.got.IronbornPriest.name=Prêtre des Îles de Fer
-entity.got.IronbornSoldier.name=Soldat des Îles de Fer
-entity.got.IronbornSoldierArcher.name=Archer des Îles de Fer
+entity.got.InvasionSpawner.name=Invasion Spawner
+entity.got.IronbornBaker.name=Iron Islands Baker
+entity.got.IronbornBannerBearer.name=Iron Islands Banner Bearer
+entity.got.IronbornBartender.name=Iron Islands Bartender
+entity.got.IronbornBlacksmith.name=Iron Islands Smith
+entity.got.IronbornBrewer.name=Iron Islands Brewer
+entity.got.IronbornButcher.name=Iron Islands Butcher
+entity.got.IronbornCaptain.name=Iron Islands Captain
+entity.got.IronbornFarmer.name=Iron Islands Farmer
+entity.got.IronbornFarmhand.name=Iron Islands Farmhand
+entity.got.IronbornFishmonger.name=Iron Islands Fishmonger
+entity.got.IronbornFlorist.name=Iron Islands Florist
+entity.got.IronbornGoldsmith.name=Iron Islands Goldsmith
+entity.got.IronbornLevyman.name=Iron Islands Levyman
+entity.got.IronbornLevymanArcher.name=Iron Islands Levyman Archer
+entity.got.IronbornLumberman.name=Iron Islands Lumberman
+entity.got.IronbornMan.name=Iron Islands Man
+entity.got.IronbornMason.name=Iron Islands Mason
+entity.got.IronbornMiner.name=Iron Islands Miner
+entity.got.IronbornPriest.name=Iron Islands Priest
+entity.got.IronbornSoldier.name=Iron Islands Warrior
+entity.got.IronbornSoldierArcher.name=Iron Islands Warrior Archer
 entity.got.JaimeLannister.name=Jaime Lannister
 entity.got.JanosSlynt.name=Janos Slynt
 entity.got.JaqenHghar.name=Jaqen H'Ghar
-entity.got.JasonMallister.name≠Jason Mallister
+entity.got.JasonMallister.name=Jason Mallister
 entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
-entity.got.Jogos.name=Nomade de Jogos
-entity.got.JogosArcher.name=Archer de Jogos
-entity.got.JogosBannerBearer.name=Porte-bannière de Jogos
-entity.got.JogosChieftain.name=Chef de Jogos
-entity.got.JogosShaman.name=Chaman de Jogos
+entity.got.Jogos.name=Jogos Nhai Nomad
+entity.got.JogosArcher.name=Jogos Nhai Archer
+entity.got.JogosBannerBearer.name=Jogos Nhai Banner Bearer
+entity.got.JogosChieftain.name=Jogos Nhai Chieftain
+entity.got.JogosShaman.name=Jogos Nhai Shaman
 entity.got.JohnUmber.name=John Umber
-entity.got.JonConnington.name≠Jon Connington
+entity.got.JonConnington.name=Jon Connington
 entity.got.JonSnowLife1.name=Jon Snow
-entity.got.JonSnowLife2.name≠Jon Snow
+entity.got.JonSnowLife2.name=Jon Snow
 entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
-entity.got.JungleScorpion.name=Scorpion de la jungle
+entity.got.JungleScorpion.name=Jungle Scorpion
 entity.got.KevanLannister.name=Kevan Lannister
-entity.got.Kingsguard.name=Guarde royale
+entity.got.Kingsguard.name=Kingsguard
 entity.got.KraznysMoNakloz.name=Kraznys Mo Nakloz
 entity.got.LancelLannisterNormal.name=Lancel Lannister
 entity.got.LancelLannisterReligious.name=Lancel Lannister
 entity.got.LeoLefford.name=Leo Lefford
 entity.got.LeytonHightower.name=Leyton Hightower
-entity.got.LhazarSoldierArcher.name=Archer de Lhazar
-entity.got.LhazarBaker.name=Boulanger de Lhazar
-entity.got.LhazarBannerBearer.name=Porte-bannière de Lhazar
-entity.got.LhazarBartender.name=Barman de Lhazar
-entity.got.LhazarBlacksmith.name=Forgeron de Lhazar
-entity.got.LhazarBrewer.name=Brasseur de Lhazar
-entity.got.LhazarButcher.name=Boucher de Lhazar
-entity.got.LhazarFarmer.name=Fermier de Lhazar
-entity.got.LhazarFishmonger.name=Poissonnier de Lhazar
-entity.got.LhazarGoldsmith.name=Orfèvre de Lhazar
-entity.got.LhazarHunter.name=Chasseur de Lhazar
-entity.got.LhazarLumberman.name=Bûcheron de Lhazar
-entity.got.LhazarMan.name=Civil de Lhazar
-entity.got.LhazarMason.name=Maçon de Lhazar
-entity.got.LhazarMiner.name=Mineur de Lhazar
-entity.got.LhazarCaptain.name=Seigneur de guerre de Lhazar
-entity.got.LhazarSoldier.name=Guerrier de Lhazar
+entity.got.LhazarBaker.name=Lhazar Baker
+entity.got.LhazarBannerBearer.name=Lhazar Banner Bearer
+entity.got.LhazarBartender.name=Lhazar Bartender
+entity.got.LhazarBlacksmith.name=Lhazar Blacksmith
+entity.got.LhazarBrewer.name=Lhazar Brewer
+entity.got.LhazarButcher.name=Lhazar Butcher
+entity.got.LhazarCaptain.name=Lhazar Captain
+entity.got.LhazarFarmer.name=Lhazar Farmer
+entity.got.LhazarFarmhand.name=Lhazar Farmhand
+entity.got.LhazarFishmonger.name=Lhazar Fishmonger
+entity.got.LhazarFlorist.name=Lhazar Florist
+entity.got.LhazarGoldsmith.name=Lhazar Goldsmith
+entity.got.LhazarHunter.name=Lhazar Hunter
+entity.got.LhazarLevyman.name=Lhazar Levyman
+entity.got.LhazarLevymanArcher.name=Lhazar Levyman Archer
+entity.got.LhazarLumberman.name=Lhazar Lumberman
+entity.got.LhazarMan.name=Lhazar Man
+entity.got.LhazarMason.name=Lhazar Mason
+entity.got.LhazarMiner.name=Lhazar Miner
+entity.got.LhazarSoldier.name=Lhazar Warrior
+entity.got.LhazarSoldierArcher.name=Lhazar Warrior Archer
 entity.got.LightSkinBandit.name=Bandit
-entity.got.LightSkinThief.name=Voleur
-entity.got.LightSkinTramp.name=Clochard
-entity.got.LingeringEffect.name≠Lingering Effect
-entity.got.LingeringPotion.name≠Lingering Potion
+entity.got.LightSkinThief.name=Thief
+entity.got.LightSkinTramp.name=Tramp
+entity.got.LingeringEffect.name=Lingering Effect
+entity.got.LingeringPotion.name=Lingering Potion
 entity.got.Lion.name=Lion
-entity.got.LionRug.name=Peau de lion
-entity.got.Lioness.name=Lionne
+entity.got.LionRug.name=Lion Rug
+entity.got.Lioness.name=Lioness
 entity.got.LorasTyrell.name=Loras Tyrell
-entity.got.LorathBaker.name=Boulanger de Lorath
-entity.got.LorathBannerBearer.name=Porte-bannière de Lorath
-entity.got.LorathBartender.name=Barman de Lorath
-entity.got.LorathBlacksmith.name=Forgeron de Lorath
-entity.got.LorathBrewer.name=Brasseur de Lorath
-entity.got.LorathButcher.name=Boucher de Lorath
-entity.got.LorathFarmer.name=Fermier de Lorath
-entity.got.LorathFarmhand.name=Artisan of Lorath
-entity.got.LorathFishmonger.name=Poissonnier de Lorath
-entity.got.LorathFlorist.name=Fleuriste de Lorath
-entity.got.LorathCaptain.name=Général de Lorath
-entity.got.LorathGoldsmith.name=Orfèvre de Lorath
-entity.got.LorathLevyman.name=Milicien de Lorath
-entity.got.LorathLevymanArcher.name=Milicien Archer de Lorath
-entity.got.LorathLumberman.name=Bûcheron de Lorath
-entity.got.LorathMan.name=Civil de Lorath
-entity.got.LorathMason.name=Maçon de Lorath
-entity.got.LorathMiner.name=Mineur de Lorath
-entity.got.LorathSoldier.name=Guerrier de Lorath
-entity.got.LorathSoldierArcher.name=Archer de Lorath
-entity.got.LotharFrey.name≠Lothar Frey
-entity.got.Luwin.name≠Luwin
+entity.got.LorathBaker.name=Lorath Baker
+entity.got.LorathBannerBearer.name=Lorath Banner Bearer
+entity.got.LorathBartender.name=Lorath Bartender
+entity.got.LorathBlacksmith.name=Lorath Blacksmith
+entity.got.LorathBrewer.name=Lorath Brewer
+entity.got.LorathButcher.name=Lorath Butcher
+entity.got.LorathCaptain.name=Lorath Captain
+entity.got.LorathFarmer.name=Lorath Farmer
+entity.got.LorathFarmhand.name=Lorath Farmhand
+entity.got.LorathFishmonger.name=Lorath Fishmonger
+entity.got.LorathFlorist.name=Lorath Florist
+entity.got.LorathGoldsmith.name=Lorath Goldsmith
+entity.got.LorathLevyman.name=Lorath Levyman
+entity.got.LorathLevymanArcher.name=Lorath Levyman Archer
+entity.got.LorathLumberman.name=Lorath Lumberman
+entity.got.LorathMan.name=Lorath Man
+entity.got.LorathMason.name=Lorath Mason
+entity.got.LorathMiner.name=Lorath Miner
+entity.got.LorathSoldier.name=Lorath Warrior
+entity.got.LorathSoldierArcher.name=Lorath Warrior Archer
+entity.got.LotharFrey.name=Lothar Frey
+entity.got.Luwin.name=Luwin
 entity.got.LyleCrakehall.name=Lyle Crakehall
 entity.got.LynCorbray.name=Lyn Corbray
-entity.got.LysBaker.name=Boulanger de Lys
-entity.got.LysBannerBearer.name=Porte-bannière de Lys
-entity.got.LysBartender.name=Barman de Lys
-entity.got.LysBlacksmith.name=Forgeron de Lys
-entity.got.LysBrewer.name=Brasseur de Lys
-entity.got.LysButcher.name=Boucher de Lys
-entity.got.LysFishmonger.name=Poissonnier de Lys
-entity.got.LysFlorist.name=Fleuriste de Lys
-entity.got.LysCaptain.name=Général de Lys
-entity.got.LysGoldsmith.name=Orfèvre de Lys
-entity.got.LysLevyman.name=Milicien de Lys
-entity.got.LysLevymanArcher.name=Milicien Archer de Lys
-entity.got.LysLumberman.name=Bûcheron de Lys
-entity.got.LysMan.name=Civil de Lys
-entity.got.LysMason.name=Maçon de Lys
-entity.got.LysMiner.name=Mineur de Lys
-entity.got.LysSlave.name=Esclave de Lys
-entity.got.LysSlaver.name=Esclavagiste de Lys
-entity.got.LysSoldier.name=Guerrier de Lys
-entity.got.LysSoldierArcher.name=Archer of Lys
-entity.got.LysaArryn.name≠Lysa Arryn
-entity.got.MaceTyrell.name=Masse Tyrell
-entity.got.MaegeMormont.name≠Maege Mormont
-entity.got.Maester.name=Mestre
-entity.got.Mammoth.name=Mammouth
+entity.got.LysBaker.name=Lys Baker
+entity.got.LysBannerBearer.name=Lys Banner Bearer
+entity.got.LysBartender.name=Lys Bartender
+entity.got.LysBlacksmith.name=Lys Blacksmith
+entity.got.LysBrewer.name=Lys Brewer
+entity.got.LysButcher.name=Lys Butcher
+entity.got.LysCaptain.name=Lys Captain
+entity.got.LysFishmonger.name=Lys Fishmonger
+entity.got.LysFlorist.name=Lys Florist
+entity.got.LysGoldsmith.name=Lys Goldsmith
+entity.got.LysLevyman.name=Lys Levyman
+entity.got.LysLevymanArcher.name=Lys Levyman Archer
+entity.got.LysLumberman.name=Lys Lumberman
+entity.got.LysMan.name=Lys Man
+entity.got.LysMason.name=Lys Mason
+entity.got.LysMiner.name=Lys Miner
+entity.got.LysSlave.name=Lys Slave
+entity.got.LysSlaver.name=Lys Slaver
+entity.got.LysSoldier.name=Lys Warrior
+entity.got.LysSoldierArcher.name=Lys Warrior Archer
+entity.got.LysaArryn.name=Lysa Arryn
+entity.got.MaceTyrell.name=Mace Tyrell
+entity.got.MaegeMormont.name=Maege Mormont
+entity.got.Maester.name=Maester
+entity.got.Mammoth.name=Mammoth
 entity.got.ManceRayder.name=Mance Rayder
-entity.got.ManfreyMartell.name≠Manfrey Martell
+entity.got.ManfreyMartell.name=Manfrey Martell
 entity.got.Manticore.name=Manticore
 entity.got.MargaeryTyrell.name=Margaery Tyrell
-entity.got.MaronVolmark.name≠Maron Volmark
-entity.got.MarshWraith.name=Spectre des marais
+entity.got.MaronVolmark.name=Maron Volmark
+entity.got.MarshWraith.name=Marsh Wraith
 entity.got.MathisRowan.name=Mathis Rowan
-entity.got.MatthosSeaworth.name≠Matthos Seaworth
+entity.got.MatthosSeaworth.name=Matthos Seaworth
 entity.got.Melisandra.name=Melisandra
-entity.got.Mellario.name≠Mellario
-entity.got.Mercenary.name=Mercenaire
-entity.got.MerynTrant.name≠Meryn Trant
-entity.got.Midges.name=Moucherons
-entity.got.Missandei.name≠Missandei
+entity.got.Mellario.name=Mellario
+entity.got.Mercenary.name=Mercenary
+entity.got.MerynTrant.name=Meryn Trant
+entity.got.Midges.name=Midges
+entity.got.Missandei.name=Missandei
 entity.got.MonfordVelaryon.name=Monford Velaryon
-entity.got.Moqorro.name≠Moqorro
-entity.got.MoribaldChester.name≠Moribald Chester
-entity.got.MossovyBartender.name=Barman de Mossovy
-entity.got.MossovyBlacksmith.name=Forgeron de Mossovy
-entity.got.MossovyGoldsmith.name=Orfèvre de Mossovy
-entity.got.MossovyMan.name=Civil de Mossovy
-entity.got.MossovyWitcher.name=Ensorceleur de mossovy
+entity.got.Moqorro.name=Moqorro
+entity.got.MoribaldChester.name=Moribald Chester
+entity.got.MossovyBartender.name=Mossovy Bartender
+entity.got.MossovyBlacksmith.name=Mossovy Blacksmith
+entity.got.MossovyGoldsmith.name=Mossovy Goldsmith
+entity.got.MossovyMan.name=Mossovy Man
+entity.got.MossovyWitcher.name=Mossovy Witcher
 entity.got.Mullin.name=Mullin
-entity.got.MyrBaker.name=Boulanger de Myr
-entity.got.MyrBannerBearer.name=Porte-bannière de Myr
-entity.got.MyrBartender.name=Barman de Myr
-entity.got.MyrBlacksmith.name=Forgeron de Myr
-entity.got.MyrBrewer.name=Brasseur de Myr
-entity.got.MyrButcher.name=Boucher de Myr
-entity.got.MyrFishmonger.name=Poissonnier de Myr
-entity.got.MyrFlorist.name=Fleuriste de Myr
-entity.got.MyrCaptain.name=Général de Myr
-entity.got.MyrGoldsmith.name=Orfèvre de Myr
-entity.got.MyrLevyman.name=Milicien de Myr
-entity.got.MyrLevymanArcher.name=Milicien Archer de Myr
-entity.got.MyrLumberman.name=Bûcheron de Myr
-entity.got.MyrMan.name=Civil de Myr
-entity.got.MyrMason.name=Maçon de Myr
-entity.got.MyrMiner.name=Mineur de Myr
-entity.got.MyrSlave.name=Esclave de Myr
-entity.got.MyrSlaver.name=Esclavagiste de Myr
-entity.got.MyrSoldier.name=Soldat de Myr
-entity.got.MyrSoldierArcher.name=Archer de Myr
-entity.got.MyrcellaBaratheon.name≠Myrcella Baratheon
-entity.got.MysteryWeb.name=Toile mystère
-entity.got.NPCRespawner.name=Respawneur de PNJ
-entity.got.NightKing.name=Roi de la nuit
-entity.got.NorthBaker.name=Boulanger du Nord
-entity.got.NorthBannerBearer.name=Porte-bannière du Nord
-entity.got.NorthBartender.name=Barman du Nord
-entity.got.NorthBlacksmith.name=Forgeron du Nord
-entity.got.NorthBrewer.name=Brasseur du Nord
-entity.got.NorthButcher.name=Boucher du Nord
-entity.got.NorthCaptain.name=Capitaine du Nord
-entity.got.NorthFarmer.name=Fermier du Nord
-entity.got.NorthFarmhand.name=Artisan du Nord
-entity.got.NorthFishmonger.name=Poissonnier du Nord
-entity.got.NorthFlorist.name=Fleuriste du Nord
-entity.got.NorthGoldsmith.name=Orfèvre de Nord
-entity.got.NorthGuard.name=Garde du port blanc
-entity.got.NorthHillman.name=Montagnard du Nord
-entity.got.NorthHillmanArcher.name=Archer des Montagnes du Nord
-entity.got.NorthHillmanAxeThrower.name=Lanceur de hache des Montagnes du Nord
-entity.got.NorthHillmanBannerBearer.name=Porte-bannière des Montagnes du Nord
-entity.got.NorthHillmanCannibal.name=Cannibale des Montagnes du Nord
-entity.got.NorthHillmanChieftain.name=Chef des Montagnes Nord
-entity.got.NorthHillmanMercenary.name=Mercenaire des Montagnes Nord
-entity.got.NorthHillmanWarrior.name=Guerrier des Montagnes Nord
-entity.got.NorthLevyman.name=Milicien du Nord
-entity.got.NorthLevymanArcher.name=Milicien Archer du Nord
-entity.got.NorthLumberman.name=Bûcheron du Nord
-entity.got.NorthMan.name=Civil du Nord
-entity.got.NorthMason.name=Maçon du Nord
-entity.got.NorthMiner.name=Mineur du Nord
-entity.got.NorthSoldier.name=Guerrier du Nord
-entity.got.NorthSoldierArcher.name=Archer du Nord
-entity.got.NorvosBaker.name=Boulanger de Norvos
-entity.got.NorvosBannerBearer.name=Porte-bannière de Norvos
-entity.got.NorvosBartender.name=Barman de Norvos
-entity.got.NorvosBlacksmith.name=Forgeron de Norvos
-entity.got.NorvosBrewer.name=Brasseur de Norvos
-entity.got.NorvosButcher.name=Boucher de Norvos
-entity.got.NorvosFarmer.name=Fermier de Norvos
-entity.got.NorvosFarmhand.name=Artisan of Norvos
-entity.got.NorvosFishmonger.name=Poissonnier de Norvos
-entity.got.NorvosFlorist.name=Fleuriste de Norvos
-entity.got.NorvosGoldsmith.name=Orfèvre de Norvos
-entity.got.NorvosGuard.name=Garde de Norvos
-entity.got.NorvosCaptain.name=Capitaine de garde de Norvos
-entity.got.NorvosLevyman.name=Guerrier de Norvos
-entity.got.NorvosLevymanArcher.name=Archer de Norvos
-entity.got.NorvosLumberman.name=Bûcheron de Norvos
-entity.got.NorvosMan.name=Civil de Norvos
-entity.got.NorvosMason.name=Maçon de Norvos
-entity.got.NorvosMiner.name=Mineur de Norvos
+entity.got.MyrBaker.name=Myr Baker
+entity.got.MyrBannerBearer.name=Myr Banner Bearer
+entity.got.MyrBartender.name=Myr Bartender
+entity.got.MyrBlacksmith.name=Myr Blacksmith
+entity.got.MyrBrewer.name=Myr Brewer
+entity.got.MyrButcher.name=Myr Butcher
+entity.got.MyrCaptain.name=Myr Captain
+entity.got.MyrFishmonger.name=Myr Fishmonger
+entity.got.MyrFlorist.name=Myr Florist
+entity.got.MyrGoldsmith.name=Myr Goldsmith
+entity.got.MyrLevyman.name=Myr Levyman
+entity.got.MyrLevymanArcher.name=Myr Levyman Archer
+entity.got.MyrLumberman.name=Myr Lumberman
+entity.got.MyrMan.name=Myr Man
+entity.got.MyrMason.name=Myr Mason
+entity.got.MyrMiner.name=Myr Miner
+entity.got.MyrSlave.name=Myr Slave
+entity.got.MyrSlaver.name=Myr Slaver
+entity.got.MyrSoldier.name=Myr Warrior
+entity.got.MyrSoldierArcher.name=Myr Warrior Archer
+entity.got.MyrcellaBaratheon.name=Myrcella Baratheon
+entity.got.MysteryWeb.name=Mystery Web
+entity.got.NPCRespawner.name=NPC Respawner
+entity.got.NightKing.name=Night King
+entity.got.NorthBaker.name=North Baker
+entity.got.NorthBannerBearer.name=North Banner Bearer
+entity.got.NorthBartender.name=North Bartender
+entity.got.NorthBlacksmith.name=North Smith
+entity.got.NorthBrewer.name=North Brewer
+entity.got.NorthButcher.name=North Butcher
+entity.got.NorthCaptain.name=North Captain
+entity.got.NorthFarmer.name=North Farmer
+entity.got.NorthFarmhand.name=North Farmhand
+entity.got.NorthFishmonger.name=North Fishmonger
+entity.got.NorthFlorist.name=North Florist
+entity.got.NorthGoldsmith.name=North Goldsmith
+entity.got.NorthGuard.name=White Harbour Guard
+entity.got.NorthHillman.name=North Hillman
+entity.got.NorthHillmanArcher.name=North Hillman Archer
+entity.got.NorthHillmanAxeThrower.name=North Hillman Axe Thrower
+entity.got.NorthHillmanBannerBearer.name=North Hillman Banner Bearer
+entity.got.NorthHillmanCannibal.name=North Hillman Cannibal
+entity.got.NorthHillmanChieftain.name=North Hillman Chieftain
+entity.got.NorthHillmanMercenary.name=North Hillman Mercenary
+entity.got.NorthHillmanWarrior.name=North Hillman Warrior
+entity.got.NorthLevyman.name=North Levyman
+entity.got.NorthLevymanArcher.name=North Levyman Archer
+entity.got.NorthLumberman.name=North Lumberman
+entity.got.NorthMan.name=North Man
+entity.got.NorthMason.name=North Mason
+entity.got.NorthMiner.name=North Miner
+entity.got.NorthSoldier.name=North Warrior
+entity.got.NorthSoldierArcher.name=North Warrior Archer
+entity.got.NorvosBaker.name=Norvos Baker
+entity.got.NorvosBannerBearer.name=Norvos Banner Bearer
+entity.got.NorvosBartender.name=Norvos Bartender
+entity.got.NorvosBlacksmith.name=Norvos Blacksmith
+entity.got.NorvosBrewer.name=Norvos Brewer
+entity.got.NorvosButcher.name=Norvos Butcher
+entity.got.NorvosCaptain.name=Norvos Captain
+entity.got.NorvosFarmer.name=Norvos Farmer
+entity.got.NorvosFarmhand.name=Norvos Farmhand
+entity.got.NorvosFishmonger.name=Norvos Fishmonger
+entity.got.NorvosFlorist.name=Norvos Florist
+entity.got.NorvosGoldsmith.name=Norvos Goldsmith
+entity.got.NorvosGuard.name=Norvos Guard
+entity.got.NorvosLevyman.name=Norvos Levyman
+entity.got.NorvosLevymanArcher.name=Norvos Archer
+entity.got.NorvosLumberman.name=Norvos Lumberman
+entity.got.NorvosMan.name=Norvos Man
+entity.got.NorvosMason.name=Norvos Mason
+entity.got.NorvosMiner.name=Norvos Miner
 entity.got.OberynMartell.name=Oberyn Martell
 entity.got.OlennaTyrell.name=Olenna Tyrell
-entity.got.OrtonMerryweather.name≠Orton Merryweather
-entity.got.Osha.name≠Osha
+entity.got.OrtonMerryweather.name=Orton Merryweather
+entity.got.Osha.name=Osha
 entity.got.PaxterRedwyne.name=Paxter Redwyne
-entity.got.Pebble.name=Caillou
-entity.got.PentosBaker.name=Boulanger de Pentos
-entity.got.PentosBannerBearer.name=Porte-bannière de Pentos
-entity.got.PentosBartender.name=Barman de Pentos
-entity.got.PentosBlacksmith.name=Forgeron de Pentos
-entity.got.PentosBrewer.name=Brasseur de Pentos
-entity.got.PentosButcher.name=Boucher de Pentos
-entity.got.PentosFarmer.name=Fermier de Pentos
-entity.got.PentosFarmhand.name=Artisan of Pentos
-entity.got.PentosFishmonger.name=Poissonnier de Pentos
-entity.got.PentosFlorist.name=Fleuriste de Pentos
-entity.got.PentosGoldsmith.name=Orfèvre de Pentos
-entity.got.PentosGuard.name=Garde de Pentos
-entity.got.PentosCaptain.name=Capitaine de garde de Pentos
-entity.got.PentosLevyman.name=Milicien de Pentos
-entity.got.PentosLevymanArcher.name=Archer de Pentos
-entity.got.PentosLumberman.name=Bûcheron de Pentos
-entity.got.PentosMan.name=Civil de Pentos
-entity.got.PentosMason.name=Maçon de Pentos
-entity.got.PentosMiner.name=Mineur de Pentos
+entity.got.Pebble.name=Pebble
+entity.got.PentosBaker.name=Pentos Baker
+entity.got.PentosBannerBearer.name=Pentos Banner Bearer
+entity.got.PentosBartender.name=Pentos Bartender
+entity.got.PentosBlacksmith.name=Pentos Blacksmith
+entity.got.PentosBrewer.name=Pentos Brewer
+entity.got.PentosButcher.name=Pentos Butcher
+entity.got.PentosCaptain.name=Pentos Captain
+entity.got.PentosFarmer.name=Pentos Farmer
+entity.got.PentosFarmhand.name=Pentos Farmhand
+entity.got.PentosFishmonger.name=Pentos Fishmonger
+entity.got.PentosFlorist.name=Pentos Florist
+entity.got.PentosGoldsmith.name=Pentos Goldsmith
+entity.got.PentosGuard.name=Pentos Guard
+entity.got.PentosLevyman.name=Pentos Levyman
+entity.got.PentosLevymanArcher.name=Pentos Archer
+entity.got.PentosLumberman.name=Pentos Lumberman
+entity.got.PentosMan.name=Pentos Man
+entity.got.PentosMason.name=Pentos Mason
+entity.got.PentosMiner.name=Pentos Miner
 entity.got.PetyrBaelish.name=Petyr Baelish
-entity.got.Plate.name=Assiette
-entity.got.Plowcart.name≠Plow Cart
+entity.got.Plate.name=Plate
+entity.got.Plowcart.name=Plow Cart
 entity.got.PodrickPayne.name=Podrick Payne
-entity.got.Polliver.name≠Polliver
-entity.got.Portal.name≠Portal
-entity.got.Prostitute.name=Prostituée
+entity.got.Polliver.name=Polliver
+entity.got.Portal.name=Portal
+entity.got.Prostitute.name=Prostitute
 entity.got.Pycelle.name=Pycelle
-entity.got.QarthBaker.name=Boulanger de Qarth
-entity.got.QarthBannerBearer.name=Porte-bannière de Qarth
-entity.got.QarthBartender.name=Barman de Qarth
-entity.got.QarthBlacksmith.name=Forgeron de Qarth
-entity.got.QarthBrewer.name=Brasseur de Qarth
-entity.got.QarthButcher.name=Boucher de Qarth
-entity.got.QarthFarmer.name=Fermier de Qarth
-entity.got.QarthFarmhand.name=Artisan of Qarth
-entity.got.QarthFishmonger.name=Poissonnier de Qarth
-entity.got.QarthFlorist.name=Fleuriste de Qarth
-entity.got.QarthGoldsmith.name=Orfèvre de Qarth
-entity.got.QarthGuard.name=Garde de Qarth
-entity.got.QarthCaptain.name=Capitaine de Qarth
-entity.got.QarthLevyman.name=Milicien de Qarth
-entity.got.QarthLevymanArcher.name=Milicien Archer de Qarth
-entity.got.QarthLumberman.name=Bûcheron de Qarth
-entity.got.QarthMan.name=Civil de Qarth
-entity.got.QarthMason.name=Maçon de Qarth
-entity.got.QarthMiner.name=Mineur de Qarth
-entity.got.QarthWarlock.name=Démoniste de Qarth
-entity.got.QohorBaker.name=Boulanger de Qohor
-entity.got.QohorBannerBearer.name=Porte-bannière de Qohor
-entity.got.QohorBartender.name=Barman de Qohor
-entity.got.QohorBlacksmith.name=Forgeron de Qohor
-entity.got.QohorBrewer.name=Brasseur de Qohor
-entity.got.QohorButcher.name=Boucher de Qohor
-entity.got.QohorFarmer.name=Fermier de Qohor
-entity.got.QohorFarmhand.name=Artisan of Qohor
-entity.got.QohorFishmonger.name=Poissonnier de Qohor
-entity.got.QohorFlorist.name=Fleuriste de Qohor
-entity.got.QohorGoldsmith.name=Orfèvre de Qohor
-entity.got.QohorGuard.name=Garde de Qohor
-entity.got.QohorCaptain.name=Capitaine de la garde de Qohor
-entity.got.QohorLevyman.name=Milicien de Qohor
-entity.got.QohorLevymanArcher.name=Milicien archer de Qohor
-entity.got.QohorLumberman.name=Bûcheron de Qohor
-entity.got.QohorMan.name=Civil de Qohor
-entity.got.QohorMason.name=Maçon de Qohor
-entity.got.QohorMiner.name=Mineur de Qohor
-entity.got.QohorUnsullied.name=Immaculé de Qohor
+entity.got.QarthBaker.name=Qarth Baker
+entity.got.QarthBannerBearer.name=Qarth Banner Bearer
+entity.got.QarthBartender.name=Qarth Bartender
+entity.got.QarthBlacksmith.name=Qarth Blacksmith
+entity.got.QarthBrewer.name=Qarth Brewer
+entity.got.QarthButcher.name=Qarth Butcher
+entity.got.QarthCaptain.name=Qarth Captain
+entity.got.QarthFarmer.name=Qarth Farmer
+entity.got.QarthFarmhand.name=Qarth Farmhand
+entity.got.QarthFishmonger.name=Qarth Fishmonger
+entity.got.QarthFlorist.name=Qarth Florist
+entity.got.QarthGoldsmith.name=Qarth Goldsmith
+entity.got.QarthGuard.name=Qarth Guard
+entity.got.QarthLevyman.name=Qarth Levyman
+entity.got.QarthLevymanArcher.name=Qarth Levyman Archer
+entity.got.QarthLumberman.name=Qarth Lumberman
+entity.got.QarthMan.name=Qarth Man
+entity.got.QarthMason.name=Qarth Mason
+entity.got.QarthMiner.name=Qarth Miner
+entity.got.QarthWarlock.name=Qarth Warlock
+entity.got.QohorBaker.name=Qohor Baker
+entity.got.QohorBannerBearer.name=Qohor Banner Bearer
+entity.got.QohorBartender.name=Qohor Bartender
+entity.got.QohorBlacksmith.name=Qohor Blacksmith
+entity.got.QohorBrewer.name=Qohor Brewer
+entity.got.QohorButcher.name=Qohor Butcher
+entity.got.QohorCaptain.name=Qohor Captain
+entity.got.QohorFarmer.name=Qohor Farmer
+entity.got.QohorFarmhand.name=Qohor Farmhand
+entity.got.QohorFishmonger.name=Qohor Fishmonger
+entity.got.QohorFlorist.name=Qohor Florist
+entity.got.QohorGoldsmith.name=Qohor Goldsmith
+entity.got.QohorGuard.name=Qohor Guard
+entity.got.QohorLevyman.name=Qohor Levyman
+entity.got.QohorLevymanArcher.name=Qohor Levyman Archer
+entity.got.QohorLumberman.name=Qohor Lumberman
+entity.got.QohorMan.name=Qohor Man
+entity.got.QohorMason.name=Qohor Mason
+entity.got.QohorMiner.name=Qohor Miner
+entity.got.QohorUnsullied.name=Qohor Unsulled
 entity.got.QuennRoxton.name=Quenn Roxton
 entity.got.QuentenBanefort.name=Quenten Banefort
-entity.got.QuentynMartell.name≠Quentyn Martell
-entity.got.QuentynQorgyle.name≠Quentyn Qorgyle
-entity.got.Qyburn.name≠Qyburn
-entity.got.Rabbit.name=Lapin
+entity.got.QuentynMartell.name=Quentyn Martell
+entity.got.QuentynQorgyle.name=Quentyn Qorgyle
+entity.got.Qyburn.name=Qyburn
+entity.got.Rabbit.name=Rabbit
 entity.got.RamsayBolton.name=Ramsay Bolton
 entity.got.RandyllTarly.name=Randyll Tarly
-entity.got.RazdalMoEraz.name≠Razdal Mo Eraz
-entity.got.ReachBaker.name=Boulanger de Reach
-entity.got.ReachBannerBearer.name=Porte-bannière de Reach
-entity.got.ReachBartender.name=Barman de Reach
-entity.got.ReachBlacksmith.name=Forgeron de Reach
-entity.got.ReachBrewer.name=Brasseur de Reach
-entity.got.ReachButcher.name=Boucher de Reach
-entity.got.ReachCaptain.name=Capeitaine de Reach
-entity.got.ReachFarmer.name=Fermier de Reach
-entity.got.ReachFarmhand.name=Artisan de Reach
-entity.got.ReachFishmonger.name=Poissonnier de Reach
-entity.got.ReachFlorist.name=Fleuriste de Reach
-entity.got.ReachGoldsmith.name≠Goldsmith of Reach
-entity.got.ReachGuard.name=Gardien de la vieille ville
-entity.got.ReachLevyman.name=Milicien de Reach
-entity.got.ReachLevymanArcher.name=Milicien Archer de Reach
-entity.got.ReachLumberman.name=Bûcheron de Reach
-entity.got.ReachMan.name=Homme de Reach
-entity.got.ReachMason.name=Maçon de Reach
-entity.got.ReachMiner.name=Marchand de légumes de Reach
-entity.got.ReachSoldier.name=Guerrier de Reach
-entity.got.ReachSoldierArcher.name=Guerrier Archer de Reach
-entity.got.RedPriest.name=Prêtre rouge
-entity.got.RedScorpion.name=Scorpion rouge
+entity.got.RazdalMoEraz.name=Razdal Mo Eraz
+entity.got.ReachBaker.name=Reach Baker
+entity.got.ReachBannerBearer.name=Reach Banner Bearer
+entity.got.ReachBartender.name=Reach Bartender
+entity.got.ReachBlacksmith.name=Reach Smith
+entity.got.ReachBrewer.name=Reach Brewer
+entity.got.ReachButcher.name=Reach Butcher
+entity.got.ReachCaptain.name=Reach Captain
+entity.got.ReachFarmer.name=Reach Farmer
+entity.got.ReachFarmhand.name=Reach Farmhand
+entity.got.ReachFishmonger.name=Reach Fishmonger
+entity.got.ReachFlorist.name=Reach Florist
+entity.got.ReachGoldsmith.name=Reach Goldsmith
+entity.got.ReachGuard.name=Oldtown Guardian
+entity.got.ReachLevyman.name=Reach Levyman
+entity.got.ReachLevymanArcher.name=Reach Levyman Archer
+entity.got.ReachLumberman.name=Reach Lumberman
+entity.got.ReachMan.name=Reach Man
+entity.got.ReachMason.name=Reach Mason
+entity.got.ReachMiner.name=Reach Miner
+entity.got.ReachSoldier.name=Reach Warrior
+entity.got.ReachSoldierArcher.name=Reach Warrior Archer
+entity.got.RedPriest.name=Red Priest
+entity.got.RedScorpion.name=Red Scorpion
 entity.got.RenlyBaratheon.name=Renly Baratheon
-entity.got.Rhino.name=Rhinocéros
+entity.got.Rhino.name=Rhino
 entity.got.RickardKarstark.name=Rickard Karstark
-entity.got.RickonStark.name≠Rickon Stark
-entity.got.RiverlandsBaker.name=Boulanger du Conflans
-entity.got.RiverlandsBannerBearer.name=Porte-bannière du Conflans
-entity.got.RiverlandsBartender.name=Barman du Conflans
-entity.got.RiverlandsBlacksmith.name=Forgeron du Conflans
-entity.got.RiverlandsBrewer.name=Brasseur du Conflans
-entity.got.RiverlandsButcher.name=Boucher du Conflans
-entity.got.RiverlandsCaptain.name=Capitaine du Conflans
-entity.got.RiverlandsFarmer.name=Fermier du Conflans
-entity.got.RiverlandsFarmhand.name=Artisan du Conflans
-entity.got.RiverlandsFishmonger.name=Poissonnier du Conflans
-entity.got.RiverlandsFlorist.name=Fleuriste du Conflans
-entity.got.RiverlandsGoldsmith.name=Orfèvre of Riverlands
-entity.got.RiverlandsLevyman.name=Milicien du Conflans
-entity.got.RiverlandsLevymanArcher.name=Milicien Archer du Conflans
-entity.got.RiverlandsLumberman.name=Bûcheron du Conflans
-entity.got.RiverlandsMan.name=Civil du Conflans
-entity.got.RiverlandsMason.name=Maçon du Conflans
-entity.got.RiverlandsMiner.name=Mineur du Conflans
-entity.got.RiverlandsSoldier.name=Guerrier du Conflans
-entity.got.RiverlandsSoldierArcher.name=Archer du Conflans
+entity.got.RickonStark.name=Rickon Stark
+entity.got.RiverlandsBaker.name=Riverlands Baker
+entity.got.RiverlandsBannerBearer.name=Riverlands Banner Bearer
+entity.got.RiverlandsBartender.name=Riverlands Bartender
+entity.got.RiverlandsBlacksmith.name=Riverlands Smith
+entity.got.RiverlandsBrewer.name=Riverlands Brewer
+entity.got.RiverlandsButcher.name=Riverlands Butcher
+entity.got.RiverlandsCaptain.name=Riverlands Captain
+entity.got.RiverlandsFarmer.name=Riverlands Farmer
+entity.got.RiverlandsFarmhand.name=Riverlands Farmhand
+entity.got.RiverlandsFishmonger.name=Riverlands Fishmonger
+entity.got.RiverlandsFlorist.name=Riverlands Florist
+entity.got.RiverlandsGoldsmith.name=Riverlands Goldsmith
+entity.got.RiverlandsLevyman.name=Riverlands Levyman
+entity.got.RiverlandsLevymanArcher.name=Riverlands Levyman Archer
+entity.got.RiverlandsLumberman.name=Riverlands Lumberman
+entity.got.RiverlandsMan.name=Riverlands Man
+entity.got.RiverlandsMason.name=Riverlands Mason
+entity.got.RiverlandsMiner.name=Riverlands Miner
+entity.got.RiverlandsSoldier.name=Riverlands Warrior
+entity.got.RiverlandsSoldierArcher.name=Riverlands Warrior Archer
 entity.got.RobbStark.name=Robb Stark
-entity.got.RobinArryn.name≠Robin Arryn
-entity.got.RodrikCassel.name≠Rodrik Cassel
+entity.got.RobinArryn.name=Robin Arryn
+entity.got.RodrikCassel.name=Rodrik Cassel
 entity.got.RodrikHarlaw.name=Rodrik Harlaw
-entity.got.RodrikRyswell.name≠Rodrik Ryswell
+entity.got.RodrikRyswell.name=Rodrik Ryswell
 entity.got.RooseBolton.name=Roose Bolton
-entity.got.SalladhorSaan.name≠Salladhor Saan
-entity.got.SamwellTarly.name≠Samwell Tarly
+entity.got.SalladhorSaan.name=Salladhor Saan
+entity.got.SamwellTarly.name=Samwell Tarly
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
-entity.got.Seagull.name=Mouette
-entity.got.SebastonFarman.name=Sébaston Farman
+entity.got.Seagull.name=Seagull
+entity.got.SebastonFarman.name=Sebaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
-entity.got.SelyseBaratheon.name≠Selyse Baratheon
-entity.got.Septon.name≠Septon
-entity.got.Shadowcat.name=Chat d'ombre
-entity.got.Shae.name≠Shae
-entity.got.ShireenBaratheon.name≠Shireen Baratheon
-entity.got.Shryke.name≠Shryke
-entity.got.SmokeRing.name=Anneau de fumée
-entity.got.SnowBear.name=Ours des neiges
-entity.got.SothoryosBannerBearer.name=Porte-bannière de Sothoryos
-entity.got.SothoryosBlowgunner.name=Archer de Sothoryos
-entity.got.SothoryosChieftain.name=Chef de Sothoryos
-entity.got.SothoryosFarmer.name=Fermier de Sothoryos
-entity.got.SothoryosFarmhand.name=Artisan de Sothoryos
-entity.got.SothoryosMan.name=Civil de Sothoryos
-entity.got.SothoryosShaman.name=Chaman Sothoryos
-entity.got.SothoryosSmith.name=Forgeron de Sothoryos
-entity.got.SothoryosWarrior.name=Guerrier de Sothoryos
-entity.got.Spear.name=Lance
+entity.got.SelyseBaratheon.name=Selyse Baratheon
+entity.got.Septon.name=Septon
+entity.got.Shadowcat.name=Shadow Cat
+entity.got.Shae.name=Shae
+entity.got.ShireenBaratheon.name=Shireen Baratheon
+entity.got.Shryke.name=Shryke
+entity.got.SmokeRing.name=Smoke Ring
+entity.got.SnowBear.name=Snow Bear
+entity.got.SothoryosBannerBearer.name=Sothoryos Banner Bearer
+entity.got.SothoryosBlowgunner.name=Sothoryos Archer
+entity.got.SothoryosChieftain.name=Sothoryos Chieftain
+entity.got.SothoryosFarmer.name=Sothoryos Farmer
+entity.got.SothoryosFarmhand.name=Sothoryos Farmhand
+entity.got.SothoryosMan.name=Sothoryos Man
+entity.got.SothoryosShaman.name=Sothoryos Shaman
+entity.got.SothoryosSmith.name=Sothoryos Smith
+entity.got.SothoryosWarrior.name=Sothoryos Warrior
+entity.got.Spear.name=Spear
 entity.got.StannisBaratheon.name=Stannis Baratheon
-entity.got.StoneMan.name=Homme de pierre
-entity.got.StormlandsBaker.name=Boulanger des Terres de l'Orage
-entity.got.StormlandsBannerBearer.name=Porte-bannière des Terres de l'Orage
-entity.got.StormlandsBartender.name=Barman des Terres de l'Orage
-entity.got.StormlandsBlacksmith.name=Forgeron des Terres de l'Orage
-entity.got.StormlandsBrewer.name=Brasseur des Terres de l'Orage
-entity.got.StormlandsButcher.name=Boucher des Terres de l'Orage
-entity.got.StormlandsCaptain.name=Capitaine des Terres de l'Orage
-entity.got.StormlandsFarmer.name=Fermier des Terres de l'Orage
-entity.got.StormlandsFarmhand.name=Artisan des Terres de l'Orage
-entity.got.StormlandsFishmonger.name=Poissonnier des Terres de l'Orage
-entity.got.StormlandsFlorist.name=Fleuriste des Terres de l'Orage
-entity.got.StormlandsGoldsmith.name=Orfèvre de l'Orage
-entity.got.StormlandsLevyman.name=Milicien des Terres de l'Orage
-entity.got.StormlandsLevymanArcher.name=Archer Milicien des Terres des Tempêtes
-entity.got.StormlandsLumberman.name=Bûcheron des Terres de l'Orage
-entity.got.StormlandsMan.name=Civil des Terres de l'Orage
-entity.got.StormlandsMason.name=Maçon des Terres de l'Orage
-entity.got.StormlandsMiner.name=Mineur des Terres de l'Orage
-entity.got.StormlandsSoldier.name=Guerrier des Terres de l'Orage
-entity.got.StormlandsSoldierArcher.name=Archer des Terres de l'Orage
-entity.got.SummerArcher.name=Archer des Îles d'Été
-entity.got.SummerBaker.name=Boulanger des Îles d'Été
-entity.got.SummerBannerBearer.name=Porte-bannière des Îles d'Été
-entity.got.SummerBartender.name=Barman des Îles d'Été
-entity.got.SummerBlacksmith.name=Forgeron des Îles d'Été
-entity.got.SummerBrewer.name=Brasseur des Îles d'Été
-entity.got.SummerButcher.name=Boucher des Îles d'Été
-entity.got.SummerFarmer.name=Fermier des Îles d'Été
-entity.got.SummerFarmhand.name=Artisan des Îles d'Été
-entity.got.SummerFishmonger.name=Poissonnier des Îles d'Été
-entity.got.SummerFlorist.name=Fleuriste des Îles d'Été
-entity.got.SummerGoldsmith.name=Orfèvre des Îles d'Été
-entity.got.SummerHunter.name=Chasseur des Îles d'Été
-entity.got.SummerLumberman.name=Bûcheron des Îles d'Été
-entity.got.SummerMan.name=Civil des Îles d'Été
-entity.got.SummerMason.name=Maçon des Îles d'Été
-entity.got.SummerMiner.name=Mineur des Îles d'Été
-entity.got.SummerCaptain.name=Seigneur de guerre des Îles d'Été
-entity.got.SummerWarrior.name=Guerrier des Îles d'Été
-entity.got.Swan.name=Cygne
-entity.got.SymondTempleton.name≠Symond Templeton
-entity.got.Termite.name=Termite explosive
-entity.got.Thenn.name=Sauvageon
-entity.got.ThennArcher.name=Archer Sauvageon
-entity.got.ThennAxeThrower.name=Lanceur de hache Sauvageon
-entity.got.ThennBannerBearer.name=Porte-bannière Sauvageon
-entity.got.WildlingWarrior.name≠Wildling Warrior
-entity.got.ThennWarrior.name=Warrior Sauvageon
-entity.got.ThennBlacksmith.name=Forgeron Sauvageon
-entity.got.ThennChieftain.name=Magnar Sauvageon
+entity.got.StoneMan.name=Stone Man
+entity.got.StormlandsBaker.name=Stormlands Baker
+entity.got.StormlandsBannerBearer.name=Stormlands Banner Bearer
+entity.got.StormlandsBartender.name=Stormlands Bartender
+entity.got.StormlandsBlacksmith.name=Stormlands Smith
+entity.got.StormlandsBrewer.name=Stormlands Brewer
+entity.got.StormlandsButcher.name=Stormlands Butcher
+entity.got.StormlandsCaptain.name=Stormlands Captain
+entity.got.StormlandsFarmer.name=Stormlands Farmer
+entity.got.StormlandsFarmhand.name=Stormlands Farmhand
+entity.got.StormlandsFishmonger.name=Stormlands Fishmonger
+entity.got.StormlandsFlorist.name=Stormlands Florist
+entity.got.StormlandsGoldsmith.name=Stormlands Goldsmith
+entity.got.StormlandsLevyman.name=Stormlands Levyman
+entity.got.StormlandsLevymanArcher.name=Stormlands Levyman Archer
+entity.got.StormlandsLumberman.name=Stormlands Lumberman
+entity.got.StormlandsMan.name=Stormlands Man
+entity.got.StormlandsMason.name=Stormlands Mason
+entity.got.StormlandsMiner.name=Stormlands Miner
+entity.got.StormlandsSoldier.name=Stormlands Warrior
+entity.got.StormlandsSoldierArcher.name=Stormlands Warrior Archer
+entity.got.SummerArcher.name=Summer Islands Archer
+entity.got.SummerBaker.name=Summer Islands Baker
+entity.got.SummerBannerBearer.name=Summer Islands Banner Bearer
+entity.got.SummerBartender.name=Summer Islands Bartender
+entity.got.SummerBlacksmith.name=Summer Islands Blacksmith
+entity.got.SummerBrewer.name=Summer Islands Brewer
+entity.got.SummerButcher.name=Summer Islands Butcher
+entity.got.SummerCaptain.name=Summer Islands Warlord
+entity.got.SummerFarmer.name=Summer Islands Farmer
+entity.got.SummerFarmhand.name=Summer Islands Farmhand
+entity.got.SummerFishmonger.name=Summer Islands Fishmonger
+entity.got.SummerFlorist.name=Summer Islands Florist
+entity.got.SummerGoldsmith.name=Summer Islands Goldsmith
+entity.got.SummerHunter.name=Summer Islands Hunter
+entity.got.SummerLumberman.name=Summer Islands Lumberman
+entity.got.SummerMan.name=Summer Islands Man
+entity.got.SummerMason.name=Summer Islands Mason
+entity.got.SummerMiner.name=Summer Islands Miner
+entity.got.SummerWarrior.name=Summer Islands Warrior
+entity.got.Swan.name=Swan
+entity.got.SymondTempleton.name=Symond Templeton
+entity.got.Termite.name=Termite
+entity.got.Thenn.name=Thenn
+entity.got.ThennArcher.name=Thenn Archer
+entity.got.ThennAxeThrower.name=Thenn Axe Thrower
+entity.got.ThennBannerBearer.name=Thenn Banner Bearer
+entity.got.ThennBlacksmith.name=Thenn Blacksmith
+entity.got.ThennChieftain.name=Thenn Magnar
+entity.got.ThennWarrior.name=Thenn Warrior
 entity.got.TheonGreyjoyNormal.name=Theon Greyjoy
 entity.got.TheonGreyjoyTormented.name=Theon Greyjoy
 entity.got.Thoros.name=Thoros
-entity.got.ThreeEyedRaven.name=Corbeau à trois yeux
-entity.got.ThrowingAxe.name=Hache de lancer
-entity.got.ThrownRock.name=Rocher lancé
-entity.got.ThrownTermite.name=Termite explosive
+entity.got.ThreeEyedRaven.name=Three-Eyed Raven
+entity.got.ThrowingAxe.name=Throwing Axe
+entity.got.ThrownRock.name=Thrown Rock
+entity.got.ThrownTermite.name=Exploding Termite
 entity.got.TobhoMott.name=Tobho Mott
-entity.got.TommenBaratheon.name≠Tommen Baratheon
+entity.got.TommenBaratheon.name=Tommen Baratheon
 entity.got.Tormund.name=Tormund
-entity.got.TraderRespawn.name=Réapparaitre de marchand
-entity.got.TrystaneMartell.name≠Trystane Martell
+entity.got.TraderRespawn.name=Trader Respawn
+entity.got.TrystaneMartell.name=Trystane Martell
 entity.got.TugarKhan.name=Tugar Khan
-entity.got.TychoNestoris.name≠Tycho Nestoris
+entity.got.TychoNestoris.name=Tycho Nestoris
 entity.got.TyrionLannister.name=Tyrion Lannister
-entity.got.TyroshBaker.name=Boulanger de Tyrosh
-entity.got.TyroshBannerBearer.name=Porte-bannière de Tyrosh
-entity.got.TyroshBartender.name=Barman de Tyrosh
-entity.got.TyroshBlacksmith.name=Forgeron de Tyrosh
-entity.got.TyroshBrewer.name=Brasseur de Tyrosh
-entity.got.TyroshButcher.name=Boucher de Tyrosh
-entity.got.TyroshFishmonger.name=Poissonnier de Tyrosh
-entity.got.TyroshFlorist.name=Fleuriste de Tyrosh
-entity.got.TyroshCaptain.name=Général de Tyrosh
-entity.got.TyroshGoldsmith.name=Orfèvre de Tyrosh
-entity.got.TyroshLevyman.name=Milicien de Tyrosh
-entity.got.TyroshLevymanArcher.name=Milicien Archer de Tyrosh
-entity.got.TyroshLumberman.name=Bûcheron de Tyrosh
-entity.got.TyroshMan.name=Civil de Tyrosh
-entity.got.TyroshMason.name=Maçon de Tyrosh
-entity.got.TyroshMiner.name=Mineur de Tyrosh
-entity.got.TyroshSlave.name=Esclave de Tyrosh
-entity.got.TyroshSlaver.name=Esclavagiste de Tyrosh
-entity.got.TyroshSoldier.name=Guerrier de Tyrosh
-entity.got.TyroshSoldierArcher.name=Archer de Tyrosh
+entity.got.TyroshBaker.name=Tyrosh Baker
+entity.got.TyroshBannerBearer.name=Tyrosh Banner Bearer
+entity.got.TyroshBartender.name=Tyrosh Bartender
+entity.got.TyroshBlacksmith.name=Tyrosh Blacksmith
+entity.got.TyroshBrewer.name=Tyrosh Brewer
+entity.got.TyroshButcher.name=Tyrosh Butcher
+entity.got.TyroshCaptain.name=Tyrosh Captain
+entity.got.TyroshFishmonger.name=Tyrosh Fishmonger
+entity.got.TyroshFlorist.name=Tyrosh Florist
+entity.got.TyroshGoldsmith.name=Tyrosh Goldsmith
+entity.got.TyroshLevyman.name=Tyrosh Levyman
+entity.got.TyroshLevymanArcher.name=Tyrosh Levyman Archer
+entity.got.TyroshLumberman.name=Tyrosh Lumberman
+entity.got.TyroshMan.name=Tyrosh Man
+entity.got.TyroshMason.name=Tyrosh Mason
+entity.got.TyroshMiner.name=Tyrosh Miner
+entity.got.TyroshSlave.name=Tyrosh Slave
+entity.got.TyroshSlaver.name=Tyrosh Slaver
+entity.got.TyroshSoldier.name=Tyrosh Warrior
+entity.got.TyroshSoldierArcher.name=Tyrosh Warrior Archer
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
-entity.got.UlthosSpider.name=Araignée géante
-entity.got.VargoHoat.name≠Vargo Hoat
-entity.got.Varys.name=Varie
+entity.got.UlthosSpider.name=Ulthos Spider
+entity.got.VargoHoat.name=Vargo Hoat
+entity.got.Varys.name=Varys
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
-entity.got.VolantisBaker.name=Boulanger de Volantis
-entity.got.VolantisBannerBearer.name=Porte-bannière de Volantis
-entity.got.VolantisBartender.name=Barman de Volantis
-entity.got.VolantisBlacksmith.name=Forgeron de Volantis
-entity.got.VolantisBrewer.name=Brasseur de Volantis
-entity.got.VolantisButcher.name=Boucher de Volantis
-entity.got.VolantisFishmonger.name=Poissonnier de Volantis
-entity.got.VolantisFlorist.name=Fleuriste de Volantis
-entity.got.VolantisCaptain.name=Général de Volantis
-entity.got.VolantisGoldsmith.name=Orfèvre de Volantis
-entity.got.VolantisLevyman.name=Milicien de Volantis
-entity.got.VolantisLevymanArcher.name=Milicien Archer de Volantis
-entity.got.VolantisLumberman.name=Bûcheron de Volantis
-entity.got.VolantisMan.name=Civil de Volantis
-entity.got.VolantisMason.name=Maçon de Volantis
-entity.got.VolantisMiner.name=Mineur de Volantis
-entity.got.VolantisSlave.name=Esclave de Volantis
-entity.got.VolantisSlaver.name=Esclavagiste de Volantis
-entity.got.VolantisSoldier.name=Guerrier de Volantis
-entity.got.VolantisSoldierArcher.name=Archer de Volantis
+entity.got.VolantisBaker.name=Volantis Baker
+entity.got.VolantisBannerBearer.name=Volantis Banner Bearer
+entity.got.VolantisBartender.name=Volantis Bartender
+entity.got.VolantisBlacksmith.name=Volantis Blacksmith
+entity.got.VolantisBrewer.name=Volantis Brewer
+entity.got.VolantisButcher.name=Volantis Butcher
+entity.got.VolantisCaptain.name=Volantis Captain
+entity.got.VolantisFishmonger.name=Volantis Fishmonger
+entity.got.VolantisFlorist.name=Volantis Florist
+entity.got.VolantisGoldsmith.name=Volantis Goldsmith
+entity.got.VolantisLevyman.name=Volantis Levyman
+entity.got.VolantisLevymanArcher.name=Volantis Levyman Archer
+entity.got.VolantisLumberman.name=Volantis Lumberman
+entity.got.VolantisMan.name=Volantis Man
+entity.got.VolantisMason.name=Volantis Mason
+entity.got.VolantisMiner.name=Volantis Miner
+entity.got.VolantisSlave.name=Volantis Slave
+entity.got.VolantisSlaver.name=Volantis Slaver
+entity.got.VolantisSoldier.name=Volantis Warrior
+entity.got.VolantisSoldierArcher.name=Volantis Warrior Archer
 entity.got.WalderFrey.name=Walder Frey
-entity.got.Walrus.name=Morse
-entity.got.Werewolf.name=Loup-garou de Mossovy
-entity.got.WesterlandsBaker.name=Boulanger des Terres de l'Ouest
-entity.got.WesterlandsBannerBearer.name=Porte-bannière des Terres de l'Ouest
-entity.got.WesterlandsBartender.name=Barman des Terres de l'Ouest
-entity.got.WesterlandsBlacksmith.name=Forgeron des Terres de l'Ouest
-entity.got.WesterlandsBrewer.name=Brasseur des Terres de l'Ouest
-entity.got.WesterlandsButcher.name=Boucher des Terres de l'Ouest
-entity.got.WesterlandsCaptain.name=Capitaine des Terres de l'Ouest
-entity.got.WesterlandsFarmer.name=Fermier des Terres de l'Ouest
-entity.got.WesterlandsFarmhand.name=Artisan des Terres de l'Ouest
-entity.got.WesterlandsFishmonger.name=Poissonnier des Terres de l'Ouest
-entity.got.WesterlandsFlorist.name=Fleuriste des Terres de l'Ouest
-entity.got.WesterlandsGoldsmith.name=Orfèvre des Terres de l'Ouest
-entity.got.WesterlandsGuard.name=Gardien de Lannisport
-entity.got.WesterlandsLevyman.name=Milicien des Terres de l'Ouest
-entity.got.WesterlandsLevymanArcher.name=Milicien Archer des Terres de l'Ouest
-entity.got.WesterlandsLumberman.name=Bûcheron des Terres de l'Ouest
-entity.got.WesterlandsMan.name=Civil des Terres de l'Ouest
-entity.got.WesterlandsMason.name=Maçon des Terres de l'Ouest
-entity.got.WesterlandsMiner.name=Marchand de légumes des Terres de l'Ouest
-entity.got.WesterlandsSoldier.name=Guerrier des Terres de l'Ouest
-entity.got.WesterlandsSoldierArcher.name=Archer des Terres de l'Ouest
-entity.got.WhiteBison.name=Bison Blanc
-entity.got.WhiteOryx.name=Oryx blanc
-entity.got.WhiteWalker.name=Marcheur blanc
-entity.got.Wight.name=Mort vivant
-entity.got.WightGiant.name=Mort vivant géant
+entity.got.Walrus.name=Walrus
+entity.got.Werewolf.name=Werewolf
+entity.got.WesterlandsBaker.name=Westerlands Baker
+entity.got.WesterlandsBannerBearer.name=Westerlands Banner Bearer
+entity.got.WesterlandsBartender.name=Westerlands Bartender
+entity.got.WesterlandsBlacksmith.name=Westerlands Smith
+entity.got.WesterlandsBrewer.name=Westerlands Brewer
+entity.got.WesterlandsButcher.name=Westerlands Butcher
+entity.got.WesterlandsCaptain.name=Westerlands Captain
+entity.got.WesterlandsFarmer.name=Westerlands Farmer
+entity.got.WesterlandsFarmhand.name=Westerlands Farmhand
+entity.got.WesterlandsFishmonger.name=Westerlands Fishmonger
+entity.got.WesterlandsFlorist.name=Westerlands Florist
+entity.got.WesterlandsGoldsmith.name=Westerlands Goldsmith
+entity.got.WesterlandsGuard.name=Lannisport Guardian
+entity.got.WesterlandsLevyman.name=Westerlands Levyman
+entity.got.WesterlandsLevymanArcher.name=Westerlands Levyman Archer
+entity.got.WesterlandsLumberman.name=Westerlands Lumberman
+entity.got.WesterlandsMan.name=Westerlands Man
+entity.got.WesterlandsMason.name=Westerlands Mason
+entity.got.WesterlandsMiner.name=Westerlands Miner
+entity.got.WesterlandsSoldier.name=Westerlands Warrior
+entity.got.WesterlandsSoldierArcher.name=Westerlands Warrior Archer
+entity.got.WhiteBison.name=White Bison
+entity.got.WhiteOryx.name=White Oryx
+entity.got.WhiteWalker.name=White Walker
+entity.got.Wight.name=Wight
+entity.got.WightGiant.name=Wight-Giant
 entity.got.Wildling.name=Wildling
-entity.got.WildlingArcher.name=Archer sauvage
-entity.got.WildlingAxeThrower.name=Lanceur de hache sauvage
-entity.got.WildlingBannerBearer.name=Porte-bannière Wildling
-entity.got.WildlingChieftain.name=Chef sauvage
+entity.got.WildlingArcher.name=Wildling Archer
+entity.got.WildlingAxeThrower.name=Wildling Axe Thrower
+entity.got.WildlingBannerBearer.name=Wildling Banner Bearer
+entity.got.WildlingChieftain.name=Wildling Chieftain
+entity.got.WildlingWarrior.name=Wildling Warrior
 entity.got.WillasTyrell.name=Willas Tyrell
-entity.got.WilliamMooton.name≠William Mooton
-entity.got.WoolyRhino.name=Rhinocéros laineux
+entity.got.WilliamMooton.name=William Mooton
+entity.got.WoolyRhino.name=Wooly Rhino
 entity.got.WymanManderly.name=Wyman Manderly
 entity.got.Wyvern.name=Wyvern
 entity.got.XaroXhoanDaxos.name=Xaro Xhoan Daxos
 entity.got.YaraGreyjoy.name=Yara Greyjoy
 entity.got.Ygritte.name=Ygritte
-entity.got.YiTiBaker.name=Boulanger de Yi Ti
-entity.got.YiTiBannerBearer.name=Porte-bannière de Yi Ti
-entity.got.YiTiBartender.name=Barman de Yi Ti
-entity.got.YiTiBlacksmith.name=Forgeron de Yi Ti
-entity.got.YiTiBombardier.name=Bombardier de Yi Ti
-entity.got.YiTiBrewer.name=Brasseur de Yi Ti
-entity.got.YiTiButcher.name=Boucher de Yi Ti
-entity.got.YiTiFarmer.name=Fermier de Yi Ti
-entity.got.YiTiFarmhand.name=Artisan de Yi Ti
-entity.got.YiTiFireThrower.name=Prêtre du feu de Yi Ti
-entity.got.YiTiFishmonger.name=Poissonnier de Yi Ti
-entity.got.YiTiFlorist.name=Fleuriste de Yi Ti
-entity.got.YiTiFrontier.name=Garde de frontière de Yi Ti
-entity.got.YiTiFrontierCrossbower.name=Arbalétier de frontière de Yi Ti
-entity.got.YiTiGoldsmith.name=Orfèvre de Yi Ti
-entity.got.YiTiHunter.name=Chasseur de Yi Ti
-entity.got.YiTiLevyman.name=Milicien de Yi Ti
-entity.got.YiTiLevymanCrossbower.name=Milicien archer de Yi Ti
-entity.got.YiTiLumberman.name=Bûcheron de Yi Ti
-entity.got.YiTiMan.name=Civil de Yi Ti
-entity.got.YiTiMason.name=Maçon de Yi Ti
-entity.got.YiTiMiner.name=Mineur of Yi Ti
-entity.got.YiTiSamurai.name=Samouraï de Yi Ti
-entity.got.YiTiCaptain.name=Shogun de Yi Ti
-entity.got.YiTiSoldier.name=Soldat de Yi Ti
-entity.got.YiTiSoldierCrossbower.name=Arbalétier Yi Ti
+entity.got.YiTiBaker.name=Yi Ti Baker
+entity.got.YiTiBannerBearer.name=Yi Ti Banner Bearer
+entity.got.YiTiBartender.name=Yi Ti Bartender
+entity.got.YiTiBlacksmith.name=Yi Ti Blacksmith
+entity.got.YiTiBombardier.name=Yi Ti Bombardier
+entity.got.YiTiBrewer.name=Yi Ti Brewer
+entity.got.YiTiButcher.name=Yi Ti Butcher
+entity.got.YiTiCaptain.name=Yi Ti Shogun
+entity.got.YiTiFarmer.name=Yi Ti Farmer
+entity.got.YiTiFarmhand.name=Yi Ti Farmhand
+entity.got.YiTiFireThrower.name=Yi Ti Fire-Priest
+entity.got.YiTiFishmonger.name=Yi Ti Fishmonger
+entity.got.YiTiFlorist.name=Yi Ti Florist
+entity.got.YiTiFrontier.name=Yi Ti Frontier
+entity.got.YiTiFrontierCrossbower.name=Yi Ti Frontier Crossbower
+entity.got.YiTiGoldsmith.name=Yi Ti Goldsmith
+entity.got.YiTiHunter.name=Yi Ti Hunter
+entity.got.YiTiLevyman.name=Yi Ti Levyman
+entity.got.YiTiLevymanCrossbower.name=Yi Ti Levyman Crossbower
+entity.got.YiTiLumberman.name=Yi Ti Lumberman
+entity.got.YiTiMan.name=Yi Ti Man
+entity.got.YiTiMason.name=Yi Ti Mason
+entity.got.YiTiMiner.name=Yi Ti Miner
+entity.got.YiTiSamurai.name=Yi Ti Samurai
+entity.got.YiTiSoldier.name=Yi Ti Soldier
+entity.got.YiTiSoldierCrossbower.name=Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name=Yohn Royce
-entity.got.Yoren.name≠Yoren
-entity.got.YoungGriff.name≠Young Griff
-entity.got.Zebra.name=Zèbre
+entity.got.Yoren.name=Yoren
+entity.got.YoungGriff.name=Young Griff
+entity.got.Zebra.name=Zebra
 generator.got.info=Vous apparaitrez dans le mod de GOT
 generator.got=Game of Thrones
 generator.gotClassic.info=Vous apparaitrez dans le monde habituel avec les biomes de GOT
@@ -2847,413 +2815,413 @@ got.shields.YITI_SAMURAI.name=Bouclier du samouraï Yi Ti
 got.shields.category.ACHIEVABLE=Boucliers de succès
 got.shields.category.ALIGNMENT=Boucliers d'alignement
 got.shields.category.EXCLUSIVE=Boucliers exclusifs
-got.structure.ArrynBarn.name≠Barn of Arryn Vale
-got.structure.ArrynBath.name≠Bath of Arryn Vale
-got.structure.ArrynFortress.name≠Fortress of Arryn Vale
-got.structure.ArrynHouse.name≠House of Arryn Vale
-got.structure.ArrynHouseLarge.name≠Mansion of Arryn Vale
-got.structure.ArrynHouseSmall.name≠Shack of Arryn Vale
-got.structure.ArrynSettle.name≠Village of Arryn Vale
-got.structure.ArrynSettleForted.name≠Castle of Arryn Vale
-got.structure.ArrynSettleLarge.name≠Town of Arryn Vale
-got.structure.ArrynSmithy.name≠Smithy of Arryn Vale
-got.structure.ArrynStables.name≠Stables of Arryn Vale
-got.structure.ArrynTavern.name≠Tavern of Arryn Vale
-got.structure.ArrynTower.name≠Tower of Arryn Vale
-got.structure.ArrynWatchfort.name≠Watchfort of Arryn Vale
-got.structure.ArrynWatchtower.name≠Watchtower of Arryn Vale
-got.structure.AsshaiAltar.name≠Altar of Asshai
-got.structure.AsshaiBiolab.name≠Biolab of Asshai
-got.structure.AsshaiFort.name≠Fortress of Asshai
-got.structure.AsshaiHouse.name≠House of Asshai
-got.structure.AsshaiSettle.name≠Town of Asshai
-got.structure.AsshaiTavern.name≠Tavern of Asshai
-got.structure.AsshaiTower.name≠Tower of Asshai
-got.structure.Barrow.name≠Barrow
-got.structure.BraavosBarracks.name≠Barracks of Braavos
-got.structure.BraavosBazaar.name≠Bazaar of Braavos
-got.structure.BraavosFortress.name≠Fortress of Braavos
-got.structure.BraavosHouse.name≠House of Braavos
-got.structure.BraavosHouseLarge.name≠Mansion of Braavos
-got.structure.BraavosSettle.name≠Village of Braavos
-got.structure.BraavosSettleForted.name≠Fortification of Braavos
-got.structure.BraavosSettleLarge.name≠Town of Braavos
-got.structure.BraavosSmithy.name≠Smithy of Braavos
-got.structure.BraavosStables.name≠Stables of Braavos
-got.structure.BraavosTavern.name≠Tavern of Braavos
-got.structure.BraavosTower.name≠Tower of Braavos
-got.structure.BraavosTraining.name≠Training of Braavos
-got.structure.BurntHouse.name≠Burnt House
-got.structure.CrownlandsBarn.name≠Barn of Crownlands
-got.structure.CrownlandsBath.name≠Bath of Crownlands
-got.structure.CrownlandsFortress.name≠Fortress of Crownlands
-got.structure.CrownlandsHouse.name≠House of Crownlands
-got.structure.CrownlandsHouseLarge.name≠Mansion of Crownlands
-got.structure.CrownlandsHouseSmall.name≠Shack of Crownlands
-got.structure.CrownlandsSettle.name≠Village of Crownlands
-got.structure.CrownlandsSettleForted.name≠Castle of Crownlands
-got.structure.CrownlandsSettleLarge.name≠Town of Crownlands
-got.structure.CrownlandsSmithy.name≠Smithy of Crownlands
-got.structure.CrownlandsStables.name≠Stables of Crownlands
-got.structure.CrownlandsTavern.name≠Tavern of Crownlands
-got.structure.CrownlandsTower.name≠Tower of Crownlands
-got.structure.CrownlandsWatchfort.name≠Watchfort of Crownlands
-got.structure.CrownlandsWatchtower.name≠Watchtower of Crownlands
-got.structure.DorneBarn.name≠Barn of Dorne
-got.structure.DorneBath.name≠Bath of Dorne
-got.structure.DorneFortress.name≠Fortress of Dorne
-got.structure.DorneHouse.name≠House of Dorne
-got.structure.DorneHouseLarge.name≠Mansion of Dorne
-got.structure.DorneHouseSmall.name≠Shack of Dorne
-got.structure.DorneSettle.name≠Village of Dorne
-got.structure.DorneSettleForted.name≠Castle of Dorne
-got.structure.DorneSettleLarge.name≠Town of Dorne
-got.structure.DorneSmithy.name≠Smithy of Dorne
-got.structure.DorneStables.name≠Stables of Dorne
-got.structure.DorneTavern.name≠Tavern of Dorne
-got.structure.DorneTower.name≠Tower of Dorne
-got.structure.DorneWatchfort.name≠Watchfort of Dorne
-got.structure.DorneWatchtower.name≠Watchtower of Dorne
-got.structure.DothrakiChieftainTent.name≠Dothraki Khal's Tent
-got.structure.DothrakiShamanTent.name≠Dothraki Khalin's Tent
-got.structure.DothrakiSettle.name≠Dothraki Camp
-got.structure.DothrakiSettleLarge.name≠Dothraki Village
-got.structure.DothrakiTent.name≠Dothraki Tent
-got.structure.DothrakiTentLarge.name≠Dothraki Large Tent
-got.structure.DragonstoneBarn.name≠Barn of Dragonstone
-got.structure.DragonstoneBath.name≠Bath of Dragonstone
-got.structure.DragonstoneFortress.name≠Fortress of Dragonstone
-got.structure.DragonstoneHouse.name≠House of Dragonstone
-got.structure.DragonstoneHouseLarge.name≠Mansion of Dragonstone
-got.structure.DragonstoneHouseSmall.name≠Shack of Dragonstone
-got.structure.DragonstoneSettle.name≠Village of Dragonstone
-got.structure.DragonstoneSettleForted.name≠Castle of Dragonstone
-got.structure.DragonstoneSettleLarge.name≠Town of Dragonstone
-got.structure.DragonstoneSmithy.name≠Smithy of Dragonstone
-got.structure.DragonstoneStables.name≠Stables of Dragonstone
-got.structure.DragonstoneTavern.name≠Tavern of Dragonstone
-got.structure.DragonstoneTower.name≠Tower of Dragonstone
-got.structure.DragonstoneWatchfort.name≠Watchfort of Dragonstone
-got.structure.DragonstoneWatchtower.name≠Watchtower of Dragonstone
-got.structure.GhiscarBarracks.name≠Barracks of Ghiscar
-got.structure.GhiscarBazaar.name≠Bazaar of Ghiscar
-got.structure.GhiscarCamp.name≠Corsair Camp of Ghiscar
-got.structure.GhiscarFightingPit.name≠Fighting Pit of Ghiscar
-got.structure.GhiscarFortress.name≠Fortress of Ghiscar
-got.structure.GhiscarHouse.name≠House of Ghiscar
-got.structure.GhiscarHouseLarge.name≠Mansion of Ghiscar
-got.structure.GhiscarPyramid.name≠Pyramid of Ghiscar
-got.structure.GhiscarSettle.name≠Village of Ghiscar
-got.structure.GhiscarSettleForted.name≠Fortification of Ghiscar
-got.structure.GhiscarSettleLarge.name≠Town of Ghiscar
-got.structure.GhiscarSmithy.name≠Smithy of Ghiscar
-got.structure.GhiscarStables.name≠Stables of Ghiscar
-got.structure.GhiscarTavern.name≠Tavern of Ghiscar
-got.structure.GhiscarTower.name≠Tower of Ghiscar
-got.structure.GhiscarTraining.name≠Training of Ghiscar
-got.structure.GiftHouse.name≠House of Night's Watch
-got.structure.GiftHouseSmall.name≠Shack of Night's Watch
-got.structure.GiftSettle.name≠Village of Night's Watch
-got.structure.GiftSmithy.name≠Smithy of Night's Watch
-got.structure.GiftStables.name≠Stables of Night's Watch
-got.structure.GoldenCompanySettle.name≠Camp of Golden Company
-got.structure.GoldenCompanyWatchtower.name≠Watchtower of Golden Company
-got.structure.HillmanCampfire.name≠Hillmen Camp
-got.structure.HillmanFortress.name≠Hillmen Fortress
-got.structure.HillmanHouse.name≠Hillmen House
-got.structure.HillmanSettle.name≠Hillmen Village
-got.structure.HillmanTavern.name≠Hillmen Tavern
-got.structure.IbbenBarn.name≠Barn of Ibben
-got.structure.IbbenFortress.name≠Fortress of Ibben
-got.structure.IbbenHouse.name≠House of Ibben
-got.structure.IbbenSettle.name≠Village of Ibben
-got.structure.IbbenSettleForted.name≠Fortification of Ibben
-got.structure.IbbenSmithy.name≠Smithy of Ibben
-got.structure.IbbenStables.name≠Stables of Ibben
-got.structure.IbbenTavern.name≠Tavern of Ibben
-got.structure.IbbenWatchtower.name≠Watchtower of Ibben
-got.structure.IronbornBarn.name≠Barn of Iron Islands
-got.structure.IronbornBath.name≠Bath of Iron Islands
-got.structure.IronbornFortress.name≠Fortress of Iron Islands
-got.structure.IronbornHouse.name≠House of Iron Islands
-got.structure.IronbornHouseLarge.name≠Mansion of Iron Islands
-got.structure.IronbornHouseSmall.name≠Shack of Iron Islands
-got.structure.IronbornSettle.name≠Village of Iron Islands
-got.structure.IronbornSettleForted.name≠Castle of Iron Islands
-got.structure.IronbornSettleLarge.name≠Town of Iron Islands
-got.structure.IronbornSmithy.name≠Smithy of Iron Islands
-got.structure.IronbornStables.name≠Stables of Iron Islands
-got.structure.IronbornTavern.name≠Tavern of Iron Islands
-got.structure.IronbornTower.name≠Tower of Iron Islands
-got.structure.IronbornWatchfort.name≠Watchfort of Iron Islands
-got.structure.IronbornWatchtower.name≠Watchtower of Iron Islands
-got.structure.JogosChieftainTent.name≠Chieftain's Tent of Jogos Nhai
-got.structure.JogosSettle.name≠Camp of Jogos Nhai
-got.structure.JogosSettleLarge.name≠Village of Jogos Nhai
-got.structure.JogosShamanTent.name≠Shaman's Tent of Jogos Nhai
-got.structure.JogosTent.name≠Tent of Jogos Nhai
-got.structure.JogosTentLarge.name≠Large Tent of Jogos Nhai
-got.structure.LhazarAltar.name≠Altar of Lhazar
-got.structure.LhazarBazaar.name≠Bazaar of Lhazar
-got.structure.LhazarFarm.name≠Farm of Lhazar
-got.structure.LhazarHouse.name≠House of Lhazar
-got.structure.LhazarPyramid.name≠Pyramid of Lhazar
-got.structure.LhazarSettle.name≠Village of Lhazar
-got.structure.LhazarSettleForted.name≠Fortification of Lhazar
-got.structure.LhazarSettleLarge.name≠Town of Lhazar
-got.structure.LhazarSmithy.name≠Smithy of Lhazar
-got.structure.LhazarTavern.name≠Tavern of Lhazar
-got.structure.LhazarTotem.name≠Totem of Lhazar
-got.structure.LhazarTower.name≠Tower of Lhazar
-got.structure.LhazarWarCamp.name≠War Camp of Lhazar
-got.structure.LorathBarracks.name≠Barracks of Lorath
-got.structure.LorathBazaar.name≠Bazaar of Lorath
-got.structure.LorathFortress.name≠Fortress of Lorath
-got.structure.LorathHouse.name≠House of Lorath
-got.structure.LorathHouseLarge.name≠Mansion of Lorath
-got.structure.LorathSettle.name≠Village of Lorath
-got.structure.LorathSettleForted.name≠Fortification of Lorath
-got.structure.LorathSettleLarge.name≠Town of Lorath
-got.structure.LorathSmithy.name≠Smithy of Lorath
-got.structure.LorathStables.name≠Stables of Lorath
-got.structure.LorathTavern.name≠Tavern of Lorath
-got.structure.LorathTower.name≠Tower of Lorath
-got.structure.LorathTraining.name≠Training of Lorath
-got.structure.LysBarracks.name≠Barracks of Lys
-got.structure.LysBazaar.name≠Bazaar of Lys
-got.structure.LysFortress.name≠Fortress of Lys
-got.structure.LysHouse.name≠House of Lys
-got.structure.LysHouseLarge.name≠Mansion of Lys
-got.structure.LysSettle.name≠Village of Lys
-got.structure.LysSettleForted.name≠Fortification of Lys
-got.structure.LysSettleLarge.name≠Town of Lys
-got.structure.LysSmithy.name≠Smithy of Lys
-got.structure.LysStables.name≠Stables of Lys
-got.structure.LysTavern.name≠Brothel of Lys
-got.structure.LysTower.name≠Tower of Lys
-got.structure.LysTraining.name≠Training of Lys
-got.structure.MossovyBarn.name≠Barn of Mossovy
-got.structure.MossovyFortress.name≠Fortress of Mossovy
-got.structure.MossovyHouse.name≠House of Mossovy
-got.structure.MossovyHouseLarge.name≠Mansion of Mossovy
-got.structure.MossovyHouseSmall.name≠Shack of Mossovy
-got.structure.MossovySettle.name≠Village of Mossovy
-got.structure.MossovySmithy.name≠Smithy of Mossovy
-got.structure.MossovyStable.name≠Stables of Mossovy
-got.structure.MossovyTavern.name≠Tavern of Mossovy
-got.structure.MyrBarracks.name≠Barracks of Myr
-got.structure.MyrBazaar.name≠Bazaar of Myr
-got.structure.MyrFortress.name≠Fortress of Myr
-got.structure.MyrHouse.name≠House of Myr
-got.structure.MyrHouseLarge.name≠Mansion of Myr
-got.structure.MyrSettle.name≠Village of Myr
-got.structure.MyrSettleForted.name≠Fortification of Myr
-got.structure.MyrSettleLarge.name≠Town of Myr
-got.structure.MyrSmithy.name≠Smithy of Myr
-got.structure.MyrStables.name≠Stables of Myr
-got.structure.MyrTavern.name≠Tavern of Myr
-got.structure.MyrTower.name≠Tower of Myr
-got.structure.MyrTraining.name≠Training of Myr
-got.structure.NorthBarn.name≠Barn of North
-got.structure.NorthBath.name≠Bath of North
-got.structure.NorthFortress.name≠Fortress of North
-got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
-got.structure.NorthHillmanHouse.name≠North Hillmen House
-got.structure.NorthHillmanSettle.name≠North Hillmen Village
-got.structure.NorthHouse.name≠House of North
-got.structure.NorthHouseLarge.name≠Mansion of North
-got.structure.NorthHouseSmall.name≠Shack of North
-got.structure.NorthSettle.name≠Village of North
-got.structure.NorthSettleForted.name≠Castle of North
-got.structure.NorthSettleLarge.name≠Town of North
-got.structure.NorthSmithy.name≠Smithy of North
-got.structure.NorthStables.name≠Stables of North
-got.structure.NorthTavern.name≠Tavern of North
-got.structure.NorthTower.name≠Tower of North
-got.structure.NorthWatchfort.name≠Watchfort of North
-got.structure.NorthWatchtower.name≠Watchtower of North
-got.structure.NorvosBarracks.name≠Barracks of Norvos
-got.structure.NorvosBazaar.name≠Bazaar of Norvos
-got.structure.NorvosFortress.name≠Fortress of Norvos
-got.structure.NorvosHouse.name≠House of Norvos
-got.structure.NorvosHouseLarge.name≠Mansion of Norvos
-got.structure.NorvosSettle.name≠Village of Norvos
-got.structure.NorvosSettleForted.name≠Fortification of Norvos
-got.structure.NorvosSettleLarge.name≠Town of Norvos
-got.structure.NorvosSmithy.name≠Smithy of Norvos
-got.structure.NorvosStables.name≠Stables of Norvos
-got.structure.NorvosTavern.name≠Tavern of Norvos
-got.structure.NorvosTower.name≠Tower of Norvos
-got.structure.NorvosTraining.name≠Training of Norvos
-got.structure.PentosBarracks.name≠Barracks of Pentos
-got.structure.PentosBazaar.name≠Bazaar of Pentos
-got.structure.PentosFortress.name≠Fortress of Pentos
-got.structure.PentosHouse.name≠House of Pentos
-got.structure.PentosHouseLarge.name≠Mansion of Pentos
-got.structure.PentosSettle.name≠Village of Pentos
-got.structure.PentosSettleForted.name≠Fortification of Pentos
-got.structure.PentosSettleLarge.name≠Town of Pentos
-got.structure.PentosSmithy.name≠Smithy of Pentos
-got.structure.PentosStables.name≠Stables of Pentos
-got.structure.PentosTavern.name≠Tavern of Pentos
-got.structure.PentosTower.name≠Tower of Pentos
-got.structure.PentosTraining.name≠Training of Pentos
-got.structure.QarthBarracks.name≠Barracks of Qarth
-got.structure.QarthBazaar.name≠Bazaar of Qarth
-got.structure.QarthFortress.name≠Fortress of Qarth
-got.structure.QarthHouse.name≠House of Qarth
-got.structure.QarthHouseLarge.name≠Mansion of Qarth
-got.structure.QarthSettle.name≠Village of Qarth
-got.structure.QarthSettleForted.name≠Fortification of Qarth
-got.structure.QarthSettleLarge.name≠Town of Qarth
-got.structure.QarthSmithy.name≠Smithy of Qarth
-got.structure.QarthStables.name≠Stables of Qarth
-got.structure.QarthTavern.name≠Tavern of Qarth
-got.structure.QarthTower.name≠Tower of Qarth
-got.structure.QarthTraining.name≠Training of Qarth
-got.structure.QohorBarracks.name≠Barracks of Qohor
-got.structure.QohorBazaar.name≠Bazaar of Qohor
-got.structure.QohorFortress.name≠Fortress of Qohor
-got.structure.QohorHouse.name≠House of Qohor
-got.structure.QohorHouseLarge.name≠Mansion of Qohor
-got.structure.QohorSettle.name≠Village of Qohor
-got.structure.QohorSettleForted.name≠Fortification of Qohor
-got.structure.QohorSettleLarge.name≠Town of Qohor
-got.structure.QohorSmithy.name≠Smithy of Qohor
-got.structure.QohorStables.name≠Stables of Qohor
-got.structure.QohorTavern.name≠Tavern of Qohor
-got.structure.QohorTower.name≠Tower of Qohor
-got.structure.QohorTraining.name≠Training of Qohor
-got.structure.ReachBarn.name≠Barn of Reach
-got.structure.ReachBath.name≠Bath of Reach
-got.structure.ReachBrewery.name≠Brewery of Reach
-got.structure.ReachFortress.name≠Fortress of Reach
-got.structure.ReachHouse.name≠House of Reach
-got.structure.ReachHouseLarge.name≠Mansion of Reach
-got.structure.ReachHouseSmall.name≠Shack of Reach
-got.structure.ReachSettle.name≠Village of Reach
-got.structure.ReachSettleForted.name≠Castle of Reach
-got.structure.ReachSettleLarge.name≠Town of Reach
-got.structure.ReachSmithy.name≠Smithy of Reach
-got.structure.ReachStables.name≠Stables of Reach
-got.structure.ReachTavern.name≠Tavern of Reach
-got.structure.ReachTower.name≠Tower of Reach
-got.structure.ReachWatchfort.name≠Watchfort of Reach
-got.structure.ReachWatchtower.name≠Watchtower of Reach
-got.structure.RiverlandsBarn.name≠Barn of Riverlands
-got.structure.RiverlandsBath.name≠Bath of Riverlands
-got.structure.RiverlandsFortress.name≠Fortress of Riverlands
-got.structure.RiverlandsHouse.name≠House of Riverlands
-got.structure.RiverlandsHouseLarge.name≠Mansion of Riverlands
-got.structure.RiverlandsHouseSmall.name≠Shack of Riverlands
-got.structure.RiverlandsSettle.name≠Village of Riverlands
-got.structure.RiverlandsSettleForted.name≠Castle of Riverlands
-got.structure.RiverlandsSettleLarge.name≠Town of Riverlands
-got.structure.RiverlandsSmithy.name≠Smithy of Riverlands
-got.structure.RiverlandsStables.name≠Stables of Riverlands
-got.structure.RiverlandsTavern.name≠Tavern of Riverlands
-got.structure.RiverlandsTower.name≠Tower of Riverlands
-got.structure.RiverlandsWatchfort.name≠Watchfort of Riverlands
-got.structure.RiverlandsWatchtower.name≠Watchtower of Riverlands
-got.structure.RottenHouse.name≠Rotten House
-got.structure.RuinSandstone.name≠Sandstone Ruins
-got.structure.RuinStone.name≠Stone Ruins
-got.structure.RuinedHouse.name≠Ruined House
-got.structure.SmallStoneRuin.name≠Small Stone Ruins
-got.structure.SothoryosHouseLarge.name≠Mansion of Sothoryos
-got.structure.SothoryosHouseSimple.name≠Simple House of Sothoryos
-got.structure.SothoryosHouseStilts.name≠Stilted House of Sothoryos
-got.structure.SothoryosPyramid.name≠Pyramid of Sothoryos
-got.structure.SothoryosSettle.name≠Village of Sothoryos
-got.structure.SothoryosSmithy.name≠Smithy of Sothoryos
-got.structure.SothoryosTemple.name≠Temple of Sothoryos
-got.structure.SothoryosWatchtower.name≠Watchtower of Sothoryos
-got.structure.StormlandsBarn.name≠Barn of Stormlands
-got.structure.StormlandsBath.name≠Bath of Stormlands
-got.structure.StormlandsFortress.name≠Fortress of Stormlands
-got.structure.StormlandsHouse.name≠House of Stormlands
-got.structure.StormlandsHouseLarge.name≠Mansion of Stormlands
-got.structure.StormlandsHouseSmall.name≠Shack of Stormlands
-got.structure.StormlandsSettle.name≠Village of Stormlands
-got.structure.StormlandsSettleForted.name≠Castle of Stormlands
-got.structure.StormlandsSettleLarge.name≠Town of Stormlands
-got.structure.StormlandsSmithy.name≠Smithy of Stormlands
-got.structure.StormlandsStables.name≠Stables of Stormlands
-got.structure.StormlandsTavern.name≠Tavern of Stormlands
-got.structure.StormlandsTower.name≠Tower of Stormlands
-got.structure.StormlandsWatchfort.name≠Watchfort of Stormlands
-got.structure.StormlandsWatchtower.name≠Watchtower of Stormlands
-got.structure.SummerFortress.name≠Fortress of Summer Islands
-got.structure.SummerHouse.name≠House of Summer Islands
-got.structure.SummerHouseRuined.name≠Riuned House of Summer Islands
-got.structure.SummerSettle.name≠Village of Summer Islands
-got.structure.SummerSettleForted.name≠Fortification of Summer Islands
-got.structure.SummerSettleRuined.name≠Ruined Village of Summer Islands
-got.structure.SummerSmithy.name≠Smithy of Summer Islands
-got.structure.SummerStables.name≠Stables of Summer Islands
-got.structure.SummerTavern.name≠Tavern of Summer Islands
-got.structure.SummerTavernRuined.name≠Ruined Tavern of Summer Islands
-got.structure.SummerTower.name≠Tower of Summer Islands
-got.structure.ThennCamp.name≠Thenn Camp
-got.structure.ThennHouse.name≠Thenn House
-got.structure.ThennChieftainHouse.name≠Thenn Magnar's House
-got.structure.ThennSettle.name≠Thenn Village
-got.structure.TyroshBarracks.name≠Barracks of Tyrosh
-got.structure.TyroshBazaar.name≠Bazaar of Tyrosh
-got.structure.TyroshFortress.name≠Fortress of Tyrosh
-got.structure.TyroshHouse.name≠House of Tyrosh
-got.structure.TyroshHouseLarge.name≠Mansion of Tyrosh
-got.structure.TyroshSettle.name≠Village of Tyrosh
-got.structure.TyroshSettleForted.name≠Fortification of Tyrosh
-got.structure.TyroshSettleLarge.name≠Town of Tyrosh
-got.structure.TyroshSmithy.name≠Smithy of Tyrosh
-got.structure.TyroshStables.name≠Stables of Tyrosh
-got.structure.TyroshTavern.name≠Tavern of Tyrosh
-got.structure.TyroshTower.name≠Tower of Tyrosh
-got.structure.TyroshTraining.name≠Training of Tyrosh
-got.structure.VolantisBarracks.name≠Barracks of Volantis
-got.structure.VolantisBazaar.name≠Bazaar of Volantis
-got.structure.VolantisFortress.name≠Fortress of Volantis
-got.structure.VolantisHouse.name≠House of Volantis
-got.structure.VolantisHouseLarge.name≠Mansion of Volantis
-got.structure.VolantisSettle.name≠Village of Volantis
-got.structure.VolantisSettleForted.name≠Fortification of Volantis
-got.structure.VolantisSettleLarge.name≠Town of Volantis
-got.structure.VolantisSmithy.name≠Smithy of Volantis
-got.structure.VolantisStables.name≠Stables of Volantis
-got.structure.VolantisTavern.name≠Tavern of Volantis
-got.structure.VolantisTower.name≠Tower of Volantis
-got.structure.VolantisTraining.name≠Training of Volantis
-got.structure.WesterlandsBarn.name≠Barn of Westerlands
-got.structure.WesterlandsBath.name≠Bath of Westerlands
-got.structure.WesterlandsFortress.name≠Fortress of Westerlands
-got.structure.WesterlandsHouse.name≠House of Westerlands
-got.structure.WesterlandsHouseLarge.name≠Mansion of Westerlands
-got.structure.WesterlandsHouseSmall.name≠Shack of Westerlands
-got.structure.WesterlandsSettle.name≠Village of Westerlands
-got.structure.WesterlandsSettleForted.name≠Castle of Westerlands
-got.structure.WesterlandsSettleLarge.name≠Town of Westerlands
-got.structure.WesterlandsSmithy.name≠Smithy of Westerlands
-got.structure.WesterlandsStables.name≠Stables of Westerlands
-got.structure.WesterlandsTavern.name≠Tavern of Westerlands
-got.structure.WesterlandsTower.name≠Tower of Westerlands
-got.structure.WesterlandsWatchfort.name≠Watchfort of Westerlands
-got.structure.WesterlandsWatchtower.name≠Watchtower of Westerlands
-got.structure.WildlingChieftainHouse.name≠Wildling Chieftain's House
-got.structure.WildlingHouse.name≠Wildling House
-got.structure.WildlingSettle.name≠Wildling Village
-got.structure.YiTiFortress.name≠Fortress of Yi Ti
-got.structure.YiTiHouse.name≠House of Yi Ti
-got.structure.YiTiHouseLarge.name≠Mansion of Yi Ti
-got.structure.YiTiHouseSmall.name≠Shack of Yi Ti
-got.structure.YiTiSettle.name≠Village of Yi Ti
-got.structure.YiTiSettleForted.name≠Castle of Yi Ti
-got.structure.YiTiSettleLarge.name≠Town of Yi Ti
-got.structure.YiTiSmithy.name≠Smithy of Yi Ti
-got.structure.YiTiStables.name≠Stables of Yi Ti
-got.structure.YiTiTavern.name≠Tavern of Yi Ti
-got.structure.YiTiTavernTown.name≠Town Tavern of Yi Ti
-got.structure.YiTiTower.name≠Tower of Yi Ti
+got.structure.ArrynBarn.name=Arryn Vale Barn
+got.structure.ArrynBath.name=Arryn Vale Bath
+got.structure.ArrynFortress.name=Arryn Vale Fortress
+got.structure.ArrynHouse.name=Arryn Vale House
+got.structure.ArrynHouseLarge.name=Arryn Vale Mansion
+got.structure.ArrynHouseSmall.name=Arryn Vale Shack
+got.structure.ArrynSettle.name=Arryn Vale Village
+got.structure.ArrynSettleForted.name=Arryn Vale Castle
+got.structure.ArrynSettleLarge.name=Arryn Vale Town
+got.structure.ArrynSmithy.name=Arryn Vale Smithy
+got.structure.ArrynStables.name=Arryn Vale Stables
+got.structure.ArrynTavern.name=Arryn Vale Tavern
+got.structure.ArrynTower.name=Arryn Vale Tower
+got.structure.ArrynWatchfort.name=Arryn Vale Watchfort
+got.structure.ArrynWatchtower.name=Arryn Vale Watchtower
+got.structure.AsshaiAltar.name=Asshai Altar
+got.structure.AsshaiBiolab.name=Asshai Biolab
+got.structure.AsshaiFort.name=Asshai Fortress
+got.structure.AsshaiHouse.name=Asshai House
+got.structure.AsshaiSettle.name=Asshai Town
+got.structure.AsshaiTavern.name=Asshai Tavern
+got.structure.AsshaiTower.name=Asshai Tower
+got.structure.Barrow.name=Barrow
+got.structure.BraavosBarracks.name=Braavos Barracks
+got.structure.BraavosBazaar.name=Braavos Bazaar
+got.structure.BraavosFortress.name=Braavos Fortress
+got.structure.BraavosHouse.name=Braavos House
+got.structure.BraavosHouseLarge.name=Braavos Mansion
+got.structure.BraavosSettle.name=Braavos Village
+got.structure.BraavosSettleForted.name=Braavos Fortification
+got.structure.BraavosSettleLarge.name=Braavos Town
+got.structure.BraavosSmithy.name=Braavos Smithy
+got.structure.BraavosStables.name=Braavos Stables
+got.structure.BraavosTavern.name=Braavos Tavern
+got.structure.BraavosTower.name=Braavos Tower
+got.structure.BraavosTraining.name=Braavos Training
+got.structure.BurntHouse.name=Burnt House
+got.structure.CrownlandsBarn.name=Crownlands Barn
+got.structure.CrownlandsBath.name=Crownlands Bath
+got.structure.CrownlandsFortress.name=Crownlands Fortress
+got.structure.CrownlandsHouse.name=Crownlands House
+got.structure.CrownlandsHouseLarge.name=Crownlands Mansion
+got.structure.CrownlandsHouseSmall.name=Crownlands Shack
+got.structure.CrownlandsSettle.name=Crownlands Village
+got.structure.CrownlandsSettleForted.name=Crownlands Castle
+got.structure.CrownlandsSettleLarge.name=Crownlands Town
+got.structure.CrownlandsSmithy.name=Crownlands Smithy
+got.structure.CrownlandsStables.name=Crownlands Stables
+got.structure.CrownlandsTavern.name=Crownlands Tavern
+got.structure.CrownlandsTower.name=Crownlands Tower
+got.structure.CrownlandsWatchfort.name=Crownlands Watchfort
+got.structure.CrownlandsWatchtower.name=Crownlands Watchtower
+got.structure.DorneBarn.name=Dorne Barn
+got.structure.DorneBath.name=Dorne Bath
+got.structure.DorneFortress.name=Dorne Fortress
+got.structure.DorneHouse.name=Dorne House
+got.structure.DorneHouseLarge.name=Dorne Mansion
+got.structure.DorneHouseSmall.name=Dorne Shack
+got.structure.DorneSettle.name=Dorne Village
+got.structure.DorneSettleForted.name=Dorne Castle
+got.structure.DorneSettleLarge.name=Dorne Town
+got.structure.DorneSmithy.name=Dorne Smithy
+got.structure.DorneStables.name=Dorne Stables
+got.structure.DorneTavern.name=Dorne Tavern
+got.structure.DorneTower.name=Dorne Tower
+got.structure.DorneWatchfort.name=Dorne Watchfort
+got.structure.DorneWatchtower.name=Dorne Watchtower
+got.structure.DothrakiChieftainTent.name=Dothraki Khal's Tent
+got.structure.DothrakiSettle.name=Dothraki Camp
+got.structure.DothrakiSettleLarge.name=Dothraki Village
+got.structure.DothrakiShamanTent.name=Dothraki Khalin's Tent
+got.structure.DothrakiTent.name=Dothraki Tent
+got.structure.DothrakiTentLarge.name=Dothraki Large Tent
+got.structure.DragonstoneBarn.name=Dragonstone Barn
+got.structure.DragonstoneBath.name=Dragonstone Bath
+got.structure.DragonstoneFortress.name=Dragonstone Fortress
+got.structure.DragonstoneHouse.name=Dragonstone House
+got.structure.DragonstoneHouseLarge.name=Dragonstone Mansion
+got.structure.DragonstoneHouseSmall.name=Dragonstone Shack
+got.structure.DragonstoneSettle.name=Dragonstone Village
+got.structure.DragonstoneSettleForted.name=Dragonstone Castle
+got.structure.DragonstoneSettleLarge.name=Dragonstone Town
+got.structure.DragonstoneSmithy.name=Dragonstone Smithy
+got.structure.DragonstoneStables.name=Dragonstone Stables
+got.structure.DragonstoneTavern.name=Dragonstone Tavern
+got.structure.DragonstoneTower.name=Dragonstone Tower
+got.structure.DragonstoneWatchfort.name=Dragonstone Watchfort
+got.structure.DragonstoneWatchtower.name=Dragonstone Watchtower
+got.structure.GhiscarBarracks.name=Ghiscar Barracks
+got.structure.GhiscarBazaar.name=Ghiscar Bazaar
+got.structure.GhiscarCamp.name=Ghiscar Corsair Camp
+got.structure.GhiscarFightingPit.name=Ghiscar Fighting Pit
+got.structure.GhiscarFortress.name=Ghiscar Fortress
+got.structure.GhiscarHouse.name=Ghiscar House
+got.structure.GhiscarHouseLarge.name=Ghiscar Mansion
+got.structure.GhiscarPyramid.name=Ghiscar Pyramid
+got.structure.GhiscarSettle.name=Ghiscar Village
+got.structure.GhiscarSettleForted.name=Ghiscar Fortification
+got.structure.GhiscarSettleLarge.name=Ghiscar Town
+got.structure.GhiscarSmithy.name=Ghiscar Smithy
+got.structure.GhiscarStables.name=Ghiscar Stables
+got.structure.GhiscarTavern.name=Ghiscar Tavern
+got.structure.GhiscarTower.name=Ghiscar Tower
+got.structure.GhiscarTraining.name=Ghiscar Training
+got.structure.GiftHouse.name=Night's Watch House
+got.structure.GiftHouseSmall.name=Night's Watch Shack
+got.structure.GiftSettle.name=Night's Watch Village
+got.structure.GiftSmithy.name=Night's Watch Smithy
+got.structure.GiftStables.name=Night's Watch Stables
+got.structure.GoldenCompanySettle.name=Golden Company Camp
+got.structure.GoldenCompanyWatchtower.name=Golden Company Watchtower
+got.structure.HillmanCampfire.name=Hillmen Camp
+got.structure.HillmanFortress.name=Hillmen Fortress
+got.structure.HillmanHouse.name=Hillmen House
+got.structure.HillmanSettle.name=Hillmen Village
+got.structure.HillmanTavern.name=Hillmen Tavern
+got.structure.IbbenBarn.name=Ibben Barn
+got.structure.IbbenFortress.name=Ibben Fortress
+got.structure.IbbenHouse.name=Ibben House
+got.structure.IbbenSettle.name=Ibben Village
+got.structure.IbbenSettleForted.name=Ibben Fortification
+got.structure.IbbenSmithy.name=Ibben Smithy
+got.structure.IbbenStables.name=Ibben Stables
+got.structure.IbbenTavern.name=Ibben Tavern
+got.structure.IbbenWatchtower.name=Ibben Watchtower
+got.structure.IronbornBarn.name=Iron Islands Barn
+got.structure.IronbornBath.name=Iron Islands Bath
+got.structure.IronbornFortress.name=Iron Islands Fortress
+got.structure.IronbornHouse.name=Iron Islands House
+got.structure.IronbornHouseLarge.name=Iron Islands Mansion
+got.structure.IronbornHouseSmall.name=Iron Islands Shack
+got.structure.IronbornSettle.name=Iron Islands Village
+got.structure.IronbornSettleForted.name=Iron Islands Castle
+got.structure.IronbornSettleLarge.name=Iron Islands Town
+got.structure.IronbornSmithy.name=Iron Islands Smithy
+got.structure.IronbornStables.name=Iron Islands Stables
+got.structure.IronbornTavern.name=Iron Islands Tavern
+got.structure.IronbornTower.name=Iron Islands Tower
+got.structure.IronbornWatchfort.name=Iron Islands Watchfort
+got.structure.IronbornWatchtower.name=Iron Islands Watchtower
+got.structure.JogosChieftainTent.name=Jogos Nhai Chieftain's Tent
+got.structure.JogosSettle.name=Jogos Nhai Camp
+got.structure.JogosSettleLarge.name=Jogos Nhai Village
+got.structure.JogosShamanTent.name=Jogos Nhai Shaman's Tent
+got.structure.JogosTent.name=Jogos Nhai Tent
+got.structure.JogosTentLarge.name=Jogos Nhai Large Tent
+got.structure.LhazarAltar.name=Lhazar Altar
+got.structure.LhazarBazaar.name=Lhazar Bazaar
+got.structure.LhazarFarm.name=Lhazar Farm
+got.structure.LhazarHouse.name=Lhazar House
+got.structure.LhazarPyramid.name=Lhazar Pyramid
+got.structure.LhazarSettle.name=Lhazar Village
+got.structure.LhazarSettleForted.name=Lhazar Fortification
+got.structure.LhazarSettleLarge.name=Lhazar Town
+got.structure.LhazarSmithy.name=Lhazar Smithy
+got.structure.LhazarTavern.name=Lhazar Tavern
+got.structure.LhazarTotem.name=Lhazar Totem
+got.structure.LhazarTower.name=Lhazar Tower
+got.structure.LhazarWarCamp.name=Lhazar War Camp
+got.structure.LorathBarracks.name=Lorath Barracks
+got.structure.LorathBazaar.name=Lorath Bazaar
+got.structure.LorathFortress.name=Lorath Fortress
+got.structure.LorathHouse.name=Lorath House
+got.structure.LorathHouseLarge.name=Lorath Mansion
+got.structure.LorathSettle.name=Lorath Village
+got.structure.LorathSettleForted.name=Lorath Fortification
+got.structure.LorathSettleLarge.name=Lorath Town
+got.structure.LorathSmithy.name=Lorath Smithy
+got.structure.LorathStables.name=Lorath Stables
+got.structure.LorathTavern.name=Lorath Tavern
+got.structure.LorathTower.name=Lorath Tower
+got.structure.LorathTraining.name=Lorath Training
+got.structure.LysBarracks.name=Lys Barracks
+got.structure.LysBazaar.name=Lys Bazaar
+got.structure.LysFortress.name=Lys Fortress
+got.structure.LysHouse.name=Lys House
+got.structure.LysHouseLarge.name=Lys Mansion
+got.structure.LysSettle.name=Lys Village
+got.structure.LysSettleForted.name=Lys Fortification
+got.structure.LysSettleLarge.name=Lys Town
+got.structure.LysSmithy.name=Lys Smithy
+got.structure.LysStables.name=Lys Stables
+got.structure.LysTavern.name=Lys Brothel
+got.structure.LysTower.name=Lys Tower
+got.structure.LysTraining.name=Lys Training
+got.structure.MossovyBarn.name=Mossovy Barn
+got.structure.MossovyFortress.name=Mossovy Fortress
+got.structure.MossovyHouse.name=Mossovy House
+got.structure.MossovyHouseLarge.name=Mossovy Mansion
+got.structure.MossovyHouseSmall.name=Mossovy Shack
+got.structure.MossovySettle.name=Mossovy Village
+got.structure.MossovySmithy.name=Mossovy Smithy
+got.structure.MossovyStable.name=Mossovy Stables
+got.structure.MossovyTavern.name=Mossovy Tavern
+got.structure.MyrBarracks.name=Myr Barracks
+got.structure.MyrBazaar.name=Myr Bazaar
+got.structure.MyrFortress.name=Myr Fortress
+got.structure.MyrHouse.name=Myr House
+got.structure.MyrHouseLarge.name=Myr Mansion
+got.structure.MyrSettle.name=Myr Village
+got.structure.MyrSettleForted.name=Myr Fortification
+got.structure.MyrSettleLarge.name=Myr Town
+got.structure.MyrSmithy.name=Myr Smithy
+got.structure.MyrStables.name=Myr Stables
+got.structure.MyrTavern.name=Myr Tavern
+got.structure.MyrTower.name=Myr Tower
+got.structure.MyrTraining.name=Myr Training
+got.structure.NorthBarn.name=North Barn
+got.structure.NorthBath.name=North Bath
+got.structure.NorthFortress.name=North Fortress
+got.structure.NorthHillmanChieftainHouse.name=North Hillmen Chieftain's House
+got.structure.NorthHillmanHouse.name=North Hillmen House
+got.structure.NorthHillmanSettle.name=North Hillmen Village
+got.structure.NorthHouse.name=North House
+got.structure.NorthHouseLarge.name=North Mansion
+got.structure.NorthHouseSmall.name=North Shack
+got.structure.NorthSettle.name=North Village
+got.structure.NorthSettleForted.name=North Castle
+got.structure.NorthSettleLarge.name=North Town
+got.structure.NorthSmithy.name=North Smithy
+got.structure.NorthStables.name=North Stables
+got.structure.NorthTavern.name=North Tavern
+got.structure.NorthTower.name=North Tower
+got.structure.NorthWatchfort.name=North Watchfort
+got.structure.NorthWatchtower.name=North Watchtower
+got.structure.NorvosBarracks.name=Norvos Barracks
+got.structure.NorvosBazaar.name=Norvos Bazaar
+got.structure.NorvosFortress.name=Norvos Fortress
+got.structure.NorvosHouse.name=Norvos House
+got.structure.NorvosHouseLarge.name=Norvos Mansion
+got.structure.NorvosSettle.name=Norvos Village
+got.structure.NorvosSettleForted.name=Norvos Fortification
+got.structure.NorvosSettleLarge.name=Norvos Town
+got.structure.NorvosSmithy.name=Norvos Smithy
+got.structure.NorvosStables.name=Norvos Stables
+got.structure.NorvosTavern.name=Norvos Tavern
+got.structure.NorvosTower.name=Norvos Tower
+got.structure.NorvosTraining.name=Norvos Training
+got.structure.PentosBarracks.name=Pentos Barracks
+got.structure.PentosBazaar.name=Pentos Bazaar
+got.structure.PentosFortress.name=Pentos Fortress
+got.structure.PentosHouse.name=Pentos House
+got.structure.PentosHouseLarge.name=Pentos Mansion
+got.structure.PentosSettle.name=Pentos Village
+got.structure.PentosSettleForted.name=Pentos Fortification
+got.structure.PentosSettleLarge.name=Pentos Town
+got.structure.PentosSmithy.name=Pentos Smithy
+got.structure.PentosStables.name=Pentos Stables
+got.structure.PentosTavern.name=Pentos Tavern
+got.structure.PentosTower.name=Pentos Tower
+got.structure.PentosTraining.name=Pentos Training
+got.structure.QarthBarracks.name=Qarth Barracks
+got.structure.QarthBazaar.name=Qarth Bazaar
+got.structure.QarthFortress.name=Qarth Fortress
+got.structure.QarthHouse.name=Qarth House
+got.structure.QarthHouseLarge.name=Qarth Mansion
+got.structure.QarthSettle.name=Qarth Village
+got.structure.QarthSettleForted.name=Qarth Fortification
+got.structure.QarthSettleLarge.name=Qarth Town
+got.structure.QarthSmithy.name=Qarth Smithy
+got.structure.QarthStables.name=Qarth Stables
+got.structure.QarthTavern.name=Qarth Tavern
+got.structure.QarthTower.name=Qarth Tower
+got.structure.QarthTraining.name=Qarth Training
+got.structure.QohorBarracks.name=Qohor Barracks
+got.structure.QohorBazaar.name=Qohor Bazaar
+got.structure.QohorFortress.name=Qohor Fortress
+got.structure.QohorHouse.name=Qohor House
+got.structure.QohorHouseLarge.name=Qohor Mansion
+got.structure.QohorSettle.name=Qohor Village
+got.structure.QohorSettleForted.name=Qohor Fortification
+got.structure.QohorSettleLarge.name=Qohor Town
+got.structure.QohorSmithy.name=Qohor Smithy
+got.structure.QohorStables.name=Qohor Stables
+got.structure.QohorTavern.name=Qohor Tavern
+got.structure.QohorTower.name=Qohor Tower
+got.structure.QohorTraining.name=Qohor Training
+got.structure.ReachBarn.name=Reach Barn
+got.structure.ReachBath.name=Reach Bath
+got.structure.ReachBrewery.name=Reach Brewery
+got.structure.ReachFortress.name=Reach Fortress
+got.structure.ReachHouse.name=Reach House
+got.structure.ReachHouseLarge.name=Reach Mansion
+got.structure.ReachHouseSmall.name=Reach Shack
+got.structure.ReachSettle.name=Reach Village
+got.structure.ReachSettleForted.name=Reach Castle
+got.structure.ReachSettleLarge.name=Reach Town
+got.structure.ReachSmithy.name=Reach Smithy
+got.structure.ReachStables.name=Reach Stables
+got.structure.ReachTavern.name=Reach Tavern
+got.structure.ReachTower.name=Reach Tower
+got.structure.ReachWatchfort.name=Reach Watchfort
+got.structure.ReachWatchtower.name=Reach Watchtower
+got.structure.RiverlandsBarn.name=Riverlands Barn
+got.structure.RiverlandsBath.name=Riverlands Bath
+got.structure.RiverlandsFortress.name=Riverlands Fortress
+got.structure.RiverlandsHouse.name=Riverlands House
+got.structure.RiverlandsHouseLarge.name=Riverlands Mansion
+got.structure.RiverlandsHouseSmall.name=Riverlands Shack
+got.structure.RiverlandsSettle.name=Riverlands Village
+got.structure.RiverlandsSettleForted.name=Riverlands Castle
+got.structure.RiverlandsSettleLarge.name=Riverlands Town
+got.structure.RiverlandsSmithy.name=Riverlands Smithy
+got.structure.RiverlandsStables.name=Riverlands Stables
+got.structure.RiverlandsTavern.name=Riverlands Tavern
+got.structure.RiverlandsTower.name=Riverlands Tower
+got.structure.RiverlandsWatchfort.name=Riverlands Watchfort
+got.structure.RiverlandsWatchtower.name=Riverlands Watchtower
+got.structure.RottenHouse.name=Rotten House
+got.structure.RuinSandstone.name=Sandstone Ruins
+got.structure.RuinStone.name=Stone Ruins
+got.structure.RuinedHouse.name=Ruined House
+got.structure.SmallStoneRuin.name=Small Stone Ruins
+got.structure.SothoryosHouseLarge.name=Sothoryos Mansion
+got.structure.SothoryosHouseSimple.name=Sothoryos Simple House
+got.structure.SothoryosHouseStilts.name=Sothoryos Stilted House
+got.structure.SothoryosPyramid.name=Sothoryos Pyramid
+got.structure.SothoryosSettle.name=Sothoryos Village
+got.structure.SothoryosSmithy.name=Sothoryos Smithy
+got.structure.SothoryosTemple.name=Sothoryos Temple
+got.structure.SothoryosWatchtower.name=Sothoryos Watchtower
+got.structure.StormlandsBarn.name=Stormlands Barn
+got.structure.StormlandsBath.name=Stormlands Bath
+got.structure.StormlandsFortress.name=Stormlands Fortress
+got.structure.StormlandsHouse.name=Stormlands House
+got.structure.StormlandsHouseLarge.name=Stormlands Mansion
+got.structure.StormlandsHouseSmall.name=Stormlands Shack
+got.structure.StormlandsSettle.name=Stormlands Village
+got.structure.StormlandsSettleForted.name=Stormlands Castle
+got.structure.StormlandsSettleLarge.name=Stormlands Town
+got.structure.StormlandsSmithy.name=Stormlands Smithy
+got.structure.StormlandsStables.name=Stormlands Stables
+got.structure.StormlandsTavern.name=Stormlands Tavern
+got.structure.StormlandsTower.name=Stormlands Tower
+got.structure.StormlandsWatchfort.name=Stormlands Watchfort
+got.structure.StormlandsWatchtower.name=Stormlands Watchtower
+got.structure.SummerFortress.name=Summer Islands Fortress
+got.structure.SummerHouse.name=Summer Islands House
+got.structure.SummerHouseRuined.name=Summer Islands Riuned House
+got.structure.SummerSettle.name=Summer Islands Village
+got.structure.SummerSettleForted.name=Summer Islands Fortification
+got.structure.SummerSettleRuined.name=Summer Islands Ruined Village
+got.structure.SummerSmithy.name=Summer Islands Smithy
+got.structure.SummerStables.name=Summer Islands Stables
+got.structure.SummerTavern.name=Summer Islands Tavern
+got.structure.SummerTavernRuined.name=Summer Islands Ruined Tavern
+got.structure.SummerTower.name=Summer Islands Tower
+got.structure.ThennCamp.name=Thenn Camp
+got.structure.ThennChieftainHouse.name=Thenn Magnar's House
+got.structure.ThennHouse.name=Thenn House
+got.structure.ThennSettle.name=Thenn Village
+got.structure.TyroshBarracks.name=Tyrosh Barracks
+got.structure.TyroshBazaar.name=Tyrosh Bazaar
+got.structure.TyroshFortress.name=Tyrosh Fortress
+got.structure.TyroshHouse.name=Tyrosh House
+got.structure.TyroshHouseLarge.name=Tyrosh Mansion
+got.structure.TyroshSettle.name=Tyrosh Village
+got.structure.TyroshSettleForted.name=Tyrosh Fortification
+got.structure.TyroshSettleLarge.name=Tyrosh Town
+got.structure.TyroshSmithy.name=Tyrosh Smithy
+got.structure.TyroshStables.name=Tyrosh Stables
+got.structure.TyroshTavern.name=Tyrosh Tavern
+got.structure.TyroshTower.name=Tyrosh Tower
+got.structure.TyroshTraining.name=Tyrosh Training
+got.structure.VolantisBarracks.name=Volantis Barracks
+got.structure.VolantisBazaar.name=Volantis Bazaar
+got.structure.VolantisFortress.name=Volantis Fortress
+got.structure.VolantisHouse.name=Volantis House
+got.structure.VolantisHouseLarge.name=Volantis Mansion
+got.structure.VolantisSettle.name=Volantis Village
+got.structure.VolantisSettleForted.name=Volantis Fortification
+got.structure.VolantisSettleLarge.name=Volantis Town
+got.structure.VolantisSmithy.name=Volantis Smithy
+got.structure.VolantisStables.name=Volantis Stables
+got.structure.VolantisTavern.name=Volantis Tavern
+got.structure.VolantisTower.name=Volantis Tower
+got.structure.VolantisTraining.name=Volantis Training
+got.structure.WesterlandsBarn.name=Westerlands Barn
+got.structure.WesterlandsBath.name=Westerlands Bath
+got.structure.WesterlandsFortress.name=Westerlands Fortress
+got.structure.WesterlandsHouse.name=Westerlands House
+got.structure.WesterlandsHouseLarge.name=Westerlands Mansion
+got.structure.WesterlandsHouseSmall.name=Westerlands Shack
+got.structure.WesterlandsSettle.name=Westerlands Village
+got.structure.WesterlandsSettleForted.name=Westerlands Castle
+got.structure.WesterlandsSettleLarge.name=Westerlands Town
+got.structure.WesterlandsSmithy.name=Westerlands Smithy
+got.structure.WesterlandsStables.name=Westerlands Stables
+got.structure.WesterlandsTavern.name=Westerlands Tavern
+got.structure.WesterlandsTower.name=Westerlands Tower
+got.structure.WesterlandsWatchfort.name=Westerlands Watchfort
+got.structure.WesterlandsWatchtower.name=Westerlands Watchtower
+got.structure.WildlingChieftainHouse.name=Wildling Chieftain's House
+got.structure.WildlingHouse.name=Wildling House
+got.structure.WildlingSettle.name=Wildling Village
+got.structure.YiTiFortress.name=Yi Ti Fortress
+got.structure.YiTiHouse.name=Yi Ti House
+got.structure.YiTiHouseLarge.name=Yi Ti Mansion
+got.structure.YiTiHouseSmall.name=Yi Ti Shack
+got.structure.YiTiSettle.name=Yi Ti Village
+got.structure.YiTiSettleForted.name=Yi Ti Castle
+got.structure.YiTiSettleLarge.name=Yi Ti Town
+got.structure.YiTiSmithy.name=Yi Ti Smithy
+got.structure.YiTiStables.name=Yi Ti Stables
+got.structure.YiTiTavern.name=Yi Ti Tavern
+got.structure.YiTiTavernTown.name=Yi Ti Town Tavern
+got.structure.YiTiTower.name=Yi Ti Tower
 got.tab.banner=Bannières de Game of Thrones
 got.tab.blocks=Blocs de Game of Thrones
 got.tab.combat=Combat de Game of Thrones
@@ -5200,7 +5168,6 @@ item.got:coin.64.name≠Silver star
 item.got:coin.nominal.name≠Nominal
 item.got:command_horn.name=Cor de commande
 item.got:command_sword.name=Épée de commandement
-item.got:warhorn.name=Cor de conquête
 item.got:copper_ingot.name=Lingot de cuivre
 item.got:copper_nugget.name=Pépite de cuivre
 item.got:copper_ring.name≠Copper Ring
@@ -5312,6 +5279,7 @@ item.got:grape_white.name=Raisin blanc
 item.got:gregor_clegane_sword.name=Épée de Gregor Clegane
 item.got:hand_gold.name=Broche de la main du roi (1)
 item.got:hand_silver.name=Broche de la main du roi (2)
+item.got:harpoon.name=Harpon
 item.got:harpy.name=Harpie
 item.got:hearteater.name≠Hearteater
 item.got:heartsbane.name=Heartsbane
@@ -5326,7 +5294,6 @@ item.got:horse_armor_gold.name=Armure de Cheval en or
 item.got:horse_armor_iron.name=Armure de Cheval en fer
 item.got:ibben_boots.name=Bottes d'Ibben
 item.got:ibben_chestplate.name=Plastron d'Ibben
-item.got:harpoon.name=Harpon
 item.got:ibben_leggings.name=Jambières d'Ibben
 item.got:ibben_sword.name=Epée d'Ibben
 item.got:ice.name=Glace
@@ -5704,6 +5671,7 @@ item.got:volantis_leggings.name=Jambières de Volantis
 item.got:walking_stick.name≠Walking stick
 item.got:walrus_lard_cooked.name≠Cooked Walrus Lard
 item.got:walrus_lard_raw.name≠Raw Walrus Lard
+item.got:warhorn.name=Cor de conquête
 item.got:waterskin.name=Outre
 item.got:westerlands_boots.name=Bottes des Terres de l'Ouest
 item.got:westerlands_chestplate.name=Plastron des Terres de l'Ouest
@@ -5928,6 +5896,38 @@ tile.got:clover.0.name=Trèfle
 tile.got:clover.1.name=Trèfle à quatre feuilles
 tile.got:cobblebrick.0.name=Pierre sèche
 tile.got:command_table.name=Table de commandement
+tile.got:concrete.0.name≠White Concrete
+tile.got:concrete.1.name≠Orange Concrete
+tile.got:concrete.10.name≠Purple Concrete
+tile.got:concrete.11.name≠Blue Concrete
+tile.got:concrete.12.name≠Brown Concrete
+tile.got:concrete.13.name≠Green Concrete
+tile.got:concrete.14.name≠Red Concrete
+tile.got:concrete.15.name≠Black Concrete
+tile.got:concrete.2.name≠Magenta Concrete
+tile.got:concrete.3.name≠Light Blue Concrete
+tile.got:concrete.4.name≠Yellow Concrete
+tile.got:concrete.5.name≠Lime Concrete
+tile.got:concrete.6.name≠Pink Concrete
+tile.got:concrete.7.name≠Gray Concrete
+tile.got:concrete.8.name≠Light Gray Concrete
+tile.got:concrete.9.name≠Cyan Concrete
+tile.got:concrete_powder.0.name≠White Concrete Powder
+tile.got:concrete_powder.1.name≠Orange Concrete Powder
+tile.got:concrete_powder.10.name≠Purple Concrete Powder
+tile.got:concrete_powder.11.name≠Blue Concrete Powder
+tile.got:concrete_powder.12.name≠Brown Concrete Powder
+tile.got:concrete_powder.13.name≠Green Concrete Powder
+tile.got:concrete_powder.14.name≠Red Concrete Powder
+tile.got:concrete_powder.15.name≠Black Concrete Powder
+tile.got:concrete_powder.2.name≠Magenta Concrete Powder
+tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
+tile.got:concrete_powder.4.name≠Yellow Concrete Powder
+tile.got:concrete_powder.5.name≠Lime Concrete Powder
+tile.got:concrete_powder.6.name≠Pink Concrete Powder
+tile.got:concrete_powder.7.name≠Gray Concrete Powder
+tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
+tile.got:concrete_powder.9.name≠Cyan Concrete Powder
 tile.got:coral_reef.name=Récif de corail
 tile.got:corn_stalk.name=Tige de maïs
 tile.got:cucumber_plant.name=Plante de comcombre
