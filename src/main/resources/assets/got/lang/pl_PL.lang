@@ -8,7 +8,7 @@ dragon.lifeStage.adult=Dorosły
 dragon.lifeStage.egg=Jajko
 dragon.lifeStage.hatchling=Dziecko
 dragon.lifeStage.juvenile=Młody
-dragon.mountNotice≠%s - fly up; %s - fly down; %s - dracarys
+dragon.mountNotice=%s - leć w górę; %s - leć w dół; %s - dracarys
 dragon.owned=To nie jest twój smok.
 entity.got.AddamMarbrand.name≠Addam Marbrand
 entity.got.AemonTargaryen.name≠Aemon Targaryen
@@ -958,16 +958,16 @@ got.achievement.ENTER_FROSTFANGS.desc=Odwiedź Mroźne Kły
 got.achievement.ENTER_FROSTFANGS.title=Góry lodu i kamienia
 got.achievement.ENTER_GHISCAR.desc=Odwiedź Ghiscar
 got.achievement.ENTER_GHISCAR.title=Zatoka niewolników
-got.achievement.ENTER_GHISCAR_ASTAPOR.desc≠Visit Astapor
-got.achievement.ENTER_GHISCAR_ASTAPOR.title≠The City of Unsullied
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Odwiedź Astapor
+got.achievement.ENTER_GHISCAR_ASTAPOR.title=Miasto Nieustraszonych
 got.achievement.ENTER_GHISCAR_COLONY.desc=Odwiedź kolonie Ghiscar
 got.achievement.ENTER_GHISCAR_COLONY.title=Zdesperowany korsarz
-got.achievement.ENTER_GHISCAR_MEEREEN.desc≠Visit Meereen
-got.achievement.ENTER_GHISCAR_MEEREEN.title≠The City of Harpies
-got.achievement.ENTER_GHISCAR_NEW_GHIS.desc≠Visit New Ghis
-got.achievement.ENTER_GHISCAR_NEW_GHIS.title≠Wannabes of the Empire
-got.achievement.ENTER_GHISCAR_YUNKAI.desc≠Visit Yunkai
-got.achievement.ENTER_GHISCAR_YUNKAI.title≠The City of Wise Lords
+got.achievement.ENTER_GHISCAR_MEEREEN.desc=Odwiedź Meereen
+got.achievement.ENTER_GHISCAR_MEEREEN.title=Miasto Harpii
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc=Odwiedź New Ghis
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title=Naśladowcy Imperium
+got.achievement.ENTER_GHISCAR_YUNKAI.desc=Odwiedź Yunkai
+got.achievement.ENTER_GHISCAR_YUNKAI.title=Miasto Mądrych Panów
 got.achievement.ENTER_GIFT_NEW.desc=Odwiedź Nowy prezent
 got.achievement.ENTER_GIFT_NEW.title=Na Północ!
 got.achievement.ENTER_GIFT_OLD.desc=Odwiedź Stary prezent
@@ -976,12 +976,12 @@ got.achievement.ENTER_HAUNTED_FOREST.desc=Odwiedź Zaczarowany Las
 got.achievement.ENTER_HAUNTED_FOREST.title=Dzikie, mamuty i olbrzymy
 got.achievement.ENTER_IBBEN.desc=Odwiedź Ibben
 got.achievement.ENTER_IBBEN.title=Wyspa wielorybników
-got.achievement.ENTER_IBBEN_COLONY.desc≠Visit Ibben Colony
-got.achievement.ENTER_IBBEN_COLONY.title≠Even they have colonies, and you...
-got.achievement.ENTER_IBBEN_MOUNTAINS.desc≠Visit Ibben Mountains
-got.achievement.ENTER_IBBEN_MOUNTAINS.title≠The Big Mountains of Little Island
-got.achievement.ENTER_IBBEN_TAIGA.desc≠Visit Ibben Taiga
-got.achievement.ENTER_IBBEN_TAIGA.title≠Unusual Trees
+got.achievement.ENTER_IBBEN_COLONY.desc=Odwiedź Kolonię Ibben
+got.achievement.ENTER_IBBEN_COLONY.title=Nawet oni mają kolonie, a ty...
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc=Odwiedź Góry Ibben
+got.achievement.ENTER_IBBEN_MOUNTAINS.title=Wysokie Góry Małej Wyspy
+got.achievement.ENTER_IBBEN_TAIGA.desc=Odwiedź Tajgę Ibben
+got.achievement.ENTER_IBBEN_TAIGA.title=Niezwykłe Drzewa
 got.achievement.ENTER_IFEKEVRON_FOREST.desc=Odwiedź ziemie Ifekevron
 got.achievement.ENTER_IFEKEVRON_FOREST.title=Kto tu jest?
 got.achievement.ENTER_IRON_ISLANDS.desc=Odwiedź Żelazne Wyspy
@@ -1002,8 +1002,8 @@ got.achievement.ENTER_LONG_SUMMER.desc=Odwiedź Krainę Długiego Lata
 got.achievement.ENTER_LONG_SUMMER.title=Spękana ziemia
 got.achievement.ENTER_LORATH.desc=Odwiedź Lorath
 got.achievement.ENTER_LORATH.title=Miasto zapomniane przez Boga
-got.achievement.ENTER_LORATH_MAZE.desc≠Visit Lorath Maze
-got.achievement.ENTER_LORATH_MAZE.title≠One does not simply walk...
+got.achievement.ENTER_LORATH_MAZE.desc=Odwiedź Labirynt Lorath
+got.achievement.ENTER_LORATH_MAZE.title=Nie wystarczy po prostu iść...
 got.achievement.ENTER_LYS.desc=Odwiedź The Lys
 got.achievement.ENTER_LYS.title=Kraj miłości i pasji
 got.achievement.ENTER_MOSSOVY.desc=Odwiedź Mossovy
@@ -1012,8 +1012,8 @@ got.achievement.ENTER_MOSSOVY_MARSHES.desc=Odwiedź bagna Mossovy
 got.achievement.ENTER_MOSSOVY_MARSHES.title=Rozległe bagna
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc=Odwiedź Mossovy Sopkas
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.title=Daleki wschód
-got.achievement.ENTER_MOSSOVY_TAIGA.desc≠Visit Mossovy Taiga
-got.achievement.ENTER_MOSSOVY_TAIGA.title≠Deep dark fantasies
+got.achievement.ENTER_MOSSOVY_TAIGA.desc=Odwiedź Tajgę Mossovy
+got.achievement.ENTER_MOSSOVY_TAIGA.title=Ciemne, głębokie fantazje
 got.achievement.ENTER_MYR.desc=Odwiedź The Myr
 got.achievement.ENTER_MYR.title=Wojna i pokój
 got.achievement.ENTER_NECK.desc=Odwiedź The Neck
@@ -1066,8 +1066,8 @@ got.achievement.ENTER_SOTHORYOS_BUSHLAND.desc=Odwiedź krzewy Sothoryos
 got.achievement.ENTER_SOTHORYOS_BUSHLAND.title=Uwaga: materiał wybuchowy
 got.achievement.ENTER_SOTHORYOS_DESERT.desc=Odwiedź pustynię Sothoryos
 got.achievement.ENTER_SOTHORYOS_DESERT.title=Zimna pustynia
-got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc≠Visit Sothoryos Cold Desert
-got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title≠Cold Desert
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc=Odwiedź Zimną Pustynię Sothoryos
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title=Zimna Pustynia
 got.achievement.ENTER_SOTHORYOS_FOREST.desc=Odwiedź las Sothoryos Kanuka
 got.achievement.ENTER_SOTHORYOS_FOREST.title=Śródlądowy
 got.achievement.ENTER_SOTHORYOS_FROST.desc=Odwiedź Sothoryos Polar Sphere
@@ -1172,8 +1172,8 @@ got.achievement.KILL_BENJEN_STARK.desc=Zabij Benjena Starka
 got.achievement.KILL_BENJEN_STARK.title=Zimne ręce
 got.achievement.KILL_BERIC_DONDARRION.desc=Zabij 6 razy Berica Dondarriona
 got.achievement.KILL_BERIC_DONDARRION.title=Zmarnowany
-got.achievement.KILL_BLIZZARD.desc≠Kill the blizzard
-got.achievement.KILL_BLIZZARD.title≠Another kind of walker?
+got.achievement.KILL_BLIZZARD.desc=Zabij burzę śnieżną
+got.achievement.KILL_BLIZZARD.title=Inny rodzaj piechura?
 got.achievement.KILL_BRIENNE_TARTH.desc=Zabij Brienne Tarth
 got.achievement.KILL_BRIENNE_TARTH.title=Czy to kobieta?
 got.achievement.KILL_BRYNDEN_TULLY.desc=Zabij Bryndena Tully'ego
@@ -1232,8 +1232,8 @@ got.achievement.KILL_LANCEL_LANNISTER.desc=Zabij religijnego Lancela Lannistera
 got.achievement.KILL_LANCEL_LANNISTER.title=Wybieram przemoc
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=Zabij giganta przy użyciu kamyków
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=Wszystkie sposoby są dobre
-got.achievement.KILL_LEGENDARY_NPC.desc≠Kill a legendary character
-got.achievement.KILL_LEGENDARY_NPC.title≠Legendary Killer
+got.achievement.KILL_LEGENDARY_NPC.desc=Zabij legendarne postaci
+got.achievement.KILL_LEGENDARY_NPC.title=Legendarny zabójca
 got.achievement.KILL_LORAS_TYRELL.desc=Zabij Lorasa Tyrella
 got.achievement.KILL_LORAS_TYRELL.title=Zabójca nieuczciwych
 got.achievement.KILL_MACE_TYRELL.desc=Zabij Mace Tyrella
@@ -1274,8 +1274,8 @@ got.achievement.KILL_SANSA_STARK.desc=Zabij Sansę Stark
 got.achievement.KILL_SANSA_STARK.title=Zdradziłeś swojego ojca!
 got.achievement.KILL_SHRYKE.desc=Zabij shryka
 got.achievement.KILL_SHRYKE.title=Walczenie z reptoloidami
-got.achievement.KILL_STONE_MAN.desc≠Kill Stone Man
-got.achievement.KILL_STONE_MAN.title≠Mercy
+got.achievement.KILL_STONE_MAN.desc=Zabij Kamiennego Człowieka
+got.achievement.KILL_STONE_MAN.title=Miłosierdzie
 got.achievement.KILL_THEON_GREYJOY.desc=Torment Theon Greyjoy
 got.achievement.KILL_THEON_GREYJOY.title=To tylko kiełbasa
 got.achievement.KILL_THIEVING_BANDIT.desc=Zabij bandytę który cię okradł
@@ -1332,16 +1332,16 @@ got.achievement.STEAL_ARBOR_GRAPES.desc=Ukradnij winogrona w Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=To jest moje!
 got.achievement.TRADE.desc=Handluj z kimś
 got.achievement.TRADE.title=Otworzyć biznes
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
-got.achievement.TRAVEL20.desc≠Visit 20 biomes
-got.achievement.TRAVEL20.title≠Traveller I
-got.achievement.TRAVEL40.desc≠Visit 40 biomes
-got.achievement.TRAVEL40.title≠Traveller II
-got.achievement.TRAVEL60.desc≠Visit 60 biomes
-got.achievement.TRAVEL60.title≠Traveller III
-got.achievement.TRAVEL80.desc≠Visit 80 biomes
-got.achievement.TRAVEL80.title≠Traveller IV
+got.achievement.TRAVEL100.desc=Odwiedź 100 biomów
+got.achievement.TRAVEL100.title=Podróżnik V
+got.achievement.TRAVEL20.desc=Odwiedź 20 biomów
+got.achievement.TRAVEL20.title=Podróżnik I
+got.achievement.TRAVEL40.desc=Odwiedź 40 biomów
+got.achievement.TRAVEL40.title=Podróżnik II
+got.achievement.TRAVEL60.desc=Odwiedź 60 biomów
+got.achievement.TRAVEL60.title=Podróżnik III
+got.achievement.TRAVEL80.desc=Odwiedź 80 biomów
+got.achievement.TRAVEL80.title=Podróżnik IV
 got.achievement.USE_BANNER.desc=Podbij terytorium
 got.achievement.USE_BANNER.title=Zdobywca
 got.achievement.USE_BARREL.desc=Warz napój w beczce
@@ -1372,8 +1372,8 @@ got.achievement.WEAR_FULL_BRAAVOS.desc=Załóż pełną zbroję Braavos
 got.achievement.WEAR_FULL_BRAAVOS.title=Strażnik Braavos
 got.achievement.WEAR_FULL_BRONZE.desc=Załóż pełną zbroję zbroi z brązu
 got.achievement.WEAR_FULL_BRONZE.title=Miedź + cyna
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc≠Wear full set of bronze chainmail
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title≠Saved a good bit
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=Noś kompletny zestaw brązowej kolczugi
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=Sporo uratowane
 got.achievement.WEAR_FULL_CROWNLANDS.desc=Załóż pełną zbroję Złotych Płaszczy
 got.achievement.WEAR_FULL_CROWNLANDS.title=Dowódca straży Królewskiej Przystani
 got.achievement.WEAR_FULL_DORNE.desc=Załóż pełną zbroję Dorne
@@ -1394,8 +1394,8 @@ got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Załóż pełną zbroję Złotej K
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Złota Firma
 got.achievement.WEAR_FULL_HILLMEN.desc=Załóż pełną zbroję plemion wzgórz
 got.achievement.WEAR_FULL_HILLMEN.title=Szaleństwo gór księżycowych
-got.achievement.WEAR_FULL_IBBEN.desc≠Wear full set of Ibben
-got.achievement.WEAR_FULL_IBBEN.title≠It seems to fit...
+got.achievement.WEAR_FULL_IBBEN.desc=Noś kompletny zestaw Ibben
+got.achievement.WEAR_FULL_IBBEN.title=Wygląda na to, że pasuje...
 got.achievement.WEAR_FULL_IRONBORN.desc=Załóż pełną zbroję Żelazne Wyspy
 got.achievement.WEAR_FULL_IRONBORN.title=Straż Żelaznych Wysp
 got.achievement.WEAR_FULL_JOGOS.desc=Załóż pełną zbroję Jogos Nhai
@@ -1432,8 +1432,8 @@ got.achievement.WEAR_FULL_REACHGUARD.desc=Załóż pełną zbroję strażników 
 got.achievement.WEAR_FULL_REACHGUARD.title=Dowódca straży Reach
 got.achievement.WEAR_FULL_REDKING.desc=Załóż pełną zbroję czerwonych królów
 got.achievement.WEAR_FULL_REDKING.title=Czerwony Król
-got.achievement.WEAR_FULL_RENLY.desc≠Wear full set of Renly
-got.achievement.WEAR_FULL_RENLY.title≠Chief Deer
+got.achievement.WEAR_FULL_RENLY.desc=Noś kompletny zestaw Renly'ego
+got.achievement.WEAR_FULL_RENLY.title=Główny Jeleń
 got.achievement.WEAR_FULL_RIVERLANDS.desc=Załóż pełną zbroję Dorzecza
 got.achievement.WEAR_FULL_RIVERLANDS.title=Strażnik Dorzecza
 got.achievement.WEAR_FULL_ROBES.desc=Załóż szaty
@@ -1456,8 +1456,8 @@ got.achievement.WEAR_FULL_UNSULLIED.desc=Załóż pełną zbroję Unsullied
 got.achievement.WEAR_FULL_UNSULLIED.title=Czarnuch wojny
 got.achievement.WEAR_FULL_VALYRIAN.desc=Załóż pełną zbroję walyriańskiej stali
 got.achievement.WEAR_FULL_VALYRIAN.title=Droższa niż pieniądze
-got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.desc≠Wear full set of valyrian chainmail.
-got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.title≠Frodo?
+got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.desc=Noś kompletny zestaw walyriańskiej kolczugi.
+got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.title=Frodo?
 got.achievement.WEAR_FULL_VOLANTIS.desc=Załóż pełną zbroję Volantis
 got.achievement.WEAR_FULL_VOLANTIS.title=Strażnik Volantisa
 got.achievement.WEAR_FULL_WESTERLANDS.desc=Załóż pełną zbroję Krainy zachodu
@@ -1503,7 +1503,7 @@ got.biome.beach.name=Plaża
 got.biome.beachGravel.name=Plaża
 got.biome.beachWhite.name=Biała plaża
 got.biome.blackIslands.name=Wyspy Zatoki Blackwater
-got.biome.bleedingBeach.name≠Bleeding Beach
+got.biome.bleedingBeach.name=Bleeding Beach
 got.biome.bleedingSea.name=Krwawe morze
 got.biome.boneMountains.name=Góry Kości
 got.biome.braavos.name=Braavos
@@ -1570,7 +1570,7 @@ got.biome.lhazar.name=Lhazar
 got.biome.lhazarForest.name=Las Lhazar
 got.biome.lhazarHills.name=Wzgórza Lhazar
 got.biome.longSummer.name=Krainy Długiego Lata
-got.biome.longSummerForest.name≠Forests of the Long Summer
+got.biome.longSummerForest.name=Lasy Długiego Lata
 got.biome.lorath.name=Lorath
 got.biome.lorathForest.name=Las Lorath
 got.biome.lorathHills.name=Wzgórza Lorath
@@ -2783,8 +2783,8 @@ got.shields.CROWNLANDS.name=Tarcza Krainy korony
 got.shields.DORNE.name=Tarcza Dorne
 got.shields.DRAGONSTONE.name=Tarcza Smoczej Skały
 got.shields.GHISCAR.name=Tarcza Ghiscara
-got.shields.GOLDEN_COMPANY.desc≠Reward for hiring 10 G.C. mercenaries
-got.shields.GOLDEN_COMPANY.name≠Shield of Golden Company
+got.shields.GOLDEN_COMPANY.desc=Nagroda za zatrudnienie 10 najemników G.C.
+got.shields.GOLDEN_COMPANY.name=Tarcza Złotej Kompanii
 got.shields.HILLMEN.name=Tarcza plemion wzgórz
 got.shields.IRONBORN.name=Tarcza Żelaznych Wysp
 got.shields.LORATH.name=Tarcza Lorath
@@ -2808,9 +2808,9 @@ got.shields.TYROSH.name=Tarcza Tyrosha
 got.shields.UNSULLIED.name=Tarcza Nieskalanych
 got.shields.VOLANTIS.name=Tarcza Volantisa
 got.shields.WESTERLANDS.name=Tarcza Krainy zachodu
-got.shields.WESTERLANDSGUARD.name≠Shield of Westerlands Guard
+got.shields.WESTERLANDSGUARD.name=Tarcza Straży Zachodnich Krain
 got.shields.YITI.name=Tarcza Yi Ti
-got.shields.YITI_FRONTIER.name≠Yi Ti Frontier Shield
+got.shields.YITI_FRONTIER.name=Tarcza Yi Ti Frontier
 got.shields.YITI_SAMURAI.name=Tarcza samuraja Yi Ti
 got.shields.category.ACHIEVABLE=Tarcze osiągalne
 got.shields.category.ALIGNMENT=Tarcze frakcji
@@ -3262,157 +3262,157 @@ got.titles.unlock.starter=Tytuł startowy
 got.travellingTrader.arrive=%s przybył w tę okolicę
 got.travellingTrader.arriveMP=%s przybył w pobliżu gracza %s
 got.travellingTrader.depart=%s opuścił ten teren
-got.tree.acacia.name≠Acacia
-got.tree.acacia_dead.name≠Dead Acacia
-got.tree.almond.name≠Almond
-got.tree.apple.name≠Apple
-got.tree.aramant.name≠Aramant
-got.tree.aspen.name≠Aspen
-got.tree.aspen_large.name≠Large Aspen
-got.tree.banana.name≠Banana
-got.tree.baobab.name≠Baobab
-got.tree.beech.name≠Beech
-got.tree.beech_dead.name≠Dead Beech
-got.tree.beech_large.name≠Large Beech
-got.tree.beech_party.name≠Giant Beech
-got.tree.birch.name≠Birch
-got.tree.birch_dead.name≠Dead Birch
-got.tree.birch_large.name≠Large Birch
-got.tree.birch_party.name≠Giant Birch
-got.tree.birch_tall.name≠Tall Birch
-got.tree.catalpa.name≠Catalpa
-got.tree.catalpa_boughs.name≠Bough Catalpa
-got.tree.catalpa_party.name≠Giant Catalpa
-got.tree.cedar.name≠Cedar
-got.tree.cedar_large.name≠Large Cedar
-got.tree.charred.name≠Charred Tree
-got.tree.cherry.name≠Cherry
-got.tree.chestnut.name≠Chestnut
-got.tree.chestnut_large.name≠Large Chestnut
-got.tree.chestnut_party.name≠Giant Chestnut
-got.tree.cypress.name≠Cypress
-got.tree.cypress_large.name≠Large Cypress
-got.tree.dark_oak.name≠Dark Oak
-got.tree.dark_oak_party.name≠Giant Dark Oak
-got.tree.date_palm.name≠Date Palm
-got.tree.dragonblood.name≠Dragonblood
-got.tree.dragonblood_huge.name≠Giant Dragonblood
-got.tree.dragonblood_large.name≠Large Dragonblood
-got.tree.fir.name≠Fir
-got.tree.fotinia.name≠Fotinia
-got.tree.holly.name≠Holly
-got.tree.holly_large.name≠Large Holly
-got.tree.ibben_pine.name≠Ibbinia
-got.tree.jungle.name≠Jungle Tree
-got.tree.jungle_cloud.name≠Cloud Jungle Tree
-got.tree.jungle_large.name≠Large Jungle Tree
-got.tree.jungle_shrub.name≠Jungle Shrub
-got.tree.kanuka.name≠Kanuka
-got.tree.larch.name≠Larch
-got.tree.lemon.name≠Lemon
-got.tree.lime.name≠Lime
-got.tree.mahogany.name≠Mahogany
-got.tree.mango.name≠Mango
-got.tree.mangrove.name≠Mangrove
-got.tree.maple.name≠Maple
-got.tree.maple_large.name≠Large Maple
-got.tree.maple_party.name≠Giant Maple
-got.tree.oak.name≠Oak
-got.tree.oak_dead.name≠Dead Oak
-got.tree.oak_desert.name≠Desert Oak
-got.tree.oak_giant.name≠Very large Oak
-got.tree.oak_large.name≠Large дуб
-got.tree.oak_party.name≠Giant дуб
-got.tree.oak_shrub.name≠Oak Shrub
-got.tree.oak_swamp.name≠Swamp Oak
-got.tree.oak_tall.name≠Tall Oak
-got.tree.oak_taller.name≠Very Tall Oak
-got.tree.olive.name≠Olive
-got.tree.olive_large.name≠Large Olive
-got.tree.orange.name≠Orange
-got.tree.palm.name≠Palm
-got.tree.pear.name≠Pear
-got.tree.pine.name≠Pine
-got.tree.pine_shrub.name≠Pine Shrub
-got.tree.plum.name≠Plum
-got.tree.pomegranate.name≠Pomegranate
-got.tree.redwood.name≠Ironwood (1)
-got.tree.redwood_2.name≠Ironwood (2)
-got.tree.redwood_3.name≠Ironwood (3)
-got.tree.redwood_4.name≠Ironwood (4)
-got.tree.redwood_5.name≠Ironwood (5)
-got.tree.spruce.name≠Spruce
-got.tree.spruce_dead.name≠Dead Spruce
-got.tree.spruce_mega.name≠Giant Spruce
-got.tree.spruce_mega_thin.name≠Giant Thin Spruce
-got.tree.spruce_thin.name≠Thin Spruce
-got.tree.ulthos_green_oak.name≠Ulthos Green Oak
-got.tree.ulthos_green_oak_extreme.name≠Giant Ulthos Green Oak
-got.tree.ulthos_green_oak_large.name≠Large Ulthos Green Oak
-got.tree.ulthos_oak.name≠Ulthos Oak
-got.tree.ulthos_oak_dead.name≠Dead Ulthos Oak
-got.tree.ulthos_oak_large.name≠Large Ulthos Oak
-got.tree.ulthos_red_oak.name≠Red Ulthos Oak
-got.tree.ulthos_red_oak_large.name≠Large Red Ulthos Oak
-got.tree.weirwood.name≠Weirwood
-got.tree.willow.name≠Willow
-got.tree.willow_water.name≠Water Willow
+got.tree.acacia.name=Akacja
+got.tree.acacia_dead.name=Martwa Akacja
+got.tree.almond.name=Migdałowiec
+got.tree.apple.name=Jabłoń
+got.tree.aramant.name=Aramant
+got.tree.aspen.name=Osika
+got.tree.aspen_large.name=Wielka Osika
+got.tree.banana.name=Banan
+got.tree.baobab.name=Baobab
+got.tree.beech.name=Buk
+got.tree.beech_dead.name=Martwy Buk
+got.tree.beech_large.name=Wielki Buk
+got.tree.beech_party.name=Olbrzymi Buk
+got.tree.birch.name=Brzoza
+got.tree.birch_dead.name=Martwa Brzoza
+got.tree.birch_large.name=Wielka Brzoza
+got.tree.birch_party.name=Olbrzymia Brzoza
+got.tree.birch_tall.name=Wysoka Brzoza
+got.tree.catalpa.name=Katal'pa
+got.tree.catalpa_boughs.name=Rozłożysty Katal'pa
+got.tree.catalpa_party.name=Olbrzymi Katal'pa
+got.tree.cedar.name=Cedr
+got.tree.cedar_large.name=Wielki Cedr
+got.tree.charred.name=Popalona Drzewina
+got.tree.cherry.name=Czereśnia
+got.tree.chestnut.name=Kasztanowiec
+got.tree.chestnut_large.name=Wielki Kasztanowiec
+got.tree.chestnut_party.name=Olbrzymi Kasztanowiec
+got.tree.cypress.name=Cyprys
+got.tree.cypress_large.name=Wielki Cyprys
+got.tree.dark_oak.name=Ciemny Dąb
+got.tree.dark_oak_party.name=Olbrzymi Ciemny Dąb
+got.tree.date_palm.name=Palma Daktylowa
+got.tree.dragonblood.name=Smocze Drzewo
+got.tree.dragonblood_huge.name=Gigantyczne Smocze Drzewo
+got.tree.dragonblood_large.name=Wielkie Smocze Drzewo
+got.tree.fir.name=Jodła
+got.tree.fotinia.name=Fotinia
+got.tree.holly.name=Ostrokrzew
+got.tree.holly_large.name=Wielki Ostrokrzew
+got.tree.ibben_pine.name=Ibbinia
+got.tree.jungle.name=Drzewo Dżunglowe
+got.tree.jungle_cloud.name=Drzewo Dżunglowe Chmurne
+got.tree.jungle_large.name=Wielkie Drzewo Dżunglowe
+got.tree.jungle_shrub.name=Krzew Dżunglowy
+got.tree.kanuka.name=Kanuka
+got.tree.larch.name=Modrzew
+got.tree.lemon.name=Cytryna
+got.tree.lime.name=Limonka
+got.tree.mahogany.name=Mahoniowiec
+got.tree.mango.name=Mango
+got.tree.mangrove.name=Namorzynowiec
+got.tree.maple.name=Klon
+got.tree.maple_large.name=Wielki Klon
+got.tree.maple_party.name=Olbrzymi Klon
+got.tree.oak.name=Dąb
+got.tree.oak_dead.name=Martwy Dąb
+got.tree.oak_desert.name=Pustynny Dąb
+got.tree.oak_giant.name=Bardzo Duży Dąb
+got.tree.oak_large.name=Wielki Dąb
+got.tree.oak_party.name=Olbrzymi Dąb
+got.tree.oak_shrub.name=Dębowy Krzew
+got.tree.oak_swamp.name=Bagenny Dąb
+got.tree.oak_tall.name=Wysoki Dąb
+got.tree.oak_taller.name=Bardzo Wysoki Dąb
+got.tree.olive.name=Oliwka
+got.tree.olive_large.name=Wielka Oliwka
+got.tree.orange.name=Pomarańcza
+got.tree.palm.name=Palma
+got.tree.pear.name=Grusza
+got.tree.pine.name=Sosna
+got.tree.pine_shrub.name=Krzaczasta Sosna
+got.tree.plum.name=Śliwa
+got.tree.pomegranate.name=Granat
+got.tree.redwood.name=Żelazne Drzewo (1)
+got.tree.redwood_2.name=Żelazne Drzewo (2)
+got.tree.redwood_3.name=Żelazne Drzewo (3)
+got.tree.redwood_4.name=Żelazne Drzewo (4)
+got.tree.redwood_5.name=Żelazne Drzewo (5)
+got.tree.spruce.name=Świerk
+got.tree.spruce_dead.name=Martwy Świerk
+got.tree.spruce_mega.name=Olbrzymi Świerk
+got.tree.spruce_mega_thin.name=Olbrzymi Chudy Świerk
+got.tree.spruce_thin.name=Chudy Świerk
+got.tree.ulthos_green_oak.name=Zielony Dąb Ulthos
+got.tree.ulthos_green_oak_extreme.name=Gigantyczny Zielony Dąb Ulthos
+got.tree.ulthos_green_oak_large.name=Wielki Zielony Dąb Ulthos
+got.tree.ulthos_oak.name=Dąb Ulthos
+got.tree.ulthos_oak_dead.name=Martwy Dąb Ulthos
+got.tree.ulthos_oak_large.name=Wielki Dąb Ulthos
+got.tree.ulthos_red_oak.name=Czerwony Dąb Ulthos
+got.tree.ulthos_red_oak_large.name=Wielki Czerwony Dąb Ulthos
+got.tree.weirwood.name=Weirewood
+got.tree.willow.name=Wierzba
+got.tree.willow_water.name=Wierzba Nadwodna
 got.unit.Rider=Jeździec
 got.unitinfo.Banner=Chorąży dostarczają wielu usprawnień w walce pobliskim NPC tej samej frakcji
 got.unitinfo.Corsair=Korsarze są w lepsi w zbieraniu monet z pokonanych przeciwników
 got.usemem=Używana pamięć RAM
-got.variant.boulders_red.name≠Red Boulders
-got.variant.clearing.name≠Glade
-got.variant.deadForest_oak.name≠Dead Oak
-got.variant.deadForest_oak_spruce.name≠Dead mixed forest
-got.variant.deadForest_spruce.name≠Dead Spruce
-got.variant.denseForest_birch.name≠Dense birch
-got.variant.denseForest_darkOak.name≠Dense Dark Oak
-got.variant.denseForest_oak.name≠Dense Oak
-got.variant.denseForest_oak_spruce.name≠Dense mixed forest
-got.variant.denseForest_spruce.name≠Dense Spruce Forest
-got.variant.dunes.name≠Barkhans
-got.variant.flowers.name≠Landscape
-got.variant.forest.name≠Forest
-got.variant.forest_aspen.name≠Awn Grove
-got.variant.forest_beech.name≠beech grove
-got.variant.forest_birch.name≠Birch Grove
-got.variant.forest_cedar.name≠Cedar forest
-got.variant.forest_cherry.name≠Cherry forest
-got.variant.forest_cypress.name≠Cypress forest
-got.variant.forest_larch.name≠Larch forest
-got.variant.forest_lemon.name≠Lemon grove
-got.variant.forest_light.name≠Rare Forest
-got.variant.forest_lime.name≠Lime Grove
-got.variant.forest_maple.name≠Maplewood
-got.variant.forest_pine.name≠Pine grove
-got.variant.forest_weirwood.name≠Chardwood Forest
-got.variant.hills.name≠Hills
-got.variant.hills_forest.name≠Forest Hills
-got.variant.hills_scrubland.name≠Hilly shrubland
-got.variant.hills_scrubland_sand.name≠Hilly sandy shrubs
-got.variant.lake.name≠Lake
-got.variant.mountain.name≠Mountain
-got.variant.orchard_almond.name≠Almond Garden
-got.variant.orchard_apple_pear.name≠Apple Pear Orchard
-got.variant.orchard_date.name≠Finilla Orchard
-got.variant.orchard_lemon.name≠Lemon Orchard
-got.variant.orchard_lime.name≠Lime Garden
-got.variant.orchard_olive.name≠Olive Garden
-got.variant.orchard_orange.name≠Orange Garden
-got.variant.orchard_plum.name≠Plum Orchard
-got.variant.orchard_pomegranate.name≠Pomegranate Orchard
-got.variant.river.name≠River
-got.variant.savannahBaobab.name≠Baobab grove
-got.variant.scrubland.name≠Bushland
-got.variant.scrubland_sand.name≠Sandy shrubs
-got.variant.shrubland_oak.name≠Oak shrubs
-got.variant.standard.name≠Ordinary
-got.variant.swampLowland.name≠Marshland
-got.variant.swampUpland.name≠Marshland
-got.variant.vineyard.name≠Vineyards
-got.variant.wasteland.name≠Wetland
-got.variant.wasteland_sand.name≠Sandy Wasteland
+got.variant.boulders_red.name=Czerwone Skały
+got.variant.clearing.name=Polana
+got.variant.deadForest_oak.name=Martwy Dąb
+got.variant.deadForest_oak_spruce.name=Martwy las mieszany
+got.variant.deadForest_spruce.name=Martwy las sosnowy
+got.variant.denseForest_birch.name=Gęsty Brzozowy
+got.variant.denseForest_darkOak.name=Gęsty Ciemny Dąb
+got.variant.denseForest_oak.name=Gęsty Dębowy
+got.variant.denseForest_oak_spruce.name=Gęsty las mieszany
+got.variant.denseForest_spruce.name=Gęsty las sosnowy
+got.variant.dunes.name=Barkany
+got.variant.flowers.name=Krajobraz
+got.variant.forest.name=Las
+got.variant.forest_aspen.name=Gaj Osikowy
+got.variant.forest_beech.name=Gaj bukowy
+got.variant.forest_birch.name=Gaj brzozowy
+got.variant.forest_cedar.name=Las cedrowy
+got.variant.forest_cherry.name=Las wiśniowy
+got.variant.forest_cypress.name=Las cyprysowy
+got.variant.forest_larch.name=Las modrzewiowy
+got.variant.forest_lemon.name=Gaj cytrynowy
+got.variant.forest_light.name=Rzadki Las
+got.variant.forest_lime.name=Gaj lipowy
+got.variant.forest_maple.name=Las klonowy
+got.variant.forest_pine.name=Gaj sosnowy
+got.variant.forest_weirwood.name=Las Chardwood
+got.variant.hills.name=Wzgórza
+got.variant.hills_forest.name=Wzgórza Leśne
+got.variant.hills_scrubland.name=Wzgórzasta Zarastająca
+got.variant.hills_scrubland_sand.name=Wzgórzaste Piaszczyste Zarośla
+got.variant.lake.name=Jezioro
+got.variant.mountain.name=Góra
+got.variant.orchard_almond.name=Migdałowy Sad
+got.variant.orchard_apple_pear.name=Sad Jabłkowo-Gruszkowy
+got.variant.orchard_date.name=Finillowy Sad
+got.variant.orchard_lemon.name=Sad Cytrynowy
+got.variant.orchard_lime.name=Sad Limonkowy
+got.variant.orchard_olive.name=Oliwny Ogród
+got.variant.orchard_orange.name=Pomarańczowy Ogród
+got.variant.orchard_plum.name=Śliwkowy Sad
+got.variant.orchard_pomegranate.name=Granatowy Sad
+got.variant.river.name=Rzeka
+got.variant.savannahBaobab.name=Gaj Baobabów
+got.variant.scrubland.name=Zarośla
+got.variant.scrubland_sand.name=Piaszczyste Zarośla
+got.variant.shrubland_oak.name=Dębowe Krzaki
+got.variant.standard.name=Zwykły
+got.variant.swampLowland.name=Mokradła
+got.variant.swampUpland.name=Mokradła
+got.variant.vineyard.name=Winnica
+got.variant.wasteland.name=Teren Pustynny
+got.variant.wasteland_sand.name=Piaszczysta Pustynia
 got.weaponstat.kb=Odrzut: +%d
 got.weaponstat.meleeDamage=Obrażenia wręcz: +%d
 got.weaponstat.meleeSpeed=Szybkość ataku: %d%%
@@ -4378,10 +4378,10 @@ got.wp.custom.info=Czy punkt orientacyjny bractwa " %d"
 got.wp.custom=%s
 got.wp.shared.info=Dostępne dla %s
 got.wp.shared=%s
-item.got.antiking≠Kills Night King
-item.got.antimonster≠Kills undead
-item.got.antiwalker≠Kills white walkers
-item.got.antiwight≠Kills wights
+item.got.antiking=Zabija Króla Nocy
+item.got.antimonster=Zabija nieumarłych
+item.got.antiwalker=Zabija białych wędrowców
+item.got.antiwight=Zabija upiorów
 item.got.banner.protect=Posiada dane na temat ochrony
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=Nienazwane %s
@@ -4477,494 +4477,494 @@ item.got:asshai_mask.name=Maska Asshai Shadowbinder
 item.got:asshai_shadowbinder_staff.name=Asshai Shadowbinder Staff
 item.got:asshai_spear.name=Włócznia Asshai
 item.got:asshai_sword.name=Miecz Asshai
-item.got:baelish_brooch.name≠Brooch of Petyr Baelish
+item.got:baelish_brooch.name=Broszka Petyra Baelisha
 item.got:baelish_dagger.name=Sztylet Petyr Baelish
 item.got:banana.name=Banan
 item.got:banana_bread.name=Bananowy chleb
 item.got:banana_cake.name=Ciasto bananowe
-item.got:bane.name≠Bane
-item.got:banner.aemon.name=Sztandar Aemon
-item.got:banner.aemonBook.name=Sztandar AemonBook
-item.got:banner.aemonrivers.name=Sztandar Aemonrivers
+item.got:bane.name=Bane
+item.got:banner.aemon.name=Sztandar Aemon Targaryen
+item.got:banner.aemonBook.name=Sztandar Aemon Targaryen (Book)
+item.got:banner.aemonrivers.name=Sztandar Aemon Rivers
 item.got:banner.aerion.name=Sztandar Aerion
-item.got:banner.aerionBook.name=Sztandar AerionBook
+item.got:banner.aerionBook.name=Sztandar Aerion Targaryen (Book)
 item.got:banner.algood.name=Sztandar Algood
 item.got:banner.allyrion.name=Sztandar Allyrion
 item.got:banner.alqalis.name=Sztandar Alqualis
-item.got:banner.ambrose.name=Sztandar Ambroży
-item.got:banner.amorylorch.name=Sztandar amorylorch
+item.got:banner.ambrose.name=Sztandar Ambrose
+item.got:banner.amorylorch.name=Sztandar Amory Lorch
 item.got:banner.andal.name=Sztandar Andal
 item.got:banner.appleton.name=Sztandar Appleton
-item.got:banner.arlan.name≠Banner of Arlan
-item.got:banner.arryn.name=Sztandar Arryna
-item.got:banner.arrynBook.name≠Banner of Arryn (Book)
-item.got:banner.arrynGT.name=Sztandar Arryna z Moon Gate
-item.got:banner.ashford.name=Sztandar z Ashford
-item.got:banner.ashwood.name≠Banner of Ashwood
-item.got:banner.asshai.name≠Banner of Asshai
+item.got:banner.arlan.name=Sztandar Arlan
+item.got:banner.arryn.name=Sztandar Arryn
+item.got:banner.arrynBook.name=Sztandar Arryn (Book)
+item.got:banner.arrynGT.name=Sztandar Arryn of Moon Gate
+item.got:banner.ashford.name=Sztandar Ashford
+item.got:banner.ashwood.name=Sztandar Ashwood
+item.got:banner.asshai.name=Sztandar Asshai
 item.got:banner.astapor.name=Sztandar Astapor
-item.got:banner.auranewaters.name≠Banner of Aurane Waters
+item.got:banner.auranewaters.name=Sztandar Aurane Waters
 item.got:banner.baelish.name=Sztandar Baelish
-item.got:banner.baelishBook.name=Sztandar Baelish (książka)
-item.got:banner.baelishold.name=Sztandar Baelish (stary)
-item.got:banner.ball.name=Sztandar piłki
+item.got:banner.baelishBook.name=Sztandar Baelish(book)
+item.got:banner.baelishold.name=Sztandar Baelish(old)
+item.got:banner.ball.name=Sztandar Ball
 item.got:banner.banefort.name=Sztandar Banefort
-item.got:banner.banefortBook.name≠Banner of Banefort (Book)
-item.got:banner.barbrey.name≠Banner of Barbrey Dustin
+item.got:banner.banefortBook.name=Sztandar Banefort (Book)
+item.got:banner.barbrey.name=Sztandar Barbrey Dustin
 item.got:banner.baremmon.name=Sztandar Baremoon
 item.got:banner.beesbury.name=Sztandar Beesbury
 item.got:banner.belaerys.name=Sztandar Belaerys
 item.got:banner.belmore.name=Sztandar Belmore
-item.got:banner.benfrey.name≠Banner of Ben Frey
-item.got:banner.bennis.name≠Banner of Bennis
+item.got:banner.benfrey.name=Sztandar Ben Frey
+item.got:banner.bennis.name=Sztandar Bennis
 item.got:banner.bettley.name=Sztandar Bettley
-item.got:banner.bigwalder.name≠Banner of Big Walder
-item.got:banner.bittersteel.name=Sztandar z Bittersteel
+item.got:banner.bigwalder.name=Sztandar Big Walder
+item.got:banner.bittersteel.name=Sztandar Bittersteel
 item.got:banner.blackbar.name=Sztandar Blackbar
 item.got:banner.blackfish.name=Sztandar Blackfish
-item.got:banner.blackfishBook.name=Sztandar Blackfish (książka)
-item.got:banner.blackfyre.name=Sztandar Blackfyre'a
-item.got:banner.blackfyreBook.name≠Banner of Blackfyre (Book)
+item.got:banner.blackfishBook.name=Sztandar Blackfish (Book)
+item.got:banner.blackfyre.name=Sztandar Blackfyre
+item.got:banner.blackfyreBook.name=Sztandar Blackfyre (Book)
 item.got:banner.blackmont.name=Sztandar Blackmont
-item.got:banner.blacks.name=Sztandar Murzynów
-item.got:banner.blacksBook.name=Księga Murzynów
+item.got:banner.blacks.name=Sztandar Blacks
+item.got:banner.blacksBook.name=Sztandar Blacks (Book)
 item.got:banner.blacktyde.name=Sztandar Blacktyde
 item.got:banner.blackwood.name=Sztandar Blackwood
-item.got:banner.blackwoodBook.name≠Banner of Blackwoods (Book)
-item.got:banner.blanetree.name≠Banner of Blanetree
-item.got:banner.bloodraven.name=Sztandar Bloodravena
-item.got:banner.bloodravenBook.name≠Banner of Bloodraven (Book)
-item.got:banner.blount.name=Sztandar Blounta
-item.got:banner.boggs.name≠Banner of Boggs
-item.got:banner.bole.name≠Banner of Bole
-item.got:banner.bolling.name=Sztandar Bollinga
+item.got:banner.blackwoodBook.name=Sztandar Blackwoods (Book)
+item.got:banner.blanetree.name=Sztandar Blanetree
+item.got:banner.bloodraven.name=Sztandar Bloodraven
+item.got:banner.bloodravenBook.name=Sztandar Bloodraven (Book)
+item.got:banner.blount.name=Sztandar Blount
+item.got:banner.boggs.name=Sztandar Boggs
+item.got:banner.bole.name=Sztandar Bole
+item.got:banner.bolling.name=Sztandar Bolling
 item.got:banner.bolton.name=Sztandar Bolton
-item.got:banner.boltonbook.name=Sztandar Bolton (książka)
-item.got:banner.borrell.name=Sztandar Borrella
-item.got:banner.botley.name=Sztandar Botleya
-item.got:banner.braavos.name=Sztandar Braavosa
+item.got:banner.boltonbook.name=Sztandar Bolton(Book)
+item.got:banner.borrell.name=Sztandar Borrell
+item.got:banner.botley.name=Sztandar Botley
+item.got:banner.braavos.name=Sztandar Braavos
 item.got:banner.bracken.name=Sztandar Bracken
-item.got:banner.brackenBook.name≠Banner of Bracken (Book)
-item.got:banner.branch.name≠Banner of Branch
-item.got:banner.branfield.name≠Banner of Branfield
-item.got:banner.bravecompanions.name=Sztandar odważnych współczucia
-item.got:banner.brax.name=Sztandar Braxa
+item.got:banner.brackenBook.name=Sztandar Bracken (Book)
+item.got:banner.branch.name=Sztandar Branch
+item.got:banner.branfield.name=Sztandar Branfield
+item.got:banner.bravecompanions.name=Sztandar Brave Compasions
+item.got:banner.brax.name=Sztandar Brax
 item.got:banner.breakstone.name=Sztandar Breakstone
-item.got:banner.bridges.name≠Banner of Bridges
-item.got:banner.brightstone.name≠Banner of Brightstone
+item.got:banner.bridges.name=Sztandar Bridges
+item.got:banner.brightstone.name=Sztandar Brightstone
 item.got:banner.bronn.name=Sztandar Bronn
-item.got:banner.bronnBook.name=Sztandar Bronn (książka)
-item.got:banner.broom.name=Sztandar miotły
-item.got:banner.brotherhood.name=Sztandar braterstwa
-item.got:banner.bruneB.name=Sztandar Brune'a z Brownhollow
-item.got:banner.bruneDD.name=Sztandar Brune z Dyre Den
-item.got:banner.buckler.name=Sztandar Bucklera
-item.got:banner.buckwell.name=Sztandar Buckwella
+item.got:banner.bronnBook.name=Sztandar Bronn (Book)
+item.got:banner.broom.name=Sztandar Broom
+item.got:banner.brotherhood.name=Sztandar Brotherhood
+item.got:banner.bruneB.name=Sztandar Brune of Brownhollow
+item.got:banner.bruneDD.name=Sztandar Brune of the Dyre Den
+item.got:banner.buckler.name=Sztandar Buckler
+item.got:banner.buckwell.name=Sztandar Buckwell
 item.got:banner.bullwer.name=Sztandar Bullwer
-item.got:banner.burley.name=Sztandar Burleya
-item.got:banner.bushy.name≠Banner of Bushy
+item.got:banner.burley.name=Sztandar Burley
+item.got:banner.bushy.name=Sztandar Bushy
 item.got:banner.butterwell.name=Sztandar Butterwell
-item.got:banner.byrch.name=Sztandar Byrcha
+item.got:banner.byrch.name=Sztandar Byrch
 item.got:banner.bywater.name=Sztandar Bywater
-item.got:banner.cafferen.name=Sztandar Cafferena
+item.got:banner.cafferen.name=Sztandar Cafferen
 item.got:banner.cargyle.name=Sztandar Cargyle
 item.got:banner.caron.name=Sztandar Caron
-item.got:banner.cassel.name=Sztandar Cassela
+item.got:banner.cassel.name=Sztandar Cassel
 item.got:banner.casterly.name=Sztandar Casterly
 item.got:banner.caswell.name=Sztandar Caswell
-item.got:banner.cave.name≠Banner of Cave
+item.got:banner.cave.name=Sztandar Cave
 item.got:banner.celtigar.name=Sztandar Celtigar
 item.got:banner.cerwyn.name=Sztandar Cerwyn
 item.got:banner.charlton.name=Sztandar Charlton
-item.got:banner.chelsted.name=Sztandar z Chelsted
+item.got:banner.chelsted.name=Sztandar Chelsted
 item.got:banner.chester.name=Sztandar Chester
 item.got:banner.chyttering.name=Sztandar Chyttering
-item.got:banner.clegane.name=Sztandar Clegane'a
-item.got:banner.cleos.name≠Banner of Cleos Frey
-item.got:banner.clifton.name≠Banner of Clifton
+item.got:banner.clegane.name=Sztandar Clegane
+item.got:banner.cleos.name=Sztandar Cleos Frey
+item.got:banner.clifton.name=Sztandar Clifton
 item.got:banner.cockshaw.name=Sztandar Cockshaw
-item.got:banner.codd.name=Sztandar Codda
+item.got:banner.codd.name=Sztandar Codd
 item.got:banner.coldwater.name=Sztandar Coldwater
-item.got:banner.cole.name=Sztandar Cole'a
+item.got:banner.cole.name=Sztandar Cole
 item.got:banner.condon.name=Sztandar Condon
 item.got:banner.connington.name=Sztandar Connington
 item.got:banner.corbray.name=Sztandar Corbray
-item.got:banner.corbrayBook.name≠Banner of Corbray (Book)
+item.got:banner.corbrayBook.name=Sztandar Corbray (Book)
 item.got:banner.cordwayner.name=Sztandar Cordwayner
 item.got:banner.costayne.name=Sztandar Costayne
-item.got:banner.cox.name=Sztandar Coxa
-item.got:banner.crabb.name≠Banner of Crabb
+item.got:banner.cox.name=Sztandar Cox
+item.got:banner.crabb.name=Sztandar Crabb
 item.got:banner.crakehall.name=Sztandar Crakehall
-item.got:banner.crane.name=Sztandar Żurawia
-item.got:banner.creighton.name≠Banner of Creighton
-item.got:banner.cressey.name≠Banner of Cressey
-item.got:banner.crowl.name=Sztandar Wrona
+item.got:banner.crane.name=Sztandar Crane
+item.got:banner.creighton.name=Sztandar Creighton
+item.got:banner.cressey.name=Sztandar Cressey
+item.got:banner.crowl.name=Sztandar Crowl
 item.got:banner.cuy.name=Sztandar Cuy
-item.got:banner.daemon.name≠Banner of Daemon Blackfyre
-item.got:banner.daeron.name≠Banner of Daeron Targaryen
-item.got:banner.daeronBook.name≠Banner of Daeron Targaryen (Book)
+item.got:banner.daemon.name=Sztandar Daemon Blackfyre
+item.got:banner.daeron.name=Sztandar Daeron Targaryen
+item.got:banner.daeronBook.name=Sztandar Daeron Targaryen (Book)
 item.got:banner.dalt.name=Sztandar Dalt
-item.got:banner.dalton.name=Sztandar Daltona
-item.got:banner.dargood.name≠Banner of Dargood
-item.got:banner.darke.name≠Banner of Darke
+item.got:banner.dalton.name=Sztandar Dalton
+item.got:banner.dargood.name=Sztandar Dargood
+item.got:banner.darke.name=Sztandar Darke
 item.got:banner.darklyn.name=Sztandar Darklyn
-item.got:banner.darkwood.name≠Banner of Darkwood
-item.got:banner.darry.name=Sztandar Darry'ego
+item.got:banner.darkwood.name=Sztandar Darkwood
+item.got:banner.darry.name=Sztandar Darry
 item.got:banner.dayne.name=Sztandar Dayne
-item.got:banner.dayneHH.name=Sztandar Dayne High Hermitage
-item.got:banner.degore.name≠Banner of Degore
-item.got:banner.derrickfossoway.name≠Banner of Derrick Fossoway
-item.got:banner.doggett.name≠Banner of Doggett
-item.got:banner.dondarrion.name=Sztandar Dondarrionu
-item.got:banner.dondarrionBook.name≠Banner of Dondarrion (Book)
+item.got:banner.dayneHH.name=Sztandar Dayne of High Hermitage
+item.got:banner.degore.name=Sztandar Degore
+item.got:banner.derrickfossoway.name=Sztandar Derrick Fossoway
+item.got:banner.doggett.name=Sztandar Doggett
+item.got:banner.dondarrion.name=Sztandar Dondarrion
+item.got:banner.dondarrionBook.name=Sztandar Dondarrion (Book)
 item.got:banner.donniger.name=Sztandar Donniger
 item.got:banner.dormund.name=Sztandar Dormund
-item.got:banner.drinkwater.name≠Banner of Drinkwater
-item.got:banner.drox.name≠Banner of Drox
+item.got:banner.drinkwater.name=Sztandar Drinkwater
+item.got:banner.drox.name=Sztandar Drox
 item.got:banner.drumm.name=Sztandar Drumm
-item.got:banner.dryland.name≠Banner of Dryland
-item.got:banner.duncan.name=Sztandar Duncana
-item.got:banner.dunn.name≠Banner of Dunn
-item.got:banner.durrandon.name≠Banner of Durrandon
-item.got:banner.durwell.name≠Banner of Durwell
-item.got:banner.dustin.name=Sztandar Dustina
-item.got:banner.eddard.name=Sztandar Eddarda Starka
-item.got:banner.edricstorm.name≠Banner of Edric Storm
-item.got:banner.egen.name=Sztandar Egena
-item.got:banner.elephants.name=Sztandar słoni
+item.got:banner.dryland.name=Sztandar Dryland
+item.got:banner.duncan.name=Sztandar Duncan
+item.got:banner.dunn.name=Sztandar Dunn
+item.got:banner.durrandon.name=Sztandar Durrandon
+item.got:banner.durwell.name=Sztandar Durwell
+item.got:banner.dustin.name=Sztandar Dustin
+item.got:banner.eddard.name=Sztandar Eddard Stark
+item.got:banner.edricstorm.name=Sztandar Edric Storm
+item.got:banner.egen.name=Sztandar Egen
+item.got:banner.elephants.name=Sztandar Elephants
 item.got:banner.elesham.name=Sztandar Elesham
 item.got:banner.erenford.name=Sztandar Erenford
-item.got:banner.errol.name=Sztandar Errola
+item.got:banner.errol.name=Sztandar Errol
 item.got:banner.estermont.name=Sztandar Estermont
-item.got:banner.estren.name=Sztandar Estrena
-item.got:banner.euron.name=Sztandar Euronu
-item.got:banner.euronBook.name=Sztandar Euron (książka)
-item.got:banner.faceless.name=Sztandar bez twarzy
+item.got:banner.estren.name=Sztandar Estren
+item.got:banner.euron.name=Sztandar Euron
+item.got:banner.euronBook.name=Sztandar Euron (Book)
+item.got:banner.faceless.name=Sztandar Faceless
 item.got:banner.falwell.name=Sztandar Falwell
-item.got:banner.farman.name=Sztandar Farmana
-item.got:banner.farring.name=Sztandar Farringa
+item.got:banner.farman.name=Sztandar Farman
+item.got:banner.farring.name=Sztandar Farring
 item.got:banner.farwynd.name=Sztandar Farwynd
-item.got:banner.farwyndLL.name≠Banner of Farwynd of the Lonely Light
-item.got:banner.fell.name=Sztandar upadku
-item.got:banner.fenn.name=Sztandar Fenna
-item.got:banner.ferren.name≠Banner of Ferren
+item.got:banner.farwyndLL.name=Sztandar Farwynd of the Lonely Light
+item.got:banner.fell.name=Sztandar Fell
+item.got:banner.fenn.name=Sztandar Fenn
+item.got:banner.ferren.name=Sztandar Ferren
 item.got:banner.fireball.name=Sztandar Fireball
-item.got:banner.firstFlint.name=Sztandar z
-item.got:banner.firstmen.name≠Banner of First Men
-item.got:banner.fisher.name=Sztandar Fishera
-item.got:banner.fisherSS.name≠Banner of Stone Coast Fishers
-item.got:banner.flintBH.name≠Banner of Stone Hill Flints
-item.got:banner.flintFF.name=Sztandar Flinta z Palca Flinta
-item.got:banner.flintWW.name=Sztandar Flinta z Widow's Watch
-item.got:banner.florent.name=Sztandar Florenta
-item.got:banner.florentBook.name≠Banner of Florent (Book)
-item.got:banner.follard.name=Sztandar wyznawcy
+item.got:banner.firstFlint.name=Sztandar
+item.got:banner.firstmen.name=Sztandar First Men
+item.got:banner.fisher.name=Sztandar Fisher
+item.got:banner.fisherSS.name=Sztandar Stone Coast Fishers
+item.got:banner.flintBH.name=Sztandar Stone Hill Flints
+item.got:banner.flintFF.name=Sztandar Flint of Flint's Finger
+item.got:banner.flintWW.name=Sztandar Flint of Widow's Watch
+item.got:banner.florent.name=Sztandar Florent
+item.got:banner.florentBook.name=Sztandar Florent (Book)
+item.got:banner.follard.name=Sztandar Follard
 item.got:banner.foote.name=Sztandar Foote
-item.got:banner.footeN.name≠Banner of Foote from Nightsong
+item.got:banner.footeN.name=Sztandar Foote from Nightsong
 item.got:banner.footly.name=Sztandar Footly
 item.got:banner.forrester.name=Sztandar Forrester
-item.got:banner.forresterBook.name≠Banner of Forrester (Book)
-item.got:banner.fossowayCH.name=Sztandar Fossoway z Cider Hall
-item.got:banner.fossowayNB.name=Sztandar Fossoway New Barrel
-item.got:banner.fowler.name=Sztandar Fowlera
-item.got:banner.fowlerBook.name≠Banner of Fowler (Book)
+item.got:banner.forresterBook.name=Sztandar Forrester (Book)
+item.got:banner.fossowayCH.name=Sztandar Fossoway of Cider Hall
+item.got:banner.fossowayNB.name=Sztandar Fossoway of New Barrel
+item.got:banner.fowler.name=Sztandar Fowler
+item.got:banner.fowlerBook.name=Sztandar Fowler (Book)
 item.got:banner.frey.name=Sztandar Frey
-item.got:banner.freyBook.name=Sztandar Frey (książka)
-item.got:banner.freyriverrun.name≠Banner of Frey of Riverrun
-item.got:banner.frost.name≠Banner of Frost
-item.got:banner.galtry.name≠Banner of Galtry
-item.got:banner.gardener.name=Sztandar ogrodnika
-item.got:banner.gardenerBook.name≠Banner of Gardener (Book)
+item.got:banner.freyBook.name=Sztandar Frey(book)
+item.got:banner.freyriverrun.name=Sztandar Frey of Riverrun
+item.got:banner.frost.name=Sztandar Frost
+item.got:banner.galtry.name=Sztandar Galtry
+item.got:banner.gardener.name=Sztandar Gardener
+item.got:banner.gardenerBook.name=Sztandar Gardener (Book)
 item.got:banner.gargalen.name=Sztandar Gargalen
-item.got:banner.gaunt.name=Sztandar chudy
-item.got:banner.ghiscar.name=Sztandar Ghiscara
+item.got:banner.gaunt.name=Sztandar Gaunt
+item.got:banner.ghiscar.name=Sztandar Ghiscar
 item.got:banner.glenmore.name=Sztandar Glenmore
-item.got:banner.glover.name=Sztandar Glovera
-item.got:banner.golden_company.name=Sztandar Złotej Firmy
+item.got:banner.glover.name=Sztandar Glover
+item.got:banner.golden_company.name=Sztandar Golden Company
 item.got:banner.goodbrook.name=Sztandar Goodbrook
 item.got:banner.goodbrother.name=Sztandar Goodbrother
-item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
-item.got:banner.goodbrotherCSK.name≠Banner of Crowspire Goodbrother
-item.got:banner.goodbrotherD.name≠Banner of Goodbrother of the Rift
-item.got:banner.goodbrotherO.name≠Banner of Orkmont Goodbrother
-item.got:banner.goodbrotherS.name≠Banner of Stonebreaker Goodbrother
-item.got:banner.gormondgoodbrother.name≠Banner of Hormond Goodbrother
-item.got:banner.gower.name=Sztandar Gowera
+item.got:banner.goodbrotherCL.name=Sztandar Dead Lake Goodbrother
+item.got:banner.goodbrotherCSK.name=Sztandar Crowspire Goodbrother
+item.got:banner.goodbrotherD.name=Sztandar Goodbrother of the Rift
+item.got:banner.goodbrotherO.name=Sztandar Orkmont Goodbrother
+item.got:banner.goodbrotherS.name=Sztandar Stonebreaker Goodbrother
+item.got:banner.gormondgoodbrother.name=Sztandar Hormond Goodbrother
+item.got:banner.gower.name=Sztandar Gower
 item.got:banner.graceford.name=Sztandar Graceford
 item.got:banner.grafton.name=Sztandar Grafton
 item.got:banner.grandison.name=Sztandar Grandison
-item.got:banner.grangoodbrother.name≠Banner of Grangood Goodbrother
+item.got:banner.grangoodbrother.name=Sztandar Grangood Goodbrother
 item.got:banner.greenfield.name=Sztandar Greenfielf
-item.got:banner.greens.name=Sztandar Zielonych
-item.got:banner.greensBook.name≠Banner of Greens (Book)
-item.got:banner.grell.name=Sztandar Grella
+item.got:banner.greens.name=Sztandar Greens
+item.got:banner.greensBook.name=Sztandar Greens (Book)
+item.got:banner.grell.name=Sztandar Grell
 item.got:banner.greyiron.name=Sztandar Greyiron
-item.got:banner.greyjoy.name=Sztandar Greyjoya
-item.got:banner.greyjoyBook.name≠Banner of Greyjoy (Book)
+item.got:banner.greyjoy.name=Sztandar Greyjoy
+item.got:banner.greyjoyBook.name=Sztandar Greyjoy (Book)
 item.got:banner.greystark.name=Sztandar Greystark
 item.got:banner.grimm.name=Sztandar Grimm
 item.got:banner.haigh.name=Sztandar Haigh
-item.got:banner.hand.name=Sztandar dłoni
+item.got:banner.hand.name=Sztandar Hand
 item.got:banner.harclay.name=Sztandar Harclay
-item.got:banner.hardy.name≠Banner of Hardy
+item.got:banner.hardy.name=Sztandar Hardy
 item.got:banner.hardyng.name=Sztandar Hardyng
-item.got:banner.harlaw.name=Sztandar Harlawa
+item.got:banner.harlaw.name=Sztandar Harlaw
 item.got:banner.harlawGG.name=Sztandar Harlaw Grey Garden
-item.got:banner.harlawHH.name=Sztandar Harlawa z Harridan Hill
-item.got:banner.harlawHall.name=Sztandar Hawlaw z Harlaw Hall
-item.got:banner.harlawTG.name=Sztandar Harlaw Tower Glimmering
+item.got:banner.harlawHH.name=Sztandar Harlaw of Harridan Hill
+item.got:banner.harlawHall.name=Sztandar Hawlaw of Harlaw Hall
+item.got:banner.harlawTG.name=Sztandar Harlaw Tower of Glimmering
 item.got:banner.harlton.name=Sztandar Harlton
-item.got:banner.harroldhardyng.name≠Banner of Harrold Hardyng
+item.got:banner.harroldhardyng.name=Sztandar Harrold Hardyng
 item.got:banner.harroway.name=Sztandar Harroway
 item.got:banner.harte.name=Sztandar Harte
-item.got:banner.hastwyck.name≠Banner of Hastwyck
-item.got:banner.hasty.name=Sztandar pośpiechu
-item.got:banner.hawick.name≠Banner of Hawick
-item.got:banner.hawthorne.name≠Banner of Hawthorne
-item.got:banner.hayford.name=Sztandar Hayforda
-item.got:banner.heddle.name=Sztandar Heddle'a
-item.got:banner.herston.name≠Banner of Herston
+item.got:banner.hastwyck.name=Sztandar Hastwyck
+item.got:banner.hasty.name=Sztandar Hasty
+item.got:banner.hawick.name=Sztandar Hawick
+item.got:banner.hawthorne.name=Sztandar Hawthorne
+item.got:banner.hayford.name=Sztandar Hayford
+item.got:banner.heddle.name=Sztandar Heddle
+item.got:banner.herston.name=Sztandar Herston
 item.got:banner.hersy.name=Sztandar Hersy
 item.got:banner.hetherspoon.name=Sztandar Hetherspoon
 item.got:banner.hewett.name=Sztandar Hewett
 item.got:banner.hightower.name=Sztandar Hightower
-item.got:banner.hightowerBook.name≠Banner of Hightower (Book)
-item.got:banner.hillmen.name=Sztandar wieśniaków
-item.got:banner.hoare.name=Sztandar Hoare'a
-item.got:banner.hogg.name≠Banner of Hogg
-item.got:banner.hollard.name=Sztandar Hollarda
+item.got:banner.hightowerBook.name=Sztandar Hightower (Book)
+item.got:banner.hillmen.name=Sztandar Hillmen
+item.got:banner.hoare.name=Sztandar Hoare
+item.got:banner.hogg.name=Sztandar Hogg
+item.got:banner.hollard.name=Sztandar Hollard
 item.got:banner.hornwood.name=Sztandar Hornwood
-item.got:banner.hornwoodBook.name≠Banner of Hornwood (Book)
-item.got:banner.horpe.name=Sztandar Horpe'a
-item.got:banner.hugh.name≠Banner of Hugh
-item.got:banner.hunt.name=Sztandar polowania
-item.got:banner.hunter.name=Sztandar łowcy
-item.got:banner.hutcheson.name≠Banner of Hutcheson
+item.got:banner.hornwoodBook.name=Sztandar Hornwood (Book)
+item.got:banner.horpe.name=Sztandar Horpe
+item.got:banner.hugh.name=Sztandar Hugh
+item.got:banner.hunt.name=Sztandar Hunt
+item.got:banner.hunter.name=Sztandar Hunter
+item.got:banner.hutcheson.name=Sztandar Hutcheson
 item.got:banner.ibben.name=Sztandar Ibben
-item.got:banner.illifer.name≠Banner of Illifer
-item.got:banner.inchfield.name=Sztandar z Inchfield
+item.got:banner.illifer.name=Sztandar Illifer
+item.got:banner.inchfield.name=Sztandar Inchfield
 item.got:banner.iron_bank.name=Sztandar iron_bank
-item.got:banner.ironmaker.name≠Banner of Ironmakers
-item.got:banner.ironsmith.name≠Banner of Ironsmith
-item.got:banner.jaremymallister.name≠Banner of Jaremy Mallister
-item.got:banner.jast.name=Sztandar Jasta
-item.got:banner.joffrey.name=Sztandar Joffreya
-item.got:banner.jogos.name≠Banner of Jogos Nhai
-item.got:banner.jonconnington.name≠Banner of Jon Connington
-item.got:banner.jonking.name≠Banner of Jon Snow (King)
-item.got:banner.jonsnow.name≠Banner of Jon Snow
+item.got:banner.ironmaker.name=Sztandar Ironmakers
+item.got:banner.ironsmith.name=Sztandar Ironsmith
+item.got:banner.jaremymallister.name=Sztandar Jaremy Mallister
+item.got:banner.jast.name=Sztandar Jast
+item.got:banner.joffrey.name=Sztandar Joffrey
+item.got:banner.jogos.name=Sztandar Jogos Nhai
+item.got:banner.jonconnington.name=Sztandar Jon Connington
+item.got:banner.jonking.name=Sztandar Jon Snow (King)
+item.got:banner.jonsnow.name=Sztandar Jon Snow
 item.got:banner.jordayne.name=Sztandar Jordayne
-item.got:banner.justman.name=Sztandar Justmana
+item.got:banner.justman.name=Sztandar Justman
 item.got:banner.karstark.name=Sztandar Karstark
-item.got:banner.karstarkBook.name≠Banner of Karstark (Book)
-item.got:banner.kellington.name≠Banner of Kellington
-item.got:banner.kenningH.name=Sztandar Kenninga z Harlaw
-item.got:banner.kenningK.name=Sztandar Kenninga Kayce'a
+item.got:banner.karstarkBook.name=Sztandar Karstark (Book)
+item.got:banner.kellington.name=Sztandar Kellington
+item.got:banner.kenningH.name=Sztandar Kenning of Harlaw
+item.got:banner.kenningK.name=Sztandar Kenning Kayce
 item.got:banner.kettleblack.name=Sztandar Kettleblack
 item.got:banner.kidwell.name=Sztandar Kidwell
 item.got:banner.kingsguard.name=Sztandar Kingsquard
 item.got:banner.knott.name=Sztandar Knott
-item.got:banner.kyndall.name≠Banner of Kindall
-item.got:banner.ladybright.name≠Banner of Ladybright
-item.got:banner.lake.name≠Banner of Lake
-item.got:banner.langward.name≠Banner of Langward
-item.got:banner.lannett.name≠Banner of Lannett
+item.got:banner.kyndall.name=Sztandar Kindall
+item.got:banner.ladybright.name=Sztandar Ladybright
+item.got:banner.lake.name=Sztandar Lake
+item.got:banner.langward.name=Sztandar Langward
+item.got:banner.lannett.name=Sztandar Lannett
 item.got:banner.lannisport.name=Sztandar Lannisport
-item.got:banner.lannister.name=Sztandar Lannistera
-item.got:banner.lannisterB.name=Sztandar Lannister (książka)
-item.got:banner.lannisterBook.name≠Banner of Lannister (Book)
-item.got:banner.lannisterC.name≠Banner of Lannister
-item.got:banner.lannisterD.name=Sztandar Lannistera z Darry
+item.got:banner.lannister.name=Sztandar Lannister
+item.got:banner.lannisterB.name=Sztandar Lannister(book)
+item.got:banner.lannisterBook.name=Sztandar Lannister (Book)
+item.got:banner.lannisterC.name=Sztandar Lannister
+item.got:banner.lannisterD.name=Sztandar Lannister of Darry
 item.got:banner.lannisterTygett.name=Sztandar Tygett Lannister
-item.got:banner.lanny.name≠Banner of Lanny
-item.got:banner.lantell.name≠Banner of Lantell
-item.got:banner.laughingTree.name=Sztandar śmiejącego się drzewa
-item.got:banner.leather.name=Sztandar ze skóry
+item.got:banner.lanny.name=Sztandar Lanny
+item.got:banner.lantell.name=Sztandar Lantell
+item.got:banner.laughingTree.name=Sztandar Laughing Tree
+item.got:banner.leather.name=Sztandar Leather
 item.got:banner.lefford.name=Sztandar Lefford
 item.got:banner.leng.name=Sztandar Leng
 item.got:banner.leygood.name=Sztandar Leygood
-item.got:banner.lhazar.name=Sztandar Lhazara
+item.got:banner.lhazar.name=Sztandar Lhazar
 item.got:banner.liddle.name=Sztandar Liddle
-item.got:banner.lightfoot.name≠Banner of Lightfoot
-item.got:banner.lipps.name≠Banner of Lipps
-item.got:banner.littlewalder.name≠Banner of Little Walder
-item.got:banner.locke.name=Sztandar Locke'a
-item.got:banner.lolliston.name≠Banner of Lolliston
-item.got:banner.longtorpe.name≠Banner of Longtorpe
-item.got:banner.longwaters.name≠Banner of Longwaters
-item.got:banner.lonmouth.name≠Banner of Lonmouth
+item.got:banner.lightfoot.name=Sztandar Lightfoot
+item.got:banner.lipps.name=Sztandar Lipps
+item.got:banner.littlewalder.name=Sztandar Little Walder
+item.got:banner.locke.name=Sztandar Locke
+item.got:banner.lolliston.name=Sztandar Lolliston
+item.got:banner.longtorpe.name=Sztandar Longtorpe
+item.got:banner.longwaters.name=Sztandar Longwaters
+item.got:banner.lonmouth.name=Sztandar Lonmouth
 item.got:banner.loraq.name=Sztandar Loraq
 item.got:banner.lorath.name=Sztandar Lorath
 item.got:banner.lorch.name=Sztandar Lorch
-item.got:banner.lothor.name≠Banner of Lothor Brune
+item.got:banner.lothor.name=Sztandar Lothor Brune
 item.got:banner.lothston.name=Sztandar Lothston
-item.got:banner.lowther.name≠Banner of Lowther
-item.got:banner.lyberr.name≠Banner of Lyberr
+item.got:banner.lowther.name=Sztandar Lowther
+item.got:banner.lyberr.name=Sztandar Lyberr
 item.got:banner.lychester.name=Sztandar Lychester
 item.got:banner.lydden.name=Sztandar Lydden
 item.got:banner.lynderly.name=Sztandar Lynderly
 item.got:banner.lys.name=Sztandar Lys
-item.got:banner.maekar.name=Sztandar Maekara
-item.got:banner.maekarBook.name≠Banner of Maekar Targaryen (Book)
-item.got:banner.maesters.name=Sztandar Maesterów
-item.got:banner.magnar.name=Sztandar Magnara
+item.got:banner.maekar.name=Sztandar Maekar
+item.got:banner.maekarBook.name=Sztandar Maekar Targaryen (Book)
+item.got:banner.maesters.name=Sztandar Maesters
+item.got:banner.magnar.name=Sztandar Magnar
 item.got:banner.mallery.name=Sztandar Mallery
 item.got:banner.mallister.name=Sztandar Mallister
 item.got:banner.manderly.name=Sztandar Manderly
-item.got:banner.manderlyBook.name=Sztandar Manderly (książka)
-item.got:banner.manning.name=Sztandar Manninga
+item.got:banner.manderlyBook.name=Sztandar Manderly(Book)
+item.got:banner.manning.name=Sztandar Manning
 item.got:banner.manwoody.name=Sztandar Manwoody
-item.got:banner.marbrand.name=Sztandar Marbranda
+item.got:banner.marbrand.name=Sztandar Marbrand
 item.got:banner.marsh.name=Sztandar Marsh
 item.got:banner.martell.name=Sztandar Martell
-item.got:banner.martellBook.name≠Banner of Martell (Book)
-item.got:banner.massey.name=Sztandar Masseya
-item.got:banner.mazin.name=Sztandar Mazina
-item.got:banner.meadows.name=Sztandar łąk
-item.got:banner.meereen.name=Sztandar z Meereen
-item.got:banner.melcolm.name=Sztandar Melcolma
+item.got:banner.martellBook.name=Sztandar Martell (Book)
+item.got:banner.massey.name=Sztandar Massey
+item.got:banner.mazin.name=Sztandar Mazin
+item.got:banner.meadows.name=Sztandar Meadows
+item.got:banner.meereen.name=Sztandar Meereen
+item.got:banner.melcolm.name=Sztandar Melcolm
 item.got:banner.merlyn.name=Sztandar Merlyn
 item.got:banner.merryweather.name=Sztandar Merryweather
-item.got:banner.mertyns.name=Sztandar Mertynsa
-item.got:banner.mollen.name=Sztandar Mollena
+item.got:banner.mertyns.name=Sztandar Mertyns
+item.got:banner.mollen.name=Sztandar Mollen
 item.got:banner.moore.name=Sztandar Moore
 item.got:banner.mooton.name=Sztandar Mooton
 item.got:banner.mopatis.name=Sztandar Mopatis
-item.got:banner.moreland.name=Sztandar z Moreland
-item.got:banner.morgryn.name≠Banner of Morgryn
-item.got:banner.mormont.name=Sztandar Mormonta
-item.got:banner.mormontBook.name≠Banner of Mormont (Book)
+item.got:banner.moreland.name=Sztandar Moreland
+item.got:banner.morgryn.name=Sztandar Morgryn
+item.got:banner.mormont.name=Sztandar Mormont
+item.got:banner.mormontBook.name=Sztandar Mormont (Book)
 item.got:banner.morrigen.name=Sztandar Morrigen
-item.got:banner.morros.name≠Banner of Morros Slynt
-item.got:banner.mors.name=Sztandar Morsa
-item.got:banner.morsBook.name≠Banner of Mors Martell (Book)
-item.got:banner.moss.name≠Banner of Moss
-item.got:banner.mossovy.name≠Banner of Mossovy
-item.got:banner.mudd.name=Sztandar błotny
+item.got:banner.morros.name=Sztandar Morros Slynt
+item.got:banner.mors.name=Sztandar Mors
+item.got:banner.morsBook.name=Sztandar Mors Martell (Book)
+item.got:banner.moss.name=Sztandar Moss
+item.got:banner.mossovy.name=Sztandar Mossovy
+item.got:banner.mudd.name=Sztandar Mudd
 item.got:banner.mullendore.name=Sztandar Mullenfore
-item.got:banner.musgood.name≠Banner of Musgood
-item.got:banner.myatt.name≠Banner of Mayatt
+item.got:banner.musgood.name=Sztandar Musgood
+item.got:banner.myatt.name=Sztandar Mayatt
 item.got:banner.myr.name=Sztandar Myr
 item.got:banner.myre.name=Sztandar Myre
 item.got:banner.newghis.name=Sztandar Newghis
-item.got:banner.night.name=Sztandar nocy
+item.got:banner.night.name=Sztandar Night
 item.got:banner.norcross.name=Sztandar Norcross
 item.got:banner.norrey.name=Sztandar Norrey
-item.got:banner.norridge.name≠Banner of Norridge
+item.got:banner.norridge.name=Sztandar Norridge
 item.got:banner.norvos.name=Sztandar Norvos
-item.got:banner.null.name=Sztandar ratunkowy
-item.got:banner.nymeria.name=Sztandar Nymerii
-item.got:banner.oakenfist.name≠Banner of Alin Velarion
+item.got:banner.null.name=Emergency Banner
+item.got:banner.nymeria.name=Sztandar Nymeria
+item.got:banner.oakenfist.name=Sztandar Alin Velarion
 item.got:banner.oakheart.name=Sztandar Oakheart
-item.got:banner.oberyn.name≠Banner of Oberyn Martell
+item.got:banner.oberyn.name=Sztandar Oberyn Martell
 item.got:banner.orkwood.name=Sztandar Orkwood
-item.got:banner.orme.name≠Banner of Orme
-item.got:banner.osgrey.name=Sztandar Osgreya
-item.got:banner.osgreyll.name≠Banner of Osgrey of Leafy Lake
-item.got:banner.overton.name≠Banner of Overton
+item.got:banner.orme.name=Sztandar Orme
+item.got:banner.osgrey.name=Sztandar Osgrey
+item.got:banner.osgreyll.name=Sztandar Osgrey of Leafy Lake
+item.got:banner.overton.name=Sztandar Overton
 item.got:banner.paege.name=Sztandar Paege
-item.got:banner.parren.name=Sztandar Parrena
-item.got:banner.patrek.name=Sztandar Patreka
-item.got:banner.payne.name=Sztandar Payne'a
+item.got:banner.parren.name=Sztandar Parren
+item.got:banner.patrek.name=Sztandar Patrek
+item.got:banner.payne.name=Sztandar Payne
 item.got:banner.peake.name=Sztandar Peake
-item.got:banner.pearse.name≠Banner of Pearse
+item.got:banner.pearse.name=Sztandar Pearse
 item.got:banner.peasebury.name=Sztandar Peasebury
-item.got:banner.peckledon.name≠Banner of Peckledon
+item.got:banner.peckledon.name=Sztandar Peckledon
 item.got:banner.pendragon.name=Sztandar Pendragon
-item.got:banner.penrose.name=Sztandar Penrose'a
+item.got:banner.penrose.name=Sztandar Penrose
 item.got:banner.pentos.name=Sztandar Pentos
 item.got:banner.piper.name=Sztandar Piper
 item.got:banner.plumm.name=Sztandar Plumm
-item.got:banner.pommingham.name≠Banner of Pommingham
-item.got:banner.poole.name=Sztandar Poole'a
-item.got:banner.poorFellows.name=Sztandar biednych ludzi
+item.got:banner.pommingham.name=Sztandar Pommingham
+item.got:banner.poole.name=Sztandar Poole
+item.got:banner.poorFellows.name=Sztandar Poor Fellows
 item.got:banner.prester.name=Sztandar Prester
 item.got:banner.pryor.name=Sztandar Pryor
-item.got:banner.pyle.name≠Banner of Pyles
-item.got:banner.pyne.name≠Banner of Pynes
+item.got:banner.pyle.name=Sztandar Pyles
+item.got:banner.pyne.name=Sztandar Pynes
 item.got:banner.qarth.name=Sztandar Qarth
 item.got:banner.qoherys.name=Sztandar Qoherys
 item.got:banner.qohor.name=Sztandar Qohor
 item.got:banner.qorgile.name=Sztandar Qorqile
 item.got:banner.rambton.name=Sztandar Rambton
-item.got:banner.redbeard.name≠Banner of Redbeard
+item.got:banner.redbeard.name=Sztandar Redbeard
 item.got:banner.redfort.name=Sztandar Redfort
 item.got:banner.redwyne.name=Sztandar Redwyne
-item.got:banner.redwyneBook.name≠Banner of Redwyne (Book)
-item.got:banner.reed.name=Sztandar trzciny
-item.got:banner.reedBook.name≠Banner of Reed (Book)
-item.got:banner.reedHBO.name≠Banner of Reed (TV Series)
-item.got:banner.renly.name=Sztandar Renly'ego
-item.got:banner.renlyBook.name≠Banner of Renly (Book)
-item.got:banner.renlyguard.name=Sztandar Renlyguarda
+item.got:banner.redwyneBook.name=Sztandar Redwyne (Book)
+item.got:banner.reed.name=Sztandar Reed
+item.got:banner.reedBook.name=Sztandar Reed (Book)
+item.got:banner.reedHBO.name=Sztandar Reed (TV Series)
+item.got:banner.renly.name=Sztandar Renly
+item.got:banner.renlyBook.name=Sztandar Renly (Book)
+item.got:banner.renlyguard.name=Sztandar Renlyguard
 item.got:banner.reyne.name=Sztandar Reyne
-item.got:banner.reyneBook.name≠Banner of Reyne (Book)
-item.got:banner.rhaegar.name≠Banner of Rhaegar Targaryen
+item.got:banner.reyneBook.name=Sztandar Reyne (Book)
+item.got:banner.rhaegar.name=Sztandar Rhaegar Targaryen
 item.got:banner.rhllor.name=Sztandar Rhllor
-item.got:banner.rhysling.name≠Banner of Rhysling
-item.got:banner.rikker.name=Sztandar Rikkera
-item.got:banner.risley.name=Sztandar Risleya
-item.got:banner.robb.name=Sztandar Robba Starka
-item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
-item.got:banner.robert.name=Sztandar Roberta
-item.got:banner.robertB.name=Sztandar Robert (książka)
-item.got:banner.robertashford.name≠Banner of Robert Ashford
-item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
-item.got:banner.rodrikryswell.name≠Banner of Rodrik Ryswell
-item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
-item.got:banner.rogers.name=Sztandar Rogersa
-item.got:banner.rolandblackwood.name≠Banner of Roland Blackwood
-item.got:banner.rollandStorm.name≠Banner of Rolland Storm
-item.got:banner.rollingford.name≠Banner of Rollingford
+item.got:banner.rhysling.name=Sztandar Rhysling
+item.got:banner.rikker.name=Sztandar Rikker
+item.got:banner.risley.name=Sztandar Risley
+item.got:banner.robb.name=Sztandar Robb Stark
+item.got:banner.robbBook.name=Sztandar Robb Stark (Book)
+item.got:banner.robert.name=Sztandar Robert
+item.got:banner.robertB.name=Sztandar Robert(Book)
+item.got:banner.robertashford.name=Sztandar Robert Ashford
+item.got:banner.robertblackwood.name=Sztandar Robert Blackwood
+item.got:banner.rodrikryswell.name=Sztandar Rodrik Ryswell
+item.got:banner.rogerblackwood.name=Sztandar Roger Blackwood
+item.got:banner.rogers.name=Sztandar Rogers
+item.got:banner.rolandblackwood.name=Sztandar Roland Blackwood
+item.got:banner.rollandStorm.name=Sztandar Rolland Storm
+item.got:banner.rollingford.name=Sztandar Rollingford
 item.got:banner.roote.name=Sztandar Roote
 item.got:banner.rosby.name=Sztandar Rosby
-item.got:banner.rossart.name≠Banner of Rossart
-item.got:banner.rowan.name=Sztandar Jarzębiny
+item.got:banner.rossart.name=Sztandar Rossart
+item.got:banner.rowan.name=Sztandar Rowan
 item.got:banner.roxton.name=Sztandar Roxton
-item.got:banner.royce.name=Sztandar Royce'a
-item.got:banner.royceBook.name=Sztandar Royce (książka)
-item.got:banner.royceGM.name=Sztandar Royce'a z Moon Gate
-item.got:banner.ruthermont.name≠Banner of Ruthermont
-item.got:banner.ruttiger.name=Sztandar Ruttigera
-item.got:banner.ryder.name≠Banner of Ryder
-item.got:banner.ryger.name=Sztandar Rygera
-item.got:banner.ryswell.name=Sztandar Ryswella
-item.got:banner.saan.name=Sztandar Saana
+item.got:banner.royce.name=Sztandar Royce
+item.got:banner.royceBook.name=Sztandar Royce(book)
+item.got:banner.royceGM.name=Sztandar Royce of Moon Gate
+item.got:banner.ruthermont.name=Sztandar Ruthermont
+item.got:banner.ruttiger.name=Sztandar Ruttiger
+item.got:banner.ryder.name=Sztandar Ryder
+item.got:banner.ryger.name=Sztandar Ryger
+item.got:banner.ryswell.name=Sztandar Ryswell
+item.got:banner.saan.name=Sztandar Saan
 item.got:banner.saltcliffe.name=Sztandar Saltcliffe
-item.got:banner.sandsnakes.name≠Banner of Sandsnakes
+item.got:banner.sandsnakes.name=Sztandar Sandsnakes
 item.got:banner.santagar.name=Sztandar Santagar
 item.got:banner.sarsfield.name=Sztandar Sarsfield
-item.got:banner.sarwyck.name=Sztandar Sarwycka
-item.got:banner.seasmoke.name≠Banner of Addam Velarion
-item.got:banner.seastar.name≠Banner of Shire the Sea Star
+item.got:banner.sarwyck.name=Sztandar Sarwyck
+item.got:banner.seasmoke.name=Sztandar Addam Velarion
+item.got:banner.seastar.name=Sztandar Shire the Sea Star
 item.got:banner.seaworth.name=Sztandar Seaworth
-item.got:banner.secondsons.name=Sztandar sekundonów
+item.got:banner.secondsons.name=Sztandar Secondsons
 item.got:banner.selmy.name=Sztandar Selmy
-item.got:banner.sept.name=Sztandar września
-item.got:banner.serrett.name=Sztandar Serretta
-item.got:banner.serrettBook.name≠Banner of Serrets (Book)
+item.got:banner.sept.name=Sztandar Sept
+item.got:banner.serrett.name=Sztandar Serrett
+item.got:banner.serrettBook.name=Sztandar Serrets (Book)
 item.got:banner.serry.name=Sztandar Serry
-item.got:banner.shadrich.name≠Banner of Shadrich
-item.got:banner.shawney.name≠Banner of Shawney
-item.got:banner.shell.name≠Banner of Shells
-item.got:banner.shermer.name=Sztandar Shermera
+item.got:banner.shadrich.name=Sztandar Shadrich
+item.got:banner.shawney.name=Sztandar Shawney
+item.got:banner.shell.name=Sztandar Shells
+item.got:banner.shermer.name=Sztandar Shermer
 item.got:banner.shettgtower.name=Sztandar Shettgtower
 item.got:banner.shettgtown.name=Sztandar Shettgtown
 item.got:banner.slate.name=Sztandar Slate
-item.got:banner.sloane.name≠Banner of Sloane
-item.got:banner.slynt.name=Sztandar Slynta
+item.got:banner.sloane.name=Sztandar Sloane
+item.got:banner.slynt.name=Sztandar Slynt
 item.got:banner.smallwood.name=Sztandar Smallwood
-item.got:banner.sothoryos.name=Sztandar Sothoryosa
-item.got:banner.sparr.name=Sztandar Sparra
-item.got:banner.sparrow.name=Sztandar Wróbla
-item.got:banner.spicer.name=Sztandar Spicera
-item.got:banner.stackhouse.name≠Banner of Stackhouse
+item.got:banner.sothoryos.name=Sztandar Sothoryos
+item.got:banner.sparr.name=Sztandar Sparr
+item.got:banner.sparrow.name=Sztandar Sparrow
+item.got:banner.spicer.name=Sztandar Spicer
+item.got:banner.stackhouse.name=Sztandar Stackhouse
 item.got:banner.stackspear.name=Sztandar Stackspear
 item.got:banner.staedmon.name=Sztandar Staedmon
-item.got:banner.stane.name=Sztandar Stane'a
-item.got:banner.stannis.name=Sztandar Stannisa
-item.got:banner.stannisBook.name≠Banner Baratheons of Dragonstone (Book)
-item.got:banner.starkD.name≠Banner of Dreadfort Starks
+item.got:banner.stane.name=Sztandar Stane
+item.got:banner.stannis.name=Sztandar Stannis
+item.got:banner.stannisBook.name=Banner Baratheons of Dragonstone (Book)
+item.got:banner.starkD.name=Sztandar Dreadfort Starks
 item.got:banner.staunton.name=Sztandar Staunton
 item.got:banner.stokeworth.name=Sztandar Stokeworth
 item.got:banner.stonehouse.name=Sztandar Stonehouse
@@ -4972,108 +4972,108 @@ item.got:banner.stonetree.name=Sztandar Stonetree
 item.got:banner.stormcrows.name=Sztandar Stormcrows
 item.got:banner.stout.name=Sztandar Stout
 item.got:banner.strickland.name=Sztandar Streickland
-item.got:banner.strong.name=Sztandar Silnego
-item.got:banner.suggs.name≠Banner of Suggs
-item.got:banner.summer.name=Sztandar lata
+item.got:banner.strong.name=Sztandar Strong
+item.got:banner.suggs.name=Sztandar Suggs
+item.got:banner.summer.name=Sztandar Summer
 item.got:banner.sunderland.name=Sztandar Sunderland
 item.got:banner.sunderly.name=Sztandar Sunderly
-item.got:banner.sunglass.name=Sztandar okularów przeciwsłonecznych
-item.got:banner.swann.name=Sztandar Swanna
-item.got:banner.swannBook.name≠Banner of Swann (Book)
+item.got:banner.sunglass.name=Sztandar Sunglass
+item.got:banner.swann.name=Sztandar Swann
+item.got:banner.swannBook.name=Sztandar Swann (Book)
 item.got:banner.swyft.name=Sztandar Swyft
-item.got:banner.swygert.name≠Banner of Swygert
-item.got:banner.tallad.name=Sztandar Tallada
-item.got:banner.tallhart.name=Sztandar Tallharta
-item.got:banner.tarbeck.name=Sztandar Tarbecka
-item.got:banner.targaryen.name=Sztandar Targaryena
-item.got:banner.targaryenBook.name≠Banner of Targaryen (Book)
+item.got:banner.swygert.name=Sztandar Swygert
+item.got:banner.tallad.name=Sztandar Tallad
+item.got:banner.tallhart.name=Sztandar Tallhart
+item.got:banner.tarbeck.name=Sztandar Tarbeck
+item.got:banner.targaryen.name=Sztandar Targaryen
+item.got:banner.targaryenBook.name=Sztandar Targaryen (Book)
 item.got:banner.tarly.name=Sztandar Tarly
-item.got:banner.tarlyBook.name≠Banner of Tarly (Book)
+item.got:banner.tarlyBook.name=Sztandar Tarly (Book)
 item.got:banner.tarth.name=Sztandar Tarth
-item.got:banner.tarthBook.name≠Banner of Tarth (Book)
-item.got:banner.tarwick.name≠Banner of Tarwick
+item.got:banner.tarthBook.name=Sztandar Tarth (Book)
+item.got:banner.tarwick.name=Sztandar Tarwick
 item.got:banner.tawney.name=Sztandar Tawney
 item.got:banner.teague.name=Sztandar Teague
-item.got:banner.templeton.name=Sztandar Templetona
+item.got:banner.templeton.name=Sztandar Templeton
 item.got:banner.thenn.name=Sztandar Thenn
-item.got:banner.thorne.name=Sztandar Thorne'a
-item.got:banner.tigers.name=Sztandar Tygrysów
-item.got:banner.toland.name=Sztandar Tolanda
+item.got:banner.thorne.name=Sztandar Thorne
+item.got:banner.tigers.name=Sztandar Tigers
+item.got:banner.toland.name=Sztandar Toland
 item.got:banner.tollett.name=Sztandar Tollett
 item.got:banner.torrent.name=Sztandar Torrent
-item.got:banner.towers.name=Sztandar Wież
-item.got:banner.towersN.name≠Banner of Towers of the North
+item.got:banner.towers.name=Sztandar Towers
+item.got:banner.towersN.name=Sztandar Towers of the North
 item.got:banner.toyne.name=Sztandar Toyne
 item.got:banner.trant.name=Sztandar Trant
-item.got:banner.truefyre.name≠Banner of Trystane Truefyre
-item.got:banner.tudbury.name≠Banner of Tudbury
+item.got:banner.truefyre.name=Sztandar Trystane Truefyre
+item.got:banner.tudbury.name=Sztandar Tudbury
 item.got:banner.tully.name=Sztandar Tully
-item.got:banner.tullyBook.name=Sztandar Tully (książka)
+item.got:banner.tullyBook.name=Sztandar Tully (Book)
 item.got:banner.turnberry.name=Sztandar Turnberry
-item.got:banner.tybolt.name≠Banner of Tybolt Lannister
-item.got:banner.tyrell.name=Sztandar Tyrrela
-item.got:banner.tyrellBK.name=Sztandar Tyrella z Brightwater Keep
-item.got:banner.tyrelll.name=Sztandar Lorasa Tyrella
-item.got:banner.tyrion.name=Sztandar Tyriona
-item.got:banner.tyrosh.name=Sztandar Tyrosha
-item.got:banner.uller.name=Sztandar Ullera
-item.got:banner.umber.name=Sztandar Umberu
-item.got:banner.umberBook.name=Sztandar Umber (książka)
-item.got:banner.underleaf.name≠Banner of Underleaf
+item.got:banner.tybolt.name=Sztandar Tybolt Lannister
+item.got:banner.tyrell.name=Sztandar Tyrrel
+item.got:banner.tyrellBK.name=Sztandar Tyrell of Brightwater Keep
+item.got:banner.tyrelll.name=Sztandar Loras Tyrell
+item.got:banner.tyrion.name=Sztandar Tyrion
+item.got:banner.tyrosh.name=Sztandar Tyrosh
+item.got:banner.uller.name=Sztandar Uller
+item.got:banner.umber.name=Sztandar Umber
+item.got:banner.umberBook.name=Sztandar Umber(Book)
+item.got:banner.underleaf.name=Sztandar Underleaf
 item.got:banner.upcliff.name=Sztandar Upcliff
-item.got:banner.vaith.name=Sztandar Vaitha
-item.got:banner.valarr.name≠Banner of Valarr Targaryen
-item.got:banner.valarrBook.name≠Banner of Valarr Targaryen (Book)
-item.got:banner.vanceA.name=Sztandar Vance Atranta
-item.got:banner.vanceWR.name=Sztandar Vance Wayfarer's Rest
-item.got:banner.varner.name=Sztandar Vannera
+item.got:banner.vaith.name=Sztandar Vaith
+item.got:banner.valarr.name=Sztandar Valarr Targaryen
+item.got:banner.valarrBook.name=Sztandar Valarr Targaryen (Book)
+item.got:banner.vanceA.name=Sztandar Vance of Atranta
+item.got:banner.vanceWR.name=Sztandar Vance of Wayfarer's Rest
+item.got:banner.varner.name=Sztandar Vanner
 item.got:banner.velaryon.name=Sztandar Velaryon
-item.got:banner.velaryonBook.name≠Banner of Velaryon (Book)
-item.got:banner.victarion.name=Sztandar Zwycięstwa
-item.got:banner.vikary.name=Sztandar Wikary
-item.got:banner.volantis.name=Sztandar Volantisa
+item.got:banner.velaryonBook.name=Sztandar Velaryon (Book)
+item.got:banner.victarion.name=Sztandar Victarion
+item.got:banner.vikary.name=Sztandar Vikary
+item.got:banner.volantis.name=Sztandar Volantis
 item.got:banner.volmark.name=Sztandar Volmark
-item.got:banner.vultureking.name≠Banner of The Vulture King
+item.got:banner.vultureking.name=Sztandar The Vulture King
 item.got:banner.vypren.name=Sztandar Vypren
-item.got:banner.vyrwel.name=Sztandar Vyrwela
+item.got:banner.vyrwel.name=Sztandar Vyrwel
 item.got:banner.wagstaff.name=Sztandar Wadstaff
-item.got:banner.walder.name≠Banner of Walder Rivers
-item.got:banner.walker.name≠Banner of White Walkers
-item.got:banner.warriorsSons.name=Sztandar synów wojowników
-item.got:banner.waterman.name≠Banner of Waterman
-item.got:banner.waxley.name=Sztandar Waxleya
+item.got:banner.walder.name=Sztandar Walder Rivers
+item.got:banner.walker.name=Sztandar White Walkers
+item.got:banner.warriorsSons.name=Sztandar Warriors Sons
+item.got:banner.waterman.name=Sztandar Waterman
+item.got:banner.waxley.name=Sztandar Waxley
 item.got:banner.wayn.name=Sztandar Wayn
 item.got:banner.waynwood.name=Sztandar Waynwood
 item.got:banner.webber.name=Sztandar Webber
-item.got:banner.wells.name=Sztandar Wellsa
-item.got:banner.wellsD.name≠Banner of Wells of Dorne
+item.got:banner.wells.name=Sztandar Wells
+item.got:banner.wellsD.name=Sztandar Wells of Dorne
 item.got:banner.wendwater.name=Sztandar Wendwater
 item.got:banner.wensington.name=Sztandar Wensington
-item.got:banner.westbrook.name≠Banner of Westbrook
-item.got:banner.westerling.name=Sztandar Westerlinga
+item.got:banner.westbrook.name=Sztandar Westbrook
+item.got:banner.westerling.name=Sztandar Westerling
 item.got:banner.westford.name=Sztandar Westford
 item.got:banner.whent.name=Sztandar Whent
-item.got:banner.white.name=Sztandar bieli
-item.got:banner.whitegrove.name≠Banner of Whitegrove
-item.got:banner.whitehead.name≠Banner of Whitehead
+item.got:banner.white.name=Sztandar White
+item.got:banner.whitegrove.name=Sztandar Whitegrove
+item.got:banner.whitehead.name=Sztandar Whitehead
 item.got:banner.whitehill.name=Sztandar Whitehill
-item.got:banner.whitehillBook.name≠Banner of Whitehill (Book)
-item.got:banner.wildling.name=Sztandar Dzikich
-item.got:banner.willum.name=Sztandar Willuma
-item.got:banner.windblown.name=Sztandar dmuchanego wiatru
+item.got:banner.whitehillBook.name=Sztandar Whitehill (Book)
+item.got:banner.wildling.name=Sztandar Wildling
+item.got:banner.willum.name=Sztandar Willum
+item.got:banner.windblown.name=Sztandar Windblown
 item.got:banner.wode.name=Sztandar Wode
-item.got:banner.woodfoot.name≠Banner of Woodfoot
-item.got:banner.woods.name≠Banner of Woods
-item.got:banner.woodwright.name=Sztandar Woodwrighta
+item.got:banner.woodfoot.name=Sztandar Woodfoot
+item.got:banner.woods.name=Sztandar Woods
+item.got:banner.woodwright.name=Sztandar Woodwright
 item.got:banner.woolfield.name=Sztandar Woolfield
 item.got:banner.wull.name=Sztandar Wull
-item.got:banner.wydman.name≠Banner of Wydman
-item.got:banner.wyl.name=Sztandar Wyla
+item.got:banner.wydman.name=Sztandar Wydman
+item.got:banner.wyl.name=Sztandar Wyl
 item.got:banner.wylde.name=Sztandar Wylde
-item.got:banner.wynch.name=Sztandar Wyncha
-item.got:banner.wythers.name=Sztandar Wytherów
-item.got:banner.yarwyck.name=Sztandar Yarwycka
-item.got:banner.yew.name=Sztandar cisu
+item.got:banner.wynch.name=Sztandar Wynch
+item.got:banner.wythers.name=Sztandar Wythers
+item.got:banner.yarwyck.name=Sztandar Yarwyck
+item.got:banner.yew.name=Sztandar Yew
 item.got:banner.yiti.name=Sztandar Yiti
 item.got:banner.yitiBu.name=Sztandar Bu
 item.got:banner.yitiChoq.name=Sztandar Choq
@@ -5083,18 +5083,18 @@ item.got:banner.yitiLo.name=Sztandar Lo
 item.got:banner.yitiMaroon.name=Sztandar Maroon
 item.got:banner.yitiMengo.name=Sztandar Mengo
 item.got:banner.yitiPearl.name=Sztandar Rearl
-item.got:banner.yitiPurple.name=Sztandar fioletu
+item.got:banner.yitiPurple.name=Sztandar Purple
 item.got:banner.yitiQo.name=Sztandar Qo
-item.got:banner.youngGriff.name≠Banner of Young Griff
+item.got:banner.youngGriff.name=Sztandar Young Griff
 item.got:banner.yronwood.name=Sztandar Yronwood
 item.got:banner.yunkai.name=Sztandar Yunkai
 item.got:bear_rug.name=Dywan z niedźwiedziej skóry
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_tail.name≠Beaver Tail
+item.got:beaver_cooked.name=Ugotowany Bóbr
+item.got:beaver_raw.name=Surowy Bóbr
+item.got:beaver_tail.name=Ogon Bobra
 item.got:beric_sword.name=Miecz Berica Dondarriona
 item.got:berry_pie.name=Placek jagodowy
-item.got:bittersteel_helmet.name≠Aegor Rivers Helmet
+item.got:bittersteel_helmet.name=Hełm Aegora Riversa
 item.got:black_arakh.name=Czarny arach
 item.got:blackberry.name=Jeżyny
 item.got:blackfyre.name=Blackfyre
@@ -5103,7 +5103,7 @@ item.got:blackfyre_chestplate.name=Napierśnik Blackfyre
 item.got:blackfyre_helmet.name=Hełm Blackfyre
 item.got:blackfyre_leggings.name=Nogawice Blackfyre
 item.got:blackroot_stick.name=Patyk czarnokorzenia
-item.got:blackskin_chestplate.name≠Blackskin Chestplate
+item.got:blackskin_chestplate.name=Czarna Zbroja Napierśnika
 item.got:blacksmith_hammer.name=Młot kowalski
 item.got:blood_of_true_kings.name=Krew Prawdziwych Królów
 item.got:blueberry.name=Borówki
@@ -5123,10 +5123,10 @@ item.got:brightroar.name=Brightroar
 item.got:bronze_axe.name=Brązowy topór
 item.got:bronze_battleaxe.name=Brązowy topór bojowy
 item.got:bronze_boots.name=Brązowe buty
-item.got:bronze_chainmail_boots.name≠Bronze Chain Boots
-item.got:bronze_chainmail_chestplate.name≠Bronze Chain Chestplate
-item.got:bronze_chainmail_helmet.name≠Bronze Chain Helmet
-item.got:bronze_chainmail_leggings.name≠Bronze Chain Leggings
+item.got:bronze_chainmail_boots.name=Brązowe Łańcuchowe Buty
+item.got:bronze_chainmail_chestplate.name=Brązowa Łańcuchowa Napierśnik
+item.got:bronze_chainmail_helmet.name=Brązowy Łańcuchowy Hełm
+item.got:bronze_chainmail_leggings.name=Brązowe Łańcuchowe Nogawice
 item.got:bronze_chestplate.name=Napierśnik z brązu
 item.got:bronze_crossbow.name=Brązowa kusza
 item.got:bronze_dagger.name=Sztylet z brązu
@@ -5135,9 +5135,9 @@ item.got:bronze_helmet.name=Hełm z brązu
 item.got:bronze_hoe.name=Brązowa motyka
 item.got:bronze_ingot.name=Sztabka brązu
 item.got:bronze_leggings.name=Brązowe Nogawice
-item.got:bronze_nugget.name≠Bronze Nugget
+item.got:bronze_nugget.name=Brązowa Bryłka
 item.got:bronze_pickaxe.name=Brązowy kilof
-item.got:bronze_ring.name≠Bronze Ring
+item.got:bronze_ring.name=Brązowy Pierścień
 item.got:bronze_shovel.name=Łopata z brązu
 item.got:bronze_spear.name=Włócznia z brązu
 item.got:bronze_sword.name=Miecz z brązu
@@ -5156,21 +5156,21 @@ item.got:chisel.name=Dłuto
 item.got:clay_mug.name=Gliniany kufel
 item.got:clay_plate.name=Gliniany talerz
 item.got:club.name=Hill Tribe Club
-item.got:cobalt_blue.name≠Blue Cobalt
-item.got:coin.1.name≠Copper penny
-item.got:coin.1024.name≠Silver moon
-item.got:coin.16.name≠Copper groat
-item.got:coin.16384.name≠Valyrian lord
-item.got:coin.256.name≠Silver stag
-item.got:coin.4.name≠Copper half-groat
-item.got:coin.4096.name≠Golden dragon
-item.got:coin.64.name≠Silver star
-item.got:coin.nominal.name≠Nominal
+item.got:cobalt_blue.name=Niebieski Kobalt
+item.got:coin.1.name=Miedziany Penny
+item.got:coin.1024.name=Srebrny Księżyc
+item.got:coin.16.name=Miedziany Grosz
+item.got:coin.16384.name=Walijarski Lord
+item.got:coin.256.name=Srebrny Jeleń
+item.got:coin.4.name=Miedziany Półgrosz
+item.got:coin.4096.name=Złoty Smok
+item.got:coin.64.name=Srebrna Gwiazda
+item.got:coin.nominal.name=Nominalna
 item.got:command_horn.name=Róg dowodzenia
 item.got:command_sword.name=Miecz dowodzenis
 item.got:copper_ingot.name=Miedziana Sztaba
 item.got:copper_nugget.name=Bryłka miedzi
-item.got:copper_ring.name≠Copper Ring
+item.got:copper_ring.name=Miedziany Pierścień
 item.got:coral.name=Koral
 item.got:corn.name=Kukurydza
 item.got:corn_bread.name=Kukurydziany chleb
@@ -5184,9 +5184,9 @@ item.got:crownlands_boots.name=Buty Złotych Płaszczy
 item.got:crownlands_chestplate.name=Napierśnik złotych peleryn
 item.got:crownlands_helmet.name=Hełm Złotych Płaszczy
 item.got:crownlands_leggings.name=Nogawice w złote peleryny
-item.got:cucumber.name≠Cucumber
-item.got:cucumber_seeds.name≠Cucumber seeds
-item.got:cutwave.name≠Cutwave
+item.got:cucumber.name=Ogórek
+item.got:cucumber_seeds.name=Nasiona Ogórka
+item.got:cutwave.name=Cutwave
 item.got:daario_arakh.name=Daario Arakh
 item.got:dark_sister.name=Mroczna siostra
 item.got:darkstar.name=Ciemna gwiazda
@@ -5201,11 +5201,11 @@ item.got:dorne_boots.name=Buty Dorne
 item.got:dorne_chestplate.name=Napierśnik Dorne
 item.got:dorne_helmet.name=Hełm Dorne
 item.got:dorne_leggings.name=Nogawice Dorne
-item.got:dothraki_boots.name≠Dothraki Boots
-item.got:dothraki_chestplate.name≠Dothraki Chestplate
-item.got:dothraki_helmet.name≠Dothraki Helmet
+item.got:dothraki_boots.name=Dothraki Buty
+item.got:dothraki_chestplate.name=Dothraki Napierśnik
+item.got:dothraki_helmet.name=Dothraki Hełm
 item.got:dothraki_horse_armor.name=Zbroja Nomada Horse Armor
-item.got:dothraki_leggings.name≠Dothraki Leggings
+item.got:dothraki_leggings.name=Dothraki Nogawice
 item.got:dragonstone_boots.name=Buty Smoczej Skały
 item.got:dragonstone_chestplate.name=Napierśnik ze Smoczej Skały
 item.got:dragonstone_helmet.name=Hełm Smoczej Skały
@@ -5218,8 +5218,8 @@ item.got:dye.4.name=Pył z węgla drzewnego
 item.got:dye.5.name=Brązowy barwnik
 item.got:eddard_sword.name=Miecz Eddarda Starka
 item.got:elderberry.name=Owoce czarnego bzu
-item.got:elephant_cooked.name≠Cooked Elephant
-item.got:elephant_raw.name≠Raw Elephant
+item.got:elephant_cooked.name=Ugotowany Słoń
+item.got:elephant_raw.name=Surowy Słoń
 item.got:emerald.name=Szmaragd
 item.got:essos_bow.name=Łuk Essos
 item.got:essos_dagger.name=Sztylet Wolnych Miast
@@ -5232,7 +5232,7 @@ item.got:essos_spear.name=Włócznia Wolnych Miast
 item.got:essos_sword.name=Free Cities Scimitar
 item.got:euron_dagger.name=Euron Dagger
 item.got:feather_dyed.name=Barwione pióro
-item.got:fin.name≠Fin
+item.got:fin.name=Płetwa
 item.got:fire_pot.name=Miotacz ognia Yi Ti
 item.got:flax.name=Len
 item.got:flax_seeds.name=Nasiona lenu
@@ -5279,36 +5279,36 @@ item.got:grape_white.name=Zielone winogrona
 item.got:gregor_clegane_sword.name=Miecz Gregora Clegane'a
 item.got:hand_gold.name=Broszka z ręki króla (1)
 item.got:hand_silver.name=Broszka z ręki króla (2)
-item.got:harpoon.name≠Harpoon
+item.got:harpoon.name=Harpun
 item.got:harpy.name=Harpia
-item.got:hearteater.name≠Hearteater
+item.got:hearteater.name=Hearteater
 item.got:heartsbane.name=Heartsbane
 item.got:hillmen_boots.name=Buty Plemienia Wzgórza
 item.got:hillmen_chestplate.name=Napierśnik Plemienia Wzgórza
 item.got:hillmen_helmet.name=Hełm Plemienia Wzgórza
 item.got:hillmen_leggings.name=Nogawice Hill Tribe
-item.got:honor.name≠Honor
+item.got:honor.name=Honor
 item.got:horn.name=Róg
-item.got:horse_armor_diamond.name≠Diamond horse armor
-item.got:horse_armor_gold.name≠Golden horse armor
-item.got:horse_armor_iron.name≠Iron horse armor
-item.got:ibben_boots.name≠Ibben Boots
-item.got:ibben_chestplate.name≠Ibben Chestplate
-item.got:ibben_leggings.name≠Ibben Leggings
-item.got:ibben_sword.name≠Ibben Sword
+item.got:horse_armor_diamond.name=Diamentowa zbroja konia
+item.got:horse_armor_gold.name=Złota zbroja konia
+item.got:horse_armor_iron.name=Żelazna zbroja konia
+item.got:ibben_boots.name=Buty Ibben
+item.got:ibben_chestplate.name=Napierśnik Ibben
+item.got:ibben_leggings.name=Spodnie Ibben
+item.got:ibben_sword.name=Miecz Ibben
 item.got:ice.name=Lód
-item.got:ice_heavy_sword.name≠Ice Heavy Sword
-item.got:ice_shard.name≠Ice shard
-item.got:ice_spear.name≠White Walkers Spear
+item.got:ice_heavy_sword.name=Ciężki miecz z lodu
+item.got:ice_shard.name=Odłamek lodu
+item.got:ice_spear.name=Włócznia Białych Wędrowców
 item.got:ice_sword.name=Lodowy Miecz
 item.got:icon_heraldry.name=???
 item.got:icon_sword.name=???
-item.got:indomitable.name≠Indomitable
+item.got:indomitable.name=Niezłomny
 item.got:iron_battleaxe.name=Żelazny topór bojowy
 item.got:iron_crossbow.name=Żelazna kusza
 item.got:iron_dagger.name=Żelazny sztylet
 item.got:iron_dagger_poisoned.name=Zatruty Żelazny Sztylet
-item.got:iron_nugget.name≠Iron Nugget
+item.got:iron_nugget.name=Żelazna galaretka
 item.got:iron_pike.name=Iron Pike
 item.got:iron_spear.name=Żelazna włócznia
 item.got:iron_throwing_axe.name=Żelazny topór do rzucania
@@ -5318,10 +5318,10 @@ item.got:ironborn_helmet.name=Hełm Żelaznych Wysp
 item.got:ironborn_leggings.name=Nogawice z Żelazne Wyspy
 item.got:jaime_sword.name=Miecz Jaime Lannister
 item.got:joffrey_crossbow.name=Joffrey Baratheon Crossbow
-item.got:jogos_boots.name≠Jogos Nhai Boots
-item.got:jogos_chestplate.name≠Jogos Nhai Chestplate
-item.got:jogos_helmet.name≠Jogos Nhai Helmet
-item.got:jogos_leggings.name≠Jogos Nhai Leggings
+item.got:jogos_boots.name=Buty Jogos Nhai
+item.got:jogos_chestplate.name=Napierśnik Jogos Nhai
+item.got:jogos_helmet.name=Hełm Jogos Nhai
+item.got:jogos_leggings.name=Spodnie Jogos Nhai
 item.got:just_maid.name=JustMaid
 item.got:kaftan_chestplate.name=Kaftan
 item.got:kaftan_leggings.name=Nogawice Kaftan
@@ -5333,7 +5333,7 @@ item.got:kingsguard_helmet.name=Hełm Gwardii Królewskiej
 item.got:kingsguard_leggings.name=Nogawice Kingsguard
 item.got:lady_forlorn.name=Lady Forlorn
 item.got:lamentation.name=Lament
-item.got:lannister_brooch.name≠Brooch of Tyrion Lannister
+item.got:lannister_brooch.name=Broszka Tyriona Lannistera
 item.got:leather_hat.name=Skórzany kapelusz
 item.got:leek.name=Por
 item.got:leek_soup.name=Zupa z pora
@@ -5356,7 +5356,7 @@ item.got:lhazar_spear.name=Włócznia Lhazar
 item.got:lhazar_sword.name=Miecz Lhazar
 item.got:lightbringer.name=Światłonośca
 item.got:lime.name=Limonka
-item.got:lingering_potion.name≠Lingering Potion
+item.got:lingering_potion.name=Długotrwały eliksir
 item.got:lion_bed.name=Łóżko z lwiej sierści
 item.got:lion_cooked.name=Pieczony lew
 item.got:lion_fur.name=Lwia sierść
@@ -5378,7 +5378,7 @@ item.got:marzipan_chocolate.name=Marcepan z czekoladą
 item.got:melon_soup.name=Zupa arbuzowa
 item.got:mossovy_boots.name=Buty Mossovy
 item.got:mossovy_chestplate.name=Napierśnik omszały
-item.got:mossovy_dagger.name≠Silver Dagger
+item.got:mossovy_dagger.name=Srebrny sztylet
 item.got:mossovy_leggings.name=Nogawice Mossovy
 item.got:mossovy_sword.name=Srebrny miecz
 item.got:mug.name=Kufel
@@ -5489,7 +5489,7 @@ item.got:pomegranate.name=Granat
 item.got:pouch.0.name=Mała sakiewka
 item.got:pouch.1.name=Średnia sakiewka
 item.got:pouch.2.name=Duża sakiewka
-item.got:pruner.name≠Pruner
+item.got:pruner.name=Nożyce
 item.got:qarth_boots.name=Buty Qartha
 item.got:qarth_chestplate.name=Napierśnik Qartha
 item.got:qarth_helmet.name=Hełm Qartha
@@ -5518,17 +5518,17 @@ item.got:redking_boots.name=Buty Czerwonego Króla
 item.got:redking_chestplate.name=Napierśnik Czerwonego Króla
 item.got:redking_helmet.name=Hełm króla czerwonego
 item.got:redking_leggings.name=Nogawice Red King
-item.got:reminder.name≠Reminder
-item.got:renly_boots.name≠Renly Boots
-item.got:renly_chestplate.name≠Renly Chestplate
-item.got:renly_helmet.name≠Renly Helmet
-item.got:renly_leggings.name≠Renly Leggings
+item.got:reminder.name=Przypomnienie
+item.got:renly_boots.name=Buty Renly'ego
+item.got:renly_chestplate.name=Napierśnik Renly'ego
+item.got:renly_helmet.name=Hełm Renly'ego
+item.got:renly_leggings.name=Spodnie Renly'ego
 item.got:rhaegar_sword.name=Miecz Rhaegar Targaryen
 item.got:rhino_armor.name=Pancerz nosorożca
 item.got:rhino_cooked.name=Pieczony nosorożec
 item.got:rhino_horn.name=Róg nosorożca
 item.got:rhino_raw.name=Surowy nosorożec
-item.got:rice.name≠Rice
+item.got:rice.name=Ryż
 item.got:riverlands_boots.name=Buty Dorzecze
 item.got:riverlands_chestplate.name=Napierśnik z Dorzecze
 item.got:riverlands_helmet.name=Hełm Dorzecze
@@ -5611,14 +5611,14 @@ item.got:targaryen_chestplate.name=Targaryen Chestpate
 item.got:targaryen_helmet.name=Hełm Targaryena
 item.got:targaryen_leggings.name=Nogawice Targaryen
 item.got:termite.name=Eksplodujący termit
-item.got:tidewings.name≠Tidewings
+item.got:tidewings.name=Skrzydła pływające
 item.got:tin_ingot.name=Tin Ingot
 item.got:topaz.name=Topaz
 item.got:tormund_sword.name=Miecz Tormunda
 item.got:trident.name=Trójząb plemienia wzgórza
 item.got:truth.name=Prawda
 item.got:trystane_sword.name=Miecz Trystane Martell
-item.got:tugar_khan_sword.name≠Tugar Khan Sword
+item.got:tugar_khan_sword.name=Miecz Tugara Khana
 item.got:turnip.name=Rzepa
 item.got:turnip_cooked.name=Pieczona rzepa
 item.got:tyene_dagger.name=Sztylet Tyene Sand
@@ -5635,10 +5635,10 @@ item.got:valyrian_axe.name=Valyrian Axe
 item.got:valyrian_battleaxe.name=Valyriański topór bojowy
 item.got:valyrian_book.name=Księga Prawdziwego Srebra
 item.got:valyrian_boots.name=Buty Valyrian
-item.got:valyrian_chainmail_boots.name≠Valyrian Chain Boots
-item.got:valyrian_chainmail_chestplate.name≠Valyrian Chain Chestplate
-item.got:valyrian_chainmail_helmet.name≠Valyrian Chain Helmet
-item.got:valyrian_chainmail_leggings.name≠Valyrian Chain Leggings
+item.got:valyrian_chainmail_boots.name=Walyriańskie łańcuchowe buty
+item.got:valyrian_chainmail_chestplate.name=Walyriańska łańcuchowa zbroja
+item.got:valyrian_chainmail_helmet.name=Walyriański łańcuchowy hełm
+item.got:valyrian_chainmail_leggings.name=Walyriańskie łańcuchowe spodnie
 item.got:valyrian_chestplate.name=Valyrian Chestplate
 item.got:valyrian_chisel.name=Dłuto Valyrian
 item.got:valyrian_crossbow.name=Valyrian Crossbow
@@ -5660,17 +5660,17 @@ item.got:valyrian_ring.name=Valyrian Ring
 item.got:valyrian_shovel.name=Valyrian Shovel
 item.got:valyrian_spear.name=Valyriańska włócznia
 item.got:valyrian_sword.name=Valyrian Sword
-item.got:velaryon_brooch.name≠Brooch of Monford Velaryon
+item.got:velaryon_brooch.name=Broszka Monford Velaryona
 item.got:victarion_axe.name=Topór Victarion
-item.got:victarion_helmet.name≠Victarion Helmet
+item.got:victarion_helmet.name=Hełm Victariona
 item.got:vigilance.name=Czujność
 item.got:volantis_boots.name=Buty Volantisa
 item.got:volantis_chestplate.name=Napierśnik Volantisa
 item.got:volantis_helmet.name=Hełm Volantisa
 item.got:volantis_leggings.name=Nogawice Volantis
-item.got:walking_stick.name≠Walking stick
-item.got:walrus_lard_cooked.name≠Cooked Walrus Lard
-item.got:walrus_lard_raw.name≠Raw Walrus Lard
+item.got:walking_stick.name=Laska
+item.got:walrus_lard_cooked.name=Ugotowany sadło morsza
+item.got:walrus_lard_raw.name=Surowe sadło morsza
 item.got:warhorn.name=Róg wojenny
 item.got:waterskin.name=Bukłak
 item.got:westerlands_boots.name=Buty z Krainy zachodu
@@ -5684,11 +5684,11 @@ item.got:westerlandsguard_leggings.name=Nogawice w czerwone peleryny
 item.got:westeros_bow.name=Kokarda
 item.got:westeros_dagger.name=Sztylet
 item.got:westeros_dagger_poisoned.name=Zatruty Północny Sztylet
-item.got:westeros_greatsword.name≠Westeros Greatsword
+item.got:westeros_greatsword.name=Wielki miecz Westerus
 item.got:westeros_hammer.name=Młot bojowy
 item.got:westeros_horse_armor.name=Pancerz konia Północnego
 item.got:westeros_lance.name=Lanca
-item.got:westeros_longsword.name≠Westeros Longsword
+item.got:westeros_longsword.name=Długi miecz Westerus
 item.got:westeros_pike.name=Szczupak
 item.got:westeros_spear.name=Włócznia
 item.got:westeros_sword.name=Miecz
@@ -5698,9 +5698,9 @@ item.got:westking_helmet.name=Hełm zachodnich królów
 item.got:westking_leggings.name=Nogawice West Kings
 item.got:wheel.name=Koło
 item.got:white_bison_horn.name=Róg bawołu Arawa
-item.got:white_walkers_boots.name≠White Walkers Boots
-item.got:white_walkers_chestplate.name≠White Walkers Chestplate
-item.got:white_walkers_leggings.name≠White Walkers Leggings
+item.got:white_walkers_boots.name=Buty Białych Wędrowców
+item.got:white_walkers_chestplate.name=Napierśnik Białych Wędrowców
+item.got:white_walkers_leggings.name=Spodnie Białych Wędrowców
 item.got:widow_wail.name=Wdowa płacz
 item.got:wildberry.name=Dzikie jagody
 item.got:wildling_axe.name=Topór Dzikich
@@ -5717,21 +5717,21 @@ item.got:yam.name=Pochrzyn
 item.got:yam_roast.name=Pieczony pochrzyn
 item.got:yiti_battleaxe.name=Yi Ti Nagamaki
 item.got:yiti_boots.name=Buty Yi Ti
-item.got:yiti_boots_frontier.name≠Yi Ti Frontier Boots
+item.got:yiti_boots_frontier.name=Buty pograniczne Yi Ti
 item.got:yiti_boots_samurai.name=Buty samurajskie Yi Ti
 item.got:yiti_bow.name=Yi Ti Bow
 item.got:yiti_chestplate.name=Napierśnik Yi Ti
-item.got:yiti_chestplate_frontier.name≠Yi Ti Frontier Chestplate
+item.got:yiti_chestplate_frontier.name=Napierśnik pograniczny Yi Ti
 item.got:yiti_chestplate_samurai.name=Napierśnik Yi Ti Samurai
 item.got:yiti_dagger.name=Yi Ti Kunai
 item.got:yiti_dagger_poisoned.name=Zatruty Yi Ti Kunai
 item.got:yiti_helmet.name=Hełm Yi Ti
-item.got:yiti_helmet_frontier.name≠Yi Ti Frontier Helmet
+item.got:yiti_helmet_frontier.name=Hełm pograniczny Yi Ti
 item.got:yiti_helmet_samurai.name=Hełm samuraja Yi Ti
 item.got:yiti_helmet_shogune.name=Hełm Yi Ti Shogune
 item.got:yiti_horse_armor.name=Zbroja konia Yi Ti
 item.got:yiti_leggings.name=Nogawice Yi Ti
-item.got:yiti_leggings_frontier.name≠Yi Ti Frontier Leggings
+item.got:yiti_leggings_frontier.name=Spodnie pograniczne Yi Ti
 item.got:yiti_leggings_samurai.name=Nogawice Yi Ti Samurai
 item.got:yiti_pike.name=Yi Ti Pike
 item.got:yiti_polearm.name=Yi Ti Naginata
@@ -5740,7 +5740,7 @@ item.got:yiti_steel_ingot.name=Pozłacana sztabka żelaza
 item.got:yiti_sword.name=Yi Ti Katana
 item.got:zebra_cooked.name=Pieczona zebra
 item.got:zebra_raw.name=Surowa zebra
-tile.dirt.0.name≠Dirt
+tile.dirt.0.name=Ziemia
 tile.dirt.coarse.name=Jałowa ziemia
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная
@@ -5805,7 +5805,7 @@ tile.got:block_metal1.3.name=Blok srebra
 tile.got:block_metal1.4.name=Blok Valyriańskiej Stali
 tile.got:block_metal2.2.name=Blok pozłacanego żelaza
 tile.got:block_metal2.3.name=Blok soli
-tile.got:block_metal2.4.name≠Block of Alloy Steel
+tile.got:block_metal2.4.name=Blok ze stopu stali
 tile.got:bluebell.name=Dzwonek
 tile.got:bomb.name=Bomba
 tile.got:bone_block.name=Blok kości
@@ -5896,41 +5896,41 @@ tile.got:clover.0.name=Koniczyna
 tile.got:clover.1.name=Czterolistna koniczyna
 tile.got:cobblebrick.0.name=Kostka brukowa
 tile.got:command_table.name=Stół dowodzenia
-tile.got:concrete.0.name≠White Concrete
-tile.got:concrete.1.name≠Orange Concrete
-tile.got:concrete.10.name≠Purple Concrete
-tile.got:concrete.11.name≠Blue Concrete
-tile.got:concrete.12.name≠Brown Concrete
-tile.got:concrete.13.name≠Green Concrete
-tile.got:concrete.14.name≠Red Concrete
-tile.got:concrete.15.name≠Black Concrete
-tile.got:concrete.2.name≠Magenta Concrete
-tile.got:concrete.3.name≠Light Blue Concrete
-tile.got:concrete.4.name≠Yellow Concrete
-tile.got:concrete.5.name≠Lime Concrete
-tile.got:concrete.6.name≠Pink Concrete
-tile.got:concrete.7.name≠Gray Concrete
-tile.got:concrete.8.name≠Light Gray Concrete
-tile.got:concrete.9.name≠Cyan Concrete
-tile.got:concrete_powder.0.name≠White Concrete Powder
-tile.got:concrete_powder.1.name≠Orange Concrete Powder
-tile.got:concrete_powder.10.name≠Purple Concrete Powder
-tile.got:concrete_powder.11.name≠Blue Concrete Powder
-tile.got:concrete_powder.12.name≠Brown Concrete Powder
-tile.got:concrete_powder.13.name≠Green Concrete Powder
-tile.got:concrete_powder.14.name≠Red Concrete Powder
-tile.got:concrete_powder.15.name≠Black Concrete Powder
-tile.got:concrete_powder.2.name≠Magenta Concrete Powder
-tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
-tile.got:concrete_powder.4.name≠Yellow Concrete Powder
-tile.got:concrete_powder.5.name≠Lime Concrete Powder
-tile.got:concrete_powder.6.name≠Pink Concrete Powder
-tile.got:concrete_powder.7.name≠Gray Concrete Powder
-tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
-tile.got:concrete_powder.9.name≠Cyan Concrete Powder
+tile.got:concrete.0.name=Biały beton
+tile.got:concrete.1.name=Pomarańczowy beton
+tile.got:concrete.10.name=Fioletowy beton
+tile.got:concrete.11.name=Niebieski beton
+tile.got:concrete.12.name=Brązowy beton
+tile.got:concrete.13.name=Zielony beton
+tile.got:concrete.14.name=Czerwony beton
+tile.got:concrete.15.name=Czarny beton
+tile.got:concrete.2.name=Karmazynowy beton
+tile.got:concrete.3.name=Jasnoniebieski beton
+tile.got:concrete.4.name=Żółty beton
+tile.got:concrete.5.name=Limonkowy beton
+tile.got:concrete.6.name=Różowy beton
+tile.got:concrete.7.name=Szary beton
+tile.got:concrete.8.name=Jasnoszary beton
+tile.got:concrete.9.name=Turkusowy beton
+tile.got:concrete_powder.0.name=Biały proszek betonowy
+tile.got:concrete_powder.1.name=Pomarańczowy proszek betonowy
+tile.got:concrete_powder.10.name=Fioletowy proszek betonowy
+tile.got:concrete_powder.11.name=Niebieski proszek betonowy
+tile.got:concrete_powder.12.name=Brązowy proszek betonowy
+tile.got:concrete_powder.13.name=Zielony proszek betonowy
+tile.got:concrete_powder.14.name=Czerwony proszek betonowy
+tile.got:concrete_powder.15.name=Czarny proszek betonowy
+tile.got:concrete_powder.2.name=Karmazynowy proszek betonowy
+tile.got:concrete_powder.3.name=Jasnoniebieski proszek betonowy
+tile.got:concrete_powder.4.name=Żółty proszek betonowy
+tile.got:concrete_powder.5.name=Limonkowy proszek betonowy
+tile.got:concrete_powder.6.name=Różowy proszek betonowy
+tile.got:concrete_powder.7.name=Szary proszek betonowy
+tile.got:concrete_powder.8.name=Jasnoszary proszek betonowy
+tile.got:concrete_powder.9.name=Turkusowy proszek betonowy
 tile.got:coral_reef.name=Rafa koralowa
 tile.got:corn_stalk.name=Łodygi kukurydzy
-tile.got:cucumber_plant.name≠Cucumber Plant
+tile.got:cucumber_plant.name=Roślina ogórka
 tile.got:daub.name=Szachulec
 tile.got:dead_marsh_plant.name=Roślina z Martwych Bagien
 tile.got:dirt_path.0.name=Ziemista ścieżka
@@ -6109,7 +6109,7 @@ tile.got:iron_bank.name=Departament Żelaznego Banku
 tile.got:kebab_block.name=Blok kebaba
 tile.got:kebab_stand.name=Stojak na kebaba
 tile.got:kebab_stand_sand.name=Piaskowcowy stojak na kebaba
-tile.got:kelp.name≠Kelp
+tile.got:kelp.name=Wodorost
 tile.got:leaves1.0.name=Liście rbinii
 tile.got:leaves1.1.name=Liście katalpy
 tile.got:leaves1.2.name=Liście dębu czarnego
@@ -6155,7 +6155,7 @@ tile.got:mud.1.name=Jałowe dżunglowe błoto
 tile.got:mud_farmland.name=Dżunglowe błotne pole uprawne
 tile.got:mud_grass.name=Dżunglowa trawa
 tile.got:obsidian_gravel.name=Obsydianowy żwir
-tile.got:ore_cobalt.name≠Cobalt Ore
+tile.got:ore_cobalt.name=Ruda kobaltu
 tile.got:ore_copper.name=Ruda miedzi
 tile.got:ore_gem.0.name=Żyła topazu
 tile.got:ore_gem.1.name=Żyła ametystu
@@ -6556,18 +6556,18 @@ tile.got:table_asshai.name=Stół rzemieślniczy Asshai
 tile.got:table_braavos.name=Stół rzemieślniczy Braavos
 tile.got:table_crownlands.name=Stół rzemieślniczy Krainy korony
 tile.got:table_dorne.name=Stół rzemieślniczy Dorne
-tile.got:table_dothraki.name≠Dothraki Crafting Table
+tile.got:table_dothraki.name=Kowadło dotraki
 tile.got:table_dragonstone.name=Stół rzemieślniczy Smoczej Skały
 tile.got:table_ghiscar.name=Stół rzemieślniczy Ghiscar
 tile.got:table_gift.name=Stół rzemieślniczy Nocnej Straży
 tile.got:table_hill_tribes.name=Stół rzemieślniczy plemienia wzgórz
 tile.got:table_ibben.name=Stół rzemieślniczy Ibben
 tile.got:table_ironborn.name=Stół rzemieślniczy Żelaznych Wysp
-tile.got:table_jogos.name≠Jogos Nhai Crafting Table
+tile.got:table_jogos.name=Kowadło Jogos Nhai
 tile.got:table_lhazar.name=Stół rzemieślniczy Lhazar
 tile.got:table_lorath.name=Stół rzemieślniczy Lorath
 tile.got:table_lys.name=Stół rzemieślniczy Lys
-tile.got:table_mossovy.name≠Mossovy Crafting Table
+tile.got:table_mossovy.name=Kowadło Mossovy
 tile.got:table_myr.name=Stół rzemieślniczy Myr
 tile.got:table_north.name=Stół rzemieślniczy North
 tile.got:table_norvos.name=Stół rzemieślniczy Norvos
