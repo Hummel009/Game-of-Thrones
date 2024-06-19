@@ -8,7 +8,7 @@ dragon.lifeStage.adult=Adulte
 dragon.lifeStage.egg=Œuf
 dragon.lifeStage.hatchling=Enfant
 dragon.lifeStage.juvenile=Jeune
-dragon.mountNotice≠%s - fly up; %s - fly down; %s - dracarys
+dragon.mountNotice=%s - voler vers le haut; %s - voler vers le bas; %s - dracarys
 dragon.owned=Ce n'est pas votre dragon.
 entity.got.AddamMarbrand.name≠Addam Marbrand
 entity.got.AemonTargaryen.name≠Aemon Targaryen
@@ -882,8 +882,8 @@ generator.got.info=Vous apparaitrez dans le mod de GOT
 generator.got=Game of Thrones
 generator.gotClassic.info=Vous apparaitrez dans le monde habituel avec les biomes de GOT
 generator.gotClassic=GOT classique
-generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
-generator.gotEmpty≠GOT Empty
+generator.gotEmpty.info=Vous apparaîtrez dans GOT World avec une carte, mais sans villes, sans châteaux et sans personnages.
+generator.gotEmpty=GOT Empty
 got.achievement.COMBINE_SMITH_SCROLLS.desc=Assembler plusieurs parchemins
 got.achievement.COMBINE_SMITH_SCROLLS.title=Stylo ananas pomme stylo
 got.achievement.CRAFT_CONCRETE_POWDER.desc=Faire un ciment
@@ -958,16 +958,16 @@ got.achievement.ENTER_FROSTFANGS.desc=Visitez Frost Fangs
 got.achievement.ENTER_FROSTFANGS.title=Montagnes de glace et de pierre
 got.achievement.ENTER_GHISCAR.desc=Visiter Ghiscar
 got.achievement.ENTER_GHISCAR.title=Baie des esclaves
-got.achievement.ENTER_GHISCAR_ASTAPOR.desc≠Visit Astapor
-got.achievement.ENTER_GHISCAR_ASTAPOR.title≠The City of Unsullied
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Visiter Astapor
+got.achievement.ENTER_GHISCAR_ASTAPOR.title=La cité des Immaculés
 got.achievement.ENTER_GHISCAR_COLONY.desc=Visitez les colonies de Ghiscar
 got.achievement.ENTER_GHISCAR_COLONY.title=Corsaire désespéré
-got.achievement.ENTER_GHISCAR_MEEREEN.desc≠Visit Meereen
-got.achievement.ENTER_GHISCAR_MEEREEN.title≠The City of Harpies
-got.achievement.ENTER_GHISCAR_NEW_GHIS.desc≠Visit New Ghis
-got.achievement.ENTER_GHISCAR_NEW_GHIS.title≠Wannabes of the Empire
-got.achievement.ENTER_GHISCAR_YUNKAI.desc≠Visit Yunkai
-got.achievement.ENTER_GHISCAR_YUNKAI.title≠The City of Wise Lords
+got.achievement.ENTER_GHISCAR_MEEREEN.desc=Visiter Meereen
+got.achievement.ENTER_GHISCAR_MEEREEN.title=La cité des harpies
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc=Visiter New Ghis
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title=Wannabes of the Empire
+got.achievement.ENTER_GHISCAR_YUNKAI.desc=Visiter Yunkai
+got.achievement.ENTER_GHISCAR_YUNKAI.title=La cité des seigneurs sages
 got.achievement.ENTER_GIFT_NEW.desc=Visitez le nouveau gift
 got.achievement.ENTER_GIFT_NEW.title=Au Nord!
 got.achievement.ENTER_GIFT_OLD.desc=Visitez le vieux gift
@@ -976,12 +976,12 @@ got.achievement.ENTER_HAUNTED_FOREST.desc=Visitez la forêt enchantée
 got.achievement.ENTER_HAUNTED_FOREST.title=Wildlings, mammouths et géants
 got.achievement.ENTER_IBBEN.desc=Visiter Ibben
 got.achievement.ENTER_IBBEN.title=L'île aux baleiniers
-got.achievement.ENTER_IBBEN_COLONY.desc≠Visit Ibben Colony
-got.achievement.ENTER_IBBEN_COLONY.title≠Even they have colonies, and you...
-got.achievement.ENTER_IBBEN_MOUNTAINS.desc≠Visit Ibben Mountains
-got.achievement.ENTER_IBBEN_MOUNTAINS.title≠The Big Mountains of Little Island
-got.achievement.ENTER_IBBEN_TAIGA.desc≠Visit Ibben Taiga
-got.achievement.ENTER_IBBEN_TAIGA.title≠Unusual Trees
+got.achievement.ENTER_IBBEN_COLONY.desc=Visiter la colonie d'Ibben
+got.achievement.ENTER_IBBEN_COLONY.title=Ils ont aussi des colonies, et tu...
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc=Visiter les montagnes d'Ibben
+got.achievement.ENTER_IBBEN_MOUNTAINS.title=Les grandes montagnes de Little Island
+got.achievement.ENTER_IBBEN_TAIGA.desc=Visiter la taïga d'Ibben
+got.achievement.ENTER_IBBEN_TAIGA.title=Arbres inhabituels
 got.achievement.ENTER_IFEKEVRON_FOREST.desc=Visitez les terres d'Ifekevron
 got.achievement.ENTER_IFEKEVRON_FOREST.title=Qui est là?
 got.achievement.ENTER_IRON_ISLANDS.desc=Visitez les Îles de Fer
@@ -1002,18 +1002,18 @@ got.achievement.ENTER_LONG_SUMMER.desc=Visitez le pays du long été
 got.achievement.ENTER_LONG_SUMMER.title=Terre brûlée
 got.achievement.ENTER_LORATH.desc=Visiter Lorath
 got.achievement.ENTER_LORATH.title=Ville abandonnée par Dieu
-got.achievement.ENTER_LORATH_MAZE.desc≠Visit Lorath Maze
-got.achievement.ENTER_LORATH_MAZE.title≠One does not simply walk...
+got.achievement.ENTER_LORATH_MAZE.desc=Visiter le labyrinthe de Lorath
+got.achievement.ENTER_LORATH_MAZE.title=On ne se contente pas de marcher...
 got.achievement.ENTER_LYS.desc=Visiter Lys
 got.achievement.ENTER_LYS.title=Pays d'amour et de passion
 got.achievement.ENTER_MOSSOVY.desc=Visite Mossovy
 got.achievement.ENTER_MOSSOVY.title=Présence démoniaque
 got.achievement.ENTER_MOSSOVY_MARSHES.desc=Visitez le marais de Mossovy
 got.achievement.ENTER_MOSSOVY_MARSHES.title=Les vastes marais
-got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc≠Visit Mossovy Sopkas
-got.achievement.ENTER_MOSSOVY_MOUNTAINS.title≠Far East
-got.achievement.ENTER_MOSSOVY_TAIGA.desc≠Visit Mossovy Taiga
-got.achievement.ENTER_MOSSOVY_TAIGA.title≠Deep dark fantasies
+got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc=Visiter Mossovy Sopkas
+got.achievement.ENTER_MOSSOVY_MOUNTAINS.title=Far East
+got.achievement.ENTER_MOSSOVY_TAIGA.desc=Visiter Mossovy Taiga
+got.achievement.ENTER_MOSSOVY_TAIGA.title=Deep dark fantasies
 got.achievement.ENTER_MYR.desc=Visitez Myr
 got.achievement.ENTER_MYR.title=Guerre et Paix
 got.achievement.ENTER_NECK.desc=Visitez les marais du nord
@@ -1066,8 +1066,8 @@ got.achievement.ENTER_SOTHORYOS_BUSHLAND.desc=Visitez les arbustes Sothoryos
 got.achievement.ENTER_SOTHORYOS_BUSHLAND.title=Attention: explosif
 got.achievement.ENTER_SOTHORYOS_DESERT.desc=Visitez le désert de Sothoryos
 got.achievement.ENTER_SOTHORYOS_DESERT.title=Désert froid
-got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc≠Visit Sothoryos Cold Desert
-got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title≠Cold Desert
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc=Visiter le désert froid de Sothoryos
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title=Désert froid
 got.achievement.ENTER_SOTHORYOS_FOREST.desc=Visitez la forêt de Sothoryos Kanuka
 got.achievement.ENTER_SOTHORYOS_FOREST.title=Intérieur
 got.achievement.ENTER_SOTHORYOS_FROST.desc=Visitez la sphère polaire de Sothoryos
@@ -1092,8 +1092,8 @@ got.achievement.ENTER_STORMLANDS.desc=Visitez les Terres de l'Orage
 got.achievement.ENTER_STORMLANDS.title=La nôtre est la fureur
 got.achievement.ENTER_STORMLANDS_TARTH.desc=Visiter Tarth
 got.achievement.ENTER_STORMLANDS_TARTH.title=Oh, saphirs!
-got.achievement.ENTER_SUMMER_COLONY.desc≠Visit the Summer Colonies
-got.achievement.ENTER_SUMMER_COLONY.title≠Western Colonizers
+got.achievement.ENTER_SUMMER_COLONY.desc=Visiter les colonies d'été
+got.achievement.ENTER_SUMMER_COLONY.title=Colonisateurs occidentaux
 got.achievement.ENTER_SUMMER_ISLANDS.desc=Visitez les Îles d'Été
 got.achievement.ENTER_SUMMER_ISLANDS.title=Iles du sud
 got.achievement.ENTER_THENN_LAND.desc=Visitez le Thenn
@@ -1106,20 +1106,20 @@ got.achievement.ENTER_ULTHOS.desc=Visiter Ulthos
 got.achievement.ENTER_ULTHOS.title=Araignées, brouillard, intimité
 got.achievement.ENTER_ULTHOS_DESERT.desc=Visitez le désert d'Ulthos
 got.achievement.ENTER_ULTHOS_DESERT.title=Au moins, il n'y a pas d'araignées quelque part
-got.achievement.ENTER_ULTHOS_DESERT_COLD.desc≠Visit Ulthos Cold Desert
-got.achievement.ENTER_ULTHOS_DESERT_COLD.title≠The path, senseless and merciless
-got.achievement.ENTER_ULTHOS_FOREST.desc≠Visit Ulthos Forest
-got.achievement.ENTER_ULTHOS_FOREST.title≠The wrong forest and the wrong spiders
-got.achievement.ENTER_ULTHOS_FROST.desc≠Visit Ulthos Permafrost
-got.achievement.ENTER_ULTHOS_FROST.title≠My condolences to the survivors
-got.achievement.ENTER_ULTHOS_MARSHES.desc≠Visit the Ultos marshes
-got.achievement.ENTER_ULTHOS_MARSHES.title≠Isthmus II
+got.achievement.ENTER_ULTHOS_DESERT_COLD.desc=Visiter le désert froid d'Ulthos
+got.achievement.ENTER_ULTHOS_DESERT_COLD.title=Le chemin, insensé et sans pitié
+got.achievement.ENTER_ULTHOS_FOREST.desc=Visiter la forêt d'Ulthos
+got.achievement.ENTER_ULTHOS_FOREST.title=La mauvaise forêt et les mauvaises araignées
+got.achievement.ENTER_ULTHOS_FROST.desc=Visiter Ulthos Permafrost
+got.achievement.ENTER_ULTHOS_FROST.title=Mes condoléances aux survivants
+got.achievement.ENTER_ULTHOS_MARSHES.desc=Visiter les marais d'Ultos
+got.achievement.ENTER_ULTHOS_MARSHES.title=Isthme II
 got.achievement.ENTER_ULTHOS_MOUNTAINS.desc=Visitez les montagnes d'Ulthos
 got.achievement.ENTER_ULTHOS_MOUNTAINS.title=Avec une bordure blanche
-got.achievement.ENTER_ULTHOS_RED_FOREST.desc≠Visit the crimson forests of Ultos
-got.achievement.ENTER_ULTHOS_RED_FOREST.title≠Wine and blood
-got.achievement.ENTER_ULTHOS_TAIGA.desc≠Visit Ulthos Taiga
-got.achievement.ENTER_ULTHOS_TAIGA.title≠Taiga in the southeast, why not?
+got.achievement.ENTER_ULTHOS_RED_FOREST.desc=Visiter les forêts pourpres d'Ultos
+got.achievement.ENTER_ULTHOS_RED_FOREST.title=Vin et sang
+got.achievement.ENTER_ULTHOS_TAIGA.desc=Visiter la taïga d'Ulthos
+got.achievement.ENTER_ULTHOS_TAIGA.title=Taiga dans le sud-est, pourquoi pas ?
 got.achievement.ENTER_VALYRIA.desc=Visitez la péninsule valyrienne
 got.achievement.ENTER_VALYRIA.title=Ruines de l'Empire
 got.achievement.ENTER_VALYRIA_VOLCANO.desc=Visitez les volcans valyriens
@@ -1172,8 +1172,8 @@ got.achievement.KILL_BENJEN_STARK.desc=Tuer Benjen Stark
 got.achievement.KILL_BENJEN_STARK.title=Mains froides
 got.achievement.KILL_BERIC_DONDARRION.desc=Tuer Beric Dondarrion 6 fois
 got.achievement.KILL_BERIC_DONDARRION.title=Gaspillé
-got.achievement.KILL_BLIZZARD.desc≠Kill the blizzard
-got.achievement.KILL_BLIZZARD.title≠Another kind of walker?
+got.achievement.KILL_BLIZZARD.desc=Tuer le blizzard
+got.achievement.KILL_BLIZZARD.title=Une autre sorte de marcheur ?
 got.achievement.KILL_BRIENNE_TARTH.desc=Tuer Brienne Tarth
 got.achievement.KILL_BRIENNE_TARTH.title=Est-ce une femme?
 got.achievement.KILL_BRYNDEN_TULLY.desc=Tuer Brynden Tully
@@ -1232,8 +1232,8 @@ got.achievement.KILL_LANCEL_LANNISTER.desc=Tuez le religieux Lancel Lannister
 got.achievement.KILL_LANCEL_LANNISTER.title=Je choisis la violence
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=Battre un géant à mort avec des cailloux
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=Tous les moyens sont bons
-got.achievement.KILL_LEGENDARY_NPC.desc≠Kill a legendary character
-got.achievement.KILL_LEGENDARY_NPC.title≠Legendary Killer
+got.achievement.KILL_LEGENDARY_NPC.desc=Tuer un personnage légendaire
+got.achievement.KILL_LEGENDARY_NPC.title=Legendary Killer
 got.achievement.KILL_LORAS_TYRELL.desc=Tuer Loras Tyrell
 got.achievement.KILL_LORAS_TYRELL.title=Tueur des malhonnêtes
 got.achievement.KILL_MACE_TYRELL.desc=Tuer Mace Tyrell
@@ -1258,8 +1258,8 @@ got.achievement.KILL_OBERYN_MARTELL.desc=Tuer Oberyn Martell
 got.achievement.KILL_OBERYN_MARTELL.title=Montagne
 got.achievement.KILL_PETYR_BAELISH.desc=Tuer Petyr Baelish
 got.achievement.KILL_PETYR_BAELISH.title=Le chaos est une échelle
-got.achievement.KILL_PRIEST.desc≠Kill the priest
-got.achievement.KILL_PRIEST.title≠Atheist
+got.achievement.KILL_PRIEST.desc=Tuer le prêtre
+got.achievement.KILL_PRIEST.title=Atheist
 got.achievement.KILL_PROSTITUTE.desc=Tuez la pute
 got.achievement.KILL_PROSTITUTE.title=Pervers impitoyable
 got.achievement.KILL_RAMSAY_BOLTON.desc=Tuer Ramsay Bolton
@@ -1272,14 +1272,14 @@ got.achievement.KILL_SANDOR_CLEGANE.desc=Tuer Sandor Clegane
 got.achievement.KILL_SANDOR_CLEGANE.title=Chasseur de chiens
 got.achievement.KILL_SANSA_STARK.desc=Tuer Sansa Stark
 got.achievement.KILL_SANSA_STARK.title=Vous avez trahi votre père!
-got.achievement.KILL_SHRYKE.desc≠Kill a shryke
-got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
-got.achievement.KILL_STONE_MAN.desc≠Kill Stone Man
-got.achievement.KILL_STONE_MAN.title≠Mercy
+got.achievement.KILL_SHRYKE.desc=Tuer un shryke
+got.achievement.KILL_SHRYKE.title=Combattre des reptiloïdes
+got.achievement.KILL_STONE_MAN.desc=Tuer l'homme de pierre
+got.achievement.KILL_STONE_MAN.title=Mercy
 got.achievement.KILL_THEON_GREYJOY.desc=Tourmenter Theon Greyjoy
 got.achievement.KILL_THEON_GREYJOY.title=Ramsey?
-got.achievement.KILL_THIEVING_BANDIT.desc≠Kill the bandit who robbed you
-got.achievement.KILL_THIEVING_BANDIT.title≠Three hundred bucks...
+got.achievement.KILL_THIEVING_BANDIT.desc=Tuer le bandit qui t'a volé
+got.achievement.KILL_THIEVING_BANDIT.title=Trois cents dollars...
 got.achievement.KILL_THOROS.desc=Tuer Thoros
 got.achievement.KILL_THOROS.title=Il ne vous sauvera plus
 got.achievement.KILL_TORMUND.desc=Tuer Tormund
@@ -1316,8 +1316,8 @@ got.achievement.KILL_YARA_GREYJOY.desc=Tuer Yara Greyjoy
 got.achievement.KILL_YARA_GREYJOY.title=Tu seras mon gift pour la reine
 got.achievement.KILL_YGRITTE.desc=Tuer Ygritte
 got.achievement.KILL_YGRITTE.title=Je sais tout Ygritte
-got.achievement.KILL_YI_TI_BOMBARDIER.desc≠Kill the bombardier
-got.achievement.KILL_YI_TI_BOMBARDIER.title≠Counter-Terrorists win
+got.achievement.KILL_YI_TI_BOMBARDIER.desc=Tuer le bombardier
+got.achievement.KILL_YI_TI_BOMBARDIER.title=La victoire des contre-terroristes
 got.achievement.KILL_YOHN_ROYCE.desc=Tuez Yohn Royce
 got.achievement.KILL_YOHN_ROYCE.title=Guerrier anti-bronze
 got.achievement.MARRY.desc=Se marier
@@ -1332,16 +1332,16 @@ got.achievement.STEAL_ARBOR_GRAPES.desc=Voler des raisins à Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=C'est à moi!
 got.achievement.TRADE.desc=Commercer avec quelqu'un
 got.achievement.TRADE.title=Commencer une affaire
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
-got.achievement.TRAVEL20.desc≠Visit 20 biomes
-got.achievement.TRAVEL20.title≠Traveller I
-got.achievement.TRAVEL40.desc≠Visit 40 biomes
-got.achievement.TRAVEL40.title≠Traveller II
-got.achievement.TRAVEL60.desc≠Visit 60 biomes
-got.achievement.TRAVEL60.title≠Traveller III
-got.achievement.TRAVEL80.desc≠Visit 80 biomes
-got.achievement.TRAVEL80.title≠Traveller IV
+got.achievement.TRAVEL100.desc=Visiter 100 biomes
+got.achievement.TRAVEL100.title=Voyageur V
+got.achievement.TRAVEL20.desc=Visiter 20 biomes
+got.achievement.TRAVEL20.title=Voyageur I
+got.achievement.TRAVEL40.desc=Visiter 40 biomes
+got.achievement.TRAVEL40.title=Voyageur II
+got.achievement.TRAVEL60.desc=Visiter 60 biomes
+got.achievement.TRAVEL60.title=Voyageur III
+got.achievement.TRAVEL80.desc=Visiter 80 biomes
+got.achievement.TRAVEL80.title=Voyageur IV
 got.achievement.USE_BANNER.desc=Conquérir un territoire
 got.achievement.USE_BANNER.title=Conquérant
 got.achievement.USE_BARREL.desc=Brasser une boisson en tonneau
@@ -1372,14 +1372,14 @@ got.achievement.WEAR_FULL_BRAAVOS.desc=Portez un ensemble complet de Braavos
 got.achievement.WEAR_FULL_BRAAVOS.title=Garde de Braavos
 got.achievement.WEAR_FULL_BRONZE.desc=Portez un ensemble complet d'armure en bronze
 got.achievement.WEAR_FULL_BRONZE.title=Cuivre + étain
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc≠Wear full set of bronze chainmail
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title≠Saved a good bit
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=Porter un ensemble complet de cotte de mailles en bronze
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=Économisé un bon montant
 got.achievement.WEAR_FULL_CROWNLANDS.desc=Portez un ensemble complet de Capes dorées
 got.achievement.WEAR_FULL_CROWNLANDS.title=Capeitaine de garde de King's Landing
 got.achievement.WEAR_FULL_DORNE.desc=Portez un ensemble complet de Dorne
 got.achievement.WEAR_FULL_DORNE.title=Garde de Dorne
-got.achievement.WEAR_FULL_DOTHRAKI.desc≠Wear full set of dothraki
-got.achievement.WEAR_FULL_DOTHRAKI.title≠The Sea of Grass
+got.achievement.WEAR_FULL_DOTHRAKI.desc=Porter un ensemble complet de vêtements dothraki
+got.achievement.WEAR_FULL_DOTHRAKI.title=La Mer d'Herbe
 got.achievement.WEAR_FULL_DRAGONSTONE.desc=Portez un ensemble complet de Peyredragon
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Garde de Peyredragon
 got.achievement.WEAR_FULL_FUR.desc=Portez un ensemble complet d'armure de fourrure
@@ -1394,12 +1394,12 @@ got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Portez un ensemble complet de Gold
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Compagnie d'or
 got.achievement.WEAR_FULL_HILLMEN.desc=Portez un ensemble complet de collines
 got.achievement.WEAR_FULL_HILLMEN.title=La folie des montagnes de la lune
-got.achievement.WEAR_FULL_IBBEN.desc≠Wear full set of Ibben
-got.achievement.WEAR_FULL_IBBEN.title≠It seems to fit...
+got.achievement.WEAR_FULL_IBBEN.desc=Porter un ensemble complet de vêtements de l'Ibben
+got.achievement.WEAR_FULL_IBBEN.title=Cela semble convenir...
 got.achievement.WEAR_FULL_IRONBORN.desc=Portez l'ensemble complet des Îles de Fer
 got.achievement.WEAR_FULL_IRONBORN.title=Garde des Îles de Fer
-got.achievement.WEAR_FULL_JOGOS.desc≠Wear full set of Jogos Nhai
-got.achievement.WEAR_FULL_JOGOS.title≠Eastern Horde
+got.achievement.WEAR_FULL_JOGOS.desc=Porter un ensemble complet de vêtements Jogos Nhai
+got.achievement.WEAR_FULL_JOGOS.title=Horde de l'Est
 got.achievement.WEAR_FULL_KINGSGUARD.desc=Portez un ensemble complet de Kingsguard
 got.achievement.WEAR_FULL_KINGSGUARD.title=Longue vie au roi!
 got.achievement.WEAR_FULL_LHAZAR.desc=Portez un ensemble complet de Lhazar
@@ -1432,8 +1432,8 @@ got.achievement.WEAR_FULL_REACHGUARD.desc=Portez un ensemble complet de gardes R
 got.achievement.WEAR_FULL_REACHGUARD.title=Capeitaine de garde de Reach
 got.achievement.WEAR_FULL_REDKING.desc=Portez un ensemble complet de rois rouges
 got.achievement.WEAR_FULL_REDKING.title=Roi rouge
-got.achievement.WEAR_FULL_RENLY.desc≠Wear full set of Renly
-got.achievement.WEAR_FULL_RENLY.title≠Chief Deer
+got.achievement.WEAR_FULL_RENLY.desc=Porter un ensemble complet de vêtements de Renly
+got.achievement.WEAR_FULL_RENLY.title=Chef Cerf
 got.achievement.WEAR_FULL_RIVERLANDS.desc=Portez un ensemble complet du Conflans
 got.achievement.WEAR_FULL_RIVERLANDS.title=Garde du Conflans
 got.achievement.WEAR_FULL_ROBES.desc=Portez un ensemble complet de robes
@@ -1456,8 +1456,8 @@ got.achievement.WEAR_FULL_UNSULLIED.desc=Portez un ensemble complet de Unsullied
 got.achievement.WEAR_FULL_UNSULLIED.title=Nigga de guerre
 got.achievement.WEAR_FULL_VALYRIAN.desc=Portez un ensemble complet d'acier valyrien
 got.achievement.WEAR_FULL_VALYRIAN.title=Plus cher que l'argent
-got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.desc≠Wear full set of valyrian chainmail.
-got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.title≠Frodo?
+got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.desc=Porter un ensemble complet de cotte de mailles en acier valyrien.
+got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.title=Frodo?
 got.achievement.WEAR_FULL_VOLANTIS.desc=Portez un ensemble complet de Volantis
 got.achievement.WEAR_FULL_VOLANTIS.title=Garde de Volantis
 got.achievement.WEAR_FULL_WESTERLANDS.desc=Portez un ensemble complet des Terres de l'Ouest
@@ -1466,12 +1466,12 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=Portez un ensemble complet de ga
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=Capeitaine de garde des Terres de l'Ouest
 got.achievement.WEAR_FULL_WESTKING.desc=Portez un ensemble complet de rois de l'Ouest
 got.achievement.WEAR_FULL_WESTKING.title=Roi de l'Ouest
-got.achievement.WEAR_FULL_WHITE_WALKERS.desc≠Wear full set of White Walkers
-got.achievement.WEAR_FULL_WHITE_WALKERS.title≠Mint Orbit
+got.achievement.WEAR_FULL_WHITE_WALKERS.desc=Porter un ensemble complet de vêtements des Marcheurs Blancs
+got.achievement.WEAR_FULL_WHITE_WALKERS.title=Orbite Menthe
 got.achievement.WEAR_FULL_YITI.desc=Portez un ensemble complet de Yi Ti
 got.achievement.WEAR_FULL_YITI.title=Garde de Yi Ti
-got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠Wear full set of Yi Ti frontiers
-got.achievement.WEAR_FULL_YITI_FRONTIER.title≠One does not simply walk into Yi Ti
+got.achievement.WEAR_FULL_YITI_FRONTIER.desc=Porter un ensemble complet de vêtements des frontières de Yi Ti
+got.achievement.WEAR_FULL_YITI_FRONTIER.title=On ne se contente pas simplement de marcher dans Yi Ti
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Portez un ensemble complet de Yi Ti Samurai
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=Yi Ti Samurai
 got.achievement.category.ENTER=Biomes
@@ -1503,7 +1503,7 @@ got.biome.beach.name=Plage
 got.biome.beachGravel.name=Plage de gravier
 got.biome.beachWhite.name=Plage blanche
 got.biome.blackIslands.name=Îles de la baie de Blackwater
-got.biome.bleedingBeach.name≠Bleeding Beach
+got.biome.bleedingBeach.name=Plage Saignante
 got.biome.bleedingSea.name=Mer sanglante
 got.biome.boneMountains.name=Montagnes d'os
 got.biome.braavos.name=Braavos
@@ -1570,7 +1570,7 @@ got.biome.lhazar.name=Lhazar
 got.biome.lhazarForest.name=Fôret de Lhazar
 got.biome.lhazarHills.name=Collines de Lhazar
 got.biome.longSummer.name=Terres de l'été long
-got.biome.longSummerForest.name≠Forests of the Long Summer
+got.biome.longSummerForest.name=Forêts de l'Été Interminable
 got.biome.lorath.name=Lorath
 got.biome.lorathForest.name=Fôret de Lorath
 got.biome.lorathHills.name=Collines de Lorath
@@ -1739,7 +1739,7 @@ got.chat.bountyKilled1=%s a réclamé une prime placée sur vous par %s !
 got.chat.bountyKilled2=%s sont mécontents, et votre réputation auprès d'eux s'est effondrée...
 got.chat.bountyPlaced=La faction %s a placé une prime sur votre tête !
 got.chat.conquestHornProtected=La faction %s ne peut pas envahir cette région
-got.chat.ft.offlineTick≠While you were offline, your wait time for a fast travelling decreased by %s
+got.chat.ft.offlineTick=Pendant que vous étiez hors ligne, votre temps d'attente pour un déplacement rapide a diminué de %s
 got.chat.ftDisabled=Le voyage rapide est désactivé sur ce serveur
 got.chat.insufficientAlignment2=Il vous faut au moins %s d'alignement avec les factions %s ou %s pour cette action
 got.chat.insufficientAlignment3=Il vous faut au moins %s d'alignement avec les factions %s, %s, ou %s pour cette action
@@ -2191,7 +2191,7 @@ got.faction.GHISCAR.subtitle=Baie des esclaves
 got.faction.HILL_TRIBES.entity=Tribus des collines
 got.faction.HILL_TRIBES.name=Collines
 got.faction.HILL_TRIBES.subtitle=Tribus montagnardes du val
-got.faction.HOSTILE.name≠Hostile
+got.faction.HOSTILE.name=Hostile
 got.faction.IBBEN.entity=Hommes d'Ibben
 got.faction.IBBEN.name=Ibben
 got.faction.IBBEN.subtitle=Chasseurs de baleines d'Ibben
@@ -2278,7 +2278,7 @@ got.faction.rel.FRIEND=Amis
 got.faction.rel.MORTAL_ENEMY=Ennemis mortels
 got.faction.rel.NEUTRAL=Neutre
 got.fastTravel.available=Vous pouvez maintenant voyager vers ce point
-got.fastTravel.inBed≠You cannot fast travel while in a bed
+got.fastTravel.inBed=Vous ne pouvez pas vous déplacer rapidement pendant que vous êtes dans un lit
 got.fastTravel.motion=Voyage rapide arrêté. Ne bougez pas !
 got.fastTravel.skip=Pressez '%s' pour passer
 got.fastTravel.travel=Voyage rapide vers %s
@@ -2287,7 +2287,7 @@ got.fastTravel.travelTicksStart=Voyage rapide dans %d secondes. Ne bougez pas !
 got.fastTravel.underAttack=Vous ne pouvez pas voyager lorsque vous êtes attaqué
 got.gui.achievements.category=%s (%d/%d)
 got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠Achievement in %s
+got.gui.achievements.hover.subtitle=Réalisation dans %s
 got.gui.achievements.title=Succès de %s (%d/%d)
 got.gui.achievements=Succès
 got.gui.atribute=Les attributs
@@ -2512,8 +2512,8 @@ got.gui.miniquestOffer.decline=Refuser
 got.gui.money.balance=Soldes
 got.gui.money.get=Vous avez transféré avec succès %s
 got.gui.money.give=Vous avez retiré avec succès %s
-got.gui.money.notGet≠You do not have this coin in your inventory
-got.gui.money.notGive≠You don't have that much money on your balance sheet
+got.gui.money.notGet=Vous n'avez pas cette pièce dans votre inventaire
+got.gui.money.notGive=Vous n'avez pas autant d'argent sur votre relevé bancaire
 got.gui.money.press=Appuyez sur la pièce pour retirer /transférer de l'argent
 got.gui.money.transfer=Transférer de l'argent
 got.gui.money.withdraw=Retirer de l'argent
@@ -2538,7 +2538,7 @@ got.gui.npcRespawner.mounts.1=ON
 got.gui.npcRespawner.mounts.2=Défaut
 got.gui.npcRespawner.mounts=Monture
 got.gui.npcRespawner.noPlayerRange=Rayon sans joueur
-got.gui.npcRespawner.spawnCap≠Spawn Cap
+got.gui.npcRespawner.spawnCap=Limite de Spawn
 got.gui.npcRespawner.spawnClass1=Classe primaire de PNJ
 got.gui.npcRespawner.spawnClass2=Classe secondaire de PNJ
 got.gui.npcRespawner.spawnHorizontal=Rayon X/Z d'apparition
@@ -2552,9 +2552,9 @@ got.gui.openFolder=Open config folder
 got.gui.options.conquest.desc.off=OFF: Tuer des PNJs n'affecte pas la conquête
 got.gui.options.conquest.desc.on=ON: Tuer les PNJs ennemis augmente la conquête de votre faction, ou efface la conquête de l'ennemi s'il y en a
 got.gui.options.conquest=Meurtres de conquête
-got.gui.options.femRank.desc.off≠FF: near the reputation bar and in the faction menu, masculine ranks will be displayed, for example, patron, hero, etc.
-got.gui.options.femRank.desc.on≠ON: near the reputation bar and in the faction menu, feminine ranks will be displayed, for example, patroness, heroine, etc.
-got.gui.options.femRank≠FF: near the reputation bar and in the faction menu, masculine ranks will be displayed, for example, patron, hero, etc.
+got.gui.options.femRank.desc.off=OFF : près de la barre de réputation et dans le menu des factions, les rangs masculins seront affichés, par exemple, patron, héros, etc.
+got.gui.options.femRank.desc.on=ON : près de la barre de réputation et dans le menu des factions, les rangs féminins seront affichés, par exemple, patronne, héroïne, etc.
+got.gui.options.femRank=OFF : près de la barre de réputation et dans le menu des factions, les rangs masculins seront affichés, par exemple, patron, héros, etc.
 got.gui.options.friendlyFire.desc.off=OFF: Les PNJ alliés ne peuvent pas être attaqués ou blessés, à moins qu'ils ne vous ciblent en premier lieu
 got.gui.options.friendlyFire.desc.on=ON: Tous les PNJ, y compris les recrues alliées, peuvent être attaqués
 got.gui.options.friendlyFire=Tir ami
@@ -2603,9 +2603,9 @@ got.gui.shields.select=Équiper
 got.gui.shields.selected=Sélectionné !
 got.gui.shields.title=Bouclier de la Game of Thrones
 got.gui.shields=Boucliers
-got.gui.squadronItem.done≠Finish
-got.gui.squadronItem.none≠Enter the name
-got.gui.squadronItem.squadron≠Assigned hired unit squadron:
+got.gui.squadronItem.done=Terminer
+got.gui.squadronItem.none=Entrer le nom
+got.gui.squadronItem.squadron=Escadron d'unités embauchées assigné :
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s
@@ -2645,33 +2645,33 @@ got.hiredNPC.status.guard=En poste de garde
 got.hiredNPC.status.halted=Arrêté
 got.hiredNPC.status.ready=Prêt
 got.hiredNPC.status=Statut: %s
-got.invasion.ARRYN.horn=Invasion Invasion - Val d'Arryn
-got.invasion.BRAAVOS.horn=Invasion Invasion - Braaavos
-got.invasion.DORNE.horn=Invasion Invasion - Dorne
-got.invasion.DOTHRAKI.horn=Invasion Invasion - Dothraki
-got.invasion.DRAGONSTONE.horn=Invasion Invasion - Peyredragon
-got.invasion.GHISCAR.horn=Invasion Invasion - Ghiscar
-got.invasion.HILL_TRIBES.horn≠Summon Invasion - Hill Tribes
-got.invasion.IBBEN.horn=Invasion Invasion - Ibben
-got.invasion.IRONBORN.horn=Invasion Invasion - Îles de Fer
-got.invasion.JOGOS.horn=Invasion Invasion - Jogos
-got.invasion.LYS.horn=Invasion Invasion - Lys
-got.invasion.MYR.horn=Invasion Invasion - Myr
-got.invasion.NORTH.horn=Invasion Invasion - Le Nord
-got.invasion.NORVOS.horn=Invasion Invasion - Norvos
-got.invasion.PENTOS.horn=Invasion Invasion - Pentos
-got.invasion.REACH.horn=Invasion Invasion - Atteindre
-got.invasion.RIVERLANDS.horn=Invasion Invasion - Le Conflans
-got.invasion.STORMLANDS.horn=Invasion Invasion - Terres de l'Orage
-got.invasion.TYROSH.horn=Invasion Invasion - Tyrosh
-got.invasion.VOLANTIS.horn=Invasion Invasion - Volantis
-got.invasion.WESTERLANDS.horn=Invasion Invasion - Terres de l'Ouest
-got.invasion.WILDLING.horn=Invasion Invasion - Wildlings
+got.invasion.ARRYN.horn=Invoquer l'invasion - Val d'Arryn
+got.invasion.BRAAVOS.horn=Invoquer l'invasion - Braaavos
+got.invasion.DORNE.horn=Invoquer l'invasion - Dorne
+got.invasion.DOTHRAKI.horn=Invoquer l'invasion - Dothraki
+got.invasion.DRAGONSTONE.horn=Invoquer l'invasion - Peyredragon
+got.invasion.GHISCAR.horn=Invoquer l'invasion - Ghiscar
+got.invasion.HILL_TRIBES.horn=Invoquer l'invasion - Tribus des Collines
+got.invasion.IBBEN.horn=Invoquer l'invasion - Ibben
+got.invasion.IRONBORN.horn=Invoquer l'invasion - Îles de Fer
+got.invasion.JOGOS.horn=Invoquer l'invasion - Jogos
+got.invasion.LYS.horn=Invoquer l'invasion - Lys
+got.invasion.MYR.horn=Invoquer l'invasion - Myr
+got.invasion.NORTH.horn=Invoquer l'invasion - Le Nord
+got.invasion.NORVOS.horn=Invoquer l'invasion - Norvos
+got.invasion.PENTOS.horn=Invoquer l'invasion - Pentos
+got.invasion.REACH.horn=Invoquer l'invasion - Atteindre
+got.invasion.RIVERLANDS.horn=Invoquer l'invasion - Le Conflans
+got.invasion.STORMLANDS.horn=Invoquer l'invasion - Terres de l'Orage
+got.invasion.TYROSH.horn=Invoquer l'invasion - Tyrosh
+got.invasion.VOLANTIS.horn=Invoquer l'invasion - Volantis
+got.invasion.WESTERLANDS.horn=Invoquer l'invasion - Terres de l'Ouest
+got.invasion.WILDLING.horn=Invoquer l'invasion - Wildlings
 got.invasion.WILDLING_GIANT.horn=Summon Invasion - Wildlings avec un géant
 got.invasion.WILDLING_GIANT=Wildling avec des géants
-got.invasion.WILDLING_THENN.horn=Invasion Invasion - Thenn
+got.invasion.WILDLING_THENN.horn=Invoquer l'invasion - Thenn
 got.invasion.WILDLING_THENN=Thenn
-got.invasion.YI_TI.horn=Invasion Invasion - Yi Ti
+got.invasion.YI_TI.horn=Invoquer l'invasion - Yi Ti
 got.loading=Chargement
 got.map.essos=Essos
 got.map.ibben=Ibben
@@ -2697,7 +2697,7 @@ got.miniquest.collect.progress=%d sur %d donnés
 got.miniquest.collect=Collectez %d %s
 got.miniquest.kill.progress=%d de %d tués
 got.miniquest.kill=Tuez %d %s
-got.miniquest.pickpocket.progress≠%d of %d stolen
+got.miniquest.pickpocket.progress=%d sur %d volés
 got.miniquest.pickpocket=Vol du NPC (Shift + RMB)
 got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d sur %d donné(es)
@@ -2712,43 +2712,43 @@ got.miniquest.welcome.speak=Parlez avec Jaqen
 got.music.nowPlaying=En lecture:
 got.potion.drinkPoison=Boisson empoisonnée
 got.potion=Persistant
-got.rank.ARRYN≠of Arryn Vale
-got.rank.ASSHAI≠of Asshai
-got.rank.BRAAVOS≠of Braavos
-got.rank.CROWNLANDS≠of Crownlands
-got.rank.DORNE≠of Dorne
-got.rank.DOTHRAKI≠of dothraki
-got.rank.DRAGONSTONE≠of Dragonstone
-got.rank.GHISCAR≠of Ghiscar
-got.rank.HILL_TRIBES≠of Hill Tribes
-got.rank.HOSTILE≠of hostiles
-got.rank.IBBEN≠of Ibben
-got.rank.IRONBORN≠of Iron Islands
-got.rank.JOGOS≠of Jogos Nhai
-got.rank.LHAZAR≠of Lhazar
-got.rank.LORATH≠of Lorath
-got.rank.LYS≠of Lys
-got.rank.MOSSOVY≠of Mossovy
-got.rank.MYR≠of Myr
-got.rank.NIGHT_WATCH≠of Night's Watch
-got.rank.NORTH≠of North
-got.rank.NORVOS≠of Norvos
-got.rank.PENTOS≠of Pentos
-got.rank.QARTH≠of Qarth
-got.rank.QOHOR≠of Qohor
-got.rank.REACH≠of Reach
-got.rank.RIVERLANDS≠of Riverlands
-got.rank.SOTHORYOS≠of Sothoryos
-got.rank.STORMLANDS≠of Stormlands
-got.rank.SUMMER_ISLANDS≠of Summer Islands
-got.rank.TYROSH≠of Tyrosh
-got.rank.ULTHOS≠of Ulthos
-got.rank.UNALIGNED≠of neutrals
-got.rank.VOLANTIS≠of Volantis
-got.rank.WESTERLANDS≠of Westerlands
-got.rank.WHITE_WALKER≠of white walkers
-got.rank.WILDLING≠of wildling
-got.rank.YI_TI≠of Yi Ti
+got.rank.ARRYN=de la Vallée d'Arryn
+got.rank.ASSHAI=d'Asshaï
+got.rank.BRAAVOS=de Braavos
+got.rank.CROWNLANDS=des Terres de la Couronne
+got.rank.DORNE=de Dorne
+got.rank.DOTHRAKI=des Dothrakis
+got.rank.DRAGONSTONE=de Peyredragon
+got.rank.GHISCAR=de Ghiscar
+got.rank.HILL_TRIBES=des Tribus des Collines
+got.rank.HOSTILE=des hostiles
+got.rank.IBBEN=d'Ibben
+got.rank.IRONBORN=des Fers-Nés
+got.rank.JOGOS=des Jogos Nhaï
+got.rank.LHAZAR=de Lhazar
+got.rank.LORATH=de Lorath
+got.rank.LYS=de Lys
+got.rank.MOSSOVY=de Mossovy
+got.rank.MYR=de Myr
+got.rank.NIGHT_WATCH=de la Garde de Nuit
+got.rank.NORTH=du Nord
+got.rank.NORVOS=de Norvos
+got.rank.PENTOS=de Pentos
+got.rank.QARTH=de Qarth
+got.rank.QOHOR=de Qohor
+got.rank.REACH=du Reach
+got.rank.RIVERLANDS=des Terres Fluviales
+got.rank.SOTHORYOS=de Sothoryos
+got.rank.STORMLANDS=des Terres de l'Orage
+got.rank.SUMMER_ISLANDS=des Îles d'Été
+got.rank.TYROSH=de Tyrosh
+got.rank.ULTHOS=d'Ulthos
+got.rank.UNALIGNED=des neutres
+got.rank.VOLANTIS=de Volantis
+got.rank.WESTERLANDS=des Terres de l'Ouest
+got.rank.WHITE_WALKER=des Marcheurs Blancs
+got.rank.WILDLING=des Sauvageons
+got.rank.YI_TI=de Yi Ti
 got.rank.defender=Protecteur
 got.rank.defender_fm=Protectrice
 got.rank.enemy=Ennemi
@@ -2757,8 +2757,8 @@ got.rank.friend=Ami
 got.rank.friend_fm=Amie
 got.rank.guest=Invité
 got.rank.guest_fm=Invitée
-got.rank.hero=Hero
-got.rank.hero_fm=Heroïne
+got.rank.hero=Héros
+got.rank.hero_fm=Héroïne
 got.rank.king=Roi
 got.rank.king_fm=Reine
 got.rank.leader=Dirigeant
@@ -2777,14 +2777,14 @@ got.shields.ALCOHOLIC.desc=Décerné pour avoir consommé une grande quantité d
 got.shields.ALCOHOLIC.name=Bouclier de l'alcoolique
 got.shields.ARRYN.name=Bouclier du Val d'Arryn
 got.shields.ARRYNGUARD.name=Bouclier de la garde de Gulltown
-got.shields.ASSHAI.name≠Shield of Asshai
+got.shields.ASSHAI.name=Bouclier de Asshai
 got.shields.BRAAVOS.name=Bouclier de Braavos
 got.shields.CROWNLANDS.name=Bouclier des terres de la Couronne
 got.shields.DORNE.name=Bouclier de Dorne
 got.shields.DRAGONSTONE.name=Bouclier de Peyredragon
 got.shields.GHISCAR.name=Bouclier de Ghiscar
-got.shields.GOLDEN_COMPANY.desc≠Reward for hiring 10 G.C. mercenaries
-got.shields.GOLDEN_COMPANY.name≠Shield of Golden Company
+got.shields.GOLDEN_COMPANY.desc=Récompense pour l'embauche de 10 mercenaires de la Compagnie Dorée
+got.shields.GOLDEN_COMPANY.name=Bouclier de Golden Company
 got.shields.HILLMEN.name=Bouclier des collines
 got.shields.IRONBORN.name=Bouclier des Îles de Fer
 got.shields.LORATH.name=Bouclier de Lorath
@@ -2808,9 +2808,9 @@ got.shields.TYROSH.name=Bouclier de Tyrosh
 got.shields.UNSULLIED.name=Bouclier de non souillé
 got.shields.VOLANTIS.name=Bouclier de Volantis
 got.shields.WESTERLANDS.name=Bouclier des Terres de l'Ouest
-got.shields.WESTERLANDSGUARD.name≠Shield of Westerlands Guard
+got.shields.WESTERLANDSGUARD.name=Bouclier de Westerlands Guard
 got.shields.YITI.name=Bouclier de Yi Ti
-got.shields.YITI_FRONTIER.name≠Yi Ti Frontier Shield
+got.shields.YITI_FRONTIER.name=Bouclier de la Frontière de Yi Ti
 got.shields.YITI_SAMURAI.name=Bouclier du samouraï Yi Ti
 got.shields.category.ACHIEVABLE=Boucliers de succès
 got.shields.category.ALIGNMENT=Boucliers d'alignement
@@ -3262,157 +3262,157 @@ got.titles.unlock.starter=Titre de démarrage
 got.travellingTrader.arrive=%s est arrivé à proximité
 got.travellingTrader.arriveMP=%s est arrivé à proximité de %s
 got.travellingTrader.depart=%s a quitté la région
-got.tree.acacia.name≠Acacia
-got.tree.acacia_dead.name≠Dead Acacia
-got.tree.almond.name≠Almond
-got.tree.apple.name≠Apple
-got.tree.aramant.name≠Aramant
-got.tree.aspen.name≠Aspen
-got.tree.aspen_large.name≠Large Aspen
-got.tree.banana.name≠Banana
-got.tree.baobab.name≠Baobab
-got.tree.beech.name≠Beech
-got.tree.beech_dead.name≠Dead Beech
-got.tree.beech_large.name≠Large Beech
-got.tree.beech_party.name≠Giant Beech
-got.tree.birch.name≠Birch
-got.tree.birch_dead.name≠Dead Birch
-got.tree.birch_large.name≠Large Birch
-got.tree.birch_party.name≠Giant Birch
-got.tree.birch_tall.name≠Tall Birch
-got.tree.catalpa.name≠Catalpa
-got.tree.catalpa_boughs.name≠Bough Catalpa
-got.tree.catalpa_party.name≠Giant Catalpa
-got.tree.cedar.name≠Cedar
-got.tree.cedar_large.name≠Large Cedar
-got.tree.charred.name≠Charred Tree
-got.tree.cherry.name≠Cherry
-got.tree.chestnut.name≠Chestnut
-got.tree.chestnut_large.name≠Large Chestnut
-got.tree.chestnut_party.name≠Giant Chestnut
-got.tree.cypress.name≠Cypress
-got.tree.cypress_large.name≠Large Cypress
-got.tree.dark_oak.name≠Dark Oak
-got.tree.dark_oak_party.name≠Giant Dark Oak
-got.tree.date_palm.name≠Date Palm
-got.tree.dragonblood.name≠Dragonblood
-got.tree.dragonblood_huge.name≠Giant Dragonblood
-got.tree.dragonblood_large.name≠Large Dragonblood
-got.tree.fir.name≠Fir
-got.tree.fotinia.name≠Fotinia
-got.tree.holly.name≠Holly
-got.tree.holly_large.name≠Large Holly
-got.tree.ibben_pine.name≠Ibbinia
-got.tree.jungle.name≠Jungle Tree
-got.tree.jungle_cloud.name≠Cloud Jungle Tree
-got.tree.jungle_large.name≠Large Jungle Tree
-got.tree.jungle_shrub.name≠Jungle Shrub
-got.tree.kanuka.name≠Kanuka
-got.tree.larch.name≠Larch
-got.tree.lemon.name≠Lemon
-got.tree.lime.name≠Lime
-got.tree.mahogany.name≠Mahogany
-got.tree.mango.name≠Mango
-got.tree.mangrove.name≠Mangrove
-got.tree.maple.name≠Maple
-got.tree.maple_large.name≠Large Maple
-got.tree.maple_party.name≠Giant Maple
-got.tree.oak.name≠Oak
-got.tree.oak_dead.name≠Dead Oak
-got.tree.oak_desert.name≠Desert Oak
-got.tree.oak_giant.name≠Very large Oak
-got.tree.oak_large.name≠Large дуб
-got.tree.oak_party.name≠Giant дуб
-got.tree.oak_shrub.name≠Oak Shrub
-got.tree.oak_swamp.name≠Swamp Oak
-got.tree.oak_tall.name≠Tall Oak
-got.tree.oak_taller.name≠Very Tall Oak
-got.tree.olive.name≠Olive
-got.tree.olive_large.name≠Large Olive
-got.tree.orange.name≠Orange
-got.tree.palm.name≠Palm
-got.tree.pear.name≠Pear
-got.tree.pine.name≠Pine
-got.tree.pine_shrub.name≠Pine Shrub
-got.tree.plum.name≠Plum
-got.tree.pomegranate.name≠Pomegranate
-got.tree.redwood.name≠Ironwood (1)
-got.tree.redwood_2.name≠Ironwood (2)
-got.tree.redwood_3.name≠Ironwood (3)
-got.tree.redwood_4.name≠Ironwood (4)
-got.tree.redwood_5.name≠Ironwood (5)
-got.tree.spruce.name≠Spruce
-got.tree.spruce_dead.name≠Dead Spruce
-got.tree.spruce_mega.name≠Giant Spruce
-got.tree.spruce_mega_thin.name≠Giant Thin Spruce
-got.tree.spruce_thin.name≠Thin Spruce
-got.tree.ulthos_green_oak.name≠Ulthos Green Oak
-got.tree.ulthos_green_oak_extreme.name≠Giant Ulthos Green Oak
-got.tree.ulthos_green_oak_large.name≠Large Ulthos Green Oak
-got.tree.ulthos_oak.name≠Ulthos Oak
-got.tree.ulthos_oak_dead.name≠Dead Ulthos Oak
-got.tree.ulthos_oak_large.name≠Large Ulthos Oak
-got.tree.ulthos_red_oak.name≠Red Ulthos Oak
-got.tree.ulthos_red_oak_large.name≠Large Red Ulthos Oak
+got.tree.acacia.name=Acacia
+got.tree.acacia_dead.name=Acacia mort
+got.tree.almond.name=Amandier
+got.tree.apple.name=Pommier
+got.tree.aramant.name=Aramant
+got.tree.aspen.name=Tremble
+got.tree.aspen_large.name=Grand tremble
+got.tree.banana.name=Bananier
+got.tree.baobab.name=Baobab
+got.tree.beech.name=Hêtre
+got.tree.beech_dead.name=Hêtre mort
+got.tree.beech_large.name=Grand hêtre
+got.tree.beech_party.name=Hêtre géant
+got.tree.birch.name=Bouleau
+got.tree.birch_dead.name=Bouleau mort
+got.tree.birch_large.name=Grand bouleau
+got.tree.birch_party.name=Bouleau géant
+got.tree.birch_tall.name=Bouleau élevé
+got.tree.catalpa.name=Catalpa
+got.tree.catalpa_boughs.name=Catalpa à ramures
+got.tree.catalpa_party.name=Catalpa géant
+got.tree.cedar.name=Cèdre
+got.tree.cedar_large.name=Grand cèdre
+got.tree.charred.name=Arbre calciné
+got.tree.cherry.name=Cerisier
+got.tree.chestnut.name=Châtaignier
+got.tree.chestnut_large.name=Grand châtaignier
+got.tree.chestnut_party.name=Châtaignier géant
+got.tree.cypress.name=Cyprès
+got.tree.cypress_large.name=Grand cyprès
+got.tree.dark_oak.name=Chêne noir
+got.tree.dark_oak_party.name=Chêne noir géant
+got.tree.date_palm.name=Dattier
+got.tree.dragonblood.name=Arbre à sang-dragon
+got.tree.dragonblood_huge.name=Sang-dragon géant
+got.tree.dragonblood_large.name=Grand sang-dragon
+got.tree.fir.name=Sapin
+got.tree.fotinia.name=Photinia
+got.tree.holly.name=Houx
+got.tree.holly_large.name=Grand houx
+got.tree.ibben_pine.name=Ibbinia
+got.tree.jungle.name=Arbre de la jungle
+got.tree.jungle_cloud.name=Arbre de jungle nuageuse
+got.tree.jungle_large.name=Grand arbre de la jungle
+got.tree.jungle_shrub.name=Buisson de la jungle
+got.tree.kanuka.name=Kanuka
+got.tree.larch.name=Mélèze
+got.tree.lemon.name=Citronnier
+got.tree.lime.name=Limettier
+got.tree.mahogany.name=Acajou
+got.tree.mango.name=Manguier
+got.tree.mangrove.name=Mangrove
+got.tree.maple.name=Érable
+got.tree.maple_large.name=Grand érable
+got.tree.maple_party.name=Érable géant
+got.tree.oak.name=Chêne
+got.tree.oak_dead.name=Chêne mort
+got.tree.oak_desert.name=Chêne des déserts
+got.tree.oak_giant.name=Très grand chêne
+got.tree.oak_large.name=Grand chêne
+got.tree.oak_party.name=Chêne géant
+got.tree.oak_shrub.name=Arbuste de chêne
+got.tree.oak_swamp.name=Chêne des marais
+got.tree.oak_tall.name=Chêne élevé
+got.tree.oak_taller.name=Très haut chêne
+got.tree.olive.name=Olivier
+got.tree.olive_large.name=Grand olivier
+got.tree.orange.name=Oranger
+got.tree.palm.name=Palmier
+got.tree.pear.name=Poirier
+got.tree.pine.name=Pin
+got.tree.pine_shrub.name=Arbuste de pin
+got.tree.plum.name=Prunier
+got.tree.pomegranate.name=Grenadier
+got.tree.redwood.name=Séquoia (1)
+got.tree.redwood_2.name=Séquoia (2)
+got.tree.redwood_3.name=Séquoia (3)
+got.tree.redwood_4.name=Séquoia (4)
+got.tree.redwood_5.name=Séquoia (5)
+got.tree.spruce.name=Épicéa
+got.tree.spruce_dead.name=Épicéa mort
+got.tree.spruce_mega.name=Épicéa géant
+got.tree.spruce_mega_thin.name=Épicéa géant mince
+got.tree.spruce_thin.name=Épicéa mince
+got.tree.ulthos_green_oak.name=Chêne vert d'Ulthos
+got.tree.ulthos_green_oak_extreme.name=Chêne vert géant d'Ulthos
+got.tree.ulthos_green_oak_large.name=Grand chêne vert d'Ulthos
+got.tree.ulthos_oak.name=Chêne d'Ulthos
+got.tree.ulthos_oak_dead.name=Chêne d'Ulthos mort
+got.tree.ulthos_oak_large.name=Grand chêne d'Ulthos
+got.tree.ulthos_red_oak.name=Chêne rouge d'Ulthos
+got.tree.ulthos_red_oak_large.name=Grand chêne rouge d'Ulthos
 got.tree.weirwood.name=Barral
-got.tree.willow.name≠Willow
-got.tree.willow_water.name≠Water Willow
+got.tree.willow.name=Saule
+got.tree.willow_water.name=Saule pleureur
 got.unit.Rider=Cavalier
 got.unitinfo.Banner=Les porte-bannières fournissent diverses améliorations de combat aux PNJs des environs de la même faction
 got.unitinfo.Corsair=Les corsaires rapportent plus de pièces des ennemis qu'ils tuent
 got.usemem=RAM utilisée
-got.variant.boulders_red.name≠Red Boulders
-got.variant.clearing.name≠Glade
-got.variant.deadForest_oak.name≠Dead Oak
-got.variant.deadForest_oak_spruce.name≠Dead mixed forest
-got.variant.deadForest_spruce.name≠Dead Spruce
-got.variant.denseForest_birch.name≠Dense birch
-got.variant.denseForest_darkOak.name≠Dense Dark Oak
-got.variant.denseForest_oak.name≠Dense Oak
-got.variant.denseForest_oak_spruce.name≠Dense mixed forest
-got.variant.denseForest_spruce.name≠Dense Spruce Forest
-got.variant.dunes.name≠Barkhans
-got.variant.flowers.name≠Landscape
-got.variant.forest.name≠Forest
-got.variant.forest_aspen.name≠Awn Grove
-got.variant.forest_beech.name≠beech grove
-got.variant.forest_birch.name≠Birch Grove
-got.variant.forest_cedar.name≠Cedar forest
-got.variant.forest_cherry.name≠Cherry forest
-got.variant.forest_cypress.name≠Cypress forest
-got.variant.forest_larch.name≠Larch forest
-got.variant.forest_lemon.name≠Lemon grove
-got.variant.forest_light.name≠Rare Forest
-got.variant.forest_lime.name≠Lime Grove
-got.variant.forest_maple.name≠Maplewood
-got.variant.forest_pine.name≠Pine grove
+got.variant.boulders_red.name=Rochers rouges
+got.variant.clearing.name=Clairière
+got.variant.deadForest_oak.name=Forêt morte de chênes
+got.variant.deadForest_oak_spruce.name=Forêt mixte morte
+got.variant.deadForest_spruce.name=Forêt morte d'épinettes
+got.variant.denseForest_birch.name=Forêt dense de bouleaux
+got.variant.denseForest_darkOak.name=Forêt dense de chênes foncés
+got.variant.denseForest_oak.name=Forêt dense de chênes
+got.variant.denseForest_oak_spruce.name=Forêt mixte dense
+got.variant.denseForest_spruce.name=Forêt dense d'épinettes
+got.variant.dunes.name=Barkhanes
+got.variant.flowers.name=Paysage
+got.variant.forest.name=Forêt
+got.variant.forest_aspen.name=Bosquet de trembles
+got.variant.forest_beech.name=Hêtraie
+got.variant.forest_birch.name=Boulaie
+got.variant.forest_cedar.name=Cèdraie
+got.variant.forest_cherry.name=Forêt de cerisiers
+got.variant.forest_cypress.name=Cyprière
+got.variant.forest_larch.name=Mélézin
+got.variant.forest_lemon.name=Citronneraie
+got.variant.forest_light.name=Forêt clairsemée
+got.variant.forest_lime.name=Bosquet de tilleuls
+got.variant.forest_maple.name=Érablière
+got.variant.forest_pine.name=Pinède
 got.variant.forest_weirwood.name=Fôret de barral
-got.variant.hills.name≠Hills
-got.variant.hills_forest.name≠Forest Hills
-got.variant.hills_scrubland.name≠Hilly shrubland
-got.variant.hills_scrubland_sand.name≠Hilly sandy shrubs
-got.variant.lake.name≠Lake
-got.variant.mountain.name≠Mountain
-got.variant.orchard_almond.name≠Almond Garden
-got.variant.orchard_apple_pear.name≠Apple Pear Orchard
-got.variant.orchard_date.name≠Finilla Orchard
-got.variant.orchard_lemon.name≠Lemon Orchard
-got.variant.orchard_lime.name≠Lime Garden
-got.variant.orchard_olive.name≠Olive Garden
-got.variant.orchard_orange.name≠Orange Garden
-got.variant.orchard_plum.name≠Plum Orchard
-got.variant.orchard_pomegranate.name≠Pomegranate Orchard
-got.variant.river.name≠River
-got.variant.savannahBaobab.name≠Baobab grove
-got.variant.scrubland.name≠Bushland
-got.variant.scrubland_sand.name≠Sandy shrubs
-got.variant.shrubland_oak.name≠Oak shrubs
-got.variant.standard.name≠Ordinary
-got.variant.swampLowland.name≠Marshland
-got.variant.swampUpland.name≠Marshland
-got.variant.vineyard.name≠Vineyards
-got.variant.wasteland.name≠Wetland
-got.variant.wasteland_sand.name≠Sandy Wasteland
+got.variant.hills.name=Collines
+got.variant.hills_forest.name=Collines boisées
+got.variant.hills_scrubland.name=Landes collinaires
+got.variant.hills_scrubland_sand.name=Landes sableuses collinaires
+got.variant.lake.name=Lac
+got.variant.mountain.name=Montagne
+got.variant.orchard_almond.name=Amandiers
+got.variant.orchard_apple_pear.name=Verger de pommiers et poiriers
+got.variant.orchard_date.name=Finilla Orchard
+got.variant.orchard_lemon.name=Citronneraie
+got.variant.orchard_lime.name=Bosquet de limettiers
+got.variant.orchard_olive.name=Oliveraie
+got.variant.orchard_orange.name=Orangeraie
+got.variant.orchard_plum.name=Verger de pruniers
+got.variant.orchard_pomegranate.name=Grenadiers
+got.variant.river.name=Rivière
+got.variant.savannahBaobab.name=Bosquet de baobabs
+got.variant.scrubland.name=Lande
+got.variant.scrubland_sand.name=Lande sableuse
+got.variant.shrubland_oak.name=Lande de chênes
+got.variant.standard.name=Ordinaire
+got.variant.swampLowland.name=Marécage
+got.variant.swampUpland.name=Marécage
+got.variant.vineyard.name=Vignobles
+got.variant.wasteland.name=Terrain vague
+got.variant.wasteland_sand.name=Terrain vague sablonneux
 got.weaponstat.kb=Recul: +%d
 got.weaponstat.meleeDamage=Dégats de mêlée: +%d
 got.weaponstat.meleeSpeed=Vitesse en mêlée: %d%%
@@ -3479,16 +3479,16 @@ got.wp.BARROWTOWN.info=La ville est dirigée par les Dustins, anciens Barrow Kin
 got.wp.BARROWTOWN=Barrowtown
 got.wp.BARTER_BEACH.info=La plage où les pirates faisaient du commerce entre eux. Peut-être une colonie pirate.
 got.wp.BARTER_BEACH=Barter Beach
-got.wp.BASHKARUUCHU.info≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
-got.wp.BASHKARUUCHU≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
-got.wp.BATARGAS.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
-got.wp.BATARGAS≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
-got.wp.BAYASABHAD.info=L'une des dernières villes qui se sont développées autour de la citadelle, construite pour protéger le fief d'Hirkun des raids; le royaume est tombé en décomposition après la mer sèche, mais les Amazones guerrières surveillent toujours la garde.
+got.wp.BASHKARUUCHU.info=Capitale froide et morne de Mossovy, imprégnée de débauche et ensorcelée. Si la première est la vérité de la vie, la seconde est une invention des autorités.
+got.wp.BASHKARUUCHU=Bashkaruchuu
+got.wp.BATARGAS.info=L'une des trois colonies qarth actuellement habitées à Sotorios. C'est d'ici que partent les navires avec des wyvernes à destination de Qarth. Il y a ici une petite armée permanente, adaptée pour mener une guerre pas trop lourde.
+got.wp.BATARGAS=Batargas
+got.wp.BAYASABHAD.info=L'une des dernières villes qui se sont développées autour de la citadelle, construite pour protéger le Fief de Hirkun des raids ; le royaume est tombé en décadence après la mer asséchée, mais les guerrières Amazones montent encore la garde.
 got.wp.BAYASABHAD=Bayasabhad
 got.wp.BHORASH.info=Ruines d'une ville valyrienne ou ghiskar sur la route des démons. Détruit après le Rocher de Valyria, et par qui il est inconnu.
 got.wp.BHORASH=Bhorash
-got.wp.BIG_LAKE.info≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
-got.wp.BIG_LAKE≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
+got.wp.BIG_LAKE.info=Un lac sacré pour de nombreuses tribus sotoris. Bien sûr, il n'y a pas tant de lacs dans leur plaine aride, et encore moins de si grands. Et l'eau est la source de vie.
+got.wp.BIG_LAKE=Grand Lac
 got.wp.BITTERBRIDGE.info=Le château ancestral de la Maison des Caswell. Ici, le vainqueur du tournoi, Brienne Tarth, a été amené par le roi Renly à son Rainbow Guard.
 got.wp.BITTERBRIDGE=Bitterbridge
 got.wp.BLACKCROWN.info=Le château de la Maison des Bulwers, descendants de Garth Greenhand (comme beaucoup d'autres maisons du Reach).
@@ -3535,10 +3535,10 @@ got.wp.CASTLE_LYCHESTER.info=Le château délabré de Leicester, où le détache
 got.wp.CASTLE_LYCHESTER=Château Lychester
 got.wp.CATFISH_ROCK.info=Le château de l'ancienne maison royale de Fischer.
 got.wp.CATFISH_ROCK=Poisson-chat Rock
-got.wp.CENTRAL_FORESTS.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
-got.wp.CENTRAL_FORESTS≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
-got.wp.CHANGAN.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
-got.wp.CHANGAN≠Changan
+got.wp.CENTRAL_FORESTS.info=Le centre d'Ultos, parfois appelé la partie sud du nord d'Ultos. Les forêts y sont encore très répandues, tout comme dans le nord du continent.
+got.wp.CENTRAL_FORESTS=Forêts centrales
+got.wp.CHANGAN.info=Grande ville au carrefour d'importantes routes côtières. À l'époque d'Azor Ahaï, un parchemin rituel y était conservé avec une prophétie sur la "Salvation de la Terre du Grand Empire Doré".
+got.wp.CHANGAN=Changan
 got.wp.CHROYANE.info=Dans les temps anciens, c'était la ville prospère de Roinar de Kroyane. Après que Saroi ait été brûlé par les seigneurs dragons, le prince Kroyane nommé Garin a appelé les Rhoynar à s'unir et à combattre les envahisseurs. Hélas, après une série de victoires, des dizaines de seigneurs-dragons sont arrivés de Valyria et le Roynar est tombé. Garin a été amené à Kroyan dans une cage afin qu'il puisse voir comment son peuple a été asservi et la ville incendiée. En désespoir de cause, Garin a maudit les Valyriens - puis les spores d'une maladie grise sont apparues sur Roina ... Maintenant, les victimes de cette maladie sont expulsées ici. Ainsi, la belle ville s'est transformée en une énorme colonie de lépreux.
 got.wp.CHROYANE=Chroyane
 got.wp.CIDER_HALL.info=Le château de la maison des Fossoveev de la branche de la pomme rouge.
@@ -3581,8 +3581,8 @@ got.wp.DEEP_DEN.info=Le château de la maison des Lydden, vassal des Lannister.
 got.wp.DEEP_DEN=Repaire profond
 got.wp.DEEP_LAKE.info=Maintenant l'un des châteaux abandonnés de Night's Watch. Il a été construit à l'initiative de la reine Alisanna il y a 200 ans; La reine elle-même a financé la construction afin que les frères de Night's Watch puissent quitter le trop grand et cher Keep de Night. Le château tire son nom du lac, près duquel il se trouve. Le 998th Lord Commander de the Night's Watch a envoyé une garnison ici pour rétablir la garde du Mur.
 got.wp.DEEP_LAKE=Lac profond
-got.wp.DINGGUO.info≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
-got.wp.DINGGUO≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
+got.wp.DINGGUO.info=Il y avait une installation ici même avant que le Grand Pays d'Iti ne soit construit - c'était un établissement de mineurs et de mines de diamants. Lorsque leurs gisements furent épuisés, les diamants ont été vendus, et cela a suffi pour construire une forteresse.
+got.wp.DINGGUO=Dingguo
 got.wp.DOQUU.info=Un petit village sur l'île du même nom. C'est la colonie la plus méridionale des Îles d'Été.
 got.wp.DOQUU=Doquu
 got.wp.DOWNDELVING.info=Château sur Great Vic, appartenant à l'une des plus jeunes branches des Goodbrothers.
@@ -3591,8 +3591,8 @@ got.wp.DRACONYS.info=L'une des villes coloniales puissantes et riches de l'Empir
 got.wp.DRACONYS=Draconys
 got.wp.DRAGONSTONE.info=L'île et la forteresse imprenable du même nom. Il y a plusieurs siècles, les Targaryen sont arrivés ici de Old Valyria, et après leur accession et la construction de King's Landing, le titre de prince de Peyredragon a été porté par le fils aîné et héritier du roi. Après le renversement des Targaryen, le château a été remis à Stannis Baratheon.
 got.wp.DRAGONSTONE=Peyredragon
-got.wp.DRAGON_PLACE.info≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
-got.wp.DRAGON_PLACE≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
+got.wp.DRAGON_PLACE.info=On pense que c'est l'endroit le plus au sud où Jainara Beleiris a visité sur son dragon. C'est ici qu'elle a installé son campement et s'est bien reposée, après quoi elle est repartie.
+got.wp.DRAGON_PLACE=Lieu des Dragons
 got.wp.DREADFORT.info=Château ancestral de la maison de Bolton, vassaux des Starks. Les Bolton comptent parmi les maisons les plus solides et les plus anciennes du Nord. Ils ont rivalisé avec les Starks pendant des millénaires et se sont agenouillés avant Winterfell il y a seulement mille ans. Autrefois, les seigneurs de Bolton portaient des manteaux de cuir dépouillés des vivants; au fil du temps, les Starks ont étouffé cette tradition, mais certains des anciens trophées, selon le vieux Nan, sont toujours conservés à Dredford (y compris la peau de certains des Starks).
 got.wp.DREADFORT=Effroi
 got.wp.DRIFTMARK.info=L'île et le château du même nom dessus. Terres ancestrales de la maison Velarion, l'une des familles survivantes de Valyria. À Westeros, les Velarions détiennent le titre de Lord de the High Tide. Il fut un temps où c'étaient leurs trésors qui excitaient l'imagination, et pas du tout ceux de Lannister.
@@ -3609,10 +3609,10 @@ got.wp.DYRE_DEN.info=Le château est l'une des branches de la Maison de Brune, v
 got.wp.DYRE_DEN=Dyre Den
 got.wp.EASTWATCH.info=Le château le plus à l'est de Night's Watch, dirigé par Cotter Pike. L'un des trois actifs. Contrairement aux autres, les frères de l'Eastern Watch sont activement impliqués dans le commerce.
 got.wp.EASTWATCH=Veille de l'Est
-got.wp.EAST_BAY.info≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EAST_BAY≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EAST_COAST.info≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
-got.wp.EAST_COAST≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
+got.wp.EAST_BAY.info=Une immense baie orientale qui sépare visuellement le centre d'Ultos du nord. Il n'y a pas de navigateurs ici et aucun pied humain ne s'y est jamais posé.
+got.wp.EAST_BAY=Baie de l'Est
+got.wp.EAST_COAST.info=Ce n'est pas l'extrême est du monde et ni l'extrême est d'Ultos, puisqu'il y a encore des rivages plus à l'est dans le sud d'Ultos. Néanmoins, les Asshaiens croient que c'est l'extrême est du continent.
+got.wp.EAST_COAST=Côte Est
 got.wp.EBONHEAD.info=La seule ville connue de l'île de Jala.
 got.wp.EBONHEAD=Tête d'ébène
 got.wp.EIJIANG.info=L'une des villes occidentales de Yi Ti. De là, vous pouvez voir la crête des os.
@@ -3651,8 +3651,8 @@ got.wp.FLINTS_FINGER.info=Le château est l'une des branches de la maison des si
 got.wp.FLINTS_FINGER=Doigt de silex
 got.wp.FOURTEEN_FLAMES.info=Tout ce qui reste d'une chaîne de montagnes volcaniques avec des mines en dessous. Pendant le rocher de Valyria, les montagnes ont été englouties par la mer, qui a ensuite été nommée Smoky (voir plus à droite).
 got.wp.FOURTEEN_FLAMES=Quatorze flammes
-got.wp.FU_NING.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
-got.wp.FU_NING≠Fu Ning
+got.wp.FU_NING.info=Ancienne ville au carrefour oriental. Dans l'Antiquité, il y avait une célèbre auberge routière où les voyageurs pouvaient boire du vin et goûter le ragoût de homard.
+got.wp.FU_NING=Fu Ning
 got.wp.GALLOWSGREY.info=Le château de la maison des Trants, vassaux des Barathéons.
 got.wp.GALLOWSGREY=Gallowsgrey
 got.wp.GARNETGROVE.info=Château de la maison chevaleresque de Pommingen, vassaux des Tyrell.
@@ -3722,15 +3722,15 @@ got.wp.HARDHOME=Hardhome
 got.wp.HARLAW_HALL.info=Une fois le château de l'ancienne branche de la maison de Harlow. Un vieux château aux murs humides, que Lord Theomore Harlow a blâmé pour la mort des héritiers et a donc décidé de reconstruire un nouveau château - les dix tours. Old Harlowhall est allé aux branches les plus jeunes de la famille.
 got.wp.HARLAW_HALL=Salle Harlaw
 got.wp.HARRENHAL.info=Un château en ruine de taille colossale, pour la construction duquel Harren le Noir a ravagé et emmené les paysans de la rivière pour travailler. Dès que le château fut terminé, Aegon le Conquérant envahit Westeros, et le rebelle Harren et sa famille furent brûlés vifs dans les flammes du dragon dans l'une des tours. Ils disent que Harren et sa famille sont devenus de mauvais esprits. Que ce soit vrai ou non, mais aucun des nouveaux propriétaires ne reste longtemps au château.
-got.wp.HARRENHAL≠A ruined castle of colossal size, for the construction of which Harren the Black ravaged and took away peasants from the river to work. As soon as the castle was finished, Aegon the Conqueror invaded Westeros, and the rebellious Harren and his family were burned alive in dragon flames in one of the towers. They say that Harren and his household became evil spirits. Whether it is true or not, but not one of the new owners stays in the castle for a long time.
+got.wp.HARRENHAL=Harrenhal
 got.wp.HARRIDAN_HILL.info=Le château est une branche mineure de la maison Harlow, vassaux de l'ancien Harlow.
 got.wp.HARRIDAN_HILL=Harridan Hill
 got.wp.HARROWAY.info=Un petit village situé au croisement du Trident. Nommé d'après la famille Harrowey disparue. De nos jours, les Ruths règnent ici.
 got.wp.HARROWAY=Harroway
 got.wp.HARVEST_HALL.info=Le château de la maison de Selmy, les vassaux des Barathéons. Le légendaire Barristan Selmy est né ici.
 got.wp.HARVEST_HALL=Salle de récolte
-got.wp.HAUAURU.info≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
-got.wp.HAUAURU≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
+got.wp.HAUAURU.info=Le port de mer des Letniens, dans lequel, selon le rituel sotori, le Matabele sacrifie un homme, généralement un moine ou une épouse.
+got.wp.HAUAURU=Hauauru
 got.wp.HAYFORD.info=Castle House Hayford des terres royales. Ici, Jaime Lannister a commencé à s'entraîner avec Elin Payne.
 got.wp.HAYFORD=Hayford
 got.wp.HAYSTACK_HALL.info=Château ancestral de la maison Errol, vassaux des Barathéons. Dans la guerre des cinq rois, Renly a été soutenu, puis Stannis.
@@ -3759,7 +3759,7 @@ got.wp.HOARFROST_HILL.info=L'un des châteaux abandonnés de Night's Watch. Le 9
 got.wp.HOARFROST_HILL=Hoarfrost Hill
 got.wp.HOGG_HALL.info=Le château a été incendié par Vhagar pendant la danse des dragons.
 got.wp.HOGG_HALL=Salle Hogg
-got.wp.HOJDBAATAR.info≠Capital camp of Jogos Nhai. The name means "Northern Warrior"
+got.wp.HOJDBAATAR.info=Camp capital des Jogos Nhai. Le nom signifie "Guerrier du Nord".
 got.wp.HOJDBAATAR=Hojdbaatar
 got.wp.HOLLARD_CASTLE.info=Les ruines du château de Hollard, détruites en punition pour avoir Capeturé Aerys le Fou.
 got.wp.HOLLARD_CASTLE=Château de Hollard
@@ -3801,18 +3801,18 @@ got.wp.ISLE_OF_WHIPS.info=Une île aux esclaves et un immense marché aux esclav
 got.wp.ISLE_OF_WHIPS=Île des fouets
 got.wp.IVY_HALL.info=Le château de la maison des Kidwell, vassaux des Tyrell.
 got.wp.IVY_HALL=Salle Ivy
-got.wp.JIANMEN.info≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
-got.wp.JIANMEN≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
+got.wp.JIANMEN.info=Une des forteresses du Grand Mur de Yi Ti. Il y avait une grande prison pour les prisonniers. Aujourd'hui, elle est vide car les nomades n'osent pas attaquer le mur.
+got.wp.JIANMEN=Jianmen
 got.wp.JINQI.info=Ville Ithienne construite pour défendre l'empire des raids. Capeitale sous les empereurs de Bourgogne Yi Ti.
 got.wp.JINQI=Jinqi
 got.wp.KADAR.info=Immenses ruines au coeur de Mossia. On ne sait pas de quoi ils sont restés, mais ils sont faits de la même pierre noire que cinq forteresses. Cribler ...
 got.wp.KADAR=Kadar
-got.wp.KANDUU_BET.info≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
-got.wp.KANDUU_BET≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
+got.wp.KANDUU_BET.info=Le vieux temple de Menelon se trouve dans cette ville, il a plus de deux mille ans. Elesuun, le roi légendaire de Mossovia, est né ici il y a plusieurs siècles.
+got.wp.KANDUU_BET=Kanduu Bet
 got.wp.KARHOLD.info=Karhold et les terres qui l'entourent ont été accordées par le roi du Nord à son plus jeune fils Carlon Stark en récompense pour avoir vaincu le seigneur rebelle. Au fil du temps, les Starks de Karhold se sont transformés en Karstarks, mais sont restés l'une des maisons les plus dévouées aux Starks.
 got.wp.KARHOLD=Karhold
-got.wp.KARIMAGAR.info≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
-got.wp.KARIMAGAR≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
+got.wp.KARIMAGAR.info=La plus grande des colonies Quartiques à Sotorios, l'une des trois habitées actuellement. Le légendaire sorcier Marduk Neturei est considéré comme le chef du port.
+got.wp.KARIMAGAR=Karimagar
 got.wp.KAYAKAYANAYA.info=L'une des dernières villes qui se sont développées autour de la citadelle, construite pour protéger le fief d'Hirkun des raids; le royaume est tombé en décomposition après la mer sèche, mais les Amazones guerrières surveillent toujours la garde.
 got.wp.KAYAKAYANAYA=Kayakayanaya
 got.wp.KAYCE.info=Autrefois le quartier général de l'Ironborn, conquis plus tard par les rois de la falaise avec l'aide des aventureux Kenning et Harlow. Depuis lors, la ville fait partie des Terres de l'Ouest et les Kennings sont des vassaux des Lannister. Les marchands fortunés visitent souvent ici.
@@ -3823,20 +3823,20 @@ got.wp.KINGSHOUSE.info=Le domaine familial des Magnars de Skagos. De l'ancien di
 got.wp.KINGSHOUSE=Kingshouse
 got.wp.KINGS_LANDING.info=Capeitale des sept royaumes. Construit sur ordre d'Aegon le Conquérant à l'endroit où il a atterri pour la première fois et où il a construit Aegonfort. À la fin du règne, Aegon I a ordonné de démolir l'ancienne forteresse en bois et a commencé la construction du château rouge - la résidence des rois du nouvel état. Royal Harbour est une ville portuaire majeure.
 got.wp.KINGS_LANDING=Le débarquement du roi
-got.wp.KOHURU.info≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
-got.wp.KOHURU≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
+got.wp.KOHURU.info=C'est un établissement relativement jeune sur la côte, où un puissant chaman Sotori est en captivité. Ses assistants créent de la fumée et lisent des textes sacrés.
+got.wp.KOHURU=Kohuru
 got.wp.KOJ.info=Le plus grand chantier naval des Îles d'Été.
 got.wp.KOJ=Koj
-got.wp.KORKUNUCHTUU.info≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
-got.wp.KORKUNUCHTUU≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
+got.wp.KORKUNUCHTUU.info=Une ville légendaire connue pour avoir été la capitale pendant le règne de l'Ancienne Baguette. C'est maintenant la résidence du grand Trésorier Royal.
+got.wp.KORKUNUCHTUU=Korkunuchtuu
 got.wp.KOSRAK.info=L'une des villes de Lkhazar.
 got.wp.KOSRAK=Kosrak
 got.wp.KRAZAAJ_HAS.info=L'ancienne ville Ghiskar de Gardak. Peut-être que les Dothraki ont donné le nom de "montagnes acérées" aux ruines déjà détruites, admirant la forme de ses pyramides, peut-être que la ville a survécu à la conquête et à la mort de Valyria, et a été pillée par les Dothraki.
 got.wp.KRAZAAJ_HAS=Krazaaj a
-got.wp.KUJRUK.info≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.KUJRUK≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.KUURULGAN.info≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
-got.wp.KUURULGAN≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
+got.wp.KUJRUK.info=La Citadelle Ancienne. La citadelle a été garnisonée pendant des milliers d'années par des guerriers de minuit loyaux envers leur Maître des Donjons.
+got.wp.KUJRUK=Kujruk
+got.wp.KUURULGAN.info=Il est écrit dans des parchemins anciens qu'un bateau de souffrant a un jour échoué ici, qui a été envoyé "très loin" par quelqu'un. Cet homme n'est jamais revenu dans sa terre natale, et l'endroit où il s'est noyé est devenu un lieu de deuil.
+got.wp.KUURULGAN=Kuurulgan
 got.wp.KYTH.info=Ville de Sarnor détruite par les Dothraki.
 got.wp.KYTH=Kyth
 got.wp.K_DATH.info=Une ville censée être plus ancienne que le temps lui-même. Des sacrifices sanglants fleurissent ici et, semble-t-il, en quantités telles que les dieux locaux sont considérés comme des fous, et même les cris ont peur des villes.
@@ -3877,8 +3877,8 @@ got.wp.LORD_HEWETTS_TOWN.info=Une ville portuaire avec le château de la maison 
 got.wp.LORD_HEWETTS_TOWN=Hewett Town
 got.wp.LOTUS_POINT.info=Ville côtière tranquille des gens d'été.
 got.wp.LOTUS_POINT=Lotus Point
-got.wp.LUNGMEN.info≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
-got.wp.LUNGMEN≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
+got.wp.LUNGMEN.info=Dans les vieux jours, cette forteresse entraînait non pas de simples soldats de frontière, mais des maîtres du kung-fu, testant si des combattants nus pouvaient défendre le mur. La fin de cette histoire est inconnue.
+got.wp.LUNGMEN=Lungmen
 got.wp.LYS.info=L'une des villes libres. Largement connu pour ses bordels coûteux et ses prêtresses raffinées de l'amour.
 got.wp.LYS=Lys
 got.wp.MAIDENPOOL.info=La ville fortifiée appartient à la maison Mouton. La ville doit son nom à l'ancien étang du conte de fées de Florian le Fou et de la belle Jonquil.
@@ -3891,14 +3891,14 @@ got.wp.MANTICORE_ISLES.info=Le groupe d'îles de la mer de Jade. Il n'y a presqu
 got.wp.MANTICORE_ISLES=Îles Manticore
 got.wp.MARAHAI.info=Île paradisiaque en forme de croissant. Il y a deux îles avec des volcans actifs dans la baie. Il peut sembler étrange qu'ils éclatent jour et nuit et ne s'endorment jamais.
 got.wp.MARAHAI=Marahai
-got.wp.MARSHES.info≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.MARSHES≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.MATAHAU.info≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.MATAHAU≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.MATAO.info≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.MATAO≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.MAUNGA.info≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
-got.wp.MAUNGA≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
+got.wp.MARSHES.info=Une partie étroite et marécageuse d'Ultos, rappelant l'Isthme de Westeros. Son origine est inconnue, mais, sans aucun doute, un jour elle finira par sombrer, et alors le sud d'Ultos deviendra un continent séparé.
+got.wp.MARSHES=Marshes
+got.wp.MATAHAU.info=Un ancien établissement des Letniens, dans lequel une énorme perle noire brillante a été trouvée. Selon la légende, il s'agit d'un trou noir descendu du ciel et qui absorbe la lumière des étoiles.
+got.wp.MATAHAU=Matahau
+got.wp.MATAO.info=Selon la légende, il y a un autel du Dieu Maudit se dressant sur une haute montagne. Il y a eu des gens qui ont affirmé que ce n'était pas une montagne, mais une pyramide construite par l'homme.
+got.wp.MATAO=Matao
+got.wp.MAUNGA.info=Un lieu important pour toutes les tribus de la région. Ici, tous les chefs environnants se rassemblent tous les 6 ans. Pourquoi exactement ? Personne ne le sait, c'est juste arrivé ainsi.
+got.wp.MAUNGA=Maunga
 got.wp.MEEREEN.info=L'un des trois centres de la traite des esclaves dans la Baie des Esclaves avec Astapor et Yunkai. La ville a été fondée par des gens de Gis. Le principal divertissement et la base de la prospérité de la ville sont les combats et la formation d'esclaves pour les batailles dans l'arène. La plus grande arène, la Grande Fosse de Daznak (un analogue du Colisée romain) se trouve également ici. Après la conquête de la ville, Daenerys Targaryen a aboli l'Esclavagiste et fermé temporairement les combats.
 got.wp.MEEREEN=Meereen
 got.wp.MHYSA_FAER.info=L'une des villes coloniales puissantes et riches de l'Empire valyrien, détruite lors de la mort de Valyria. "Misa"dans le nom indique l'origine giscarienne de la ville (la position sur la carte est largement discutable).
@@ -3931,24 +3931,24 @@ got.wp.NEW_GHIS.info=Une ville d'esclaves qui a rejoint la coalition contre Daen
 got.wp.NEW_GHIS=Nouveaux Ghis
 got.wp.NEW_IBBISH.info=Une ville construite par les Ibbéniens après la chute d'Ibbish, sur une petite péninsule derrière un mur en bois à peine plus petit que le Mur de la Veille nocturne. Ombre faible par rapport à Ibbish, mais toujours la seule colonie d'Ibben sur le continent.
 got.wp.NEW_IBBISH=New Ibbish
-got.wp.NGAHERE.info≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.NGAHERE≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.NGARARA.info≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
-got.wp.NGARARA≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
+got.wp.NGAHERE.info=Un port peu remarquable à l'ouest des terres sauvages de Sotorios. Quelques maisons trapues, quelques bars, un vieux château à deux étages et des tentes sur le quai.
+got.wp.NGAHERE=Ngahere
+got.wp.NGARARA.info=Malgré le fait que les Letniens ne respectent pas le chamanisme, des chamans barbus en turbans traînent ici. Voilà, un mélange de culture sotori et estivale !
+got.wp.NGARARA=Ngarara
 got.wp.NIGHTFORT.info=L'immense château de Night's Watch, construit pour la première fois et abandonné. Il y avait de nombreuses légendes terrifiantes sur le château. Ici, dans le mur, un passage au-delà du mur a été sculpté - la porte noire du bois de sorcière.
 got.wp.NIGHTFORT=Nightfort
 got.wp.NIGHTSONG.info=Le château ancestral Karon, pris d'eux au profit des Pieds parce que les Karons soutenaient Stannis contre Joffrey Baratheon.
 got.wp.NIGHTSONG=Nightsong
-got.wp.NIGHT_KING.info≠A sus canyon in the far north of Westeros
-got.wp.NIGHT_KING≠A sus canyon in the far north of Westeros
+got.wp.NIGHT_KING.info=Un canyon sinistre dans le Grand Nord de Westeros.
+got.wp.NIGHT_KING=Canyon
 got.wp.NINESTARS.info=Le château ancestral des Templetons, l'une des maisons les plus puissantes de la vallée, Capeable de rassembler un millier de combattants. A réussi à persuader Lisa Arryn de soutenir Robb Stark.
 got.wp.NINESTARS=Ninestars
-got.wp.NORTH_FORESTS.info≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
-got.wp.NORTH_FORESTS≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
+got.wp.NORTH_FORESTS.info=C'est cette partie d'Ultos dont on sait quelque chose à Asshai, à savoir qu'il y a des forêts et de grosses araignées ici. Un endroit peu accueillant, probablement.
+got.wp.NORTH_FORESTS=North Forests
 got.wp.NORVOS.info=L'une des villes libres dirigées par les soi-disant "prêtres barbus". Des hordes Dothraki, se déplaçant le long de la route devant Norvos, la ville rançonne avec de riches giftx.
 got.wp.NORVOS=Norvos
-got.wp.NYMDUU_OOZ.info≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
-got.wp.NYMDUU_OOZ≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
+got.wp.NYMDUU_OOZ.info=La cité mystérieuse. Les Yi Tish disent que c'est le foyer des géants et des nains, ainsi que de leurs oiseaux parlants et de leurs chevaux volants.
+got.wp.NYMDUU_OOZ=Nymduu Ooz
 got.wp.NY_SAR.info=Ruines d'une ancienne ville de Roinar avec un immense port; il ne restait plus maintenant que le palais de Nymeria de la ville - celui qui emmenait son peuple sur dix mille navires à Dorn.
 got.wp.NY_SAR=Ny Sar
 got.wp.NorthPass.info=Quatre cols sont d'anciens tertres funéraires, jusqu'aux nuages. Leur emplacement suggère qu'il s'agissait de structures défensives. Mais de qui et pourquoi défendre Mossia, si les ennemis sont à l'intérieur?
@@ -3987,16 +3987,16 @@ got.wp.PENNYTREE.info=Un petit village entre deux collines appelé Titki. Le vil
 got.wp.PENNYTREE=Pennytree
 got.wp.PENTOS.info=L'une des villes libres, le port le plus important de la côte ouest d'Essos. Cette ville abrite le maître Illyrio Mopatis, qui a abrité les derniers Targaryen.
 got.wp.PENTOS=Pentos
-got.wp.PEREKI.info≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
-got.wp.PEREKI≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
-got.wp.PINGBEI.info≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.PINGBEI≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.PINGJIANG.info≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
-got.wp.PINGJIANG≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
+got.wp.PEREKI.info=Dans cette ville, se rencontrent les maîtres et les alchimistes des îles d'été, qui rédigent des traités d'histoire et d'astrologie, ainsi qu'ils apprennent les derniers événements politiques, essayant de prédire l'heure de leur mort.
+got.wp.PEREKI=Pereki
+got.wp.PINGBEI.info=La limite orientale du Grand Mur de Yi Ti, une structure énorme et ancienne qui protégeait l'empire doré des raids des nomades du nord.
+got.wp.PINGBEI=Pingbei
+got.wp.PINGJIANG.info=L'une des forteresses du Grand Mur de Yi Ti, qui abritait un entrepôt de poudre à canon. Un jour, alors qu'ils repoussaient une attaque de nomades, le canon du Mur a mal tiré, et le boulet a explosé juste là et, par réaction en chaîne, l'entrepôt aussi. Personne des deux côtés n'a survécu. La forteresse a ensuite été reconstruite.
+got.wp.PINGJIANG=Pingjiang
 got.wp.PINKMAIDEN_CASTLE.info=Le château de la maison de Piper, les vassaux de Tully.
 got.wp.PINKMAIDEN_CASTLE=Château de Pinkmaiden
-got.wp.PINNU.info≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
-got.wp.PINNU≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
+got.wp.PINNU.info=L'emplacement de cette forteresse se trouvait autrefois dans les collines. Les ingénieurs impériaux et les maîtres de la monnaie ont décidé qu'il serait plus économique de creuser les collines et de construire une forteresse, plutôt que de construire une forteresse sur les collines. C'est finalement ce qu'ils ont fait.
+got.wp.PINNU=Pinnu
 got.wp.PLANKY_TOWN.info=Le plus grand port de Dorn, construit directement sur l'eau à partir de barges et de bateaux marchands attachés ensemble. Il y a aussi une forteresse pour protéger cette porte de Dorn.
 got.wp.PLANKY_TOWN=Planky Town
 got.wp.PLUMWOOD.info=Le château de la maison de Plumm, vassal du Lannister.
@@ -4031,16 +4031,16 @@ got.wp.RAMSGATE.info=Le château abrite les Woolfields, vassaux de Manderly.
 got.wp.RAMSGATE=Porte des béliers
 got.wp.RATHYLAR.info=Ville de Sarnor détruite par les Dothraki.
 got.wp.RATHYLAR=Rathylar
-got.wp.RAUMATI.info≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
-got.wp.RAUMATI≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
+got.wp.RAUMATI.info=Le sanctuaire ancestral de Sotorios, où est enterré son premier empereur. Le temple est si ancien que même les tribus locales n'ont pas de mythes sur sa fondation.
+got.wp.RAUMATI=Raumati
 got.wp.RAVENTREE_HALL.info=Le château familial de la maison Blackwood avec un énorme et mort chardree, vers lequel des centaines de corbeaux affluent pour passer la nuit tous les soirs - et ainsi pendant mille ans. On dit que les Blackwood viennent du Nord et ont régné sur presque toute la forêt des loups jusqu'à ce qu'ils soient chassés par les Starks.
 got.wp.RAVENTREE_HALL=Raventree Hall
 got.wp.REDFORT.info=Château de la Maison Redfort, vassaux de l'Arryn.
 got.wp.REDFORT=Fort Rouge
 got.wp.RED_FLOWER_VALE.info=Le centre de la province du même nom sur l'île du sud.
 got.wp.RED_FLOWER_VALE=Vallée des fleurs rouges
-got.wp.RED_FORESTS.info≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
-got.wp.RED_FORESTS≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
+got.wp.RED_FORESTS.info=Il y a plusieurs îles dans cette baie, sur lesquelles pousse un arbre très rare - le chêne rouge d'Ultos. Il est rare seulement parce qu'il ne pousse nulle part ailleurs dans le monde. Mais il y en a à foison ici.
+got.wp.RED_FORESTS=Red Forests
 got.wp.RED_HAVEN.info=Le plus grand port des Îles de Fer, situé sur Pike.
 got.wp.RED_HAVEN=Red Haven
 got.wp.RED_LAKE.info=Le château de la maison des Grues, vassaux des Tyrell.
@@ -4109,8 +4109,8 @@ got.wp.SHARP_POINT.info=Le château de la maison des Bar-Emmon, vassaux de Stann
 got.wp.SHARP_POINT=Pointe acérée
 got.wp.SHATTERSTONE.info=Une forteresse sur Old Vic, appartenant à l'une des plus jeunes branches des Goodbrothers.
 got.wp.SHATTERSTONE=Shatterstone
-got.wp.SHYLUUN_UUSU.info≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
-got.wp.SHYLUUN_UUSU≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
+got.wp.SHYLUUN_UUSU.info=Ville construite sur des collines. La plus grande d'entre elles s'appelle Anzudon, ou le Palais de l'Aigle.
+got.wp.SHYLUUN_UUSU=Shyluun Uusu
 got.wp.SILVERHILL.info=Le château de la maison des Serrettes, vassaux du Lannister.
 got.wp.SILVERHILL=Silverhill
 got.wp.SISTERTON.info=La ville principale des Trois Sœurs et le plus grand port de contrebande de Westeros, siège des Sunderlands.
@@ -4119,8 +4119,8 @@ got.wp.SI_QO.info=La Capeitale légendaire de l'Empire d'or Yi Ti sous la dynast
 got.wp.SI_QO=Si Qo
 got.wp.SKANE.info=De nos jours, seules les ruines des colonies rappellent les habitants de l'île. Selon la légende, dans les temps anciens, les Skagos, nés dans la pierre, ont violé et Capeturé toutes les femmes locales, et les hommes ont été tués et mangés lors d'un festin qui a duré deux semaines.
 got.wp.SKANE=Skane
-got.wp.SKIRLING_PASS.info≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
-got.wp.SKIRLING_PASS≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
+got.wp.SKIRLING_PASS.info=Sentier de montagne à travers les Frostfangs. C'est ici que les Sauvageons traversent les montagnes pour atteindre la Côte Froide.
+got.wp.SKIRLING_PASS=Skirling Pass
 got.wp.SKYREACH.info=Château de Fowler House. Ils se sont appelés rois, jusqu'à ce que Nymeria les soumette enfin, exilant le dernier roi enchaîné d'or au Mur.
 got.wp.SKYREACH=SkyReach
 got.wp.SMITHYTON.info=La ville de la maison Shermer, que Renly Baratheon a mentionnée parmi ceux dont il monterait les épées sur le trône.
@@ -4129,18 +4129,18 @@ got.wp.SNAKEWOOD.info=Château de la maison de Linderly, vassaux de l'Arryn.
 got.wp.SNAKEWOOD=Snakewood
 got.wp.SOUTHSHIELD.info=L'une des îles Shield, possession de Serri. Par la suite, Euron a cédé l'île à Andrik Neulyba.
 got.wp.SOUTHSHIELD=Southshield
-got.wp.SOUTH_POINT.info≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SOUTH_POINT≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SOUTH_TAIGA.info≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SOUTH_TAIGA≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SOUTH_ULTHOS.info≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
-got.wp.SOUTH_ULTHOS≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
+got.wp.SOUTH_POINT.info=C'est le point le plus au sud où naviguaient les navires Letniens. Néanmoins, ils n'y ont pas construit de port : c'est trop loin de leurs terres d'origine.
+got.wp.SOUTH_POINT=South Point
+got.wp.SOUTH_TAIGA.info=Ultos s'étend si loin au sud qu'il atteint les régions polaires du sud. Il y a toujours de la neige ici. Il y a assez d'animaux ici - peu survivent au gel permanent de l'année. Les plantes ici sont exclusivement des conifères.
+got.wp.SOUTH_TAIGA=South Taiga
+got.wp.SOUTH_ULTHOS.info=Clairement une partie distincte d'Ultos des marais et à l'extrême sud. Ici, le climat se rafraîchit, mais pas de manière critique.
+got.wp.SOUTH_ULTHOS=South Ulthos
 got.wp.SPARR_CASTLE.info=Le château de la maison des Sparres, vassaux des Greyjoys.
 got.wp.SPARR_CASTLE=Château Sparr
 got.wp.SPICETOWN.info=La ville portuaire détruite lors de la danse des dragons.
 got.wp.SPICETOWN=Spicetown
-got.wp.SPIDER.info≠Mysterious clearing in the far south of Ulthos.
-got.wp.SPIDER≠Mysterious clearing in the far south of Ulthos.
+got.wp.SPIDER.info=Une clairière mystérieuse dans l'extrême sud d'Ultos.
+got.wp.SPIDER=Clearing
 got.wp.SPOTTSWOOD.info=Le château de la maison des Santagars, vassaux des Martells.
 got.wp.SPOTTSWOOD=Spottswood
 got.wp.STANDFAST.info=Une tour abandonnée à l'Osgrey après la défaite de la rébellion Blackfire. La scène de l'histoire "The Sworn Sword".
@@ -4181,32 +4181,32 @@ got.wp.SUNHOUSE.info=Château de la maison Kew, vassaux du plus haut.
 got.wp.SUNHOUSE=Maison du soleil
 got.wp.SUNSPEAR.info=La maison ancestrale de la maison Martell est née d'un ancien château - l'Arche des Sables. Reconstruit à partir de briques d'adobe jaune-brun, comme la ville ombragée sur les murs du château.
 got.wp.SUNSPEAR=Lance-soleil
-got.wp.SUUDAN_KORKUU.info≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SUUDAN_KORKUU≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SUU_NYM.info≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
-got.wp.SUU_NYM≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
+got.wp.SUUDAN_KORKUU.info=Cette ancienne forteresse est inhabituelle en ce qu'elle est tout un complexe de bâtiments entouré d'un fossé sans mur. Des entrepôts d'armes, de nourriture et de médicaments ont été construits sur son territoire, ainsi que des ateliers et des écuries.
+got.wp.SUUDAN_KORKUU=Suudan Korkuu
+got.wp.SUU_NYM.info=Il y a une légende selon laquelle Iwashi, le nom d'Azor Ahaï, a vécu ici dans l'Antiquité. Selon la légende, après la guerre, il est venu ici pour créer de grands chants et des textes sacrés.
+got.wp.SUU_NYM=Suu Nym
 got.wp.SWEETPORT_SOUND.info=Château des Sanglass, juré à Peyredragon. On ne sait pas s'il est situé sur cette île ou ailleurs.
 got.wp.SWEETPORT_SOUND=Son Sweetport
 got.wp.SWEET_LOTUS_VALE.info=Le centre de la province du même nom sur l'île du sud et la première Capeitale de l'état uni des Îles d'Été, fondée par un ancien esclave - Xanda Ko.
 got.wp.SWEET_LOTUS_VALE=Sweet Lotus Vale
-got.wp.TAKUTAI.info≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
-got.wp.TAKUTAI≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
+got.wp.TAKUTAI.info=Le fort sur la côte où a vécu le légendaire Ulysse, noyé dans une tempête après un long voyage. C'est un endroit très beau.
+got.wp.TAKUTAI=Takutai
 got.wp.TALL_TREES_TOWN.info=Une ville ensoleillée où les prêtresses sculptent l'histoire, les traditions et les lois des gens d'été sur les arbres parlants.
 got.wp.TALL_TREES_TOWN=Ville aux grands arbres
 got.wp.TARBECK_HALL.info=Le château de la maison de Tarbek, qui, avec les Rênes, a sous-estimé le caractère du jeune Tywin et est devenu les protagonistes de la célèbre chanson "Reyna from Kastamere"
 got.wp.TARBECK_HALL=Salle Tarbeck
-got.wp.TASHTOO.info≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
-got.wp.TASHTOO≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
-got.wp.TAURANGA.info≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
-got.wp.TAURANGA≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
+got.wp.TASHTOO.info=L'ancien port de mer où accostaient les navires d'Ibben. Le village où vivaient les ouvriers du chantier naval est devenu une ville où les navires se tiennent dans le port.
+got.wp.TASHTOO=Tashtoo
+got.wp.TAURANGA.info=Tous les navigateurs des Îles d'Été visitent cet endroit, car les parents de Tana y ont trouvé refuge autrefois. Elle était la chef d'une tribu très riche, et a donné de l'or à ses sauveteurs.
+got.wp.TAURANGA=Tauranga
 got.wp.TAWNEY_CASTLE.info=Le château de la maison de Townie, vassaux des Greyjoys.
 got.wp.TAWNEY_CASTLE=Château de Tawney
 got.wp.TELYRIA.info=Porte maritime de Valyria.
 got.wp.TELYRIA=Telyria
 got.wp.TEN_TOWERS.info=Le château le plus récent des Îles de Fer appartient à l'ancienne branche de Harlow. Il a été construit parce qu'un Lord Harlow avait souvent froid et des enfants morts, alors il a commencé à craindre de ne pas laisser d'héritiers.
 got.wp.TEN_TOWERS=Dix tours
-got.wp.TERIMAN.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
-got.wp.TERIMAN≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
+got.wp.TERIMAN.info=L'une des trois colonies de Qarth actuellement habitées à Sotorios. Elle est située plus loin que toutes les autres. Elle est connue pour le fait que les criminels particulièrement dangereux y sont exilés.
+got.wp.TERIMAN=Teriman
 got.wp.THE_EYRIE.info=Château ancestral de la maison Arryn, seigneurs de la vallée. Construit au sommet de la plus haute montagne des montagnes de la Lune, la Lance du Géant, il est presque imprenable, mais devient inhabitable en hiver. C'est bien que vous n'ayez pas grand-chose à combattre à Westeros en hiver.
 got.wp.THE_EYRIE=L'Eyrie
 got.wp.THE_LONG_BARROW.info=Le château vide de Night's Watch, où Mance a traversé le mur pour assister à une fête à Winterfell en l'honneur de l'arrivée du roi Robert. Plus tard, le 998th Lord Commander de the Night's Watch a confié le commandement du château à Iron Emmett et Sorrowful Edd, et les lanciers du peuple libre s'y sont installés, ce qui a donné au château son deuxième nom - Shlyukhina Hole.
@@ -4333,8 +4333,8 @@ got.wp.WHITEWALLS.info=Domaine ancestral des Butterwells. Le riche et grand châ
 got.wp.WHITEWALLS=Murs blancs
 got.wp.WHITE_HARBOUR.info=L'une des cinq plus grandes villes de Westeros et le port le plus important du Nord. La ville est construite autour de l'ancienne forteresse de Wolf's Lair, qui a changé de propriétaires à plusieurs reprises jusqu'à ce que les Starks donnent ces terres aux exilés de Manderly Expanse. Les nouveaux arrivants ont construit pour eux-mêmes un nouveau château aux murs blancs à l'extérieur des murs de la ville.
 got.wp.WHITE_HARBOUR=White Harbour
-got.wp.WHITE_MOUNTAINS.info≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
-got.wp.WHITE_MOUNTAINS≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
+got.wp.WHITE_MOUNTAINS.info=Ces montagnes sont principalement constituées de diorite. La belle pierre blanche y est très répandue, et nulle part ailleurs dans le monde on n'en trouve une telle quantité.
+got.wp.WHITE_MOUNTAINS=White Mountains
 got.wp.WICKENDEN.info=Château de la maison Waxley, vassaux de la maison Corbreuil.
 got.wp.WICKENDEN=Wickenden
 got.wp.WIDOWS_WATCH.info=Le château ancestral de l'une des branches de la Maison de Flint, vassaux des Starks.
@@ -4345,10 +4345,10 @@ got.wp.WITCH_ISLE.info=Le château de la maison des Upcliffs, vassaux de l'Arryn
 got.wp.WITCH_ISLE=Île aux sorcières
 got.wp.WOODSWATCH.info=Le château vide de Night's Watch.
 got.wp.WOODSWATCH=Woodswatch
-got.wp.WUDE.info≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.WUDE≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.WUSHENG.info≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
-got.wp.WUSHENG≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
+got.wp.WUDE.info=La plus mystérieuse des forteresses du Grand Mur de Yi Ti : son nom est un mot de la langue des Jogos Nhai, signifiant "midi".
+got.wp.WUDE=Wude
+got.wp.WUSHENG.info=L'une des forteresses du Grand Mur de Yi Ti. On dit qu'elle a été nommée d'après un frontier-man ittite qui a étudié à Asshai et est devenu un maître de l'ombre.
+got.wp.WUSHENG=Wusheng
 got.wp.WYL.info=Le château de la maison de Ville. Quelque part ici, le légendaire Dragon Knight était assis nu dans une cage, attendant que son cousin, Baylor le Bienheureux, marche pieds nus vers les Martell et les convainque de faire la paix. Et même plus tôt, un autre Vil a coupé Orisa Baratheon, le fondateur du clan, sa main droite, pour laquelLe fils de ce Vil a ensuite, à son tour, perdu ses bras et ses jambes, et sa tête en plus.
 got.wp.WYL=Wyl
 got.wp.WYNDHALL.info=Le château de la maison d'Estrens, vassaux du Lannister.
@@ -4371,17 +4371,17 @@ got.wp.ZABHAD.info=Ville sur l'île des éléphants. Le souverain suprême du Sh
 got.wp.ZABHAD=Zabhad
 got.wp.ZAMETTAR.info=L'une des colonies de Giscard, Capeturée plus tard par Valyria. Comme toutes les colonies de Sotorios, Zamettar s'est décomposé et abandonné: les Valyriens ont quitté la ville, les Rhoynar ont fui après les horreurs de Yin.
 got.wp.ZAMETTAR=Zamettar
-got.wp.ZHENGUO.info≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
-got.wp.ZHENGUO≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
+got.wp.ZHENGUO.info=La principale forteresse du Grand Mur de Yi Ti. Selon la légende, c'est à partir de cette forteresse que la construction du mur a commencé.
+got.wp.ZHENGUO=Zhenguo
 got.wp.custom.andMore=Et %d de plus
 got.wp.custom.info=Est le waypoint de la fraternité "%d"
 got.wp.custom=%s
 got.wp.shared.info=Disponible pour %s
 got.wp.shared=%s
-item.got.antiking≠Kills Night King
-item.got.antimonster≠Kills undead
-item.got.antiwalker≠Kills white walkers
-item.got.antiwight≠Kills wights
+item.got.antiking=Tue le Roi de la Nuit
+item.got.antimonster=Tue les morts-vivants
+item.got.antiwalker=Tue les marcheurs blancs
+item.got.antiwight=Tue les rôdeurs
 item.got.banner.protect=Porte des données de protection
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=%s sans nom
@@ -4482,87 +4482,87 @@ item.got:baelish_dagger.name=Dague de Petyr Baelish
 item.got:banana.name=Banane
 item.got:banana_bread.name=Pain à la banane
 item.got:banana_cake.name=Gâteau à la banane
-item.got:bane.name≠Bane
-item.got:banner.aemon.name≠Banner of Aemon Targaryen
-item.got:banner.aemonBook.name≠Banner of Aemon Targaryen (Book)
-item.got:banner.aemonrivers.name≠Banner of Aemon Rivers
-item.got:banner.aerion.name=Bannière d'Aerion
-item.got:banner.aerionBook.name≠Banner of Aerion Targaryen (Book)
-item.got:banner.algood.name≠Banner of Algood
-item.got:banner.allyrion.name=Bannière d'Allyrion
-item.got:banner.alqalis.name=Bannière d'Alqualis
-item.got:banner.ambrose.name=Bannière d'Ambrose
-item.got:banner.amorylorch.name≠Banner of Amory Lorch
-item.got:banner.andal.name=Bannière d'Andal
-item.got:banner.appleton.name=Bannière d'Appleton
-item.got:banner.arlan.name≠Banner of Arlan
-item.got:banner.arryn.name=Bannière d'Arryn
-item.got:banner.arrynBook.name≠Banner of Arryn (Book)
-item.got:banner.arrynGT.name=Bannière d'Arryn de Moon Gate
-item.got:banner.ashford.name=Bannière d'Ashford
-item.got:banner.ashwood.name≠Banner of Ashwood
-item.got:banner.asshai.name≠Banner of Asshai
-item.got:banner.astapor.name=Bannière d'Astapor
-item.got:banner.auranewaters.name≠Banner of Aurane Waters
+item.got:bane.name=Fléau
+item.got:banner.aemon.name=Bannière de Aemon Targaryen
+item.got:banner.aemonBook.name=Bannière de Aemon Targaryen (Book)
+item.got:banner.aemonrivers.name=Bannière de Aemon Rivers
+item.got:banner.aerion.name=Bannière de Aerion
+item.got:banner.aerionBook.name=Bannière de Aerion Targaryen (Book)
+item.got:banner.algood.name=Bannière de Algood
+item.got:banner.allyrion.name=Bannière de Allyrion
+item.got:banner.alqalis.name=Bannière de Alqualis
+item.got:banner.ambrose.name=Bannière de Ambrose
+item.got:banner.amorylorch.name=Bannière de Amory Lorch
+item.got:banner.andal.name=Bannière de Andal
+item.got:banner.appleton.name=Bannière de Appleton
+item.got:banner.arlan.name=Bannière de Arlan
+item.got:banner.arryn.name=Bannière de Arryn
+item.got:banner.arrynBook.name=Bannière de Arryn (Book)
+item.got:banner.arrynGT.name=Bannière de Arryn of Moon Gate
+item.got:banner.ashford.name=Bannière de Ashford
+item.got:banner.ashwood.name=Bannière de Ashwood
+item.got:banner.asshai.name=Bannière de Asshai
+item.got:banner.astapor.name=Bannière de Astapor
+item.got:banner.auranewaters.name=Bannière de Aurane Waters
 item.got:banner.baelish.name=Bannière de Baelish
-item.got:banner.baelishBook.name=Bannière de Baelish (livre)
-item.got:banner.baelishold.name=Bannière de Baelish (ancienne)
-item.got:banner.ball.name=Bannière de balle
+item.got:banner.baelishBook.name=Bannière de Baelish(book)
+item.got:banner.baelishold.name=Bannière de Baelish(old)
+item.got:banner.ball.name=Bannière de Ball
 item.got:banner.banefort.name=Bannière de Banefort
-item.got:banner.banefortBook.name≠Banner of Banefort (Book)
-item.got:banner.barbrey.name≠Banner of Barbrey Dustin
+item.got:banner.banefortBook.name=Bannière de Banefort (Book)
+item.got:banner.barbrey.name=Bannière de Barbrey Dustin
 item.got:banner.baremmon.name=Bannière de Baremoon
 item.got:banner.beesbury.name=Bannière de Beesbury
 item.got:banner.belaerys.name=Bannière de Belaerys
 item.got:banner.belmore.name=Bannière de Belmore
-item.got:banner.benfrey.name≠Banner of Ben Frey
-item.got:banner.bennis.name≠Banner of Bennis
+item.got:banner.benfrey.name=Bannière de Ben Frey
+item.got:banner.bennis.name=Bannière de Bennis
 item.got:banner.bettley.name=Bannière de Bettley
-item.got:banner.bigwalder.name≠Banner of Big Walder
+item.got:banner.bigwalder.name=Bannière de Big Walder
 item.got:banner.bittersteel.name=Bannière de Bittersteel
 item.got:banner.blackbar.name=Bannière de Blackbar
 item.got:banner.blackfish.name=Bannière de Blackfish
-item.got:banner.blackfishBook.name=Bannière de Blackfish (Livre)
+item.got:banner.blackfishBook.name=Bannière de Blackfish (Book)
 item.got:banner.blackfyre.name=Bannière de Blackfyre
-item.got:banner.blackfyreBook.name≠Banner of Blackfyre (Book)
+item.got:banner.blackfyreBook.name=Bannière de Blackfyre (Book)
 item.got:banner.blackmont.name=Bannière de Blackmont
-item.got:banner.blacks.name=Bannière des noirs
-item.got:banner.blacksBook.name≠Banner of Blacks (Book)
+item.got:banner.blacks.name=Bannière de Blacks
+item.got:banner.blacksBook.name=Bannière de Blacks (Book)
 item.got:banner.blacktyde.name=Bannière de Blacktyde
 item.got:banner.blackwood.name=Bannière de Blackwood
-item.got:banner.blackwoodBook.name≠Banner of Blackwoods (Book)
-item.got:banner.blanetree.name≠Banner of Blanetree
+item.got:banner.blackwoodBook.name=Bannière de Blackwoods (Book)
+item.got:banner.blanetree.name=Bannière de Blanetree
 item.got:banner.bloodraven.name=Bannière de Bloodraven
-item.got:banner.bloodravenBook.name≠Banner of Bloodraven (Book)
+item.got:banner.bloodravenBook.name=Bannière de Bloodraven (Book)
 item.got:banner.blount.name=Bannière de Blount
-item.got:banner.boggs.name≠Banner of Boggs
-item.got:banner.bole.name≠Banner of Bole
+item.got:banner.boggs.name=Bannière de Boggs
+item.got:banner.bole.name=Bannière de Bole
 item.got:banner.bolling.name=Bannière de Bolling
 item.got:banner.bolton.name=Bannière de Bolton
-item.got:banner.boltonbook.name=Bannière de Bolton (Livre)
+item.got:banner.boltonbook.name=Bannière de Bolton(Book)
 item.got:banner.borrell.name=Bannière de Borrell
 item.got:banner.botley.name=Bannière de Botley
 item.got:banner.braavos.name=Bannière de Braavos
 item.got:banner.bracken.name=Bannière de Bracken
-item.got:banner.brackenBook.name≠Banner of Bracken (Book)
-item.got:banner.branch.name≠Banner of Branch
-item.got:banner.branfield.name≠Banner of Branfield
-item.got:banner.bravecompanions.name=Bannière de braves compagnons
+item.got:banner.brackenBook.name=Bannière de Bracken (Book)
+item.got:banner.branch.name=Bannière de Branch
+item.got:banner.branfield.name=Bannière de Branfield
+item.got:banner.bravecompanions.name=Bannière de Brave Compasions
 item.got:banner.brax.name=Bannière de Brax
 item.got:banner.breakstone.name=Bannière de Breakstone
-item.got:banner.bridges.name≠Banner of Bridges
-item.got:banner.brightstone.name≠Banner of Brightstone
+item.got:banner.bridges.name=Bannière de Bridges
+item.got:banner.brightstone.name=Bannière de Brightstone
 item.got:banner.bronn.name=Bannière de Bronn
-item.got:banner.bronnBook.name=Bannière de Bronn (Livre)
-item.got:banner.broom.name=Bannière de balai
-item.got:banner.brotherhood.name=Bannière de la fraternité
-item.got:banner.bruneB.name=Bannière de Brune de Brownhollow
-item.got:banner.bruneDD.name=Bannière de Brune de the Dyre Den
+item.got:banner.bronnBook.name=Bannière de Bronn (Book)
+item.got:banner.broom.name=Bannière de Broom
+item.got:banner.brotherhood.name=Bannière de Brotherhood
+item.got:banner.bruneB.name=Bannière de Brune of Brownhollow
+item.got:banner.bruneDD.name=Bannière de Brune of the Dyre Den
 item.got:banner.buckler.name=Bannière de Buckler
 item.got:banner.buckwell.name=Bannière de Buckwell
 item.got:banner.bullwer.name=Bannière de Bullwer
 item.got:banner.burley.name=Bannière de Burley
-item.got:banner.bushy.name≠Banner of Bushy
+item.got:banner.bushy.name=Bannière de Bushy
 item.got:banner.butterwell.name=Bannière de Butterwell
 item.got:banner.byrch.name=Bannière de Byrch
 item.got:banner.bywater.name=Bannière de Bywater
@@ -4572,7 +4572,7 @@ item.got:banner.caron.name=Bannière de Caron
 item.got:banner.cassel.name=Bannière de Cassel
 item.got:banner.casterly.name=Bannière de Casterly
 item.got:banner.caswell.name=Bannière de Caswell
-item.got:banner.cave.name≠Banner of Cave
+item.got:banner.cave.name=Bannière de Cave
 item.got:banner.celtigar.name=Bannière de Celtigar
 item.got:banner.cerwyn.name=Bannière de Cerwyn
 item.got:banner.charlton.name=Bannière de Charlton
@@ -4580,8 +4580,8 @@ item.got:banner.chelsted.name=Bannière de Chelsted
 item.got:banner.chester.name=Bannière de Chester
 item.got:banner.chyttering.name=Bannière de Chyttering
 item.got:banner.clegane.name=Bannière de Clegane
-item.got:banner.cleos.name≠Banner of Cleos Frey
-item.got:banner.clifton.name≠Banner of Clifton
+item.got:banner.cleos.name=Bannière de Cleos Frey
+item.got:banner.clifton.name=Bannière de Clifton
 item.got:banner.cockshaw.name=Bannière de Cockshaw
 item.got:banner.codd.name=Bannière de Codd
 item.got:banner.coldwater.name=Bannière de Coldwater
@@ -4589,92 +4589,92 @@ item.got:banner.cole.name=Bannière de Cole
 item.got:banner.condon.name=Bannière de Condon
 item.got:banner.connington.name=Bannière de Connington
 item.got:banner.corbray.name=Bannière de Corbray
-item.got:banner.corbrayBook.name≠Banner of Corbray (Book)
+item.got:banner.corbrayBook.name=Bannière de Corbray (Book)
 item.got:banner.cordwayner.name=Bannière de Cordwayner
 item.got:banner.costayne.name=Bannière de Costayne
 item.got:banner.cox.name=Bannière de Cox
-item.got:banner.crabb.name≠Banner of Crabb
+item.got:banner.crabb.name=Bannière de Crabb
 item.got:banner.crakehall.name=Bannière de Crakehall
-item.got:banner.crane.name=Bannière de grue
-item.got:banner.creighton.name≠Banner of Creighton
-item.got:banner.cressey.name≠Banner of Cressey
+item.got:banner.crane.name=Bannière de Crane
+item.got:banner.creighton.name=Bannière de Creighton
+item.got:banner.cressey.name=Bannière de Cressey
 item.got:banner.crowl.name=Bannière de Crowl
 item.got:banner.cuy.name=Bannière de Cuy
-item.got:banner.daemon.name≠Banner of Daemon Blackfyre
-item.got:banner.daeron.name≠Banner of Daeron Targaryen
-item.got:banner.daeronBook.name≠Banner of Daeron Targaryen (Book)
+item.got:banner.daemon.name=Bannière de Daemon Blackfyre
+item.got:banner.daeron.name=Bannière de Daeron Targaryen
+item.got:banner.daeronBook.name=Bannière de Daeron Targaryen (Book)
 item.got:banner.dalt.name=Bannière de Dalt
 item.got:banner.dalton.name=Bannière de Dalton
-item.got:banner.dargood.name≠Banner of Dargood
-item.got:banner.darke.name≠Banner of Darke
+item.got:banner.dargood.name=Bannière de Dargood
+item.got:banner.darke.name=Bannière de Darke
 item.got:banner.darklyn.name=Bannière de Darklyn
-item.got:banner.darkwood.name≠Banner of Darkwood
+item.got:banner.darkwood.name=Bannière de Darkwood
 item.got:banner.darry.name=Bannière de Darry
 item.got:banner.dayne.name=Bannière de Dayne
-item.got:banner.dayneHH.name=Bannière de Dayne de High Hermitage
-item.got:banner.degore.name≠Banner of Degore
-item.got:banner.derrickfossoway.name≠Banner of Derrick Fossoway
-item.got:banner.doggett.name≠Banner of Doggett
+item.got:banner.dayneHH.name=Bannière de Dayne of High Hermitage
+item.got:banner.degore.name=Bannière de Degore
+item.got:banner.derrickfossoway.name=Bannière de Derrick Fossoway
+item.got:banner.doggett.name=Bannière de Doggett
 item.got:banner.dondarrion.name=Bannière de Dondarrion
-item.got:banner.dondarrionBook.name≠Banner of Dondarrion (Book)
+item.got:banner.dondarrionBook.name=Bannière de Dondarrion (Book)
 item.got:banner.donniger.name=Bannière de Donniger
 item.got:banner.dormund.name=Bannière de Dormund
-item.got:banner.drinkwater.name≠Banner of Drinkwater
-item.got:banner.drox.name≠Banner of Drox
-item.got:banner.drumm.name=Bannière de tambour
-item.got:banner.dryland.name≠Banner of Dryland
+item.got:banner.drinkwater.name=Bannière de Drinkwater
+item.got:banner.drox.name=Bannière de Drox
+item.got:banner.drumm.name=Bannière de Drumm
+item.got:banner.dryland.name=Bannière de Dryland
 item.got:banner.duncan.name=Bannière de Duncan
-item.got:banner.dunn.name≠Banner of Dunn
-item.got:banner.durrandon.name≠Banner of Durrandon
-item.got:banner.durwell.name≠Banner of Durwell
+item.got:banner.dunn.name=Bannière de Dunn
+item.got:banner.durrandon.name=Bannière de Durrandon
+item.got:banner.durwell.name=Bannière de Durwell
 item.got:banner.dustin.name=Bannière de Dustin
-item.got:banner.eddard.name=Bannière d'Eddard Stark
-item.got:banner.edricstorm.name≠Banner of Edric Storm
-item.got:banner.egen.name=Bannière d'Egen
-item.got:banner.elephants.name=Bannière d'éléphants
-item.got:banner.elesham.name=Bannière d'Elesham
-item.got:banner.erenford.name=Bannière d'Erenford
-item.got:banner.errol.name=Bannière d'Errol
-item.got:banner.estermont.name=Bannière d'Estermont
-item.got:banner.estren.name=Bannière d'Estren
-item.got:banner.euron.name=Bannière d'Euron
-item.got:banner.euronBook.name=Bannière d'Euron (Livre)
-item.got:banner.faceless.name=Bannière de sans visage
+item.got:banner.eddard.name=Bannière de Eddard Stark
+item.got:banner.edricstorm.name=Bannière de Edric Storm
+item.got:banner.egen.name=Bannière de Egen
+item.got:banner.elephants.name=Bannière de Elephants
+item.got:banner.elesham.name=Bannière de Elesham
+item.got:banner.erenford.name=Bannière de Erenford
+item.got:banner.errol.name=Bannière de Errol
+item.got:banner.estermont.name=Bannière de Estermont
+item.got:banner.estren.name=Bannière de Estren
+item.got:banner.euron.name=Bannière de Euron
+item.got:banner.euronBook.name=Bannière de Euron (Book)
+item.got:banner.faceless.name=Bannière de Faceless
 item.got:banner.falwell.name=Bannière de Falwell
 item.got:banner.farman.name=Bannière de Farman
 item.got:banner.farring.name=Bannière de Farring
 item.got:banner.farwynd.name=Bannière de Farwynd
-item.got:banner.farwyndLL.name≠Banner of Farwynd of the Lonely Light
+item.got:banner.farwyndLL.name=Bannière de Farwynd of the Lonely Light
 item.got:banner.fell.name=Bannière de Fell
 item.got:banner.fenn.name=Bannière de Fenn
-item.got:banner.ferren.name≠Banner of Ferren
-item.got:banner.fireball.name=Bannière de boule de feu
+item.got:banner.ferren.name=Bannière de Ferren
+item.got:banner.fireball.name=Bannière de Fireball
 item.got:banner.firstFlint.name=Bannière de
-item.got:banner.firstmen.name≠Banner of First Men
+item.got:banner.firstmen.name=Bannière de First Men
 item.got:banner.fisher.name=Bannière de Fisher
-item.got:banner.fisherSS.name≠Banner of Stone Coast Fishers
-item.got:banner.flintBH.name≠Banner of Stone Hill Flints
-item.got:banner.flintFF.name=Bannière de Flint de Flint's Finger
-item.got:banner.flintWW.name=Bannière de Flint de Widow's Watch
+item.got:banner.fisherSS.name=Bannière de Stone Coast Fishers
+item.got:banner.flintBH.name=Bannière de Stone Hill Flints
+item.got:banner.flintFF.name=Bannière de Flint of Flint's Finger
+item.got:banner.flintWW.name=Bannière de Flint of Widow's Watch
 item.got:banner.florent.name=Bannière de Florent
-item.got:banner.florentBook.name≠Banner of Florent (Book)
+item.got:banner.florentBook.name=Bannière de Florent (Book)
 item.got:banner.follard.name=Bannière de Follard
 item.got:banner.foote.name=Bannière de Foote
-item.got:banner.footeN.name≠Banner of Foote from Nightsong
+item.got:banner.footeN.name=Bannière de Foote from Nightsong
 item.got:banner.footly.name=Bannière de Footly
 item.got:banner.forrester.name=Bannière de Forrester
-item.got:banner.forresterBook.name≠Banner of Forrester (Book)
-item.got:banner.fossowayCH.name=Bannière de Fossoway de Cider Hall
-item.got:banner.fossowayNB.name=Bannière de Fossoway de New Barrel
+item.got:banner.forresterBook.name=Bannière de Forrester (Book)
+item.got:banner.fossowayCH.name=Bannière de Fossoway of Cider Hall
+item.got:banner.fossowayNB.name=Bannière de Fossoway of New Barrel
 item.got:banner.fowler.name=Bannière de Fowler
-item.got:banner.fowlerBook.name≠Banner of Fowler (Book)
+item.got:banner.fowlerBook.name=Bannière de Fowler (Book)
 item.got:banner.frey.name=Bannière de Frey
-item.got:banner.freyBook.name=Bannière de Frey (livre)
-item.got:banner.freyriverrun.name≠Banner of Frey of Riverrun
-item.got:banner.frost.name≠Banner of Frost
-item.got:banner.galtry.name≠Banner of Galtry
-item.got:banner.gardener.name=Bannière de jardinier
-item.got:banner.gardenerBook.name≠Banner of Gardener (Book)
+item.got:banner.freyBook.name=Bannière de Frey(book)
+item.got:banner.freyriverrun.name=Bannière de Frey of Riverrun
+item.got:banner.frost.name=Bannière de Frost
+item.got:banner.galtry.name=Bannière de Galtry
+item.got:banner.gardener.name=Bannière de Gardener
+item.got:banner.gardenerBook.name=Bannière de Gardener (Book)
 item.got:banner.gargalen.name=Bannière de Gargalen
 item.got:banner.gaunt.name=Bannière de Gaunt
 item.got:banner.ghiscar.name=Bannière de Ghiscar
@@ -4683,144 +4683,144 @@ item.got:banner.glover.name=Bannière de Glover
 item.got:banner.golden_company.name=Bannière de Golden Company
 item.got:banner.goodbrook.name=Bannière de Goodbrook
 item.got:banner.goodbrother.name=Bannière de Goodbrother
-item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
-item.got:banner.goodbrotherCSK.name≠Banner of Crowspire Goodbrother
-item.got:banner.goodbrotherD.name≠Banner of Goodbrother of the Rift
-item.got:banner.goodbrotherO.name≠Banner of Orkmont Goodbrother
-item.got:banner.goodbrotherS.name≠Banner of Stonebreaker Goodbrother
-item.got:banner.gormondgoodbrother.name≠Banner of Hormond Goodbrother
+item.got:banner.goodbrotherCL.name=Bannière de Dead Lake Goodbrother
+item.got:banner.goodbrotherCSK.name=Bannière de Crowspire Goodbrother
+item.got:banner.goodbrotherD.name=Bannière de Goodbrother of the Rift
+item.got:banner.goodbrotherO.name=Bannière de Orkmont Goodbrother
+item.got:banner.goodbrotherS.name=Bannière de Stonebreaker Goodbrother
+item.got:banner.gormondgoodbrother.name=Bannière de Hormond Goodbrother
 item.got:banner.gower.name=Bannière de Gower
 item.got:banner.graceford.name=Bannière de Graceford
 item.got:banner.grafton.name=Bannière de Grafton
 item.got:banner.grandison.name=Bannière de Grandison
-item.got:banner.grangoodbrother.name≠Banner of Grangood Goodbrother
+item.got:banner.grangoodbrother.name=Bannière de Grangood Goodbrother
 item.got:banner.greenfield.name=Bannière de Greenfielf
-item.got:banner.greens.name=Bannière des verts
-item.got:banner.greensBook.name≠Banner of Greens (Book)
+item.got:banner.greens.name=Bannière de Greens
+item.got:banner.greensBook.name=Bannière de Greens (Book)
 item.got:banner.grell.name=Bannière de Grell
 item.got:banner.greyiron.name=Bannière de Greyiron
 item.got:banner.greyjoy.name=Bannière de Greyjoy
-item.got:banner.greyjoyBook.name≠Banner of Greyjoy (Book)
+item.got:banner.greyjoyBook.name=Bannière de Greyjoy (Book)
 item.got:banner.greystark.name=Bannière de Greystark
 item.got:banner.grimm.name=Bannière de Grimm
 item.got:banner.haigh.name=Bannière de Haigh
-item.got:banner.hand.name=Bannière de main
+item.got:banner.hand.name=Bannière de Hand
 item.got:banner.harclay.name=Bannière de Harclay
-item.got:banner.hardy.name≠Banner of Hardy
+item.got:banner.hardy.name=Bannière de Hardy
 item.got:banner.hardyng.name=Bannière de Hardyng
 item.got:banner.harlaw.name=Bannière de Harlaw
 item.got:banner.harlawGG.name=Bannière de Harlaw Grey Garden
-item.got:banner.harlawHH.name=Bannière de Harlaw de Harridan Hill
-item.got:banner.harlawHall.name=Bannière de Hawlaw de Harlaw Hall
-item.got:banner.harlawTG.name=Bannière de Harlaw Tower de Glimmering
+item.got:banner.harlawHH.name=Bannière de Harlaw of Harridan Hill
+item.got:banner.harlawHall.name=Bannière de Hawlaw of Harlaw Hall
+item.got:banner.harlawTG.name=Bannière de Harlaw Tower of Glimmering
 item.got:banner.harlton.name=Bannière de Harlton
-item.got:banner.harroldhardyng.name≠Banner of Harrold Hardyng
+item.got:banner.harroldhardyng.name=Bannière de Harrold Hardyng
 item.got:banner.harroway.name=Bannière de Harroway
 item.got:banner.harte.name=Bannière de Harte
-item.got:banner.hastwyck.name≠Banner of Hastwyck
+item.got:banner.hastwyck.name=Bannière de Hastwyck
 item.got:banner.hasty.name=Bannière de Hasty
-item.got:banner.hawick.name≠Banner of Hawick
-item.got:banner.hawthorne.name≠Banner of Hawthorne
+item.got:banner.hawick.name=Bannière de Hawick
+item.got:banner.hawthorne.name=Bannière de Hawthorne
 item.got:banner.hayford.name=Bannière de Hayford
 item.got:banner.heddle.name=Bannière de Heddle
-item.got:banner.herston.name≠Banner of Herston
+item.got:banner.herston.name=Bannière de Herston
 item.got:banner.hersy.name=Bannière de Hersy
-item.got:banner.hetherspoon.name=Bannière d'Hetherspoon
+item.got:banner.hetherspoon.name=Bannière de Hetherspoon
 item.got:banner.hewett.name=Bannière de Hewett
 item.got:banner.hightower.name=Bannière de Hightower
-item.got:banner.hightowerBook.name≠Banner of Hightower (Book)
+item.got:banner.hightowerBook.name=Bannière de Hightower (Book)
 item.got:banner.hillmen.name=Bannière de Hillmen
 item.got:banner.hoare.name=Bannière de Hoare
-item.got:banner.hogg.name≠Banner of Hogg
+item.got:banner.hogg.name=Bannière de Hogg
 item.got:banner.hollard.name=Bannière de Hollard
 item.got:banner.hornwood.name=Bannière de Hornwood
-item.got:banner.hornwoodBook.name≠Banner of Hornwood (Book)
+item.got:banner.hornwoodBook.name=Bannière de Hornwood (Book)
 item.got:banner.horpe.name=Bannière de Horpe
-item.got:banner.hugh.name≠Banner of Hugh
-item.got:banner.hunt.name=Bannière de chasse
-item.got:banner.hunter.name=Bannière de chasseur
-item.got:banner.hutcheson.name≠Banner of Hutcheson
-item.got:banner.ibben.name=Bannière d'Ibben
-item.got:banner.illifer.name≠Banner of Illifer
-item.got:banner.inchfield.name=Bannière d'Inchfield
-item.got:banner.iron_bank.name=Bannière d'iron_bank
-item.got:banner.ironmaker.name≠Banner of Ironmakers
-item.got:banner.ironsmith.name≠Banner of Ironsmith
-item.got:banner.jaremymallister.name≠Banner of Jaremy Mallister
+item.got:banner.hugh.name=Bannière de Hugh
+item.got:banner.hunt.name=Bannière de Hunt
+item.got:banner.hunter.name=Bannière de Hunter
+item.got:banner.hutcheson.name=Bannière de Hutcheson
+item.got:banner.ibben.name=Bannière de Ibben
+item.got:banner.illifer.name=Bannière de Illifer
+item.got:banner.inchfield.name=Bannière de Inchfield
+item.got:banner.iron_bank.name=Bannière de iron_bank
+item.got:banner.ironmaker.name=Bannière de Ironmakers
+item.got:banner.ironsmith.name=Bannière de Ironsmith
+item.got:banner.jaremymallister.name=Bannière de Jaremy Mallister
 item.got:banner.jast.name=Bannière de Jast
 item.got:banner.joffrey.name=Bannière de Joffrey
-item.got:banner.jogos.name≠Banner of Jogos Nhai
-item.got:banner.jonconnington.name≠Banner of Jon Connington
-item.got:banner.jonking.name≠Banner of Jon Snow (King)
-item.got:banner.jonsnow.name≠Banner of Jon Snow
+item.got:banner.jogos.name=Bannière de Jogos Nhai
+item.got:banner.jonconnington.name=Bannière de Jon Connington
+item.got:banner.jonking.name=Bannière de Jon Snow (King)
+item.got:banner.jonsnow.name=Bannière de Jon Snow
 item.got:banner.jordayne.name=Bannière de Jordayne
 item.got:banner.justman.name=Bannière de Justman
 item.got:banner.karstark.name=Bannière de Karstark
-item.got:banner.karstarkBook.name≠Banner of Karstark (Book)
-item.got:banner.kellington.name≠Banner of Kellington
-item.got:banner.kenningH.name=Bannière de Kenning de Harlaw
+item.got:banner.karstarkBook.name=Bannière de Karstark (Book)
+item.got:banner.kellington.name=Bannière de Kellington
+item.got:banner.kenningH.name=Bannière de Kenning of Harlaw
 item.got:banner.kenningK.name=Bannière de Kenning Kayce
 item.got:banner.kettleblack.name=Bannière de Kettleblack
 item.got:banner.kidwell.name=Bannière de Kidwell
 item.got:banner.kingsguard.name=Bannière de Kingsquard
 item.got:banner.knott.name=Bannière de Knott
-item.got:banner.kyndall.name≠Banner of Kindall
-item.got:banner.ladybright.name≠Banner of Ladybright
-item.got:banner.lake.name≠Banner of Lake
-item.got:banner.langward.name≠Banner of Langward
-item.got:banner.lannett.name≠Banner of Lannett
+item.got:banner.kyndall.name=Bannière de Kindall
+item.got:banner.ladybright.name=Bannière de Ladybright
+item.got:banner.lake.name=Bannière de Lake
+item.got:banner.langward.name=Bannière de Langward
+item.got:banner.lannett.name=Bannière de Lannett
 item.got:banner.lannisport.name=Bannière de Lannisport
 item.got:banner.lannister.name=Bannière de Lannister
-item.got:banner.lannisterB.name=Bannière de Lannister (livre)
-item.got:banner.lannisterBook.name≠Banner of Lannister (Book)
-item.got:banner.lannisterC.name≠Banner of Lannister
-item.got:banner.lannisterD.name=Bannière de Lannister de Darry
+item.got:banner.lannisterB.name=Bannière de Lannister(book)
+item.got:banner.lannisterBook.name=Bannière de Lannister (Book)
+item.got:banner.lannisterC.name=Bannière de Lannister
+item.got:banner.lannisterD.name=Bannière de Lannister of Darry
 item.got:banner.lannisterTygett.name=Bannière de Tygett Lannister
-item.got:banner.lanny.name≠Banner of Lanny
-item.got:banner.lantell.name≠Banner of Lantell
-item.got:banner.laughingTree.name=Bannière de l'arbre qui rit
-item.got:banner.leather.name=Bannière de cuir
+item.got:banner.lanny.name=Bannière de Lanny
+item.got:banner.lantell.name=Bannière de Lantell
+item.got:banner.laughingTree.name=Bannière de Laughing Tree
+item.got:banner.leather.name=Bannière de Leather
 item.got:banner.lefford.name=Bannière de Lefford
 item.got:banner.leng.name=Bannière de Leng
 item.got:banner.leygood.name=Bannière de Leygood
 item.got:banner.lhazar.name=Bannière de Lhazar
 item.got:banner.liddle.name=Bannière de Liddle
-item.got:banner.lightfoot.name≠Banner of Lightfoot
-item.got:banner.lipps.name≠Banner of Lipps
-item.got:banner.littlewalder.name≠Banner of Little Walder
+item.got:banner.lightfoot.name=Bannière de Lightfoot
+item.got:banner.lipps.name=Bannière de Lipps
+item.got:banner.littlewalder.name=Bannière de Little Walder
 item.got:banner.locke.name=Bannière de Locke
-item.got:banner.lolliston.name≠Banner of Lolliston
-item.got:banner.longtorpe.name≠Banner of Longtorpe
-item.got:banner.longwaters.name≠Banner of Longwaters
-item.got:banner.lonmouth.name≠Banner of Lonmouth
+item.got:banner.lolliston.name=Bannière de Lolliston
+item.got:banner.longtorpe.name=Bannière de Longtorpe
+item.got:banner.longwaters.name=Bannière de Longwaters
+item.got:banner.lonmouth.name=Bannière de Lonmouth
 item.got:banner.loraq.name=Bannière de Loraq
 item.got:banner.lorath.name=Bannière de Lorath
 item.got:banner.lorch.name=Bannière de Lorch
-item.got:banner.lothor.name≠Banner of Lothor Brune
+item.got:banner.lothor.name=Bannière de Lothor Brune
 item.got:banner.lothston.name=Bannière de Lothston
-item.got:banner.lowther.name≠Banner of Lowther
-item.got:banner.lyberr.name≠Banner of Lyberr
+item.got:banner.lowther.name=Bannière de Lowther
+item.got:banner.lyberr.name=Bannière de Lyberr
 item.got:banner.lychester.name=Bannière de Lychester
 item.got:banner.lydden.name=Bannière de Lydden
 item.got:banner.lynderly.name=Bannière de Lynderly
 item.got:banner.lys.name=Bannière de Lys
 item.got:banner.maekar.name=Bannière de Maekar
-item.got:banner.maekarBook.name≠Banner of Maekar Targaryen (Book)
-item.got:banner.maesters.name=Bannière des Mestres
+item.got:banner.maekarBook.name=Bannière de Maekar Targaryen (Book)
+item.got:banner.maesters.name=Bannière de Maesters
 item.got:banner.magnar.name=Bannière de Magnar
 item.got:banner.mallery.name=Bannière de Mallery
 item.got:banner.mallister.name=Bannière de Mallister
 item.got:banner.manderly.name=Bannière de Manderly
-item.got:banner.manderlyBook.name=Bannière de Manderly (Livre)
+item.got:banner.manderlyBook.name=Bannière de Manderly(Book)
 item.got:banner.manning.name=Bannière de Manning
 item.got:banner.manwoody.name=Bannière de Manwoody
 item.got:banner.marbrand.name=Bannière de Marbrand
-item.got:banner.marsh.name=Bannière du marais
+item.got:banner.marsh.name=Bannière de Marsh
 item.got:banner.martell.name=Bannière de Martell
-item.got:banner.martellBook.name≠Banner of Martell (Book)
+item.got:banner.martellBook.name=Bannière de Martell (Book)
 item.got:banner.massey.name=Bannière de Massey
 item.got:banner.mazin.name=Bannière de Mazin
-item.got:banner.meadows.name=Bannière des prés
+item.got:banner.meadows.name=Bannière de Meadows
 item.got:banner.meereen.name=Bannière de Meereen
 item.got:banner.melcolm.name=Bannière de Melcolm
 item.got:banner.merlyn.name=Bannière de Merlyn
@@ -4831,140 +4831,140 @@ item.got:banner.moore.name=Bannière de Moore
 item.got:banner.mooton.name=Bannière de Mooton
 item.got:banner.mopatis.name=Bannière de Mopatis
 item.got:banner.moreland.name=Bannière de Moreland
-item.got:banner.morgryn.name≠Banner of Morgryn
+item.got:banner.morgryn.name=Bannière de Morgryn
 item.got:banner.mormont.name=Bannière de Mormont
-item.got:banner.mormontBook.name≠Banner of Mormont (Book)
+item.got:banner.mormontBook.name=Bannière de Mormont (Book)
 item.got:banner.morrigen.name=Bannière de Morrigen
-item.got:banner.morros.name≠Banner of Morros Slynt
-item.got:banner.mors.name=Bannière des mors
-item.got:banner.morsBook.name≠Banner of Mors Martell (Book)
-item.got:banner.moss.name≠Banner of Moss
-item.got:banner.mossovy.name≠Banner of Mossovy
-item.got:banner.mudd.name=Bannière de boue
+item.got:banner.morros.name=Bannière de Morros Slynt
+item.got:banner.mors.name=Bannière de Mors
+item.got:banner.morsBook.name=Bannière de Mors Martell (Book)
+item.got:banner.moss.name=Bannière de Moss
+item.got:banner.mossovy.name=Bannière de Mossovy
+item.got:banner.mudd.name=Bannière de Mudd
 item.got:banner.mullendore.name=Bannière de Mullenfore
-item.got:banner.musgood.name≠Banner of Musgood
-item.got:banner.myatt.name≠Banner of Mayatt
+item.got:banner.musgood.name=Bannière de Musgood
+item.got:banner.myatt.name=Bannière de Mayatt
 item.got:banner.myr.name=Bannière de Myr
 item.got:banner.myre.name=Bannière de Myre
 item.got:banner.newghis.name=Bannière de Newghis
-item.got:banner.night.name=Bannière de nuit
+item.got:banner.night.name=Bannière de Night
 item.got:banner.norcross.name=Bannière de Norcross
 item.got:banner.norrey.name=Bannière de Norrey
-item.got:banner.norridge.name≠Banner of Norridge
+item.got:banner.norridge.name=Bannière de Norridge
 item.got:banner.norvos.name=Bannière de Norvos
-item.got:banner.null.name=Bannière d'urgence
+item.got:banner.null.name=Emergency Banner
 item.got:banner.nymeria.name=Bannière de Nymeria
-item.got:banner.oakenfist.name≠Banner of Alin Velarion
+item.got:banner.oakenfist.name=Bannière de Alin Velarion
 item.got:banner.oakheart.name=Bannière de Oakheart
-item.got:banner.oberyn.name≠Banner of Oberyn Martell
-item.got:banner.orkwood.name=Bannière d'Orkwood
-item.got:banner.orme.name≠Banner of Orme
-item.got:banner.osgrey.name=Bannière d'Osgrey
-item.got:banner.osgreyll.name≠Banner of Osgrey of Leafy Lake
-item.got:banner.overton.name≠Banner of Overton
+item.got:banner.oberyn.name=Bannière de Oberyn Martell
+item.got:banner.orkwood.name=Bannière de Orkwood
+item.got:banner.orme.name=Bannière de Orme
+item.got:banner.osgrey.name=Bannière de Osgrey
+item.got:banner.osgreyll.name=Bannière de Osgrey of Leafy Lake
+item.got:banner.overton.name=Bannière de Overton
 item.got:banner.paege.name=Bannière de Paege
 item.got:banner.parren.name=Bannière de Parren
 item.got:banner.patrek.name=Bannière de Patrek
 item.got:banner.payne.name=Bannière de Payne
 item.got:banner.peake.name=Bannière de Peake
-item.got:banner.pearse.name≠Banner of Pearse
+item.got:banner.pearse.name=Bannière de Pearse
 item.got:banner.peasebury.name=Bannière de Peasebury
-item.got:banner.peckledon.name≠Banner of Peckledon
+item.got:banner.peckledon.name=Bannière de Peckledon
 item.got:banner.pendragon.name=Bannière de Pendragon
 item.got:banner.penrose.name=Bannière de Penrose
 item.got:banner.pentos.name=Bannière de Pentos
 item.got:banner.piper.name=Bannière de Piper
 item.got:banner.plumm.name=Bannière de Plumm
-item.got:banner.pommingham.name≠Banner of Pommingham
+item.got:banner.pommingham.name=Bannière de Pommingham
 item.got:banner.poole.name=Bannière de Poole
-item.got:banner.poorFellows.name=Bannière des pauvres boursiers
+item.got:banner.poorFellows.name=Bannière de Poor Fellows
 item.got:banner.prester.name=Bannière de Prester
 item.got:banner.pryor.name=Bannière de Pryor
-item.got:banner.pyle.name≠Banner of Pyles
-item.got:banner.pyne.name≠Banner of Pynes
+item.got:banner.pyle.name=Bannière de Pyles
+item.got:banner.pyne.name=Bannière de Pynes
 item.got:banner.qarth.name=Bannière de Qarth
 item.got:banner.qoherys.name=Bannière de Qoherys
 item.got:banner.qohor.name=Bannière de Qohor
 item.got:banner.qorgile.name=Bannière de Qorqile
 item.got:banner.rambton.name=Bannière de Rambton
-item.got:banner.redbeard.name≠Banner of Redbeard
+item.got:banner.redbeard.name=Bannière de Redbeard
 item.got:banner.redfort.name=Bannière de Redfort
 item.got:banner.redwyne.name=Bannière de Redwyne
-item.got:banner.redwyneBook.name≠Banner of Redwyne (Book)
-item.got:banner.reed.name=Bannière de roseau
-item.got:banner.reedBook.name≠Banner of Reed (Book)
-item.got:banner.reedHBO.name≠Banner of Reed (TV Series)
+item.got:banner.redwyneBook.name=Bannière de Redwyne (Book)
+item.got:banner.reed.name=Bannière de Reed
+item.got:banner.reedBook.name=Bannière de Reed (Book)
+item.got:banner.reedHBO.name=Bannière de Reed (TV Series)
 item.got:banner.renly.name=Bannière de Renly
-item.got:banner.renlyBook.name≠Banner of Renly (Book)
+item.got:banner.renlyBook.name=Bannière de Renly (Book)
 item.got:banner.renlyguard.name=Bannière de Renlyguard
 item.got:banner.reyne.name=Bannière de Reyne
-item.got:banner.reyneBook.name≠Banner of Reyne (Book)
-item.got:banner.rhaegar.name≠Banner of Rhaegar Targaryen
+item.got:banner.reyneBook.name=Bannière de Reyne (Book)
+item.got:banner.rhaegar.name=Bannière de Rhaegar Targaryen
 item.got:banner.rhllor.name=Bannière de Rhllor
-item.got:banner.rhysling.name≠Banner of Rhysling
+item.got:banner.rhysling.name=Bannière de Rhysling
 item.got:banner.rikker.name=Bannière de Rikker
 item.got:banner.risley.name=Bannière de Risley
 item.got:banner.robb.name=Bannière de Robb Stark
-item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
+item.got:banner.robbBook.name=Bannière de Robb Stark (Book)
 item.got:banner.robert.name=Bannière de Robert
-item.got:banner.robertB.name=Bannière de Robert (Livre)
-item.got:banner.robertashford.name≠Banner of Robert Ashford
-item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
-item.got:banner.rodrikryswell.name≠Banner of Rodrik Ryswell
-item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
+item.got:banner.robertB.name=Bannière de Robert(Book)
+item.got:banner.robertashford.name=Bannière de Robert Ashford
+item.got:banner.robertblackwood.name=Bannière de Robert Blackwood
+item.got:banner.rodrikryswell.name=Bannière de Rodrik Ryswell
+item.got:banner.rogerblackwood.name=Bannière de Roger Blackwood
 item.got:banner.rogers.name=Bannière de Rogers
-item.got:banner.rolandblackwood.name≠Banner of Roland Blackwood
-item.got:banner.rollandStorm.name≠Banner of Rolland Storm
-item.got:banner.rollingford.name≠Banner of Rollingford
+item.got:banner.rolandblackwood.name=Bannière de Roland Blackwood
+item.got:banner.rollandStorm.name=Bannière de Rolland Storm
+item.got:banner.rollingford.name=Bannière de Rollingford
 item.got:banner.roote.name=Bannière de Roote
 item.got:banner.rosby.name=Bannière de Rosby
-item.got:banner.rossart.name≠Banner of Rossart
+item.got:banner.rossart.name=Bannière de Rossart
 item.got:banner.rowan.name=Bannière de Rowan
 item.got:banner.roxton.name=Bannière de Roxton
 item.got:banner.royce.name=Bannière de Royce
-item.got:banner.royceBook.name=Bannière de Royce (livre)
-item.got:banner.royceGM.name=Bannière de Royce de Moon Gate
-item.got:banner.ruthermont.name≠Banner of Ruthermont
+item.got:banner.royceBook.name=Bannière de Royce(book)
+item.got:banner.royceGM.name=Bannière de Royce of Moon Gate
+item.got:banner.ruthermont.name=Bannière de Ruthermont
 item.got:banner.ruttiger.name=Bannière de Ruttiger
-item.got:banner.ryder.name≠Banner of Ryder
+item.got:banner.ryder.name=Bannière de Ryder
 item.got:banner.ryger.name=Bannière de Ryger
 item.got:banner.ryswell.name=Bannière de Ryswell
 item.got:banner.saan.name=Bannière de Saan
 item.got:banner.saltcliffe.name=Bannière de Saltcliffe
-item.got:banner.sandsnakes.name≠Banner of Sandsnakes
+item.got:banner.sandsnakes.name=Bannière de Sandsnakes
 item.got:banner.santagar.name=Bannière de Santagar
 item.got:banner.sarsfield.name=Bannière de Sarsfield
 item.got:banner.sarwyck.name=Bannière de Sarwyck
-item.got:banner.seasmoke.name≠Banner of Addam Velarion
-item.got:banner.seastar.name≠Banner of Shire the Sea Star
+item.got:banner.seasmoke.name=Bannière de Addam Velarion
+item.got:banner.seastar.name=Bannière de Shire the Sea Star
 item.got:banner.seaworth.name=Bannière de Seaworth
 item.got:banner.secondsons.name=Bannière de Secondsons
 item.got:banner.selmy.name=Bannière de Selmy
-item.got:banner.sept.name=Bannière de septembre
+item.got:banner.sept.name=Bannière de Sept
 item.got:banner.serrett.name=Bannière de Serrett
-item.got:banner.serrettBook.name≠Banner of Serrets (Book)
+item.got:banner.serrettBook.name=Bannière de Serrets (Book)
 item.got:banner.serry.name=Bannière de Serry
-item.got:banner.shadrich.name≠Banner of Shadrich
-item.got:banner.shawney.name≠Banner of Shawney
-item.got:banner.shell.name≠Banner of Shells
+item.got:banner.shadrich.name=Bannière de Shadrich
+item.got:banner.shawney.name=Bannière de Shawney
+item.got:banner.shell.name=Bannière de Shells
 item.got:banner.shermer.name=Bannière de Shermer
 item.got:banner.shettgtower.name=Bannière de Shettgtower
 item.got:banner.shettgtown.name=Bannière de Shettgtown
-item.got:banner.slate.name=Bannière d'ardoise
-item.got:banner.sloane.name≠Banner of Sloane
+item.got:banner.slate.name=Bannière de Slate
+item.got:banner.sloane.name=Bannière de Sloane
 item.got:banner.slynt.name=Bannière de Slynt
 item.got:banner.smallwood.name=Bannière de Smallwood
 item.got:banner.sothoryos.name=Bannière de Sothoryos
 item.got:banner.sparr.name=Bannière de Sparr
-item.got:banner.sparrow.name=Bannière de moineau
+item.got:banner.sparrow.name=Bannière de Sparrow
 item.got:banner.spicer.name=Bannière de Spicer
-item.got:banner.stackhouse.name≠Banner of Stackhouse
+item.got:banner.stackhouse.name=Bannière de Stackhouse
 item.got:banner.stackspear.name=Bannière de Stackspear
 item.got:banner.staedmon.name=Bannière de Staedmon
 item.got:banner.stane.name=Bannière de Stane
 item.got:banner.stannis.name=Bannière de Stannis
-item.got:banner.stannisBook.name≠Banner Baratheons of Dragonstone (Book)
-item.got:banner.starkD.name≠Banner of Dreadfort Starks
+item.got:banner.stannisBook.name=Banner Baratheons of Dragonstone (Book)
+item.got:banner.starkD.name=Bannière de Dreadfort Starks
 item.got:banner.staunton.name=Bannière de Staunton
 item.got:banner.stokeworth.name=Bannière de Stokeworth
 item.got:banner.stonehouse.name=Bannière de Stonehouse
@@ -4973,128 +4973,128 @@ item.got:banner.stormcrows.name=Bannière de Stormcrows
 item.got:banner.stout.name=Bannière de Stout
 item.got:banner.strickland.name=Bannière de Streickland
 item.got:banner.strong.name=Bannière de Strong
-item.got:banner.suggs.name≠Banner of Suggs
-item.got:banner.summer.name=Bannière de l'été
+item.got:banner.suggs.name=Bannière de Suggs
+item.got:banner.summer.name=Bannière de Summer
 item.got:banner.sunderland.name=Bannière de Sunderland
 item.got:banner.sunderly.name=Bannière de Sunderly
-item.got:banner.sunglass.name=Bannière de lunettes de soleil
+item.got:banner.sunglass.name=Bannière de Sunglass
 item.got:banner.swann.name=Bannière de Swann
-item.got:banner.swannBook.name≠Banner of Swann (Book)
+item.got:banner.swannBook.name=Bannière de Swann (Book)
 item.got:banner.swyft.name=Bannière de Swyft
-item.got:banner.swygert.name≠Banner of Swygert
+item.got:banner.swygert.name=Bannière de Swygert
 item.got:banner.tallad.name=Bannière de Tallad
 item.got:banner.tallhart.name=Bannière de Tallhart
 item.got:banner.tarbeck.name=Bannière de Tarbeck
 item.got:banner.targaryen.name=Bannière de Targaryen
-item.got:banner.targaryenBook.name≠Banner of Targaryen (Book)
+item.got:banner.targaryenBook.name=Bannière de Targaryen (Book)
 item.got:banner.tarly.name=Bannière de Tarly
-item.got:banner.tarlyBook.name≠Banner of Tarly (Book)
+item.got:banner.tarlyBook.name=Bannière de Tarly (Book)
 item.got:banner.tarth.name=Bannière de Tarth
-item.got:banner.tarthBook.name≠Banner of Tarth (Book)
-item.got:banner.tarwick.name≠Banner of Tarwick
+item.got:banner.tarthBook.name=Bannière de Tarth (Book)
+item.got:banner.tarwick.name=Bannière de Tarwick
 item.got:banner.tawney.name=Bannière de Tawney
 item.got:banner.teague.name=Bannière de Teague
 item.got:banner.templeton.name=Bannière de Templeton
 item.got:banner.thenn.name=Bannière de Thenn
 item.got:banner.thorne.name=Bannière de Thorne
-item.got:banner.tigers.name=Bannière des tigres
+item.got:banner.tigers.name=Bannière de Tigers
 item.got:banner.toland.name=Bannière de Toland
 item.got:banner.tollett.name=Bannière de Tollett
-item.got:banner.torrent.name=Bannière de torrent
-item.got:banner.towers.name=Bannière de tours
-item.got:banner.towersN.name≠Banner of Towers of the North
+item.got:banner.torrent.name=Bannière de Torrent
+item.got:banner.towers.name=Bannière de Towers
+item.got:banner.towersN.name=Bannière de Towers of the North
 item.got:banner.toyne.name=Bannière de Toyne
 item.got:banner.trant.name=Bannière de Trant
-item.got:banner.truefyre.name≠Banner of Trystane Truefyre
-item.got:banner.tudbury.name≠Banner of Tudbury
+item.got:banner.truefyre.name=Bannière de Trystane Truefyre
+item.got:banner.tudbury.name=Bannière de Tudbury
 item.got:banner.tully.name=Bannière de Tully
-item.got:banner.tullyBook.name=Bannière de Tully (Livre)
+item.got:banner.tullyBook.name=Bannière de Tully (Book)
 item.got:banner.turnberry.name=Bannière de Turnberry
-item.got:banner.tybolt.name≠Banner of Tybolt Lannister
+item.got:banner.tybolt.name=Bannière de Tybolt Lannister
 item.got:banner.tyrell.name=Bannière de Tyrrel
-item.got:banner.tyrellBK.name=Bannière de Tyrell du donjon de Brightwater
+item.got:banner.tyrellBK.name=Bannière de Tyrell of Brightwater Keep
 item.got:banner.tyrelll.name=Bannière de Loras Tyrell
 item.got:banner.tyrion.name=Bannière de Tyrion
 item.got:banner.tyrosh.name=Bannière de Tyrosh
-item.got:banner.uller.name=Bannière d'Uller
-item.got:banner.umber.name=Bannière de l'ombre
-item.got:banner.umberBook.name=Bannière d'Umber (Livre)
-item.got:banner.underleaf.name≠Banner of Underleaf
-item.got:banner.upcliff.name=Bannière d'Upcliff
+item.got:banner.uller.name=Bannière de Uller
+item.got:banner.umber.name=Bannière de Umber
+item.got:banner.umberBook.name=Bannière de Umber(Book)
+item.got:banner.underleaf.name=Bannière de Underleaf
+item.got:banner.upcliff.name=Bannière de Upcliff
 item.got:banner.vaith.name=Bannière de Vaith
-item.got:banner.valarr.name≠Banner of Valarr Targaryen
-item.got:banner.valarrBook.name≠Banner of Valarr Targaryen (Book)
-item.got:banner.vanceA.name=Bannière de Vance de Atranta
-item.got:banner.vanceWR.name=Bannière de Vance de Wayfarer's Rest
+item.got:banner.valarr.name=Bannière de Valarr Targaryen
+item.got:banner.valarrBook.name=Bannière de Valarr Targaryen (Book)
+item.got:banner.vanceA.name=Bannière de Vance of Atranta
+item.got:banner.vanceWR.name=Bannière de Vance of Wayfarer's Rest
 item.got:banner.varner.name=Bannière de Vanner
 item.got:banner.velaryon.name=Bannière de Velaryon
-item.got:banner.velaryonBook.name≠Banner of Velaryon (Book)
-item.got:banner.victarion.name=Bannière de la victoire
+item.got:banner.velaryonBook.name=Bannière de Velaryon (Book)
+item.got:banner.victarion.name=Bannière de Victarion
 item.got:banner.vikary.name=Bannière de Vikary
 item.got:banner.volantis.name=Bannière de Volantis
 item.got:banner.volmark.name=Bannière de Volmark
-item.got:banner.vultureking.name≠Banner of The Vulture King
+item.got:banner.vultureking.name=Bannière de The Vulture King
 item.got:banner.vypren.name=Bannière de Vypren
 item.got:banner.vyrwel.name=Bannière de Vyrwel
 item.got:banner.wagstaff.name=Bannière de Wadstaff
-item.got:banner.walder.name≠Banner of Walder Rivers
-item.got:banner.walker.name≠Banner of White Walkers
-item.got:banner.warriorsSons.name=Bannière des fils guerriers
-item.got:banner.waterman.name≠Banner of Waterman
+item.got:banner.walder.name=Bannière de Walder Rivers
+item.got:banner.walker.name=Bannière de White Walkers
+item.got:banner.warriorsSons.name=Bannière de Warriors Sons
+item.got:banner.waterman.name=Bannière de Waterman
 item.got:banner.waxley.name=Bannière de Waxley
 item.got:banner.wayn.name=Bannière de Wayn
 item.got:banner.waynwood.name=Bannière de Waynwood
 item.got:banner.webber.name=Bannière de Webber
 item.got:banner.wells.name=Bannière de Wells
-item.got:banner.wellsD.name≠Banner of Wells of Dorne
+item.got:banner.wellsD.name=Bannière de Wells of Dorne
 item.got:banner.wendwater.name=Bannière de Wendwater
 item.got:banner.wensington.name=Bannière de Wensington
-item.got:banner.westbrook.name≠Banner of Westbrook
+item.got:banner.westbrook.name=Bannière de Westbrook
 item.got:banner.westerling.name=Bannière de Westerling
 item.got:banner.westford.name=Bannière de Westford
 item.got:banner.whent.name=Bannière de Whent
-item.got:banner.white.name=Bannière de blanc
-item.got:banner.whitegrove.name≠Banner of Whitegrove
-item.got:banner.whitehead.name≠Banner of Whitehead
+item.got:banner.white.name=Bannière de White
+item.got:banner.whitegrove.name=Bannière de Whitegrove
+item.got:banner.whitehead.name=Bannière de Whitehead
 item.got:banner.whitehill.name=Bannière de Whitehill
-item.got:banner.whitehillBook.name≠Banner of Whitehill (Book)
+item.got:banner.whitehillBook.name=Bannière de Whitehill (Book)
 item.got:banner.wildling.name=Bannière de Wildling
 item.got:banner.willum.name=Bannière de Willum
 item.got:banner.windblown.name=Bannière de Windblown
 item.got:banner.wode.name=Bannière de Wode
-item.got:banner.woodfoot.name≠Banner of Woodfoot
-item.got:banner.woods.name≠Banner of Woods
+item.got:banner.woodfoot.name=Bannière de Woodfoot
+item.got:banner.woods.name=Bannière de Woods
 item.got:banner.woodwright.name=Bannière de Woodwright
 item.got:banner.woolfield.name=Bannière de Woolfield
 item.got:banner.wull.name=Bannière de Wull
-item.got:banner.wydman.name≠Banner of Wydman
+item.got:banner.wydman.name=Bannière de Wydman
 item.got:banner.wyl.name=Bannière de Wyl
 item.got:banner.wylde.name=Bannière de Wylde
 item.got:banner.wynch.name=Bannière de Wynch
 item.got:banner.wythers.name=Bannière de Wythers
 item.got:banner.yarwyck.name=Bannière de Yarwyck
-item.got:banner.yew.name=Bannière d'if
+item.got:banner.yew.name=Bannière de Yew
 item.got:banner.yiti.name=Bannière de Yiti
 item.got:banner.yitiBu.name=Bannière de Bu
 item.got:banner.yitiChoq.name=Bannière de Choq
 item.got:banner.yitiHar.name=Bannière de Har
-item.got:banner.yitiJar.name=Bannière de pot
+item.got:banner.yitiJar.name=Bannière de Jar
 item.got:banner.yitiLo.name=Bannière de Lo
 item.got:banner.yitiMaroon.name=Bannière de Maroon
 item.got:banner.yitiMengo.name=Bannière de Mengo
 item.got:banner.yitiPearl.name=Bannière de Rearl
-item.got:banner.yitiPurple.name=Bannière de violet
+item.got:banner.yitiPurple.name=Bannière de Purple
 item.got:banner.yitiQo.name=Bannière de Qo
-item.got:banner.youngGriff.name≠Banner of Young Griff
-item.got:banner.yronwood.name=Bannière d'Yronwood
+item.got:banner.youngGriff.name=Bannière de Young Griff
+item.got:banner.yronwood.name=Bannière de Yronwood
 item.got:banner.yunkai.name=Bannière de Yunkai
 item.got:bear_rug.name=Peau d'ours
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_tail.name≠Beaver Tail
+item.got:beaver_cooked.name=Castor Cuit
+item.got:beaver_raw.name=Castor Cru
+item.got:beaver_tail.name=Queue de Castor
 item.got:beric_sword.name=Épée de Beric Dondarrion
 item.got:berry_pie.name=Tarte aux baies
-item.got:bittersteel_helmet.name≠Aegor Rivers Helmet
+item.got:bittersteel_helmet.name=Casque d'Aegor Rivers
 item.got:black_arakh.name=Arakh noir
 item.got:blackberry.name=Mûres
 item.got:blackfyre.name=Blackfyre
@@ -5103,7 +5103,7 @@ item.got:blackfyre_chestplate.name=Plastron Blackfyre
 item.got:blackfyre_helmet.name=Casque Blackfyre
 item.got:blackfyre_leggings.name=Jambières Blackfyre
 item.got:blackroot_stick.name=Bâton de racine noire
-item.got:blackskin_chestplate.name≠Blackskin Chestplate
+item.got:blackskin_chestplate.name=Plastron de Peau Noire
 item.got:blacksmith_hammer.name=Marteau de forgeron
 item.got:blood_of_true_kings.name=Sang des vrais rois
 item.got:blueberry.name=Myrtilles
@@ -5123,10 +5123,10 @@ item.got:brightroar.name=Brightroar
 item.got:bronze_axe.name=Hache en bronze
 item.got:bronze_battleaxe.name=Hache de combat en bronze
 item.got:bronze_boots.name=Bottes en bronze
-item.got:bronze_chainmail_boots.name≠Bronze Chain Boots
-item.got:bronze_chainmail_chestplate.name≠Bronze Chain Chestplate
-item.got:bronze_chainmail_helmet.name≠Bronze Chain Helmet
-item.got:bronze_chainmail_leggings.name≠Bronze Chain Leggings
+item.got:bronze_chainmail_boots.name=Bottes de Mailles de Bronze
+item.got:bronze_chainmail_chestplate.name=Plastron de Mailles de Bronze
+item.got:bronze_chainmail_helmet.name=Casque de Mailles de Bronze
+item.got:bronze_chainmail_leggings.name=Jambières de Mailles de Bronze
 item.got:bronze_chestplate.name=Plastron en bronze
 item.got:bronze_crossbow.name=Arbalète en bronze
 item.got:bronze_dagger.name=Dague en bronze
@@ -5135,9 +5135,9 @@ item.got:bronze_helmet.name=Casque en bronze
 item.got:bronze_hoe.name=Houe en bronze
 item.got:bronze_ingot.name=Lingot de bronze
 item.got:bronze_leggings.name=Jambières en bronze
-item.got:bronze_nugget.name≠Bronze Nugget
+item.got:bronze_nugget.name=Pépite de bronze
 item.got:bronze_pickaxe.name=Pioche en bronze
-item.got:bronze_ring.name≠Bronze Ring
+item.got:bronze_ring.name=Anneau de bronze
 item.got:bronze_shovel.name=Pelle en bronze
 item.got:bronze_spear.name=Lance en bronze
 item.got:bronze_sword.name=Épée en bronze
@@ -5156,21 +5156,21 @@ item.got:chisel.name=Ciseau de gravure
 item.got:clay_mug.name=Chope en céramique
 item.got:clay_plate.name=Assiette d'argile
 item.got:club.name=Club de la tribu des collines
-item.got:cobalt_blue.name≠Blue Cobalt
-item.got:coin.1.name≠Copper penny
-item.got:coin.1024.name≠Silver moon
-item.got:coin.16.name≠Copper groat
-item.got:coin.16384.name≠Valyrian lord
-item.got:coin.256.name≠Silver stag
-item.got:coin.4.name≠Copper half-groat
-item.got:coin.4096.name≠Golden dragon
-item.got:coin.64.name≠Silver star
-item.got:coin.nominal.name≠Nominal
+item.got:cobalt_blue.name=Cobalt Bleu
+item.got:coin.1.name=Penny de Cuivre
+item.got:coin.1024.name=Lune d'Argent
+item.got:coin.16.name=Gros de Cuivre
+item.got:coin.16384.name=Seigneur Valyrien
+item.got:coin.256.name=Cerf d'Argent
+item.got:coin.4.name=Demi-Gros de Cuivre
+item.got:coin.4096.name=Dragon d'Or
+item.got:coin.64.name=Étoile d'Argent
+item.got:coin.nominal.name=Nominal
 item.got:command_horn.name=Cor de commande
 item.got:command_sword.name=Épée de commandement
 item.got:copper_ingot.name=Lingot de cuivre
 item.got:copper_nugget.name=Pépite de cuivre
-item.got:copper_ring.name≠Copper Ring
+item.got:copper_ring.name=Anneau de cuivre
 item.got:coral.name=Corail
 item.got:corn.name=Maïs
 item.got:corn_bread.name=Pain de maïs
@@ -5184,9 +5184,9 @@ item.got:crownlands_boots.name=Bottes des Capes dorées
 item.got:crownlands_chestplate.name=Plastron des Capes dorées
 item.got:crownlands_helmet.name=Casque des Capes dorées
 item.got:crownlands_leggings.name=Jambières des Capes dorées
-item.got:cucumber.name≠Cucumber
-item.got:cucumber_seeds.name≠Cucumber seeds
-item.got:cutwave.name≠Cutwave
+item.got:cucumber.name=Concombre
+item.got:cucumber_seeds.name=Graines de Concombre
+item.got:cutwave.name=Cutwave
 item.got:daario_arakh.name=Daario Arakh
 item.got:dark_sister.name=Sœur sombre
 item.got:darkstar.name=Étoile Noire
@@ -5218,8 +5218,8 @@ item.got:dye.4.name=Poudre de charbon
 item.got:dye.5.name=Teinture marron
 item.got:eddard_sword.name=Épée d'Eddard Stark
 item.got:elderberry.name=Baies de sureau
-item.got:elephant_cooked.name≠Cooked Elephant
-item.got:elephant_raw.name≠Raw Elephant
+item.got:elephant_cooked.name=Éléphant Cuit
+item.got:elephant_raw.name=Éléphant Cru
 item.got:emerald.name=Émeraude
 item.got:essos_bow.name=Arc d'Essos
 item.got:essos_dagger.name=Dague des villes libres
@@ -5232,7 +5232,7 @@ item.got:essos_spear.name=Lance des villes libres
 item.got:essos_sword.name=Cimeterre des villes libres
 item.got:euron_dagger.name=Dague Euron
 item.got:feather_dyed.name=Plume teinte
-item.got:fin.name≠Fin
+item.got:fin.name=Nageoire
 item.got:fire_pot.name=Lance-flammes Yi Ti
 item.got:flax.name=Lin
 item.got:flax_seeds.name=Graines de lin
@@ -5281,13 +5281,13 @@ item.got:hand_gold.name=Broche de la main du roi (1)
 item.got:hand_silver.name=Broche de la main du roi (2)
 item.got:harpoon.name=Harpon
 item.got:harpy.name=Harpie
-item.got:hearteater.name≠Hearteater
+item.got:hearteater.name=Mangeur de Cœur
 item.got:heartsbane.name=Heartsbane
 item.got:hillmen_boots.name=Bottes de la tribu des collines
 item.got:hillmen_chestplate.name=Plastron de la tribu des collines
 item.got:hillmen_helmet.name=Casque de la tribu des collines
 item.got:hillmen_leggings.name=Jambières de la tribu des collines
-item.got:honor.name≠Honor
+item.got:honor.name=Honneur
 item.got:horn.name=Corne
 item.got:horse_armor_diamond.name=Armure de Cheval en diamand
 item.got:horse_armor_gold.name=Armure de Cheval en or
@@ -5298,17 +5298,17 @@ item.got:ibben_leggings.name=Jambières d'Ibben
 item.got:ibben_sword.name=Epée d'Ibben
 item.got:ice.name=Glace
 item.got:ice_heavy_sword.name=Grosse épée de glace
-item.got:ice_shard.name≠Ice shard
-item.got:ice_spear.name≠White Walkers Spear
+item.got:ice_shard.name=Éclat de Glace
+item.got:ice_spear.name=Lance des Marcheurs Blancs
 item.got:ice_sword.name=Épée de glace
 item.got:icon_heraldry.name=???
 item.got:icon_sword.name=???
-item.got:indomitable.name≠Indomitable
+item.got:indomitable.name=Indomptable
 item.got:iron_battleaxe.name=Hache de guerre en fer
 item.got:iron_crossbow.name=Arbalète en fer
 item.got:iron_dagger.name=Dague de fer
 item.got:iron_dagger_poisoned.name=Dague en fer empoisonné
-item.got:iron_nugget.name≠Iron Nugget
+item.got:iron_nugget.name=Pépite de Fer
 item.got:iron_pike.name=Brochet de fer
 item.got:iron_spear.name=Lance de fer
 item.got:iron_throwing_axe.name=Hache de lancer de fer
@@ -5356,7 +5356,7 @@ item.got:lhazar_spear.name=Lance de Lhazar
 item.got:lhazar_sword.name=Épée de Lhazar
 item.got:lightbringer.name=Porteur de lumière
 item.got:lime.name=Citron vert
-item.got:lingering_potion.name≠Lingering Potion
+item.got:lingering_potion.name=Potion Persistante
 item.got:lion_bed.name=Lit en fourrure de lion
 item.got:lion_cooked.name=Lion cuit
 item.got:lion_fur.name=Fourrure de lion
@@ -5378,7 +5378,7 @@ item.got:marzipan_chocolate.name=Pâte d'amandes au chocolat
 item.got:melon_soup.name=Soupe de pastèque
 item.got:mossovy_boots.name=Bottes Mossovy
 item.got:mossovy_chestplate.name=Plastron de mousse
-item.got:mossovy_dagger.name≠Silver Dagger
+item.got:mossovy_dagger.name=Dague d'Argent
 item.got:mossovy_leggings.name=Jambières de mousse
 item.got:mossovy_sword.name=Épée d'argent
 item.got:mug.name=Chope
@@ -5489,7 +5489,7 @@ item.got:pomegranate.name=Grenade
 item.got:pouch.0.name=Petite bourse
 item.got:pouch.1.name=Bourse moyenne
 item.got:pouch.2.name=Grande bourse
-item.got:pruner.name≠Pruner
+item.got:pruner.name=Taille-Haie
 item.got:qarth_boots.name=Bottes de Qarth
 item.got:qarth_chestplate.name=Plastron de Qarth
 item.got:qarth_helmet.name=Casque de Qarth
@@ -5518,17 +5518,17 @@ item.got:redking_boots.name=Bottes du roi rouge
 item.got:redking_chestplate.name=Plastron du roi rouge
 item.got:redking_helmet.name=Casque du roi rouge
 item.got:redking_leggings.name=Jambières du roi rouge
-item.got:reminder.name≠Reminder
-item.got:renly_boots.name≠Renly Boots
-item.got:renly_chestplate.name≠Renly Chestplate
-item.got:renly_helmet.name≠Renly Helmet
-item.got:renly_leggings.name≠Renly Leggings
+item.got:reminder.name=Rappel
+item.got:renly_boots.name=Bottes de Renly
+item.got:renly_chestplate.name=Plastron de Renly
+item.got:renly_helmet.name=Casque de Renly
+item.got:renly_leggings.name=Jambières de Renly
 item.got:rhaegar_sword.name=Épée Rhaegar Targaryen
 item.got:rhino_armor.name=Armure de rhinocéros
 item.got:rhino_cooked.name=Rhinocéros cuit
 item.got:rhino_horn.name=Corne de rhinocéros
 item.got:rhino_raw.name=Rhinocéros cru
-item.got:rice.name≠Rice
+item.got:rice.name=Riz
 item.got:riverlands_boots.name=Bottes du Conflans
 item.got:riverlands_chestplate.name=Plastron du Conflans
 item.got:riverlands_helmet.name=Casque du Conflans
@@ -5611,14 +5611,14 @@ item.got:targaryen_chestplate.name=Plastron targaryen
 item.got:targaryen_helmet.name=Casque Targaryen
 item.got:targaryen_leggings.name=Jambières targaryen
 item.got:termite.name=Termite explosive
-item.got:tidewings.name≠Tidewings
+item.got:tidewings.name=Ailes de Marée
 item.got:tin_ingot.name=Lingot d'étain
 item.got:topaz.name=Topaze
 item.got:tormund_sword.name=Épée de Tormund
 item.got:trident.name=Trident de la tribu des collines
 item.got:truth.name=Vérité
 item.got:trystane_sword.name=Épée Trystane Martell
-item.got:tugar_khan_sword.name≠Tugar Khan Sword
+item.got:tugar_khan_sword.name=Épée du Khan Tugar
 item.got:turnip.name=Navet
 item.got:turnip_cooked.name=Navet rôti
 item.got:tyene_dagger.name=Dague de sable Tyene
@@ -5635,10 +5635,10 @@ item.got:valyrian_axe.name=Hache valyrienne
 item.got:valyrian_battleaxe.name=Hache de guerre valyrienne
 item.got:valyrian_book.name=Livre valyrian
 item.got:valyrian_boots.name=Bottes valyriennes
-item.got:valyrian_chainmail_boots.name≠Valyrian Chain Boots
-item.got:valyrian_chainmail_chestplate.name≠Valyrian Chain Chestplate
-item.got:valyrian_chainmail_helmet.name≠Valyrian Chain Helmet
-item.got:valyrian_chainmail_leggings.name≠Valyrian Chain Leggings
+item.got:valyrian_chainmail_boots.name=Bottes de Mailles Valyriennes
+item.got:valyrian_chainmail_chestplate.name=Plastron de Mailles Valyriennes
+item.got:valyrian_chainmail_helmet.name=Casque de Mailles Valyriennes
+item.got:valyrian_chainmail_leggings.name=Jambières de Mailles Valyriennes
 item.got:valyrian_chestplate.name=Plastron valyrien
 item.got:valyrian_chisel.name=Ciseau valyrien
 item.got:valyrian_crossbow.name=Arbalète valyrienne
@@ -5660,17 +5660,17 @@ item.got:valyrian_ring.name=Anneau valyrien
 item.got:valyrian_shovel.name=Pelle valyrienne
 item.got:valyrian_spear.name=Lance valyrienne
 item.got:valyrian_sword.name=Épée valyrienne
-item.got:velaryon_brooch.name≠Brooch of Monford Velaryon
+item.got:velaryon_brooch.name=Broche de Monford Velaryon
 item.got:victarion_axe.name=Hache de la victoire
-item.got:victarion_helmet.name≠Victarion Helmet
+item.got:victarion_helmet.name=Casque de Victarion
 item.got:vigilance.name=Vigilance
 item.got:volantis_boots.name=Bottes de Volantis
 item.got:volantis_chestplate.name=Plastron de Volantis
 item.got:volantis_helmet.name=Casque de Volantis
 item.got:volantis_leggings.name=Jambières de Volantis
-item.got:walking_stick.name≠Walking stick
-item.got:walrus_lard_cooked.name≠Cooked Walrus Lard
-item.got:walrus_lard_raw.name≠Raw Walrus Lard
+item.got:walking_stick.name=Canne de Marche
+item.got:walrus_lard_cooked.name=Graisse de Morse Cuite
+item.got:walrus_lard_raw.name=Graisse de Morse Crue
 item.got:warhorn.name=Cor de conquête
 item.got:waterskin.name=Outre
 item.got:westerlands_boots.name=Bottes des Terres de l'Ouest
@@ -5684,7 +5684,7 @@ item.got:westerlandsguard_leggings.name=Jambières de Capes rouges
 item.got:westeros_bow.name=Arc
 item.got:westeros_dagger.name=Dague
 item.got:westeros_dagger_poisoned.name=Dague empoisonnée
-item.got:westeros_greatsword.name≠Westeros Greatsword
+item.got:westeros_greatsword.name=Grande Épée des Westeros
 item.got:westeros_hammer.name=Warhammer
 item.got:westeros_horse_armor.name=Armure de cheval
 item.got:westeros_lance.name=Lance
@@ -5717,21 +5717,21 @@ item.got:yam.name=Ig
 item.got:yam_roast.name=Ig
 item.got:yiti_battleaxe.name=Yi Ti Nagamaki
 item.got:yiti_boots.name=Bottes Yi Ti
-item.got:yiti_boots_frontier.name≠Yi Ti Frontier Boots
+item.got:yiti_boots_frontier.name=Bottes de la Frontière de Yi Ti
 item.got:yiti_boots_samurai.name=Bottes Yi Ti Samurai
 item.got:yiti_bow.name=Arc Yi Ti
 item.got:yiti_chestplate.name=Plastron Yi Ti
-item.got:yiti_chestplate_frontier.name≠Yi Ti Frontier Chestplate
+item.got:yiti_chestplate_frontier.name=Plastron de la Frontière de Yi Ti
 item.got:yiti_chestplate_samurai.name=Plastron de samouraï Yi Ti
 item.got:yiti_dagger.name=Yi Ti Kunai
 item.got:yiti_dagger_poisoned.name=Yi Ti Kunai empoisonné
 item.got:yiti_helmet.name=Casque Yi Ti
-item.got:yiti_helmet_frontier.name≠Yi Ti Frontier Helmet
+item.got:yiti_helmet_frontier.name=Casque de la Frontière de Yi Ti
 item.got:yiti_helmet_samurai.name=Casque Yi Ti Samurai
 item.got:yiti_helmet_shogune.name=Casque Yi Ti Shogune
 item.got:yiti_horse_armor.name=Armure de cheval Yi Ti
 item.got:yiti_leggings.name=Jambières Yi Ti
-item.got:yiti_leggings_frontier.name≠Yi Ti Frontier Leggings
+item.got:yiti_leggings_frontier.name=Jambières de la Frontière de Yi Ti
 item.got:yiti_leggings_samurai.name=Jambières de samouraï Yi Ti
 item.got:yiti_pike.name=Brochet Yi Ti
 item.got:yiti_polearm.name=Yi Ti Naginata
@@ -5740,7 +5740,7 @@ item.got:yiti_steel_ingot.name=Lingot de fer doré
 item.got:yiti_sword.name=Yi Ti Katana
 item.got:zebra_cooked.name=Zèbre cuit
 item.got:zebra_raw.name=Zèbre cru
-tile.dirt.0.name≠Dirt
+tile.dirt.0.name=Terre
 tile.dirt.coarse.name=Terre stérile
 tile.got.bomb.double_strength=Deux fois plus de puissance
 tile.got.bomb.fire=Incendiaire
@@ -5896,38 +5896,38 @@ tile.got:clover.0.name=Trèfle
 tile.got:clover.1.name=Trèfle à quatre feuilles
 tile.got:cobblebrick.0.name=Pierre sèche
 tile.got:command_table.name=Table de commandement
-tile.got:concrete.0.name≠White Concrete
-tile.got:concrete.1.name≠Orange Concrete
-tile.got:concrete.10.name≠Purple Concrete
-tile.got:concrete.11.name≠Blue Concrete
-tile.got:concrete.12.name≠Brown Concrete
-tile.got:concrete.13.name≠Green Concrete
-tile.got:concrete.14.name≠Red Concrete
-tile.got:concrete.15.name≠Black Concrete
-tile.got:concrete.2.name≠Magenta Concrete
-tile.got:concrete.3.name≠Light Blue Concrete
-tile.got:concrete.4.name≠Yellow Concrete
-tile.got:concrete.5.name≠Lime Concrete
-tile.got:concrete.6.name≠Pink Concrete
-tile.got:concrete.7.name≠Gray Concrete
-tile.got:concrete.8.name≠Light Gray Concrete
-tile.got:concrete.9.name≠Cyan Concrete
-tile.got:concrete_powder.0.name≠White Concrete Powder
-tile.got:concrete_powder.1.name≠Orange Concrete Powder
-tile.got:concrete_powder.10.name≠Purple Concrete Powder
-tile.got:concrete_powder.11.name≠Blue Concrete Powder
-tile.got:concrete_powder.12.name≠Brown Concrete Powder
-tile.got:concrete_powder.13.name≠Green Concrete Powder
-tile.got:concrete_powder.14.name≠Red Concrete Powder
-tile.got:concrete_powder.15.name≠Black Concrete Powder
-tile.got:concrete_powder.2.name≠Magenta Concrete Powder
-tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
-tile.got:concrete_powder.4.name≠Yellow Concrete Powder
-tile.got:concrete_powder.5.name≠Lime Concrete Powder
-tile.got:concrete_powder.6.name≠Pink Concrete Powder
-tile.got:concrete_powder.7.name≠Gray Concrete Powder
-tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
-tile.got:concrete_powder.9.name≠Cyan Concrete Powder
+tile.got:concrete.0.name=Béton Blanc
+tile.got:concrete.1.name=Béton Orange
+tile.got:concrete.10.name=Béton Pourpre
+tile.got:concrete.11.name=Béton Bleu
+tile.got:concrete.12.name=Béton Brun
+tile.got:concrete.13.name=Béton Vert
+tile.got:concrete.14.name=Béton Rouge
+tile.got:concrete.15.name=Béton Noir
+tile.got:concrete.2.name=Béton Magenta
+tile.got:concrete.3.name=Béton Bleu Clair
+tile.got:concrete.4.name=Béton Jaune
+tile.got:concrete.5.name=Béton Vert Citron
+tile.got:concrete.6.name=Béton Rose
+tile.got:concrete.7.name=Béton Gris
+tile.got:concrete.8.name=Béton Gris Clair
+tile.got:concrete.9.name=Béton Cyan
+tile.got:concrete_powder.0.name=Poudre de Béton Blanc
+tile.got:concrete_powder.1.name=Poudre de Béton Orange
+tile.got:concrete_powder.10.name=Poudre de Béton Pourpre
+tile.got:concrete_powder.11.name=Poudre de Béton Bleu
+tile.got:concrete_powder.12.name=Poudre de Béton Brun
+tile.got:concrete_powder.13.name=Poudre de Béton Vert
+tile.got:concrete_powder.14.name=Poudre de Béton Rouge
+tile.got:concrete_powder.15.name=Poudre de Béton Noir
+tile.got:concrete_powder.2.name=Poudre de Béton Magenta
+tile.got:concrete_powder.3.name=Poudre de Béton Bleu Clair
+tile.got:concrete_powder.4.name=Poudre de Béton Jaune
+tile.got:concrete_powder.5.name=Poudre de Béton Vert Citron
+tile.got:concrete_powder.6.name=Poudre de Béton Rose
+tile.got:concrete_powder.7.name=Poudre de Béton Gris
+tile.got:concrete_powder.8.name=Poudre de Béton Gris Clair
+tile.got:concrete_powder.9.name=Poudre de Béton Cyan
 tile.got:coral_reef.name=Récif de corail
 tile.got:corn_stalk.name=Tige de maïs
 tile.got:cucumber_plant.name=Plante de comcombre
@@ -6109,7 +6109,7 @@ tile.got:iron_bank.name=Département de la Banque de fer
 tile.got:kebab_block.name=Bloc de kebab
 tile.got:kebab_stand.name=Support à kebab
 tile.got:kebab_stand_sand.name=Support à kebab en grès
-tile.got:kelp.name≠Kelp
+tile.got:kelp.name=Varech
 tile.got:leaves1.0.name=Feuilles d'ibbinia
 tile.got:leaves1.1.name=Feuilles de catalpa
 tile.got:leaves1.2.name=Feuilles de chêne noir
