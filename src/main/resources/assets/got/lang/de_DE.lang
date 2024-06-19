@@ -301,10 +301,14 @@ entity.got.IbbenFarmhand.name≠Ibben Farmhand
 entity.got.IbbenFishmonger.name≠Ibben Fishmonger
 entity.got.IbbenFlorist.name≠Ibben Florist
 entity.got.IbbenGoldsmith.name≠Ibben Goldsmith
+entity.got.IbbenLevyman.name≠Ibben Levyman
+entity.got.IbbenLevymanArcher.name≠Ibben Levyman Archer
 entity.got.IbbenLumberman.name≠Ibben Lumberman
 entity.got.IbbenMan.name≠Ibben Man
 entity.got.IbbenMason.name≠Ibben Builder
 entity.got.IbbenMiner.name≠Ibben Miner
+entity.got.IbbenSoldier.name≠Ibben Warrior
+entity.got.IbbenSoldierArcher.name≠Ibben Warrior Archer
 entity.got.IbbenStablemaster.name≠Ibben Stablemaster
 entity.got.IbbenWarrior.name≠Ibben Warrior
 entity.got.IceSpider.name≠Ice Spider
@@ -532,6 +536,8 @@ entity.got.NorvosLumberman.name≠Norvos Lumberman
 entity.got.NorvosMan.name≠Norvos Man
 entity.got.NorvosMason.name≠Norvos Mason
 entity.got.NorvosMiner.name≠Norvos Miner
+entity.got.NorvosSoldier.name≠Norvos Warrior
+entity.got.NorvosSoldierArcher.name≠Norvos Warrior Archer
 entity.got.OberynMartell.name≠Oberyn Martell
 entity.got.OlennaTyrell.name≠Olenna Tyrell
 entity.got.OrtonMerryweather.name≠Orton Merryweather
@@ -557,6 +563,8 @@ entity.got.PentosLumberman.name≠Pentos Lumberman
 entity.got.PentosMan.name≠Pentos Man
 entity.got.PentosMason.name≠Pentos Mason
 entity.got.PentosMiner.name≠Pentos Miner
+entity.got.PentosSoldier.name≠Pentos Warrior
+entity.got.PentosSoldierArcher.name≠Pentos Warrior Archer
 entity.got.PetyrBaelish.name≠Petyr Baelish
 entity.got.Plate.name≠Plate
 entity.got.Plowcart.name≠Plow Cart
@@ -584,6 +592,8 @@ entity.got.QarthLumberman.name≠Qarth Lumberman
 entity.got.QarthMan.name≠Qarth Man
 entity.got.QarthMason.name≠Qarth Mason
 entity.got.QarthMiner.name≠Qarth Miner
+entity.got.QarthSoldier.name≠Qarth Warrior
+entity.got.QarthSoldierArcher.name≠Qarth Warrior Archer
 entity.got.QarthWarlock.name≠Qarth Warlock
 entity.got.QohorBaker.name≠Qohor Baker
 entity.got.QohorBannerBearer.name≠Qohor Banner Bearer
@@ -604,6 +614,8 @@ entity.got.QohorLumberman.name≠Qohor Lumberman
 entity.got.QohorMan.name≠Qohor Man
 entity.got.QohorMason.name≠Qohor Mason
 entity.got.QohorMiner.name≠Qohor Miner
+entity.got.QohorSoldier.name≠Qohor Warrior
+entity.got.QohorSoldierArcher.name≠Qohor Warrior Archer
 entity.got.QohorUnsullied.name≠Qohor Unsulled
 entity.got.QuennRoxton.name≠Quenn Roxton
 entity.got.QuentenBanefort.name≠Quenten Banefort
@@ -732,6 +744,8 @@ entity.got.SummerLumberman.name≠Summer Islands Lumberman
 entity.got.SummerMan.name≠Summer Islands Man
 entity.got.SummerMason.name≠Summer Islands Mason
 entity.got.SummerMiner.name≠Summer Islands Miner
+entity.got.SummerSoldier.name≠Summer Islands Warrior
+entity.got.SummerSoldierArcher.name≠Summer Islands Warrior Archer
 entity.got.SummerWarrior.name≠Summer Islands Warrior
 entity.got.Swan.name≠Swan
 entity.got.SymondTempleton.name≠Symond Templeton
@@ -872,7 +886,9 @@ entity.got.YiTiMan.name≠Yi Ti Man
 entity.got.YiTiMason.name≠Yi Ti Mason
 entity.got.YiTiMiner.name≠Yi Ti Miner
 entity.got.YiTiSamurai.name≠Yi Ti Samurai
+entity.got.YiTiSamuraiBannerBearer.name≠Yi Ti Samurai Banner Bearer
 entity.got.YiTiSoldier.name≠Yi Ti Soldier
+entity.got.YiTiSoldierBannerBearer.name≠Yi Ti Soldier Banner Bearer
 entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name≠Yohn Royce
 entity.got.Yoren.name≠Yoren
