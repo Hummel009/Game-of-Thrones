@@ -8,7 +8,7 @@ dragon.lifeStage.adult=Yetişkin
 dragon.lifeStage.egg=Yumurta
 dragon.lifeStage.hatchling=Çocuk
 dragon.lifeStage.juvenile=Genç
-dragon.mountNotice≠%s - fly up; %s - fly down; %s - dracarys
+dragon.mountNotice=%s - yukarı uç; %s - aşağı uç; %s - dracarys
 dragon.owned=O senin ejderhan değil.
 entity.got.AddamMarbrand.name≠Addam Marbrand
 entity.got.AemonTargaryen.name≠Aemon Targaryen
@@ -882,8 +882,8 @@ generator.got.info=Harita ile GOT World'de görüneceksiniz
 generator.got=Game of Thrones
 generator.gotClassic.info=GOT biyomları ile olağan dünyada görüneceksiniz
 generator.gotClassic=Klasik var
-generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
-generator.gotEmpty≠GOT Empty
+generator.gotEmpty.info=GOT Dünyasında harita olacak, ama şehirler, kaleler ve karakterler olmadan göründün
+generator.gotEmpty=GOT Boş
 got.achievement.COMBINE_SMITH_SCROLLS.desc=Çoklu Parşömen Topla
 got.achievement.COMBINE_SMITH_SCROLLS.title=Kalem ananas elma kalem
 got.achievement.CRAFT_CONCRETE_POWDER.desc=Stelle Beton onu
@@ -958,16 +958,16 @@ got.achievement.ENTER_FROSTFANGS.desc=Frost Fangs'ı ziyaret edin
 got.achievement.ENTER_FROSTFANGS.title=Buz ve taş dağlar
 got.achievement.ENTER_GHISCAR.desc=Ghiscar'ı ziyaret edin
 got.achievement.ENTER_GHISCAR.title=Köle Körfezi
-got.achievement.ENTER_GHISCAR_ASTAPOR.desc≠Visit Astapor
-got.achievement.ENTER_GHISCAR_ASTAPOR.title≠The City of Unsullied
+got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Astapor'u ziyaret et
+got.achievement.ENTER_GHISCAR_ASTAPOR.title=Köle Şehri
 got.achievement.ENTER_GHISCAR_COLONY.desc=Ghiscar Kolonilerini ziyaret edin
 got.achievement.ENTER_GHISCAR_COLONY.title=çaresiz korsan
-got.achievement.ENTER_GHISCAR_MEEREEN.desc≠Visit Meereen
-got.achievement.ENTER_GHISCAR_MEEREEN.title≠The City of Harpies
-got.achievement.ENTER_GHISCAR_NEW_GHIS.desc≠Visit New Ghis
-got.achievement.ENTER_GHISCAR_NEW_GHIS.title≠Wannabes of the Empire
-got.achievement.ENTER_GHISCAR_YUNKAI.desc≠Visit Yunkai
-got.achievement.ENTER_GHISCAR_YUNKAI.title≠The City of Wise Lords
+got.achievement.ENTER_GHISCAR_MEEREEN.desc=Meereen'i ziyaret et
+got.achievement.ENTER_GHISCAR_MEEREEN.title=Harpiler Şehri
+got.achievement.ENTER_GHISCAR_NEW_GHIS.desc=New Ghis'i ziyaret et
+got.achievement.ENTER_GHISCAR_NEW_GHIS.title=İmparatorluğun Taklitçileri
+got.achievement.ENTER_GHISCAR_YUNKAI.desc=Yunkai'yi ziyaret et
+got.achievement.ENTER_GHISCAR_YUNKAI.title=Bilge Beyler Şehri
 got.achievement.ENTER_GIFT_NEW.desc=Yeni Hediyeyi Ziyaret Edin
 got.achievement.ENTER_GIFT_NEW.title=Kuzeye!
 got.achievement.ENTER_GIFT_OLD.desc=Eski Hediyeyi Ziyaret Edin
@@ -976,12 +976,12 @@ got.achievement.ENTER_HAUNTED_FOREST.desc=Büyülü ormanı ziyaret edin
 got.achievement.ENTER_HAUNTED_FOREST.title=Yabani hayvanlar, mamutlar ve devler
 got.achievement.ENTER_IBBEN.desc=Ibben'i ziyaret edin
 got.achievement.ENTER_IBBEN.title=Balina avcısı adası
-got.achievement.ENTER_IBBEN_COLONY.desc≠Visit Ibben Colony
-got.achievement.ENTER_IBBEN_COLONY.title≠Even they have colonies, and you...
-got.achievement.ENTER_IBBEN_MOUNTAINS.desc≠Visit Ibben Mountains
-got.achievement.ENTER_IBBEN_MOUNTAINS.title≠The Big Mountains of Little Island
-got.achievement.ENTER_IBBEN_TAIGA.desc≠Visit Ibben Taiga
-got.achievement.ENTER_IBBEN_TAIGA.title≠Unusual Trees
+got.achievement.ENTER_IBBEN_COLONY.desc=Ibben Kolonisi'ni ziyaret et
+got.achievement.ENTER_IBBEN_COLONY.title=Onların da kolonileri var, ve senin...
+got.achievement.ENTER_IBBEN_MOUNTAINS.desc=Ibben Dağları'nı ziyaret et
+got.achievement.ENTER_IBBEN_MOUNTAINS.title=Küçük Adanın Büyük Dağları
+got.achievement.ENTER_IBBEN_TAIGA.desc=Ibben Tayga'sını ziyaret et
+got.achievement.ENTER_IBBEN_TAIGA.title=Alışılmadık Ağaçlar
 got.achievement.ENTER_IFEKEVRON_FOREST.desc=Ifekevron topraklarını ziyaret edin
 got.achievement.ENTER_IFEKEVRON_FOREST.title=Kim burada?
 got.achievement.ENTER_IRON_ISLANDS.desc=Demir Adalar ziyaret edin
@@ -1002,8 +1002,8 @@ got.achievement.ENTER_LONG_SUMMER.desc=Uzun Yaz Ülkesini Ziyaret Edin
 got.achievement.ENTER_LONG_SUMMER.title=Kavrulmuş toprak
 got.achievement.ENTER_LORATH.desc=Lorath'ı ziyaret edin
 got.achievement.ENTER_LORATH.title=Tanrının unuttuğu şehir
-got.achievement.ENTER_LORATH_MAZE.desc≠Visit Lorath Maze
-got.achievement.ENTER_LORATH_MAZE.title≠One does not simply walk...
+got.achievement.ENTER_LORATH_MAZE.desc=Lorath Labirenti'ni ziyaret et
+got.achievement.ENTER_LORATH_MAZE.title=Sadece yürüemezsin...
 got.achievement.ENTER_LYS.desc=The Lys'i ziyaret edin
 got.achievement.ENTER_LYS.title=Aşkın ve tutkunun ülkesi
 got.achievement.ENTER_MOSSOVY.desc=Mossovy'i ziyaret edin
@@ -1012,8 +1012,8 @@ got.achievement.ENTER_MOSSOVY_MARSHES.desc=Mossovy Bataklığı'nı ziyaret edin
 got.achievement.ENTER_MOSSOVY_MARSHES.title=Geniş bataklıklar
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.desc=Mossovy Sopkas'ı ziyaret edin
 got.achievement.ENTER_MOSSOVY_MOUNTAINS.title=Uzak Doğu
-got.achievement.ENTER_MOSSOVY_TAIGA.desc≠Visit Mossovy Taiga
-got.achievement.ENTER_MOSSOVY_TAIGA.title≠Deep dark fantasies
+got.achievement.ENTER_MOSSOVY_TAIGA.desc=Mossovy Tayga'sını ziyaret et
+got.achievement.ENTER_MOSSOVY_TAIGA.title=Derin karanlık fanteziler
 got.achievement.ENTER_MYR.desc=Myr'i ziyaret edin
 got.achievement.ENTER_MYR.title=Savaş ve Barış
 got.achievement.ENTER_NECK.desc=The Neck'i ziyaret edin
@@ -1036,8 +1036,8 @@ got.achievement.ENTER_PENTOS.desc=Pentos'u ziyaret edin
 got.achievement.ENTER_PENTOS.title=King'in inişinin karşısında
 got.achievement.ENTER_QARTH.desc=The Quarth'ı ziyaret edin
 got.achievement.ENTER_QARTH.title=Tüccarlar ülke
-got.achievement.ENTER_QARTH_COLONY.desc≠Visit Quartic colonies
-got.achievement.ENTER_QARTH_COLONY.title≠Eastern Colonizers
+got.achievement.ENTER_QARTH_COLONY.desc=Quartic kolonilerini ziyaret et
+got.achievement.ENTER_QARTH_COLONY.title=Doğu Kolonicileri
 got.achievement.ENTER_QARTH_DESERT.desc=Kızıl Çölü ziyaret edin
 got.achievement.ENTER_QARTH_DESERT.title=Kırmızı kumlar
 got.achievement.ENTER_QOHOR.desc=Qohor'u ziyaret edin
@@ -1058,16 +1058,16 @@ got.achievement.ENTER_SHADOW_MOUNTAINS.desc=Şafak Dağları'nı ziyaret edin
 got.achievement.ENTER_SHADOW_MOUNTAINS.title=Заслоняя солнце
 got.achievement.ENTER_SHADOW_TOWN.desc=Asshai'yi ziyaret edin
 got.achievement.ENTER_SHADOW_TOWN.title=Büyücüler şehri
-got.achievement.ENTER_SHRYKES_LAND.desc≠Visit Land of the Shrykes
-got.achievement.ENTER_SHRYKES_LAND.title≠Nibiru
+got.achievement.ENTER_SHRYKES_LAND.desc=Shrykes Diyarı'nı ziyaret et
+got.achievement.ENTER_SHRYKES_LAND.title=Nibiru
 got.achievement.ENTER_SKAGOS.desc=Skagos'u ziyaret edin
 got.achievement.ENTER_SKAGOS.title=Yünlü bir gergedan arayışı içinde
 got.achievement.ENTER_SOTHORYOS_BUSHLAND.desc=Sothoryos Çalılarını ziyaret edin
 got.achievement.ENTER_SOTHORYOS_BUSHLAND.title=Dikkat: patlayıcı
 got.achievement.ENTER_SOTHORYOS_DESERT.desc=Sothoryos Çölü'nü ziyaret edin
 got.achievement.ENTER_SOTHORYOS_DESERT.title=Soğuk tatlı
-got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc≠Visit Sothoryos Cold Desert
-got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title≠Cold Desert
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.desc=Sothoryos Soğuk Çölü'nü ziyaret et
+got.achievement.ENTER_SOTHORYOS_DESERT_COLD.title=Soğuk Çöl
 got.achievement.ENTER_SOTHORYOS_FOREST.desc=Sothoryos Kanuka ormanını ziyaret edin
 got.achievement.ENTER_SOTHORYOS_FOREST.title=Iç
 got.achievement.ENTER_SOTHORYOS_FROST.desc=Sothoryos Polar Sphere'i ziyaret edin
@@ -1092,8 +1092,8 @@ got.achievement.ENTER_STORMLANDS.desc=Fırtına Toprakları'nı ziyaret edin
 got.achievement.ENTER_STORMLANDS.title=Bizimki öfke
 got.achievement.ENTER_STORMLANDS_TARTH.desc=Tarth'ı ziyaret edin
 got.achievement.ENTER_STORMLANDS_TARTH.title=Ah, safirler!
-got.achievement.ENTER_SUMMER_COLONY.desc≠Visit the Summer Colonies
-got.achievement.ENTER_SUMMER_COLONY.title≠Western Colonizers
+got.achievement.ENTER_SUMMER_COLONY.desc=Yaz Kolonilerini ziyaret et
+got.achievement.ENTER_SUMMER_COLONY.title=Batı Kolonicileri
 got.achievement.ENTER_SUMMER_ISLANDS.desc=Yaz Adaları'nı ziyaret edin
 got.achievement.ENTER_SUMMER_ISLANDS.title=Güney adaları
 got.achievement.ENTER_THENN_LAND.desc=Thenn'i ziyaret edin
@@ -1106,20 +1106,20 @@ got.achievement.ENTER_ULTHOS.desc=Ulthos'u ziyaret edin
 got.achievement.ENTER_ULTHOS.title=Örümcekler, sis, mahremiyet
 got.achievement.ENTER_ULTHOS_DESERT.desc=Ulthos çölünü ziyaret edin
 got.achievement.ENTER_ULTHOS_DESERT.title=En azından bir yerlerde örümcek yok
-got.achievement.ENTER_ULTHOS_DESERT_COLD.desc≠Visit Ulthos Cold Desert
-got.achievement.ENTER_ULTHOS_DESERT_COLD.title≠The path, senseless and merciless
-got.achievement.ENTER_ULTHOS_FOREST.desc≠Visit Ulthos Forest
-got.achievement.ENTER_ULTHOS_FOREST.title≠The wrong forest and the wrong spiders
-got.achievement.ENTER_ULTHOS_FROST.desc≠Visit Ulthos Permafrost
-got.achievement.ENTER_ULTHOS_FROST.title≠My condolences to the survivors
-got.achievement.ENTER_ULTHOS_MARSHES.desc≠Visit the Ultos marshes
-got.achievement.ENTER_ULTHOS_MARSHES.title≠Isthmus II
+got.achievement.ENTER_ULTHOS_DESERT_COLD.desc=Ulthos Soğuk Çölü'nü ziyaret et
+got.achievement.ENTER_ULTHOS_DESERT_COLD.title=Yol, anlamsız ve acımasız
+got.achievement.ENTER_ULTHOS_FOREST.desc=Ulthos Ormanı'nı ziyaret et
+got.achievement.ENTER_ULTHOS_FOREST.title=Yanlış orman ve yanlış örümcekler
+got.achievement.ENTER_ULTHOS_FROST.desc=Ulthos Permafrostu'nu ziyaret et
+got.achievement.ENTER_ULTHOS_FROST.title=Sağ kalanlara başsağlığı
+got.achievement.ENTER_ULTHOS_MARSHES.desc=Ulthos bataklıklarını ziyaret et
+got.achievement.ENTER_ULTHOS_MARSHES.title=İsthmus II
 got.achievement.ENTER_ULTHOS_MOUNTAINS.desc=Ulthos Dağları'nı ziyaret edin
 got.achievement.ENTER_ULTHOS_MOUNTAINS.title=Beyaz bir kenarlıkla
-got.achievement.ENTER_ULTHOS_RED_FOREST.desc≠Visit the crimson forests of Ultos
-got.achievement.ENTER_ULTHOS_RED_FOREST.title≠Wine and blood
-got.achievement.ENTER_ULTHOS_TAIGA.desc≠Visit Ulthos Taiga
-got.achievement.ENTER_ULTHOS_TAIGA.title≠Taiga in the southeast, why not?
+got.achievement.ENTER_ULTHOS_RED_FOREST.desc=Ulthos'un kızıl ormanlarını ziyaret et
+got.achievement.ENTER_ULTHOS_RED_FOREST.title=Şarap ve kan
+got.achievement.ENTER_ULTHOS_TAIGA.desc=Ulthos Tayga'sını ziyaret et
+got.achievement.ENTER_ULTHOS_TAIGA.title=Güneydoğuda bir taygada, neden olmasın?
 got.achievement.ENTER_VALYRIA.desc=Valyria Yarımadası'nı ziyaret edin
 got.achievement.ENTER_VALYRIA.title=İmparatorluğun Kalıntıları
 got.achievement.ENTER_VALYRIA_VOLCANO.desc=Valyrian Volkanlarını ziyaret edin
@@ -1154,8 +1154,8 @@ got.achievement.GET_BRONZE.desc=Schmelze Bronz
 got.achievement.GET_BRONZE.title=Stärker und wirtschaftlicher
 got.achievement.GET_DRUNK.desc=Alkolle sarhoş ol
 got.achievement.GET_DRUNK.title=Alkolik
-got.achievement.HIRE_GOLDEN_COMPANY.desc≠Hire 10 G.C. units
-got.achievement.HIRE_GOLDEN_COMPANY.title≠Corrupt creatures
+got.achievement.HIRE_GOLDEN_COMPANY.desc=10 G.C. birimi kirala
+got.achievement.HIRE_GOLDEN_COMPANY.title=Yozlaşmış yaratıklar
 got.achievement.HUNDREDS.desc=Binlerce....
 got.achievement.HUNDREDS.title=Yüzlercesi Ölecek!
 got.achievement.KILL_ALLISER_THORNE.desc=Alliser Thorne'u öldür
@@ -1172,8 +1172,8 @@ got.achievement.KILL_BENJEN_STARK.desc=Benjen Stark'ı öldür
 got.achievement.KILL_BENJEN_STARK.title=Soğuk eller
 got.achievement.KILL_BERIC_DONDARRION.desc=Beric Dondarrion'u 6 kez öldür
 got.achievement.KILL_BERIC_DONDARRION.title=Heba olmuş
-got.achievement.KILL_BLIZZARD.desc≠Kill the blizzard
-got.achievement.KILL_BLIZZARD.title≠Another kind of walker?
+got.achievement.KILL_BLIZZARD.desc=Fırtınayı öldür
+got.achievement.KILL_BLIZZARD.title=Başka bir tür yürüyücü mü?
 got.achievement.KILL_BRIENNE_TARTH.desc=Brienne Tarth'ı öldür
 got.achievement.KILL_BRIENNE_TARTH.title=Bir kadın mı?
 got.achievement.KILL_BRYNDEN_TULLY.desc=Brynden Tully'yi öldür
@@ -1232,8 +1232,8 @@ got.achievement.KILL_LANCEL_LANNISTER.desc=Dindar Lancel Lannister'ı öldür
 got.achievement.KILL_LANCEL_LANNISTER.title=şiddeti seçiyorum
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=Devi çakıl taşlarıyla öldürerek öldür
 got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=Her şey işe yarar
-got.achievement.KILL_LEGENDARY_NPC.desc≠Kill a legendary character
-got.achievement.KILL_LEGENDARY_NPC.title≠Legendary Killer
+got.achievement.KILL_LEGENDARY_NPC.desc=Efsanevi bir karakter öldür
+got.achievement.KILL_LEGENDARY_NPC.title=Efsanevi Katil
 got.achievement.KILL_LORAS_TYRELL.desc=Loras Tyrell'i öldür
 got.achievement.KILL_LORAS_TYRELL.title=Şerefsizlerin katili
 got.achievement.KILL_MACE_TYRELL.desc=Mace Tyrell'i öldür
@@ -1272,10 +1272,10 @@ got.achievement.KILL_SANDOR_CLEGANE.desc=Sandor Clegane'i öldür
 got.achievement.KILL_SANDOR_CLEGANE.title=Köpek avcısı
 got.achievement.KILL_SANSA_STARK.desc=Sansa Stark'ı öldür
 got.achievement.KILL_SANSA_STARK.title=Babana ihanet ettin!
-got.achievement.KILL_SHRYKE.desc≠Kill a shryke
-got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
-got.achievement.KILL_STONE_MAN.desc≠Kill Stone Man
-got.achievement.KILL_STONE_MAN.title≠Mercy
+got.achievement.KILL_SHRYKE.desc=Bir shryke öldür
+got.achievement.KILL_SHRYKE.title=Sürüngenlerle savaşmak
+got.achievement.KILL_STONE_MAN.desc=Taş Adam'ı öldür
+got.achievement.KILL_STONE_MAN.title=Merhamet
 got.achievement.KILL_THEON_GREYJOY.desc=Eziyet Theon Greyjoy
 got.achievement.KILL_THEON_GREYJOY.title=Bu sadece bir sosis
 got.achievement.KILL_THIEVING_BANDIT.desc=Sizi soyan haydutu öldürün
@@ -1332,16 +1332,16 @@ got.achievement.STEAL_ARBOR_GRAPES.desc=Arbor'da üzüm çalmak
 got.achievement.STEAL_ARBOR_GRAPES.title=Bu benim!
 got.achievement.TRADE.desc=Biriyle ticaret yapmak
 got.achievement.TRADE.title=Bir iş kurmak
-got.achievement.TRAVEL100.desc≠Visit 100 biomes
-got.achievement.TRAVEL100.title≠Traveller V
-got.achievement.TRAVEL20.desc≠Visit 20 biomes
-got.achievement.TRAVEL20.title≠Traveller I
-got.achievement.TRAVEL40.desc≠Visit 40 biomes
-got.achievement.TRAVEL40.title≠Traveller II
-got.achievement.TRAVEL60.desc≠Visit 60 biomes
-got.achievement.TRAVEL60.title≠Traveller III
-got.achievement.TRAVEL80.desc≠Visit 80 biomes
-got.achievement.TRAVEL80.title≠Traveller IV
+got.achievement.TRAVEL100.desc=100 biyom ziyaret et
+got.achievement.TRAVEL100.title=Yolcu V
+got.achievement.TRAVEL20.desc=20 biyom ziyaret et
+got.achievement.TRAVEL20.title=Yolcu I
+got.achievement.TRAVEL40.desc=40 biyom ziyaret et
+got.achievement.TRAVEL40.title=Yolcu II
+got.achievement.TRAVEL60.desc=60 biyom ziyaret et
+got.achievement.TRAVEL60.title=Yolcu III
+got.achievement.TRAVEL80.desc=80 biyom ziyaret et
+got.achievement.TRAVEL80.title=Yolcu IV
 got.achievement.USE_BANNER.desc=Bölgeyi fethetmek
 got.achievement.USE_BANNER.title=Fatih
 got.achievement.USE_BARREL.desc=Varilde içecek demlemek
@@ -1372,8 +1372,8 @@ got.achievement.WEAR_FULL_BRAAVOS.desc=Braavos'un tam setini giyin
 got.achievement.WEAR_FULL_BRAAVOS.title=Braavos'un Muhafız
 got.achievement.WEAR_FULL_BRONZE.desc=Tam bir bronz zırh seti giyin
 got.achievement.WEAR_FULL_BRONZE.title=Bakır + kalay
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc≠Wear full set of bronze chainmail
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title≠Saved a good bit
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=Tam bronz zırh takımı giyin
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=Güzel bir miktar tasarruf edildi
 got.achievement.WEAR_FULL_CROWNLANDS.desc=Altın Pelerinlerin tamamını giyin
 got.achievement.WEAR_FULL_CROWNLANDS.title=King's Landing'in Muhafız Kaptanı
 got.achievement.WEAR_FULL_DORNE.desc=Dorne'un tam setini giyin
@@ -1394,8 +1394,8 @@ got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Altın Mürettebat'ın tam setini 
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Altın Şirket
 got.achievement.WEAR_FULL_HILLMEN.desc=Tepe Kabilelerinin tam setini giyin
 got.achievement.WEAR_FULL_HILLMEN.title=Ay Dağlarının Çılgınlığı
-got.achievement.WEAR_FULL_IBBEN.desc≠Wear full set of Ibben
-got.achievement.WEAR_FULL_IBBEN.title≠It seems to fit...
+got.achievement.WEAR_FULL_IBBEN.desc=Tam Ibben takımı giyin
+got.achievement.WEAR_FULL_IBBEN.title=Uyuyor gibi görünüyor...
 got.achievement.WEAR_FULL_IRONBORN.desc=Demir Adalar tam setini giyin
 got.achievement.WEAR_FULL_IRONBORN.title=Demir Adalar Muhafız
 got.achievement.WEAR_FULL_JOGOS.desc=Jogos Nhai'nin tam setini giyin
@@ -1432,8 +1432,8 @@ got.achievement.WEAR_FULL_REACHGUARD.desc=Tam bir Menzil koruma seti giyin
 got.achievement.WEAR_FULL_REACHGUARD.title=Menzil Muhafız Kaptanı
 got.achievement.WEAR_FULL_REDKING.desc=Kırmızı kralların tam setini giyin
 got.achievement.WEAR_FULL_REDKING.title=Kırmızı Kral
-got.achievement.WEAR_FULL_RENLY.desc≠Wear full set of Renly
-got.achievement.WEAR_FULL_RENLY.title≠Chief Deer
+got.achievement.WEAR_FULL_RENLY.desc=Tam Renly takımı giyin
+got.achievement.WEAR_FULL_RENLY.title=Geyik Başkanı
 got.achievement.WEAR_FULL_RIVERLANDS.desc=Nehir Toprakları tam setini giyin
 got.achievement.WEAR_FULL_RIVERLANDS.title=Nehir Toprakları Muhafız
 got.achievement.WEAR_FULL_ROBES.desc=Tam takım elbise giyin
@@ -1456,8 +1456,8 @@ got.achievement.WEAR_FULL_UNSULLIED.desc=Lekesiz tam set giyin
 got.achievement.WEAR_FULL_UNSULLIED.title=Savaş zenci
 got.achievement.WEAR_FULL_VALYRIAN.desc=Valyrian çeliğinden tam takım giyin
 got.achievement.WEAR_FULL_VALYRIAN.title=Paradan daha pahalı
-got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.desc≠Wear full set of valyrian chainmail.
-got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.title≠Frodo?
+got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.desc=Tam valyrian zırh takımı giyin.
+got.achievement.WEAR_FULL_VALYRIAN_CHAINMAIL.title=Frodo mu?
 got.achievement.WEAR_FULL_VOLANTIS.desc=Volantis'in tam setini giyin
 got.achievement.WEAR_FULL_VOLANTIS.title=Volantis'in Muhafız
 got.achievement.WEAR_FULL_WESTERLANDS.desc=Batı Toprakları'in tam setini giyin
@@ -1495,7 +1495,7 @@ got.attribute.desc=Bu fraksiyonla +100 itibara Menzil  ödülü
 got.biome.alwaysWinter.name=Daima Kış Toprakları
 got.biome.arryn.name=Vadi
 got.biome.arrynBaelish.name=Parmaklar
-got.biome.arrynForest.name≠Arryn Vale Forest
+got.biome.arrynForest.name=Arryn Vale Ormanı
 got.biome.arrynMountains.name=Ay Dağları
 got.biome.arrynMountainsFoothills.name=Ay etekleri
 got.biome.arrynTown.name=Martı Kasabası
@@ -1503,88 +1503,88 @@ got.biome.beach.name=Plaj
 got.biome.beachGravel.name=Plaj
 got.biome.beachWhite.name=Plaj
 got.biome.blackIslands.name=Blackwater Körfezi Adaları
-got.biome.bleedingBeach.name≠Bleeding Beach
+got.biome.bleedingBeach.name=Kanlı Plaj
 got.biome.bleedingSea.name=Kanlı deniz
 got.biome.boneMountains.name=Kemik Dağları
 got.biome.braavos.name=Braavos
-got.biome.braavosForest.name≠Braavos Forest
-got.biome.braavosHills.name≠Braavos Hills
+got.biome.braavosForest.name=Braavos Ormanı
+got.biome.braavosHills.name=Braavos Tepeleri
 got.biome.cannibalSands.name=Yamyam kumları
-got.biome.cannibalSandsHills.name≠Cannibal Sands Hills
+got.biome.cannibalSandsHills.name=Cannibal Sands Tepeleri
 got.biome.coldCoast.name=Soğuk Sahil
 got.biome.crackclaw.name=Çatlak Pençe Noktası
 got.biome.crownlands.name=Taç Toprakları
-got.biome.crownlandsForest.name≠Crownlands Forest
+got.biome.crownlandsForest.name=Crownlands Ormanı
 got.biome.crownlandsTown.name=Taç Toprakları
 got.biome.disputedLands.name=İhtilaflı Topraklar
-got.biome.disputedLandsForest.name≠Disputed Lands Forest
+got.biome.disputedLandsForest.name=Disputed Lands Ormanı
 got.biome.dorne.name=Dorne
 got.biome.dorneDesert.name=Dorne Çölü
-got.biome.dorneForest.name≠Dorne Forest
+got.biome.dorneForest.name=Dorne Ormanı
 got.biome.dorneMesa.name=Kırmızı plato
 got.biome.dorneMountains.name=Kızıl Dağlar
 got.biome.dorneValley.name=Dorne Vadisi
 got.biome.doshShaman.name=Dağların Annesi
 got.biome.dothrakiSea.name=Dothraki Denizi
-got.biome.dothrakiSeaForest.name≠Dothraki Sea Forest
-got.biome.dothrakiSeaHills.name≠Dothraki Sea Hills
+got.biome.dothrakiSeaForest.name=Dothraki Denizi Ormanı
+got.biome.dothrakiSeaHills.name=Dothraki Denizi Tepeleri
 got.biome.dragonstone.name=Ejderha taşı
 got.biome.essos.name=Yaşanamayan Araziler
 got.biome.essosForest.name=Essos ormanları
 got.biome.essosHills.name=Norvoss Tepeleri
-got.biome.essosMarshes.name≠Essos Marshes
+got.biome.essosMarshes.name=Essos Bataklıkları
 got.biome.essosMountains.name=Essos Dağları
 got.biome.freeCities.name=Özgür Şehirlerin Toprakları
 got.biome.frostfangs.name=Buz Dişleri
 got.biome.ghiscar.name=Ghiscar Körfezi
 got.biome.ghiscarAstapor.name=Astapor
 got.biome.ghiscarColony.name=Ghiskar Kolonileri
-got.biome.ghiscarForest.name≠Ghiscar Forest
+got.biome.ghiscarForest.name=Ghiscar Ormanı
 got.biome.ghiscarMeereen.name=Meereen
-got.biome.ghiscarNewGhis.name≠New Ghis
+got.biome.ghiscarNewGhis.name=Yeni Ghis
 got.biome.ghiscarYunkai.name=Yunkai
 got.biome.giftNew.name=Yeni Hediye
 got.biome.giftOld.name=Hediye
 got.biome.hauntedForest.name=Perili orman
 got.biome.ibben.name=Ibben
 got.biome.ibbenColony.name=İbben Kolonisi
-got.biome.ibbenColonyForest.name≠Ibben Colony Forest
-got.biome.ibbenColonyHills.name≠Ibben Colony Hills
+got.biome.ibbenColonyForest.name=Ibben Koloni Ormanı
+got.biome.ibbenColonyHills.name=Ibben Koloni Tepeleri
 got.biome.ibbenMountains.name=İbben Dağları
 got.biome.ibbenTaiga.name=İbben Ormanı
 got.biome.ifekevronForest.name=Ifekevron Ormanı
 got.biome.ironIslands.name=Demir Adalar
-got.biome.ironIslandsForest.name≠Iron Islands Forest
+got.biome.ironIslandsForest.name=Iron Islands Ormanı
 got.biome.ironIslandsHills.name=Demir Tepeler
 got.biome.island.name=Adalet
 got.biome.isleOfFaces.name=Yüzler Adası
 got.biome.jogosNhai.name=Jogos Nhai Ovaları
 got.biome.jogosNhaiDesert.name=Kuru çöl
-got.biome.jogosNhaiDesertHills.name≠Jogos Nhai Desert Hills
-got.biome.jogosNhaiForest.name≠Jogos Nhai Forest
-got.biome.jogosNhaiHills.name≠Jogos Nhai Hills
+got.biome.jogosNhaiDesertHills.name=Jogos Nhai Çöl Tepeleri
+got.biome.jogosNhaiForest.name=Jogos Nhai Ormanı
+got.biome.jogosNhaiHills.name=Jogos Nhai Tepeleri
 got.biome.kingSpears.name=Su Kralının Mızrakları
 got.biome.kingswood.name=Kral Ormanı
 got.biome.lake.name=Göl
 got.biome.lhazar.name=Lhazar
-got.biome.lhazarForest.name≠Lhazar Forest
-got.biome.lhazarHills.name≠Lhazar Hills
+got.biome.lhazarForest.name=Lhazar Ormanı
+got.biome.lhazarHills.name=Lhazar Tepeleri
 got.biome.longSummer.name=Uzun Yaz Ülkeleri
-got.biome.longSummerForest.name≠Forests of the Long Summer
+got.biome.longSummerForest.name=Uzun Yaz Ormanları
 got.biome.lorath.name=Lorath
-got.biome.lorathForest.name≠Lorath Forest
-got.biome.lorathHills.name≠Lorath Hills
-got.biome.lorathMaze.name≠Maze of Lorath
+got.biome.lorathForest.name=Lorath Ormanı
+got.biome.lorathHills.name=Lorath Tepeleri
+got.biome.lorathMaze.name=Lorath Labirenti
 got.biome.lys.name=Lys
 got.biome.massy.name=Massy'nin Kancası
-got.biome.massyHills.name≠Massy's Hills
+got.biome.massyHills.name=Massy Tepeleri
 got.biome.mossovy.name=Mossovy
-got.biome.mossovyMarshes.name≠Mossovy Marshes
-got.biome.mossovyMountains.name≠Mossovy Mountains
-got.biome.mossovyTaiga.name≠Mossovy Taiga
+got.biome.mossovyMarshes.name=Mossovy Bataklıkları
+got.biome.mossovyMountains.name=Mossovy Dağları
+got.biome.mossovyTaiga.name=Mossovy Taygası
 got.biome.mossovyTundra.name=Mossovy tundra
 got.biome.myr.name=Mür
-got.biome.myrForest.name≠Myr Forest
+got.biome.myrForest.name=Myr Ormanı
 got.biome.naath.name=Naath
 got.biome.neck.name=Kuzey Bataklıkları
 got.biome.neckForest.name=ıslak odun
@@ -1597,35 +1597,35 @@ got.biome.northMountains.name=Kuzey Dağları
 got.biome.northTown.name=Beyaz Liman
 got.biome.northWild.name=Vahşi kuzey
 got.biome.norvos.name=Norvos
-got.biome.norvosForest.name≠Norvos Forest
-got.biome.norvosHills.name≠Norvos Hills
+got.biome.norvosForest.name=Norvos Ormanı
+got.biome.norvosHills.name=Norvos Tepeleri
 got.biome.ocean.name=Okyanus
 got.biome.pentos.name=Pentolar
-got.biome.pentosForest.name≠Pentos Forest
-got.biome.pentosHills.name≠Pentos Hills
+got.biome.pentosForest.name=Pentos Ormanı
+got.biome.pentosHills.name=Pentos Tepeleri
 got.biome.qarth.name=çeyrek
-got.biome.qarthColony.name≠Qarth Colony
+got.biome.qarthColony.name=Qarth Kolonisi
 got.biome.qarthDesert.name=Qarth Çölü
 got.biome.qohor.name=Qohor
 got.biome.qohorForest.name=Qohor Ormanı
-got.biome.qohorHills.name≠Qohor Hills
+got.biome.qohorHills.name=Qohor Tepeleri
 got.biome.rainwood.name=Yağmur ağacı
 got.biome.reach.name=Menzil
 got.biome.reachArbor.name=çardak
 got.biome.reachFireField.name=Yüksek bahçe
-got.biome.reachForest.name≠Reach Forest
-got.biome.reachHills.name≠Reach Hills
+got.biome.reachForest.name=Reach Ormanı
+got.biome.reachHills.name=Reach Tepeleri
 got.biome.reachTown.name=Eski kasaba
 got.biome.river.name=Nehir
 got.biome.riverlands.name=Nehir Toprakları
-got.biome.riverlandsForest.name≠Riverlands Forest
+got.biome.riverlandsForest.name=Riverlands Ormanı
 got.biome.riverlandsHills.name=Afişsiz Kardeşlik Ormanı
 got.biome.sarnor.name=Sarnor
 got.biome.shadowLand.name=Gölge Ülkesi
 got.biome.shadowMountains.name=Şafak Dağları
 got.biome.shadowTown.name=Asshai
 got.biome.shadowWasteland.name=Gölgenin Çölü
-got.biome.shrykesLand.name≠Land of the Shrykes
+got.biome.shrykesLand.name=Shrykes Toprakları
 got.biome.skagos.name=Skagos
 got.biome.skirlingPass.name=Hücum geçişi
 got.biome.sothoryosBushland.name=Sothoryos çalılık
@@ -1644,45 +1644,45 @@ got.biome.sothoryosTaiga.name=Sothoryos Tayga
 got.biome.stepstones.name=Adımlar
 got.biome.stoneCoast.name=Taş Sahil
 got.biome.stormlands.name=Fırtına Toprakları
-got.biome.stormlandsForest.name≠Stormlands Forest
+got.biome.stormlandsForest.name=Stormlands Ormanı
 got.biome.stormlandsTarth.name=Tart
-got.biome.stormlandsTarthForest.name≠Tarth Forest
+got.biome.stormlandsTarthForest.name=Tarth Ormanı
 got.biome.stormlandsTown.name=Durran Burnu
-got.biome.summerColony.name≠Summer Islands Colony
-got.biome.summerColonyMangrove.name≠Summer Islands Mangrove Colony
+got.biome.summerColony.name=Yaz Adaları Kolonisi
+got.biome.summerColonyMangrove.name=Yaz Adaları Mangrove Kolonisi
 got.biome.summerIslands.name=Yaz Adaları
-got.biome.summerIslandsTropicalForest.name≠Tropical Forest
+got.biome.summerIslandsTropicalForest.name=Tropikal Orman
 got.biome.thennLand.name=Sonra Arazi
 got.biome.tropicalForest.name=Tropikal ormanlar
 got.biome.tyrosh.name=Tiroş
 got.biome.ulos.name=Ulolar
 got.biome.ulthos.name=Ulthos
 got.biome.ulthosDesert.name=Ulthos Çölü
-got.biome.ulthosDesertCold.name≠Ulthos Cold Desert
-got.biome.ulthosForest.name≠Ulthos Forest
-got.biome.ulthosForestEdge.name≠Ulthos Forest Edge
-got.biome.ulthosFrost.name≠Ulthos Permafrost
-got.biome.ulthosMarshes.name≠Ulthos Marshes
-got.biome.ulthosMarshesForest.name≠Ulthos Wetlands
+got.biome.ulthosDesertCold.name=Ulthos Soğuk Çölü
+got.biome.ulthosForest.name=Ulthos Ormanı
+got.biome.ulthosForestEdge.name=Ulthos Orman Kenarı
+got.biome.ulthosFrost.name=Ulthos Permafrostu
+got.biome.ulthosMarshes.name=Ulthos Bataklıkları
+got.biome.ulthosMarshesForest.name=Ulthos Sulak Alanlar
 got.biome.ulthosMountains.name=Ulthos Dağları
-got.biome.ulthosRedForest.name≠Ulthos Red Forest
-got.biome.ulthosRedForestEdge.name≠Ulthos Red Forest Edge
-got.biome.ulthosTaiga.name≠Ulthos Taiga
-got.biome.ulthosTaigaEdge.name≠Ulthos Taiga Edge
+got.biome.ulthosRedForest.name=Ulthos Kırmızı Orman
+got.biome.ulthosRedForestEdge.name=Ulthos Kırmızı Orman Kenarı
+got.biome.ulthosTaiga.name=Ulthos Taygası
+got.biome.ulthosTaigaEdge.name=Ulthos Taygası Kenarı
 got.biome.valyria.name=Valyria Yarımadası
 got.biome.valyriaSea.name=Valyria Denizi
 got.biome.valyriaVolcano.name=Valyria Volkanları
 got.biome.volantis.name=Volantis
-got.biome.volantisForest.name≠Volantis Forest
+got.biome.volantisForest.name=Volantis Ormanı
 got.biome.volantisMarshes.name=Selhoru Vadisi
 got.biome.volantisOrangeForest.name=Turuncu Sahil
 got.biome.westerlands.name=Batı Toprakları
-got.biome.westerlandsForest.name≠Westerlands Forest
+got.biome.westerlandsForest.name=Westerlands Ormanı
 got.biome.westerlandsHills.name=Batı Toprakları Tepeleri
 got.biome.westerlandsTown.name=Lannis Limanı
 got.biome.westerosForest.name=Westeros Ormanları
-got.biome.westerosForest1.name≠Westeros Coniferous Forest
-got.biome.westerosForest2.name≠Westeros Deciduous Forest
+got.biome.westerosForest1.name=Westeros İğne Yapraklı Orman
+got.biome.westerosForest2.name=Westeros Yapraklı Orman
 got.biome.westerosFrost.name=Karlı çorak
 got.biome.westerosMountains.name=Westeros Dağları
 got.biome.whisperingWood.name=Fısıldayan Ahşap
@@ -1690,8 +1690,8 @@ got.biome.wolfswood.name=Kurt ağacı
 got.biome.yeen.name=Yeen Çorak
 got.biome.yiTi.name=Yi Ti
 got.biome.yiTiBorderZone.name=Yi Ti Sınır Bölgesi
-got.biome.yiTiMarshes.name≠Yi Ti Marshes
-got.biome.yiTiTropicalForest.name≠Tropical Forest
+got.biome.yiTiMarshes.name=Yi Ti Bataklıkları
+got.biome.yiTiTropicalForest.name=Tropikal Orman
 got.capes.ARRYN.name=Vadi Burnu
 got.capes.ARRYNGUARD.name=Arryn Muhafız Burnu
 got.capes.ASSHAI.name=Asshai Burnu
@@ -1716,14 +1716,14 @@ got.capes.REACH.name=Menzil Burnu
 got.capes.RIVERLANDS.name=Nehir Toprakları Burnu
 got.capes.ROYALGUARD.name=Kraliyet Muhafız Burnu
 got.capes.STORMLANDS.name=Fırtına Toprakları Burnu
-got.capes.TARGARYEN.desc≠For developers of Game of Thrones Mod
+got.capes.TARGARYEN.desc=Oyunun Tahtalar Oyunu Modu geliştiricileri için
 got.capes.TARGARYEN.name=Targaryen Burnu
 got.capes.TYROSH.name=Tiroş Burnu
 got.capes.UNSULLIED.name=Lekesiz Burnu
 got.capes.VOLANTIS.name=Volantis Burnu
 got.capes.WESTERLANDS.name=Batı Toprakları Burnu
 got.capes.YITI.name=Yi Ti Burnu
-got.capes.YITI_FRONTIER.name≠Cape of Tyrosh
+got.capes.YITI_FRONTIER.name=Tyrosh Pelerini
 got.capes.YITI_SAMURAI.name=Yi Ti Samuray Burnu
 got.capes.category.ACHIEVABLE=Ulaşılabilir Pelerinler
 got.capes.category.ALIGNMENT=Itibar pelerinleri
@@ -1739,7 +1739,7 @@ got.chat.bountyKilled1=%s, %s İle Kellenizin Ödülünü Aldı!
 got.chat.bountyKilled2=%s Memnun Olmadı, Ve Onlarla İlişkiniz Geriledi...
 got.chat.bountyPlaced=%s Kafana Ödül Koydu!
 got.chat.conquestHornProtected=%s Bu Bölgeyi İstila Edemezsin
-got.chat.ft.offlineTick≠While you were offline, your wait time for a fast travelling decreased by %s
+got.chat.ft.offlineTick=Çevrimdışı iken, hızlı yolculuk için bekleme süreniz %s azaldı
 got.chat.ftDisabled=Hızlı Gezi Bu Sunucuda Devre Dışı
 got.chat.insufficientAlignment2=Bu Eylemi Gerçekleştirmek İçin %s %s Veya %s Namına İhtiyacın Var!
 got.chat.insufficientAlignment3=Bu Eylemi Gerçekleştirmek İçin %s %s, %s, Veya %s Namına İhtiyacın Var!
@@ -1892,11 +1892,11 @@ got.command.waypoints.unlock.fail=%s zaten %s yol noktası bölgesinin kilidi a�
 got.command.waypoints.unlock=%s yol noktası bölgesi %s için kilidi açıldı
 got.command.waypoints.unlockAll=%s için tüm yol noktası bölgelerinin kilidi açıldı
 got.command.waypoints.usage=/waypoints <kilidi aç|kilit> <bölge> [oyuncu]
-got.command.wpCooldown.setMax≠Set the maximum waypoint cooldown time to %d seconds (%s)
-got.command.wpCooldown.setMin≠Set the minimum waypoint cooldown time to %d seconds (%s)
-got.command.wpCooldown.updateMax≠Automatically updated maximum cooldown to match the new minimum of %d
-got.command.wpCooldown.updateMin≠Automatically updated minimum cooldown to match the new maximum of %d
-got.command.wpCooldown.usage≠/wpCooldown <max|min> <seconds>
+got.command.wpCooldown.setMax=Maksimum güzergah noktası soğuma süresini %d saniye (%s) olarak ayarlayın
+got.command.wpCooldown.setMin=Minimum güzergah noktası soğuma süresini %d saniye (%s) olarak ayarlayın
+got.command.wpCooldown.updateMax=Yeni minimum %d ile otomatik olarak maksimum soğumayi güncellendi
+got.command.wpCooldown.updateMin=Yeni maksimum %d ile otomatik olarak minimum soğumayi güncellendi
+got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
 got.compas.EAST=Doğu
 got.compas.NORTH=Kuzey
 got.compas.SOUTH=Güneş ışığı
@@ -1961,8 +1961,8 @@ got.container.crafting.yiti=Yi Ti Üretimi
 got.container.dartTrap=Dart Tuzağı
 got.container.millstone=Değirmentaşı
 got.container.oven=Fırın
-got.container.smith.cost≠Coin Cost: %d
-got.container.smith≠Coin Cost: %d
+got.container.smith.cost=Sikke Maliyeti: %d
+got.container.smith=Sikke Maliyeti: %d
 got.container.trade.buy=Satın al
 got.container.trade.locked=...
 got.container.trade.sell=Sat
@@ -2191,7 +2191,7 @@ got.faction.GHISCAR.subtitle=Köle Körfezi
 got.faction.HILL_TRIBES.entity=Dağ kabileleri
 got.faction.HILL_TRIBES.name=Dağ kabileleri
 got.faction.HILL_TRIBES.subtitle=Vadi Tepe Kabileleri
-got.faction.HOSTILE.name≠Hostile
+got.faction.HOSTILE.name=Düşman
 got.faction.IBBEN.entity=İbben Yerleşikları
 got.faction.IBBEN.name=Ibben
 got.faction.IBBEN.subtitle=Ibben'in balina avcıları
@@ -2278,7 +2278,7 @@ got.faction.rel.FRIEND=Dostlar
 got.faction.rel.MORTAL_ENEMY=Ölümüne Düşmanlar
 got.faction.rel.NEUTRAL=Natural
 got.fastTravel.available=Şimdi Hızlı Seyahat Yapabilirsin
-got.fastTravel.inBed≠You cannot fast travel while in a bed
+got.fastTravel.inBed=Yatakta iken hızlı seyahat edemezsiniz
 got.fastTravel.motion=Hızlı Seyahat İptal, Hatakey Etme!
 got.fastTravel.skip=Geçmek İçin '%s' Tuşuna Basın
 got.fastTravel.travel=Hızlı Seyat Ediliyor; %s
@@ -2512,8 +2512,8 @@ got.gui.miniquestOffer.decline=Reddet
 got.gui.money.balance=Bakiye: %s
 got.gui.money.get=%s'yi başarıyla aktardınız
 got.gui.money.give=%s'yi başarıyla geri çektiniz
-got.gui.money.notGet≠You do not have this coin in your inventory
-got.gui.money.notGive≠You don't have that much money on your balance sheet
+got.gui.money.notGet=Bu parayı envanterinizde bulundurmuyorsunuz
+got.gui.money.notGive=Bakiyenizde bu kadar paranız yok
 got.gui.money.press=Para çekmek/aktarmak için madeni paraya basın
 got.gui.money.transfer=Para transferi
 got.gui.money.withdraw=Para çekmek
@@ -2521,7 +2521,7 @@ got.gui.npc.command=Emir Ver
 got.gui.npc.dismiss=Askeri İşten Çıkar
 got.gui.npc.exchange=Para Takas Et
 got.gui.npc.hire=Çağır
-got.gui.npc.smith≠Smith
+got.gui.npc.smith=Demirci
 got.gui.npc.talk=Konuş
 got.gui.npc.trade=Takas Yap
 got.gui.npcRespawner.blockEnemy.off=Kapalı
@@ -2603,9 +2603,9 @@ got.gui.shields.select=Kalkan Seç
 got.gui.shields.selected=Seçildi!
 got.gui.shields.title=Kalkanları
 got.gui.shields=Kalkanlar
-got.gui.squadronItem.done≠Finish
-got.gui.squadronItem.none≠Enter the name
-got.gui.squadronItem.squadron≠Assigned hired unit squadron:
+got.gui.squadronItem.done=Bitir
+got.gui.squadronItem.none=İsim girin
+got.gui.squadronItem.squadron=Atanan kiralanmış birim birliği:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s
@@ -2712,59 +2712,59 @@ got.miniquest.welcome.speak=Gri Hacı ile Konuş
 got.music.nowPlaying=Şimdi Çalıyor:
 got.potion.drinkPoison=Zehirli İçki
 got.potion=Kalan
-got.rank.ARRYN≠of Arryn Vale
-got.rank.ASSHAI≠of Asshai
-got.rank.BRAAVOS≠of Braavos
-got.rank.CROWNLANDS≠of Crownlands
-got.rank.DORNE≠of Dorne
-got.rank.DOTHRAKI≠of dothraki
-got.rank.DRAGONSTONE≠of Dragonstone
-got.rank.GHISCAR≠of Ghiscar
-got.rank.HILL_TRIBES≠of Hill Tribes
-got.rank.HOSTILE≠of hostiles
-got.rank.IBBEN≠of Ibben
-got.rank.IRONBORN≠of Iron Islands
-got.rank.JOGOS≠of Jogos Nhai
-got.rank.LHAZAR≠of Lhazar
-got.rank.LORATH≠of Lorath
-got.rank.LYS≠of Lys
-got.rank.MOSSOVY≠of Mossovy
-got.rank.MYR≠of Myr
-got.rank.NIGHT_WATCH≠of Night's Watch
-got.rank.NORTH≠of North
-got.rank.NORVOS≠of Norvos
-got.rank.PENTOS≠of Pentos
-got.rank.QARTH≠of Qarth
-got.rank.QOHOR≠of Qohor
-got.rank.REACH≠of Reach
-got.rank.RIVERLANDS≠of Riverlands
-got.rank.SOTHORYOS≠of Sothoryos
-got.rank.STORMLANDS≠of Stormlands
-got.rank.SUMMER_ISLANDS≠of Summer Islands
-got.rank.TYROSH≠of Tyrosh
-got.rank.ULTHOS≠of Ulthos
-got.rank.UNALIGNED≠of neutrals
-got.rank.VOLANTIS≠of Volantis
-got.rank.WESTERLANDS≠of Westerlands
-got.rank.WHITE_WALKER≠of white walkers
-got.rank.WILDLING≠of wildling
-got.rank.YI_TI≠of Yi Ti
-got.rank.defender_fm≠Benefactress
-got.rank.defender≠Benefactor
-got.rank.enemy_fm≠Traitress
-got.rank.enemy≠Traitor
-got.rank.friend_fm≠Friend
-got.rank.friend≠Friend
-got.rank.guest_fm≠Guest
-got.rank.guest≠Guest
-got.rank.hero_fm≠Heroine
-got.rank.hero≠Hero
-got.rank.king_fm≠Night Queen
-got.rank.king≠Night King
-got.rank.leader_fm≠Patroness
-got.rank.leader≠Patron
-got.rank.neutral_fm≠Neutral
-got.rank.neutral≠Neutral
+got.rank.ARRYN=Arryn Vadisi'nin
+got.rank.ASSHAI=Asshai'nin
+got.rank.BRAAVOS=Braavos'un
+got.rank.CROWNLANDS=Kraliyet Toprakları'nın
+got.rank.DORNE=Dorne'un
+got.rank.DOTHRAKI=Dothraki'nin
+got.rank.DRAGONSTONE=Ejderha Taşı'nın
+got.rank.GHISCAR=Ghiscar'ın
+got.rank.HILL_TRIBES=Tepe Kabileleri'nin
+got.rank.HOSTILE=Düşmanların
+got.rank.IBBEN=Ibben'in
+got.rank.IRONBORN=Demir Adaları'nın
+got.rank.JOGOS=Jogos Nhai'nin
+got.rank.LHAZAR=Lhazar'ın
+got.rank.LORATH=Lorath'ın
+got.rank.LYS=Lys'in
+got.rank.MOSSOVY=Mossovy'nin
+got.rank.MYR=Myr'in
+got.rank.NIGHT_WATCH=Kara Muhafızlar'ın
+got.rank.NORTH=Kuzey'in
+got.rank.NORVOS=Norvos'un
+got.rank.PENTOS=Pentos'un
+got.rank.QARTH=Qarth'ın
+got.rank.QOHOR=Qohor'un
+got.rank.REACH=Reach'in
+got.rank.RIVERLANDS=Nehir Bölgeleri'nin
+got.rank.SOTHORYOS=Sothoryos'un
+got.rank.STORMLANDS=Fırtına Bölgeleri'nin
+got.rank.SUMMER_ISLANDS=Yaz Adaları'nın
+got.rank.TYROSH=Tyrosh'un
+got.rank.ULTHOS=Ulthos'un
+got.rank.UNALIGNED=Tarafsızların
+got.rank.VOLANTIS=Volantis'in
+got.rank.WESTERLANDS=Batı Toprakları'nın
+got.rank.WHITE_WALKER=Beyaz Gezenlerin
+got.rank.WILDLING=Vahşilerin
+got.rank.YI_TI=Yi Ti'nin
+got.rank.defender=Koruyucu
+got.rank.defender_fm=Koruyucu
+got.rank.enemy=İhanetçi
+got.rank.enemy_fm=İhanetçi
+got.rank.friend=Dost
+got.rank.friend_fm=Dost
+got.rank.guest=Misafir
+got.rank.guest_fm=Misafir
+got.rank.hero=Kahraman
+got.rank.hero_fm=Kahraman
+got.rank.king=Gece Kralı
+got.rank.king_fm=Gece Kraliçesi
+got.rank.leader=Himayeci
+got.rank.leader_fm=Himayeci
+got.rank.neutral=Tarafsız
+got.rank.neutral_fm=Tarafsız
 got.shields.ACHIEVEMENT_BRONZE.desc=75 Başarım Sonucunda Verilecek Kalkan
 got.shields.ACHIEVEMENT_BRONZE.name=Bronz Maceracı Kalkanı
 got.shields.ACHIEVEMENT_GOLD.desc=225 Başarım Sonucunda Verilecek Kalkan
@@ -2777,14 +2777,14 @@ got.shields.ALCOHOLIC.desc=Epey Bir Miktar İçkinin Sonunda Kazanılan Kalkan
 got.shields.ALCOHOLIC.name=Alkoliklerin Kalkanı
 got.shields.ARRYN.name=Vadi Kalkanı
 got.shields.ARRYNGUARD.name=Martı Kasabası Muhafıznın Kalkanı
-got.shields.ASSHAI.name≠Shield of Asshai
+got.shields.ASSHAI.name=Asshai Kalkanı
 got.shields.BRAAVOS.name=Braavos'un Kalkanı
 got.shields.CROWNLANDS.name=Taç Toprakları Kalkanı
 got.shields.DORNE.name=Dorne'un Kalkanı
 got.shields.DRAGONSTONE.name=Ejderha Taşı Kalkanı
 got.shields.GHISCAR.name=Ghiscar Kalkanı
-got.shields.GOLDEN_COMPANY.desc≠Reward for hiring 10 G.C. mercenaries
-got.shields.GOLDEN_COMPANY.name≠Shield of Golden Company
+got.shields.GOLDEN_COMPANY.desc=10 Golden Company paralı askeri tutma ödülü
+got.shields.GOLDEN_COMPANY.name=Golden Company Kalkanı
 got.shields.HILLMEN.name=Tepe Kabilelerinin Kalkanı
 got.shields.IRONBORN.name=Demir Adalar Kalkanı
 got.shields.LORATH.name=Lorath'ın Kalkanı
@@ -2808,7 +2808,7 @@ got.shields.TYROSH.name=Tyrosh Kalkanı
 got.shields.UNSULLIED.name=Lekesiz Kalkanı
 got.shields.VOLANTIS.name=Volantis'in Kalkanı
 got.shields.WESTERLANDS.name=Batı Toprakları Kalkanı
-got.shields.WESTERLANDSGUARD.name≠Shield of Westerlands Guard
+got.shields.WESTERLANDSGUARD.name=Batı Toprakları Muhafızları Kalkanı
 got.shields.YITI.name=Yi Ti'nin Kalkanı
 got.shields.YITI_FRONTIER.name=Yi Ti Sınır Kalkanı
 got.shields.YITI_SAMURAI.name=Yi Ti Samuray'ın Kalkanı
@@ -3263,48 +3263,48 @@ got.travellingTrader.arrive=%s Yakına Geldi
 got.travellingTrader.arriveMP=%s Yakınına Geldi; %s
 got.travellingTrader.depart=%s Bölgeden Ayrıldı
 got.tree.acacia.name=Akasya
-got.tree.acacia_dead.name≠Dead Acacia
+got.tree.acacia_dead.name=Ölü Akasya
 got.tree.almond.name=Badem
 got.tree.apple.name=Elma ağacı
-got.tree.aramant.name≠Aramant
+got.tree.aramant.name=Aramant
 got.tree.aspen.name=Aspen
 got.tree.aspen_large.name=Dev kavak
 got.tree.banana.name=Muz ağacı
 got.tree.baobab.name=Baobab
 got.tree.beech.name=Kayın
-got.tree.beech_dead.name≠Dead Beech
+got.tree.beech_dead.name=Ölü Gürgen
 got.tree.beech_large.name=Dev kayın
-got.tree.beech_party.name≠Giant Beech
+got.tree.beech_party.name=Devasa Gürgen
 got.tree.birch.name=Huş ağacı
-got.tree.birch_dead.name≠Dead Birch
+got.tree.birch_dead.name=Ölü Huş
 got.tree.birch_large.name=Dev huş ağacı
-got.tree.birch_party.name≠Giant Birch
-got.tree.birch_tall.name≠Tall Birch
+got.tree.birch_party.name=Devasa Huş
+got.tree.birch_tall.name=Uzun Huş
 got.tree.catalpa.name=Katalpa
-got.tree.catalpa_boughs.name≠Bough Catalpa
-got.tree.catalpa_party.name≠Giant Catalpa
+got.tree.catalpa_boughs.name=Budaklar Katalpası
+got.tree.catalpa_party.name=Devasa Katalpa
 got.tree.cedar.name=Sedir
 got.tree.cedar_large.name=Dev Sedir
 got.tree.charred.name=Kömürleşmiş ağaç
 got.tree.cherry.name=Kiraz ağacı
 got.tree.chestnut.name=Kestane
 got.tree.chestnut_large.name=Kestane ağacı
-got.tree.chestnut_party.name≠Giant Chestnut
+got.tree.chestnut_party.name=Devasa Kestane
 got.tree.cypress.name=Selvi
 got.tree.cypress_large.name=Dev Selvi
-got.tree.dark_oak.name≠Dark Oak
-got.tree.dark_oak_party.name≠Giant Dark Oak
+got.tree.dark_oak.name=Kara Meşe
+got.tree.dark_oak_party.name=Devasa Kara Meşe
 got.tree.date_palm.name=Hurma ağacı
 got.tree.dragonblood.name=Ejderha Kanı
-got.tree.dragonblood_huge.name≠Giant Dragonblood
-got.tree.dragonblood_large.name≠Large Dragonblood
+got.tree.dragonblood_huge.name=Devasa Drakon Kanı
+got.tree.dragonblood_large.name=Büyük Drakon Kanı
 got.tree.fir.name=Köknar
 got.tree.fotinia.name=Fotinia
 got.tree.holly.name=çobanpüskülü
 got.tree.holly_large.name=Dev çobanpüskülü
 got.tree.ibben_pine.name=Ibbinia
 got.tree.jungle.name=Tropikal ağaç
-got.tree.jungle_cloud.name≠Cloud Jungle Tree
+got.tree.jungle_cloud.name=Bulut Ormanı Ağacı
 got.tree.jungle_large.name=Dev tropikal ağaç
 got.tree.jungle_shrub.name=Tropikal çalı
 got.tree.kanuka.name=Kunz ağacı
@@ -3316,24 +3316,24 @@ got.tree.mango.name=Mango
 got.tree.mangrove.name=Mangrov ağacı
 got.tree.maple.name=Akçaağaç
 got.tree.maple_large.name=Dev akçaağaç
-got.tree.maple_party.name≠Giant Maple
+got.tree.maple_party.name=Devasa Akçaağaç
 got.tree.oak.name=Meşe
 got.tree.oak_dead.name=Ölü Meşe
 got.tree.oak_desert.name=Çöl Meşesi
-got.tree.oak_giant.name≠Very large Oak
+got.tree.oak_giant.name=Çok Büyük Meşe
 got.tree.oak_large.name=Dev Meşe
 got.tree.oak_party.name=Dev Meşe
-got.tree.oak_shrub.name≠Oak Shrub
-got.tree.oak_swamp.name≠Swamp Oak
+got.tree.oak_shrub.name=Meşe Çalısı
+got.tree.oak_swamp.name=Bataklık Meşesi
 got.tree.oak_tall.name=Uzun Meşe
-got.tree.oak_taller.name≠Very Tall Oak
+got.tree.oak_taller.name=Çok Uzun Meşe
 got.tree.olive.name=Zeytin
 got.tree.olive_large.name=Dev zeytin
 got.tree.orange.name=Portakal ağacı
 got.tree.palm.name=Palmiye ağacı
 got.tree.pear.name=Armut ağacı
 got.tree.pine.name=Çam ağacı
-got.tree.pine_shrub.name≠Pine Shrub
+got.tree.pine_shrub.name=Çam Çalısı
 got.tree.plum.name=Erik ağacı
 got.tree.pomegranate.name=Nar ağacı
 got.tree.redwood.name=Demirağacı
@@ -3342,21 +3342,21 @@ got.tree.redwood_3.name=Tinfoil (3 tür)
 got.tree.redwood_4.name=Tinfoil (4 tür)
 got.tree.redwood_5.name=Tinfoil (5 tür)
 got.tree.spruce.name=Ladin
-got.tree.spruce_dead.name≠Dead Spruce
+got.tree.spruce_dead.name=Ölü Ladin
 got.tree.spruce_mega.name=Dev Ladin
 got.tree.spruce_mega_thin.name=Dev İnce Ladin
 got.tree.spruce_thin.name=İnce Ladin
 got.tree.ulthos_green_oak.name=Yeşil Meşe
-got.tree.ulthos_green_oak_extreme.name≠Giant Ulthos Green Oak
+got.tree.ulthos_green_oak_extreme.name=Devasa Ulthos Yeşil Meşesi
 got.tree.ulthos_green_oak_large.name=Dev Yeşil Meşe
 got.tree.ulthos_oak.name=Ulthos meşesi
-got.tree.ulthos_oak_dead.name≠Dead Ulthos Oak
+got.tree.ulthos_oak_dead.name=Ölü Ulthos Meşesi
 got.tree.ulthos_oak_large.name=Dev Ulthos meşesi
 got.tree.ulthos_red_oak.name=Kızıl Meşe
 got.tree.ulthos_red_oak_large.name=Dev Kızıl Meşe
 got.tree.weirwood.name=Chardwood
 got.tree.willow.name=Söğüt
-got.tree.willow_water.name≠Water Willow
+got.tree.willow_water.name=Su Söğüdü
 got.unit.Rider=Binici
 got.unitinfo.Banner=Bayraktarları, Yakındaki Dost Birimleri İyleştirir.
 got.unitinfo.Corsair=Korsanlar Öldürdükleri Düşmanlardan Para Çıkarma Konusunda İyidir
@@ -3377,9 +3377,9 @@ got.variant.forest.name=Orman
 got.variant.forest_aspen.name=Aspen Grove
 got.variant.forest_beech.name=Kayın Korusu
 got.variant.forest_birch.name=Huş Korusu
-got.variant.forest_cedar.name≠Cedar forest
+got.variant.forest_cedar.name=Sedir Ormanı
 got.variant.forest_cherry.name=Kiraz ağacı
-got.variant.forest_cypress.name≠Cypress forest
+got.variant.forest_cypress.name=Selvi Ormanı
 got.variant.forest_larch.name=Karaçam ormanı
 got.variant.forest_lemon.name=Limon Korusu
 got.variant.forest_light.name=Nadir Orman
@@ -3429,16 +3429,16 @@ got.wp.ADAKHAKILEKI.info=Şehri kimin inşa ettiği artık unutuluyor, ancak Dot
 got.wp.ADAKHAKILEKI=Adahakileki
 got.wp.AEGON.info=Yaz Adaları'nın güneybatısında, Alice Westhill tarafından keşfedilen bir ada.
 got.wp.AEGON=Aegon
-got.wp.AK_SHAAR.info≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
-got.wp.AK_SHAAR≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
+got.wp.AK_SHAAR.info=Yi Tish, sürüngenler tanrıçasının evi olduğunu söylüyor. Genellikle siyah bir gökkuşağına benzer olduğu söylenir: siyah-siyah kanatları ve kanlı bir görünümü vardır.
+got.wp.AK_SHAAR=Ak Shaar
 got.wp.AMBERLY.info=Rogers'ın atalarının kalesi, Baratheonların vasalları.
 got.wp.AMBERLY=Kehribar rengi
-got.wp.ANBEI.info≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.ANBEI≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.ANGUO.info≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
-got.wp.ANGUO≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
-got.wp.ANJIANG.info≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
-got.wp.ANJIANG≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
+got.wp.ANBEI.info=Büyük Yi Ti Suru'nun batı kenarı, altın imparatorluğu kuzeyden gelen göçebelerin akınlarından koruyan dev ve eski bir yapıdır.
+got.wp.ANBEI=Anbei
+got.wp.ANGUO.info=Büyük Yi Ti Suru'nun kalelelerinden biri. İmparator 4.200 yıl önce kendi finanse ederek inşa ettirdi.
+got.wp.ANGUO=Anguo
+got.wp.ANJIANG.info=Büyük Yi Ti Suru'nun kalelerinden biri. İmparatorluk akınları genellikle bu kaleden başlardı - stratejik konumu iyiydi.
+got.wp.ANJIANG=Anjiang
 got.wp.ANOGARIA.info=Eski Valyria muhafız kalelerinden biri.
 got.wp.ANOGARIA=Anogaria
 got.wp.ANTLERS.info=Kral Toprakları'ndaki Buckwell hanesinin kalesi.
@@ -3459,14 +3459,14 @@ got.wp.ASSHAI.info=Büyü konusunda yetenekli insanlarla tanınan büyük bir li
 got.wp.ASSHAI=Asshai
 got.wp.ASTAPOR.info=Meereen ve Yunkai ile birlikte Köle Körfezi'ndeki üç köle ticaret merkezinden biri. Şehir, Gis'ten gelen göçmenler tarafından kurulmuştur ve özellikle Kusursuzların eğitimli köleleri ile ünlüdür; Disiplin, cesaret ve sadakat nedeniyle Lekesizler ordusu bilinen dünyada çok değerlidir.
 got.wp.ASTAPOR=Astapor
-got.wp.ATAAHUA.info≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
-got.wp.ATAAHUA≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
+got.wp.ATAAHUA.info=Efsanevi kılıcın saklandığı antik bir deniz kalesi. Bu yer, genç kral Rinne'nin, kale kuşatması sırasında zalim bir büyücünün ellerinde öldüğü kahramanlıklarının anısını saklar.
+got.wp.ATAAHUA=Ataahua
 got.wp.ATRANTA.info=Vance'in genç kolunun atalardan kalma kalesi, Tully'nin vassalları.
 got.wp.ATRANTA=Atranta
-got.wp.AZHYDAAR.info≠The homeland of Catullah, the ancient king of Mossovy.
-got.wp.AZHYDAAR≠The homeland of Catullah, the ancient king of Mossovy.
-got.wp.AZUU_KAN.info≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
-got.wp.AZUU_KAN≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
+got.wp.AZHYDAAR.info=Mosovy'nin eski kralı Catullah'ın anavatanı.
+got.wp.AZHYDAAR=Azhydaar
+got.wp.AZUU_KAN.info=Dünyanın ucunda duran mistik bir kale. Gandharva'nın ruhu tarafından yönetiliyor. Bu kelime Mosovi dilinde "tüm iyi insanların lordudur" anlamına geliyor.
+got.wp.AZUU_KAN=Azuu Kan
 got.wp.BAELISH_KEEP.info=Yedi Krallığın en önemsiz ve en fakir lordlarından birinin atalarının alanı - Beilish. Üç kuşak önce, şimdiki Lord Petyr Baelish'in büyük büyükbabası Westeros'a Braavos paralı askeri olarak geldi, oğlu şövalyelik aldı, torunu lord oldu ve büyük torunu Lord Arryn'in dul eşiyle evlendi.
 got.wp.BAELISH_KEEP=Baelish Kalesi
 got.wp.BANDALLON.info=Menzil'in Blackbar Hanesi'nin atalardan kalma kalesi. Kara çubukların çok kötü bir hayal gücü vardır: armalarında siyah (siyah) bir şerit (çubuk) bulunur.
@@ -3479,16 +3479,16 @@ got.wp.BARROWTOWN.info=Şehir, Barrowhall'dan eski Barrow Kings Dustins tarafın
 got.wp.BARROWTOWN=Höyük kasabası
 got.wp.BARTER_BEACH.info=Korsanların birbirleriyle ticaret yaptıkları plaj. Muhtemelen bir korsan yerleşimi.
 got.wp.BARTER_BEACH=Takas plajı
-got.wp.BASHKARUUCHU.info≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
-got.wp.BASHKARUUCHU≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
-got.wp.BATARGAS.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
-got.wp.BATARGAS≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
+got.wp.BASHKARUUCHU.info=Mosovy'nin soğuk ve kasvetli başkenti, sefahate ve büyüye gömülmüş. Birinci gerçek hayatın gerçeği, ikinci ise yetkililerin icadıdır.
+got.wp.BASHKARUUCHU=Bashkaruchuu
+got.wp.BATARGAS.info=Sotorios'daki üç Qarth kolonisi olarak şu anda meskûn. Buradan Qarth'a savaş ejderhalarıyla giden gemiler var. Burada küçük ama savaş için adapte olmuş bir ordu var.
+got.wp.BATARGAS=Batargas
 got.wp.BAYASABHAD.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
 got.wp.BAYASABHAD=Bayasabhad
 got.wp.BHORASH.info=Şeytan Yolu'ndaki bir Valyrian veya Ghiskar şehrinin kalıntıları. Valyria Kayası'ndan sonra yok edildi ve kim tarafından bilinmiyor.
 got.wp.BHORASH=Bhoraş
-got.wp.BIG_LAKE.info≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
-got.wp.BIG_LAKE≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
+got.wp.BIG_LAKE.info=Bir çok Sotori kabilesi için kutsal bir göl. Tabii ki onların kurak düzlüğünde bu kadar büyük göller yok ve su hayatın kaynağı.
+got.wp.BIG_LAKE=Big Lake
 got.wp.BITTERBRIDGE.info=Caswells Evi'nin atalarının kalesi. Burada turnuvanın galibi Brienne Tarth, Kral Renly tarafından Gökkuşağı Muhafızna getirildi.
 got.wp.BITTERBRIDGE=Acı köprü
 got.wp.BLACKCROWN.info=Bulwers Evi'nin kalesi, Garth Yeşilel'in torunları (Menzil'in diğer birçok hanesi gibi).
@@ -3535,10 +3535,10 @@ got.wp.CASTLE_LYCHESTER.info=Berik Dondarrion'un Arya ile birlikte müfrezesinin
 got.wp.CASTLE_LYCHESTER=Lychester Kalesi
 got.wp.CATFISH_ROCK.info=Fischer'in eski kraliyet evinin kalesi.
 got.wp.CATFISH_ROCK=Yayın balığı kaya
-got.wp.CENTRAL_FORESTS.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
-got.wp.CENTRAL_FORESTS≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
-got.wp.CHANGAN.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
-got.wp.CHANGAN≠Changan
+got.wp.CENTRAL_FORESTS.info=Orta Ultos, bazen kuzey Ultos'un güney kısmı olarak anılır. Burada hala ormanlar yaygın, kuzey ana karadan olduğu gibi.
+got.wp.CENTRAL_FORESTS=Central Forests
+got.wp.CHANGAN.info=Önemli kıyı yollarının kavşağındaki büyük bir şehir. Azor Ahai zamanında, "Altın İmparatorluğun Kurtarılışı" kehanetini içeren bir ritüel parşömeni burada saklanıyordu.
+got.wp.CHANGAN=Cnahgan
 got.wp.CHROYANE.info=Antik çağda, Kroyane'nin müreffeh Roinar kasabasıydı. Saroi, ejderha lordları tarafından yakıldıktan sonra, Garin adlı Prens Kroyane, Rhoynar'ı birleşmeye ve işgalcilerle savaşmaya çağırdı. Ne yazık ki, bir dizi zaferden sonra Valyria'dan düzinelerce ejderha lordu geldi ve Roynar düştü. Garin, halkının nasıl köleleştirildiğini ve şehrin nasıl yandığını görebilmesi için bir kafeste Kroyan'a getirildi. Çaresizlik içinde Garin, Valyrialıları lanetledi - sonra Roina'nın üzerinde gri bir hastalığın sporları ortaya çıktı ... Şimdi bu hastalığın kurbanları burada kovuldu. Böylece güzel şehir büyük bir cüzzamlı kolonisine dönüştü.
 got.wp.CHROYANE=Kroyan
 got.wp.CIDER_HALL.info=Kızıl Elma şubesinden Fossoveevlerin evinin kalesi.
@@ -3581,8 +3581,8 @@ got.wp.DEEP_DEN.info=Lannister'ın vasalı Lyddens'ın hanesinin kalesi.
 got.wp.DEEP_DEN=Derin Den
 got.wp.DEEP_LAKE.info=Şimdi Gece Nöbeti'nin terk edilmiş kalelerinden biri. 200 yıl önce Kraliçe Alisanna'nın inisiyatifiyle inşa edilmiş; Kraliçe, Gece Nöbeti'nin kardeşleri çok büyük ve pahalı Gece Kalesi'ni terk edebilsin diye inşaatı finanse etti. Kale adını yakınında bulunduğu gölden almıştır. Gece Nöbeti'nin 998. Lord Kumandanı, Sur'un Muhafıznı yeniden kurmak için buraya bir garnizon gönderdi.
 got.wp.DEEP_LAKE=Derin göl
-got.wp.DINGGUO.info≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
-got.wp.DINGGUO≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
+got.wp.DINGGUO.info=Burada Büyük Iti Ülkesi'nin inşa edilmesinden önce bile bir yerleşim vardı - madenciler ve elmas madenleri vardı. Yataklarını tükettiklerinde, elmaslar satıldı ve bir kale inşa etmek için yeterliydi.
+got.wp.DINGGUO=Dingguo
 got.wp.DOQUU.info=Aynı adı taşıyan adada küçük bir yerleşim. Yaz Adaları'nın en güneydeki yerleşim yeridir.
 got.wp.DOQUU=Belge
 got.wp.DOWNDELVING.info=Goodbrothers'ın genç kollarından birine ait olan Great Vic'deki Kale.
@@ -3591,8 +3591,8 @@ got.wp.DRACONYS.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorl
 got.wp.DRACONYS=Dracony'ler
 got.wp.DRAGONSTONE.info=Ada ve aynı adı taşıyan zaptedilemez kale. Birkaç yüzyıl önce, Targaryenler buraya Eski Valyria'dan geldiler ve tahta çıktıktan ve Kral'ın Şehri'nin inşasından sonra, Ejderha Kayası Prensi unvanı kralın en büyük oğlu ve varisi tarafından karşılandı. Targaryenların devrilmesinden sonra kale Stannis Baratheon'a devredildi.
 got.wp.DRAGONSTONE=Ejderha taşı
-got.wp.DRAGON_PLACE.info≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
-got.wp.DRAGON_PLACE≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
+got.wp.DRAGON_PLACE.info=Burasının Jainara Beleiris'in ejderhasıyla gittiği en güneyden yer olduğuna inanılıyor. Burada kamp kurdu ve yeterince dinlendikten sonra geri döndü.
+got.wp.DRAGON_PLACE=Dragon Place
 got.wp.DREADFORT.info=Bolton Hanedanı'nın atalarının kalesi, Starkların vassalları. Boltonlar, Kuzey'deki en güçlü ve en eski evler arasındadır. Bin yıl boyunca Starklarla rekabet ettiler ve sadece bin yıl önce Winterfell'in önünde diz çöktüler. Eski günlerde Bolton lordları, yaşayan insanlardan soyulmuş deri pelerinler giyerdi; Zamanla Starklar bu geleneği çiğnediler, ancak eski Nan'a göre eski kupaların bazıları hala Dredford'da tutuluyor (bazı Starkların derisi dahil).
 got.wp.DREADFORT=Korku kalesi
 got.wp.DRIFTMARK.info=Ada ve üzerinde aynı adı taşıyan kale. Valyria'nın hayatta kalan ailelerinden biri olan Velarion Hanesi'nin atalarının toprakları. Westeros'ta Velarionlar, Yüksek Gelgit Lordu unvanına sahiptir. Hayal gücünü heyecanlandıran şeyin onların hazineleri olduğu bir zaman vardı, Lannister'ların değil.
@@ -3609,10 +3609,10 @@ got.wp.DYRE_DEN.info=Kale, Baratheonların vassalları olan Brune Hanedanı'nın
 got.wp.DYRE_DEN=Dyre Den
 got.wp.EASTWATCH.info=Cotter Pike tarafından yönetilen, Gece Nöbeti'nin en doğudaki kalesi. Üç aktiften biri. Diğerlerinden farklı olarak Doğu Gözcüleri'ndeki kardeşler aktif olarak ticaretle uğraşıyorlar.
 got.wp.EASTWATCH=Doğu İzle
-got.wp.EAST_BAY.info≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EAST_BAY≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EAST_COAST.info≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
-got.wp.EAST_COAST≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
+got.wp.EAST_BAY.info=Orta Ultos'u kuzeyden ayıran dev bir doğu körfezi. Burada hiçbir gezgin ve hiçbir insan ayağı hiç basmamış.
+got.wp.EAST_BAY=East Bay
+got.wp.EAST_COAST.info=Bu, dünyanın en doğusu veya Ultos'un en doğusu değil, çünkü Ultos'un güneyinde daha da doğudaki kıyılar var. Yine de Asshaianlar bunu kıtanın en doğusu olduğuna inanır.
+got.wp.EAST_COAST=East Coast
 got.wp.EBONHEAD.info=Jala adasında bilinen tek şehir.
 got.wp.EBONHEAD=Siyah kafa
 got.wp.EIJIANG.info=Yi Ti'nin batı şehirlerinden biri. Buradan Kemik Sırtı'nı görebilirsiniz.
@@ -3651,8 +3651,8 @@ got.wp.FLINTS_FINGER.info=Kale, Starkların vassalları olan Flint Hanedanı'nı
 got.wp.FLINTS_FINGER=çakmaktaşı parmak
 got.wp.FOURTEEN_FLAMES.info=Altında mayın bulunan bir volkanik dağlar zincirinden geriye kalan her şey. Valyria Kayası sırasında, dağlar deniz tarafından yutuldu ve daha sonra Smoky olarak adlandırıldı (sağda daha fazlasını görün).
 got.wp.FOURTEEN_FLAMES=On dört alev
-got.wp.FU_NING.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
-got.wp.FU_NING≠Fu Ning
+got.wp.FU_NING.info=Doğu kavşaklarındaki eski bir şehir. Eski zamanlarda, yolcular şarap içebilecek ve ıstakoz çorbası tadabilecekleri ünlü bir yol kenarı hanı vardı.
+got.wp.FU_NING=Fu Ning
 got.wp.GALLOWSGREY.info=Baratheonların vasalları olan Trantların hanedanının kalesi.
 got.wp.GALLOWSGREY=Darağacı grisi
 got.wp.GARNETGROVE.info=Pommingen'in şövalye hanesinin kalesi, Tyrell'lerin vassalları.
@@ -3729,8 +3729,8 @@ got.wp.HARROWAY.info=Üç Dişli Mızrak'ın geçişinde bulunan küçük bir k�
 got.wp.HARROWAY=Harroway
 got.wp.HARVEST_HALL.info=Baratheonların vasalları olan Selmy'nin evinin kalesi. Efsanevi Barristan Selmy burada doğdu.
 got.wp.HARVEST_HALL=Hasat Salonu
-got.wp.HAUAURU.info≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
-got.wp.HAUAURU≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
+got.wp.HAUAURU.info=Letnilerin deniz limanı, Sotori ritüeline göre Matabele'nin bir adamı, genellikle bir rahip veya karısını feda ettiği yer.
+got.wp.HAUAURU=Hauauru
 got.wp.HAYFORD.info=Kraliyet Toprakları'nın Hayford Kalesi Evi. Burada Jaime Lannister, Elin Payne ile eğitime başladı.
 got.wp.HAYFORD=Hayford
 got.wp.HAYSTACK_HALL.info=Errol Hanesi'nin atalardan kalma kalesi, Baratheonların vassalları. Beş Kralın Savaşı'nda önce Renly, sonra Stannis desteklendi.
@@ -3801,18 +3801,18 @@ got.wp.ISLE_OF_WHIPS.info=Bir köle adası ve her türden köle için devasa bir
 got.wp.ISLE_OF_WHIPS=Kırbaç Adası
 got.wp.IVY_HALL.info=Kidwell'lerin hanesinin kalesi, Tyrell'lerin vassalları.
 got.wp.IVY_HALL=Sarmaşık salonu
-got.wp.JIANMEN.info≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
-got.wp.JIANMEN≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
+got.wp.JIANMEN.info=Büyük Yi Ti Duvarının kalelerinden biri. Burada mahkumlar için büyük bir hapishane vardı. Günümüzde boş, çünkü göçebeler duvarı zorlamaya risk almıyor.
+got.wp.JIANMEN=Jianmen
 got.wp.JINQI.info=İthian şehri, imparatorluğu baskınlardan korumak için inşa edildi. Bordo imparatorları Yi Ti'nin başkenti.
 got.wp.JINQI=Jinqi
 got.wp.KADAR.info=Mossia'nın kalbinde büyük kalıntılar. Ne oldukları bilinmiyor ama beş kaleyle aynı kara taştan yapılmışlar. bilmece...
 got.wp.KADAR=Kader
-got.wp.KANDUU_BET.info≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
-got.wp.KANDUU_BET≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
+got.wp.KANDUU_BET.info=Bu kasabada Menelon'un eski tapınağı yer alıyor, iki binden fazla yıllık. Efsanevi Mossovia Kralı Elesuun, burada birkaç yüzyıl önce doğdu.
+got.wp.KANDUU_BET=Kanduu Bet
 got.wp.KARHOLD.info=Karhold ve çevresindeki topraklar, Kuzey Kralı tarafından en küçük oğlu Carlon Stark'a asi lordu yendiği için ödül olarak verildi. Zamanla, Karhold'dan gelen Starklar Karstarklara dönüştü, ancak Starklara en sadık hanelerden biri olarak kaldı.
 got.wp.KARHOLD=Karhold
-got.wp.KARIMAGAR.info≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
-got.wp.KARIMAGAR≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
+got.wp.KARIMAGAR.info=Sotorios'taki Quartic sömürgelerin en büyüğü, şu anda üçünden biri yerleşilmiş. Efsanevi büyücü Marduk Neturei, limanın başı olarak kabul edilir.
+got.wp.KARIMAGAR=Karimagar
 got.wp.KAYAKAYANAYA.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
 got.wp.KAYAKAYANAYA=Kayakayanaya
 got.wp.KAYCE.info=Bir zamanlar Demirdoğumlular'ın karargahı, daha sonra maceracı Kenning ve Harlow'un yardımıyla Uçurum kralları tarafından fethedildi. O zamandan beri, kasaba Batı Topraklarının bir parçası oldu ve Kenning'ler Lannister'ın vassalları oldu. Zengin tüccarlar genellikle burayı ziyaret eder.
@@ -3823,20 +3823,20 @@ got.wp.KINGSHOUSE.info=Skagos'tan Magnarların aile mülkü. Eski lehçeden "mag
 got.wp.KINGSHOUSE=Krallık
 got.wp.KINGS_LANDING.info=Yedi Krallığın Başkenti. Fatih Aegon'un emriyle ilk ayak bastığı yerde ve Aegonfort'u inşa ettiği yerde inşa edilmiştir. Saltanatın sonunda, I. Aegon eski ahşap kalenin yıkılmasını emretti ve yeni devletin krallarının ikametgahı olan Kızıl Kale'nin inşasına başladı. Royal Harbour önemli bir liman kentidir.
 got.wp.KINGS_LANDING=Kralların İnişi
-got.wp.KOHURU.info≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
-got.wp.KOHURU≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
+got.wp.KOHURU.info=Bu nispeten genç bir sahil yerleşimi, burada güçlü bir Sotori şamanı tutsak tutulmaktadır. Yardımcıları duman çıkarır ve kutsal metinler okur.
+got.wp.KOHURU=Kohuru
 got.wp.KOJ.info=Yaz Adaları'nın en büyük tersanesi.
 got.wp.KOJ=Koj
-got.wp.KORKUNUCHTUU.info≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
-got.wp.KORKUNUCHTUU≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
+got.wp.KORKUNUCHTUU.info=Eski Asa'nın hüküm sürdüğü dönemde başkent olduğu bilinen efsanevi bir şehir. Şimdi Büyük Hazine Sahibi'nin ikametgahıdır.
+got.wp.KORKUNUCHTUU=Korkunuchtuu
 got.wp.KOSRAK.info=Lkhazar şehirlerinden biri.
 got.wp.KOSRAK=Kosrak
 got.wp.KRAZAAJ_HAS.info=Gardak'ın eski Ghiskar kasabası. Belki de Dothrakiler, piramitlerinin şekline hayran kalarak zaten yıkılmış kalıntılara "keskin dağlar" adını verdiler, belki de şehir Valyria'nın fethinden ve ölümünden kurtuldu ve Dothrakiler tarafından yağmalandı.
 got.wp.KRAZAAJ_HAS=Krazaaj Has
-got.wp.KUJRUK.info≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.KUJRUK≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.KUURULGAN.info≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
-got.wp.KUURULGAN≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
+got.wp.KUJRUK.info=Eski Kale. Kale, binlerce yıldır Zindan Efendisine sadık gece savaşçıları tarafından garnizon altında tutulmaktadır.
+got.wp.KUJRUK=Kujruk
+got.wp.KUURULGAN.info=Eski parşömenlerde, bir gün dertlinin bir yerden "uzağa" gönderildiği ve doğduğu topraklara dönmediği, öldüğü yerin de ağıt yeri haline geldiği yazılıdır.
+got.wp.KUURULGAN=Kuurulgan
 got.wp.KYTH.info=Sarnor şehri Dothrakiler tarafından yok edildi.
 got.wp.KYTH=Kıt
 got.wp.K_DATH.info=Zamanın kendisinden daha eski olduğu varsayılan bir şehir. Burada kanlı kurbanlar gelişiyor ve öyle görünüyor ki, yerel tanrılar deli olarak kabul ediliyor ve hatta shrikler şehirlerden korkuyor.
@@ -3877,8 +3877,8 @@ got.wp.LORD_HEWETTS_TOWN.info=Oak Shield Adası'ndaki Hewatt Evi'nin kalesine sa
 got.wp.LORD_HEWETTS_TOWN=Hewett Kasabası
 got.wp.LOTUS_POINT.info=Yaz insanlarının sakin bir sahil kasabası.
 got.wp.LOTUS_POINT=Lotus Noktası
-got.wp.LUNGMEN.info≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
-got.wp.LUNGMEN≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
+got.wp.LUNGMEN.info=Eskiden bu kale, sıradan sınır askerlerini değil kung fu ustalarını eğitirdi, çıplak dövüşçülerin duvarı savunup savunamayacağını test ederdi. O hikayenin sonu nasıl oldu bilinmiyor.
+got.wp.LUNGMEN=Lungmen
 got.wp.LYS.info=Özgür Şehirlerden biri. Yaygın olarak pahalı genelevler ve sofistike aşk rahibeleriyle tanınır.
 got.wp.LYS=Lys
 got.wp.MAIDENPOOL.info=Kale kasabası Mouton House'a aittir. Şehir, adını Fool Florian ve güzel Jonquil'in peri masalından gelen antik gölete borçludur.
@@ -3891,14 +3891,14 @@ got.wp.MANTICORE_ISLES.info=Yeşim Denizi adaları grubu. Burada neredeyse hiç 
 got.wp.MANTICORE_ISLES=Mantikor Adaları
 got.wp.MARAHAI.info=Hilal şeklinde cennet adası. Koyda aktif volkanların olduğu iki ada var. Gece gündüz patlamaları ve asla uykuya dalmamaları garip görünebilir.
 got.wp.MARAHAI=Marahay
-got.wp.MARSHES.info≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.MARSHES≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.MATAHAU.info≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.MATAHAU≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.MATAO.info≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.MATAO≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.MAUNGA.info≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
-got.wp.MAUNGA≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
+got.wp.MARSHES.info=Ultos'un dar bataklıklı bir kısmı, Westeros'taki Boğaz'ı andırıyor. Kökeni bilinmiyor, ama hiç şüphesiz bir gün nihayet batacak ve o zaman Güney Ultos ayrı bir kıta haline gelecek.
+got.wp.MARSHES=Marshes
+got.wp.MATAHAU.info=Letnilerin eski bir yerleşimi, burada parıldayan dev siyah bir inci bulundu. Efsaneye göre, bu gökten inen bir kara delik ve yıldızların ışığını emer.
+got.wp.MATAHAU=Matahau
+got.wp.MATAO.info=Efsaneye göre, lanetli bir tanrının bir sunağı yüksek bir dağın üzerinde durmaktadır. İddia edenler olmuştu ki, bu bir dağ değil, insan eliyle yapılmış bir piramittir.
+got.wp.MATAO=Matao
+got.wp.MAUNGA.info=Bölgedeki tüm kabileler için önemli bir yer. Burada tüm çevre şefler her 6 yılda bir toplanır. Neden tam olarak böyle oldu, kimse bilmiyor, sadece böyle gerçekleşmiş.
+got.wp.MAUNGA=Maunga
 got.wp.MEEREEN.info=Astapor ve Yunkai ile birlikte Köleler Körfezi'ndeki köle ticaretinin üç merkezinden biri. Şehir, Gis'ten insanlar tarafından kuruldu. Ana eğlence ve şehrin refahının temeli, savaş çukurları ve arenadaki savaşlar için köleleri eğitmektir. En büyük arena olan Daznak Büyük Çukuru (Roma Colosseum'un bir benzeri) de burada bulunuyor. Şehrin fethinden sonra Daenerys Targaryen köleliği kaldırdı ve savaş çukurlarını geçici olarak kapattı.
 got.wp.MEEREEN=Meereen
 got.wp.MHYSA_FAER.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri. Adındaki "Misa", şehrin Giskar kökenli olduğunu gösterir (haritadaki konumu büyük ölçüde tartışmalıdır).
@@ -3931,24 +3931,24 @@ got.wp.NEW_GHIS.info=Daenerys'e karşı koalisyona katılan bir köle kasabası.
 got.wp.NEW_GHIS=Yeni Ghis
 got.wp.NEW_IBBISH.info=Ibbish'in düşüşünden sonra İbbenliler tarafından, Gece Nöbetçileri Duvarı'ndan sadece biraz daha küçük olan ahşap bir duvarın arkasındaki küçük bir yarımadada inşa edilen bir kasaba. Ibbish'e kıyasla zayıf gölge, ancak yine de anakaradaki tek Ibben kolonisi.
 got.wp.NEW_IBBISH=Yeni Ibbish
-got.wp.NGAHERE.info≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.NGAHERE≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.NGARARA.info≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
-got.wp.NGARARA≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
+got.wp.NGAHERE.info=Sotorios'un vahşi topraklarının batısındaki sıradan bir liman. Birkaç bodur ev, birkaç bar, eski iki katlı bir kale ve iskelede çadırlar.
+got.wp.NGAHERE=Ngahere
+got.wp.NGARARA.info=Letniler şamanizme saygı duymasalar da, türbanlı sakallı şamanlar burada dolaşır. İşte burada, Sotori ve yaz kültürünün bir karışımı!
+got.wp.NGARARA=Ngarara
 got.wp.NIGHTFORT.info=Gece Nöbeti'nin devasa, ilk inşa edilmiş ve ilk terk edilmiş kalesi. Kale hakkında birçok korkunç efsane vardı. Burada, Duvar'da, Duvar'ın ötesinde bir geçit oyulmuştur - cadı ağacından Kara Kapı.
 got.wp.NIGHTFORT=Gece Kalesi
 got.wp.NIGHTSONG.info=Karon atalarının kalesi, Karonlar Joffrey Baratheon'a karşı Stannis'i desteklediği için Ayaklar lehine onlardan alındı.
 got.wp.NIGHTSONG=Gece şarkısı
-got.wp.NIGHT_KING.info≠A sus canyon in the far north of Westeros
-got.wp.NIGHT_KING≠A sus canyon in the far north of Westeros
+got.wp.NIGHT_KING.info=Westeros'un uzak kuzeyindeki kuşkulu bir vadi
+got.wp.NIGHT_KING=Vadi
 got.wp.NINESTARS.info=Vadideki en güçlü hanelerden biri olan Templeton'ların atalardan kalma kalesi, bin savaşçıyı savaşa sürüklüyor. Lisa Arryn'i Robb Stark'ı desteklemeye ikna edemedi.
 got.wp.NINESTARS=Dokuz Yıldız
-got.wp.NORTH_FORESTS.info≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
-got.wp.NORTH_FORESTS≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
+got.wp.NORTH_FORESTS.info=Ultos'un o kısmı hakkında Asshai'de bir şeyler bilinir, yani burada ormanlar ve dev örümcekler olduğu. Düşmanca bir yer, muhtemelen.
+got.wp.NORTH_FORESTS=Kuzey Ormanları
 got.wp.NORVOS.info=Sözde "sakallı rahipler" tarafından yönetilen Özgür Şehirlerden biri. Dothraki ordularından, Norvos'u geçen yol boyunca hareket eden şehir, zengin hediyelerle fidye alır.
 got.wp.NORVOS=Norvos
-got.wp.NYMDUU_OOZ.info≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
-got.wp.NYMDUU_OOZ≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
+got.wp.NYMDUU_OOZ.info=Gizemli şehir. Yi Tişler, buranın devlerin ve cücelerin, ayrıca konuşan kuşlarının ve uçan atlarının yurdu olduğunu söyler.
+got.wp.NYMDUU_OOZ=Nymduu Ooz
 got.wp.NY_SAR.info=Büyük bir limana sahip eski bir Roinar şehrinin kalıntıları; şimdi şehirden sadece Nymeria sarayı kalmıştı - halkını on bin gemiyle Dorn'a götüren saray.
 got.wp.NY_SAR=Ny Sar
 got.wp.NorthPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
@@ -3987,16 +3987,16 @@ got.wp.PENNYTREE.info=Titki adında iki tepe arasında küçük bir köy. Köy a
 got.wp.PENNYTREE=Kuruş ağacı
 got.wp.PENTOS.info=Essos'un batı kıyısındaki en önemli liman olan Özgür Şehirlerden biri. Bu şehir, son Targaryenleri koruyan usta Illyrio Mopatis'e ev sahipliği yapıyor.
 got.wp.PENTOS=Pentolar
-got.wp.PEREKI.info≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
-got.wp.PEREKI≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
-got.wp.PINGBEI.info≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.PINGBEI≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.PINGJIANG.info≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
-got.wp.PINGJIANG≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
+got.wp.PEREKI.info=Bu kasabada, yaz adalarının ustaları ve simyacıları bir araya gelir, tarih ve astroloji üzerine eserler yazar, ayrıca en son siyasi olayları öğrenmeye çalışır ve ölüm zamanlarını tahmin etmeye çalışırlar.
+got.wp.PEREKI=Pereki
+got.wp.PINGBEI.info=Büyük Yi Ti Duvarının doğu ucu, göçebeler tarafından yapılan saldırılara karşı altın imparatorluğu koruyan dev ve eski bir yapı.
+got.wp.PINGBEI=Pingbei
+got.wp.PINGJIANG.info=Büyük Yi Ti Duvarı'nın kaleleri arasından biri idi ve bir barut deposu bulunduruyordu. Bir gün göçebe bir saldırıyı püskürtürken, Duvar üzerindeki top ateşleme arızası yapınca ve mermi patlarken, zincirleme reaksiyon sonucunda depo da patladı. Her iki taraftan da hiç kimse sağ kalmadı. Kale daha sonra yeniden inşa edildi.
+got.wp.PINGJIANG=Pingjiang
 got.wp.PINKMAIDEN_CASTLE.info=Tully'nin vassalları Piper'ın evinin kalesi.
 got.wp.PINKMAIDEN_CASTLE=Pembe Kız Kalesi
-got.wp.PINNU.info≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
-got.wp.PINNU≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
+got.wp.PINNU.info=Kale arazisi daha önce tepelerdi. İmparatorluk mühendisleri ve para bakanları, tepeleri kazmak ve kale inşa etmek yerine, daha ucuza mal olacağını düşünerek kaleyi tepelerde inşa etmeye karar verdiler. Sonunda da uygulamaya koydular.
+got.wp.PINNU=Pinnu
 got.wp.PLANKY_TOWN.info=Dorn'un en büyük limanı, mavnalardan ve birbirine bağlı ticaret teknelerinden su üzerine inşa edildi. Dorn'a açılan bu kapıyı korumak için bir de kale var.
 got.wp.PLANKY_TOWN=Kalabalık Kasaba
 got.wp.PLUMWOOD.info=Lannister'ın vassalı Plumm hanedanının kalesi.
@@ -4031,16 +4031,16 @@ got.wp.RAMSGATE.info=Kale, Manderly'nin vassalları olan Woolfields'e ev sahipli
 got.wp.RAMSGATE=Ram Kapısı
 got.wp.RATHYLAR.info=Sarnor şehri Dothrakiler tarafından yok edildi.
 got.wp.RATHYLAR=Rathylar
-got.wp.RAUMATI.info≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
-got.wp.RAUMATI≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
+got.wp.RAUMATI.info=İlk imparatorun gömüldüğü Sotorios'un antik tapınağı. Tapınak o kadar eski ki yerel kabilelerin bile kuruluş efsanesi yok.
+got.wp.RAUMATI=Raumati
 got.wp.RAVENTREE_HALL.info=Binlerce yıl boyunca yüzlerce kuzgunun geceyi geçirmek için akın ettiği devasa ve ölü bir pazılı Blackwood evinin aile kalesi. Blackwood'ların Kuzey'den geldikleri ve Starklar tarafından sürülene kadar neredeyse tüm Kurt Ormanı'na hükmettikleri söylenir.
 got.wp.RAVENTREE_HALL=Kuzgunağacı salonu
 got.wp.REDFORT.info=Redfort Hanesi Kalesi, Arryn'in vassalları.
 got.wp.REDFORT=Kızıl Kale
 got.wp.RED_FLOWER_VALE.info=Güney adasında aynı adı taşıyan ilin merkezi.
 got.wp.RED_FLOWER_VALE=Kırmızı Çiçek Vadisi
-got.wp.RED_FORESTS.info≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
-got.wp.RED_FORESTS≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
+got.wp.RED_FORESTS.info=Bu körfezde, üzerinde dünyanın başka hiçbir yerinde yetişmeyen, çok nadir bir ağaç türü olan kırmızı Ultos meşesi yetişir. Yalnızca burada bolca bulunduğundan nadir sayılır.
+got.wp.RED_FORESTS=Kırmızı Ormanlar
 got.wp.RED_HAVEN.info=Pike üzerinde bulunan Demir Adalar'ndaki en büyük liman.
 got.wp.RED_HAVEN=Kızıl Cennet
 got.wp.RED_LAKE.info=Turnaların hanesinin kalesi, Tyrell'lerin vasalları.
@@ -4109,8 +4109,8 @@ got.wp.SHARP_POINT.info=Stannis Baratheon'un vassalları olan Bar-Emmon hanedan�
 got.wp.SHARP_POINT=Keskin nokta
 got.wp.SHATTERSTONE.info=Goodbrothers'ın genç kollarından birine ait olan Old Vic'te bir kale.
 got.wp.SHATTERSTONE=Paramparça
-got.wp.SHYLUUN_UUSU.info≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
-got.wp.SHYLUUN_UUSU≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
+got.wp.SHYLUUN_UUSU.info=Tepeler üzerinde kurulmuş bir şehir. En büyüğü Anzudon ya da Kartal Sarayı olarak adlandırılır.
+got.wp.SHYLUUN_UUSU=Shyluun Uusu
 got.wp.SILVERHILL.info=Lannister'ın vassalları olan Serrettes'in hanesinin kalesi.
 got.wp.SILVERHILL=Silverhill
 got.wp.SISTERTON.info=Üç Kızkardeş'in ana şehri ve Sunderlands'in merkezi olan Westeros'taki en büyük kaçakçılık limanı.
@@ -4119,8 +4119,8 @@ got.wp.SI_QO.info=Kızıl Hanedanlığı döneminde Yi Ti Altın İmparatorluğu
 got.wp.SI_QO=Si Qo
 got.wp.SKANE.info=Günümüzde sadece yerleşim kalıntıları adanın sakinlerini hatırlatıyor. Efsaneye göre, eski zamanlarda, taştan doğmuş Skagos, tüm yerel kadınlara tecavüz edip esir almış ve erkekler iki hafta süren bir ziyafet sırasında öldürülmüş ve yenmiştir.
 got.wp.SKANE=Skane
-got.wp.SKIRLING_PASS.info≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
-got.wp.SKIRLING_PASS≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
+got.wp.SKIRLING_PASS.info=Frostfangs'taki dağ geçidi. Burada yabani insanlar Soğuk Kıyı'ya geçmek için dağları aşar.
+got.wp.SKIRLING_PASS=Skirling Geçidi
 got.wp.SKYREACH.info=Fowler Evi Kalesi. Nymeria sonunda onları boyunduruk altına alıp altın zincirler içindeki son kralı Sur'a sürgün edene kadar kendilerine kral dediler.
 got.wp.SKYREACH=SkyReach
 got.wp.SMITHYTON.info=Renly Baratheon'un kılıçlarıyla tahta çıkacağı kişiler arasında bahsettiği Shermer Hanesi kasabası.
@@ -4129,18 +4129,18 @@ got.wp.SNAKEWOOD.info=Linderly hanedanının kalesi, Arryn'in vassalları.
 got.wp.SNAKEWOOD=Yılan Ağacı
 got.wp.SOUTHSHIELD.info=Kalkan Adaları'ndan biri, Serri'nin elinde. Ardından Euron adayı Andrik Neulyba'ya verdi.
 got.wp.SOUTHSHIELD=Güney kalkanı
-got.wp.SOUTH_POINT.info≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SOUTH_POINT≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SOUTH_TAIGA.info≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SOUTH_TAIGA≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SOUTH_ULTHOS.info≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
-got.wp.SOUTH_ULTHOS≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
+got.wp.SOUTH_POINT.info=Letnian gemilerinin ulaştığı en güney noktası. Buna rağmen burada bir liman inşa etmediler: ana yurtlarından çok uzak.
+got.wp.SOUTH_POINT=Güney Nokta
+got.wp.SOUTH_TAIGA.info=Ultos o kadar güneye uzanır ki, güney kutup bölgelerine ulaşır. Burada her zaman kar vardır. Pek çok hayvan buradadır - yılın her mevsimi dondurucu soğukta ayakta kalanlar.
+got.wp.SOUTH_TAIGA=Güney Tayga
+got.wp.SOUTH_ULTHOS.info=Bataklıklardan ve en güneydekinden açıkça ayrı bir Ulthos bölümü. Burada iklim daha serin ama kritik değil.
+got.wp.SOUTH_ULTHOS=Güney Ulthos
 got.wp.SPARR_CASTLE.info=Sparres Evi'nin kalesi, Greyjoy'ların vassalları.
 got.wp.SPARR_CASTLE=Sparr Kalesi
 got.wp.SPICETOWN.info=Ejderhaların Dansı sırasında liman şehri yok edildi.
 got.wp.SPICETOWN=Baharat kasabası
-got.wp.SPIDER.info≠Mysterious clearing in the far south of Ulthos.
-got.wp.SPIDER≠Mysterious clearing in the far south of Ulthos.
+got.wp.SPIDER.info=Ulthos'un en güney ucundaki gizemli açıklık.
+got.wp.SPIDER=Açıklık
 got.wp.SPOTTSWOOD.info=Martell'lerin vassalları olan Santagarların evinin kalesi.
 got.wp.SPOTTSWOOD=Spottswood
 got.wp.STANDFAST.info=Blackfire İsyanı'nın yenilgisinden sonra Osgrey'e terk edilmiş bir kule. "Yeminli Kılıç" hikayesinin sahnesi.
@@ -4181,32 +4181,32 @@ got.wp.SUNHOUSE.info=House Kew Kalesi, Hightower'ın vassalları.
 got.wp.SUNHOUSE=Güneş evi
 got.wp.SUNSPEAR.info=Martell Hanesi'nin atalarının evi, eski bir kaleden - Kumların Arkından - büyümüştür. Kale duvarlarındaki Gölgeli Şehir gibi sarı-kahverengi kerpiç tuğlalardan yeniden inşa edildi.
 got.wp.SUNSPEAR=Güneş mızrak
-got.wp.SUUDAN_KORKUU.info≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SUUDAN_KORKUU≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SUU_NYM.info≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
-got.wp.SUU_NYM≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
+got.wp.SUUDAN_KORKUU.info=Bu eski kale olağandışı bir şekilde sur duvarı olmadan, hendekle çevrili bir bina kompleksidir. Silah, yiyecek ve ilaç depoları, atölyeler ve ahırlar bölgenin içine inşa edilmiştir.
+got.wp.SUUDAN_KORKUU=Suudan Korkuu
+got.wp.SUU_NYM.info=Efsaneye göre, Azor Ahai'nin eski adı Iwashi, burada yaşamış. Savaştan sonra buraya gelip büyük şarkılar ve kutsal metinler yazmış.
+got.wp.SUU_NYM=Suu Nym
 got.wp.SWEETPORT_SOUND.info=Ejderha Kayası'na yeminli Sanglass Kalesi. Bu adada mı yoksa başka bir yerde mi olduğu bilinmiyor.
 got.wp.SWEETPORT_SOUND=Tatlı liman sesi
 got.wp.SWEET_LOTUS_VALE.info=Güney adasında aynı adı taşıyan ilin merkezi ve eski bir köle olan Xanda Ko tarafından kurulan Birleşik Yaz Adaları devletinin ilk başkenti.
 got.wp.SWEET_LOTUS_VALE=Tatlı Lotus Vadisi
-got.wp.TAKUTAI.info≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
-got.wp.TAKUTAI≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
+got.wp.TAKUTAI.info=Efsanevi Ulysses'in fırtınada boğulduğu deniz kıyısındaki kale. Çok güzel bir yer.
+got.wp.TAKUTAI=Takutai
 got.wp.TALL_TREES_TOWN.info=Rahibelerin Konuşan Ağaçlar üzerinde yaz insanlarının tarihini, geleneklerini ve yasalarını oyduğu güneşli bir şehir.
 got.wp.TALL_TREES_TOWN=Uzun Ağaçlar Kasabası
 got.wp.TARBECK_HALL.info=Reins ile birlikte genç Tywin'in karakterini hafife alan ve ünlü "Kastamere'den Reyna" şarkısının kahramanları olan Tarbek'in evinin kalesi
 got.wp.TARBECK_HALL=Tarbeck Salonu
-got.wp.TASHTOO.info≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
-got.wp.TASHTOO≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
-got.wp.TAURANGA.info≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
-got.wp.TAURANGA≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
+got.wp.TASHTOO.info=Ibben gemilerinin yanaştığı eski liman. Tersane işçilerinin yaşadığı köy zamanla limandaki gemilerin bulunduğu bir kasabaya dönüştü.
+got.wp.TASHTOO=Tashtoo
+got.wp.TAURANGA.info=Tana'nın akrabaları burada sığınak bulduğu için, Yaz Adaları'nın her gezgini bu yere uğrar. O, çok zengin bir kabilenin lideri idi ve kurtarıcılarına altın verdi.
+got.wp.TAURANGA=Tauranga
 got.wp.TAWNEY_CASTLE.info=Townie hanedanının kalesi, Greyjoyların vassalları.
 got.wp.TAWNEY_CASTLE=Tawney Kalesi
 got.wp.TELYRIA.info=Valyria'nın deniz kapısı.
 got.wp.TELYRIA=Telyria
 got.wp.TEN_TOWERS.info=Demir Adalar en yeni kalesi, Harlow'un eski koluna aittir. Lord Harlow'un sık sık üşütüp ölen çocukları olduğu için inşa edilmişti, bu yüzden mirasçı bırakmayacağından korkmaya başladı.
 got.wp.TEN_TOWERS=On Kule
-got.wp.TERIMAN.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
-got.wp.TERIMAN≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
+got.wp.TERIMAN.info=Sotorios'taki Qarth sömürgelerinin şu anda yaşanan üç kolonisinden biri. Diğerlerinden daha uzakta yer alır. Özellikle tehlikeli suçluların buraya sürgün edildiği bilinir.
+got.wp.TERIMAN=Teriman
 got.wp.THE_EYRIE.info=Arryn Hanesi'nin atalardan kalma kalesi, Vadinin Efendileri. Ay Dağları'nın en yüksek dağı olan Dev'in Mızrağı üzerine inşa edilmiş, neredeyse zaptedilemez, ancak kışın yaşanmaz hale geliyor. Kışın Westeros'ta savaşacak çok şeyin olmaması güzel.
 got.wp.THE_EYRIE=Kartal Yuvası
 got.wp.THE_LONG_BARROW.info=Mance'nin, Kral Robert'ın gelişinin onuruna Winterfell'deki bir ziyafete katılmak için duvarı aştığı, Gece Nöbeti'nin boş kalesi. Daha sonra, Gece Nöbeti'nin 998. Lord Kumandanı, kalenin komutasını Demir Emmett ve Sorrowful Edd'e emanet etti ve özgür insanların mızrakçıları kaleye ikinci adını veren Shlyukhina Hole'a yerleşti.
@@ -4333,8 +4333,8 @@ got.wp.WHITEWALLS.info=Butterwell'lerin atadan kalma alanı. Zengin büyük kale
 got.wp.WHITEWALLS=Beyaz duvarlar
 got.wp.WHITE_HARBOUR.info=Westeros'taki en büyük beş şehirden biri ve kuzeydeki en önemli liman. Şehir, Starklar bu toprakları Manderly Expanse'den sürgün edilenlere verene kadar birçok kez sahiplerini değiştiren Wolf's Lair'in eski kalesinin etrafında inşa edilmiştir. Yeni gelenler, şehir surlarının dışında beyaz duvarlı bir Yeni Kale inşa ettiler.
 got.wp.WHITE_HARBOUR=Beyaz Liman
-got.wp.WHITE_MOUNTAINS.info≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
-got.wp.WHITE_MOUNTAINS≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
+got.wp.WHITE_MOUNTAINS.info=Çoğunlukla diyoritten oluşan dağlar. Güzel beyaz taş burada çok yaygın ve dünyanın başka hiçbir yerinde böylesine bolca bulunmuyor.
+got.wp.WHITE_MOUNTAINS=Beyaz Dağlar
 got.wp.WICKENDEN.info=Waxley Hanesi'nin Kalesi, Corbreuil Hanesi'nin vassalları.
 got.wp.WICKENDEN=Wickenden
 got.wp.WIDOWS_WATCH.info=Starkların vassalları olan Flint Hanedanı'nın kollarından birinin atalarının kalesi.
@@ -4345,10 +4345,10 @@ got.wp.WITCH_ISLE.info=Cadı Adası'ndaki Arryn'in vassalları olan Upcliffs'in 
 got.wp.WITCH_ISLE=Cadı adası
 got.wp.WOODSWATCH.info=Gece Nöbeti'nin boş kalesi.
 got.wp.WOODSWATCH=Orman saati
-got.wp.WUDE.info≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.WUDE≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.WUSHENG.info≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
-got.wp.WUSHENG≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
+got.wp.WUDE.info=Büyük Yi Ti Duvarı'nın en gizemli kalesi: adı Jogos Nhai dilindeki "öğle" anlamına gelen bir kelime.
+got.wp.WUDE=Wude
+got.wp.WUSHENG.info=Büyük Yi Ti Duvarı'nın kalelerinden biri. Asshai'de eğitim alıp gölge büyücüsü olan bir İtian sınır muhafızından adını aldığı söylenir.
+got.wp.WUSHENG=Wusheng
 got.wp.WYL.info=Ville evinin kalesi. Burada bir yerde, efsanevi Ejderha Şövalyesi bir kafeste çıplak oturmuş kuzeni Kutsanmış Baylor'un Martell'lere yalın ayak yürümesini ve onları barış yapmaya ikna etmesini bekliyordu. Ve daha da önce, başka bir Vil, klanın kurucusu Orisa Baratheon'u, sağ elini kesti, bu Vil'in oğlu daha sonra sırayla hem kollarını hem de bacaklarını kaybetti ve başını Botye başladı.
 got.wp.WYL=Wyl
 got.wp.WYNDHALL.info=Lannister'ın vassalları olan Estrens Hanedanı'nın kalesi.
@@ -4371,8 +4371,8 @@ got.wp.ZABHAD.info=Filler adasında şehir. Shan'ın yüce hükümdarı burada y
 got.wp.ZABHAD=Zabhad
 got.wp.ZAMETTAR.info=Giscard kolonilerinden biri, daha sonra Valyria tarafından ele geçirildi. Sotorios'taki tüm koloniler gibi, Zamettar da çürüdü ve terk edildi: Valyrialılar şehri terk etti, Rhoynarlar Yin'in dehşetinden sonra kaçtı.
 got.wp.ZAMETTAR=Zamettar
-got.wp.ZHENGUO.info≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
-got.wp.ZHENGUO≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
+got.wp.ZHENGUO.info=Büyük Yi Ti Duvarı'nın ana kalesi. Efsaneye göre, duvarın inşasına bu kaleden başlanmış.
+got.wp.ZHENGUO=Zhenguo
 got.wp.custom.andMore=Ve %d daha
 got.wp.custom.info=Kardeşliğin geçiş noktası "%d" mi
 got.wp.custom=%s
@@ -4485,7 +4485,7 @@ item.got:banana_cake.name=Muzlu Pasta
 item.got:bane.name=Yıkım
 item.got:banner.aemon.name=Aemon Targaryen Bayrağı
 item.got:banner.aemonBook.name=Aemon Targaryen Bayrağı (Kitap)
-item.got:banner.aemonrivers.name=Aemon Nehirleri Bayrağı
+item.got:banner.aemonrivers.name=Aemon Rivers Bayrağı
 item.got:banner.aerion.name=Aerion Bayrağı
 item.got:banner.aerionBook.name=Aerion Targaryen Bayrağı (Kitap)
 item.got:banner.algood.name=Algood Bayrağı
@@ -4498,16 +4498,16 @@ item.got:banner.appleton.name=Appleton Bayrağı
 item.got:banner.arlan.name=Arlan Bayrağı
 item.got:banner.arryn.name=Arryn Bayrağı
 item.got:banner.arrynBook.name=Arryn Bayrağı (Kitap)
-item.got:banner.arrynGT.name=Ay Kapısı Arryn Bayrağı
+item.got:banner.arrynGT.name=Arryn of Moon Gate Bayrağı
 item.got:banner.ashford.name=Ashford Bayrağı
 item.got:banner.ashwood.name=Ashwood Bayrağı
 item.got:banner.asshai.name=Asshai Bayrağı
 item.got:banner.astapor.name=Astapor Bayrağı
-item.got:banner.auranewaters.name=Aurane Suları Bayrağı
+item.got:banner.auranewaters.name=Aurane Waters Bayrağı
 item.got:banner.baelish.name=Baelish Bayrağı
-item.got:banner.baelishBook.name=Baelish Bayrağı(kitap)
-item.got:banner.baelishold.name=Baelish Bayrağı(eski)
-item.got:banner.ball.name=Top Bayrağı
+item.got:banner.baelishBook.name=BaelishBanner (Kitap)
+item.got:banner.baelishold.name=Baelish(old) Bayrağı
+item.got:banner.ball.name=Ball Bayrağı
 item.got:banner.banefort.name=Banefort Bayrağı
 item.got:banner.banefortBook.name=Banefort Bayrağı (Kitap)
 item.got:banner.barbrey.name=Barbrey Dustin Bayrağı
@@ -4518,61 +4518,61 @@ item.got:banner.belmore.name=Belmore Bayrağı
 item.got:banner.benfrey.name=Ben Frey Bayrağı
 item.got:banner.bennis.name=Bennis Bayrağı
 item.got:banner.bettley.name=Bettley Bayrağı
-item.got:banner.bigwalder.name=Büyük Walder Bayrağı
-item.got:banner.bittersteel.name=Acıçelik Bayrağı
-item.got:banner.blackbar.name=Kara Çubuk Bayrağı
-item.got:banner.blackfish.name=Karabalık Bayrağı
-item.got:banner.blackfishBook.name=Karabalık Bayrağı (Kitap)
+item.got:banner.bigwalder.name=Big Walder Bayrağı
+item.got:banner.bittersteel.name=Bittersteel Bayrağı
+item.got:banner.blackbar.name=Blackbar Bayrağı
+item.got:banner.blackfish.name=Blackfish Bayrağı
+item.got:banner.blackfishBook.name=Blackfish Bayrağı (Kitap)
 item.got:banner.blackfyre.name=Blackfyre Bayrağı
 item.got:banner.blackfyreBook.name=Blackfyre Bayrağı (Kitap)
 item.got:banner.blackmont.name=Blackmont Bayrağı
-item.got:banner.blacks.name=Siyahların Bayrağı
-item.got:banner.blacksBook.name=Siyahların Bayrağı (Kitap)
+item.got:banner.blacks.name=Blacks Bayrağı
+item.got:banner.blacksBook.name=Blacks Bayrağı (Kitap)
 item.got:banner.blacktyde.name=Blacktyde Bayrağı
 item.got:banner.blackwood.name=Blackwood Bayrağı
 item.got:banner.blackwoodBook.name=Blackwoods Bayrağı (Kitap)
 item.got:banner.blanetree.name=Blanetree Bayrağı
-item.got:banner.bloodraven.name=Kan Kuzgununun Bayrağı
-item.got:banner.bloodravenBook.name=Kan Kuzgununun Bayrağı (Kitap)
+item.got:banner.bloodraven.name=Bloodraven Bayrağı
+item.got:banner.bloodravenBook.name=Bloodraven Bayrağı (Kitap)
 item.got:banner.blount.name=Blount Bayrağı
 item.got:banner.boggs.name=Boggs Bayrağı
 item.got:banner.bole.name=Bole Bayrağı
 item.got:banner.bolling.name=Bolling Bayrağı
 item.got:banner.bolton.name=Bolton Bayrağı
-item.got:banner.boltonbook.name=Bolton Bayrağı(Kitap)
+item.got:banner.boltonbook.name=BoltonBanner (Kitap)
 item.got:banner.borrell.name=Borrell Bayrağı
 item.got:banner.botley.name=Botley Bayrağı
 item.got:banner.braavos.name=Braavos Bayrağı
 item.got:banner.bracken.name=Bracken Bayrağı
 item.got:banner.brackenBook.name=Bracken Bayrağı (Kitap)
-item.got:banner.branch.name=Şube afişi
+item.got:banner.branch.name=Branch Bayrağı
 item.got:banner.branfield.name=Branfield Bayrağı
-item.got:banner.bravecompanions.name=Cesur Merhamet Bayrağı
+item.got:banner.bravecompanions.name=Brave Compasions Bayrağı
 item.got:banner.brax.name=Brax Bayrağı
 item.got:banner.breakstone.name=Breakstone Bayrağı
-item.got:banner.bridges.name=Köprü Bayrağı
+item.got:banner.bridges.name=Bridges Bayrağı
 item.got:banner.brightstone.name=Brightstone Bayrağı
 item.got:banner.bronn.name=Bronn Bayrağı
 item.got:banner.bronnBook.name=Bronn Bayrağı (Kitap)
-item.got:banner.broom.name=Süpürge Bayrağı
-item.got:banner.brotherhood.name=Kardeşlik Bayrağı
-item.got:banner.bruneB.name=Brownhollow Brune Bayrağı
-item.got:banner.bruneDD.name=Dyre Den Brune Bayrağı
+item.got:banner.broom.name=Broom Bayrağı
+item.got:banner.brotherhood.name=Brotherhood Bayrağı
+item.got:banner.bruneB.name=Brune of Brownhollow Bayrağı
+item.got:banner.bruneDD.name=Brune of the Dyre Den Bayrağı
 item.got:banner.buckler.name=Buckler Bayrağı
 item.got:banner.buckwell.name=Buckwell Bayrağı
-item.got:banner.bullwer.name=Boğa Bayrağı
+item.got:banner.bullwer.name=Bullwer Bayrağı
 item.got:banner.burley.name=Burley Bayrağı
 item.got:banner.bushy.name=Bushy Bayrağı
 item.got:banner.butterwell.name=Butterwell Bayrağı
 item.got:banner.byrch.name=Byrch Bayrağı
-item.got:banner.bywater.name=Subaşı Bayrağı
-item.got:banner.cafferen.name=Caferen Bayrağı
+item.got:banner.bywater.name=Bywater Bayrağı
+item.got:banner.cafferen.name=Cafferen Bayrağı
 item.got:banner.cargyle.name=Cargyle Bayrağı
 item.got:banner.caron.name=Caron Bayrağı
 item.got:banner.cassel.name=Cassel Bayrağı
 item.got:banner.casterly.name=Casterly Bayrağı
 item.got:banner.caswell.name=Caswell Bayrağı
-item.got:banner.cave.name=Mağara Bayrağı
+item.got:banner.cave.name=Cave Bayrağı
 item.got:banner.celtigar.name=Celtigar Bayrağı
 item.got:banner.cerwyn.name=Cerwyn Bayrağı
 item.got:banner.charlton.name=Charlton Bayrağı
@@ -4582,9 +4582,9 @@ item.got:banner.chyttering.name=Chyttering Bayrağı
 item.got:banner.clegane.name=Clegane Bayrağı
 item.got:banner.cleos.name=Cleos Frey Bayrağı
 item.got:banner.clifton.name=Clifton Bayrağı
-item.got:banner.cockshaw.name=Horoz Bayrağı
-item.got:banner.codd.name=Morina Bayrağı
-item.got:banner.coldwater.name=Soğuk Su Bayrağı
+item.got:banner.cockshaw.name=Cockshaw Bayrağı
+item.got:banner.codd.name=Codd Bayrağı
+item.got:banner.coldwater.name=Coldwater Bayrağı
 item.got:banner.cole.name=Cole Bayrağı
 item.got:banner.condon.name=Condon Bayrağı
 item.got:banner.connington.name=Connington Bayrağı
@@ -4593,12 +4593,12 @@ item.got:banner.corbrayBook.name=Corbray Bayrağı (Kitap)
 item.got:banner.cordwayner.name=Cordwayner Bayrağı
 item.got:banner.costayne.name=Costayne Bayrağı
 item.got:banner.cox.name=Cox Bayrağı
-item.got:banner.crabb.name=Yengeç Bayrağı
+item.got:banner.crabb.name=Crabb Bayrağı
 item.got:banner.crakehall.name=Crakehall Bayrağı
-item.got:banner.crane.name=Turna Bayrağı
+item.got:banner.crane.name=Crane Bayrağı
 item.got:banner.creighton.name=Creighton Bayrağı
 item.got:banner.cressey.name=Cressey Bayrağı
-item.got:banner.crowl.name=Karga Bayrağı
+item.got:banner.crowl.name=Crowl Bayrağı
 item.got:banner.cuy.name=Cuy Bayrağı
 item.got:banner.daemon.name=Daemon Blackfyre Bayrağı
 item.got:banner.daeron.name=Daeron Targaryen Bayrağı
@@ -4611,7 +4611,7 @@ item.got:banner.darklyn.name=Darklyn Bayrağı
 item.got:banner.darkwood.name=Darkwood Bayrağı
 item.got:banner.darry.name=Darry Bayrağı
 item.got:banner.dayne.name=Dayne Bayrağı
-item.got:banner.dayneHH.name=Yüksek İnziva Yeri Dayne Bayrağı
+item.got:banner.dayneHH.name=Dayne of High Hermitage Bayrağı
 item.got:banner.degore.name=Degore Bayrağı
 item.got:banner.derrickfossoway.name=Derrick Fossoway Bayrağı
 item.got:banner.doggett.name=Doggett Bayrağı
@@ -4619,19 +4619,19 @@ item.got:banner.dondarrion.name=Dondarrion Bayrağı
 item.got:banner.dondarrionBook.name=Dondarrion Bayrağı (Kitap)
 item.got:banner.donniger.name=Donniger Bayrağı
 item.got:banner.dormund.name=Dormund Bayrağı
-item.got:banner.drinkwater.name=İçki Suyu Bayrağı
+item.got:banner.drinkwater.name=Drinkwater Bayrağı
 item.got:banner.drox.name=Drox Bayrağı
-item.got:banner.drumm.name=Davul Bayrağı
-item.got:banner.dryland.name=Kurak alan Bayrağı
+item.got:banner.drumm.name=Drumm Bayrağı
+item.got:banner.dryland.name=Dryland Bayrağı
 item.got:banner.duncan.name=Duncan Bayrağı
 item.got:banner.dunn.name=Dunn Bayrağı
 item.got:banner.durrandon.name=Durrandon Bayrağı
 item.got:banner.durwell.name=Durwell Bayrağı
 item.got:banner.dustin.name=Dustin Bayrağı
 item.got:banner.eddard.name=Eddard Stark Bayrağı
-item.got:banner.edricstorm.name=Edric Fırtına Bayrağı
+item.got:banner.edricstorm.name=Edric Storm Bayrağı
 item.got:banner.egen.name=Egen Bayrağı
-item.got:banner.elephants.name=Fil Bayrağı
+item.got:banner.elephants.name=Elephants Bayrağı
 item.got:banner.elesham.name=Elesham Bayrağı
 item.got:banner.erenford.name=Erenford Bayrağı
 item.got:banner.errol.name=Errol Bayrağı
@@ -4639,48 +4639,48 @@ item.got:banner.estermont.name=Estermont Bayrağı
 item.got:banner.estren.name=Estren Bayrağı
 item.got:banner.euron.name=Euron Bayrağı
 item.got:banner.euronBook.name=Euron Bayrağı (Kitap)
-item.got:banner.faceless.name=Yüzsüz Afiş
+item.got:banner.faceless.name=Faceless Bayrağı
 item.got:banner.falwell.name=Falwell Bayrağı
 item.got:banner.farman.name=Farman Bayrağı
 item.got:banner.farring.name=Farring Bayrağı
 item.got:banner.farwynd.name=Farwynd Bayrağı
-item.got:banner.farwyndLL.name=Yalnız Işığın Farwynd Bayrağı
-item.got:banner.fell.name=Düştü Bayrağı
+item.got:banner.farwyndLL.name=Farwynd of the Lonely Light Bayrağı
+item.got:banner.fell.name=Fell Bayrağı
 item.got:banner.fenn.name=Fenn Bayrağı
 item.got:banner.ferren.name=Ferren Bayrağı
-item.got:banner.fireball.name=Ateş Topu Bayrağı
-item.got:banner.firstFlint.name=Afiş
-item.got:banner.firstmen.name=İlk İnsanların Bayrağı
-item.got:banner.fisher.name=Balıkçı Bayrağı
-item.got:banner.fisherSS.name=Taş Sahil Balıkçılarının Bayrağı
+item.got:banner.fireball.name=Fireball Bayrağı
+item.got:banner.firstFlint.name=Banner of
+item.got:banner.firstmen.name=First Men Bayrağı
+item.got:banner.fisher.name=Fisher Bayrağı
+item.got:banner.fisherSS.name=Stone Coast Fishers Bayrağı
 item.got:banner.flintBH.name=Stone Hill Flints Bayrağı
-item.got:banner.flintFF.name=Flint Parmağının Flint Bayrağı
+item.got:banner.flintFF.name=Flint of Flint's Finger Bayrağı
 item.got:banner.flintWW.name=Flint of Widow's Watch Bayrağı
-item.got:banner.florent.name=Floransa Bayrağı
+item.got:banner.florent.name=Florent Bayrağı
 item.got:banner.florentBook.name=Florent Bayrağı (Kitap)
 item.got:banner.follard.name=Follard Bayrağı
 item.got:banner.foote.name=Foote Bayrağı
-item.got:banner.footeN.name=Nightsong Foote Afişi
+item.got:banner.footeN.name=Foote from Nightsong Bayrağı
 item.got:banner.footly.name=Footly Bayrağı
 item.got:banner.forrester.name=Forrester Bayrağı
 item.got:banner.forresterBook.name=Forrester Bayrağı (Kitap)
-item.got:banner.fossowayCH.name=Cider Hall Fossoway Banner
+item.got:banner.fossowayCH.name=Fossoway of Cider Hall Bayrağı
 item.got:banner.fossowayNB.name=Fossoway of New Barrel Bayrağı
 item.got:banner.fowler.name=Fowler Bayrağı
 item.got:banner.fowlerBook.name=Fowler Bayrağı (Kitap)
 item.got:banner.frey.name=Frey Bayrağı
-item.got:banner.freyBook.name=Frey Bayrağı(kitap)
-item.got:banner.freyriverrun.name=Nehirovalı Frey Bayrağı
+item.got:banner.freyBook.name=FreyBanner (Kitap)
+item.got:banner.freyriverrun.name=Frey of Riverrun Bayrağı
 item.got:banner.frost.name=Frost Bayrağı
 item.got:banner.galtry.name=Galtry Bayrağı
-item.got:banner.gardener.name=Bahçıvan Bayrağı
-item.got:banner.gardenerBook.name=Bahçıvan Bayrağı (Kitap)
+item.got:banner.gardener.name=Gardener Bayrağı
+item.got:banner.gardenerBook.name=Gardener Bayrağı (Kitap)
 item.got:banner.gargalen.name=Gargalen Bayrağı
-item.got:banner.gaunt.name=Sıska Bayrağı
+item.got:banner.gaunt.name=Gaunt Bayrağı
 item.got:banner.ghiscar.name=Ghiscar Bayrağı
 item.got:banner.glenmore.name=Glenmore Bayrağı
 item.got:banner.glover.name=Glover Bayrağı
-item.got:banner.golden_company.name=Altın Şirket Afişi
+item.got:banner.golden_company.name=Golden Company Bayrağı
 item.got:banner.goodbrook.name=Goodbrook Bayrağı
 item.got:banner.goodbrother.name=Goodbrother Bayrağı
 item.got:banner.goodbrotherCL.name=Dead Lake Goodbrother Bayrağı
@@ -4688,15 +4688,15 @@ item.got:banner.goodbrotherCSK.name=Crowspire Goodbrother Bayrağı
 item.got:banner.goodbrotherD.name=Goodbrother of the Rift Bayrağı
 item.got:banner.goodbrotherO.name=Orkmont Goodbrother Bayrağı
 item.got:banner.goodbrotherS.name=Stonebreaker Goodbrother Bayrağı
-item.got:banner.gormondgoodbrother.name=Hormonlu Goodbrother Bayrağı
+item.got:banner.gormondgoodbrother.name=Hormond Goodbrother Bayrağı
 item.got:banner.gower.name=Gower Bayrağı
 item.got:banner.graceford.name=Graceford Bayrağı
 item.got:banner.grafton.name=Grafton Bayrağı
 item.got:banner.grandison.name=Grandison Bayrağı
 item.got:banner.grangoodbrother.name=Grangood Goodbrother Bayrağı
-item.got:banner.greenfield.name=Greenfield Bayrağı
-item.got:banner.greens.name=Yeşiller Bayrağı
-item.got:banner.greensBook.name=Yeşiller Bayrağı (Kitap)
+item.got:banner.greenfield.name=Greenfielf Bayrağı
+item.got:banner.greens.name=Greens Bayrağı
+item.got:banner.greensBook.name=Greens Bayrağı (Kitap)
 item.got:banner.grell.name=Grell Bayrağı
 item.got:banner.greyiron.name=Greyiron Bayrağı
 item.got:banner.greyjoy.name=Greyjoy Bayrağı
@@ -4704,21 +4704,21 @@ item.got:banner.greyjoyBook.name=Greyjoy Bayrağı (Kitap)
 item.got:banner.greystark.name=Greystark Bayrağı
 item.got:banner.grimm.name=Grimm Bayrağı
 item.got:banner.haigh.name=Haigh Bayrağı
-item.got:banner.hand.name=El Bayrağı
+item.got:banner.hand.name=Hand Bayrağı
 item.got:banner.harclay.name=Harclay Bayrağı
 item.got:banner.hardy.name=Hardy Bayrağı
 item.got:banner.hardyng.name=Hardyng Bayrağı
 item.got:banner.harlaw.name=Harlaw Bayrağı
-item.got:banner.harlawGG.name=Harlaw Gri Bahçe Bayrağı
-item.got:banner.harlawHH.name=Harridan Tepesi Harlaw Bayrağı
-item.got:banner.harlawHall.name=Harlaw Salonu Hawlaw Bayrağı
-item.got:banner.harlawTG.name=Parıldayan Harlaw Kulesi Bayrağı
+item.got:banner.harlawGG.name=Harlaw Grey Garden Bayrağı
+item.got:banner.harlawHH.name=Harlaw of Harridan Hill Bayrağı
+item.got:banner.harlawHall.name=Hawlaw of Harlaw Hall Bayrağı
+item.got:banner.harlawTG.name=Harlaw Tower of Glimmering Bayrağı
 item.got:banner.harlton.name=Harlton Bayrağı
 item.got:banner.harroldhardyng.name=Harrold Hardyng Bayrağı
 item.got:banner.harroway.name=Harroway Bayrağı
 item.got:banner.harte.name=Harte Bayrağı
 item.got:banner.hastwyck.name=Hastwyck Bayrağı
-item.got:banner.hasty.name=Aceleci Bayrağı
+item.got:banner.hasty.name=Hasty Bayrağı
 item.got:banner.hawick.name=Hawick Bayrağı
 item.got:banner.hawthorne.name=Hawthorne Bayrağı
 item.got:banner.hayford.name=Hayford Bayrağı
@@ -4727,9 +4727,9 @@ item.got:banner.herston.name=Herston Bayrağı
 item.got:banner.hersy.name=Hersy Bayrağı
 item.got:banner.hetherspoon.name=Hetherspoon Bayrağı
 item.got:banner.hewett.name=Hewett Bayrağı
-item.got:banner.hightower.name=Yüksek Kule Bayrağı
+item.got:banner.hightower.name=Hightower Bayrağı
 item.got:banner.hightowerBook.name=Hightower Bayrağı (Kitap)
-item.got:banner.hillmen.name=Tepeli Bayrağı
+item.got:banner.hillmen.name=Hillmen Bayrağı
 item.got:banner.hoare.name=Hoare Bayrağı
 item.got:banner.hogg.name=Hogg Bayrağı
 item.got:banner.hollard.name=Hollard Bayrağı
@@ -4737,21 +4737,21 @@ item.got:banner.hornwood.name=Hornwood Bayrağı
 item.got:banner.hornwoodBook.name=Hornwood Bayrağı (Kitap)
 item.got:banner.horpe.name=Horpe Bayrağı
 item.got:banner.hugh.name=Hugh Bayrağı
-item.got:banner.hunt.name=Av Bayrağı
-item.got:banner.hunter.name=Avcı Bayrağı
+item.got:banner.hunt.name=Hunt Bayrağı
+item.got:banner.hunter.name=Hunter Bayrağı
 item.got:banner.hutcheson.name=Hutcheson Bayrağı
 item.got:banner.ibben.name=Ibben Bayrağı
-item.got:banner.illifer.name=İllifer Bayrağı
+item.got:banner.illifer.name=Illifer Bayrağı
 item.got:banner.inchfield.name=Inchfield Bayrağı
-item.got:banner.iron_bank.name=Demirbank Bayrağı
-item.got:banner.ironmaker.name=Demircisiler Bayrağı
-item.got:banner.ironsmith.name=Demircisi Bayrağı
+item.got:banner.iron_bank.name=iron_bank Bayrağı
+item.got:banner.ironmaker.name=Ironmakers Bayrağı
+item.got:banner.ironsmith.name=Ironsmith Bayrağı
 item.got:banner.jaremymallister.name=Jaremy Mallister Bayrağı
 item.got:banner.jast.name=Jast Bayrağı
 item.got:banner.joffrey.name=Joffrey Bayrağı
 item.got:banner.jogos.name=Jogos Nhai Bayrağı
 item.got:banner.jonconnington.name=Jon Connington Bayrağı
-item.got:banner.jonking.name=Jon Snow Bayrağı (Kral)
+item.got:banner.jonking.name=Jon Snow (King) Bayrağı
 item.got:banner.jonsnow.name=Jon Snow Bayrağı
 item.got:banner.jordayne.name=Jordayne Bayrağı
 item.got:banner.justman.name=Justman Bayrağı
@@ -4763,31 +4763,31 @@ item.got:banner.kenningK.name=Kenning Kayce Bayrağı
 item.got:banner.kettleblack.name=Kettleblack Bayrağı
 item.got:banner.kidwell.name=Kidwell Bayrağı
 item.got:banner.kingsguard.name=Kingsquard Bayrağı
-item.got:banner.knott.name=Düğüm Bayrağı
-item.got:banner.kyndall.name=Kindall Afişi
+item.got:banner.knott.name=Knott Bayrağı
+item.got:banner.kyndall.name=Kindall Bayrağı
 item.got:banner.ladybright.name=Ladybright Bayrağı
-item.got:banner.lake.name=Göl Bayrağı
+item.got:banner.lake.name=Lake Bayrağı
 item.got:banner.langward.name=Langward Bayrağı
 item.got:banner.lannett.name=Lannett Bayrağı
-item.got:banner.lannisport.name=Lannis Limanı Bayrağı
+item.got:banner.lannisport.name=Lannisport Bayrağı
 item.got:banner.lannister.name=Lannister Bayrağı
-item.got:banner.lannisterB.name=Lannister Bayrağı(kitap)
+item.got:banner.lannisterB.name=LannisterBanner (Kitap)
 item.got:banner.lannisterBook.name=Lannister Bayrağı (Kitap)
 item.got:banner.lannisterC.name=Lannister Bayrağı
-item.got:banner.lannisterD.name=Darry Lannister Bayrağı
+item.got:banner.lannisterD.name=Lannister of Darry Bayrağı
 item.got:banner.lannisterTygett.name=Tygett Lannister Bayrağı
 item.got:banner.lanny.name=Lanny Bayrağı
 item.got:banner.lantell.name=Lantell Bayrağı
-item.got:banner.laughingTree.name=Gülen Ağaç Bayrağı
-item.got:banner.leather.name=Deri afiş
+item.got:banner.laughingTree.name=Laughing Tree Bayrağı
+item.got:banner.leather.name=Leather Bayrağı
 item.got:banner.lefford.name=Lefford Bayrağı
-item.got:banner.leng.name=Uzun Bayrağı
+item.got:banner.leng.name=Leng Bayrağı
 item.got:banner.leygood.name=Leygood Bayrağı
 item.got:banner.lhazar.name=Lhazar Bayrağı
 item.got:banner.liddle.name=Liddle Bayrağı
-item.got:banner.lightfoot.name=Hafif Ayak Bayrağı
+item.got:banner.lightfoot.name=Lightfoot Bayrağı
 item.got:banner.lipps.name=Lipps Bayrağı
-item.got:banner.littlewalder.name=Küçük Walder Bayrağı
+item.got:banner.littlewalder.name=Little Walder Bayrağı
 item.got:banner.locke.name=Locke Bayrağı
 item.got:banner.lolliston.name=Lolliston Bayrağı
 item.got:banner.longtorpe.name=Longtorpe Bayrağı
@@ -4806,21 +4806,21 @@ item.got:banner.lynderly.name=Lynderly Bayrağı
 item.got:banner.lys.name=Lys Bayrağı
 item.got:banner.maekar.name=Maekar Bayrağı
 item.got:banner.maekarBook.name=Maekar Targaryen Bayrağı (Kitap)
-item.got:banner.maesters.name=Üstatların Bayrağı
+item.got:banner.maesters.name=Maesters Bayrağı
 item.got:banner.magnar.name=Magnar Bayrağı
 item.got:banner.mallery.name=Mallery Bayrağı
 item.got:banner.mallister.name=Mallister Bayrağı
 item.got:banner.manderly.name=Manderly Bayrağı
-item.got:banner.manderlyBook.name=Manderly Bayrağı(Kitap)
+item.got:banner.manderlyBook.name=ManderlyBanner (Kitap)
 item.got:banner.manning.name=Manning Bayrağı
 item.got:banner.manwoody.name=Manwoody Bayrağı
 item.got:banner.marbrand.name=Marbrand Bayrağı
-item.got:banner.marsh.name=Bataklık Bayrağı
+item.got:banner.marsh.name=Marsh Bayrağı
 item.got:banner.martell.name=Martell Bayrağı
 item.got:banner.martellBook.name=Martell Bayrağı (Kitap)
 item.got:banner.massey.name=Massey Bayrağı
 item.got:banner.mazin.name=Mazin Bayrağı
-item.got:banner.meadows.name=Çayırlar Bayrağı
+item.got:banner.meadows.name=Meadows Bayrağı
 item.got:banner.meereen.name=Meereen Bayrağı
 item.got:banner.melcolm.name=Melcolm Bayrağı
 item.got:banner.merlyn.name=Merlyn Bayrağı
@@ -4831,28 +4831,28 @@ item.got:banner.moore.name=Moore Bayrağı
 item.got:banner.mooton.name=Mooton Bayrağı
 item.got:banner.mopatis.name=Mopatis Bayrağı
 item.got:banner.moreland.name=Moreland Bayrağı
-item.got:banner.morgryn.name=Morgrin Bayrağı
+item.got:banner.morgryn.name=Morgryn Bayrağı
 item.got:banner.mormont.name=Mormont Bayrağı
 item.got:banner.mormontBook.name=Mormont Bayrağı (Kitap)
 item.got:banner.morrigen.name=Morrigen Bayrağı
 item.got:banner.morros.name=Morros Slynt Bayrağı
 item.got:banner.mors.name=Mors Bayrağı
 item.got:banner.morsBook.name=Mors Martell Bayrağı (Kitap)
-item.got:banner.moss.name=Yosun Bayrağı
+item.got:banner.moss.name=Moss Bayrağı
 item.got:banner.mossovy.name=Mossovy Bayrağı
 item.got:banner.mudd.name=Mudd Bayrağı
-item.got:banner.mullendore.name=Mullenfor Bayrağı
+item.got:banner.mullendore.name=Mullenfore Bayrağı
 item.got:banner.musgood.name=Musgood Bayrağı
 item.got:banner.myatt.name=Mayatt Bayrağı
 item.got:banner.myr.name=Myr Bayrağı
 item.got:banner.myre.name=Myre Bayrağı
 item.got:banner.newghis.name=Newghis Bayrağı
-item.got:banner.night.name=Gece Bayrağı
+item.got:banner.night.name=Night Bayrağı
 item.got:banner.norcross.name=Norcross Bayrağı
 item.got:banner.norrey.name=Norrey Bayrağı
 item.got:banner.norridge.name=Norridge Bayrağı
 item.got:banner.norvos.name=Norvos Bayrağı
-item.got:banner.null.name=Acil durum afişi
+item.got:banner.null.name=Emergency Bayrağı
 item.got:banner.nymeria.name=Nymeria Bayrağı
 item.got:banner.oakenfist.name=Alin Velarion Bayrağı
 item.got:banner.oakheart.name=Oakheart Bayrağı
@@ -4860,7 +4860,7 @@ item.got:banner.oberyn.name=Oberyn Martell Bayrağı
 item.got:banner.orkwood.name=Orkwood Bayrağı
 item.got:banner.orme.name=Orme Bayrağı
 item.got:banner.osgrey.name=Osgrey Bayrağı
-item.got:banner.osgreyll.name=Yaprak Döken Gölün Osgrey Bayrağı
+item.got:banner.osgreyll.name=Osgrey of Leafy Lake Bayrağı
 item.got:banner.overton.name=Overton Bayrağı
 item.got:banner.paege.name=Paege Bayrağı
 item.got:banner.parren.name=Parren Bayrağı
@@ -4874,26 +4874,26 @@ item.got:banner.pendragon.name=Pendragon Bayrağı
 item.got:banner.penrose.name=Penrose Bayrağı
 item.got:banner.pentos.name=Pentos Bayrağı
 item.got:banner.piper.name=Piper Bayrağı
-item.got:banner.plumm.name=Erik Bayrağı
+item.got:banner.plumm.name=Plumm Bayrağı
 item.got:banner.pommingham.name=Pommingham Bayrağı
 item.got:banner.poole.name=Poole Bayrağı
-item.got:banner.poorFellows.name=Fakir Dostlar Bayrağı
-item.got:banner.prester.name=Prester afişi
+item.got:banner.poorFellows.name=Poor Fellows Bayrağı
+item.got:banner.prester.name=Prester Bayrağı
 item.got:banner.pryor.name=Pryor Bayrağı
-item.got:banner.pyle.name=Piles Bayrağı
+item.got:banner.pyle.name=Pyles Bayrağı
 item.got:banner.pyne.name=Pynes Bayrağı
 item.got:banner.qarth.name=Qarth Bayrağı
 item.got:banner.qoherys.name=Qoherys Bayrağı
 item.got:banner.qohor.name=Qohor Bayrağı
-item.got:banner.qorgile.name=Korkile Bayrağı
+item.got:banner.qorgile.name=Qorqile Bayrağı
 item.got:banner.rambton.name=Rambton Bayrağı
-item.got:banner.redbeard.name=Kızılsakal Bayrağı
+item.got:banner.redbeard.name=Redbeard Bayrağı
 item.got:banner.redfort.name=Redfort Bayrağı
 item.got:banner.redwyne.name=Redwyne Bayrağı
 item.got:banner.redwyneBook.name=Redwyne Bayrağı (Kitap)
 item.got:banner.reed.name=Reed Bayrağı
 item.got:banner.reedBook.name=Reed Bayrağı (Kitap)
-item.got:banner.reedHBO.name=Reed Bayrağı (TV Dizisi)
+item.got:banner.reedHBO.name=Reed (TV Series) Bayrağı
 item.got:banner.renly.name=Renly Bayrağı
 item.got:banner.renlyBook.name=Renly Bayrağı (Kitap)
 item.got:banner.renlyguard.name=Renlyguard Bayrağı
@@ -4907,7 +4907,7 @@ item.got:banner.risley.name=Risley Bayrağı
 item.got:banner.robb.name=Robb Stark Bayrağı
 item.got:banner.robbBook.name=Robb Stark Bayrağı (Kitap)
 item.got:banner.robert.name=Robert Bayrağı
-item.got:banner.robertB.name=Robert Bayrağı(Kitap)
+item.got:banner.robertB.name=RobertBanner (Kitap)
 item.got:banner.robertashford.name=Robert Ashford Bayrağı
 item.got:banner.robertblackwood.name=Robert Blackwood Bayrağı
 item.got:banner.rodrikryswell.name=Rodrik Ryswell Bayrağı
@@ -4922,7 +4922,7 @@ item.got:banner.rossart.name=Rossart Bayrağı
 item.got:banner.rowan.name=Rowan Bayrağı
 item.got:banner.roxton.name=Roxton Bayrağı
 item.got:banner.royce.name=Royce Bayrağı
-item.got:banner.royceBook.name=Royce Bayrağı(kitap)
+item.got:banner.royceBook.name=RoyceBanner (Kitap)
 item.got:banner.royceGM.name=Royce of Moon Gate Bayrağı
 item.got:banner.ruthermont.name=Ruthermont Bayrağı
 item.got:banner.ruttiger.name=Ruttiger Bayrağı
@@ -4931,22 +4931,22 @@ item.got:banner.ryger.name=Ryger Bayrağı
 item.got:banner.ryswell.name=Ryswell Bayrağı
 item.got:banner.saan.name=Saan Bayrağı
 item.got:banner.saltcliffe.name=Saltcliffe Bayrağı
-item.got:banner.sandsnakes.name=Kum Yılanları Bayrağı
+item.got:banner.sandsnakes.name=Sandsnakes Bayrağı
 item.got:banner.santagar.name=Santagar Bayrağı
 item.got:banner.sarsfield.name=Sarsfield Bayrağı
 item.got:banner.sarwyck.name=Sarwyck Bayrağı
 item.got:banner.seasmoke.name=Addam Velarion Bayrağı
-item.got:banner.seastar.name=Deniz Yıldızı Shire Bayrağı
+item.got:banner.seastar.name=Shire the Sea Star Bayrağı
 item.got:banner.seaworth.name=Seaworth Bayrağı
-item.got:banner.secondsons.name=Saniye Bayrağı
+item.got:banner.secondsons.name=Secondsons Bayrağı
 item.got:banner.selmy.name=Selmy Bayrağı
-item.got:banner.sept.name=Eylül Bayrağı
+item.got:banner.sept.name=Sept Bayrağı
 item.got:banner.serrett.name=Serrett Bayrağı
 item.got:banner.serrettBook.name=Serrets Bayrağı (Kitap)
 item.got:banner.serry.name=Serry Bayrağı
 item.got:banner.shadrich.name=Shadrich Bayrağı
 item.got:banner.shawney.name=Shawney Bayrağı
-item.got:banner.shell.name=Kabukların Bayrağı
+item.got:banner.shell.name=Shells Bayrağı
 item.got:banner.shermer.name=Shermer Bayrağı
 item.got:banner.shettgtower.name=Shettgtower Bayrağı
 item.got:banner.shettgtown.name=Shettgtown Bayrağı
@@ -4956,28 +4956,28 @@ item.got:banner.slynt.name=Slynt Bayrağı
 item.got:banner.smallwood.name=Smallwood Bayrağı
 item.got:banner.sothoryos.name=Sothoryos Bayrağı
 item.got:banner.sparr.name=Sparr Bayrağı
-item.got:banner.sparrow.name=Serçe Bayrağı
-item.got:banner.spicer.name=Baharat Bayrağı
+item.got:banner.sparrow.name=Sparrow Bayrağı
+item.got:banner.spicer.name=Spicer Bayrağı
 item.got:banner.stackhouse.name=Stackhouse Bayrağı
 item.got:banner.stackspear.name=Stackspear Bayrağı
 item.got:banner.staedmon.name=Staedmon Bayrağı
 item.got:banner.stane.name=Stane Bayrağı
 item.got:banner.stannis.name=Stannis Bayrağı
-item.got:banner.stannisBook.name=Dragonstone Sancak Baratheonları (Kitap)
+item.got:banner.stannisBook.name=Banner Baratheons of Dragonstone (Kitap)
 item.got:banner.starkD.name=Dreadfort Starks Bayrağı
 item.got:banner.staunton.name=Staunton Bayrağı
 item.got:banner.stokeworth.name=Stokeworth Bayrağı
 item.got:banner.stonehouse.name=Stonehouse Bayrağı
 item.got:banner.stonetree.name=Stonetree Bayrağı
-item.got:banner.stormcrows.name=Fırtına Kargaları Bayrağı
+item.got:banner.stormcrows.name=Stormcrows Bayrağı
 item.got:banner.stout.name=Stout Bayrağı
 item.got:banner.strickland.name=Streickland Bayrağı
-item.got:banner.strong.name=Güçlü Bayrağı
+item.got:banner.strong.name=Strong Bayrağı
 item.got:banner.suggs.name=Suggs Bayrağı
-item.got:banner.summer.name=Yaz afişi
+item.got:banner.summer.name=Summer Bayrağı
 item.got:banner.sunderland.name=Sunderland Bayrağı
 item.got:banner.sunderly.name=Sunderly Bayrağı
-item.got:banner.sunglass.name=Güneş gözlüğü Bayrağı
+item.got:banner.sunglass.name=Sunglass Bayrağı
 item.got:banner.swann.name=Swann Bayrağı
 item.got:banner.swannBook.name=Swann Bayrağı (Kitap)
 item.got:banner.swyft.name=Swyft Bayrağı
@@ -4997,34 +4997,34 @@ item.got:banner.teague.name=Teague Bayrağı
 item.got:banner.templeton.name=Templeton Bayrağı
 item.got:banner.thenn.name=Thenn Bayrağı
 item.got:banner.thorne.name=Thorne Bayrağı
-item.got:banner.tigers.name=Kaplanların Bayrağı
+item.got:banner.tigers.name=Tigers Bayrağı
 item.got:banner.toland.name=Toland Bayrağı
 item.got:banner.tollett.name=Tollett Bayrağı
-item.got:banner.torrent.name=Torrent Afişi
-item.got:banner.towers.name=Kulelerin Bayrağı
-item.got:banner.towersN.name=Kuzey Kuleleri Bayrağı
+item.got:banner.torrent.name=Torrent Bayrağı
+item.got:banner.towers.name=Towers Bayrağı
+item.got:banner.towersN.name=Towers of the North Bayrağı
 item.got:banner.toyne.name=Toyne Bayrağı
 item.got:banner.trant.name=Trant Bayrağı
-item.got:banner.truefyre.name=Tristan Truefyre Bayrağı
+item.got:banner.truefyre.name=Trystane Truefyre Bayrağı
 item.got:banner.tudbury.name=Tudbury Bayrağı
 item.got:banner.tully.name=Tully Bayrağı
 item.got:banner.tullyBook.name=Tully Bayrağı (Kitap)
 item.got:banner.turnberry.name=Turnberry Bayrağı
 item.got:banner.tybolt.name=Tybolt Lannister Bayrağı
 item.got:banner.tyrell.name=Tyrrel Bayrağı
-item.got:banner.tyrellBK.name=Brightwater Kalesi Tyrell Bayrağı
+item.got:banner.tyrellBK.name=Tyrell of Brightwater Keep Bayrağı
 item.got:banner.tyrelll.name=Loras Tyrell Bayrağı
 item.got:banner.tyrion.name=Tyrion Bayrağı
 item.got:banner.tyrosh.name=Tyrosh Bayrağı
 item.got:banner.uller.name=Uller Bayrağı
 item.got:banner.umber.name=Umber Bayrağı
-item.got:banner.umberBook.name=Umber Bayrağı(Kitap)
-item.got:banner.underleaf.name=Yaprak Altı Bayrağı
+item.got:banner.umberBook.name=UmberBanner (Kitap)
+item.got:banner.underleaf.name=Underleaf Bayrağı
 item.got:banner.upcliff.name=Upcliff Bayrağı
 item.got:banner.vaith.name=Vaith Bayrağı
 item.got:banner.valarr.name=Valarr Targaryen Bayrağı
 item.got:banner.valarrBook.name=Valarr Targaryen Bayrağı (Kitap)
-item.got:banner.vanceA.name=Atranta Vance Bayrağı
+item.got:banner.vanceA.name=Vance of Atranta Bayrağı
 item.got:banner.vanceWR.name=Vance of Wayfarer's Rest Bayrağı
 item.got:banner.varner.name=Vanner Bayrağı
 item.got:banner.velaryon.name=Velaryon Bayrağı
@@ -5033,37 +5033,37 @@ item.got:banner.victarion.name=Victarion Bayrağı
 item.got:banner.vikary.name=Vikary Bayrağı
 item.got:banner.volantis.name=Volantis Bayrağı
 item.got:banner.volmark.name=Volmark Bayrağı
-item.got:banner.vultureking.name=Akbaba Kralın Bayrağı
+item.got:banner.vultureking.name=The Vulture King Bayrağı
 item.got:banner.vypren.name=Vypren Bayrağı
 item.got:banner.vyrwel.name=Vyrwel Bayrağı
 item.got:banner.wagstaff.name=Wadstaff Bayrağı
 item.got:banner.walder.name=Walder Rivers Bayrağı
-item.got:banner.walker.name=Ak Gezenlerin Bayrağı
-item.got:banner.warriorsSons.name=Savaşçıların Oğulları Bayrağı
-item.got:banner.waterman.name=Su Yerleşik Bayrağı
+item.got:banner.walker.name=White Walkers Bayrağı
+item.got:banner.warriorsSons.name=Warriors Sons Bayrağı
+item.got:banner.waterman.name=Waterman Bayrağı
 item.got:banner.waxley.name=Waxley Bayrağı
 item.got:banner.wayn.name=Wayn Bayrağı
 item.got:banner.waynwood.name=Waynwood Bayrağı
-item.got:banner.webber.name=Webber afişi
-item.got:banner.wells.name=Kuyu Bayrağı
-item.got:banner.wellsD.name=Dorne Kuyuları Bayrağı
+item.got:banner.webber.name=Webber Bayrağı
+item.got:banner.wells.name=Wells Bayrağı
+item.got:banner.wellsD.name=Wells of Dorne Bayrağı
 item.got:banner.wendwater.name=Wendwater Bayrağı
 item.got:banner.wensington.name=Wensington Bayrağı
 item.got:banner.westbrook.name=Westbrook Bayrağı
 item.got:banner.westerling.name=Westerling Bayrağı
 item.got:banner.westford.name=Westford Bayrağı
 item.got:banner.whent.name=Whent Bayrağı
-item.got:banner.white.name=Beyaz Bayrağı
+item.got:banner.white.name=White Bayrağı
 item.got:banner.whitegrove.name=Whitegrove Bayrağı
-item.got:banner.whitehead.name=Beyaz kafalı afiş
+item.got:banner.whitehead.name=Whitehead Bayrağı
 item.got:banner.whitehill.name=Whitehill Bayrağı
 item.got:banner.whitehillBook.name=Whitehill Bayrağı (Kitap)
-item.got:banner.wildling.name=Yabani Bayrağı
+item.got:banner.wildling.name=Wildling Bayrağı
 item.got:banner.willum.name=Willum Bayrağı
-item.got:banner.windblown.name=Rüzgarlı Bayrağı
+item.got:banner.windblown.name=Windblown Bayrağı
 item.got:banner.wode.name=Wode Bayrağı
 item.got:banner.woodfoot.name=Woodfoot Bayrağı
-item.got:banner.woods.name=Orman Bayrağı
+item.got:banner.woods.name=Woods Bayrağı
 item.got:banner.woodwright.name=Woodwright Bayrağı
 item.got:banner.woolfield.name=Woolfield Bayrağı
 item.got:banner.wull.name=Wull Bayrağı
@@ -5073,25 +5073,25 @@ item.got:banner.wylde.name=Wylde Bayrağı
 item.got:banner.wynch.name=Wynch Bayrağı
 item.got:banner.wythers.name=Wythers Bayrağı
 item.got:banner.yarwyck.name=Yarwyck Bayrağı
-item.got:banner.yew.name=Porsuk ağacı Bayrağı
+item.got:banner.yew.name=Yew Bayrağı
 item.got:banner.yiti.name=Yiti Bayrağı
-item.got:banner.yitiBu.name=Bu afiş
+item.got:banner.yitiBu.name=Bu Bayrağı
 item.got:banner.yitiChoq.name=Choq Bayrağı
 item.got:banner.yitiHar.name=Har Bayrağı
-item.got:banner.yitiJar.name=Kavanoz Bayrağı
+item.got:banner.yitiJar.name=Jar Bayrağı
 item.got:banner.yitiLo.name=Lo Bayrağı
-item.got:banner.yitiMaroon.name=Bordo Bayrağı
+item.got:banner.yitiMaroon.name=Maroon Bayrağı
 item.got:banner.yitiMengo.name=Mengo Bayrağı
-item.got:banner.yitiPearl.name=Arkadan Bayrağı
-item.got:banner.yitiPurple.name=Mor Bayrağı
+item.got:banner.yitiPearl.name=Rearl Bayrağı
+item.got:banner.yitiPurple.name=Purple Bayrağı
 item.got:banner.yitiQo.name=Qo Bayrağı
-item.got:banner.youngGriff.name=Genç Griff Bayrağı
+item.got:banner.youngGriff.name=Young Griff Bayrağı
 item.got:banner.yronwood.name=Yronwood Bayrağı
 item.got:banner.yunkai.name=Yunkai Bayrağı
 item.got:bear_rug.name=Ayı Postu
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_tail.name≠Beaver Tail
+item.got:beaver_cooked.name=Pişirilmiş Kuzgun
+item.got:beaver_raw.name=Ham Kuzgun
+item.got:beaver_tail.name=Kuzgun Kuyruğu
 item.got:beric_sword.name=Beric Dondarrion Kılıcı
 item.got:berry_pie.name=Meyveli Turta
 item.got:bittersteel_helmet.name=Aegor Nehir Kask
@@ -5123,10 +5123,10 @@ item.got:brightroar.name=Parlak kükreme
 item.got:bronze_axe.name=Bronz balta
 item.got:bronze_battleaxe.name=Bronz Savaş Baltası
 item.got:bronze_boots.name=Bronz Bot
-item.got:bronze_chainmail_boots.name≠Bronze Chain Boots
-item.got:bronze_chainmail_chestplate.name≠Bronze Chain Chestplate
-item.got:bronze_chainmail_helmet.name≠Bronze Chain Helmet
-item.got:bronze_chainmail_leggings.name≠Bronze Chain Leggings
+item.got:bronze_chainmail_boots.name=Bronz Zincir Botları
+item.got:bronze_chainmail_chestplate.name=Bronz Zincir Göğüslük
+item.got:bronze_chainmail_helmet.name=Bronz Zincir Kask
+item.got:bronze_chainmail_leggings.name=Bronz Zincir Bacak Korumaları
 item.got:bronze_chestplate.name=Bronz Zırh
 item.got:bronze_crossbow.name=Bronz Kundaklı Yay
 item.got:bronze_dagger.name=Bronz hançer
@@ -5135,9 +5135,9 @@ item.got:bronze_helmet.name=Bronz kask
 item.got:bronze_hoe.name=Bronz çapa
 item.got:bronze_ingot.name=Bronz külçe
 item.got:bronze_leggings.name=Bronz Pantolon
-item.got:bronze_nugget.name≠Bronze Nugget
+item.got:bronze_nugget.name=Bronz Külçe
 item.got:bronze_pickaxe.name=Bronz kazma
-item.got:bronze_ring.name≠Bronze Ring
+item.got:bronze_ring.name=Bronz Yüzük
 item.got:bronze_shovel.name=Bronz kürek
 item.got:bronze_spear.name=Bronz mızrak
 item.got:bronze_sword.name=Bronz kılıç
@@ -5170,7 +5170,7 @@ item.got:command_horn.name=Komut Borusu
 item.got:command_sword.name=Komut Kılıcı
 item.got:copper_ingot.name=Bakır Külçe
 item.got:copper_nugget.name=Bakır külçe
-item.got:copper_ring.name≠Copper Ring
+item.got:copper_ring.name=Bakır Yüzük
 item.got:coral.name=Mercan
 item.got:corn.name=Mısır
 item.got:corn_bread.name=Mısırlı Ekmek
@@ -5218,8 +5218,8 @@ item.got:dye.4.name=Odun Kömürü Tozu
 item.got:dye.5.name=Kahverengi Boya
 item.got:eddard_sword.name=Eddard Stark Kılıcı
 item.got:elderberry.name=Mürver
-item.got:elephant_cooked.name≠Cooked Elephant
-item.got:elephant_raw.name≠Raw Elephant
+item.got:elephant_cooked.name=Pişirilmiş Fil
+item.got:elephant_raw.name=Ham Fil
 item.got:emerald.name=Zümrüt
 item.got:essos_bow.name=Essos Yayı
 item.got:essos_dagger.name=Özgür Şehirler Hançeri
@@ -5308,7 +5308,7 @@ item.got:iron_battleaxe.name=Demir Savaş Baltası
 item.got:iron_crossbow.name=Demir Kundaklı Yay
 item.got:iron_dagger.name=Demir hançer
 item.got:iron_dagger_poisoned.name=Zehirli Demir Hançer
-item.got:iron_nugget.name≠Iron Nugget
+item.got:iron_nugget.name=Demir Külçe
 item.got:iron_pike.name=Demir turna
 item.got:iron_spear.name=Demir Mızrak
 item.got:iron_throwing_axe.name=Demir Fırlatma Baltası
@@ -5635,10 +5635,10 @@ item.got:valyrian_axe.name=Valyria Baltası
 item.got:valyrian_battleaxe.name=Valyria Savaş Baltası
 item.got:valyrian_book.name=Gerçek Gümüş Kitabı
 item.got:valyrian_boots.name=Valyria Bot
-item.got:valyrian_chainmail_boots.name≠Valyrian Chain Boots
-item.got:valyrian_chainmail_chestplate.name≠Valyrian Chain Chestplate
-item.got:valyrian_chainmail_helmet.name≠Valyrian Chain Helmet
-item.got:valyrian_chainmail_leggings.name≠Valyrian Chain Leggings
+item.got:valyrian_chainmail_boots.name=Valyrian Zincir Botları
+item.got:valyrian_chainmail_chestplate.name=Valyrian Zincir Göğüslük
+item.got:valyrian_chainmail_helmet.name=Valyrian Zincir Kask
+item.got:valyrian_chainmail_leggings.name=Valyrian Zincir Bacak Korumaları
 item.got:valyrian_chestplate.name=Valyrian Zırh
 item.got:valyrian_chisel.name=Valyria Keski
 item.got:valyrian_crossbow.name=Valyria Kundaklı Yay
@@ -5669,8 +5669,8 @@ item.got:volantis_chestplate.name=Volantis Zırh
 item.got:volantis_helmet.name=Volantis Kask
 item.got:volantis_leggings.name=Volantis Pantolon
 item.got:walking_stick.name=Baston
-item.got:walrus_lard_cooked.name≠Cooked Walrus Lard
-item.got:walrus_lard_raw.name≠Raw Walrus Lard
+item.got:walrus_lard_cooked.name=Pişirilmiş Mors Yağı
+item.got:walrus_lard_raw.name=Ham Mors Yağı
 item.got:warhorn.name=Savaş Borusu
 item.got:waterskin.name=Suderisi
 item.got:westerlands_boots.name=Batı Toprakları Bot
@@ -5740,7 +5740,7 @@ item.got:yiti_steel_ingot.name=Yaldızlı Demir Külçe
 item.got:yiti_sword.name=Yi Ti Katana
 item.got:zebra_cooked.name=Pişmiş Zebra
 item.got:zebra_raw.name=Çiğ Zebra
-tile.dirt.0.name≠Dirt
+tile.dirt.0.name=Toprak
 tile.dirt.coarse.name=Çorak Toprak
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная
@@ -5896,38 +5896,38 @@ tile.got:clover.0.name=Yonca
 tile.got:clover.1.name=Dört Yapraklı Yonca
 tile.got:cobblebrick.0.name=Kurutaş
 tile.got:command_table.name=Komuta Haritası
-tile.got:concrete.0.name≠White Concrete
-tile.got:concrete.1.name≠Orange Concrete
-tile.got:concrete.10.name≠Purple Concrete
-tile.got:concrete.11.name≠Blue Concrete
-tile.got:concrete.12.name≠Brown Concrete
-tile.got:concrete.13.name≠Green Concrete
-tile.got:concrete.14.name≠Red Concrete
-tile.got:concrete.15.name≠Black Concrete
-tile.got:concrete.2.name≠Magenta Concrete
-tile.got:concrete.3.name≠Light Blue Concrete
-tile.got:concrete.4.name≠Yellow Concrete
-tile.got:concrete.5.name≠Lime Concrete
-tile.got:concrete.6.name≠Pink Concrete
-tile.got:concrete.7.name≠Gray Concrete
-tile.got:concrete.8.name≠Light Gray Concrete
-tile.got:concrete.9.name≠Cyan Concrete
-tile.got:concrete_powder.0.name≠White Concrete Powder
-tile.got:concrete_powder.1.name≠Orange Concrete Powder
-tile.got:concrete_powder.10.name≠Purple Concrete Powder
-tile.got:concrete_powder.11.name≠Blue Concrete Powder
-tile.got:concrete_powder.12.name≠Brown Concrete Powder
-tile.got:concrete_powder.13.name≠Green Concrete Powder
-tile.got:concrete_powder.14.name≠Red Concrete Powder
-tile.got:concrete_powder.15.name≠Black Concrete Powder
-tile.got:concrete_powder.2.name≠Magenta Concrete Powder
-tile.got:concrete_powder.3.name≠Light Blue Concrete Powder
-tile.got:concrete_powder.4.name≠Yellow Concrete Powder
-tile.got:concrete_powder.5.name≠Lime Concrete Powder
-tile.got:concrete_powder.6.name≠Pink Concrete Powder
-tile.got:concrete_powder.7.name≠Gray Concrete Powder
-tile.got:concrete_powder.8.name≠Light Gray Concrete Powder
-tile.got:concrete_powder.9.name≠Cyan Concrete Powder
+tile.got:concrete.0.name=Beyaz Beton
+tile.got:concrete.1.name=Turuncu Beton
+tile.got:concrete.10.name=Mor Beton
+tile.got:concrete.11.name=Mavi Beton
+tile.got:concrete.12.name=Kahverengi Beton
+tile.got:concrete.13.name=Yeşil Beton
+tile.got:concrete.14.name=Kırmızı Beton
+tile.got:concrete.15.name=Siyah Beton
+tile.got:concrete.2.name=Macenta Beton
+tile.got:concrete.3.name=Açık Mavi Beton
+tile.got:concrete.4.name=Sarı Beton
+tile.got:concrete.5.name=Açık Yeşil Beton
+tile.got:concrete.6.name=Pembe Beton
+tile.got:concrete.7.name=Gri Beton
+tile.got:concrete.8.name=Açık Gri Beton
+tile.got:concrete.9.name=Cam Beton
+tile.got:concrete_powder.0.name=Beyaz Beton Tozu
+tile.got:concrete_powder.1.name=Turuncu Beton Tozu
+tile.got:concrete_powder.10.name=Mor Beton Tozu
+tile.got:concrete_powder.11.name=Mavi Beton Tozu
+tile.got:concrete_powder.12.name=Kahverengi Beton Tozu
+tile.got:concrete_powder.13.name=Yeşil Beton Tozu
+tile.got:concrete_powder.14.name=Kırmızı Beton Tozu
+tile.got:concrete_powder.15.name=Siyah Beton Tozu
+tile.got:concrete_powder.2.name=Macenta Beton Tozu
+tile.got:concrete_powder.3.name=Açık Mavi Beton Tozu
+tile.got:concrete_powder.4.name=Sarı Beton Tozu
+tile.got:concrete_powder.5.name=Açık Yeşil Beton Tozu
+tile.got:concrete_powder.6.name=Pembe Beton Tozu
+tile.got:concrete_powder.7.name=Gri Beton Tozu
+tile.got:concrete_powder.8.name=Açık Gri Beton Tozu
+tile.got:concrete_powder.9.name=Cam Beton Tozu
 tile.got:coral_reef.name=Mercan Kayalığı
 tile.got:corn_stalk.name=Darı Sapı
 tile.got:cucumber_plant.name=Salatalık bitki
