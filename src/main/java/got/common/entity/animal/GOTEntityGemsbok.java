@@ -31,6 +31,18 @@ public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToH
 		tasks.addTask(7, new EntityAILookIdle(this));
 	}
 
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
+		int j = 1 + rand.nextInt(4) + rand.nextInt(1 + i);
+		for (int k = 0; k < j; ++k) {
+			dropItem(GOTItems.gemsbokHide, 1);
+		}
+		if (rand.nextBoolean()) {
+			dropItem(GOTItems.gemsbokHorn, 1);
+		}
+	}
+
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();

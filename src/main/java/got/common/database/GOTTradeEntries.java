@@ -754,6 +754,7 @@ public class GOTTradeEntries {
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.rhinoHorn), 5));
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(Items.bone), 1));
 		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(Items.glass_bottle), 2));
+		C_SHAMAN_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gemsbokHorn), 4));
 		CROWNLANDS_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.bomb), 64));
 		CROWNLANDS_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bottlePoison), 10));
 		CROWNLANDS_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.firePot), 32));
@@ -857,6 +858,7 @@ public class GOTTradeEntries {
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosSpear), 15));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosSword), 16));
 		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.tableSothoryos), 100));
+		SOTHORYOS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.sothoryosHelmetChieftain), 40));
 		SUMMER_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.blacksmithHammer), 18));
 		SUMMER_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.bronzeBars, 8), 20));
 		SUMMER_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.bronzeCrossbow), 12));

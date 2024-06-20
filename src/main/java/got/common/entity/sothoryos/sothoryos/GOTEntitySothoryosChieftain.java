@@ -51,6 +51,7 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosMan implement
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosHelmetChieftain));
 
 		return entityData;
 	}

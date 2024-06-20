@@ -69,6 +69,7 @@ public class GOTMaterial {
 	public static final ItemArmor.ArmorMaterial BONE = EnumHelper.addArmorMaterial("GOT_BONE", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial DOTHRAKI = EnumHelper.addArmorMaterial("GOT_DOTHRAKI", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial FUR = EnumHelper.addArmorMaterial("GOT_FUR", 10, new int[]{1, 3, 2, 1}, 15);
+	public static final ItemArmor.ArmorMaterial GEMSBOK = EnumHelper.addArmorMaterial("GOT_GEMSBOK", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial HAND = EnumHelper.addArmorMaterial("GOT_HAND", 25, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial KAFTAN = EnumHelper.addArmorMaterial("GOT_KAFTAN", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial ROBES = EnumHelper.addArmorMaterial("GOT_ROBES", 10, new int[]{1, 3, 2, 1}, 15);

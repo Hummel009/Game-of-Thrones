@@ -415,6 +415,7 @@ public class GOTAchievement {
 	public static GOTAchievement poisonMug;
 	public static GOTAchievement throwSlingIntoWater;
 	public static GOTAchievement throwConker;
+	public static GOTAchievement wearFullGemsbok;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 	private final Category category;
@@ -881,6 +882,7 @@ public class GOTAchievement {
 		wearFullValyrianChainmail = createArmorAchievement(armorId++, GOTItems.valyrianChainmailChestplate, "WEAR_FULL_VALYRIAN_CHAINMAIL");
 		wearFullBone = createArmorAchievement(armorId++, GOTItems.boneChestplate, "WEAR_FULL_BONE");
 		wearFullFur = createArmorAchievement(armorId++, GOTItems.furChestplate, "WEAR_FULL_FUR");
+		wearFullGemsbok = createArmorAchievement(armorId++, GOTItems.gemsbokChestplate, "WEAR_FULL_GEMSBOK");
 
 		wearFullGift = createArmorAchievement(armorId++, GOTItems.giftChestplate, "WEAR_FULL_GIFT");
 		wearFullNorth = createArmorAchievement(armorId++, GOTItems.northChestplate, "WEAR_FULL_NORTH");
@@ -937,7 +939,7 @@ public class GOTAchievement {
 		wearFullRoyce = createArmorAchievement(armorId++, GOTItems.royceChestplate, "WEAR_FULL_ROYCE");
 		wearFullTargaryen = createArmorAchievement(armorId++, GOTItems.targaryenChestplate, "WEAR_FULL_TARGARYEN");
 		wearFullWestking = createArmorAchievement(armorId++, GOTItems.westkingChestplate, "WEAR_FULL_WESTKING");
-	}
+		}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {
 		return (ach1, ach2) -> {

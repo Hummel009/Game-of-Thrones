@@ -26,6 +26,15 @@ import java.util.Collection;
 public class GOTItems {
 	public static final Collection<Item> CONTENT = new ArrayList<>();
 
+	public static Item gemsbokBoots;
+	public static Item gemsbokChestplate;
+	public static Item gemsbokHelmet;
+	public static Item gemsbokLeggings;
+	public static Item gemsbokHide;
+	public static Item gemsbokHorn;
+
+	public static Item sothoryosHelmetChieftain;
+
 	public static Item beaverRaw;
 	public static Item beaverTail;
 	public static Item beaverCooked;
@@ -681,6 +690,16 @@ public class GOTItems {
 	}
 
 	private static void assignContent() {
+		gemsbokBoots = new GOTItemArmor(GOTMaterial.GEMSBOK, 3);
+		gemsbokChestplate = new GOTItemArmor(GOTMaterial.GEMSBOK, 1);
+		gemsbokHelmet = new GOTItemArmor(GOTMaterial.GEMSBOK, 0);
+		gemsbokLeggings = new GOTItemArmor(GOTMaterial.GEMSBOK, 2);
+
+		gemsbokHide = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		gemsbokHorn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+
+		sothoryosHelmetChieftain = new GOTItemArmor(GOTMaterial.SOTHORYOS, 0, "chieftainHelmet");
+
 		aegonHelmet = new GOTItemArmor(GOTMaterial.HELMET, 0, "aegon").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		aleHorn = new GOTItemVessel();
 		aleHornGold = new GOTItemVessel();
@@ -1536,6 +1555,11 @@ public class GOTItems {
 		register(furLeggings, "furLeggings");
 		register(furBoots, "furBoots");
 
+		register(gemsbokHelmet, "gemsbokHelmet");
+		register(gemsbokChestplate, "gemsbokChestplate");
+		register(gemsbokLeggings, "gemsbokLeggings");
+		register(gemsbokBoots, "gemsbokBoots");
+
 		register(giftHelmet, "giftHelmet");
 		register(giftChestplate, "giftChestplate");
 		register(giftLeggings, "giftLeggings");
@@ -1735,6 +1759,8 @@ public class GOTItems {
 		register(sothoryosChestplate, "sothoryosChestplate");
 		register(sothoryosLeggings, "sothoryosLeggings");
 		register(sothoryosBoots, "sothoryosBoots");
+
+		register(sothoryosHelmetChieftain, "sothoryosHelmetChieftain");
 
 		register(unsulliedHelmet, "unsulliedHelmet");
 		register(unsulliedChestplate, "unsulliedChestplate");
@@ -1968,8 +1994,10 @@ public class GOTItems {
 
 		register(fur, "fur");
 		register(horn, "horn");
+		register(gemsbokHide, "gemsbokHide");
 		register(whiteBisonHorn, "whiteBisonHorn");
 		register(rhinoHorn, "rhinoHorn");
+		register(gemsbokHorn, "gemsbokHorn");
 		register(beaverTail, "beaverTail");
 		register(swanFeather, "swanFeather");
 
