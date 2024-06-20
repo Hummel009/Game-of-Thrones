@@ -84,6 +84,14 @@ public class GOT {
 		DEVS.add("f8cc9b45-509a-4034-8740-0b84ce7e4492");
 	}
 
+	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
+	public void onMissingMappings(FMLMissingMappingsEvent event) {
+		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+			mapping.ignore();
+		}
+	}
+
 	private static Map<String, Integer> getModContentInfo() {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("achievements", GOTAchievement.CONTENT.size());
@@ -387,46 +395,6 @@ public class GOT {
 			GOTLog.getLogger().info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
 		}
 		proxy.postInit();
-	}
-
-	@Mod.EventHandler
-	@SuppressWarnings({"MethodMayBeStatic", "CommentedOutCode", "EmptyMethod"})
-	public void onMissingMappings(FMLMissingMappingsEvent event) {
-		/*for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
-			Item item;
-			Block block;
-			String newName;
-			if (mapping.type == GameRegistry.Type.BLOCK) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else if (mapping.name.contains("chest_essos")) {
-					newName = mapping.name.replace("chest_essos", "chest_sandstone");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				block = (Block) Block.blockRegistry.getObject(newName);
-				if (block != null) {
-					mapping.remap(block);
-				}
-			}
-			if (mapping.type == GameRegistry.Type.ITEM) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("ignot")) {
-					newName = mapping.name.replace("ignot", "ingot");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				item = (Item) Item.itemRegistry.getObject(newName);
-				if (item != null) {
-					mapping.remap(item);
-				}
-			}
-		}*/
 	}
 
 	@Mod.EventHandler
