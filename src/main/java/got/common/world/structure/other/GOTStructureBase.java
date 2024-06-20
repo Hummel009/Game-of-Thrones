@@ -70,14 +70,18 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	private static final Map<Item, Integer> WEAPON_PERCENTS = new HashMap<>();
 
 	static {
-		FRAME_PERCENTS.put(GOTItems.copperRing, 40);
-		FRAME_PERCENTS.put(GOTItems.bronzeRing, 40);
-		FRAME_PERCENTS.put(GOTItems.silverRing, 10);
-		FRAME_PERCENTS.put(GOTItems.goldRing, 8);
-		FRAME_PERCENTS.put(GOTItems.valyrianRing, 2);
+		FRAME_PERCENTS.put(GOTItems.ironDagger, 25);
+		FRAME_PERCENTS.put(GOTItems.ironDaggerPoisoned, 20);
+		FRAME_PERCENTS.put(GOTItems.alloySteelDaggerPoisoned, 15);
+		FRAME_PERCENTS.put(GOTItems.alloySteelDagger, 10);
+		FRAME_PERCENTS.put(GOTItems.copperRing, 10);
+		FRAME_PERCENTS.put(GOTItems.bronzeRing, 9);
+		FRAME_PERCENTS.put(GOTItems.silverRing, 6);
+		FRAME_PERCENTS.put(GOTItems.goldRing, 5);
 
-		WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 50);
-		WEAPON_PERCENTS.put(GOTItems.ironDagger, 30);
+		WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 40);
+		WEAPON_PERCENTS.put(GOTItems.ironDagger, 25);
+		WEAPON_PERCENTS.put(GOTItems.ironDaggerPoisoned, 15);
 		WEAPON_PERCENTS.put(GOTItems.ironSpear, 10);
 		WEAPON_PERCENTS.put(GOTItems.ironCrossbow, 8);
 		WEAPON_PERCENTS.put(GOTItems.ironPike, 2);
