@@ -76,7 +76,6 @@ public class GOTUnitTradeEntries {
 	public static final int SOLDIERA = 15;
 	public static final int SOLDIERH = 15;
 	public static final int SOLDIERHA = 20;
-	public static final int SOLDIERE = 50;
 
 	public static final float LEVYMAN_F = 5.0f;
 	public static final float LEVYMANA_F = 5.0f;
@@ -84,7 +83,6 @@ public class GOTUnitTradeEntries {
 	public static final float SOLDIERA_F = 10.0f;
 	public static final float SOLDIERH_F = 15.0f;
 	public static final float SOLDIERHA_F = 15.0f;
-	public static final float SOLDIERE_F = 30.0f;
 
 	public static final int SLAVE = 10;
 	public static final float SLAVE_F = 0.0f;
@@ -417,7 +415,7 @@ public class GOTUnitTradeEntries {
 
 		ASSHAI_L.add(new GOTUnitTradeEntry(GOTEntityAsshaiWarrior.class, SOLDIER, SOLDIER_F));
 		ASSHAI_L.add(new GOTUnitTradeEntry(GOTEntityAsshaiSpherebinder.class, SOLDIER * 5, SOLDIER_F * 5).setPledgeExclusive());
-		ASSHAI_L.add(new GOTUnitTradeEntry(GOTEntityAsshaiShadowbinder.class, SOLDIER * 10, SOLDIER_F * 10).setPledgeExclusive());
+		ASSHAI_L.add(new GOTUnitTradeEntry(GOTEntityAsshaiShadowbinder.class, SOLDIER * 5, SOLDIER_F * 5).setPledgeExclusive());
 		ASSHAI_L.add(new GOTUnitTradeEntry(GOTEntityAsshaiBannerBearer.class, SOLDIER, SOLDIER_F));
 
 		WILDLING_L.add(new GOTUnitTradeEntry(GOTEntityWildlingWarrior.class, SOLDIER, SOLDIER_F));
@@ -470,8 +468,8 @@ public class GOTUnitTradeEntries {
 		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiSoldierCrossbower.class, SOLDIERA, SOLDIERA_F));
 		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiFrontier.class, SOLDIER, SOLDIER_F).setPledgeExclusive());
 		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiSamurai.class, SOLDIER * 2, SOLDIER_F * 2).setPledgeExclusive());
-		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiFireThrower.class, SOLDIER * 2, SOLDIER_F * 2).setPledgeExclusive());
-		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiBombardier.class, SOLDIER * 4, SOLDIER_F * 4).setPledgeExclusive());
+		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiFireThrower.class, SOLDIER * 3, SOLDIER_F * 3).setPledgeExclusive());
+		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiBombardier.class, SOLDIER * 5, SOLDIER_F * 5).setPledgeExclusive());
 		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiSoldier.class, GOTEntityHorse.class, "Rider", SOLDIERH, SOLDIERH_F));
 		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiFrontier.class, GOTEntityHorse.class, "Rider", SOLDIERH, SOLDIERH_F).setPledgeExclusive());
 		YITI_L.add(new GOTUnitTradeEntry(GOTEntityYiTiSamurai.class, GOTEntityHorse.class, "Rider", SOLDIERH * 2, SOLDIERH_F * 2).setMountArmor(GOTItems.yitiHorseArmor).setPledgeExclusive());
