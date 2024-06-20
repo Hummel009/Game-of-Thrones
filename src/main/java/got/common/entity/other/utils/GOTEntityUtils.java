@@ -251,6 +251,35 @@ public class GOTEntityUtils {
 		}
 	}
 
+	public static ItemStack[] getLevymanArmor(Random rand) {
+		boolean alreadyHasChain = false;
+		ItemStack[] savedArmor = new ItemStack[4];
+		savedArmor[3] = dyeLeather(new ItemStack(Items.leather_boots), rand);
+
+		int legs = rand.nextInt(10);
+		if (legs == 0 || legs == 1) {
+			savedArmor[2] = new ItemStack(GOTItems.bronzeChainmailLeggings);
+			alreadyHasChain = true;
+		} else if (legs == 2 || legs == 3 || legs == 4) {
+			savedArmor[2] = new ItemStack(Items.chainmail_leggings);
+			alreadyHasChain = true;
+		} else {
+			savedArmor[2] = dyeLeather(new ItemStack(Items.leather_leggings), rand);
+		}
+		int body = rand.nextInt(10);
+		if ((body == 0 || body == 1) && !alreadyHasChain) {
+			savedArmor[1] = new ItemStack(GOTItems.bronzeChainmailChestplate);
+		} else if ((body == 2 || body == 3 || body == 4) && !alreadyHasChain) {
+			savedArmor[1] = new ItemStack(Items.chainmail_chestplate);
+		} else {
+			savedArmor[1] = dyeLeather(new ItemStack(Items.leather_chestplate), rand);
+		}
+
+		savedArmor[0] = dyeLeather(new ItemStack(Items.leather_helmet), rand);
+
+		return savedArmor;
+	}
+
 	public static void setupTurban(GOTEntityNPC npc, Random random) {
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		if (random.nextInt(3) == 0) {

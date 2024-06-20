@@ -213,7 +213,7 @@ public class GOTStructureYiTiHouseSmall extends GOTStructureYiTiBase {
 		setAir(world, 0, 2, 3);
 		setBlockAndMetadata(world, 0, 1, 2, barsBlock, 0);
 		setBlockAndMetadata(world, 0, 2, 2, Blocks.furnace, 2);
-		spawnItemFrame(world, 0, 3, 2, 2, getFramedItem(random));
+		spawnItemFrame(world, 0, 3, 2, 2, getRandFrameItem(random));
 		setBlockAndMetadata(world, -2, 3, 0, GOTBlocks.chandelier, 0);
 		setBlockAndMetadata(world, 2, 3, 0, GOTBlocks.chandelier, 0);
 		for (i1 = -5; i1 <= 5; ++i1) {

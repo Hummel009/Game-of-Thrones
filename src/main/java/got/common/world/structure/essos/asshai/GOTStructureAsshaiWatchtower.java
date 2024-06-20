@@ -144,8 +144,8 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -2, 7, 0, GOTBlocks.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTBlocks.armorStand, 7);
 		setBlockAndMetadata(world, -2, 7, 2, Blocks.anvil, 0);
-		spawnItemFrame(world, -3, 8, -1, 1, getFramedItem(random));
-		spawnItemFrame(world, -3, 8, 1, 1, getFramedItem(random));
+		spawnItemFrame(world, -3, 8, -1, 1, getRandFrameItem(random));
+		spawnItemFrame(world, -3, 8, 1, 1, getRandFrameItem(random));
 		setBlockAndMetadata(world, 2, 7, -2, GOTBlocks.tableAsshai, 0);
 		setBlockAndMetadata(world, 2, 7, -1, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 2, 7, 0, Blocks.stone_slab, 8);

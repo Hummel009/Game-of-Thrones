@@ -265,7 +265,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		for (k14 = 1; k14 <= 3; ++k14) {
 			setBlockAndMetadata(world, 1, 2, k14, rockSlabBlock, rockSlabMeta);
 		}
-		placeWeaponRack(world, 1, 3, 2, 7, getRandomWeapon(random));
+		placeWeaponRack(world, 1, 3, 2, 7, getRandWeaponItem(random));
 		for (int i16 = -2; i16 <= 1; ++i16) {
 			setBlockAndMetadata(world, i16, 5, -4, plank2SlabBlock, plank2SlabMeta);
 		}

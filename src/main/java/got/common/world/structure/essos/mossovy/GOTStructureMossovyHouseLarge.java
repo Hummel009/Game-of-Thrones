@@ -6,8 +6,6 @@ import got.common.database.GOTFoods;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -126,7 +124,7 @@ public class GOTStructureMossovyHouseLarge extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, -6, 5, 2, Blocks.bed, 11);
 		setBlockAndMetadata(world, -5, 9, 0, GOTBlocks.strawBed, 3);
 		setBlockAndMetadata(world, -6, 9, 0, GOTBlocks.strawBed, 11);
-		spawnItemFrame(world, 0, 2, 1, 2, new ItemStack(Items.clock));
+		spawnItemFrame(world, 0, 2, 1, 2, getRandFrameItem(random));
 		GOTEntityNPC sherriff = new GOTEntityMossovyWitcher(world);
 		spawnNPCAndSetHome(sherriff, world, 0, 4, 0, 12);
 		return true;

@@ -7,7 +7,6 @@ import got.common.database.GOTItems;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -169,7 +168,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
 		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
 		if (random.nextBoolean()) {
-			spawnItemFrame(world, 2, 3, 0, 3, new ItemStack(Items.clock));
+			spawnItemFrame(world, 2, 3, 0, 3, getRandFrameItem(random));
 		}
 		GOTEntityNPC male = new GOTEntityMossovyMan(world);
 		male.getFamilyInfo().setMale(true);

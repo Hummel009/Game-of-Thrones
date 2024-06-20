@@ -1,12 +1,10 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
 import got.common.database.GOTBlocks;
-import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosChieftain;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -163,7 +161,7 @@ public class GOTStructureSothoryosTemple extends GOTStructureSothoryosHouse {
 			setBlockAndMetadata(world, i13, 6, -5, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i13, 8, -4, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i13, 8, -3, brickSlabBlock, brickSlabMeta);
-			placeArmorStand(world, i13, 5, 2, 0, new ItemStack[]{new ItemStack(GOTItems.sothoryosHelmet), new ItemStack(GOTItems.sothoryosChestplate), new ItemStack(GOTItems.sothoryosLeggings), new ItemStack(GOTItems.sothoryosBoots)});
+			placeArmorStand(world, i13, 5, 2, 0, getRandArmorItems(random));
 		}
 		for (j12 = 5; j12 <= 7; ++j12) {
 			setBlockAndMetadata(world, -2, j12, 4, brickBlock, brickMeta);
@@ -260,8 +258,8 @@ public class GOTStructureSothoryosTemple extends GOTStructureSothoryosHouse {
 		setBlockAndMetadata(world, -2, 6, 1, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 6, -1, Blocks.torch, 1);
 		setBlockAndMetadata(world, 2, 6, 1, Blocks.torch, 1);
-		spawnItemFrame(world, -1, 6, 3, 2, new ItemStack(GOTBlocks.sarbacaneTrap));
-		spawnItemFrame(world, 1, 6, 3, 2, new ItemStack(GOTItems.sothoryosDagger));
+		spawnItemFrame(world, -1, 6, 3, 2, getRandFrameItem(random));
+		spawnItemFrame(world, 1, 6, 3, 2, getRandFrameItem(random));
 		GOTEntityNPC chieftain = new GOTEntitySothoryosChieftain(world);
 		spawnNPCAndSetHome(chieftain, world, 0, 5, 0, 8);
 		return true;

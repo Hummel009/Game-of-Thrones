@@ -63,8 +63,8 @@ public class GOTStructureEssosTraining extends GOTStructureEssosBase {
 			addBlockMetaAliasOption("GROUND", GOTBlocks.dirtPath, 0);
 		}
 		generateStrScan(world, random, 0, 0, 0);
-		placeWeaponRack(world, -5, 2, -4, 2, getRandomWeapon(random));
-		placeWeaponRack(world, 5, 2, -4, 2, getRandomWeapon(random));
+		placeWeaponRack(world, -5, 2, -4, 2, getRandWeaponItem(random));
+		placeWeaponRack(world, 5, 2, -4, 2, getRandWeaponItem(random));
 		placeSkull(world, 0, 3, 2, 0);
 		placeSkull(world, -5, 3, 0, 12);
 		placeSkull(world, 5, 3, 0, 4);

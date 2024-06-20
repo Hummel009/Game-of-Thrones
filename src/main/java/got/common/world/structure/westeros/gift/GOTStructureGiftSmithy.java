@@ -201,7 +201,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		}
 		setBlockAndMetadata(world, 7, 1, 0, barsBlock, 0);
 		setBlockAndMetadata(world, 7, 2, 0, Blocks.furnace, 5);
-		spawnItemFrame(world, 7, 3, 0, 3, getRangerFramedItem(random));
+		spawnItemFrame(world, 7, 3, 0, 3, getRandFrameItem(random));
 		placeChest(world, random, 1, 1, 2, 5, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, 1, 1, -2, tableBlock, 0);
 		setBlockAndMetadata(world, 1, 1, -3, Blocks.crafting_table, 0);

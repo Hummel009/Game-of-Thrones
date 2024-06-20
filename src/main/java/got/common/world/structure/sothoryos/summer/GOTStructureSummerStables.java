@@ -7,8 +7,6 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.item.other.GOTItemBanner;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -71,8 +69,8 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 		placeWallBanner(world, 2, 4, -4, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, -2, 4, 4, GOTItemBanner.BannerType.SUMMER, 0);
 		placeWallBanner(world, 2, 4, 4, GOTItemBanner.BannerType.SUMMER, 0);
-		spawnItemFrame(world, -2, 2, 0, 1, new ItemStack(Items.saddle));
-		spawnItemFrame(world, 2, 2, 0, 3, new ItemStack(Items.lead));
+		spawnItemFrame(world, -2, 2, 0, 1, getRandFrameItem(random));
+		spawnItemFrame(world, 2, 2, 0, 3, getRandFrameItem(random));
 		setBlockAndMetadata(world, -3, 1, 6, bedBlock, 0);
 		setBlockAndMetadata(world, -3, 1, 7, bedBlock, 8);
 		placeChest(world, random, -4, 1, 6, GOTBlocks.chestBasket, 4, GOTChestContents.SUMMER);

@@ -3,7 +3,6 @@ package got.common.world.structure.sothoryos.summer;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
@@ -11,7 +10,6 @@ import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerCaptain;
 import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
 import got.common.item.other.GOTItemBanner;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -104,17 +102,17 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 			}
 			placeMug(world, random, i1, j13, k1, 0, GOTFoods.DEFAULT_DRINK);
 		}
-		placeWeaponRack(world, 4, 2, -1, 6, getRandomWeapon(random));
-		placeWeaponRack(world, 5, 2, 0, 5, getRandomWeapon(random));
-		placeWeaponRack(world, 4, 2, 1, 4, getRandomWeapon(random));
-		placeWeaponRack(world, 3, 2, 0, 7, getRandomWeapon(random));
-		placeWeaponRack(world, -4, 2, -1, 6, getRandomWeapon(random));
-		placeWeaponRack(world, -3, 2, 0, 5, getRandomWeapon(random));
-		placeWeaponRack(world, -4, 2, 1, 4, getRandomWeapon(random));
-		placeWeaponRack(world, -5, 2, 0, 7, getRandomWeapon(random));
-		placeSummerArmor(world, random, 9, 1, -3, 1);
-		placeSummerArmor(world, random, 9, 1, 0, 1);
-		placeSummerArmor(world, random, 9, 1, 3, 1);
+		placeWeaponRack(world, 4, 2, -1, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, 5, 2, 0, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, 4, 2, 1, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 3, 2, 0, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, -4, 2, -1, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, -3, 2, 0, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, -4, 2, 1, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, -5, 2, 0, 7, getRandWeaponItem(random));
+		placeArmorStand(world, 9, 1, -3, 1, getRandArmorItems(random));
+		placeArmorStand(world, 9, 1, 0, 1, getRandArmorItems(random));
+		placeArmorStand(world, 9, 1, 3, 1, getRandArmorItems(random));
 		placeSkull(world, random, -8, 3, -4);
 		placeSkull(world, random, -8, 3, 2);
 		placeSkull(world, random, -10, 6, 0);
@@ -154,26 +152,5 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 		respawner.setSpawnRanges(8, -2, 2, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);
 		return true;
-	}
-
-	private void placeSummerArmor(World world, Random random, int i, int j, int k, int meta) {
-		ItemStack[] arritemStack;
-		if (random.nextInt(3) == 0) {
-			ItemStack[] arritemStack3 = new ItemStack[4];
-			arritemStack3[0] = new ItemStack(GOTItems.summerHelmet);
-			arritemStack3[1] = new ItemStack(GOTItems.summerChestplate);
-			arritemStack3[2] = new ItemStack(GOTItems.summerLeggings);
-			arritemStack = arritemStack3;
-			arritemStack3[3] = new ItemStack(GOTItems.summerBoots);
-		} else {
-			ItemStack[] arritemStack2 = new ItemStack[4];
-			arritemStack2[0] = null;
-			arritemStack2[1] = null;
-			arritemStack2[2] = null;
-			arritemStack = arritemStack2;
-			arritemStack2[3] = null;
-		}
-		ItemStack[] armor = arritemStack;
-		placeArmorStand(world, i, j, k, meta, armor);
 	}
 }

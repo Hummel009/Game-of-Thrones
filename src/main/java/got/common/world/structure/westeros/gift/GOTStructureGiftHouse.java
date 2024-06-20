@@ -200,7 +200,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 		}
 		setBlockAndMetadata(world, 4, 1, 0, barsBlock, 0);
 		setBlockAndMetadata(world, 4, 2, 0, Blocks.furnace, 5);
-		spawnItemFrame(world, 4, 4, 0, 3, getRangerFramedItem(random));
+		spawnItemFrame(world, 4, 4, 0, 3, getRandFrameItem(random));
 		setBlockAndMetadata(world, 4, 1, 2, Blocks.trapdoor, 3);
 		for (j12 = -2; j12 <= 0; ++j12) {
 			setBlockAndMetadata(world, 4, j12, 2, Blocks.ladder, 3);
@@ -226,10 +226,10 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			if (random.nextInt(3) == 0) {
 				armor = new ItemStack[]{new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots)};
 			}
-			placeArmorStand(world, -4, -2, k131, 3, armor);
+			placeArmorStand(world, -4, -2, k131, 3, getRandArmorItems(random));
 		}
 		for (int k131 : new int[]{-1, 1}) {
-			spawnItemFrame(world, -5, -1, k131, 1, getRangerFramedItem(random));
+			spawnItemFrame(world, -5, -1, k131, 1, getRandFrameItem(random));
 		}
 		setBlockAndMetadata(world, 0, -2, 3, tableBlock, 0);
 		for (int i1 : new int[]{-1, 1}) {

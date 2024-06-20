@@ -8,7 +8,6 @@ import got.common.database.GOTItems;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -376,8 +375,8 @@ public class GOTStructureYiTiHouseLarge extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 0, 2, -8, doorBlock, 8);
 		setBlockAndMetadata(world, -2, 3, -5, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 3, -5, Blocks.torch, 4);
-		spawnItemFrame(world, -2, 2, -4, 1, getFramedItem(random));
-		spawnItemFrame(world, 2, 2, -4, 3, getFramedItem(random));
+		spawnItemFrame(world, -2, 2, -4, 1, getRandFrameItem(random));
+		spawnItemFrame(world, 2, 2, -4, 3, getRandFrameItem(random));
 		setBlockAndMetadata(world, -3, 1, -6, plankStairBlock, 1);
 		setBlockAndMetadata(world, 3, 1, -6, plankStairBlock, 0);
 		for (k14 = -7; k14 <= -5; ++k14) {
@@ -394,8 +393,8 @@ public class GOTStructureYiTiHouseLarge extends GOTStructureYiTiBaseTown {
 			}
 			placeMug(world, random, 5, 2, k14, 1, GOTFoods.DEFAULT_DRINK);
 		}
-		spawnItemFrame(world, -6, 2, 0, 1, getFramedItem(random));
-		spawnItemFrame(world, 6, 2, 0, 3, getFramedItem(random));
+		spawnItemFrame(world, -6, 2, 0, 1, getRandFrameItem(random));
+		spawnItemFrame(world, 6, 2, 0, 3, getRandFrameItem(random));
 		setBlockAndMetadata(world, -2, 1, 1, Blocks.chest, 5);
 		setBlockAndMetadata(world, -2, 1, 2, Blocks.chest, 5);
 		setBlockAndMetadata(world, 2, 1, 1, Blocks.chest, 4);
@@ -467,8 +466,8 @@ public class GOTStructureYiTiHouseLarge extends GOTStructureYiTiBaseTown {
 		placeWallBanner(world, 0, 7, 7, bannerType, 2);
 		setBlockAndMetadata(world, -2, 7, 4, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, 2, 7, 4, GOTBlocks.chandelier, 1);
-		placeArmorStand(world, -4, 5, 6, 0, null);
-		placeArmorStand(world, 4, 5, 6, 0, null);
+		placeArmorStand(world, -4, 5, 6, 0, getRandArmorItems(random));
+		placeArmorStand(world, 4, 5, 6, 0, getRandArmorItems(random));
 		setBlockAndMetadata(world, -2, 7, -4, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, 2, 7, -4, GOTBlocks.chandelier, 1);
 		for (int i1221 : new int[]{-4, 0, 4}) {
@@ -486,11 +485,11 @@ public class GOTStructureYiTiHouseLarge extends GOTStructureYiTiBaseTown {
 			}
 			placeMug(world, random, i1221, 6, -6, 2, GOTFoods.DEFAULT_DRINK);
 		}
-		placeWeaponRack(world, 0, 7, -6, 4, getWeaponItem(random));
+		placeWeaponRack(world, 0, 7, -6, 4, getRandWeaponItem(random));
 		if (random.nextBoolean()) {
-			spawnItemFrame(world, -2, 7, -7, 0, new ItemStack(Items.clock));
+			spawnItemFrame(world, -2, 7, -7, 0, getRandFrameItem(random));
 		} else {
-			spawnItemFrame(world, 2, 7, -7, 0, new ItemStack(Items.clock));
+			spawnItemFrame(world, 2, 7, -7, 0, getRandFrameItem(random));
 		}
 		GOTEntityNPC male = new GOTEntityYiTiMan(world);
 		male.getFamilyInfo().setMale(true);

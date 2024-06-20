@@ -7,8 +7,6 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -194,9 +192,9 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, 9, 3, k14, fenceBlock, fenceMeta);
 		}
 		setBlockAndMetadata(world, 0, 4, -1, plankBlock, plankMeta);
-		spawnItemFrame(world, 0, 4, -1, 2, new ItemStack(Items.saddle));
-		spawnItemFrame(world, 0, 4, -1, 1, new ItemStack(Items.saddle));
-		spawnItemFrame(world, 0, 4, -1, 3, new ItemStack(Items.saddle));
+		spawnItemFrame(world, 0, 4, -1, 2, getRandFrameItem(random));
+		spawnItemFrame(world, 0, 4, -1, 1, getRandFrameItem(random));
+		spawnItemFrame(world, 0, 4, -1, 3, getRandFrameItem(random));
 		placeChest(world, random, -3, 1, 4, 4, GOTChestContents.YI_TI);
 		placeChest(world, random, 3, 1, 4, 5, GOTChestContents.YI_TI);
 		setBlockAndMetadata(world, 0, 1, 4, plankStairBlock, 2);

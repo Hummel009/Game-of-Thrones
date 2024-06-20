@@ -269,27 +269,27 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		}
 		for (int i11 : new int[]{-10, 10}) {
 			for (int i12 : new int[]{i11 - 2, i11 + 2}) {
-				placeArmorStand(world, i12, 1, -7, 0, null);
-				placeArmorStand(world, i12, 1, 7, 2, null);
+				placeArmorStand(world, i12, 1, -7, 0, getRandArmorItems(random));
+				placeArmorStand(world, i12, 1, 7, 2, getRandArmorItems(random));
 			}
 			placeChest(world, random, i11, 1, -6, getChest(), 2, getChestContents(), 1);
 			setAir(world, i11, 2, -6);
-			spawnItemFrame(world, i11, 3, -6, 2, getFramedItem(random));
+			spawnItemFrame(world, i11, 3, -6, 2, getRandFrameItem(random));
 			placeChest(world, random, i11, 1, 6, getChest(), 3, getChestContents(), 1);
 			setAir(world, i11, 2, 6);
-			spawnItemFrame(world, i11, 3, 6, 0, getFramedItem(random));
+			spawnItemFrame(world, i11, 3, 6, 0, getRandFrameItem(random));
 		}
 		for (int i11 : new int[]{-10, 10}) {
 			for (int k2 : new int[]{i11 - 2, i11 + 2}) {
-				placeArmorStand(world, -7, 1, k2, 1, null);
-				placeArmorStand(world, 7, 1, k2, 3, null);
+				placeArmorStand(world, -7, 1, k2, 1, getRandArmorItems(random));
+				placeArmorStand(world, 7, 1, k2, 3, getRandArmorItems(random));
 			}
 			placeChest(world, random, -6, 1, i11, getChest(), 5, getChestContents(), 1);
 			setAir(world, -6, 2, i11);
-			spawnItemFrame(world, -6, 3, i11, 3, getFramedItem(random));
+			spawnItemFrame(world, -6, 3, i11, 3, getRandFrameItem(random));
 			placeChest(world, random, 6, 1, i11, getChest(), 4, getChestContents(), 1);
 			setAir(world, 6, 2, i11);
-			spawnItemFrame(world, 6, 3, i11, 1, getFramedItem(random));
+			spawnItemFrame(world, 6, 3, i11, 1, getRandFrameItem(random));
 		}
 		for (int i9 = 1; i9 <= 4; i9++) {
 			for (int i11 = -1; i11 <= 1; i11++) {
@@ -435,8 +435,8 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 8, 1, 1, tableBlock, 0);
 		placeChest(world, random, 8, 1, 2, getChest(), 5, getChestContents());
 		setBlockAndMetadata(world, 8, 1, 3, Blocks.crafting_table, 0);
-		spawnItemFrame(world, 9, 2, 1, 3, getFramedItem(random));
-		spawnItemFrame(world, 9, 2, 2, 3, getFramedItem(random));
+		spawnItemFrame(world, 9, 2, 1, 3, getRandFrameItem(random));
+		spawnItemFrame(world, 9, 2, 2, 3, getRandFrameItem(random));
 		setBlockAndMetadata(world, 6, 1, 1, Blocks.anvil, 0);
 		setBlockAndMetadata(world, 8, 3, 1, Blocks.torch, 1);
 		int i1;

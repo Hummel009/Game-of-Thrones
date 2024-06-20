@@ -38,11 +38,6 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected static ItemStack getFramedItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), new ItemStack(GOTItems.summerLeggings), new ItemStack(GOTItems.summerBoots), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSpear), new ItemStack(GOTItems.summerPike), new ItemStack(GOTItems.essosBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
 	protected static ItemStack getRandomWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerSpear), new ItemStack(GOTItems.summerPike)};
 		return items[random.nextInt(items.length)].copy();

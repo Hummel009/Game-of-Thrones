@@ -76,8 +76,8 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 		if (!isRuined()) {
 			setBlockAndMetadata(world, 0, 1, 3, bedBlock, 0);
 			setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
-			placeWeaponRack(world, 0, 3, -4, 4, getRandomWeapon(random));
-			placeWeaponRack(world, 0, 3, 4, 6, getRandomWeapon(random));
+			placeWeaponRack(world, 0, 3, -4, 4, getRandWeaponItem(random));
+			placeWeaponRack(world, 0, 3, 4, 6, getRandWeaponItem(random));
 			placeChest(world, random, -4, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.SUMMER);
 			placePlate(world, random, 4, 2, 0, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
 			placePlate(world, random, -1, 2, 4, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);

@@ -260,7 +260,7 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 2, 2, 0, Blocks.furnace, 5);
 		setBlockAndMetadata(world, 3, 0, 0, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 3, 1, 0, Blocks.fire, 0);
-		spawnItemFrame(world, 2, 3, 0, 3, getFramedItem(random));
+		spawnItemFrame(world, 2, 3, 0, 3, getRandFrameItem(random));
 		setBlockAndMetadata(world, -2, 1, -5, plankStairBlock, 7);
 		setBlockAndMetadata(world, -3, 1, -5, plankStairBlock, 7);
 		setBlockAndMetadata(world, -3, 1, -4, plankStairBlock, 4);

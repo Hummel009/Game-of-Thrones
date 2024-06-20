@@ -509,7 +509,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -2, 1, 9, Blocks.fire, 0);
 		setBlockAndMetadata(world, -2, 1, 8, barsBlock, 0);
 		setBlockAndMetadata(world, -2, 2, 8, Blocks.furnace, 2);
-		spawnItemFrame(world, -2, 3, 8, 2, getFramedItem(random));
+		spawnItemFrame(world, -2, 3, 8, 2, getRandFrameItem(random));
 		setBlockAndMetadata(world, -2, 6, 8, barsBlock, 0);
 		setBlockAndMetadata(world, -2, 7, 8, barsBlock, 0);
 		setBlockAndMetadata(world, -3, 8, 8, brickStairBlock, 1);
@@ -575,7 +575,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i1521, 5, -7, bedBlock, 2);
 			setBlockAndMetadata(world, i1521, 5, -8, bedBlock, 10);
 		}
-		spawnItemFrame(world, 0, 6, -5, 3, GOTFoods.DEFAULT_DRINK.getRandomVessel(random).getEmptyVessel());
+		spawnItemFrame(world, 0, 6, -5, 3, getRandFrameItem(random));
 		setBlockAndMetadata(world, -3, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -1, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -3, 6, -8, Blocks.torch, 3);
@@ -588,7 +588,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i1521, 5, -7, bedBlock, 2);
 			setBlockAndMetadata(world, i1521, 5, -8, bedBlock, 10);
 		}
-		spawnItemFrame(world, 0, 6, -5, 1, GOTFoods.DEFAULT_DRINK.getRandomVessel(random).getEmptyVessel());
+		spawnItemFrame(world, 0, 6, -5, 1, getRandFrameItem(random));
 		setBlockAndMetadata(world, 3, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, 1, 6, -3, Blocks.torch, 4);
 		setBlockAndMetadata(world, 3, 6, -8, Blocks.torch, 3);

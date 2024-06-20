@@ -219,7 +219,7 @@ public class GOTStructureGiftHouseSmall extends GOTStructureGiftBase {
 			}
 			setBlockAndMetadata(world, 5, 1, 0, barsBlock, 0);
 			setBlockAndMetadata(world, 5, 2, 0, Blocks.furnace, 5);
-			spawnItemFrame(world, 5, 3, 0, 3, getRangerFramedItem(random));
+			spawnItemFrame(world, 5, 3, 0, 3, getRandFrameItem(random));
 			gateX = 0;
 			gateZ = 0;
 			gateMeta = -1;

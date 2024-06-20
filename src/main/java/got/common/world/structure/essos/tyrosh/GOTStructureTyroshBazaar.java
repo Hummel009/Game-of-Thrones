@@ -60,8 +60,8 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.anvil, 3);
-			placeWeaponRack(world, -2, 2, 0, 1, getRandomWeapon(random));
-			placeWeaponRack(world, 2, 2, 0, 3, getRandomWeapon(random));
+			placeWeaponRack(world, -2, 2, 0, 1, getRandWeaponItem(random));
+			placeWeaponRack(world, 2, 2, 0, 3, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityTyroshBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -232,7 +232,7 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.brick1, 1);
 			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.slabSingle1, 3);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.brick1, 5);
-			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTItems.bronzePickaxe));
+			placeWeaponRack(world, 1, 2, 1, 2, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityTyroshMason(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -252,7 +252,7 @@ public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.oreTin, 0);
 			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.oreCopper, 0);
-			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTItems.bronzePickaxe));
+			placeWeaponRack(world, 1, 2, 1, 2, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityTyroshMiner(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

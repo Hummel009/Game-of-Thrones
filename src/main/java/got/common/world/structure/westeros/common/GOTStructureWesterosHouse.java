@@ -168,7 +168,7 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 		for (int j13 = 2; j13 <= 7; ++j13) {
 			setAir(world, 0, j13, 4);
 		}
-		spawnItemFrame(world, 0, 3, 3, 2, getFramedItem(random));
+		spawnItemFrame(world, 0, 3, 3, 2, getRandFrameItem(random));
 		GOTEntityNPC male = getMan(world);
 		male.getFamilyInfo().setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));

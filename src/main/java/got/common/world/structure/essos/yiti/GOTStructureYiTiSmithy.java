@@ -3,11 +3,9 @@ package got.common.world.structure.essos.yiti;
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTItems;
 import got.common.entity.essos.yiti.GOTEntityYiTiBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -246,7 +244,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, i15, 8, 1, roofBlock, roofMeta);
 		}
 		setBlockAndMetadata(world, 0, 4, -7, plankBlock, plankMeta);
-		spawnItemFrame(world, 0, 4, -7, 2, new ItemStack(GOTItems.blacksmithHammer));
+		spawnItemFrame(world, 0, 4, -7, 2, getRandFrameItem(random));
 		setBlockAndMetadata(world, -2, 3, -5, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, -5, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, -5, Blocks.torch, 3);
@@ -270,9 +268,9 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		for (int k16 = 3; k16 <= 4; ++k16) {
 			placeChest(world, random, 5, 1, k16, 5, GOTChestContents.YI_TI);
 		}
-		placeWeaponRack(world, 4, 3, 5, 6, random.nextBoolean() ? null : getWeaponItem(random));
-		placeWeaponRack(world, 5, 3, 4, 7, random.nextBoolean() ? null : getWeaponItem(random));
-		placeArmorStand(world, 5, 1, 0, 1, null);
+		placeWeaponRack(world, 4, 3, 5, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, 5, 3, 4, 7, getRandWeaponItem(random));
+		placeArmorStand(world, 5, 1, 0, 1, getRandArmorItems(random));
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (k1 = 4; k1 <= 6; ++k1) {
 				for (int j13 = 1; j13 <= 6; ++j13) {

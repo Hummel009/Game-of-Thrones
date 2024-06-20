@@ -5,7 +5,6 @@ import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -210,7 +209,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 		for (k1 = -3; k1 <= -1; ++k1) {
 			setBlockAndMetadata(world, 3, 3, k1, plankBlock, plankMeta);
 		}
-		spawnItemFrame(world, 3, 3, -1, 3, new ItemStack(Items.clock));
+		spawnItemFrame(world, 3, 3, -1, 3, getRandFrameItem(random));
 		for (int j15 = 1; j15 <= 3; ++j15) {
 			setBlockAndMetadata(world, 0, j15, 5, pillarBlock, pillarMeta);
 		}
@@ -245,7 +244,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 			int k13 = j15[j12];
 			setBlockAndMetadata(world, -2, 5, k13, bedBlock, 11);
 			setBlockAndMetadata(world, -1, 5, k13, bedBlock, 3);
-			spawnItemFrame(world, -3, 7, k13, 1, getFramedItem(random));
+			spawnItemFrame(world, -3, 7, k13, 1, getRandFrameItem(random));
 		}
 		for (int k122 = 0; k122 <= 1; ++k122) {
 			for (j1 = 7; j1 <= 8; ++j1) {

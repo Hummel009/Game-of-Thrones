@@ -84,11 +84,11 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		placePlate(world, random, 3, 2, -2, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 		placePlate(world, random, 3, 2, -1, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 		placeFlowerPot(world, -3, 2, 1, getRandomFlower(world, random));
-		placeWeaponRack(world, 0, 3, -4, 4, getRandomHillmanWeapon(random));
-		placeHillmanItemFrame(world, random, -2, 2, -5, 0);
-		placeHillmanItemFrame(world, random, 2, 2, -5, 0);
-		placeHillmanItemFrame(world, random, -2, 2, 5, 2);
-		placeHillmanItemFrame(world, random, 2, 2, 5, 2);
+		placeWeaponRack(world, 0, 3, -4, 4, getRandWeaponItem(random));
+		spawnItemFrame(world, -2, 2, -5, 0, getRandFrameItem(random));
+		spawnItemFrame(world, 2, 2, -5, 0, getRandFrameItem(random));
+		spawnItemFrame(world, -2, 2, 5, 2, getRandFrameItem(random));
+		spawnItemFrame(world, 2, 2, 5, 2, getRandFrameItem(random));
 		placeWallBanner(world, -2, 4, -6, GOTItemBanner.BannerType.HILLMEN, 2);
 		placeWallBanner(world, 2, 4, -6, GOTItemBanner.BannerType.HILLMEN, 2);
 		GOTEntityNPC male = new GOTEntityHillman(world);

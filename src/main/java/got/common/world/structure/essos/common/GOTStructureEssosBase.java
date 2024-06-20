@@ -277,16 +277,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	protected static ItemStack getRandomItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
-	protected static ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
 	private GOTItemBanner.BannerType getBannerType() {
 		return BANNERS.get(city);
 	}

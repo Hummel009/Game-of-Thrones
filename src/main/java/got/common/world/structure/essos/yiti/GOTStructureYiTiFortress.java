@@ -2,14 +2,12 @@ package got.common.world.structure.essos.yiti;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.yiti.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -506,11 +504,11 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 2, 4, -2, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 4, 2, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 4, 2, Blocks.torch, 4);
-		placeArmorStand(world, -2, 1, -2, 2, null);
-		placeArmorStand(world, 2, 1, -2, 2, null);
-		placeWeaponRack(world, 0, 3, -2, 4, getWeaponItem(random));
-		placeWeaponRack(world, -2, 3, 0, 5, getWeaponItem(random));
-		placeWeaponRack(world, 2, 3, 0, 7, getWeaponItem(random));
+		placeArmorStand(world, -2, 1, -2, 2, getRandArmorItems(random));
+		placeArmorStand(world, 2, 1, -2, 2, getRandArmorItems(random));
+		placeWeaponRack(world, 0, 3, -2, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, -2, 3, 0, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, 2, 3, 0, 7, getRandWeaponItem(random));
 		for (j15 = 8; j15 <= 9; ++j15) {
 			setBlockAndMetadata(world, 0, j15, -2, barsBlock, 0);
 			setBlockAndMetadata(world, 0, j15, 2, barsBlock, 0);
@@ -592,8 +590,8 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 9, 1, -8, tableBlock, 0);
 		setBlockAndMetadata(world, 9, 1, -7, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 8, 1, -5, GOTBlocks.commandTable, 0);
-		placeWeaponRack(world, -8, 2, -3, 5, new ItemStack(GOTItems.yitiBow));
-		placeWeaponRack(world, -8, 2, 3, 5, new ItemStack(GOTItems.yitiBow));
+		placeWeaponRack(world, -8, 2, -3, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, -8, 2, 3, 5, getRandWeaponItem(random));
 		setBlockAndMetadata(world, -9, 1, -1, plankStairBlock, 6);
 		setBlockAndMetadata(world, -9, 1, 0, Blocks.wool, 0);
 		setBlockAndMetadata(world, -9, 1, 1, plankStairBlock, 7);
@@ -604,8 +602,8 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -9, 3, 0, Blocks.wool, 0);
 		setBlockAndMetadata(world, -9, 3, 1, plankStairBlock, 3);
 		setBlockAndMetadata(world, -8, 2, 0, Blocks.wooden_button, 2);
-		placeWeaponRack(world, 8, 2, -3, 7, new ItemStack(GOTItems.yitiSword));
-		placeWeaponRack(world, 8, 2, 3, 7, new ItemStack(GOTItems.yitiSword));
+		placeWeaponRack(world, 8, 2, -3, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, 8, 2, 3, 7, getRandWeaponItem(random));
 		setBlockAndMetadata(world, 8, 1, 0, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 8, 2, 0, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 8, 3, 0, Blocks.pumpkin, 3);

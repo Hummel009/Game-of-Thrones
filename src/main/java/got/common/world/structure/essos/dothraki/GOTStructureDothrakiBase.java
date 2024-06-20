@@ -36,11 +36,6 @@ public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	protected static ItemStack getRandomNomadWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.nomadBattleaxe), new ItemStack(GOTItems.nomadSword), new ItemStack(GOTItems.nomadSpear)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
 	protected void laySandBase(World world, int i, int j, int k) {
 		setBlockAndMetadata(world, i, j, k, Blocks.grass, 0);
 		int j1 = j - 1;

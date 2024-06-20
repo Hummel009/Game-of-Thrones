@@ -3,7 +3,6 @@ package got.common.world.structure.westeros.hillmen;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBear;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityBearRug;
@@ -13,7 +12,6 @@ import got.common.entity.westeros.hillmen.GOTEntityHillmanChieftain;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -115,13 +113,9 @@ public class GOTStructureHillmanFortress extends GOTStructureHillmanBase {
 		for (i1 = -6; i1 <= -5; ++i1) {
 			int j12 = 1;
 			int k1 = 8;
-			if (random.nextBoolean()) {
-				placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTItems.hillmenHelmet), new ItemStack(GOTItems.hillmenChestplate), new ItemStack(GOTItems.hillmenLeggings), new ItemStack(GOTItems.hillmenBoots)});
-				continue;
-			}
-			placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTItems.furHelmet), new ItemStack(GOTItems.furChestplate), new ItemStack(GOTItems.furLeggings), new ItemStack(GOTItems.furBoots)});
+			placeArmorStand(world, i1, j12, k1, 0, getRandArmorItems(random));
 		}
-		placeWeaponRack(world, -7, 2, -3, 5, getRandomHillmanWeapon(random));
+		placeWeaponRack(world, -7, 2, -3, 5, getRandWeaponItem(random));
 		placeBarrel(world, random, 8, 2, 7, 2, GOTFoods.DEFAULT_DRINK);
 		placeSkull(world, random, -2, 7, -11);
 		placeSkull(world, random, 2, 7, -11);

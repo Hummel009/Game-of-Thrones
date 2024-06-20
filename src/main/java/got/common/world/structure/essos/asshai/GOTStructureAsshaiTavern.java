@@ -464,7 +464,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 4, 7, 8, Blocks.iron_bars, 0);
 		setBlockAndMetadata(world, 3, 7, 7, Blocks.iron_bars, 0);
 		setBlockAndMetadata(world, 5, 7, 7, Blocks.iron_bars, 0);
-		spawnItemFrame(world, 3, 10, 7, 3, getFramedItem(random));
+		spawnItemFrame(world, 3, 10, 7, 3, getRandFrameItem(random));
 		for (i13 = -2; i13 <= 1; ++i13) {
 			for (k1 = 5; k1 <= 9; ++k1) {
 				setBlockAndMetadata(world, i13, 6, k1, Blocks.carpet, 12);

@@ -92,11 +92,6 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		}
 	}
 
-	protected static ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.stoneSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironDaggerPoisoned)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
 	protected boolean oneWoodType() {
 		return false;
 	}

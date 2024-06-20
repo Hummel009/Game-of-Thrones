@@ -126,18 +126,18 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		placelhazarArmor(world, random, 11, 1, -13, 2);
 		placelhazarArmor(world, random, 13, 1, -11, 1);
 		placelhazarArmor(world, random, 13, 1, -9, 1);
-		placeWeaponRack(world, -8, 2, -9, 6, getRandomWeapon(random));
-		placeWeaponRack(world, -9, 2, -8, 7, getRandomWeapon(random));
-		placeWeaponRack(world, -7, 2, -8, 5, getRandomWeapon(random));
-		placeWeaponRack(world, -8, 2, -7, 4, getRandomWeapon(random));
-		placeWeaponRack(world, 8, 2, -9, 6, getRandomWeapon(random));
-		placeWeaponRack(world, 7, 2, -8, 7, getRandomWeapon(random));
-		placeWeaponRack(world, 9, 2, -8, 5, getRandomWeapon(random));
-		placeWeaponRack(world, 8, 2, -7, 4, getRandomWeapon(random));
+		placeWeaponRack(world, -8, 2, -9, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, -9, 2, -8, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, -7, 2, -8, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, -8, 2, -7, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 8, 2, -9, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, 7, 2, -8, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, 9, 2, -8, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, 8, 2, -7, 4, getRandWeaponItem(random));
 		placeSkull(world, random, -12, 3, -2);
 		placeSkull(world, random, -12, 3, 2);
-		placeWeaponRack(world, 11, 2, -4, 7, new ItemStack(GOTItems.nomadBow));
-		placeWeaponRack(world, 11, 2, 4, 7, new ItemStack(GOTItems.nomadBow));
+		placeWeaponRack(world, 11, 2, -4, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, 11, 2, 4, 7, getRandWeaponItem(random));
 		placeBarrel(world, random, -13, 2, 9, 3, GOTFoods.DEFAULT_DRINK);
 		placeBarrel(world, random, 13, 2, 9, 3, GOTFoods.DEFAULT_DRINK);
 		placeWallBanner(world, 0, 6, -15, GOTItemBanner.BannerType.LHAZAR, 2);
@@ -184,6 +184,6 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 
 	private void placelhazarArmor(World world, Random random, int i, int j, int k, int meta) {
 		ItemStack[] armor = random.nextInt(3) != 0 ? new ItemStack[]{null, null, null, null} : new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)};
-		placeArmorStand(world, i, j, k, meta, armor);
+		placeArmorStand(world, i, j, k, meta, getRandArmorItems(random));
 	}
 }

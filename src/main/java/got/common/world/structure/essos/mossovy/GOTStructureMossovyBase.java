@@ -66,11 +66,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 		}
 	}
 
-	protected static ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(Items.iron_sword), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.rollingPin)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);

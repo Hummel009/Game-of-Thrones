@@ -92,10 +92,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		placeWallBanner(world, 0, 5, 2, GOTItemBanner.BannerType.SUMMER, 0);
 		placeWallBanner(world, -2, 5, 0, GOTItemBanner.BannerType.SUMMER, 3);
 		placeWallBanner(world, 2, 5, 0, GOTItemBanner.BannerType.SUMMER, 1);
-		spawnItemFrame(world, 2, 2, -3, 3, getFramedItem(random));
-		spawnItemFrame(world, -2, 2, 3, 1, getFramedItem(random));
-		placeWeaponRack(world, -3, 2, 1, 6, getRandomWeapon(random));
-		placeArmorStand(world, 2, 1, -2, 2, new ItemStack[]{new ItemStack(GOTItems.summerHelmet), null, null, null});
+		spawnItemFrame(world, 2, 2, -3, 3, getRandFrameItem(random));
+		spawnItemFrame(world, -2, 2, 3, 1, getRandFrameItem(random));
+		placeWeaponRack(world, -3, 2, 1, 6, getRandWeaponItem(random));
+		placeArmorStand(world, 2, 1, -2, 2, getRandArmorItems(random));
 		placeFlowerPot(world, -2, 2, 2, getRandomFlower(world, random));
 		placeAnimalJar(world, 2, 1, 1, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, -3, 1, -1, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
@@ -189,7 +189,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 0, 2, 4, GOTBlocks.lemonCake, 0);
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.woodSlabSingle4, 15);
 			setBlockAndMetadata(world, 3, 2, 3, GOTBlocks.marzipanBlock, 0);
-			placeWeaponRack(world, 2, 2, 4, 7, new ItemStack(GOTItems.rollingPin));
+			placeWeaponRack(world, 2, 2, 4, 7, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntitySummerBaker(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
@@ -206,12 +206,12 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			placeWeaponRack(world, 3, 2, 0, 2, getRandomWeapon(random));
-			placeWeaponRack(world, 0, 2, 4, 3, getRandomWeapon(random));
+			placeWeaponRack(world, 3, 2, 0, 2, getRandWeaponItem(random));
+			placeWeaponRack(world, 0, 2, 4, 3, getRandWeaponItem(random));
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.anvil, 1);
-			placeArmorStand(world, 4, 1, 2, 0, new ItemStack[]{new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), null, null});
-			placeArmorStand(world, 2, 1, 4, 1, null);
+			placeArmorStand(world, 4, 1, 2, 0, getRandArmorItems(random));
+			placeArmorStand(world, 2, 1, 4, 1, getRandArmorItems(random));
 			GOTEntityNPC trader = new GOTEntitySummerBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
@@ -309,7 +309,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.woodSlabSingle4, 15);
 			placePlateItem(world, random, 3, 2, 3, GOTBlocks.woodPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			setBlockAndMetadata(world, 2, 1, 4, Blocks.cauldron, 3);
-			placeWeaponRack(world, 4, 2, 2, 6, new ItemStack(Items.fishing_rod));
+			placeWeaponRack(world, 4, 2, 2, 6, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntitySummerFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
@@ -346,8 +346,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			placeWeaponRack(world, 2, 2, 0, 2, new ItemStack(Items.iron_pickaxe));
-			placeWeaponRack(world, 0, 2, 3, 3, new ItemStack(Items.iron_shovel));
+			placeWeaponRack(world, 2, 2, 0, 2, getRandWeaponItem(random));
+			placeWeaponRack(world, 0, 2, 3, 3, getRandWeaponItem(random));
 			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 2, 1, 3, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.oreTin, 0);
@@ -377,7 +377,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 2, 1, 4, GOTBlocks.wood6, 3);
 			setBlockAndMetadata(world, 2, 1, 3, GOTBlocks.wood6, 11);
 			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.woodBeam8, 11);
-			placeWeaponRack(world, 2, 2, 4, 7, new ItemStack(GOTItems.bronzeAxe));
+			placeWeaponRack(world, 2, 2, 4, 7, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntitySummerLumberman(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
@@ -395,7 +395,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeFlowerPot(world, 2, 2, 0, getRandomFlower(world, random));
-			placeWeaponRack(world, 0, 2, 3, 3, new ItemStack(GOTItems.bronzePickaxe));
+			placeWeaponRack(world, 0, 2, 3, 3, getRandWeaponItem(random));
 			setBlockAndMetadata(world, 4, 1, 2, Blocks.sandstone, 0);
 			setBlockAndMetadata(world, 2, 1, 3, Blocks.sandstone, 0);
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.redSandstone, 0);
@@ -417,8 +417,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			placeWeaponRack(world, 2, 2, 0, 2, new ItemStack(GOTItems.bronzePickaxe));
-			placeWeaponRack(world, 0, 2, 3, 3, new ItemStack(GOTItems.bronzeShovel));
+			placeWeaponRack(world, 2, 2, 0, 2, getRandWeaponItem(random));
+			placeWeaponRack(world, 0, 2, 3, 3, getRandWeaponItem(random));
 			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 2, 1, 3, GOTBlocks.oreCopper, 0);
 			setBlockAndMetadata(world, 3, 1, 3, GOTBlocks.oreTin, 0);

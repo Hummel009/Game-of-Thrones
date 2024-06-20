@@ -3,11 +3,9 @@ package got.common.world.structure.sothoryos.sothoryos;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosSmith;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -15,11 +13,6 @@ import java.util.Random;
 public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 	public GOTStructureSothoryosSmithy(boolean flag) {
 		super(flag);
-	}
-
-	private static ItemStack getRandomSothoryosWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.sothoryosSword), new ItemStack(GOTItems.sothoryosDagger), new ItemStack(GOTItems.sothoryosSpear), new ItemStack(GOTItems.sothoryosPike), new ItemStack(GOTItems.sothoryosHammer), new ItemStack(GOTItems.sothoryosBattleaxe)};
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	@Override
@@ -106,8 +99,8 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		placePlateWithCertainty(world, random, 2, 6, 3, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 		placeSothoryosTorch(world, -4, 2, -4);
 		placeSothoryosTorch(world, 4, 2, -4);
-		placeWeaponRack(world, -3, -2, 2, 5, getRandomSothoryosWeapon(random));
-		placeArmorStand(world, 3, -3, 2, 1, new ItemStack[]{null, new ItemStack(GOTItems.sothoryosChestplate), null, null});
+		placeWeaponRack(world, -3, -2, 2, 5, getRandWeaponItem(random));
+		placeArmorStand(world, 3, -3, 2, 1, getRandArmorItems(random));
 		GOTEntityNPC smith = new GOTEntitySothoryosSmith(world);
 		spawnNPCAndSetHome(smith, world, 0, -3, 3, 12);
 		return true;

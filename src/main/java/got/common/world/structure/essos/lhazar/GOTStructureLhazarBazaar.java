@@ -149,7 +149,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 1, 1, 2, GOTBlocks.chestBasket, 2);
 			placePlateItem(world, random, 1, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
 			setBlockAndMetadata(world, 3, 2, 2, GOTBlocks.bananaCake, 0);
-			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTItems.rollingPin));
+			placeWeaponRack(world, 0, 2, 2, 1, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityLhazarBaker(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -167,9 +167,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.anvil, 3);
-			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
-			placeWeaponRack(world, 0, 2, 2, 1, getRandomWeapon(random));
-			placeWeaponRack(world, 3, 2, 2, 3, getRandomWeapon(random));
+			placeArmorStand(world, 1, 1, 2, 0, getRandArmorItems(random));
+			placeWeaponRack(world, 0, 2, 2, 1, getRandWeaponItem(random));
+			placeWeaponRack(world, 3, 2, 2, 3, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityLhazarBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -251,7 +251,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			placePlateItem(world, random, 1, 2, 0, GOTBlocks.woodPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			placePlateItem(world, random, 0, 2, 2, GOTBlocks.woodPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
 			placePlateItem(world, random, 3, 2, 1, GOTBlocks.woodPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
-			placeWeaponRack(world, 1, 2, 3, 0, new ItemStack(Items.fishing_rod));
+			placeWeaponRack(world, 1, 2, 3, 0, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityLhazarFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -328,7 +328,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.brick1, 15);
 			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.brick3, 13);
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
-			placeWeaponRack(world, 3, 2, 2, 3, new ItemStack(GOTItems.bronzePickaxe));
+			placeWeaponRack(world, 3, 2, 2, 3, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityLhazarMason(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -348,7 +348,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 1, 1, 2, GOTBlocks.chestBasket, 2);
 			setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.oreTin, 0);
 			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.oreCopper, 0);
-			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTItems.bronzePickaxe));
+			placeWeaponRack(world, 0, 2, 2, 1, getRandWeaponItem(random));
 			GOTEntityNPC trader = new GOTEntityLhazarMiner(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;

@@ -4,7 +4,6 @@ import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.GOTEntityIbbenBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -223,8 +222,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 3, 2, 2, logBlock, logMeta);
 		setBlockAndMetadata(world, 3, 2, 1, Blocks.anvil, 0);
 		for (j13 = 3; j13 <= 4; ++j13) {
-			ItemStack weapon = random.nextBoolean() ? getRandomWeapon(random) : null;
-			placeWeaponRack(world, 3, j13, 2, 6, weapon);
+			placeWeaponRack(world, 3, j13, 2, 6, getRandWeaponItem(random));
 		}
 		setBlockAndMetadata(world, -7, 2, 0, GOTBlocks.tableIbben, 1);
 		setBlockAndMetadata(world, -8, 2, 3, rockSlabDoubleBlock, rockSlabDoubleMeta);

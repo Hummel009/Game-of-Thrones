@@ -118,8 +118,8 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 1, 3, -1, Blocks.torch, 3);
 		setBlockAndMetadata(world, -1, 3, 1, Blocks.torch, 4);
 		setBlockAndMetadata(world, 1, 3, 1, Blocks.torch, 4);
-		placeWeaponRack(world, -1, 2, 0, 5, getWeaponItem(random));
-		placeArmorStand(world, 1, 1, 0, 1, null);
+		placeWeaponRack(world, -1, 2, 0, 5, getRandWeaponItem(random));
+		placeArmorStand(world, 1, 1, 0, 1, getRandArmorItems(random));
 		for (int j1 = 1; j1 <= 9; ++j1) {
 			setBlockAndMetadata(world, 0, j1, 1, Blocks.ladder, 2);
 		}
@@ -139,8 +139,8 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		placeChest(world, random, 1, 5, -1, 3, GOTChestContents.YI_TI);
 		setBlockAndMetadata(world, -1, 8, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 1, 8, 0, Blocks.torch, 1);
-		spawnItemFrame(world, -2, 7, 0, 1, getFramedItem(random));
-		spawnItemFrame(world, 2, 7, 0, 3, getFramedItem(random));
+		spawnItemFrame(world, -2, 7, 0, 1, getRandFrameItem(random));
+		spawnItemFrame(world, 2, 7, 0, 3, getRandFrameItem(random));
 		placeWallBanner(world, 0, 9, -2, bannerType, 2);
 		setBlockAndMetadata(world, -3, 14, -3, roofSlabBlock, roofSlabMeta);
 		setBlockAndMetadata(world, -2, 13, -3, roofStairBlock, 5);

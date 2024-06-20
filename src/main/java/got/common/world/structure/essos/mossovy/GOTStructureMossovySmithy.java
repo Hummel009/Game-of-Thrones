@@ -4,10 +4,8 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBlacksmith;
-import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -15,19 +13,6 @@ import java.util.Random;
 public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 	public GOTStructureMossovySmithy(boolean flag) {
 		super(flag);
-	}
-
-	private static ItemStack[] getDisplayArmorOrNull(World world, Random random) {
-		if (random.nextBoolean()) {
-			GOTEntityNPC armorGuard = new GOTEntityMossovyWitcher(world);
-			armorGuard.onSpawnWithEgg(null);
-			return new ItemStack[]{armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null};
-		}
-		return null;
-	}
-
-	private static ItemStack getDisplayWeaponOrNull(Random random) {
-		return random.nextBoolean() ? getRandomWeapon(random) : null;
 	}
 
 	@Override
@@ -93,13 +78,13 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, -2, 1, 3, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 1, 3, bedBlock, 11);
 		placeChest(world, random, 3, 1, 0, 5, GOTChestContents.MOSSOVY);
-		placeArmorStand(world, 3, 1, -8, 1, getDisplayArmorOrNull(world, random));
-		placeArmorStand(world, 3, 1, -6, 1, getDisplayArmorOrNull(world, random));
-		placeArmorStand(world, 1, 1, 1, 3, getDisplayArmorOrNull(world, random));
-		placeWeaponRack(world, 1, 2, 3, 2, getDisplayWeaponOrNull(random));
-		placeWeaponRack(world, 3, 2, 3, 2, getDisplayWeaponOrNull(random));
-		placeWeaponRack(world, 0, 3, -5, 6, getRandomWeapon(random));
-		placeWeaponRack(world, -2, 3, -2, 4, getDisplayWeaponOrNull(random));
+		placeArmorStand(world, 3, 1, -8, 1, getRandArmorItems(random));
+		placeArmorStand(world, 3, 1, -6, 1, getRandArmorItems(random));
+		placeArmorStand(world, 1, 1, 1, 3, getRandArmorItems(random));
+		placeWeaponRack(world, 1, 2, 3, 2, getRandWeaponItem(random));
+		placeWeaponRack(world, 3, 2, 3, 2, getRandWeaponItem(random));
+		placeWeaponRack(world, 0, 3, -5, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, -2, 3, -2, 4, getRandWeaponItem(random));
 		placeMug(world, random, -2, 2, 1, 2, GOTFoods.DEFAULT_DRINK);
 		placeBarrel(world, random, -3, 2, 1, 3, GOTFoods.DEFAULT_DRINK);
 		placePlateWithCertainty(world, random, 0, 2, -3, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);

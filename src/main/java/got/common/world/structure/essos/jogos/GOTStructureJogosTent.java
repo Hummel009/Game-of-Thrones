@@ -66,7 +66,7 @@ public class GOTStructureJogosTent extends GOTStructureJogosBase {
 		setBlockAndMetadata(world, -4, 1, -2, bedBlock, 11);
 		setBlockAndMetadata(world, -3, 1, 2, bedBlock, 3);
 		setBlockAndMetadata(world, -4, 1, 2, bedBlock, 11);
-		placeWeaponRack(world, 0, 3, 5, 6, getRandomNomadWeapon(random));
+		placeWeaponRack(world, 0, 3, 5, 6, getRandWeaponItem(random));
 		placeChest(world, random, 0, 1, 5, GOTBlocks.chestBasket, 2, GOTChestContents.JOGOS);
 		GOTEntityNPC male = new GOTEntityJogos(world);
 		male.getFamilyInfo().setMale(true);

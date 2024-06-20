@@ -425,7 +425,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		placeWallBanner(world, 2, 5, 23, bannerType, 2);
 		setBlockAndMetadata(world, -1, 5, 23, brickCarvedBlock, brickCarvedMeta);
 		setBlockAndMetadata(world, 1, 5, 23, brickCarvedBlock, brickCarvedMeta);
-		placeWeaponRack(world, 0, 5, 22, 6, getRandomWeapon(random));
+		placeWeaponRack(world, 0, 5, 22, 6, getRandWeaponItem(random));
 		GOTEntityNPC meadhost = new GOTEntityIbbenBartender(world);
 		spawnNPCAndSetHome(meadhost, world, 0, 2, 21, 8);
 		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);

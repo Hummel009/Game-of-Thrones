@@ -55,8 +55,8 @@ public class GOTStructureEssosTower extends GOTStructureEssosBase {
 		placeChest(world, random, -1, 1, -1, getChest(), 4, getChestContents());
 		placeMug(world, random, -1, 2, 1, 0, GOTFoods.DEFAULT_DRINK);
 		placeBarrel(world, random, 1, 2, 1, 2, GOTFoods.DEFAULT_DRINK);
-		placeWeaponRack(world, -1, 8, 0, 5, getRandomWeapon(random));
-		placeWeaponRack(world, 1, 8, 0, 7, getRandomWeapon(random));
+		placeWeaponRack(world, -1, 8, 0, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, 1, 8, 0, 7, getRandWeaponItem(random));
 		placeWallBanner(world, 0, 14, -3, bannerType, 2);
 		placeWallBanner(world, -3, 14, 0, bannerType, 3);
 		placeWallBanner(world, 0, 14, 3, bannerType, 0);

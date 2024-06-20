@@ -4,11 +4,13 @@ import got.common.block.other.*;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.inanimate.GOTEntityBannerWall;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.entity.other.inanimate.GOTEntityRugBase;
+import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemMug;
 import got.common.recipe.GOTRecipeBrewing;
@@ -64,6 +66,23 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	private GOTStructureScan currentStrScan;
 	private boolean wikiGen;
 
+	private static final Map<Item, Integer> FRAME_PERCENTS = new HashMap<>();
+	private static final Map<Item, Integer> WEAPON_PERCENTS = new HashMap<>();
+
+	static {
+		FRAME_PERCENTS.put(GOTItems.copperRing, 40);
+		FRAME_PERCENTS.put(GOTItems.bronzeRing, 40);
+		FRAME_PERCENTS.put(GOTItems.silverRing, 10);
+		FRAME_PERCENTS.put(GOTItems.goldRing, 8);
+		FRAME_PERCENTS.put(GOTItems.valyrianRing, 2);
+
+		WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 50);
+		WEAPON_PERCENTS.put(GOTItems.ironDagger, 30);
+		WEAPON_PERCENTS.put(GOTItems.ironSpear, 10);
+		WEAPON_PERCENTS.put(GOTItems.ironCrossbow, 8);
+		WEAPON_PERCENTS.put(GOTItems.ironPike, 2);
+	}
+
 	protected GOTStructureBase() {
 		super(false);
 		notifyChanges = false;
@@ -72,6 +91,42 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	protected GOTStructureBase(boolean flag) {
 		super(flag);
 		notifyChanges = flag;
+	}
+
+	protected static ItemStack getRandFrameItem(Random random) {
+		int randomNumber = random.nextInt(100);
+		Item item = null;
+
+		int cumulativeChance = 0;
+		for (Map.Entry<Item, Integer> entry : FRAME_PERCENTS.entrySet()) {
+			cumulativeChance += entry.getValue();
+			if (randomNumber < cumulativeChance) {
+				item = entry.getKey();
+				break;
+			}
+		}
+
+		return new ItemStack(item);
+	}
+
+	protected static ItemStack getRandWeaponItem(Random random) {
+		int randomNumber = random.nextInt(100);
+		Item item = null;
+
+		int cumulativeChance = 0;
+		for (Map.Entry<Item, Integer> entry : WEAPON_PERCENTS.entrySet()) {
+			cumulativeChance += entry.getValue();
+			if (randomNumber < cumulativeChance) {
+				item = entry.getKey();
+				break;
+			}
+		}
+
+		return new ItemStack(item);
+	}
+
+	protected static ItemStack[] getRandArmorItems(Random random) {
+		return GOTEntityUtils.getLevymanArmor(random);
 	}
 
 	public static boolean isSurfaceStatic(World world, int i, int j, int k) {

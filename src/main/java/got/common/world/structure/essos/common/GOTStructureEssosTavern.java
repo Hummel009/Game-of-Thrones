@@ -82,11 +82,11 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		associateBlockMetaAlias("PILLAR", pillarBlock, pillarMeta);
 		generateStrScan(world, random, 0, 0, 0);
 		String[] tavernName = GOTNames.getTavernName(random);
-		placeWeaponRack(world, 4, 3, -4, 7, getRandomWeapon(random));
-		placeWeaponRack(world, -4, 3, 4, 5, getRandomWeapon(random));
-		spawnItemFrame(world, 5, 3, -8, 3, getRandomItem(random));
-		spawnItemFrame(world, -5, 3, -4, 1, getRandomItem(random));
-		spawnItemFrame(world, 5, 3, 4, 3, getRandomItem(random));
+		placeWeaponRack(world, 4, 3, -4, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, -4, 3, 4, 5, getRandWeaponItem(random));
+		spawnItemFrame(world, 5, 3, -8, 3, getRandFrameItem(random));
+		spawnItemFrame(world, -5, 3, -4, 1, getRandFrameItem(random));
+		spawnItemFrame(world, 5, 3, 4, 3, getRandFrameItem(random));
 		placeFoodOrDrink(world, random, -2, 2, -12);
 		placeFoodOrDrink(world, random, -2, 2, -11);
 		for (i1 = 0; i1 <= 2; ++i1) {

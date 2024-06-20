@@ -3,7 +3,6 @@ package got.common.world.structure.essos.lhazar;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTItems;
 import got.common.entity.essos.lhazar.GOTEntityLhazarBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
@@ -90,12 +89,8 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		placeMug(world, random, 2, 2, 4, 0, GOTFoods.DEFAULT_DRINK);
 		placePlate(world, random, 4, 2, 0, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
 		placePlate(world, random, 4, 2, 1, GOTBlocks.woodPlate, GOTFoods.DEFAULT);
-		if (random.nextBoolean()) {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)});
-		} else {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
-		}
-		placeWeaponRack(world, -13, 3, 0, 5, getRandomWeapon(random));
+		placeArmorStand(world, -7, 1, -2, 1, getRandArmorItems(random));
+		placeWeaponRack(world, -13, 3, 0, 5, getRandWeaponItem(random));
 		GOTEntityNPC smith = new GOTEntityLhazarBlacksmith(world);
 		spawnNPCAndSetHome(smith, world, -6, 1, 0, 8);
 		int maxSteps = 12;

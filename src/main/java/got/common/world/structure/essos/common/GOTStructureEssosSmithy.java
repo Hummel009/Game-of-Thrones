@@ -86,8 +86,8 @@ public class GOTStructureEssosSmithy extends GOTStructureEssosBase {
 		placeChest(world, random, 2, 5, -3, getChest(), 5, getChestContents());
 		placePlateWithCertainty(world, random, -1, 6, 3, GOTBlocks.ceramicPlate, GOTFoods.DEFAULT);
 		placeMug(world, random, -2, 6, 3, 0, GOTFoods.DEFAULT_DRINK);
-		placeWeaponRack(world, -3, 1, 8, 1, getRandomWeapon(random));
-		placeWeaponRack(world, 3, 1, 8, 3, getRandomWeapon(random));
+		placeWeaponRack(world, -3, 1, 8, 1, getRandWeaponItem(random));
+		placeWeaponRack(world, 3, 1, 8, 3, getRandWeaponItem(random));
 		GOTEntityNPC npc = getBlacksmith(world);
 		spawnNPCAndSetHome(npc, world, 0, 1, 6, 8);
 		return true;

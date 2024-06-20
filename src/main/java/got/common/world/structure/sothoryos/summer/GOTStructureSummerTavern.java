@@ -89,10 +89,10 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
 		generateStrScan(world, random, 0, 1, 0);
 		if (!isRuined()) {
-			placeWeaponRack(world, -3, 3, -1, 6, getRandomWeapon(random));
-			spawnItemFrame(world, -3, 3, 0, 0, getFramedItem(random));
-			placeWeaponRack(world, 3, 3, 1, 4, getRandomWeapon(random));
-			spawnItemFrame(world, 3, 3, 0, 2, getFramedItem(random));
+			placeWeaponRack(world, -3, 3, -1, 6, getRandWeaponItem(random));
+			spawnItemFrame(world, -3, 3, 0, 0, getRandFrameItem(random));
+			placeWeaponRack(world, 3, 3, 1, 4, getRandWeaponItem(random));
+			spawnItemFrame(world, 3, 3, 0, 2, getRandFrameItem(random));
 			placeFoodOrDrink(world, random, -4, 2, -1);
 			placeFoodOrDrink(world, random, -3, 2, -1);
 			placeFoodOrDrink(world, random, -2, 2, -1);

@@ -119,8 +119,8 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 		placeWallBanner(world, -8, 6, 0, GOTItemBanner.BannerType.HILLMEN, 1);
 		placeWallBanner(world, 8, 6, 0, GOTItemBanner.BannerType.HILLMEN, 3);
 		for (int k1 : new int[]{-3, 3}) {
-			placeHillmanItemFrame(world, random, -3, 2, k1, 1);
-			placeHillmanItemFrame(world, random, 3, 2, k1, 3);
+			spawnItemFrame(world, -3, 2, k1, 1, getRandFrameItem(random));
+			spawnItemFrame(world, 3, 2, k1, 3, getRandFrameItem(random));
 		}
 		GOTEntityNPC bartender = new GOTEntityHillmanBartender(world);
 		if (random.nextBoolean()) {

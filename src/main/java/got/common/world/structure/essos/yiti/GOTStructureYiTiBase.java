@@ -10,6 +10,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public abstract class GOTStructureYiTiBase extends GOTStructureBase {
@@ -69,16 +71,6 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 
 	protected GOTStructureYiTiBase(boolean flag) {
 		super(flag);
-	}
-
-	protected static ItemStack getFramedItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.yitiHelmet), new ItemStack(GOTItems.yitiChestplate), new ItemStack(GOTItems.yitiLeggings), new ItemStack(GOTItems.yitiBoots), new ItemStack(GOTItems.yitiHelmetSamurai), new ItemStack(GOTItems.yitiChestplateSamurai), new ItemStack(GOTItems.yitiLeggingsSamurai), new ItemStack(GOTItems.yitiBootsSamurai), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.goldRing)};
-		return items[random.nextInt(items.length)].copy();
-	}
-
-	protected static ItemStack getWeaponItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiDaggerPoisoned), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiPolearm), new ItemStack(GOTItems.yitiPike)};
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	@Override

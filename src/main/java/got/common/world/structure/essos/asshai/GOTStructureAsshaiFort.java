@@ -3,14 +3,12 @@ package got.common.world.structure.essos.asshai;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTItems;
 import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
 import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiSpherebinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -18,11 +16,6 @@ import java.util.Random;
 public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiFort(boolean flag) {
 		super(flag);
-	}
-
-	private static ItemStack getRandomAsshaiWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.asshaiSword), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiDaggerPoisoned), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiHammer)};
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	@Override
@@ -115,28 +108,28 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		placeBigTorch(world, 20, 4, 17);
 		placeBigTorch(world, 22, 10, -14);
 		placeBigTorch(world, 22, 15, -14);
-		placeWeaponRack(world, 9, 2, 2, 6, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 10, 2, 3, 5, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 8, 2, 3, 7, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 9, 2, 4, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 15, 2, 7, 6, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 16, 2, 8, 5, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 14, 2, 8, 7, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 15, 2, 9, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 6, 5, 10, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 1, 5, 10, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 10, 5, 12, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, -3, 5, 12, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 6, 6, 10, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 1, 6, 10, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, 10, 6, 12, 4, getRandomAsshaiWeapon(random));
-		placeWeaponRack(world, -3, 6, 12, 4, getRandomAsshaiWeapon(random));
-		placeAsshaiArmor(world, random, 8, 4, 10, 2);
-		placeAsshaiArmor(world, random, -1, 4, 10, 2);
-		placeAsshaiArmor(world, random, 7, 4, 12, 3);
-		placeAsshaiArmor(world, random, 0, 4, 12, 1);
-		placeAsshaiArmor(world, random, 6, 4, 13, 2);
-		placeAsshaiArmor(world, random, 1, 4, 13, 2);
+		placeWeaponRack(world, 9, 2, 2, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, 10, 2, 3, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, 8, 2, 3, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, 9, 2, 4, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 15, 2, 7, 6, getRandWeaponItem(random));
+		placeWeaponRack(world, 16, 2, 8, 5, getRandWeaponItem(random));
+		placeWeaponRack(world, 14, 2, 8, 7, getRandWeaponItem(random));
+		placeWeaponRack(world, 15, 2, 9, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 6, 5, 10, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 1, 5, 10, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 10, 5, 12, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, -3, 5, 12, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 6, 6, 10, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 1, 6, 10, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, 10, 6, 12, 4, getRandWeaponItem(random));
+		placeWeaponRack(world, -3, 6, 12, 4, getRandWeaponItem(random));
+		placeArmorStand(world, 8, 4, 10, 2, getRandArmorItems(random));
+		placeArmorStand(world, -1, 4, 10, 2, getRandArmorItems(random));
+		placeArmorStand(world, 7, 4, 12, 3, getRandArmorItems(random));
+		placeArmorStand(world, 0, 4, 12, 1, getRandArmorItems(random));
+		placeArmorStand(world, 6, 4, 13, 2, getRandArmorItems(random));
+		placeArmorStand(world, 1, 4, 13, 2, getRandArmorItems(random));
 		placeChest(world, random, 15, 1, 7, GOTBlocks.chestStone, 2, GOTChestContents.ASSHAI);
 		placeChest(world, random, 9, 4, 11, GOTBlocks.chestStone, 3, GOTChestContents.ASSHAI);
 		placeChest(world, random, -2, 4, 11, GOTBlocks.chestStone, 3, GOTChestContents.ASSHAI);
@@ -183,26 +176,5 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		respawner.setSpawnRanges(24, -4, 8, 24);
 		placeNPCRespawner(respawner, world, 0, 0, 0);
 		return true;
-	}
-
-	private void placeAsshaiArmor(World world, Random random, int i, int j, int k, int meta) {
-		ItemStack[] arritemStack;
-		if (random.nextInt(4) == 0) {
-			ItemStack[] arritemStack3 = new ItemStack[4];
-			arritemStack3[0] = new ItemStack(GOTItems.asshaiHelmet);
-			arritemStack3[1] = new ItemStack(GOTItems.asshaiChestplate);
-			arritemStack3[2] = new ItemStack(GOTItems.asshaiLeggings);
-			arritemStack = arritemStack3;
-			arritemStack3[3] = new ItemStack(GOTItems.asshaiBoots);
-		} else {
-			ItemStack[] arritemStack2 = new ItemStack[4];
-			arritemStack2[0] = null;
-			arritemStack2[1] = null;
-			arritemStack2[2] = null;
-			arritemStack = arritemStack2;
-			arritemStack2[3] = null;
-		}
-		ItemStack[] armor = arritemStack;
-		placeArmorStand(world, i, j, k, meta, armor);
 	}
 }
