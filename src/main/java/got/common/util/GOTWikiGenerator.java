@@ -1158,8 +1158,12 @@ public class GOTWikiGenerator {
 		for (GOTBiome biome : BIOMES) {
 			data.put(biome, new TreeSet<>());
 
-			for (GOTWaypoint wp : biome.getBiomeWaypoints().getWaypoints()) {
-				data.get(biome).add(wp.getDisplayName() + " (" + getFactionLink(wp.getFaction()) + ')');
+			GOTWaypoint.Region region = biome.getBiomeWaypoints();
+
+			if (region != null) {
+				for (GOTWaypoint wp : region.getWaypoints()) {
+					data.get(biome).add(wp.getDisplayName() + " (" + getFactionLink(wp.getFaction()) + ')');
+				}
 			}
 		}
 
@@ -1643,8 +1647,9 @@ public class GOTWikiGenerator {
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
-				if (npc.getKillAchievement() != null) {
-					data.put(entityEntry.getKey(), '«' + npc.getKillAchievement().getTitle() + '»');
+				GOTAchievement achievement = npc.getKillAchievement();
+				if (achievement != null) {
+					data.put(entityEntry.getKey(), '«' + achievement.getTitle() + '»');
 				}
 			}
 		}
