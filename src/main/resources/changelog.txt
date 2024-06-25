@@ -1,42 +1,58 @@
 CHANGELOG
 
 >>BUILD 24.07.10
-+ NOW DRAGON CAN DRACARYS
-+ Added NEI support for Millstone
-+ Added full German translation (by ToCraft).
+* New creative inventory items and blocks order
+* New achievement system: hundreds of new achievements
+* New Valyria region, reworked from scratch
+* New economics: silver, gold, valyrian steel and different gems now has fixed prices world-wide.
+
++ Added DRACARYS FOR DRAGONS!
+
++ Added full translations for all supported languages
++ Added NEI support for millstone
 + Added beavers (with their spawn) and their drop (with its usage)
 + Added Janos Slynt's, Pycelle's and Melisandra's drop
 + Added new world type - Game of Thrones without fixed structures and characters, but with map.
 + Added one forgotten dirtPath:2 recipe
 + Added crafts for stone chest, sandstone chest and replaced the craft of reeds chest with new one.
 + Added a few achievements
++ Added more tooltips for items with mechanics description
++ Added new and removed old military mobs to make factions more balanced
++ Added new ifekevron skins
++ Added sandstone chests, ice & obsidian stalactites to natural spawn
++ Added targaryen items, lannicter brooch and silver hand brooch to natural drop
 
+* Improved asshai staffs' target selectors
+* Improved wiki-generator
 * Improved blizzards' drop, AI and alignment bonus
 * Improved mob selector for smoking, drinking, being robbed and being married.
 * Improved sound and volume of a few animals
 * Improved fixed structures system (more clear, optimized and stable)
-* Improved road-to-settlemen's-gate system
+* Improved road-to-settlement's-gate system
 * Improved roads & walls code
 * Improved GUI opening code
 * Improved unit costs
 * Improved dragon and wikigen command tab completion
 * Improved animal stats
 * Improved mobs' immune to frost/heat
+* Improved speech and translations
+* Improved unit prices
+* Improved beech door texture
+* Improved midges and butterflies: they can't spawn in winter now
+* Improved balance of +alignment values for killing
+* Improved biome visit achievements and achievement shields: now require more biomes and achievements.
 
+* Oprimized concrete and concrete powder
 * Optimized dragons, giants and ice creatures
 * Optimized lots of client-size things
 
-* Reworked valyria region from scratch
-* Now not only ibben forts are fixed near waypoints
-* Silver, gold, valyrian steel and different gems now has fixed prices world-wide.
-* Midges and butterflies can't spawn in winter now
-* Biome visit achievements and achievement shields now require more biomes and achievements.
+* Recoded all mobs NPC from scratch. This will lead to less code and bugs with AI, etc.
+* Renamed and rebalanced lots of items linked to tools and weapons, armor sets
+* Renamed lots of structures
 * Moved zero coords of the world closer to Winterfell
-* Rebalanced +alignment values for killing
-* Returned sandstone chests, ice & obsidian stalactites to natural spawn
-* Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
-* Returned back ifekevron skins
 
+* Fixed bug with only ibben forts are fixed near ibben waypoints
+* Fixed bug with not working bombs
 * Fixed bug with Petyr Baelish and dagger. Now he can sell only one dagger, and if did this, won't drop dagger after death.
 * Fixed bug with uncraftable crafting tables
 * Fixed bug with lhazar spear crafting
@@ -64,6 +80,7 @@ CHANGELOG
 - Removed a few unused blocks and items
 - Removed rice and cucumbers because of bugs
 - Removed double ibbinia wooden beams because of alternative
+- Removed strange achievements
 
 >>BUILD 23.07.10
 + Added lots of forest biomes
