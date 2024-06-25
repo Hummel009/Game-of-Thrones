@@ -1,6 +1,6 @@
 ﻿#title:疫疗条论-灰鳞病
 #author:{choose:邓迪乌斯, 学城学士/瓦兰提斯的乌里奥/夷地的李周}
-#types:westeros,essos,yiti
+#types:westeros,essos,yi_ti
 #
 
 灰鳞病是一种能致死的疾病

@@ -1,6 +1,6 @@
 ﻿#title:五垒酒
 #author:无名氏
-#types:essos,yiti
+#types:essos,yi_ti
 #
 葡萄美酒夜光杯,欲饮连角
 垒上催.

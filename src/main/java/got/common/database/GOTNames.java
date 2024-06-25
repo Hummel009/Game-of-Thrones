@@ -47,8 +47,8 @@ public class GOTNames {
 		return giant1 + giant2 + giant3 + giant4 + giant5;
 	}
 
-	public static String getJogosName(Random rand, boolean male) {
-		return getRandomName(male ? "jogos_male" : "jogos_female", rand);
+	public static String getJogosNhaiName(Random rand, boolean male) {
+		return getRandomName(male ? "jogos_nhai_male" : "jogos_nhai_female", rand);
 	}
 
 	public static String getLhazarName(Random rand, boolean male) {
@@ -90,7 +90,7 @@ public class GOTNames {
 	}
 
 	public static String getYiTiName(Random rand, boolean male) {
-		return getRandomName(male ? "yiti_male" : "yiti_female", rand);
+		return getRandomName(male ? "yi_ti_male" : "yi_ti_female", rand);
 	}
 
 	public static boolean nameBankExists(String nameBankName) {

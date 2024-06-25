@@ -343,11 +343,11 @@ entity.got.JaqenHghar.name≠Jaqen H'Ghar
 entity.got.JasonMallister.name≠Jason Mallister
 entity.got.JeorMormont.name≠Jeor Mormont
 entity.got.JoffreyBaratheon.name≠Joffrey Baratheon
-entity.got.Jogos.name≠Jogos Nhai Nomad
-entity.got.JogosArcher.name≠Jogos Nhai Archer
-entity.got.JogosBannerBearer.name≠Jogos Nhai Banner Bearer
-entity.got.JogosChieftain.name≠Jogos Nhai Chieftain
-entity.got.JogosShaman.name≠Jogos Nhai Shaman
+entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
+entity.got.JogosNhaiArcher.name≠Jogos Nhai Archer
+entity.got.JogosNhaiBannerBearer.name≠Jogos Nhai Banner Bearer
+entity.got.JogosNhaiChieftain.name≠Jogos Nhai Chieftain
+entity.got.JogosNhaiShaman.name≠Jogos Nhai Shaman
 entity.got.JohnUmber.name≠John Umber
 entity.got.JonConnington.name≠Jon Connington
 entity.got.JonSnowLife1.name≠Jon Snow
@@ -872,11 +872,9 @@ entity.got.YiTiButcher.name≠Yi Ti Butcher
 entity.got.YiTiCaptain.name≠Yi Ti Shogun
 entity.got.YiTiFarmer.name≠Yi Ti Farmer
 entity.got.YiTiFarmhand.name≠Yi Ti Farmhand
-entity.got.YiTiFireThrower.name≠Yi Ti Fire-Priest
+entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiFishmonger.name≠Yi Ti Fishmonger
 entity.got.YiTiFlorist.name≠Yi Ti Florist
-entity.got.YiTiFrontier.name≠Yi Ti Frontier
-entity.got.YiTiFrontierCrossbower.name≠Yi Ti Frontier Crossbower
 entity.got.YiTiGoldsmith.name≠Yi Ti Goldsmith
 entity.got.YiTiHunter.name≠Yi Ti Hunter
 entity.got.YiTiLevyman.name≠Yi Ti Levyman
@@ -886,9 +884,7 @@ entity.got.YiTiMan.name≠Yi Ti Man
 entity.got.YiTiMason.name≠Yi Ti Mason
 entity.got.YiTiMiner.name≠Yi Ti Miner
 entity.got.YiTiSamurai.name≠Yi Ti Samurai
-entity.got.YiTiSamuraiBannerBearer.name≠Yi Ti Samurai Banner Bearer
 entity.got.YiTiSoldier.name≠Yi Ti Soldier
-entity.got.YiTiSoldierBannerBearer.name≠Yi Ti Soldier Banner Bearer
 entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name≠Yohn Royce
 entity.got.Yoren.name≠Yoren
@@ -1610,8 +1606,8 @@ got.achievement.WEAR_FULL_IBBEN.desc=穿戴全套伊本装备
 got.achievement.WEAR_FULL_IBBEN.title=看起来很合适...
 got.achievement.WEAR_FULL_IRONBORN.desc=装备整套铁群岛铠甲
 got.achievement.WEAR_FULL_IRONBORN.title=海盗行头
-got.achievement.WEAR_FULL_JOGOS.desc=装备全套鸠格斯奈铠甲
-got.achievement.WEAR_FULL_JOGOS.title=东部部落
+got.achievement.WEAR_FULL_JOGOS_NHAI.desc=装备全套鸠格斯奈铠甲
+got.achievement.WEAR_FULL_JOGOS_NHAI.title=东部部落
 got.achievement.WEAR_FULL_KINGSGUARD.desc=装备整套御林铁卫铠甲
 got.achievement.WEAR_FULL_KINGSGUARD.title=国王万岁！
 got.achievement.WEAR_FULL_LHAZAR.desc=装备整套拉札尔铠甲
@@ -1678,12 +1674,12 @@ got.achievement.WEAR_FULL_WESTKING.desc=装备整套西境之王铠甲
 got.achievement.WEAR_FULL_WESTKING.title=西境之王
 got.achievement.WEAR_FULL_WHITE_WALKERS.desc=装备整套异鬼铠甲
 got.achievement.WEAR_FULL_WHITE_WALKERS.title=炮灰流水线
-got.achievement.WEAR_FULL_YITI.desc=装备整套夷地铠甲
-got.achievement.WEAR_FULL_YITI.title=夷地守卫
-got.achievement.WEAR_FULL_YITI_FRONTIER.desc=装备整套夷地边境守卫铠甲
-got.achievement.WEAR_FULL_YITI_FRONTIER.title=就这样进入夷地
-got.achievement.WEAR_FULL_YITI_SAMURAI.desc=装备整套夷地武士铠甲
-got.achievement.WEAR_FULL_YITI_SAMURAI.title=夷地武士
+got.achievement.WEAR_FULL_YI_TI.desc=装备整套夷地铠甲
+got.achievement.WEAR_FULL_YI_TI.title=夷地守卫
+got.achievement.WEAR_FULL_YI_TI_BOMBARDIER.desc=装备整套夷地边境守卫铠甲
+got.achievement.WEAR_FULL_YI_TI_BOMBARDIER.title=就这样进入夷地
+got.achievement.WEAR_FULL_YI_TI_SAMURAI.desc=装备整套夷地武士铠甲
+got.achievement.WEAR_FULL_YI_TI_SAMURAI.title=夷地武士
 got.achievement.category.ENTER=群系
 got.achievement.category.GENERAL=普通
 got.achievement.category.KILL=击杀
@@ -1932,9 +1928,9 @@ got.capes.TYROSH.name=泰洛西的披风
 got.capes.UNSULLIED.name=无垢者的披风
 got.capes.VOLANTIS.name=瓦兰提斯的披风
 got.capes.WESTERLANDS.name=西境的披风
-got.capes.YITI.name=金国之盾
-got.capes.YITI_FRONTIER.name=伊提边防披风
-got.capes.YITI_SAMURAI.name=夷地之盾
+got.capes.YI_TI.name=金国之盾
+got.capes.YI_TI_BOMBARDIER.name=伊提边防披风
+got.capes.YI_TI_SAMURAI.name=夷地之盾
 got.capes.category.ACHIEVABLE=可获取披风
 got.capes.category.ALIGNMENT=结盟值披风
 got.capes.category.EXCLUSIVE=专属披风
@@ -2147,7 +2143,7 @@ got.container.crafting.gift=守夜人制作
 got.container.crafting.hillmen=高山氏族部落制作
 got.container.crafting.ibben=伊班制作
 got.container.crafting.ironborn=铁群岛制作
-got.container.crafting.jogos=鸠格斯奈制作
+got.container.crafting.jogos_nhai=鸠格斯奈制作
 got.container.crafting.lhazar=拉札尔制作
 got.container.crafting.lorath=罗拉斯制作
 got.container.crafting.lys=里斯制作
@@ -2167,7 +2163,7 @@ got.container.crafting.tyrosh=泰洛西制作
 got.container.crafting.volantis=瓦兰提斯制作
 got.container.crafting.westerlands=西境制作
 got.container.crafting.wildling=自由民制作
-got.container.crafting.yiti=夷地制作
+got.container.crafting.yi_ti=夷地制作
 got.container.dartTrap=飞箭机关
 got.container.millstone=磨石
 got.container.oven=烤炉
@@ -2408,9 +2404,9 @@ got.faction.IBBEN.subtitle=海上的捕鲸者
 got.faction.IRONBORN.entity=铁种
 got.faction.IRONBORN.name=铁群岛
 got.faction.IRONBORN.subtitle=残忍的航海民族的家乡
-got.faction.JOGOS.entity=鸠格斯奈人
-got.faction.JOGOS.name=鸠格斯奈
-got.faction.JOGOS.subtitle=东方的斑马骠骑
+got.faction.JOGOS_NHAI.entity=鸠格斯奈人
+got.faction.JOGOS_NHAI.name=鸠格斯奈
+got.faction.JOGOS_NHAI.subtitle=东方的斑马骠骑
 got.faction.LHAZAR.entity=拉札尔人
 got.faction.LHAZAR.name=拉札尔
 got.faction.LHAZAR.subtitle=丘陵中的牧羊人
@@ -2864,7 +2860,7 @@ got.invasion.GHISCAR.horn=召唤奇袭-吉斯卡
 got.invasion.HILL_TRIBES.horn=召唤奇袭-高山氏族部落
 got.invasion.IBBEN.horn=召唤奇袭-伊班
 got.invasion.IRONBORN.horn=召唤奇袭-铁群岛
-got.invasion.JOGOS.horn=召唤奇袭-鸠格斯人
+got.invasion.JOGOS_NHAI.horn=召唤奇袭-鸠格斯人
 got.invasion.LORATH.horn=召唤奇袭-洛拉斯
 got.invasion.LYS.horn=召唤奇袭-里斯
 got.invasion.MYR.horn=召唤奇袭-密尔
@@ -2935,7 +2931,7 @@ got.rank.HILL_TRIBES=高山氏族部落
 got.rank.HOSTILE=敌对
 got.rank.IBBEN=伊班
 got.rank.IRONBORN=铁群岛
-got.rank.JOGOS=鸠格斯奈
+got.rank.JOGOS_NHAI=鸠格斯奈
 got.rank.LHAZAR=拉札尔
 got.rank.LORATH=罗拉斯
 got.rank.LYS=里斯
@@ -3020,9 +3016,9 @@ got.shields.UNSULLIED.name=无垢者的之盾
 got.shields.VOLANTIS.name=瓦兰提斯之盾
 got.shields.WESTERLANDS.name=西狮之盾
 got.shields.WESTERLANDSGUARD.name=西境守卫之盾
-got.shields.YITI.name=金国之盾
-got.shields.YITI_FRONTIER.name=夷地边界战士之盾
-got.shields.YITI_SAMURAI.name=夷地之盾
+got.shields.YI_TI.name=金国之盾
+got.shields.YI_TI_BOMBARDIER.name=夷地边界战士之盾
+got.shields.YI_TI_SAMURAI.name=夷地之盾
 got.shields.category.ACHIEVABLE=成就盾牌
 got.shields.category.ALIGNMENT=阵营盾牌
 got.shields.category.EXCLUSIVE=专属盾牌
@@ -3166,12 +3162,12 @@ got.structure.IronbornTavern.name≠Iron Islands Tavern
 got.structure.IronbornTower.name≠Iron Islands Tower
 got.structure.IronbornWatchfort.name≠Iron Islands Watchfort
 got.structure.IronbornWatchtower.name≠Iron Islands Watchtower
-got.structure.JogosChieftainTent.name≠Jogos Nhai Chieftain's Tent
-got.structure.JogosSettle.name≠Jogos Nhai Camp
-got.structure.JogosSettleLarge.name≠Jogos Nhai Village
-got.structure.JogosShamanTent.name≠Jogos Nhai Shaman's Tent
-got.structure.JogosTent.name≠Jogos Nhai Tent
-got.structure.JogosTentLarge.name≠Jogos Nhai Large Tent
+got.structure.JogosNhaiChieftainTent.name≠Jogos Nhai Chieftain's Tent
+got.structure.JogosNhaiSettle.name≠Jogos Nhai Camp
+got.structure.JogosNhaiSettleLarge.name≠Jogos Nhai Village
+got.structure.JogosNhaiShamanTent.name≠Jogos Nhai Shaman's Tent
+got.structure.JogosNhaiTent.name≠Jogos Nhai Tent
+got.structure.JogosNhaiTentLarge.name≠Jogos Nhai Large Tent
 got.structure.LhazarAltar.name≠Lhazar Altar
 got.structure.LhazarBazaar.name≠Lhazar Bazaar
 got.structure.LhazarFarm.name≠Lhazar Farm
@@ -4982,7 +4978,7 @@ item.got:banner.ironsmith.name=Ironsmith的旗帜
 item.got:banner.jaremymallister.name=JaremyMallister的旗帜
 item.got:banner.jast.name=贾斯特的旗帜
 item.got:banner.joffrey.name=君临的拜拉席恩的旗帜
-item.got:banner.jogos.name=鸠格斯奈的旗帜
+item.got:banner.jogos_nhai.name=鸠格斯奈的旗帜
 item.got:banner.jonconnington.name=琼恩·克林顿的旗帜
 item.got:banner.jonking.name=琼恩·雪诺的旗帜(2)
 item.got:banner.jonsnow.name=琼恩·雪诺的旗帜
@@ -5307,17 +5303,17 @@ item.got:banner.wynch.name=温奇的旗帜
 item.got:banner.wythers.name=威勒斯的旗帜
 item.got:banner.yarwyck.name=亚威克的旗帜
 item.got:banner.yew.name=宇的旗帜
-item.got:banner.yiti.name=夷地的旗帜
-item.got:banner.yitiBu.name=卜的旗帜
-item.got:banner.yitiChoq.name=周苛的旗帜
-item.got:banner.yitiHar.name=哈尔的旗帜
-item.got:banner.yitiJar.name=伽尔的旗帜
-item.got:banner.yitiLo.name=罗的旗帜
-item.got:banner.yitiMaroon.name=玛珑的旗帜
-item.got:banner.yitiMengo.name=曼国的旗帜
-item.got:banner.yitiPearl.name=睿亚尔的旗帜
-item.got:banner.yitiPurple.name=普尔普勒的旗帜
-item.got:banner.yitiQo.name=仇的旗帜
+item.got:banner.yi_ti.name=夷地的旗帜
+item.got:banner.yi_ti_bu.name=卜的旗帜
+item.got:banner.yi_ti_choq.name=周苛的旗帜
+item.got:banner.yi_ti_har.name=哈尔的旗帜
+item.got:banner.yi_ti_jar.name=伽尔的旗帜
+item.got:banner.yi_ti_lo.name=罗的旗帜
+item.got:banner.yi_ti_maroon.name=玛珑的旗帜
+item.got:banner.yi_ti_mengo.name=曼国的旗帜
+item.got:banner.yi_ti_pearl.name=睿亚尔的旗帜
+item.got:banner.yi_ti_purple.name=普尔普勒的旗帜
+item.got:banner.yi_ti_qo.name=仇的旗帜
 item.got:banner.youngGriff.name=格里夫的旗帜
 item.got:banner.yronwood.name=伊伦伍德的旗帜
 item.got:banner.yunkai.name=渊凯的旗帜
@@ -5551,10 +5547,10 @@ item.got:ironborn_helmet.name=铁群岛头盔
 item.got:ironborn_leggings.name=铁群岛护腿
 item.got:jaime_sword.name=詹姆·兰尼斯特的剑
 item.got:joffrey_crossbow.name=乔佛里·拜拉席恩的弩
-item.got:jogos_boots.name=鸠格斯奈靴子
-item.got:jogos_chestplate.name=鸠格斯奈胸甲
-item.got:jogos_helmet.name=鸠格斯奈头盔
-item.got:jogos_leggings.name=鸠格斯奈护腿
+item.got:jogos_nhai_boots.name=鸠格斯奈靴子
+item.got:jogos_nhai_chestplate.name=鸠格斯奈胸甲
+item.got:jogos_nhai_helmet.name=鸠格斯奈头盔
+item.got:jogos_nhai_leggings.name=鸠格斯奈护腿
 item.got:just_maid.name=正义之淑女
 item.got:kaftan_chestplate.name=夷地长袍
 item.got:kaftan_leggings.name=夷地长袍护腿
@@ -5948,29 +5944,29 @@ item.got:wine_glass.name=葡萄酒杯
 item.got:wood_plate.name=木盘
 item.got:yam.name=山药
 item.got:yam_roast.name=烤山药
-item.got:yiti_battleaxe.name=夷地战斧
-item.got:yiti_boots.name=夷地靴子
-item.got:yiti_boots_frontier.name=夷地边境守卫靴子
-item.got:yiti_boots_samurai.name=夷地武士靴子
-item.got:yiti_bow.name=夷地弓
-item.got:yiti_chestplate.name=夷地胸甲
-item.got:yiti_chestplate_frontier.name=夷地边境守卫胸甲
-item.got:yiti_chestplate_samurai.name=夷地武士胸甲
-item.got:yiti_dagger.name=夷地匕首
-item.got:yiti_dagger_poisoned.name=淬毒夷地匕首
-item.got:yiti_helmet.name=夷地头盔
-item.got:yiti_helmet_frontier.name=夷地边境守卫头盔
-item.got:yiti_helmet_samurai.name=夷地武士头盔
-item.got:yiti_helmet_shogune.name=夷地将军头盔
-item.got:yiti_horse_armor.name=夷地马铠
-item.got:yiti_leggings.name=夷地护腿
-item.got:yiti_leggings_frontier.name=夷地边境守卫护腿
-item.got:yiti_leggings_samurai.name=夷地武士护腿
-item.got:yiti_pike.name=夷地长矛
-item.got:yiti_polearm.name=夷地战镰
-item.got:yiti_spear.name=夷地矛
-item.got:yiti_steel_ingot.name=镀金铁锭
-item.got:yiti_sword.name=夷地剑
+item.got:yi_ti_battleaxe.name=夷地战斧
+item.got:yi_ti_boots.name=夷地靴子
+item.got:yi_ti_boots_bombardier.name=夷地边境守卫靴子
+item.got:yi_ti_boots_samurai.name=夷地武士靴子
+item.got:yi_ti_bow.name=夷地弓
+item.got:yi_ti_chestplate.name=夷地胸甲
+item.got:yi_ti_chestplate_bombardier.name=夷地边境守卫胸甲
+item.got:yi_ti_chestplate_samurai.name=夷地武士胸甲
+item.got:yi_ti_dagger.name=夷地匕首
+item.got:yi_ti_dagger_poisoned.name=淬毒夷地匕首
+item.got:yi_ti_helmet.name=夷地头盔
+item.got:yi_ti_helmet_bombardier.name=夷地边境守卫头盔
+item.got:yi_ti_helmet_samurai.name=夷地武士头盔
+item.got:yi_ti_helmet_shogune.name=夷地将军头盔
+item.got:yi_ti_horse_armor.name=夷地马铠
+item.got:yi_ti_leggings.name=夷地护腿
+item.got:yi_ti_leggings_bombardier.name=夷地边境守卫护腿
+item.got:yi_ti_leggings_samurai.name=夷地武士护腿
+item.got:yi_ti_pike.name=夷地长矛
+item.got:yi_ti_polearm.name=夷地战镰
+item.got:yi_ti_spear.name=夷地矛
+item.got:yi_ti_steel_ingot.name=镀金铁锭
+item.got:yi_ti_sword.name=夷地剑
 item.got:zebra_cooked.name=熟斑马肉
 item.got:zebra_raw.name=生斑马肉
 tile.dirt.0.name=泥土
@@ -6796,7 +6792,7 @@ tile.got:table_gift.name=守夜人工作台
 tile.got:table_hill_tribes.name=高山氏族部落工作台
 tile.got:table_ibben.name=伊班工作台
 tile.got:table_ironborn.name=铁群岛工作台
-tile.got:table_jogos.name=鸠格斯奈工作台
+tile.got:table_jogos_nhai.name=鸠格斯奈工作台
 tile.got:table_lhazar.name=拉札尔工作台
 tile.got:table_lorath.name=罗拉斯工作台
 tile.got:table_lys.name=里斯工作台
@@ -7073,11 +7069,11 @@ tile.got:wood_slab_single5.3.name=棕榈木台阶
 tile.got:wood_slab_single5.4.name=龙血木台阶
 tile.got:wood_slab_single5.5.name=卡努卡木台阶
 tile.got:wood_slab_single5.6.name=鱼梁木台阶
-tile.got:yiti_flower.0.name=蓝色菊花
-tile.got:yiti_flower.1.name=橙色菊花
-tile.got:yiti_flower.2.name=粉色菊花
-tile.got:yiti_flower.3.name=黄色菊花
-tile.got:yiti_flower.4.name=白色菊花
+tile.got:yi_ti_flower.0.name=蓝色菊花
+tile.got:yi_ti_flower.1.name=橙色菊花
+tile.got:yi_ti_flower.2.name=粉色菊花
+tile.got:yi_ti_flower.3.name=黄色菊花
+tile.got:yi_ti_flower.4.name=白色菊花
 tile.monsterStoneEgg.brick.name=蠹虫块
 tile.monsterStoneEgg.chiseledbrick.name=蠹虫块
 tile.monsterStoneEgg.cobble.name=蠹虫块

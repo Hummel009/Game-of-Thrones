@@ -1,6 +1,6 @@
 ﻿#title:Chronique d'un changement de village
 #author:Unknown
-#types:yiti
+#types:yi_ti
 #
 Une famille d'exorcistes vivait à l'est du village, mais en l'espace de deux semaines, la mère est morte de maladie, une jeune fille a disparu et, peu après, le père s'est pendu à un arbre dans la cour de sa propre maison.
 

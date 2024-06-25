@@ -343,11 +343,11 @@ entity.got.JaqenHghar.name≠Jaqen H'Ghar
 entity.got.JasonMallister.name≠Jason Mallister
 entity.got.JeorMormont.name≠Jeor Mormont
 entity.got.JoffreyBaratheon.name≠Joffrey Baratheon
-entity.got.Jogos.name≠Jogos Nhai Nomad
-entity.got.JogosArcher.name≠Jogos Nhai Archer
-entity.got.JogosBannerBearer.name≠Jogos Nhai Banner Bearer
-entity.got.JogosChieftain.name≠Jogos Nhai Chieftain
-entity.got.JogosShaman.name≠Jogos Nhai Shaman
+entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
+entity.got.JogosNhaiArcher.name≠Jogos Nhai Archer
+entity.got.JogosNhaiBannerBearer.name≠Jogos Nhai Banner Bearer
+entity.got.JogosNhaiChieftain.name≠Jogos Nhai Chieftain
+entity.got.JogosNhaiShaman.name≠Jogos Nhai Shaman
 entity.got.JohnUmber.name≠John Umber
 entity.got.JonConnington.name≠Jon Connington
 entity.got.JonSnowLife1.name≠Jon Snow
@@ -872,11 +872,9 @@ entity.got.YiTiButcher.name≠Yi Ti Butcher
 entity.got.YiTiCaptain.name≠Yi Ti Shogun
 entity.got.YiTiFarmer.name≠Yi Ti Farmer
 entity.got.YiTiFarmhand.name≠Yi Ti Farmhand
-entity.got.YiTiFireThrower.name≠Yi Ti Fire-Priest
+entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiFishmonger.name≠Yi Ti Fishmonger
 entity.got.YiTiFlorist.name≠Yi Ti Florist
-entity.got.YiTiFrontier.name≠Yi Ti Frontier
-entity.got.YiTiFrontierCrossbower.name≠Yi Ti Frontier Crossbower
 entity.got.YiTiGoldsmith.name≠Yi Ti Goldsmith
 entity.got.YiTiHunter.name≠Yi Ti Hunter
 entity.got.YiTiLevyman.name≠Yi Ti Levyman
@@ -886,9 +884,7 @@ entity.got.YiTiMan.name≠Yi Ti Man
 entity.got.YiTiMason.name≠Yi Ti Mason
 entity.got.YiTiMiner.name≠Yi Ti Miner
 entity.got.YiTiSamurai.name≠Yi Ti Samurai
-entity.got.YiTiSamuraiBannerBearer.name≠Yi Ti Samurai Banner Bearer
 entity.got.YiTiSoldier.name≠Yi Ti Soldier
-entity.got.YiTiSoldierBannerBearer.name≠Yi Ti Soldier Banner Bearer
 entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name≠Yohn Royce
 entity.got.Yoren.name≠Yoren
@@ -1610,8 +1606,8 @@ got.achievement.WEAR_FULL_IBBEN.desc=Noś kompletny zestaw Ibben
 got.achievement.WEAR_FULL_IBBEN.title=Wygląda na to, że pasuje...
 got.achievement.WEAR_FULL_IRONBORN.desc=Załóż pełną zbroję Żelazne Wyspy
 got.achievement.WEAR_FULL_IRONBORN.title=Straż Żelaznych Wysp
-got.achievement.WEAR_FULL_JOGOS.desc=Załóż pełną zbroję Jogos Nhai
-got.achievement.WEAR_FULL_JOGOS.title=Wschodnia Horda
+got.achievement.WEAR_FULL_JOGOS_NHAI.desc=Załóż pełną zbroję Jogos Nhai
+got.achievement.WEAR_FULL_JOGOS_NHAI.title=Wschodnia Horda
 got.achievement.WEAR_FULL_KINGSGUARD.desc=Załóż pełną zbroję Kingsguard
 got.achievement.WEAR_FULL_KINGSGUARD.title=Niech żyje król!
 got.achievement.WEAR_FULL_LHAZAR.desc=Załóż pełną zbroję Lhazar
@@ -1678,12 +1674,12 @@ got.achievement.WEAR_FULL_WESTKING.desc=Załóż pełną zbroję zachodnich kró
 got.achievement.WEAR_FULL_WESTKING.title=Król Zachodu
 got.achievement.WEAR_FULL_WHITE_WALKERS.desc=Załóż pełną zbroję Białych wędrowców
 got.achievement.WEAR_FULL_WHITE_WALKERS.title=Miętowy Orbit
-got.achievement.WEAR_FULL_YITI.desc=Załóż pełną zbroję Yi Ti
-got.achievement.WEAR_FULL_YITI.title=Strażnik Yi Ti
-got.achievement.WEAR_FULL_YITI_FRONTIER.desc=Załóż pełną zbroję granicznika Yi Ti
-got.achievement.WEAR_FULL_YITI_FRONTIER.title=Nie można tak po prostu wejść do Yi Ti
-got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Załóż pełną zbroję samuraja Yi Ti 
-got.achievement.WEAR_FULL_YITI_SAMURAI.title=Samuraj Yi Ti
+got.achievement.WEAR_FULL_YI_TI.desc=Załóż pełną zbroję Yi Ti
+got.achievement.WEAR_FULL_YI_TI.title=Strażnik Yi Ti
+got.achievement.WEAR_FULL_YI_TI_BOMBARDIER.desc=Załóż pełną zbroję granicznika Yi Ti
+got.achievement.WEAR_FULL_YI_TI_BOMBARDIER.title=Nie można tak po prostu wejść do Yi Ti
+got.achievement.WEAR_FULL_YI_TI_SAMURAI.desc=Załóż pełną zbroję samuraja Yi Ti
+got.achievement.WEAR_FULL_YI_TI_SAMURAI.title=Samuraj Yi Ti
 got.achievement.category.ENTER=Biomy
 got.achievement.category.GENERAL=Generalne
 got.achievement.category.KILL=Zabij
@@ -1932,9 +1928,9 @@ got.capes.TYROSH.name=Przylądek Tyrosha
 got.capes.UNSULLIED.name=Przylądek Nieskalanych
 got.capes.VOLANTIS.name=Przylądek Volantis
 got.capes.WESTERLANDS.name=Przylądek Krainy zachodu
-got.capes.YITI.name=Przylądek Yi Ti
-got.capes.YITI_FRONTIER.name=Przylądek Tyrosh
-got.capes.YITI_SAMURAI.name=Przylądek samuraja Yi Ti
+got.capes.YI_TI.name=Przylądek Yi Ti
+got.capes.YI_TI_BOMBARDIER.name=Przylądek Tyrosh
+got.capes.YI_TI_SAMURAI.name=Przylądek samuraja Yi Ti
 got.capes.category.ACHIEVABLE=Osiągalne peleryny
 got.capes.category.ALIGNMENT=Peleryny reputacji
 got.capes.category.EXCLUSIVE=Ekskluzywne peleryny
@@ -2147,7 +2143,7 @@ got.container.crafting.gift=Wytwarzanie Nigth's Watch
 got.container.crafting.hillmen=Wytwarzanie Plemion wzgórz
 got.container.crafting.ibben=Wytwarzanie Ibbena
 got.container.crafting.ironborn=Wytwarzanie Żelaznych Wysp
-got.container.crafting.jogos=Wytwarzanie Jogos Nhai
+got.container.crafting.jogos_nhai=Wytwarzanie Jogos Nhai
 got.container.crafting.lhazar=Wytwarzanie Lhazara
 got.container.crafting.lorath=Wytwarzanie Lorath
 got.container.crafting.lys=Wytwarzanie Lys
@@ -2167,7 +2163,7 @@ got.container.crafting.tyrosh=Wytwarzanie Tyrosh
 got.container.crafting.volantis=Wytwarzanie Volantisa
 got.container.crafting.westerlands=Wytwarzanie z Krainy zachodu
 got.container.crafting.wildling=Wytwarzanie Dzikich
-got.container.crafting.yiti=Wytwarzanie Yi Ti
+got.container.crafting.yi_ti=Wytwarzanie Yi Ti
 got.container.dartTrap=Dart Trap
 got.container.millstone=Kamień młyński
 got.container.oven=Piekarnik
@@ -2408,9 +2404,9 @@ got.faction.IBBEN.subtitle=Łowcy wielorybów z Ibbena
 got.faction.IRONBORN.entity=Żelazni ludzie
 got.faction.IRONBORN.name=Żelazne Wyspy
 got.faction.IRONBORN.subtitle=Ziemia Greyjoyów
-got.faction.JOGOS.entity=Jogos Nhai
-got.faction.JOGOS.name=Jogos Nhai
-got.faction.JOGOS.subtitle=Nomadzi z Dalekiego Wschodu
+got.faction.JOGOS_NHAI.entity=Jogos Nhai
+got.faction.JOGOS_NHAI.name=Jogos Nhai
+got.faction.JOGOS_NHAI.subtitle=Nomadzi z Dalekiego Wschodu
 got.faction.LHAZAR.entity=Lhazar
 got.faction.LHAZAR.name=Lhazar
 got.faction.LHAZAR.subtitle=Hodowcy owiec
@@ -2864,7 +2860,7 @@ got.invasion.GHISCAR.horn=Przywołanie Inwazji - Ghiscar
 got.invasion.HILL_TRIBES.horn=Przywołanie Inwazji - Hill Tribes
 got.invasion.IBBEN.horn=Przywołanie Inwazji - Ibben
 got.invasion.IRONBORN.horn=Przywołanie Inwazji - Żelazne Wyspy
-got.invasion.JOGOS.horn=Przywołanie Inwazji - Jogos Nhai
+got.invasion.JOGOS_NHAI.horn=Przywołanie Inwazji - Jogos Nhai
 got.invasion.LORATH.horn=Przywołanie Inwazji - Lorath
 got.invasion.LYS.horn=Przywołanie Inwazji - Lys
 got.invasion.MYR.horn=Przywołanie Inwazji - Myr
@@ -2935,7 +2931,7 @@ got.rank.HILL_TRIBES=Górskich Plemion
 got.rank.HOSTILE=Wrogów
 got.rank.IBBEN=Ibben
 got.rank.IRONBORN=Żelaznych Wysp
-got.rank.JOGOS=Jogos
+got.rank.JOGOS_NHAI=Jogos
 got.rank.LHAZAR=Lhazarów
 got.rank.LORATH=Lorath
 got.rank.LYS=Lys
@@ -3020,9 +3016,9 @@ got.shields.UNSULLIED.name=Tarcza Nieskalanych
 got.shields.VOLANTIS.name=Tarcza Volantisa
 got.shields.WESTERLANDS.name=Tarcza Krainy zachodu
 got.shields.WESTERLANDSGUARD.name=Tarcza Straży Zachodnich Krain
-got.shields.YITI.name=Tarcza Yi Ti
-got.shields.YITI_FRONTIER.name=Tarcza Yi Ti Frontier
-got.shields.YITI_SAMURAI.name=Tarcza samuraja Yi Ti
+got.shields.YI_TI.name=Tarcza Yi Ti
+got.shields.YI_TI_BOMBARDIER.name=Tarcza Yi Ti Bombardier
+got.shields.YI_TI_SAMURAI.name=Tarcza samuraja Yi Ti
 got.shields.category.ACHIEVABLE=Tarcze osiągalne
 got.shields.category.ALIGNMENT=Tarcze frakcji
 got.shields.category.EXCLUSIVE=Tarcze ekskluzywne
@@ -3166,12 +3162,12 @@ got.structure.IronbornTavern.name≠Iron Islands Tavern
 got.structure.IronbornTower.name≠Iron Islands Tower
 got.structure.IronbornWatchfort.name≠Iron Islands Watchfort
 got.structure.IronbornWatchtower.name≠Iron Islands Watchtower
-got.structure.JogosChieftainTent.name≠Jogos Nhai Chieftain's Tent
-got.structure.JogosSettle.name≠Jogos Nhai Camp
-got.structure.JogosSettleLarge.name≠Jogos Nhai Village
-got.structure.JogosShamanTent.name≠Jogos Nhai Shaman's Tent
-got.structure.JogosTent.name≠Jogos Nhai Tent
-got.structure.JogosTentLarge.name≠Jogos Nhai Large Tent
+got.structure.JogosNhaiChieftainTent.name≠Jogos Nhai Chieftain's Tent
+got.structure.JogosNhaiSettle.name≠Jogos Nhai Camp
+got.structure.JogosNhaiSettleLarge.name≠Jogos Nhai Village
+got.structure.JogosNhaiShamanTent.name≠Jogos Nhai Shaman's Tent
+got.structure.JogosNhaiTent.name≠Jogos Nhai Tent
+got.structure.JogosNhaiTentLarge.name≠Jogos Nhai Large Tent
 got.structure.LhazarAltar.name≠Lhazar Altar
 got.structure.LhazarBazaar.name≠Lhazar Bazaar
 got.structure.LhazarFarm.name≠Lhazar Farm
@@ -4982,7 +4978,7 @@ item.got:banner.ironsmith.name=Sztandar Ironsmith
 item.got:banner.jaremymallister.name=Sztandar Jaremy Mallister
 item.got:banner.jast.name=Sztandar Jast
 item.got:banner.joffrey.name=Sztandar Joffrey
-item.got:banner.jogos.name=Sztandar Jogos Nhai
+item.got:banner.jogos_nhai.name=Sztandar Jogos Nhai
 item.got:banner.jonconnington.name=Sztandar Jon Connington
 item.got:banner.jonking.name=Sztandar Jon Snow (King)
 item.got:banner.jonsnow.name=Sztandar Jon Snow
@@ -5307,17 +5303,17 @@ item.got:banner.wynch.name=Sztandar Wynch
 item.got:banner.wythers.name=Sztandar Wythers
 item.got:banner.yarwyck.name=Sztandar Yarwyck
 item.got:banner.yew.name=Sztandar Yew
-item.got:banner.yiti.name=Sztandar Yiti
-item.got:banner.yitiBu.name=Sztandar Bu
-item.got:banner.yitiChoq.name=Sztandar Choq
-item.got:banner.yitiHar.name=Sztandar Har
-item.got:banner.yitiJar.name=Sztandar Jar
-item.got:banner.yitiLo.name=Sztandar Lo
-item.got:banner.yitiMaroon.name=Sztandar Maroon
-item.got:banner.yitiMengo.name=Sztandar Mengo
-item.got:banner.yitiPearl.name=Sztandar Rearl
-item.got:banner.yitiPurple.name=Sztandar Purple
-item.got:banner.yitiQo.name=Sztandar Qo
+item.got:banner.yi_ti.name=Sztandar Yiti
+item.got:banner.yi_ti_bu.name=Sztandar Bu
+item.got:banner.yi_ti_choq.name=Sztandar Choq
+item.got:banner.yi_ti_har.name=Sztandar Har
+item.got:banner.yi_ti_jar.name=Sztandar Jar
+item.got:banner.yi_ti_lo.name=Sztandar Lo
+item.got:banner.yi_ti_maroon.name=Sztandar Maroon
+item.got:banner.yi_ti_mengo.name=Sztandar Mengo
+item.got:banner.yi_ti_pearl.name=Sztandar Rearl
+item.got:banner.yi_ti_purple.name=Sztandar Purple
+item.got:banner.yi_ti_qo.name=Sztandar Qo
 item.got:banner.youngGriff.name=Sztandar Young Griff
 item.got:banner.yronwood.name=Sztandar Yronwood
 item.got:banner.yunkai.name=Sztandar Yunkai
@@ -5551,10 +5547,10 @@ item.got:ironborn_helmet.name=Hełm Żelaznych Wysp
 item.got:ironborn_leggings.name=Nogawice z Żelazne Wyspy
 item.got:jaime_sword.name=Miecz Jaime Lannister
 item.got:joffrey_crossbow.name=Joffrey Baratheon Crossbow
-item.got:jogos_boots.name=Buty Jogos Nhai
-item.got:jogos_chestplate.name=Napierśnik Jogos Nhai
-item.got:jogos_helmet.name=Hełm Jogos Nhai
-item.got:jogos_leggings.name=Spodnie Jogos Nhai
+item.got:jogos_nhai_boots.name=Buty Jogos Nhai
+item.got:jogos_nhai_chestplate.name=Napierśnik Jogos Nhai
+item.got:jogos_nhai_helmet.name=Hełm Jogos Nhai
+item.got:jogos_nhai_leggings.name=Spodnie Jogos Nhai
 item.got:just_maid.name=JustMaid
 item.got:kaftan_chestplate.name=Kaftan
 item.got:kaftan_leggings.name=Nogawice Kaftan
@@ -5948,29 +5944,29 @@ item.got:wine_glass.name=Lampka wina
 item.got:wood_plate.name=Drewniany talerz
 item.got:yam.name=Pochrzyn
 item.got:yam_roast.name=Pieczony pochrzyn
-item.got:yiti_battleaxe.name=Yi Ti Nagamaki
-item.got:yiti_boots.name=Buty Yi Ti
-item.got:yiti_boots_frontier.name=Buty pograniczne Yi Ti
-item.got:yiti_boots_samurai.name=Buty samurajskie Yi Ti
-item.got:yiti_bow.name=Yi Ti Bow
-item.got:yiti_chestplate.name=Napierśnik Yi Ti
-item.got:yiti_chestplate_frontier.name=Napierśnik pograniczny Yi Ti
-item.got:yiti_chestplate_samurai.name=Napierśnik Yi Ti Samurai
-item.got:yiti_dagger.name=Yi Ti Kunai
-item.got:yiti_dagger_poisoned.name=Zatruty Yi Ti Kunai
-item.got:yiti_helmet.name=Hełm Yi Ti
-item.got:yiti_helmet_frontier.name=Hełm pograniczny Yi Ti
-item.got:yiti_helmet_samurai.name=Hełm samuraja Yi Ti
-item.got:yiti_helmet_shogune.name=Hełm Yi Ti Shogune
-item.got:yiti_horse_armor.name=Zbroja konia Yi Ti
-item.got:yiti_leggings.name=Nogawice Yi Ti
-item.got:yiti_leggings_frontier.name=Spodnie pograniczne Yi Ti
-item.got:yiti_leggings_samurai.name=Nogawice Yi Ti Samurai
-item.got:yiti_pike.name=Yi Ti Pike
-item.got:yiti_polearm.name=Yi Ti Naginata
-item.got:yiti_spear.name=Yi Ti Jumonji-yari
-item.got:yiti_steel_ingot.name=Pozłacana sztabka żelaza
-item.got:yiti_sword.name=Yi Ti Katana
+item.got:yi_ti_battleaxe.name=Yi Ti Nagamaki
+item.got:yi_ti_boots.name=Buty Yi Ti
+item.got:yi_ti_boots_bombardier.name=Buty pograniczne Yi Ti
+item.got:yi_ti_boots_samurai.name=Buty samurajskie Yi Ti
+item.got:yi_ti_bow.name=Yi Ti Bow
+item.got:yi_ti_chestplate.name=Napierśnik Yi Ti
+item.got:yi_ti_chestplate_bombardier.name=Napierśnik pograniczny Yi Ti
+item.got:yi_ti_chestplate_samurai.name=Napierśnik Yi Ti Samurai
+item.got:yi_ti_dagger.name=Yi Ti Kunai
+item.got:yi_ti_dagger_poisoned.name=Zatruty Yi Ti Kunai
+item.got:yi_ti_helmet.name=Hełm Yi Ti
+item.got:yi_ti_helmet_bombardier.name=Hełm pograniczny Yi Ti
+item.got:yi_ti_helmet_samurai.name=Hełm samuraja Yi Ti
+item.got:yi_ti_helmet_shogune.name=Hełm Yi Ti Shogune
+item.got:yi_ti_horse_armor.name=Zbroja konia Yi Ti
+item.got:yi_ti_leggings.name=Nogawice Yi Ti
+item.got:yi_ti_leggings_bombardier.name=Spodnie pograniczne Yi Ti
+item.got:yi_ti_leggings_samurai.name=Nogawice Yi Ti Samurai
+item.got:yi_ti_pike.name=Yi Ti Pike
+item.got:yi_ti_polearm.name=Yi Ti Naginata
+item.got:yi_ti_spear.name=Yi Ti Jumonji-yari
+item.got:yi_ti_steel_ingot.name=Pozłacana sztabka żelaza
+item.got:yi_ti_sword.name=Yi Ti Katana
 item.got:zebra_cooked.name=Pieczona zebra
 item.got:zebra_raw.name=Surowa zebra
 tile.dirt.0.name=Ziemia
@@ -6796,7 +6792,7 @@ tile.got:table_gift.name=Stół rzemieślniczy Nocnej Straży
 tile.got:table_hill_tribes.name=Stół rzemieślniczy plemienia wzgórz
 tile.got:table_ibben.name=Stół rzemieślniczy Ibben
 tile.got:table_ironborn.name=Stół rzemieślniczy Żelaznych Wysp
-tile.got:table_jogos.name=Kowadło Jogos Nhai
+tile.got:table_jogos_nhai.name=Kowadło Jogos Nhai
 tile.got:table_lhazar.name=Stół rzemieślniczy Lhazar
 tile.got:table_lorath.name=Stół rzemieślniczy Lorath
 tile.got:table_lys.name=Stół rzemieślniczy Lys
@@ -7073,11 +7069,11 @@ tile.got:wood_slab_single5.3.name=Palmowa płyta
 tile.got:wood_slab_single5.4.name=Smokowcowa płyta
 tile.got:wood_slab_single5.5.name=Kanukowa płyta
 tile.got:wood_slab_single5.6.name=Płyta Weirwood
-tile.got:yiti_flower.0.name=Niebieska chryzantema
-tile.got:yiti_flower.1.name=Pomarańczowa chryzantema
-tile.got:yiti_flower.2.name=Różowa chryzantema
-tile.got:yiti_flower.3.name=Żółta chryzantema
-tile.got:yiti_flower.4.name=Biała chryzantema
+tile.got:yi_ti_flower.0.name=Niebieska chryzantema
+tile.got:yi_ti_flower.1.name=Pomarańczowa chryzantema
+tile.got:yi_ti_flower.2.name=Różowa chryzantema
+tile.got:yi_ti_flower.3.name=Żółta chryzantema
+tile.got:yi_ti_flower.4.name=Biała chryzantema
 tile.monsterStoneEgg.brick.name=Blok z rybikiem cukrowym
 tile.monsterStoneEgg.chiseledbrick.name=Blok z rybikiem cukrowym
 tile.monsterStoneEgg.cobble.name=Blok z rybikiem cukrowym

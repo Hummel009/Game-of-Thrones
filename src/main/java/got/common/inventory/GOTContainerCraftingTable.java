@@ -139,9 +139,9 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 		}
 	}
 
-	public static class Jogos extends GOTContainerCraftingTable {
-		public Jogos(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.JOGOS, GOTBlocks.tableJogos);
+	public static class JogosNhai extends GOTContainerCraftingTable {
+		public JogosNhai(InventoryPlayer inv, World world, int i, int j, int k) {
+			super(inv, world, i, j, k, GOTRecipe.JOGOS_NHAI, GOTBlocks.tableJogosNhai);
 		}
 	}
 
@@ -261,7 +261,7 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 
 	public static class YiTi extends GOTContainerCraftingTable {
 		public YiTi(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.YITI, GOTBlocks.tableYiTi);
+			super(inv, world, i, j, k, GOTRecipe.YI_TI, GOTBlocks.tableYiTi);
 		}
 	}
 }

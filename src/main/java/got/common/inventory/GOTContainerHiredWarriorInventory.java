@@ -1,6 +1,6 @@
 package got.common.inventory;
 
-import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
+import got.common.entity.essos.yi_ti.GOTEntityYiTiBombardier;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.utils.GOTInventoryHiredReplacedItems;

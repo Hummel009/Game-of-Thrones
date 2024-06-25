@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.*;
 
 public enum GOTFaction {
-	WHITE_WALKER(0x8ddaf8, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(550, 550, 500)), WILDLING(0x749987, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(615, 520, 200)), NIGHT_WATCH(0x2A2A2A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(750, 670, 150)), NORTH(0xD4CFB7, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(670, 930, 400)), IRONBORN(0x4b483a, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(349, 1323, 129)), WESTERLANDS(0x7c0a02, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(485, 1540, 200)), RIVERLANDS(0x146f69, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(675, 1437, 215)), HILL_TRIBES(0x573C2F, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), ARRYN(0x2D3257, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), DRAGONSTONE(0x6A6A6A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(923, 1549, 40)), CROWNLANDS(0xDBAB25, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(876, 1566, 168)), STORMLANDS(0x014634, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(820, 1865, 218)), REACH(0x617646, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(500, 1820, 293)), DORNE(0xF57820, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(717, 2011, 300)), BRAAVOS(0x4A0C0C, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1221, 1351, 137)), VOLANTIS(0x4C3A5F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1553, 1928, 210)), PENTOS(0x13425F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1234, 1566, 172)), NORVOS(0x2D4D2F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1437, 1468, 201)), LORATH(0xE5E5E5, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1379, 1354, 119)), QOHOR(0x053246, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1590, 1594, 214)), MYR(0x3F3F3F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1325, 1797, 223)), LYS(0x3D3023, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1204, 2053, 65)), TYROSH(0x2E2E2E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1110, 1876, 52)), GHISCAR(0xAB7731, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2115, 2180, 347)), QARTH(0x701010, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2750, 2277, 221)), LHAZAR(0x9E4B1E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2510, 1910, 175)), DOTHRAKI(0x77551F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2270, 1670, 600)), IBBEN(0x4E3A26, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(2761, 1052, 252)), JOGOS(0x985916, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3369, 1651, 460)), MOSSOVY(0x4B5C42, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4056, 1480, 400)), YI_TI(0xC29033, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3350, 2200, 350)), ASSHAI(0x3C353F, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4098, 2331, 644)), SUMMER_ISLANDS(0x911A17, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(1228, 2716, 310)), SOTHORYOS(0x5E6A18, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(2375, 3540, 1084)), ULTHOS(0x343A2C, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(4100, 3517, 1109)), HOSTILE(true, -1), UNALIGNED(false, 0);
+	WHITE_WALKER(0x8ddaf8, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(550, 550, 500)), WILDLING(0x749987, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(615, 520, 200)), NIGHT_WATCH(0x2A2A2A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(750, 670, 150)), NORTH(0xD4CFB7, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(670, 930, 400)), IRONBORN(0x4b483a, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(349, 1323, 129)), WESTERLANDS(0x7c0a02, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(485, 1540, 200)), RIVERLANDS(0x146f69, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(675, 1437, 215)), HILL_TRIBES(0x573C2F, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), ARRYN(0x2D3257, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), DRAGONSTONE(0x6A6A6A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(923, 1549, 40)), CROWNLANDS(0xDBAB25, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(876, 1566, 168)), STORMLANDS(0x014634, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(820, 1865, 218)), REACH(0x617646, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(500, 1820, 293)), DORNE(0xF57820, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(717, 2011, 300)), BRAAVOS(0x4A0C0C, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1221, 1351, 137)), VOLANTIS(0x4C3A5F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1553, 1928, 210)), PENTOS(0x13425F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1234, 1566, 172)), NORVOS(0x2D4D2F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1437, 1468, 201)), LORATH(0xE5E5E5, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1379, 1354, 119)), QOHOR(0x053246, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1590, 1594, 214)), MYR(0x3F3F3F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1325, 1797, 223)), LYS(0x3D3023, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1204, 2053, 65)), TYROSH(0x2E2E2E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1110, 1876, 52)), GHISCAR(0xAB7731, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2115, 2180, 347)), QARTH(0x701010, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2750, 2277, 221)), LHAZAR(0x9E4B1E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2510, 1910, 175)), DOTHRAKI(0x77551F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2270, 1670, 600)), IBBEN(0x4E3A26, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(2761, 1052, 252)), JOGOS_NHAI(0x985916, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3369, 1651, 460)), MOSSOVY(0x4B5C42, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4056, 1480, 400)), YI_TI(0xC29033, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3350, 2200, 350)), ASSHAI(0x3C353F, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4098, 2331, 644)), SUMMER_ISLANDS(0x911A17, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(1228, 2716, 310)), SOTHORYOS(0x5E6A18, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(2375, 3540, 1084)), ULTHOS(0x343A2C, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(4100, 3517, 1109)), HOSTILE(true, -1), UNALIGNED(false, 0);
 
 	private final Collection<GOTItemBanner.BannerType> factionBanners = new ArrayList<>();
 	private final List<GOTFactionRank> ranksSortedDescending = new ArrayList<>();
@@ -128,7 +128,7 @@ public enum GOTFaction {
 		GOTFactionRelations.setRelations(ARRYN, NORTH, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(ARRYN, RIVERLANDS, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(ARRYN, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
-		GOTFactionRelations.setRelations(ASSHAI, JOGOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(ASSHAI, JOGOS_NHAI, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(ASSHAI, MOSSOVY, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(ASSHAI, QARTH, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(ASSHAI, ULTHOS, GOTFactionRelations.Relation.FRIEND);
@@ -157,16 +157,16 @@ public enum GOTFaction {
 		GOTFactionRelations.setRelations(GHISCAR, SUMMER_ISLANDS, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(GHISCAR, VOLANTIS, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(IBBEN, DOTHRAKI, GOTFactionRelations.Relation.ENEMY);
-		GOTFactionRelations.setRelations(IBBEN, JOGOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(IBBEN, JOGOS_NHAI, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(IBBEN, LORATH, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(IBBEN, MOSSOVY, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(IBBEN, NORVOS, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(IRONBORN, NORTH, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(IRONBORN, RIVERLANDS, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(IRONBORN, WESTERLANDS, GOTFactionRelations.Relation.FRIEND);
-		GOTFactionRelations.setRelations(JOGOS, DOTHRAKI, GOTFactionRelations.Relation.FRIEND);
-		GOTFactionRelations.setRelations(JOGOS, MOSSOVY, GOTFactionRelations.Relation.ENEMY);
-		GOTFactionRelations.setRelations(JOGOS, YI_TI, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(JOGOS_NHAI, DOTHRAKI, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(JOGOS_NHAI, MOSSOVY, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(JOGOS_NHAI, YI_TI, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(LHAZAR, DOTHRAKI, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(LHAZAR, GHISCAR, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(LORATH, NORVOS, GOTFactionRelations.Relation.FRIEND);
@@ -247,9 +247,9 @@ public enum GOTFaction {
 		IRONBORN.controlZones.add(new GOTControlZone(513, 1102, 348));
 		IRONBORN.controlZones.add(new GOTControlZone(623, 1519, 280));
 		IRONBORN.approvesWarCrimes = true;
-		JOGOS.controlZones.add(new GOTControlZone(3088, 2508, 430));
-		JOGOS.controlZones.add(new GOTControlZone(3809, 1955, 1005));
-		JOGOS.approvesWarCrimes = true;
+		JOGOS_NHAI.controlZones.add(new GOTControlZone(3088, 2508, 430));
+		JOGOS_NHAI.controlZones.add(new GOTControlZone(3809, 1955, 1005));
+		JOGOS_NHAI.approvesWarCrimes = true;
 		LHAZAR.controlZones.add(new GOTControlZone(2507, 2002, 269));
 		LORATH.controlZones.add(new GOTControlZone(1297, 1708, 543));
 		LORATH.controlZones.add(new GOTControlZone(1905, 1307, 112));

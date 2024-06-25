@@ -24,7 +24,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static final GOTBezierType WALL_YITI = new GOTBezierType() {
+	public static final GOTBezierType WALL_YI_TI = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			return new BezierBlock(GOTBlocks.cobblebrick, 0);
@@ -123,7 +123,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static final GOTBezierType TOWN_YITI = new GOTBezierType() {
+	public static final GOTBezierType TOWN_YI_TI = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;

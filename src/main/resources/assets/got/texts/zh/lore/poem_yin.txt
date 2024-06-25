@@ -1,6 +1,6 @@
 ﻿#title:夷都秋
 #author:李卜
-#types:essos,yiti
+#types:essos,yi_ti
 #
 夷地翻红夷都雾,
 剪绿裁枝捻花时.

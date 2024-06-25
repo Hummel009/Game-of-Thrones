@@ -1,6 +1,6 @@
 ﻿#title:Un traité sur la guérison. La fièvre verte
 #author:{choose:Danwintius, Mestre de la Citadelle/Ullio de Volantis/Li Zhou de Yi Ti}
-#types:westeros,essos,yiti
+#types:westeros,essos,yi_ti
 #
 
 La fièvre verte est une maladie qui accueille les voyageurs dans le Green Peck de Sotorios. De droit, cette maladie est considérée comme la plus clémente des Sotorians - on monte en température et on meurt tranquillement, sans angoisse. On ne sait pas s'il s'agit d'une ou de plusieurs maladies ; elles sont toutes guéries par le refroidissement du corps. Mais si le corps est trop refroidi, la personne mourra également ; le moyen sûr de vivre est de s'habituer à l'atmosphère de Sotoriosa. On dit que plus on vit à Sotorios, moins on a de chances d'être infecté - comme le prouve le fait que les Sotorians eux-mêmes ne contractent pas la maladie. La contagion est élevée, car des navires entiers sont infectés par la fièvre.

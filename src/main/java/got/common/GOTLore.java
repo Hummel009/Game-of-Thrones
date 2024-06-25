@@ -373,7 +373,7 @@ public class GOTLore {
 	}
 
 	public enum LoreCategory {
-		WESTEROS("westeros"), ESSOS("essos"), YITI("yiti"), ASSHAI("asshai"), SOTHORYOS("sothoryos"), MOSSOVY("mossovy");
+		WESTEROS("westeros"), ESSOS("essos"), YI_TI("yi_ti"), ASSHAI("asshai"), SOTHORYOS("sothoryos"), MOSSOVY("mossovy");
 
 		private final Collection<GOTLore> loreList = new ArrayList<>();
 		private final String categoryName;

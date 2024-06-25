@@ -373,7 +373,7 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullHillmen;
 	public static GOTAchievement wearFullIbben;
 	public static GOTAchievement wearFullIronborn;
-	public static GOTAchievement wearFullJogos;
+	public static GOTAchievement wearFullJogosNhai;
 	public static GOTAchievement wearFullKingsguard;
 	public static GOTAchievement wearFullLhazar;
 	public static GOTAchievement wearFullLorath;
@@ -407,7 +407,7 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullWestking;
 	public static GOTAchievement wearFullWhiteWalkers;
 	public static GOTAchievement wearFullYiti;
-	public static GOTAchievement wearFullYitiFrontier;
+	public static GOTAchievement wearFullYitiBombardier;
 	public static GOTAchievement wearFullYitiSamurai;
 	public static GOTAchievement brandEntity;
 	public static GOTAchievement smoke;
@@ -918,11 +918,11 @@ public class GOTAchievement {
 		wearFullLhazar = createArmorAchievement(armorId++, GOTItems.lhazarChestplate, "WEAR_FULL_LHAZAR");
 		wearFullDothraki = createArmorAchievement(armorId++, GOTItems.dothrakiChestplate, "WEAR_FULL_DOTHRAKI");
 		wearFullIbben = createArmorAchievement(armorId++, GOTItems.ibbenChestplate, "WEAR_FULL_IBBEN");
-		wearFullJogos = createArmorAchievement(armorId++, GOTItems.jogosChestplate, "WEAR_FULL_JOGOS");
+		wearFullJogosNhai = createArmorAchievement(armorId++, GOTItems.jogosNhaiChestplate, "WEAR_FULL_JOGOS_NHAI");
 		wearFullMossovy = createArmorAchievement(armorId++, GOTItems.mossovyChestplate, "WEAR_FULL_MOSSOVY");
-		wearFullYiti = createArmorAchievement(armorId++, GOTItems.yitiChestplate, "WEAR_FULL_YITI");
-		wearFullYitiFrontier = createArmorAchievement(armorId++, GOTItems.yitiChestplateFrontier, "WEAR_FULL_YITI_FRONTIER");
-		wearFullYitiSamurai = createArmorAchievement(armorId++, GOTItems.yitiChestplateSamurai, "WEAR_FULL_YITI_SAMURAI");
+		wearFullYiti = createArmorAchievement(armorId++, GOTItems.yiTiChestplate, "WEAR_FULL_YI_TI");
+		wearFullYitiBombardier = createArmorAchievement(armorId++, GOTItems.yiTiChestplateBombardier, "WEAR_FULL_YI_TI_BOMBARDIER");
+		wearFullYitiSamurai = createArmorAchievement(armorId++, GOTItems.yiTiChestplateSamurai, "WEAR_FULL_YI_TI_SAMURAI");
 		wearFullAsshai = createArmorAchievement(armorId++, GOTItems.asshaiChestplate, "WEAR_FULL_ASSHAI");
 
 		wearFullSummer = createArmorAchievement(armorId++, GOTItems.summerChestplate, "WEAR_FULL_SUMMER");

@@ -1083,11 +1083,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 		if (this instanceof GOTBiomeYiTi) {
 			spawnableCreatureList.add(new SpawnListEntry(GOTEntityWhiteBison.class, 20, 1, 2));
 			flowers.add(new FlowerEntry(GOTBlocks.marigold, 0, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 0, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 1, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 2, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 3, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 4, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 0, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 1, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 2, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 3, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 4, 10));
 		} else {
 			spawnableCreatureList.add(new SpawnListEntry(GOTEntityBison.class, 20, 1, 2));
 		}
@@ -1118,11 +1118,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 		if (this instanceof GOTBiomeYiTi) {
 			spawnableCreatureList.add(new SpawnListEntry(GOTEntityWhiteBison.class, 10, 1, 2));
 			flowers.add(new FlowerEntry(GOTBlocks.marigold, 0, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 0, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 1, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 2, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 3, 10));
-			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 4, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 0, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 1, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 2, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 3, 10));
+			flowers.add(new FlowerEntry(GOTBlocks.yiTiFlower, 4, 10));
 		} else {
 			spawnableCreatureList.add(new SpawnListEntry(GOTEntityBison.class, 10, 1, 2));
 		}

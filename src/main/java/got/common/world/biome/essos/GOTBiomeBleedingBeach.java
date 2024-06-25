@@ -27,7 +27,7 @@ public class GOTBiomeBleedingBeach extends GOTBiomeOcean {
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YITI;
+		return GOTBezierType.WALL_YI_TI;
 	}
 
 	@Override

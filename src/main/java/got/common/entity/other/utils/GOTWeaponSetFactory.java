@@ -18,7 +18,7 @@ public class GOTWeaponSetFactory {
 	private static final Map<Item, Integer> SOTHORYOS_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> SUMMER_WEAPON_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> NOMAD_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> YITI_WEAPON_PERCENTS = new HashMap<>();
+	private static final Map<Item, Integer> YI_TI_WEAPON_PERCENTS = new HashMap<>();
 
 	static {
 		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosSword, 50);
@@ -58,10 +58,10 @@ public class GOTWeaponSetFactory {
 		NOMAD_WEAPON_PERCENTS.put(GOTItems.nomadSword, 70);
 		NOMAD_WEAPON_PERCENTS.put(GOTItems.nomadBattleaxe, 30);
 
-		YITI_WEAPON_PERCENTS.put(GOTItems.yitiBattleaxe, 40);
-		YITI_WEAPON_PERCENTS.put(GOTItems.yitiPike, 30);
-		YITI_WEAPON_PERCENTS.put(GOTItems.yitiPolearm, 30);
-		YITI_WEAPON_PERCENTS.put(GOTItems.yitiSword, 30);
+		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiBattleaxe, 40);
+		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiPike, 30);
+		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiPolearm, 30);
+		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiSword, 30);
 	}
 
 	private GOTWeaponSetFactory() {
@@ -78,8 +78,8 @@ public class GOTWeaponSetFactory {
 	public static void setupYiTiWeaponSet(GOTEntityNPC npc, Random rand) {
 		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
 
-		setupRandomWeapon(rand, YITI_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.yitiSpear);
+		setupRandomWeapon(rand, YI_TI_WEAPON_PERCENTS, npcItemsInv);
+		setupSpearWithChance(rand, npcItemsInv, GOTItems.yiTiSpear);
 		setupIdleItems(npcItemsInv);
 	}
 

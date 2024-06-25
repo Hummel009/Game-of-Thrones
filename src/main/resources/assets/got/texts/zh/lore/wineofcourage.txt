@@ -1,6 +1,6 @@
 ﻿#title:尝尝勇气之酒
 #author:阿斯塔波的犁派
-#types:essos,yiti
+#types:essos,yi_ti
 #
 情绪低落?渴望能量?来点
 劲爆的能量如何?

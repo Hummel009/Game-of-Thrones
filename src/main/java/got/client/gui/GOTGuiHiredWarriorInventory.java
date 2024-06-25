@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
+import got.common.entity.essos.yi_ti.GOTEntityYiTiBombardier;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.inventory.GOTContainerHiredWarriorInventory;
 import net.minecraft.client.gui.inventory.GuiContainer;

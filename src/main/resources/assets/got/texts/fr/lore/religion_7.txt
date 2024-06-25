@@ -1,6 +1,6 @@
 ﻿#title:Lion de la nuit
 #author:Yandel, Mestre de la Citadelle
-#types:yiti
+#types:yi_ti
 #
 Le Lion de la nuit est l'un des nombreux dieux vénérés à Yi Tee. C'est un dieu redoutable associé à la mort et à la destruction. Les Ithians le considèrent comme l'époux de la Vierge de la Lumière et le père du Dieu-sur-Terre, le légendaire premier empereur de l'Empire de la Grande Aurore. Pendant la Longue Nuit, il est apparu sur terre dans toute sa colère, apportant le châtiment aux hommes mauvais. La légende veut que les Cinq Forts servent précisément à les protéger du Lion de la Nuit. 
 

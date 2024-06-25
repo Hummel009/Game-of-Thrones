@@ -1,0 +1,12 @@
+﻿#title:Golden Empire
+#author:Li Zhong
+#types:yi_ti
+#
+
+Yi Ti, Essos kıtasının uzak doğusunda bir bölgedir. Resmi olarak "Yi Ti'nin Altın İmparatorluğu" olarak bilinen, bilinen dünyanın doğu sınırlarına yakın bir yerde bulunur ve bazen Asshai ile aynı nefeste bahsedilir, bu da Westeros'a olan aşırı uzaklığını gösterir. Qarth, Yeşim Denizi'nin batı ucundaki dar boğazlarda yer alır ve Yi Ti, bu denizin kuzeydoğu kıyılarında yer alır. Yi Ti ve Asshai'den gelen ticaret gemileri, ticaret yapmak için düzenli olarak Qarth'ı ziyaret eder.
+
+Yi Ti, bilinen dünyanın en eski ve en gelişmiş toplumlarından biridir. Valyrialılar hâlâ çoban olduklarında ve henüz ejderhaları eğitmediklerinde (5.000 yıldan fazla bir süre önce); Yi Ti'deki yıkılmış şehirlerin kalıntıları bile Westeros'taki en büyük şehirleri gölgede bırakıyor. Nadir baharatlar, mücevherler ve ipekler gibi birçok değerli mal Yi Ti'de bulunur ve bu da bölgeyi inanılmaz derecede zengin yapar; Prenslerinin som altından evlerde zengin bir şekilde yaşadığı, inci ve yeşimle toz haline getirilmiş etle ziyafet çektikleri söylenir - eğer hikayelere inanılırsa..
+
+Ghiscari İmparatorluğu ve Valyrian Özgür Halkı gibi Essos'un diğer eski uygarlıklarının aksine, Yi Ti asla iç istikrarsızlıktan dolayı çökmedi. Ne de dış güçler tarafından fethedildi. Böylece Yi Tish kültürü, kayıtlara geçmiş diğer tüm uygarlıklardan daha uzun süre bozulmadan dayanmıştır.
+
+Yi Ti'nin dini birkaç tanrı içerir, ancak iki ana tanrıya odaklanır: Işıktan yapılmış Bakire ve Gece Aslanı.

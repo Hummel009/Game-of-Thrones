@@ -10,7 +10,7 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
-import got.common.world.structure.essos.yiti.GOTStructureYiTiSettlement;
+import got.common.world.structure.essos.yi_ti.GOTStructureYiTiSettlement;
 import got.common.world.structure.other.GOTStructureBurntHouse;
 import got.common.world.structure.other.GOTStructureRottenHouse;
 import got.common.world.structure.other.GOTStructureRuinedHouse;
@@ -42,13 +42,13 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addSettlement(new GOTStructureYiTiSettlement(this, 1.0f));
-		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.JOGOS_NHAI, GOTEventSpawner.EventChance.UNCOMMON);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 1).setSpawnChance(SPAWN));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 9).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_CONQUEST, 1).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_MILITARY, 9).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(8).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_NHAI_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(CONQUEST_SPAWN / 4));
@@ -72,6 +72,6 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YITI;
+		return GOTBezierType.WALL_YI_TI;
 	}
 }

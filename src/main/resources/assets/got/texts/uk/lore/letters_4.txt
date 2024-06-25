@@ -1,6 +1,6 @@
 ﻿#title:Лист Ляо Яну
 #author:Хуан Чан
-#types:yiti
+#types:yi_ti
 #
 "Дорогий Ляо Яне!
 

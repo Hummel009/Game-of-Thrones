@@ -1,6 +1,6 @@
 ﻿#title:Eglise de la Sagesse Stellaire
 #author:Yandel, mestre de la Citadelle
-#types:yiti
+#types:yi_ti
 #
 L'Église de la Sagesse Stellaire est une religion sinistre dont les adhérents se trouvent dans de nombreuses villes portuaires du monde entier. Apparemment, il est basé sur le culte d'une pierre tombée du ciel. Sa création est attribuée par beaucoup à l'Empereur du Jaspe Sanglant.
 

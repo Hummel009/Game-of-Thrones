@@ -143,9 +143,9 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 		}
 	}
 
-	public static class Jogos extends GOTGuiCraftingTable {
-		public Jogos(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(new GOTContainerCraftingTable.Jogos(inv, world, i, j, k), "jogos");
+	public static class JogosNhai extends GOTGuiCraftingTable {
+		public JogosNhai(InventoryPlayer inv, World world, int i, int j, int k) {
+			super(new GOTContainerCraftingTable.JogosNhai(inv, world, i, j, k), "jogos_nhai");
 		}
 	}
 
@@ -265,7 +265,7 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 
 	public static class YiTi extends GOTGuiCraftingTable {
 		public YiTi(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(new GOTContainerCraftingTable.YiTi(inv, world, i, j, k), "yiti");
+			super(new GOTContainerCraftingTable.YiTi(inv, world, i, j, k), "yi_ti");
 		}
 	}
 }

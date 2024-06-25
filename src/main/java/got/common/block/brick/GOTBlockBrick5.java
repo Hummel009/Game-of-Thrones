@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GOTBlockBrick5 extends GOTBlockBrickBase {
 	public GOTBlockBrick5() {
-		brickNames = new String[]{"mud", "mud", "mud", "rhyolite_carved", "mud", "mud", "mud", "mud", "mud", "mud", "mud", "yiti", "yiti_carved", "yiti_mossy", "yiti_cracked", "yiti_flowers"};
+		brickNames = new String[]{"mud", "mud", "mud", "rhyolite_carved", "mud", "mud", "mud", "mud", "mud", "mud", "mud", "yi_ti", "yi_ti_carved", "yi_ti_mossy", "yi_ti_cracked", "yi_ti_flowers"};
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -495,7 +495,7 @@ public class GOTBlocks {
 	public static Block tableHillTribes;
 	public static Block tableIbben;
 	public static Block tableIronborn;
-	public static Block tableJogos;
+	public static Block tableJogosNhai;
 	public static Block tableLhazar;
 	public static Block tableLorath;
 	public static Block tableLys;
@@ -621,7 +621,7 @@ public class GOTBlocks {
 	public static Block woodSlabSingle4;
 	public static Block woodSlabSingle5;
 	public static Block yamCrop;
-	public static Block yitiFlower;
+	public static Block yiTiFlower;
 
 	private GOTBlocks() {
 	}
@@ -1089,7 +1089,7 @@ public class GOTBlocks {
 		tableHillTribes = new GOTBlockTableHillTribes();
 		tableIbben = new GOTBlockTableIbben();
 		tableIronborn = new GOTBlockTableIronborn();
-		tableJogos = new GOTBlockTableJogos();
+		tableJogosNhai = new GOTBlockTableJogosNhai();
 		tableLhazar = new GOTBlockTableLhazar();
 		tableLorath = new GOTBlockTableLorath();
 		tableLys = new GOTBlockTableLys();
@@ -1213,7 +1213,7 @@ public class GOTBlocks {
 		woodSlabSingle4 = new GOTBlockWoodSlab4(false);
 		woodSlabSingle5 = new GOTBlockWoodSlab5(false);
 		yamCrop = new GOTBlockYamCrop();
-		yitiFlower = new GOTBlockYiTiFlower();
+		yiTiFlower = new GOTBlockYiTiFlower();
 	}
 
 	public static void onInit() {
@@ -1663,7 +1663,7 @@ public class GOTBlocks {
 		register(reeds, "reeds", GOTItemReeds.class);
 		register(tallGrass, "tallGrass", GOTItemTallGrass.class);
 		register(willowVines, "willowVines", GOTItemVine.class);
-		register(yitiFlower, "yitiFlower", GOTItemBlockMetadata.class);
+		register(yiTiFlower, "yiTiFlower", GOTItemBlockMetadata.class);
 
 		register(treasureCopper, "treasureCopper", GOTItemTreasurePile.class);
 		register(treasureSilver, "treasureSilver", GOTItemTreasurePile.class);
@@ -1848,7 +1848,7 @@ public class GOTBlocks {
 		register(tableDothraki, "tableDothraki");
 
 		register(tableIbben, "tableIbben");
-		register(tableJogos, "tableJogos");
+		register(tableJogosNhai, "tableJogosNhai");
 		register(tableMossovy, "tableMossovy");
 		register(tableYiTi, "tableYiTi");
 		register(tableAsshai, "tableAsshai");

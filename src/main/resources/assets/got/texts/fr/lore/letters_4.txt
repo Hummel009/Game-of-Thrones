@@ -1,6 +1,6 @@
 ﻿#title:Lettre à Liao Yan
 #author:Huang Chang
-#types:yiti
+#types:yi_ti
 #
 "Cher Liao Yan !
 

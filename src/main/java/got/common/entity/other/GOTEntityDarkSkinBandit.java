@@ -47,7 +47,7 @@ public class GOTEntityDarkSkinBandit extends GOTEntityBanditBase {
 				familyInfo.setName(GOTNames.getLhazarName(rand, true));
 				break;
 			case 2:
-				familyInfo.setName(GOTNames.getJogosName(rand, true));
+				familyInfo.setName(GOTNames.getJogosNhaiName(rand, true));
 				break;
 			case 3:
 				familyInfo.setName(GOTNames.getDothrakiName(rand, true));

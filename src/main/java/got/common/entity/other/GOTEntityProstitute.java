@@ -87,11 +87,11 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 				break;
 			case 4:
 				name = GOTNames.getYiTiName(rand, familyInfo.isMale());
-				prostituteType = ProstituteType.YITI;
+				prostituteType = ProstituteType.YI_TI;
 				break;
 			case 5:
-				name = GOTNames.getJogosName(rand, familyInfo.isMale());
-				prostituteType = ProstituteType.JOGOS;
+				name = GOTNames.getJogosNhaiName(rand, familyInfo.isMale());
+				prostituteType = ProstituteType.JOGOS_NHAI;
 				break;
 			default:
 				switch (rand.nextInt(3)) {
@@ -134,7 +134,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	}
 
 	public enum ProstituteType {
-		LIGHT_1(0), LIGHT_2(1), LIGHT_3(2), LIGHT_4(3), LIGHT_5(4), DARK(5), BLACK(6), NOMAD(7), YITI(8), JOGOS(9), WILD(10);
+		LIGHT_1(0), LIGHT_2(1), LIGHT_3(2), LIGHT_4(3), LIGHT_5(4), DARK(5), BLACK(6), NOMAD(7), YI_TI(8), JOGOS_NHAI(9), WILD(10);
 
 		private final int prostituteID;
 

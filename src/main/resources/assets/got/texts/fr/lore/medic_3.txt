@@ -1,6 +1,6 @@
 ﻿#title:Un traité sur la guérison. Le sang bout.
 #author:{choose:Danwintius, Mestre de la Citadelle/Ullio de Volantis/Li Zhou de Yi Ti}
-#types:westeros,essos,yiti
+#types:westeros,essos,yi_ti
 #
 
 Les furoncles sanguins sont un fléau qui accueille les voyageurs dans le Green Peck de Sotorios. Des poches de pus sanguinolentes apparaissent sur le corps, qui éclatent, et la personne meurt par perte de sang. On ne sait pas s'il s'agit d'une seule ou de plusieurs maladies ; en tout cas, il n'y a pas de remède. Le seul moyen de survivre est de ne pas la contracter ; on dit que plus on vit à Sotoriosa, moins on a de chances d'être infecté, comme le prouve le fait que les Sotorians eux-mêmes ne contractent pas la maladie. La contagiosité est inconnue, car toutes les personnes infectées meurent dans les 1 à 2 jours avant de quitter Sotorios.

@@ -292,10 +292,10 @@ public class GOTItems {
 	public static Item ironbornLeggings;
 	public static Item jaimeSword;
 	public static Item joffreyCrossbow;
-	public static Item jogosBoots;
-	public static Item jogosChestplate;
-	public static Item jogosHelmet;
-	public static Item jogosLeggings;
+	public static Item jogosNhaiBoots;
+	public static Item jogosNhaiChestplate;
+	public static Item jogosNhaiHelmet;
+	public static Item jogosNhaiLeggings;
 	public static Item justMaid;
 	public static Item kaftanChestplate;
 	public static Item kaftanLeggings;
@@ -660,29 +660,29 @@ public class GOTItems {
 	public static Item wineGlass;
 	public static Item yam;
 	public static Item yamRoast;
-	public static Item yitiBattleaxe;
-	public static Item yitiBoots;
-	public static Item yitiBootsFrontier;
-	public static Item yitiBootsSamurai;
-	public static Item yitiBow;
-	public static Item yitiChestplate;
-	public static Item yitiChestplateFrontier;
-	public static Item yitiChestplateSamurai;
-	public static Item yitiDagger;
-	public static Item yitiDaggerPoisoned;
-	public static Item yitiHelmet;
-	public static Item yitiHelmetFrontier;
-	public static Item yitiHelmetSamurai;
-	public static Item yitiHelmetShogune;
-	public static Item yitiHorseArmor;
-	public static Item yitiLeggings;
-	public static Item yitiLeggingsFrontier;
-	public static Item yitiLeggingsSamurai;
-	public static Item yitiPike;
-	public static Item yitiPolearm;
-	public static Item yitiSpear;
-	public static Item yitiSteelIngot;
-	public static Item yitiSword;
+	public static Item yiTiBattleaxe;
+	public static Item yiTiBoots;
+	public static Item yiTiBootsBombardier;
+	public static Item yiTiBootsSamurai;
+	public static Item yiTiBow;
+	public static Item yiTiChestplate;
+	public static Item yiTiChestplateBombardier;
+	public static Item yiTiChestplateSamurai;
+	public static Item yiTiDagger;
+	public static Item yiTiDaggerPoisoned;
+	public static Item yiTiHelmet;
+	public static Item yiTiHelmetBombardier;
+	public static Item yiTiHelmetSamurai;
+	public static Item yiTiHelmetShogune;
+	public static Item yiTiHorseArmor;
+	public static Item yiTiLeggings;
+	public static Item yiTiLeggingsBombardier;
+	public static Item yiTiLeggingsSamurai;
+	public static Item yiTiPike;
+	public static Item yiTiPolearm;
+	public static Item yiTiSpear;
+	public static Item yiTiSteelIngot;
+	public static Item yiTiSword;
 	public static Item zebraCooked;
 	public static Item zebraRaw;
 
@@ -909,16 +909,16 @@ public class GOTItems {
 		gobletGold = new GOTItemVessel();
 		gobletSilver = new GOTItemVessel();
 		gobletWood = new GOTItemVessel();
-		goldenCompanyBoots = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 3);
-		goldenCompanyChestplate = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 1);
-		goldenCompanyHelmet = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 0);
+		goldenCompanyBoots = new GOTItemArmor(GOTMaterial.GOLDEN_COMPANY, 3);
+		goldenCompanyChestplate = new GOTItemArmor(GOTMaterial.GOLDEN_COMPANY, 1);
+		goldenCompanyHelmet = new GOTItemArmor(GOTMaterial.GOLDEN_COMPANY, 0);
 		goldHorseArmor = new GOTItemMountArmor(ItemArmor.ArmorMaterial.GOLD, GOTItemMountArmor.Mount.HORSE, null).setTemplateItem(Items.golden_horse_armor);
-		goldenCompanyLeggings = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 2);
+		goldenCompanyLeggings = new GOTItemArmor(GOTMaterial.GOLDEN_COMPANY, 2);
 		goldRing = new GOTItemRing();
 		grapeRed = new GOTItemFood(2, 0.2f, false);
 		grapeWhite = new GOTItemFood(2, 0.2f, false);
 		gregorCleganeSword = new GOTItemLegendaryGreatsword(Item.ToolMaterial.IRON);
-		handGold = new GOTItemArmor(GOTMaterial.HAND, 1, "gold").setCreativeTab(GOTCreativeTabs.TAB_STORY);
+		handGold = new GOTItemArmor(GOTMaterial.HAND, 1, "golden_company").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		handSilver = new GOTItemArmor(GOTMaterial.HAND, 1, "silver").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		harpy = new GOTItemArmor(GOTMaterial.GHISCAR, 0, "harpy");
 		hearteater = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
@@ -954,10 +954,10 @@ public class GOTItems {
 		ironbornLeggings = new GOTItemArmor(GOTMaterial.IRONBORN, 2);
 		jaimeSword = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
 		joffreyCrossbow = new GOTItemLegendaryCrossbow();
-		jogosBoots = new GOTItemArmor(GOTMaterial.JOGOS, 3);
-		jogosChestplate = new GOTItemArmor(GOTMaterial.JOGOS, 1);
-		jogosHelmet = new GOTItemArmor(GOTMaterial.JOGOS, 0);
-		jogosLeggings = new GOTItemArmor(GOTMaterial.JOGOS, 2);
+		jogosNhaiBoots = new GOTItemArmor(GOTMaterial.JOGOS_NHAI, 3);
+		jogosNhaiChestplate = new GOTItemArmor(GOTMaterial.JOGOS_NHAI, 1);
+		jogosNhaiHelmet = new GOTItemArmor(GOTMaterial.JOGOS_NHAI, 0);
+		jogosNhaiLeggings = new GOTItemArmor(GOTMaterial.JOGOS_NHAI, 2);
 		justMaid = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		kaftanChestplate = new GOTItemKaftan(1);
 		kaftanLeggings = new GOTItemKaftan(2);
@@ -1325,29 +1325,29 @@ public class GOTItems {
 		wineGlass = new GOTItemVessel();
 		yam = new ItemSeedFood(1, 0.4f, GOTBlocks.yamCrop, Blocks.farmland).setPotionEffect(Potion.hunger.id, 15, 0, 0.4f);
 		yamRoast = new GOTItemFood(6, 0.6f, false);
-		yitiBattleaxe = new GOTItemBattleaxe(Item.ToolMaterial.IRON);
-		yitiBoots = new GOTItemArmor(GOTMaterial.YITI, 3);
-		yitiBootsFrontier = new GOTItemArmor(GOTMaterial.YITI_FRONTIER, 3);
-		yitiBootsSamurai = new GOTItemArmor(GOTMaterial.YITI_SAMURAI, 3);
-		yitiBow = new GOTItemBow(Item.ToolMaterial.WOOD).setDrawTime(16);
-		yitiChestplate = new GOTItemArmor(GOTMaterial.YITI, 1);
-		yitiChestplateFrontier = new GOTItemArmor(GOTMaterial.YITI_FRONTIER, 1);
-		yitiChestplateSamurai = new GOTItemArmor(GOTMaterial.YITI_SAMURAI, 1);
-		yitiDagger = new GOTItemDagger(Item.ToolMaterial.IRON);
-		yitiDaggerPoisoned = new GOTItemDagger(Item.ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
-		yitiHelmet = new GOTItemArmor(GOTMaterial.YITI, 0);
-		yitiHelmetFrontier = new GOTItemArmor(GOTMaterial.YITI_FRONTIER, 0);
-		yitiHelmetSamurai = new GOTItemArmor(GOTMaterial.YITI_SAMURAI, 0, "helmet");
-		yitiHelmetShogune = new GOTItemArmor(GOTMaterial.YITI_SAMURAI, 0, "warlordHelmet");
-		yitiHorseArmor = new GOTItemMountArmor(ItemArmor.ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, "horse_yiti");
-		yitiLeggings = new GOTItemArmor(GOTMaterial.YITI, 2);
-		yitiLeggingsFrontier = new GOTItemArmor(GOTMaterial.YITI_FRONTIER, 2);
-		yitiLeggingsSamurai = new GOTItemArmor(GOTMaterial.YITI_SAMURAI, 2);
-		yitiPike = new GOTItemPike(Item.ToolMaterial.IRON);
-		yitiPolearm = new GOTItemPolearm(Item.ToolMaterial.IRON);
-		yitiSpear = new GOTItemSpear(Item.ToolMaterial.IRON);
-		yitiSteelIngot = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		yitiSword = new GOTItemSword(Item.ToolMaterial.IRON);
+		yiTiBattleaxe = new GOTItemBattleaxe(Item.ToolMaterial.IRON);
+		yiTiBoots = new GOTItemArmor(GOTMaterial.YI_TI, 3);
+		yiTiBootsBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 3);
+		yiTiBootsSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 3);
+		yiTiBow = new GOTItemBow(Item.ToolMaterial.WOOD).setDrawTime(16);
+		yiTiChestplate = new GOTItemArmor(GOTMaterial.YI_TI, 1);
+		yiTiChestplateBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 1);
+		yiTiChestplateSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 1);
+		yiTiDagger = new GOTItemDagger(Item.ToolMaterial.IRON);
+		yiTiDaggerPoisoned = new GOTItemDagger(Item.ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
+		yiTiHelmet = new GOTItemArmor(GOTMaterial.YI_TI, 0);
+		yiTiHelmetBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 0);
+		yiTiHelmetSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "helmet");
+		yiTiHelmetShogune = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "warlordHelmet");
+		yiTiHorseArmor = new GOTItemMountArmor(ItemArmor.ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, "horse_yi_ti");
+		yiTiLeggings = new GOTItemArmor(GOTMaterial.YI_TI, 2);
+		yiTiLeggingsBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 2);
+		yiTiLeggingsSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 2);
+		yiTiPike = new GOTItemPike(Item.ToolMaterial.IRON);
+		yiTiPolearm = new GOTItemPolearm(Item.ToolMaterial.IRON);
+		yiTiSpear = new GOTItemSpear(Item.ToolMaterial.IRON);
+		yiTiSteelIngot = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		yiTiSword = new GOTItemSword(Item.ToolMaterial.IRON);
 		zebraCooked = new GOTItemFood(6, 0.6f, true);
 		zebraRaw = new GOTItemFood(2, 0.1f, true);
 	}
@@ -1460,14 +1460,14 @@ public class GOTItems {
 		register(mossovyDagger, "mossovyDagger");
 		register(mossovySword, "mossovySword");
 
-		register(yitiBattleaxe, "yitiBattleaxe");
-		register(yitiBow, "yitiBow");
-		register(yitiDagger, "yitiDagger");
-		register(yitiDaggerPoisoned, "yitiDaggerPoisoned");
-		register(yitiPike, "yitiPike");
-		register(yitiPolearm, "yitiPolearm");
-		register(yitiSpear, "yitiSpear");
-		register(yitiSword, "yitiSword");
+		register(yiTiBattleaxe, "yiTiBattleaxe");
+		register(yiTiBow, "yiTiBow");
+		register(yiTiDagger, "yiTiDagger");
+		register(yiTiDaggerPoisoned, "yiTiDaggerPoisoned");
+		register(yiTiPike, "yiTiPike");
+		register(yiTiPolearm, "yiTiPolearm");
+		register(yiTiSpear, "yiTiSpear");
+		register(yiTiSword, "yiTiSword");
 
 		register(asshaiShadowbinderStaff, "asshaiShadowbinderStaff");
 		register(asshaiBattleaxe, "asshaiBattleaxe");
@@ -1506,7 +1506,7 @@ public class GOTItems {
 		register(westerosHorseArmor, "westerosHorseArmor");
 		register(essosHorseArmor, "essosHorseArmor");
 		register(dothrakiHorseArmor, "dothrakiHorseArmor");
-		register(yitiHorseArmor, "yitiHorseArmor");
+		register(yiTiHorseArmor, "yiTiHorseArmor");
 
 		register(rhinoArmor, "rhinoArmor");
 
@@ -1719,31 +1719,31 @@ public class GOTItems {
 		register(ibbenLeggings, "ibbenLeggings");
 		register(ibbenBoots, "ibbenBoots");
 
-		register(jogosHelmet, "jogosHelmet");
-		register(jogosChestplate, "jogosChestplate");
-		register(jogosLeggings, "jogosLeggings");
-		register(jogosBoots, "jogosBoots");
+		register(jogosNhaiHelmet, "jogosNhaiHelmet");
+		register(jogosNhaiChestplate, "jogosNhaiChestplate");
+		register(jogosNhaiLeggings, "jogosNhaiLeggings");
+		register(jogosNhaiBoots, "jogosNhaiBoots");
 
 		register(mossovyChestplate, "mossovyChestplate");
 		register(mossovyLeggings, "mossovyLeggings");
 		register(mossovyBoots, "mossovyBoots");
 
-		register(yitiHelmet, "yitiHelmet");
-		register(yitiChestplate, "yitiChestplate");
-		register(yitiLeggings, "yitiLeggings");
-		register(yitiBoots, "yitiBoots");
+		register(yiTiHelmet, "yiTiHelmet");
+		register(yiTiChestplate, "yiTiChestplate");
+		register(yiTiLeggings, "yiTiLeggings");
+		register(yiTiBoots, "yiTiBoots");
 
-		register(yitiHelmetFrontier, "yitiHelmetFrontier");
-		register(yitiChestplateFrontier, "yitiChestplateFrontier");
-		register(yitiLeggingsFrontier, "yitiLeggingsFrontier");
-		register(yitiBootsFrontier, "yitiBootsFrontier");
+		register(yiTiHelmetBombardier, "yiTiHelmetBombardier");
+		register(yiTiChestplateBombardier, "yiTiChestplateBombardier");
+		register(yiTiLeggingsBombardier, "yiTiLeggingsBombardier");
+		register(yiTiBootsBombardier, "yiTiBootsBombardier");
 
-		register(yitiHelmetSamurai, "yitiHelmetSamurai");
-		register(yitiChestplateSamurai, "yitiChestplateSamurai");
-		register(yitiLeggingsSamurai, "yitiLeggingsSamurai");
-		register(yitiBootsSamurai, "yitiBootsSamurai");
+		register(yiTiHelmetSamurai, "yiTiHelmetSamurai");
+		register(yiTiChestplateSamurai, "yiTiChestplateSamurai");
+		register(yiTiLeggingsSamurai, "yiTiLeggingsSamurai");
+		register(yiTiBootsSamurai, "yiTiBootsSamurai");
 
-		register(yitiHelmetShogune, "yitiHelmetShogune");
+		register(yiTiHelmetShogune, "yiTiHelmetShogune");
 
 		register(asshaiHelmet, "asshaiHelmet");
 		register(asshaiChestplate, "asshaiChestplate");
@@ -1965,7 +1965,7 @@ public class GOTItems {
 		register(silverIngot, "silverIngot");
 		register(valyrianIngot, "valyrianIngot");
 
-		register(yitiSteelIngot, "yitiSteelIngot");
+		register(yiTiSteelIngot, "yiTiSteelIngot");
 
 		register(alloySteelNugget, "alloySteelNugget");
 		register(bronzeNugget, "bronzeNugget");

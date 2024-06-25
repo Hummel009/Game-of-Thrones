@@ -36,7 +36,7 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 
 	@Override
 	public GOTFaction getFaction() {
-		return GOTFaction.JOGOS;
+		return GOTFaction.JOGOS_NHAI;
 	}
 
 	@Override

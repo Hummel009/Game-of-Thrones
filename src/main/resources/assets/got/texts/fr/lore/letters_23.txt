@@ -1,6 +1,6 @@
 ﻿#title:Scénario pour "Le Septième Samouraï"
 #author:Unknown
-#types:yiti
+#types:yi_ti
 #
 Acte V : Scène III
 Nakamoro commande les samouraïs dans une bataille acharnée contre les voleurs...

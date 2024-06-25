@@ -7,7 +7,7 @@ import got.GOT;
 import got.common.command.GOTCommandAdminHideMap;
 import got.common.database.*;
 import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.essos.gold.GOTEntityGoldenCompanyMan;
+import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.*;
 import got.common.fellowship.*;

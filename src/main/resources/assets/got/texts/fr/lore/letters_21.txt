@@ -1,6 +1,6 @@
 ﻿#title:Lettre d'accueil
 #author:Reisei Sadakane
-#types:yiti
+#types:yi_ti
 #
 A mon estimé père
 

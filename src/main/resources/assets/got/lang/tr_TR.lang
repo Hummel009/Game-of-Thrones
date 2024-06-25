@@ -343,11 +343,11 @@ entity.got.JaqenHghar.name≠Jaqen H'Ghar
 entity.got.JasonMallister.name≠Jason Mallister
 entity.got.JeorMormont.name≠Jeor Mormont
 entity.got.JoffreyBaratheon.name≠Joffrey Baratheon
-entity.got.Jogos.name≠Jogos Nhai Nomad
-entity.got.JogosArcher.name≠Jogos Nhai Archer
-entity.got.JogosBannerBearer.name≠Jogos Nhai Banner Bearer
-entity.got.JogosChieftain.name≠Jogos Nhai Chieftain
-entity.got.JogosShaman.name≠Jogos Nhai Shaman
+entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
+entity.got.JogosNhaiArcher.name≠Jogos Nhai Archer
+entity.got.JogosNhaiBannerBearer.name≠Jogos Nhai Banner Bearer
+entity.got.JogosNhaiChieftain.name≠Jogos Nhai Chieftain
+entity.got.JogosNhaiShaman.name≠Jogos Nhai Shaman
 entity.got.JohnUmber.name≠John Umber
 entity.got.JonConnington.name≠Jon Connington
 entity.got.JonSnowLife1.name≠Jon Snow
@@ -872,11 +872,9 @@ entity.got.YiTiButcher.name≠Yi Ti Butcher
 entity.got.YiTiCaptain.name≠Yi Ti Shogun
 entity.got.YiTiFarmer.name≠Yi Ti Farmer
 entity.got.YiTiFarmhand.name≠Yi Ti Farmhand
-entity.got.YiTiFireThrower.name≠Yi Ti Fire-Priest
+entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiFishmonger.name≠Yi Ti Fishmonger
 entity.got.YiTiFlorist.name≠Yi Ti Florist
-entity.got.YiTiFrontier.name≠Yi Ti Frontier
-entity.got.YiTiFrontierCrossbower.name≠Yi Ti Frontier Crossbower
 entity.got.YiTiGoldsmith.name≠Yi Ti Goldsmith
 entity.got.YiTiHunter.name≠Yi Ti Hunter
 entity.got.YiTiLevyman.name≠Yi Ti Levyman
@@ -886,9 +884,7 @@ entity.got.YiTiMan.name≠Yi Ti Man
 entity.got.YiTiMason.name≠Yi Ti Mason
 entity.got.YiTiMiner.name≠Yi Ti Miner
 entity.got.YiTiSamurai.name≠Yi Ti Samurai
-entity.got.YiTiSamuraiBannerBearer.name≠Yi Ti Samurai Banner Bearer
 entity.got.YiTiSoldier.name≠Yi Ti Soldier
-entity.got.YiTiSoldierBannerBearer.name≠Yi Ti Soldier Banner Bearer
 entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name≠Yohn Royce
 entity.got.Yoren.name≠Yoren
@@ -1610,8 +1606,8 @@ got.achievement.WEAR_FULL_IBBEN.desc=Tam Ibben takımı giyin
 got.achievement.WEAR_FULL_IBBEN.title=Uyuyor gibi görünüyor...
 got.achievement.WEAR_FULL_IRONBORN.desc=Demir Adalar tam setini giyin
 got.achievement.WEAR_FULL_IRONBORN.title=Demir Adalar Muhafız
-got.achievement.WEAR_FULL_JOGOS.desc=Jogos Nhai'nin tam setini giyin
-got.achievement.WEAR_FULL_JOGOS.title=Doğu Ordası
+got.achievement.WEAR_FULL_JOGOS_NHAI.desc=Jogos Nhai'nin tam setini giyin
+got.achievement.WEAR_FULL_JOGOS_NHAI.title=Doğu Ordası
 got.achievement.WEAR_FULL_KINGSGUARD.desc=Kingsguard setinin tamamını giyin
 got.achievement.WEAR_FULL_KINGSGUARD.title=Kralım çok yaşa!
 got.achievement.WEAR_FULL_LHAZAR.desc=Lhazar'ın tam setini giyin
@@ -1678,12 +1674,12 @@ got.achievement.WEAR_FULL_WESTKING.desc=Batı krallarının tam setini giyin
 got.achievement.WEAR_FULL_WESTKING.title=Batı Kralı
 got.achievement.WEAR_FULL_WHITE_WALKERS.desc=Beyaz Yürüteçlerin tam setini giyin
 got.achievement.WEAR_FULL_WHITE_WALKERS.title=Nane Yörüngesi
-got.achievement.WEAR_FULL_YITI.desc=Yi Ti'nin tam setini giyin
-got.achievement.WEAR_FULL_YITI.title=Yi Ti'nin Muhafız
-got.achievement.WEAR_FULL_YITI_FRONTIER.desc=Yi Ti sınırlarının tamamını giyin
-got.achievement.WEAR_FULL_YITI_FRONTIER.title=Kişi sadece Yi Ti'ye girmez
-got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Yi Ti Samuray'ın tam setini giyin
-got.achievement.WEAR_FULL_YITI_SAMURAI.title=Yi Ti Samuray
+got.achievement.WEAR_FULL_YI_TI.desc=Yi Ti'nin tam setini giyin
+got.achievement.WEAR_FULL_YI_TI.title=Yi Ti'nin Muhafız
+got.achievement.WEAR_FULL_YI_TI_BOMBARDIER.desc=Yi Ti sınırlarının tamamını giyin
+got.achievement.WEAR_FULL_YI_TI_BOMBARDIER.title=Kişi sadece Yi Ti'ye girmez
+got.achievement.WEAR_FULL_YI_TI_SAMURAI.desc=Yi Ti Samuray'ın tam setini giyin
+got.achievement.WEAR_FULL_YI_TI_SAMURAI.title=Yi Ti Samuray
 got.achievement.category.ENTER=Biyomlar
 got.achievement.category.GENERAL=Genel
 got.achievement.category.KILL=öldürür
@@ -1932,9 +1928,9 @@ got.capes.TYROSH.name=Tiroş Burnu
 got.capes.UNSULLIED.name=Lekesiz Burnu
 got.capes.VOLANTIS.name=Volantis Burnu
 got.capes.WESTERLANDS.name=Batı Toprakları Burnu
-got.capes.YITI.name=Yi Ti Burnu
-got.capes.YITI_FRONTIER.name=Tyrosh Pelerini
-got.capes.YITI_SAMURAI.name=Yi Ti Samuray Burnu
+got.capes.YI_TI.name=Yi Ti Burnu
+got.capes.YI_TI_BOMBARDIER.name=Tyrosh Pelerini
+got.capes.YI_TI_SAMURAI.name=Yi Ti Samuray Burnu
 got.capes.category.ACHIEVABLE=Ulaşılabilir Pelerinler
 got.capes.category.ALIGNMENT=Itibar pelerinleri
 got.capes.category.EXCLUSIVE=Özel Pelerinler
@@ -2147,7 +2143,7 @@ got.container.crafting.gift=Gece Saati Üretimi
 got.container.crafting.hillmen=Tepe Kabileleri Üretimi
 got.container.crafting.ibben=Ibbenese Crafting
 got.container.crafting.ironborn=Demir Adalar Üretimi
-got.container.crafting.jogos=Jogos Nhai Üretimi
+got.container.crafting.jogos_nhai=Jogos Nhai Üretimi
 got.container.crafting.lhazar=Lhazar Üretimi
 got.container.crafting.lorath=Lorath Üretimi
 got.container.crafting.lys=Lys Üretimi
@@ -2167,7 +2163,7 @@ got.container.crafting.tyrosh=Tiroş işçiliği
 got.container.crafting.volantis=Volantis Üretimi
 got.container.crafting.westerlands=Batı Toprakları Üretimi
 got.container.crafting.wildling=Yabani Hayvanlar
-got.container.crafting.yiti=Yi Ti Üretimi
+got.container.crafting.yi_ti=Yi Ti Üretimi
 got.container.dartTrap=Dart Tuzağı
 got.container.millstone=Değirmentaşı
 got.container.oven=Fırın
@@ -2408,9 +2404,9 @@ got.faction.IBBEN.subtitle=Ibben'in balina avcıları
 got.faction.IRONBORN.entity=Demirdoğumlu
 got.faction.IRONBORN.name=Demir Adalar
 got.faction.IRONBORN.subtitle=Greyjoy'un Ülkesi
-got.faction.JOGOS.entity=Jogos Nhai
-got.faction.JOGOS.name=Jogos Nhai
-got.faction.JOGOS.subtitle=Uzak Doğu'nun Göçebeleri
+got.faction.JOGOS_NHAI.entity=Jogos Nhai
+got.faction.JOGOS_NHAI.name=Jogos Nhai
+got.faction.JOGOS_NHAI.subtitle=Uzak Doğu'nun Göçebeleri
 got.faction.LHAZAR.entity=Lhazar
 got.faction.LHAZAR.name=Lhazar
 got.faction.LHAZAR.subtitle=Koyun bakıcıları
@@ -2864,7 +2860,7 @@ got.invasion.GHISCAR.horn=İstila Çağırma - Ghiscar
 got.invasion.HILL_TRIBES.horn=İstila Çağırma - Tepe Kabileleri
 got.invasion.IBBEN.horn=İstila Çağırma - Ibben
 got.invasion.IRONBORN.horn=İstila Çağırma - Demir Adalar
-got.invasion.JOGOS.horn=İstila Çağırma - Jogos Nhai
+got.invasion.JOGOS_NHAI.horn=İstila Çağırma - Jogos Nhai
 got.invasion.LORATH.horn=İstila Çağırma - Lorath
 got.invasion.LYS.horn=İstila Çağırma - Lys
 got.invasion.MYR.horn=İstila Çağırma - Myr
@@ -2935,7 +2931,7 @@ got.rank.HILL_TRIBES=Tepe Kabileleri'nin
 got.rank.HOSTILE=Düşmanların
 got.rank.IBBEN=Ibben'in
 got.rank.IRONBORN=Demir Adaları'nın
-got.rank.JOGOS=Jogos Nhai'nin
+got.rank.JOGOS_NHAI=Jogos Nhai'nin
 got.rank.LHAZAR=Lhazar'ın
 got.rank.LORATH=Lorath'ın
 got.rank.LYS=Lys'in
@@ -3020,9 +3016,9 @@ got.shields.UNSULLIED.name=Lekesiz Kalkanı
 got.shields.VOLANTIS.name=Volantis'in Kalkanı
 got.shields.WESTERLANDS.name=Batı Toprakları Kalkanı
 got.shields.WESTERLANDSGUARD.name=Batı Toprakları Muhafızları Kalkanı
-got.shields.YITI.name=Yi Ti'nin Kalkanı
-got.shields.YITI_FRONTIER.name=Yi Ti Sınır Kalkanı
-got.shields.YITI_SAMURAI.name=Yi Ti Samuray'ın Kalkanı
+got.shields.YI_TI.name=Yi Ti'nin Kalkanı
+got.shields.YI_TI_BOMBARDIER.name=Yi Ti Sınır Kalkanı
+got.shields.YI_TI_SAMURAI.name=Yi Ti Samuray'ın Kalkanı
 got.shields.category.ACHIEVABLE=Ulaşılabilir Kalkanlar
 got.shields.category.ALIGNMENT=Nam Kalkanları
 got.shields.category.EXCLUSIVE=Ayrıcalıklı Kalkanlar
@@ -3166,12 +3162,12 @@ got.structure.IronbornTavern.name≠Iron Islands Tavern
 got.structure.IronbornTower.name≠Iron Islands Tower
 got.structure.IronbornWatchfort.name≠Iron Islands Watchfort
 got.structure.IronbornWatchtower.name≠Iron Islands Watchtower
-got.structure.JogosChieftainTent.name≠Jogos Nhai Chieftain's Tent
-got.structure.JogosSettle.name≠Jogos Nhai Camp
-got.structure.JogosSettleLarge.name≠Jogos Nhai Village
-got.structure.JogosShamanTent.name≠Jogos Nhai Shaman's Tent
-got.structure.JogosTent.name≠Jogos Nhai Tent
-got.structure.JogosTentLarge.name≠Jogos Nhai Large Tent
+got.structure.JogosNhaiChieftainTent.name≠Jogos Nhai Chieftain's Tent
+got.structure.JogosNhaiSettle.name≠Jogos Nhai Camp
+got.structure.JogosNhaiSettleLarge.name≠Jogos Nhai Village
+got.structure.JogosNhaiShamanTent.name≠Jogos Nhai Shaman's Tent
+got.structure.JogosNhaiTent.name≠Jogos Nhai Tent
+got.structure.JogosNhaiTentLarge.name≠Jogos Nhai Large Tent
 got.structure.LhazarAltar.name≠Lhazar Altar
 got.structure.LhazarBazaar.name≠Lhazar Bazaar
 got.structure.LhazarFarm.name≠Lhazar Farm
@@ -4982,7 +4978,7 @@ item.got:banner.ironsmith.name=Ironsmith Bayrağı
 item.got:banner.jaremymallister.name=Jaremy Mallister Bayrağı
 item.got:banner.jast.name=Jast Bayrağı
 item.got:banner.joffrey.name=Joffrey Bayrağı
-item.got:banner.jogos.name=Jogos Nhai Bayrağı
+item.got:banner.jogos_nhai.name=Jogos Nhai Bayrağı
 item.got:banner.jonconnington.name=Jon Connington Bayrağı
 item.got:banner.jonking.name=Jon Snow (King) Bayrağı
 item.got:banner.jonsnow.name=Jon Snow Bayrağı
@@ -5307,17 +5303,17 @@ item.got:banner.wynch.name=Wynch Bayrağı
 item.got:banner.wythers.name=Wythers Bayrağı
 item.got:banner.yarwyck.name=Yarwyck Bayrağı
 item.got:banner.yew.name=Yew Bayrağı
-item.got:banner.yiti.name=Yiti Bayrağı
-item.got:banner.yitiBu.name=Bu Bayrağı
-item.got:banner.yitiChoq.name=Choq Bayrağı
-item.got:banner.yitiHar.name=Har Bayrağı
-item.got:banner.yitiJar.name=Jar Bayrağı
-item.got:banner.yitiLo.name=Lo Bayrağı
-item.got:banner.yitiMaroon.name=Maroon Bayrağı
-item.got:banner.yitiMengo.name=Mengo Bayrağı
-item.got:banner.yitiPearl.name=Rearl Bayrağı
-item.got:banner.yitiPurple.name=Purple Bayrağı
-item.got:banner.yitiQo.name=Qo Bayrağı
+item.got:banner.yi_ti.name=Yiti Bayrağı
+item.got:banner.yi_ti_bu.name=Bu Bayrağı
+item.got:banner.yi_ti_choq.name=Choq Bayrağı
+item.got:banner.yi_ti_har.name=Har Bayrağı
+item.got:banner.yi_ti_jar.name=Jar Bayrağı
+item.got:banner.yi_ti_lo.name=Lo Bayrağı
+item.got:banner.yi_ti_maroon.name=Maroon Bayrağı
+item.got:banner.yi_ti_mengo.name=Mengo Bayrağı
+item.got:banner.yi_ti_pearl.name=Rearl Bayrağı
+item.got:banner.yi_ti_purple.name=Purple Bayrağı
+item.got:banner.yi_ti_qo.name=Qo Bayrağı
 item.got:banner.youngGriff.name=Young Griff Bayrağı
 item.got:banner.yronwood.name=Yronwood Bayrağı
 item.got:banner.yunkai.name=Yunkai Bayrağı
@@ -5551,10 +5547,10 @@ item.got:ironborn_helmet.name=Demir Adalar Kask
 item.got:ironborn_leggings.name=Demir Adalar Pantolon
 item.got:jaime_sword.name=Jaime Lannister Kılıcı
 item.got:joffrey_crossbow.name=Joffrey Baratheon Kundaklı Yay
-item.got:jogos_boots.name=Jogos Nhai Bot
-item.got:jogos_chestplate.name=Jogos Nhai Zırh
-item.got:jogos_helmet.name=Jogos Nhai Kask
-item.got:jogos_leggings.name=Jogos Nhai Pantolon
+item.got:jogos_nhai_boots.name=Jogos Nhai Bot
+item.got:jogos_nhai_chestplate.name=Jogos Nhai Zırh
+item.got:jogos_nhai_helmet.name=Jogos Nhai Kask
+item.got:jogos_nhai_leggings.name=Jogos Nhai Pantolon
 item.got:just_maid.name=SadeceHizmetçi
 item.got:kaftan_chestplate.name=Kaftan
 item.got:kaftan_leggings.name=Kaftan Pantolon
@@ -5948,29 +5944,29 @@ item.got:wine_glass.name=Şarap Kadehi
 item.got:wood_plate.name=Tahta Tabak
 item.got:yam.name=Yer Elması
 item.got:yam_roast.name=Pişmiş Yer Elması
-item.got:yiti_battleaxe.name=Yi Ti Nagamaki
-item.got:yiti_boots.name=Yi Ti Bot
-item.got:yiti_boots_frontier.name=Yi Ti Sınır Bot
-item.got:yiti_boots_samurai.name=Yi Ti Samuray Bot
-item.got:yiti_bow.name=Yi Ti Yay
-item.got:yiti_chestplate.name=Yi Ti Zırh
-item.got:yiti_chestplate_frontier.name=Yi Ti Sınır Zırh
-item.got:yiti_chestplate_samurai.name=Yi Ti Samuray Zırh
-item.got:yiti_dagger.name=Yi Ti Kunai
-item.got:yiti_dagger_poisoned.name=Zehirli Yi Ti Kunai
-item.got:yiti_helmet.name=Yi Ti Kask
-item.got:yiti_helmet_frontier.name=Yi Ti Sınır Kask
-item.got:yiti_helmet_samurai.name=Yi Ti Samuray Kask
-item.got:yiti_helmet_shogune.name=Yi Ti Shogune Kask
-item.got:yiti_horse_armor.name=Yi Ti At Zırh
-item.got:yiti_leggings.name=Yi Ti Pantolon
-item.got:yiti_leggings_frontier.name=Yi Ti Sınır Pantolon
-item.got:yiti_leggings_samurai.name=Yi Ti Samuray Pantolon
-item.got:yiti_pike.name=Yi Ti Turna
-item.got:yiti_polearm.name=Yi Ti Naginata
-item.got:yiti_spear.name=Yi Ti Jumonji-yari
-item.got:yiti_steel_ingot.name=Yaldızlı Demir Külçe
-item.got:yiti_sword.name=Yi Ti Katana
+item.got:yi_ti_battleaxe.name=Yi Ti Nagamaki
+item.got:yi_ti_boots.name=Yi Ti Bot
+item.got:yi_ti_boots_bombardier.name=Yi Ti Sınır Bot
+item.got:yi_ti_boots_samurai.name=Yi Ti Samuray Bot
+item.got:yi_ti_bow.name=Yi Ti Yay
+item.got:yi_ti_chestplate.name=Yi Ti Zırh
+item.got:yi_ti_chestplate_bombardier.name=Yi Ti Sınır Zırh
+item.got:yi_ti_chestplate_samurai.name=Yi Ti Samuray Zırh
+item.got:yi_ti_dagger.name=Yi Ti Kunai
+item.got:yi_ti_dagger_poisoned.name=Zehirli Yi Ti Kunai
+item.got:yi_ti_helmet.name=Yi Ti Kask
+item.got:yi_ti_helmet_bombardier.name=Yi Ti Sınır Kask
+item.got:yi_ti_helmet_samurai.name=Yi Ti Samuray Kask
+item.got:yi_ti_helmet_shogune.name=Yi Ti Shogune Kask
+item.got:yi_ti_horse_armor.name=Yi Ti At Zırh
+item.got:yi_ti_leggings.name=Yi Ti Pantolon
+item.got:yi_ti_leggings_bombardier.name=Yi Ti Sınır Pantolon
+item.got:yi_ti_leggings_samurai.name=Yi Ti Samuray Pantolon
+item.got:yi_ti_pike.name=Yi Ti Turna
+item.got:yi_ti_polearm.name=Yi Ti Naginata
+item.got:yi_ti_spear.name=Yi Ti Jumonji-yari
+item.got:yi_ti_steel_ingot.name=Yaldızlı Demir Külçe
+item.got:yi_ti_sword.name=Yi Ti Katana
 item.got:zebra_cooked.name=Pişmiş Zebra
 item.got:zebra_raw.name=Çiğ Zebra
 tile.dirt.0.name=Toprak
@@ -6796,7 +6792,7 @@ tile.got:table_gift.name=Gece Saati Üretim Masası
 tile.got:table_hill_tribes.name=Tepe Kabilesi Üretim Masası
 tile.got:table_ibben.name=Ibben Üretim Masası
 tile.got:table_ironborn.name=Demir Adalar Üretim Masası
-tile.got:table_jogos.name=Jogos Nhai Üretim Masası
+tile.got:table_jogos_nhai.name=Jogos Nhai Üretim Masası
 tile.got:table_lhazar.name=Lhazar Üretim Masası
 tile.got:table_lorath.name=Lorath Üretim Masası
 tile.got:table_lys.name=Lys Üretim Masası
@@ -7073,11 +7069,11 @@ tile.got:wood_slab_single5.3.name=Palmiye Ahşap Levha
 tile.got:wood_slab_single5.4.name=Dragonblood Ahşap Levha
 tile.got:wood_slab_single5.5.name=Kanuka Ahşap Levha
 tile.got:wood_slab_single5.6.name=Büvet Ahşap Levha
-tile.got:yiti_flower.0.name=Mavi krizantem
-tile.got:yiti_flower.1.name=Turuncu Krizantem
-tile.got:yiti_flower.2.name=Pembe krizantem
-tile.got:yiti_flower.3.name=Sarı krizantem
-tile.got:yiti_flower.4.name=Beyaz krizantem
+tile.got:yi_ti_flower.0.name=Mavi krizantem
+tile.got:yi_ti_flower.1.name=Turuncu Krizantem
+tile.got:yi_ti_flower.2.name=Pembe krizantem
+tile.got:yi_ti_flower.3.name=Sarı krizantem
+tile.got:yi_ti_flower.4.name=Beyaz krizantem
 tile.monsterStoneEgg.brick.name=Gümüş Balığı Blok
 tile.monsterStoneEgg.chiseledbrick.name=Gümüş Balığı Blok
 tile.monsterStoneEgg.cobble.name=Gümüş Balığı Blok

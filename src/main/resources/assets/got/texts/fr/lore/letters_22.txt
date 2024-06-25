@@ -1,6 +1,6 @@
 ﻿#title:Note froissée
 #author:Unknown
-#types:yiti
+#types:yi_ti
 #
 ...
 ...C'est le seul docteur du village, et maintenant il est devenu fou aussi. Nous avons dû l'attacher et l'enfermer dans le sous-sol. C'est la seule façon pour lui de ne pas se blesser ou de blesser les autres...

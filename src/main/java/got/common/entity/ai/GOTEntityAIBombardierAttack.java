@@ -1,7 +1,7 @@
 package got.common.entity.ai;
 
 import got.common.block.other.GOTBlockBomb;
-import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
+import got.common.entity.essos.yi_ti.GOTEntityYiTiBombardier;
 import got.common.entity.other.inanimate.GOTEntityBomb;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;

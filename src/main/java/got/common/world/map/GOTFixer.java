@@ -37,7 +37,7 @@ import got.common.world.structure.essos.braavos.GOTStructureBraavosSettlement;
 import got.common.world.structure.essos.dothraki.GOTStructureDothrakiSettlement;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarSettlement;
 import got.common.world.structure.essos.ibben.GOTStructureIbbenSettlement;
-import got.common.world.structure.essos.jogos.GOTStructureJogosSettlement;
+import got.common.world.structure.essos.jogos_nhai.GOTStructureJogosNhaiSettlement;
 import got.common.world.structure.essos.lhazar.GOTStructureLhazarSettlement;
 import got.common.world.structure.essos.lorath.GOTStructureLorathSettlement;
 import got.common.world.structure.essos.lys.GOTStructureLysSettlement;
@@ -49,7 +49,7 @@ import got.common.world.structure.essos.qarth.GOTStructureQarthSettlement;
 import got.common.world.structure.essos.qohor.GOTStructureQohorSettlement;
 import got.common.world.structure.essos.tyrosh.GOTStructureTyroshSettlement;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisSettlement;
-import got.common.world.structure.essos.yiti.GOTStructureYiTiSettlement;
+import got.common.world.structure.essos.yi_ti.GOTStructureYiTiSettlement;
 import got.common.world.structure.other.*;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement;
 import got.common.world.structure.sothoryos.summer.GOTStructureSummerSettlement;
@@ -972,14 +972,14 @@ public class GOTFixer {
 			}
 		}, GOTWaypoint.HIGHTOWER_LITEHOUSE);
 
-		registerSpawner(new GOTStructureJogosSettlement(GOTBiome.ocean, 0.0f) {
+		registerSpawner(new GOTStructureJogosNhaiSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
 			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
 				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
 				spawnInfos.add(new SpawnInfo(new GOTEntityTugarKhan(world), 0, 3));
 				return spawnInfos;
 			}
-		}.type(GOTStructureJogosSettlement.Type.BIG, 5), GOTWaypoint.HOJDBAATAR);
+		}.type(GOTStructureJogosNhaiSettlement.Type.BIG, 5), GOTWaypoint.HOJDBAATAR);
 
 		registerSpawner(new GOTStructureEmptySettlement() {
 			@Override

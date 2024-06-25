@@ -252,8 +252,8 @@ public class GOTGuiHandler implements IGuiHandler {
 				return new GOTGuiCraftingTable.Ibben(entityplayer.inventory, world, i, j, k);
 			case TABLE_IRONBORN:
 				return new GOTGuiCraftingTable.Ironborn(entityplayer.inventory, world, i, j, k);
-			case TABLE_JOGOS:
-				return new GOTGuiCraftingTable.Jogos(entityplayer.inventory, world, i, j, k);
+			case TABLE_JOGOS_NHAI:
+				return new GOTGuiCraftingTable.JogosNhai(entityplayer.inventory, world, i, j, k);
 			case TABLE_LHAZAR:
 				return new GOTGuiCraftingTable.Lhazar(entityplayer.inventory, world, i, j, k);
 			case TABLE_LORATH:
@@ -476,8 +476,8 @@ public class GOTGuiHandler implements IGuiHandler {
 				return new GOTContainerCraftingTable.Ibben(entityplayer.inventory, world, i, j, k);
 			case TABLE_IRONBORN:
 				return new GOTContainerCraftingTable.Ironborn(entityplayer.inventory, world, i, j, k);
-			case TABLE_JOGOS:
-				return new GOTContainerCraftingTable.Jogos(entityplayer.inventory, world, i, j, k);
+			case TABLE_JOGOS_NHAI:
+				return new GOTContainerCraftingTable.JogosNhai(entityplayer.inventory, world, i, j, k);
 			case TABLE_LHAZAR:
 				return new GOTContainerCraftingTable.Lhazar(entityplayer.inventory, world, i, j, k);
 			case TABLE_LORATH:

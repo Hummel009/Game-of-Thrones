@@ -61,9 +61,9 @@ public class NEIGOTIntegrator {
 		registerHandler("volantis", GOTGuiCraftingTable.Volantis.class, GOTRecipe.VOLANTIS);
 		registerHandler("westerlands", GOTGuiCraftingTable.Westerlands.class, GOTRecipe.WESTERLANDS);
 		registerHandler("wildling", GOTGuiCraftingTable.Wildling.class, GOTRecipe.WILDLING);
-		registerHandler("yiti", GOTGuiCraftingTable.YiTi.class, GOTRecipe.YITI);
+		registerHandler("yi_ti", GOTGuiCraftingTable.YiTi.class, GOTRecipe.YI_TI);
 		registerHandler("dothraki", GOTGuiCraftingTable.Dothraki.class, GOTRecipe.DOTHRAKI);
-		registerHandler("jogos", GOTGuiCraftingTable.Jogos.class, GOTRecipe.JOGOS);
+		registerHandler("jogos_nhai", GOTGuiCraftingTable.JogosNhai.class, GOTRecipe.JOGOS_NHAI);
 		registerHandler("mossovy", GOTGuiCraftingTable.Mossovy.class, GOTRecipe.MOSSOVY);
 	}
 }

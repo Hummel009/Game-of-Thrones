@@ -16,11 +16,11 @@ public class GOTMaterial {
 	public static final ItemArmor.ArmorMaterial DRAGONSTONE = EnumHelper.addArmorMaterial("GOT_DRAGONSTONE", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial GHISCAR = EnumHelper.addArmorMaterial("GOT_GHISCAR", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial GIFT = EnumHelper.addArmorMaterial("GOT_GIFT", 20, new int[]{2, 6, 5, 2}, 9);
-	public static final ItemArmor.ArmorMaterial GOLDENCOMPANY = EnumHelper.addArmorMaterial("GOT_GOLDENCOMPANY", 20, new int[]{2, 6, 5, 2}, 9);
+	public static final ItemArmor.ArmorMaterial GOLDEN_COMPANY = EnumHelper.addArmorMaterial("GOT_GOLDEN_COMPANY", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial HILLMEN = EnumHelper.addArmorMaterial("GOT_HILLMEN", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial IBBEN = EnumHelper.addArmorMaterial("GOT_IBBEN", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial IRONBORN = EnumHelper.addArmorMaterial("GOT_IRONBORN", 20, new int[]{2, 6, 5, 2}, 9);
-	public static final ItemArmor.ArmorMaterial JOGOS = EnumHelper.addArmorMaterial("GOT_JOGOS", 20, new int[]{2, 6, 5, 2}, 9);
+	public static final ItemArmor.ArmorMaterial JOGOS_NHAI = EnumHelper.addArmorMaterial("GOT_JOGOS_NHAI", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial LHAZAR = EnumHelper.addArmorMaterial("GOT_LHAZAR", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial LORATH = EnumHelper.addArmorMaterial("GOT_LORATH", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial LYS = EnumHelper.addArmorMaterial("GOT_LYS", 20, new int[]{2, 6, 5, 2}, 9);
@@ -39,7 +39,7 @@ public class GOTMaterial {
 	public static final ItemArmor.ArmorMaterial TYROSH = EnumHelper.addArmorMaterial("GOT_TYROSH", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial VOLANTIS = EnumHelper.addArmorMaterial("GOT_VOLANTIS", 20, new int[]{2, 6, 5, 2}, 9);
 	public static final ItemArmor.ArmorMaterial WESTERLANDS = EnumHelper.addArmorMaterial("GOT_WESTERLANDS", 20, new int[]{2, 6, 5, 2}, 9);
-	public static final ItemArmor.ArmorMaterial YITI = EnumHelper.addArmorMaterial("GOT_YITI", 20, new int[]{2, 6, 5, 2}, 9);
+	public static final ItemArmor.ArmorMaterial YI_TI = EnumHelper.addArmorMaterial("GOT_YI_TI", 20, new int[]{2, 6, 5, 2}, 9);
 
 	public static final ItemArmor.ArmorMaterial ARRYNGUARD = EnumHelper.addArmorMaterial("GOT_ARRYNGUARD", 25, new int[]{2, 7, 6, 3}, 9);
 	public static final ItemArmor.ArmorMaterial BLACKFYRE = EnumHelper.addArmorMaterial("GOT_BLACKFYRE", 25, new int[]{2, 7, 6, 3}, 9);
@@ -56,8 +56,8 @@ public class GOTMaterial {
 	public static final ItemArmor.ArmorMaterial UNSULLIED = EnumHelper.addArmorMaterial("GOT_UNSULLIED", 25, new int[]{2, 7, 6, 3}, 9);
 	public static final ItemArmor.ArmorMaterial WESTERLANDSGUARD = EnumHelper.addArmorMaterial("GOT_WESTERLANDSGUARD", 25, new int[]{2, 7, 6, 3}, 9);
 	public static final ItemArmor.ArmorMaterial WESTKING = EnumHelper.addArmorMaterial("GOT_WESTKING", 25, new int[]{2, 7, 6, 3}, 9);
-	public static final ItemArmor.ArmorMaterial YITI_FRONTIER = EnumHelper.addArmorMaterial("GOT_YITI_FRONTIER", 25, new int[]{2, 7, 6, 3}, 9);
-	public static final ItemArmor.ArmorMaterial YITI_SAMURAI = EnumHelper.addArmorMaterial("GOT_YITI_SAMURAI", 25, new int[]{2, 7, 6, 3}, 9);
+	public static final ItemArmor.ArmorMaterial YI_TI_BOMBARDIER = EnumHelper.addArmorMaterial("GOT_YI_TI_BOMBARDIER", 25, new int[]{2, 7, 6, 3}, 9);
+	public static final ItemArmor.ArmorMaterial YI_TI_SAMURAI = EnumHelper.addArmorMaterial("GOT_YI_TI_SAMURAI", 25, new int[]{2, 7, 6, 3}, 9);
 
 	public static final ItemArmor.ArmorMaterial BRONZE = EnumHelper.addArmorMaterial("GOT_BRONZE", 15, new int[]{2, 5, 4, 1}, 9);
 	public static final ItemArmor.ArmorMaterial BRONZE_CHAINMAIL = EnumHelper.addArmorMaterial("GOT_BRONZE_CHAINMAIL", 15, new int[]{2, 4, 3, 1}, 12);
@@ -114,7 +114,7 @@ public class GOTMaterial {
 
 		DOTHRAKI.customCraftingMaterial = Item.getItemFromBlock(GOTBlocks.driedReeds);
 
-		JOGOS.customCraftingMaterial = Items.iron_ingot;
+		JOGOS_NHAI.customCraftingMaterial = Items.iron_ingot;
 		ARRYN.customCraftingMaterial = Items.iron_ingot;
 		ARRYNGUARD.customCraftingMaterial = Items.iron_ingot;
 		ASSHAI.customCraftingMaterial = Items.iron_ingot;
@@ -126,7 +126,7 @@ public class GOTMaterial {
 		DRAGONSTONE.customCraftingMaterial = Items.iron_ingot;
 		GHISCAR.customCraftingMaterial = Items.iron_ingot;
 		GIFT.customCraftingMaterial = Items.iron_ingot;
-		GOLDENCOMPANY.customCraftingMaterial = Items.iron_ingot;
+		GOLDEN_COMPANY.customCraftingMaterial = Items.iron_ingot;
 		HELMET.customCraftingMaterial = Items.iron_ingot;
 		HILLMEN.customCraftingMaterial = Items.iron_ingot;
 		IBBEN.customCraftingMaterial = Items.iron_ingot;
@@ -159,9 +159,9 @@ public class GOTMaterial {
 		WESTERLANDS.customCraftingMaterial = Items.iron_ingot;
 		WESTERLANDSGUARD.customCraftingMaterial = Items.iron_ingot;
 		WESTKING.customCraftingMaterial = Items.iron_ingot;
-		YITI.customCraftingMaterial = Items.iron_ingot;
-		YITI_FRONTIER.customCraftingMaterial = Items.iron_ingot;
-		YITI_SAMURAI.customCraftingMaterial = Items.iron_ingot;
+		YI_TI.customCraftingMaterial = Items.iron_ingot;
+		YI_TI_BOMBARDIER.customCraftingMaterial = Items.iron_ingot;
+		YI_TI_SAMURAI.customCraftingMaterial = Items.iron_ingot;
 
 		BRONZE_TOOL.setRepairItem(new ItemStack(GOTItems.bronzeIngot));
 		COBALT_TOOL.setRepairItem(new ItemStack(GOTItems.alloySteelIngot));

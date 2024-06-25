@@ -81,6 +81,6 @@ public class GOTBiomeBoneMountains extends GOTBiomeEssosPlains implements GOTBio
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YITI;
+		return GOTBezierType.WALL_YI_TI;
 	}
 }

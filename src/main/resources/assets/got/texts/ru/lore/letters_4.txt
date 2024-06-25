@@ -1,6 +1,6 @@
 ﻿#title:Письмо Ляо Яну
 #author:Хуан Чан
-#types:yiti
+#types:yi_ti
 #
 "Дорогой Ляо Ян!
 

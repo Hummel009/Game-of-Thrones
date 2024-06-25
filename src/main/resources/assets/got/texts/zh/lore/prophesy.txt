@@ -1,6 +1,6 @@
 ﻿#title:贤者的预言
 #author:无名氏
-#types:westeros,essos,yiti
+#types:westeros,essos,yi_ti
 #
 贤者预言,新的世阶来临有
 三个征兆.当这三件事都发

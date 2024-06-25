@@ -69,10 +69,10 @@ public class GOTRecipe {
 	public static final List<IRecipe> GHISCAR = new ArrayList<>();
 
 	public static final List<IRecipe> SOTHORYOS = new ArrayList<>();
-	public static final List<IRecipe> YITI = new ArrayList<>();
+	public static final List<IRecipe> YI_TI = new ArrayList<>();
 	public static final List<IRecipe> IBBEN = new ArrayList<>();
 	public static final List<IRecipe> ASSHAI = new ArrayList<>();
-	public static final List<IRecipe> JOGOS = new ArrayList<>();
+	public static final List<IRecipe> JOGOS_NHAI = new ArrayList<>();
 	public static final List<IRecipe> DOTHRAKI = new ArrayList<>();
 	public static final List<IRecipe> MOSSOVY = new ArrayList<>();
 
@@ -338,17 +338,17 @@ public class GOTRecipe {
 		IRONBORN.addAll(TINY_BASALT);
 	}
 
-	private static void createJogosRecipes() {
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableJogos), "XX", "XX", 'X', "plankWood"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.JOGOS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosHelmet), "XXX", "X X", 'X', "ingotIron"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosBoots), "X X", "X X", 'X', "ingotIron"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadSword), "X", "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadBattleaxe), "XXX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
-		JOGOS.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadBow), " XY", "X Y", " XY", 'X', "stickWood", 'Y', Items.string));
+	private static void createJogosNhaiRecipes() {
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableJogosNhai), "XX", "XX", 'X', "plankWood"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.JOGOS_NHAI.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosNhaiHelmet), "XXX", "X X", 'X', "ingotIron"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosNhaiChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosNhaiLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosNhaiBoots), "X X", "X X", 'X', "ingotIron"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadSword), "X", "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadBattleaxe), "XXX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
+		JOGOS_NHAI.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadBow), " XY", "X Y", " XY", 'X', "stickWood", 'Y', Items.string));
 	}
 
 	private static void createLhazarRecipes() {
@@ -536,7 +536,7 @@ public class GOTRecipe {
 		addSmeltingXPForItem(GOTItems.bronzeIngot, 0.7f);
 		addSmeltingXPForItem(GOTItems.valyrianIngot, 1.0f);
 		addSmeltingXPForItem(GOTItems.valyrianPowder, 0.8f);
-		addSmeltingXPForItem(GOTItems.yitiSteelIngot, 0.7f);
+		addSmeltingXPForItem(GOTItems.yiTiSteelIngot, 0.7f);
 	}
 
 	private static void createSothoryosRecipes() {
@@ -730,7 +730,7 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockMetal1, 1, 2), "XXX", "XXX", "XXX", 'X', GOTItems.bronzeIngot);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockMetal1, 1, 3), "XXX", "XXX", "XXX", 'X', GOTItems.silverIngot);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockMetal1, 1, 4), "XXX", "XXX", "XXX", 'X', GOTItems.valyrianIngot);
-		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockMetal2, 1, 2), "XXX", "XXX", "XXX", 'X', GOTItems.yitiSteelIngot);
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockMetal2, 1, 2), "XXX", "XXX", "XXX", 'X', GOTItems.yiTiSteelIngot);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockMetal2, 1, 3), "XXX", "XXX", "XXX", 'X', GOTItems.salt);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.blockMetal2, 1, 4), "XXX", "XXX", "XXX", 'X', GOTItems.alloySteelIngot);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.brick1, 4, 14), "XX", "XX", 'X', new ItemStack(GOTBlocks.rock, 1, 3));
@@ -1248,10 +1248,10 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.coral, 4), new ItemStack(GOTBlocks.blockGem, 1, 8));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.diamond, 9), new ItemStack(GOTBlocks.blockGem, 1, 5));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 0), new ItemStack(GOTBlocks.essosFlower, 1, 1));
-		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 0), new ItemStack(GOTBlocks.yitiFlower, 1, 3));
-		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 1), new ItemStack(GOTBlocks.yitiFlower, 1, 4));
+		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 0), new ItemStack(GOTBlocks.yiTiFlower, 1, 3));
+		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 1), new ItemStack(GOTBlocks.yiTiFlower, 1, 4));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 2), GOTBlocks.bluebell);
-		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 2), new ItemStack(GOTBlocks.yitiFlower, 1, 0));
+		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 2), new ItemStack(GOTBlocks.yiTiFlower, 1, 0));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 3), new ItemStack(GOTBlocks.clover, 1, 32767));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 4), new ItemStack(Items.coal, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.dye, 2, 0), new ItemStack(GOTBlocks.doubleFlower, 1, 1));
@@ -1325,13 +1325,13 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.valyrianNugget, 9), GOTItems.valyrianIngot);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.bronzeNugget, 9), GOTItems.bronzeIngot);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.ironNugget, 9), Items.iron_ingot);
-		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.yitiSteelIngot, 9), new ItemStack(GOTBlocks.blockMetal2, 1, 2));
+		GameRegistry.addShapelessRecipe(new ItemStack(GOTItems.yiTiSteelIngot, 9), new ItemStack(GOTBlocks.blockMetal2, 1, 2));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new ItemStack(GOTBlocks.essosFlower, 1, 0));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 13), new ItemStack(GOTBlocks.essosFlower, 1, 3));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 14), GOTBlocks.marigold);
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 14), new ItemStack(GOTBlocks.yitiFlower, 1, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 14), new ItemStack(GOTBlocks.yiTiFlower, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 5), new ItemStack(GOTBlocks.essosFlower, 1, 2));
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 9), new ItemStack(GOTBlocks.yitiFlower, 1, 2));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 9), new ItemStack(GOTBlocks.yiTiFlower, 1, 2));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 1), new ItemStack(GOTBlocks.doubleFlower, 1, 3));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 13), new ItemStack(GOTBlocks.doubleFlower, 1, 2));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 15), GOTItems.saltpeter, Blocks.dirt);
@@ -1358,8 +1358,8 @@ public class GOTRecipe {
 		addDyeableWoolRobeRecipes(COMMON_ESSOS, new ItemStack(GOTItems.robesChestplate), "X X", "XXX", "XXX", 'X', Blocks.wool);
 		addDyeableWoolRobeRecipes(COMMON_ESSOS, new ItemStack(GOTItems.robesHelmet), "XXX", "X X", 'X', Blocks.wool);
 		addDyeableWoolRobeRecipes(COMMON_ESSOS, new ItemStack(GOTItems.robesLeggings), "XXX", "X X", "X X", 'X', Blocks.wool);
-		addDyeableWoolRobeRecipes(YITI, new ItemStack(GOTItems.kaftanChestplate), "X X", "XXX", "XXX", 'X', Blocks.wool);
-		addDyeableWoolRobeRecipes(YITI, new ItemStack(GOTItems.kaftanLeggings), "XXX", "X X", "X X", 'X', Blocks.wool);
+		addDyeableWoolRobeRecipes(YI_TI, new ItemStack(GOTItems.kaftanChestplate), "X X", "XXX", "XXX", 'X', Blocks.wool);
+		addDyeableWoolRobeRecipes(YI_TI, new ItemStack(GOTItems.kaftanLeggings), "XXX", "X X", "X X", 'X', Blocks.wool);
 		GOTBlockTreasurePile.generateTreasureRecipes(GOTBlocks.treasureCopper, GOTItems.copperIngot);
 		GOTBlockTreasurePile.generateTreasureRecipes(GOTBlocks.treasureGold, Items.gold_ingot);
 		GOTBlockTreasurePile.generateTreasureRecipes(GOTBlocks.treasureSilver, GOTItems.silverIngot);
@@ -1373,7 +1373,7 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.asshaiDaggerPoisoned, GOTItems.asshaiDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.alloySteelDaggerPoisoned, GOTItems.alloySteelDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.sothoryosDaggerPoisoned, GOTItems.sothoryosDagger, GOTItems.bottlePoison));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.yitiDaggerPoisoned, GOTItems.yitiDagger, GOTItems.bottlePoison));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.yiTiDaggerPoisoned, GOTItems.yiTiDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.summerDaggerPoisoned, GOTItems.summerDagger, GOTItems.bottlePoison));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(GOTItems.valyrianChisel, GOTItems.chisel, GOTItems.valyrianPowder));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeamRotten, 3, 0), "X", "X", "X", 'X', new ItemStack(GOTBlocks.rottenLog, 1, 0)));
@@ -1655,57 +1655,57 @@ public class GOTRecipe {
 	}
 
 	private static void createYiTiRecipes() {
-		YITI.add(new GOTRecipeRobesDye(GOTMaterial.KAFTAN));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.YITI.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 12), "XX", "XX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick5, 4, 11), "XX", "XX", 'X', new ItemStack(Blocks.stone, 1, 0)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 0), " X ", "XYX", " X ", 'X', "nuggetGold", 'Y', new ItemStack(GOTBlocks.brick5, 1, 11)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 2), "XX", "XX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 4, 1), "XX", "XX", 'X', new ItemStack(GOTBlocks.rock, 1, 4)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.gateYiTi, 4), "ZYZ", "YXY", "ZYZ", 'X', GOTItems.gateGear, 'Y', "plankWood", 'Z', GOTItems.yitiSteelIngot));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.pillar2, 3, 8), "X", "X", "X", 'X', new ItemStack(Blocks.stone, 1, 0)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.pillar2, 3, 9), "X", "X", "X", 'X', new ItemStack(GOTBlocks.rock, 1, 4)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 0), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 1), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 13)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 2), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 14)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 3), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 15)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 4), "XXX", 'X', new ItemStack(GOTBlocks.pillar2, 1, 8)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 5), "XXX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 6), "XXX", 'X', new ItemStack(GOTBlocks.pillar2, 1, 9)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrick, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickCracked, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 14)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickFlowers, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 15)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickMossy, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 13)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickRed, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone3, 6, 15), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 10), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 13)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 11), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 14)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 12), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 15)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 13), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiBattleaxe), "XXX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiBoots), "X X", "X X", 'X', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiBootsFrontier), "X X", "Y Y", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiBootsSamurai), "Y Y", "X X", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiBow), " XY", "X Y", " XY", 'X', "stickWood", 'Y', Items.string));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiChestplateFrontier), "X X", "YXY", "XYX", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiChestplateSamurai), "X X", "XYX", "YXY", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiDagger), "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiHelmet), "XXX", "X X", 'X', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiHelmetFrontier), "XYX", "Y Y", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiHelmetSamurai), "YYY", "X X", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiHelmetShogune), "XYX", 'X', GOTItems.whiteBisonHorn, 'Y', new ItemStack(GOTItems.yitiHelmetSamurai, 1, 0)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiHorseArmor), "X  ", "XXX", "XXX", 'X', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiLeggingsFrontier), "XXX", "Y Y", "X X", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiLeggingsSamurai), "XXX", "X X", "Y Y", 'X', GOTItems.yitiSteelIngot, 'Y', "ingotIron"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiPike), "  X", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiPolearm), " XX", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yitiSword), "X", "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
-		YITI.add(new ShapelessOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 13), new ItemStack(GOTBlocks.brick5, 1, 11), "vine"));
-		YITI.add(new ShapelessOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 15), new ItemStack(GOTBlocks.brick5, 1, 11), new ItemStack(GOTBlocks.yitiFlower, 1, 1)));
-		YITI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableYiTi), "XX", "XX", 'X', "plankWood"));
+		YI_TI.add(new GOTRecipeRobesDye(GOTMaterial.KAFTAN));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.YI_TI.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 12), "XX", "XX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick5, 4, 11), "XX", "XX", 'X', new ItemStack(Blocks.stone, 1, 0)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 0), " X ", "XYX", " X ", 'X', "nuggetGold", 'Y', new ItemStack(GOTBlocks.brick5, 1, 11)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 2), "XX", "XX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 4, 1), "XX", "XX", 'X', new ItemStack(GOTBlocks.rock, 1, 4)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.gateYiTi, 4), "ZYZ", "YXY", "ZYZ", 'X', GOTItems.gateGear, 'Y', "plankWood", 'Z', GOTItems.yiTiSteelIngot));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.pillar2, 3, 8), "X", "X", "X", 'X', new ItemStack(Blocks.stone, 1, 0)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.pillar2, 3, 9), "X", "X", "X", 'X', new ItemStack(GOTBlocks.rock, 1, 4)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 0), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 1), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 13)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 2), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 14)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 3), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 15)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 4), "XXX", 'X', new ItemStack(GOTBlocks.pillar2, 1, 8)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 5), "XXX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle12, 6, 6), "XXX", 'X', new ItemStack(GOTBlocks.pillar2, 1, 9)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrick, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickCracked, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 14)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickFlowers, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 15)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickMossy, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 13)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsYiTiBrickRed, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone3, 6, 15), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 10), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 13)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 11), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 14)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 12), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 15)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone4, 6, 13), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick6, 1, 1)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBattleaxe), "XXX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBoots), "X X", "X X", 'X', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBootsBombardier), "X X", "Y Y", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBootsSamurai), "Y Y", "X X", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBow), " XY", "X Y", " XY", 'X', "stickWood", 'Y', Items.string));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiChestplateBombardier), "X X", "YXY", "XYX", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiChestplateSamurai), "X X", "XYX", "YXY", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiDagger), "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmet), "XXX", "X X", 'X', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetBombardier), "XYX", "Y Y", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetSamurai), "YYY", "X X", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetShogune), "XYX", 'X', GOTItems.whiteBisonHorn, 'Y', new ItemStack(GOTItems.yiTiHelmetSamurai, 1, 0)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHorseArmor), "X  ", "XXX", "XXX", 'X', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggingsBombardier), "XXX", "Y Y", "X X", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggingsSamurai), "XXX", "X X", "Y Y", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiPike), "  X", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiPolearm), " XX", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiSword), "X", "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
+		YI_TI.add(new ShapelessOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 13), new ItemStack(GOTBlocks.brick5, 1, 11), "vine"));
+		YI_TI.add(new ShapelessOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 15), new ItemStack(GOTBlocks.brick5, 1, 11), new ItemStack(GOTBlocks.yiTiFlower, 1, 1)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableYiTi), "XX", "XX", 'X', "plankWood"));
 	}
 
 	public static ItemStack findMatchingRecipe(Iterable<IRecipe> recipeList, InventoryCrafting inv, World world) {
@@ -1805,7 +1805,7 @@ public class GOTRecipe {
 		createQarthRecipes();
 		createGhiscarRecipes();
 		createAsshaiRecipes();
-		createJogosRecipes();
+		createJogosNhaiRecipes();
 		createDothrakiRecipes();
 		createMossovyRecipes();
 	}

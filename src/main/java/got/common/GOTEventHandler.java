@@ -28,7 +28,7 @@ import got.common.entity.essos.GOTEntityMarshWraith;
 import got.common.entity.essos.GOTEntityStoneMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
-import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
+import got.common.entity.essos.yi_ti.GOTEntityYiTiBombardier;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityProstitute;

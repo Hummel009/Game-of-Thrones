@@ -1,6 +1,6 @@
 ﻿#title:Une routine quotidienne stricte
 #author:Zhou Yung
-#types:yiti
+#types:yi_ti
 #
 1. Manger, se laver, changer de vêtements, se préparer à sortir.
 2. rencontre avec Xian Yuhan au Jade Staff, déjeuner.

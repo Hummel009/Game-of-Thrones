@@ -37,7 +37,7 @@ public class GOTChestContents {
 	public static final GOTChestContents HILLMEN;
 	public static final GOTChestContents IBBEN;
 	public static final GOTChestContents IRONBORN;
-	public static final GOTChestContents JOGOS;
+	public static final GOTChestContents JOGOS_NHAI;
 	public static final GOTChestContents LHAZAR;
 	public static final GOTChestContents LORATH;
 	public static final GOTChestContents LYS;
@@ -95,7 +95,7 @@ public class GOTChestContents {
 	private static final List<WeightedRandomChestContent> TYROSH_L = new ArrayList<>();
 	private static final List<WeightedRandomChestContent> VOLANTIS_L = new ArrayList<>();
 	private static final List<WeightedRandomChestContent> WESTERLANDS_L = new ArrayList<>();
-	private static final List<WeightedRandomChestContent> JOGOS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> JOGOS_NHAI_L = new ArrayList<>();
 	private static final List<WeightedRandomChestContent> DOTHRAKI_L = new ArrayList<>();
 
 	static {
@@ -305,7 +305,7 @@ public class GOTChestContents {
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 100));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeIngot), 1, 3, 50));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_ingot), 1, 3, 50));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiSteelIngot), 1, 3, 50));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiSteelIngot), 1, 3, 50));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 3, 75));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.string), 1, 3, 100));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 3, 100));
@@ -337,14 +337,14 @@ public class GOTChestContents {
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.wooden_shovel), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ironDagger), 1, 1, 25));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bronzeDagger), 1, 1, 25));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiDagger), 1, 1, 25));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiSword), 1, 1, 25));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiBattleaxe), 1, 1, 25));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiSpear), 1, 1, 25));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiHelmet), 1, 1, 10));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiChestplate), 1, 1, 10));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiLeggings), 1, 1, 10));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiBoots), 1, 1, 10));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiDagger), 1, 1, 25));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiSword), 1, 1, 25));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBattleaxe), 1, 1, 25));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiSpear), 1, 1, 25));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiHelmet), 1, 1, 10));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiChestplate), 1, 1, 10));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiLeggings), 1, 1, 10));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBoots), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.leatherHat), 1, 1, 50));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mug), 1, 3, 25));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ceramicMug), 1, 3, 25));
@@ -361,7 +361,7 @@ public class GOTChestContents {
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mugRedGrapeJuice), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.mugWhiteGrapeJuice), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.bow), 1, 1, 25));
-		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yitiBow), 1, 1, 25));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBow), 1, 1, 25));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 50));
 
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(Items.chainmail_helmet), 1, 1, 5));
@@ -822,7 +822,7 @@ public class GOTChestContents {
 		TYROSH_L.addAll(SUD_L);
 		VOLANTIS_L.addAll(SUD_L);
 
-		JOGOS_L.addAll(NOMAD_L);
+		JOGOS_NHAI_L.addAll(NOMAD_L);
 		DOTHRAKI_L.addAll(NOMAD_L);
 
 		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.dothrakiHelmet), 1, 1, 10));
@@ -830,10 +830,10 @@ public class GOTChestContents {
 		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.dothrakiLeggings), 1, 1, 10));
 		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.dothrakiBoots), 1, 1, 10));
 
-		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosHelmet), 1, 1, 25));
-		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosChestplate), 1, 1, 25));
-		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosLeggings), 1, 1, 25));
-		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosBoots), 1, 1, 25));
+		JOGOS_NHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosNhaiHelmet), 1, 1, 25));
+		JOGOS_NHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosNhaiChestplate), 1, 1, 25));
+		JOGOS_NHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosNhaiLeggings), 1, 1, 25));
+		JOGOS_NHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.jogosNhaiBoots), 1, 1, 25));
 
 		ARRYN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.arrynHelmet), 1, 1, 25));
 		ARRYN_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.arrynChestplate), 1, 1, 25));
@@ -1079,7 +1079,7 @@ public class GOTChestContents {
 		HILLMEN = new GOTChestContents(4, 6, HILLMEN_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK);
 		IBBEN = new GOTChestContents(4, 6, IBBEN_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK);
 		IRONBORN = new GOTChestContents(4, 6, IRONBORN_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
-		JOGOS = new GOTChestContents(4, 6, JOGOS_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK);
+		JOGOS_NHAI = new GOTChestContents(4, 6, JOGOS_NHAI_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK);
 		LHAZAR = new GOTChestContents(4, 6, LHAZAR_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
 		LORATH = new GOTChestContents(4, 6, LORATH_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
 		LYS = new GOTChestContents(4, 6, LYS_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
@@ -1099,7 +1099,7 @@ public class GOTChestContents {
 		TYROSH = new GOTChestContents(4, 6, TYROSH_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
 		VOLANTIS = new GOTChestContents(4, 6, VOLANTIS_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
 		WESTERLANDS = new GOTChestContents(4, 6, WESTERLANDS_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
-		YI_TI = new GOTChestContents(4, 6, YI_TI_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.YITI);
+		YI_TI = new GOTChestContents(4, 6, YI_TI_L).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.YI_TI);
 	}
 
 	private final WeightedRandomChestContent[] items;

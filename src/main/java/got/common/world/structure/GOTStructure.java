@@ -6,10 +6,10 @@ import got.common.world.structure.essos.asshai.*;
 import got.common.world.structure.essos.braavos.*;
 import got.common.world.structure.essos.dothraki.*;
 import got.common.world.structure.essos.ghiscar.*;
-import got.common.world.structure.essos.gold.GOTStructureGoldenCompanySettlement;
-import got.common.world.structure.essos.gold.GOTStructureGoldenCompanyWatchtower;
+import got.common.world.structure.essos.golden_company.GOTStructureGoldenCompanySettlement;
+import got.common.world.structure.essos.golden_company.GOTStructureGoldenCompanyWatchtower;
 import got.common.world.structure.essos.ibben.*;
-import got.common.world.structure.essos.jogos.*;
+import got.common.world.structure.essos.jogos_nhai.*;
 import got.common.world.structure.essos.lhazar.*;
 import got.common.world.structure.essos.lorath.*;
 import got.common.world.structure.essos.lys.*;
@@ -21,7 +21,7 @@ import got.common.world.structure.essos.qarth.*;
 import got.common.world.structure.essos.qohor.*;
 import got.common.world.structure.essos.tyrosh.*;
 import got.common.world.structure.essos.volantis.*;
-import got.common.world.structure.essos.yiti.*;
+import got.common.world.structure.essos.yi_ti.*;
 import got.common.world.structure.other.*;
 import got.common.world.structure.sothoryos.sothoryos.*;
 import got.common.world.structure.sothoryos.summer.*;
@@ -350,10 +350,10 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureIbbenTavern.class, GOTFaction.IBBEN);
 		GOTStructureRegistry.register(id++, GOTStructureIbbenWatchtower.class, GOTFaction.IBBEN);
 
-		GOTStructureRegistry.register(id++, GOTStructureJogosTent.class, GOTFaction.JOGOS);
-		GOTStructureRegistry.register(id++, GOTStructureJogosTentLarge.class, GOTFaction.JOGOS);
-		GOTStructureRegistry.register(id++, GOTStructureJogosChieftainTent.class, GOTFaction.JOGOS);
-		GOTStructureRegistry.register(id++, GOTStructureJogosShamanTent.class, GOTFaction.JOGOS);
+		GOTStructureRegistry.register(id++, GOTStructureJogosNhaiTent.class, GOTFaction.JOGOS_NHAI);
+		GOTStructureRegistry.register(id++, GOTStructureJogosNhaiTentLarge.class, GOTFaction.JOGOS_NHAI);
+		GOTStructureRegistry.register(id++, GOTStructureJogosNhaiChieftainTent.class, GOTFaction.JOGOS_NHAI);
+		GOTStructureRegistry.register(id++, GOTStructureJogosNhaiShamanTent.class, GOTFaction.JOGOS_NHAI);
 
 		GOTStructureRegistry.register(id++, GOTStructureMossovyBarn.class, GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovyFortress.class, GOTFaction.MOSSOVY);
@@ -505,10 +505,10 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureIbbenSettlement(GOTBiome.ocean, 1.0f), "IbbenSettle", GOTFaction.IBBEN, (GOTStructureRegistry.ISettlementProperties<GOTStructureIbbenSettlement.Instance>) instance -> instance.setType(GOTStructureIbbenSettlement.Type.VILLAGE));
 		GOTStructureRegistry.register(id++, new GOTStructureIbbenSettlement(GOTBiome.ocean, 1.0f), "IbbenSettleForted", GOTFaction.IBBEN, (GOTStructureRegistry.ISettlementProperties<GOTStructureIbbenSettlement.Instance>) instance -> instance.setType(GOTStructureIbbenSettlement.Type.FORT));
 
-		GOTStructureRegistry.register(id++, new GOTStructureJogosSettlement(GOTBiome.ocean, 1.0f), "JogosSettle", GOTFaction.JOGOS, (GOTStructureRegistry.ISettlementProperties<GOTStructureJogosSettlement.Instance>) instance -> instance.setType(GOTStructureJogosSettlement.Type.SMALL));
-		GOTStructureRegistry.register(id++, new GOTStructureJogosSettlement(GOTBiome.ocean, 1.0f), "JogosSettleLarge", GOTFaction.JOGOS, (GOTStructureRegistry.ISettlementProperties<GOTStructureJogosSettlement.Instance>) instance -> instance.setType(GOTStructureJogosSettlement.Type.BIG));
+		GOTStructureRegistry.register(id++, new GOTStructureJogosNhaiSettlement(GOTBiome.ocean, 1.0f), "JogosNhaiSettle", GOTFaction.JOGOS_NHAI, (GOTStructureRegistry.ISettlementProperties<GOTStructureJogosNhaiSettlement.Instance>) instance -> instance.setType(GOTStructureJogosNhaiSettlement.Type.SMALL));
+		GOTStructureRegistry.register(id++, new GOTStructureJogosNhaiSettlement(GOTBiome.ocean, 1.0f), "JogosNhaiSettleLarge", GOTFaction.JOGOS_NHAI, (GOTStructureRegistry.ISettlementProperties<GOTStructureJogosNhaiSettlement.Instance>) instance -> instance.setType(GOTStructureJogosNhaiSettlement.Type.BIG));
 
-		GOTStructureRegistry.register(id++, new GOTStructureMossovySettlement(GOTBiome.ocean, 1.0f), "MossovySettle", GOTFaction.JOGOS, (GOTStructureRegistry.ISettlementProperties<GOTStructureMossovySettlement.Instance>) instance -> instance.setType(GOTStructureMossovySettlement.Type.VILLAGE));
+		GOTStructureRegistry.register(id++, new GOTStructureMossovySettlement(GOTBiome.ocean, 1.0f), "MossovySettle", GOTFaction.JOGOS_NHAI, (GOTStructureRegistry.ISettlementProperties<GOTStructureMossovySettlement.Instance>) instance -> instance.setType(GOTStructureMossovySettlement.Type.VILLAGE));
 
 		GOTStructureRegistry.register(id++, new GOTStructureYiTiSettlement(GOTBiome.ocean, 1.0f), "YiTiSettle", GOTFaction.YI_TI, (GOTStructureRegistry.ISettlementProperties<GOTStructureYiTiSettlement.Instance>) instance -> instance.setType(GOTStructureYiTiSettlement.Type.VILLAGE));
 		GOTStructureRegistry.register(id++, new GOTStructureYiTiSettlement(GOTBiome.ocean, 1.0f), "YiTiSettleForted", GOTFaction.YI_TI, (GOTStructureRegistry.ISettlementProperties<GOTStructureYiTiSettlement.Instance>) instance -> instance.setType(GOTStructureYiTiSettlement.Type.FORT));
