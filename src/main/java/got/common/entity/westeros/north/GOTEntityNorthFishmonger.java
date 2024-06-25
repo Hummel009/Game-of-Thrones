@@ -26,13 +26,13 @@ public class GOTEntityNorthFishmonger extends GOTEntityNorthMan implements GOTTr
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_FISHMONGER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.FISHMONGER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_FISHMONGER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.FISHMONGER_BUYS;
 	}
 
 	@Override

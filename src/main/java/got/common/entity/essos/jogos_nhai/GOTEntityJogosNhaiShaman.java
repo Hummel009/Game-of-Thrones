@@ -27,13 +27,13 @@ public class GOTEntityJogosNhaiShaman extends GOTEntityJogosNhaiMan implements G
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_FARMER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BUTCHER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_FARMER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BUTCHER_BUYS;
 	}
 
 	@Override

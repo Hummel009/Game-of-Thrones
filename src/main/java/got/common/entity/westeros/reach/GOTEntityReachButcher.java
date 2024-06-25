@@ -25,13 +25,13 @@ public class GOTEntityReachButcher extends GOTEntityReachMan implements GOTTrade
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_BUTCHER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BUTCHER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BUTCHER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BUTCHER_BUYS;
 	}
 
 	@Override

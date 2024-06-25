@@ -38,8 +38,8 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.BAELISH_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BAELISH_SELLS;
 	}
 
 	@Override
@@ -53,8 +53,8 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.EMPTY_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.EMPTY_BUYS;
 	}
 
 	@Override

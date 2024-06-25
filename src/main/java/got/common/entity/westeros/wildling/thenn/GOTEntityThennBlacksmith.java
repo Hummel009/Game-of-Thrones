@@ -25,13 +25,13 @@ public class GOTEntityThennBlacksmith extends GOTEntityThenn implements GOTSmith
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.THENN_BLACKSMITH_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BLACKSMITH_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BLACKSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BLACKSMITH_BUYS;
 	}
 
 	@Override

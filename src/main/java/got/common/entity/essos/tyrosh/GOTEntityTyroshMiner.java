@@ -26,13 +26,13 @@ public class GOTEntityTyroshMiner extends GOTEntityTyroshMan implements GOTTrade
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_MINER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.MINER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_MINER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.MINER_BUYS;
 	}
 
 	@Override

@@ -27,13 +27,13 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_ALCHEMIST_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.ALCHEMIST_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_GOLDSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.ALCHEMIST_BUYS;
 	}
 
 	@Override

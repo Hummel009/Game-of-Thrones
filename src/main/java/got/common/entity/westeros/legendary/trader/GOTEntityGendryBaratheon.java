@@ -31,8 +31,8 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTS
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.WESTEROS_BLACKSMITH_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BLACKSMITH_SELLS;
 	}
 
 	@Override
@@ -46,8 +46,8 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTS
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BLACKSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BLACKSMITH_BUYS;
 	}
 
 	@Override

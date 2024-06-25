@@ -26,13 +26,13 @@ public class GOTEntityQohorBrewer extends GOTEntityQohorMan implements GOTTradea
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_BREWER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BREWER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BREWER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BREWER_BUYS;
 	}
 
 	@Override

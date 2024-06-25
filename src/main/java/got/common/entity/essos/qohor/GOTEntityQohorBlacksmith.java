@@ -26,13 +26,13 @@ public class GOTEntityQohorBlacksmith extends GOTEntityQohorMan implements GOTSm
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ESSOS_BLACKSMITH_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BLACKSMITH_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BLACKSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BLACKSMITH_BUYS;
 	}
 
 	@Override

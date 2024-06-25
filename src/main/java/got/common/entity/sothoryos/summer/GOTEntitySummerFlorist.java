@@ -26,13 +26,13 @@ public class GOTEntitySummerFlorist extends GOTEntitySummerMan implements GOTTra
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_FISHMONGER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.FLORIST_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_FISHMONGER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.FLORIST_SELLS;
 	}
 
 	@Override

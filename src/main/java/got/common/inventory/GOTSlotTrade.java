@@ -23,7 +23,7 @@ public class GOTSlotTrade extends GOTSlotProtected {
 
 	@Override
 	public boolean canTakeStack(EntityPlayer entityplayer) {
-		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
+		if (tradeType == GOTTradeEntries.TradeType.SELLS) {
 			if (getTrade() != null && !getTrade().isAvailable()) {
 				return false;
 			}
@@ -32,7 +32,7 @@ public class GOTSlotTrade extends GOTSlotProtected {
 				return false;
 			}
 		}
-		return tradeType != GOTTradeEntries.TradeType.WE_CAN_SELL && super.canTakeStack(entityplayer);
+		return tradeType != GOTTradeEntries.TradeType.BUYS && super.canTakeStack(entityplayer);
 	}
 
 	public int cost() {
@@ -42,9 +42,9 @@ public class GOTSlotTrade extends GOTSlotProtected {
 
 	public GOTTradeEntry getTrade() {
 		GOTTradeEntry[] trades = null;
-		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
+		if (tradeType == GOTTradeEntries.TradeType.SELLS) {
 			trades = theEntity.getTraderInfo().getBuyTrades();
-		} else if (tradeType == GOTTradeEntries.TradeType.WE_CAN_SELL) {
+		} else if (tradeType == GOTTradeEntries.TradeType.BUYS) {
 			trades = theEntity.getTraderInfo().getSellTrades();
 		}
 		if (trades == null) {
@@ -59,11 +59,11 @@ public class GOTSlotTrade extends GOTSlotProtected {
 
 	@Override
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
-		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY && !entityplayer.worldObj.isRemote) {
+		if (tradeType == GOTTradeEntries.TradeType.SELLS && !entityplayer.worldObj.isRemote) {
 			GOTItemCoin.takeCoins(cost(), entityplayer);
 		}
 		super.onPickupFromSlot(entityplayer, itemstack);
-		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
+		if (tradeType == GOTTradeEntries.TradeType.SELLS) {
 			GOTTradeEntry trade = getTrade();
 			if (!entityplayer.worldObj.isRemote && trade != null) {
 				putStack(trade.createTradeItem());

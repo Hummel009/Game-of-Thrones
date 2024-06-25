@@ -25,13 +25,13 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_BARTENDER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BARTENDER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BARTENDER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BARTENDER_BUYS;
 	}
 
 	@Override

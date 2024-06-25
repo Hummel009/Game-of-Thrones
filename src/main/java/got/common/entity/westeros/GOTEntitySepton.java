@@ -20,13 +20,13 @@ public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable 
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_MAESTER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.MAESTER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_MAESTER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.MAESTER_BUYS;
 	}
 
 	@Override

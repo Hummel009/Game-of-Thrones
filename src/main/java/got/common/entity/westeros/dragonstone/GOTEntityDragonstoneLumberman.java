@@ -26,13 +26,13 @@ public class GOTEntityDragonstoneLumberman extends GOTEntityDragonstoneMan imple
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_LUMBERMAN_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.LUMBERMAN_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_LUMBERMAN_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.LUMBERMAN_BUYS;
 	}
 
 	@Override

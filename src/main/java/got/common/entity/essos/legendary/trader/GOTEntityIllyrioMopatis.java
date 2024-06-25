@@ -35,8 +35,8 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_GOLDSMITH_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.GOLDSMITH_SELLS;
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_GOLDSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.GOLDSMITH_BUYS;
 	}
 
 	@Override

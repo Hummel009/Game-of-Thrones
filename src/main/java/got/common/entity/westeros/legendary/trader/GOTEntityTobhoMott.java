@@ -34,8 +34,8 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTSmith {
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.QOHOR_BLACKSMITH_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.TOBHO_SELLS;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTSmith {
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BLACKSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.EMPTY_BUYS;
 	}
 
 	@Override

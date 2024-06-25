@@ -26,8 +26,8 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTSmith {
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_BUTCHER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BUTCHER_SELLS;
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTSmith {
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BLACKSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BUTCHER_BUYS;
 	}
 
 	@Override

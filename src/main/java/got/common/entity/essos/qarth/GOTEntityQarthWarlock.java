@@ -25,13 +25,13 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthMan implements GOTTrade
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_ALCHEMIST_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.ALCHEMIST_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_TRAMP_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.ALCHEMIST_BUYS;
 	}
 
 	@Override

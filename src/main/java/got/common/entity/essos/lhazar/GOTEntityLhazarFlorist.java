@@ -25,13 +25,13 @@ public class GOTEntityLhazarFlorist extends GOTEntityLhazarMan implements GOTTra
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_FLORIST_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.FLORIST_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_FARMER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.FLORIST_BUYS;
 	}
 
 	@Override

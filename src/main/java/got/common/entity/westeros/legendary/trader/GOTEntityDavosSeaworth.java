@@ -28,8 +28,8 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.DAVOS_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.DAVOS_SELLS;
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_MAESTER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.MAESTER_BUYS;
 	}
 
 	@Override

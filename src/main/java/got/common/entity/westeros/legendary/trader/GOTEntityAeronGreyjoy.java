@@ -35,8 +35,8 @@ public class GOTEntityAeronGreyjoy extends GOTEntityHumanBase implements GOTTrad
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_ALCHEMIST_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.ALCHEMIST_SELLS;
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public class GOTEntityAeronGreyjoy extends GOTEntityHumanBase implements GOTTrad
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_GOLDSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.ALCHEMIST_BUYS;
 	}
 
 	@Override

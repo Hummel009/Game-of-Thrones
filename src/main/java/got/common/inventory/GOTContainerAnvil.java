@@ -247,7 +247,7 @@ public class GOTContainerAnvil extends Container {
 			}
 		}
 		if (materialPrice <= 0.0f) {
-			GOTTradeEntries sellPool = theTrader.getSellPool();
+			GOTTradeEntries sellPool = theTrader.getBuysPool();
 			for (GOTTradeEntry trade : sellPool.getTradeEntries()) {
 				ItemStack tradeItem = trade.createTradeItem();
 				if (!isRepairMaterial(inputItem, tradeItem)) {

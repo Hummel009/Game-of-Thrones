@@ -26,13 +26,13 @@ public class GOTEntityWesterlandsMason extends GOTEntityWesterlandsMan implement
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.NORD_MASON_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.MASON_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_MINER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.MASON_BUYS;
 	}
 
 	@Override

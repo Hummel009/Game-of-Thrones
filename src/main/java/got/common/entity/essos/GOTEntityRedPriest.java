@@ -20,8 +20,8 @@ public class GOTEntityRedPriest extends GOTEntityHumanBase implements GOTTradeab
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.CROWNLANDS_ALCHEMIST_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.ALCHEMIST_SELLS;
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class GOTEntityRedPriest extends GOTEntityHumanBase implements GOTTradeab
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_GOLDSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.ALCHEMIST_BUYS;
 	}
 
 	@Override

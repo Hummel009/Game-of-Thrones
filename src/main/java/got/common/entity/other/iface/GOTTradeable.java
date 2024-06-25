@@ -8,9 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 public interface GOTTradeable {
 	boolean canTradeWith(EntityPlayer var1);
 
-	GOTTradeEntries getBuyPool();
+	GOTTradeEntries getSellsPool();
 
-	GOTTradeEntries getSellPool();
+	GOTTradeEntries getBuysPool();
 
 	default void onPlayerTrade(EntityPlayer entityPlayer) {
 		GOTLevelData.getData(entityPlayer).addAchievement(GOTAchievement.trade);

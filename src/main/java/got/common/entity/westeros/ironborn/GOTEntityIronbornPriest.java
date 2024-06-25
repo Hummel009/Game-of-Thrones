@@ -27,13 +27,13 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_FISHMONGER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.FISHMONGER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_TRAMP_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.TRAMP_BUYS;
 	}
 
 	@Override

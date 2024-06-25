@@ -1309,7 +1309,7 @@ public class GOTWikiGenerator {
 			if (entityEntry.getValue() instanceof GOTTradeable) {
 				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
 
-				for (GOTTradeEntry entry : tradeable.getSellPool().getTradeEntries()) {
+				for (GOTTradeEntry entry : tradeable.getBuysPool().getTradeEntries()) {
 					data.computeIfAbsent(entityEntry.getKey(), s -> new TreeSet<>());
 					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 				}
@@ -1902,7 +1902,7 @@ public class GOTWikiGenerator {
 			if (entityEntry.getValue() instanceof GOTTradeable) {
 				GOTTradeable tradeable = (GOTTradeable) entityEntry.getValue();
 
-				for (GOTTradeEntry entry : tradeable.getBuyPool().getTradeEntries()) {
+				for (GOTTradeEntry entry : tradeable.getSellsPool().getTradeEntries()) {
 					data.computeIfAbsent(entityEntry.getKey(), s -> new TreeSet<>());
 					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 				}

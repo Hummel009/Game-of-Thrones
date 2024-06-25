@@ -26,13 +26,13 @@ public class GOTEntityVolantisLumberman extends GOTEntityVolantisMan implements 
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_LUMBERMAN_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.LUMBERMAN_EXOTIC_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_LUMBERMAN_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.LUMBERMAN_EXOTIC_BUYS;
 	}
 
 	@Override

@@ -27,13 +27,13 @@ public class GOTEntitySummerMason extends GOTEntitySummerMan implements GOTTrade
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.SUD_MASON_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.MASON_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_MINER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.MASON_BUYS;
 	}
 
 	@Override

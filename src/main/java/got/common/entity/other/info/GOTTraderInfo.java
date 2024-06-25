@@ -187,8 +187,8 @@ public class GOTTraderInfo {
 	private void refreshTrades() {
 		GOTTradeable theTrader = (GOTTradeable) theEntity;
 		Random rand = theEntity.getRNG();
-		setBuyTrades(theTrader.getBuyPool().getRandomTrades(rand));
-		setSellTrades(theTrader.getSellPool().getRandomTrades(rand));
+		setBuyTrades(theTrader.getSellsPool().getRandomTrades(rand));
+		setSellTrades(theTrader.getBuysPool().getRandomTrades(rand));
 		valueSinceRefresh = 0;
 		List<EntityPlayer> players = theEntity.worldObj.playerEntities;
 		for (EntityPlayer entityplayer : players) {

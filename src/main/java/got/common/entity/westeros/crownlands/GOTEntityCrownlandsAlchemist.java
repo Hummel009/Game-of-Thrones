@@ -25,13 +25,13 @@ public class GOTEntityCrownlandsAlchemist extends GOTEntityCrownlandsMan impleme
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.CROWNLANDS_ALCHEMIST_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.CROWNLANDS_ALCHEMIST_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_GOLDSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.CROWNLANDS_ALCHEMIST_BUYS;
 	}
 
 	@Override

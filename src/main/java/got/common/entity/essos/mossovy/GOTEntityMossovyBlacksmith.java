@@ -25,13 +25,13 @@ public class GOTEntityMossovyBlacksmith extends GOTEntityMossovyMan implements G
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.MOSSOVY_BLACKSMITH_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BLACKSMITH_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BLACKSMITH_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BLACKSMITH_BUYS;
 	}
 
 	@Override

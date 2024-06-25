@@ -25,13 +25,13 @@ public class GOTEntitySothoryosShaman extends GOTEntitySothoryosMan implements G
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_SHAMAN_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.ALCHEMIST_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_SHAMAN_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.ALCHEMIST_BUYS;
 	}
 
 	@Override

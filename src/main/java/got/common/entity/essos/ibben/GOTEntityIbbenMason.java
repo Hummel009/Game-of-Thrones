@@ -26,13 +26,13 @@ public class GOTEntityIbbenMason extends GOTEntityIbbenMan implements GOTTradeab
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.IBBEN_MASON_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.MASON_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_MINER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.MASON_BUYS;
 	}
 
 	@Override

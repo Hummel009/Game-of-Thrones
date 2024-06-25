@@ -41,12 +41,12 @@ public abstract class GOTEntityTrampBase extends GOTEntityHumanBase implements G
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_TRAMP_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.TRAMP_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_TRAMP_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.TRAMP_BUYS;
 	}
 }

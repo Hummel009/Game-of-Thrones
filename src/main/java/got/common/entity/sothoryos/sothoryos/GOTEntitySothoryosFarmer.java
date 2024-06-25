@@ -26,13 +26,13 @@ public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements G
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_FARMER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.FARMER_EXOTIC_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_FARMER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.FARMER_EXOTIC_BUYS;
 	}
 
 	@Override

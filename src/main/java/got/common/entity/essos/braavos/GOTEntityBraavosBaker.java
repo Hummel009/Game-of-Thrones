@@ -27,13 +27,13 @@ public class GOTEntityBraavosBaker extends GOTEntityBraavosMan implements GOTTra
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_BAKER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.BAKER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BAKER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.BAKER_BUYS;
 	}
 
 	@Override

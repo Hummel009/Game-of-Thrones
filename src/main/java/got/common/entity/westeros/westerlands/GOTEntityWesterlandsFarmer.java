@@ -27,13 +27,13 @@ public class GOTEntityWesterlandsFarmer extends GOTEntityWesterlandsMan implemen
 	}
 
 	@Override
-	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.C_FARMER_BUY;
+	public GOTTradeEntries getSellsPool() {
+		return GOTTradeEntries.FARMER_SELLS;
 	}
 
 	@Override
-	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_FARMER_SELL;
+	public GOTTradeEntries getBuysPool() {
+		return GOTTradeEntries.FARMER_BUYS;
 	}
 
 	@Override
