@@ -63,6 +63,9 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.ULTHOS, 10).setSpawnChance(CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(0).add(c1);
 	}
 
 	@Override

@@ -11,7 +11,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotAlignmentReward extends GOTSlotProtected {
-	public static final int REWARD_COST = 1000;
+	public static final int WARHORT_PRICE = 500;
+	public static final int WARHORN_ALIGNMENT = 500;
 
 	private final GOTContainerUnitTrade theContainer;
 	private final GOTHireableBase theTrader;
@@ -28,18 +29,18 @@ public class GOTSlotAlignmentReward extends GOTSlotProtected {
 
 	@Override
 	public boolean canTakeStack(EntityPlayer entityplayer) {
-		if (GOTLevelData.getData(entityplayer).getAlignment(theTrader.getFaction()) < 1500.0f) {
+		if (GOTLevelData.getData(entityplayer).getAlignment(theTrader.getFaction()) < WARHORN_ALIGNMENT) {
 			return false;
 		}
 		int coins = GOTItemCoin.getInventoryValue(entityplayer, false);
-		return coins >= REWARD_COST && super.canTakeStack(entityplayer);
+		return coins >= WARHORT_PRICE && super.canTakeStack(entityplayer);
 	}
 
 	@Override
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
 		GOTFaction faction = theLivingTrader.getFaction();
 		if (!entityplayer.worldObj.isRemote) {
-			GOTItemCoin.takeCoins(REWARD_COST, entityplayer);
+			GOTItemCoin.takeCoins(WARHORT_PRICE, entityplayer);
 			GOTLevelData.getData(entityplayer).getFactionData(faction).takeConquestHorn();
 			theLivingTrader.playTradeSound();
 		}

@@ -272,7 +272,7 @@ public enum GOTInvasions {
 		return "got.invasion." + codeName() + ".horn";
 	}
 
-	public ItemStack createConquestHorn() {
+	public ItemStack createWarhorn() {
 		ItemStack horn = new ItemStack(GOTItems.warhorn);
 		GOTItemWarhorn.setInvasionType(horn, this);
 		return horn;

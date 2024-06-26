@@ -3,17 +3,22 @@ package got.common.world.biome.ulthos;
 import got.client.sound.GOTMusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
+import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.map.GOTWaypoint;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeUlthos extends GOTBiome {
@@ -44,6 +49,9 @@ public class GOTBiomeUlthos extends GOTBiome {
 		decorator.addTree(GOTTreeType.DARK_OAK, 200);
 		decorator.addTree(GOTTreeType.DARK_OAK_PARTY, 10);
 		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(0).add(c1);
 	}
 
 	@Override

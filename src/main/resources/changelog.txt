@@ -2,7 +2,8 @@ CHANGELOG
 
 >>BUILD 24.07.10
 * New creative inventory items and blocks order
-* New achievement system: hundreds of new achievements
+* Reworked achievement system: hundreds of new achievements
+* Reworked all trade entries of all traders.
 * New Valyria region, reworked from scratch
 * New economics: silver, gold, valyrian steel and different gems now has fixed prices world-wide.
 
@@ -41,6 +42,8 @@ CHANGELOG
 * Improved midges and butterflies: they can't spawn in winter now
 * Improved balance of +alignment values for killing
 * Improved biome visit achievements and achievement shields: now require more biomes and achievements.
+* Improved warhorn price
+* Improved ulthos & sothoryos conquest: more biomes to conquer
 
 * Oprimized concrete and concrete powder
 * Optimized dragons, giants and ice creatures

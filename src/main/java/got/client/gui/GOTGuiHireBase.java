@@ -95,7 +95,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		if (((GOTContainerUnitTrade) inventorySlots).getAlignmentRewardSlots() > 0) {
 			Slot slot = inventorySlots.getSlot(0);
 			drawTexturedModalRect(guiLeft + slot.xDisplayPosition - 3, guiTop + slot.yDisplayPosition - 3, xSize, 16, 22, 22);
-			if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f) {
+			if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < GOTSlotAlignmentReward.WARHORN_ALIGNMENT) {
 				drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, xSize, 0, 16, 16);
 			}
 		}
@@ -159,10 +159,10 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.coin), 160, 100);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				cost = GOTSlotAlignmentReward.REWARD_COST;
+				cost = GOTSlotAlignmentReward.WARHORT_PRICE;
 				fontRendererObj.drawString(String.valueOf(cost), 179, 104, 4210752);
-			} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
-				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", 1500.0f), i - guiLeft, j - guiTop);
+			} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < GOTSlotAlignmentReward.WARHORN_ALIGNMENT && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
+				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", GOTSlotAlignmentReward.WARHORN_ALIGNMENT), i - guiLeft, j - guiTop);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			}

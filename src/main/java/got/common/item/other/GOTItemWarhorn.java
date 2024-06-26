@@ -11,6 +11,7 @@ import got.common.entity.other.inanimate.GOTEntityInvasionSpawner;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
+import got.common.inventory.GOTSlotAlignmentReward;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -70,7 +71,7 @@ public class GOTItemWarhorn extends Item {
 	private static boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
 		GOTInvasions invasionType = getInvasionType(itemstack);
 		GOTFaction invasionFaction = invasionType.getInvasionFaction();
-		float alignmentRequired = 1000.0f;
+		float alignmentRequired = GOTSlotAlignmentReward.WARHORN_ALIGNMENT;
 		if (GOTLevelData.getData(entityplayer).getAlignment(invasionFaction) >= alignmentRequired) {
 			boolean blocked = GOTBannerProtection.isProtected(world, entityplayer, GOTBannerProtection.forFaction(invasionFaction), false);
 			if (GOTEntityNPCRespawner.isSpawnBlocked(entityplayer, invasionFaction)) {

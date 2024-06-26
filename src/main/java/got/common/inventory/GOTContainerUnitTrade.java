@@ -26,15 +26,15 @@ public class GOTContainerUnitTrade extends Container {
 		GOTFaction traderFaction = theLivingTrader.getFaction();
 		ItemStack reward = null;
 		if (theUnitTrader instanceof GOTUnitTradeable) {
-			GOTInvasions conquestType = ((GOTUnitTradeable) theUnitTrader).getWarhorn();
-			reward = conquestType == null ? null : conquestType.createConquestHorn();
+			GOTInvasions invasionType = ((GOTUnitTradeable) theUnitTrader).getWarhorn();
+			reward = invasionType == null ? null : invasionType.createWarhorn();
 		}
 		boolean hasReward = reward != null;
 		alignmentRewardSlots = hasReward ? 1 : 0;
 		IInventory alignmentRewardInv = new InventoryBasic("specialItem", false, alignmentRewardSlots);
 		if (hasReward) {
 			addSlotToContainer(new GOTSlotAlignmentReward(this, alignmentRewardInv, 0, 174, 78, theUnitTrader, reward.copy()));
-			if (!world.isRemote && GOTLevelData.getData(entityplayer).getAlignment(traderFaction) >= 1500.0f) {
+			if (!world.isRemote && GOTLevelData.getData(entityplayer).getAlignment(traderFaction) >= GOTSlotAlignmentReward.WARHORN_ALIGNMENT) {
 				alignmentRewardInv.setInventorySlotContents(0, reward.copy());
 			}
 		}
