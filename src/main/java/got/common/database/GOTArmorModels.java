@@ -252,7 +252,7 @@ public class GOTArmorModels {
 			map.put(GOTItems.westerlandsHelmet, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTItems.westkingHelmet, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTItems.yiTiHelmetSamurai, new GOTModelYiTiHelmet(1.0f, false));
-			map.put(GOTItems.yiTiHelmetShogune, new GOTModelYiTiHelmet(1.0f, true));
+			map.put(GOTItems.yiTiHelmetCaptain, new GOTModelYiTiHelmet(1.0f, true));
 			map.put(GOTItems.gemsbokHelmet, new GOTModelGemsbokHelmet(1.0f));
 			map.put(GOTItems.sothoryosHelmetChieftain, new GOTModelDeerHelmet(1.0f));
 			for (ModelBiped armorModel : map.values()) {

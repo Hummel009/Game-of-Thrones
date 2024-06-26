@@ -673,7 +673,7 @@ public class GOTItems {
 	public static Item yiTiHelmet;
 	public static Item yiTiHelmetBombardier;
 	public static Item yiTiHelmetSamurai;
-	public static Item yiTiHelmetShogune;
+	public static Item yiTiHelmetCaptain;
 	public static Item yiTiHorseArmor;
 	public static Item yiTiLeggings;
 	public static Item yiTiLeggingsBombardier;
@@ -1338,7 +1338,7 @@ public class GOTItems {
 		yiTiHelmet = new GOTItemArmor(GOTMaterial.YI_TI, 0);
 		yiTiHelmetBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 0);
 		yiTiHelmetSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "helmet");
-		yiTiHelmetShogune = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "warlordHelmet");
+		yiTiHelmetCaptain = new GOTItemArmor(GOTMaterial.YI_TI, 0, "helmet_captain");
 		yiTiHorseArmor = new GOTItemMountArmor(ItemArmor.ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, "horse_yi_ti");
 		yiTiLeggings = new GOTItemArmor(GOTMaterial.YI_TI, 2);
 		yiTiLeggingsBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 2);
@@ -1743,7 +1743,7 @@ public class GOTItems {
 		register(yiTiLeggingsSamurai, "yiTiLeggingsSamurai");
 		register(yiTiBootsSamurai, "yiTiBootsSamurai");
 
-		register(yiTiHelmetShogune, "yiTiHelmetShogune");
+		register(yiTiHelmetCaptain, "yiTiHelmetCaptain");
 
 		register(asshaiHelmet, "asshaiHelmet");
 		register(asshaiChestplate, "asshaiChestplate");

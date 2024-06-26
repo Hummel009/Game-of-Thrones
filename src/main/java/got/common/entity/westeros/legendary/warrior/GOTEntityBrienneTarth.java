@@ -16,7 +16,6 @@ public class GOTEntityBrienneTarth extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBrienneTarth(World world) {
 		super(world);
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		setupLegendaryNPC(true);
 	}
 

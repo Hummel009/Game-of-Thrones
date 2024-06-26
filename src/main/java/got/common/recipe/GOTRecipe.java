@@ -1694,7 +1694,7 @@ public class GOTRecipe {
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmet), "XXX", "X X", 'X', "ingotIron"));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetBombardier), "XYX", "Y Y", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetSamurai), "YYY", "X X", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetShogune), "XYX", 'X', GOTItems.whiteBisonHorn, 'Y', new ItemStack(GOTItems.yiTiHelmetSamurai, 1, 0)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetCaptain), "XYX", 'X', GOTItems.whiteBisonHorn, 'Y', new ItemStack(GOTItems.yiTiHelmetSamurai, 1, 0)));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHorseArmor), "X  ", "XXX", "XXX", 'X', "ingotIron"));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggingsBombardier), "XXX", "Y Y", "X X", 'X', GOTItems.yiTiSteelIngot, 'Y', "ingotIron"));

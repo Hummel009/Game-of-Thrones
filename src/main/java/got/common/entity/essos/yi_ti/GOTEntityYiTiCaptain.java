@@ -46,10 +46,10 @@ public class GOTEntityYiTiCaptain extends GOTEntityYiTiMan implements GOTUnitTra
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yiTiSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBootsSamurai));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yiTiLeggingsSamurai));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yiTiChestplateSamurai));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yiTiHelmetShogune));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yiTiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yiTiChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yiTiHelmetCaptain));
 
 		return entityData;
 	}

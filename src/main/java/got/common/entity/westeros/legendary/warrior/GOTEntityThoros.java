@@ -14,7 +14,6 @@ public class GOTEntityThoros extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThoros(World world) {
 		super(world);
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		setupLegendaryNPC(true);
 	}
 

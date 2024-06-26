@@ -13,7 +13,6 @@ public class GOTEntityLorasTyrell extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorasTyrell(World world) {
 		super(world);
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		setupLegendaryNPC(true);
 	}
 
