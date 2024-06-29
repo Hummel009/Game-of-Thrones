@@ -37,7 +37,7 @@ import got.common.world.structure.essos.braavos.GOTStructureBraavosSettlement;
 import got.common.world.structure.essos.dothraki.GOTStructureDothrakiSettlement;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarSettlement;
 import got.common.world.structure.essos.ibben.GOTStructureIbbenSettlement;
-import got.common.world.structure.essos.jogos_nhai.GOTStructureJogosNhaiSettlement;
+import got.common.world.structure.essos.jogos.GOTStructureJogosNhaiSettlement;
 import got.common.world.structure.essos.lhazar.GOTStructureLhazarSettlement;
 import got.common.world.structure.essos.lorath.GOTStructureLorathSettlement;
 import got.common.world.structure.essos.lys.GOTStructureLysSettlement;

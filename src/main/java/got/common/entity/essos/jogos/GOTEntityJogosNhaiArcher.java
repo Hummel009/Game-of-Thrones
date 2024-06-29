@@ -1,4 +1,4 @@
-package got.common.entity.essos.jogos_nhai;
+package got.common.entity.essos.jogos;
 
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;

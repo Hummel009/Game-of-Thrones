@@ -11,7 +11,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.GOTEntityRegistry;
-import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyMan;
+import got.common.entity.essos.golden.GOTEntityGoldenCompanyMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.entity.other.info.GOTHireableInfo;

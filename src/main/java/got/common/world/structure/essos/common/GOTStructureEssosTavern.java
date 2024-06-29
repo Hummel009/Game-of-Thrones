@@ -3,7 +3,7 @@ package got.common.world.structure.essos.common;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyCaptain;
+import got.common.entity.essos.golden.GOTEntityGoldenCompanyCaptain;
 import got.common.entity.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

@@ -1,10 +1,10 @@
-package got.common.world.structure.essos.jogos_nhai;
+package got.common.world.structure.essos.jogos;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
-import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiShaman;
+import got.common.entity.essos.jogos.GOTEntityJogosNhaiShaman;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;

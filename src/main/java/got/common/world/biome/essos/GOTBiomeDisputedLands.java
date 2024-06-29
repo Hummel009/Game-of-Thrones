@@ -8,7 +8,7 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
-import got.common.world.structure.essos.golden_company.GOTStructureGoldenCompanySettlement;
+import got.common.world.structure.essos.golden.GOTStructureGoldenCompanySettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;

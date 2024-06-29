@@ -1,4 +1,4 @@
-package got.common.world.structure.essos.jogos_nhai;
+package got.common.world.structure.essos.jogos;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

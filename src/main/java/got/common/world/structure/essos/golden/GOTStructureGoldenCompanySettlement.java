@@ -1,7 +1,7 @@
-package got.common.world.structure.essos.golden_company;
+package got.common.world.structure.essos.golden;
 
-import got.common.entity.essos.golden_company.GOTEntityGoldenCompanySpearman;
-import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyWarrior;
+import got.common.entity.essos.golden.GOTEntityGoldenCompanySpearman;
+import got.common.entity.essos.golden.GOTEntityGoldenCompanyWarrior;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;

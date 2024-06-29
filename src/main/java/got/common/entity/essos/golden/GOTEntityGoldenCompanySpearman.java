@@ -1,4 +1,4 @@
-package got.common.entity.essos.golden_company;
+package got.common.entity.essos.golden;
 
 import got.common.database.GOTItems;
 import net.minecraft.entity.IEntityLivingData;

@@ -1,10 +1,10 @@
-package got.common.world.structure.essos.golden_company;
+package got.common.world.structure.essos.golden;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyCaptain;
-import got.common.entity.essos.golden_company.GOTEntityGoldenCompanySpearman;
-import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyWarrior;
+import got.common.entity.essos.golden.GOTEntityGoldenCompanyCaptain;
+import got.common.entity.essos.golden.GOTEntityGoldenCompanySpearman;
+import got.common.entity.essos.golden.GOTEntityGoldenCompanyWarrior;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;

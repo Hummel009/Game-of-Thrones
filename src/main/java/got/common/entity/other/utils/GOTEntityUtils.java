@@ -7,7 +7,7 @@ import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenMason;
-import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiMan;
+import got.common.entity.essos.jogos.GOTEntityJogosNhaiMan;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import got.common.entity.essos.lorath.GOTEntityLorathMan;
 import got.common.entity.essos.lys.GOTEntityLysMan;

@@ -1,4 +1,4 @@
-package got.common.world.structure.essos.golden_company;
+package got.common.world.structure.essos.golden;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;

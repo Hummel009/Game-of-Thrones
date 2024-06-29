@@ -1,4 +1,4 @@
-package got.common.world.structure.essos.jogos_nhai;
+package got.common.world.structure.essos.jogos;
 
 import got.common.database.GOTBlocks;
 import got.common.world.structure.other.GOTStructureBase;

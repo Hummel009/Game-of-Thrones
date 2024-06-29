@@ -1,11 +1,11 @@
-package got.common.world.structure.essos.jogos_nhai;
+package got.common.world.structure.essos.jogos;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityCamel;
-import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiChieftain;
-import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiMan;
+import got.common.entity.essos.jogos.GOTEntityJogosNhaiChieftain;
+import got.common.entity.essos.jogos.GOTEntityJogosNhaiMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;

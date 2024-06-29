@@ -918,7 +918,7 @@ public class GOTItems {
 		grapeRed = new GOTItemFood(2, 0.2f, false);
 		grapeWhite = new GOTItemFood(2, 0.2f, false);
 		gregorCleganeSword = new GOTItemLegendaryGreatsword(Item.ToolMaterial.IRON);
-		handGold = new GOTItemArmor(GOTMaterial.HAND, 1, "golden_company").setCreativeTab(GOTCreativeTabs.TAB_STORY);
+		handGold = new GOTItemArmor(GOTMaterial.HAND, 1, "gold").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		handSilver = new GOTItemArmor(GOTMaterial.HAND, 1, "silver").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		harpy = new GOTItemArmor(GOTMaterial.GHISCAR, 0, "harpy");
 		hearteater = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
