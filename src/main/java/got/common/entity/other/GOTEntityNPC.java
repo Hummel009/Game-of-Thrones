@@ -1322,10 +1322,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		nbt.setInteger("InitHomeR", initHomeRange);
 	}
 
-	public AttackMode getCurrentAttackMode() {
-		return currentAttackMode;
-	}
-
 	public GOTCapes getCape() {
 		return cape;
 	}

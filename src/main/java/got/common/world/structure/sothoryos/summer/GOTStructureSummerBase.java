@@ -1,11 +1,9 @@
 package got.common.world.structure.sothoryos.summer;
 
 import got.common.database.GOTBlocks;
-import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 
 import java.util.Random;
 
@@ -35,11 +33,6 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 
 	protected GOTStructureSummerBase(boolean flag) {
 		super(flag);
-	}
-
-	protected static ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerSpear), new ItemStack(GOTItems.summerPike)};
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	protected boolean isRuined() {

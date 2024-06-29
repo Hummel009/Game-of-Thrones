@@ -3308,7 +3308,7 @@ public class GOTWikiGenerator {
 			this.skippableData = skippableData;
 		}
 
-		public static Collection<String> toStringSet(Iterable<MineralInfo> value) {
+		private static Collection<String> toStringSet(Iterable<MineralInfo> value) {
 			Collection<String> set = new TreeSet<>();
 			for (MineralInfo mineralInfo : value) {
 				set.add(mineralInfo.toString());

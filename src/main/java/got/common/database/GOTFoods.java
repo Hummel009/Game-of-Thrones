@@ -90,7 +90,7 @@ public class GOTFoods {
 		return drinkVesselsPlaceable[random.nextInt(drinkVesselsPlaceable.length)];
 	}
 
-	public GOTItemMug.Vessel getRandomVessel(Random random) {
+	private GOTItemMug.Vessel getRandomVessel(Random random) {
 		return drinkVessels[random.nextInt(drinkVessels.length)];
 	}
 

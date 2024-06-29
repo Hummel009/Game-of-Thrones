@@ -3,7 +3,6 @@ package got.common.world.structure.essos.lhazar;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.lhazar.GOTEntityLhazarCaptain;
 import got.common.entity.essos.lhazar.GOTEntityLhazarSoldier;
@@ -12,7 +11,6 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -118,14 +116,14 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		placeChest(world, random, 10, 1, 13, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
 		placeChest(world, random, 12, 1, 13, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
 		placeChest(world, random, -1, 1, 3, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
-		placelhazarArmor(world, random, -11, 1, -13, 2);
-		placelhazarArmor(world, random, -9, 1, -13, 2);
-		placelhazarArmor(world, random, -13, 1, -11, 3);
-		placelhazarArmor(world, random, -13, 1, -9, 3);
-		placelhazarArmor(world, random, 9, 1, -13, 2);
-		placelhazarArmor(world, random, 11, 1, -13, 2);
-		placelhazarArmor(world, random, 13, 1, -11, 1);
-		placelhazarArmor(world, random, 13, 1, -9, 1);
+		placeArmorStand(world, -11, 1, -13, 2, getRandArmorItems(random));
+		placeArmorStand(world, -9, 1, -13, 2, getRandArmorItems(random));
+		placeArmorStand(world, -13, 1, -11, 3, getRandArmorItems(random));
+		placeArmorStand(world, -13, 1, -9, 3, getRandArmorItems(random));
+		placeArmorStand(world, 9, 1, -13, 2, getRandArmorItems(random));
+		placeArmorStand(world, 11, 1, -13, 2, getRandArmorItems(random));
+		placeArmorStand(world, 13, 1, -11, 1, getRandArmorItems(random));
+		placeArmorStand(world, 13, 1, -9, 1, getRandArmorItems(random));
 		placeWeaponRack(world, -8, 2, -9, 6, getRandWeaponItem(random));
 		placeWeaponRack(world, -9, 2, -8, 7, getRandWeaponItem(random));
 		placeWeaponRack(world, -7, 2, -8, 5, getRandWeaponItem(random));
@@ -180,10 +178,5 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		respawner.setSpawnRanges(24, -4, 6, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);
 		return true;
-	}
-
-	private void placelhazarArmor(World world, Random random, int i, int j, int k, int meta) {
-		ItemStack[] armor = random.nextInt(3) != 0 ? new ItemStack[]{null, null, null, null} : new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)};
-		placeArmorStand(world, i, j, k, meta, getRandArmorItems(random));
 	}
 }

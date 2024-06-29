@@ -222,10 +222,6 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, i1, -2, -3, bedBlock, 10);
 		}
 		for (int k131 : new int[]{-2, 2}) {
-			ItemStack[] armor = null;
-			if (random.nextInt(3) == 0) {
-				armor = new ItemStack[]{new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots)};
-			}
 			placeArmorStand(world, -4, -2, k131, 3, getRandArmorItems(random));
 		}
 		for (int k131 : new int[]{-1, 1}) {

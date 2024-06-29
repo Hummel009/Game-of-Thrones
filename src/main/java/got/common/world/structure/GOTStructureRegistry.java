@@ -17,7 +17,7 @@ public class GOTStructureRegistry {
 
 	public static final Map<Integer, StructureColorInfo> STRUCTURE_ITEM_SPAWNERS = new LinkedHashMap<>();
 	public static final Map<Class<? extends WorldGenerator>, String> CLASS_TO_NAME_MAPPING = new HashMap<>();
-	public static final Map<Class<?>, Set<String>> S_CLASS_TO_NAME_MAPPING = new HashMap<>();
+	private static final Map<Class<?>, Set<String>> S_CLASS_TO_NAME_MAPPING = new HashMap<>();
 
 	private static final Map<Integer, IStructureProvider> ID_TO_CLASS_MAPPING = new HashMap<>();
 	private static final Map<Integer, String> ID_TO_STRING_MAPPING = new HashMap<>();
