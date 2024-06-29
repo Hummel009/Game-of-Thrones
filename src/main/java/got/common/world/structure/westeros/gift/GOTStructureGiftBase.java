@@ -1,13 +1,10 @@
 package got.common.world.structure.westeros.gift;
 
 import got.common.database.GOTBlocks;
-import got.common.database.GOTItems;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 import java.util.Random;
 

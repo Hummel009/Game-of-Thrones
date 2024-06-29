@@ -2,7 +2,6 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;

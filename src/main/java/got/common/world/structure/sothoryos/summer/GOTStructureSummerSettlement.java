@@ -1,9 +1,9 @@
 package got.common.world.structure.sothoryos.summer;
 
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;

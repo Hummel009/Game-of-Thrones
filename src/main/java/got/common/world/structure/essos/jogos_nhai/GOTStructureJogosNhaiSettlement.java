@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.jogos_nhai;
 
-import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiMan;
 import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiArcher;
+import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiMan;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;

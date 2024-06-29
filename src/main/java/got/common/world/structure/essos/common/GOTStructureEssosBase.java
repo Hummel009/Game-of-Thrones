@@ -2,7 +2,6 @@ package got.common.world.structure.essos.common;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTItems;
 import got.common.entity.essos.braavos.*;
 import got.common.entity.essos.ghiscar.*;
 import got.common.entity.essos.lorath.*;
@@ -22,8 +21,6 @@ import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.*;

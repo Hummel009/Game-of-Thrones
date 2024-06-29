@@ -2,9 +2,9 @@ package got.common.world.structure.essos.ghiscar;
 
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
+import got.common.entity.essos.ghiscar.GOTEntityGhiscarMan;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarSoldier;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarSoldierArcher;
-import got.common.entity.essos.ghiscar.GOTEntityGhiscarMan;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;

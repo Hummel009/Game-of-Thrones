@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.ibben;
 
-import got.common.entity.essos.ibben.GOTEntityIbbenSoldierArcher;
-import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenCaptain;
+import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenSoldier;
+import got.common.entity.essos.ibben.GOTEntityIbbenSoldierArcher;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;

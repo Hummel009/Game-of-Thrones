@@ -6,9 +6,9 @@ import got.common.database.GOTFoods;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerCaptain;
 import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 

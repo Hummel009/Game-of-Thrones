@@ -1,6 +1,5 @@
 package got.common.entity.sothoryos.summer;
 
-import got.common.entity.essos.braavos.GOTEntityBraavosMan;
 import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.entity.other.utils.GOTWeaponSetFactory;
 import net.minecraft.entity.IEntityLivingData;

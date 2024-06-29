@@ -84,14 +84,6 @@ public class GOT {
 		DEVS.add("f8cc9b45-509a-4034-8740-0b84ce7e4492");
 	}
 
-	@Mod.EventHandler
-	@SuppressWarnings("MethodMayBeStatic")
-	public void onMissingMappings(FMLMissingMappingsEvent event) {
-		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
-			mapping.ignore();
-		}
-	}
-
 	private static Map<String, Integer> getModContentInfo() {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("achievements", GOTAchievement.CONTENT.size());
@@ -357,6 +349,14 @@ public class GOT {
 			if (newEntity != null) {
 				newEntity.timeUntilPortal = newEntity.getPortalCooldown();
 			}
+		}
+	}
+
+	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
+	public void onMissingMappings(FMLMissingMappingsEvent event) {
+		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+			mapping.ignore();
 		}
 	}
 

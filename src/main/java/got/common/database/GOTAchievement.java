@@ -939,7 +939,7 @@ public class GOTAchievement {
 		wearFullRoyce = createArmorAchievement(armorId++, GOTItems.royceChestplate, "WEAR_FULL_ROYCE");
 		wearFullTargaryen = createArmorAchievement(armorId++, GOTItems.targaryenChestplate, "WEAR_FULL_TARGARYEN");
 		wearFullWestking = createArmorAchievement(armorId++, GOTItems.westkingChestplate, "WEAR_FULL_WESTKING");
-		}
+	}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {
 		return (ach1, ach2) -> {

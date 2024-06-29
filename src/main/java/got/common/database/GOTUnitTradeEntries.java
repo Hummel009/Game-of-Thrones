@@ -15,8 +15,8 @@ import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyBannerBearer
 import got.common.entity.essos.golden_company.GOTEntityGoldenCompanySpearman;
 import got.common.entity.essos.golden_company.GOTEntityGoldenCompanyWarrior;
 import got.common.entity.essos.ibben.*;
-import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiMan;
 import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiArcher;
+import got.common.entity.essos.jogos_nhai.GOTEntityJogosNhaiMan;
 import got.common.entity.essos.lhazar.*;
 import got.common.entity.essos.lorath.*;
 import got.common.entity.essos.lys.*;

@@ -36,8 +36,8 @@ import got.common.world.structure.westeros.hillmen.GOTStructureHillmanSettlement
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanTavern;
 import got.common.world.structure.westeros.ironborn.*;
 import got.common.world.structure.westeros.north.*;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanChieftainHouse;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
 import got.common.world.structure.westeros.reach.*;
 import got.common.world.structure.westeros.riverlands.*;
 import got.common.world.structure.westeros.stormlands.*;
@@ -45,8 +45,8 @@ import got.common.world.structure.westeros.westerlands.*;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingChieftainHouse;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingHouse;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
-import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennChieftainHouse;
+import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse;
 
 public class GOTStructure {
 	private GOTStructure() {

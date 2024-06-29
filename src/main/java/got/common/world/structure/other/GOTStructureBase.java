@@ -49,23 +49,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.*;
 
 public abstract class GOTStructureBase extends WorldGenerator {
-	protected final boolean notifyChanges;
-	private final Map<String, BlockAliasPool> scanAliases = new HashMap<>();
-	private final Map<String, Float> scanAliasChances = new HashMap<>();
-	private final Set<Class<? extends Entity>> entityClasses = new HashSet<>();
-	protected EntityPlayer usingPlayer;
-	protected boolean restrictions = true;
-	protected int originX;
-	protected int originY;
-	protected int originZ;
-
-	private GOTStructureBaseSettlement.AbstractInstance settlementInstance;
-	private boolean shouldFindSurface;
-	private int rotationMode;
-	private StructureBoundingBox sbb;
-	private GOTStructureScan currentStrScan;
-	private boolean wikiGen;
-
 	private static final Map<Item, Integer> FRAME_PERCENTS = new HashMap<>();
 	private static final Map<Item, Integer> WEAPON_PERCENTS = new HashMap<>();
 
@@ -86,6 +69,22 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		WEAPON_PERCENTS.put(GOTItems.ironCrossbow, 8);
 		WEAPON_PERCENTS.put(GOTItems.ironPike, 2);
 	}
+
+	protected final boolean notifyChanges;
+	private final Map<String, BlockAliasPool> scanAliases = new HashMap<>();
+	private final Map<String, Float> scanAliasChances = new HashMap<>();
+	private final Set<Class<? extends Entity>> entityClasses = new HashSet<>();
+	protected EntityPlayer usingPlayer;
+	protected boolean restrictions = true;
+	protected int originX;
+	protected int originY;
+	protected int originZ;
+	private GOTStructureBaseSettlement.AbstractInstance settlementInstance;
+	private boolean shouldFindSurface;
+	private int rotationMode;
+	private StructureBoundingBox sbb;
+	private GOTStructureScan currentStrScan;
+	private boolean wikiGen;
 
 	protected GOTStructureBase() {
 		super(false);

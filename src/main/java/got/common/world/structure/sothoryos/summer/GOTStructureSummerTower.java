@@ -4,8 +4,8 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
+import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import net.minecraft.world.World;
 
 import java.util.Random;
