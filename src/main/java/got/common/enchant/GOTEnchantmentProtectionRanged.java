@@ -1,6 +1,5 @@
 package got.common.enchant;
 
-import got.common.database.GOTMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -23,7 +22,7 @@ public class GOTEnchantmentProtectionRanged extends GOTEnchantmentProtectionSpec
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			Item item = itemstack.getItem();
-			return !(item instanceof ItemArmor) || ((ItemArmor) item).getArmorMaterial() != GOTMaterial.ROYCE;
+			return !(item instanceof ItemArmor);
 		}
 		return false;
 	}

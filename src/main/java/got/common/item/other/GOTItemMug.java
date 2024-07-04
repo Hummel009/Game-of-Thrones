@@ -328,12 +328,6 @@ public class GOTItemMug extends Item {
 	}
 
 	@Override
-	public String getItemStackDisplayName(ItemStack itemstack) {
-
-		return super.getItemStackDisplayName(itemstack);
-	}
-
-	@Override
 	public EnumAction getItemUseAction(ItemStack itemstack) {
 		return EnumAction.drink;
 	}
@@ -520,7 +514,20 @@ public class GOTItemMug extends Item {
 	}
 
 	public enum Vessel {
-		MUG(0, "mug", true, 0), MUG_CLAY(1, "clay", true, 1), GOBLET_GOLD(2, "goblet_gold", true, 10), GOBLET_SILVER(3, "goblet_silver", true, 8), GOBLET_COPPER(4, "goblet_copper", true, 5), GOBLET_WOOD(5, "goblet_wood", true, 0), SKULL(6, "skull", true, 3), GLASS(7, "glass", true, 3), BOTTLE(8, "bottle", true, 2), SKIN(9, "skin", false, 0), HORN(10, "horn", true, 5), HORN_GOLD(11, "horn_gold", true, 8);
+		MUG(0, "mug", true, 0),
+		MUG_CLAY(1, "clay", true, 1),
+		GOBLET_GOLD(2, "goblet_gold", true, 10),
+		GOBLET_SILVER(3, "goblet_silver", true, 8),
+		GOBLET_COPPER(4, "goblet_copper", true, 5),
+		GOBLET_WOOD(5, "goblet_wood", true, 0),
+		SKULL(6, "skull", true, 3),
+		GLASS(7, "glass", true, 3),
+		BOTTLE(8, "bottle", true, 2),
+		SKIN(9, "skin", false, 0),
+		HORN(10, "horn", true, 5),
+		HORN_GOLD(11, "horn_gold", true, 8),
+		GOBLET_BRONZE(12, "goblet_bronze", true, 5),
+		GOBLET_VALYRIAN(13, "goblet_valyrian", true, 15);
 
 		private final int id;
 		private final int extraPrice;
@@ -554,6 +561,10 @@ public class GOTItemMug extends Item {
 					return GOTBlocks.gobletSilver;
 				case GOBLET_COPPER:
 					return GOTBlocks.gobletCopper;
+				case GOBLET_VALYRIAN:
+					return GOTBlocks.gobletValyrian;
+				case GOBLET_BRONZE:
+					return GOTBlocks.gobletBronze;
 				case GOBLET_WOOD:
 					return GOTBlocks.gobletWood;
 				case SKULL:
@@ -585,6 +596,10 @@ public class GOTItemMug extends Item {
 					return GOTItems.gobletGold;
 				case GOBLET_SILVER:
 					return GOTItems.gobletSilver;
+				case GOBLET_VALYRIAN:
+					return GOTItems.gobletValyrian;
+				case GOBLET_BRONZE:
+					return GOTItems.gobletBronze;
 				case GOBLET_COPPER:
 					return GOTItems.gobletCopper;
 				case GOBLET_WOOD:

@@ -38,7 +38,7 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

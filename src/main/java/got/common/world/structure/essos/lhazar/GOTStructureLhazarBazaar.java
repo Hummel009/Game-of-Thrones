@@ -268,7 +268,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.birdCage, 1);
+			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.birdCage, 2);
 			setBlockAndMetadata(world, 2, 3, 2, GOTBlocks.bronzeBars, 0);
 			placeFlowerPot(world, 0, 2, 1, getRandomFlower(world, random));
 			GOTEntityNPC trader = new GOTEntityLhazarGoldsmith(world);

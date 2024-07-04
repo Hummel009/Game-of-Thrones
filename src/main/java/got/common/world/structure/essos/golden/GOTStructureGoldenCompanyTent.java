@@ -33,6 +33,6 @@ public class GOTStructureGoldenCompanyTent extends GOTStructureTentBase {
 		fenceBlock = GOTBlocks.fence;
 		fenceMeta = 3;
 		tableBlock = Blocks.crafting_table;
-		chestContents = GOTChestContents.GOLDEN;
+		chestContents = GOTChestContents.GOLDEN_COMPANY;
 	}
 }

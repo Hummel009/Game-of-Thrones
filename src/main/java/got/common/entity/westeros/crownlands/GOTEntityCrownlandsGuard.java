@@ -24,7 +24,7 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.crownlandsBoots));

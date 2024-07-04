@@ -99,8 +99,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		placeFlowerPot(world, -2, 2, 2, getRandomFlower(world, random));
 		placeAnimalJar(world, 2, 1, 1, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, -3, 1, -1, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, -2, 3, -2, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, 6, 3, 1, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, -2, 3, -2, GOTBlocks.birdCage, 2, new GOTEntityBird(world));
+		placeAnimalJar(world, 6, 3, 1, GOTBlocks.birdCage, 2, new GOTEntityBird(world));
 		placeSkull(world, random, 2, 4, -5);
 		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(STALLS));
 		while (stallClasses.size() > 4) {
@@ -329,7 +329,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 2, 1, 4, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 2, GOTBlocks.essosFlower, 9);
-			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.yiTiFlower, 9);
+			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.chrysanthemum, 9);
 			GOTEntityNPC trader = new GOTEntitySummerFlorist(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;

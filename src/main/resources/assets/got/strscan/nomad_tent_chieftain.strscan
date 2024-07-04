@@ -400,8 +400,8 @@
 12.2.1.~TENT~
 -12.2.2.~FENCE~
 -11.2.2.~TENT~
--7.2.2."got:tile.chandelier".0
-7.2.2."got:tile.chandelier".0
+-7.2.2."got:tile.chandelier".2
+7.2.2."got:tile.chandelier".2
 11.2.2.~TENT~
 12.2.2.~FENCE~
 -11.2.3.~TENT~
@@ -484,7 +484,7 @@
 -11.3.-4.~FENCE~
 -10.3.-4.~TENT2~
 -9.3.-4.~FENCE~
-0.3.-4."got:tile.chandelier".0
+0.3.-4."got:tile.chandelier".2
 9.3.-4.~FENCE~
 10.3.-4.~TENT2~
 11.3.-4.~FENCE~
@@ -530,7 +530,7 @@
 -9.3.5.~TENT2~
 -8.3.5.~TENT2~
 -7.3.5.~FENCE~
-0.3.5."got:tile.chandelier".3
+0.3.5."got:tile.chandelier".2
 7.3.5.~FENCE~
 8.3.5.~TENT2~
 9.3.5.~TENT2~

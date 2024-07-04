@@ -22,7 +22,7 @@ public class GOTEntityAsshaiBannerBearer extends GOTEntityAsshaiWarrior implemen
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

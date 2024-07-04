@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GOTItemCargocart extends Item {
 	public GOTItemCargocart() {
-		setCreativeTab(GOTCreativeTabs.TAB_MISC);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 	}
 
 	@Override

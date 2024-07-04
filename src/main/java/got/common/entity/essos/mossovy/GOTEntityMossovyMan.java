@@ -49,7 +49,7 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mossovyDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

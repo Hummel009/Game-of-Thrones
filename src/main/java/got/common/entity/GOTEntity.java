@@ -2,7 +2,6 @@ package got.common.entity;
 
 import got.common.entity.animal.*;
 import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.essos.*;
 import got.common.entity.essos.asshai.*;
 import got.common.entity.essos.braavos.*;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
@@ -52,9 +51,9 @@ import got.common.entity.other.*;
 import got.common.entity.other.inanimate.*;
 import got.common.entity.sothoryos.sothoryos.*;
 import got.common.entity.sothoryos.summer.*;
-import got.common.entity.westeros.GOTEntityMaester;
-import got.common.entity.westeros.GOTEntityMercenary;
-import got.common.entity.westeros.GOTEntitySepton;
+import got.common.entity.other.GOTEntityMaester;
+import got.common.entity.other.GOTEntityMercenary;
+import got.common.entity.other.GOTEntitySepton;
 import got.common.entity.westeros.arryn.*;
 import got.common.entity.westeros.crownlands.*;
 import got.common.entity.westeros.dorne.*;
@@ -152,7 +151,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntitySepton.class, id++, 0xffd700);
 		GOTEntityRegistry.register(GOTEntityRedPriest.class, id++, 0x7c0a02);
 		GOTEntityRegistry.register(GOTEntityIronbornPriest.class, id++, GOTFaction.IRONBORN);
-		GOTEntityRegistry.register(GOTEntityBarrowWight.class, id++, 2896659);
+		GOTEntityRegistry.register(GOTEntityBarrowWraith.class, id++, 2896659);
 		GOTEntityRegistry.register(GOTEntityMarshWraith.class, id++, 10524036);
 		GOTEntityRegistry.register(GOTEntityStoneMan.class, id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityMercenary.class, id++, 0xBABABA);
@@ -209,8 +208,6 @@ public class GOTEntity {
 
 		GOTEntityRegistry.register(GOTEntityNorthHillman.class, id++, GOTFaction.NORTH);
 		GOTEntityRegistry.register(GOTEntityNorthHillmanWarrior.class, id++, GOTFaction.NORTH);
-		GOTEntityRegistry.register(GOTEntityNorthHillmanCannibal.class, id++, GOTFaction.NORTH);
-		GOTEntityRegistry.register(GOTEntityNorthHillmanMercenary.class, id++, GOTFaction.NORTH);
 		GOTEntityRegistry.register(GOTEntityNorthHillmanArcher.class, id++, GOTFaction.NORTH);
 		GOTEntityRegistry.register(GOTEntityNorthHillmanAxeThrower.class, id++, GOTFaction.NORTH);
 		GOTEntityRegistry.register(GOTEntityNorthHillmanBannerBearer.class, id++, GOTFaction.NORTH);

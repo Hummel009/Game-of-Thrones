@@ -13,6 +13,7 @@ public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarMan {
 	public GOTEntityGhiscarHarpy(World world) {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		spawnsInDarkness = true;
 	}
 
 	@Override
@@ -24,7 +25,7 @@ public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDaggerPoisoned));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		GOTEntityUtils.setupLeathermanArmorNoHelmet(this, rand);

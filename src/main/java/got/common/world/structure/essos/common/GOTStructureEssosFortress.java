@@ -2,7 +2,7 @@ package got.common.world.structure.essos.common;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.entity.essos.GOTEntityRedPriest;
+import got.common.entity.other.GOTEntityRedPriest;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;

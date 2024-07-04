@@ -4,7 +4,7 @@ import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
-import got.common.entity.other.GOTEntityBarrowWight;
+import got.common.entity.other.GOTEntityBarrowWraith;
 import got.common.item.other.GOTItemBanner;
 import got.common.tileentity.GOTTileEntitySarbacaneTrap;
 import got.common.util.GOTMazeGenerator;
@@ -406,10 +406,10 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			}
 		}
 		placePyramidBanner(world, 0, roomFloor + 6, 0);
-		placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 5, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
-		placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 4, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
-		placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTBlocks.spawnerChestStone, 2, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
-		placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTBlocks.spawnerChestStone, 3, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 5, GOTEntityBarrowWraith.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 4, GOTEntityBarrowWraith.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTBlocks.spawnerChestStone, 2, GOTEntityBarrowWraith.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTBlocks.spawnerChestStone, 3, GOTEntityBarrowWraith.class, GOTChestContents.TREASURE);
 		stepX = 1;
 		stepY = topHeight - 36;
 		stepZ = 0;

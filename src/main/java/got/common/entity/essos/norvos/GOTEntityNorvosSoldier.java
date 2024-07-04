@@ -27,7 +27,7 @@ public class GOTEntityNorvosSoldier extends GOTEntityNorvosMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.norvosBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.norvosLeggings));

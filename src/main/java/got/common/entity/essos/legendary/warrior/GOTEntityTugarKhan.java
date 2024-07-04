@@ -25,11 +25,6 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.tugarKhanSword, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 500.0f;
 	}
@@ -53,7 +48,7 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.tugarKhanSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelScimitar));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

@@ -3,12 +3,10 @@ package got.common.enchant;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTDamage;
 import got.common.item.GOTWeaponStats;
-import got.common.item.weapon.GOTItemLegendaryWhip;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketWeaponFX;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -33,15 +31,6 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 
 		IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
 		GOTPacketHandler.NETWORK_WRAPPER.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
-	}
-
-	@Override
-	public boolean canApply(ItemStack itemstack, boolean considering) {
-		if (super.canApply(itemstack, considering)) {
-			Item item = itemstack.getItem();
-			return !(item instanceof GOTItemLegendaryWhip) || this != FIRE && this != CHILL;
-		}
-		return false;
 	}
 
 	@Override

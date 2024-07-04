@@ -16,6 +16,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -96,7 +97,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	public void dropFewItems(boolean flag, int i) {
 		int feathers = rand.nextInt(3) + rand.nextInt(1 + i);
 		for (int l = 0; l < feathers; ++l) {
-			dropItem(GOTItems.swanFeather, 1);
+			dropItem(Items.feather, 1);
 		}
 	}
 

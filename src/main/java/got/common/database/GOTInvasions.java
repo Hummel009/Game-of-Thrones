@@ -73,8 +73,6 @@ import got.common.entity.westeros.wildling.thenn.GOTEntityThennBannerBearer;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennWarrior;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemWarhorn;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.WeightedRandom;
@@ -88,8 +86,6 @@ public enum GOTInvasions {
 	private final Collection<InvasionSpawnEntry> invasionMobs = new ArrayList<>();
 	private final GOTFaction invasionFaction;
 	private final String subfaction;
-
-	private Item invasionIcon;
 
 	GOTInvasions(GOTFaction f) {
 		this(f, null);
@@ -129,33 +125,6 @@ public enum GOTInvasions {
 	}
 
 	public static void preInit() {
-		JOGOS_NHAI.invasionIcon = GOTItems.nomadSword;
-		DOTHRAKI.invasionIcon = GOTItems.nomadSword;
-		LORATH.invasionIcon = GOTItems.essosSword;
-		VOLANTIS.invasionIcon = GOTItems.essosSword;
-		BRAAVOS.invasionIcon = GOTItems.essosSword;
-		NORVOS.invasionIcon = GOTItems.essosSword;
-		PENTOS.invasionIcon = GOTItems.essosSword;
-		TYROSH.invasionIcon = GOTItems.essosSword;
-		GHISCAR.invasionIcon = GOTItems.essosSword;
-		MYR.invasionIcon = GOTItems.essosSword;
-		LYS.invasionIcon = GOTItems.essosSword;
-		IRONBORN.invasionIcon = GOTItems.westerosSword;
-		IBBEN.invasionIcon = GOTItems.trident;
-		WESTERLANDS.invasionIcon = GOTItems.westerosSword;
-		RIVERLANDS.invasionIcon = GOTItems.westerosSword;
-		ARRYN.invasionIcon = GOTItems.westerosSword;
-		DRAGONSTONE.invasionIcon = GOTItems.westerosSword;
-		STORMLANDS.invasionIcon = GOTItems.westerosSword;
-		REACH.invasionIcon = GOTItems.westerosSword;
-		DORNE.invasionIcon = GOTItems.westerosSword;
-		NORTH.invasionIcon = GOTItems.westerosSword;
-		THENN.invasionIcon = GOTItems.wildlingSword;
-		WILDLING.invasionIcon = GOTItems.wildlingSword;
-		GIANT.invasionIcon = GOTItems.wildlingSword;
-		YI_TI.invasionIcon = GOTItems.yiTiSword;
-		HILL_TRIBES.invasionIcon = GOTItems.trident;
-
 		HILL_TRIBES.invasionMobs.add(new InvasionSpawnEntry(GOTEntityHillmanWarrior.class, 10));
 		HILL_TRIBES.invasionMobs.add(new InvasionSpawnEntry(GOTEntityHillmanArcher.class, 5));
 		HILL_TRIBES.invasionMobs.add(new InvasionSpawnEntry(GOTEntityHillmanBerserker.class, 2));
@@ -280,14 +249,6 @@ public enum GOTInvasions {
 		ItemStack horn = new ItemStack(GOTItems.warhorn);
 		GOTItemWarhorn.setInvasionType(horn, this);
 		return horn;
-	}
-
-	public ItemStack getInvasionIcon() {
-		Item sword = invasionIcon;
-		if (sword == null) {
-			sword = Items.iron_sword;
-		}
-		return new ItemStack(sword);
 	}
 
 	public String invasionName() {

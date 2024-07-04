@@ -64,7 +64,7 @@ public class GOTEntityJogosNhaiMan extends GOTEntityHumanBase implements GOTBiom
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupNomadWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupPrimitiveIronWeaponSet(this, rand, true);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.jogosNhaiBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.jogosNhaiLeggings));

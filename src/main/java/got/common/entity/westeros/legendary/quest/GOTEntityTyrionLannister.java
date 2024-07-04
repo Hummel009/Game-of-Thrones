@@ -21,7 +21,6 @@ public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.tyrionAxe, 1);
 		dropItem(GOTItems.handGold, 1);
 		dropItem(GOTItems.handSilver, 1);
 	}
@@ -58,7 +57,7 @@ public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.tyrionAxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelBattleaxe));
 		npcItemsInv.setIdleItem(null);
 
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.handGold));

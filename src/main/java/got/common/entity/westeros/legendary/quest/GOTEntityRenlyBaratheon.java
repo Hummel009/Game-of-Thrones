@@ -21,10 +21,6 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.bloodOfTrueKings, 1);
-		dropItem(GOTItems.renlyBoots, 1);
-		dropItem(GOTItems.renlyChestplate, 1);
-		dropItem(GOTItems.renlyHelmet, 1);
-		dropItem(GOTItems.renlyLeggings, 1);
 	}
 
 	@Override
@@ -59,7 +55,7 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelSword));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

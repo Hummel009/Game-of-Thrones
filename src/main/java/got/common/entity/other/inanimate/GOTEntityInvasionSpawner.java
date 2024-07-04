@@ -188,10 +188,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 		return getUniqueID();
 	}
 
-	public ItemStack getInvasionItem() {
-		return getInvasionType().getInvasionIcon();
-	}
-
 	public int getInvasionSize() {
 		return invasionSize;
 	}

@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
+import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -48,9 +49,7 @@ public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillman implem
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northChestplate));
+		GOTEntityUtils.setupLeathermanArmorNoHelmet(this, rand);
 
 		return entityData;
 	}

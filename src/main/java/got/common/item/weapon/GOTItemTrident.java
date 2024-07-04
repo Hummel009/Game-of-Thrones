@@ -14,7 +14,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class GOTItemTrident extends GOTItemPolearm {
+public class GOTItemTrident extends GOTItemPike {
 	public GOTItemTrident(Item.ToolMaterial material) {
 		super(material);
 	}

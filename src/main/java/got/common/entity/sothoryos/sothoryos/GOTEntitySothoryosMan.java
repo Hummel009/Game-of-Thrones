@@ -49,7 +49,7 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements GOTBiom
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

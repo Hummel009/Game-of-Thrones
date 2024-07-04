@@ -76,7 +76,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		brickMeta = 0;
 		brickSlabBlock = GOTBlocks.slabSingle1;
 		brickSlabMeta = 1;
-		brickStairBlock = GOTBlocks.stairsBasaltBrick;
+		brickStairBlock = GOTBlocks.stairsBasaltBrickAsshai;
 		brickWallBlock = GOTBlocks.wallStone1;
 		brickWallMeta = 1;
 		brickCarvedBlock = GOTBlocks.brick2;
@@ -110,6 +110,6 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		gateBlock = GOTBlocks.gateIronBars;
 		barsBlock = GOTBlocks.asshaiBars;
 		chandelierBlock = GOTBlocks.chandelier;
-		chandelierMeta = 12;
+		chandelierMeta = 6;
 	}
 }

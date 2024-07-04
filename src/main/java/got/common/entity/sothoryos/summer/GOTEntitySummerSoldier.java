@@ -24,7 +24,7 @@ public class GOTEntitySummerSoldier extends GOTEntitySummerMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupSummerWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, true);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.summerBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.summerLeggings));

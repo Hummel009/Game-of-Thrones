@@ -142,7 +142,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				if (i2 != 0 || k2 != 2) {
 					continue;
 				}
-				setBlockAndMetadata(world, i12, 4, k1, GOTBlocks.chandelier, 0);
+				setBlockAndMetadata(world, i12, 4, k1, GOTBlocks.chandelier, 2);
 			}
 		}
 		for (k12 = 0; k12 <= 12; ++k12) {

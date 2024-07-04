@@ -21,7 +21,7 @@ public class GOTEntitySummerLevyman extends GOTEntitySummerMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupSummerWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, true);
 		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
 
 		return entityData;

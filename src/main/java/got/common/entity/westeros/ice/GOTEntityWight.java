@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.utils.IceUtils;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.*;
@@ -15,8 +16,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWight extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
-	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWight(World world) {
 		super(world);
@@ -106,8 +105,7 @@ public class GOTEntityWight extends GOTEntityNPC implements GOTBiome.ImmuneToFro
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData livingData = super.onSpawnWithEgg(data);
 
-		int i = rand.nextInt(WEAPONS.length);
-		npcItemsInv.setMeleeWeapon(WEAPONS[i].copy());
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		if (rand.nextInt(6) == 0) {

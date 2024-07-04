@@ -52,7 +52,7 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

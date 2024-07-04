@@ -38,7 +38,7 @@ public class GOTEntitySothoryosShaman extends GOTEntitySothoryosMan implements G
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeDaggerPoisoned));
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.bottlePoison));
 
 		return entityData;

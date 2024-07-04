@@ -21,7 +21,7 @@ public class GOTEntityIbbenLevyman extends GOTEntityIbbenMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupPrimitiveWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupPrimitiveIronWeaponSet(this, rand, false);
 		GOTEntityUtils.setupLeathermanArmorNoHelmet(this, rand);
 
 		return entityData;

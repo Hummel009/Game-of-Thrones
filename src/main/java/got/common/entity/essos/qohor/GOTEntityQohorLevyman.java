@@ -21,7 +21,7 @@ public class GOTEntityQohorLevyman extends GOTEntityQohorMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
 
 		return entityData;

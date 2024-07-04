@@ -63,8 +63,8 @@ public class GOTEntityBranStark extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.longbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

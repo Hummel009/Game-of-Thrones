@@ -22,7 +22,7 @@ public class GOTEntityThennWarrior extends GOTEntityThenn {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupWildlingWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupPrimitiveIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));

@@ -8,7 +8,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.westeros.ice.IceUtils;
+import got.common.entity.other.utils.IceUtils;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;

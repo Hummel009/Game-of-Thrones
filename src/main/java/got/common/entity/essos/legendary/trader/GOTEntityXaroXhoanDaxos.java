@@ -60,7 +60,7 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDaggerPoisoned));
 		npcItemsInv.setIdleItem(null);
 		return entityData;
 	}

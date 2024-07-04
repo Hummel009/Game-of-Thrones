@@ -23,7 +23,7 @@ public abstract class GOTEntityGoldenCompanyMan extends GOTEntityHumanBase imple
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = new GOTEntityHorse(worldObj);
 
-		horse.setMountArmor(new ItemStack(GOTItems.essosHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTItems.ironHorseArmor));
 
 		return horse;
 	}
@@ -36,7 +36,7 @@ public abstract class GOTEntityGoldenCompanyMan extends GOTEntityHumanBase imple
 			dropItem(Items.bone, 1);
 		}
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.GOLDEN, 1, 2 + i);
+			dropChestContents(GOTChestContents.GOLDEN_COMPANY, 1, 2 + i);
 		}
 	}
 

@@ -23,7 +23,6 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 		dropItem(GOTItems.targaryenChestplate, 1);
 		dropItem(GOTItems.targaryenHelmet, 1);
 
-		dropItem(GOTItems.rhaegarSword, 1);
 		dropItem(GOTItems.bloodOfTrueKings, 1);
 		dropItem(GOTItems.blackArakh, 1);
 	}

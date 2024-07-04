@@ -53,7 +53,7 @@ public class GOTEntityErikIronmaker extends GOTEntityHumanBase implements GOTUni
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

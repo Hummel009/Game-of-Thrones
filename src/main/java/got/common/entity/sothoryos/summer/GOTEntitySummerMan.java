@@ -37,7 +37,7 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements GOTBiome.I
 
 	@Override
 	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.SUMMER;
+		return GOTMiniQuestFactory.SUMMER_ISLANDS;
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements GOTBiome.I
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.summerDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

@@ -37,7 +37,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements GOTBiome.Imm
 
 	@Override
 	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.HILLMEN;
+		return GOTMiniQuestFactory.HILL_TRIBES;
 	}
 
 	@Override

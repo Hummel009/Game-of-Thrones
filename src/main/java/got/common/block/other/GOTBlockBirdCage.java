@@ -34,7 +34,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 		setHardness(0.5f);
 		setStepSound(soundTypeMetal);
-		cageTypes = new String[]{"bronze", "iron", "silver", "gold"};
+		cageTypes = new String[]{"copper", "bronze", "iron", "silver", "gold", "valyrian"};
 	}
 
 	public static boolean isSameBirdCage(IBlockAccess world, int i, int j, int k, int i1, int j1, int k1) {

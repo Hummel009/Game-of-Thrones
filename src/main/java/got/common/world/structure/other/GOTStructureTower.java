@@ -2,7 +2,7 @@ package got.common.world.structure.other;
 
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.entity.westeros.GOTEntityMaester;
+import got.common.entity.other.GOTEntityMaester;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;

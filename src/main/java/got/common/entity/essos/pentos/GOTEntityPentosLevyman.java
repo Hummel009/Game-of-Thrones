@@ -21,7 +21,7 @@ public class GOTEntityPentosLevyman extends GOTEntityPentosMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, true);
 		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
 
 		return entityData;

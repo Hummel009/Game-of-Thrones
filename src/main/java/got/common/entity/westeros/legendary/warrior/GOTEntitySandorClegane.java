@@ -34,7 +34,7 @@ public class GOTEntitySandorClegane extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.sandorHelmet, 1);
+		dropItem(GOTItems.sandorCleganeHelmet, 1);
 		dropItem(GOTItems.sandorCleganeSword, 1);
 	}
 

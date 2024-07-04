@@ -24,7 +24,7 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupPrimitiveWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupPrimitiveIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.hillmenBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.hillmenLeggings));

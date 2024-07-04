@@ -26,9 +26,9 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.baelishBrooch, 1);
+		dropItem(GOTItems.petyrBaelishBrooch, 1);
 		if (!soldDagger) {
-			dropItem(GOTItems.baelishDagger, 1);
+			dropItem(GOTItems.petyrBaelishDagger, 1);
 		}
 	}
 
@@ -80,10 +80,10 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.baelishDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.petyrBaelishDagger));
 		npcItemsInv.setIdleItem(null);
 
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.baelishBrooch));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.petyrBaelishBrooch));
 
 		return entityData;
 	}

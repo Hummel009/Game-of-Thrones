@@ -26,7 +26,7 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.velaryonBrooch, 1);
+		dropItem(GOTItems.monfordVelaryonBrooch, 1);
 		dropItem(GOTItems.cutwave, 1);
 	}
 
@@ -62,7 +62,7 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.cutwave));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.velaryonBrooch));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.monfordVelaryonBrooch));
 
 		return entityData;
 	}

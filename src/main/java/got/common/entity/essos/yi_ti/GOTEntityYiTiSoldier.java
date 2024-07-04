@@ -27,7 +27,7 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupYiTiWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yiTiLeggings));

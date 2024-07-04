@@ -22,7 +22,7 @@ public class GOTEntityGoldenCompanyBannerBearer extends GOTEntityGoldenCompanyWa
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return data;

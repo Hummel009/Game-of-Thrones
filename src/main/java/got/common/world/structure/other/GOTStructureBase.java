@@ -28,6 +28,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -53,21 +54,23 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	private static final Map<Item, Integer> WEAPON_PERCENTS = new HashMap<>();
 
 	static {
-		FRAME_PERCENTS.put(GOTItems.ironDagger, 25);
-		FRAME_PERCENTS.put(GOTItems.ironDaggerPoisoned, 20);
-		FRAME_PERCENTS.put(GOTItems.alloySteelDaggerPoisoned, 15);
-		FRAME_PERCENTS.put(GOTItems.alloySteelDagger, 10);
+		FRAME_PERCENTS.put(GOTItems.ironDagger, 15);
+		FRAME_PERCENTS.put(GOTItems.ironDaggerPoisoned, 10);
+		FRAME_PERCENTS.put(GOTItems.alloySteelDagger, 15);
+		FRAME_PERCENTS.put(GOTItems.alloySteelDaggerPoisoned, 10);
+		FRAME_PERCENTS.put(GOTItems.bronzeDagger, 15);
+		FRAME_PERCENTS.put(GOTItems.bronzeDaggerPoisoned, 10);
 		FRAME_PERCENTS.put(GOTItems.copperRing, 10);
-		FRAME_PERCENTS.put(GOTItems.bronzeRing, 9);
-		FRAME_PERCENTS.put(GOTItems.silverRing, 6);
+		FRAME_PERCENTS.put(GOTItems.bronzeRing, 5);
+		FRAME_PERCENTS.put(GOTItems.silverRing, 5);
 		FRAME_PERCENTS.put(GOTItems.goldRing, 5);
 
-		WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 40);
-		WEAPON_PERCENTS.put(GOTItems.ironDagger, 25);
-		WEAPON_PERCENTS.put(GOTItems.ironDaggerPoisoned, 15);
+		WEAPON_PERCENTS.put(Items.iron_sword, 25);
+		WEAPON_PERCENTS.put(GOTItems.ironHammer, 20);
+		WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 20);
+		WEAPON_PERCENTS.put(GOTItems.ironScimitar, 20);
 		WEAPON_PERCENTS.put(GOTItems.ironSpear, 10);
-		WEAPON_PERCENTS.put(GOTItems.ironCrossbow, 8);
-		WEAPON_PERCENTS.put(GOTItems.ironPike, 2);
+		WEAPON_PERCENTS.put(GOTItems.ironPike, 5);
 	}
 
 	protected final boolean notifyChanges;

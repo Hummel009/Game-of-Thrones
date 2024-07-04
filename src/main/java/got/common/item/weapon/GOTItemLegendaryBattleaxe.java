@@ -7,7 +7,7 @@ public class GOTItemLegendaryBattleaxe extends GOTItemBattleaxe {
 	public GOTItemLegendaryBattleaxe(Item.ToolMaterial material) {
 		super(material);
 		setMaxDamage(1500);
-		gotWeaponDamage = 12.0f;
+		gotWeaponDamage *= 1.5f;
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 }

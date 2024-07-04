@@ -27,7 +27,7 @@ public class GOTEntityStormlandsSoldier extends GOTEntityStormlandsMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.stormlandsBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.stormlandsLeggings));

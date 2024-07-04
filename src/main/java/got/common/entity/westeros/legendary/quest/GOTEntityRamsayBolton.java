@@ -19,11 +19,6 @@ public class GOTEntityRamsayBolton extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.boltonDagger, 1);
-	}
-
-	@Override
 	public GOTMiniQuestFactory getMiniQuestFactory() {
 		return GOTMiniQuestFactory.RAMSAY;
 	}
@@ -50,7 +45,7 @@ public class GOTEntityRamsayBolton extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.boltonDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDaggerPoisoned));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

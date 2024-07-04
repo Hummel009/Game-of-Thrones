@@ -82,7 +82,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements GOTBiome.Im
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupNomadWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupPrimitiveIronWeaponSet(this, rand, true);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dothrakiBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dothrakiLeggings));

@@ -2,6 +2,7 @@ package got.common.item.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
 import got.common.tileentity.GOTTileEntitySignCarved;
 import net.minecraft.block.Block;
@@ -60,5 +61,8 @@ public class GOTItemChisel extends Item {
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		list.add(StatCollector.translateToLocal("item.got.chisel1"));
 		list.add(StatCollector.translateToLocal("item.got.chisel2"));
+		if (signBlock == GOTBlocks.signCarvedGlowing) {
+			list.add(StatCollector.translateToLocal("item.got.chisel3"));
+		}
 	}
 }

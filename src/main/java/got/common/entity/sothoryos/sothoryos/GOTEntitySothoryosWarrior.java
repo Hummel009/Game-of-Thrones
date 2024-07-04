@@ -24,7 +24,7 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupSothoryosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupPrimitiveBronzeWeaponSet(this, rand);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));

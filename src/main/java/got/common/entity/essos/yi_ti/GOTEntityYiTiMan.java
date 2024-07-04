@@ -22,7 +22,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = new GOTEntityHorse(worldObj);
-		horse.setMountArmor(new ItemStack(GOTItems.yiTiHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTItems.ironHorseArmor));
 		return horse;
 	}
 
@@ -57,7 +57,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yiTiDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

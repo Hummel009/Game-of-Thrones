@@ -212,7 +212,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 		}
 		barsBlock = random.nextBoolean() ? Blocks.iron_bars : GOTBlocks.bronzeBars;
 		tableBlock = GOTBlocks.tableYiTi;
-		gateBlock = GOTBlocks.gateYiTi;
+		gateBlock = GOTBlocks.gateIronBars;
 		bedBlock = useTownBlocks() ? Blocks.bed : GOTBlocks.strawBed;
 		plateBlock = useTownBlocks() ? GOTBlocks.ceramicPlate : random.nextBoolean() ? GOTBlocks.ceramicPlate : GOTBlocks.woodPlate;
 		if (random.nextBoolean()) {

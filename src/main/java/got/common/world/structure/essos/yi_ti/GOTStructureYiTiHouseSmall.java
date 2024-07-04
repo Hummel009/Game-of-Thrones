@@ -214,8 +214,8 @@ public class GOTStructureYiTiHouseSmall extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, 0, 1, 2, barsBlock, 0);
 		setBlockAndMetadata(world, 0, 2, 2, Blocks.furnace, 2);
 		spawnItemFrame(world, 0, 3, 2, 2, getRandFrameItem(random));
-		setBlockAndMetadata(world, -2, 3, 0, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, 2, 3, 0, GOTBlocks.chandelier, 0);
+		setBlockAndMetadata(world, -2, 3, 0, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 2, 3, 0, GOTBlocks.chandelier, 2);
 		for (i1 = -5; i1 <= 5; ++i1) {
 			setBlockAndMetadata(world, i1, 0, 0, woodBeamBlock, woodBeamMeta | 4);
 		}

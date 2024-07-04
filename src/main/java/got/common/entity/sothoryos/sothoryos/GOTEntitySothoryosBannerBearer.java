@@ -22,7 +22,7 @@ public class GOTEntitySothoryosBannerBearer extends GOTEntitySothoryosWarrior im
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeDagger));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

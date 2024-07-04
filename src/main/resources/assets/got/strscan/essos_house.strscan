@@ -172,7 +172,7 @@
 3.3.-1.#BRICK_STAIR#.6
 -3.3.0.~BRICK~
 -2.3.0.~PLANK~
-0.3.0."got:tile.chandelier".0
+0.3.0."got:tile.chandelier".2
 2.3.0.~PLANK~
 3.3.0.~BRICK~
 -3.3.1.#BRICK_STAIR#.7
@@ -409,7 +409,7 @@
 1.7.-1.~PLANK_SLAB_INV~
 2.7.-1.~PLANK~
 -2.7.0.#PLANK_STAIR#.4
-0.7.0."got:tile.chandelier".0
+0.7.0."got:tile.chandelier".2
 2.7.0.#PLANK_STAIR#.5
 -2.7.1.~PLANK~
 -1.7.1.~PLANK_SLAB_INV~

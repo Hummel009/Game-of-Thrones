@@ -23,7 +23,7 @@ public class GOTEntityWesterlandsLevymanArcher extends GOTEntityWesterlandsLevym
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.longbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

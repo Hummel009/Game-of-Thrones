@@ -21,7 +21,7 @@ public class GOTEntityYiTiLevyman extends GOTEntityYiTiMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupYiTiWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 		GOTEntityUtils.setupLeathermanArmor(this, rand);
 
 		return entityData;

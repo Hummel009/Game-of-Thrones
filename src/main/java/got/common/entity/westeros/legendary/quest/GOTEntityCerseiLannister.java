@@ -20,7 +20,7 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.robertHammer, 1);
+		dropItem(GOTItems.robertBaratheonHammer, 1);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

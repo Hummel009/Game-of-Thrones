@@ -3,6 +3,7 @@ package got.common.entity.westeros.ice;
 import got.common.database.GOTAchievement;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityGiantBase;
+import got.common.entity.other.utils.IceUtils;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

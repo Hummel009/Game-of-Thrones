@@ -21,7 +21,7 @@ public class GOTEntityReachLevyman extends GOTEntityReachMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 		GOTEntityUtils.setupLeathermanArmor(this, rand);
 
 		return entityData;

@@ -205,8 +205,8 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 1, 9, k1, plankSlabBlock, plankSlabMeta | 8);
 			setBlockAndMetadata(world, 3, 7, k1, plankSlabBlock, plankSlabMeta | 8);
 		}
-		setBlockAndMetadata(world, 0, 4, 4, GOTBlocks.chandelier, 1);
-		setBlockAndMetadata(world, 0, 4, 9, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 4, 4, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 0, 4, 9, GOTBlocks.chandelier, 2);
 		for (int step = 0; step <= 3; ++step) {
 			setBlockAndMetadata(world, 3, 1 + step, 2 + step, plankStairBlock, 2);
 			setBlockAndMetadata(world, 3, 1 + step, 3 + step, plankStairBlock, 7);
@@ -240,8 +240,8 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		placeBarrel(world, random, -3, 6, 6, 4, GOTFoods.DEFAULT_DRINK);
 		placeMug(world, random, -2, 7, 7, 3, GOTFoods.DEFAULT_DRINK);
 		placePlateWithCertainty(world, random, -2, 7, 8, plateBlock, GOTFoods.DEFAULT);
-		setBlockAndMetadata(world, 0, 9, 4, GOTBlocks.chandelier, 1);
-		setBlockAndMetadata(world, 0, 9, 9, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 9, 4, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 0, 9, 9, GOTBlocks.chandelier, 2);
 		for (k1 = 1; k1 <= 5; ++k1) {
 			setBlockAndMetadata(world, -3, 6, k1, Blocks.hay_block, 0);
 		}

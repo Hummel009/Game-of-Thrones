@@ -72,7 +72,7 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 		generateStrScan(world, random, 0, 0, 0);
 		placeAnimalJar(world, -3, 1, -7, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, 11, 1, -1, GOTBlocks.birdCageWood, 0, null);
-		placeAnimalJar(world, 3, 1, 7, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, 3, 1, 7, GOTBlocks.birdCage, 2, new GOTEntityBird(world));
 		placeAnimalJar(world, -9, 3, 0, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 4, 3, 3, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
 		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(getStallClasses()));

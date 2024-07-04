@@ -30,24 +30,19 @@ public class GOTWeaponStats {
 	private static final Map<Object, Integer> MELEE_EXTRA_KNOCKBACK = new HashMap<>();
 
 	static {
-		registerMeleeSpeed(GOTItemGreatsword.class, 0.667f);
-		registerMeleeSpeed(GOTItemLongsword.class, 0.8f);
-		registerMeleeReach(GOTItemGreatsword.class, 1.5f);
-		registerMeleeReach(GOTItemLongsword.class, 1.25f);
 		registerMeleeSpeed(GOTItemDagger.class, 1.5f);
-		registerMeleeSpeed(GOTItemSpear.class, 0.833f);
-		registerMeleeSpeed(GOTItemPolearm.class, 0.667f);
-		registerMeleeSpeed(GOTItemPolearmLong.class, 0.5f);
-		registerMeleeSpeed(GOTItemLance.class, 0.5f);
+		registerMeleeSpeed(GOTItemSpear.class, 0.83f);
+		registerMeleeSpeed(GOTItemLongsword.class, 0.83f);
 		registerMeleeSpeed(GOTItemBattleaxe.class, 0.75f);
-		registerMeleeSpeed(GOTItemHammer.class, 0.667f);
-		registerMeleeReach(GOTItemDagger.class, 0.75f);
+		registerMeleeSpeed(GOTItemGreatsword.class, 0.66f);
+		registerMeleeSpeed(GOTItemPike.class, 0.66f);
+		registerMeleeSpeed(GOTItemHammer.class, 0.66f);
+		registerMeleeReach(GOTItemGreatsword.class, 1.5f);
 		registerMeleeReach(GOTItemSpear.class, 1.5f);
-		registerMeleeReach(GOTItemPolearm.class, 1.5f);
-		registerMeleeReach(GOTItemPolearmLong.class, 2.0f);
-		registerMeleeReach(GOTItemLance.class, 2.0f);
+		registerMeleeReach(GOTItemPike.class, 1.5f);
+		registerMeleeReach(GOTItemLongsword.class, 1.25f);
+		registerMeleeReach(GOTItemDagger.class, 0.75f);
 		registerMeleeExtraKnockback(GOTItemHammer.class, 1);
-		registerMeleeExtraKnockback(GOTItemLance.class, 1);
 	}
 
 	private GOTWeaponStats() {

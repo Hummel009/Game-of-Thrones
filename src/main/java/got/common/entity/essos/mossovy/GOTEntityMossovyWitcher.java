@@ -11,6 +11,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -97,7 +98,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mossovySword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.mossovyBoots));

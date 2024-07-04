@@ -122,7 +122,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		}
 		setBlockAndMetadata(world, -2, 3, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, Blocks.torch, 1);
-		setBlockAndMetadata(world, 0, 5, 0, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 5, 0, GOTBlocks.chandelier, 2);
 		placeChest(world, random, -2, 7, -2, getChest(), 4, getChestContents());
 		setBlockAndMetadata(world, -2, 7, 0, GOTBlocks.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTBlocks.armorStand, 7);
@@ -137,7 +137,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		placeMug(world, random, 2, 8, 0, 1, GOTFoods.DEFAULT_DRINK);
 		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.DEFAULT);
 		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.DEFAULT_DRINK);
-		setBlockAndMetadata(world, 0, 9, 0, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 9, 0, GOTBlocks.chandelier, 2);
 		for (int i3 = -4; i3 <= 4; ++i3) {
 			for (int k3 = -4; k3 <= 4; ++k3) {
 				int i4 = Math.abs(i3);

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockChandelier extends Block {
-	private final String[] chandelierNames = {"bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze"};
+	private final String[] chandelierNames = {"copper", "bronze", "iron", "silver", "gold", "valyrian", "asshai"};
 
 	@SideOnly(Side.CLIENT)
 	private IIcon[] chandelierIcons;
@@ -91,7 +91,8 @@ public class GOTBlockChandelier extends Block {
 		list.add(new ItemStack(item, 1, 2));
 		list.add(new ItemStack(item, 1, 3));
 		list.add(new ItemStack(item, 1, 4));
-		list.add(new ItemStack(item, 1, 12));
+		list.add(new ItemStack(item, 1, 5));
+		list.add(new ItemStack(item, 1, 6));
 	}
 
 	@Override

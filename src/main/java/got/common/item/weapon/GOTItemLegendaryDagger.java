@@ -8,10 +8,10 @@ public class GOTItemLegendaryDagger extends GOTItemDagger {
 		this(material, HitEffect.NONE);
 	}
 
-	public GOTItemLegendaryDagger(Item.ToolMaterial material, HitEffect e) {
+	private GOTItemLegendaryDagger(Item.ToolMaterial material, HitEffect e) {
 		super(material, e);
 		setMaxDamage(1500);
-		gotWeaponDamage = 6.0f;
+		gotWeaponDamage *= 1.5f;
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 }

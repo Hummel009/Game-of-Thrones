@@ -473,10 +473,10 @@
 -9.3.-1.~FENCE~
 -8.3.-1.~BEAM~
 -7.3.-1.~BEAM~
--4.3.-1."got:tile.chandelier".1
-0.3.-1."got:tile.chandelier".1
+-4.3.-1."got:tile.chandelier".2
+0.3.-1."got:tile.chandelier".2
 4.3.-1.~BEAM~
-5.3.-1."got:tile.chandelier".1
+5.3.-1."got:tile.chandelier".2
 7.3.-1.~BEAM~
 8.3.-1.~BEAM~
 9.3.-1.~FENCE~
@@ -493,10 +493,10 @@
 -9.3.2.~FENCE~
 -8.3.2.~BEAM~
 -7.3.2.~BEAM~
--4.3.2."got:tile.chandelier".1
-0.3.2."got:tile.chandelier".1
+-4.3.2."got:tile.chandelier".2
+0.3.2."got:tile.chandelier".2
 4.3.2.~BEAM~
-5.3.2."got:tile.chandelier".1
+5.3.2."got:tile.chandelier".2
 7.3.2.~BEAM~
 8.3.2.~BEAM~
 9.3.2.~FENCE~
@@ -1207,7 +1207,7 @@
 -8.8.-2.#PLANK_STAIR#.6
 -7.8.-2.~BRICK~
 -4.8.-2.~BRICK~
-0.8.-2."got:tile.chandelier".1
+0.8.-2."got:tile.chandelier".2
 4.8.-2.~BRICK~
 7.8.-2.~BRICK~
 8.8.-2.#PLANK_STAIR#.6
@@ -1250,7 +1250,7 @@
 -8.8.3.#PLANK_STAIR#.7
 -7.8.3.~BRICK~
 -4.8.3.~BRICK~
-0.8.3."got:tile.chandelier".1
+0.8.3."got:tile.chandelier".2
 4.8.3.~BRICK~
 7.8.3.~BRICK~
 8.8.3.#PLANK_STAIR#.7

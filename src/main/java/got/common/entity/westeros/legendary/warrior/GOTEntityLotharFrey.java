@@ -53,7 +53,7 @@ public class GOTEntityLotharFrey extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelSword));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 

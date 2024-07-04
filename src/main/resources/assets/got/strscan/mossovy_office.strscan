@@ -440,7 +440,7 @@
 -8.3.0.~FENCE~
 -7.3.0.~BRICK~
 -3.3.0.~BRICK~
-0.3.0."got:tile.chandelier".0
+0.3.0."got:tile.chandelier".2
 3.3.0.~BRICK~
 7.3.0."brick_block".0
 8.3.0."got:tile.wall_stone_v".6
@@ -855,9 +855,9 @@
 2.7.-1.~BRICK~
 7.7.-1.~BRICK~
 -7.7.0.~BRICK~
--2.7.0."got:tile.chandelier".0
+-2.7.0."got:tile.chandelier".2
 2.7.0.~BRICK~
-5.7.0."got:tile.chandelier".0
+5.7.0."got:tile.chandelier".2
 7.7.0."brick_block".0
 8.7.0."got:tile.wall_stone_v".6
 -7.7.1."got:tile.stained_glass_pane".13

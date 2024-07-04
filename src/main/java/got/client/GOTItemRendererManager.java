@@ -11,12 +11,14 @@ import got.common.item.weapon.GOTItemSword;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.TextureStitchEvent;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static final GOTItemRendererManager INSTANCE = new GOTItemRendererManager();
@@ -30,6 +32,20 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		LARGE_ITEM_RENDERERS.clear();
 		try {
+			Collection<Item> items = new HashSet<>();
+			items.add(Items.iron_sword);
+			items.add(Items.golden_sword);
+			items.add(Items.diamond_sword);
+			items.add(Items.stone_sword);
+			items.add(Items.wooden_sword);
+
+			for (Item item : items) {
+				VanillaRenderLargeItem largeItemRenderer = VanillaRenderLargeItem.getRendererIfLarge(item);
+				if (largeItemRenderer != null) {
+					MinecraftForgeClient.registerItemRenderer(item, largeItemRenderer);
+				}
+			}
+
 			for (Item item : GOTItems.CONTENT) {
 				MinecraftForgeClient.registerItemRenderer(item, null);
 				GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);

@@ -25,11 +25,6 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.bittersteelHelmet, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 500.0f;
 	}
@@ -66,7 +61,7 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

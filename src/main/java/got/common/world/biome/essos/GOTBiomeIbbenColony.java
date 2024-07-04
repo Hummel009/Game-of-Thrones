@@ -19,7 +19,6 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 		super(i, major);
 		decorator.addSettlement(new GOTStructureIbbenSettlement(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.LORATH, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.LORATH, GOTEventSpawner.EventChance.UNCOMMON);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 10).setSpawnChance(SPAWN));

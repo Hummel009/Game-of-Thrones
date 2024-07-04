@@ -21,6 +21,8 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 	private static final ResourceLocation MUG_CLAY_TEXTURE = new ResourceLocation("got:textures/model/mug_clay.png");
 	private static final ResourceLocation GOBLET_GOLD_TEXTURE = new ResourceLocation("got:textures/model/goblet_gold.png");
 	private static final ResourceLocation GOBLET_SILVER_TEXTURE = new ResourceLocation("got:textures/model/goblet_silver.png");
+	private static final ResourceLocation GOBLET_BRONZE_TEXTURE = new ResourceLocation("got:textures/model/goblet_bronze.png");
+	private static final ResourceLocation GOBLET_VALYRIAN_TEXTURE = new ResourceLocation("got:textures/model/goblet_valyrian.png");
 	private static final ResourceLocation GOBLET_COPPER_TEXTURE = new ResourceLocation("got:textures/model/goblet_copper.png");
 	private static final ResourceLocation GOBLET_WOOD_TEXTURE = new ResourceLocation("got:textures/model/goblet_wood.png");
 	private static final ResourceLocation SKULL_TEXTURE = new ResourceLocation("got:textures/model/skull_cup.png");
@@ -113,7 +115,7 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 			IIcon liquidIcon = mugItem.getIconFromDamage(-1);
 			if (vessel == GOTItemMug.Vessel.MUG || vessel == GOTItemMug.Vessel.MUG_CLAY) {
 				renderMeniscus(liquidIcon, 6, 10, 2.0, 7.0, scale);
-			} else if (vessel == GOTItemMug.Vessel.GOBLET_GOLD || vessel == GOTItemMug.Vessel.GOBLET_SILVER || vessel == GOTItemMug.Vessel.GOBLET_COPPER || vessel == GOTItemMug.Vessel.GOBLET_WOOD) {
+			} else if (vessel == GOTItemMug.Vessel.GOBLET_BRONZE || vessel == GOTItemMug.Vessel.GOBLET_VALYRIAN || vessel == GOTItemMug.Vessel.GOBLET_GOLD || vessel == GOTItemMug.Vessel.GOBLET_SILVER || vessel == GOTItemMug.Vessel.GOBLET_COPPER || vessel == GOTItemMug.Vessel.GOBLET_WOOD) {
 				renderMeniscus(liquidIcon, 6, 9, 1.5, 8.0, scale);
 			} else if (vessel == GOTItemMug.Vessel.SKULL) {
 				renderMeniscus(liquidIcon, 5, 11, 3.0, 9.0, scale);
@@ -141,6 +143,12 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 			model = GOBLET_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.GOBLET_SILVER) {
 			bindTexture(GOBLET_SILVER_TEXTURE);
+			model = GOBLET_MODEL;
+		} else if (vessel == GOTItemMug.Vessel.GOBLET_VALYRIAN) {
+			bindTexture(GOBLET_VALYRIAN_TEXTURE);
+			model = GOBLET_MODEL;
+		} else if (vessel == GOTItemMug.Vessel.GOBLET_BRONZE) {
+			bindTexture(GOBLET_BRONZE_TEXTURE);
 			model = GOBLET_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.GOBLET_COPPER) {
 			bindTexture(GOBLET_COPPER_TEXTURE);

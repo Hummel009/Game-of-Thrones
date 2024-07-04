@@ -2,6 +2,7 @@ package got.common.entity.other.utils;
 
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -10,132 +11,64 @@ import java.util.Map;
 import java.util.Random;
 
 public class GOTWeaponSetFactory {
-	private static final Map<Item, Integer> WESTEROS_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> ESSOS_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> PRIMITIVE_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> WILDLING_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> ASSHAI_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> SOTHORYOS_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> SUMMER_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> NOMAD_WEAPON_PERCENTS = new HashMap<>();
-	private static final Map<Item, Integer> YI_TI_WEAPON_PERCENTS = new HashMap<>();
+	private static final Map<Item, Integer> IRON_EASTERN = new HashMap<>();
+	private static final Map<Item, Integer> IRON_WESTERN = new HashMap<>();
+
+	private static final Map<Item, Integer> PRIMITIVE_BRONZE = new HashMap<>();
+	private static final Map<Item, Integer> PRIMITIVE_IRON_HILLMEN = new HashMap<>();
+	private static final Map<Item, Integer> PRIMITIVE_IRON_NOMAD = new HashMap<>();
 
 	static {
-		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosSword, 50);
-		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosHammer, 25);
-		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosPike, 10);
-		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosLongsword, 10);
-		WESTEROS_WEAPON_PERCENTS.put(GOTItems.westerosGreatsword, 5);
+		IRON_WESTERN.put(Items.iron_sword, 50);
+		IRON_WESTERN.put(GOTItems.ironBattleaxe, 20);
+		IRON_WESTERN.put(GOTItems.ironHammer, 20);
+		IRON_WESTERN.put(GOTItems.ironPike, 10);
 
-		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosSword, 50);
-		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosHammer, 25);
-		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosPike, 15);
-		ESSOS_WEAPON_PERCENTS.put(GOTItems.essosPolearm, 10);
+		IRON_EASTERN.put(GOTItems.ironScimitar, 60);
+		IRON_EASTERN.put(GOTItems.ironBattleaxe, 20);
+		IRON_EASTERN.put(GOTItems.ironHammer, 20);
 
-		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.ironBattleaxe, 30);
-		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.trident, 25);
-		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.harpoon, 20);
-		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.club, 15);
-		PRIMITIVE_WEAPON_PERCENTS.put(GOTItems.ironPike, 10);
+		PRIMITIVE_BRONZE.put(GOTItems.bronzeScimitar, 30);
+		PRIMITIVE_BRONZE.put(GOTItems.bronzeSword, 30);
+		PRIMITIVE_BRONZE.put(GOTItems.bronzeBattleaxe, 20);
+		PRIMITIVE_BRONZE.put(GOTItems.bronzeHammer, 20);
 
-		WILDLING_WEAPON_PERCENTS.put(GOTItems.wildlingSword, 40);
-		WILDLING_WEAPON_PERCENTS.put(GOTItems.wildlingBattleaxe, 30);
-		WILDLING_WEAPON_PERCENTS.put(GOTItems.wildlingHammer, 20);
-		WILDLING_WEAPON_PERCENTS.put(GOTItems.wildlingPolearm, 10);
+		PRIMITIVE_IRON_HILLMEN.put(GOTItems.ironScimitar, 30);
+		PRIMITIVE_IRON_HILLMEN.put(Items.iron_sword, 25);
+		PRIMITIVE_IRON_HILLMEN.put(GOTItems.ironBattleaxe, 15);
+		PRIMITIVE_IRON_HILLMEN.put(GOTItems.ironHammer, 15);
+		PRIMITIVE_IRON_HILLMEN.put(GOTItems.trident, 5);
+		PRIMITIVE_IRON_HILLMEN.put(GOTItems.harpoon, 5);
+		PRIMITIVE_IRON_HILLMEN.put(GOTItems.club, 5);
 
-		ASSHAI_WEAPON_PERCENTS.put(GOTItems.asshaiSword, 50);
-		ASSHAI_WEAPON_PERCENTS.put(GOTItems.asshaiBattleaxe, 30);
-		ASSHAI_WEAPON_PERCENTS.put(GOTItems.asshaiHammer, 20);
-
-		SOTHORYOS_WEAPON_PERCENTS.put(GOTItems.sothoryosHammer, 35);
-		SOTHORYOS_WEAPON_PERCENTS.put(GOTItems.sothoryosSword, 30);
-		SOTHORYOS_WEAPON_PERCENTS.put(GOTItems.sothoryosBattleaxe, 20);
-		SOTHORYOS_WEAPON_PERCENTS.put(GOTItems.sothoryosPike, 15);
-
-		SUMMER_WEAPON_PERCENTS.put(GOTItems.summerSword, 70);
-		SUMMER_WEAPON_PERCENTS.put(GOTItems.summerPike, 30);
-
-		NOMAD_WEAPON_PERCENTS.put(GOTItems.nomadSword, 70);
-		NOMAD_WEAPON_PERCENTS.put(GOTItems.nomadBattleaxe, 30);
-
-		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiBattleaxe, 40);
-		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiPike, 30);
-		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiPolearm, 30);
-		YI_TI_WEAPON_PERCENTS.put(GOTItems.yiTiSword, 30);
+		PRIMITIVE_IRON_NOMAD.put(GOTItems.ironScimitar, 70);
+		PRIMITIVE_IRON_NOMAD.put(GOTItems.ironBattleaxe, 30);
 	}
 
 	private GOTWeaponSetFactory() {
 	}
 
-	public static void setupEssosWeaponSet(GOTEntityNPC npc, Random rand) {
+	public static void setupPrimitiveBronzeWeaponSet(GOTEntityNPC npc, Random rand) {
 		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
 
-		setupRandomWeapon(rand, ESSOS_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.essosSpear);
+		setupRandomWeapon(rand, PRIMITIVE_BRONZE, npcItemsInv);
+		setupSpearWithChance(rand, npcItemsInv, GOTItems.bronzeSpear);
 		setupIdleItems(npcItemsInv);
 	}
 
-	public static void setupYiTiWeaponSet(GOTEntityNPC npc, Random rand) {
+	public static void setupPrimitiveIronWeaponSet(GOTEntityNPC npc, Random rand, boolean nomad) {
 		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
 
-		setupRandomWeapon(rand, YI_TI_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.yiTiSpear);
-		setupIdleItems(npcItemsInv);
-	}
-
-	public static void setupNomadWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, NOMAD_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.summerSpear);
-		setupIdleItems(npcItemsInv);
-	}
-
-	public static void setupSummerWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, SUMMER_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.summerSpear);
-		setupIdleItems(npcItemsInv);
-	}
-
-	public static void setupSothoryosWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, SOTHORYOS_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.sothoryosSpear);
-		setupIdleItems(npcItemsInv);
-	}
-
-	public static void setupAsshaiWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, ASSHAI_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.asshaiSpear);
-		setupIdleItems(npcItemsInv);
-	}
-
-	public static void setupWildlingWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, WILDLING_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.wildlingSpear);
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-	}
-
-	public static void setupPrimitiveWeaponSet(GOTEntityNPC npc, Random rand) {
-		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
-
-		setupRandomWeapon(rand, PRIMITIVE_WEAPON_PERCENTS, npcItemsInv);
+		setupRandomWeapon(rand, nomad ? PRIMITIVE_IRON_NOMAD : PRIMITIVE_IRON_HILLMEN, npcItemsInv);
 		setupSpearWithChance(rand, npcItemsInv, GOTItems.ironSpear);
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+		setupIdleItems(npcItemsInv);
 	}
 
-	public static void setupWesterosWeaponSet(GOTEntityNPC npc, Random rand) {
+	public static void setupIronWeaponSet(GOTEntityNPC npc, Random rand, boolean scimitar) {
 		GOTInventoryNPCItems npcItemsInv = npc.getNpcItemsInv();
 
-		setupRandomWeapon(rand, WESTEROS_WEAPON_PERCENTS, npcItemsInv);
-		setupSpearWithChance(rand, npcItemsInv, GOTItems.westerosSpear);
+		setupRandomWeapon(rand, scimitar ? IRON_EASTERN : IRON_WESTERN, npcItemsInv);
+		setupSpearWithChance(rand, npcItemsInv, GOTItems.ironSpear);
 		setupIdleItems(npcItemsInv);
 	}
 

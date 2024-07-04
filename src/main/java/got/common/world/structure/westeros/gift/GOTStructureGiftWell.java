@@ -60,7 +60,7 @@ public class GOTStructureGiftWell extends GOTStructureGiftBase {
 				}
 			}
 		}
-		setBlockAndMetadata(world, 0, 0, 0, GOTBlocks.gateWoodenCross, 0);
+		setBlockAndMetadata(world, 0, 0, 0, GOTBlocks.gateWoodenBars, 0);
 		int depth = random.nextInt(2);
 		int waterDepth = 2 + random.nextInt(4);
 		int wellTop = -1;

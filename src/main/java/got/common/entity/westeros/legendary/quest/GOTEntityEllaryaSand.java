@@ -20,12 +20,6 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.nymeriaWhip, 1);
-		dropItem(GOTItems.obaraSpear, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 300.0f;
 	}
@@ -57,7 +51,7 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDaggerPoisoned));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

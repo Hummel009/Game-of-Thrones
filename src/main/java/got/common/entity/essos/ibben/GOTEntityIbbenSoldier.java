@@ -22,7 +22,7 @@ public class GOTEntityIbbenSoldier extends GOTEntityIbbenMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupPrimitiveWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupPrimitiveIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ibbenBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ibbenLeggings));

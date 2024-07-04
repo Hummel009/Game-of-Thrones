@@ -25,11 +25,6 @@ public class GOTEntityJaimeLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.jaimeSword, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 300.0f;
 	}
@@ -56,7 +51,7 @@ public class GOTEntityJaimeLannister extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.jaimeSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

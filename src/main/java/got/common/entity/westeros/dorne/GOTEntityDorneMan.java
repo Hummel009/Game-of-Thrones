@@ -23,7 +23,7 @@ public class GOTEntityDorneMan extends GOTEntityHumanBase implements GOTBiome.Im
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = new GOTEntityHorse(worldObj);
-		horse.setMountArmor(new ItemStack(GOTItems.westerosHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTItems.ironHorseArmor));
 		return horse;
 	}
 
@@ -58,7 +58,7 @@ public class GOTEntityDorneMan extends GOTEntityHumanBase implements GOTBiome.Im
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

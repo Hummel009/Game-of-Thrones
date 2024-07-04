@@ -168,22 +168,22 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, 2, sectionBase + 4, -4, GOTBlocks.asshaiTorch, 3);
 			setBlockAndMetadata(world, -4, sectionBase + 4, -2, GOTBlocks.asshaiTorch, 2);
 			setBlockAndMetadata(world, -4, sectionBase + 4, 2, GOTBlocks.asshaiTorch, 2);
-			setBlockAndMetadata(world, -3, sectionBase + 5, 3, GOTBlocks.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, 3, sectionBase + 5, 3, GOTBlocks.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, 4, sectionBase + 5, -2, GOTBlocks.stairsBasaltBrick, 5);
-			setBlockAndMetadata(world, 5, sectionBase + 5, -1, GOTBlocks.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, 5, sectionBase + 5, 1, GOTBlocks.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, 4, sectionBase + 5, 2, GOTBlocks.stairsBasaltBrick, 5);
-			setBlockAndMetadata(world, -2, sectionBase + 5, -4, GOTBlocks.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, -1, sectionBase + 5, -5, GOTBlocks.stairsBasaltBrick, 4);
-			setBlockAndMetadata(world, 1, sectionBase + 5, -5, GOTBlocks.stairsBasaltBrick, 5);
-			setBlockAndMetadata(world, 2, sectionBase + 5, -4, GOTBlocks.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, -4, sectionBase + 5, -2, GOTBlocks.stairsBasaltBrick, 4);
-			setBlockAndMetadata(world, -5, sectionBase + 5, -1, GOTBlocks.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, -5, sectionBase + 5, 1, GOTBlocks.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, -4, sectionBase + 5, 2, GOTBlocks.stairsBasaltBrick, 4);
+			setBlockAndMetadata(world, -3, sectionBase + 5, 3, GOTBlocks.stairsBasaltBrickAsshai, 6);
+			setBlockAndMetadata(world, 3, sectionBase + 5, 3, GOTBlocks.stairsBasaltBrickAsshai, 6);
+			setBlockAndMetadata(world, 4, sectionBase + 5, -2, GOTBlocks.stairsBasaltBrickAsshai, 5);
+			setBlockAndMetadata(world, 5, sectionBase + 5, -1, GOTBlocks.stairsBasaltBrickAsshai, 7);
+			setBlockAndMetadata(world, 5, sectionBase + 5, 1, GOTBlocks.stairsBasaltBrickAsshai, 6);
+			setBlockAndMetadata(world, 4, sectionBase + 5, 2, GOTBlocks.stairsBasaltBrickAsshai, 5);
+			setBlockAndMetadata(world, -2, sectionBase + 5, -4, GOTBlocks.stairsBasaltBrickAsshai, 7);
+			setBlockAndMetadata(world, -1, sectionBase + 5, -5, GOTBlocks.stairsBasaltBrickAsshai, 4);
+			setBlockAndMetadata(world, 1, sectionBase + 5, -5, GOTBlocks.stairsBasaltBrickAsshai, 5);
+			setBlockAndMetadata(world, 2, sectionBase + 5, -4, GOTBlocks.stairsBasaltBrickAsshai, 7);
+			setBlockAndMetadata(world, -4, sectionBase + 5, -2, GOTBlocks.stairsBasaltBrickAsshai, 4);
+			setBlockAndMetadata(world, -5, sectionBase + 5, -1, GOTBlocks.stairsBasaltBrickAsshai, 7);
+			setBlockAndMetadata(world, -5, sectionBase + 5, 1, GOTBlocks.stairsBasaltBrickAsshai, 6);
+			setBlockAndMetadata(world, -4, sectionBase + 5, 2, GOTBlocks.stairsBasaltBrickAsshai, 4);
 			for (step2 = 0; step2 <= 2; ++step2) {
-				setBlockAndMetadata(world, 1 - step2, sectionBase + 1 + step2, 4, GOTBlocks.stairsBasaltBrick, 0);
+				setBlockAndMetadata(world, 1 - step2, sectionBase + 1 + step2, 4, GOTBlocks.stairsBasaltBrickAsshai, 0);
 				for (j13 = sectionBase + 1; j13 <= sectionBase + step2; ++j13) {
 					setBlockAndMetadata(world, 1 - step2, j13, 4, GOTBlocks.brick1, 0);
 				}
@@ -197,11 +197,11 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 				setAir(world, i13, sectionBase + sectionHeight, 5);
 			}
 			for (step2 = 0; step2 <= 2; ++step2) {
-				setBlockAndMetadata(world, -1 + step2, sectionBase + 4 + step2, 5, GOTBlocks.stairsBasaltBrick, 1);
+				setBlockAndMetadata(world, -1 + step2, sectionBase + 4 + step2, 5, GOTBlocks.stairsBasaltBrickAsshai, 1);
 				setBlockAndMetadata(world, -1 + step2, sectionBase + 3 + step2, 5, GOTBlocks.brick1, 0);
-				setBlockAndMetadata(world, -1 + step2, sectionBase + 2 + step2, 5, GOTBlocks.stairsBasaltBrick, 4);
+				setBlockAndMetadata(world, -1 + step2, sectionBase + 2 + step2, 5, GOTBlocks.stairsBasaltBrickAsshai, 4);
 			}
-			setBlockAndMetadata(world, 2, sectionBase + 5, 5, GOTBlocks.stairsBasaltBrick, 4);
+			setBlockAndMetadata(world, 2, sectionBase + 5, 5, GOTBlocks.stairsBasaltBrickAsshai, 4);
 		}
 		placeChest(world, random, -1, 1, 5, GOTBlocks.chestStone, 0, GOTChestContents.ASSHAI);
 		for (k12 = -3; k12 <= 3; k12 += 6) {
@@ -344,9 +344,9 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 
 	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextInt(6) == 0) {
-			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickCracked, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickAsshaiCracked, meta);
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrick, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickAsshai, meta);
 		}
 	}
 }

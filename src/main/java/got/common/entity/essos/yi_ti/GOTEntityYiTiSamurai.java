@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -32,7 +33,7 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yiTiSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBootsSamurai));

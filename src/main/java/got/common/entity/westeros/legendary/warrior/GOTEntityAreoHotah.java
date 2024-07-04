@@ -23,11 +23,6 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.areoHotahAxe, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 100.0f;
 	}
@@ -41,7 +36,7 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.areoHotahAxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelBattleaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

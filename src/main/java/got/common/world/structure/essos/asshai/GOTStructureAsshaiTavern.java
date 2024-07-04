@@ -343,10 +343,10 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 4, 2, 8, Blocks.furnace, 3);
 		setBlockAndMetadata(world, 3, 2, 7, Blocks.furnace, 5);
 		setBlockAndMetadata(world, 5, 2, 7, Blocks.furnace, 4);
-		setBlockAndMetadata(world, 0, 4, 3, GOTBlocks.chandelier, 12);
-		setBlockAndMetadata(world, 0, 4, 11, GOTBlocks.chandelier, 12);
-		setBlockAndMetadata(world, 8, 4, 3, GOTBlocks.chandelier, 12);
-		setBlockAndMetadata(world, 8, 4, 11, GOTBlocks.chandelier, 12);
+		setBlockAndMetadata(world, 0, 4, 3, GOTBlocks.chandelier, 6);
+		setBlockAndMetadata(world, 0, 4, 11, GOTBlocks.chandelier, 6);
+		setBlockAndMetadata(world, 8, 4, 3, GOTBlocks.chandelier, 6);
+		setBlockAndMetadata(world, 8, 4, 11, GOTBlocks.chandelier, 6);
 		for (int k1421 : new int[]{1, 2}) {
 			setBlockAndMetadata(world, -4, 1, k1421, plankBlock, plankMeta);
 			placeMugOrPlate(world, random, -4, 2, k1421);
@@ -423,7 +423,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, -6, 3, k12, plankStairBlock, 4);
 			placeBarrel(world, random, -6, 4, k12, 4, GOTFoods.DEFAULT_DRINK);
 		}
-		setBlockAndMetadata(world, -4, 4, 7, GOTBlocks.chandelier, 12);
+		setBlockAndMetadata(world, -4, 4, 7, GOTBlocks.chandelier, 6);
 		for (step = 0; step <= 2; ++step) {
 			setBlockAndMetadata(world, -3 - step, 1 + step, 13, plankStairBlock, 0);
 			setBlockAndMetadata(world, -4 - step, 1 + step, 13, plankStairBlock, 5);
@@ -744,8 +744,8 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, i13, 11, k1321, plankSlabBlock, plankSlabMeta | 8);
 			}
 		}
-		setBlockAndMetadata(world, -1, 11, 7, GOTBlocks.chandelier, 12);
-		setBlockAndMetadata(world, 7, 11, 7, GOTBlocks.chandelier, 12);
+		setBlockAndMetadata(world, -1, 11, 7, GOTBlocks.chandelier, 6);
+		setBlockAndMetadata(world, 7, 11, 7, GOTBlocks.chandelier, 6);
 		GOTEntityNPC bartender = new GOTEntityAsshaiAlchemist(world);
 		spawnNPCAndSetHome(bartender, world, -4, 1, 7, 2);
 		int men = 6 + random.nextInt(7);

@@ -65,7 +65,7 @@ public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTra
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
 		return entityData;
 	}

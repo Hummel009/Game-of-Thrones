@@ -1,7 +1,6 @@
 package got.client.render.other;
 
 import got.client.GOTClientProxy;
-import got.common.item.weapon.GOTItemLance;
 import got.common.item.weapon.GOTItemPike;
 import got.common.item.weapon.GOTItemSpear;
 import net.minecraft.client.Minecraft;
@@ -110,7 +109,6 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	}
 
 	@Override
-	@SuppressWarnings("CastCanBeReplacedWithVariable")
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
 		EntityLivingBase entityliving;
 		GL11.glPushMatrix();
@@ -134,15 +132,6 @@ public class GOTRenderLargeItem implements IItemRenderer {
 				GL11.glTranslatef(0.0f, -0.3f, 0.0f);
 				GL11.glRotatef(40.0f, 0.0f, 0.0f, 1.0f);
 			}
-		}
-		if (item instanceof GOTItemLance && holder instanceof EntityLivingBase && ((EntityLivingBase) holder).getHeldItem() == itemstack) {
-			if (isFirstPerson) {
-				GL11.glRotatef(260.0f, 0.0f, 0.0f, 1.0f);
-			} else {
-				GL11.glTranslatef(0.7f, 0.0f, 0.0f);
-				GL11.glRotatef(-30.0f, 0.0f, 0.0f, 1.0f);
-			}
-			GL11.glTranslatef(-1.0f, 0.0f, 0.0f);
 		}
 		renderLargeItem();
 		if (itemstack.hasEffect(0)) {

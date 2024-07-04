@@ -51,7 +51,7 @@ public class GOTEntityBrienneTarth extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosLongsword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

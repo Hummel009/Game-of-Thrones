@@ -47,8 +47,10 @@ public class GOTEntityJogosNhaiChieftain extends GOTEntityJogosNhaiMan implement
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironScimitar));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.jogosNhaiHelmet));
 
 		return entityData;
 	}

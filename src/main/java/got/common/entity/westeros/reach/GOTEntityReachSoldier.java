@@ -132,7 +132,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.reachBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachLeggings));

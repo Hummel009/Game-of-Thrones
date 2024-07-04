@@ -1326,6 +1326,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return cape;
 	}
 
+	public void setCape(GOTCapes cape) {
+		this.cape = cape;
+	}
+
 	public GOTShields getShield() {
 		return shield;
 	}

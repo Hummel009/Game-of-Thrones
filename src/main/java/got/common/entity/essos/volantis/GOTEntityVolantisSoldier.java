@@ -27,7 +27,7 @@ public class GOTEntityVolantisSoldier extends GOTEntityVolantisMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.volantisBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.volantisLeggings));

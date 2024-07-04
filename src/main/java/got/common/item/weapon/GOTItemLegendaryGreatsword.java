@@ -7,7 +7,7 @@ public class GOTItemLegendaryGreatsword extends GOTItemGreatsword {
 	public GOTItemLegendaryGreatsword(Item.ToolMaterial material) {
 		super(material);
 		setMaxDamage(1500);
-		gotWeaponDamage = 15.0f;
+		gotWeaponDamage *= 1.5f;
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 }

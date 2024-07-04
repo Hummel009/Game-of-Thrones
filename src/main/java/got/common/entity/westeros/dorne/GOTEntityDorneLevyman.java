@@ -21,7 +21,7 @@ public class GOTEntityDorneLevyman extends GOTEntityDorneMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, true);
 		GOTEntityUtils.setupLeathermanArmor(this, rand);
 
 		return entityData;

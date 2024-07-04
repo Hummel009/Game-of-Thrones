@@ -347,7 +347,6 @@ public class GOTAchievement {
 	public static GOTAchievement useKebabStand;
 	public static GOTAchievement useLingeringPotion;
 	public static GOTAchievement useMillstone;
-	public static GOTAchievement useNymeriaWhip;
 	public static GOTAchievement useOven;
 	public static GOTAchievement useSarbacane;
 	public static GOTAchievement useSpear;
@@ -357,11 +356,12 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullArryn;
 	public static GOTAchievement wearFullArrynguard;
 	public static GOTAchievement wearFullAsshai;
-	public static GOTAchievement wearFullBlackfyre;
 	public static GOTAchievement wearFullBone;
 	public static GOTAchievement wearFullBraavos;
 	public static GOTAchievement wearFullBronze;
 	public static GOTAchievement wearFullBronzeChainmail;
+	public static GOTAchievement wearFullIron;
+	public static GOTAchievement wearFullIronChainmail;
 	public static GOTAchievement wearFullCrownlands;
 	public static GOTAchievement wearFullDorne;
 	public static GOTAchievement wearFullDothraki;
@@ -388,11 +388,8 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullQohor;
 	public static GOTAchievement wearFullReach;
 	public static GOTAchievement wearFullReachguard;
-	public static GOTAchievement wearFullRedking;
-	public static GOTAchievement wearFullRenly;
 	public static GOTAchievement wearFullRiverlands;
 	public static GOTAchievement wearFullRobes;
-	public static GOTAchievement wearFullRoyce;
 	public static GOTAchievement wearFullSothoryos;
 	public static GOTAchievement wearFullStormlands;
 	public static GOTAchievement wearFullSummer;
@@ -404,7 +401,6 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullVolantis;
 	public static GOTAchievement wearFullWesterlands;
 	public static GOTAchievement wearFullWesterlandsguard;
-	public static GOTAchievement wearFullWestking;
 	public static GOTAchievement wearFullWhiteWalkers;
 	public static GOTAchievement wearFullYiti;
 	public static GOTAchievement wearFullYitiBombardier;
@@ -416,6 +412,12 @@ public class GOTAchievement {
 	public static GOTAchievement throwSlingIntoWater;
 	public static GOTAchievement throwConker;
 	public static GOTAchievement wearFullGemsbok;
+	public static GOTAchievement wearFullCopper;
+	public static GOTAchievement wearFullCopperChainmail;
+	public static GOTAchievement wearFullGold;
+	public static GOTAchievement wearFullGoldChainmail;
+	public static GOTAchievement wearFullAlloySteel;
+	public static GOTAchievement wearFullAlloySteelChainmail;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 	private final Category category;
@@ -525,7 +527,6 @@ public class GOTAchievement {
 		useSpear = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironSpear, "USE_SPEAR");
 		useThrowingAxe = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironThrowingAxe, "USE_THROWING_AXE");
 		useSarbacane = new GOTAchievement(Category.GENERAL, genId++, GOTItems.sarbacane, "USE_SARBACANE");
-		useNymeriaWhip = new GOTAchievement(Category.GENERAL, genId++, GOTItems.nymeriaWhip, "USE_NYMERIA_WHIP");
 		useAsshaiArchmagStaff = new GOTAchievement(Category.GENERAL, genId++, GOTItems.asshaiArchmagStaff, "USE_ASSHAI_ARCHMAG_STAFF");
 		useAsshaiShadowbinderStaff = new GOTAchievement(Category.GENERAL, genId++, GOTItems.asshaiShadowbinderStaff, "USE_ASSHAI_SHADOWBINDER_STAFF");
 		useTermite = new GOTAchievement(Category.GENERAL, genId++, GOTItems.termite, "USE_TERMITE");
@@ -562,7 +563,7 @@ public class GOTAchievement {
 		smoke = new GOTAchievement(Category.GENERAL, genId++, GOTItems.pipe, "SMOKE");
 		brandEntity = new GOTAchievement(Category.GENERAL, genId++, GOTItems.brandingIron, "BRAND_ENTITY");
 		combineSmithScrolls = new GOTAchievement(Category.GENERAL, genId++, GOTItems.smithScroll, "COMBINE_SMITH_SCROLLS");
-		defeatInvasion = new GOTAchievement(Category.GENERAL, genId++, GOTItems.westerosSword, "DEFEAT_INVASION");
+		defeatInvasion = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "DEFEAT_INVASION");
 		earnManyCoins = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "EARN_MANY_COINS");
 		engraveOwnership = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "ENGRAVE_OWNERSHIP");
 		factionConquest = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "FACTION_CONQUEST");
@@ -876,10 +877,19 @@ public class GOTAchievement {
 
 		int armorId = 1;
 
+		wearFullCopper = createArmorAchievement(armorId++, GOTItems.copperChestplate, "WEAR_FULL_COPPER");
+		wearFullCopperChainmail = createArmorAchievement(armorId++, GOTItems.copperChainmailChestplate, "WEAR_FULL_COPPER_CHAINMAIL");
 		wearFullBronze = createArmorAchievement(armorId++, GOTItems.bronzeChestplate, "WEAR_FULL_BRONZE");
 		wearFullBronzeChainmail = createArmorAchievement(armorId++, GOTItems.bronzeChainmailChestplate, "WEAR_FULL_BRONZE_CHAINMAIL");
+		wearFullIron = createArmorAchievement(armorId++, Items.iron_chestplate, "WEAR_FULL_IRON");
+		wearFullIronChainmail = createArmorAchievement(armorId++, Items.chainmail_chestplate, "WEAR_FULL_IRON_CHAINMAIL");
+		wearFullGold = createArmorAchievement(armorId++, Items.golden_chestplate, "WEAR_FULL_GOLD");
+		wearFullGoldChainmail = createArmorAchievement(armorId++, GOTItems.goldChainmailChestplate, "WEAR_FULL_GOLD_CHAINMAIL");
+		wearFullAlloySteel = createArmorAchievement(armorId++, GOTItems.alloySteelChestplate, "WEAR_FULL_ALLOY_STEEL");
+		wearFullAlloySteelChainmail = createArmorAchievement(armorId++, GOTItems.alloySteelChainmailChestplate, "WEAR_FULL_ALLOY_STEEL_CHAINMAIL");
 		wearFullValyrian = createArmorAchievement(armorId++, GOTItems.valyrianChestplate, "WEAR_FULL_VALYRIAN");
 		wearFullValyrianChainmail = createArmorAchievement(armorId++, GOTItems.valyrianChainmailChestplate, "WEAR_FULL_VALYRIAN_CHAINMAIL");
+
 		wearFullBone = createArmorAchievement(armorId++, GOTItems.boneChestplate, "WEAR_FULL_BONE");
 		wearFullFur = createArmorAchievement(armorId++, GOTItems.furChestplate, "WEAR_FULL_FUR");
 		wearFullGemsbok = createArmorAchievement(armorId++, GOTItems.gemsbokChestplate, "WEAR_FULL_GEMSBOK");
@@ -933,12 +943,7 @@ public class GOTAchievement {
 
 		wearFullRobes = createArmorAchievement(armorId++, GOTItems.robesChestplate, "WEAR_FULL_ROBES");
 
-		wearFullBlackfyre = createArmorAchievement(armorId++, GOTItems.blackfyreChestplate, "WEAR_FULL_BLACKFYRE");
-		wearFullRedking = createArmorAchievement(armorId++, GOTItems.redkingChestplate, "WEAR_FULL_REDKING");
-		wearFullRenly = createArmorAchievement(armorId++, GOTItems.renlyChestplate, "WEAR_FULL_RENLY");
-		wearFullRoyce = createArmorAchievement(armorId++, GOTItems.royceChestplate, "WEAR_FULL_ROYCE");
 		wearFullTargaryen = createArmorAchievement(armorId++, GOTItems.targaryenChestplate, "WEAR_FULL_TARGARYEN");
-		wearFullWestking = createArmorAchievement(armorId++, GOTItems.westkingChestplate, "WEAR_FULL_WESTKING");
 	}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {

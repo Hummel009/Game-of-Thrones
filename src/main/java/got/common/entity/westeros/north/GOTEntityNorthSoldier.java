@@ -27,7 +27,7 @@ public class GOTEntityNorthSoldier extends GOTEntityNorthMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));

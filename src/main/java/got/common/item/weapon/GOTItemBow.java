@@ -42,6 +42,7 @@ public class GOTItemBow extends ItemBow {
 		this(material, 1.0);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public GOTItemBow(Item.ToolMaterial material, double d) {
 		bowMaterial = material;
 		setMaxDamage((int) (material.getMaxUses() * 1.5f));
@@ -221,6 +222,7 @@ public class GOTItemBow extends ItemBow {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public GOTItemBow setDrawTime(int i) {
 		bowPullTime = i;
 		return this;

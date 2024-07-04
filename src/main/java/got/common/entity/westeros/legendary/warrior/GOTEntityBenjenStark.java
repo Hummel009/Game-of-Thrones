@@ -6,7 +6,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.ice.IceUtils;
+import got.common.entity.other.utils.IceUtils;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;

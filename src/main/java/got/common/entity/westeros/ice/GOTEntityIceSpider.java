@@ -7,6 +7,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntitySpiderBase;
+import got.common.entity.other.utils.IceUtils;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;

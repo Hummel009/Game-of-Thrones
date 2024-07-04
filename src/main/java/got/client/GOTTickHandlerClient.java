@@ -23,7 +23,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.GOTEntityBarrowWight;
+import got.common.entity.other.GOTEntityBarrowWraith;
 import got.common.entity.other.GOTEntitySpiderBase;
 import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.entity.other.utils.GOTInvasionStatus;
@@ -697,17 +697,17 @@ public class GOTTickHandlerClient {
 			tooltip.add(StatCollector.translateToLocal("item.got.kebab_stand2"));
 		}
 		if (itemstack.getItem() instanceof GOTMaterialFinder) {
-			if (itemstack.getItem() != GOTItems.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
+			if (itemstack.getItem() != GOTItems.petyrBaelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwalker"));
 			}
-			if (itemstack.getItem() == GOTItems.bericSword) {
+			if (itemstack.getItem() == GOTItems.bericDondarrionSword) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwight"));
 			}
-			if (itemstack.getItem() == GOTItems.baelishDagger) {
+			if (itemstack.getItem() == GOTItems.petyrBaelishDagger) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiking"));
 			}
-			if (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL) {
-				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antimonster"));
+			if (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.ALLOY_STEEL_TOOL) {
+				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwraith"));
 			}
 		}
 	}
@@ -827,7 +827,7 @@ public class GOTTickHandlerClient {
 					}
 					prevWightNearTick = wightNearTick;
 					double wightRange = 32.0D;
-					List<GOTEntityBarrowWight> nearbyWights = world.getEntitiesWithinAABB(GOTEntityBarrowWight.class, viewer.boundingBox.expand(wightRange, wightRange, wightRange));
+					List<GOTEntityBarrowWraith> nearbyWights = world.getEntitiesWithinAABB(GOTEntityBarrowWraith.class, viewer.boundingBox.expand(wightRange, wightRange, wightRange));
 					if (!nearbyWights.isEmpty()) {
 						if (wightNearTick < 100) {
 							wightNearTick++;

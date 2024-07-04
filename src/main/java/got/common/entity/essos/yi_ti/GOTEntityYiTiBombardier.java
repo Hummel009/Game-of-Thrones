@@ -88,7 +88,7 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiMan {
 
 		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuse));
 		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 10));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yiTiSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBootsBombardier));

@@ -6,7 +6,7 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.ice.IceUtils;
+import got.common.entity.other.utils.IceUtils;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -39,6 +39,15 @@ public class GOTEntityNightKing extends GOTEntityNPC {
 	private void addTargetTasks() {
 		int target = addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityThreeEyedRaven.class, 0, true));
+	}
+
+	@Override
+	public void onAttackModeChange(AttackMode mode, boolean mounted) {
+		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
+		} else {
+			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
+		}
 	}
 
 	@Override
@@ -105,12 +114,11 @@ public class GOTEntityNightKing extends GOTEntityNPC {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nightKingSword));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.whiteWalkersBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.whiteWalkersLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.whiteWalkersChestplate));
-
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
 	}

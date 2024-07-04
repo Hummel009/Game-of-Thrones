@@ -63,8 +63,8 @@ public class GOTEntityYgritte extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingDagger));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.longbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

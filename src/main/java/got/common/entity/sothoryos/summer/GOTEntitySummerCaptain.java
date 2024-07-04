@@ -7,6 +7,7 @@ import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -45,7 +46,7 @@ public class GOTEntitySummerCaptain extends GOTEntitySummerMan implements GOTUni
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.summerPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.summerBoots));

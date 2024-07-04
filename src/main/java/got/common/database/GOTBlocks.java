@@ -51,7 +51,6 @@ public class GOTBlocks {
 	public static Block asshaiTorch;
 	public static Block banana;
 	public static Block bananaCake;
-	public static Block ironBank;
 	public static Block barrel;
 	public static Block barrier;
 	public static Block basaltGravel;
@@ -75,6 +74,8 @@ public class GOTBlocks {
 	public static Block brick5;
 	public static Block brick6;
 	public static Block brickIce;
+	public static Block copperBars;
+	public static Block silverBars;
 	public static Block bronzeBars;
 	public static Block butterflyJar;
 	public static Block buttonAndesite;
@@ -92,13 +93,14 @@ public class GOTBlocks {
 	public static Block chestBasket;
 	public static Block chestSandstone;
 	public static Block chestStone;
+	public static Block chrysanthemum;
 	public static Block clayTile;
 	public static Block clayTileDyed;
-	public static Block concrete;
-	public static Block concretePowder;
 	public static Block clover;
 	public static Block cobblebrick;
 	public static Block commandTable;
+	public static Block concrete;
+	public static Block concretePowder;
 	public static Block coralReef;
 	public static Block cornStalk;
 	public static Block date;
@@ -213,23 +215,22 @@ public class GOTBlocks {
 	public static Block fruitSapling;
 	public static Block fruitWood;
 	public static Block furBed;
+	public static Block lionFurBed;
 	public static Block fuse;
+	public static Block gateCopperBars;
 	public static Block gateBronzeBars;
-	public static Block gateEssos;
-	public static Block gateGold;
-	public static Block gateIbben;
+	public static Block gateGoldBars;
 	public static Block gateIronBars;
-	public static Block gateSilver;
-	public static Block gateSothoryos;
-	public static Block gateValyrian;
-	public static Block gateWesteros;
+	public static Block gateSilverBars;
+	public static Block gateValyrianBars;
 	public static Block gateWooden;
-	public static Block gateWoodenCross;
-	public static Block gateYiTi;
+	public static Block gateWoodenBars;
 	public static Block glass;
 	public static Block glassBottle;
 	public static Block glassPane;
 	public static Block gobletCopper;
+	public static Block gobletBronze;
+	public static Block gobletValyrian;
 	public static Block gobletGold;
 	public static Block gobletSilver;
 	public static Block gobletWood;
@@ -238,6 +239,7 @@ public class GOTBlocks {
 	public static Block grapevineRed;
 	public static Block grapevineWhite;
 	public static Block hearth;
+	public static Block ironBank;
 	public static Block kebabBlock;
 	public static Block kebabStand;
 	public static Block kebabStandSand;
@@ -323,7 +325,6 @@ public class GOTBlocks {
 	public static Block scorchedWall;
 	public static Block signCarved;
 	public static Block signCarvedGlowing;
-	public static Block silverBars;
 	public static Block skullCup;
 	public static Block slabBoneDouble;
 	public static Block slabBoneSingle;
@@ -387,8 +388,8 @@ public class GOTBlocks {
 	public static Block stairsBaobab;
 	public static Block stairsBasalt;
 	public static Block stairsBasaltBrick;
-	public static Block stairsBasaltBrickCracked;
-	public static Block stairsBasaltWesterosBrick;
+	public static Block stairsBasaltBrickAsshai;
+	public static Block stairsBasaltBrickAsshaiCracked;
 	public static Block stairsBeech;
 	public static Block stairsBone;
 	public static Block stairsBrickCracked;
@@ -568,6 +569,7 @@ public class GOTBlocks {
 	public static Block treasureCopper;
 	public static Block treasureGold;
 	public static Block treasureSilver;
+	public static Block treasureValyrian;
 	public static Block turnipCrop;
 	public static Block unsmeltery;
 	public static Block valyrianBars;
@@ -621,7 +623,6 @@ public class GOTBlocks {
 	public static Block woodSlabSingle4;
 	public static Block woodSlabSingle5;
 	public static Block yamCrop;
-	public static Block yiTiFlower;
 
 	private GOTBlocks() {
 	}
@@ -673,6 +674,8 @@ public class GOTBlocks {
 		brick5 = new GOTBlockBrick5();
 		brick6 = new GOTBlockBrick6();
 		brickIce = new GOTBlockBrickIce();
+		copperBars = new GOTBlockBars();
+		silverBars = new GOTBlockBars();
 		bronzeBars = new GOTBlockBars();
 		butterflyJar = new GOTBlockButterflyJar();
 		buttonAndesite = new GOTBlockButton(false, "got:rock_andesite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
@@ -811,22 +814,21 @@ public class GOTBlocks {
 		fruitSapling = new GOTBlockSaplingFruit();
 		fruitWood = new GOTBlockFruitWood();
 		furBed = new GOTBlockBed(Blocks.planks, 0);
+		lionFurBed = new GOTBlockBed(Blocks.planks, 0);
 		fuse = new GOTBlockDoubleTorch();
+		gateCopperBars = GOTBlockGate.createMetal(false);
 		gateBronzeBars = GOTBlockGate.createMetal(false);
-		gateEssos = GOTBlockGate.createWooden(true);
-		gateGold = GOTBlockGate.createMetal(true);
-		gateIbben = GOTBlockGate.createWooden(true);
+		gateGoldBars = GOTBlockGate.createMetal(false);
 		gateIronBars = GOTBlockGate.createMetal(false);
-		gateSilver = GOTBlockGate.createMetal(true);
-		gateSothoryos = GOTBlockGate.createWooden(true);
-		gateValyrian = GOTBlockGate.createMetal(true);
-		gateWesteros = GOTBlockGate.createWooden(true);
+		gateSilverBars = GOTBlockGate.createMetal(false);
+		gateValyrianBars = GOTBlockGate.createMetal(false);
 		gateWooden = GOTBlockGate.createWooden(true);
-		gateWoodenCross = GOTBlockGate.createWooden(false);
-		gateYiTi = GOTBlockGate.createWooden(true);
+		gateWoodenBars = GOTBlockGate.createWooden(false);
 		glass = new GOTBlockGlass();
 		glassBottle = new GOTBlockGlassBottle();
 		glassPane = new GOTBlockGlassPane();
+		gobletBronze = new GOTBlockGoblet.Bronze();
+		gobletValyrian = new GOTBlockGoblet.Valyrian();
 		gobletCopper = new GOTBlockGoblet.Copper();
 		gobletGold = new GOTBlockGoblet.Gold();
 		gobletSilver = new GOTBlockGoblet.Silver();
@@ -917,7 +919,6 @@ public class GOTBlocks {
 		scorchedWall = new GOTBlockScorchedWall();
 		signCarved = new GOTBlockSignCarved(GOTTileEntitySignCarved.class);
 		signCarvedGlowing = new GOTBlockSignCarved(GOTTileEntitySignCarvedValyrian.class);
-		silverBars = new GOTBlockBars();
 		skullCup = new GOTBlockSkullCup();
 		slabBoneDouble = new GOTBlockSlabBone(true);
 		slabBoneSingle = new GOTBlockSlabBone(false);
@@ -980,9 +981,9 @@ public class GOTBlocks {
 		stairsBanana = new GOTBlockStairs(planks1, 11);
 		stairsBaobab = new GOTBlockStairs(planks2, 1);
 		stairsBasalt = new GOTBlockStairs(rock, 0);
-		stairsBasaltBrick = new GOTBlockStairs(brick1, 0);
-		stairsBasaltBrickCracked = new GOTBlockStairs(brick1, 7);
-		stairsBasaltWesterosBrick = new GOTBlockStairs(brick2, 11);
+		stairsBasaltBrickAsshai = new GOTBlockStairs(brick1, 0);
+		stairsBasaltBrickAsshaiCracked = new GOTBlockStairs(brick1, 7);
+		stairsBasaltBrick = new GOTBlockStairs(brick2, 11);
 		stairsBeech = new GOTBlockStairs(planks1, 9);
 		stairsBone = new GOTBlockStairs(boneBlock, 0);
 		stairsBrickCracked = new GOTBlockStairs(redBrick, 1).setCreativeTab(CreativeTabs.tabBlock);
@@ -1161,6 +1162,7 @@ public class GOTBlocks {
 		treasureCopper = new GOTBlockTreasurePile();
 		treasureGold = new GOTBlockTreasurePile();
 		treasureSilver = new GOTBlockTreasurePile();
+		treasureValyrian = new GOTBlockTreasurePile();
 		turnipCrop = new GOTBlockTurnipCrop();
 		unsmeltery = new GOTBlockUnsmeltery();
 		valyrianBars = new GOTBlockBars();
@@ -1213,7 +1215,7 @@ public class GOTBlocks {
 		woodSlabSingle4 = new GOTBlockWoodSlab4(false);
 		woodSlabSingle5 = new GOTBlockWoodSlab5(false);
 		yamCrop = new GOTBlockYamCrop();
-		yiTiFlower = new GOTBlockYiTiFlower();
+		chrysanthemum = new GOTBlockChrysanthemum();
 	}
 
 	public static void onInit() {
@@ -1396,8 +1398,8 @@ public class GOTBlocks {
 		register(stairsAndesiteBrickMossy, "stairsAndesiteBrickMossy");
 		register(stairsBasalt, "stairsBasalt");
 		register(stairsBasaltBrick, "stairsBasaltBrick");
-		register(stairsBasaltBrickCracked, "stairsBasaltBrickCracked");
-		register(stairsBasaltWesterosBrick, "stairsBasaltWesterosBrick");
+		register(stairsBasaltBrickAsshai, "stairsBasaltBrickAsshai");
+		register(stairsBasaltBrickAsshaiCracked, "stairsBasaltBrickAsshaiCracked");
 		register(stairsDiorite, "stairsDiorite");
 		register(stairsDioriteBrick, "stairsDioriteBrick");
 		register(stairsGranite, "stairsGranite");
@@ -1663,12 +1665,14 @@ public class GOTBlocks {
 		register(reeds, "reeds", GOTItemReeds.class);
 		register(tallGrass, "tallGrass", GOTItemTallGrass.class);
 		register(willowVines, "willowVines", GOTItemVine.class);
-		register(yiTiFlower, "yiTiFlower", GOTItemBlockMetadata.class);
+		register(chrysanthemum, "chrysanthemum", GOTItemBlockMetadata.class);
 
 		register(treasureCopper, "treasureCopper", GOTItemTreasurePile.class);
 		register(treasureSilver, "treasureSilver", GOTItemTreasurePile.class);
 		register(treasureGold, "treasureGold", GOTItemTreasurePile.class);
+		register(treasureValyrian, "treasureValyrian", GOTItemTreasurePile.class);
 
+		register(copperBars, "copperBars");
 		register(bronzeBars, "bronzeBars");
 		register(silverBars, "silverBars");
 		register(goldBars, "goldBars");
@@ -1736,9 +1740,12 @@ public class GOTBlocks {
 		register(flaxCrop, "flax");
 		register(flowerPot, "flowerPot");
 		register(furBed, "furBed");
+		register(lionFurBed, "lionFurBed");
 		register(fuse, "fuse");
 		register(glassBottle, "glassBottle");
 		register(gobletCopper, "gobletCopper");
+		register(gobletBronze, "gobletBronze");
+		register(gobletValyrian, "gobletValyrian");
 		register(gobletGold, "gobletGold");
 		register(gobletSilver, "gobletSilver");
 		register(gobletWood, "gobletWood");
@@ -1999,20 +2006,13 @@ public class GOTBlocks {
 		register(trapdoorWeirwood, "trapdoorWeirwood");
 		register(trapdoorWillow, "trapdoorWillow");
 
-		register(gateEssos, "gateEssos", GOTItemGate.class);
-		register(gateWesteros, "gateWesteros", GOTItemGate.class);
-		register(gateIbben, "gateIbben", GOTItemGate.class);
-		register(gateSothoryos, "gateSothoryos", GOTItemGate.class);
-		register(gateYiTi, "gateYiTi", GOTItemGate.class);
-
+		register(gateWooden, "gateWooden", GOTItemGate.class);
+		register(gateWoodenBars, "gateWoodenBars", GOTItemGate.class);
+		register(gateCopperBars, "gateCopperBars", GOTItemGate.class);
 		register(gateBronzeBars, "gateBronzeBars", GOTItemGate.class);
 		register(gateIronBars, "gateIronBars", GOTItemGate.class);
-
-		register(gateWoodenCross, "gateWoodenCross", GOTItemGate.class);
-		register(gateWooden, "gateWooden", GOTItemGate.class);
-
-		register(gateSilver, "gateSilver", GOTItemGate.class);
-		register(gateGold, "gateGold", GOTItemGate.class);
-		register(gateValyrian, "gateValyrian", GOTItemGate.class);
+		register(gateSilverBars, "gateSilverBars", GOTItemGate.class);
+		register(gateGoldBars, "gateGoldBars", GOTItemGate.class);
+		register(gateValyrianBars, "gateValyrianBars", GOTItemGate.class);
 	}
 }

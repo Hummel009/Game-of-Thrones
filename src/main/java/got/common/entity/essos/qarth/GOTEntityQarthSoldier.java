@@ -27,7 +27,7 @@ public class GOTEntityQarthSoldier extends GOTEntityQarthMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupEssosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, true);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.qarthBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.qarthLeggings));

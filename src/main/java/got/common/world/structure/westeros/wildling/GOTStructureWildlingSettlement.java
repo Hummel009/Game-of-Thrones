@@ -6,6 +6,7 @@ import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;
 import got.common.entity.westeros.wildling.GOTEntityWildlingWarrior;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennArcher;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennAxeThrower;
+import got.common.entity.westeros.wildling.thenn.GOTEntityThennWarrior;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTFixer;
@@ -187,7 +188,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			addStructure(new GOTStructureThennHouse(false).setIsBlacksmith(), 0, -centreSide, 2, true);
-			addStructure(new GOTStructureThennHouse(false), -pathEnd, 0, 1, true);
+			addStructure(new GOTStructureThennHouse(false).setIsBlacksmith(), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureThennChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
@@ -216,7 +217,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), 0, -centreSide, 2, true);
-			addStructure(new GOTStructureWildlingHouse(false), -pathEnd, 0, 1, true);
+			addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureWildlingChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
@@ -277,8 +278,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 			@Override
 			public void setupRespawner(GOTEntityNPCRespawner spawner) {
-				spawner.setSpawnClass1(GOTEntityThennArcher.class);
-				spawner.setSpawnClass2(GOTEntityThennAxeThrower.class);
+				spawner.setSpawnClass1(GOTEntityThennWarrior.class);
 				spawner.setCheckRanges(40, -12, 12, 40);
 				spawner.setSpawnRanges(20, -6, 6, 64);
 				spawner.setBlockEnemySpawns(60);

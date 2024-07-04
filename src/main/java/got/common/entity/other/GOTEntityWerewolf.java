@@ -1,20 +1,14 @@
 package got.common.entity.other;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTItems;
-import got.common.database.GOTMaterial;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.faction.GOTFaction;
-import got.common.item.GOTMaterialFinder;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
+import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
@@ -37,20 +31,18 @@ public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneTo
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30.0);
 		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(5.0);
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		ItemStack itemstack;
-		Entity entity = damagesource.getEntity();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL || itemstack.getItem() == GOTItems.crowbar)) {
-			return super.attackEntityFrom(damagesource, f);
+	public void dropFewItems(boolean flag, int i) {
+		super.dropFewItems(flag, i);
+		int bones = 1 + rand.nextInt(3) + rand.nextInt(i + 1);
+		for (int l = 0; l < bones; ++l) {
+			dropItem(Items.bone, 1);
 		}
-		return super.attackEntityFrom(damagesource, 1);
 	}
 
 	@Override

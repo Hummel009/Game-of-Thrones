@@ -193,8 +193,8 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			int pathSide = 7;
 			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
-			addStructure(new GOTStructureNorthHillmanHouse(false).setIsCannibal(), 0, -centreSide, 2, true);
-			addStructure(new GOTStructureNorthHillmanHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
+			addStructure(new GOTStructureNorthHillmanHouse(false).setIsTramp(), 0, -centreSide, 2, true);
+			addStructure(new GOTStructureNorthHillmanHouse(false).setIsTramp(), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureNorthHillmanChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {

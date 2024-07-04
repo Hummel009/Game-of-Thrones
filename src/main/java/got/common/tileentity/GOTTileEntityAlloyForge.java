@@ -37,12 +37,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTBlocks.oreCopper, GOTItems.copperIngot}, new Object[]{GOTBlocks.oreTin, GOTItems.tinIngot}, GOTItems.bronzeIngot));
 		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTBlocks.oreTin, GOTItems.tinIngot}, new Object[]{GOTBlocks.oreCopper, GOTItems.copperIngot}, GOTItems.bronzeIngot));
 
-		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{Blocks.iron_ore, Items.iron_ingot}, new Object[]{Items.gold_nugget}, GOTItems.yiTiSteelIngot));
-		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{Items.gold_nugget}, new Object[]{Blocks.iron_ore, Items.iron_ingot}, GOTItems.yiTiSteelIngot));
-
-		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTBlocks.oreSilver, GOTItems.silverIngot}, new Object[]{GOTItems.valyrianNugget}, GOTItems.valyrianPowder));
-		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.valyrianNugget}, new Object[]{GOTBlocks.oreSilver, GOTItems.silverIngot}, GOTItems.valyrianPowder));
-
 		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.widowWail}, new Object[]{GOTItems.oathkeeper}, GOTItems.ice));
 		CRAFTING_SNAPSHOTS.add(new CraftingSnapshot(new Object[]{GOTItems.oathkeeper}, new Object[]{GOTItems.widowWail}, GOTItems.ice));
 

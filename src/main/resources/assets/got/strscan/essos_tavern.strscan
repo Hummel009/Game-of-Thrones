@@ -1113,7 +1113,7 @@
 -5.4.-13.~PLANK~
 5.4.-13.~PLANK~
 -5.4.-12.#PLANK_STAIR#.4
-0.4.-12."got:tile.chandelier".0
+0.4.-12."got:tile.chandelier".2
 5.4.-12.#PLANK_STAIR#.5
 -5.4.-11.~PLANK~
 5.4.-11.~PLANK~
@@ -1126,7 +1126,7 @@
 5.4.-9.~PLANK~
 6.4.-9.~BRICK~
 -5.4.-8.~PLANK~
-0.4.-8."got:tile.chandelier".0
+0.4.-8."got:tile.chandelier".2
 5.4.-8.~PLANK~
 -5.4.-7.~PLANK~
 5.4.-7.~PLANK~
@@ -1137,7 +1137,7 @@
 -5.4.-5.~PLANK~
 5.4.-5.~PLANK~
 -5.4.-4.~PLANK~
-0.4.-4."got:tile.chandelier".0
+0.4.-4."got:tile.chandelier".2
 5.4.-4.~PLANK~
 -6.4.-3.~BRICK~
 -5.4.-3.~PLANK~
@@ -1150,7 +1150,7 @@
 -5.4.-1.~PLANK~
 5.4.-1.~PLANK~
 -5.4.0.#PLANK_STAIR#.4
-0.4.0."got:tile.chandelier".0
+0.4.0."got:tile.chandelier".2
 5.4.0.#PLANK_STAIR#.5
 -5.4.1.~PLANK~
 5.4.1.~PLANK~
@@ -1163,7 +1163,7 @@
 5.4.3.~PLANK~
 6.4.3.~BRICK~
 -5.4.4.~PLANK~
-0.4.4."got:tile.chandelier".0
+0.4.4."got:tile.chandelier".2
 5.4.4.~PLANK~
 -5.4.5.~PLANK~
 5.4.5.~PLANK~

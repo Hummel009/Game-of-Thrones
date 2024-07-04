@@ -2,7 +2,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.entity.other.GOTEntityBarrowWight;
+import got.common.entity.other.GOTEntityBarrowWraith;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.tileentity.GOTTileEntitySpawnerChest;
 import net.minecraft.block.Block;
@@ -51,7 +51,7 @@ public class GOTBlockSpawnerChest extends BlockChest {
 			}
 			world.spawnEntityInWorld(entityliving);
 			world.playSoundAtEntity(entityliving, "got:wraith.spawn", 1.0f, 0.7f + world.rand.nextFloat() * 0.6f);
-			if (entityliving instanceof GOTEntityBarrowWight) {
+			if (entityliving instanceof GOTEntityBarrowWraith) {
 				world.addWeatherEffect(new EntityLightningBolt(world, entityliving.posX, entityliving.posY, entityliving.posZ));
 			}
 		}

@@ -17,12 +17,6 @@ public class GOTEntityVictarionGreyjoy extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.victarionAxe, 1);
-		dropItem(GOTItems.victarionHelmet, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 200.0f;
 	}
@@ -41,7 +35,7 @@ public class GOTEntityVictarionGreyjoy extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.victarionAxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelBattleaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

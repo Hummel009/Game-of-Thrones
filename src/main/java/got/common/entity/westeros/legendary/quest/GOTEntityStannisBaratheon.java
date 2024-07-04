@@ -60,6 +60,10 @@ public class GOTEntityStannisBaratheon extends GOTEntityHumanBase {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lightbringer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dragonstoneBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dragonstoneLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dragonstoneChestplate));
+
 		return entityData;
 	}
 

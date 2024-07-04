@@ -40,7 +40,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bericSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bericDondarrionSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
@@ -154,7 +154,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 
 		@Override
 		public void dropFewItems(boolean flag, int i) {
-			dropItem(GOTItems.bericSword, 1);
+			dropItem(GOTItems.bericDondarrionSword, 1);
 		}
 
 		@Override

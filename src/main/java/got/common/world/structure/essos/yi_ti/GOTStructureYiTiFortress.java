@@ -3,7 +3,7 @@ package got.common.world.structure.essos.yi_ti;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.essos.GOTEntityRedPriest;
+import got.common.entity.other.GOTEntityRedPriest;
 import got.common.entity.essos.yi_ti.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;

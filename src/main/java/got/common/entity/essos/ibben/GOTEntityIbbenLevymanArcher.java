@@ -1,10 +1,10 @@
 package got.common.entity.essos.ibben;
 
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -23,7 +23,7 @@ public class GOTEntityIbbenLevymanArcher extends GOTEntityIbbenLevyman {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(Items.bow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.longbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

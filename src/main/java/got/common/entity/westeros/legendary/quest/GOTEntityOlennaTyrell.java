@@ -50,7 +50,7 @@ public class GOTEntityOlennaTyrell extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDaggerPoisoned));
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;

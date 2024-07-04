@@ -1,10 +1,14 @@
 package got.common.world.biome.ulthos;
 
 import got.common.database.GOTAchievement;
-import got.common.entity.other.GOTEntityBlizzard;
+import got.common.database.GOTSpawnList;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeUlthosFrost extends GOTBiomeUlthosTaiga {
 	public GOTBiomeUlthosFrost(int i, boolean major) {
@@ -13,7 +17,9 @@ public class GOTBiomeUlthosFrost extends GOTBiomeUlthosTaiga {
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
 		topBlock = Blocks.snow;
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBlizzard.class, 40, 3, 3));
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_BLIZZARD, 10).setSpawnChance(CONQUEST_SPAWN / 2));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

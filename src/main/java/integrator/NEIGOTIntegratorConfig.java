@@ -71,6 +71,8 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(true, GOTBlocks.gobletGold);
 		hideItem(true, GOTBlocks.gobletSilver);
 		hideItem(true, GOTBlocks.gobletCopper);
+		hideItem(true, GOTBlocks.gobletBronze);
+		hideItem(true, GOTBlocks.gobletValyrian);
 		hideItem(true, GOTBlocks.gobletWood);
 		hideItem(true, GOTBlocks.skullCup);
 		hideItem(true, GOTBlocks.wineGlass);

@@ -422,7 +422,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			brick2Meta = 11;
 			brick2SlabBlock = GOTBlocks.slabSingle5;
 			brick2SlabMeta = 3;
-			brick2StairBlock = GOTBlocks.stairsBasaltWesterosBrick;
+			brick2StairBlock = GOTBlocks.stairsBasaltBrick;
 			brick2WallBlock = GOTBlocks.wallStone2;
 			brick2WallMeta = 10;
 			pillar2Block = GOTBlocks.pillar1;

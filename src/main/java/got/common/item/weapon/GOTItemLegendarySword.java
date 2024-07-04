@@ -11,7 +11,7 @@ public class GOTItemLegendarySword extends GOTItemSword {
 	public GOTItemLegendarySword(Item.ToolMaterial material, HitEffect e) {
 		super(material, e);
 		setMaxDamage(1500);
-		gotWeaponDamage = 9.0f;
+		gotWeaponDamage *= 1.5f;
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 }

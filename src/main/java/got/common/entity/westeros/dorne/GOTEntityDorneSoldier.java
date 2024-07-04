@@ -27,7 +27,7 @@ public class GOTEntityDorneSoldier extends GOTEntityDorneMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupWesterosWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, true);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dorneBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dorneLeggings));

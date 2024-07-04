@@ -23,7 +23,7 @@ public class GOTEntityQarthLevymanArcher extends GOTEntityQarthLevyman {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.essosBow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.longbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

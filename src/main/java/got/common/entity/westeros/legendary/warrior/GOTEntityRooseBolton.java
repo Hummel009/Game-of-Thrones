@@ -25,14 +25,6 @@ public class GOTEntityRooseBolton extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.redkingHelmet, 1);
-		dropItem(GOTItems.redkingChestplate, 1);
-		dropItem(GOTItems.redkingLeggings, 1);
-		dropItem(GOTItems.redkingBoots, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 100.0f;
 	}
@@ -59,7 +51,7 @@ public class GOTEntityRooseBolton extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

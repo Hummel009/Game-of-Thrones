@@ -3,7 +3,7 @@ package got.common.entity.other.inanimate;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTDamage;
-import got.common.entity.westeros.ice.IceUtils;
+import got.common.entity.other.utils.IceUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

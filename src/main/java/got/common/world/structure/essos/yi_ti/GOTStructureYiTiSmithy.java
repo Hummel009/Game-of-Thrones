@@ -193,7 +193,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 					continue;
 				}
 				setBlockAndMetadata(world, i1, 6, k1, roofBlock, roofMeta);
-				setBlockAndMetadata(world, i1, 5, k1, GOTBlocks.chandelier, 0);
+				setBlockAndMetadata(world, i1, 5, k1, GOTBlocks.chandelier, 2);
 			}
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {

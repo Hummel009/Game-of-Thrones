@@ -165,7 +165,7 @@ public class GOTStructureGoldenCompanyWatchtower extends GOTStructureBase {
 		setBlockAndMetadata(world, 0, 17, 2, Blocks.torch, 5);
 		setBlockAndMetadata(world, -2, 17, 0, Blocks.torch, 5);
 		setBlockAndMetadata(world, 2, 17, 0, Blocks.torch, 5);
-		placeChest(world, random, 0, 16, 1, 0, GOTChestContents.GOLDEN);
+		placeChest(world, random, 0, 16, 1, 0, GOTChestContents.GOLDEN_COMPANY);
 		setBlockAndMetadata(world, 0, 11, 1, GOTBlocks.alloyForge, 0);
 		for (j1 = 17; j1 <= 18; ++j1) {
 			setBlockAndMetadata(world, -2, j1, -2, fenceBlock, fenceMeta);

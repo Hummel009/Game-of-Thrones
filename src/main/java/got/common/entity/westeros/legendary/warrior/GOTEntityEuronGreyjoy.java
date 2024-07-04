@@ -26,8 +26,10 @@ public class GOTEntityEuronGreyjoy extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.euronDagger, 1);
-		dropItem(GOTItems.blackskinChestplate, 1);
+		dropItem(GOTItems.valyrianChainmailBoots, 1);
+		dropItem(GOTItems.valyrianChainmailChestplate, 1);
+		dropItem(GOTItems.valyrianChainmailLeggings, 1);
+		dropItem(GOTItems.valyrianChainmailHelmet, 1);
 	}
 
 	@Override
@@ -52,7 +54,7 @@ public class GOTEntityEuronGreyjoy extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.valyrianSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

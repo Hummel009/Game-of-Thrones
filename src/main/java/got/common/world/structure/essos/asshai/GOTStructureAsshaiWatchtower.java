@@ -139,7 +139,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		}
 		setBlockAndMetadata(world, -2, 3, 0, GOTBlocks.asshaiTorch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, GOTBlocks.asshaiTorch, 1);
-		setBlockAndMetadata(world, 0, 5, 0, GOTBlocks.chandelier, 12);
+		setBlockAndMetadata(world, 0, 5, 0, GOTBlocks.chandelier, 6);
 		placeChest(world, random, -2, 7, -2, GOTBlocks.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -2, 7, 0, GOTBlocks.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTBlocks.armorStand, 7);
@@ -154,7 +154,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		placeMug(world, random, 2, 8, 0, 1, GOTFoods.DEFAULT_DRINK);
 		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.DEFAULT);
 		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.DEFAULT_DRINK);
-		setBlockAndMetadata(world, 0, 9, 0, GOTBlocks.chandelier, 12);
+		setBlockAndMetadata(world, 0, 9, 0, GOTBlocks.chandelier, 6);
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -4; k1 <= 4; ++k1) {
 				i2 = Math.abs(i1);

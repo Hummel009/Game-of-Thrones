@@ -25,8 +25,6 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTS
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.gendryHammer, 1);
-		dropItem(GOTItems.gendryHelmet, 1);
 		dropItem(GOTItems.bloodOfTrueKings, 1);
 	}
 

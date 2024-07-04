@@ -9,7 +9,9 @@ import got.common.entity.other.iface.GOTRandomSkinEntity;
 import got.common.entity.other.utils.GOTAmbientSpawnChecks;
 import got.common.entity.other.utils.GOTScarecrows;
 import got.common.inventory.GOTEntityInventory;
-import got.common.item.GOTValuableItems;
+import got.common.item.other.GOTItemCoin;
+import got.common.item.other.GOTItemGem;
+import got.common.item.other.GOTItemRing;
 import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosJungle;
@@ -334,7 +336,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		if (type == BirdType.CROW) {
 			return item instanceof ItemFood || GOT.isOreNameEqual(itemstack, "bone");
 		}
-		return type == BirdType.MAGPIE && GOTValuableItems.canMagpieSteal(itemstack);
+		return type == BirdType.MAGPIE && (item instanceof GOTItemCoin || item instanceof GOTItemRing || item instanceof GOTItemGem);
 	}
 
 	private boolean isValidFlightTarget(ChunkCoordinates coords) {

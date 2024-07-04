@@ -30,11 +30,6 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.daarioArakh, 1);
-	}
-
-	@Override
 	public float getMercAlignmentRequired() {
 		return 0.0f;
 	}
@@ -56,7 +51,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.daarioArakh));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelScimitar));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

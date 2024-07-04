@@ -3,8 +3,10 @@ package got.common.world.structure.westeros.north.hillmen;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
+import got.common.entity.other.GOTEntityLightSkinThief;
+import got.common.entity.other.GOTEntityLightSkinTramp;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.north.hillmen.*;
+import got.common.entity.westeros.north.hillmen.GOTEntityNorthHillman;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -15,8 +17,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
-	private boolean isWarrior;
-	private boolean isCannibal;
+	private boolean isTramp;
 
 	public GOTStructureNorthHillmanHouse(boolean flag) {
 		super(flag);
@@ -174,26 +175,11 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		placeWallBanner(world, 0, 4, 5, GOTItemBanner.BannerType.EDDARD, 2);
 		setBlockAndMetadata(world, -1, 3, 4, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 3, 4, Blocks.skull, 2);
-		if (isCannibal) {
-			spawnNPCAndSetHome(new GOTEntityNorthHillmanCannibal(world), world, 0, 1, 0, 8);
-		} else if (isWarrior) {
-			int num = random.nextInt(3);
-			switch (num) {
-				case 0:
-					GOTEntityNPC npc = new GOTEntityNorthHillmanArcher(world);
-					npc.setSpawnRidingHorse(false);
-					spawnNPCAndSetHome(npc, world, 0, 1, 0, 8);
-					break;
-				case 1:
-					GOTEntityNPC npc1 = new GOTEntityNorthHillmanAxeThrower(world);
-					npc1.setSpawnRidingHorse(false);
-					spawnNPCAndSetHome(npc1, world, 0, 1, 0, 8);
-					break;
-				case 2:
-					GOTEntityNPC npc11 = new GOTEntityNorthHillmanWarrior(world);
-					npc11.setSpawnRidingHorse(false);
-					spawnNPCAndSetHome(npc11, world, 0, 1, 0, 8);
-					break;
+		if (isTramp) {
+			if (random.nextBoolean()) {
+				spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
+			} else {
+				spawnNPCAndSetHome(new GOTEntityLightSkinTramp(world), world, 0, 1, 0, 16);
 			}
 		} else {
 			GOTEntityNPC male = new GOTEntityNorthHillman(world);
@@ -212,13 +198,8 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		return true;
 	}
 
-	public GOTStructureBase setIsCannibal() {
-		isCannibal = true;
-		return this;
-	}
-
-	public GOTStructureBase setIsWarrior() {
-		isWarrior = true;
+	public GOTStructureBase setIsTramp() {
+		isTramp = true;
 		return this;
 	}
 }

@@ -125,9 +125,9 @@ public class GOTStructureAsshaiAltar extends GOTStructureAsshaiBase {
 
 	private void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextInt(4) == 0) {
-			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickCracked, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickAsshaiCracked, meta);
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrick, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickAsshai, meta);
 		}
 	}
 }

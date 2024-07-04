@@ -12,6 +12,22 @@ public abstract class GOTBlockGoblet extends GOTBlockMug {
 		setStepSound(soundTypeMetal);
 	}
 
+	public static class Bronze extends GOTBlockGoblet {
+		@SideOnly(Side.CLIENT)
+		@Override
+		public IIcon getIcon(int i, int j) {
+			return GOTBlocks.blockMetal1.getIcon(i, 2);
+		}
+	}
+
+	public static class Valyrian extends GOTBlockGoblet {
+		@SideOnly(Side.CLIENT)
+		@Override
+		public IIcon getIcon(int i, int j) {
+			return GOTBlocks.blockMetal1.getIcon(i, 4);
+		}
+	}
+
 	public static class Copper extends GOTBlockGoblet {
 		@SideOnly(Side.CLIENT)
 		@Override

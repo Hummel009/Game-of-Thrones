@@ -197,7 +197,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -2, 1, 1, tableBlock, 0);
 		setBlockAndMetadata(world, 3, 1, 1, plankBlock, plankMeta);
 		placeMug(world, random, 3, 2, 1, 2, GOTFoods.DEFAULT_DRINK);
-		setBlockAndMetadata(world, 0, 3, 3, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 3, 3, GOTBlocks.chandelier, 2);
 		for (j13 = 1; j13 <= 6; ++j13) {
 			setBlockAndMetadata(world, 0, j13, 0, pillarBlock, pillarMeta);
 		}

@@ -26,7 +26,7 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		GOTWeaponSetFactory.setupAsshaiWeaponSet(this, rand);
+		GOTWeaponSetFactory.setupIronWeaponSet(this, rand, false);
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.asshaiBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));

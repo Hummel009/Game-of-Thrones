@@ -76,7 +76,7 @@ public class GOTTradeEntries {
 
 	static {
 		List<GOTTradeEntry> baelishSells = new ArrayList<>();
-		baelishSells.add(new GOTTradeEntry(new ItemStack(GOTItems.baelishDagger), VALYRIAN_INGOT * 8, true));
+		baelishSells.add(new GOTTradeEntry(new ItemStack(GOTItems.petyrBaelishDagger), VALYRIAN_INGOT * 8, true));
 		BAELISH_SELLS = new GOTTradeEntries(TradeType.SELLS, baelishSells);
 
 		List<GOTTradeEntry> davosSells = new ArrayList<>();
@@ -207,22 +207,24 @@ public class GOTTradeEntries {
 		BREWER_BUYS = new GOTTradeEntries(TradeType.BUYS, brewerBuys);
 
 		List<GOTTradeEntry> goldsmithSells = new ArrayList<>();
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 2), SILVER_INGOT * 3 + (int) Math.ceil(SILVER_INGOT * 6.0 / 16.0 * 5), true));
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 3), GOLD_INGOT * 3 + (int) Math.ceil(GOLD_INGOT * 6.0 / 16.0 * 5), true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 3), SILVER_INGOT * 3 + (int) Math.ceil(SILVER_INGOT * 6.0 / 16.0 * 5), true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 4), GOLD_INGOT * 3 + (int) Math.ceil(GOLD_INGOT * 6.0 / 16.0 * 5), true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.birdCage, 1, 5), VALYRIAN_INGOT * 3 + (int) Math.ceil(VALYRIAN_INGOT * 6.0 / 16.0 * 5), true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletSilver), SILVER_INGOT * 2, true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletGold), GOLD_INGOT * 2, true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletValyrian), VALYRIAN_INGOT * 2, true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.silverBars), (int) Math.ceil(SILVER_INGOT * 6.0 / 16.0), true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.goldBars), (int) Math.ceil(GOLD_INGOT * 6.0 / 16.0), true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.valyrianBars), (int) Math.ceil(VALYRIAN_INGOT * 6.0 / 16.0), true));
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 2), SILVER_INGOT / 2, true));
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 3), GOLD_INGOT / 2, true));
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 4), VALYRIAN_INGOT / 2, true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 3), SILVER_INGOT / 2, true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 4), GOLD_INGOT / 2, true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.chandelier, 1, 5), VALYRIAN_INGOT / 2, true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTItems.silverRing), (int) Math.ceil(SILVER_INGOT / 9.0 * 8), true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTItems.goldRing), (int) Math.ceil(GOLD_INGOT / 9.0 * 8), true));
 		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTItems.valyrianRing), (int) Math.ceil(VALYRIAN_INGOT / 9.0 * 8), true));
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.gateSilver), SILVER_INGOT * 8, true));
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.gateGold), GOLD_INGOT * 8, true));
-		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.gateValyrian), VALYRIAN_INGOT * 8, true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.gateSilverBars), SILVER_INGOT * 8, true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.gateGoldBars), GOLD_INGOT * 8, true));
+		goldsmithSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.gateValyrianBars), VALYRIAN_INGOT * 8, true));
 		GOLDSMITH_SELLS = new GOTTradeEntries(TradeType.SELLS, goldsmithSells);
 
 		List<GOTTradeEntry> goldsmithBuys = new ArrayList<>();
@@ -544,6 +546,9 @@ public class GOTTradeEntries {
 		for (int i = 0; i <= 6; i++) {
 			masonSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.rock, 8, i), 3));
 		}
+		for (int i = 0; i <= 15; i++) {
+			masonSells.add(new GOTTradeEntry(new ItemStack(GOTBlocks.concretePowder, 8, i), 3));
+		}
 		MASON_SELLS = new GOTTradeEntries(TradeType.SELLS, masonSells);
 
 		List<GOTTradeEntry> masonBuys = new ArrayList<>(minerBuys);
@@ -621,6 +626,7 @@ public class GOTTradeEntries {
 		bartenderBuys.add(new GOTTradeEntry(new ItemStack(GOTItems.clayMug), 1));
 		bartenderBuys.add(new GOTTradeEntry(new ItemStack(GOTItems.ceramicMug), 2));
 		bartenderBuys.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletWood), 3));
+		bartenderBuys.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletBronze), 5));
 		bartenderBuys.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletCopper), 5));
 		bartenderBuys.add(new GOTTradeEntry(new ItemStack(GOTItems.aleHorn), 4));
 		bartenderBuys.add(new GOTTradeEntry(new ItemStack(GOTItems.waterskin), 4));

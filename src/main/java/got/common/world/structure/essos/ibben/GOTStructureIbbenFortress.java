@@ -495,6 +495,6 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		gateBlock = GOTBlocks.gateIbben;
+		gateBlock = GOTBlocks.gateIronBars;
 	}
 }

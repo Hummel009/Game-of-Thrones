@@ -45,7 +45,7 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosMan implement
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));

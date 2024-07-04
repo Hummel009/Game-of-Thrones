@@ -24,8 +24,8 @@ import got.common.entity.animal.GOTEntityJungleScorpion;
 import got.common.entity.animal.GOTEntityZebra;
 import got.common.entity.dragon.GOTDragonLifeStage;
 import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.essos.GOTEntityMarshWraith;
-import got.common.entity.essos.GOTEntityStoneMan;
+import got.common.entity.other.GOTEntityMarshWraith;
+import got.common.entity.other.GOTEntityStoneMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
 import got.common.entity.essos.yi_ti.GOTEntityYiTiBombardier;
@@ -45,7 +45,6 @@ import got.common.item.GOTWeaponStats;
 import got.common.item.other.*;
 import got.common.item.weapon.GOTItemBow;
 import got.common.item.weapon.GOTItemCrossbow;
-import got.common.item.weapon.GOTItemLance;
 import got.common.item.weapon.GOTItemSword;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
@@ -68,13 +67,11 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
@@ -837,7 +834,6 @@ public class GOTEventHandler {
 		} else {
 			attacker = null;
 		}
-		World world = entity.worldObj;
 		if (entity instanceof GOTNPCMount && entity.riddenByEntity != null && attacker == entity.riddenByEntity) {
 			cancelAttackEvent(event);
 		}
@@ -846,25 +842,6 @@ public class GOTEventHandler {
 		}
 		if (attacker instanceof EntityCreature && !GOT.canNPCAttackEntity((EntityCreature) attacker, entity, false)) {
 			cancelAttackEvent(event);
-		}
-		if (event.source instanceof EntityDamageSourceIndirect) {
-			Entity projectile = event.source.getSourceOfDamage();
-			if (projectile instanceof EntityArrow || projectile instanceof GOTEntityCrossbowBolt || projectile instanceof GOTEntityDart) {
-				boolean wearingAllRoyce = true;
-				for (int i = 0; i < 4; i++) {
-					ItemStack armour = entity.getEquipmentInSlot(i + 1);
-					if (armour == null || !(armour.getItem() instanceof ItemArmor) || ((ItemArmor) armour.getItem()).getArmorMaterial() != GOTMaterial.ROYCE) {
-						wearingAllRoyce = false;
-						break;
-					}
-				}
-				if (wearingAllRoyce) {
-					if (!world.isRemote && entity instanceof EntityPlayer) {
-						((EntityPlayer) entity).inventory.damageArmor(event.ammount);
-					}
-					cancelAttackEvent(event);
-				}
-			}
 		}
 	}
 
@@ -1073,7 +1050,6 @@ public class GOTEventHandler {
 			}
 		}
 		if (attacker != null && event.source.getSourceOfDamage() == attacker) {
-			ItemStack weapon = attacker.getHeldItem();
 			if (!world.isRemote && entity instanceof EntityPlayerMP) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) entity;
 				if (entityplayer.isUsingItem()) {
@@ -1083,34 +1059,6 @@ public class GOTEventHandler {
 						IMessage packet = new GOTPacketStopItemUse();
 						GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 					}
-				}
-			}
-			boolean wearingAllAsshai = true;
-			for (int i = 0; i < 4; i++) {
-				ItemStack armour = entity.getEquipmentInSlot(i + 1);
-				if (armour == null || !(armour.getItem() instanceof ItemArmor) || ((ItemArmor) armour.getItem()).getArmorMaterial() != GOTMaterial.ASSHAI) {
-					wearingAllAsshai = false;
-					break;
-				}
-			}
-			if (wearingAllAsshai && !world.isRemote && weapon != null && weapon.isItemStackDamageable()) {
-				int damage = weapon.getItemDamage();
-				int maxDamage = weapon.getMaxDamage();
-				float durability = 1.0F - (float) damage / maxDamage;
-				durability *= 0.9F;
-				int newDamage = Math.round((1.0F - durability) * maxDamage);
-				newDamage = Math.min(newDamage, maxDamage);
-				weapon.damageItem(newDamage - damage, attacker);
-			}
-			if (weapon != null) {
-				Item.ToolMaterial material = null;
-				if (weapon.getItem() instanceof ItemTool) {
-					material = ((ItemTool) weapon.getItem()).func_150913_i();
-				} else if (weapon.getItem() instanceof ItemSword) {
-					material = GOTMaterial.getToolMaterialByName(((ItemSword) weapon.getItem()).getToolMaterialName());
-				}
-				if (material != null && material == GOTMaterial.ASSHAI_TOOL && !world.isRemote) {
-					entity.addPotionEffect(new PotionEffect(Potion.wither.id, 160));
 				}
 			}
 		}
@@ -1293,17 +1241,6 @@ public class GOTEventHandler {
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
 					entity.addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 				}
-			}
-		}
-		if (!world.isRemote && entity.isEntityAlive()) {
-			ItemStack weapon = entity.getHeldItem();
-			boolean lanceOnFoot = weapon != null && weapon.getItem() instanceof GOTItemLance && entity.ridingEntity == null && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode);
-			IAttributeInstance speedAttribute = entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
-			if (speedAttribute.getModifier(GOTItemLance.LANCE_SPEED_BOOST_ID) != null) {
-				speedAttribute.removeModifier(GOTItemLance.LANCE_SPEED_BOOST);
-			}
-			if (lanceOnFoot) {
-				speedAttribute.applyModifier(GOTItemLance.LANCE_SPEED_BOOST);
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {

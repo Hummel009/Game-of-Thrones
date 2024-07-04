@@ -21,7 +21,6 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.bloodOfTrueKings, 1);
-		dropItem(GOTItems.robbSword, 1);
 	}
 
 	@Override
@@ -56,7 +55,7 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.robbSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;

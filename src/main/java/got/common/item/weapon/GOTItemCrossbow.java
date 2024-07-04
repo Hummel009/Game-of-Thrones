@@ -36,7 +36,7 @@ public class GOTItemCrossbow extends ItemBow {
 		crossbowMaterial = material;
 		setMaxDamage((int) (crossbowMaterial.getMaxUses() * 1.25f));
 		setMaxStackSize(1);
-		boltDamageFactor = 1.0f + Math.max(0.0f, (crossbowMaterial.getDamageVsEntity() - 2.0f) * 0.1f);
+		boltDamageFactor = 1.0f + Math.max(-1.0f, (crossbowMaterial.getDamageVsEntity() - 2.0f) * 0.1f);
 	}
 
 	public static void applyCrossbowModifiers(GOTEntityCrossbowBolt bolt, ItemStack itemstack) {

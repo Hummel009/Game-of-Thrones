@@ -51,7 +51,7 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.joffreyCrossbow, 1);
+		dropItem(GOTItems.joffreyBaratheonCrossbow, 1);
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.hearteater));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.joffreyCrossbow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.joffreyBaratheonCrossbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 
 		return entityData;

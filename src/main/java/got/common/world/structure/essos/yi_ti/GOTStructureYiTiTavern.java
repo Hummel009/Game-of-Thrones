@@ -414,15 +414,15 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i12, 8, -8, plankStairBlock, 7);
 			setBlockAndMetadata(world, i12, 8, 8, plankStairBlock, 6);
 		}
-		setBlockAndMetadata(world, -4, 3, -6, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, 0, 3, -6, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, 4, 3, -6, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, -6, 3, -2, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, 6, 3, -2, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, -6, 3, 2, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, 6, 3, 2, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, -4, 3, 6, GOTBlocks.chandelier, 0);
-		setBlockAndMetadata(world, 4, 3, 6, GOTBlocks.chandelier, 0);
+		setBlockAndMetadata(world, -4, 3, -6, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 0, 3, -6, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 4, 3, -6, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, -6, 3, -2, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 6, 3, -2, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, -6, 3, 2, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 6, 3, 2, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, -4, 3, 6, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 4, 3, 6, GOTBlocks.chandelier, 2);
 		placeTable(world, random, -5, -4, 1, -7, -6);
 		for (i12 = -7; i12 <= -4; ++i12) {
 			setBlockAndMetadata(world, i12, 1, -9, plankStairBlock, 3);

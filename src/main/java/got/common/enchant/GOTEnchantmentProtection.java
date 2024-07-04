@@ -30,9 +30,6 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 			Item item = itemstack.getItem();
 			if (item instanceof ItemArmor) {
 				ItemArmor armor = (ItemArmor) item;
-				if (armor.getArmorMaterial() == GOTMaterial.ROYCE) {
-					return false;
-				}
 				int prot = armor.damageReduceAmount;
 				int total = prot + protectLevel;
 				return total > 0 && (considering || total <= GOTMaterial.VALYRIAN.getDamageReductionAmount(armor.armorType));

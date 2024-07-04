@@ -38,7 +38,7 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.unsulliedBoots));
