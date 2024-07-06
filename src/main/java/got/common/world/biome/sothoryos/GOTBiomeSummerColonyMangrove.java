@@ -1,10 +1,12 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
+import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.other.GOTStructureBurntHouse;
 import got.common.world.structure.other.GOTStructureRottenHouse;
@@ -22,6 +24,7 @@ public class GOTBiomeSummerColonyMangrove extends GOTBiomeSothoryosMangrove {
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
+		invasionSpawns.addInvasion(GOTInvasions.SOTHORYOS, GOTEventSpawner.EventChance.COMMON);
 		npcSpawnList.clear();
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SUMMER_MILITARY, 10).setSpawnChance(SPAWN));

@@ -6,7 +6,6 @@ import got.common.entity.other.iface.GOTTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIPanic;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityHotPie extends GOTEntityHumanBase implements GOTTradeable {
@@ -20,11 +19,6 @@ public class GOTEntityHotPie extends GOTEntityHumanBase implements GOTTradeable 
 	@Override
 	public EntityAIBase getAttackAI() {
 		return new EntityAIPanic(this, 1.4);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

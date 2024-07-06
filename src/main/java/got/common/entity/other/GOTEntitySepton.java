@@ -14,11 +14,6 @@ public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable 
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
-	}
-
-	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.MAESTER_SELLS;
 	}
@@ -34,8 +29,8 @@ public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable 
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getFatherGrigoriSpeech(this, entityPlayer);
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		return GOTSpeech.getFatherGrigoriSpeech(npc, entityPlayer);
 	}
 
 	@Override

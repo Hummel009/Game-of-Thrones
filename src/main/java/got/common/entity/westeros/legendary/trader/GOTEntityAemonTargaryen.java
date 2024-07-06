@@ -7,7 +7,6 @@ import got.common.faction.GOTFaction;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIPanic;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTradeable {
@@ -26,11 +25,6 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.05);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

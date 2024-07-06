@@ -5,7 +5,6 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -23,11 +22,6 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		entityDropItem(new ItemStack(GOTItems.coin, 2, 2), 0.0f);
 	}
@@ -40,11 +34,6 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.CROWNLANDS;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

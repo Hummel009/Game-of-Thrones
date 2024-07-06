@@ -190,7 +190,7 @@ public class GOTContainerAnvil extends Container {
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
 		if (isTrader) {
-			return theNPC != null && entityplayer.getDistanceToEntity(theNPC) <= 12.0 && theNPC.isEntityAlive() && theNPC.getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
+			return theNPC != null && entityplayer.getDistanceToEntity(theNPC) <= 12.0 && theNPC.isEntityAlive() && theNPC.getAttackTarget() == null && theTrader.getTradeCondition((GOTEntityNPC) theTrader, entityplayer);
 		}
 		return theWorld.getBlock(xCoord, yCoord, zCoord) == Blocks.anvil && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
 	}

@@ -6,7 +6,6 @@ import got.common.database.GOTNames;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -14,11 +13,6 @@ public class GOTEntityMaester extends GOTEntityHumanBase implements GOTTradeable
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMaester(World world) {
 		super(world);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override

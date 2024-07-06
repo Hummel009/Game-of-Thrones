@@ -7,7 +7,8 @@ import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTDrunkenSpeech;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.iface.GOTHireableBase;
+import got.common.entity.other.iface.*;
+import got.common.entity.other.info.GOTHireableInfo;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketNPCSpeech;
 import net.minecraft.command.ICommandSender;
@@ -30,7 +31,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTSpeech {
-	public static final String HOSTILE = "standard/hostile";
+	public static final String HOSTILE = "standard/default_hostile";
 	private static final Map<String, SpeechBank> ALL_SPEECH_BANKS = new HashMap<>();
 	private static final Random RANDOM = new Random();
 
@@ -193,19 +194,60 @@ public class GOTSpeech {
 
 	public static String getDefaultSpeech(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		if (npc.isFriendlyAndAligned(entityPlayer)) {
-			return "standard/friendly";
-		}
-		return "standard/hostile";
-	}
-
-	public static String getCaptainSpeech(GOTEntityNPC npc, EntityPlayer entityPlayer) {
-		if (npc.isFriendlyAndAligned(entityPlayer)) {
-			if (((GOTHireableBase) npc).canTradeWith(entityPlayer)) {
-				return "standard/friendly";
+			if (npc.getFamilyInfo().getAge() < 0) {
+				return npc.getFamilyInfo().isMale() ? "standard/default_friendly_kid_man" : "standard/default_friendly_kid_woman";
 			}
-			return "standard/neutral";
+			if (npc.getFamilyInfo().getAge() >= 0) {
+				if (npc instanceof GOTFarmer) {
+					return "standard/default_friendly_trader_farmer";
+				}
+				if (npc instanceof GOTBartender) {
+					return "standard/default_friendly_trader_bartender";
+				}
+				if (npc instanceof GOTSmith) {
+					return "standard/default_friendly_trader_smith";
+				}
+				if (npc instanceof GOTTradeable) {
+					return "standard/default_friendly_trader_default";
+				}
+				if (npc instanceof GOTUnitTradeable) {
+					if (((GOTTradeCondition) npc).getTradeCondition(npc, entityPlayer)) {
+						return "standard/default_friendly_trader_unit";
+					}
+					return "standard/default_neutral_unit_trader";
+				}
+				if (npc instanceof GOTFarmhand) {
+					return "standard/default_neutral_unit";
+				}
+				if (npc.getHireableInfo().getHiringPlayer() != null) {
+					if (npc.getHireableInfo().getHiringPlayer() == entityPlayer && npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.WARRIOR) {
+						return "standard/default_friendly_unit_warrior";
+					}
+					if (npc.getHireableInfo().getHiringPlayer() == entityPlayer && npc.getHireableInfo().getHiredTask() == GOTHireableInfo.Task.FARMER) {
+						return "standard/default_friendly_unit_farmhand";
+					}
+					return "standard/default_neutral_unit";
+				}
+				return "standard/default_friendly";
+			}
+		} else {
+			if (npc.getFamilyInfo().getAge() < 0) {
+				return "standard/default_hostile_kid";
+			}
+			if (npc.getFamilyInfo().getAge() >= 0) {
+				if (npc instanceof GOTTradeable) {
+					return "standard/default_hostile_trader_default";
+				}
+				if (npc instanceof GOTUnitTradeable) {
+					return "standard/default_hostile_trader_unit";
+				}
+				if (npc.isTargetSeeker()) {
+					return "standard/default_hostile_warrior";
+				}
+				return "standard/default_hostile";
+			}
 		}
-		return "standard/hostile";
+		return null;
 	}
 
 	public static String getFatherGrigoriSpeech(GOTEntityNPC npc, EntityPlayer entityPlayer) {

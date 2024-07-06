@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTMercenary;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,11 +26,6 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendly(entityPlayer);
-	}
-
-	@Override
 	public float getMercAlignmentRequired() {
 		return 0.0f;
 	}
@@ -40,7 +36,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		if (isFriendlyAndAligned(entityPlayer)) {
 			return "legendary/daario_friendly";
 		}

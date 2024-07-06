@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.quest.GOTEntityRamsayBolton;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
@@ -55,7 +56,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public String getSpeechBank(EntityPlayer entityPlayer) {
+		public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 			if (isFriendly(entityPlayer)) {
 				return "legendary/theon_friendly";
 			}
@@ -102,7 +103,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public String getSpeechBank(EntityPlayer entityPlayer) {
+		public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 			if (isFriendly(entityPlayer)) {
 				return "legendary/theon_tormented_friendly";
 			}

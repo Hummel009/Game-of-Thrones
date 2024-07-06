@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
@@ -17,11 +18,6 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 	public GOTEntityXaroXhoanDaxos(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -50,8 +46,8 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/xaro_friendly";
 		}
 		return GOTSpeech.HOSTILE;

@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTMercenary;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -12,11 +11,6 @@ public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercena
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMercenary(World world) {
 		super(world);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

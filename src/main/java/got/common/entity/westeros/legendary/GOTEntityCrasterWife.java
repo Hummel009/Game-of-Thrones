@@ -2,6 +2,7 @@ package got.common.entity.westeros.legendary;
 
 import got.common.database.GOTNames;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -32,8 +33,8 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/cwife_friendly";
 		}
 		return "legendary/cwife_hostile";

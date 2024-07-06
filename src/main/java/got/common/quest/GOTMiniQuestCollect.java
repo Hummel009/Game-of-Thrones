@@ -103,7 +103,7 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		protected int maxTarget;
 
 		public QFCollect() {
-			super("collect");
+			this("collect");
 		}
 
 		public QFCollect(String name) {

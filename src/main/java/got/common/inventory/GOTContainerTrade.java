@@ -54,7 +54,7 @@ public class GOTContainerTrade extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return theTraderNPC != null && entityplayer.getDistanceToEntity(theTraderNPC) <= 12.0 && theTraderNPC.isEntityAlive() && theTraderNPC.getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
+		return theTraderNPC != null && entityplayer.getDistanceToEntity(theTraderNPC) <= 12.0 && theTraderNPC.isEntityAlive() && theTraderNPC.getAttackTarget() == null && theTrader.getTradeCondition((GOTEntityNPC) theTrader, entityplayer);
 	}
 
 	@Override

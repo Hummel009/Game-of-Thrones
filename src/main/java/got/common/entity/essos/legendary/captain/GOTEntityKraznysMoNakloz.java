@@ -1,11 +1,13 @@
 package got.common.entity.essos.legendary.captain;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTInvasions;
+import got.common.database.GOTItems;
+import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -14,11 +16,6 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 	public GOTEntityKraznysMoNakloz(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
 	}
 
 	@Override
@@ -34,11 +31,6 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killKraznysMoNakloz;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

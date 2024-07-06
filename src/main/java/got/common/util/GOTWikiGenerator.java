@@ -980,6 +980,7 @@ public class GOTWikiGenerator {
 
 			for (GOTStructureBaseSettlement settlement : biome.getDecorator().getSettlements()) {
 				if (settlement.getSpawnChance() != 0.0f) {
+					data.computeIfAbsent(biome, s -> new TreeSet<>());
 					data.get(biome).add(getSettlementName(settlement.getClass()));
 				}
 			}

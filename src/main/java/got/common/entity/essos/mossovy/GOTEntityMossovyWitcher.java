@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -34,11 +33,6 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
 		npcCrossbowAttack(target);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override

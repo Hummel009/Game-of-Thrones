@@ -32,8 +32,8 @@ public abstract class GOTEntityThiefBase extends GOTEntityHumanBase implements G
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCriminalSpeech(this, entityPlayer);
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		return GOTSpeech.getCriminalSpeech(npc, entityPlayer);
 	}
 
 	@Override

@@ -2593,7 +2593,7 @@
 4.9.-15.~PLANK~
 5.9.-15.~BEAM~
 -5.9.-14.~PLANK~
--1.9.-14."got:tile.essos_flower".0
+-1.9.-14."got:tile.southern_flower".0
 0.9.-14.~PLANK~
 5.9.-14.~PLANK~
 -5.9.-13."got:tile.stained_glass_pane".4
@@ -2683,7 +2683,7 @@
 0.9.7.~PLANK~
 5.9.7."got:tile.stained_glass_pane".14
 -5.9.8.~PLANK~
--1.9.8."got:tile.essos_flower".0
+-1.9.8."got:tile.southern_flower".0
 0.9.8.~PLANK~
 5.9.8.~PLANK~
 -5.9.9.~BEAM~

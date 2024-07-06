@@ -7,7 +7,6 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTSmith;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -21,11 +20,6 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTSmith {
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killTobhoMott;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override

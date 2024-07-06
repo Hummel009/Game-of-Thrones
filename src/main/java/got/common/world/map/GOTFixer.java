@@ -542,7 +542,7 @@ public class GOTFixer {
 		wps.add(GOTWaypoint.NGAHERE);
 		wps.add(GOTWaypoint.KOHURU);
 
-		registerLocation(new GOTStructureSummerSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSummerSettlement.Type.FORT, 3), wps);
+		registerLocation(new GOTStructureSummerSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSummerSettlement.Type.FORT, 4), wps);
 
 		wps.add(GOTWaypoint.DOQUU);
 		wps.add(GOTWaypoint.EBONHEAD);

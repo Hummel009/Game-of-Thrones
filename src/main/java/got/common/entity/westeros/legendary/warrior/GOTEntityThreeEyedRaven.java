@@ -3,6 +3,7 @@ package got.common.entity.westeros.legendary.warrior;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -26,7 +27,7 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		return "legendary/ter";
 	}
 

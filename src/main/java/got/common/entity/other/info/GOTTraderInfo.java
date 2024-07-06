@@ -121,7 +121,7 @@ public class GOTTraderInfo {
 				List<EntityPlayer> players = theEntity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theEntity.boundingBox.expand(range, range, range));
 				for (EntityPlayer obj : players) {
 					String speechBank;
-					if (!obj.isEntityAlive() || obj.capabilities.isCreativeMode || obj.openContainer != null && obj.openContainer != obj.inventoryContainer || (speechBank = theEntity.getSpeechBank(obj)) == null || theEntity.getRNG().nextInt(3) != 0) {
+					if (!obj.isEntityAlive() || obj.capabilities.isCreativeMode || obj.openContainer != null && obj.openContainer != obj.inventoryContainer || (speechBank = theEntity.getSpeechBank(theEntity, obj)) == null || theEntity.getRNG().nextInt(3) != 0) {
 						continue;
 					}
 					theEntity.sendSpeechBank(obj, speechBank);

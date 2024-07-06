@@ -46,7 +46,7 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(6.0);
 	}

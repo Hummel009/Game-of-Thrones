@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.database.GOTTradeEntries;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,11 +23,6 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
-	}
-
-	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.FISHMONGER_SELLS;
 	}
@@ -37,8 +33,8 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getFatherGrigoriSpeech(this, entityPlayer);
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		return GOTSpeech.getFatherGrigoriSpeech(npc, entityPlayer);
 	}
 
 	@Override

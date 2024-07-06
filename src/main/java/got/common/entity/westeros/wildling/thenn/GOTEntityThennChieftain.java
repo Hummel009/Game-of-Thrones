@@ -2,11 +2,9 @@ package got.common.entity.westeros.wildling.thenn;
 
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
-import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -22,11 +20,6 @@ public class GOTEntityThennChieftain extends GOTEntityThenn implements GOTUnitTr
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
-	}
-
-	@Override
 	public GOTUnitTradeEntries getUnits() {
 		return GOTUnitTradeEntries.THENN;
 	}
@@ -34,11 +27,6 @@ public class GOTEntityThennChieftain extends GOTEntityThenn implements GOTUnitTr
 	@Override
 	public GOTInvasions getWarhorn() {
 		return GOTInvasions.THENN;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

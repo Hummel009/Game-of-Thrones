@@ -985,10 +985,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	protected void setupExoticFauna() {
 		flowers.clear();
-		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 0, 10));
-		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 1, 10));
-		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 3, 20));
-		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 3, 20));
+		flowers.add(new FlowerEntry(GOTBlocks.southernFlower, 0, 10));
+		flowers.add(new FlowerEntry(GOTBlocks.southernFlower, 1, 10));
+		flowers.add(new FlowerEntry(GOTBlocks.southernFlower, 3, 20));
+		flowers.add(new FlowerEntry(GOTBlocks.southernFlower, 3, 20));
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityZebra.class, 15, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGemsbok.class, 15, 1, 2));
@@ -1020,8 +1020,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
-		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 3, 20));
-		flowers.add(new FlowerEntry(GOTBlocks.essosFlower, 3, 20));
+		flowers.add(new FlowerEntry(GOTBlocks.southernFlower, 3, 20));
+		flowers.add(new FlowerEntry(GOTBlocks.southernFlower, 3, 20));
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFlamingo.class, 100, 2, 3));
 		spawnableGOTAmbientList.clear();

@@ -308,7 +308,7 @@ public class GOTHireableInfo {
 				if (wasEnemy && theEntity.getRNG().nextInt(3) == 0) {
 					String speechBank;
 					EntityPlayer hiringPlayer = getHiringPlayer();
-					if (hiringPlayer != null && theEntity.getDistanceSqToEntity(hiringPlayer) < 256.0 && (speechBank = theEntity.getSpeechBank(hiringPlayer)) != null) {
+					if (hiringPlayer != null && theEntity.getDistanceSqToEntity(hiringPlayer) < 256.0 && (speechBank = theEntity.getSpeechBank(theEntity, hiringPlayer)) != null) {
 						theEntity.sendSpeechBank(hiringPlayer, speechBank);
 					}
 				}
@@ -392,7 +392,7 @@ public class GOTHireableInfo {
 				String speechBank;
 				EntityPlayer hiringPlayer = getHiringPlayer();
 				double range = 16.0;
-				if (hiringPlayer != null && theEntity.getDistanceSqToEntity(hiringPlayer) < range * range && (speechBank = theEntity.getSpeechBank(hiringPlayer)) != null) {
+				if (hiringPlayer != null && theEntity.getDistanceSqToEntity(hiringPlayer) < range * range && (speechBank = theEntity.getSpeechBank(theEntity, hiringPlayer)) != null) {
 					theEntity.sendSpeechBank(hiringPlayer, speechBank);
 				}
 			}

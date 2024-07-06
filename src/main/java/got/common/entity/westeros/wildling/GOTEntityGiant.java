@@ -3,6 +3,7 @@ package got.common.entity.westeros.wildling;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityGiantBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,7 +42,7 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		if (isFriendly(entityPlayer)) {
 			return "special/giant_friendly";
 		}

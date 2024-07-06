@@ -3,6 +3,7 @@ package got.common.entity.westeros.legendary.quest;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuestFactory;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,8 +43,8 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/melisandra_friendly";
 		}
 		return "special/father_hostile";

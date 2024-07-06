@@ -154,7 +154,7 @@ public class GOTBlocks {
 	public static Block doorWillow;
 	public static Block doubleFlower;
 	public static Block driedReeds;
-	public static Block essosFlower;
+	public static Block southernFlower;
 	public static Block fallenLeaves1;
 	public static Block fallenLeaves2;
 	public static Block fallenLeaves3;
@@ -753,7 +753,7 @@ public class GOTBlocks {
 		doorWillow = new GOTBlockDoor();
 		doubleFlower = new GOTBlockDoubleFlower();
 		driedReeds = new GOTBlockReedDry();
-		essosFlower = new GOTBlockEssosFlower();
+		southernFlower = new GOTBlockSouthernFlower();
 		fallenLeaves1 = new GOTBlockFallenLeaves();
 		fallenLeaves2 = new GOTBlockFallenLeaves();
 		fallenLeaves3 = new GOTBlockFallenLeaves();
@@ -1654,7 +1654,7 @@ public class GOTBlocks {
 		register(deadMarshPlant, "deadMarshPlant");
 		register(doubleFlower, "doubleFlower", GOTItemDoubleFlower.class);
 		register(driedReeds, "driedReeds", GOTItemReeds.class);
-		register(essosFlower, "essosFlower", GOTItemBlockMetadata.class);
+		register(southernFlower, "southernFlower", GOTItemBlockMetadata.class);
 		register(flaxPlant, "flaxPlant");
 		register(grapevine, "grapevine");
 		register(kelp, "kelp", GOTItemKelp.class);

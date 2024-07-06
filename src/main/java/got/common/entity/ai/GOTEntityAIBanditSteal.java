@@ -75,7 +75,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 		targetPlayer = validTargets.get(theBanditAsNPC.getRNG().nextInt(validTargets.size()));
 		if (targetPlayer != prevTargetPlayer) {
-			theBanditAsNPC.sendSpeechBank(targetPlayer, theBandit.getSpeechBank(targetPlayer));
+			theBanditAsNPC.sendSpeechBank(targetPlayer, theBandit.getSpeechBank(theBandit, targetPlayer));
 		}
 		return true;
 	}

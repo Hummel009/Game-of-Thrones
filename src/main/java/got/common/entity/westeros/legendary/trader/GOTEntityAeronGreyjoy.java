@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
@@ -22,11 +23,6 @@ public class GOTEntityAeronGreyjoy extends GOTEntityHumanBase implements GOTTrad
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killAeronGreyjoy;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -50,8 +46,8 @@ public class GOTEntityAeronGreyjoy extends GOTEntityHumanBase implements GOTTrad
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getFatherGrigoriSpeech(this, entityPlayer);
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		return GOTSpeech.getFatherGrigoriSpeech(npc, entityPlayer);
 	}
 
 	@Override

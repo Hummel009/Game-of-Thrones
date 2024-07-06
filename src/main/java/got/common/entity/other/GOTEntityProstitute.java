@@ -38,7 +38,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		if (isFriendly(entityPlayer)) {
 			return "special/prostitute_friendly";
 		}

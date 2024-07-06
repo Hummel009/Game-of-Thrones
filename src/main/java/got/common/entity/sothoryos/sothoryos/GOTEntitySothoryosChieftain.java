@@ -2,11 +2,9 @@ package got.common.entity.sothoryos.sothoryos;
 
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
-import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -22,23 +20,13 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosMan implement
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
-	}
-
-	@Override
 	public GOTUnitTradeEntries getUnits() {
 		return GOTUnitTradeEntries.SOTHORYOS;
 	}
 
 	@Override
 	public GOTInvasions getWarhorn() {
-		return null;
+		return GOTInvasions.SOTHORYOS;
 	}
 
 	@Override
@@ -51,7 +39,7 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosMan implement
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosHelmetChieftain));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.sothoryosHelmetChieftain));
 
 		return entityData;
 	}

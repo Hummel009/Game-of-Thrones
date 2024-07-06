@@ -2,14 +2,12 @@ package got.common.entity.westeros.legendary.captain;
 
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
-import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -27,11 +25,6 @@ public class GOTEntityJonosBracken extends GOTEntityHumanBase implements GOTUnit
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.indomitable, 1);
 	}
@@ -44,11 +37,6 @@ public class GOTEntityJonosBracken extends GOTEntityHumanBase implements GOTUnit
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.RIVERLANDS;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

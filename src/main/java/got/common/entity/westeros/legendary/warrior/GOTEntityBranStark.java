@@ -5,6 +5,7 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
@@ -52,8 +53,8 @@ public class GOTEntityBranStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/bran_friendly";
 		}
 		return "legendary/bran_hostile";

@@ -343,10 +343,10 @@ entity.got.JaqenHghar.name≠Jaqen H'Ghar
 entity.got.JasonMallister.name≠Jason Mallister
 entity.got.JeorMormont.name≠Jeor Mormont
 entity.got.JoffreyBaratheon.name≠Joffrey Baratheon
-entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
 entity.got.JogosNhaiArcher.name≠Jogos Nhai Archer
 entity.got.JogosNhaiBannerBearer.name≠Jogos Nhai Banner Bearer
 entity.got.JogosNhaiChieftain.name≠Jogos Nhai Chieftain
+entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
 entity.got.JogosNhaiShaman.name≠Jogos Nhai Shaman
 entity.got.JohnUmber.name≠John Umber
 entity.got.JonConnington.name≠Jon Connington
@@ -870,7 +870,6 @@ entity.got.YiTiButcher.name≠Yi Ti Butcher
 entity.got.YiTiCaptain.name≠Yi Ti Shogun
 entity.got.YiTiFarmer.name≠Yi Ti Farmer
 entity.got.YiTiFarmhand.name≠Yi Ti Farmhand
-entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiFishmonger.name≠Yi Ti Fishmonger
 entity.got.YiTiFlorist.name≠Yi Ti Florist
 entity.got.YiTiGoldsmith.name≠Yi Ti Goldsmith
@@ -882,6 +881,7 @@ entity.got.YiTiMan.name≠Yi Ti Man
 entity.got.YiTiMason.name≠Yi Ti Mason
 entity.got.YiTiMiner.name≠Yi Ti Miner
 entity.got.YiTiSamurai.name≠Yi Ti Samurai
+entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiSoldier.name≠Yi Ti Soldier
 entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name≠Yohn Royce
@@ -1562,6 +1562,10 @@ got.achievement.USE_THROWING_AXE.desc=Utiliser une hache de jet
 got.achievement.USE_THROWING_AXE.title=Lançons-le!
 got.achievement.USE_UNSMELTERY.desc=Recycler des équipements inutiles
 got.achievement.USE_UNSMELTERY.title=Recyclage
+got.achievement.WEAR_FULL_ALLOY_STEEL.desc≠Wear full set of alloy steel armor
+got.achievement.WEAR_FULL_ALLOY_STEEL.title≠Still not Valyrian
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.desc≠Wear full set of alloy steel chainmail
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.title≠Like iron, but stronger
 got.achievement.WEAR_FULL_ARRYN.desc=Portez l'ensemble complet du Val d'Arryn
 got.achievement.WEAR_FULL_ARRYN.title=Garde du Val d'Arryn
 got.achievement.WEAR_FULL_ARRYNGUARD.desc=Portez un ensemble complet de gardes Val d'Arryn
@@ -1576,6 +1580,10 @@ got.achievement.WEAR_FULL_BRONZE.desc=Portez un ensemble complet d'armure en bro
 got.achievement.WEAR_FULL_BRONZE.title=Cuivre + étain
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=Porter un ensemble complet de cotte de mailles en bronze
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=Économisé un bon montant
+got.achievement.WEAR_FULL_COPPER.desc≠Wear full set of copper armor
+got.achievement.WEAR_FULL_COPPER.title≠Corrosion
+got.achievement.WEAR_FULL_COPPER_CHAINMAIL.desc≠Wear full set of copper chainmail
+got.achievement.WEAR_FULL_COPPPER_CHAINMAIL.title≠No wire braiding included
 got.achievement.WEAR_FULL_CROWNLANDS.desc=Portez un ensemble complet de Capes dorées
 got.achievement.WEAR_FULL_CROWNLANDS.title=Capeitaine de garde de King's Landing
 got.achievement.WEAR_FULL_DORNE.desc=Portez un ensemble complet de Dorne
@@ -1592,8 +1600,12 @@ got.achievement.WEAR_FULL_GHISCAR.desc=Portez un ensemble complet de Ghiscar
 got.achievement.WEAR_FULL_GHISCAR.title=Garde de Ghiscar
 got.achievement.WEAR_FULL_GIFT.desc=Portez un ensemble complet de Night's Watch
 got.achievement.WEAR_FULL_GIFT.title=Garde du mur
+got.achievement.WEAR_FULL_GOLD.desc≠Wear full set of gold armor
+got.achievement.WEAR_FULL_GOLD.title≠Gypsy Baron
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Portez un ensemble complet de Golden Company
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Compagnie d'or
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.desc≠Wear full set of gold chainmail
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.title≠Worst Armor
 got.achievement.WEAR_FULL_HILLMEN.desc=Portez un ensemble complet de collines
 got.achievement.WEAR_FULL_HILLMEN.title=La folie des montagnes de la lune
 got.achievement.WEAR_FULL_IBBEN.desc=Porter un ensemble complet de vêtements de l'Ibben
@@ -1846,7 +1858,7 @@ got.biome.thennLand.name=Terre de Thenn
 got.biome.tropicalForest.name=Forêts tropicales
 got.biome.tyrosh.name=Tyrosh
 got.biome.ulos.name=Ulos
-got.biome.ulthos.name=Ulthos
+got.biome.ulthosBushland.name=Ulthos
 got.biome.ulthosDesert.name=Désert d'Ulthos
 got.biome.ulthosDesertCold.name=Déset froid d'Ulthos
 got.biome.ulthosForest.name=Forêt d'Ulthos
@@ -2853,6 +2865,7 @@ got.invasion.NORVOS.horn=Invoquer l'invasion - Norvos
 got.invasion.PENTOS.horn=Invoquer l'invasion - Pentos
 got.invasion.REACH.horn=Invoquer l'invasion - Atteindre
 got.invasion.RIVERLANDS.horn=Invoquer l'invasion - Le Conflans
+got.invasion.SOTHORYOS.horn≠Summon Invasion - Sothoryos
 got.invasion.STORMLANDS.horn=Invoquer l'invasion - Terres de l'Orage
 got.invasion.TYROSH.horn=Invoquer l'invasion - Tyrosh
 got.invasion.VOLANTIS.horn=Invoquer l'invasion - Volantis
@@ -4568,9 +4581,9 @@ got.wp.custom=%s
 got.wp.shared.info=Disponible pour %s
 got.wp.shared=%s
 item.got.antiking=Tue le Roi de la Nuit
-item.got.antiwraith=Tue les morts-vivants
 item.got.antiwalker=Tue les marcheurs blancs
 item.got.antiwight=Tue les rôdeurs
+item.got.antiwraith=Tue les morts-vivants
 item.got.anvil1=Réparer avec une gemme pour peindre
 item.got.anvil2=Réparer avec des plans pour appliquer un effet
 item.got.banner.protect=Porte des données de protection
@@ -4588,6 +4601,7 @@ item.got.cauldron1=Cliquez sur un seau d'eau pour remplir le chaudron
 item.got.cauldron2=Cliquez sur un objet peint pour le laver
 item.got.chisel1=Cliquez sur un bloc de pierre, de métal ou de bois,
 item.got.chisel2=pour y graver une inscription
+item.got.chisel3≠Inscription is only visible at night
 item.got.commandHorn.halt.name=Cor de Commande - Arrêter les recrues
 item.got.commandHorn.ready.name=Cor de Commande - Préparer les recrues
 item.got.commandHorn.summon.name=Cor de Commande - Appeler les recrues
@@ -4643,21 +4657,40 @@ item.got.weapon_rack=Cliquez sur un râtelier d'armes pour y ranger une arme
 item.got:ale_horn.name=Corne à bière
 item.got:ale_horn_gold.name=Corne à bière dorée
 item.got:alloy_steel_axe.name=Hache en acier
+item.got:alloy_steel_battleaxe.name≠Alloy Steel Battleaxe
+item.got:alloy_steel_boots.name≠Alloy Steel Boots
+item.got:alloy_steel_chainmail_boots.name≠Alloy Steel Chain Boots
+item.got:alloy_steel_chainmail_chestplate.name≠Alloy Steel Chain Chestplate
+item.got:alloy_steel_chainmail_helmet.name≠Alloy Steel Chain Helmet
+item.got:alloy_steel_chainmail_leggings.name≠Alloy Steel Chain Leggings
+item.got:alloy_steel_chestplate.name≠Alloy Steel Chestplate
+item.got:alloy_steel_crossbow.name≠Alloy Steel Crossbow
 item.got:alloy_steel_dagger.name=Dagues en acier
 item.got:alloy_steel_dagger_poisoned.name=Dagues en acier empoisonnées
+item.got:alloy_steel_greatsword.name≠Alloy Steel Greatsword
 item.got:alloy_steel_halberd.name=Hallebarde en acier
+item.got:alloy_steel_hammer.name≠Alloy Steel Hammer
+item.got:alloy_steel_helmet.name≠Alloy Steel Helmet
 item.got:alloy_steel_hoe.name=Houe en acier
 item.got:alloy_steel_ingot.name=Lingot d'acier
+item.got:alloy_steel_leggings.name≠Alloy Steel Leggings
+item.got:alloy_steel_longsword.name≠Alloy Steel Longsword
+item.got:alloy_steel_mattock.name≠Alloy Steel Mattock
 item.got:alloy_steel_nugget.name=Pépite d'acier
 item.got:alloy_steel_pickaxe.name=Pioche en acier
+item.got:alloy_steel_pike.name≠Alloy Steel Pike
+item.got:alloy_steel_scimitar.name≠Alloy Steel Scimitar
 item.got:alloy_steel_shovel.name=Pelle en acier
+item.got:alloy_steel_spear.name≠Alloy Steel Spear
 item.got:alloy_steel_sword.name=Epée en acier
+item.got:alloy_steel_throwing_axe.name≠Alloy Steel Throwing Axe
 item.got:almond.name=Amande
 item.got:amber.name=Ambre
 item.got:amethyst.name=Améthyste
 item.got:anonymous_mask.name=Masque d'anonyma
 item.got:apple_crumble.name=Crumble aux pommes
 item.got:apple_green.name=Pomme
+item.got:ardrian_celtigar_axe.name=Hache celtigare
 item.got:armor_stand.name=Porte-armure
 item.got:arrow_fire.name=Flèche brûlante
 item.got:arrow_poisoned.name=Flèche empoisonnée
@@ -4676,8 +4709,6 @@ item.got:asshai_helmet.name=Casque Asshai
 item.got:asshai_leggings.name=Jambières Asshai
 item.got:asshai_mask.name=Masque Asshai
 item.got:asshai_shadowbinder_staff.name=Bâton Asshai
-item.got:petyr_baelish_brooch.name=Broche de Baelish
-item.got:petyr_baelish_dagger.name=Dague de Petyr Baelish
 item.got:banana.name=Banane
 item.got:banana_bread.name=Pain à la banane
 item.got:banana_cake.name=Gâteau à la banane
@@ -5322,13 +5353,19 @@ item.got:bronze_chestplate.name=Plastron en bronze
 item.got:bronze_crossbow.name=Arbalète en bronze
 item.got:bronze_dagger.name=Dague en bronze
 item.got:bronze_dagger_poisoned.name=Dague en bronze empoisonné
+item.got:bronze_greatsword.name≠Bronze Greatsword
+item.got:bronze_hammer.name≠Bronze Hammer
 item.got:bronze_helmet.name=Casque en bronze
 item.got:bronze_hoe.name=Houe en bronze
 item.got:bronze_ingot.name=Lingot de bronze
 item.got:bronze_leggings.name=Jambières en bronze
+item.got:bronze_longsword.name≠Bronze Longsword
+item.got:bronze_mattock.name≠Bronze Mattock
 item.got:bronze_nugget.name=Pépite de bronze
 item.got:bronze_pickaxe.name=Pioche en bronze
+item.got:bronze_pike.name≠Bronze Pike
 item.got:bronze_ring.name=Anneau de bronze
+item.got:bronze_scimitar.name≠Bronze Scimitar
 item.got:bronze_shovel.name=Pelle en bronze
 item.got:bronze_spear.name=Lance en bronze
 item.got:bronze_sword.name=Épée en bronze
@@ -5336,7 +5373,6 @@ item.got:bronze_throwing_axe.name=Hache de lancer en bronze
 item.got:camel_cooked.name=Chameau cuit
 item.got:camel_raw.name=Chameau cru
 item.got:cargocart.name=Cargocart
-item.got:ardrian_celtigar_axe.name=Hache celtigare
 item.got:ceramic_mug.name=Chope en céramique
 item.got:ceramic_plate.name=Assiette en pierre
 item.got:cherry.name=Cerises
@@ -5359,9 +5395,34 @@ item.got:coin.64.name=Étoile d'Argent
 item.got:coin.nominal.name=Nominal
 item.got:command_horn.name=Cor de commande
 item.got:command_sword.name=Épée de commandement
+item.got:copper_axe.name≠Copper Axe
+item.got:copper_battleaxe.name≠Copper Battleaxe
+item.got:copper_boots.name≠Copper Boots
+item.got:copper_chainmail_boots.name≠Copper Chain Boots
+item.got:copper_chainmail_chestplate.name≠Copper Chain Chestplate
+item.got:copper_chainmail_helmet.name≠Copper Chain Helmet
+item.got:copper_chainmail_leggings.name≠Copper Chain Leggings
+item.got:copper_chestplate.name≠Copper Chestplate
+item.got:copper_crossbow.name≠Copper Crossbow
+item.got:copper_dagger.name≠Copper Dagger
+item.got:copper_dagger_poisoned.name≠Copper Poisoned Dagger
+item.got:copper_greatsword.name≠Copper Greatsword
+item.got:copper_hammer.name≠Copper Hammer
+item.got:copper_helmet.name≠Copper Helmet
+item.got:copper_hoe.name≠Copper Hoe
 item.got:copper_ingot.name=Lingot de cuivre
+item.got:copper_leggings.name≠Copper Leggings
+item.got:copper_longsword.name≠Copper Longsword
+item.got:copper_mattock.name≠Copper Mattock
 item.got:copper_nugget.name=Pépite de cuivre
+item.got:copper_pickaxe.name≠Copper Pickaxe
+item.got:copper_pike.name≠Copper Pike
 item.got:copper_ring.name=Anneau de cuivre
+item.got:copper_scimitar.name≠Copper Scimitar
+item.got:copper_shovel.name≠Copper Shovel
+item.got:copper_spear.name≠Copper Spear
+item.got:copper_sword.name≠Copper Sword
+item.got:copper_throwing_axe.name≠Copper Throwing Axe
 item.got:coral.name=Corail
 item.got:corn.name=Maïs
 item.got:corn_bread.name=Pain de maïs
@@ -5384,6 +5445,7 @@ item.got:dawn.name=Aube
 item.got:deer_cooked.name=Gibier cuit
 item.got:deer_raw.name=Gibier cru
 item.got:diamond.name=Diamant
+item.got:diamond_mattock.name≠Diamond Mattock
 item.got:dorne_boots.name=Bottes de Dorne
 item.got:dorne_chestplate.name=Plastron de Dorne
 item.got:dorne_helmet.name=Casque de Dorne
@@ -5436,11 +5498,29 @@ item.got:gift_helmet.name=Cagoule de surveillance de nuit
 item.got:gift_leggings.name=Jambières de garde de nuit
 item.got:gingerbread.name=Pain savoureux
 item.got:giraffe_rug.name=Peau de girafe
+item.got:goblet_bronze.name≠Bronze Goblet
 item.got:goblet_copper.name=Coupe en cuivre
 item.got:goblet_gold.name=Coupe en or
 item.got:goblet_silver.name=Coupe en argent
+item.got:goblet_valyrian.name≠Valyrian Goblet
 item.got:goblet_wood.name=Coupe en bois
+item.got:gold_battleaxe.name≠Golden Battleaxe
+item.got:gold_chainmail_boots.name≠Golden Chain Boots
+item.got:gold_chainmail_chestplate.name≠Golden Chain Chestplate
+item.got:gold_chainmail_helmet.name≠Golden Chain Helmet
+item.got:gold_chainmail_leggings.name≠Golden Chain Leggings
+item.got:gold_crossbow.name≠Golden Crossbow
+item.got:gold_dagger.name≠Golden Dagger
+item.got:gold_dagger_poisoned.name≠Golden Poisoned Dagger
+item.got:gold_greatsword.name≠Golden Greatsword
+item.got:gold_hammer.name≠Golden Hammer
+item.got:gold_longsword.name≠Golden Longsword
+item.got:gold_mattock.name≠Golden Mattock
+item.got:gold_pike.name≠Golden Pike
 item.got:gold_ring.name=Anneau d'or
+item.got:gold_scimitar.name≠Golden Scimitar
+item.got:gold_spear.name≠Golden Spear
+item.got:gold_throwing_axe.name≠Golden Throwing Axe
 item.got:golden_company_boots.name=Bottes de la Golden Company
 item.got:golden_company_chestplate.name=Plastron de la Golden Company
 item.got:golden_company_helmet.name=Casque de la Golden Company
@@ -5478,8 +5558,13 @@ item.got:iron_battleaxe.name=Hache de guerre en fer
 item.got:iron_crossbow.name=Arbalète en fer
 item.got:iron_dagger.name=Dague de fer
 item.got:iron_dagger_poisoned.name=Dague en fer empoisonné
+item.got:iron_greatsword.name≠Iron Greatsword
+item.got:iron_hammer.name≠Iron Hammer
+item.got:iron_longsword.name≠Iron Longsword
+item.got:iron_mattock.name≠Iron Mattock
 item.got:iron_nugget.name=Pépite de Fer
 item.got:iron_pike.name=Brochet de fer
+item.got:iron_scimitar.name≠Iron Scimitar
 item.got:iron_spear.name=Lance de fer
 item.got:iron_throwing_axe.name=Hache de lancer de fer
 item.got:ironborn_boots.name=Bottes des Îles de Fer
@@ -5500,7 +5585,6 @@ item.got:kingsguard_helmet.name=Casque des gardes du roi
 item.got:kingsguard_leggings.name=Jambières des gardes du roi
 item.got:lady_forlorn.name=Lady Forlorn
 item.got:lamentation.name=Lamentation
-item.got:tyrion_lannister_brooch.name=Broche Lannister
 item.got:leather_hat.name=Chapeau
 item.got:leek.name=Poireau
 item.got:leek_soup.name=Soupe de poireau
@@ -5514,10 +5598,16 @@ item.got:lhazar_leggings.name=Jambières de Lhazar
 item.got:lightbringer.name=Porteur de lumière
 item.got:lime.name=Citron vert
 item.got:lingering_potion.name=Potion Persistante
+item.got:lion_boots.name≠Lion Fur Boots
+item.got:lion_chestplate.name≠Lion Fur Chestplate
 item.got:lion_cooked.name=Lion cuit
 item.got:lion_fur.name=Fourrure de lion
+item.got:lion_fur_bed.name≠Lion Fur Bed
+item.got:lion_helmet.name≠Lion Fur Helmet
+item.got:lion_leggings.name≠Lion Fur Leggings
 item.got:lion_raw.name=Lion cru
 item.got:lion_rug.name=Peau de lion
+item.got:longbow.name≠Longbow
 item.got:longclaw.name=Longclaw
 item.got:lorath_boots.name=Bottes de Lorath
 item.got:lorath_chestplate.name=Plastron de Lorath
@@ -5532,6 +5622,7 @@ item.got:maple_syrup.name=Sirop d'érable
 item.got:marzipan.name=Pâte d'amandes
 item.got:marzipan_chocolate.name=Pâte d'amandes au chocolat
 item.got:melon_soup.name=Soupe de pastèque
+item.got:monford_velaryon_brooch.name=Broche de Monford Velaryon
 item.got:mossovy_boots.name=Bottes Mossovy
 item.got:mossovy_chestplate.name=Plastron de mousse
 item.got:mossovy_leggings.name=Jambières de mousse
@@ -5609,7 +5700,21 @@ item.got:norvos_helmet.name=Casque de Norvos
 item.got:norvos_leggings.name=Jambières de Norvos
 item.got:npc_respawner.name=Respawneur de PNJ
 item.got:oathkeeper.name=Oathkeeper
+item.got:obsidian_axe.name≠Dragonglass Axe
+item.got:obsidian_battleaxe.name≠Dragonglass Battleaxe
+item.got:obsidian_dagger.name≠Dragonglass Dagger
+item.got:obsidian_dagger_poisoned.name≠Dragonglass Poisoned Dagger
+item.got:obsidian_hammer.name≠Dragonglass Hammer
+item.got:obsidian_hoe.name≠Dragonglass Hoe
+item.got:obsidian_mattock.name≠Dragonglass Mattock
+item.got:obsidian_pickaxe.name≠Dragonglass Pickaxe
+item.got:obsidian_pike.name≠Dragonglass Pike
+item.got:obsidian_scimitar.name≠Dragonglass Scimitar
 item.got:obsidian_shard.name=Éclat d'obsidienne
+item.got:obsidian_shovel.name≠Dragonglass Shovel
+item.got:obsidian_spear.name≠Dragonglass Spear
+item.got:obsidian_sword.name≠Dragonglass Sword
+item.got:obsidian_throwing_axe.name≠Dragonglass Throwing Axe
 item.got:olive.name=Olives
 item.got:olive_bread.name=Pain aux olives
 item.got:opal.name=Opale
@@ -5626,6 +5731,8 @@ item.got:pentos_boots.name=Bottes de Pentos
 item.got:pentos_chestplate.name=Plastron de Pentos
 item.got:pentos_helmet.name=Casque de Pentos
 item.got:pentos_leggings.name=Jambières de Pentos
+item.got:petyr_baelish_brooch.name=Broche de Baelish
+item.got:petyr_baelish_dagger.name=Dague de Petyr Baelish
 item.got:pipe.name=Pipe
 item.got:pipeweed.name=Herbe à pipe
 item.got:pipeweed_leaf.name=Feuille d'herbe à pipe
@@ -5683,8 +5790,8 @@ item.got:ruby.name=Rubis
 item.got:salt.name=Sel
 item.got:salted_flesh.name=Viande douteuse
 item.got:saltpeter.name=Salpêtre
-item.got:sandor_clegane_sword.name=Épée de Sandor Clegane
 item.got:sandor_clegane_helmet.name=Casque Clegane de Sandor
+item.got:sandor_clegane_sword.name=Épée de Sandor Clegane
 item.got:sapphire.name=Saphir
 item.got:sarbacane.name=Soufflette
 item.got:seeds_grape_red.name=Graines de raisin noir
@@ -5704,7 +5811,15 @@ item.got:sothoryos_helmet.name=Casque Sothoryos
 item.got:sothoryos_helmet_chieftain.name=Casque Sothoryos Chieftain
 item.got:sothoryos_leggings.name=Jambières de Sothoryos
 item.got:spawn_egg.name=Oeuf de
-item.got:stone_spear.name=Lance pierre
+item.got:stone_battleaxe.name≠Stone Battleaxe
+item.got:stone_dagger.name≠Stone Dagger
+item.got:stone_dagger_poisoned.name≠Stone Poisoned Dagger
+item.got:stone_hammer.name≠Stone Hammer
+item.got:stone_mattock.name≠Stone Mattock
+item.got:stone_pike.name≠Stone Pike
+item.got:stone_scimitar.name≠Stone Scimitar
+item.got:stone_spear.name≠Stone Spear
+item.got:stone_throwing_axe.name≠Stone Throwing Axe
 item.got:stormlands_boots.name=Bottes des Terres de l'Orage
 item.got:stormlands_chestplate.name=Plastron des Terres de l'Orage
 item.got:stormlands_helmet.name=Casque des Terres de l'Orage
@@ -5731,6 +5846,7 @@ item.got:trident.name=Trident de la tribu des collines
 item.got:truth.name=Vérité
 item.got:turnip.name=Navet
 item.got:turnip_cooked.name=Navet rôti
+item.got:tyrion_lannister_brooch.name=Broche Lannister
 item.got:tyrosh_boots.name=Bottes de Tyrosh
 item.got:tyrosh_chestplate.name=Plastron de Tyrosh
 item.got:tyrosh_helmet.name=Casque de Tyrosh
@@ -5751,20 +5867,24 @@ item.got:valyrian_chisel.name=Ciseau valyrien
 item.got:valyrian_crossbow.name=Arbalète valyrienne
 item.got:valyrian_dagger.name=Dague valyrienne
 item.got:valyrian_dagger_poisoned.name=Dague valyrienne empoisonnée
+item.got:valyrian_greatsword.name≠Valyrian Greatsword
 item.got:valyrian_hammer.name=Valyrian Warhammer
 item.got:valyrian_helmet.name=Casque valyrien
 item.got:valyrian_hoe.name=Houe valyrienne
 item.got:valyrian_horse_armor.name=Armure de cheval valyrien
 item.got:valyrian_ingot.name=Lingot valyrien
 item.got:valyrian_leggings.name=Jambières valyriennes
+item.got:valyrian_longsword.name≠Valyrian Longsword
 item.got:valyrian_mattock.name=Valyrian Mattock
 item.got:valyrian_nugget.name=Pépite valyrienne
 item.got:valyrian_pickaxe.name=Pioche valyrienne
+item.got:valyrian_pike.name≠Valyrian Pike
 item.got:valyrian_ring.name=Anneau valyrien
+item.got:valyrian_scimitar.name≠Valyrian Scimitar
 item.got:valyrian_shovel.name=Pelle valyrienne
 item.got:valyrian_spear.name=Lance valyrienne
 item.got:valyrian_sword.name=Épée valyrienne
-item.got:monford_velaryon_brooch.name=Broche de Monford Velaryon
+item.got:valyrian_throwing_axe.name≠Valyrian Throwing Axe
 item.got:vigilance.name=Vigilance
 item.got:volantis_boots.name=Bottes de Volantis
 item.got:volantis_chestplate.name=Plastron de Volantis
@@ -5791,7 +5911,16 @@ item.got:white_walkers_leggings.name=Jambières de Marcheur blanc
 item.got:widow_wail.name=Gémissement de la veuve
 item.got:wildberry.name=Baies sauvages
 item.got:wine_glass.name=Verre à vin
+item.got:wood_battleaxe.name≠Wooden Battleaxe
+item.got:wood_dagger.name≠Wooden Dagger
+item.got:wood_dagger_poisoned.name≠Wooden Poisoned Dagger
+item.got:wood_hammer.name≠Wooden Hammer
+item.got:wood_mattock.name≠Wooden Mattock
+item.got:wood_pike.name≠Wooden Pike
 item.got:wood_plate.name=Assiette en bois
+item.got:wood_scimitar.name≠Wooden Scimitar
+item.got:wood_spear.name≠Wooden Spear
+item.got:wood_throwing_axe.name≠Wooden Throwing Axe
 item.got:yam.name=Ig
 item.got:yam_roast.name=Ig
 item.got:yi_ti_boots.name=Bottes Yi Ti
@@ -5802,8 +5931,8 @@ item.got:yi_ti_chestplate_bombardier.name=Plastron de la Frontière de Yi Ti
 item.got:yi_ti_chestplate_samurai.name=Plastron de samouraï Yi Ti
 item.got:yi_ti_helmet.name=Casque Yi Ti
 item.got:yi_ti_helmet_bombardier.name=Casque de la Frontière de Yi Ti
-item.got:yi_ti_helmet_samurai.name=Casque Yi Ti Samurai
 item.got:yi_ti_helmet_captain.name=Casque Yi Ti Captain
+item.got:yi_ti_helmet_samurai.name=Casque Yi Ti Samurai
 item.got:yi_ti_leggings.name=Jambières Yi Ti
 item.got:yi_ti_leggings_bombardier.name=Jambières de la Frontière de Yi Ti
 item.got:yi_ti_leggings_samurai.name=Jambières de samouraï Yi Ti
@@ -5849,10 +5978,12 @@ tile.got:berry_bush.4.name=Buisson de sureau vide
 tile.got:berry_bush.5.name=Buisson de baies sauvages vide
 tile.got:berry_bush.8.name=Buisson de myrtilles
 tile.got:berry_bush.9.name=Buisson de mûres
+tile.got:bird_cage.0.name≠Copper Bird Cage
 tile.got:bird_cage.1.name=Cage à oiseaux en bronze
 tile.got:bird_cage.2.name=Cage à oiseaux en fer
 tile.got:bird_cage.3.name=Cage à oiseaux en argent
 tile.got:bird_cage.4.name=Cage à oiseaux en or
+tile.got:bird_cage.5.name≠Valyrian Bird Cage
 tile.got:bird_cage_wood.0.name=Cage à oiseaux en bois
 tile.got:blackroot.name=Racine noire
 tile.got:block_gem.0.name=Bloc de topaze
@@ -5933,15 +6064,21 @@ tile.got:button_granite.name=Bouton en Granite
 tile.got:button_labradorite.name=Bouton en Labradiorite
 tile.got:button_rhyolite.name=Bouton en Rhyolite
 tile.got:chain.name=Chaîne
+tile.got:chandelier.0.name≠Copper Chandelier
 tile.got:chandelier.1.name=Lustre en bronze
 tile.got:chandelier.2.name=Lustre en fer
-tile.got:chandelier.6.name=Lustre Asshai
 tile.got:chandelier.3.name=Lustre en argent
 tile.got:chandelier.4.name=Lustre en or
 tile.got:chandelier.5.name=Lustre valyrien
+tile.got:chandelier.6.name=Lustre Asshai
 tile.got:chest_basket.name=Panier en roseaux
 tile.got:chest_sandstone.name=Coffre des anciennes villes libres
 tile.got:chest_stone.name=Coffre en pierre
+tile.got:chrysanthemum.0.name=Chrysanthème bleu
+tile.got:chrysanthemum.1.name=Chrysanthème orange
+tile.got:chrysanthemum.2.name=Chrysanthème rose
+tile.got:chrysanthemum.3.name=Chrysanthème jaune
+tile.got:chrysanthemum.4.name=Chrysanthème blanc
 tile.got:clay_tile.name=Tuiles
 tile.got:clay_tile_dyed.0.name=Tuiles blanches
 tile.got:clay_tile_dyed.1.name=Tuiles oranges
@@ -5995,6 +6132,7 @@ tile.got:concrete_powder.6.name=Poudre de Béton Rose
 tile.got:concrete_powder.7.name=Poudre de Béton Gris
 tile.got:concrete_powder.8.name=Poudre de Béton Gris Clair
 tile.got:concrete_powder.9.name=Poudre de Béton Cyan
+tile.got:copper_bars.name≠Copper Bars
 tile.got:coral_reef.name=Récif de corail
 tile.got:corn_stalk.name=Tige de maïs
 tile.got:daub.name=Torchis
@@ -6052,10 +6190,6 @@ tile.got:double_flower.1.name=Iris jaune
 tile.got:double_flower.2.name=Hibiscus
 tile.got:double_flower.3.name=Flamme du Harad
 tile.got:dried_reeds.name=Roseaux séchés
-tile.got:essos_flower.0.name=Gemme de sable rouge
-tile.got:essos_flower.1.name=Gemme de sable jaune
-tile.got:essos_flower.2.name=Marguerite d'Essos
-tile.got:essos_flower.3.name=Eastbells
 tile.got:fence.0.name=Barrière en pin de la Comté
 tile.got:fence.1.name=Barrière en catalpa
 tile.got:fence.10.name=Barrière en houx
@@ -6155,7 +6289,11 @@ tile.got:fruit_wood.1.name=Bois de poirier
 tile.got:fruit_wood.2.name=Bois de cerisier
 tile.got:fruit_wood.3.name=Bois de manguier
 tile.got:gate_bronze_bars.name=Herse en bronze
+tile.got:gate_copper_bars.name≠Copper Portcullis
+tile.got:gate_gold_bars.name≠Gold Portcullis
 tile.got:gate_iron_bars.name=Herse en fer
+tile.got:gate_silver_bars.name≠Silver Portcullis
+tile.got:gate_valyrian_bars.name≠Valyrian Portcullis
 tile.got:gate_wooden.name=Portail en bois
 tile.got:gate_wooden_bars.name=Herse en bois
 tile.got:glass.name=Verre raffiné
@@ -6465,6 +6603,10 @@ tile.got:smooth_stone.4.name=Granite lisse
 tile.got:smooth_stone.5.name=Craie lisse
 tile.got:smooth_stone.6.name=Smooth Labradorite
 tile.got:smooth_stone_v.0.name=Roche lisse
+tile.got:southern_flower.0.name=Gemme de sable rouge
+tile.got:southern_flower.1.name=Gemme de sable jaune
+tile.got:southern_flower.2.name=Marguerite d'Essos
+tile.got:southern_flower.3.name=Eastbells
 tile.got:stained_glass.0.name=Verre raffiné blanc
 tile.got:stained_glass.1.name=Verre raffiné orange
 tile.got:stained_glass.10.name=Verre raffiné violet
@@ -6508,9 +6650,9 @@ tile.got:stairs_aspen.name=Escaliers en bois de tremble
 tile.got:stairs_banana.name=Escaliers en bois de bananier
 tile.got:stairs_baobab.name=Escaliers en bois de baobab
 tile.got:stairs_basalt.name=Escalier en basalte
+tile.got:stairs_basalt_brick.name=Escalier en briques de basalte de westeros
 tile.got:stairs_basalt_brick_asshai.name=Escalier en briques de basalte
 tile.got:stairs_basalt_brick_asshai_cracked.name=Escalier en briques de basalte fissurées
-tile.got:stairs_basalt_brick.name=Escalier en briques de basalte de westeros
 tile.got:stairs_beech.name=Escalier en bois de hêtre
 tile.got:stairs_bone.name=Escalier en os
 tile.got:stairs_brick_cracked.name=Escalier en briques craquelées
@@ -6699,6 +6841,7 @@ tile.got:trapdoor_willow.name=Trappe en saule
 tile.got:treasure_copper.name=Tas de trésor en cuivre
 tile.got:treasure_gold.name=Tas de trésor en or
 tile.got:treasure_silver.name=Tas de trésor en argent
+tile.got:treasure_valyrian.name≠Valyrian Treasure Pile
 tile.got:unsmeltery.name=Fonderie
 tile.got:valyrian_bars.name=Bars valyriens
 tile.got:wall_bone.0.name=Muret en os
@@ -6893,11 +7036,6 @@ tile.got:wood_slab_single5.3.name=Dalle en palmier
 tile.got:wood_slab_single5.4.name=Dalle en prunier
 tile.got:wood_slab_single5.5.name=Dalle en kanuka
 tile.got:wood_slab_single5.6.name=Dalle en barral
-tile.got:chrysanthemum.0.name=Chrysanthème bleu
-tile.got:chrysanthemum.1.name=Chrysanthème orange
-tile.got:chrysanthemum.2.name=Chrysanthème rose
-tile.got:chrysanthemum.3.name=Chrysanthème jaune
-tile.got:chrysanthemum.4.name=Chrysanthème blanc
 tile.monsterStoneEgg.brick.name=Bloc infesté
 tile.monsterStoneEgg.chiseledbrick.name=Bloc infesté
 tile.monsterStoneEgg.cobble.name=Bloc infesté

@@ -58,13 +58,13 @@ public class GOTEntityHummel009 extends GOTEntityNPC implements GOTBiome.ImmuneT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		return "special/hummel";
 	}
 
 	@Override
 	public boolean speakTo(EntityPlayer entityplayer) {
-		String speechBank = getSpeechBank(entityplayer);
+		String speechBank = getSpeechBank(this, entityplayer);
 		if (speechBank != null) {
 			sendSpeechBank(entityplayer, speechBank);
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.freeman);

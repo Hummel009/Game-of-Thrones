@@ -5,18 +5,12 @@ import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTSmith;
 import got.common.item.other.GOTItemMug;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityTrampBase extends GOTEntityHumanBase implements GOTSmith, GOTBiome.ImmuneToHeat, GOTBiome.ImmuneToFrost {
 	protected GOTEntityTrampBase(World world) {
 		super(world);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendly(entityplayer);
 	}
 
 	@Override

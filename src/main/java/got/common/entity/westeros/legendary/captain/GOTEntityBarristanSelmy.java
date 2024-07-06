@@ -7,7 +7,6 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -26,11 +25,6 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 200.0f;
 	}
@@ -43,11 +37,6 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killBarristanSelmy;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

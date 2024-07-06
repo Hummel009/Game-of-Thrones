@@ -228,7 +228,7 @@ public class GOTSpawnList {
 
 		List<GOTSpawnEntry> asshaiMilitary = new ArrayList<>();
 		asshaiMilitary.add(new GOTSpawnEntry(GOTEntityAsshaiShadowbinder.class, 2, 1, 1));
-		asshaiMilitary.add(new GOTSpawnEntry(GOTEntityAsshaiSpherebinder.class, 5, 1, 1));
+		asshaiMilitary.add(new GOTSpawnEntry(GOTEntityAsshaiSpherebinder.class, 2, 1, 1));
 		asshaiMilitary.add(new GOTSpawnEntry(GOTEntityAsshaiWarrior.class, 10, 1, 2));
 		ASSHAI_MILITARY = new GOTSpawnList(asshaiMilitary);
 

@@ -1,3 +1,10 @@
-﻿To dobrze, #. Naprawdę mi pomogłeś!
-Dziękuję, #. Oto twoje monety.
-Och, to świetnie! To jest dokładnie to, czego potrzebuję. Oto zapłata.
+﻿No dobrze, #. Bardzo mi pomogłeś!
+Dziękuję, #. Zachowaj monety.
+Świetnie! To jest dokładnie to, czego potrzebuję. Oto płatność.
+Dziękuję bardzo, #! Wykonałeś tę robotę doskonale.
+Dobra robota #! Zachowaj monety jako dowód mojej wdzięczności.
+Zrobiłeś co mogłeś, #! Doceniam twoje wysiłki. Bardzo ci dziękuje za pomoc!
+Przede wszystkim pochwała, #! Dziękuję!
+Dziękuję, #! Jestem bardzo zadowolony z rezultatu!
+Dziękuję z całego serca, #! Spełniłeś wszystkie oczekiwania. Dziękuję!
+Dziękuję za świetną robotę, #!

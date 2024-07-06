@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -74,8 +75,8 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public String getSpeechBank(EntityPlayer entityPlayer) {
-			return GOTSpeech.getFatherGrigoriSpeech(this, entityPlayer);
+		public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+			return GOTSpeech.getFatherGrigoriSpeech(npc, entityPlayer);
 		}
 	}
 }

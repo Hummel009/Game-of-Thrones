@@ -1,0 +1,10 @@
+﻿N'essayez même pas de faire semblant d'être l'un d'entre nous. Nous savons ce que vous faites, alors sortez !
+Vous pensez vraiment que nous allons tolérer votre présence ? Vous êtes un ennemi, alors sortez !
+Votre présence ici nous offense. Vous n'appartenez pas à notre peuple, alors partez !
+Nous connaissons vos actes. Tu n'es pas des nôtres, alors va-t-en et ne reviens pas !
+Tes paroles sont aussi fausses que toi. Nous ne faisons pas confiance aux étrangers comme vous !
+Tu oses venir ici ? Comment oses-tu, étranger ? Va-t'en !
+Vous osez venir ici ? Comment osez-vous, étranger ! Va-t'en !
+Toi, l'étranger, tu n'as pas le droit de mettre les pieds sur cette terre. Va-t'en ou je te jette dehors par la force !
+Je ne t'accepterai jamais, tu es un ennemi de notre peuple. Va-t'en ou je serai obligé d'utiliser la force !
+Je te méprise, toi et tous ceux qui te ressemblent. Vous ne méritez pas d'être parmi nous !

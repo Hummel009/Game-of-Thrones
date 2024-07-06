@@ -391,10 +391,6 @@ public enum GOTFaction {
 		return closestDist;
 	}
 
-	public String factionEntityName() {
-		return StatCollector.translateToLocal("got.faction." + codeName() + ".entity");
-	}
-
 	public String factionName() {
 		return StatCollector.translateToLocal(untranslatedFactionName());
 	}

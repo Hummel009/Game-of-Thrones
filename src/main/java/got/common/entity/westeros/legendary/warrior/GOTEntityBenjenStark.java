@@ -45,8 +45,8 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/benjen_friendly";
 		}
 		return GOTSpeech.HOSTILE;

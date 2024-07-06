@@ -343,10 +343,10 @@ entity.got.JaqenHghar.name≠Jaqen H'Ghar
 entity.got.JasonMallister.name≠Jason Mallister
 entity.got.JeorMormont.name≠Jeor Mormont
 entity.got.JoffreyBaratheon.name≠Joffrey Baratheon
-entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
 entity.got.JogosNhaiArcher.name≠Jogos Nhai Archer
 entity.got.JogosNhaiBannerBearer.name≠Jogos Nhai Banner Bearer
 entity.got.JogosNhaiChieftain.name≠Jogos Nhai Chieftain
+entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
 entity.got.JogosNhaiShaman.name≠Jogos Nhai Shaman
 entity.got.JohnUmber.name≠John Umber
 entity.got.JonConnington.name≠Jon Connington
@@ -870,7 +870,6 @@ entity.got.YiTiButcher.name≠Yi Ti Butcher
 entity.got.YiTiCaptain.name≠Yi Ti Shogun
 entity.got.YiTiFarmer.name≠Yi Ti Farmer
 entity.got.YiTiFarmhand.name≠Yi Ti Farmhand
-entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiFishmonger.name≠Yi Ti Fishmonger
 entity.got.YiTiFlorist.name≠Yi Ti Florist
 entity.got.YiTiGoldsmith.name≠Yi Ti Goldsmith
@@ -882,6 +881,7 @@ entity.got.YiTiMan.name≠Yi Ti Man
 entity.got.YiTiMason.name≠Yi Ti Mason
 entity.got.YiTiMiner.name≠Yi Ti Miner
 entity.got.YiTiSamurai.name≠Yi Ti Samurai
+entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiSoldier.name≠Yi Ti Soldier
 entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name≠Yohn Royce
@@ -1562,6 +1562,10 @@ got.achievement.USE_THROWING_AXE.desc=使用投掷斧头
 got.achievement.USE_THROWING_AXE.title=让我们投掷它!
 got.achievement.USE_UNSMELTERY.desc=重新冶炼不需要的装备
 got.achievement.USE_UNSMELTERY.title=重复利用
+got.achievement.WEAR_FULL_ALLOY_STEEL.desc≠Wear full set of alloy steel armor
+got.achievement.WEAR_FULL_ALLOY_STEEL.title≠Still not Valyrian
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.desc≠Wear full set of alloy steel chainmail
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.title≠Like iron, but stronger
 got.achievement.WEAR_FULL_ARRYN.desc=装备整套谷地铠甲
 got.achievement.WEAR_FULL_ARRYN.title=谷地守望者
 got.achievement.WEAR_FULL_ARRYNGUARD.desc=装备整套谷地守卫铠甲
@@ -1576,6 +1580,10 @@ got.achievement.WEAR_FULL_BRONZE.desc=装备整套青铜铠甲
 got.achievement.WEAR_FULL_BRONZE.title=炼铜+真锌
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=穿戴全套青铜链甲
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=省了不少钱
+got.achievement.WEAR_FULL_COPPER.desc≠Wear full set of copper armor
+got.achievement.WEAR_FULL_COPPER.title≠Corrosion
+got.achievement.WEAR_FULL_COPPER_CHAINMAIL.desc≠Wear full set of copper chainmail
+got.achievement.WEAR_FULL_COPPPER_CHAINMAIL.title≠No wire braiding included
 got.achievement.WEAR_FULL_CROWNLANDS.desc=装备整套金袍子
 got.achievement.WEAR_FULL_CROWNLANDS.title=君临守备
 got.achievement.WEAR_FULL_DORNE.desc=装备整套多恩铠甲
@@ -1592,8 +1600,12 @@ got.achievement.WEAR_FULL_GHISCAR.desc=装备整套吉斯卡铠甲
 got.achievement.WEAR_FULL_GHISCAR.title=奴隶主
 got.achievement.WEAR_FULL_GIFT.desc=装备整套守夜人铠甲
 got.achievement.WEAR_FULL_GIFT.title=长城守卫
+got.achievement.WEAR_FULL_GOLD.desc≠Wear full set of gold armor
+got.achievement.WEAR_FULL_GOLD.title≠Gypsy Baron
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=装备整套黄金团铠甲
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=黄金团
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.desc≠Wear full set of gold chainmail
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.title≠Worst Armor
 got.achievement.WEAR_FULL_HILLMEN.desc=装备整套高山氏族部落铠甲
 got.achievement.WEAR_FULL_HILLMEN.title=明月山脉的癫狂
 got.achievement.WEAR_FULL_IBBEN.desc=穿戴全套伊本装备
@@ -1846,7 +1858,7 @@ got.biome.thennLand.name=瑟恩
 got.biome.tropicalForest.name=热带丛林
 got.biome.tyrosh.name=泰洛西
 got.biome.ulos.name=乌斯岛
-got.biome.ulthos.name=乌尔特斯
+got.biome.ulthosBushland.name=乌尔特斯
 got.biome.ulthosDesert.name=乌尔特斯沙漠
 got.biome.ulthosDesertCold.name=寒冷的乌尔特斯沙漠
 got.biome.ulthosForest.name=乌尔特斯的森林
@@ -2853,6 +2865,7 @@ got.invasion.NORVOS.horn=召唤奇袭-诺佛斯
 got.invasion.PENTOS.horn=召唤奇袭-潘托斯
 got.invasion.REACH.horn=召唤奇袭-河湾地
 got.invasion.RIVERLANDS.horn=召唤奇袭-河间地
+got.invasion.SOTHORYOS.horn≠Summon Invasion - Sothoryos
 got.invasion.STORMLANDS.horn=召唤奇袭-风暴地
 got.invasion.TYROSH.horn=召唤奇袭-泰洛西
 got.invasion.VOLANTIS.horn=召唤奇袭-瓦兰提斯
@@ -4568,9 +4581,9 @@ got.wp.custom=%s
 got.wp.shared.info=分享至%s
 got.wp.shared=%s
 item.got.antiking=杀死夜王
-item.got.antiwraith=杀死亡灵
 item.got.antiwalker=杀死异鬼
 item.got.antiwight=杀戮巫师
+item.got.antiwraith=杀死亡灵
 item.got.anvil1=用宝石修理以上色
 item.got.anvil2=用蓝图修理以应用效果
 item.got.banner.protect=带有保护数据
@@ -4588,6 +4601,7 @@ item.got.cauldron1=点击一个水桶来填充坩埚
 item.got.cauldron2=点击一个上色的物品来清洗它
 item.got.chisel1=点击一块石头、金属或木头
 item.got.chisel2=在上面雕刻一个铭文
+item.got.chisel3≠Inscription is only visible at night
 item.got.commandHorn.halt.name=命令号角(立定单位)
 item.got.commandHorn.ready.name=命令号角(就绪单位)
 item.got.commandHorn.summon.name=命令号角(召唤单位)
@@ -4643,21 +4657,40 @@ item.got.weapon_rack=点击武器架来展示武器
 item.got:ale_horn.name=麦芽酒角
 item.got:ale_horn_gold.name=金麦芽酒角
 item.got:alloy_steel_axe.name=合金钢斧
+item.got:alloy_steel_battleaxe.name≠Alloy Steel Battleaxe
+item.got:alloy_steel_boots.name≠Alloy Steel Boots
+item.got:alloy_steel_chainmail_boots.name≠Alloy Steel Chain Boots
+item.got:alloy_steel_chainmail_chestplate.name≠Alloy Steel Chain Chestplate
+item.got:alloy_steel_chainmail_helmet.name≠Alloy Steel Chain Helmet
+item.got:alloy_steel_chainmail_leggings.name≠Alloy Steel Chain Leggings
+item.got:alloy_steel_chestplate.name≠Alloy Steel Chestplate
+item.got:alloy_steel_crossbow.name≠Alloy Steel Crossbow
 item.got:alloy_steel_dagger.name=合金钢匕首
 item.got:alloy_steel_dagger_poisoned.name=合金钢带毒匕首
+item.got:alloy_steel_greatsword.name≠Alloy Steel Greatsword
 item.got:alloy_steel_halberd.name=合金钢戟
+item.got:alloy_steel_hammer.name≠Alloy Steel Hammer
+item.got:alloy_steel_helmet.name≠Alloy Steel Helmet
 item.got:alloy_steel_hoe.name=合金钢锄头
 item.got:alloy_steel_ingot.name=合金钢锭
+item.got:alloy_steel_leggings.name≠Alloy Steel Leggings
+item.got:alloy_steel_longsword.name≠Alloy Steel Longsword
+item.got:alloy_steel_mattock.name≠Alloy Steel Mattock
 item.got:alloy_steel_nugget.name=合金钢粒
 item.got:alloy_steel_pickaxe.name=合金钢镐
+item.got:alloy_steel_pike.name≠Alloy Steel Pike
+item.got:alloy_steel_scimitar.name≠Alloy Steel Scimitar
 item.got:alloy_steel_shovel.name=合金钢锹
+item.got:alloy_steel_spear.name≠Alloy Steel Spear
 item.got:alloy_steel_sword.name=合金钢剑
+item.got:alloy_steel_throwing_axe.name≠Alloy Steel Throwing Axe
 item.got:almond.name=杏子
 item.got:amber.name=琥珀
 item.got:amethyst.name=紫水晶
 item.got:anonymous_mask.name=匿名面具
 item.got:apple_crumble.name=苹果酥
 item.got:apple_green.name=苹果
+item.got:ardrian_celtigar_axe.name=赛提加的斧
 item.got:armor_stand.name=盔甲架
 item.got:arrow_fire.name=燃烧着的箭
 item.got:arrow_poisoned.name=淬毒箭
@@ -4676,8 +4709,6 @@ item.got:asshai_helmet.name=亚夏头盔
 item.got:asshai_leggings.name=亚夏护腿
 item.got:asshai_mask.name=亚夏缚影士面罩
 item.got:asshai_shadowbinder_staff.name=缚影士的法杖
-item.got:petyr_baelish_brooch.name=培提尔贝里席的胸针
-item.got:petyr_baelish_dagger.name=培提尔贝里席的匕首
 item.got:banana.name=香蕉
 item.got:banana_bread.name=香蕉面包
 item.got:banana_cake.name=香蕉蛋糕
@@ -5322,13 +5353,19 @@ item.got:bronze_chestplate.name=青铜胸甲
 item.got:bronze_crossbow.name=青铜弩
 item.got:bronze_dagger.name=青铜匕首
 item.got:bronze_dagger_poisoned.name=淬毒青铜匕首
+item.got:bronze_greatsword.name≠Bronze Greatsword
+item.got:bronze_hammer.name≠Bronze Hammer
 item.got:bronze_helmet.name=青铜头盔
 item.got:bronze_hoe.name=青铜锄
 item.got:bronze_ingot.name=青铜锭
 item.got:bronze_leggings.name=青铜护腿
+item.got:bronze_longsword.name≠Bronze Longsword
+item.got:bronze_mattock.name≠Bronze Mattock
 item.got:bronze_nugget.name=古铜色金块
 item.got:bronze_pickaxe.name=青铜镐子
+item.got:bronze_pike.name≠Bronze Pike
 item.got:bronze_ring.name=青铜戒指
+item.got:bronze_scimitar.name≠Bronze Scimitar
 item.got:bronze_shovel.name=青铜锹
 item.got:bronze_spear.name=青铜矛
 item.got:bronze_sword.name=青铜剑
@@ -5336,7 +5373,6 @@ item.got:bronze_throwing_axe.name=青铜投斧
 item.got:camel_cooked.name=熟骆驼肉
 item.got:camel_raw.name=生骆驼肉
 item.got:cargocart.name=运车
-item.got:ardrian_celtigar_axe.name=赛提加的斧
 item.got:ceramic_mug.name=陶瓷杯
 item.got:ceramic_plate.name=石盘
 item.got:cherry.name=樱桃
@@ -5359,9 +5395,34 @@ item.got:coin.64.name=铜星
 item.got:coin.nominal.name=面值
 item.got:command_horn.name=命令号角
 item.got:command_sword.name=命令之剑
+item.got:copper_axe.name≠Copper Axe
+item.got:copper_battleaxe.name≠Copper Battleaxe
+item.got:copper_boots.name≠Copper Boots
+item.got:copper_chainmail_boots.name≠Copper Chain Boots
+item.got:copper_chainmail_chestplate.name≠Copper Chain Chestplate
+item.got:copper_chainmail_helmet.name≠Copper Chain Helmet
+item.got:copper_chainmail_leggings.name≠Copper Chain Leggings
+item.got:copper_chestplate.name≠Copper Chestplate
+item.got:copper_crossbow.name≠Copper Crossbow
+item.got:copper_dagger.name≠Copper Dagger
+item.got:copper_dagger_poisoned.name≠Copper Poisoned Dagger
+item.got:copper_greatsword.name≠Copper Greatsword
+item.got:copper_hammer.name≠Copper Hammer
+item.got:copper_helmet.name≠Copper Helmet
+item.got:copper_hoe.name≠Copper Hoe
 item.got:copper_ingot.name=铜锭
+item.got:copper_leggings.name≠Copper Leggings
+item.got:copper_longsword.name≠Copper Longsword
+item.got:copper_mattock.name≠Copper Mattock
 item.got:copper_nugget.name=铜粒
+item.got:copper_pickaxe.name≠Copper Pickaxe
+item.got:copper_pike.name≠Copper Pike
 item.got:copper_ring.name=铜环
+item.got:copper_scimitar.name≠Copper Scimitar
+item.got:copper_shovel.name≠Copper Shovel
+item.got:copper_spear.name≠Copper Spear
+item.got:copper_sword.name≠Copper Sword
+item.got:copper_throwing_axe.name≠Copper Throwing Axe
 item.got:coral.name=珊瑚
 item.got:corn.name=玉米
 item.got:corn_bread.name=玉米面包
@@ -5384,6 +5445,7 @@ item.got:dawn.name=黎明
 item.got:deer_cooked.name=熟鹿肉
 item.got:deer_raw.name=生鹿肉
 item.got:diamond.name=钻石
+item.got:diamond_mattock.name≠Diamond Mattock
 item.got:dorne_boots.name=多恩靴子
 item.got:dorne_chestplate.name=多恩胸甲
 item.got:dorne_helmet.name=多恩头盔
@@ -5436,11 +5498,29 @@ item.got:gift_helmet.name=守夜人兜帽
 item.got:gift_leggings.name=守夜人护腿
 item.got:gingerbread.name=美味面包
 item.got:giraffe_rug.name=长颈鹿皮地毯
+item.got:goblet_bronze.name≠Bronze Goblet
 item.got:goblet_copper.name=粘土杯
 item.got:goblet_gold.name=金杯
 item.got:goblet_silver.name=银杯
+item.got:goblet_valyrian.name≠Valyrian Goblet
 item.got:goblet_wood.name=木杯
+item.got:gold_battleaxe.name≠Golden Battleaxe
+item.got:gold_chainmail_boots.name≠Golden Chain Boots
+item.got:gold_chainmail_chestplate.name≠Golden Chain Chestplate
+item.got:gold_chainmail_helmet.name≠Golden Chain Helmet
+item.got:gold_chainmail_leggings.name≠Golden Chain Leggings
+item.got:gold_crossbow.name≠Golden Crossbow
+item.got:gold_dagger.name≠Golden Dagger
+item.got:gold_dagger_poisoned.name≠Golden Poisoned Dagger
+item.got:gold_greatsword.name≠Golden Greatsword
+item.got:gold_hammer.name≠Golden Hammer
+item.got:gold_longsword.name≠Golden Longsword
+item.got:gold_mattock.name≠Golden Mattock
+item.got:gold_pike.name≠Golden Pike
 item.got:gold_ring.name=金戒
+item.got:gold_scimitar.name≠Golden Scimitar
+item.got:gold_spear.name≠Golden Spear
+item.got:gold_throwing_axe.name≠Golden Throwing Axe
 item.got:golden_company_boots.name=黄金团靴子
 item.got:golden_company_chestplate.name=黄金团胸甲
 item.got:golden_company_helmet.name=黄金团头盔
@@ -5478,8 +5558,13 @@ item.got:iron_battleaxe.name=铁战斧
 item.got:iron_crossbow.name=铁弩
 item.got:iron_dagger.name=铁匕首
 item.got:iron_dagger_poisoned.name=淬毒铁匕首
+item.got:iron_greatsword.name≠Iron Greatsword
+item.got:iron_hammer.name≠Iron Hammer
+item.got:iron_longsword.name≠Iron Longsword
+item.got:iron_mattock.name≠Iron Mattock
 item.got:iron_nugget.name=铁金块
 item.got:iron_pike.name=铁长矛
+item.got:iron_scimitar.name≠Iron Scimitar
 item.got:iron_spear.name=铁矛
 item.got:iron_throwing_axe.name=铁投斧
 item.got:ironborn_boots.name=铁群岛靴子
@@ -5500,7 +5585,6 @@ item.got:kingsguard_helmet.name=御林铁卫头盔
 item.got:kingsguard_leggings.name=御林铁卫护腿
 item.got:lady_forlorn.name=空寂女士
 item.got:lamentation.name=哀悼
-item.got:tyrion_lannister_brooch.name=兰尼斯特的胸针
 item.got:leather_hat.name=皮革帽
 item.got:leek.name=韭葱
 item.got:leek_soup.name=韭葱汤
@@ -5514,10 +5598,16 @@ item.got:lhazar_leggings.name=拉札尔护腿
 item.got:lightbringer.name=光明使者
 item.got:lime.name=酸橙
 item.got:lingering_potion.name=滞留药水
+item.got:lion_boots.name≠Lion Fur Boots
+item.got:lion_chestplate.name≠Lion Fur Chestplate
 item.got:lion_cooked.name=熟狮肉
 item.got:lion_fur.name=狮皮
+item.got:lion_fur_bed.name≠Lion Fur Bed
+item.got:lion_helmet.name≠Lion Fur Helmet
+item.got:lion_leggings.name≠Lion Fur Leggings
 item.got:lion_raw.name=生狮肉
 item.got:lion_rug.name=狮皮地毯
+item.got:longbow.name≠Longbow
 item.got:longclaw.name=长爪
 item.got:lorath_boots.name=罗拉斯靴子
 item.got:lorath_chestplate.name=罗拉斯胸甲
@@ -5532,6 +5622,7 @@ item.got:maple_syrup.name=枫糖浆
 item.got:marzipan.name=杏仁糖
 item.got:marzipan_chocolate.name=巧克力杏仁糖
 item.got:melon_soup.name=瓜汤
+item.got:monford_velaryon_brooch.name=瓦列利安的胸针
 item.got:mossovy_boots.name=摩苏伊靴子
 item.got:mossovy_chestplate.name=摩苏伊胸甲
 item.got:mossovy_leggings.name=摩苏伊护腿
@@ -5609,7 +5700,21 @@ item.got:norvos_helmet.name=诺佛斯头盔
 item.got:norvos_leggings.name=诺佛斯护腿
 item.got:npc_respawner.name=NPC重生处
 item.got:oathkeeper.name=守誓者
+item.got:obsidian_axe.name≠Dragonglass Axe
+item.got:obsidian_battleaxe.name≠Dragonglass Battleaxe
+item.got:obsidian_dagger.name≠Dragonglass Dagger
+item.got:obsidian_dagger_poisoned.name≠Dragonglass Poisoned Dagger
+item.got:obsidian_hammer.name≠Dragonglass Hammer
+item.got:obsidian_hoe.name≠Dragonglass Hoe
+item.got:obsidian_mattock.name≠Dragonglass Mattock
+item.got:obsidian_pickaxe.name≠Dragonglass Pickaxe
+item.got:obsidian_pike.name≠Dragonglass Pike
+item.got:obsidian_scimitar.name≠Dragonglass Scimitar
 item.got:obsidian_shard.name=黑曜石碎片
+item.got:obsidian_shovel.name≠Dragonglass Shovel
+item.got:obsidian_spear.name≠Dragonglass Spear
+item.got:obsidian_sword.name≠Dragonglass Sword
+item.got:obsidian_throwing_axe.name≠Dragonglass Throwing Axe
 item.got:olive.name=橄榄
 item.got:olive_bread.name=橄榄面包
 item.got:opal.name=蛋白石
@@ -5626,6 +5731,8 @@ item.got:pentos_boots.name=潘托斯靴子
 item.got:pentos_chestplate.name=潘托斯胸甲
 item.got:pentos_helmet.name=潘托斯头盔
 item.got:pentos_leggings.name=潘托斯护腿
+item.got:petyr_baelish_brooch.name=培提尔贝里席的胸针
+item.got:petyr_baelish_dagger.name=培提尔贝里席的匕首
 item.got:pipe.name=烟斗
 item.got:pipeweed.name=烟斗草
 item.got:pipeweed_leaf.name=烟叶
@@ -5683,8 +5790,8 @@ item.got:ruby.name=红宝石
 item.got:salt.name=盐
 item.got:salted_flesh.name=歌手肉
 item.got:saltpeter.name=硝石
-item.got:sandor_clegane_sword.name=桑铎·克里冈的剑
 item.got:sandor_clegane_helmet.name=桑铎·克里冈的头盔
+item.got:sandor_clegane_sword.name=桑铎·克里冈的剑
 item.got:sapphire.name=蓝宝石
 item.got:sarbacane.name=萨尔巴坎
 item.got:seeds_grape_red.name=红葡萄籽
@@ -5704,7 +5811,15 @@ item.got:sothoryos_helmet.name=索斯罗斯头盔
 item.got:sothoryos_helmet_chieftain.name=索斯罗斯头领头盔
 item.got:sothoryos_leggings.name=索斯罗斯护腿
 item.got:spawn_egg.name=生成
-item.got:stone_spear.name=石矛
+item.got:stone_battleaxe.name≠Stone Battleaxe
+item.got:stone_dagger.name≠Stone Dagger
+item.got:stone_dagger_poisoned.name≠Stone Poisoned Dagger
+item.got:stone_hammer.name≠Stone Hammer
+item.got:stone_mattock.name≠Stone Mattock
+item.got:stone_pike.name≠Stone Pike
+item.got:stone_scimitar.name≠Stone Scimitar
+item.got:stone_spear.name≠Stone Spear
+item.got:stone_throwing_axe.name≠Stone Throwing Axe
 item.got:stormlands_boots.name=风暴地靴子
 item.got:stormlands_chestplate.name=风暴地胸甲
 item.got:stormlands_helmet.name=风暴地头盔
@@ -5731,6 +5846,7 @@ item.got:trident.name=高山氏族部落三叉戟
 item.got:truth.name=真理
 item.got:turnip.name=芜菁
 item.got:turnip_cooked.name=烤芜菁
+item.got:tyrion_lannister_brooch.name=兰尼斯特的胸针
 item.got:tyrosh_boots.name=泰洛西靴子
 item.got:tyrosh_chestplate.name=泰洛西胸甲
 item.got:tyrosh_helmet.name=泰洛西头盔
@@ -5751,20 +5867,24 @@ item.got:valyrian_chisel.name=瓦雷利安钢凿子
 item.got:valyrian_crossbow.name=瓦雷利亚钢弩
 item.got:valyrian_dagger.name=瓦雷利亚钢匕首
 item.got:valyrian_dagger_poisoned.name=淬毒瓦雷利亚钢匕首
+item.got:valyrian_greatsword.name≠Valyrian Greatsword
 item.got:valyrian_hammer.name=瓦雷利亚钢战锤
 item.got:valyrian_helmet.name=瓦雷利亚钢头盔
 item.got:valyrian_hoe.name=瓦雷利亚钢锄
 item.got:valyrian_horse_armor.name=瓦雷利亚钢马铠
 item.got:valyrian_ingot.name=瓦雷利亚钢锭
 item.got:valyrian_leggings.name=瓦雷利亚钢护腿
+item.got:valyrian_longsword.name≠Valyrian Longsword
 item.got:valyrian_mattock.name=瓦雷利亚钢鹤嘴锄
 item.got:valyrian_nugget.name=瓦雷利亚钢粒
 item.got:valyrian_pickaxe.name=瓦雷利亚钢镐子
+item.got:valyrian_pike.name≠Valyrian Pike
 item.got:valyrian_ring.name=瓦雷利亚钢戒
+item.got:valyrian_scimitar.name≠Valyrian Scimitar
 item.got:valyrian_shovel.name=瓦雷利亚钢锹
 item.got:valyrian_spear.name=瓦雷利亚钢矛
 item.got:valyrian_sword.name=瓦雷利亚钢剑
-item.got:monford_velaryon_brooch.name=瓦列利安的胸针
+item.got:valyrian_throwing_axe.name≠Valyrian Throwing Axe
 item.got:vigilance.name=警觉
 item.got:volantis_boots.name=瓦兰提斯靴子
 item.got:volantis_chestplate.name=瓦兰提斯胸甲
@@ -5791,7 +5911,16 @@ item.got:white_walkers_leggings.name=异鬼护腿
 item.got:widow_wail.name=寡妇之嚎
 item.got:wildberry.name=野莓
 item.got:wine_glass.name=葡萄酒杯
+item.got:wood_battleaxe.name≠Wooden Battleaxe
+item.got:wood_dagger.name≠Wooden Dagger
+item.got:wood_dagger_poisoned.name≠Wooden Poisoned Dagger
+item.got:wood_hammer.name≠Wooden Hammer
+item.got:wood_mattock.name≠Wooden Mattock
+item.got:wood_pike.name≠Wooden Pike
 item.got:wood_plate.name=木盘
+item.got:wood_scimitar.name≠Wooden Scimitar
+item.got:wood_spear.name≠Wooden Spear
+item.got:wood_throwing_axe.name≠Wooden Throwing Axe
 item.got:yam.name=山药
 item.got:yam_roast.name=烤山药
 item.got:yi_ti_boots.name=夷地靴子
@@ -5802,8 +5931,8 @@ item.got:yi_ti_chestplate_bombardier.name=夷地边境守卫胸甲
 item.got:yi_ti_chestplate_samurai.name=夷地武士胸甲
 item.got:yi_ti_helmet.name=夷地头盔
 item.got:yi_ti_helmet_bombardier.name=夷地边境守卫头盔
-item.got:yi_ti_helmet_samurai.name=夷地武士头盔
 item.got:yi_ti_helmet_captain.name=夷地将军头盔
+item.got:yi_ti_helmet_samurai.name=夷地武士头盔
 item.got:yi_ti_leggings.name=夷地护腿
 item.got:yi_ti_leggings_bombardier.name=夷地边境守卫护腿
 item.got:yi_ti_leggings_samurai.name=夷地武士护腿
@@ -5849,10 +5978,12 @@ tile.got:berry_bush.4.name=裸接骨木莓灌木
 tile.got:berry_bush.5.name=裸野莓灌木
 tile.got:berry_bush.8.name=蓝莓灌木
 tile.got:berry_bush.9.name=黑莓灌木
+tile.got:bird_cage.0.name≠Copper Bird Cage
 tile.got:bird_cage.1.name=青铜鸟笼
 tile.got:bird_cage.2.name=铁鸟笼
 tile.got:bird_cage.3.name=银鸟笼
 tile.got:bird_cage.4.name=金鸟笼
+tile.got:bird_cage.5.name≠Valyrian Bird Cage
 tile.got:bird_cage_wood.0.name=木鸟笼
 tile.got:blackroot.name=黑根草
 tile.got:block_gem.0.name=黄宝石块
@@ -5933,15 +6064,21 @@ tile.got:button_granite.name=按钮
 tile.got:button_labradorite.name=拉长石按钮
 tile.got:button_rhyolite.name=按钮
 tile.got:chain.name=黑钢链
+tile.got:chandelier.0.name≠Copper Chandelier
 tile.got:chandelier.1.name=青铜吊灯
 tile.got:chandelier.2.name=铁吊灯
-tile.got:chandelier.6.name=亚夏吊灯
 tile.got:chandelier.3.name=银吊灯
 tile.got:chandelier.4.name=金吊灯
 tile.got:chandelier.5.name=瓦雷利亚钢吊灯
+tile.got:chandelier.6.name=亚夏吊灯
 tile.got:chest_basket.name=芦苇篮
 tile.got:chest_sandstone.name=砂岩箱子
 tile.got:chest_stone.name=石柜
+tile.got:chrysanthemum.0.name=蓝色菊花
+tile.got:chrysanthemum.1.name=橙色菊花
+tile.got:chrysanthemum.2.name=粉色菊花
+tile.got:chrysanthemum.3.name=黄色菊花
+tile.got:chrysanthemum.4.name=白色菊花
 tile.got:clay_tile.name=黏土瓦
 tile.got:clay_tile_dyed.0.name=白色黏土瓦
 tile.got:clay_tile_dyed.1.name=橙色黏土瓦
@@ -5995,6 +6132,7 @@ tile.got:concrete_powder.6.name=粉色混凝土粉末
 tile.got:concrete_powder.7.name=灰色混凝土粉末
 tile.got:concrete_powder.8.name=浅灰混凝土粉末
 tile.got:concrete_powder.9.name=青色混凝土粉末
+tile.got:copper_bars.name≠Copper Bars
 tile.got:coral_reef.name=珊瑚礁
 tile.got:corn_stalk.name=玉米杆
 tile.got:daub.name=夹条墙
@@ -6052,10 +6190,6 @@ tile.got:double_flower.1.name=黄菖蒲
 tile.got:double_flower.2.name=木槿
 tile.got:double_flower.3.name=厄斯索斯之炎
 tile.got:dried_reeds.name=干芦苇
-tile.got:essos_flower.0.name=红沙宝石
-tile.got:essos_flower.1.name=黄沙宝石
-tile.got:essos_flower.2.name=厄斯索斯之冠
-tile.got:essos_flower.3.name=南铃草
 tile.got:fence.0.name=伊班松木栅栏
 tile.got:fence.1.name=金叶木栅栏
 tile.got:fence.10.name=冬青木栅栏
@@ -6155,7 +6289,11 @@ tile.got:fruit_wood.1.name=梨木
 tile.got:fruit_wood.2.name=樱桃木
 tile.got:fruit_wood.3.name=芒果木
 tile.got:gate_bronze_bars.name=青铜栏杆大门
+tile.got:gate_copper_bars.name≠Copper Portcullis
+tile.got:gate_gold_bars.name≠Gold Portcullis
 tile.got:gate_iron_bars.name=铁栏杆大门
+tile.got:gate_silver_bars.name≠Silver Portcullis
+tile.got:gate_valyrian_bars.name≠Valyrian Portcullis
 tile.got:gate_wooden.name=木大门
 tile.got:gate_wooden_bars.name=木栏杆大门
 tile.got:glass.name=细玻璃
@@ -6465,6 +6603,10 @@ tile.got:smooth_stone.4.name=平滑花岗岩
 tile.got:smooth_stone.5.name=平滑白垩
 tile.got:smooth_stone.6.name=光滑拉长石
 tile.got:smooth_stone_v.0.name=磨石
+tile.got:southern_flower.0.name=红沙宝石
+tile.got:southern_flower.1.name=黄沙宝石
+tile.got:southern_flower.2.name=厄斯索斯之冠
+tile.got:southern_flower.3.name=南铃草
 tile.got:stained_glass.0.name=白色细玻璃
 tile.got:stained_glass.1.name=橙色细玻璃
 tile.got:stained_glass.10.name=紫色细玻璃
@@ -6508,9 +6650,9 @@ tile.got:stairs_aspen.name=杨木楼梯
 tile.got:stairs_banana.name=香蕉木楼梯
 tile.got:stairs_baobab.name=猴面包木楼梯
 tile.got:stairs_basalt.name=玄武岩楼梯
+tile.got:stairs_basalt_brick.name=黑安山岩砖楼梯
 tile.got:stairs_basalt_brick_asshai.name=玄武岩砖楼梯
 tile.got:stairs_basalt_brick_asshai_cracked.name=裂玄武岩砖楼梯
-tile.got:stairs_basalt_brick.name=黑安山岩砖楼梯
 tile.got:stairs_beech.name=山毛榉木楼梯
 tile.got:stairs_bone.name=骨楼梯
 tile.got:stairs_brick_cracked.name=裂砖楼梯
@@ -6699,6 +6841,7 @@ tile.got:trapdoor_willow.name=柳木活板门
 tile.got:treasure_copper.name=铜珍宝堆
 tile.got:treasure_gold.name=金珍宝堆
 tile.got:treasure_silver.name=银珍宝堆
+tile.got:treasure_valyrian.name≠Valyrian Treasure Pile
 tile.got:unsmeltery.name=反冶炼炉
 tile.got:valyrian_bars.name=瓦雷利亚钢栏杆
 tile.got:wall_bone.0.name=骨墙
@@ -6893,11 +7036,6 @@ tile.got:wood_slab_single5.3.name=棕榈木台阶
 tile.got:wood_slab_single5.4.name=龙血木台阶
 tile.got:wood_slab_single5.5.name=卡努卡木台阶
 tile.got:wood_slab_single5.6.name=鱼梁木台阶
-tile.got:chrysanthemum.0.name=蓝色菊花
-tile.got:chrysanthemum.1.name=橙色菊花
-tile.got:chrysanthemum.2.name=粉色菊花
-tile.got:chrysanthemum.3.name=黄色菊花
-tile.got:chrysanthemum.4.name=白色菊花
 tile.monsterStoneEgg.brick.name=蠹虫块
 tile.monsterStoneEgg.chiseledbrick.name=蠹虫块
 tile.monsterStoneEgg.cobble.name=蠹虫块

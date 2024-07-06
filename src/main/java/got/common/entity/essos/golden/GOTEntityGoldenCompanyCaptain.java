@@ -2,11 +2,9 @@ package got.common.entity.essos.golden;
 
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
-import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -15,16 +13,6 @@ public class GOTEntityGoldenCompanyCaptain extends GOTEntityGoldenCompanyMan imp
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGoldenCompanyCaptain(World world) {
 		super(world);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

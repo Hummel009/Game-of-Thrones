@@ -31,7 +31,7 @@ public class GOTCreativeTabs extends CreativeTabs {
 		TAB_BLOCK.theIcon = new ItemStack(GOTBlocks.brick1, 1, 1);
 		TAB_UTIL.theIcon = new ItemStack(GOTBlocks.unsmeltery);
 		TAB_DECO.theIcon = new ItemStack(GOTBlocks.birdCage, 1, 4);
-		TAB_FOOD.theIcon = new ItemStack(GOTItems.gobletCopper);
+		TAB_FOOD.theIcon = new ItemStack(GOTItems.mugAle);
 		TAB_MATERIALS.theIcon = new ItemStack(GOTItems.valyrianIngot);
 		TAB_MISC.theIcon = new ItemStack(GOTItems.coin, 1, 6);
 		TAB_TOOLS.theIcon = new ItemStack(GOTItems.bronzePickaxe);

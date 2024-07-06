@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.iface.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -14,11 +13,6 @@ public class GOTEntityJogosNhaiShaman extends GOTEntityJogosNhaiMan implements G
 		super(world);
 		addTargetTasks(false);
 		spawnRidingHorse = false;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

@@ -24,14 +24,10 @@ import got.common.entity.animal.GOTEntityJungleScorpion;
 import got.common.entity.animal.GOTEntityZebra;
 import got.common.entity.dragon.GOTDragonLifeStage;
 import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.other.GOTEntityMarshWraith;
-import got.common.entity.other.GOTEntityStoneMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
 import got.common.entity.essos.yi_ti.GOTEntityYiTiBombardier;
-import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.other.GOTEntityProstitute;
+import got.common.entity.other.*;
 import got.common.entity.other.iface.*;
 import got.common.entity.other.inanimate.*;
 import got.common.entity.other.utils.GOTPlateFallingInfo;
@@ -593,7 +589,7 @@ public class GOTEventHandler {
 				}
 			}
 		}
-		if (entity instanceof GOTTradeable && ((GOTTradeable) entity).canTradeWith(entityplayer)) {
+		if (entity instanceof GOTTradeable && ((GOTTradeCondition) entity).getTradeCondition((GOTEntityNPC) entity, entityplayer)) {
 			if (entity instanceof GOTUnitTradeable) {
 				entityplayer.openGui(GOT.instance, GOTGuiId.TRADE_UNIT_TRADE_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 			} else {
@@ -602,12 +598,12 @@ public class GOTEventHandler {
 			event.setCanceled(true);
 			return;
 		}
-		if (entity instanceof GOTUnitTradeable && ((GOTHireableBase) entity).canTradeWith(entityplayer)) {
+		if (entity instanceof GOTUnitTradeable && ((GOTTradeCondition) entity).getTradeCondition((GOTEntityNPC) entity, entityplayer)) {
 			entityplayer.openGui(GOT.instance, GOTGuiId.UNIT_TRADE_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 			event.setCanceled(true);
 			return;
 		}
-		if (entity instanceof GOTMercenary && ((GOTHireableBase) entity).canTradeWith(entityplayer)) {
+		if (entity instanceof GOTMercenary && ((GOTTradeCondition) entity).getTradeCondition((GOTEntityNPC) entity, entityplayer)) {
 			if (((GOTEntityNPC) entity).getHireableInfo().getHiringPlayerUUID() == null) {
 				entityplayer.openGui(GOT.instance, GOTGuiId.MERCENARY_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 				event.setCanceled(true);
@@ -939,10 +935,10 @@ public class GOTEventHandler {
 							if (npc.getAttackTarget() == null) {
 								npc.setAttackTarget(entityplayer);
 								if (npc instanceof GOTEntityNPC && sentSpeeches < maxSpeeches) {
-									GOTEntityNPC gotnpc = (GOTEntityNPC) npc;
-									String speech = gotnpc.getSpeechBank(entityplayer);
-									if (speech != null && gotnpc.getDistanceSqToEntity(entityplayer) < range) {
-										gotnpc.sendSpeechBank(entityplayer, speech);
+									GOTEntityNPC gotNPC = (GOTEntityNPC) npc;
+									String speech = gotNPC.getSpeechBank(gotNPC, entityplayer);
+									if (speech != null && gotNPC.getDistanceSqToEntity(entityplayer) < range) {
+										gotNPC.sendSpeechBank(entityplayer, speech);
 										sentSpeeches++;
 									}
 								}
@@ -1177,7 +1173,7 @@ public class GOTEventHandler {
 										bounder.setAttackTarget(entity);
 										if (!sentMessage && entity instanceof EntityPlayer) {
 											EntityPlayer entityplayer = (EntityPlayer) entity;
-											bounder.sendSpeechBank(entityplayer, bounder.getSpeechBank(entityplayer));
+											bounder.sendSpeechBank(entityplayer, bounder.getSpeechBank(bounder, entityplayer));
 											sentMessage = true;
 										}
 										if (!playedHorn) {

@@ -328,7 +328,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 4, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.hay_block, 0);
-			setBlockAndMetadata(world, 3, 1, 2, GOTBlocks.essosFlower, 9);
+			setBlockAndMetadata(world, 3, 1, 2, GOTBlocks.southernFlower, 9);
 			setBlockAndMetadata(world, 4, 1, 2, GOTBlocks.chrysanthemum, 9);
 			GOTEntityNPC trader = new GOTEntitySummerFlorist(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);

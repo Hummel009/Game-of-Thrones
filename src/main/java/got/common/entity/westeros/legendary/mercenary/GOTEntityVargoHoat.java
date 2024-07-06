@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTMercenary;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -14,11 +13,6 @@ public class GOTEntityVargoHoat extends GOTEntityHumanBase implements GOTMercena
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

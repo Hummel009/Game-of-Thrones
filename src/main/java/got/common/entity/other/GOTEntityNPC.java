@@ -612,7 +612,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return 1;
 	}
 
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		return null;
 	}
 
@@ -1083,7 +1083,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			if (!worldObj.isRemote) {
 				EntityPlayer entityplayer;
 				String speechBank;
-				if (target instanceof EntityPlayer && speak && (speechBank = getSpeechBank(entityplayer = (EntityPlayer) target)) != null) {
+				if (target instanceof EntityPlayer && speak && (speechBank = getSpeechBank(this, entityplayer = (EntityPlayer) target)) != null) {
 					IEntitySelector selectorAttackingNPCs = new EntitySelectorImpl1(entityplayer);
 					double range = 16.0;
 					List<? extends Entity> nearbyMobs = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range), selectorAttackingNPCs);
@@ -1208,7 +1208,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean speakTo(EntityPlayer entityplayer) {
-		String speechBank = getSpeechBank(entityplayer);
+		String speechBank = getSpeechBank(this, entityplayer);
 		if (speechBank != null) {
 			sendSpeechBank(entityplayer, speechBank);
 			return true;

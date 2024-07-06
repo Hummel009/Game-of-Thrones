@@ -24,7 +24,7 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 
 	@Override
 	public String getKillTargetName() {
-		return killFaction.factionEntityName();
+		return killFaction.factionName();
 	}
 
 	@Override

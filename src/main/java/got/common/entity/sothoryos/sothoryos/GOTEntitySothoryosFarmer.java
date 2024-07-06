@@ -5,7 +5,6 @@ import got.common.database.GOTTradeEntries;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTFarmer;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -18,11 +17,6 @@ public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements G
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -48,5 +42,10 @@ public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements G
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

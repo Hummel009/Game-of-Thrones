@@ -5,9 +5,7 @@ import got.common.database.GOTAchievement;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
 
-public interface GOTHireableBase {
-	boolean canTradeWith(EntityPlayer entityPlayer);
-
+public interface GOTHireableBase extends GOTTradeCondition {
 	GOTFaction getFaction();
 
 	String getNPCName();

@@ -36,6 +36,9 @@ import got.common.entity.essos.volantis.GOTEntityVolantisSoldier;
 import got.common.entity.essos.volantis.GOTEntityVolantisSoldierArcher;
 import got.common.entity.essos.yi_ti.*;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBannerBearer;
+import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBlowgunner;
+import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosWarrior;
 import got.common.entity.westeros.arryn.GOTEntityArrynBannerBearer;
 import got.common.entity.westeros.arryn.GOTEntityArrynSoldier;
 import got.common.entity.westeros.arryn.GOTEntityArrynSoldierArcher;
@@ -81,7 +84,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public enum GOTInvasions {
-	WILDLING(GOTFaction.WILDLING), THENN(GOTFaction.WILDLING, "THENN"), GIANT(GOTFaction.WILDLING, "GIANT"), NORTH(GOTFaction.NORTH), IRONBORN(GOTFaction.IRONBORN), WESTERLANDS(GOTFaction.WESTERLANDS), RIVERLANDS(GOTFaction.RIVERLANDS), HILL_TRIBES(GOTFaction.HILL_TRIBES), ARRYN(GOTFaction.ARRYN), DRAGONSTONE(GOTFaction.DRAGONSTONE), STORMLANDS(GOTFaction.STORMLANDS), REACH(GOTFaction.REACH), DORNE(GOTFaction.DORNE), BRAAVOS(GOTFaction.BRAAVOS), VOLANTIS(GOTFaction.VOLANTIS), PENTOS(GOTFaction.PENTOS), NORVOS(GOTFaction.NORVOS), LORATH(GOTFaction.LORATH), MYR(GOTFaction.MYR), LYS(GOTFaction.LYS), TYROSH(GOTFaction.TYROSH), GHISCAR(GOTFaction.GHISCAR), DOTHRAKI(GOTFaction.DOTHRAKI), IBBEN(GOTFaction.IBBEN), JOGOS_NHAI(GOTFaction.JOGOS_NHAI), YI_TI(GOTFaction.YI_TI);
+	WILDLING(GOTFaction.WILDLING), THENN(GOTFaction.WILDLING, "THENN"), GIANT(GOTFaction.WILDLING, "GIANT"), NORTH(GOTFaction.NORTH), IRONBORN(GOTFaction.IRONBORN), WESTERLANDS(GOTFaction.WESTERLANDS), RIVERLANDS(GOTFaction.RIVERLANDS), HILL_TRIBES(GOTFaction.HILL_TRIBES), ARRYN(GOTFaction.ARRYN), DRAGONSTONE(GOTFaction.DRAGONSTONE), STORMLANDS(GOTFaction.STORMLANDS), REACH(GOTFaction.REACH), DORNE(GOTFaction.DORNE), BRAAVOS(GOTFaction.BRAAVOS), VOLANTIS(GOTFaction.VOLANTIS), PENTOS(GOTFaction.PENTOS), NORVOS(GOTFaction.NORVOS), LORATH(GOTFaction.LORATH), MYR(GOTFaction.MYR), LYS(GOTFaction.LYS), TYROSH(GOTFaction.TYROSH), GHISCAR(GOTFaction.GHISCAR), DOTHRAKI(GOTFaction.DOTHRAKI), IBBEN(GOTFaction.IBBEN), JOGOS_NHAI(GOTFaction.JOGOS_NHAI), YI_TI(GOTFaction.YI_TI), SOTHORYOS(GOTFaction.SOTHORYOS);
 
 	private final Collection<InvasionSpawnEntry> invasionMobs = new ArrayList<>();
 	private final GOTFaction invasionFaction;
@@ -231,6 +234,10 @@ public enum GOTInvasions {
 		NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthSoldier.class, 10));
 		NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthSoldierArcher.class, 5));
 		NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthBannerBearer.class, 2));
+
+		SOTHORYOS.invasionMobs.add(new InvasionSpawnEntry(GOTEntitySothoryosWarrior.class, 10));
+		SOTHORYOS.invasionMobs.add(new InvasionSpawnEntry(GOTEntitySothoryosBlowgunner.class, 5));
+		SOTHORYOS.invasionMobs.add(new InvasionSpawnEntry(GOTEntitySothoryosBannerBearer.class, 2));
 	}
 
 	public String codeName() {

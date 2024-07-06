@@ -200,7 +200,7 @@ public class GOTFamilyInfo {
 					List<EntityPlayer> players = theEntity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theEntity.boundingBox.expand(range, range, range));
 					for (EntityPlayer entityplayer : players) {
 						String speechBank;
-						if (!entityplayer.isEntityAlive() || entityplayer.capabilities.isCreativeMode || (speechBank = theEntity.getSpeechBank(entityplayer)) == null || theEntity.getRNG().nextInt(3) != 0) {
+						if (!entityplayer.isEntityAlive() || entityplayer.capabilities.isCreativeMode || (speechBank = theEntity.getSpeechBank(theEntity, entityplayer)) == null || theEntity.getRNG().nextInt(3) != 0) {
 							continue;
 						}
 						theEntity.sendSpeechBank(entityplayer, speechBank);

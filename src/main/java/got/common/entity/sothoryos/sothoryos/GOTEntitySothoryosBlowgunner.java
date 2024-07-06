@@ -1,6 +1,5 @@
 package got.common.entity.sothoryos.sothoryos;
 
-import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.inanimate.GOTEntityDart;
@@ -49,7 +48,7 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosWarrior {
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.0f + getDistanceToEntity(target) / 16.0f * 0.015f;
-		GOTEntityDart dart = GOTItemDart.createDart(worldObj, this, target, new ItemStack(GOTBlocks.sarbacaneTrap), str * GOTItemSarbacane.getSarbacaneLaunchSpeedFactor(heldItem), 1.0f);
+		GOTEntityDart dart = GOTItemDart.createDart(worldObj, this, target, new ItemStack(GOTItems.dart), str * GOTItemSarbacane.getSarbacaneLaunchSpeedFactor(heldItem), 1.0f);
 		if (heldItem != null) {
 			GOTItemSarbacane.applySarbacaneModifiers(dart, heldItem);
 		}

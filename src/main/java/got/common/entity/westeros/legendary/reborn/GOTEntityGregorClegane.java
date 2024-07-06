@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.warrior.GOTEntitySandorClegane;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.Entity;
@@ -94,7 +95,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public String getSpeechBank(EntityPlayer entityPlayer) {
+		public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 			if (isFriendly(entityPlayer)) {
 				return "legendary/gregor_friendly";
 			}

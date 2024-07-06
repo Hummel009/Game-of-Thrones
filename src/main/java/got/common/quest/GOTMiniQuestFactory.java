@@ -196,73 +196,20 @@ public enum GOTMiniQuestFactory {
 				registerQuestCollect(factory, new ItemStack(GOTBlocks.chestStone), 8, 16, 1.0f);
 				registerQuestCollect(factory, new ItemStack(GOTBlocks.chestBasket), 8, 16, 1.0f);
 
-				registerQuestCollect(factory, new ItemStack(Blocks.hardened_clay), 30, 80, 0.25f);
-				registerQuestCollect(factory, new ItemStack(Blocks.cobblestone), 30, 80, 0.25f);
-				registerQuestCollect(factory, new ItemStack(Blocks.sandstone), 30, 80, 0.25f);
-				registerQuestCollect(factory, new ItemStack(Blocks.stone), 30, 80, 0.25f);
-				registerQuestCollect(factory, new ItemStack(GOTBlocks.redSandstone), 30, 80, 0.25f);
-				registerQuestCollect(factory, new ItemStack(GOTBlocks.whiteSandstone), 30, 80, 0.25f);
+				registerQuestCollect(factory, new ItemStack(Blocks.hardened_clay), 20, 50, 0.25f);
+				registerQuestCollect(factory, new ItemStack(Blocks.cobblestone), 20, 50, 0.25f);
+				registerQuestCollect(factory, new ItemStack(Blocks.sandstone), 20, 50, 0.25f);
+				registerQuestCollect(factory, new ItemStack(Blocks.stone), 20, 50, 0.25f);
+				registerQuestCollect(factory, new ItemStack(GOTBlocks.redSandstone), 20, 50, 0.25f);
+				registerQuestCollect(factory, new ItemStack(GOTBlocks.whiteSandstone), 20, 50, 0.25f);
 
 				for (int i = 0; i <= 6; i++) {
-					registerQuestCollect(factory, new ItemStack(GOTBlocks.rock, 1, i), 30, 80, 0.25f);
+					registerQuestCollect(factory, new ItemStack(GOTBlocks.rock, 1, i), 20, 50, 0.25f);
 				}
 
 				for (int i = 0; i <= 15; i++) {
-					registerQuestCollect(factory, new ItemStack(GOTBlocks.concretePowder, 1, i), 30, 80, 0.25f);
+					registerQuestCollect(factory, new ItemStack(GOTBlocks.concretePowder, 1, i), 20, 50, 0.25f);
 				}
-
-				registerQuestCollect(factory, new ItemStack(GOTItems.goldRing), 1, 1, 5.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.silverRing), 1, 1, 4.0f);
-
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailBoots), 1, 1, 1.5f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailChestplate), 1, 1, 1.5f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailHelmet), 1, 1, 1.5f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailLeggings), 1, 1, 1.5f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeBoots), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChestplate), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeHelmet), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeLeggings), 1, 1, 2.0f);
-
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeNugget), 1, 2, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeIngot), 1, 2, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeRing), 1, 2, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.copperRing), 1, 2, 2.0f);
-
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeAxe), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeBattleaxe), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeCrossbow), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeDagger), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeDaggerPoisoned), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeHammer), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeMattock), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeScimitar), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeSpear), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeSword), 1, 1, 2.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeThrowingAxe), 1, 1, 2.0f);
-
-				registerQuestCollect(factory, new ItemStack(Items.chainmail_boots), 1, 1, 2.5f);
-				registerQuestCollect(factory, new ItemStack(Items.chainmail_leggings), 1, 1, 2.5f);
-				registerQuestCollect(factory, new ItemStack(Items.chainmail_chestplate), 1, 1, 2.5f);
-				registerQuestCollect(factory, new ItemStack(Items.chainmail_helmet), 1, 1, 2.5f);
-				registerQuestCollect(factory, new ItemStack(Items.iron_boots), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(Items.iron_chestplate), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(Items.iron_helmet), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(Items.iron_leggings), 1, 1, 3.0f);
-
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironNugget), 1, 2, 30);
-				registerQuestCollect(factory, new ItemStack(Items.iron_ingot), 1, 2, 30);
-
-				registerQuestCollect(factory, new ItemStack(Items.iron_axe), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironBattleaxe), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironCrossbow), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironDagger), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironDaggerPoisoned), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironHammer), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironMattock), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironScimitar), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironSpear), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(Items.iron_sword), 1, 1, 3.0f);
-				registerQuestCollect(factory, new ItemStack(GOTItems.ironThrowingAxe), 1, 1, 3.0f);
 
 				registerQuestCollect(factory, new ItemStack(Blocks.log, 1, 0), 20, 50, 0.25f);
 				registerQuestCollect(factory, new ItemStack(Blocks.log, 1, 1), 20, 50, 0.25f);
@@ -289,10 +236,61 @@ public enum GOTMiniQuestFactory {
 					registerQuestCollect(factory, new ItemStack(Blocks.wool, 1, i), 6, 15, 0.5f);
 				}
 
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailBoots), 1, 1, 1.5f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailChestplate), 1, 1, 1.5f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailHelmet), 1, 1, 1.5f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChainmailLeggings), 1, 1, 1.5f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeBoots), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeChestplate), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeHelmet), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeLeggings), 1, 1, 2.0f);
+
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeAxe), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeBattleaxe), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeCrossbow), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeDagger), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeDaggerPoisoned), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeHammer), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeMattock), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeScimitar), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeSpear), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeSword), 1, 1, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeThrowingAxe), 1, 1, 2.0f);
+
+				registerQuestCollect(factory, new ItemStack(Items.chainmail_boots), 1, 1, 2.5f);
+				registerQuestCollect(factory, new ItemStack(Items.chainmail_leggings), 1, 1, 2.5f);
+				registerQuestCollect(factory, new ItemStack(Items.chainmail_chestplate), 1, 1, 2.5f);
+				registerQuestCollect(factory, new ItemStack(Items.chainmail_helmet), 1, 1, 2.5f);
+				registerQuestCollect(factory, new ItemStack(Items.iron_boots), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(Items.iron_chestplate), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(Items.iron_helmet), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(Items.iron_leggings), 1, 1, 3.0f);
+
+				registerQuestCollect(factory, new ItemStack(Items.iron_axe), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironBattleaxe), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironCrossbow), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironDagger), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironDaggerPoisoned), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironHammer), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironMattock), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironScimitar), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironSpear), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(Items.iron_sword), 1, 1, 3.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.ironThrowingAxe), 1, 1, 3.0f);
+
 				registerQuestCollect(factory, new ItemStack(Items.arrow), 2, 5, 1.0f);
 				registerQuestCollect(factory, new ItemStack(GOTItems.crossbowBolt), 2, 5, 1.0f);
 				registerQuestCollect(factory, new ItemStack(Items.bow), 1, 1, 1.0f);
 				registerQuestCollect(factory, new ItemStack(GOTItems.longbow), 1, 1, 1.0f);
+
+				registerQuestCollect(factory, new ItemStack(GOTItems.goldRing), 1, 1, 5.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.silverRing), 1, 1, 4.0f);
+
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeIngot), 1, 2, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.bronzeRing), 1, 2, 2.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.copperRing), 1, 2, 2.0f);
+
+				registerQuestCollect(factory, new ItemStack(Items.iron_ingot), 1, 2, 30);
 
 				registerQuestCollect(factory, new ItemStack(Items.bucket), 1, 3, 1.0f);
 				registerQuestCollect(factory, new ItemStack(Items.glass_bottle), 1, 3, 1.0f);
@@ -310,12 +308,12 @@ public enum GOTMiniQuestFactory {
 				registerQuestCollect(factory, new ItemStack(Items.stick), 1, 8, 1.0f);
 				registerQuestCollect(factory, new ItemStack(GOTItems.fur), 1, 3, 1.0f);
 
+				registerQuestCollect(factory, new ItemStack(GOTBlocks.rope), 5, 12, 1.0f);
+				registerQuestCollect(factory, new ItemStack(GOTItems.leatherHat), 1, 1, 1.0f);
+
 				registerQuestCollect(factory, new ItemStack(Items.wheat), 1, 3, 1.0f);
 				registerQuestCollect(factory, new ItemStack(Items.wheat_seeds), 1, 6, 1.0f);
 
-				registerQuestCollect(factory, new ItemStack(GOTBlocks.rope), 5, 12, 1.0f);
-
-				registerQuestCollect(factory, new ItemStack(GOTItems.leatherHat), 1, 1, 1.0f);
 				registerQuestCollect(factory, new ItemStack(GOTItems.waterskin), 1, 3, 1.0f);
 				registerQuestCollect(factory, new ItemStack(GOTItems.mug), 1, 3, 1.0f);
 				registerQuestCollect(factory, new ItemStack(GOTItems.ceramicMug), 1, 3, 1.0f);
@@ -364,7 +362,6 @@ public enum GOTMiniQuestFactory {
 				registerQuestCollect(factory, new ItemStack(Items.fish, 1, 3), 1, 3, 1.5f);
 				registerQuestCollect(factory, new ItemStack(GOTItems.cornBread), 1, 3, 1.5f);
 				registerQuestCollect(factory, new ItemStack(Items.bread), 1, 3, 1.5f);
-
 			}
 		}
 	}

@@ -7,7 +7,6 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -21,11 +20,6 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killLuwin;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

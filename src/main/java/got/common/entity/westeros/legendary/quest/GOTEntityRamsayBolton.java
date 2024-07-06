@@ -3,6 +3,7 @@ package got.common.entity.westeros.legendary.quest;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuestFactory;
 import net.minecraft.entity.IEntityLivingData;
@@ -34,8 +35,8 @@ public class GOTEntityRamsayBolton extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/ramsay_friendly";
 		}
 		return "legendary/ramsay_hostile";

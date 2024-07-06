@@ -38,7 +38,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 

@@ -343,10 +343,10 @@ entity.got.JaqenHghar.name≠Jaqen H'Ghar
 entity.got.JasonMallister.name≠Jason Mallister
 entity.got.JeorMormont.name≠Jeor Mormont
 entity.got.JoffreyBaratheon.name≠Joffrey Baratheon
-entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
 entity.got.JogosNhaiArcher.name≠Jogos Nhai Archer
 entity.got.JogosNhaiBannerBearer.name≠Jogos Nhai Banner Bearer
 entity.got.JogosNhaiChieftain.name≠Jogos Nhai Chieftain
+entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
 entity.got.JogosNhaiShaman.name≠Jogos Nhai Shaman
 entity.got.JohnUmber.name≠John Umber
 entity.got.JonConnington.name≠Jon Connington
@@ -870,7 +870,6 @@ entity.got.YiTiButcher.name≠Yi Ti Butcher
 entity.got.YiTiCaptain.name≠Yi Ti Shogun
 entity.got.YiTiFarmer.name≠Yi Ti Farmer
 entity.got.YiTiFarmhand.name≠Yi Ti Farmhand
-entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiFishmonger.name≠Yi Ti Fishmonger
 entity.got.YiTiFlorist.name≠Yi Ti Florist
 entity.got.YiTiGoldsmith.name≠Yi Ti Goldsmith
@@ -882,6 +881,7 @@ entity.got.YiTiMan.name≠Yi Ti Man
 entity.got.YiTiMason.name≠Yi Ti Mason
 entity.got.YiTiMiner.name≠Yi Ti Miner
 entity.got.YiTiSamurai.name≠Yi Ti Samurai
+entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
 entity.got.YiTiSoldier.name≠Yi Ti Soldier
 entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
 entity.got.YohnRoyce.name≠Yohn Royce
@@ -1562,6 +1562,10 @@ got.achievement.USE_THROWING_AXE.desc=Fırlatma Baltası Kullan
 got.achievement.USE_THROWING_AXE.title=At onu
 got.achievement.USE_UNSMELTERY.desc=Gereksiz ekipman
 got.achievement.USE_UNSMELTERY.title=Kullanım
+got.achievement.WEAR_FULL_ALLOY_STEEL.desc≠Wear full set of alloy steel armor
+got.achievement.WEAR_FULL_ALLOY_STEEL.title≠Still not Valyrian
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.desc≠Wear full set of alloy steel chainmail
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.title≠Like iron, but stronger
 got.achievement.WEAR_FULL_ARRYN.desc=Vadi tam setini giyin
 got.achievement.WEAR_FULL_ARRYN.title=Vadi Muhafız
 got.achievement.WEAR_FULL_ARRYNGUARD.desc=Vadi Muhafıznın tam setini giyin
@@ -1576,6 +1580,10 @@ got.achievement.WEAR_FULL_BRONZE.desc=Tam bir bronz zırh seti giyin
 got.achievement.WEAR_FULL_BRONZE.title=Bakır + kalay
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=Tam bronz zırh takımı giyin
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=Güzel bir miktar tasarruf edildi
+got.achievement.WEAR_FULL_COPPER.desc≠Wear full set of copper armor
+got.achievement.WEAR_FULL_COPPER.title≠Corrosion
+got.achievement.WEAR_FULL_COPPER_CHAINMAIL.desc≠Wear full set of copper chainmail
+got.achievement.WEAR_FULL_COPPPER_CHAINMAIL.title≠No wire braiding included
 got.achievement.WEAR_FULL_CROWNLANDS.desc=Altın Pelerinlerin tamamını giyin
 got.achievement.WEAR_FULL_CROWNLANDS.title=King's Landing'in Muhafız Kaptanı
 got.achievement.WEAR_FULL_DORNE.desc=Dorne'un tam setini giyin
@@ -1592,8 +1600,12 @@ got.achievement.WEAR_FULL_GHISCAR.desc=Ghiscar'ın tam setini giyin
 got.achievement.WEAR_FULL_GHISCAR.title=Ghiscar'ın Muhafız
 got.achievement.WEAR_FULL_GIFT.desc=Gece Saatinin tam setini giyin
 got.achievement.WEAR_FULL_GIFT.title=Duvar Muhafız
+got.achievement.WEAR_FULL_GOLD.desc≠Wear full set of gold armor
+got.achievement.WEAR_FULL_GOLD.title≠Gypsy Baron
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=Altın Mürettebat'ın tam setini giyin
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=Altın Şirket
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.desc≠Wear full set of gold chainmail
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.title≠Worst Armor
 got.achievement.WEAR_FULL_HILLMEN.desc=Tepe Kabilelerinin tam setini giyin
 got.achievement.WEAR_FULL_HILLMEN.title=Ay Dağlarının Çılgınlığı
 got.achievement.WEAR_FULL_IBBEN.desc=Tam Ibben takımı giyin
@@ -1846,7 +1858,7 @@ got.biome.thennLand.name=Sonra Arazi
 got.biome.tropicalForest.name=Tropikal ormanlar
 got.biome.tyrosh.name=Tiroş
 got.biome.ulos.name=Ulolar
-got.biome.ulthos.name=Ulthos
+got.biome.ulthosBushland.name=Ulthos
 got.biome.ulthosDesert.name=Ulthos Çölü
 got.biome.ulthosDesertCold.name=Ulthos Soğuk Çölü
 got.biome.ulthosForest.name=Ulthos Ormanı
@@ -2853,6 +2865,7 @@ got.invasion.NORVOS.horn=İstila Çağırma - Norvos
 got.invasion.PENTOS.horn=İstila Çağırma - Pentos
 got.invasion.REACH.horn=İstila Çağırma - Menzil
 got.invasion.RIVERLANDS.horn=İstila Çağırma - Nehir Toprakları
+got.invasion.SOTHORYOS.horn≠Summon Invasion - Sothoryos
 got.invasion.STORMLANDS.horn=İstila Çağırma - Fırtına Toprakları
 got.invasion.TYROSH.horn=İstila Çağırma - Tyrosh
 got.invasion.VOLANTIS.horn=İstila Çağırma - Volantis
@@ -4568,9 +4581,9 @@ got.wp.custom=%s
 got.wp.shared.info=%s için kullanılabilir
 got.wp.shared=%s
 item.got.antiking=Gece Kralı'nı Öldürür
-item.got.antiwraith=Yaşayan ölüleri öldürür
 item.got.antiwalker=Beyaz yürüyenleri öldürür
 item.got.antiwight=Wightları öldürür
+item.got.antiwraith=Yaşayan ölüleri öldürür
 item.got.anvil1=Mücevherle onarmak için boya
 item.got.anvil2=Etkiyi uygulamak için planlar ile onarmak
 item.got.banner.protect=Koruma Verilerini Taşır
@@ -4588,6 +4601,7 @@ item.got.cauldron1=Kovayı suyla doldurmak için tıklayın
 item.got.cauldron2=Boyanmış bir ürünü yıkamak için tıklayın
 item.got.chisel1=Taş, metal veya ahşap bloğuna tıklayın,
 item.got.chisel2=üzerinde bir yazıt oymak için
+item.got.chisel3≠Inscription is only visible at night
 item.got.commandHorn.halt.name=Horn of Command - Birimleri Durdur
 item.got.commandHorn.ready.name=Komuta Kornası - Hazır Birimler
 item.got.commandHorn.summon.name=Komuta Kornası - Birimleri Çağır
@@ -4643,21 +4657,40 @@ item.got.weapon_rack=Silah ıskalasına tıklayarak asın
 item.got:ale_horn.name=Bira Boynuzu
 item.got:ale_horn_gold.name=Altın Bira Boynuzu
 item.got:alloy_steel_axe.name=Alaşımlı Çelik Balta
+item.got:alloy_steel_battleaxe.name≠Alloy Steel Battleaxe
+item.got:alloy_steel_boots.name≠Alloy Steel Boots
+item.got:alloy_steel_chainmail_boots.name≠Alloy Steel Chain Boots
+item.got:alloy_steel_chainmail_chestplate.name≠Alloy Steel Chain Chestplate
+item.got:alloy_steel_chainmail_helmet.name≠Alloy Steel Chain Helmet
+item.got:alloy_steel_chainmail_leggings.name≠Alloy Steel Chain Leggings
+item.got:alloy_steel_chestplate.name≠Alloy Steel Chestplate
+item.got:alloy_steel_crossbow.name≠Alloy Steel Crossbow
 item.got:alloy_steel_dagger.name=Alaşımlı Çelik Hançer
 item.got:alloy_steel_dagger_poisoned.name=Alaşımlı Çelik Zehirli Hançer
+item.got:alloy_steel_greatsword.name≠Alloy Steel Greatsword
 item.got:alloy_steel_halberd.name=Alaşımlı Çelik Teber
+item.got:alloy_steel_hammer.name≠Alloy Steel Hammer
+item.got:alloy_steel_helmet.name≠Alloy Steel Helmet
 item.got:alloy_steel_hoe.name=Alaşımlı Çelik Çapa
 item.got:alloy_steel_ingot.name=Alaşımlı Çelik Ignot
+item.got:alloy_steel_leggings.name≠Alloy Steel Leggings
+item.got:alloy_steel_longsword.name≠Alloy Steel Longsword
+item.got:alloy_steel_mattock.name≠Alloy Steel Mattock
 item.got:alloy_steel_nugget.name=Alaşımlı Çelik Nugget
 item.got:alloy_steel_pickaxe.name=Alaşımlı Çelik Kazma
+item.got:alloy_steel_pike.name≠Alloy Steel Pike
+item.got:alloy_steel_scimitar.name≠Alloy Steel Scimitar
 item.got:alloy_steel_shovel.name=Alaşımlı Çelik Kürek
+item.got:alloy_steel_spear.name≠Alloy Steel Spear
 item.got:alloy_steel_sword.name=Alaşımlı Çelik Kılıç
+item.got:alloy_steel_throwing_axe.name≠Alloy Steel Throwing Axe
 item.got:almond.name=Badem
 item.got:amber.name=Kehribar
 item.got:amethyst.name=Mor Kuvars
 item.got:anonymous_mask.name=Anonim maske
 item.got:apple_crumble.name=Elma Turtası
 item.got:apple_green.name=Elma
+item.got:ardrian_celtigar_axe.name=Celtigar baltası
 item.got:armor_stand.name=Zırh Askısı
 item.got:arrow_fire.name=Yanan ok
 item.got:arrow_poisoned.name=Zehirli Ok
@@ -4676,8 +4709,6 @@ item.got:asshai_helmet.name=Asshai Kask
 item.got:asshai_leggings.name=Asshai Pantolon
 item.got:asshai_mask.name=Asshai Gölge Bağlayıcı Maskesi
 item.got:asshai_shadowbinder_staff.name=Asshai Gölge Bağlayıcı Asası
-item.got:petyr_baelish_brooch.name=Petyr Baelish Broşu
-item.got:petyr_baelish_dagger.name=Petyr Baelish Hançer
 item.got:banana.name=Muz
 item.got:banana_bread.name=Muzlu Ekmek
 item.got:banana_cake.name=Muzlu Pasta
@@ -5322,13 +5353,19 @@ item.got:bronze_chestplate.name=Bronz Zırh
 item.got:bronze_crossbow.name=Bronz Kundaklı Yay
 item.got:bronze_dagger.name=Bronz hançer
 item.got:bronze_dagger_poisoned.name=Zehirli Bronz Hançer
+item.got:bronze_greatsword.name≠Bronze Greatsword
+item.got:bronze_hammer.name≠Bronze Hammer
 item.got:bronze_helmet.name=Bronz kask
 item.got:bronze_hoe.name=Bronz çapa
 item.got:bronze_ingot.name=Bronz külçe
 item.got:bronze_leggings.name=Bronz Pantolon
+item.got:bronze_longsword.name≠Bronze Longsword
+item.got:bronze_mattock.name≠Bronze Mattock
 item.got:bronze_nugget.name=Bronz Külçe
 item.got:bronze_pickaxe.name=Bronz kazma
+item.got:bronze_pike.name≠Bronze Pike
 item.got:bronze_ring.name=Bronz Yüzük
+item.got:bronze_scimitar.name≠Bronze Scimitar
 item.got:bronze_shovel.name=Bronz kürek
 item.got:bronze_spear.name=Bronz mızrak
 item.got:bronze_sword.name=Bronz kılıç
@@ -5336,7 +5373,6 @@ item.got:bronze_throwing_axe.name=Bronz Fırlatma Baltası
 item.got:camel_cooked.name=Pişmiş Deve Eti
 item.got:camel_raw.name=Çiğ Deve Eti
 item.got:cargocart.name=Kargo arabası
-item.got:ardrian_celtigar_axe.name=Celtigar baltası
 item.got:ceramic_mug.name=Seramik Kupa
 item.got:ceramic_plate.name=Kil Tabak
 item.got:cherry.name=Vişne
@@ -5359,9 +5395,34 @@ item.got:coin.64.name=Gümüş Yıldız
 item.got:coin.nominal.name=Nominal
 item.got:command_horn.name=Komut Borusu
 item.got:command_sword.name=Komut Kılıcı
+item.got:copper_axe.name≠Copper Axe
+item.got:copper_battleaxe.name≠Copper Battleaxe
+item.got:copper_boots.name≠Copper Boots
+item.got:copper_chainmail_boots.name≠Copper Chain Boots
+item.got:copper_chainmail_chestplate.name≠Copper Chain Chestplate
+item.got:copper_chainmail_helmet.name≠Copper Chain Helmet
+item.got:copper_chainmail_leggings.name≠Copper Chain Leggings
+item.got:copper_chestplate.name≠Copper Chestplate
+item.got:copper_crossbow.name≠Copper Crossbow
+item.got:copper_dagger.name≠Copper Dagger
+item.got:copper_dagger_poisoned.name≠Copper Poisoned Dagger
+item.got:copper_greatsword.name≠Copper Greatsword
+item.got:copper_hammer.name≠Copper Hammer
+item.got:copper_helmet.name≠Copper Helmet
+item.got:copper_hoe.name≠Copper Hoe
 item.got:copper_ingot.name=Bakır Külçe
+item.got:copper_leggings.name≠Copper Leggings
+item.got:copper_longsword.name≠Copper Longsword
+item.got:copper_mattock.name≠Copper Mattock
 item.got:copper_nugget.name=Bakır külçe
+item.got:copper_pickaxe.name≠Copper Pickaxe
+item.got:copper_pike.name≠Copper Pike
 item.got:copper_ring.name=Bakır Yüzük
+item.got:copper_scimitar.name≠Copper Scimitar
+item.got:copper_shovel.name≠Copper Shovel
+item.got:copper_spear.name≠Copper Spear
+item.got:copper_sword.name≠Copper Sword
+item.got:copper_throwing_axe.name≠Copper Throwing Axe
 item.got:coral.name=Mercan
 item.got:corn.name=Mısır
 item.got:corn_bread.name=Mısırlı Ekmek
@@ -5384,6 +5445,7 @@ item.got:dawn.name=Şafak
 item.got:deer_cooked.name=Pişmiş Geyik Eti
 item.got:deer_raw.name=Çiğ Geyik Eti
 item.got:diamond.name=Elmas
+item.got:diamond_mattock.name≠Diamond Mattock
 item.got:dorne_boots.name=Dorne Bot
 item.got:dorne_chestplate.name=Dorne Zırh
 item.got:dorne_helmet.name=Dorne Kask
@@ -5436,11 +5498,29 @@ item.got:gift_helmet.name=Gece Saati şapka
 item.got:gift_leggings.name=Gece Saati Pantolon
 item.got:gingerbread.name=Lezzetli ekmek
 item.got:giraffe_rug.name=Zürafa Postu
+item.got:goblet_bronze.name≠Bronze Goblet
 item.got:goblet_copper.name=Bakır Kadeh
 item.got:goblet_gold.name=Altın Kadeh
 item.got:goblet_silver.name=Gümüş Kadeh
+item.got:goblet_valyrian.name≠Valyrian Goblet
 item.got:goblet_wood.name=Tahta Kupa
+item.got:gold_battleaxe.name≠Golden Battleaxe
+item.got:gold_chainmail_boots.name≠Golden Chain Boots
+item.got:gold_chainmail_chestplate.name≠Golden Chain Chestplate
+item.got:gold_chainmail_helmet.name≠Golden Chain Helmet
+item.got:gold_chainmail_leggings.name≠Golden Chain Leggings
+item.got:gold_crossbow.name≠Golden Crossbow
+item.got:gold_dagger.name≠Golden Dagger
+item.got:gold_dagger_poisoned.name≠Golden Poisoned Dagger
+item.got:gold_greatsword.name≠Golden Greatsword
+item.got:gold_hammer.name≠Golden Hammer
+item.got:gold_longsword.name≠Golden Longsword
+item.got:gold_mattock.name≠Golden Mattock
+item.got:gold_pike.name≠Golden Pike
 item.got:gold_ring.name=Altın Yüzük
+item.got:gold_scimitar.name≠Golden Scimitar
+item.got:gold_spear.name≠Golden Spear
+item.got:gold_throwing_axe.name≠Golden Throwing Axe
 item.got:golden_company_boots.name=Altın Şirket Bot
 item.got:golden_company_chestplate.name=Altın Şirket Zırh
 item.got:golden_company_helmet.name=Altın Şirket Kask
@@ -5478,8 +5558,13 @@ item.got:iron_battleaxe.name=Demir Savaş Baltası
 item.got:iron_crossbow.name=Demir Kundaklı Yay
 item.got:iron_dagger.name=Demir hançer
 item.got:iron_dagger_poisoned.name=Zehirli Demir Hançer
+item.got:iron_greatsword.name≠Iron Greatsword
+item.got:iron_hammer.name≠Iron Hammer
+item.got:iron_longsword.name≠Iron Longsword
+item.got:iron_mattock.name≠Iron Mattock
 item.got:iron_nugget.name=Demir Külçe
 item.got:iron_pike.name=Demir turna
+item.got:iron_scimitar.name≠Iron Scimitar
 item.got:iron_spear.name=Demir Mızrak
 item.got:iron_throwing_axe.name=Demir Fırlatma Baltası
 item.got:ironborn_boots.name=Demir Adalar Bot
@@ -5500,7 +5585,6 @@ item.got:kingsguard_helmet.name=Kral Muhafız Kask
 item.got:kingsguard_leggings.name=Kral Muhafız Pantolon
 item.got:lady_forlorn.name=Bayan kimsesiz
 item.got:lamentation.name=Ağıt
-item.got:tyrion_lannister_brooch.name=Tyrion Lannister Broşu
 item.got:leather_hat.name=Deri Şapka
 item.got:leek.name=Prasa
 item.got:leek_soup.name=Prasa Çorbası
@@ -5514,10 +5598,16 @@ item.got:lhazar_leggings.name=Lhazar Pantolon
 item.got:lightbringer.name=Işık getiren
 item.got:lime.name=Misket Limonu
 item.got:lingering_potion.name=Kalıcı iksir
+item.got:lion_boots.name≠Lion Fur Boots
+item.got:lion_chestplate.name≠Lion Fur Chestplate
 item.got:lion_cooked.name=Pişmiş Aslan
 item.got:lion_fur.name=Aslan Kürkü
+item.got:lion_fur_bed.name≠Lion Fur Bed
+item.got:lion_helmet.name≠Lion Fur Helmet
+item.got:lion_leggings.name≠Lion Fur Leggings
 item.got:lion_raw.name=Çiğ Aslan
 item.got:lion_rug.name=Aslan Postu
+item.got:longbow.name≠Longbow
 item.got:longclaw.name=Uzunpençe
 item.got:lorath_boots.name=Lorath Bot
 item.got:lorath_chestplate.name=Lorath Zırh
@@ -5532,6 +5622,7 @@ item.got:maple_syrup.name=Akçaağaç Şurubu
 item.got:marzipan.name=Acıbadem Kurabiyesi
 item.got:marzipan_chocolate.name=Çikolatalı Acıbadem Kurabiyesi
 item.got:melon_soup.name=Kavun Şurubu
+item.got:monford_velaryon_brooch.name=Monford Velaryon Broşu
 item.got:mossovy_boots.name=Mossovy Bot
 item.got:mossovy_chestplate.name=Mossovy Zırh
 item.got:mossovy_leggings.name=Mossovy Pantolon
@@ -5609,7 +5700,21 @@ item.got:norvos_helmet.name=Norvos Kask
 item.got:norvos_leggings.name=Norvos Pantolon
 item.got:npc_respawner.name=Yeniden Çağırıcı
 item.got:oathkeeper.name=Yemin tutucu
+item.got:obsidian_axe.name≠Dragonglass Axe
+item.got:obsidian_battleaxe.name≠Dragonglass Battleaxe
+item.got:obsidian_dagger.name≠Dragonglass Dagger
+item.got:obsidian_dagger_poisoned.name≠Dragonglass Poisoned Dagger
+item.got:obsidian_hammer.name≠Dragonglass Hammer
+item.got:obsidian_hoe.name≠Dragonglass Hoe
+item.got:obsidian_mattock.name≠Dragonglass Mattock
+item.got:obsidian_pickaxe.name≠Dragonglass Pickaxe
+item.got:obsidian_pike.name≠Dragonglass Pike
+item.got:obsidian_scimitar.name≠Dragonglass Scimitar
 item.got:obsidian_shard.name=Obsidyen Parçası
+item.got:obsidian_shovel.name≠Dragonglass Shovel
+item.got:obsidian_spear.name≠Dragonglass Spear
+item.got:obsidian_sword.name≠Dragonglass Sword
+item.got:obsidian_throwing_axe.name≠Dragonglass Throwing Axe
 item.got:olive.name=Zeytin
 item.got:olive_bread.name=Zeytinli Ekmek
 item.got:opal.name=Opal
@@ -5626,6 +5731,8 @@ item.got:pentos_boots.name=Pentos Bot
 item.got:pentos_chestplate.name=Pentos Zırh
 item.got:pentos_helmet.name=Pentos Kask
 item.got:pentos_leggings.name=Pentos Pantolon
+item.got:petyr_baelish_brooch.name=Petyr Baelish Broşu
+item.got:petyr_baelish_dagger.name=Petyr Baelish Hançer
 item.got:pipe.name=Boru
 item.got:pipeweed.name=Tütün Otu
 item.got:pipeweed_leaf.name=Tütün Otu Yaprağı
@@ -5683,8 +5790,8 @@ item.got:ruby.name=Yakut
 item.got:salt.name=Tuz
 item.got:salted_flesh.name=Şüpheli Et
 item.got:saltpeter.name=Güherçile
-item.got:sandor_clegane_sword.name=Sandor Clegane Kılıcı
 item.got:sandor_clegane_helmet.name=Sandor Clegane Kask
+item.got:sandor_clegane_sword.name=Sandor Clegane Kılıcı
 item.got:sapphire.name=Gökyakut
 item.got:sarbacane.name=Hava tabancası
 item.got:seeds_grape_red.name=Kırmızı Asma Tohumu
@@ -5704,7 +5811,15 @@ item.got:sothoryos_helmet.name=Sothoryos Kask
 item.got:sothoryos_helmet_chieftain.name=Sothoryos Chieftain Kask
 item.got:sothoryos_leggings.name=Sothoryos Pantolon
 item.got:spawn_egg.name=Çağır
-item.got:stone_spear.name=Taş Mızrak
+item.got:stone_battleaxe.name≠Stone Battleaxe
+item.got:stone_dagger.name≠Stone Dagger
+item.got:stone_dagger_poisoned.name≠Stone Poisoned Dagger
+item.got:stone_hammer.name≠Stone Hammer
+item.got:stone_mattock.name≠Stone Mattock
+item.got:stone_pike.name≠Stone Pike
+item.got:stone_scimitar.name≠Stone Scimitar
+item.got:stone_spear.name≠Stone Spear
+item.got:stone_throwing_axe.name≠Stone Throwing Axe
 item.got:stormlands_boots.name=Fırtına Toprakları Bot
 item.got:stormlands_chestplate.name=Fırtına Toprakları Zırh
 item.got:stormlands_helmet.name=Fırtına Toprakları Kask
@@ -5731,6 +5846,7 @@ item.got:trident.name=Tepe Kabilesi Trident
 item.got:truth.name=Gerçek
 item.got:turnip.name=Turp
 item.got:turnip_cooked.name=Pişmiş Tup
+item.got:tyrion_lannister_brooch.name=Tyrion Lannister Broşu
 item.got:tyrosh_boots.name=Tyrosh Bot
 item.got:tyrosh_chestplate.name=Tyrosh Zırh
 item.got:tyrosh_helmet.name=Tyrosh Kask
@@ -5751,20 +5867,24 @@ item.got:valyrian_chisel.name=Valyria Keski
 item.got:valyrian_crossbow.name=Valyria Kundaklı Yay
 item.got:valyrian_dagger.name=Valyria Hançeri
 item.got:valyrian_dagger_poisoned.name=Zehirli Valyria Hançeri
+item.got:valyrian_greatsword.name≠Valyrian Greatsword
 item.got:valyrian_hammer.name=Valyrian Savaş Çekici
 item.got:valyrian_helmet.name=Valyria Kask
 item.got:valyrian_hoe.name=Valyria Çapa
 item.got:valyrian_horse_armor.name=Valyria Atı Zırh
 item.got:valyrian_ingot.name=Valyria Külçesi
 item.got:valyrian_leggings.name=Valyria Pantolon
+item.got:valyrian_longsword.name≠Valyrian Longsword
 item.got:valyrian_mattock.name=Valyrian Mattock
 item.got:valyrian_nugget.name=Valyria Külçesi
 item.got:valyrian_pickaxe.name=Valyria Kazması
+item.got:valyrian_pike.name≠Valyrian Pike
 item.got:valyrian_ring.name=Valyria Yüzük
+item.got:valyrian_scimitar.name≠Valyrian Scimitar
 item.got:valyrian_shovel.name=Valyria Küreği
 item.got:valyrian_spear.name=Valyria Mızrağı
 item.got:valyrian_sword.name=Valyria Kılıcı
-item.got:monford_velaryon_brooch.name=Monford Velaryon Broşu
+item.got:valyrian_throwing_axe.name≠Valyrian Throwing Axe
 item.got:vigilance.name=Uyanıklık
 item.got:volantis_boots.name=Volantis Bot
 item.got:volantis_chestplate.name=Volantis Zırh
@@ -5791,7 +5911,16 @@ item.got:white_walkers_leggings.name=Ak Gezenler Pantolon
 item.got:widow_wail.name=Dul feryadı
 item.got:wildberry.name=Yaban Çileği
 item.got:wine_glass.name=Şarap Kadehi
+item.got:wood_battleaxe.name≠Wooden Battleaxe
+item.got:wood_dagger.name≠Wooden Dagger
+item.got:wood_dagger_poisoned.name≠Wooden Poisoned Dagger
+item.got:wood_hammer.name≠Wooden Hammer
+item.got:wood_mattock.name≠Wooden Mattock
+item.got:wood_pike.name≠Wooden Pike
 item.got:wood_plate.name=Tahta Tabak
+item.got:wood_scimitar.name≠Wooden Scimitar
+item.got:wood_spear.name≠Wooden Spear
+item.got:wood_throwing_axe.name≠Wooden Throwing Axe
 item.got:yam.name=Yer Elması
 item.got:yam_roast.name=Pişmiş Yer Elması
 item.got:yi_ti_boots.name=Yi Ti Bot
@@ -5802,8 +5931,8 @@ item.got:yi_ti_chestplate_bombardier.name=Yi Ti Sınır Zırh
 item.got:yi_ti_chestplate_samurai.name=Yi Ti Samuray Zırh
 item.got:yi_ti_helmet.name=Yi Ti Kask
 item.got:yi_ti_helmet_bombardier.name=Yi Ti Sınır Kask
-item.got:yi_ti_helmet_samurai.name=Yi Ti Samuray Kask
 item.got:yi_ti_helmet_captain.name=Yi Ti Captain Kask
+item.got:yi_ti_helmet_samurai.name=Yi Ti Samuray Kask
 item.got:yi_ti_leggings.name=Yi Ti Pantolon
 item.got:yi_ti_leggings_bombardier.name=Yi Ti Sınır Pantolon
 item.got:yi_ti_leggings_samurai.name=Yi Ti Samuray Pantolon
@@ -5849,10 +5978,12 @@ tile.got:berry_bush.4.name=Meyvesiz Mürver Çalısı
 tile.got:berry_bush.5.name=Meyvesiz Yabani Çilek Çalısı
 tile.got:berry_bush.8.name=Yabanmersini Çalısı
 tile.got:berry_bush.9.name=Böğürtlen Çalısı
+tile.got:bird_cage.0.name≠Copper Bird Cage
 tile.got:bird_cage.1.name=Bronz Kuş Kafesi
 tile.got:bird_cage.2.name=Demir Kuş Kafesi
 tile.got:bird_cage.3.name=Gümüş Kuş Kafesi
 tile.got:bird_cage.4.name=Altın Kuş Kafesi
+tile.got:bird_cage.5.name≠Valyrian Bird Cage
 tile.got:bird_cage_wood.0.name=Tahta Kuş Kafesi
 tile.got:blackroot.name=Siyahkök
 tile.got:block_gem.0.name=Topaz Bloğu
@@ -5933,15 +6064,21 @@ tile.got:button_granite.name=Buton
 tile.got:button_labradorite.name=Karnotit Düğmesi
 tile.got:button_rhyolite.name=Buton
 tile.got:chain.name=Zincir
+tile.got:chandelier.0.name≠Copper Chandelier
 tile.got:chandelier.1.name=Bronz Avize
 tile.got:chandelier.2.name=Demir Avize
-tile.got:chandelier.6.name=Morgul Avize
 tile.got:chandelier.3.name=Gümüş Avize
 tile.got:chandelier.4.name=Altın Avize
 tile.got:chandelier.5.name=Mithril Avize
+tile.got:chandelier.6.name=Morgul Avize
 tile.got:chest_basket.name=Kamış Kutusu
 tile.got:chest_sandstone.name=Antik Özgür Şehirler Zırh
 tile.got:chest_stone.name=Taş Sandık
+tile.got:chrysanthemum.0.name=Mavi krizantem
+tile.got:chrysanthemum.1.name=Turuncu Krizantem
+tile.got:chrysanthemum.2.name=Pembe krizantem
+tile.got:chrysanthemum.3.name=Sarı krizantem
+tile.got:chrysanthemum.4.name=Beyaz krizantem
 tile.got:clay_tile.name=Clay Tiling
 tile.got:clay_tile_dyed.0.name=Beyaz Kil Döşeme
 tile.got:clay_tile_dyed.1.name=Turuncu Kil Döşeme
@@ -5995,6 +6132,7 @@ tile.got:concrete_powder.6.name=Pembe Beton Tozu
 tile.got:concrete_powder.7.name=Gri Beton Tozu
 tile.got:concrete_powder.8.name=Açık Gri Beton Tozu
 tile.got:concrete_powder.9.name=Cam Beton Tozu
+tile.got:copper_bars.name≠Copper Bars
 tile.got:coral_reef.name=Mercan Kayalığı
 tile.got:corn_stalk.name=Darı Sapı
 tile.got:daub.name=Kamış Ve Harç
@@ -6052,10 +6190,6 @@ tile.got:double_flower.1.name=Sarı İris
 tile.got:double_flower.2.name=Ebegümeci
 tile.got:double_flower.3.name=Harad Ateşi
 tile.got:dried_reeds.name=Kurutulmuş Sazlık
-tile.got:essos_flower.0.name=Kırmızı Kum Mücevheri
-tile.got:essos_flower.1.name=Sarı Kum Taşı
-tile.got:essos_flower.2.name=Essos papatyası
-tile.got:essos_flower.3.name=Doğu çanları
 tile.got:fence.0.name=Shire Çam Çiti
 tile.got:fence.1.name=Mallorn Çiti
 tile.got:fence.10.name=Çobanpüskülü Çiti
@@ -6155,7 +6289,11 @@ tile.got:fruit_wood.1.name=Armut Odunu
 tile.got:fruit_wood.2.name=Vişne Odunu
 tile.got:fruit_wood.3.name=Mango Odunu
 tile.got:gate_bronze_bars.name=Bronz Kale Kapısı
+tile.got:gate_copper_bars.name≠Copper Portcullis
+tile.got:gate_gold_bars.name≠Gold Portcullis
 tile.got:gate_iron_bars.name=Demir Kale Kapısı
+tile.got:gate_silver_bars.name≠Silver Portcullis
+tile.got:gate_valyrian_bars.name≠Valyrian Portcullis
 tile.got:gate_wooden.name=Tahta Kapı
 tile.got:gate_wooden_bars.name=Tahta Kale Kapısı
 tile.got:glass.name=İnce Cam
@@ -6465,6 +6603,10 @@ tile.got:smooth_stone.4.name=Pürüzsüz Cargon
 tile.got:smooth_stone.5.name=Pürüzsüz Tebeşir
 tile.got:smooth_stone.6.name=Pürüzsüz Karnotit
 tile.got:smooth_stone_v.0.name=Pürüzsüz Taş
+tile.got:southern_flower.0.name=Kırmızı Kum Mücevheri
+tile.got:southern_flower.1.name=Sarı Kum Taşı
+tile.got:southern_flower.2.name=Essos papatyası
+tile.got:southern_flower.3.name=Doğu çanları
 tile.got:stained_glass.0.name=Beyaz İnce Cam
 tile.got:stained_glass.1.name=Turuncu İnce Cam
 tile.got:stained_glass.10.name=Mor İnce Cam
@@ -6508,9 +6650,9 @@ tile.got:stairs_aspen.name=Kavak Kalası Merdiveni
 tile.got:stairs_banana.name=Muz Kalas Merdiveni
 tile.got:stairs_baobab.name=Baobab Kalası Merdiveni
 tile.got:stairs_basalt.name=Bazalt Merdivenler
+tile.got:stairs_basalt_brick.name=Westeros Bazalt Tuğla Merdivenler
 tile.got:stairs_basalt_brick_asshai.name=Bazalt Tuğla Merdivenler
 tile.got:stairs_basalt_brick_asshai_cracked.name=Kırık Bazalt Tuğla Merdiven
-tile.got:stairs_basalt_brick.name=Westeros Bazalt Tuğla Merdivenler
 tile.got:stairs_beech.name=Kayın Kalas Merdiveni
 tile.got:stairs_bone.name=Kemik Merdiveni
 tile.got:stairs_brick_cracked.name=Çatlak Tuğla Merdiveni
@@ -6699,6 +6841,7 @@ tile.got:trapdoor_willow.name=Söğüt Kapısı
 tile.got:treasure_copper.name=Bakır Hazine Yığını
 tile.got:treasure_gold.name=Altın Hazine Yığını
 tile.got:treasure_silver.name=Gümüş Hazine Yığını
+tile.got:treasure_valyrian.name≠Valyrian Treasure Pile
 tile.got:unsmeltery.name=Eritme
 tile.got:valyrian_bars.name=Valyria Barları
 tile.got:wall_bone.0.name=Kemik Duvarı
@@ -6893,11 +7036,6 @@ tile.got:wood_slab_single5.3.name=Palmiye Ahşap Levha
 tile.got:wood_slab_single5.4.name=Dragonblood Ahşap Levha
 tile.got:wood_slab_single5.5.name=Kanuka Ahşap Levha
 tile.got:wood_slab_single5.6.name=Büvet Ahşap Levha
-tile.got:chrysanthemum.0.name=Mavi krizantem
-tile.got:chrysanthemum.1.name=Turuncu Krizantem
-tile.got:chrysanthemum.2.name=Pembe krizantem
-tile.got:chrysanthemum.3.name=Sarı krizantem
-tile.got:chrysanthemum.4.name=Beyaz krizantem
 tile.monsterStoneEgg.brick.name=Gümüş Balığı Blok
 tile.monsterStoneEgg.chiseledbrick.name=Gümüş Balığı Blok
 tile.monsterStoneEgg.cobble.name=Gümüş Balığı Blok

@@ -32,7 +32,7 @@ public class GOTRenderInvasionSpawner extends Render {
 		float scale = 1.5F;
 		GL11.glRotatef(rotation, 0.0F, 1.0F, 0.0F);
 		GL11.glScalef(scale, scale, scale);
-		ItemStack item = new ItemStack(GOTItems.ironBattleaxe);
+		ItemStack item = new ItemStack(GOTItems.ironHammer);
 		renderManager.itemRenderer.renderItem(renderManager.livingPlayer, item, 0, IItemRenderer.ItemRenderType.EQUIPPED);
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();

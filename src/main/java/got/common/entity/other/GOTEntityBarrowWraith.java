@@ -48,7 +48,7 @@ public class GOTEntityBarrowWraith extends GOTEntityNPC implements GOTBiome.Immu
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(NPC_ATTACK_DAMAGE).setBaseValue(5.0);
 	}

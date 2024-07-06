@@ -8,7 +8,6 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTMercenary;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -30,11 +29,6 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

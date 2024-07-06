@@ -1608,7 +1608,7 @@ public class GOTRecipe {
 		addShapelessRecipe(new ItemStack(GOTItems.coral, 4), new ItemStack(GOTBlocks.blockGem, 1, 8));
 		addShapelessRecipe(new ItemStack(GOTItems.diamond, 9), new ItemStack(GOTBlocks.blockGem, 1, 5));
 		addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 0), new ItemStack(GOTBlocks.chrysanthemum, 1, 3));
-		addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 0), new ItemStack(GOTBlocks.essosFlower, 1, 1));
+		addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 0), new ItemStack(GOTBlocks.southernFlower, 1, 1));
 		addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 1), new ItemStack(GOTBlocks.chrysanthemum, 1, 4));
 		addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 2), GOTBlocks.bluebell);
 		addShapelessRecipe(new ItemStack(GOTItems.dye, 1, 2), new ItemStack(GOTBlocks.chrysanthemum, 1, 0));
@@ -1671,11 +1671,11 @@ public class GOTRecipe {
 		addShapelessRecipe(new ItemStack(GOTItems.woodDaggerPoisoned), GOTItems.woodDagger, GOTItems.bottlePoison);
 		addShapelessRecipe(new ItemStack(GOTItems.woodScimitar), Items.wooden_sword);
 
-		addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new ItemStack(GOTBlocks.essosFlower, 1, 0));
-		addShapelessRecipe(new ItemStack(Items.dye, 1, 13), new ItemStack(GOTBlocks.essosFlower, 1, 3));
+		addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new ItemStack(GOTBlocks.southernFlower, 1, 0));
+		addShapelessRecipe(new ItemStack(Items.dye, 1, 13), new ItemStack(GOTBlocks.southernFlower, 1, 3));
 		addShapelessRecipe(new ItemStack(Items.dye, 1, 14), GOTBlocks.marigold);
 		addShapelessRecipe(new ItemStack(Items.dye, 1, 14), new ItemStack(GOTBlocks.chrysanthemum, 1, 1));
-		addShapelessRecipe(new ItemStack(Items.dye, 1, 5), new ItemStack(GOTBlocks.essosFlower, 1, 2));
+		addShapelessRecipe(new ItemStack(Items.dye, 1, 5), new ItemStack(GOTBlocks.southernFlower, 1, 2));
 		addShapelessRecipe(new ItemStack(Items.dye, 1, 9), new ItemStack(GOTBlocks.chrysanthemum, 1, 2));
 		addShapelessRecipe(new ItemStack(Items.dye, 2, 1), new ItemStack(GOTBlocks.doubleFlower, 1, 3));
 		addShapelessRecipe(new ItemStack(Items.dye, 2, 13), new ItemStack(GOTBlocks.doubleFlower, 1, 2));

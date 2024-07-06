@@ -7,7 +7,6 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTSmith;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -16,11 +15,6 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTS
 	public GOTEntityGendryBaratheon(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

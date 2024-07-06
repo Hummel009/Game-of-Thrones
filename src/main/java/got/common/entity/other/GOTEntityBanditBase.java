@@ -56,7 +56,7 @@ public abstract class GOTEntityBanditBase extends GOTEntityHumanBase implements 
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		return "special/bandit";
 	}
 

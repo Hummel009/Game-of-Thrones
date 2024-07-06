@@ -2,6 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,7 +39,7 @@ public class GOTEntityHodor extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		return "legendary/hodor";
 	}
 

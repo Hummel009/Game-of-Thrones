@@ -2,13 +2,11 @@ package got.common.entity.westeros.legendary.captain;
 
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
-import got.common.database.GOTSpeech;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -17,11 +15,6 @@ public class GOTEntityLynCorbray extends GOTEntityHumanBase implements GOTUnitTr
 	public GOTEntityLynCorbray(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
 	}
 
 	@Override
@@ -37,11 +30,6 @@ public class GOTEntityLynCorbray extends GOTEntityHumanBase implements GOTUnitTr
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.ARRYN;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

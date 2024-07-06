@@ -1,9 +1,10 @@
-﻿Où est l'argent ? Je devrais peut-être chercher un autre interprète ?
-Oui, je vois que tu prends ton temps.
-Où étais-tu, # ? Pourquoi rien n'est prêt ?
-Putain de merde, quelle lenteur. 
-Je condamne ta lenteur, #.
-C'est plus rapide d'aller chercher un mammouth à Ibben que d'attendre que tu apportes l'argent.
-Le temps c'est de l'argent, #
-Tu veux entendre une blague ?
-Vous êtes sérieux ? Vous n'avez toujours pas trouvé les $ ?
+﻿Où est le $ ? Peut-être devrais-je chercher un autre artiste ?
+Oui, je vois que tu n'es pas pressé.
+Où étais-tu, #? Pourquoi rien n’est prêt ?
+Putain de merde, quel manque de ponctualité.
+Je condamne votre lenteur, #.
+Le temps, c'est de l'argent, #.
+Tu veux que je te raconte une blague ?
+Êtes-vous sérieux? Vous n'avez toujours pas trouvé $ ?
+Pour être honnête, j'en ai marre d'attendre, #.
+Dépêche-toi, #.

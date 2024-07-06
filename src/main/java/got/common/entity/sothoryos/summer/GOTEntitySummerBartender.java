@@ -2,14 +2,14 @@ package got.common.entity.sothoryos.summer;
 
 import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.iface.GOTTradeable;
+import got.common.database.GOTUnitTradeEntries;
+import got.common.entity.other.iface.GOTBartender;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntitySummerBartender extends GOTEntitySummerMan implements GOTTradeable {
+public class GOTEntitySummerBartender extends GOTEntitySummerMan implements GOTBartender {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerBartender(World world) {
 		super(world);
@@ -18,11 +18,6 @@ public class GOTEntitySummerBartender extends GOTEntitySummerMan implements GOTT
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -44,5 +39,15 @@ public class GOTEntitySummerBartender extends GOTEntitySummerMan implements GOTT
 		GOTEntityUtils.setupTurban(this, rand);
 
 		return entityData;
+	}
+
+	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

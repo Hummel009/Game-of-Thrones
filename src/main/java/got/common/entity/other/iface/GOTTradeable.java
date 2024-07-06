@@ -5,9 +5,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.player.EntityPlayer;
 
-public interface GOTTradeable {
-	boolean canTradeWith(EntityPlayer var1);
-
+public interface GOTTradeable extends GOTTradeCondition {
 	GOTTradeEntries getSellsPool();
 
 	GOTTradeEntries getBuysPool();

@@ -10,6 +10,7 @@ import got.common.entity.sothoryos.summer.GOTEntitySummerCaptain;
 import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
 import got.common.entity.sothoryos.summer.GOTEntitySummerSoldierArcher;
 import got.common.item.other.GOTItemBanner;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -21,8 +22,8 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
 		int i1;
+		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 12);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -51,15 +52,31 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 			for (int k1 = -15; k1 <= 15; ++k1) {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
-				boolean bedRegion = i2 <= 3 && k1 >= 5 && k1 <= 9 || i2 <= 2 && k1 == 4 || i2 <= 1 && k1 == 3;
-				for (j1 = 0; (j1 >= -1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
-					if (bedRegion && j1 == 0) {
-						setAir(world, i1, 0, k1);
+				int bedRegion = i2 <= 3 && k1 >= 5 && k1 <= 9 || i2 <= 2 && k1 == 4 || i2 <= 1 && k1 == 3 ? 1 : 0;
+				int airHeight = 7;
+				for (j1 = 0; j1 <= airHeight; ++j1) {
+					setAir(world, i1, j1, k1);
+				}
+				for (j1 = 0; !(j1 < -1 && isOpaque(world, i1, j1, k1) || getY(j1) < 0); --j1) {
+					if (bedRegion != 0 && j1 == 0) {
 						continue;
+					}
+					if (j1 == 0) {
+						if (i2 <= 11 && k2 <= 11) {
+							if (random.nextBoolean()) {
+								setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
+							} else {
+								setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+							}
+						} else {
+							setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+						}
+					} else {
+						setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 0);
 					}
 					setGrassToDirt(world, i1, j1 - 1, k1);
 				}
-				if (bedRegion || i2 > 10 || k2 > 10 || random.nextInt(5) != 0) {
+				if (bedRegion != 0 || i2 > 10 || k2 > 10 || random.nextInt(5) != 0) {
 					continue;
 				}
 				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);

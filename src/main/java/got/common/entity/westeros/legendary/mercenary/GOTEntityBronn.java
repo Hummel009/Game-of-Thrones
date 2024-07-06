@@ -6,7 +6,6 @@ import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTMercenary;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -21,11 +20,6 @@ public class GOTEntityBronn extends GOTEntityHumanBase implements GOTMercenary {
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killBronn;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override

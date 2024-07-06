@@ -30,6 +30,6 @@ public class GOTGuiHiredInteractNoFunc extends GOTGuiNPCInteract {
 	public void initGui() {
 		buttonList.add(new GOTGuiButton(0, width / 2 - 65, height / 5 * 3, 130, 20, StatCollector.translateToLocal("got.gui.npc.talk")));
 		buttonList.add(new GOTGuiButton(2, width / 2 - 65, height / 5 * 3 + 25, 130, 20, StatCollector.translateToLocal("got.gui.npc.dismiss")));
-		((List<GuiButton>) buttonList).get(0).enabled = theEntity.getSpeechBank(mc.thePlayer) != null;
+		((List<GuiButton>) buttonList).get(0).enabled = theEntity.getSpeechBank(theEntity, mc.thePlayer) != null;
 	}
 }

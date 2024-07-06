@@ -6,6 +6,7 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityProstitute;
 import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.faction.GOTFaction;
@@ -70,8 +71,8 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/joffrey_friendly";
 		}
 		return "legendary/joffrey_hostile";

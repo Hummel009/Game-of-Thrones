@@ -63,8 +63,8 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getDefaultSpeech(this, entityPlayer);
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		return GOTSpeech.getDefaultSpeech(npc, entityPlayer);
 	}
 
 	@Override

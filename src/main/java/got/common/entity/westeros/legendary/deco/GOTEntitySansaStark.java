@@ -2,6 +2,7 @@ package got.common.entity.westeros.legendary.deco;
 
 import got.common.database.GOTAchievement;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIPanic;
@@ -31,8 +32,8 @@ public class GOTEntitySansaStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/sansa_friendly";
 		}
 		return "legendary/sansa_hostile";

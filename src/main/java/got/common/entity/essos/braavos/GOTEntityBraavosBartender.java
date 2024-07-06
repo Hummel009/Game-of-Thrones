@@ -6,7 +6,6 @@ import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTBartender;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -19,11 +18,6 @@ public class GOTEntityBraavosBartender extends GOTEntityBraavosMan implements GO
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
@@ -53,6 +47,7 @@ public class GOTEntityBraavosBartender extends GOTEntityBraavosMan implements GO
 	}
 
 	@Override
-	public void onUnitTrade(EntityPlayer entityPlayer) {
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

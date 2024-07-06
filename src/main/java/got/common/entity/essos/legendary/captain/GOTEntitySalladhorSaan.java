@@ -1,11 +1,13 @@
 package got.common.entity.essos.legendary.captain;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTInvasions;
+import got.common.database.GOTItems;
+import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.iface.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -22,11 +24,6 @@ public class GOTEntitySalladhorSaan extends GOTEntityHumanBase implements GOTUni
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndStronglyAligned(entityPlayer);
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.truth, 1);
 	}
@@ -39,11 +36,6 @@ public class GOTEntitySalladhorSaan extends GOTEntityHumanBase implements GOTUni
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.LYS;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		return GOTSpeech.getCaptainSpeech(this, entityPlayer);
 	}
 
 	@Override

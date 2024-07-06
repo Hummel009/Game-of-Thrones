@@ -3,6 +3,7 @@ package got.common.entity.westeros.legendary.trader;
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTBartender;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.IEntityLivingData;
@@ -20,8 +21,8 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	}
 
 	@Override
-	public boolean canTradeWith(EntityPlayer entityPlayer) {
-		return isFriendlyAndAligned(entityPlayer);
+	public boolean getTradeCondition(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		return !soldDagger && isFriendlyAndAligned(entityPlayer);
 	}
 
 	@Override
@@ -58,8 +59,8 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
-		if (isFriendly(entityPlayer)) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
+		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/baelish_friendly";
 		}
 		return GOTSpeech.HOSTILE;

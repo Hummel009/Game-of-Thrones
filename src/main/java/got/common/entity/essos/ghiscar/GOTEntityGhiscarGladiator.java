@@ -3,6 +3,7 @@ package got.common.entity.essos.ghiscar;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.entity.other.utils.GOTWeaponSetFactory;
 import net.minecraft.entity.IEntityLivingData;
@@ -43,7 +44,7 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityPlayer) {
+	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		return "special/gladiator";
 	}
 

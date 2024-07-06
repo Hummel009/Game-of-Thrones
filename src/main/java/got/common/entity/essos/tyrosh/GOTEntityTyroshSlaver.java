@@ -5,7 +5,6 @@ import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.iface.GOTFarmer;
 import got.common.entity.other.utils.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -19,11 +18,6 @@ public class GOTEntityTyroshSlaver extends GOTEntityTyroshMan implements GOTFarm
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return isFriendlyAndAligned(entityplayer);
 	}
 
 	@Override
