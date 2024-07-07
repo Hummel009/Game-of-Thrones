@@ -69,7 +69,7 @@ public class GOTEntityThrownRock extends EntityThrowable {
 				for (int l = 0; l < drops; ++l) {
 					dropItem(Item.getItemFromBlock(Blocks.cobblestone), 1);
 				}
-				playSound("got:troll.rockSmash", 2.0f, (1.0f + (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2f) * 0.7f);
+				playSound("got:giant.rockSmash", 2.0f, (1.0f + (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2f) * 0.7f);
 				setDead();
 			}
 		}
