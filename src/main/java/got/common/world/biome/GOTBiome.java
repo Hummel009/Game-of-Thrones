@@ -218,7 +218,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome summerIslandsTropicalForest;
 	public static GOTBiome thennLand;
 	public static GOTBiome tyrosh;
-	public static GOTBiome ulthos;
+	public static GOTBiome ulthosBushland;
 	public static GOTBiome ulthosDesert;
 	public static GOTBiome ulthosDesertCold;
 	public static GOTBiome ulthosForest;
@@ -465,7 +465,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		summerIslandsTropicalForest = new GOTBiomeTropicalForest(155, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4F7032).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslandsTropicalForest");
 		thennLand = new GOTBiomeThennLand(156, true).setClimateType(GOTClimateType.WINTER).setColor(0xC3DDCF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("thennLand");
 		tyrosh = new GOTBiomeTyrosh(157, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9AA5A2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("tyrosh");
-		ulthos = new GOTBiomeUlthos(158, true).setClimateType(GOTClimateType.SUMMER).setColor(0x648432).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthos");
+		ulthosBushland = new GOTBiomeUlthos(158, true).setClimateType(GOTClimateType.SUMMER).setColor(0x648432).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosBushland");
 		ulthosDesert = new GOTBiomeUlthosDesert(159, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCEBA84).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesert");
 		ulthosDesertCold = new GOTBiomeUlthosDesertCold(160, true).setClimateType(GOTClimateType.WINTER).setColor(0xD8D2AD).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesertCold");
 		ulthosForest = new GOTBiomeUlthosForest(161, true).setClimateType(GOTClimateType.SUMMER).setColor(0x284F1E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosForest");
