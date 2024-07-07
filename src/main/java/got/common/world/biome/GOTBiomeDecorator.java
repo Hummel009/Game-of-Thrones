@@ -471,6 +471,14 @@ public class GOTBiomeDecorator {
 		this.biomeGemFactor = biomeGemFactor;
 	}
 
+	public float getBiomeOreFactor() {
+		return biomeOreFactor;
+	}
+
+	public float getBiomeGemFactor() {
+		return biomeGemFactor;
+	}
+
 	public void setClayGen(WorldGenerator clayGen) {
 		this.clayGen = clayGen;
 	}

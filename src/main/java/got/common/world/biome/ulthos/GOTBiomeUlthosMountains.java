@@ -4,28 +4,26 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeUlthosMountains extends GOTBiomeUlthosForest implements GOTBiome.Mountains {
+public class GOTBiomeUlthosMountains extends GOTBiomeUlthosBase implements GOTBiome.Mountains {
 	public GOTBiomeUlthosMountains(int i, boolean major) {
 		super(i, major);
-		setupStandardForestFauna();
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
 		enableRocky = true;
-		decorator.setDoubleFlowersPerChunk(0);
-		decorator.setDoubleGrassPerChunk(1);
-		decorator.setFlowersPerChunk(1);
-		decorator.setGrassPerChunk(4);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
-		npcSpawnList.clear();
+
+		preseter.setupMountainsView();
+		preseter.setupMountainsFlora();
+		preseter.setupMountainsFauna();
+
+		decorator.clearTrees();
+		setupForestTrees();
+		decorator.addTree(GOTTreeType.ULTHOS_OAK, 1000);
+		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 50);
 	}
 
 	@Override

@@ -260,6 +260,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	private final GOTDimension biomeDimension;
 
+	protected GOTBiomePreseter preseter;
 	protected GOTBiomeDecorator decorator;
 	protected GOTBiomeInvasionSpawns invasionSpawns;
 	protected Class<? extends GOTEntityNPC> banditEntityClass;
@@ -289,6 +290,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 		waterColorMultiplier = BiomeColors.DEFAULT_WATER;
 		decorator = new GOTBiomeDecorator(this);
+		preseter = new GOTBiomePreseter(this);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.clear();
@@ -465,7 +467,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		summerIslandsTropicalForest = new GOTBiomeTropicalForest(155, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4F7032).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslandsTropicalForest");
 		thennLand = new GOTBiomeThennLand(156, true).setClimateType(GOTClimateType.WINTER).setColor(0xC3DDCF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("thennLand");
 		tyrosh = new GOTBiomeTyrosh(157, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9AA5A2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("tyrosh");
-		ulthosBushland = new GOTBiomeUlthos(158, true).setClimateType(GOTClimateType.SUMMER).setColor(0x648432).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosBushland");
+		ulthosBushland = new GOTBiomeUlthosBushland(158, true).setClimateType(GOTClimateType.SUMMER).setColor(0x648432).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosBushland");
 		ulthosDesert = new GOTBiomeUlthosDesert(159, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCEBA84).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesert");
 		ulthosDesertCold = new GOTBiomeUlthosDesertCold(160, true).setClimateType(GOTClimateType.WINTER).setColor(0xD8D2AD).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesertCold");
 		ulthosForest = new GOTBiomeUlthosForest(161, true).setClimateType(GOTClimateType.SUMMER).setColor(0x284F1E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosForest");
@@ -492,6 +494,22 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiBorderZone = new GOTBiomeYiTiBorderZone(182, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiBorderZone");
 		yiTiMarshes = new GOTBiomeYiTiMarshes(183, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8BA061).setMinMaxHeight(0.0f, 0.1f).setBiomeName("yiTiMarshes");
 		yiTiTropicalForest = new GOTBiomeTropicalForest(184, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E7A3B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiTropicalForest");
+	}
+
+	public List<SpawnListEntry> getSpawnableCreatureList() {
+		return spawnableCreatureList;
+	}
+
+	public List<SpawnListEntry> getSpawnableWaterCreatureList() {
+		return spawnableWaterCreatureList;
+	}
+
+	public List<SpawnListEntry> getSpawnableCaveCreatureList() {
+		return spawnableCaveCreatureList;
+	}
+
+	public List<FlowerEntry> getFlowers() {
+		return flowers;
 	}
 
 	public static void updateWaterColor(int k) {

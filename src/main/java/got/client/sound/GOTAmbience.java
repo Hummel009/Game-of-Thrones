@@ -11,7 +11,7 @@ import got.common.world.biome.essos.GOTBiomeMossovy;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
 import got.common.world.biome.other.GOTBiomeOcean;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
-import got.common.world.biome.ulthos.GOTBiomeUlthos;
+import got.common.world.biome.ulthos.GOTBiomeUlthosBase;
 import got.common.world.biome.westeros.GOTBiomeFrostfangs;
 import got.common.world.biome.westeros.GOTBiomeNorthBarrows;
 import net.minecraft.block.Block;
@@ -94,7 +94,7 @@ public class GOTAmbience {
 					spookyPitch = 0.85f;
 				} else if (biome instanceof GOTBiomeMossovy) {
 					spookyBiomeNoise = rand.nextInt(2400) == 0;
-				} else if (biome instanceof GOTBiomeUlthos) {
+				} else if (biome instanceof GOTBiomeUlthosBase) {
 					spookyBiomeNoise = rand.nextInt(6000) == 0;
 				} else if (biome instanceof GOTBiomeShadowLand) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
