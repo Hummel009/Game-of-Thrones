@@ -5,12 +5,20 @@ import got.common.database.GOTAchievement;
 public class GOTBiomeSothoryosDesertCold extends GOTBiomeSothoryosDesert {
 	public GOTBiomeSothoryosDesertCold(int i, boolean major) {
 		super(i, major);
+		preseter.setupDesertColdViewOverride();
+		preseter.setupDesertColdFloraOverride();
+		preseter.setupDesertColdFaunaOverride();
+
 		npcSpawnList.clear();
-		spawnableCreatureList.clear();
 	}
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterSothoryosDesertCold;
+	}
+
+	@Override
+	protected boolean isColdDesert() {
+		return true;
 	}
 }

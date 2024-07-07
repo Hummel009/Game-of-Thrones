@@ -18,7 +18,7 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosBase implements GOTBiom
 		preseter.setupMarshesFauna();
 
 		decorator.clearTrees();
-		setupForestTrees();
+		setupDefaultTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_OAK, 1000);
 		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 50);
 

@@ -25,7 +25,7 @@ public class GOTBiomeUlthosBushland extends GOTBiomeUlthosBase {
 		preseter.setupBushlandFauna();
 
 		decorator.clearTrees();
-		setupForestTrees();
+		setupDefaultTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 1000);
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 50);
 		decorator.addTree(GOTTreeType.ULTHOS_OAK, 15);

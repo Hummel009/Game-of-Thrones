@@ -11,7 +11,6 @@ import java.util.Collection;
 public class GOTBiomeSothoryosHell extends GOTBiomeSothoryosJungle {
 	public GOTBiomeSothoryosHell(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WYVERN, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

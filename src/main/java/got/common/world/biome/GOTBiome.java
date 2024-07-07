@@ -461,7 +461,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		stormlandsTarth = new GOTBiomeStormlandsTarth(149, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");
 		stormlandsTarthForest = new GOTBiomeStormlandsTarthForest(150, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");
 		stormlandsTown = new GOTBiomeStormlands(151, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB3C677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTown");
-		summerColony = new GOTBiomeSummerColony(152, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BAD53).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerColony");
+		summerColony = new GOTBiomeSummerColonySavannah(152, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BAD53).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerColony");
 		summerColonyMangrove = new GOTBiomeSummerColonyMangrove(153, true).setClimateType(GOTClimateType.SUMMER).setColor(0x85A361).setMinMaxHeight(0.0f, 0.1f).setBiomeName("summerColonyMangrove");
 		summerIslands = new GOTBiomeSummerIslands(154, true).setClimateType(GOTClimateType.SUMMER).setColor(0x83A54A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslands");
 		summerIslandsTropicalForest = new GOTBiomeTropicalForest(155, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4F7032).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslandsTropicalForest");

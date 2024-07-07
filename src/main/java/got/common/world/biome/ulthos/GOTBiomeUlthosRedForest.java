@@ -17,7 +17,7 @@ public class GOTBiomeUlthosRedForest extends GOTBiomeUlthosBase {
 		preseter.setupForestFauna();
 
 		decorator.clearTrees();
-		setupForestTrees();
+		setupDefaultTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK, 1000);
 		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK_LARGE, 50);
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 15);

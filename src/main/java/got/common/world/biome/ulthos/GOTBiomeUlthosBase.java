@@ -17,7 +17,7 @@ public abstract class GOTBiomeUlthosBase extends GOTBiome {
 		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
 	}
 
-	protected void setupForestTrees() {
+	protected void setupDefaultTrees() {
 		decorator.addTree(GOTTreeType.OAK, 50);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 100);
 		decorator.addTree(GOTTreeType.DARK_OAK, 50);

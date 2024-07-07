@@ -1,21 +1,27 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
-import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.database.GOTSpawnList;
+import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTSpawnListContainer;
+import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement;
 
-public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBase {
 	public GOTBiomeSothoryosSavannah(int i, boolean major) {
 		super(i, major);
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.SAVANNAH_BAOBAB, 0.5f);
-		decorator.setGrassPerChunk(256);
-		decorator.setLogsPerChunk(0);
-	}
+		preseter.setupSavannahView();
+		preseter.setupSavannahFlora();
+		preseter.setupSavannahFauna();
+		preseter.setupSavannahTrees();
 
-	@Override
-	public boolean enableTermite() {
-		return false;
+		decorator.addSettlement(new GOTStructureSothoryosSettlement(this, 1.0f));
+
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.ULTHOS, 10).setSpawnChance(CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(0).add(c1);
 	}
 
 	@Override
