@@ -19,8 +19,10 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosBase implements GOTBiom
 
 		decorator.clearTrees();
 		setupDefaultTrees();
-		decorator.addTree(GOTTreeType.ULTHOS_OAK, 1000);
-		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 50);
+		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 1000);
+		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 50);
+		decorator.addTree(GOTTreeType.ULTHOS_OAK, 15);
+		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 10);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));

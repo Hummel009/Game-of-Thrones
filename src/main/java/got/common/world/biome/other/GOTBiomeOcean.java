@@ -34,7 +34,7 @@ public class GOTBiomeOcean extends GOTBiome {
 	}
 
 	public static boolean isFrozen(int k) {
-		return k <= -23000 || k >= 490000;
+		return k <= -35000 || k >= 500000;
 	}
 
 	@Override
@@ -43,20 +43,20 @@ public class GOTBiomeOcean extends GOTBiome {
 		int i1 = i + random.nextInt(16) + 8;
 		int k1 = k + random.nextInt(16) + 8;
 		int j1 = world.getTopSolidOrLiquidBlock(i1, k1);
-		if (j1 <= 43) {
-			for (int l2 = 0; l2 < 50; ++l2) {
-				int i3 = i + random.nextInt(16) + 8;
-				int k3 = k + random.nextInt(16) + 8;
-				int j3 = world.getTopSolidOrLiquidBlock(i3, k3);
-				if (j3 <= 43 && (world.getBlock(i3, j3 - 1, k3) == Blocks.sand || world.getBlock(i3, j3 - 1, k3) == Blocks.dirt)) {
-					int height = j3 + 4 + random.nextInt(4);
-					for (int j2 = j3; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
-						world.setBlock(i3, j2, k3, GOTBlocks.kelp);
+		if (!isFrozen(k)) {
+			if (j1 <= 43) {
+				for (int l2 = 0; l2 < 50; ++l2) {
+					int i3 = i + random.nextInt(16) + 8;
+					int k3 = k + random.nextInt(16) + 8;
+					int j3 = world.getTopSolidOrLiquidBlock(i3, k3);
+					if (j3 <= 43 && (world.getBlock(i3, j3 - 1, k3) == Blocks.sand || world.getBlock(i3, j3 - 1, k3) == Blocks.dirt)) {
+						int height = j3 + 4 + random.nextInt(4);
+						for (int j2 = j3; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
+							world.setBlock(i3, j2, k3, GOTBlocks.kelp);
+						}
 					}
 				}
 			}
-		}
-		if (!isFrozen(k)) {
 			if (random.nextInt(12) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
 				SPONGE_GEN.generate(world, random, i1, j1, k1);
 			}

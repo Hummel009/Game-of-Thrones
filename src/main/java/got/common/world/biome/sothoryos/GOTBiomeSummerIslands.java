@@ -2,9 +2,9 @@ package got.common.world.biome.sothoryos;
 
 import got.client.sound.GOTMusicRegion;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTBlocks;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
+import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
@@ -21,8 +21,8 @@ import java.util.Collection;
 public class GOTBiomeSummerIslands extends GOTBiome {
 	public GOTBiomeSummerIslands(int i, boolean major) {
 		super(i, major);
-		topBlock = GOTBlocks.mudGrass;
-		fillerBlock = GOTBlocks.mud;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
 
 		preseter.setupJungleView();
 		preseter.setupJungleFlora();

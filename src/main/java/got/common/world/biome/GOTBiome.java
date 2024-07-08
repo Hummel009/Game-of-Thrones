@@ -62,8 +62,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static final EnumCreatureType CREATURE_TYPE_GOT_AMBIENT = EnumHelper.addEnum(CORRECT_CREATURE_TYPE_PARAMS, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 
 	private static final Random TERRAIN_RAND = new Random();
-	private static final Color WATER_COLOR_NORTH = new Color(602979);
-	private static final Color WATER_COLOR_SOUTH = new Color(4973293);
+	private static final Color WATER_COLOR_POLAR = new Color(602979);
+	private static final Color WATER_COLOR_EQUATOR = new Color(4973293);
 
 	public static GOTBiome alwaysWinter;
 	public static GOTBiome arryn;
@@ -205,6 +205,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome sothoryosMountains;
 	public static GOTBiome sothoryosSavannah;
 	public static GOTBiome sothoryosTaiga;
+	public static GOTBiome sothoryosTaigaEdge;
 	public static GOTBiome stepstones;
 	public static GOTBiome stoneCoast;
 	public static GOTBiome stormlands;
@@ -213,7 +214,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome stormlandsTarthForest;
 	public static GOTBiome stormlandsTown;
 	public static GOTBiome summerColony;
-	public static GOTBiome summerColonyMangrove;
 	public static GOTBiome summerIslands;
 	public static GOTBiome summerIslandsTropicalForest;
 	public static GOTBiome thennLand;
@@ -453,16 +453,16 @@ public abstract class GOTBiome extends BiomeGenBase {
 		sothoryosMangrove = new GOTBiomeSothoryosMangrove(141, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E8E48).setMinMaxHeight(0.0f, 0.1f).setBiomeName("sothoryosMangrove");
 		sothoryosMountains = new GOTBiomeSothoryosMountains(142, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xD8D2B1).setMinMaxHeight(2.0f, 2.0f).setBiomeName("sothoryosMountains");
 		sothoryosSavannah = new GOTBiomeSothoryosSavannah(143, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8CA041).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosSavannah");
-		sothoryosTaiga = new GOTBiomeSothoryosTaiga(144, true).setClimateType(GOTClimateType.WINTER).setColor(0xA3B481).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaiga");
-		stepstones = new GOTBiomeStepstones(145, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BA37A).setMinMaxHeight(0.0f, 0.5f).setBiomeName("stepstones");
-		stoneCoast = new GOTBiomeStoneCoast(146, true).setClimateType(GOTClimateType.COLD).setColor(0x89A599).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stoneCoast");
-		stormlands = new GOTBiomeStormlands(147, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
-		stormlandsForest = new GOTBiomeStormlandsForest(148, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsForest");
-		stormlandsTarth = new GOTBiomeStormlandsTarth(149, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");
-		stormlandsTarthForest = new GOTBiomeStormlandsTarthForest(150, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");
-		stormlandsTown = new GOTBiomeStormlands(151, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB3C677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTown");
-		summerColony = new GOTBiomeSummerColonySavannah(152, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BAD53).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerColony");
-		summerColonyMangrove = new GOTBiomeSummerColonyMangrove(153, true).setClimateType(GOTClimateType.SUMMER).setColor(0x85A361).setMinMaxHeight(0.0f, 0.1f).setBiomeName("summerColonyMangrove");
+		sothoryosTaiga = new GOTBiomeSothoryosTaiga(144, true).setClimateType(GOTClimateType.WINTER).setColor(0x737F5B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaiga");
+		sothoryosTaigaEdge = new GOTBiomeSothoryosTaigaEdge(145, true).setClimateType(GOTClimateType.WINTER).setColor(0xA3B481).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaigaEdge");
+		stepstones = new GOTBiomeStepstones(146, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BA37A).setMinMaxHeight(0.0f, 0.5f).setBiomeName("stepstones");
+		stoneCoast = new GOTBiomeStoneCoast(147, true).setClimateType(GOTClimateType.COLD).setColor(0x89A599).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stoneCoast");
+		stormlands = new GOTBiomeStormlands(148, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
+		stormlandsForest = new GOTBiomeStormlandsForest(149, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsForest");
+		stormlandsTarth = new GOTBiomeStormlandsTarth(150, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");
+		stormlandsTarthForest = new GOTBiomeStormlandsTarthForest(151, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");
+		stormlandsTown = new GOTBiomeStormlands(152, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB3C677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTown");
+		summerColony = new GOTBiomeSummerColony(153, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BAD53).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerColony");
 		summerIslands = new GOTBiomeSummerIslands(154, true).setClimateType(GOTClimateType.SUMMER).setColor(0x83A54A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslands");
 		summerIslandsTropicalForest = new GOTBiomeTropicalForest(155, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4F7032).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslandsTropicalForest");
 		thennLand = new GOTBiomeThennLand(156, true).setClimateType(GOTClimateType.WINTER).setColor(0xC3DDCF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("thennLand");
@@ -513,29 +513,38 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public static void updateWaterColor(int k) {
-		int min = 0;
-		int waterLimitNorth = -40000;
-		int waterLimitSouth = 160000;
-		int max = waterLimitSouth - waterLimitNorth;
-		float latitude = (float) MathHelper.clamp_int(k - waterLimitNorth, min, max) / max;
-		float[] northColors = WATER_COLOR_NORTH.getColorComponents(null);
-		float[] southColors = WATER_COLOR_SOUTH.getColorComponents(null);
-		float dR = southColors[0] - northColors[0];
-		float dG = southColors[1] - northColors[1];
-		float dB = southColors[2] - northColors[2];
-		float r = dR * latitude;
-		float g = dG * latitude;
-		float b = dB * latitude;
-		r += northColors[0];
-		g += northColors[1];
-		b += northColors[2];
-		Color water = new Color(r, g, b);
-		int waterRGB = water.getRGB();
-		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
-			if (biome != null && !biome.biomeColors.hasCustomWater()) {
-				biome.biomeColors.updateWater(waterRGB);
+		float waterLimitNorth = -25000;
+		float waterLimitCenter = 240000;
+		float waterLimitSouth = 453000;
+
+		try {
+			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
+				if (biome != null && !biome.biomeColors.hasCustomWater()) {
+					if (k <= waterLimitNorth) {
+						biome.biomeColors.updateWater(WATER_COLOR_POLAR);
+					} else if (k <= waterLimitCenter) {
+						float proportion = (k - waterLimitNorth) / (waterLimitCenter - waterLimitNorth);
+						Color color = mixColors(WATER_COLOR_POLAR, WATER_COLOR_EQUATOR, proportion);
+						biome.biomeColors.updateWater(color);
+					} else if (k <= waterLimitSouth) {
+						float proportion = (k - waterLimitCenter) / (waterLimitSouth - waterLimitCenter);
+						Color color = mixColors(WATER_COLOR_EQUATOR, WATER_COLOR_POLAR, proportion);
+						biome.biomeColors.updateWater(color);
+					} else {
+						biome.biomeColors.updateWater(WATER_COLOR_POLAR);
+					}
+				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+	}
+
+	public static Color mixColors(Color color1, Color color2, float proportion) {
+		int red = (int) (color1.getRed() * (1.0f - proportion) + color2.getRed() * proportion);
+		int green = (int) (color1.getGreen() * (1.0f - proportion) + color2.getGreen() * proportion);
+		int blue = (int) (color1.getBlue() * (1.0f - proportion) + color2.getBlue() * proportion);
+		return new Color(red, green, blue);
 	}
 
 	public static void postInit() {
@@ -1219,8 +1228,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 			}
 		}
 
-		public void updateWater(int rgb) {
-			biome.waterColorMultiplier = rgb;
+		public void updateWater(Color rgb) {
+			biome.waterColorMultiplier = rgb.getRGB();
 		}
 
 		public Color getGrass() {

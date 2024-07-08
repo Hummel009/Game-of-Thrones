@@ -3,6 +3,7 @@ package got.common.world.biome.sothoryos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
+import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -18,6 +19,9 @@ import java.util.Collection;
 public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 	public GOTBiomeGhiscarColony(int i, boolean major) {
 		super(i, major);
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
+
 		decorator.setTreesPerChunk(2);
 
 		decorator.addSettlement(new GOTStructureGhiscarSettlement(this, 1.0f).type(GOTStructureGhiscarSettlement.Type.COLONY, 5));

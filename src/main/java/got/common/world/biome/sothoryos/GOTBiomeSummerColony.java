@@ -3,6 +3,7 @@ package got.common.world.biome.sothoryos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
+import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -15,10 +16,11 @@ import got.common.world.structure.sothoryos.summer.GOTStructureSummerSettlement;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeSummerColonyMangrove extends GOTBiomeSothoryosMangrove {
-	public GOTBiomeSummerColonyMangrove(int i, boolean major) {
+public class GOTBiomeSummerColony extends GOTBiomeSothoryosSavannah {
+	public GOTBiomeSummerColony(int i, boolean major) {
 		super(i, major);
-		decorator.setTreesPerChunk(2);
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
 
 		decorator.addSettlement(new GOTStructureSummerSettlement(this, 1.0f));
 

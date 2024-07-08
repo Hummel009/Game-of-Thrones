@@ -1,6 +1,7 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTBiomeSpawnList;
@@ -12,6 +13,9 @@ import java.util.Collection;
 public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosBase implements GOTBiome.Marshes {
 	public GOTBiomeSothoryosMangrove(int i, boolean major) {
 		super(i, major);
+		topBlock = GOTBlocks.mudGrass;
+		fillerBlock = GOTBlocks.mud;
+
 		preseter.setupMangroveView();
 		preseter.setupMangroveFlora();
 		preseter.setupMangroveFauna();

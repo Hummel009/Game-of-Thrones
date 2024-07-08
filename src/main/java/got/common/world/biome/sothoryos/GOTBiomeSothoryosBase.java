@@ -30,7 +30,6 @@ public abstract class GOTBiomeSothoryosBase extends GOTBiome {
 		decorator.addTree(GOTTreeType.DATE_PALM, 50);
 		decorator.addTree(GOTTreeType.LEMON, 5);
 		decorator.addTree(GOTTreeType.LIME, 5);
-		decorator.addTree(GOTTreeType.OAK_DESERT, 400);
 		decorator.addTree(GOTTreeType.OLIVE, 5);
 		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
 		decorator.addTree(GOTTreeType.ORANGE, 5);

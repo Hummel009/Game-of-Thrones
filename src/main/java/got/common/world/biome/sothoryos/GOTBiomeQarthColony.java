@@ -3,6 +3,7 @@ package got.common.world.biome.sothoryos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
+import got.common.entity.other.GOTEntityLightSkinBandit;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -18,6 +19,9 @@ import java.util.Collection;
 public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
 	public GOTBiomeQarthColony(int i, boolean major) {
 		super(i, major);
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		banditEntityClass = GOTEntityLightSkinBandit.class;
+
 		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f).type(GOTStructureQarthSettlement.Type.FORT, 5));
 
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);

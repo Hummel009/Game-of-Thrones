@@ -123,8 +123,8 @@ public class GOTRenderNorthernLights {
 			return;
 		}
 		float tonight = brightnessTonight;
-		float utumno = nightKingChange / 200.0f;
-		tonight += (1.0f - tonight) * utumno;
+		float nightKing = nightKingChange / 200.0f;
+		tonight += (1.0f - tonight) * nightKing;
 		if (tonight <= 0.0f) {
 			return;
 		}
@@ -280,15 +280,7 @@ public class GOTRenderNorthernLights {
 			currentNightNum = effectiveDay;
 			DATE_RAND.setSeed(currentNightNum * 35920558925051L + currentNightNum + 83025820626792L);
 			maxNorthTonight = -35000.0f;
-			minNorthTonight = MathHelper.randomFloatClamp(DATE_RAND, -20000.0f, -15000.0f);
-			float goSouth = DATE_RAND.nextFloat();
-			if (GOT.isNewYear() || goSouth < 0.01f) {
-				minNorthTonight += 15000.0f;
-			} else if (goSouth < 0.1f) {
-				minNorthTonight += 10000.0f;
-			} else if (goSouth < 0.5f) {
-				minNorthTonight += 5000.0f;
-			}
+			minNorthTonight = -30000.0f;
 			if (GOT.isNewYear()) {
 				minNorthTonight = 1000000.0f;
 			}

@@ -797,7 +797,7 @@ public class GOTTickHandlerClient {
 					int j = MathHelper.floor_double(viewer.boundingBox.minY);
 					int k = MathHelper.floor_double(viewer.posZ);
 					BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
-					GOTBiome.updateWaterColor(i);
+					GOTBiome.updateWaterColor(k);
 					GOTCloudRenderer.updateClouds();
 					GOTRenderNorthernLights.update(viewer);
 					GOTSpeechClient.update();

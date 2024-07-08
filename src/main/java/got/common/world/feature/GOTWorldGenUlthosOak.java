@@ -207,22 +207,6 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 								continue;
 							}
 							setBlockAndNotifyAdequately(world, i1, j3, k1, leafBlock, leafMeta);
-							if (!isMirky) {
-								continue;
-							}
-							if (random.nextInt(20) == 0 && world.isAirBlock(i1 - 1, j3, k1)) {
-								growVines(world, random, i1 - 1, j3, k1, 8);
-							}
-							if (random.nextInt(20) == 0 && world.isAirBlock(i1 + 1, j3, k1)) {
-								growVines(world, random, i1 + 1, j3, k1, 2);
-							}
-							if (random.nextInt(20) == 0 && world.isAirBlock(i1, j3, k1 - 1)) {
-								growVines(world, random, i1, j3, k1 - 1, 1);
-							}
-							if (random.nextInt(20) != 0 || !world.isAirBlock(i1, j3, k1 + 1)) {
-								continue;
-							}
-							growVines(world, random, i1, j3, k1 + 1, 4);
 						}
 					}
 				}
@@ -241,18 +225,6 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 					setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta);
 				}
 			}
-		}
-	}
-
-	private void growVines(World world, Random random, int i, int j, int k, int meta) {
-		int j1 = j;
-		setBlockAndNotifyAdequately(world, i, j1, k, GOTBlocks.mirkVines, meta);
-		int length = 4 + random.nextInt(8);
-		--j1;
-		while (world.isAirBlock(i, j1, k) && length > 0) {
-			setBlockAndNotifyAdequately(world, i, j1, k, GOTBlocks.mirkVines, meta);
-			--length;
-			--j1;
 		}
 	}
 
