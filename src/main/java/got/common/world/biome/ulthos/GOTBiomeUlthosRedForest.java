@@ -22,6 +22,8 @@ public class GOTBiomeUlthosRedForest extends GOTBiomeUlthosBase {
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 250);
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 50);
 
+		decorator.setTreesPerChunk(8);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ULTHOS, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
