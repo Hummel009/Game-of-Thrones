@@ -1,7 +1,6 @@
 package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
-import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
@@ -11,37 +10,25 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
+public class GOTBiomeIsleOfFaces extends GOTBiomeWesterosBase {
 	public GOTBiomeIsleOfFaces(int i, boolean major) {
 		super(i, major);
-		setupStandardForestFauna();
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.FLOWERS, 1.0f);
+		banditChance = GOTEventSpawner.EventChance.NEVER;
+
+		preseter.setupForestView();
+		preseter.setupForestFlora();
+		preseter.setupForestFauna();
+
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WEIRWOOD, 10);
+
 		decorator.setTreesPerChunk(1);
 		decorator.setFlowersPerChunk(20);
 		decorator.setDoubleFlowersPerChunk(12);
-		decorator.setGrassPerChunk(8);
-		decorator.setDoubleGrassPerChunk(3);
 		addFlower(Blocks.red_flower, 0, 80);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterIsleOfFaces;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.RIVERLANDS;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
+		flowers.clear();
+		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 80));
 	}
 
 	@Override
@@ -52,5 +39,20 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 			return doubleFlowerGen;
 		}
 		return super.getRandomWorldGenForDoubleFlower(random);
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIsleOfFaces;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.RIVERLANDS;
 	}
 }

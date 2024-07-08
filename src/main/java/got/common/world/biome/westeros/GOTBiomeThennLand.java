@@ -2,10 +2,12 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
+import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.init.Blocks;
@@ -15,13 +17,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
+public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
 	public GOTBiomeThennLand(int i, boolean major) {
 		super(i, major);
-		decorator.setTreesPerChunk(2);
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.FOTINIA, 20);
+		banditChance = GOTEventSpawner.EventChance.NEVER;
+
+		fillerBlock = Blocks.snow;
+
+		preseter.setupTaigaView();
+		preseter.setupTaigaFlora();
+		preseter.setupTaigaFauna();
+		preseter.setupTaigaTrees(true);
+
 		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f).type(GOTStructureWildlingSettlement.Type.THENN, 6));
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_THENN, 10).setSpawnChance(SPAWN));
@@ -53,12 +62,22 @@ public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterThennLand;
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
 	}
 
 	@Override
 	public boolean getEnableRiver() {
 		return false;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterThennLand;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 }

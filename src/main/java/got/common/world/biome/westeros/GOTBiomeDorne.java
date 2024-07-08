@@ -4,8 +4,8 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
-import got.common.world.biome.essos.GOTBiomeEssos;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
@@ -14,26 +14,37 @@ import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneSettlement;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneWatchfort;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
-public class GOTBiomeDorne extends GOTBiomeEssos {
+public class GOTBiomeDorne extends GOTBiomeWesterosBase {
+	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(8359286029006L), 1);
+	private static final NoiseGeneratorPerlin NOISE_SAND = new NoiseGeneratorPerlin(new Random(473689270272L), 1);
+	private static final NoiseGeneratorPerlin NOISE_RED_SAND = new NoiseGeneratorPerlin(new Random(3528569078920702727L), 1);
+
 	public GOTBiomeDorne(int i, boolean major) {
 		super(i, major);
 		banditEntityClass = GOTEntityDarkSkinBandit.class;
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
+
+		preseter.setupAridPlainsView();
+		preseter.setupAridPlainsFlora();
+		preseter.setupAridPlainsFauna();
+		preseter.setupStandardSouthernTrees(true);
+
+		setupRuinedStructures(true);
+
 		decorator.addSettlement(new GOTStructureDorneSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureDorneWatchfort(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(SPAWN));
@@ -51,8 +62,53 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 	}
 
 	@Override
-	public boolean disableNoise() {
-		return false;
+	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
+		Block topBlock_pre = topBlock;
+		int topBlockMeta_pre = topBlockMeta;
+		Block fillerBlock_pre = fillerBlock;
+		int fillerBlockMeta_pre = fillerBlockMeta;
+		double d1 = NOISE_DIRT.func_151601_a(i * 0.002, k * 0.002);
+		double d2 = NOISE_DIRT.func_151601_a(i * 0.07, k * 0.07);
+		double d3 = NOISE_DIRT.func_151601_a(i * 0.25, k * 0.25);
+		double d4 = NOISE_SAND.func_151601_a(i * 0.002, k * 0.002);
+		double d5 = NOISE_SAND.func_151601_a(i * 0.07, k * 0.07);
+		double d6 = NOISE_SAND.func_151601_a(i * 0.25, k * 0.25);
+		double d7 = NOISE_RED_SAND.func_151601_a(i * 0.002, k * 0.002);
+		if (d7 + NOISE_RED_SAND.func_151601_a(i * 0.07, k * 0.07) + NOISE_RED_SAND.func_151601_a(i * 0.25, k * 0.25) > 0.9) {
+			topBlock = Blocks.sand;
+			topBlockMeta = 1;
+			fillerBlock = topBlock;
+			fillerBlockMeta = topBlockMeta;
+		} else if (d4 + d5 + d6 > 1.2) {
+			topBlock = Blocks.sand;
+			topBlockMeta = 0;
+			fillerBlock = topBlock;
+			fillerBlockMeta = topBlockMeta;
+		} else if (d1 + d2 + d3 > 0.4) {
+			topBlock = Blocks.dirt;
+			topBlockMeta = 1;
+		}
+		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
+		topBlock = topBlock_pre;
+		topBlockMeta = topBlockMeta_pre;
+		fillerBlock = fillerBlock_pre;
+		fillerBlockMeta = fillerBlockMeta_pre;
+	}
+
+	@Override
+	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
+		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
+		if (random.nextInt(5) == 0) {
+			doubleFlowerGen.setFlowerType(3);
+		} else {
+			doubleFlowerGen.setFlowerType(2);
+		}
+		return doubleFlowerGen;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override
@@ -63,10 +119,5 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
 		return GOTWaypoint.Region.DORNE;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
 	}
 }

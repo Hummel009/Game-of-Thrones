@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenMarshLights;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.World;
@@ -30,6 +31,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy implements GOTBiome.
 		decorator.setReedPerChunk(5);
 		decorator.clearSettlements();
 		decorator.clearStructures();
+		decorator.addTree(GOTTreeType.OAK_SWAMP, 100);
 		npcSpawnList.clear();
 	}
 

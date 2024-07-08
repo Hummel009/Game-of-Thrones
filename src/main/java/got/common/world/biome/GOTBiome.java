@@ -30,6 +30,7 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
@@ -381,7 +382,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ifekevronForest = new GOTBiomeIfekevronForest(69, true).setClimateType(GOTClimateType.SUMMER).setColor(0x657231).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ifekevronForest");
 		ironIslands = new GOTBiomeIronIslands(70, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA83).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironIslands");
 		ironIslandsForest = new GOTBiomeIronIslandsForest(71, true).setClimateType(GOTClimateType.COLD).setColor(0x59845E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironIslandsForest");
-		ironIslandsHills = new GOTBiomeIronIslandsHills(72, true).setClimateType(GOTClimateType.COLD).setColor(0x779E70).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ironIslandsHills");
+		ironIslandsHills = new GOTBiomeIronIslands(72, true).setClimateType(GOTClimateType.COLD).setColor(0x779E70).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ironIslandsHills");
 		isleOfFaces = new GOTBiomeIsleOfFaces(73, true).setClimateType(GOTClimateType.NORMAL).setColor(0x82A556).setMinMaxHeight(0.1f, 0.15f).setBiomeName("isleOfFaces");
 		jogosNhai = new GOTBiomeJogosNhai(74, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2B762).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhai");
 		jogosNhaiDesert = new GOTBiomeJogosNhaiDesert(75, true).setClimateType(GOTClimateType.SUMMER).setColor(0xD6C182).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiDesert");
@@ -401,7 +402,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		lorathMaze = new GOTBiomeLorathMaze(89, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA8AF7B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorathMaze");
 		lys = new GOTBiomeLys(90, true).setClimateType(GOTClimateType.SUMMER).setColor(0x70A564).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lys");
 		massy = new GOTBiomeDragonstone(91, true).setClimateType(GOTClimateType.NORMAL).setColor(0x89AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("massy");
-		massyHills = new GOTBiomeDragonstoneHills(92, true).setClimateType(GOTClimateType.NORMAL).setColor(0x749158).setMinMaxHeight(0.1f, 1.0f).setBiomeName("massyHills");
+		massyHills = new GOTBiomeDragonstone(92, true).setClimateType(GOTClimateType.NORMAL).setColor(0x749158).setMinMaxHeight(0.1f, 1.0f).setBiomeName("massyHills");
 		mossovy = new GOTBiomeMossovy(93, true).setClimateType(GOTClimateType.COLD).setColor(0x92A35E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovy");
 		mossovyMarshes = new GOTBiomeMossovyMarshes(94, true).setClimateType(GOTClimateType.COLD).setColor(0x749975).setMinMaxHeight(0.0f, 0.1f).setBiomeName("mossovyMarshes");
 		mossovyMountains = new GOTBiomeMossovyMountains(95, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xD7E2B3).setMinMaxHeight(2.0f, 2.0f).setBiomeName("mossovyMountains");
@@ -460,7 +461,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		stormlands = new GOTBiomeStormlands(148, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
 		stormlandsForest = new GOTBiomeStormlandsForest(149, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsForest");
 		stormlandsTarth = new GOTBiomeStormlandsTarth(150, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");
-		stormlandsTarthForest = new GOTBiomeStormlandsTarthForest(151, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");
+		stormlandsTarthForest = new GOTBiomeStormlandsForest(151, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");
 		stormlandsTown = new GOTBiomeStormlands(152, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB3C677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTown");
 		summerColony = new GOTBiomeSummerColony(153, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BAD53).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerColony");
 		summerIslands = new GOTBiomeSummerIslands(154, true).setClimateType(GOTClimateType.SUMMER).setColor(0x83A54A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslands");
@@ -486,7 +487,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		volantisOrangeForest = new GOTBiomeVolantisOrangeForest(174, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9D8840).setMinMaxHeight(0.1f, 0.15f).setBiomeName("volantisOrangeForest");
 		westerlands = new GOTBiomeWesterlands(175, true).setClimateType(GOTClimateType.NORMAL).setColor(0xB9BA5E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlands");
 		westerlandsForest = new GOTBiomeWesterlandsForest(176, true).setClimateType(GOTClimateType.NORMAL).setColor(0x7A8443).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsForest");
-		westerlandsHills = new GOTBiomeWesterlandsHills(177, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9E9E50).setMinMaxHeight(0.1f, 1.0f).setBiomeName("westerlandsHills");
+		westerlandsHills = new GOTBiomeWesterlands(177, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9E9E50).setMinMaxHeight(0.1f, 1.0f).setBiomeName("westerlandsHills");
 		westerlandsTown = new GOTBiomeWesterlandsTown(178, true).setClimateType(GOTClimateType.NORMAL).setColor(0xD1D17F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsTown");
 		westerosFrost = new GOTBiomeWesterosFrost(179, true).setClimateType(GOTClimateType.WINTER).setColor(0xD7E4E5).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerosFrost");
 		yeen = new GOTBiomeYeen(180, true).setClimateType(GOTClimateType.SUMMER).setColor(0x242F0F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yeen");
@@ -494,22 +495,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiBorderZone = new GOTBiomeYiTiBorderZone(182, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiBorderZone");
 		yiTiMarshes = new GOTBiomeYiTiMarshes(183, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8BA061).setMinMaxHeight(0.0f, 0.1f).setBiomeName("yiTiMarshes");
 		yiTiTropicalForest = new GOTBiomeTropicalForest(184, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E7A3B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiTropicalForest");
-	}
-
-	public List<SpawnListEntry> getSpawnableCreatureList() {
-		return spawnableCreatureList;
-	}
-
-	public List<SpawnListEntry> getSpawnableWaterCreatureList() {
-		return spawnableWaterCreatureList;
-	}
-
-	public List<SpawnListEntry> getSpawnableCaveCreatureList() {
-		return spawnableCaveCreatureList;
-	}
-
-	public List<FlowerEntry> getFlowers() {
-		return flowers;
 	}
 
 	public static void updateWaterColor(int k) {
@@ -563,6 +548,30 @@ public abstract class GOTBiome extends BiomeGenBase {
 			int b = (int) (baseB * rgb[2]);
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
+	}
+
+	public List<SpawnListEntry> getSpawnableCreatureList() {
+		return spawnableCreatureList;
+	}
+
+	public void addSpawnableCreature(Class<? extends Entity> clazz, int weight, int min, int max) {
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(clazz, weight, min, max));
+	}
+
+	public void addSpawnableAmbient(Class<? extends Entity> clazz, int weight, int min, int max) {
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(clazz, weight, min, max));
+	}
+
+	public List<SpawnListEntry> getSpawnableWaterCreatureList() {
+		return spawnableWaterCreatureList;
+	}
+
+	public List<SpawnListEntry> getSpawnableCaveCreatureList() {
+		return spawnableCaveCreatureList;
+	}
+
+	public List<FlowerEntry> getFlowers() {
+		return flowers;
 	}
 
 	public BiomeColors getBiomeColors() {
@@ -764,8 +773,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return ColorizerGrass.getGrassColor(temp, rain);
 	}
 
-	public abstract GOTAchievement getBiomeAchievement();
-
 	public GOTDimension getBiomeDimension() {
 		return biomeDimension;
 	}
@@ -786,16 +793,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return biomeColors.getGrass() != null ? biomeColors.getGrass().getRGB() : getBaseGrassColor(i, j, k);
 	}
 
-	public abstract GOTMusicRegion.Sub getBiomeMusic();
-
 	public GOTBiomeVariantList getBiomeVariants() {
 		return biomeVariants;
-	}
-
-	public abstract GOTWaypoint.Region getBiomeWaypoints();
-
-	public float getChanceToSpawnAnimals() {
-		return 0.2f;
 	}
 
 	public GOTClimateType getClimateType() {
@@ -815,10 +814,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 			clouds.yCoord *= colors[1];
 			clouds.zCoord *= colors[2];
 		}
-	}
-
-	public boolean getEnableRiver() {
-		return true;
 	}
 
 	public int getFillerBlockMeta() {
@@ -912,10 +907,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return new WorldGenTallGrass(obj.getBlock(), obj.getMeta());
 	}
 
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
-	}
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getSkyColorByTemp(float f) {
@@ -962,14 +953,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public void setVariantChance(float variantChance) {
 		this.variantChance = variantChance;
-	}
-
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_ICE;
-	}
-
-	public int getWallTop() {
-		return 0;
 	}
 
 	@Override
@@ -1171,10 +1154,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.clear();
 	}
 
-	public int spawnCountMultiplier() {
-		return 1;
-	}
-
 	public GOTBiomeSpawnList getNPCSpawnList() {
 		return npcSpawnList;
 	}
@@ -1182,6 +1161,24 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiomeDecorator getDecorator() {
 		return decorator;
 	}
+
+	public abstract GOTMusicRegion.Sub getBiomeMusic();
+
+	public abstract GOTWaypoint.Region getBiomeWaypoints();
+
+	public abstract float getChanceToSpawnAnimals();
+
+	public abstract boolean getEnableRiver();
+
+	public abstract GOTBezierType getRoadBlock();
+
+	public abstract int spawnCountMultiplier();
+
+	public abstract GOTAchievement getBiomeAchievement();
+
+	public abstract GOTBezierType getWallBlock();
+
+	public abstract int getWallTop();
 
 	public interface Mountains {
 		void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant);

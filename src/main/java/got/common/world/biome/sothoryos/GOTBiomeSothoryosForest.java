@@ -23,8 +23,7 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-
-		setupDefaultTrees();
+		preseter.setupStandardSouthernTrees(true);
 	}
 
 	@Override

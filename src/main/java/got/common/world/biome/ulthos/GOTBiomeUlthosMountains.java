@@ -20,7 +20,6 @@ public class GOTBiomeUlthosMountains extends GOTBiomeUlthosBase implements GOTBi
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 
-		decorator.clearTrees();
 		setupDefaultTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_OAK, 1000);
 		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 50);

@@ -11,11 +11,19 @@ import got.common.world.structure.westeros.ironborn.GOTStructureIronbornWatchfor
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeIronIslands extends GOTBiomeWesteros {
+public class GOTBiomeIronIslands extends GOTBiomeWesterosBase {
 	public GOTBiomeIronIslands(int i, boolean major) {
 		super(i, major);
+		preseter.setupPlainsView();
+		preseter.setupPlainsFlora();
+		preseter.setupPlainsFauna();
+		preseter.setupStandardNorthernTrees();
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureIronbornSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureIronbornWatchfort(false), 800);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_MILITARY, 10).setSpawnChance(SPAWN));

@@ -32,7 +32,6 @@ public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.JUNGLE, 1000);
 		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 500);
 		decorator.addTree(GOTTreeType.MAHOGANY, 500);
-		decorator.addTree(GOTTreeType.JUNGLE_SHRUB, 1000);
 		decorator.addTree(GOTTreeType.MANGO, 20);
 		decorator.addTree(GOTTreeType.BANANA, 50);
 		decorator.addGem(new WorldGenMinable(GOTBlocks.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);

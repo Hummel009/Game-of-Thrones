@@ -16,12 +16,11 @@ public class GOTBiomeUlthosRedForest extends GOTBiomeUlthosBase {
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
 
-		decorator.clearTrees();
 		setupDefaultTrees();
-		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK, 1000);
-		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK_LARGE, 50);
-		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 15);
-		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 10);
+		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK_LARGE, 1000);
+		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK, 250);
+		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 250);
+		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 50);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ULTHOS, 10).setSpawnChance(SPAWN));

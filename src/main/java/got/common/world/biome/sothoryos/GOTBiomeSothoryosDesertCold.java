@@ -8,6 +8,7 @@ public class GOTBiomeSothoryosDesertCold extends GOTBiomeSothoryosDesert {
 		preseter.setupDesertColdViewOverride();
 		preseter.setupDesertColdFloraOverride();
 		preseter.setupDesertColdFaunaOverride();
+		preseter.setupDesertColdTreesOverride();
 
 		npcSpawnList.clear();
 	}

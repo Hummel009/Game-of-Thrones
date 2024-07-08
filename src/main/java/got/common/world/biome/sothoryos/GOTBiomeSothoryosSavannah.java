@@ -2,12 +2,15 @@ package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
+import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBase {
 	public GOTBiomeSothoryosSavannah(int i, boolean major) {
@@ -25,12 +28,18 @@ public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBase {
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSothoryosSavannah;
+	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
+		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
+		if (random.nextInt(5) == 0) {
+			doubleFlowerGen.setFlowerType(3);
+		} else {
+			doubleFlowerGen.setFlowerType(2);
+		}
+		return doubleFlowerGen;
 	}
 
 	@Override
-	public int spawnCountMultiplier() {
-		return 3;
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterSothoryosSavannah;
 	}
 }

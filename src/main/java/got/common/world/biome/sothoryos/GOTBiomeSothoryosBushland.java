@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.feature.GOTWorldGenBoulder;
+import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement;
@@ -23,8 +24,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiomeSothoryosBase {
 		preseter.setupBushlandView();
 		preseter.setupBushlandFlora();
 		preseter.setupBushlandFauna();
-
-		setupDefaultTrees();
+		preseter.setupStandardSouthernTrees(true);
 
 		decorator.addSettlement(new GOTStructureSothoryosSettlement(this, 1.0f));
 
@@ -69,6 +69,17 @@ public class GOTBiomeSothoryosBushland extends GOTBiomeSothoryosBase {
 				}
 			}
 		}
+	}
+
+	@Override
+	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
+		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
+		if (random.nextInt(5) == 0) {
+			doubleFlowerGen.setFlowerType(3);
+		} else {
+			doubleFlowerGen.setFlowerType(2);
+		}
+		return doubleFlowerGen;
 	}
 
 	@Override

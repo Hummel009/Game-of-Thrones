@@ -1,6 +1,7 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
+import got.common.world.map.GOTBezierType;
 import net.minecraft.init.Blocks;
 
 public class GOTBiomeSothoryosFrost extends GOTBiomeSothoryosBase {
@@ -12,7 +13,17 @@ public class GOTBiomeSothoryosFrost extends GOTBiomeSothoryosBase {
 		preseter.setupFrostView();
 		preseter.setupFrostFlora();
 		preseter.setupFrostFauna();
-		preseter.setupFrostTrees();
+		preseter.setupFrostTrees(false);
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
 	}
 
 	@Override

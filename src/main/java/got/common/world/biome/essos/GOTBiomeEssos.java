@@ -154,6 +154,21 @@ public class GOTBiomeEssos extends GOTBiome {
 	}
 
 	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.25f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return true;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
+	}
+
+	@Override
 	public int spawnCountMultiplier() {
 		return 3;
 	}

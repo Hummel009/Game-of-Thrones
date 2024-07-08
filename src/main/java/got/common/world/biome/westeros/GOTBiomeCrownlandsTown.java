@@ -13,8 +13,10 @@ import java.util.Collection;
 public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 	public GOTBiomeCrownlandsTown(int i, boolean major) {
 		super(i, major);
-		setupStandardDomesticFauna();
+		preseter.setupPlainsFaunaDomesticOverride();
+
 		npcSpawnList.clear();
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_CIVILIAN, 10).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_GUARDIAN, 4).setSpawnChance(SPAWN));
@@ -43,8 +45,13 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterCrownlandsTown;
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 2;
 	}
 
 	@Override
@@ -53,8 +60,8 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_PAVING;
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterCrownlandsTown;
 	}
 
 	@Override

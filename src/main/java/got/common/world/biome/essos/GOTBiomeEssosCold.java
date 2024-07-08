@@ -4,6 +4,7 @@ import got.client.sound.GOTMusicRegion;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 
 public abstract class GOTBiomeEssosCold extends GOTBiome {
@@ -46,7 +47,12 @@ public abstract class GOTBiomeEssosCold extends GOTBiome {
 	}
 
 	@Override
-	public int spawnCountMultiplier() {
-		return 3;
+	public GOTBezierType getWallBlock() {
+		return null;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 0;
 	}
 }

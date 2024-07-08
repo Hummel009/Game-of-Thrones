@@ -2,28 +2,26 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
-import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.gift.GOTStructureGiftSettlement;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeGiftNew extends GOTBiomeNorth {
+public class GOTBiomeGiftNew extends GOTBiomeWesterosBase {
 	public GOTBiomeGiftNew(int i, boolean major) {
 		super(i, major);
-		setupStandardForestFauna();
-		decorator.clearStructures();
-		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
-		decorator.clearSettlements();
+		preseter.setupColdPlainsView();
+		preseter.setupColdPlainsFlora();
+		preseter.setupColdPlainsFauna();
+		preseter.setupStandardNorthernTrees();
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureGiftSettlement(this, 1.0f));
-		invasionSpawns.clearInvasions();
-		npcSpawnList.clear();
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
@@ -39,5 +37,10 @@ public class GOTBiomeGiftNew extends GOTBiomeNorth {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterGiftNew;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORTH;
 	}
 }

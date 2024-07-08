@@ -9,6 +9,7 @@ public class GOTBiomeStormlandsTarth extends GOTBiomeStormlands {
 		super(i, major);
 		fillerBlock = GOTBlocks.rock;
 		fillerBlockMeta = 5;
+
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGem, 2), 10.0f, 0, 50);
 	}
 

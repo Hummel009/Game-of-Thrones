@@ -11,19 +11,17 @@ import java.util.Random;
 public class GOTBiomeReachFireField extends GOTBiomeReach {
 	public GOTBiomeReachFireField(int i, boolean major) {
 		super(i, major);
-		setupStandardDomesticFauna();
+		preseter.setupPlainsFaunaDomesticOverride();
+
 		biomeVariants.clear();
-		decorator.setTreesPerChunk(0);
+
+		decorator.setTreesPerChunk(1);
 		decorator.setFlowersPerChunk(20);
 		decorator.setDoubleFlowersPerChunk(12);
-		decorator.setGrassPerChunk(8);
-		decorator.setDoubleGrassPerChunk(3);
 		addFlower(Blocks.red_flower, 0, 80);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterReachFireField;
+		flowers.clear();
+		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 80));
 	}
 
 	@Override
@@ -39,5 +37,20 @@ public class GOTBiomeReachFireField extends GOTBiomeReach {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_PAVING.setHasFlowers(true);
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 2;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterReachFireField;
 	}
 }

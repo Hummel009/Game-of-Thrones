@@ -13,15 +13,24 @@ import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsWatc
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeCrownlands extends GOTBiomeWesteros {
+public class GOTBiomeCrownlands extends GOTBiomeWesterosBase {
 	public GOTBiomeCrownlands(int i, boolean major) {
 		super(i, major);
+		preseter.setupPlainsView();
+		preseter.setupPlainsFlora();
+		preseter.setupPlainsFauna();
+		preseter.setupStandardMiderateTrees();
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureCrownlandsSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureCrownlandsWatchfort(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.RIVERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(5).add(c0);

@@ -5,6 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.block.Block;
@@ -12,6 +13,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenCactus;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -95,6 +97,22 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBase implements GO
 	}
 
 	@Override
+	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
+		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
+		if (random.nextInt(5) == 0) {
+			doubleFlowerGen.setFlowerType(3);
+		} else {
+			doubleFlowerGen.setFlowerType(2);
+		}
+		return doubleFlowerGen;
+	}
+
+	@Override
+	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
+		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterSothoryosDesert;
 	}
@@ -107,11 +125,6 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBase implements GO
 	@Override
 	public boolean getEnableRiver() {
 		return false;
-	}
-
-	@Override
-	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
-		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
 	}
 
 	protected boolean isColdDesert() {

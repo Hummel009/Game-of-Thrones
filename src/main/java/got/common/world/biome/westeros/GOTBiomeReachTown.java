@@ -12,8 +12,10 @@ import java.util.Collection;
 public class GOTBiomeReachTown extends GOTBiomeReach {
 	public GOTBiomeReachTown(int i, boolean major) {
 		super(i, major);
-		setupStandardDomesticFauna();
+		preseter.setupPlainsFaunaDomesticOverride();
+
 		npcSpawnList.clear();
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CIVILIAN, 10).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_GUARDIAN, 4).setSpawnChance(SPAWN));
@@ -30,8 +32,13 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterReachTown;
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 2;
 	}
 
 	@Override
@@ -40,7 +47,7 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_PAVING;
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterReachTown;
 	}
 }

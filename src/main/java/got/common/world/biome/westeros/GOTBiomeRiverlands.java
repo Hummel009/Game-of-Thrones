@@ -13,14 +13,23 @@ import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsWatc
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeRiverlands extends GOTBiomeWesteros {
+public class GOTBiomeRiverlands extends GOTBiomeWesterosBase {
 	public GOTBiomeRiverlands(int i, boolean major) {
 		super(i, major);
+		preseter.setupPlainsView();
+		preseter.setupPlainsFlora();
+		preseter.setupPlainsFauna();
+		preseter.setupStandardMiderateTrees();
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureRiverlandsSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureRiverlandsWatchfort(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.RIVERLANDS_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.RIVERLANDS_MILITARY, 10).setSpawnChance(SPAWN));

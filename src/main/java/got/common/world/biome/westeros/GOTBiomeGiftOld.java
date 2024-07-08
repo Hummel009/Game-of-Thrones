@@ -2,19 +2,44 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.database.GOTSpawnList;
+import got.common.world.map.GOTWaypoint;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.spawning.GOTSpawnListContainer;
+import got.common.world.structure.westeros.gift.GOTStructureGiftSettlement;
 
-public class GOTBiomeGiftOld extends GOTBiomeGiftNew {
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class GOTBiomeGiftOld extends GOTBiomeWesterosBase {
 	public GOTBiomeGiftOld(int i, boolean major) {
 		super(i, major);
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		decorator.setTreesPerChunk(-1);
-		decorator.clearSettlements();
+		preseter.setupColdPlainsView();
+		preseter.setupColdPlainsFlora();
+		preseter.setupColdPlainsFauna();
+		preseter.setupStandardNorthernTrees();
+
+		decorator.setDoubleFlowersPerChunk(0);
+
+		setupRuinedStructures(false);
+
 		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);
 		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.GIANT, GOTEventSpawner.EventChance.RARE);
+
+		decorator.addSettlement(new GOTStructureGiftSettlement(this, 1.0f));
+
+		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
+		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(0).add(c1);
+		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(0).add(c2);
 	}
 
 	@Override
@@ -23,7 +48,7 @@ public class GOTBiomeGiftOld extends GOTBiomeGiftNew {
 	}
 
 	@Override
-	public int getWallTop() {
-		return 150;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORTH;
 	}
 }

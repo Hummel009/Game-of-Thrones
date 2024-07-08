@@ -463,20 +463,20 @@ public class GOTBiomeDecorator {
 		return biomeSoils;
 	}
 
-	public void setBiomeOreFactor(float biomeOreFactor) {
-		this.biomeOreFactor = biomeOreFactor;
-	}
-
-	public void setBiomeGemFactor(float biomeGemFactor) {
-		this.biomeGemFactor = biomeGemFactor;
-	}
-
 	public float getBiomeOreFactor() {
 		return biomeOreFactor;
 	}
 
+	public void setBiomeOreFactor(float biomeOreFactor) {
+		this.biomeOreFactor = biomeOreFactor;
+	}
+
 	public float getBiomeGemFactor() {
 		return biomeGemFactor;
+	}
+
+	public void setBiomeGemFactor(float biomeGemFactor) {
+		this.biomeGemFactor = biomeGemFactor;
 	}
 
 	public void setClayGen(WorldGenerator clayGen) {

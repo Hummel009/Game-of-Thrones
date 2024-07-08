@@ -5,6 +5,7 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenBoulder;
+import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.init.Blocks;
@@ -24,12 +25,9 @@ public class GOTBiomeUlthosBushland extends GOTBiomeUlthosBase {
 		preseter.setupBushlandFlora();
 		preseter.setupBushlandFauna();
 
-		decorator.clearTrees();
 		setupDefaultTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 1000);
-		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 50);
-		decorator.addTree(GOTTreeType.ULTHOS_OAK, 15);
-		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 10);
+		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 250);
 
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
@@ -69,6 +67,17 @@ public class GOTBiomeUlthosBushland extends GOTBiomeUlthosBase {
 				}
 			}
 		}
+	}
+
+	@Override
+	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
+		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
+		if (random.nextInt(5) == 0) {
+			doubleFlowerGen.setFlowerType(3);
+		} else {
+			doubleFlowerGen.setFlowerType(2);
+		}
+		return doubleFlowerGen;
 	}
 
 	@Override

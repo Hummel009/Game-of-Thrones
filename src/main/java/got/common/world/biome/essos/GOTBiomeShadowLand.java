@@ -64,4 +64,29 @@ public class GOTBiomeShadowLand extends GOTBiome {
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_ASSHAI;
 	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return null;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 0;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.25f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return true;
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 3;
+	}
 }

@@ -10,897 +10,897 @@ dragon.lifeStage.hatchling=幼年
 dragon.lifeStage.juvenile=青年
 dragon.mountNotice=%s - 向上飞；%s - 向下飞；%s - 发射
 dragon.owned=这不是你的龙
-entity.got.AddamMarbrand.name≠Addam Marbrand
-entity.got.AemonTargaryen.name≠Aemon Targaryen
-entity.got.AeronGreyjoy.name≠Aeron Greyjoy
-entity.got.AlliserThorne.name≠Alliser Thorne
-entity.got.AmoryLorch.name≠Amory Lorch
-entity.got.AndersYronwood.name≠Anders Yronwood
-entity.got.AndrikTheUnsmilling.name≠Andrik The Unsmilling
-entity.got.AnyaWaynwood.name≠Anya Waynwood
-entity.got.ArdrianCeltigar.name≠Ardrian Celtigar
-entity.got.AreoHotah.name≠Areo Hotah
-entity.got.ArianneMartell.name≠Arianne Martell
-entity.got.ArrowFire.name≠Fire Arrow
-entity.got.ArrowPoisoned.name≠Poisoned Arrow
-entity.got.ArrynBaker.name≠Arryn Vale Baker
-entity.got.ArrynBannerBearer.name≠Arryn Vale Banner Bearer
-entity.got.ArrynBartender.name≠Arryn Vale Bartender
-entity.got.ArrynBlacksmith.name≠Arryn Vale Smith
-entity.got.ArrynBrewer.name≠Arryn Vale Brewer
-entity.got.ArrynButcher.name≠Arryn Vale Butcher
-entity.got.ArrynCaptain.name≠Arryn Vale Captain
-entity.got.ArrynFarmer.name≠Arryn Vale Farmer
-entity.got.ArrynFarmhand.name≠Arryn Vale Farmhand
-entity.got.ArrynFishmonger.name≠Arryn Vale Fishmonger
-entity.got.ArrynFlorist.name≠Arryn Vale Florist
-entity.got.ArrynGoldsmith.name≠Arryn Vale Goldsmith
-entity.got.ArrynGuard.name≠Gulltown Guardian
-entity.got.ArrynLevyman.name≠Arryn Vale Levyman
-entity.got.ArrynLevymanArcher.name≠Arryn Vale Levyman Archer
-entity.got.ArrynLumberman.name≠Arryn Vale Lumberman
-entity.got.ArrynMan.name≠Arryn Vale Man
-entity.got.ArrynMason.name≠Arryn Vale Mason
-entity.got.ArrynMiner.name≠Arryn Vale Miner
-entity.got.ArrynSoldier.name≠Arryn Vale Warrior
-entity.got.ArrynSoldierArcher.name≠Arryn Vale Warrior Archer
-entity.got.AryaStark.name≠Arya Stark
-entity.got.AsshaiAlchemist.name≠Asshai Alchemist
-entity.got.AsshaiArchmag.name≠Asshai Archmah
-entity.got.AsshaiBannerBearer.name≠Asshai Banner Bearer
-entity.got.AsshaiCaptain.name≠Asshai Captain
-entity.got.AsshaiMan.name≠Asshai Man
-entity.got.AsshaiShadowbinder.name≠Asshai Shadowbinder
-entity.got.AsshaiSpherebinder.name≠Asshai Spherebinder
-entity.got.AsshaiWarrior.name≠Asshai Guard
-entity.got.AuraneWaters.name≠Aurane Waters
-entity.got.BaelorBlacktyde.name≠Baelor Blacktyde
-entity.got.BalonGreyjoy.name≠Balon Greyjoy
-entity.got.Banner.name≠Banner
-entity.got.BannerWall.name≠Wall Banner
-entity.got.BarbreyDustin.name≠Barbrey Dustin
-entity.got.Barrel.name≠Barrel
-entity.got.BarristanSelmy.name≠Barristan Selmy
-entity.got.BarrowWraith.name≠Shadow
-entity.got.Bear.name≠Bear
-entity.got.BearRug.name≠Bear Rug
-entity.got.Beaver.name≠Beaver
-entity.got.BenedarBelmore.name≠Benedar Belmore
-entity.got.BenjenStark.name≠Benjen Stark
-entity.got.BericDayne.name≠Beric Dayne
-entity.got.BericDondarrionLife1.name≠Beric Dondarrion
-entity.got.BericDondarrionLife2.name≠Beric Dondarrion
-entity.got.BericDondarrionLife3.name≠Beric Dondarrion
-entity.got.BericDondarrionLife4.name≠Beric Dondarrion
-entity.got.BericDondarrionLife5.name≠Beric Dondarrion
-entity.got.BericDondarrionLife6.name≠Beric Dondarrion
-entity.got.Bird.name≠Bird
-entity.got.Bison.name≠Bison
-entity.got.BlackWalderFrey.name≠Black Walder Frey
-entity.got.Blizzard.name≠Blizzard
-entity.got.Boar.name≠Boar
-entity.got.Bomb.name≠Bomb
-entity.got.BraavosBaker.name≠Braavos Baker
-entity.got.BraavosBannerBearer.name≠Braavos Banner Bearer
-entity.got.BraavosBartender.name≠Braavos Bartender
-entity.got.BraavosBlacksmith.name≠Braavos Blacksmith
-entity.got.BraavosBrewer.name≠Braavos Brewer
-entity.got.BraavosButcher.name≠Braavos Butcher
-entity.got.BraavosCaptain.name≠Braavos Captain
-entity.got.BraavosFarmer.name≠Braavos Farmer
-entity.got.BraavosFarmhand.name≠Braavos Farmhand
-entity.got.BraavosFishmonger.name≠Braavos Fishmonger
-entity.got.BraavosFlorist.name≠Braavos Florist
-entity.got.BraavosGoldsmith.name≠Braavos Goldsmith
-entity.got.BraavosLevyman.name≠Braavos Levyman
-entity.got.BraavosLevymanArcher.name≠Braavos Levyman Archer
-entity.got.BraavosLumberman.name≠Braavos Lumberman
-entity.got.BraavosMan.name≠Braavos Man
-entity.got.BraavosMason.name≠Braavos Mason
-entity.got.BraavosMiner.name≠Braavos Miner
-entity.got.BraavosSoldier.name≠Braavos Warrior
-entity.got.BraavosSoldierArcher.name≠Braavos Warrior Archer
-entity.got.BranStark.name≠Bran Stark
-entity.got.BrienneTarth.name≠Brienne Tarth
-entity.got.Bronn.name≠Bronn
-entity.got.BryndenTully.name≠Brynden Tully
-entity.got.BuGai.name≠Bu Gai
-entity.got.Butterfly.name≠Butterfly
-entity.got.Camel.name≠Camel
-entity.got.Cargocart.name≠Cargo Cart
-entity.got.CatelynStark.name≠Catelyn Stark
-entity.got.CerseiLannister.name≠Cersei Lannister
-entity.got.ClementPiper.name≠Clement Piper
-entity.got.CleyCerwyn.name≠Cley Cerwyn
-entity.got.Conker.name≠Conker
-entity.got.CotterPyke.name≠Cotter Pyke
-entity.got.Craster.name≠Craster
-entity.got.CrasterWife.name≠Craster's Wife
-entity.got.Crocodile.name≠Crocodile
-entity.got.CrossbowBolt.name≠Crossbow Bolt
-entity.got.CrownlandsAlchemist.name≠Crownlands Alchemist
-entity.got.CrownlandsBaker.name≠Crownlands Baker
-entity.got.CrownlandsBannerBearer.name≠Crownlands Banner Bearer
-entity.got.CrownlandsBartender.name≠Crownlands Bartender
-entity.got.CrownlandsBlacksmith.name≠Crownlands Smith
-entity.got.CrownlandsBrewer.name≠Crownlands Brewer
-entity.got.CrownlandsButcher.name≠Crownlands Butcher
-entity.got.CrownlandsCaptain.name≠Crownlands Captain
-entity.got.CrownlandsFarmer.name≠Crownlands Farmer
-entity.got.CrownlandsFarmhand.name≠Crownlands Farmhand
-entity.got.CrownlandsFishmonger.name≠Crownlands Fishmonger
-entity.got.CrownlandsFlorist.name≠Crownlands Florist
-entity.got.CrownlandsGoldsmith.name≠Crownlands Goldsmith
-entity.got.CrownlandsGuard.name≠King's Landing Guardian
-entity.got.CrownlandsLevyman.name≠Crownlands Levyman
-entity.got.CrownlandsLevymanArcher.name≠Crownlands Levyman Archer
-entity.got.CrownlandsLumberman.name≠Crownlands Lumberman
-entity.got.CrownlandsMan.name≠Crownlands Man
-entity.got.CrownlandsMason.name≠Crownlands Mason
-entity.got.CrownlandsMiner.name≠Crownlands Miner
-entity.got.DaarioNaharis.name≠Daario Naharis
-entity.got.DaenerysTargaryen.name≠Daenerys Targaryen
-entity.got.Dagmer.name≠Dagmer
-entity.got.DarkSkinBandit.name≠Dark-skinned Bandit
-entity.got.DarkSkinThief.name≠Dark-skinned Thief
-entity.got.DarkSkinTramp.name≠Dark-skinned Tramp
-entity.got.Dart.name≠Dart
-entity.got.DavenLannister.name≠Daven Lannister
-entity.got.DavosSeaworth.name≠Davos Seaworth
-entity.got.Deer.name≠Deer
-entity.got.DenysMallister.name≠Denys Mallister
-entity.got.DesertScorpion.name≠Desert Scorpion
-entity.got.DikDik.name≠Dik-dik
-entity.got.Direwolf.name≠Direwolf
-entity.got.DoranMartell.name≠Doran Martell
-entity.got.DorneBaker.name≠Dorne Baker
-entity.got.DorneBannerBearer.name≠Dorne Banner Bearer
-entity.got.DorneBartender.name≠Dorne Bartender
-entity.got.DorneBlacksmith.name≠Dorne Smith
-entity.got.DorneBrewer.name≠Dorne Brewer
-entity.got.DorneButcher.name≠Dorne Butcher
-entity.got.DorneCaptain.name≠Dorne Captain
-entity.got.DorneFarmer.name≠Dorne Farmer
-entity.got.DorneFarmhand.name≠Dorne Farmhand
-entity.got.DorneFishmonger.name≠Dorne Fishmonger
-entity.got.DorneFlorist.name≠Dorne Florist
-entity.got.DorneGoldsmith.name≠Dorne Goldsmith
-entity.got.DorneLevyman.name≠Dorne Levyman
-entity.got.DorneLevymanArcher.name≠Dorne Levyman Archer
-entity.got.DorneLumberman.name≠Dorne Lumberman
-entity.got.DorneMan.name≠Dorne Man
-entity.got.DorneMason.name≠Dorne Mason
-entity.got.DorneMiner.name≠Dorne Miner
-entity.got.DorneSoldier.name≠Dorne Warrior
-entity.got.DorneSoldierArcher.name≠Dorne Warrior Archer
-entity.got.Dothraki.name≠Dothraki
-entity.got.DothrakiArcher.name≠Dothraki Archer
-entity.got.DothrakiChieftain.name≠Dothraki Khal
-entity.got.DothrakiShaman.name≠Dothraki Shaman
-entity.got.Dragon.name≠Dragon
-entity.got.DragonstoneBaker.name≠Dragonstone Baker
-entity.got.DragonstoneBannerBearer.name≠Dragonstone Banner Bearer
-entity.got.DragonstoneBartender.name≠Dragonstone Bartender
-entity.got.DragonstoneBlacksmith.name≠Dragonstone Smith
-entity.got.DragonstoneBrewer.name≠Dragonstone Brewer
-entity.got.DragonstoneButcher.name≠Dragonstone Butcher
-entity.got.DragonstoneCaptain.name≠Dragonstone Captain
-entity.got.DragonstoneFarmer.name≠Dragonstone Farmer
-entity.got.DragonstoneFarmhand.name≠Dragonstone Farmhand
-entity.got.DragonstoneFishmonger.name≠Dragonstone Fishmonger
-entity.got.DragonstoneFlorist.name≠Dragonstone Florist
-entity.got.DragonstoneGoldsmith.name≠Dragonstone Goldsmith
-entity.got.DragonstoneLevyman.name≠Dragonstone Levyman
-entity.got.DragonstoneLevymanArcher.name≠Dragonstone Levyman Archer
-entity.got.DragonstoneLumberman.name≠Dragonstone Lumberman
-entity.got.DragonstoneMan.name≠Dragonstone Man
-entity.got.DragonstoneMason.name≠Dragonstone Mason
-entity.got.DragonstoneMiner.name≠Dragonstone Miner
-entity.got.DragonstoneSoldier.name≠Dragonstone Warrior
-entity.got.DragonstoneSoldierArcher.name≠Dragonstone Warrior Archer
-entity.got.DunstanDrumm.name≠Dunstan Drumm
-entity.got.Ebrose.name≠Ebrose
-entity.got.Edd.name≠Dolorous Edd
-entity.got.EdmureTully.name≠Edmure Tully
-entity.got.EldonEstermont.name≠Eldon Estermont
-entity.got.Elephant.name≠Elephant
-entity.got.EllaryaSand.name≠Ellarya Sand
-entity.got.ErikIronmaker.name≠Erik Ironmaker
-entity.got.EuronGreyjoy.name≠Euron Greyjoy
-entity.got.FallingFireJar.name≠Falling Fire Jar
-entity.got.FallingTreasure.name≠Falling Treasure
-entity.got.FirePot.name≠Fire Pot
-entity.got.Fish.name≠Fish
-entity.got.FishHook.name≠Fish Hook
-entity.got.Flamingo.name≠Flamingo
-entity.got.ForleyPrester.name≠Forley Prester
-entity.got.FranklynFowler.name≠Franklyn Fowler
-entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Gemsbok.name≠Gemsbok
-entity.got.GendryBaratheon.name≠Gendry Baratheon
-entity.got.GeroldDayne.name≠Gerold Dayne
-entity.got.GeroldGrafton.name≠Gerold Grafton
-entity.got.GhiscarBaker.name≠Ghiscar Baker
-entity.got.GhiscarBannerBearer.name≠Ghiscar Banner Bearer
-entity.got.GhiscarBartender.name≠Ghiscar Bartender
-entity.got.GhiscarBlacksmith.name≠Ghiscar Blacksmith
-entity.got.GhiscarBrewer.name≠Ghiscar Brewer
-entity.got.GhiscarButcher.name≠Ghiscar Butcher
-entity.got.GhiscarCaptain.name≠Ghiscar Captain
-entity.got.GhiscarFishmonger.name≠Ghiscar Fishmonger
-entity.got.GhiscarFlorist.name≠Ghiscar Florist
-entity.got.GhiscarGladiator.name≠Ghiscar Gladiator
-entity.got.GhiscarGoldsmith.name≠Ghiscar Goldsmith
-entity.got.GhiscarGuard.name≠Yunkai Guard
-entity.got.GhiscarHarpy.name≠Ghiscar Son of the Harpy
-entity.got.GhiscarLevyman.name≠Ghiscar Levyman
-entity.got.GhiscarLevymanArcher.name≠Ghiscar Levyman Archer
-entity.got.GhiscarLumberman.name≠Ghiscar Lumberman
-entity.got.GhiscarMan.name≠Ghiscar Man
-entity.got.GhiscarMason.name≠Ghiscar Mason
-entity.got.GhiscarMiner.name≠Ghiscar Miner
-entity.got.GhiscarSlave.name≠Ghiscar Slave
-entity.got.GhiscarSlaver.name≠Ghiscar Slaver
-entity.got.GhiscarSoldier.name≠Ghiscar Corsair
-entity.got.GhiscarSoldierArcher.name≠Ghiscar Corsair Archer
-entity.got.GhiscarUnsullied.name≠Ghiscar Unsulled
-entity.got.Giant.name≠Giant
-entity.got.GiftBannerBearer.name≠Night's Watch Banner Bearer
-entity.got.GiftBlacksmith.name≠Gift Smith
-entity.got.GiftGuard.name≠Night's Watch Warrior
-entity.got.GiftMan.name≠Gift Man
-entity.got.GilwoodHunter.name≠Gilwood Hunter
-entity.got.Giraffe.name≠Giraffe
-entity.got.GiraffeRug.name≠Giraffe Rug
-entity.got.GoldenCompanyBannerBearer.name≠Golden Company Banner Bearer
-entity.got.GoldenCompanyCaptain.name≠Golden Company Captain
-entity.got.GoldenCompanySpearman.name≠Golden Company Spearman
-entity.got.GoldenCompanyWarrior.name≠Golden Company Warrior
-entity.got.Gorcrow.name≠Crow
-entity.got.GoroldGoodbrother.name≠Gorold Goodbrother
-entity.got.GregorCleganeAlive.name≠Gregor Clegane
-entity.got.GregorCleganeDead.name≠Gregor Clegane
-entity.got.GreyWorm.name≠Grey Worm
-entity.got.GulianSwann.name≠Gulian Swann
-entity.got.GylbertFarwynd.name≠Gylbert Farwynd
-entity.got.HarmenUller.name≠Harmen Uller
-entity.got.Harmune.name≠Harmune
-entity.got.HarrasHarlaw.name≠Harras Harlaw
-entity.got.HarroldHardyng.name≠Harrold Hardyng
-entity.got.HarryStrickland.name≠Harry Strickland
-entity.got.HarysSwyft.name≠Harys Swyft
-entity.got.HelmanTallhart.name≠Helman Tallhart
-entity.got.HighSepton.name≠High Septon
-entity.got.Hillman.name≠Hill Tribes Man
-entity.got.HillmanArcher.name≠Hill Tribes Archer
-entity.got.HillmanAxeThrower.name≠Hill Tribes Axe Thrower
-entity.got.HillmanBannerBearer.name≠Hill Tribes Banner Bearer
-entity.got.HillmanBartender.name≠Hill Tribes Bartender
-entity.got.HillmanBerserker.name≠Hill Tribes Berserker
-entity.got.HillmanChieftain.name≠Hill Tribes Chieftain
-entity.got.HillmanWarrior.name≠Hill Tribes Warrior
-entity.got.HizdahrZoLoraq.name≠Hizdahr Zo Loraq
-entity.got.Hodor.name≠Hodor
-entity.got.Horse.name≠Horse
-entity.got.HortonRedfort.name≠Horton Redfort
-entity.got.HosterTully.name≠Hoster Tully
-entity.got.HotPie.name≠Hot Pie
-entity.got.HowlandReed.name≠Howland Reed
-entity.got.Hummel009.name≠Hummel009
-entity.got.IbbenArcher.name≠Ibben Archer
-entity.got.IbbenAxeThrower.name≠Ibben Axe-Thrower
-entity.got.IbbenBaker.name≠Ibben Baker
-entity.got.IbbenBannerBearer.name≠Ibben Banner Bearer
-entity.got.IbbenBartender.name≠Ibben Meadhost
-entity.got.IbbenBlacksmith.name≠Ibben Blacksmith
-entity.got.IbbenBrewer.name≠Ibben Brewer
-entity.got.IbbenButcher.name≠Ibben Butcher
-entity.got.IbbenCaptain.name≠Ibben Captain
-entity.got.IbbenFarmer.name≠Ibben Farmer
-entity.got.IbbenFarmhand.name≠Ibben Farmhand
-entity.got.IbbenFishmonger.name≠Ibben Fishmonger
-entity.got.IbbenFlorist.name≠Ibben Florist
-entity.got.IbbenGoldsmith.name≠Ibben Goldsmith
-entity.got.IbbenLevyman.name≠Ibben Levyman
-entity.got.IbbenLevymanArcher.name≠Ibben Levyman Archer
-entity.got.IbbenLumberman.name≠Ibben Lumberman
-entity.got.IbbenMan.name≠Ibben Man
-entity.got.IbbenMason.name≠Ibben Builder
-entity.got.IbbenMiner.name≠Ibben Miner
-entity.got.IbbenSoldier.name≠Ibben Warrior
-entity.got.IbbenSoldierArcher.name≠Ibben Warrior Archer
-entity.got.IbbenStablemaster.name≠Ibben Stablemaster
-entity.got.IbbenWarrior.name≠Ibben Warrior
-entity.got.IceSpider.name≠Ice Spider
-entity.got.Ifekevron.name≠Ifekevron
-entity.got.IllyrioMopatis.name≠Illyrio Mopatis
-entity.got.IlynPayne.name≠Ilyn Payne
-entity.got.InvasionSpawner.name≠Invasion Spawner
-entity.got.IronbornBaker.name≠Iron Islands Baker
-entity.got.IronbornBannerBearer.name≠Iron Islands Banner Bearer
-entity.got.IronbornBartender.name≠Iron Islands Bartender
-entity.got.IronbornBlacksmith.name≠Iron Islands Smith
-entity.got.IronbornBrewer.name≠Iron Islands Brewer
-entity.got.IronbornButcher.name≠Iron Islands Butcher
-entity.got.IronbornCaptain.name≠Iron Islands Captain
-entity.got.IronbornFarmer.name≠Iron Islands Farmer
-entity.got.IronbornFarmhand.name≠Iron Islands Farmhand
-entity.got.IronbornFishmonger.name≠Iron Islands Fishmonger
-entity.got.IronbornFlorist.name≠Iron Islands Florist
-entity.got.IronbornGoldsmith.name≠Iron Islands Goldsmith
-entity.got.IronbornLevyman.name≠Iron Islands Levyman
-entity.got.IronbornLevymanArcher.name≠Iron Islands Levyman Archer
-entity.got.IronbornLumberman.name≠Iron Islands Lumberman
-entity.got.IronbornMan.name≠Iron Islands Man
-entity.got.IronbornMason.name≠Iron Islands Mason
-entity.got.IronbornMiner.name≠Iron Islands Miner
-entity.got.IronbornPriest.name≠Iron Islands Priest
-entity.got.IronbornSoldier.name≠Iron Islands Warrior
-entity.got.IronbornSoldierArcher.name≠Iron Islands Warrior Archer
-entity.got.JaimeLannister.name≠Jaime Lannister
-entity.got.JanosSlynt.name≠Janos Slynt
-entity.got.JaqenHghar.name≠Jaqen H'Ghar
-entity.got.JasonMallister.name≠Jason Mallister
-entity.got.JeorMormont.name≠Jeor Mormont
-entity.got.JoffreyBaratheon.name≠Joffrey Baratheon
-entity.got.JogosNhaiArcher.name≠Jogos Nhai Archer
-entity.got.JogosNhaiBannerBearer.name≠Jogos Nhai Banner Bearer
-entity.got.JogosNhaiChieftain.name≠Jogos Nhai Chieftain
-entity.got.JogosNhaiMan.name≠Jogos Nhai Nomad
-entity.got.JogosNhaiShaman.name≠Jogos Nhai Shaman
-entity.got.JohnUmber.name≠John Umber
-entity.got.JonConnington.name≠Jon Connington
-entity.got.JonSnowLife1.name≠Jon Snow
-entity.got.JonSnowLife2.name≠Jon Snow
-entity.got.JonosBracken.name≠Jonos Bracken
-entity.got.JorahMormont.name≠Jorah Mormont
-entity.got.JungleScorpion.name≠Jungle Scorpion
-entity.got.KevanLannister.name≠Kevan Lannister
-entity.got.Kingsguard.name≠Kingsguard
-entity.got.KraznysMoNakloz.name≠Kraznys Mo Nakloz
-entity.got.LancelLannisterNormal.name≠Lancel Lannister
-entity.got.LancelLannisterReligious.name≠Lancel Lannister
-entity.got.LeoLefford.name≠Leo Lefford
-entity.got.LeytonHightower.name≠Leyton Hightower
-entity.got.LhazarBaker.name≠Lhazar Baker
-entity.got.LhazarBannerBearer.name≠Lhazar Banner Bearer
-entity.got.LhazarBartender.name≠Lhazar Bartender
-entity.got.LhazarBlacksmith.name≠Lhazar Blacksmith
-entity.got.LhazarBrewer.name≠Lhazar Brewer
-entity.got.LhazarButcher.name≠Lhazar Butcher
-entity.got.LhazarCaptain.name≠Lhazar Captain
-entity.got.LhazarFarmer.name≠Lhazar Farmer
-entity.got.LhazarFarmhand.name≠Lhazar Farmhand
-entity.got.LhazarFishmonger.name≠Lhazar Fishmonger
-entity.got.LhazarFlorist.name≠Lhazar Florist
-entity.got.LhazarGoldsmith.name≠Lhazar Goldsmith
-entity.got.LhazarHunter.name≠Lhazar Hunter
-entity.got.LhazarLevyman.name≠Lhazar Levyman
-entity.got.LhazarLevymanArcher.name≠Lhazar Levyman Archer
-entity.got.LhazarLumberman.name≠Lhazar Lumberman
-entity.got.LhazarMan.name≠Lhazar Man
-entity.got.LhazarMason.name≠Lhazar Mason
-entity.got.LhazarMiner.name≠Lhazar Miner
-entity.got.LhazarSoldier.name≠Lhazar Warrior
-entity.got.LhazarSoldierArcher.name≠Lhazar Warrior Archer
-entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinThief.name≠Thief
-entity.got.LightSkinTramp.name≠Tramp
-entity.got.LingeringEffect.name≠Lingering Effect
-entity.got.LingeringPotion.name≠Lingering Potion
-entity.got.Lion.name≠Lion
-entity.got.LionRug.name≠Lion Rug
-entity.got.Lioness.name≠Lioness
-entity.got.LorasTyrell.name≠Loras Tyrell
-entity.got.LorathBaker.name≠Lorath Baker
-entity.got.LorathBannerBearer.name≠Lorath Banner Bearer
-entity.got.LorathBartender.name≠Lorath Bartender
-entity.got.LorathBlacksmith.name≠Lorath Blacksmith
-entity.got.LorathBrewer.name≠Lorath Brewer
-entity.got.LorathButcher.name≠Lorath Butcher
-entity.got.LorathCaptain.name≠Lorath Captain
-entity.got.LorathFarmer.name≠Lorath Farmer
-entity.got.LorathFarmhand.name≠Lorath Farmhand
-entity.got.LorathFishmonger.name≠Lorath Fishmonger
-entity.got.LorathFlorist.name≠Lorath Florist
-entity.got.LorathGoldsmith.name≠Lorath Goldsmith
-entity.got.LorathLevyman.name≠Lorath Levyman
-entity.got.LorathLevymanArcher.name≠Lorath Levyman Archer
-entity.got.LorathLumberman.name≠Lorath Lumberman
-entity.got.LorathMan.name≠Lorath Man
-entity.got.LorathMason.name≠Lorath Mason
-entity.got.LorathMiner.name≠Lorath Miner
-entity.got.LorathSoldier.name≠Lorath Warrior
-entity.got.LorathSoldierArcher.name≠Lorath Warrior Archer
-entity.got.LotharFrey.name≠Lothar Frey
-entity.got.Luwin.name≠Luwin
-entity.got.LyleCrakehall.name≠Lyle Crakehall
-entity.got.LynCorbray.name≠Lyn Corbray
-entity.got.LysBaker.name≠Lys Baker
-entity.got.LysBannerBearer.name≠Lys Banner Bearer
-entity.got.LysBartender.name≠Lys Bartender
-entity.got.LysBlacksmith.name≠Lys Blacksmith
-entity.got.LysBrewer.name≠Lys Brewer
-entity.got.LysButcher.name≠Lys Butcher
-entity.got.LysCaptain.name≠Lys Captain
-entity.got.LysFishmonger.name≠Lys Fishmonger
-entity.got.LysFlorist.name≠Lys Florist
-entity.got.LysGoldsmith.name≠Lys Goldsmith
-entity.got.LysLevyman.name≠Lys Levyman
-entity.got.LysLevymanArcher.name≠Lys Levyman Archer
-entity.got.LysLumberman.name≠Lys Lumberman
-entity.got.LysMan.name≠Lys Man
-entity.got.LysMason.name≠Lys Mason
-entity.got.LysMiner.name≠Lys Miner
-entity.got.LysSlave.name≠Lys Slave
-entity.got.LysSlaver.name≠Lys Slaver
-entity.got.LysSoldier.name≠Lys Warrior
-entity.got.LysSoldierArcher.name≠Lys Warrior Archer
-entity.got.LysaArryn.name≠Lysa Arryn
-entity.got.MaceTyrell.name≠Mace Tyrell
-entity.got.MaegeMormont.name≠Maege Mormont
-entity.got.Maester.name≠Maester
-entity.got.Mammoth.name≠Mammoth
-entity.got.ManceRayder.name≠Mance Rayder
-entity.got.ManfreyMartell.name≠Manfrey Martell
-entity.got.Manticore.name≠Manticore
-entity.got.MargaeryTyrell.name≠Margaery Tyrell
-entity.got.MaronVolmark.name≠Maron Volmark
-entity.got.MarshWraith.name≠Marsh Wraith
-entity.got.MathisRowan.name≠Mathis Rowan
-entity.got.MatthosSeaworth.name≠Matthos Seaworth
-entity.got.Melisandra.name≠Melisandra
-entity.got.Mellario.name≠Mellario
-entity.got.Mercenary.name≠Mercenary
-entity.got.MerynTrant.name≠Meryn Trant
-entity.got.Midges.name≠Midges
-entity.got.Missandei.name≠Missandei
-entity.got.MonfordVelaryon.name≠Monford Velaryon
-entity.got.Moqorro.name≠Moqorro
-entity.got.MoribaldChester.name≠Moribald Chester
-entity.got.MossovyBartender.name≠Mossovy Bartender
-entity.got.MossovyBlacksmith.name≠Mossovy Blacksmith
-entity.got.MossovyGoldsmith.name≠Mossovy Goldsmith
-entity.got.MossovyMan.name≠Mossovy Man
-entity.got.MossovyWitcher.name≠Mossovy Witcher
-entity.got.Mullin.name≠Mullin
-entity.got.MyrBaker.name≠Myr Baker
-entity.got.MyrBannerBearer.name≠Myr Banner Bearer
-entity.got.MyrBartender.name≠Myr Bartender
-entity.got.MyrBlacksmith.name≠Myr Blacksmith
-entity.got.MyrBrewer.name≠Myr Brewer
-entity.got.MyrButcher.name≠Myr Butcher
-entity.got.MyrCaptain.name≠Myr Captain
-entity.got.MyrFishmonger.name≠Myr Fishmonger
-entity.got.MyrFlorist.name≠Myr Florist
-entity.got.MyrGoldsmith.name≠Myr Goldsmith
-entity.got.MyrLevyman.name≠Myr Levyman
-entity.got.MyrLevymanArcher.name≠Myr Levyman Archer
-entity.got.MyrLumberman.name≠Myr Lumberman
-entity.got.MyrMan.name≠Myr Man
-entity.got.MyrMason.name≠Myr Mason
-entity.got.MyrMiner.name≠Myr Miner
-entity.got.MyrSlave.name≠Myr Slave
-entity.got.MyrSlaver.name≠Myr Slaver
-entity.got.MyrSoldier.name≠Myr Warrior
-entity.got.MyrSoldierArcher.name≠Myr Warrior Archer
-entity.got.MyrcellaBaratheon.name≠Myrcella Baratheon
-entity.got.MysteryWeb.name≠Mystery Web
-entity.got.NPCRespawner.name≠NPC Respawner
-entity.got.NightKing.name≠Night King
-entity.got.NorthBaker.name≠North Baker
-entity.got.NorthBannerBearer.name≠North Banner Bearer
-entity.got.NorthBartender.name≠North Bartender
-entity.got.NorthBlacksmith.name≠North Smith
-entity.got.NorthBrewer.name≠North Brewer
-entity.got.NorthButcher.name≠North Butcher
-entity.got.NorthCaptain.name≠North Captain
-entity.got.NorthFarmer.name≠North Farmer
-entity.got.NorthFarmhand.name≠North Farmhand
-entity.got.NorthFishmonger.name≠North Fishmonger
-entity.got.NorthFlorist.name≠North Florist
-entity.got.NorthGoldsmith.name≠North Goldsmith
-entity.got.NorthGuard.name≠White Harbour Guard
-entity.got.NorthHillman.name≠North Hillman
-entity.got.NorthHillmanArcher.name≠North Hillman Archer
-entity.got.NorthHillmanAxeThrower.name≠North Hillman Axe Thrower
-entity.got.NorthHillmanBannerBearer.name≠North Hillman Banner Bearer
-entity.got.NorthHillmanChieftain.name≠North Hillman Chieftain
-entity.got.NorthHillmanWarrior.name≠North Hillman Warrior
-entity.got.NorthLevyman.name≠North Levyman
-entity.got.NorthLevymanArcher.name≠North Levyman Archer
-entity.got.NorthLumberman.name≠North Lumberman
-entity.got.NorthMan.name≠North Man
-entity.got.NorthMason.name≠North Mason
-entity.got.NorthMiner.name≠North Miner
-entity.got.NorthSoldier.name≠North Warrior
-entity.got.NorthSoldierArcher.name≠North Warrior Archer
-entity.got.NorvosBaker.name≠Norvos Baker
-entity.got.NorvosBannerBearer.name≠Norvos Banner Bearer
-entity.got.NorvosBartender.name≠Norvos Bartender
-entity.got.NorvosBlacksmith.name≠Norvos Blacksmith
-entity.got.NorvosBrewer.name≠Norvos Brewer
-entity.got.NorvosButcher.name≠Norvos Butcher
-entity.got.NorvosCaptain.name≠Norvos Captain
-entity.got.NorvosFarmer.name≠Norvos Farmer
-entity.got.NorvosFarmhand.name≠Norvos Farmhand
-entity.got.NorvosFishmonger.name≠Norvos Fishmonger
-entity.got.NorvosFlorist.name≠Norvos Florist
-entity.got.NorvosGoldsmith.name≠Norvos Goldsmith
-entity.got.NorvosGuard.name≠Norvos Guard
-entity.got.NorvosLevyman.name≠Norvos Levyman
-entity.got.NorvosLevymanArcher.name≠Norvos Archer
-entity.got.NorvosLumberman.name≠Norvos Lumberman
-entity.got.NorvosMan.name≠Norvos Man
-entity.got.NorvosMason.name≠Norvos Mason
-entity.got.NorvosMiner.name≠Norvos Miner
-entity.got.NorvosSoldier.name≠Norvos Warrior
-entity.got.NorvosSoldierArcher.name≠Norvos Warrior Archer
-entity.got.OberynMartell.name≠Oberyn Martell
-entity.got.OlennaTyrell.name≠Olenna Tyrell
-entity.got.OrtonMerryweather.name≠Orton Merryweather
-entity.got.Osha.name≠Osha
-entity.got.PaxterRedwyne.name≠Paxter Redwyne
-entity.got.Pebble.name≠Pebble
-entity.got.PentosBaker.name≠Pentos Baker
-entity.got.PentosBannerBearer.name≠Pentos Banner Bearer
-entity.got.PentosBartender.name≠Pentos Bartender
-entity.got.PentosBlacksmith.name≠Pentos Blacksmith
-entity.got.PentosBrewer.name≠Pentos Brewer
-entity.got.PentosButcher.name≠Pentos Butcher
-entity.got.PentosCaptain.name≠Pentos Captain
-entity.got.PentosFarmer.name≠Pentos Farmer
-entity.got.PentosFarmhand.name≠Pentos Farmhand
-entity.got.PentosFishmonger.name≠Pentos Fishmonger
-entity.got.PentosFlorist.name≠Pentos Florist
-entity.got.PentosGoldsmith.name≠Pentos Goldsmith
-entity.got.PentosGuard.name≠Pentos Guard
-entity.got.PentosLevyman.name≠Pentos Levyman
-entity.got.PentosLevymanArcher.name≠Pentos Archer
-entity.got.PentosLumberman.name≠Pentos Lumberman
-entity.got.PentosMan.name≠Pentos Man
-entity.got.PentosMason.name≠Pentos Mason
-entity.got.PentosMiner.name≠Pentos Miner
-entity.got.PentosSoldier.name≠Pentos Warrior
-entity.got.PentosSoldierArcher.name≠Pentos Warrior Archer
-entity.got.PetyrBaelish.name≠Petyr Baelish
-entity.got.Plate.name≠Plate
-entity.got.Plowcart.name≠Plow Cart
-entity.got.PodrickPayne.name≠Podrick Payne
-entity.got.Polliver.name≠Polliver
-entity.got.Portal.name≠Portal
-entity.got.Prostitute.name≠Prostitute
-entity.got.Pycelle.name≠Pycelle
-entity.got.QarthBaker.name≠Qarth Baker
-entity.got.QarthBannerBearer.name≠Qarth Banner Bearer
-entity.got.QarthBartender.name≠Qarth Bartender
-entity.got.QarthBlacksmith.name≠Qarth Blacksmith
-entity.got.QarthBrewer.name≠Qarth Brewer
-entity.got.QarthButcher.name≠Qarth Butcher
-entity.got.QarthCaptain.name≠Qarth Captain
-entity.got.QarthFarmer.name≠Qarth Farmer
-entity.got.QarthFarmhand.name≠Qarth Farmhand
-entity.got.QarthFishmonger.name≠Qarth Fishmonger
-entity.got.QarthFlorist.name≠Qarth Florist
-entity.got.QarthGoldsmith.name≠Qarth Goldsmith
-entity.got.QarthGuard.name≠Qarth Guard
-entity.got.QarthLevyman.name≠Qarth Levyman
-entity.got.QarthLevymanArcher.name≠Qarth Levyman Archer
-entity.got.QarthLumberman.name≠Qarth Lumberman
-entity.got.QarthMan.name≠Qarth Man
-entity.got.QarthMason.name≠Qarth Mason
-entity.got.QarthMiner.name≠Qarth Miner
-entity.got.QarthSoldier.name≠Qarth Warrior
-entity.got.QarthSoldierArcher.name≠Qarth Warrior Archer
-entity.got.QarthWarlock.name≠Qarth Warlock
-entity.got.QohorBaker.name≠Qohor Baker
-entity.got.QohorBannerBearer.name≠Qohor Banner Bearer
-entity.got.QohorBartender.name≠Qohor Bartender
-entity.got.QohorBlacksmith.name≠Qohor Blacksmith
-entity.got.QohorBrewer.name≠Qohor Brewer
-entity.got.QohorButcher.name≠Qohor Butcher
-entity.got.QohorCaptain.name≠Qohor Captain
-entity.got.QohorFarmer.name≠Qohor Farmer
-entity.got.QohorFarmhand.name≠Qohor Farmhand
-entity.got.QohorFishmonger.name≠Qohor Fishmonger
-entity.got.QohorFlorist.name≠Qohor Florist
-entity.got.QohorGoldsmith.name≠Qohor Goldsmith
-entity.got.QohorGuard.name≠Qohor Guard
-entity.got.QohorLevyman.name≠Qohor Levyman
-entity.got.QohorLevymanArcher.name≠Qohor Levyman Archer
-entity.got.QohorLumberman.name≠Qohor Lumberman
-entity.got.QohorMan.name≠Qohor Man
-entity.got.QohorMason.name≠Qohor Mason
-entity.got.QohorMiner.name≠Qohor Miner
-entity.got.QohorSoldier.name≠Qohor Warrior
-entity.got.QohorSoldierArcher.name≠Qohor Warrior Archer
-entity.got.QohorUnsullied.name≠Qohor Unsulled
-entity.got.QuennRoxton.name≠Quenn Roxton
-entity.got.QuentenBanefort.name≠Quenten Banefort
-entity.got.QuentynMartell.name≠Quentyn Martell
-entity.got.QuentynQorgyle.name≠Quentyn Qorgyle
-entity.got.Qyburn.name≠Qyburn
-entity.got.Rabbit.name≠Rabbit
-entity.got.RamsayBolton.name≠Ramsay Bolton
-entity.got.RandyllTarly.name≠Randyll Tarly
-entity.got.RazdalMoEraz.name≠Razdal Mo Eraz
-entity.got.ReachBaker.name≠Reach Baker
-entity.got.ReachBannerBearer.name≠Reach Banner Bearer
-entity.got.ReachBartender.name≠Reach Bartender
-entity.got.ReachBlacksmith.name≠Reach Smith
-entity.got.ReachBrewer.name≠Reach Brewer
-entity.got.ReachButcher.name≠Reach Butcher
-entity.got.ReachCaptain.name≠Reach Captain
-entity.got.ReachFarmer.name≠Reach Farmer
-entity.got.ReachFarmhand.name≠Reach Farmhand
-entity.got.ReachFishmonger.name≠Reach Fishmonger
-entity.got.ReachFlorist.name≠Reach Florist
-entity.got.ReachGoldsmith.name≠Reach Goldsmith
-entity.got.ReachGuard.name≠Oldtown Guardian
-entity.got.ReachLevyman.name≠Reach Levyman
-entity.got.ReachLevymanArcher.name≠Reach Levyman Archer
-entity.got.ReachLumberman.name≠Reach Lumberman
-entity.got.ReachMan.name≠Reach Man
-entity.got.ReachMason.name≠Reach Mason
-entity.got.ReachMiner.name≠Reach Miner
-entity.got.ReachSoldier.name≠Reach Warrior
-entity.got.ReachSoldierArcher.name≠Reach Warrior Archer
-entity.got.RedPriest.name≠Red Priest
-entity.got.RedScorpion.name≠Red Scorpion
-entity.got.RenlyBaratheon.name≠Renly Baratheon
-entity.got.Rhino.name≠Rhino
-entity.got.RickardKarstark.name≠Rickard Karstark
-entity.got.RickonStark.name≠Rickon Stark
-entity.got.RiverlandsBaker.name≠Riverlands Baker
-entity.got.RiverlandsBannerBearer.name≠Riverlands Banner Bearer
-entity.got.RiverlandsBartender.name≠Riverlands Bartender
-entity.got.RiverlandsBlacksmith.name≠Riverlands Smith
-entity.got.RiverlandsBrewer.name≠Riverlands Brewer
-entity.got.RiverlandsButcher.name≠Riverlands Butcher
-entity.got.RiverlandsCaptain.name≠Riverlands Captain
-entity.got.RiverlandsFarmer.name≠Riverlands Farmer
-entity.got.RiverlandsFarmhand.name≠Riverlands Farmhand
-entity.got.RiverlandsFishmonger.name≠Riverlands Fishmonger
-entity.got.RiverlandsFlorist.name≠Riverlands Florist
-entity.got.RiverlandsGoldsmith.name≠Riverlands Goldsmith
-entity.got.RiverlandsLevyman.name≠Riverlands Levyman
-entity.got.RiverlandsLevymanArcher.name≠Riverlands Levyman Archer
-entity.got.RiverlandsLumberman.name≠Riverlands Lumberman
-entity.got.RiverlandsMan.name≠Riverlands Man
-entity.got.RiverlandsMason.name≠Riverlands Mason
-entity.got.RiverlandsMiner.name≠Riverlands Miner
-entity.got.RiverlandsSoldier.name≠Riverlands Warrior
-entity.got.RiverlandsSoldierArcher.name≠Riverlands Warrior Archer
-entity.got.RobbStark.name≠Robb Stark
-entity.got.RobinArryn.name≠Robin Arryn
-entity.got.RodrikCassel.name≠Rodrik Cassel
-entity.got.RodrikHarlaw.name≠Rodrik Harlaw
-entity.got.RodrikRyswell.name≠Rodrik Ryswell
-entity.got.RooseBolton.name≠Roose Bolton
-entity.got.SalladhorSaan.name≠Salladhor Saan
-entity.got.SamwellTarly.name≠Samwell Tarly
-entity.got.SandorClegane.name≠Sandor Clegane
-entity.got.SansaStark.name≠Sansa Stark
-entity.got.Seagull.name≠Seagull
-entity.got.SebastonFarman.name≠Sebaston Farman
-entity.got.SelwynTarth.name≠Selwyn Tarth
-entity.got.SelyseBaratheon.name≠Selyse Baratheon
-entity.got.Septon.name≠Septon
-entity.got.Shadowcat.name≠Shadow Cat
-entity.got.Shae.name≠Shae
-entity.got.ShireenBaratheon.name≠Shireen Baratheon
-entity.got.Shryke.name≠Shryke
-entity.got.SmokeRing.name≠Smoke Ring
-entity.got.SnowBear.name≠Snow Bear
-entity.got.SothoryosBannerBearer.name≠Sothoryos Banner Bearer
-entity.got.SothoryosBlowgunner.name≠Sothoryos Archer
-entity.got.SothoryosChieftain.name≠Sothoryos Chieftain
-entity.got.SothoryosFarmer.name≠Sothoryos Farmer
-entity.got.SothoryosFarmhand.name≠Sothoryos Farmhand
-entity.got.SothoryosMan.name≠Sothoryos Man
-entity.got.SothoryosShaman.name≠Sothoryos Shaman
-entity.got.SothoryosSmith.name≠Sothoryos Smith
-entity.got.SothoryosWarrior.name≠Sothoryos Warrior
-entity.got.Spear.name≠Spear
-entity.got.StannisBaratheon.name≠Stannis Baratheon
-entity.got.StoneMan.name≠Stone Man
-entity.got.StormlandsBaker.name≠Stormlands Baker
-entity.got.StormlandsBannerBearer.name≠Stormlands Banner Bearer
-entity.got.StormlandsBartender.name≠Stormlands Bartender
-entity.got.StormlandsBlacksmith.name≠Stormlands Smith
-entity.got.StormlandsBrewer.name≠Stormlands Brewer
-entity.got.StormlandsButcher.name≠Stormlands Butcher
-entity.got.StormlandsCaptain.name≠Stormlands Captain
-entity.got.StormlandsFarmer.name≠Stormlands Farmer
-entity.got.StormlandsFarmhand.name≠Stormlands Farmhand
-entity.got.StormlandsFishmonger.name≠Stormlands Fishmonger
-entity.got.StormlandsFlorist.name≠Stormlands Florist
-entity.got.StormlandsGoldsmith.name≠Stormlands Goldsmith
-entity.got.StormlandsLevyman.name≠Stormlands Levyman
-entity.got.StormlandsLevymanArcher.name≠Stormlands Levyman Archer
-entity.got.StormlandsLumberman.name≠Stormlands Lumberman
-entity.got.StormlandsMan.name≠Stormlands Man
-entity.got.StormlandsMason.name≠Stormlands Mason
-entity.got.StormlandsMiner.name≠Stormlands Miner
-entity.got.StormlandsSoldier.name≠Stormlands Warrior
-entity.got.StormlandsSoldierArcher.name≠Stormlands Warrior Archer
-entity.got.SummerArcher.name≠Summer Islands Archer
-entity.got.SummerBaker.name≠Summer Islands Baker
-entity.got.SummerBannerBearer.name≠Summer Islands Banner Bearer
-entity.got.SummerBartender.name≠Summer Islands Bartender
-entity.got.SummerBlacksmith.name≠Summer Islands Blacksmith
-entity.got.SummerBrewer.name≠Summer Islands Brewer
-entity.got.SummerButcher.name≠Summer Islands Butcher
-entity.got.SummerCaptain.name≠Summer Islands Warlord
-entity.got.SummerFarmer.name≠Summer Islands Farmer
-entity.got.SummerFarmhand.name≠Summer Islands Farmhand
-entity.got.SummerFishmonger.name≠Summer Islands Fishmonger
-entity.got.SummerFlorist.name≠Summer Islands Florist
-entity.got.SummerGoldsmith.name≠Summer Islands Goldsmith
-entity.got.SummerHunter.name≠Summer Islands Hunter
-entity.got.SummerLumberman.name≠Summer Islands Lumberman
-entity.got.SummerMan.name≠Summer Islands Man
-entity.got.SummerMason.name≠Summer Islands Mason
-entity.got.SummerMiner.name≠Summer Islands Miner
-entity.got.SummerSoldier.name≠Summer Islands Warrior
-entity.got.SummerSoldierArcher.name≠Summer Islands Warrior Archer
-entity.got.SummerWarrior.name≠Summer Islands Warrior
-entity.got.Swan.name≠Swan
-entity.got.SymondTempleton.name≠Symond Templeton
-entity.got.Termite.name≠Termite
-entity.got.Thenn.name≠Thenn
-entity.got.ThennArcher.name≠Thenn Archer
-entity.got.ThennAxeThrower.name≠Thenn Axe Thrower
-entity.got.ThennBannerBearer.name≠Thenn Banner Bearer
-entity.got.ThennBlacksmith.name≠Thenn Blacksmith
-entity.got.ThennChieftain.name≠Thenn Magnar
-entity.got.ThennWarrior.name≠Thenn Warrior
-entity.got.TheonGreyjoyNormal.name≠Theon Greyjoy
-entity.got.TheonGreyjoyTormented.name≠Theon Greyjoy
-entity.got.Thoros.name≠Thoros
-entity.got.ThreeEyedRaven.name≠Three-Eyed Raven
-entity.got.ThrowingAxe.name≠Throwing Axe
-entity.got.ThrownRock.name≠Thrown Rock
-entity.got.ThrownTermite.name≠Exploding Termite
-entity.got.TobhoMott.name≠Tobho Mott
-entity.got.TommenBaratheon.name≠Tommen Baratheon
-entity.got.Tormund.name≠Tormund
-entity.got.TraderRespawn.name≠Trader Respawn
-entity.got.TrystaneMartell.name≠Trystane Martell
-entity.got.TugarKhan.name≠Tugar Khan
-entity.got.TychoNestoris.name≠Tycho Nestoris
-entity.got.TyrionLannister.name≠Tyrion Lannister
-entity.got.TyroshBaker.name≠Tyrosh Baker
-entity.got.TyroshBannerBearer.name≠Tyrosh Banner Bearer
-entity.got.TyroshBartender.name≠Tyrosh Bartender
-entity.got.TyroshBlacksmith.name≠Tyrosh Blacksmith
-entity.got.TyroshBrewer.name≠Tyrosh Brewer
-entity.got.TyroshButcher.name≠Tyrosh Butcher
-entity.got.TyroshCaptain.name≠Tyrosh Captain
-entity.got.TyroshFishmonger.name≠Tyrosh Fishmonger
-entity.got.TyroshFlorist.name≠Tyrosh Florist
-entity.got.TyroshGoldsmith.name≠Tyrosh Goldsmith
-entity.got.TyroshLevyman.name≠Tyrosh Levyman
-entity.got.TyroshLevymanArcher.name≠Tyrosh Levyman Archer
-entity.got.TyroshLumberman.name≠Tyrosh Lumberman
-entity.got.TyroshMan.name≠Tyrosh Man
-entity.got.TyroshMason.name≠Tyrosh Mason
-entity.got.TyroshMiner.name≠Tyrosh Miner
-entity.got.TyroshSlave.name≠Tyrosh Slave
-entity.got.TyroshSlaver.name≠Tyrosh Slaver
-entity.got.TyroshSoldier.name≠Tyrosh Warrior
-entity.got.TyroshSoldierArcher.name≠Tyrosh Warrior Archer
-entity.got.TytosBlackwood.name≠Tytos Blackwood
-entity.got.TytosBrax.name≠Tytos Brax
-entity.got.TywinLannister.name≠Tywin Lannister
-entity.got.UlthosSpider.name≠Ulthos Spider
-entity.got.VargoHoat.name≠Vargo Hoat
-entity.got.Varys.name≠Varys
-entity.got.VictarionGreyjoy.name≠Victarion Greyjoy
-entity.got.VolantisBaker.name≠Volantis Baker
-entity.got.VolantisBannerBearer.name≠Volantis Banner Bearer
-entity.got.VolantisBartender.name≠Volantis Bartender
-entity.got.VolantisBlacksmith.name≠Volantis Blacksmith
-entity.got.VolantisBrewer.name≠Volantis Brewer
-entity.got.VolantisButcher.name≠Volantis Butcher
-entity.got.VolantisCaptain.name≠Volantis Captain
-entity.got.VolantisFishmonger.name≠Volantis Fishmonger
-entity.got.VolantisFlorist.name≠Volantis Florist
-entity.got.VolantisGoldsmith.name≠Volantis Goldsmith
-entity.got.VolantisLevyman.name≠Volantis Levyman
-entity.got.VolantisLevymanArcher.name≠Volantis Levyman Archer
-entity.got.VolantisLumberman.name≠Volantis Lumberman
-entity.got.VolantisMan.name≠Volantis Man
-entity.got.VolantisMason.name≠Volantis Mason
-entity.got.VolantisMiner.name≠Volantis Miner
-entity.got.VolantisSlave.name≠Volantis Slave
-entity.got.VolantisSlaver.name≠Volantis Slaver
-entity.got.VolantisSoldier.name≠Volantis Warrior
-entity.got.VolantisSoldierArcher.name≠Volantis Warrior Archer
-entity.got.WalderFrey.name≠Walder Frey
-entity.got.Walrus.name≠Walrus
-entity.got.Werewolf.name≠Werewolf
-entity.got.WesterlandsBaker.name≠Westerlands Baker
-entity.got.WesterlandsBannerBearer.name≠Westerlands Banner Bearer
-entity.got.WesterlandsBartender.name≠Westerlands Bartender
-entity.got.WesterlandsBlacksmith.name≠Westerlands Smith
-entity.got.WesterlandsBrewer.name≠Westerlands Brewer
-entity.got.WesterlandsButcher.name≠Westerlands Butcher
-entity.got.WesterlandsCaptain.name≠Westerlands Captain
-entity.got.WesterlandsFarmer.name≠Westerlands Farmer
-entity.got.WesterlandsFarmhand.name≠Westerlands Farmhand
-entity.got.WesterlandsFishmonger.name≠Westerlands Fishmonger
-entity.got.WesterlandsFlorist.name≠Westerlands Florist
-entity.got.WesterlandsGoldsmith.name≠Westerlands Goldsmith
-entity.got.WesterlandsGuard.name≠Lannisport Guardian
-entity.got.WesterlandsLevyman.name≠Westerlands Levyman
-entity.got.WesterlandsLevymanArcher.name≠Westerlands Levyman Archer
-entity.got.WesterlandsLumberman.name≠Westerlands Lumberman
-entity.got.WesterlandsMan.name≠Westerlands Man
-entity.got.WesterlandsMason.name≠Westerlands Mason
-entity.got.WesterlandsMiner.name≠Westerlands Miner
-entity.got.WesterlandsSoldier.name≠Westerlands Warrior
-entity.got.WesterlandsSoldierArcher.name≠Westerlands Warrior Archer
-entity.got.WhiteBison.name≠White Bison
-entity.got.WhiteOryx.name≠White Oryx
-entity.got.WhiteWalker.name≠White Walker
-entity.got.Wight.name≠Wight
-entity.got.WightGiant.name≠Wight-Giant
-entity.got.Wildling.name≠Wildling
-entity.got.WildlingArcher.name≠Wildling Archer
-entity.got.WildlingAxeThrower.name≠Wildling Axe Thrower
-entity.got.WildlingBannerBearer.name≠Wildling Banner Bearer
-entity.got.WildlingChieftain.name≠Wildling Chieftain
-entity.got.WildlingWarrior.name≠Wildling Warrior
-entity.got.WillasTyrell.name≠Willas Tyrell
-entity.got.WilliamMooton.name≠William Mooton
-entity.got.WoolyRhino.name≠Wooly Rhino
-entity.got.WymanManderly.name≠Wyman Manderly
-entity.got.Wyvern.name≠Wyvern
-entity.got.XaroXhoanDaxos.name≠Xaro Xhoan Daxos
-entity.got.YaraGreyjoy.name≠Yara Greyjoy
-entity.got.Ygritte.name≠Ygritte
-entity.got.YiTiBaker.name≠Yi Ti Baker
-entity.got.YiTiBannerBearer.name≠Yi Ti Banner Bearer
-entity.got.YiTiBartender.name≠Yi Ti Bartender
-entity.got.YiTiBlacksmith.name≠Yi Ti Blacksmith
-entity.got.YiTiBombardier.name≠Yi Ti Bombardier
-entity.got.YiTiBrewer.name≠Yi Ti Brewer
-entity.got.YiTiButcher.name≠Yi Ti Butcher
-entity.got.YiTiCaptain.name≠Yi Ti Shogun
-entity.got.YiTiFarmer.name≠Yi Ti Farmer
-entity.got.YiTiFarmhand.name≠Yi Ti Farmhand
-entity.got.YiTiFishmonger.name≠Yi Ti Fishmonger
-entity.got.YiTiFlorist.name≠Yi Ti Florist
-entity.got.YiTiGoldsmith.name≠Yi Ti Goldsmith
-entity.got.YiTiHunter.name≠Yi Ti Hunter
-entity.got.YiTiLevyman.name≠Yi Ti Levyman
-entity.got.YiTiLevymanCrossbower.name≠Yi Ti Levyman Crossbower
-entity.got.YiTiLumberman.name≠Yi Ti Lumberman
-entity.got.YiTiMan.name≠Yi Ti Man
-entity.got.YiTiMason.name≠Yi Ti Mason
-entity.got.YiTiMiner.name≠Yi Ti Miner
-entity.got.YiTiSamurai.name≠Yi Ti Samurai
-entity.got.YiTiSamuraiFlamethrower.name≠Yi Ti Samurai Flamethrower
-entity.got.YiTiSoldier.name≠Yi Ti Soldier
-entity.got.YiTiSoldierCrossbower.name≠Yi Ti Soldier Crossbower
-entity.got.YohnRoyce.name≠Yohn Royce
-entity.got.Yoren.name≠Yoren
-entity.got.YoungGriff.name≠Young Griff
-entity.got.Zebra.name≠Zebra
-generator.got.info=直接生成在权力的游戏中
-generator.got=Game of Thrones
-generator.gotClassic.info=出生在权游世界中（随机生物群系）
-generator.gotClassic=GOT Classic
-generator.gotEmpty.info=您将出现在带有地图的 GOT 世界中，但没有城市、城堡和角色
-generator.gotEmpty=GOT Empty
+entity.got.AddamMarbrand.name=亚当·马尔布兰
+entity.got.AemonTargaryen.name=伊蒙·坦格利安
+entity.got.AeronGreyjoy.name=伊伦·葛雷乔伊
+entity.got.AlliserThorne.name=艾里沙·索恩
+entity.got.AmoryLorch.name=亚摩利·洛奇
+entity.got.AndersYronwood.name=安德斯·伊伦伍德
+entity.got.AndrikTheUnsmilling.name=“不苟言笑的”阿德利克
+entity.got.AnyaWaynwood.name=安雅·韦伍德
+entity.got.ArdrianCeltigar.name=阿德里安·赛提加
+entity.got.AreoHotah.name=阿雷奥·霍塔
+entity.got.ArianneMartell.name=阿里安娜·马特尔
+entity.got.ArrowFire.name=火箭
+entity.got.ArrowPoisoned.name=毒箭
+entity.got.ArrynBaker.name=谷地烘焙师
+entity.got.ArrynBannerBearer.name=谷地旗手
+entity.got.ArrynBartender.name=谷地酒保
+entity.got.ArrynBlacksmith.name=谷地铁匠
+entity.got.ArrynBrewer.name=谷地酿酒商
+entity.got.ArrynButcher.name=谷地肉贩
+entity.got.ArrynCaptain.name=谷地领主
+entity.got.ArrynFarmer.name=谷地农场主
+entity.got.ArrynFarmhand.name=谷地农工
+entity.got.ArrynFishmonger.name=谷地鱼贩
+entity.got.ArrynFlorist.name=谷地花匠
+entity.got.ArrynGoldsmith.name=谷地金匠
+entity.got.ArrynGuard.name=海鸥镇卫士
+entity.got.ArrynLevyman.name=谷地民兵
+entity.got.ArrynLevymanArcher.name=谷地民兵弓箭手
+entity.got.ArrynLumberman.name=谷地木材商
+entity.got.ArrynMan.name=谷地人
+entity.got.ArrynMason.name=谷地石匠
+entity.got.ArrynMiner.name=谷地矿工
+entity.got.ArrynSoldier.name=谷地武装士兵
+entity.got.ArrynSoldierArcher.name=谷地武装弓箭手
+entity.got.AryaStark.name=艾莉亚·史塔克
+entity.got.AsshaiAlchemist.name=亚夏炼金术士
+entity.got.AsshaiArchmag.name=亚夏大法师
+entity.got.AsshaiBannerBearer.name=亚夏旗手
+entity.got.AsshaiCaptain.name=亚夏领主
+entity.got.AsshaiMan.name=亚夏人
+entity.got.AsshaiShadowbinder.name=亚夏缚影士
+entity.got.AsshaiSpherebinder.name=亚夏边界守护者
+entity.got.AsshaiWarrior.name=亚夏守卫
+entity.got.AuraneWaters.name=奥雷恩·维水
+entity.got.BaelorBlacktyde.name=贝勒·布莱克泰斯
+entity.got.BalonGreyjoy.name=巴隆·葛雷乔伊
+entity.got.Banner.name=旗帜
+entity.got.BannerWall.name=旗帜
+entity.got.BarbreyDustin.name=芭芭蕾·达斯丁
+entity.got.Barrel.name=木桶
+entity.got.BarristanSelmy.name=巴利斯坦·赛尔弥
+entity.got.BarrowWraith.name=影子杀手
+entity.got.Bear.name=熊
+entity.got.BearRug.name=熊皮地毯
+entity.got.Beaver.name=河狸
+entity.got.BenedarBelmore.name=本内达·贝尔摩
+entity.got.BenjenStark.name=班扬·史塔克
+entity.got.BericDayne.name=贝里克·戴恩
+entity.got.BericDondarrionLife1.name=贝里克·唐德利恩
+entity.got.BericDondarrionLife2.name=贝里克·唐德利恩
+entity.got.BericDondarrionLife3.name=贝里克·唐德利恩
+entity.got.BericDondarrionLife4.name=贝里克·唐德利恩
+entity.got.BericDondarrionLife5.name=贝里克·唐德利恩
+entity.got.BericDondarrionLife6.name=贝里克·唐德利恩
+entity.got.Bird.name=鸟
+entity.got.Bison.name=野牛
+entity.got.BlackWalderFrey.name=黑瓦德·佛雷
+entity.got.Blizzard.name=暴风雪
+entity.got.Boar.name=野猪
+entity.got.Bomb.name=炸弹
+entity.got.BraavosBaker.name=布拉佛斯烘焙师
+entity.got.BraavosBannerBearer.name=布拉佛斯旗手
+entity.got.BraavosBartender.name=布拉佛斯酒保
+entity.got.BraavosBlacksmith.name=布拉佛斯铁匠
+entity.got.BraavosBrewer.name=布拉佛斯酿酒商
+entity.got.BraavosButcher.name=布拉佛斯肉贩
+entity.got.BraavosCaptain.name=布拉佛斯队长
+entity.got.BraavosFarmer.name=布拉佛斯农场主
+entity.got.BraavosFarmhand.name=布拉佛斯农工
+entity.got.BraavosFishmonger.name=布拉佛斯鱼贩
+entity.got.BraavosFlorist.name=布拉佛斯花匠
+entity.got.BraavosGoldsmith.name=布拉佛斯金匠
+entity.got.BraavosLevyman.name=布拉佛斯民兵
+entity.got.BraavosLevymanArcher.name=布拉佛斯民兵弓箭手
+entity.got.BraavosLumberman.name=布拉佛斯木材商
+entity.got.BraavosMan.name=布拉佛斯人
+entity.got.BraavosMason.name=布拉佛斯石匠
+entity.got.BraavosMiner.name=布拉佛斯矿物商
+entity.got.BraavosSoldier.name=布拉佛斯武装士兵
+entity.got.BraavosSoldierArcher.name=布拉佛斯武装弓箭手
+entity.got.BranStark.name=布兰·史塔克
+entity.got.BrienneTarth.name=塔斯岛的布蕾妮
+entity.got.Bronn.name=波隆
+entity.got.BryndenTully.name=布林登·徒利
+entity.got.BuGai.name=卜侅
+entity.got.Butterfly.name=蝴蝶
+entity.got.Camel.name=骆驼
+entity.got.Cargocart.name=大车
+entity.got.CatelynStark.name=凯特琳·史塔克
+entity.got.CerseiLannister.name=瑟曦·兰尼斯特
+entity.got.ClementPiper.name=克莱蒙特·派柏
+entity.got.CleyCerwyn.name=克雷·赛文
+entity.got.Conker.name=栗子
+entity.got.CotterPyke.name=卡特·派克
+entity.got.Craster.name=卡斯特
+entity.got.CrasterWife.name=卡斯特夫人
+entity.got.Crocodile.name=鳄鱼
+entity.got.CrossbowBolt.name=弩箭
+entity.got.CrownlandsAlchemist.name=王领炼金术士
+entity.got.CrownlandsBaker.name=王领烘焙师
+entity.got.CrownlandsBannerBearer.name=王领旗手
+entity.got.CrownlandsBartender.name=王领酒保
+entity.got.CrownlandsBlacksmith.name=王领铁匠
+entity.got.CrownlandsBrewer.name=王领酿酒商
+entity.got.CrownlandsButcher.name=王领肉贩
+entity.got.CrownlandsCaptain.name=王领队长
+entity.got.CrownlandsFarmer.name=王领农场主
+entity.got.CrownlandsFarmhand.name=王领农工
+entity.got.CrownlandsFishmonger.name=王领鱼贩
+entity.got.CrownlandsFlorist.name=王领花匠
+entity.got.CrownlandsGoldsmith.name=王领金匠
+entity.got.CrownlandsGuard.name=王城护卫队
+entity.got.CrownlandsLevyman.name=王领征兵
+entity.got.CrownlandsLevymanArcher.name=王领征兵弓手
+entity.got.CrownlandsLumberman.name=王领木材商
+entity.got.CrownlandsMan.name=王领人
+entity.got.CrownlandsMason.name=王领石匠
+entity.got.CrownlandsMiner.name=王领矿物商
+entity.got.DaarioNaharis.name=达里奥·纳哈里斯
+entity.got.DaenerysTargaryen.name=丹妮莉丝·坦格利安
+entity.got.Dagmer.name=裂颚达格摩
+entity.got.DarkSkinBandit.name=皮肤黝黑的强盗
+entity.got.DarkSkinThief.name=皮肤黝黑的盗贼
+entity.got.DarkSkinTramp.name=皮肤黝黑的流浪汉
+entity.got.Dart.name=飞镖
+entity.got.DavenLannister.name=达冯·兰尼斯特
+entity.got.DavosSeaworth.name=戴佛斯·席渥斯
+entity.got.Deer.name=鹿
+entity.got.DenysMallister.name=丹尼斯·梅利斯特
+entity.got.DesertScorpion.name=沙漠毒蝎
+entity.got.DikDik.name=犬羚
+entity.got.Direwolf.name=冰原狼
+entity.got.DoranMartell.name=道朗·纳梅洛斯·马泰尔
+entity.got.DorneBaker.name=多恩烘焙师
+entity.got.DorneBannerBearer.name=多恩旗手
+entity.got.DorneBartender.name=多恩酒保
+entity.got.DorneBlacksmith.name=多恩铁匠
+entity.got.DorneBrewer.name=多恩酿酒商
+entity.got.DorneButcher.name=多恩肉贩
+entity.got.DorneCaptain.name=多恩领主
+entity.got.DorneFarmer.name=多恩农场主
+entity.got.DorneFarmhand.name=多恩农工
+entity.got.DorneFishmonger.name=多恩鱼贩
+entity.got.DorneFlorist.name=多恩花匠
+entity.got.DorneGoldsmith.name=多恩金匠
+entity.got.DorneLevyman.name=多恩民兵
+entity.got.DorneLevymanArcher.name=多恩民兵弓箭手
+entity.got.DorneLumberman.name=多恩木材商
+entity.got.DorneMan.name=多恩人
+entity.got.DorneMason.name=多恩石匠
+entity.got.DorneMiner.name=多恩矿物商
+entity.got.DorneSoldier.name=多恩武装士兵
+entity.got.DorneSoldierArcher.name=多恩武装弓箭手
+entity.got.Dothraki.name=多斯拉克人
+entity.got.DothrakiArcher.name=多斯拉克弓箭手
+entity.got.DothrakiChieftain.name=多斯拉克卡奥
+entity.got.DothrakiShaman.name=多斯拉克萨满
+entity.got.Dragon.name=龙
+entity.got.DragonstoneBaker.name=龙石岛烘焙师
+entity.got.DragonstoneBannerBearer.name=龙石岛旗手
+entity.got.DragonstoneBartender.name=龙石岛酒保
+entity.got.DragonstoneBlacksmith.name=龙石岛铁匠
+entity.got.DragonstoneBrewer.name=龙石岛酿酒商
+entity.got.DragonstoneButcher.name=龙石岛肉贩
+entity.got.DragonstoneCaptain.name=龙石岛领主
+entity.got.DragonstoneFarmer.name=龙石岛农场主
+entity.got.DragonstoneFarmhand.name=龙石岛农工
+entity.got.DragonstoneFishmonger.name=龙石岛鱼贩
+entity.got.DragonstoneFlorist.name=龙石岛花匠
+entity.got.DragonstoneGoldsmith.name=龙石岛金匠
+entity.got.DragonstoneLevyman.name=龙石岛民兵
+entity.got.DragonstoneLevymanArcher.name=龙石岛民兵弓箭手
+entity.got.DragonstoneLumberman.name=龙石岛木材商
+entity.got.DragonstoneMan.name=龙石岛人
+entity.got.DragonstoneMason.name=龙石岛石匠
+entity.got.DragonstoneMiner.name=龙石岛矿物商
+entity.got.DragonstoneSoldier.name=龙石岛武装展示
+entity.got.DragonstoneSoldierArcher.name=龙石岛武装弓箭手
+entity.got.DunstanDrumm.name=邓斯坦鼓
+entity.got.Ebrose.name=埃布罗斯
+entity.got.Edd.name=忧郁的艾迪
+entity.got.EdmureTully.name=艾德慕·徒利
+entity.got.EldonEstermont.name=埃尔顿·伊斯蒙
+entity.got.Elephant.name=象
+entity.got.EllaryaSand.name=艾拉莉亚·沙德
+entity.got.ErikIronmaker.name=艾里·艾枚克
+entity.got.EuronGreyjoy.name=攸伦·葛雷乔伊
+entity.got.FallingFireJar.name=坠落的火罐
+entity.got.FallingTreasure.name=坠落的宝藏
+entity.got.FirePot.name=火焰瓶
+entity.got.Fish.name=鱼
+entity.got.FishHook.name=鱼钩
+entity.got.Flamingo.name=火烈鸟
+entity.got.ForleyPrester.name=佛勒·普莱斯特
+entity.got.FranklynFowler.name=福兰克林·佛勒
+entity.got.GarlanTyrell.name=加兰·提利尔
+entity.got.Gemsbok.name=南非剑羚
+entity.got.GendryBaratheon.name=詹德利·拜拉席恩
+entity.got.GeroldDayne.name=杰洛·戴恩
+entity.got.GeroldGrafton.name=杰洛·格拉夫森
+entity.got.GhiscarBaker.name=吉斯卡烘焙师
+entity.got.GhiscarBannerBearer.name=吉斯卡旗手
+entity.got.GhiscarBartender.name=吉斯卡酒保
+entity.got.GhiscarBlacksmith.name=吉斯卡铁匠
+entity.got.GhiscarBrewer.name=吉斯卡酿酒商
+entity.got.GhiscarButcher.name=吉斯卡肉贩
+entity.got.GhiscarCaptain.name=吉斯卡队长
+entity.got.GhiscarFishmonger.name=吉斯卡鱼贩
+entity.got.GhiscarFlorist.name=吉斯卡花匠
+entity.got.GhiscarGladiator.name=吉斯卡角斗士
+entity.got.GhiscarGoldsmith.name=吉斯卡金匠
+entity.got.GhiscarGuard.name=渊凯守卫
+entity.got.GhiscarHarpy.name=吉斯卡鹰身女妖之子
+entity.got.GhiscarLevyman.name=吉斯卡民兵
+entity.got.GhiscarLevymanArcher.name=鸡斯卡民兵弓箭手
+entity.got.GhiscarLumberman.name=吉斯卡木匠
+entity.got.GhiscarMan.name=吉斯卡人
+entity.got.GhiscarMason.name=吉斯卡石匠
+entity.got.GhiscarMiner.name=吉斯卡矿物商
+entity.got.GhiscarSlave.name=吉斯卡奴隶
+entity.got.GhiscarSlaver.name=吉斯卡奴隶主
+entity.got.GhiscarSoldier.name=吉斯卡海盗
+entity.got.GhiscarSoldierArcher.name=吉斯卡海盗弓手
+entity.got.GhiscarUnsullied.name=吉斯卡无垢者
+entity.got.Giant.name=巨人
+entity.got.GiftBannerBearer.name=守夜人旗手
+entity.got.GiftBlacksmith.name=赠地铁匠
+entity.got.GiftGuard.name=守夜人
+entity.got.GiftMan.name=赠地居民
+entity.got.GilwoodHunter.name=杰伍德·杭特
+entity.got.Giraffe.name=长颈鹿
+entity.got.GiraffeRug.name=长颈鹿皮毯
+entity.got.GoldenCompanyBannerBearer.name=黄金团旗手
+entity.got.GoldenCompanyCaptain.name=黄金团指挥官
+entity.got.GoldenCompanySpearman.name=黄金团掷矛手
+entity.got.GoldenCompanyWarrior.name=黄金团战士
+entity.got.Gorcrow.name=小嘴乌鸦
+entity.got.GoroldGoodbrother.name=葛欧得·古柏勒
+entity.got.GregorCleganeAlive.name=格雷果·克里冈
+entity.got.GregorCleganeDead.name=格雷果·克里冈
+entity.got.GreyWorm.name=灰虫子
+entity.got.GulianSwann.name=古利安·史文
+entity.got.GylbertFarwynd.name=吉尔伯特·法温
+entity.got.HarmenUller.name=哈曼·乌勒
+entity.got.Harmune.name=哈慕恩
+entity.got.HarrasHarlaw.name=赫拉斯·哈尔洛
+entity.got.HarroldHardyng.name=哈罗德·哈顿
+entity.got.HarryStrickland.name=哈利·斯崔克兰
+entity.got.HarysSwyft.name=哈瑞斯·史威佛
+entity.got.HelmanTallhart.name=赫曼·陶哈
+entity.got.HighSepton.name=总主教
+entity.got.Hillman.name=高山氏族部落人
+entity.got.HillmanArcher.name=高山氏族部落弓箭手
+entity.got.HillmanAxeThrower.name=高山氏族部落投斧手
+entity.got.HillmanBannerBearer.name=高山氏族部落旗手
+entity.got.HillmanBartender.name=高山氏族部落酒保
+entity.got.HillmanBerserker.name=高山氏族部落狂战士
+entity.got.HillmanChieftain.name=高山氏族部落首领
+entity.got.HillmanWarrior.name=高山氏族部落战士
+entity.got.HizdahrZoLoraq.name=西茨达拉·佐·洛拉克
+entity.got.Hodor.name=阿多
+entity.got.Horse.name=马
+entity.got.HortonRedfort.name=霍顿·雷德佛
+entity.got.HosterTully.name=霍斯特·徒利
+entity.got.HotPie.name=热派
+entity.got.HowlandReed.name=霍兰·黎德
+entity.got.Hummel009.name=Hummel009
+entity.got.IbbenArcher.name=伊班弓箭手
+entity.got.IbbenAxeThrower.name=伊班投斧手
+entity.got.IbbenBaker.name=伊班烘焙师
+entity.got.IbbenBannerBearer.name=伊班旗手
+entity.got.IbbenBartender.name=伊班酒保
+entity.got.IbbenBlacksmith.name=伊班铁匠
+entity.got.IbbenBrewer.name=伊班酿酒商
+entity.got.IbbenButcher.name=伊班肉贩
+entity.got.IbbenCaptain.name=伊班队长
+entity.got.IbbenFarmer.name=伊班农场主
+entity.got.IbbenFarmhand.name=伊班农工
+entity.got.IbbenFishmonger.name=伊班鱼贩
+entity.got.IbbenFlorist.name=伊班花匠
+entity.got.IbbenGoldsmith.name=伊班金匠
+entity.got.IbbenLevyman.name=伊班征兵
+entity.got.IbbenLevymanArcher.name=伊班 民兵弓箭手
+entity.got.IbbenLumberman.name=伊班 木材商
+entity.got.IbbenMan.name=伊班人
+entity.got.IbbenMason.name=伊班 石匠
+entity.got.IbbenMiner.name=伊班矿物商
+entity.got.IbbenSoldier.name=伊班 武装士兵
+entity.got.IbbenSoldierArcher.name=伊班武装弓箭手
+entity.got.IbbenStablemaster.name=伊班马厩主
+entity.got.IbbenWarrior.name=伊班战士
+entity.got.IceSpider.name=冰蜘蛛
+entity.got.Ifekevron.name=伊佛维隆人
+entity.got.IllyrioMopatis.name=伊利里欧·摩帕提斯
+entity.got.IlynPayne.name=伊林·派恩
+entity.got.InvasionSpawner.name=入侵刷怪处
+entity.got.IronbornBaker.name=铁群岛烘焙师
+entity.got.IronbornBannerBearer.name=铁群岛旗手
+entity.got.IronbornBartender.name=铁群岛酒保
+entity.got.IronbornBlacksmith.name=铁群岛 铁匠
+entity.got.IronbornBrewer.name=铁群岛酿酒商
+entity.got.IronbornButcher.name=铁群岛肉贩
+entity.got.IronbornCaptain.name=铁群岛领主
+entity.got.IronbornFarmer.name=铁群岛农场主
+entity.got.IronbornFarmhand.name=铁群岛农工
+entity.got.IronbornFishmonger.name=铁群岛鱼贩
+entity.got.IronbornFlorist.name=铁群岛花匠
+entity.got.IronbornGoldsmith.name=铁群岛金匠
+entity.got.IronbornLevyman.name=铁群岛民兵
+entity.got.IronbornLevymanArcher.name=铁群岛民兵弓箭手
+entity.got.IronbornLumberman.name=铁群岛 木材商
+entity.got.IronbornMan.name=铁群岛人
+entity.got.IronbornMason.name=铁群岛石匠
+entity.got.IronbornMiner.name=铁群岛矿物商
+entity.got.IronbornPriest.name=淹神僧侣
+entity.got.IronbornSoldier.name=铁群岛武装士兵
+entity.got.IronbornSoldierArcher.name=铁群岛武装弓箭手
+entity.got.JaimeLannister.name=詹姆·兰尼斯特
+entity.got.JanosSlynt.name=杰诺斯·史林特
+entity.got.JaqenHghar.name=贾昆·赫加尔
+entity.got.JasonMallister.name=杰森·梅利斯特
+entity.got.JeorMormont.name=杰奥·莫尔蒙
+entity.got.JoffreyBaratheon.name=乔佛里·拜拉席恩
+entity.got.JogosNhaiArcher.name=鸠格斯奈 弓箭手
+entity.got.JogosNhaiBannerBearer.name=鸠格斯奈旗手
+entity.got.JogosNhaiChieftain.name=鸠格斯奈首领
+entity.got.JogosNhaiMan.name=鸠格斯奈人
+entity.got.JogosNhaiShaman.name=鸠格斯奈萨满
+entity.got.JohnUmber.name=琼恩·安柏
+entity.got.JonConnington.name=琼恩·克林顿
+entity.got.JonSnowLife1.name=琼恩·雪诺
+entity.got.JonSnowLife2.name=琼恩·雪诺
+entity.got.JonosBracken.name=杰诺斯·布雷肯
+entity.got.JorahMormont.name=乔拉·莫尔蒙
+entity.got.JungleScorpion.name=丛林毒蝎
+entity.got.KevanLannister.name=凯冯·兰尼斯特
+entity.got.Kingsguard.name=御林铁卫
+entity.got.KraznysMoNakloz.name=克拉兹尼·莫·纳克罗兹
+entity.got.LancelLannisterNormal.name=蓝赛尔·兰尼斯特
+entity.got.LancelLannisterReligious.name=蓝赛尔·兰尼斯特
+entity.got.LeoLefford.name=里奥·莱佛德
+entity.got.LeytonHightower.name=雷顿·海塔尔
+entity.got.LhazarBaker.name=拉札烘焙师
+entity.got.LhazarBannerBearer.name=拉札旗手
+entity.got.LhazarBartender.name=拉札酒保
+entity.got.LhazarBlacksmith.name=拉札铁匠
+entity.got.LhazarBrewer.name=拉札酿酒商
+entity.got.LhazarButcher.name=拉札肉贩
+entity.got.LhazarCaptain.name=拉札 领主
+entity.got.LhazarFarmer.name=拉札农场主
+entity.got.LhazarFarmhand.name=拉札农工
+entity.got.LhazarFishmonger.name=拉札鱼贩
+entity.got.LhazarFlorist.name=拉札花匠
+entity.got.LhazarGoldsmith.name=拉札金匠
+entity.got.LhazarHunter.name=拉札猎人
+entity.got.LhazarLevyman.name=拉札民兵
+entity.got.LhazarLevymanArcher.name=拉札民兵弓箭手
+entity.got.LhazarLumberman.name=拉札木材商
+entity.got.LhazarMan.name=拉札人
+entity.got.LhazarMason.name=拉札石匠
+entity.got.LhazarMiner.name=拉札矿物商
+entity.got.LhazarSoldier.name=拉札武装士兵
+entity.got.LhazarSoldierArcher.name=拉札武装弓箭手
+entity.got.LightSkinBandit.name=强盗
+entity.got.LightSkinThief.name=盗贼
+entity.got.LightSkinTramp.name=流浪汉
+entity.got.LingeringEffect.name=延迟效果
+entity.got.LingeringPotion.name=滞留药水
+entity.got.Lion.name=雄师
+entity.got.LionRug.name=狮皮毯
+entity.got.Lioness.name=母狮
+entity.got.LorasTyrell.name=洛拉斯·提利尔
+entity.got.LorathBaker.name=罗拉斯烘焙师
+entity.got.LorathBannerBearer.name=罗拉斯旗手
+entity.got.LorathBartender.name=罗拉斯酒保
+entity.got.LorathBlacksmith.name=罗拉斯铁匠
+entity.got.LorathBrewer.name=罗拉斯酿酒商
+entity.got.LorathButcher.name=罗拉斯肉贩
+entity.got.LorathCaptain.name=罗拉斯领主
+entity.got.LorathFarmer.name=罗拉斯农场主
+entity.got.LorathFarmhand.name=罗拉斯农工
+entity.got.LorathFishmonger.name=罗拉斯鱼贩
+entity.got.LorathFlorist.name=罗拉斯花匠
+entity.got.LorathGoldsmith.name=罗拉斯金匠
+entity.got.LorathLevyman.name=罗拉斯民兵
+entity.got.LorathLevymanArcher.name=罗拉斯民兵弓箭手
+entity.got.LorathLumberman.name=罗拉斯木材商
+entity.got.LorathMan.name=罗拉斯人
+entity.got.LorathMason.name=罗拉斯石匠
+entity.got.LorathMiner.name=罗拉斯矿物商
+entity.got.LorathSoldier.name=罗拉斯武装士兵
+entity.got.LorathSoldierArcher.name=罗拉斯武装弓箭手
+entity.got.LotharFrey.name=罗索·佛雷
+entity.got.Luwin.name=鲁温
+entity.got.LyleCrakehall.name=李勒·克雷赫
+entity.got.LynCorbray.name=林恩·科布瑞
+entity.got.LysBaker.name=里斯烘焙师
+entity.got.LysBannerBearer.name=里斯旗手
+entity.got.LysBartender.name=里斯酒保
+entity.got.LysBlacksmith.name=里斯铁匠
+entity.got.LysBrewer.name=里斯酿酒商
+entity.got.LysButcher.name=里斯肉贩
+entity.got.LysCaptain.name=里斯领主
+entity.got.LysFishmonger.name=里斯鱼贩
+entity.got.LysFlorist.name=里斯花匠
+entity.got.LysGoldsmith.name=里斯金匠
+entity.got.LysLevyman.name=里斯民兵
+entity.got.LysLevymanArcher.name=里斯民兵弓箭手
+entity.got.LysLumberman.name=里斯木材商
+entity.got.LysMan.name=里斯人
+entity.got.LysMason.name=里斯石匠
+entity.got.LysMiner.name=里斯矿物商
+entity.got.LysSlave.name=里斯奴隶
+entity.got.LysSlaver.name=里斯奴隶主
+entity.got.LysSoldier.name=里斯武装士兵
+entity.got.LysSoldierArcher.name=里斯武装弓箭手
+entity.got.LysaArryn.name=莱莎·艾林
+entity.got.MaceTyrell.name=梅斯·提利尔
+entity.got.MaegeMormont.name=梅姬·莫尔蒙
+entity.got.Maester.name=学士
+entity.got.Mammoth.name=长毛象
+entity.got.ManceRayder.name=曼斯·雷德
+entity.got.ManfreyMartell.name=曼佛里·马泰尔
+entity.got.Manticore.name=蝎尾兽
+entity.got.MargaeryTyrell.name=玛格丽·提利尔
+entity.got.MaronVolmark.name=马伦·沃马克
+entity.got.MarshWraith.name=沼泽巫师
+entity.got.MathisRowan.name=马图斯·罗宛
+entity.got.MatthosSeaworth.name=马索思·席渥斯
+entity.got.Melisandra.name=梅丽珊卓
+entity.got.Mellario.name=梅拉莉欧
+entity.got.Mercenary.name=雇佣兵
+entity.got.MerynTrant.name=马林·特兰
+entity.got.Midges.name=血蝇
+entity.got.Missandei.name=弥桑黛
+entity.got.MonfordVelaryon.name=莫佛德·瓦列利安
+entity.got.Moqorro.name=马奇罗
+entity.got.MoribaldChester.name=莫里巴尔德切斯特
+entity.got.MossovyBartender.name=莫索维酒保
+entity.got.MossovyBlacksmith.name=莫索维铁匠
+entity.got.MossovyGoldsmith.name=莫索维金匠
+entity.got.MossovyMan.name=莫索维人
+entity.got.MossovyWitcher.name=莫索维狙魔人
+entity.got.Mullin.name=穆林
+entity.got.MyrBaker.name=密尔烘焙师
+entity.got.MyrBannerBearer.name=密尔旗手
+entity.got.MyrBartender.name=密尔酒保
+entity.got.MyrBlacksmith.name=密尔铁匠
+entity.got.MyrBrewer.name=密尔酿酒商
+entity.got.MyrButcher.name=密尔肉贩
+entity.got.MyrCaptain.name=密尔领主
+entity.got.MyrFishmonger.name=密尔鱼贩
+entity.got.MyrFlorist.name=密尔花匠
+entity.got.MyrGoldsmith.name=密尔金匠
+entity.got.MyrLevyman.name=密尔民兵
+entity.got.MyrLevymanArcher.name=密尔民兵弓箭手
+entity.got.MyrLumberman.name=密尔木材商
+entity.got.MyrMan.name=密尔人
+entity.got.MyrMason.name=密尔石匠
+entity.got.MyrMiner.name=密尔矿物商
+entity.got.MyrSlave.name=密尔奴隶
+entity.got.MyrSlaver.name=密尔奴隶主
+entity.got.MyrSoldier.name=密尔武装士兵
+entity.got.MyrSoldierArcher.name=密尔武装弓箭手
+entity.got.MyrcellaBaratheon.name=弥赛菈·拜拉席恩
+entity.got.MysteryWeb.name=神秘的网
+entity.got.NPCRespawner.name=NPC生成处
+entity.got.NightKing.name=夜王
+entity.got.NorthBaker.name=北境烘焙师
+entity.got.NorthBannerBearer.name=北境旗手
+entity.got.NorthBartender.name=北境酒保
+entity.got.NorthBlacksmith.name=北境铁匠
+entity.got.NorthBrewer.name=北境酿酒商
+entity.got.NorthButcher.name=北境肉贩
+entity.got.NorthCaptain.name=北境领主
+entity.got.NorthFarmer.name=北境农场主
+entity.got.NorthFarmhand.name=北境农工
+entity.got.NorthFishmonger.name=北境鱼贩
+entity.got.NorthFlorist.name=北境花匠
+entity.got.NorthGoldsmith.name=北境金匠
+entity.got.NorthGuard.name=白港守卫
+entity.got.NorthHillman.name=北境山区民
+entity.got.NorthHillmanArcher.name=北境山区民弓箭手
+entity.got.NorthHillmanAxeThrower.name=北境山区民投斧手
+entity.got.NorthHillmanBannerBearer.name=北境山区民旗手
+entity.got.NorthHillmanChieftain.name=北境山区民首领
+entity.got.NorthHillmanWarrior.name=北境山区民战士
+entity.got.NorthLevyman.name=北境民兵
+entity.got.NorthLevymanArcher.name=北境民兵弓箭手
+entity.got.NorthLumberman.name=北境木材商
+entity.got.NorthMan.name=北境人
+entity.got.NorthMason.name=北境石匠
+entity.got.NorthMiner.name=北境矿物商
+entity.got.NorthSoldier.name=北境武装士兵
+entity.got.NorthSoldierArcher.name=北境武装弓箭手
+entity.got.NorvosBaker.name=诺佛斯烘焙师
+entity.got.NorvosBannerBearer.name=诺佛斯旗手
+entity.got.NorvosBartender.name=诺佛斯酒保
+entity.got.NorvosBlacksmith.name=诺佛斯铁匠
+entity.got.NorvosBrewer.name=诺佛斯酿酒商
+entity.got.NorvosButcher.name=诺佛斯肉贩
+entity.got.NorvosCaptain.name=诺佛斯领主
+entity.got.NorvosFarmer.name=诺佛斯农场主
+entity.got.NorvosFarmhand.name=诺佛斯农工
+entity.got.NorvosFishmonger.name=诺佛斯鱼贩
+entity.got.NorvosFlorist.name=诺佛斯花匠
+entity.got.NorvosGoldsmith.name=诺佛斯金匠
+entity.got.NorvosGuard.name=诺佛斯守卫
+entity.got.NorvosLevyman.name=诺佛斯民兵
+entity.got.NorvosLevymanArcher.name=诺佛斯弓箭手
+entity.got.NorvosLumberman.name=诺佛斯木材商
+entity.got.NorvosMan.name=诺佛斯人
+entity.got.NorvosMason.name=诺佛斯石匠
+entity.got.NorvosMiner.name=诺佛斯矿物商
+entity.got.NorvosSoldier.name=诺佛斯武装士兵
+entity.got.NorvosSoldierArcher.name=诺佛斯武装士兵 弓箭手
+entity.got.OberynMartell.name=奥柏伦·马泰尔
+entity.got.OlennaTyrell.name=奥莲娜·雷德温·提利尔
+entity.got.OrtonMerryweather.name=奥顿·玛瑞魏斯
+entity.got.Osha.name=欧莎
+entity.got.PaxterRedwyne.name=派克斯特·雷德温
+entity.got.Pebble.name=石子
+entity.got.PentosBaker.name=潘托斯烘焙师
+entity.got.PentosBannerBearer.name=潘托斯旗手
+entity.got.PentosBartender.name=潘托斯酒保
+entity.got.PentosBlacksmith.name=潘托斯铁匠
+entity.got.PentosBrewer.name=潘托斯酿酒商
+entity.got.PentosButcher.name=潘托斯肉贩
+entity.got.PentosCaptain.name=潘托斯领主
+entity.got.PentosFarmer.name=潘托斯农场主
+entity.got.PentosFarmhand.name=潘托斯农工
+entity.got.PentosFishmonger.name=潘托斯鱼贩
+entity.got.PentosFlorist.name=潘托斯花匠
+entity.got.PentosGoldsmith.name=潘托斯金匠
+entity.got.PentosGuard.name=潘托斯守卫
+entity.got.PentosLevyman.name=潘托斯民兵
+entity.got.PentosLevymanArcher.name=潘托斯弓箭手
+entity.got.PentosLumberman.name=潘托斯木材商
+entity.got.PentosMan.name=潘托斯人
+entity.got.PentosMason.name=潘托斯石匠
+entity.got.PentosMiner.name=潘托斯矿物商
+entity.got.PentosSoldier.name=潘托斯武装士兵
+entity.got.PentosSoldierArcher.name=潘托斯武装弓箭手
+entity.got.PetyrBaelish.name=培提尔·贝里席
+entity.got.Plate.name=盘子
+entity.got.Plowcart.name=犁车
+entity.got.PodrickPayne.name=波德瑞克·派恩
+entity.got.Polliver.name=波利佛
+entity.got.Portal.name=指南针
+entity.got.Prostitute.name=妓女
+entity.got.Pycelle.name=派席尔
+entity.got.QarthBaker.name=魁尔斯烘焙师
+entity.got.QarthBannerBearer.name=魁尔斯旗手
+entity.got.QarthBartender.name=魁尔斯酒保
+entity.got.QarthBlacksmith.name=魁尔斯铁匠
+entity.got.QarthBrewer.name=魁尔斯酿酒商
+entity.got.QarthButcher.name=魁尔斯肉贩
+entity.got.QarthCaptain.name=魁尔斯领主
+entity.got.QarthFarmer.name=魁尔斯农场主
+entity.got.QarthFarmhand.name=魁尔斯农工
+entity.got.QarthFishmonger.name=魁尔斯鱼贩
+entity.got.QarthFlorist.name=魁尔斯花匠
+entity.got.QarthGoldsmith.name=魁尔斯金匠
+entity.got.QarthGuard.name=魁尔斯守卫
+entity.got.QarthLevyman.name=魁尔斯民兵
+entity.got.QarthLevymanArcher.name=魁尔斯民兵弓箭手
+entity.got.QarthLumberman.name=魁尔斯木材商
+entity.got.QarthMan.name=魁尔斯人
+entity.got.QarthMason.name=魁尔斯石匠
+entity.got.QarthMiner.name=魁尔斯矿物商
+entity.got.QarthSoldier.name=魁尔斯武装士兵
+entity.got.QarthSoldierArcher.name=魁尔斯武装士兵 弓箭手
+entity.got.QarthWarlock.name=魁尔斯男巫
+entity.got.QohorBaker.name=魁尔斯烘焙师
+entity.got.QohorBannerBearer.name=魁尔斯旗手
+entity.got.QohorBartender.name=魁尔斯酒保
+entity.got.QohorBlacksmith.name=魁尔斯铁匠
+entity.got.QohorBrewer.name=魁尔斯酿酒商
+entity.got.QohorButcher.name=魁尔斯肉贩
+entity.got.QohorCaptain.name=魁尔斯领主
+entity.got.QohorFarmer.name=魁尔斯农场主
+entity.got.QohorFarmhand.name=魁尔斯农工
+entity.got.QohorFishmonger.name=魁尔斯鱼贩
+entity.got.QohorFlorist.name=魁尔斯花匠
+entity.got.QohorGoldsmith.name=魁尔斯金匠
+entity.got.QohorGuard.name=魁尔斯守卫
+entity.got.QohorLevyman.name=魁尔斯民兵
+entity.got.QohorLevymanArcher.name=魁尔斯民兵弓箭手
+entity.got.QohorLumberman.name=魁尔斯木材商
+entity.got.QohorMan.name=魁尔斯人
+entity.got.QohorMason.name=魁尔斯石匠
+entity.got.QohorMiner.name=魁尔斯矿物商
+entity.got.QohorSoldier.name=魁尔斯武装士兵
+entity.got.QohorSoldierArcher.name=魁尔斯武装弓箭手
+entity.got.QohorUnsullied.name=魁尔斯无垢者
+entity.got.QuennRoxton.name=罗克斯顿女王
+entity.got.QuentenBanefort.name=昆腾·班佛特
+entity.got.QuentynMartell.name=昆廷·马泰尔
+entity.got.QuentynQorgyle.name=昆廷·科格尔
+entity.got.Qyburn.name=科本
+entity.got.Rabbit.name=野兔
+entity.got.RamsayBolton.name=拉姆斯·波顿
+entity.got.RandyllTarly.name=蓝道·塔利
+entity.got.RazdalMoEraz.name=拉兹达尔莫埃拉兹
+entity.got.ReachBaker.name=河湾地烘焙师
+entity.got.ReachBannerBearer.name=河湾地旗手
+entity.got.ReachBartender.name=河湾地酒保
+entity.got.ReachBlacksmith.name=河湾地铁匠
+entity.got.ReachBrewer.name=河湾地酿酒商
+entity.got.ReachButcher.name=河湾地肉贩
+entity.got.ReachCaptain.name=河湾地领主
+entity.got.ReachFarmer.name=河湾地农场主
+entity.got.ReachFarmhand.name=河湾地农工
+entity.got.ReachFishmonger.name=河湾地鱼贩
+entity.got.ReachFlorist.name=河湾地花匠
+entity.got.ReachGoldsmith.name=河湾地金匠
+entity.got.ReachGuard.name=旧镇守卫
+entity.got.ReachLevyman.name=河湾地民兵
+entity.got.ReachLevymanArcher.name=河湾地民兵弓箭手
+entity.got.ReachLumberman.name=河湾地木材商
+entity.got.ReachMan.name=河湾地人
+entity.got.ReachMason.name=河湾地石匠
+entity.got.ReachMiner.name=河湾地矿物商
+entity.got.ReachSoldier.name=河湾地武装士兵
+entity.got.ReachSoldierArcher.name=河湾地武装士兵 弓箭手
+entity.got.RedPriest.name=红衣司铎
+entity.got.RedScorpion.name=红毒蝎
+entity.got.RenlyBaratheon.name=蓝礼·拜拉席恩
+entity.got.Rhino.name=犀牛
+entity.got.RickardKarstark.name=瑞卡德·卡史塔克
+entity.got.RickonStark.name=瑞肯·史塔克
+entity.got.RiverlandsBaker.name=河间地烘焙师
+entity.got.RiverlandsBannerBearer.name=河间地旗手
+entity.got.RiverlandsBartender.name=河间地酒保
+entity.got.RiverlandsBlacksmith.name=河间地铁匠
+entity.got.RiverlandsBrewer.name=河间地酿酒商
+entity.got.RiverlandsButcher.name=河间地肉贩
+entity.got.RiverlandsCaptain.name=河间地领主
+entity.got.RiverlandsFarmer.name=河间地农场主
+entity.got.RiverlandsFarmhand.name=河间地农工
+entity.got.RiverlandsFishmonger.name=河间地鱼贩
+entity.got.RiverlandsFlorist.name=河间地花匠
+entity.got.RiverlandsGoldsmith.name=河间地金匠
+entity.got.RiverlandsLevyman.name=河间地民兵
+entity.got.RiverlandsLevymanArcher.name=河间地民兵弓箭手
+entity.got.RiverlandsLumberman.name=河间地木材商
+entity.got.RiverlandsMan.name=河间地人
+entity.got.RiverlandsMason.name=河间地石匠
+entity.got.RiverlandsMiner.name=河间地矿物商
+entity.got.RiverlandsSoldier.name=河间地武装士兵
+entity.got.RiverlandsSoldierArcher.name=河间地武装弓箭手
+entity.got.RobbStark.name=罗柏·史塔克
+entity.got.RobinArryn.name=罗宾·艾林
+entity.got.RodrikCassel.name=罗德利克·凯索
+entity.got.RodrikHarlaw.name=罗德利克·哈尔洛
+entity.got.RodrikRyswell.name=罗德利克·莱斯威尔
+entity.got.RooseBolton.name=卢斯·波顿
+entity.got.SalladhorSaan.name=萨拉多·桑恩
+entity.got.SamwellTarly.name=山姆威尔·塔利
+entity.got.SandorClegane.name=桑铎·克里冈
+entity.got.SansaStark.name=珊莎·史塔克
+entity.got.Seagull.name=海鸥
+entity.got.SebastonFarman.name=塞斯巴顿·法曼
+entity.got.SelwynTarth.name=塞尔温·塔斯
+entity.got.SelyseBaratheon.name=赛丽丝·拜拉席恩
+entity.got.Septon.name=修士
+entity.got.Shadowcat.name=影子山猫
+entity.got.Shae.name=雪伊
+entity.got.ShireenBaratheon.name=希琳·拜拉席恩
+entity.got.Shryke.name=爬行类
+entity.got.SmokeRing.name=烟环
+entity.got.SnowBear.name=雪熊
+entity.got.SothoryosBannerBearer.name=索斯罗斯旗手
+entity.got.SothoryosBlowgunner.name=索斯罗斯弓箭手
+entity.got.SothoryosChieftain.name=索斯罗斯首领
+entity.got.SothoryosFarmer.name=索斯罗斯农场主
+entity.got.SothoryosFarmhand.name=索斯罗斯农工
+entity.got.SothoryosMan.name=索斯罗斯人
+entity.got.SothoryosShaman.name=索斯罗斯萨满
+entity.got.SothoryosSmith.name=索斯罗斯铁匠
+entity.got.SothoryosWarrior.name=索斯罗斯武装士兵
+entity.got.Spear.name=矛
+entity.got.StannisBaratheon.name=史坦尼斯·拜拉席恩
+entity.got.StoneMan.name=石民
+entity.got.StormlandsBaker.name=风暴地烘焙师
+entity.got.StormlandsBannerBearer.name=风暴地旗手
+entity.got.StormlandsBartender.name=风暴地酒保
+entity.got.StormlandsBlacksmith.name=风暴地铁匠
+entity.got.StormlandsBrewer.name=风暴地酿酒商
+entity.got.StormlandsButcher.name=风暴地肉贩
+entity.got.StormlandsCaptain.name=风暴地领主
+entity.got.StormlandsFarmer.name=风暴地农场主
+entity.got.StormlandsFarmhand.name=风暴地农工
+entity.got.StormlandsFishmonger.name=风暴地鱼贩
+entity.got.StormlandsFlorist.name=风暴地花匠
+entity.got.StormlandsGoldsmith.name=风暴地金匠
+entity.got.StormlandsLevyman.name=风暴地民兵
+entity.got.StormlandsLevymanArcher.name=风暴地民兵弓箭手
+entity.got.StormlandsLumberman.name=风暴地木材商
+entity.got.StormlandsMan.name=风暴地人
+entity.got.StormlandsMason.name=风暴地石匠
+entity.got.StormlandsMiner.name=风暴地矿物商
+entity.got.StormlandsSoldier.name=风暴地武装士兵
+entity.got.StormlandsSoldierArcher.name=风暴地武装弓箭手
+entity.got.SummerArcher.name=盛夏群岛弓箭手
+entity.got.SummerBaker.name=盛夏群岛烘焙师
+entity.got.SummerBannerBearer.name=盛夏群岛旗手
+entity.got.SummerBartender.name=盛夏群岛酒保
+entity.got.SummerBlacksmith.name=盛夏群岛铁匠
+entity.got.SummerBrewer.name=盛夏群岛酿酒商
+entity.got.SummerButcher.name=盛夏群岛肉贩
+entity.got.SummerCaptain.name=盛夏群岛领主
+entity.got.SummerFarmer.name=盛夏群岛农场主
+entity.got.SummerFarmhand.name=盛夏群岛农工
+entity.got.SummerFishmonger.name=盛夏群岛鱼贩
+entity.got.SummerFlorist.name=盛夏群岛花匠
+entity.got.SummerGoldsmith.name=盛夏群岛金匠
+entity.got.SummerHunter.name=盛夏群岛猎人
+entity.got.SummerLumberman.name=盛夏群岛木材商
+entity.got.SummerMan.name=盛夏群岛人
+entity.got.SummerMason.name=盛夏群岛石匠
+entity.got.SummerMiner.name=盛夏群岛矿物商
+entity.got.SummerSoldier.name=盛夏群岛武装士兵
+entity.got.SummerSoldierArcher.name=盛夏群岛武装弓箭手
+entity.got.SummerWarrior.name=盛夏群岛武装士兵
+entity.got.Swan.name=天鹅
+entity.got.SymondTempleton.name=赛蒙·坦帕顿
+entity.got.Termite.name=白蚁
+entity.got.Thenn.name=瑟恩人
+entity.got.ThennArcher.name=瑟恩弓箭手
+entity.got.ThennAxeThrower.name=瑟恩投斧手
+entity.got.ThennBannerBearer.name=瑟恩旗手
+entity.got.ThennBlacksmith.name=瑟恩铁匠
+entity.got.ThennChieftain.name=马格纳
+entity.got.ThennWarrior.name=瑟恩武装士兵
+entity.got.TheonGreyjoyNormal.name=席恩·葛雷乔伊
+entity.got.TheonGreyjoyTormented.name=席恩·葛雷乔伊
+entity.got.Thoros.name=索罗斯
+entity.got.ThreeEyedRaven.name=三眼乌鸦
+entity.got.ThrowingAxe.name=投斧
+entity.got.ThrownRock.name=投石
+entity.got.ThrownTermite.name=爆炸白蚁
+entity.got.TobhoMott.name=托布·莫特
+entity.got.TommenBaratheon.name=托曼·拜拉席恩
+entity.got.Tormund.name=托蒙德
+entity.got.TraderRespawn.name=商人重生处
+entity.got.TrystaneMartell.name=崔斯丹·马泰尔
+entity.got.TugarKhan.name=图加林
+entity.got.TychoNestoris.name=泰楚·奈斯托斯
+entity.got.TyrionLannister.name=提利昂·兰尼斯特
+entity.got.TyroshBaker.name=泰洛西烘焙师
+entity.got.TyroshBannerBearer.name=泰洛西旗手
+entity.got.TyroshBartender.name=泰洛西酒保
+entity.got.TyroshBlacksmith.name=泰洛西铁匠
+entity.got.TyroshBrewer.name=泰洛西酿酒商
+entity.got.TyroshButcher.name=泰洛西肉贩
+entity.got.TyroshCaptain.name=泰洛西领主
+entity.got.TyroshFishmonger.name=泰洛西鱼贩
+entity.got.TyroshFlorist.name=泰洛西花匠
+entity.got.TyroshGoldsmith.name=泰洛西金匠
+entity.got.TyroshLevyman.name=泰洛西征兵
+entity.got.TyroshLevymanArcher.name=泰洛西征兵弓箭手
+entity.got.TyroshLumberman.name=泰洛西伐木工
+entity.got.TyroshMan.name=泰洛西人
+entity.got.TyroshMason.name=泰洛西石匠
+entity.got.TyroshMiner.name=泰洛西矿物商
+entity.got.TyroshSlave.name=泰洛西奴隶
+entity.got.TyroshSlaver.name=泰洛西奴隶主
+entity.got.TyroshSoldier.name=泰洛西弓箭手
+entity.got.TyroshSoldierArcher.name=泰洛西弓箭手
+entity.got.TytosBlackwood.name=泰陀斯·布莱伍德
+entity.got.TytosBrax.name=泰陀斯·布拉克斯
+entity.got.TywinLannister.name=泰温·兰尼斯特
+entity.got.UlthosSpider.name=乌尔斯特蜘蛛
+entity.got.VargoHoat.name=瓦格霍特
+entity.got.Varys.name=瓦里斯
+entity.got.VictarionGreyjoy.name=维克塔利昂·葛雷乔伊
+entity.got.VolantisBaker.name=瓦兰提斯烘焙师
+entity.got.VolantisBannerBearer.name=瓦兰提斯旗手
+entity.got.VolantisBartender.name瓦兰提斯酒保
+entity.got.VolantisBlacksmith.name=瓦兰提斯铁匠
+entity.got.VolantisBrewer.name=瓦兰提斯酿酒商
+entity.got.VolantisButcher.name=瓦兰提斯肉贩
+entity.got.VolantisCaptain.name=瓦兰提斯领主
+entity.got.VolantisFishmonger.name=瓦兰提斯鱼贩
+entity.got.VolantisFlorist.name=瓦兰提斯花匠
+entity.got.VolantisGoldsmith.name=瓦兰提斯金匠
+entity.got.VolantisLevyman.name=瓦兰提斯征兵
+entity.got.VolantisLevymanArcher.name=瓦兰提斯征兵弓箭手
+entity.got.VolantisLumberman.name=瓦兰提斯伐木工
+entity.got.VolantisMan.name=瓦兰提斯人
+entity.got.VolantisMason.name=瓦兰提斯石匠
+entity.got.VolantisMiner.name=瓦兰提斯矿物商
+entity.got.VolantisSlave.name=瓦兰提斯奴隶
+entity.got.VolantisSlaver.name=瓦兰提斯奴隶主
+entity.got.VolantisSoldier.name=瓦兰提斯战士
+entity.got.VolantisSoldierArcher.name=瓦兰提斯弓箭手
+entity.got.WalderFrey.name=瓦德·佛雷
+entity.got.Walrus.name=海象
+entity.got.Werewolf.name=狼人
+entity.got.WesterlandsBaker.name=西境烘焙师
+entity.got.WesterlandsBannerBearer.name=西境旗手
+entity.got.WesterlandsBartender.name=西境酒保
+entity.got.WesterlandsBlacksmith.name=西境铁匠
+entity.got.WesterlandsBrewer.name=西境酿酒商
+entity.got.WesterlandsButcher.name=西境肉贩
+entity.got.WesterlandsCaptain.name=西境领主
+entity.got.WesterlandsFarmer.name=西境农场主
+entity.got.WesterlandsFarmhand.name=西境农工
+entity.got.WesterlandsFishmonger.name=西境鱼贩
+entity.got.WesterlandsFlorist.name=西境花匠
+entity.got.WesterlandsGoldsmith.name=西境金匠
+entity.got.WesterlandsLevyman.name=西境征兵
+entity.got.WesterlandsLevymanArcher.name=西境征兵弓箭手
+entity.got.WesterlandsLumberman.name=西境伐木工
+entity.got.WesterlandsMan.name=西境人
+entity.got.WesterlandsMason.name=西境石匠
+entity.got.WesterlandsMiner.name=西境矿物商
+entity.got.WesterlandsSoldier.name=西境战士
+entity.got.WesterlandsSoldierArcher.name=西境弓箭手
+entity.got.WhiteBison.name=白野牛
+entity.got.WhiteOryx.name=白羚羊
+entity.got.WhiteWalker.name=异鬼
+entity.got.Wight.name=尸鬼
+entity.got.WightGiant.name=尸鬼巨人
+entity.got.Wildling.name=自由民
+entity.got.WildlingArcher.name=自由民弓箭手
+entity.got.WildlingAxeThrower.name=自由民投斧手
+entity.got.WildlingBannerBearer.name=自由民旗手
+entity.got.WildlingChieftain.name=自由民领袖
+entity.got.WildlingWarrior.name=自由民战士
+entity.got.WillasTyrell.name=维拉斯·提利尔
+entity.got.WilliamMooton.name=威廉·慕顿
+entity.got.WoolyRhino.name=披毛犀
+entity.got.WymanManderly.name=威曼·曼德勒
+entity.got.Wyvern.name=双足飞龙
+entity.got.XaroXhoanDaxos.name=扎罗·赞旺·达梭斯
+entity.got.YaraGreyjoy.name=阿莎·葛雷乔伊
+entity.got.Ygritte.name=耶哥蕊特
+entity.got.YiTiBaker.name=夷地烘培师
+entity.got.YiTiBannerBearer.name=夷地旗手
+entity.got.YiTiBartender.name=夷地酒保
+entity.got.YiTiBlacksmith.name=夷地铁匠
+entity.got.YiTiBombardier.name=夷地投弹手
+entity.got.YiTiBrewer.name=夷地酿酒师
+entity.got.YiTiButcher.name=夷地屠夫
+entity.got.YiTiCaptain.name=夷地将军
+entity.got.YiTiFarmer.name=夷地农场主
+entity.got.YiTiFarmhand.name=夷地农工
+entity.got.YiTiFishmonger.name=夷地鱼贩
+entity.got.YiTiFlorist.name=夷地花商
+entity.got.YiTiGoldsmith.name=夷地金匠
+entity.got.YiTiHunter.name=夷地猎人
+entity.got.YiTiLevyman.name=夷地征兵
+entity.got.YiTiLevymanCrossbower.name=夷地征兵弩手
+entity.got.YiTiLumberman.name=夷地伐木工
+entity.got.YiTiMan.name=夷地人
+entity.got.YiTiMason.name=夷地石匠
+entity.got.YiTiMiner.name=夷地矿工
+entity.got.YiTiSamurai.name=夷地武士
+entity.got.YiTiSamuraiFlamethrower.name=夷地火焰喷射者
+entity.got.YiTiSoldier.name=夷地士兵
+entity.got.YiTiSoldierCrossbower.name=夷地弩手
+entity.got.YohnRoyce.name=约恩·罗伊斯
+entity.got.Yoren.name=尤伦
+entity.got.YoungGriff.name=伊耿·坦格利安
+entity.got.Zebra.name=斑马
+generator.got.info=直接生成在维斯特洛大陆
+generator.got=权力的游戏
+generator.gotClassic.info=出生在维斯特洛大陆中（随机生物群系）
+generator.gotClassic=权力的游戏经典
+generator.gotEmpty.info=您将出现在带有地图的维斯特洛大陆中，但没有城市、城堡和角色
+generator.gotEmpty=权游空旷
+got.WesterlandsGuard.name=兰尼斯港守卫
 got.achieve.ENTER_GHISCAR_ASTAPOR.desc=访问阿斯塔波
 got.achieve.ENTER_GHISCAR_ASTAPOR.title=无垢者之城
 got.achieve.ENTER_SOTHORYOS_DESERT_COLD.desc=探访索托瑞欧斯的寒冷沙漠
 got.achievement.BRAND_ENTITY.desc=使用品牌命名暴民
 got.achievement.BRAND_ENTITY.title=手上的號碼
 got.achievement.COMBINE_SMITH_SCROLLS.desc=连接几个卷轴
-got.achievement.COMBINE_SMITH_SCROLLS.title=笔菠萝苹果笔
+got.achievement.COMBINE_SMITH_SCROLLS.title=PenPineappleApplePen
 got.achievement.CRAFT_CARGOCART.desc=製作一輛手推車
 got.achievement.CRAFT_CARGOCART.title=車皮
 got.achievement.CRAFT_CONCRETE_POWDER.desc=得到水泥
@@ -941,7 +941,7 @@ got.achievement.ENGRAVE_OWNERSHIP.desc=从物品上取下主人的名字
 got.achievement.ENGRAVE_OWNERSHIP.title=清除历史!
 got.achievement.ENTER_ALWAYS_WINTER.desc=进入永冬之地
 got.achievement.ENTER_ALWAYS_WINTER.title=在永恒的冰霜中
-got.achievement.ENTER_ARRYN.desc=进入艾林谷
+got.achievement.ENTER_ARRYN.desc=进入谷地
 got.achievement.ENTER_ARRYN.title=高如荣誉
 got.achievement.ENTER_ARRYN_MOUNTAINS.desc=进入明月山脉
 got.achievement.ENTER_ARRYN_MOUNTAINS.title=维斯特洛之巅
@@ -1562,10 +1562,10 @@ got.achievement.USE_THROWING_AXE.desc=使用投掷斧头
 got.achievement.USE_THROWING_AXE.title=让我们投掷它!
 got.achievement.USE_UNSMELTERY.desc=重新冶炼不需要的装备
 got.achievement.USE_UNSMELTERY.title=重复利用
-got.achievement.WEAR_FULL_ALLOY_STEEL.desc≠Wear full set of alloy steel armor
-got.achievement.WEAR_FULL_ALLOY_STEEL.title≠Still not Valyrian
-got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.desc≠Wear full set of alloy steel chainmail
-got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.title≠Like iron, but stronger
+got.achievement.WEAR_FULL_ALLOY_STEEL.desc=穿戴整套合金钢盔甲
+got.achievement.WEAR_FULL_ALLOY_STEEL.title=仍然不是瓦雷利亚
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.desc=穿戴整套合金钢链甲
+got.achievement.WEAR_FULL_ALLOY_STEEL_CHAINMAIL.title=像铁，但更坚固
 got.achievement.WEAR_FULL_ARRYN.desc=装备整套谷地铠甲
 got.achievement.WEAR_FULL_ARRYN.title=谷地守望者
 got.achievement.WEAR_FULL_ARRYNGUARD.desc=装备整套谷地守卫铠甲
@@ -1578,12 +1578,12 @@ got.achievement.WEAR_FULL_BRAAVOS.desc=装备整套布拉佛斯铠甲
 got.achievement.WEAR_FULL_BRAAVOS.title=布拉佛斯守卫
 got.achievement.WEAR_FULL_BRONZE.desc=装备整套青铜铠甲
 got.achievement.WEAR_FULL_BRONZE.title=炼铜+真锌
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=穿戴全套青铜链甲
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=穿戴整套青铜链甲
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=省了不少钱
-got.achievement.WEAR_FULL_COPPER.desc≠Wear full set of copper armor
-got.achievement.WEAR_FULL_COPPER.title≠Corrosion
-got.achievement.WEAR_FULL_COPPER_CHAINMAIL.desc≠Wear full set of copper chainmail
-got.achievement.WEAR_FULL_COPPPER_CHAINMAIL.title≠No wire braiding included
+got.achievement.WEAR_FULL_COPPER.desc=穿戴整套铜甲
+got.achievement.WEAR_FULL_COPPER.title=腐蚀
+got.achievement.WEAR_FULL_COPPER_CHAINMAIL.desc=穿戴整套铜链甲
+got.achievement.WEAR_FULL_COPPPER_CHAINMAIL.title=不含编织线
 got.achievement.WEAR_FULL_CROWNLANDS.desc=装备整套金袍子
 got.achievement.WEAR_FULL_CROWNLANDS.title=君临守备
 got.achievement.WEAR_FULL_DORNE.desc=装备整套多恩铠甲
@@ -1600,12 +1600,12 @@ got.achievement.WEAR_FULL_GHISCAR.desc=装备整套吉斯卡铠甲
 got.achievement.WEAR_FULL_GHISCAR.title=奴隶主
 got.achievement.WEAR_FULL_GIFT.desc=装备整套守夜人铠甲
 got.achievement.WEAR_FULL_GIFT.title=长城守卫
-got.achievement.WEAR_FULL_GOLD.desc≠Wear full set of gold armor
-got.achievement.WEAR_FULL_GOLD.title≠Gypsy Baron
+got.achievement.WEAR_FULL_GOLD.desc=穿戴整套黄金铠甲
+got.achievement.WEAR_FULL_GOLD.title=吉普赛男爵
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.desc=装备整套黄金团铠甲
 got.achievement.WEAR_FULL_GOLDEN_COMPANY.title=黄金团
-got.achievement.WEAR_FULL_GOLD_CHAINMAIL.desc≠Wear full set of gold chainmail
-got.achievement.WEAR_FULL_GOLD_CHAINMAIL.title≠Worst Armor
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.desc=穿戴整套黄金链甲
+got.achievement.WEAR_FULL_GOLD_CHAINMAIL.title=最差链甲
 got.achievement.WEAR_FULL_HILLMEN.desc=装备整套高山氏族部落铠甲
 got.achievement.WEAR_FULL_HILLMEN.title=明月山脉的癫狂
 got.achievement.WEAR_FULL_IBBEN.desc=穿戴全套伊本装备
@@ -1695,9 +1695,9 @@ got.alignment.pickpocket=被盗
 got.alignment.vineyardSteal=偷盗葡萄
 got.attribute.desc=为斯结盟值至+100而赏
 got.biome.alwaysWinter.name=永冬之地
-got.biome.arryn.name=艾林谷
+got.biome.arryn.name=谷地
 got.biome.arrynBaelish.name=小指头的领地
-got.biome.arrynForest.name=艾林谷的森林
+got.biome.arrynForest.name=谷地的森林
 got.biome.arrynMountains.name=明月山脉
 got.biome.arrynMountainsFoothills.name=明月山脉山麓
 got.biome.arrynTown.name=海鸥镇
@@ -1843,6 +1843,7 @@ got.biome.sothoryosMangrove.name=索斯罗斯红树林
 got.biome.sothoryosMountains.name=索斯罗斯山脉
 got.biome.sothoryosSavannah.name=索斯罗斯草原
 got.biome.sothoryosTaiga.name=索斯罗斯针叶林
+got.biome.sothoryosTaigaEdge.name=索斯罗斯的泰加边缘
 got.biome.stepstones.name=海盗海岸
 got.biome.stoneCoast.name=磐石海岸
 got.biome.stormlands.name=风暴地
@@ -1871,7 +1872,6 @@ got.biome.ulthosRedForest.name=乌尔特斯的红森林
 got.biome.ulthosRedForestEdge.name=乌尔特斯的红色森林边缘
 got.biome.ulthosTaiga.name=乌尔特斯的泰格
 got.biome.ulthosTaigaEdge.name=乌尔特斯的泰加边缘
-got.biome.sothoryosTaigaEdge.name=索斯罗斯的泰加边缘
 got.biome.valyria.name=瓦雷利亚半岛
 got.biome.valyriaSea.name=瓦雷利亚海
 got.biome.valyriaVolcano.name=瓦雷利亚火山
@@ -1895,8 +1895,8 @@ got.biome.yiTi.name=夷地
 got.biome.yiTiBorderZone.name=夷地边野
 got.biome.yiTiMarshes.name=夷地沼泽
 got.biome.yiTiTropicalForest.name=热带丛林
-got.capes.ARRYN.name=艾林谷的披风
-got.capes.ARRYNGUARD.name=艾林谷卫士的披风
+got.capes.ARRYN.name=谷地的披风
+got.capes.ARRYNGUARD.name=谷地卫士的披风
 got.capes.ASSHAI.name=亚夏的披风
 got.capes.BRAAVOS.name=布拉佛斯的披风
 got.capes.CROWNLANDS.name=王领的披风
@@ -2197,97 +2197,97 @@ got.date.month.november=十一月
 got.date.month.october=十月
 got.date.month.september=九月
 got.date=AC
-got.db.BIOME_CONQUEST_ONLY.name=No NPCs will spawn in this biome; however, if you conquer the biome, your allies will spawn there.
-got.db.BIOME_HAS_ANIMALS.name=Below is a list of all mobs that you may encounter as you travel through the biome.
-got.db.BIOME_HAS_CONQUEST_FACTIONS.name=This biome can be [[Factions#Conquest|conquered]] by the following factions:
-got.db.BIOME_HAS_INVASION_FACTIONS.name=The following factions invade this biome:
-got.db.BIOME_HAS_MINERALS.name=Below are all the minerals you can find if you build a mine in this biome. Range Y is the height from and to which the fossil is found. The chance of spawning an ore is given as a percentage.
-got.db.BIOME_HAS_NPCS.name=The following NPCs spawn in this biome:
-got.db.BIOME_HAS_STRUCTURES.name=The following buildings can be found in this biome:
-got.db.BIOME_HAS_TREES.name=All tree species growing in the biome are listed below. If a tree species is found only in a certain biome variant, the variant will be indicated in brackets.
-got.db.BIOME_HAS_TREES_BIOME_ONLY.name=The following tree species grow in this biome:
-got.db.BIOME_HAS_VARIANTS.name=This biome has no variations.
-got.db.BIOME_HAS_WAYPOINTS.name=When you visit that biome, the waypoints below will be unlocked. Remember: you must be on good or neutral terms with the waypoint faction to be able to teleport to them. Factions are indicated in brackets next to the waypoints.
-got.db.BIOME_NO_ACHIEVEMENT.name=This biome has no achievement for visiting
-got.db.BIOME_NO_ANIMALS.name=This biome has no animals, birds or fish.
-got.db.BIOME_NO_CONQUEST_FACTIONS.name=This biome cannot be conquered on behalf of any faction.
-got.db.BIOME_NO_INVASION_FACTIONS.name=This biome cannot be invaded by any faction.
-got.db.BIOME_NO_NPCS.name=No NPCs can spawn in this biome.
-got.db.BIOME_NO_STRUCTURES.name=There are no structures in this biome.
-got.db.BIOME_NO_TREES.name=There are no trees in this biome.
-got.db.BIOME_NO_VARIANTS.name=This biome does not have any distinctive variations in topography and fauna.
-got.db.BIOME_NO_VARIANTS.name=This biome has the following variations:
-got.db.BIOME_NO_WAYPOINTS.name=No waypoints are unlocked when visiting this biome.
-got.db.BIOME_SPAWN_ONLY.name=This biome cannot be conquered. Only the NPCs that were originally here will spawn here.
-got.db.CATEGORY.name=Category:Templates
-got.db.CLIMATE_COLD.name=Winter is harsh in this biome: snowstorms are very frequent, the grass is covered with snow. The sky is covered with dense clouds. Even the water looks cold. If you go outside undressed and stand away from the heat and light, you can freeze to death. In the spring, the situation improves, the snow melts, the rains become more frequent. The grass becomes taiga-colored, it's cold outside, but it won't be possible to freeze to death. Summer is no different from spring, so don't expect to wait for hot days. In autumn, the grass begins to die off and turns brown. The weather remains the same.[[Category:Cold climate]]
-got.db.CLIMATE_COLD_AZ.name=In this biome there is a high-altitude zone. The main reason for the differences between the climate of the mountains and the climate of the plains is an increase in altitude and a decrease in temperature at altitude. There is eternal winter, snow and blizzards on the peaks of the mountains. Nevertheless, the frost here is not as severe as in the far north, and you can die of cold only in the calendar winter; the rest of the time negative temperatures are insignificant. Snowstorms are very common at the foot of the mountains in winter, the grass is covered with snow. The sky is covered with dense clouds. Even the water looks cold. If you go outside undressed and stand away from the heat and light, you can freeze to death. In the spring, the situation improves, the snow melts, the rains become more frequent. The grass becomes taiga-colored, it's cold outside, but it won't be possible to freeze to death. Summer is no different from spring, so don't expect to wait for hot days. In autumn, the grass begins to die off and turns brown. The weather remains the same.[[Category:Cold climate]][[Category:High-altitude zones]]
-got.db.CLIMATE_NORMAL.name=Winter is harsh in this biome: snowstorms are very frequent, the grass is covered with snow. The sky is covered with dense clouds. Even the water looks cold. If you go outside undressed and stand away from the heat and light, you can freeze to death. In the spring, the situation improves, the snow melts, the rains become more frequent. The grass becomes taiga-colored, it's cold outside, but it won't be possible to freeze to death. In summer, the sun finally begins to warm for real, it gets warmer outside, the grass turns bright green. In autumn, the grass begins to die off and turns brown. The weather remains the same.[[Category:Normal climate]]
-got.db.CLIMATE_NORMAL_AZ.name=In this biome there is a high-altitude zone. The main reason for the differences between the climate of the mountains and the climate of the plains is an increase in altitude and a decrease in temperature at altitude. There is eternal winter, snow and blizzards on the peaks of the mountains. Nevertheless, the frost here is not as severe as in the far north, and you can die of cold only in the calendar winter; the rest of the time negative temperatures are insignificant. Winter is harsh at the foot of the mountains: snowstorms are very frequent, the grass is covered with snow. The sky is covered with dense clouds. Even the water looks cold. If you go outside undressed and stand away from the heat and light, you can freeze to death. In the spring, the situation improves, the snow melts, the rains become more frequent. The grass becomes taiga-colored, it's cold outside, but it won't be possible to freeze to death. In summer, the sun finally begins to warm for real, it gets warmer outside, the grass turns bright green. In autumn, the grass begins to die off and turns brown. The weather remains the same.[[Category:Normal climate]][[Category:High-altitude zones]]
-got.db.CLIMATE_NULL.name=There is no change of seasons in this biome as such. There is no snow here, but this place cannot be called hot either. Rains come with the usual frequency, and the color of water, grass and sky does not change during the year.[[Category:No seasonal changes]]
-got.db.CLIMATE_SUMMER.name=It never snows in this biome. In summer, there are clear skies and dry grass. Rains are rare. In spring and autumn, the grass becomes brighter because precipitation begins to fall more often. In winter, the grass is taiga-colored, because cold winds sometimes still blow from the north and bring bad weather here.[[Category:Hot climate]]
-got.db.CLIMATE_SUMMER_AZ.name=In this biome there is a high-altitude zone. The main reason for the differences between the climate of the mountains and the climate of the plains is an increase in altitude and a decrease in temperature at altitude. There is eternal winter, snow and blizzards on the peaks of the mountains. Nevertheless, the frost here is not as severe as in the far north, and you will not be able to die from the cold - negative temperatures are insignificant. Snow never falls at the foot of the mountains in this biome. In summer, there are clear skies and dry grass. Rains are rare. In spring and autumn, the grass becomes brighter because precipitation begins to fall more often. In winter, the grass is taiga-colored, because cold winds sometimes still blow from the north and bring bad weather here.[[Category:Hot climate]][[Category:High-altitude zones]]
-got.db.CLIMATE_WINTER.name=There is snow and frost all year round in this biome, the climate does not change a drop during the year. Very often there are blizzards, the grass is covered with snow. The sky is covered with dense clouds. Even the water looks cold. If you go outside undressed and stand away from the heat and light, you can freeze to death.[[Category:Arctic climate]]
-got.db.ENTITY_CONQUEST.name=(conquest)
-got.db.ENTITY_CONQUEST_INVASION.name=(conquest/invasion)
-got.db.ENTITY_HAS_BIOMES.name=This mob spawns in the biomes listed below.
-got.db.ENTITY_HAS_BUY_POOLS.name=This mob buys the following items:
-got.db.ENTITY_HAS_LEGENDARY_DROP.name=The following items are dropped from this character after death:
-got.db.ENTITY_HAS_OWNERS.name=This mob can be hired from the following NPCs:
-got.db.ENTITY_HAS_SELL_UNIT_POOLS.name=This mob sells the following items:
-got.db.ENTITY_HAS_STRUCTURES.name=This mob spawns in the following structures:
-got.db.ENTITY_INVASION.name=(invasion)
-got.db.ENTITY_NO_BIOMES.name=This mob does not spawn in any biomes.
-got.db.ENTITY_NO_BUY_POOLS.name=This mob is not buying anything.
-got.db.ENTITY_NO_LEGENDARY_DROP.name=After death nothing is dropped from this character.
-got.db.ENTITY_NO_OWNERS.name=This mob cannot be hired from anyone.
-got.db.ENTITY_NO_SELL_UNIT_POOLS.name=This mob sells nothing.
-got.db.ENTITY_NO_STRUCTURES.name=This mob does not spawn in any structures.
-got.db.FACTION_HAS_BANNERS.name=This faction owns the following [[banners]]. If you have +1 reputation with this faction, you can put a banner on a Valyrian/Gold/Silver/Bronze block and own a territory in a certain radius (seen on F3). The banner is set up when you RMB on it.
-got.db.FACTION_HAS_CHARACTERS.name=There are characters in the mod that belong to this faction. These are:
-got.db.FACTION_HAS_CONQUEST_BIOMES.name=After [[Faction#Pledge|pledging]], the following biomes can be conquered on behalf of this faction:
-got.db.FACTION_HAS_INVASION_BIOMES.name=This faction invades the following biomes:
-got.db.FACTION_HAS_NPCS.name=No NPCs belong to this faction.
-got.db.FACTION_HAS_RANKS.name=Faction ranks become available when you reach the reputation indicated in brackets. After it the rank also becomes a title, it can be chosen in the menu to be displayed in the chat next to the nickname.
-got.db.FACTION_HAS_SPAWN_BIOMES.name=Mobs of this faction can spawn in the following biomes:
-got.db.FACTION_HAS_WAR_CRIMES.name=This faction encourages war crimes
-got.db.FACTION_HAS_WAYPOINTS.name=This faction controls the waypoints listed below. You will not be able to teleport to them if you have a bad reputation.
-got.db.FACTION_NO_ATTRIBUTES.name=This faction has no shields and capes.
-got.db.FACTION_NO_BANNERS.name=This faction has no banners.
-got.db.FACTION_NO_CHARACTERS.name=Characters belonging to this faction do not exist.
-got.db.FACTION_NO_CONQUEST_BIOMES.name=No biomes can be conquered on behalf of this faction.
-got.db.FACTION_NO_ENEMIES.name=This faction has no enemies.
-got.db.FACTION_NO_FRIENDS.name=This faction has no allies.
-got.db.FACTION_NO_INVASION_BIOMES.name=This faction does not invade any biomes.
-got.db.FACTION_NO_NPCS.name=The following NPCs belong to this faction:
-got.db.FACTION_NO_RANKS.name=This faction has no reputation ranks and titles.
-got.db.FACTION_NO_SPAWN_BIOMES.name=Mobs of this faction do not spawn anywhere.
-got.db.FACTION_NO_STRUCTURES.name=This faction has no structures of its own.
-got.db.FACTION_NO_WAR_CRIMES.name=This faction does not encourage the killing of civilians.
-got.db.FACTION_NO_WAYPOINTS.name=This faction has no control over any waypoints.
-got.db.MINERAL_BIOMES.name=Below are all the biomes in which you can find this mineral. The Y range is the height from and to which the fossil is found. The chance of spawning ore for each biome is given as a percentage.
-got.db.MINERAL_HAS_BIOMES.name=This mineral can be mined in the following biomes:
-got.db.MINERAL_NO_BIOMES.name=This mineral cannot be mined anywhere.
-got.db.MOB_NO_LEGENDARY_DROP.name=Nothing is dropped from this NPC after death.
-got.db.NEED_PLEDGE.name=with pledge
-got.db.NO_PLEDGE.name=without pledge
-got.db.PAGE_BIOME.name=biome
-got.db.PAGE_ENTITY.name=mob
-got.db.PAGE_FACTION.name=faction
-got.db.REPUTATION.name=alignment
+got.db.BIOME_CONQUEST_ONLY.name=该生物群系中不会出现任何 NPC；但是如果您征服了该生物群系，您的盟友就会出现在那里。
+got.db.BIOME_HAS_ANIMALS.name=下面列出了您在此生物群系中可能遇到的所有生物。
+got.db.BIOME_HAS_CONQUEST_FACTIONS.name=下列派系可以[[派系#征服|征服]]该生物群系：
+got.db.BIOME_HAS_INVASION_FACTIONS.name=可侵略该生物群系的派系如下：
+got.db.BIOME_HAS_MINERALS.name=以下是您在该生物群系中建造矿场时,可以寻找到的所有矿物。坐标Y是发现化石时的高度。矿石的生成几率以百分比表示。
+got.db.BIOME_HAS_NPCS.name=以下NPC会在此生物群系中出现：
+got.db.BIOME_HAS_STRUCTURES.name=在该生物群系中可以找到以下建筑：
+got.db.BIOME_HAS_TREES.name=下面列出了生物群系中生长的所有树种。若某一树种只出现在某一生物群系变种中，该变种将在括号中标出。
+got.db.BIOME_HAS_TREES_BIOME_ONLY.name=该生物群系中生长着以下树种：
+got.db.BIOME_HAS_VARIANTS.name=该生物群系没有变种。
+got.db.BIOME_HAS_WAYPOINTS.name=当您来到该生物群系时，以下的传送点就会解锁。记住：您必须与该传送点的派系保持良好或中立的关系，才能使用此传送点。传送点旁边的括号中会标明派别。
+got.db.BIOME_NO_ACHIEVEMENT.name=该生物群系没有成就。
+got.db.BIOME_NO_ANIMALS.name=该生物群系没有任何动物、鸟类或鱼类。
+got.db.BIOME_NO_CONQUEST_FACTIONS.name=该生物群系不允许任何派系进行征服行动。
+got.db.BIOME_NO_INVASION_FACTIONS.name=该生物群系不允许任何派系进行侵略行为。
+got.db.BIOME_NO_NPCS.name=该生物群系不会出现任何NPC。
+got.db.BIOME_NO_STRUCTURES.name=该生物群系没有任何建筑。
+got.db.BIOME_NO_TREES.name=该生物群系没有任何树。
+got.db.BIOME_NO_VARIANTS.name=该生物群系在地形和动物方面没有明显的变化。
+got.db.BIOME_NO_VARIANTS.name=该生物群系有以下变种:
+got.db.BIOME_NO_WAYPOINTS.name=来到该生物群系时不会解锁传送点。
+got.db.BIOME_SPAWN_ONLY.name=该生物群系无法被征服。只有本来的NPC会在这里生成。
+got.db.CATEGORY.name=类别:模版
+got.db.CLIMATE_COLD.n该生物群系的冬季非常严峻:时常伴有暴风雪,草地上也有厚厚的积雪。天空中覆盖着云朵让水都看起来十分的冰冷。如果出门不穿衣服,站在远离有光照或者有热源的地方,你将会因为寒冷要了性命。但一旦到了春天,情况便有所好转,积雪融化,雨水增多。草地会变为针叶树林地带的颜色,外面依旧很冷,但不至于冻死人。夏天和春天的日子并没有区别,不要去期待有炎热的日子到来。到了秋天,草开始枯萎变为褐色。[[类别:寒冷气候]] 天气依然如故。
+got.db.CLIMATE_COLD_AZ.name=在这个生物群系中有一个高海拔区。山区气候与平原气候不同的主要原因是海拔的升高和海拔温度的降低。山区的山顶是永恒的冬天，有雪和暴风雪。不过，这里的霜冻并不像遥远的北方那么严重，只有在日历上的冬天才会冻死人，其余时间的负温度都微不足道。冬天时常伴有暴风雪,草地上也有厚厚的积雪。天空中覆盖着云朵让水都看起来十分的冰冷。如果出门不穿衣服,站在远离有光照或者有热源的地方,你将会因为寒冷要了性命。但一旦到了春天,情况便有所好转,积雪融化,雨水增多。草地会变为针叶树林地带的颜色,外面依旧很冷,但不至于冻死人。夏天和春天的日子并没有区别,不要去期待有炎热的日子到来。到了秋天,草开始枯萎变为褐色。[[类别:寒冷气候]][[类别:高海拔地区]]
+got.db.CLIMATE_NORMAL.name=该生物群系的冬季非常严峻:时常伴有暴风雪,草地上也有厚厚的积雪。天空中覆盖着云朵让水都看起来十分的冰冷。如果出门不穿衣服,站在远离有光照或者有热源的地方,你将会因为寒冷要了性命。但一旦到了春天,情况便有所好转,积雪融化,雨水增多。草地会变为针叶树林地带的颜色,外面依旧很冷,但不至于冻死人。夏天和春天的日子并没有区别,不要去期待有炎热的日子到来。到了秋天,草开始枯萎变为褐色。[[类别:正常气候]] 天气保持不变。
+got.db.CLIMATE_NORMAL_AZ.name=在这个生物群系中有一个高海拔区。山区气候与平原气候不同的主要原因是海拔的升高和海拔温度的降低。山区的山顶是永恒的冬天，有雪和暴风雪。不过，这里的霜冻并不像遥远的北方那么严重，只有在日历上的冬天才会冻死人，其余时间的负温度都微不足道。冬天时常伴有暴风雪,草地上也有厚厚的积雪。天空中覆盖着云朵让水都看起来十分的冰冷。如果出门不穿衣服,站在远离有光照或者有热源的地方,你将会因为寒冷要了性命。但一旦到了春天,情况便有所好转,积雪融化,雨水增多。草地会变为针叶树林地带的颜色,外面依旧很冷,但不至于冻死人。夏天和春天的日子并没有区别,不要去期待有炎热的日子到来。到了秋天,草开始枯萎变为褐色。[[类别:正常气候]][[类别:高海拔地区]]
+got.db.CLIMATE_NULL.name=这个生物群系没有季节变化。这里没有雪，但也称不上炎热。雨水来得很频繁，水、草和天空的颜色一年四季都不会改变。[[类别:无季节变化]]
+got.db.CLIMATE_SUMMER.name=这个生物群系从不下雪。夏季晴空万里，草地干燥。很少下雨。春秋两季，由于降水开始增多，草地变得更加鲜艳。冬季，草地呈现泰加色，因为寒风有时仍会从北方吹来，给这里带来恶劣天气。[[类别:炎热气候]]
+got.db.CLIMATE_SUMMER_AZ.name=ame=在这个生物群系中有一个高海拔区。山区气候与平原气候不同的主要原因是海拔的升高和海拔温度的降低。山区的山顶是永恒的冬天，有雪和暴风雪。不过，这里的霜冻并不像遥远的北方那么严重，只有在日历上的冬天才会冻死人，其余时间的负温度都微不足道。冬天时常伴有暴风雪,草地上也有厚厚的积雪。天空中覆盖着云朵让水都看起来十分的冰冷。如果出门不穿衣服,站在远离有光照或者有热源的地方,你将会因为寒冷要了性命。但一旦到了春天,情况便有所好转,积雪融化,雨水增多。草地会变为针叶树林地带的颜色,外面依旧很冷,但不至于冻死人。夏天和春天的日子并没有区别,不要去期待有炎热的日子到来。到了秋天,草开始枯萎变为褐色。[[类别:炎热气候]][[类别:高海拔地区]]
+got.db.CLIMATE_WINTER.name=该生物群落终年积雪和霜冻，气候一年四季变化不大。时常伴有暴风雪,草地上也有厚厚的积雪。天空中覆盖着云朵让水都看起来十分的冰冷。如果出门不穿衣服,站在远离有光照或者有热源的地方,你将会因为寒冷要了性命。[[类别:北极气候]]
+got.db.ENTITY_CONQUEST.name=(征服)
+got.db.ENTITY_CONQUEST_INVASION.name=(征服/侵略)
+got.db.ENTITY_HAS_BIOMES.name=此生物会在下列生物群系中出现。
+got.db.ENTITY_HAS_BUY_POOLS.name=该商人购买以下物品:
+got.db.ENTITY_HAS_LEGENDARY_DROP.name=该生物死后会掉落以下物品:
+got.db.ENTITY_HAS_OWNERS.name=可以从以下NPC雇佣到这些兵种：
+got.db.ENTITY_HAS_SELL_UNIT_POOLS.name=该商人出售以下物品:
+got.db.ENTITY_HAS_STRUCTURES.name=此生物会在以下建筑中生成:
+got.db.ENTITY_INVASION.name=(侵略)
+got.db.ENTITY_NO_BIOMES.name=此生物不会在任何生物群系中出现。
+got.db.ENTITY_NO_BUY_POOLS.name=该商人什么都不买。
+got.db.ENTITY_NO_LEGENDARY_DROP.name=该生物死后不会掉落任何东西。
+got.db.ENTITY_NO_OWNERS.name=此生物不会被任何人雇佣。
+got.db.ENTITY_NO_SELL_UNIT_POOLS.name=此商人什么都不卖。
+got.db.ENTITY_NO_STRUCTURES.name=此生物不会在任何建筑中出现。
+got.db.FACTION_HAS_BANNERS.name=该派系拥有以下[[旗帜]]。如果您在该派系的声望+1,您就可以在瓦雷利亚/黄金/白银/青铜区块上插上旗帜,并在一定范围内拥有一块领地（见 F3）。当你用右键时可以让旗帜树立在这之上。
+got.db.FACTION_HAS_CHARACTERS.name=该模式中有属于该派系的角色:
+got.db.FACTION_HAS_CONQUEST_BIOMES.name=在 [[派别#誓言|正式承诺]] 之后,可以代表本派系征服以下生物群系:
+got.db.FACTION_HAS_INVASION_BIOMES.name=该派系可侵略以下生物群系:
+got.db.FACTION_HAS_NPCS.name=该派系没有从属NPC。
+got.db.FACTION_HAS_RANKS.name=当您达到括号中显示的声望时，就可以获得派别等级。之后，军衔也会成为一个称号，可以在菜单中选择显示在昵称旁边。
+got.db.FACTION_HAS_SPAWN_BIOMES.name=该派系的生物可以在以下生物群系中生成：
+got.db.FACTION_HAS_WAR_CRIMES.name=该派系鼓励战争罪行
+got.db.FACTION_HAS_WAYPOINTS.name=该派系控制着以下传送点。如果你与他们关系不好则无法传送到这些地点。
+got.db.FACTION_NO_ATTRIBUTES.name=这个派系没有盾牌和披风。
+got.db.FACTION_NO_BANNERS.name=这个派系没有旗帜。
+got.db.FACTION_NO_CHARACTERS.name=并没有从属于这个派系的生物。
+got.db.FACTION_NO_CONQUEST_BIOMES.name=不能代表该派系征服任何生物群系。
+got.db.FACTION_NO_ENEMIES.name=这个派系没有仇敌。
+got.db.FACTION_NO_FRIENDS.name=这个派系没有盟友。
+got.db.FACTION_NO_INVASION_BIOMES.name=该派系不会侵略任何生物群系。
+got.db.FACTION_NO_NPCS.name=以下 NPC 属于此派系:
+got.db.FACTION_NO_RANKS.name=此派系没有声望等级和称号。
+got.db.FACTION_NO_SPAWN_BIOMES.name=本派系的生物不会在任何地方生成。
+got.db.FACTION_NO_STRUCTURES.name=此派系没有自己的结构。
+got.db.FACTION_NO_WAR_CRIMES.name=本派系不鼓励杀害平民。
+got.db.FACTION_NO_WAYPOINTS.name=此派别没有控制任何航点。
+got.db.MINERAL_BIOMES.name=以下是您在该生物群系中建造矿场时,可以寻找到的所有矿物。坐标Y是发现化石时的高度。矿石的生成几率以百分比表示。
+got.db.MINERAL_HAS_BIOMES.name=此矿物可以在以下生物群系中开采：
+got.db.MINERAL_NO_BIOMES.name=此矿物没有群系可以开采。
+got.db.MOB_NO_LEGENDARY_DROP.name=该 NPC 死后不会掉落任何物品。
+got.db.NEED_PLEDGE.name=需宣誓
+got.db.NO_PLEDGE.name=非宣誓
+got.db.PAGE_BIOME.name=生物群系
+got.db.PAGE_ENTITY.name=生物
+got.db.PAGE_FACTION.name=派系
+got.db.REPUTATION.name=结盟
 got.db.RIDER.name= (rider)
-got.db.SEASON_AUTUMN.name=Autumn
-got.db.SEASON_SPRING.name=Spring
-got.db.SEASON_SUMMER.name=Summer
-got.db.SEASON_WINTER.name=Winter
-got.db.STRUCTURE_BIOMES.name=This construction is found in the following biomes:
-got.db.STRUCTURE_HAS_BIOMES.name=This structure appears in the following biomes:
-got.db.STRUCTURE_HAS_ENTITIES.name=The following mobs spawn in this structure:
-got.db.STRUCTURE_NO_BIOMES.name=This structure does not appear in any biomes.
-got.db.STRUCTURE_NO_ENTITIES.name=No mobs spawn in this structure.
-got.db.TREE_HAS_BIOMES.name=This tree grows in the following biomes:
-got.db.TREE_NO_BIOMES.name=This tree is considered extinct and cannot be found in the world at this time. However, it can be obtained by the player in creative mode.
-got.db.TREE_VARIANT_ONLY.name=only in biome variants
+got.db.SEASON_AUTUMN.name=秋季
+got.db.SEASON_SPRING.name=春季
+got.db.SEASON_SUMMER.name=夏季
+got.db.SEASON_WINTER.name=冬季
+got.db.STRUCTURE_BIOMES.name=此建筑会出现在以下生物群系中：
+got.db.STRUCTURE_HAS_BIOMES.name=此结构会出现在以下生物群系中：
+got.db.STRUCTURE_HAS_ENTITIES.name=以下生物会在此建筑中出现:
+got.db.STRUCTURE_NO_BIOMES.name=这种结构没有出现在任何生物群系中。
+got.db.STRUCTURE_NO_ENTITIES.name=该结构内不会出现生物。
+got.db.TREE_HAS_BIOMES.name=这种树生长在以下生物群系中:
+got.db.TREE_NO_BIOMES.name=这种树被认为已经灭绝目前在世界上找不到。不过，玩家可以在创造模式中获得它。
+got.db.TREE_VARIANT_ONLY.name=仅在生物群系变种中
 got.dimension.GameOfThrones.eastEssos=东方厄斯索斯
 got.dimension.GameOfThrones.essos=厄斯索斯
 got.dimension.GameOfThrones.other=索斯罗斯&乌尔特斯
@@ -2813,7 +2813,7 @@ got.hiredNPC.status.guard=正在护卫
 got.hiredNPC.status.halted=立定
 got.hiredNPC.status.ready=就绪
 got.hiredNPC.status=状态: %s
-got.invasion.ARRYN.horn=召唤奇袭-艾林谷
+got.invasion.ARRYN.horn=召唤奇袭-谷地
 got.invasion.BRAAVOS.horn=召唤奇袭-布拉佛斯
 got.invasion.DORNE.horn=召唤奇袭-多恩
 got.invasion.DOTHRAKI.horn=召唤奇袭-多斯拉克
@@ -2831,7 +2831,7 @@ got.invasion.NORVOS.horn=召唤奇袭-诺佛斯
 got.invasion.PENTOS.horn=召唤奇袭-潘托斯
 got.invasion.REACH.horn=召唤奇袭-河湾地
 got.invasion.RIVERLANDS.horn=召唤奇袭-河间地
-got.invasion.SOTHORYOS.horn≠Summon Invasion - Sothoryos
+got.invasion.SOTHORYOS.horn=召唤奇袭-索斯罗斯
 got.invasion.STORMLANDS.horn=召唤奇袭-风暴地
 got.invasion.TYROSH.horn=召唤奇袭-泰洛西
 got.invasion.VOLANTIS.horn=召唤奇袭-瓦兰提斯
@@ -2855,7 +2855,7 @@ got.map.summer=夏日之海
 got.map.sunset=落日之海
 got.map.ulthos=乌尔特斯
 got.map.westeros=维斯特洛
-got.menu.title=GOT Mod: 带权游至Minecraft
+got.menu.title=GOT Mod: 将维斯特洛大陆带至Minecraft
 got.miniquest.bounty.claimed.short=他人领了赏金
 got.miniquest.bounty.claimed=%s的赏金被他人领了。任务失败。
 got.miniquest.bounty.killedBy.short=被目标杀死
@@ -2985,413 +2985,413 @@ got.shields.YI_TI_SAMURAI.name=夷地之盾
 got.shields.category.ACHIEVABLE=成就盾牌
 got.shields.category.ALIGNMENT=阵营盾牌
 got.shields.category.EXCLUSIVE=专属盾牌
-got.structure.ArrynBarn.name≠Arryn Vale Barn
-got.structure.ArrynBath.name≠Arryn Vale Bath
-got.structure.ArrynFortress.name≠Arryn Vale Fortress
-got.structure.ArrynHouse.name≠Arryn Vale House
-got.structure.ArrynHouseLarge.name≠Arryn Vale Mansion
-got.structure.ArrynHouseSmall.name≠Arryn Vale Shack
-got.structure.ArrynSettle.name≠Arryn Vale Village
-got.structure.ArrynSettleForted.name≠Arryn Vale Castle
-got.structure.ArrynSettleLarge.name≠Arryn Vale Town
-got.structure.ArrynSmithy.name≠Arryn Vale Smithy
-got.structure.ArrynStables.name≠Arryn Vale Stables
-got.structure.ArrynTavern.name≠Arryn Vale Tavern
-got.structure.ArrynTower.name≠Arryn Vale Tower
-got.structure.ArrynWatchfort.name≠Arryn Vale Watchfort
-got.structure.ArrynWatchtower.name≠Arryn Vale Watchtower
-got.structure.AsshaiAltar.name≠Asshai Altar
-got.structure.AsshaiBiolab.name≠Asshai Biolab
-got.structure.AsshaiFort.name≠Asshai Fortress
-got.structure.AsshaiHouse.name≠Asshai House
-got.structure.AsshaiSettle.name≠Asshai Town
-got.structure.AsshaiTavern.name≠Asshai Tavern
-got.structure.AsshaiTower.name≠Asshai Tower
-got.structure.Barrow.name≠Barrow
-got.structure.BraavosBarracks.name≠Braavos Barracks
-got.structure.BraavosBazaar.name≠Braavos Bazaar
-got.structure.BraavosFortress.name≠Braavos Fortress
-got.structure.BraavosHouse.name≠Braavos House
-got.structure.BraavosHouseLarge.name≠Braavos Mansion
-got.structure.BraavosSettle.name≠Braavos Village
-got.structure.BraavosSettleForted.name≠Braavos Fortification
-got.structure.BraavosSettleLarge.name≠Braavos Town
-got.structure.BraavosSmithy.name≠Braavos Smithy
-got.structure.BraavosStables.name≠Braavos Stables
-got.structure.BraavosTavern.name≠Braavos Tavern
-got.structure.BraavosTower.name≠Braavos Tower
-got.structure.BraavosTraining.name≠Braavos Training
-got.structure.BurntHouse.name≠Burnt House
-got.structure.CrownlandsBarn.name≠Crownlands Barn
-got.structure.CrownlandsBath.name≠Crownlands Bath
-got.structure.CrownlandsFortress.name≠Crownlands Fortress
-got.structure.CrownlandsHouse.name≠Crownlands House
-got.structure.CrownlandsHouseLarge.name≠Crownlands Mansion
-got.structure.CrownlandsHouseSmall.name≠Crownlands Shack
-got.structure.CrownlandsSettle.name≠Crownlands Village
-got.structure.CrownlandsSettleForted.name≠Crownlands Castle
-got.structure.CrownlandsSettleLarge.name≠Crownlands Town
-got.structure.CrownlandsSmithy.name≠Crownlands Smithy
-got.structure.CrownlandsStables.name≠Crownlands Stables
-got.structure.CrownlandsTavern.name≠Crownlands Tavern
-got.structure.CrownlandsTower.name≠Crownlands Tower
-got.structure.CrownlandsWatchfort.name≠Crownlands Watchfort
-got.structure.CrownlandsWatchtower.name≠Crownlands Watchtower
-got.structure.DorneBarn.name≠Dorne Barn
-got.structure.DorneBath.name≠Dorne Bath
-got.structure.DorneFortress.name≠Dorne Fortress
-got.structure.DorneHouse.name≠Dorne House
-got.structure.DorneHouseLarge.name≠Dorne Mansion
-got.structure.DorneHouseSmall.name≠Dorne Shack
-got.structure.DorneSettle.name≠Dorne Village
-got.structure.DorneSettleForted.name≠Dorne Castle
-got.structure.DorneSettleLarge.name≠Dorne Town
-got.structure.DorneSmithy.name≠Dorne Smithy
-got.structure.DorneStables.name≠Dorne Stables
-got.structure.DorneTavern.name≠Dorne Tavern
-got.structure.DorneTower.name≠Dorne Tower
-got.structure.DorneWatchfort.name≠Dorne Watchfort
-got.structure.DorneWatchtower.name≠Dorne Watchtower
-got.structure.DothrakiChieftainTent.name≠Dothraki Khal's Tent
-got.structure.DothrakiSettle.name≠Dothraki Camp
-got.structure.DothrakiSettleLarge.name≠Dothraki Village
-got.structure.DothrakiShamanTent.name≠Dothraki Khalin's Tent
-got.structure.DothrakiTent.name≠Dothraki Tent
-got.structure.DothrakiTentLarge.name≠Dothraki Large Tent
-got.structure.DragonstoneBarn.name≠Dragonstone Barn
-got.structure.DragonstoneBath.name≠Dragonstone Bath
-got.structure.DragonstoneFortress.name≠Dragonstone Fortress
-got.structure.DragonstoneHouse.name≠Dragonstone House
-got.structure.DragonstoneHouseLarge.name≠Dragonstone Mansion
-got.structure.DragonstoneHouseSmall.name≠Dragonstone Shack
-got.structure.DragonstoneSettle.name≠Dragonstone Village
-got.structure.DragonstoneSettleForted.name≠Dragonstone Castle
-got.structure.DragonstoneSettleLarge.name≠Dragonstone Town
-got.structure.DragonstoneSmithy.name≠Dragonstone Smithy
-got.structure.DragonstoneStables.name≠Dragonstone Stables
-got.structure.DragonstoneTavern.name≠Dragonstone Tavern
-got.structure.DragonstoneTower.name≠Dragonstone Tower
-got.structure.DragonstoneWatchfort.name≠Dragonstone Watchfort
-got.structure.DragonstoneWatchtower.name≠Dragonstone Watchtower
-got.structure.GhiscarBarracks.name≠Ghiscar Barracks
-got.structure.GhiscarBazaar.name≠Ghiscar Bazaar
-got.structure.GhiscarCamp.name≠Ghiscar Corsair Camp
-got.structure.GhiscarFightingPit.name≠Ghiscar Fighting Pit
-got.structure.GhiscarFortress.name≠Ghiscar Fortress
-got.structure.GhiscarHouse.name≠Ghiscar House
-got.structure.GhiscarHouseLarge.name≠Ghiscar Mansion
-got.structure.GhiscarPyramid.name≠Ghiscar Pyramid
-got.structure.GhiscarSettle.name≠Ghiscar Village
-got.structure.GhiscarSettleForted.name≠Ghiscar Fortification
-got.structure.GhiscarSettleLarge.name≠Ghiscar Town
-got.structure.GhiscarSmithy.name≠Ghiscar Smithy
-got.structure.GhiscarStables.name≠Ghiscar Stables
-got.structure.GhiscarTavern.name≠Ghiscar Tavern
-got.structure.GhiscarTower.name≠Ghiscar Tower
-got.structure.GhiscarTraining.name≠Ghiscar Training
-got.structure.GiftHouse.name≠Night's Watch House
-got.structure.GiftHouseSmall.name≠Night's Watch Shack
-got.structure.GiftSettle.name≠Night's Watch Village
-got.structure.GiftSmithy.name≠Night's Watch Smithy
-got.structure.GiftStables.name≠Night's Watch Stables
-got.structure.GoldenCompanySettle.name≠Golden Company Camp
-got.structure.GoldenCompanyWatchtower.name≠Golden Company Watchtower
-got.structure.HillmanCampfire.name≠Hillmen Camp
-got.structure.HillmanFortress.name≠Hillmen Fortress
-got.structure.HillmanHouse.name≠Hillmen House
-got.structure.HillmanSettle.name≠Hillmen Village
-got.structure.HillmanTavern.name≠Hillmen Tavern
-got.structure.IbbenBarn.name≠Ibben Barn
-got.structure.IbbenFortress.name≠Ibben Fortress
-got.structure.IbbenHouse.name≠Ibben House
-got.structure.IbbenSettle.name≠Ibben Village
-got.structure.IbbenSettleForted.name≠Ibben Fortification
-got.structure.IbbenSmithy.name≠Ibben Smithy
-got.structure.IbbenStables.name≠Ibben Stables
-got.structure.IbbenTavern.name≠Ibben Tavern
-got.structure.IbbenWatchtower.name≠Ibben Watchtower
-got.structure.IronbornBarn.name≠Iron Islands Barn
-got.structure.IronbornBath.name≠Iron Islands Bath
-got.structure.IronbornFortress.name≠Iron Islands Fortress
-got.structure.IronbornHouse.name≠Iron Islands House
-got.structure.IronbornHouseLarge.name≠Iron Islands Mansion
-got.structure.IronbornHouseSmall.name≠Iron Islands Shack
-got.structure.IronbornSettle.name≠Iron Islands Village
-got.structure.IronbornSettleForted.name≠Iron Islands Castle
-got.structure.IronbornSettleLarge.name≠Iron Islands Town
-got.structure.IronbornSmithy.name≠Iron Islands Smithy
-got.structure.IronbornStables.name≠Iron Islands Stables
-got.structure.IronbornTavern.name≠Iron Islands Tavern
-got.structure.IronbornTower.name≠Iron Islands Tower
-got.structure.IronbornWatchfort.name≠Iron Islands Watchfort
-got.structure.IronbornWatchtower.name≠Iron Islands Watchtower
-got.structure.JogosNhaiChieftainTent.name≠Jogos Nhai Chieftain's Tent
-got.structure.JogosNhaiSettle.name≠Jogos Nhai Camp
-got.structure.JogosNhaiSettleLarge.name≠Jogos Nhai Village
-got.structure.JogosNhaiShamanTent.name≠Jogos Nhai Shaman's Tent
-got.structure.JogosNhaiTent.name≠Jogos Nhai Tent
-got.structure.JogosNhaiTentLarge.name≠Jogos Nhai Large Tent
-got.structure.LhazarAltar.name≠Lhazar Altar
-got.structure.LhazarBazaar.name≠Lhazar Bazaar
-got.structure.LhazarFarm.name≠Lhazar Farm
-got.structure.LhazarHouse.name≠Lhazar House
-got.structure.LhazarPyramid.name≠Lhazar Pyramid
-got.structure.LhazarSettle.name≠Lhazar Village
-got.structure.LhazarSettleForted.name≠Lhazar Fortification
-got.structure.LhazarSettleLarge.name≠Lhazar Town
-got.structure.LhazarSmithy.name≠Lhazar Smithy
-got.structure.LhazarTavern.name≠Lhazar Tavern
-got.structure.LhazarTotem.name≠Lhazar Totem
-got.structure.LhazarTower.name≠Lhazar Tower
-got.structure.LhazarWarCamp.name≠Lhazar War Camp
-got.structure.LorathBarracks.name≠Lorath Barracks
-got.structure.LorathBazaar.name≠Lorath Bazaar
-got.structure.LorathFortress.name≠Lorath Fortress
-got.structure.LorathHouse.name≠Lorath House
-got.structure.LorathHouseLarge.name≠Lorath Mansion
-got.structure.LorathSettle.name≠Lorath Village
-got.structure.LorathSettleForted.name≠Lorath Fortification
-got.structure.LorathSettleLarge.name≠Lorath Town
-got.structure.LorathSmithy.name≠Lorath Smithy
-got.structure.LorathStables.name≠Lorath Stables
-got.structure.LorathTavern.name≠Lorath Tavern
-got.structure.LorathTower.name≠Lorath Tower
-got.structure.LorathTraining.name≠Lorath Training
-got.structure.LysBarracks.name≠Lys Barracks
-got.structure.LysBazaar.name≠Lys Bazaar
-got.structure.LysFortress.name≠Lys Fortress
-got.structure.LysHouse.name≠Lys House
-got.structure.LysHouseLarge.name≠Lys Mansion
-got.structure.LysSettle.name≠Lys Village
-got.structure.LysSettleForted.name≠Lys Fortification
-got.structure.LysSettleLarge.name≠Lys Town
-got.structure.LysSmithy.name≠Lys Smithy
-got.structure.LysStables.name≠Lys Stables
-got.structure.LysTavern.name≠Lys Brothel
-got.structure.LysTower.name≠Lys Tower
-got.structure.LysTraining.name≠Lys Training
-got.structure.MossovyBarn.name≠Mossovy Barn
-got.structure.MossovyFortress.name≠Mossovy Fortress
-got.structure.MossovyHouse.name≠Mossovy House
-got.structure.MossovyHouseLarge.name≠Mossovy Mansion
-got.structure.MossovyHouseSmall.name≠Mossovy Shack
-got.structure.MossovySettle.name≠Mossovy Village
-got.structure.MossovySmithy.name≠Mossovy Smithy
-got.structure.MossovyStable.name≠Mossovy Stables
-got.structure.MossovyTavern.name≠Mossovy Tavern
-got.structure.MyrBarracks.name≠Myr Barracks
-got.structure.MyrBazaar.name≠Myr Bazaar
-got.structure.MyrFortress.name≠Myr Fortress
-got.structure.MyrHouse.name≠Myr House
-got.structure.MyrHouseLarge.name≠Myr Mansion
-got.structure.MyrSettle.name≠Myr Village
-got.structure.MyrSettleForted.name≠Myr Fortification
-got.structure.MyrSettleLarge.name≠Myr Town
-got.structure.MyrSmithy.name≠Myr Smithy
-got.structure.MyrStables.name≠Myr Stables
-got.structure.MyrTavern.name≠Myr Tavern
-got.structure.MyrTower.name≠Myr Tower
-got.structure.MyrTraining.name≠Myr Training
-got.structure.NorthBarn.name≠North Barn
-got.structure.NorthBath.name≠North Bath
-got.structure.NorthFortress.name≠North Fortress
-got.structure.NorthHillmanChieftainHouse.name≠North Hillmen Chieftain's House
-got.structure.NorthHillmanHouse.name≠North Hillmen House
-got.structure.NorthHillmanSettle.name≠North Hillmen Village
-got.structure.NorthHouse.name≠North House
-got.structure.NorthHouseLarge.name≠North Mansion
-got.structure.NorthHouseSmall.name≠North Shack
-got.structure.NorthSettle.name≠North Village
-got.structure.NorthSettleForted.name≠North Castle
-got.structure.NorthSettleLarge.name≠North Town
-got.structure.NorthSmithy.name≠North Smithy
-got.structure.NorthStables.name≠North Stables
-got.structure.NorthTavern.name≠North Tavern
-got.structure.NorthTower.name≠North Tower
-got.structure.NorthWatchfort.name≠North Watchfort
-got.structure.NorthWatchtower.name≠North Watchtower
-got.structure.NorvosBarracks.name≠Norvos Barracks
-got.structure.NorvosBazaar.name≠Norvos Bazaar
-got.structure.NorvosFortress.name≠Norvos Fortress
-got.structure.NorvosHouse.name≠Norvos House
-got.structure.NorvosHouseLarge.name≠Norvos Mansion
-got.structure.NorvosSettle.name≠Norvos Village
-got.structure.NorvosSettleForted.name≠Norvos Fortification
-got.structure.NorvosSettleLarge.name≠Norvos Town
-got.structure.NorvosSmithy.name≠Norvos Smithy
-got.structure.NorvosStables.name≠Norvos Stables
-got.structure.NorvosTavern.name≠Norvos Tavern
-got.structure.NorvosTower.name≠Norvos Tower
-got.structure.NorvosTraining.name≠Norvos Training
-got.structure.PentosBarracks.name≠Pentos Barracks
-got.structure.PentosBazaar.name≠Pentos Bazaar
-got.structure.PentosFortress.name≠Pentos Fortress
-got.structure.PentosHouse.name≠Pentos House
-got.structure.PentosHouseLarge.name≠Pentos Mansion
-got.structure.PentosSettle.name≠Pentos Village
-got.structure.PentosSettleForted.name≠Pentos Fortification
-got.structure.PentosSettleLarge.name≠Pentos Town
-got.structure.PentosSmithy.name≠Pentos Smithy
-got.structure.PentosStables.name≠Pentos Stables
-got.structure.PentosTavern.name≠Pentos Tavern
-got.structure.PentosTower.name≠Pentos Tower
-got.structure.PentosTraining.name≠Pentos Training
-got.structure.QarthBarracks.name≠Qarth Barracks
-got.structure.QarthBazaar.name≠Qarth Bazaar
-got.structure.QarthFortress.name≠Qarth Fortress
-got.structure.QarthHouse.name≠Qarth House
-got.structure.QarthHouseLarge.name≠Qarth Mansion
-got.structure.QarthSettle.name≠Qarth Village
-got.structure.QarthSettleForted.name≠Qarth Fortification
-got.structure.QarthSettleLarge.name≠Qarth Town
-got.structure.QarthSmithy.name≠Qarth Smithy
-got.structure.QarthStables.name≠Qarth Stables
-got.structure.QarthTavern.name≠Qarth Tavern
-got.structure.QarthTower.name≠Qarth Tower
-got.structure.QarthTraining.name≠Qarth Training
-got.structure.QohorBarracks.name≠Qohor Barracks
-got.structure.QohorBazaar.name≠Qohor Bazaar
-got.structure.QohorFortress.name≠Qohor Fortress
-got.structure.QohorHouse.name≠Qohor House
-got.structure.QohorHouseLarge.name≠Qohor Mansion
-got.structure.QohorSettle.name≠Qohor Village
-got.structure.QohorSettleForted.name≠Qohor Fortification
-got.structure.QohorSettleLarge.name≠Qohor Town
-got.structure.QohorSmithy.name≠Qohor Smithy
-got.structure.QohorStables.name≠Qohor Stables
-got.structure.QohorTavern.name≠Qohor Tavern
-got.structure.QohorTower.name≠Qohor Tower
-got.structure.QohorTraining.name≠Qohor Training
-got.structure.ReachBarn.name≠Reach Barn
-got.structure.ReachBath.name≠Reach Bath
-got.structure.ReachBrewery.name≠Reach Brewery
-got.structure.ReachFortress.name≠Reach Fortress
-got.structure.ReachHouse.name≠Reach House
-got.structure.ReachHouseLarge.name≠Reach Mansion
-got.structure.ReachHouseSmall.name≠Reach Shack
-got.structure.ReachSettle.name≠Reach Village
-got.structure.ReachSettleForted.name≠Reach Castle
-got.structure.ReachSettleLarge.name≠Reach Town
-got.structure.ReachSmithy.name≠Reach Smithy
-got.structure.ReachStables.name≠Reach Stables
-got.structure.ReachTavern.name≠Reach Tavern
-got.structure.ReachTower.name≠Reach Tower
-got.structure.ReachWatchfort.name≠Reach Watchfort
-got.structure.ReachWatchtower.name≠Reach Watchtower
-got.structure.RiverlandsBarn.name≠Riverlands Barn
-got.structure.RiverlandsBath.name≠Riverlands Bath
-got.structure.RiverlandsFortress.name≠Riverlands Fortress
-got.structure.RiverlandsHouse.name≠Riverlands House
-got.structure.RiverlandsHouseLarge.name≠Riverlands Mansion
-got.structure.RiverlandsHouseSmall.name≠Riverlands Shack
-got.structure.RiverlandsSettle.name≠Riverlands Village
-got.structure.RiverlandsSettleForted.name≠Riverlands Castle
-got.structure.RiverlandsSettleLarge.name≠Riverlands Town
-got.structure.RiverlandsSmithy.name≠Riverlands Smithy
-got.structure.RiverlandsStables.name≠Riverlands Stables
-got.structure.RiverlandsTavern.name≠Riverlands Tavern
-got.structure.RiverlandsTower.name≠Riverlands Tower
-got.structure.RiverlandsWatchfort.name≠Riverlands Watchfort
-got.structure.RiverlandsWatchtower.name≠Riverlands Watchtower
-got.structure.RottenHouse.name≠Rotten House
-got.structure.RuinSandstone.name≠Sandstone Ruins
-got.structure.RuinStone.name≠Stone Ruins
-got.structure.RuinedHouse.name≠Ruined House
-got.structure.SmallStoneRuin.name≠Small Stone Ruins
-got.structure.SothoryosHouseLarge.name≠Sothoryos Mansion
-got.structure.SothoryosHouseSimple.name≠Sothoryos Simple House
-got.structure.SothoryosHouseStilts.name≠Sothoryos Stilted House
-got.structure.SothoryosPyramid.name≠Sothoryos Pyramid
-got.structure.SothoryosSettle.name≠Sothoryos Village
-got.structure.SothoryosSmithy.name≠Sothoryos Smithy
-got.structure.SothoryosTemple.name≠Sothoryos Temple
-got.structure.SothoryosWatchtower.name≠Sothoryos Watchtower
-got.structure.StormlandsBarn.name≠Stormlands Barn
-got.structure.StormlandsBath.name≠Stormlands Bath
-got.structure.StormlandsFortress.name≠Stormlands Fortress
-got.structure.StormlandsHouse.name≠Stormlands House
-got.structure.StormlandsHouseLarge.name≠Stormlands Mansion
-got.structure.StormlandsHouseSmall.name≠Stormlands Shack
-got.structure.StormlandsSettle.name≠Stormlands Village
-got.structure.StormlandsSettleForted.name≠Stormlands Castle
-got.structure.StormlandsSettleLarge.name≠Stormlands Town
-got.structure.StormlandsSmithy.name≠Stormlands Smithy
-got.structure.StormlandsStables.name≠Stormlands Stables
-got.structure.StormlandsTavern.name≠Stormlands Tavern
-got.structure.StormlandsTower.name≠Stormlands Tower
-got.structure.StormlandsWatchfort.name≠Stormlands Watchfort
-got.structure.StormlandsWatchtower.name≠Stormlands Watchtower
-got.structure.SummerFortress.name≠Summer Islands Fortress
-got.structure.SummerHouse.name≠Summer Islands House
-got.structure.SummerHouseRuined.name≠Summer Islands Riuned House
-got.structure.SummerSettle.name≠Summer Islands Village
-got.structure.SummerSettleForted.name≠Summer Islands Fortification
-got.structure.SummerSettleRuined.name≠Summer Islands Ruined Village
-got.structure.SummerSmithy.name≠Summer Islands Smithy
-got.structure.SummerStables.name≠Summer Islands Stables
-got.structure.SummerTavern.name≠Summer Islands Tavern
-got.structure.SummerTavernRuined.name≠Summer Islands Ruined Tavern
-got.structure.SummerTower.name≠Summer Islands Tower
-got.structure.ThennCamp.name≠Thenn Camp
-got.structure.ThennChieftainHouse.name≠Thenn Magnar's House
-got.structure.ThennHouse.name≠Thenn House
-got.structure.ThennSettle.name≠Thenn Village
-got.structure.TyroshBarracks.name≠Tyrosh Barracks
-got.structure.TyroshBazaar.name≠Tyrosh Bazaar
-got.structure.TyroshFortress.name≠Tyrosh Fortress
-got.structure.TyroshHouse.name≠Tyrosh House
-got.structure.TyroshHouseLarge.name≠Tyrosh Mansion
-got.structure.TyroshSettle.name≠Tyrosh Village
-got.structure.TyroshSettleForted.name≠Tyrosh Fortification
-got.structure.TyroshSettleLarge.name≠Tyrosh Town
-got.structure.TyroshSmithy.name≠Tyrosh Smithy
-got.structure.TyroshStables.name≠Tyrosh Stables
-got.structure.TyroshTavern.name≠Tyrosh Tavern
-got.structure.TyroshTower.name≠Tyrosh Tower
-got.structure.TyroshTraining.name≠Tyrosh Training
-got.structure.VolantisBarracks.name≠Volantis Barracks
-got.structure.VolantisBazaar.name≠Volantis Bazaar
-got.structure.VolantisFortress.name≠Volantis Fortress
-got.structure.VolantisHouse.name≠Volantis House
-got.structure.VolantisHouseLarge.name≠Volantis Mansion
-got.structure.VolantisSettle.name≠Volantis Village
-got.structure.VolantisSettleForted.name≠Volantis Fortification
-got.structure.VolantisSettleLarge.name≠Volantis Town
-got.structure.VolantisSmithy.name≠Volantis Smithy
-got.structure.VolantisStables.name≠Volantis Stables
-got.structure.VolantisTavern.name≠Volantis Tavern
-got.structure.VolantisTower.name≠Volantis Tower
-got.structure.VolantisTraining.name≠Volantis Training
-got.structure.WesterlandsBarn.name≠Westerlands Barn
-got.structure.WesterlandsBath.name≠Westerlands Bath
-got.structure.WesterlandsFortress.name≠Westerlands Fortress
-got.structure.WesterlandsHouse.name≠Westerlands House
-got.structure.WesterlandsHouseLarge.name≠Westerlands Mansion
-got.structure.WesterlandsHouseSmall.name≠Westerlands Shack
-got.structure.WesterlandsSettle.name≠Westerlands Village
-got.structure.WesterlandsSettleForted.name≠Westerlands Castle
-got.structure.WesterlandsSettleLarge.name≠Westerlands Town
-got.structure.WesterlandsSmithy.name≠Westerlands Smithy
-got.structure.WesterlandsStables.name≠Westerlands Stables
-got.structure.WesterlandsTavern.name≠Westerlands Tavern
-got.structure.WesterlandsTower.name≠Westerlands Tower
-got.structure.WesterlandsWatchfort.name≠Westerlands Watchfort
-got.structure.WesterlandsWatchtower.name≠Westerlands Watchtower
-got.structure.WildlingChieftainHouse.name≠Wildling Chieftain's House
-got.structure.WildlingHouse.name≠Wildling House
-got.structure.WildlingSettle.name≠Wildling Village
-got.structure.YiTiFortress.name≠Yi Ti Fortress
-got.structure.YiTiHouse.name≠Yi Ti House
-got.structure.YiTiHouseLarge.name≠Yi Ti Mansion
-got.structure.YiTiHouseSmall.name≠Yi Ti Shack
-got.structure.YiTiSettle.name≠Yi Ti Village
-got.structure.YiTiSettleForted.name≠Yi Ti Castle
-got.structure.YiTiSettleLarge.name≠Yi Ti Town
-got.structure.YiTiSmithy.name≠Yi Ti Smithy
-got.structure.YiTiStables.name≠Yi Ti Stables
-got.structure.YiTiTavern.name≠Yi Ti Tavern
-got.structure.YiTiTavernTown.name≠Yi Ti Town Tavern
-got.structure.YiTiTower.name≠Yi Ti Tower
+got.structure.ArrynBarn.name=谷地谷仓
+got.structure.ArrynBath.name=谷地澡堂
+got.structure.ArrynFortress.name=谷地堡垒
+got.structure.ArrynHouse.name=谷地房屋
+got.structure.ArrynHouseLarge.name=谷地府邸
+got.structure.ArrynHouseSmall.name=谷地棚屋
+got.structure.ArrynSettle.name=谷地村庄
+got.structure.ArrynSettleForted.name=谷地城堡
+got.structure.ArrynSettleLarge.name=谷地城镇
+got.structure.ArrynSmithy.name=谷地铁匠铺
+got.structure.ArrynStables.name=谷地马厩
+got.structure.ArrynTavern.name=谷地酒馆
+got.structure.ArrynTower.name=谷地塔
+got.structure.ArrynWatchfort.name=谷地瞭望堡
+got.structure.ArrynWatchtower.name=谷地瞭望塔
+got.structure.AsshaiAltar.name=亚夏祭坛
+got.structure.AsshaiBiolab.name=亚夏炼金室
+got.structure.AsshaiFort.name=亚夏堡垒
+got.structure.AsshaiHouse.name=亚夏房屋
+got.structure.AsshaiSettle.name=亚夏城镇
+got.structure.AsshaiTavern.name=亚夏酒馆
+got.structure.AsshaiTower.name=亚夏塔
+got.structure.Barrow.name=古冢
+got.structure.BraavosBarracks.name=布拉佛斯营地
+got.structure.BraavosBazaar.name=布拉佛斯集市
+got.structure.BraavosFortress.name=布拉佛斯堡垒
+got.structure.BraavosHouse.name=布拉佛斯房屋
+got.structure.BraavosHouseLarge.name=布拉佛斯府邸
+got.structure.BraavosSettle.name=布拉佛斯村庄
+got.structure.BraavosSettleForted.name=布拉佛斯防御工事
+got.structure.BraavosSettleLarge.name=布拉佛斯城镇
+got.structure.BraavosSmithy.name=布拉佛斯铁匠铺
+got.structure.BraavosStables.name=布拉佛斯马厩
+got.structure.BraavosTavern.name=布拉佛斯酒馆
+got.structure.BraavosTower.name=布拉佛斯塔
+got.structure.BraavosTraining.name=布拉佛斯训练场
+got.structure.BurntHouse.name=烧毁的房屋
+got.structure.CrownlandsBarn.name=王领谷仓
+got.structure.CrownlandsBath.name=王领澡堂
+got.structure.CrownlandsFortress.name=王领堡垒
+got.structure.CrownlandsHouse.name=王领房屋
+got.structure.CrownlandsHouseLarge.name=王领府邸
+got.structure.CrownlandsHouseSmall.name=王领棚屋
+got.structure.CrownlandsSettle.name=王领村庄
+got.structure.CrownlandsSettleForted.name=王领城堡
+got.structure.CrownlandsSettleLarge.name=王领城镇
+got.structure.CrownlandsSmithy.name=王领铁匠铺
+got.structure.CrownlandsStables.name=王领马厩
+got.structure.CrownlandsTavern.name=王领酒馆
+got.structure.CrownlandsTower.name=王领塔
+got.structure.CrownlandsWatchfort.name=王领瞭望堡
+got.structure.CrownlandsWatchtower.name=王领瞭望塔
+got.structure.DorneBarn.name=多恩谷仓
+got.structure.DorneBath.name=多恩澡堂
+got.structure.DorneFortress.name=多恩堡垒
+got.structure.DorneHouse.name=多恩房屋
+got.structure.DorneHouseLarge.name=Dorne府邸
+got.structure.DorneHouseSmall.name=多恩棚屋
+got.structure.DorneSettle.name=多恩村庄
+got.structure.DorneSettleForted.name=多恩城堡
+got.structure.DorneSettleLarge.name=多恩城镇
+got.structure.DorneSmithy.name=多恩铁匠铺
+got.structure.DorneStables.name=多恩马厩
+got.structure.DorneTavern.name=多恩酒馆
+got.structure.DorneTower.name=多恩塔
+got.structure.DorneWatchfort.name=多恩瞭望堡
+got.structure.DorneWatchtower.name=多恩瞭望塔
+got.structure.DothrakiChieftainTent.name=卡奥金帐
+got.structure.DothrakiSettle.name=多斯拉克营地
+got.structure.DothrakiSettleLarge.name=多斯拉克村庄
+got.structure.DothrakiShamanTent.name=多希卡林大帐
+got.structure.DothrakiTent.name=多斯拉克帐篷
+got.structure.DothrakiTentLarge.name=多斯拉克大帐
+got.structure.DragonstoneBarn.name=龙石岛谷仓
+got.structure.DragonstoneBath.name=龙石岛澡堂
+got.structure.DragonstoneFortress.name=龙石岛堡垒
+got.structure.DragonstoneHouse.name=龙石岛房屋
+got.structure.DragonstoneHouseLarge.name=龙石岛府邸
+got.structure.DragonstoneHouseSmall.name=龙石岛棚屋
+got.structure.DragonstoneSettle.name=龙石岛村庄
+got.structure.DragonstoneSettleForted.name=龙石岛城堡
+got.structure.DragonstoneSettleLarge.name=龙石岛城镇
+got.structure.DragonstoneSmithy.name=龙石岛铁匠铺
+got.structure.DragonstoneStables.name=龙石岛马厩
+got.structure.DragonstoneTavern.name=龙石岛酒馆
+got.structure.DragonstoneTower.name=龙石岛塔
+got.structure.DragonstoneWatchfort.name=龙石岛瞭望堡
+got.structure.DragonstoneWatchtower.name=龙石岛瞭望塔
+got.structure.GhiscarBarracks.name=吉斯卡营地
+got.structure.GhiscarBazaar.name=吉斯卡集市
+got.structure.GhiscarCamp.name=吉斯卡海盗营地
+got.structure.GhiscarFightingPit.name=吉斯卡斗技场
+got.structure.GhiscarFortress.name=吉斯卡堡垒
+got.structure.GhiscarHouse.name=吉斯卡房屋
+got.structure.GhiscarHouseLarge.name=吉斯卡府邸
+got.structure.GhiscarPyramid.name=吉斯卡金字塔
+got.structure.GhiscarSettle.name=吉斯卡村庄
+got.structure.GhiscarSettleForted.name=吉斯卡防御工事
+got.structure.GhiscarSettleLarge.name=吉斯卡城镇
+got.structure.GhiscarSmithy.name=吉斯卡铁匠铺
+got.structure.GhiscarStables.name=吉斯卡马厩
+got.structure.GhiscarTavern.name=吉斯卡酒馆
+got.structure.GhiscarTower.name=吉斯卡塔
+got.structure.GhiscarTraining.name=吉斯卡训练场
+got.structure.GiftHouse.name=守夜人房屋
+got.structure.GiftHouseSmall.name=守夜人棚屋
+got.structure.GiftSettle.name=守夜人村庄
+got.structure.GiftSmithy.name=守夜人铁匠铺
+got.structure.GiftStables.name=守夜人马厩
+got.structure.GoldenCompanySettle.name=黄金团营地
+got.structure.GoldenCompanyWatchtower.name=黄金团瞭望塔
+got.structure.HillmanCampfire.name=高山氏族部落营地
+got.structure.HillmanFortress.name=高山氏族部落堡垒
+got.structure.HillmanHouse.name=高山氏族部落房屋
+got.structure.HillmanSettle.name=高山氏族部落村庄
+got.structure.HillmanTavern.name=高山氏族部落酒馆
+got.structure.IbbenBarn.name=伊班谷仓
+got.structure.IbbenFortress.name=伊班堡垒
+got.structure.IbbenHouse.name=伊班房屋
+got.structure.IbbenSettle.name=伊班村庄
+got.structure.IbbenSettleForted.name=伊班防御工事
+got.structure.IbbenSmithy.name=伊班铁匠铺
+got.structure.IbbenStables.name=伊班马厩
+got.structure.IbbenTavern.name=伊班酒馆
+got.structure.IbbenWatchtower.name=伊班瞭望塔
+got.structure.IronbornBarn.name=铁群岛谷仓
+got.structure.IronbornBath.name=铁群岛澡堂
+got.structure.IronbornFortress.name=铁群岛堡垒
+got.structure.IronbornHouse.name=铁群岛房屋
+got.structure.IronbornHouseLarge.name=铁群岛府邸
+got.structure.IronbornHouseSmall.name=铁群岛棚屋
+got.structure.IronbornSettle.name=铁群岛村庄
+got.structure.IronbornSettleForted.name=铁群岛城堡
+got.structure.IronbornSettleLarge.name=铁群岛城镇
+got.structure.IronbornSmithy.name=铁群岛铁匠铺
+got.structure.IronbornStables.name=铁群岛马厩
+got.structure.IronbornTavern.name=铁群岛酒馆
+got.structure.IronbornTower.name=铁群岛塔
+got.structure.IronbornWatchfort.name=铁群岛瞭望堡
+got.structure.IronbornWatchtower.name=铁群岛瞭望塔
+got.structure.JogosNhaiChieftainTent.name=鸠格斯奈首领大帐
+got.structure.JogosNhaiSettle.name=鸠格斯奈营地
+got.structure.JogosNhaiSettleLarge.name=鸠格斯奈村庄
+got.structure.JogosNhaiShamanTent.name=鸠格斯奈萨满帐篷
+got.structure.JogosNhaiTent.name=鸠格斯奈帐篷
+got.structure.JogosNhaiTentLarge.name=鸠格斯奈大帐
+got.structure.LhazarAltar.name=拉札祭坛
+got.structure.LhazarBazaar.name=拉札集市
+got.structure.LhazarFarm.name=拉札农场
+got.structure.LhazarHouse.name=拉札房屋
+got.structure.LhazarPyramid.name=拉札金字塔
+got.structure.LhazarSettle.name=拉札村庄
+got.structure.LhazarSettleForted.name=拉札防御工事
+got.structure.LhazarSettleLarge.name=拉札城镇
+got.structure.LhazarSmithy.name=拉札铁匠铺
+got.structure.LhazarTavern.name=拉札酒馆
+got.structure.LhazarTotem.name=拉札图腾
+got.structure.LhazarTower.name=拉札塔
+got.structure.LhazarWarCamp.name=拉札战营
+got.structure.LorathBarracks.name=罗拉斯营地
+got.structure.LorathBazaar.name=罗拉斯集市
+got.structure.LorathFortress.name=罗拉斯堡垒
+got.structure.LorathHouse.name=罗拉斯房屋
+got.structure.LorathHouseLarge.name=罗拉斯府邸
+got.structure.LorathSettle.name=罗拉斯村庄
+got.structure.LorathSettleForted.name=罗拉斯防御工事
+got.structure.LorathSettleLarge.name=罗拉斯城镇
+got.structure.LorathSmithy.name=罗拉斯铁匠铺
+got.structure.LorathStables.name=罗拉斯马厩
+got.structure.LorathTavern.name=罗拉斯酒馆
+got.structure.LorathTower.name=罗拉斯塔
+got.structure.LorathTraining.name=罗拉斯训练场
+got.structure.LysBarracks.name=里斯营地
+got.structure.LysBazaar.name=里斯集市
+got.structure.LysFortress.name=里斯堡垒
+got.structure.LysHouse.name=里斯房屋
+got.structure.LysHouseLarge.name=Lys府邸
+got.structure.LysSettle.name=里斯村庄
+got.structure.LysSettleForted.name=里斯防御工事
+got.structure.LysSettleLarge.name=里斯城镇
+got.structure.LysSmithy.name=里斯铁匠铺
+got.structure.LysStables.name=里斯马厩
+got.structure.LysTavern.name=里斯酒馆
+got.structure.LysTower.name=里斯塔
+got.structure.LysTraining.name=里斯训练场
+got.structure.MossovyBarn.name=摩苏伊谷仓
+got.structure.MossovyFortress.name=摩苏伊堡垒
+got.structure.MossovyHouse.name=摩苏伊房屋
+got.structure.MossovyHouseLarge.name=摩苏伊府邸
+got.structure.MossovyHouseSmall.name=摩苏伊棚屋
+got.structure.MossovySettle.name=摩苏伊村庄
+got.structure.MossovySmithy.name=摩苏伊铁匠铺
+got.structure.MossovyStable.name=摩苏伊马厩
+got.structure.MossovyTavern.name=摩苏伊酒馆
+got.structure.MyrBarracks.name=密尔营地
+got.structure.MyrBazaar.name=密尔集市
+got.structure.MyrFortress.name=密尔堡垒
+got.structure.MyrHouse.name=密尔房屋
+got.structure.MyrHouseLarge.name=密尔府邸
+got.structure.MyrSettle.name=密尔村庄
+got.structure.MyrSettleForted.name=密尔防御工事
+got.structure.MyrSettleLarge.name=密尔城镇
+got.structure.MyrSmithy.name=密尔铁匠铺
+got.structure.MyrStables.name=密尔马厩
+got.structure.MyrTavern.name=密尔酒馆
+got.structure.MyrTower.name=密尔塔
+got.structure.MyrTraining.name=密尔训练场
+got.structure.NorthBarn.name=北境谷仓
+got.structure.NorthBath.name=北境澡堂
+got.structure.NorthFortress.name=北境堡垒
+got.structure.NorthHillmanChieftainHouse.name=北境山区民首领房屋
+got.structure.NorthHillmanHouse.name=北境山区民房屋
+got.structure.NorthHillmanSettle.name=北境山区民村庄
+got.structure.NorthHouse.name=北境房屋
+got.structure.NorthHouseLarge.name=北境府邸
+got.structure.NorthHouseSmall.name=北境棚屋
+got.structure.NorthSettle.name=北境村庄
+got.structure.NorthSettleForted.name=北境城堡
+got.structure.NorthSettleLarge.name=北境城镇
+got.structure.NorthSmithy.name=北境铁匠铺
+got.structure.NorthStables.name=北境马厩
+got.structure.NorthTavern.name=北境酒馆
+got.structure.NorthTower.name=北境塔
+got.structure.NorthWatchfort.name=北境瞭望堡
+got.structure.NorthWatchtower.name=北境瞭望塔
+got.structure.NorvosBarracks.name=诺佛斯营地
+got.structure.NorvosBazaar.name=诺佛斯集市
+got.structure.NorvosFortress.name=诺佛斯堡垒
+got.structure.NorvosHouse.name=诺佛斯房屋
+got.structure.NorvosHouseLarge.name=诺佛斯府邸
+got.structure.NorvosSettle.name=诺佛斯村庄
+got.structure.NorvosSettleForted.name=诺佛斯防御工事
+got.structure.NorvosSettleLarge.name=诺佛斯城镇
+got.structure.NorvosSmithy.name=诺佛斯铁匠铺
+got.structure.NorvosStables.name=诺佛斯马厩
+got.structure.NorvosTavern.name=诺佛斯酒馆
+got.structure.NorvosTower.name=诺佛斯塔
+got.structure.NorvosTraining.name=诺佛斯训练场
+got.structure.PentosBarracks.name=潘托斯营地
+got.structure.PentosBazaar.name=潘托斯集市
+got.structure.PentosFortress.name=潘托斯堡垒
+got.structure.PentosHouse.name=潘托斯房屋
+got.structure.PentosHouseLarge.name=潘托斯府邸
+got.structure.PentosSettle.name=潘托斯村庄
+got.structure.PentosSettleForted.name=潘托斯防御工事
+got.structure.PentosSettleLarge.name=潘托斯城镇
+got.structure.PentosSmithy.name=潘托斯铁匠铺
+got.structure.PentosStables.name=潘托斯马厩
+got.structure.PentosTavern.name=潘托斯酒馆
+got.structure.PentosTower.name=潘托斯塔
+got.structure.PentosTraining.name=潘托斯训练场
+got.structure.QarthBarracks.name=魁尔斯营地
+got.structure.QarthBazaar.name=魁尔斯集市
+got.structure.QarthFortress.name=魁尔斯堡垒
+got.structure.QarthHouse.name=魁尔斯房屋
+got.structure.QarthHouseLarge.name=魁尔斯府邸
+got.structure.QarthSettle.name=魁尔斯村庄
+got.structure.QarthSettleForted.name=魁尔斯防御工事
+got.structure.QarthSettleLarge.name=魁尔斯城镇
+got.structure.QarthSmithy.name=魁尔斯铁匠铺
+got.structure.QarthStables.name=魁尔斯马厩
+got.structure.QarthTavern.name=魁尔斯酒馆
+got.structure.QarthTower.name=魁尔斯塔
+got.structure.QarthTraining.name=魁尔斯训练场
+got.structure.QohorBarracks.name=科霍尔营地
+got.structure.QohorBazaar.name=科霍尔集市
+got.structure.QohorFortress.name=科霍尔堡垒
+got.structure.QohorHouse.name=科霍尔房屋
+got.structure.QohorHouseLarge.name=科霍尔府邸
+got.structure.QohorSettle.name=科霍尔村庄
+got.structure.QohorSettleForted.name=科霍尔防御工事
+got.structure.QohorSettleLarge.name=科霍尔城镇
+got.structure.QohorSmithy.name=科霍尔铁匠铺
+got.structure.QohorStables.name=科霍尔马厩
+got.structure.QohorTavern.name=科霍尔酒馆
+got.structure.QohorTower.name=科霍尔塔
+got.structure.QohorTraining.name=科霍尔训练场
+got.structure.ReachBarn.name=河湾地谷仓
+got.structure.ReachBath.name=河湾地澡堂
+got.structure.ReachBrewery.name=河湾地酿酒商
+got.structure.ReachFortress.name=河湾地堡垒
+got.structure.ReachHouse.name=河湾地房屋
+got.structure.ReachHouseLarge.name=河湾地府邸
+got.structure.ReachHouseSmall.name=河湾地棚屋
+got.structure.ReachSettle.name=河湾地村庄
+got.structure.ReachSettleForted.name=河湾地城堡
+got.structure.ReachSettleLarge.name=河湾地城镇
+got.structure.ReachSmithy.name=河湾地铁匠铺
+got.structure.ReachStables.name=河湾地马厩
+got.structure.ReachTavern.name=河湾地酒馆
+got.structure.ReachTower.name=河湾地塔
+got.structure.ReachWatchfort.name=河湾地瞭望堡
+got.structure.ReachWatchtower.name=河湾地瞭望塔
+got.structure.RiverlandsBarn.name=河间地谷仓
+got.structure.RiverlandsBath.name=河间地澡堂
+got.structure.RiverlandsFortress.name=河间地堡垒
+got.structure.RiverlandsHouse.name=河间地房屋
+got.structure.RiverlandsHouseLarge.name=河间地府邸
+got.structure.RiverlandsHouseSmall.name=河间地棚屋
+got.structure.RiverlandsSettle.name=河间地村庄
+got.structure.RiverlandsSettleForted.name=河间地城堡
+got.structure.RiverlandsSettleLarge.name=河间地城镇
+got.structure.RiverlandsSmithy.name=河间地铁匠铺
+got.structure.RiverlandsStables.name=河间地马厩
+got.structure.RiverlandsTavern.name=河间地酒馆
+got.structure.RiverlandsTower.name=河间地塔
+got.structure.RiverlandsWatchfort.name=河间地瞭望堡
+got.structure.RiverlandsWatchtower.name=河间地瞭望塔
+got.structure.RottenHouse.name=腐朽的房屋
+got.structure.RuinSandstone.name=砂岩遗迹
+got.structure.RuinStone.name=碎石遗迹
+got.structure.RuinedHouse.name=毁坏的房屋
+got.structure.SmallStoneRuin.name=小型碎石遗迹
+got.structure.SothoryosHouseLarge.name=索斯罗斯府邸
+got.structure.SothoryosHouseSimple.name=索斯罗斯房屋
+got.structure.SothoryosHouseStilts.name=索斯罗斯高脚屋
+got.structure.SothoryosPyramid.name=索斯罗斯金字塔
+got.structure.SothoryosSettle.name=索斯罗斯村庄
+got.structure.SothoryosSmithy.name=索斯罗斯铁匠铺
+got.structure.SothoryosTemple.name=索斯罗斯庙宇
+got.structure.SothoryosWatchtower.name=索斯罗斯瞭望塔
+got.structure.StormlandsBarn.name=风暴地谷仓
+got.structure.StormlandsBath.name=风暴地澡堂
+got.structure.StormlandsFortress.name=风暴地堡垒
+got.structure.StormlandsHouse.name=风暴地房屋
+got.structure.StormlandsHouseLarge.name=风暴地府邸
+got.structure.StormlandsHouseSmall.name=风暴地棚屋
+got.structure.StormlandsSettle.name=风暴地村庄
+got.structure.StormlandsSettleForted.name=风暴地城堡
+got.structure.StormlandsSettleLarge.name=风暴地城镇
+got.structure.StormlandsSmithy.name=风暴地铁匠铺
+got.structure.StormlandsStables.name=风暴地马厩
+got.structure.StormlandsTavern.name=风暴地酒馆
+got.structure.StormlandsTower.name=风暴地塔
+got.structure.StormlandsWatchfort.name=风暴地瞭望堡
+got.structure.StormlandsWatchtower.name=风暴地瞭望塔
+got.structure.SummerFortress.name=盛夏群岛堡垒
+got.structure.SummerHouse.name=盛夏群岛房屋
+got.structure.SummerHouseRuined.name=废弃盛夏群岛房屋
+got.structure.SummerSettle.name=盛夏群岛村庄
+got.structure.SummerSettleForted.name=盛夏群岛防御工事
+got.structure.SummerSettleRuined.name=废弃盛夏群岛村庄
+got.structure.SummerSmithy.name=盛夏群岛铁匠铺
+got.structure.SummerStables.name=盛夏群岛马厩
+got.structure.SummerTavern.name=盛夏群岛酒馆
+got.structure.SummerTavernRuined.name=废弃盛夏群岛酒馆
+got.structure.SummerTower.name=盛夏群岛塔
+got.structure.ThennCamp.name=瑟恩营地
+got.structure.ThennChieftainHouse.name=马格纳房屋
+got.structure.ThennHouse.name=瑟恩房屋
+got.structure.ThennSettle.name=瑟恩村庄
+got.structure.TyroshBarracks.name=泰洛西营地
+got.structure.TyroshBazaar.name=泰洛西集市
+got.structure.TyroshFortress.name=泰洛西堡垒
+got.structure.TyroshHouse.name=泰洛西房屋
+got.structure.TyroshHouseLarge.name=泰洛西府邸
+got.structure.TyroshSettle.name=泰洛西村庄
+got.structure.TyroshSettleForted.name=泰洛西防御工事
+got.structure.TyroshSettleLarge.name=泰洛西城镇
+got.structure.TyroshSmithy.name=泰洛西铁匠铺
+got.structure.TyroshStables.name=泰洛西马厩
+got.structure.TyroshTavern.name=泰洛西酒馆
+got.structure.TyroshTower.name=泰洛西塔
+got.structure.TyroshTraining.name=泰洛西训练场
+got.structure.VolantisBarracks.name=瓦兰提斯营地
+got.structure.VolantisBazaar.name=瓦兰提斯集市
+got.structure.VolantisFortress.name=瓦兰提斯堡垒
+got.structure.VolantisHouse.name=瓦兰提斯房屋
+got.structure.VolantisHouseLarge.name=瓦兰提斯府邸
+got.structure.VolantisSettle.name=瓦兰提斯村庄
+got.structure.VolantisSettleForted.name=瓦兰提斯防御工事
+got.structure.VolantisSettleLarge.name=瓦兰提斯城镇
+got.structure.VolantisSmithy.name=瓦兰提斯铁匠铺
+got.structure.VolantisStables.name=瓦兰提斯马厩
+got.structure.VolantisTavern.name=瓦兰提斯酒馆
+got.structure.VolantisTower.name=瓦兰提斯塔
+got.structure.VolantisTraining.name=瓦兰提斯训练场
+got.structure.WesterlandsBarn.name=西境谷仓
+got.structure.WesterlandsBath.name=西境澡堂
+got.structure.WesterlandsFortress.name=西境堡垒
+got.structure.WesterlandsHouse.name=西境房屋
+got.structure.WesterlandsHouseLarge.name=西境府邸
+got.structure.WesterlandsHouseSmall.name=西境棚屋
+got.structure.WesterlandsSettle.name=西境村庄
+got.structure.WesterlandsSettleForted.name=西境城堡
+got.structure.WesterlandsSettleLarge.name=西境城镇
+got.structure.WesterlandsSmithy.name=西境铁匠铺
+got.structure.WesterlandsStables.name=西境马厩
+got.structure.WesterlandsTavern.name=西境酒馆
+got.structure.WesterlandsTower.name=西境塔
+got.structure.WesterlandsWatchfort.name=西境瞭望堡
+got.structure.WesterlandsWatchtower.name=西境瞭望塔
+got.structure.WildlingChieftainHouse.name=自由民首领房屋
+got.structure.WildlingHouse.name=自由民房屋
+got.structure.WildlingSettle.name=自由民村庄
+got.structure.YiTiFortress.name=夷地堡垒
+got.structure.YiTiHouse.name=夷地房屋
+got.structure.YiTiHouseLarge.name=夷地府邸
+got.structure.YiTiHouseSmall.name=夷地棚屋
+got.structure.YiTiSettle.name=夷地村庄
+got.structure.YiTiSettleForted.name=夷地城堡
+got.structure.YiTiSettleLarge.name=夷地城镇
+got.structure.YiTiSmithy.name=夷地铁匠铺
+got.structure.YiTiStables.name=夷地马厩
+got.structure.YiTiTavern.name=夷地酒馆
+got.structure.YiTiTavernTown.name=夷地城镇酒馆
+got.structure.YiTiTower.name=夷地塔
 got.tab.banner=权游旗帜
 got.tab.blocks=权游方块
 got.tab.combat=权游战斗
@@ -3673,7 +3673,7 @@ got.wp.BLACK_POOL.info=古时史拉特家族的城堡。在黎明纪元，他们
 got.wp.BLACK_POOL=黑水潭
 got.wp.BLOODSTONE.info=石阶列岛中最大的一座岛屿。它位于列岛的西北角，灰绞架岛以北。
 got.wp.BLOODSTONE=血石岛
-got.wp.BLOODY_GATE.info=坐落在由明月山脉通往艾林谷的山路两边危崖上的一系列城垛所组成的防御工事。两座瞭望塔攀附于岩壁之上，彼此以一弯饱经风霜的灰石密闭拱桥相连。血门的统领血门骑士会向企图通过的人发问："是谁要通过血门？"。
+got.wp.BLOODY_GATE.info=坐落在由明月山脉通往谷地的山路两边危崖上的一系列城垛所组成的防御工事。两座瞭望塔攀附于岩壁之上，彼此以一弯饱经风霜的灰石密闭拱桥相连。血门的统领血门骑士会向企图通过的人发问："是谁要通过血门？"。
 got.wp.BLOODY_GATE=血门
 got.wp.BONETOWN.info=位于远东，是厄斯索斯东部的一个城市。
 got.wp.BONETOWN=骨镇
@@ -3903,7 +3903,7 @@ got.wp.HAYFORD.info=王领的哈佛家族的族堡。
 got.wp.HAYFORD=哈佛城
 got.wp.HAYSTACK_HALL.info=草厅是风暴地的埃洛尔家族的家堡，位于国王大道以东，风息堡以北。
 got.wp.HAYSTACK_HALL=干草厅
-got.wp.HEARTS_HOME.info=心宿城是科布瑞家族的封地，位于艾林谷内，鹰巢城北面。
+got.wp.HEARTS_HOME.info=心宿城是科布瑞家族的封地，位于谷地内，鹰巢城北面。
 got.wp.HEARTS_HOME=心宿城
 got.wp.HELLHOLT.info=狱门堡是乌勒家族的居城。它位于万斯河上游广阔沙漠之中，硫磺河沿岸。在第一次多恩战争中，乌勒家族曾撤出狱门堡，留下一座空城给率领大军前来攻打的哈兰·提利尔公爵。哈兰公爵随后率军进攻万斯城，深入沙漠后从此下落不明。10AC，雷妮丝·坦格利安王后骑乘巨龙米拉西斯袭击狱门堡，城上的弩炮击中了龙的眼睛，杀死了它与雷妮丝。
 got.wp.HELLHOLT=狱门堡
@@ -4375,7 +4375,7 @@ got.wp.TEN_TOWERS.info=哈尔洛家族的居城。
 got.wp.TEN_TOWERS=十塔城
 got.wp.TERIMAN.info=索斯罗斯目前居住的三个Qarth殖民地中的一个。它的位置比其他所有的都远。它因特别危险的罪犯被流放到这里而闻名。
 got.wp.TERIMAN=特里曼
-got.wp.THE_EYRIE.info=一座古老的城堡，位于艾林谷，是安达尔人最古老的传人之一艾林家族的家堡。
+got.wp.THE_EYRIE.info=一座古老的城堡，位于谷地，是安达尔人最古老的传人之一艾林家族的家堡。
 got.wp.THE_EYRIE=鹰巢城
 got.wp.THE_LONG_BARROW.info=长车楼是长城上一座被守夜人遗弃的城堡。西边是冰晶门，东边是烽火台。
 got.wp.THE_LONG_BARROW=长车楼
@@ -4509,7 +4509,7 @@ got.wp.WIDOWS_WATCH.info=寡妇望是寡妇望的菲林特家族的领地。它�
 got.wp.WIDOWS_WATCH=寡妇望
 got.wp.WINTERFELL.info=临冬城是史塔克家族祖传城堡和权力中心，由于该家族的统治权威性而被北境人民长久认定为首府。该城坐落于七大王国北方省份地理中心，国王大道将其与君临和长城连接起来。
 got.wp.WINTERFELL=临冬城
-got.wp.WITCH_ISLE.info=坐落于艾林谷近海中的众多岛屿之一，曾是厄利夫家族的封地。山谷之王艾利斯特·艾林二世迎娶亚玟·厄利夫后，该岛为艾林家族所有。
+got.wp.WITCH_ISLE.info=坐落于谷地近海中的众多岛屿之一，曾是厄利夫家族的封地。山谷之王艾利斯特·艾林二世迎娶亚玟·厄利夫后，该岛为艾林家族所有。
 got.wp.WITCH_ISLE=女巫岛
 got.wp.WOODSWATCH.info=水滨寨是长城上一座被守夜人军团遗弃的城堡。西边是橡木盾，东边是黑貂厅。
 got.wp.WOODSWATCH=水滨寨
@@ -4567,7 +4567,7 @@ item.got.cauldron1=点击一个水桶来填充坩埚
 item.got.cauldron2=点击一个上色的物品来清洗它
 item.got.chisel1=点击一块石头、金属或木头
 item.got.chisel2=在上面雕刻一个铭文
-item.got.chisel3≠Inscription is only visible at night
+item.got.chisel3=Inscription is only visible at night
 item.got.commandHorn.halt.name=命令号角(立定单位)
 item.got.commandHorn.ready.name=命令号角(就绪单位)
 item.got.commandHorn.summon.name=命令号角(召唤单位)
@@ -4623,33 +4623,33 @@ item.got.weapon_rack=点击武器架来展示武器
 item.got:ale_horn.name=麦芽酒角
 item.got:ale_horn_gold.name=金麦芽酒角
 item.got:alloy_steel_axe.name=合金钢斧
-item.got:alloy_steel_battleaxe.name≠Alloy Steel Battleaxe
-item.got:alloy_steel_boots.name≠Alloy Steel Boots
-item.got:alloy_steel_chainmail_boots.name≠Alloy Steel Chain Boots
-item.got:alloy_steel_chainmail_chestplate.name≠Alloy Steel Chain Chestplate
-item.got:alloy_steel_chainmail_helmet.name≠Alloy Steel Chain Helmet
-item.got:alloy_steel_chainmail_leggings.name≠Alloy Steel Chain Leggings
-item.got:alloy_steel_chestplate.name≠Alloy Steel Chestplate
-item.got:alloy_steel_crossbow.name≠Alloy Steel Crossbow
+item.got:alloy_steel_battleaxe.name=合金钢 Battleaxe
+item.got:alloy_steel_boots.name=合金钢 Boots
+item.got:alloy_steel_chainmail_boots.name=合金钢 Chain Boots
+item.got:alloy_steel_chainmail_chestplate.name=合金钢 Chain Chestplate
+item.got:alloy_steel_chainmail_helmet.name=合金钢 Chain Helmet
+item.got:alloy_steel_chainmail_leggings.name=合金钢 Chain Leggings
+item.got:alloy_steel_chestplate.name=合金钢 Chestplate
+item.got:alloy_steel_crossbow.name=合金钢 Crossbow
 item.got:alloy_steel_dagger.name=合金钢匕首
 item.got:alloy_steel_dagger_poisoned.name=合金钢带毒匕首
-item.got:alloy_steel_greatsword.name≠Alloy Steel Greatsword
+item.got:alloy_steel_greatsword.name=合金钢 Greatsword
 item.got:alloy_steel_halberd.name=合金钢戟
-item.got:alloy_steel_hammer.name≠Alloy Steel Hammer
-item.got:alloy_steel_helmet.name≠Alloy Steel Helmet
+item.got:alloy_steel_hammer.name=合金钢 Hammer
+item.got:alloy_steel_helmet.name=合金钢  Helmet
 item.got:alloy_steel_hoe.name=合金钢锄头
 item.got:alloy_steel_ingot.name=合金钢锭
-item.got:alloy_steel_leggings.name≠Alloy Steel Leggings
-item.got:alloy_steel_longsword.name≠Alloy Steel Longsword
-item.got:alloy_steel_mattock.name≠Alloy Steel Mattock
+item.got:alloy_steel_leggings.name=合金钢  Leggings
+item.got:alloy_steel_longsword.name=合金钢 Longsword
+item.got:alloy_steel_mattock.name=合金钢 Mattock
 item.got:alloy_steel_nugget.name=合金钢粒
 item.got:alloy_steel_pickaxe.name=合金钢镐
-item.got:alloy_steel_pike.name≠Alloy Steel Pike
-item.got:alloy_steel_scimitar.name≠Alloy Steel Scimitar
+item.got:alloy_steel_pike.name=合金钢 Pike
+item.got:alloy_steel_scimitar.name=合金钢弯刀
 item.got:alloy_steel_shovel.name=合金钢锹
-item.got:alloy_steel_spear.name≠Alloy Steel Spear
+item.got:alloy_steel_spear.name=合金钢 Spear
 item.got:alloy_steel_sword.name=合金钢剑
-item.got:alloy_steel_throwing_axe.name≠Alloy Steel Throwing Axe
+item.got:alloy_steel_throwing_axe.name=合金钢 Throwing Axe
 item.got:almond.name=杏子
 item.got:amber.name=琥珀
 item.got:amethyst.name=紫水晶
@@ -4692,9 +4692,9 @@ item.got:banner.amorylorch.name=亚摩利·洛奇的旗帜
 item.got:banner.andal.name=安达尔人的旗帜
 item.got:banner.appleton.name=阿普尔顿的旗帜
 item.got:banner.arlan.name=铜分树村的阿兰爵士的旗帜
-item.got:banner.arryn.name=艾林谷的旗帜
-item.got:banner.arrynBook.name=艾林谷的旗帜(原著)
-item.got:banner.arrynGT.name=艾林谷的月门的旗帜
+item.got:banner.arryn.name=谷地的旗帜
+item.got:banner.arrynBook.name=谷地的旗帜(原著)
+item.got:banner.arrynGT.name=谷地的月门的旗帜
 item.got:banner.ashford.name=乌尔特斯的旗帜
 item.got:banner.ashwood.name=阿什伍德的旗帜
 item.got:banner.asshai.name=亚夏旗手
@@ -5111,16 +5111,16 @@ item.got:banner.rogerblackwood.name=RogerBlackwood的旗帜
 item.got:banner.rogers.name=罗杰斯的旗帜
 item.got:banner.rolandblackwood.name=RolandBlackwood的旗帜
 item.got:banner.rollandStorm.name=RollandStorm的旗帜
-item.got:banner.rollingford.name=RollingFord的旗帜
+item.got:banner.rollingford.name=罗林佛德的旗帜
 item.got:banner.roote.name=鲁特的旗帜
 item.got:banner.rosby.name=罗斯比的旗帜
-item.got:banner.rossart.name=Rossart的旗帜
+item.got:banner.rossart.name=罗萨特的旗帜
 item.got:banner.rowan.name=葛雷艾恩的旗帜
 item.got:banner.roxton.name=罗克斯顿的旗帜
 item.got:banner.royce.name=罗伊斯的旗帜
 item.got:banner.royceBook.name=罗伊斯的旗帜(原著)
 item.got:banner.royceGM.name=月门的罗伊斯的旗帜
-item.got:banner.ruthermont.name=Ruthermont的旗帜
+item.got:banner.ruthermont.name=卢瑟蒙特的旗帜
 item.got:banner.ruttiger.name=鲁特格尔的旗帜
 item.got:banner.ryder.name=Ryder的旗帜
 item.got:banner.ryger.name=莱格的旗帜
@@ -5131,8 +5131,8 @@ item.got:banner.sandsnakes.name=SandSnakes的旗帜
 item.got:banner.santagar.name=桑塔加的旗帜
 item.got:banner.sarsfield.name=鸠格斯奈的旗帜
 item.got:banner.sarwyck.name=萨威克的旗帜
-item.got:banner.seasmoke.name=Seasmoke的旗帜
-item.got:banner.seastar.name=Seastar的旗帜
+item.got:banner.seasmoke.name=海烟的旗帜
+item.got:banner.seastar.name=洋星的旗帜
 item.got:banner.seaworth.name=席渥斯的旗帜
 item.got:banner.secondsons.name=次子团的旗帜
 item.got:banner.selmy.name=赛尔弥的旗帜
@@ -5140,27 +5140,27 @@ item.got:banner.sept.name=圣堂的旗帜
 item.got:banner.serrett.name=亚夏的旗帜
 item.got:banner.serrettBook.name=亚夏的旗帜(原著)
 item.got:banner.serry.name=西瑞的旗帜
-item.got:banner.shadrich.name=Shadrich的旗帜
-item.got:banner.shawney.name=Shawney的旗帜
-item.got:banner.shell.name=Shell的旗帜
+item.got:banner.shadrich.name=夏德里奇的旗帜
+item.got:banner.shawney.name=夏尼的旗帜
+item.got:banner.shell.name=贝壳的旗帜
 item.got:banner.shermer.name=谢莫的旗帜
 item.got:banner.shettgtower.name=史格特塔伍的旗帜
 item.got:banner.shettgtown.name=史格特唐恩的旗帜
 item.got:banner.slate.name=洛克的旗帜
-item.got:banner.sloane.name=Sloane的旗帜
+item.got:banner.sloane.name=斯洛安的旗帜
 item.got:banner.slynt.name=史林特的旗帜
 item.got:banner.smallwood.name=斯莫伍德的旗帜
 item.got:banner.sothoryos.name=索斯罗斯的旗帜
 item.got:banner.sparr.name=斯帕的旗帜
 item.got:banner.sparrow.name=魁尔斯的旗帜
 item.got:banner.spicer.name=斯派瑟的旗帜
-item.got:banner.stackhouse.name=Stackhouse的旗帜
+item.got:banner.stackhouse.name=史塔克家族的旗帜
 item.got:banner.stackspear.name=斯脱克皮的旗帜
 item.got:banner.staedmon.name=史戴蒙的旗帜
 item.got:banner.stane.name=斯特恩的旗帜
 item.got:banner.stannis.name=龙石岛的拜拉席恩的旗帜
 item.got:banner.stannisBook.name=龙石岛的拜拉席恩的旗帜(原著)
-item.got:banner.starkD.name=StarkD的旗帜
+item.got:banner.starkD.name=史塔克D的旗帜
 item.got:banner.staunton.name=斯丹顿的旗帜
 item.got:banner.stokeworth.name=史铎克渥斯的旗帜
 item.got:banner.stonehouse.name=斯通浩斯的旗帜
@@ -5169,7 +5169,7 @@ item.got:banner.stormcrows.name=暴鸦团的旗帜
 item.got:banner.stout.name=史陶的旗帜
 item.got:banner.strickland.name=斯崔克兰的旗帜
 item.got:banner.strong.name=斯壮的旗帜
-item.got:banner.suggs.name=Suggs的旗帜
+item.got:banner.suggs.name=宋格的旗帜
 item.got:banner.summer.name=自由贸易城邦的旗帜
 item.got:banner.sunderland.name=桑德兰的旗帜
 item.got:banner.sunderly.name=桑德利的旗帜
@@ -5201,12 +5201,12 @@ item.got:banner.towers.name=塔沃斯的旗帜
 item.got:banner.towersN.name=塔沃斯N的旗帜
 item.got:banner.toyne.name=托因的旗帜
 item.got:banner.trant.name=特兰的旗帜
-item.got:banner.truefyre.name=Truefyre的旗帜
+item.got:banner.truefyre.name=真火的旗帜
 item.got:banner.tudbury.name=Tudbury的旗帜
 item.got:banner.tully.name=徒利的旗帜
 item.got:banner.tullyBook.name=徒利的旗帜（原著）
 item.got:banner.turnberry.name=特拔瑞的旗帜
-item.got:banner.tybolt.name=Tybolt的旗帜
+item.got:banner.tybolt.name=泰伯特的旗帜
 item.got:banner.tyrell.name=提利尔的旗帜
 item.got:banner.tyrellBK.name=亮水城的提利尔的旗帜
 item.got:banner.tyrelll.name=洛拉斯·提利尔的旗帜
@@ -5215,11 +5215,11 @@ item.got:banner.tyrosh.name=泰洛西的旗帜
 item.got:banner.uller.name=亚夏的旗帜
 item.got:banner.umber.name=安柏的旗帜
 item.got:banner.umberBook.name=安珀的旗帜（原著）
-item.got:banner.underleaf.name=Underleaf的旗帜
+item.got:banner.underleaf.name=昂德利夫的旗帜
 item.got:banner.upcliff.name=厄利夫的旗帜
 item.got:banner.vaith.name=维斯的旗帜
-item.got:banner.valarr.name=Valarr的旗帜
-item.got:banner.valarrBook.name=Valarr的旗帜（原著）
+item.got:banner.valarr.name=瓦拉尔的旗帜
+item.got:banner.valarrBook.name=瓦拉尔的旗帜（原著）
 item.got:banner.vanceA.name=亚兰城的凡斯的旗帜
 item.got:banner.vanceWR.name=旅息城的凡斯的旗帜
 item.got:banner.varner.name=瓦尔纳的旗帜
@@ -5229,14 +5229,14 @@ item.got:banner.victarion.name=维克塔利昂的旗帜
 item.got:banner.vikary.name=维卡瑞的旗帜
 item.got:banner.volantis.name=瓦兰提斯的旗帜
 item.got:banner.volmark.name=沃马克的旗帜
-item.got:banner.vultureking.name=Vultureking的旗帜
+item.got:banner.vultureking.name=秃鹫王的旗帜
 item.got:banner.vypren.name=瓦尔平的旗帜
 item.got:banner.vyrwel.name=莱维尔的旗帜
 item.got:banner.wagstaff.name=沃德斯塔夫的旗帜
-item.got:banner.walder.name=Walder的旗帜
+item.got:banner.walder.name=瓦德的旗帜
 item.got:banner.walker.name=异鬼旗手
 item.got:banner.warriorsSons.name=战争之子的旗帜
-item.got:banner.waterman.name=Waterman的旗帜
+item.got:banner.waterman.name=水曼的旗帜
 item.got:banner.waxley.name=魏克利的旗帜
 item.got:banner.wayn.name=韦恩的旗帜
 item.got:banner.waynwood.name=韦伍德的旗帜
@@ -5258,8 +5258,8 @@ item.got:banner.wildling.name=自由民的旗帜
 item.got:banner.willum.name=威廉的旗帜
 item.got:banner.windblown.name=风吹团的旗帜
 item.got:banner.wode.name=渥德的旗帜
-item.got:banner.woodfoot.name=Woodfoot的旗帜
-item.got:banner.woods.name=Woods的旗帜
+item.got:banner.woodfoot.name=伍德福特的旗帜
+item.got:banner.woods.name=树木氏族的旗帜
 item.got:banner.woodwright.name=伍德怀特的旗帜
 item.got:banner.woolfield.name=渥尔菲的旗帜
 item.got:banner.wull.name=渥尔菲的旗帜
@@ -5319,19 +5319,19 @@ item.got:bronze_chestplate.name=青铜胸甲
 item.got:bronze_crossbow.name=青铜弩
 item.got:bronze_dagger.name=青铜匕首
 item.got:bronze_dagger_poisoned.name=淬毒青铜匕首
-item.got:bronze_greatsword.name≠Bronze Greatsword
-item.got:bronze_hammer.name≠Bronze Hammer
+item.got:bronze_greatsword.name=青铜大剑
+item.got:bronze_hammer.name=青铜战锤
 item.got:bronze_helmet.name=青铜头盔
 item.got:bronze_hoe.name=青铜锄
 item.got:bronze_ingot.name=青铜锭
 item.got:bronze_leggings.name=青铜护腿
-item.got:bronze_longsword.name≠Bronze Longsword
-item.got:bronze_mattock.name≠Bronze Mattock
+item.got:bronze_longsword.name=青铜长剑
+item.got:bronze_mattock.name=青铜鹤嘴锄
 item.got:bronze_nugget.name=古铜色金块
 item.got:bronze_pickaxe.name=青铜镐子
-item.got:bronze_pike.name≠Bronze Pike
+item.got:bronze_pike.name=青铜矛
 item.got:bronze_ring.name=青铜戒指
-item.got:bronze_scimitar.name≠Bronze Scimitar
+item.got:bronze_scimitar.name=青铜弯刀
 item.got:bronze_shovel.name=青铜锹
 item.got:bronze_spear.name=青铜矛
 item.got:bronze_sword.name=青铜剑
@@ -5361,34 +5361,34 @@ item.got:coin.64.name=铜星
 item.got:coin.nominal.name=面值
 item.got:command_horn.name=命令号角
 item.got:command_sword.name=命令之剑
-item.got:copper_axe.name≠Copper Axe
-item.got:copper_battleaxe.name≠Copper Battleaxe
-item.got:copper_boots.name≠Copper Boots
-item.got:copper_chainmail_boots.name≠Copper Chain Boots
-item.got:copper_chainmail_chestplate.name≠Copper Chain Chestplate
-item.got:copper_chainmail_helmet.name≠Copper Chain Helmet
-item.got:copper_chainmail_leggings.name≠Copper Chain Leggings
-item.got:copper_chestplate.name≠Copper Chestplate
-item.got:copper_crossbow.name≠Copper Crossbow
-item.got:copper_dagger.name≠Copper Dagger
-item.got:copper_dagger_poisoned.name≠Copper Poisoned Dagger
-item.got:copper_greatsword.name≠Copper Greatsword
-item.got:copper_hammer.name≠Copper Hammer
-item.got:copper_helmet.name≠Copper Helmet
-item.got:copper_hoe.name≠Copper Hoe
+item.got:copper_axe.name=铜斧
+item.got:copper_battleaxe.name=铜战斧
+item.got:copper_boots.name=铜靴
+item.got:copper_chainmail_boots.name=铜链靴
+item.got:copper_chainmail_chestplate.name=铜链胸甲
+item.got:copper_chainmail_helmet.name=铜链头盔
+item.got:copper_chainmail_leggings.name=铜链护腿
+item.got:copper_chestplate.name=铜制胸甲
+item.got:copper_crossbow.name=铜弩
+item.got:copper_dagger.name=铜匕首
+item.got:copper_dagger_poisoned.name=铜毒匕首
+item.got:copper_greatsword.name=铜制大剑
+item.got:copper_hammer.name=铜战锤
+item.got:copper_helmet.name=铜头盔
+item.got:copper_hoe.name=铜锄
 item.got:copper_ingot.name=铜锭
-item.got:copper_leggings.name≠Copper Leggings
-item.got:copper_longsword.name≠Copper Longsword
-item.got:copper_mattock.name≠Copper Mattock
+item.got:copper_leggings.name=铜制紧身裤
+item.got:copper_longsword.name=铜长剑
+item.got:copper_mattock.name=铜鹤嘴锄
 item.got:copper_nugget.name=铜粒
-item.got:copper_pickaxe.name≠Copper Pickaxe
-item.got:copper_pike.name≠Copper Pike
+item.got:copper_pickaxe.name=铜镐
+item.got:copper_pike.name=铜矛
 item.got:copper_ring.name=铜环
-item.got:copper_scimitar.name≠Copper Scimitar
-item.got:copper_shovel.name≠Copper Shovel
-item.got:copper_spear.name≠Copper Spear
-item.got:copper_sword.name≠Copper Sword
-item.got:copper_throwing_axe.name≠Copper Throwing Axe
+item.got:copper_scimitar.name=铜弯刀
+item.got:copper_shovel.name=铜铲
+item.got:copper_spear.name=铜矛
+item.got:copper_sword.name=铜剑
+item.got:copper_throwing_axe.name=铜飞斧
 item.got:coral.name=珊瑚
 item.got:corn.name=玉米
 item.got:corn_bread.name=玉米面包
@@ -5411,7 +5411,7 @@ item.got:dawn.name=黎明
 item.got:deer_cooked.name=熟鹿肉
 item.got:deer_raw.name=生鹿肉
 item.got:diamond.name=钻石
-item.got:diamond_mattock.name≠Diamond Mattock
+item.got:diamond_mattock.name=多恩鹤嘴锄
 item.got:dorne_boots.name=多恩靴子
 item.got:dorne_chestplate.name=多恩胸甲
 item.got:dorne_helmet.name=多恩头盔
@@ -5464,29 +5464,29 @@ item.got:gift_helmet.name=守夜人兜帽
 item.got:gift_leggings.name=守夜人护腿
 item.got:gingerbread.name=美味面包
 item.got:giraffe_rug.name=长颈鹿皮地毯
-item.got:goblet_bronze.name≠Bronze Goblet
+item.got:goblet_bronze.name=青铜高脚杯
 item.got:goblet_copper.name=粘土杯
 item.got:goblet_gold.name=金杯
 item.got:goblet_silver.name=银杯
-item.got:goblet_valyrian.name≠Valyrian Goblet
+item.got:goblet_valyrian.name=瓦雷利亚高脚杯
 item.got:goblet_wood.name=木杯
-item.got:gold_battleaxe.name≠Golden Battleaxe
-item.got:gold_chainmail_boots.name≠Golden Chain Boots
-item.got:gold_chainmail_chestplate.name≠Golden Chain Chestplate
-item.got:gold_chainmail_helmet.name≠Golden Chain Helmet
-item.got:gold_chainmail_leggings.name≠Golden Chain Leggings
-item.got:gold_crossbow.name≠Golden Crossbow
-item.got:gold_dagger.name≠Golden Dagger
-item.got:gold_dagger_poisoned.name≠Golden Poisoned Dagger
-item.got:gold_greatsword.name≠Golden Greatsword
-item.got:gold_hammer.name≠Golden Hammer
-item.got:gold_longsword.name≠Golden Longsword
-item.got:gold_mattock.name≠Golden Mattock
-item.got:gold_pike.name≠Golden Pike
+item.got:gold_battleaxe.name=黄金战斧
+item.got:gold_chainmail_boots.name=黄金锁链靴
+item.got:gold_chainmail_chestplate.name=黄金锁链胸甲
+item.got:gold_chainmail_helmet.name=黄金锁链头盔
+item.got:gold_chainmail_leggings.name=黄金锁链护腿
+item.got:gold_crossbow.name=黄金十字弩
+item.got:gold_dagger.name=金匕首
+item.got:gold_dagger_poisoned.name=金毒匕首
+item.got:gold_greatsword.name=金巨剑
+item.got:gold_hammer.name=金锤
+item.got:gold_longsword.name=金长剑
+item.got:gold_mattock.name=金鹤嘴锄
+item.got:gold_pike.name=金长矛
 item.got:gold_ring.name=金戒
-item.got:gold_scimitar.name≠Golden Scimitar
-item.got:gold_spear.name≠Golden Spear
-item.got:gold_throwing_axe.name≠Golden Throwing Axe
+item.got:gold_scimitar.name=金弯刀
+item.got:gold_spear.name=金矛
+item.got:gold_throwing_axe.name=金飞斧
 item.got:golden_company_boots.name=黄金团靴子
 item.got:golden_company_chestplate.name=黄金团胸甲
 item.got:golden_company_helmet.name=黄金团头盔
@@ -5524,13 +5524,13 @@ item.got:iron_battleaxe.name=铁战斧
 item.got:iron_crossbow.name=铁弩
 item.got:iron_dagger.name=铁匕首
 item.got:iron_dagger_poisoned.name=淬毒铁匕首
-item.got:iron_greatsword.name≠Iron Greatsword
-item.got:iron_hammer.name≠Iron Hammer
-item.got:iron_longsword.name≠Iron Longsword
-item.got:iron_mattock.name≠Iron Mattock
+item.got:iron_greatsword.name=铁巨剑
+item.got:iron_hammer.name=铁锤
+item.got:iron_longsword.name=铁长剑
+item.got:iron_mattock.name=铁鹤嘴锄
 item.got:iron_nugget.name=铁金块
 item.got:iron_pike.name=铁长矛
-item.got:iron_scimitar.name≠Iron Scimitar
+item.got:iron_scimitar.name=铁弯刀
 item.got:iron_spear.name=铁矛
 item.got:iron_throwing_axe.name=铁投斧
 item.got:ironborn_boots.name=铁群岛靴子
@@ -5564,16 +5564,16 @@ item.got:lhazar_leggings.name=拉札尔护腿
 item.got:lightbringer.name=光明使者
 item.got:lime.name=酸橙
 item.got:lingering_potion.name=滞留药水
-item.got:lion_boots.name≠Lion Fur Boots
-item.got:lion_chestplate.name≠Lion Fur Chestplate
+item.got:lion_boots.name=狮皮靴
+item.got:lion_chestplate.name=狮皮甲
 item.got:lion_cooked.name=熟狮肉
 item.got:lion_fur.name=狮皮
-item.got:lion_fur_bed.name≠Lion Fur Bed
-item.got:lion_helmet.name≠Lion Fur Helmet
-item.got:lion_leggings.name≠Lion Fur Leggings
+item.got:lion_fur_bed.name=狮皮床
+item.got:lion_helmet.name=狮皮盔
+item.got:lion_leggings.name=狮皮裤
 item.got:lion_raw.name=生狮肉
 item.got:lion_rug.name=狮皮地毯
-item.got:longbow.name≠Longbow
+item.got:longbow.name=长弓
 item.got:longclaw.name=长爪
 item.got:lorath_boots.name=罗拉斯靴子
 item.got:lorath_chestplate.name=罗拉斯胸甲
@@ -5666,21 +5666,21 @@ item.got:norvos_helmet.name=诺佛斯头盔
 item.got:norvos_leggings.name=诺佛斯护腿
 item.got:npc_respawner.name=NPC重生处
 item.got:oathkeeper.name=守誓者
-item.got:obsidian_axe.name≠Dragonglass Axe
-item.got:obsidian_battleaxe.name≠Dragonglass Battleaxe
-item.got:obsidian_dagger.name≠Dragonglass Dagger
-item.got:obsidian_dagger_poisoned.name≠Dragonglass Poisoned Dagger
-item.got:obsidian_hammer.name≠Dragonglass Hammer
-item.got:obsidian_hoe.name≠Dragonglass Hoe
-item.got:obsidian_mattock.name≠Dragonglass Mattock
-item.got:obsidian_pickaxe.name≠Dragonglass Pickaxe
-item.got:obsidian_pike.name≠Dragonglass Pike
-item.got:obsidian_scimitar.name≠Dragonglass Scimitar
-item.got:obsidian_shard.name=黑曜石碎片
-item.got:obsidian_shovel.name≠Dragonglass Shovel
-item.got:obsidian_spear.name≠Dragonglass Spear
-item.got:obsidian_sword.name≠Dragonglass Sword
-item.got:obsidian_throwing_axe.name≠Dragonglass Throwing Axe
+item.got:obsidian_axe.name=龙晶斧
+item.got:obsidian_battleaxe.name=龙晶战斧
+item.got:obsidian_dagger.name=龙晶匕首
+item.got:obsidian_dagger_poisoned.name=龙晶毒匕首
+item.got:obsidian_hammer.name=龙晶战锤
+item.got:obsidian_hoe.name=龙晶锄
+item.got:obsidian_mattock.name=龙晶鹤嘴锄
+item.got:obsidian_pickaxe.name=龙晶镐
+item.got:obsidian_pike.name=龙晶长矛
+item.got:obsidian_scimitar.name=龙晶弯刀
+item.got:obsidian_shard.name=龙晶碎片
+item.got:obsidian_shovel.name=龙晶铲
+item.got:obsidian_spear.name=龙晶矛
+item.got:obsidian_sword.name=龙晶剑
+item.got:obsidian_throwing_axe.name=龙晶投斧
 item.got:olive.name=橄榄
 item.got:olive_bread.name=橄榄面包
 item.got:opal.name=蛋白石
@@ -5777,15 +5777,15 @@ item.got:sothoryos_helmet.name=索斯罗斯头盔
 item.got:sothoryos_helmet_chieftain.name=索斯罗斯头领头盔
 item.got:sothoryos_leggings.name=索斯罗斯护腿
 item.got:spawn_egg.name=生成
-item.got:stone_battleaxe.name≠Stone Battleaxe
-item.got:stone_dagger.name≠Stone Dagger
-item.got:stone_dagger_poisoned.name≠Stone Poisoned Dagger
-item.got:stone_hammer.name≠Stone Hammer
-item.got:stone_mattock.name≠Stone Mattock
-item.got:stone_pike.name≠Stone Pike
-item.got:stone_scimitar.name≠Stone Scimitar
-item.got:stone_spear.name≠Stone Spear
-item.got:stone_throwing_axe.name≠Stone Throwing Axe
+item.got:stone_battleaxe.name=石战斧
+item.got:stone_dagger.name=石匕首
+item.got:stone_dagger_poisoned.name=石制毒匕首
+item.got:stone_hammer.name=石锤
+item.got:stone_mattock.name=石鹤嘴锄
+item.got:stone_pike.name=石长矛
+item.got:stone_scimitar.name=石弯刀
+item.got:stone_spear.name=石矛
+item.got:stone_throwing_axe.name=石飞斧
 item.got:stormlands_boots.name=风暴地靴子
 item.got:stormlands_chestplate.name=风暴地胸甲
 item.got:stormlands_helmet.name=风暴地头盔
@@ -5833,24 +5833,24 @@ item.got:valyrian_chisel.name=瓦雷利安钢凿子
 item.got:valyrian_crossbow.name=瓦雷利亚钢弩
 item.got:valyrian_dagger.name=瓦雷利亚钢匕首
 item.got:valyrian_dagger_poisoned.name=淬毒瓦雷利亚钢匕首
-item.got:valyrian_greatsword.name≠Valyrian Greatsword
+item.got:valyrian_greatsword.name=瓦雷利亚巨剑
 item.got:valyrian_hammer.name=瓦雷利亚钢战锤
 item.got:valyrian_helmet.name=瓦雷利亚钢头盔
 item.got:valyrian_hoe.name=瓦雷利亚钢锄
 item.got:valyrian_horse_armor.name=瓦雷利亚钢马铠
 item.got:valyrian_ingot.name=瓦雷利亚钢锭
 item.got:valyrian_leggings.name=瓦雷利亚钢护腿
-item.got:valyrian_longsword.name≠Valyrian Longsword
+item.got:valyrian_longsword.name=瓦雷利亚长剑
 item.got:valyrian_mattock.name=瓦雷利亚钢鹤嘴锄
 item.got:valyrian_nugget.name=瓦雷利亚钢粒
 item.got:valyrian_pickaxe.name=瓦雷利亚钢镐子
-item.got:valyrian_pike.name≠Valyrian Pike
+item.got:valyrian_pike.name=瓦雷利亚长矛
 item.got:valyrian_ring.name=瓦雷利亚钢戒
-item.got:valyrian_scimitar.name≠Valyrian Scimitar
+item.got:valyrian_scimitar.name=瓦雷利亚弯刀
 item.got:valyrian_shovel.name=瓦雷利亚钢锹
 item.got:valyrian_spear.name=瓦雷利亚钢矛
 item.got:valyrian_sword.name=瓦雷利亚钢剑
-item.got:valyrian_throwing_axe.name≠Valyrian Throwing Axe
+item.got:valyrian_throwing_axe.name=瓦雷利亚飞斧
 item.got:vigilance.name=警觉
 item.got:volantis_boots.name=瓦兰提斯靴子
 item.got:volantis_chestplate.name=瓦兰提斯胸甲
@@ -5877,16 +5877,16 @@ item.got:white_walkers_leggings.name=异鬼护腿
 item.got:widow_wail.name=寡妇之嚎
 item.got:wildberry.name=野莓
 item.got:wine_glass.name=葡萄酒杯
-item.got:wood_battleaxe.name≠Wooden Battleaxe
-item.got:wood_dagger.name≠Wooden Dagger
-item.got:wood_dagger_poisoned.name≠Wooden Poisoned Dagger
-item.got:wood_hammer.name≠Wooden Hammer
-item.got:wood_mattock.name≠Wooden Mattock
-item.got:wood_pike.name≠Wooden Pike
+item.got:wood_battleaxe.name=木战斧
+item.got:wood_dagger.name=木匕首
+item.got:wood_dagger_poisoned.name=木毒匕首
+item.got:wood_hammer.name=木锤
+item.got:wood_mattock.name=木鹤嘴锄
+item.got:wood_pike.name=木长矛
 item.got:wood_plate.name=木盘
-item.got:wood_scimitar.name≠Wooden Scimitar
-item.got:wood_spear.name≠Wooden Spear
-item.got:wood_throwing_axe.name≠Wooden Throwing Axe
+item.got:wood_scimitar.name=木制弯刀
+item.got:wood_spear.name=木矛
+item.got:wood_throwing_axe.name=木飞斧
 item.got:yam.name=山药
 item.got:yam_roast.name=烤山药
 item.got:yi_ti_boots.name=夷地靴子
@@ -5909,7 +5909,7 @@ tile.dirt.coarse.name=无草泥土
 tile.got.bomb.double_strength=两倍的力量
 tile.got.bomb.fire=煽动性的
 tile.got.bomb.triple_strength=三倍的力量
-tile.got.fallen_leaves=堕落%s
+tile.got.fallen_leaves=%s落叶
 tile.got.fence_vanilla.0.name=橡栅栏
 tile.got.fence_vanilla.1.name=云杉栅栏
 tile.got.fence_vanilla.2.name=桦栅栏
@@ -5944,12 +5944,12 @@ tile.got:berry_bush.4.name=裸接骨木莓灌木
 tile.got:berry_bush.5.name=裸野莓灌木
 tile.got:berry_bush.8.name=蓝莓灌木
 tile.got:berry_bush.9.name=黑莓灌木
-tile.got:bird_cage.0.name≠Copper Bird Cage
+tile.got:bird_cage.0.name=铜鸟笼
 tile.got:bird_cage.1.name=青铜鸟笼
 tile.got:bird_cage.2.name=铁鸟笼
 tile.got:bird_cage.3.name=银鸟笼
 tile.got:bird_cage.4.name=金鸟笼
-tile.got:bird_cage.5.name≠Valyrian Bird Cage
+tile.got:bird_cage.5.name=瓦雷利亚鸟笼
 tile.got:bird_cage_wood.0.name=木鸟笼
 tile.got:blackroot.name=黑根草
 tile.got:block_gem.0.name=黄宝石块
@@ -6030,7 +6030,7 @@ tile.got:button_granite.name=按钮
 tile.got:button_labradorite.name=拉长石按钮
 tile.got:button_rhyolite.name=按钮
 tile.got:chain.name=黑钢链
-tile.got:chandelier.0.name≠Copper Chandelier
+tile.got:chandelier.0.name=铜质吊灯
 tile.got:chandelier.1.name=青铜吊灯
 tile.got:chandelier.2.name=铁吊灯
 tile.got:chandelier.3.name=银吊灯
@@ -6098,7 +6098,7 @@ tile.got:concrete_powder.6.name=粉色混凝土粉末
 tile.got:concrete_powder.7.name=灰色混凝土粉末
 tile.got:concrete_powder.8.name=浅灰混凝土粉末
 tile.got:concrete_powder.9.name=青色混凝土粉末
-tile.got:copper_bars.name≠Copper Bars
+tile.got:copper_bars.name=铜锭
 tile.got:coral_reef.name=珊瑚礁
 tile.got:corn_stalk.name=玉米杆
 tile.got:daub.name=夹条墙
@@ -6255,11 +6255,11 @@ tile.got:fruit_wood.1.name=梨木
 tile.got:fruit_wood.2.name=樱桃木
 tile.got:fruit_wood.3.name=芒果木
 tile.got:gate_bronze_bars.name=青铜栏杆大门
-tile.got:gate_copper_bars.name≠Copper Portcullis
-tile.got:gate_gold_bars.name≠Gold Portcullis
+tile.got:gate_copper_bars.name=铜栏杆大门
+tile.got:gate_gold_bars.name=金栏杆大门
 tile.got:gate_iron_bars.name=铁栏杆大门
-tile.got:gate_silver_bars.name≠Silver Portcullis
-tile.got:gate_valyrian_bars.name≠Valyrian Portcullis
+tile.got:gate_silver_bars.name=银栏杆大门
+tile.got:gate_valyrian_bars.name=瓦雷利亚栏杆大门
 tile.got:gate_wooden.name=木大门
 tile.got:gate_wooden_bars.name=木栏杆大门
 tile.got:glass.name=细玻璃
@@ -6807,7 +6807,7 @@ tile.got:trapdoor_willow.name=柳木活板门
 tile.got:treasure_copper.name=铜珍宝堆
 tile.got:treasure_gold.name=金珍宝堆
 tile.got:treasure_silver.name=银珍宝堆
-tile.got:treasure_valyrian.name≠Valyrian Treasure Pile
+tile.got:treasure_valyrian.name=瓦雷利亚珍宝堆
 tile.got:unsmeltery.name=反冶炼炉
 tile.got:valyrian_bars.name=瓦雷利亚钢栏杆
 tile.got:wall_bone.0.name=骨墙

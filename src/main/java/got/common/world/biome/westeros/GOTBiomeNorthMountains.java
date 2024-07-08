@@ -8,30 +8,19 @@ import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
 public class GOTBiomeNorthMountains extends GOTBiomeNorth implements GOTBiome.Mountains {
 	public GOTBiomeNorthMountains(int i, boolean major) {
 		super(i, major);
-		setupStandardForestFauna();
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		enableRocky = true;
-		decorator.setBiomeOreFactor(2.0f);
-		decorator.setBiomeGemFactor(2.0f);
-		decorator.setDoubleFlowersPerChunk(0);
-		decorator.setDoubleGrassPerChunk(1);
-		decorator.setFlowersPerChunk(1);
-		decorator.setGrassPerChunk(4);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
-		decorator.clearSettlements();
-		npcSpawnList.clear();
-		invasionSpawns.clearInvasions();
 		banditChance = GOTEventSpawner.EventChance.NEVER;
+		enableRocky = true;
+
+		preseter.setupMountainsView();
+		preseter.setupMountainsFlora();
+		preseter.setupMountainsFauna();
+		preseter.setupStandardNorthernTrees();
 	}
 
 	@Override
@@ -75,10 +64,5 @@ public class GOTBiomeNorthMountains extends GOTBiomeNorth implements GOTBiome.Mo
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterNorthMountains;
-	}
-
-	@Override
-	public int getWallTop() {
-		return 150;
 	}
 }

@@ -4,7 +4,10 @@ import got.GOT;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.feature.GOTWorldGenBoulder;
+import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -15,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
+public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosBase {
 	private static final WorldGenerator SNOW_BOULDER_GEN_SMALL = new GOTWorldGenBoulder(Blocks.snow, 0, 1, 4);
 	private static final WorldGenerator SNOW_BOULDER_GEN_LARGE = new GOTWorldGenBoulder(Blocks.snow, 0, 5, 8).setHeightCheck(6);
 	private static final WorldGenerator ICE_BOULDER_GEN_SMALL = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 1, 4);
@@ -23,8 +26,16 @@ public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
 
 	public GOTBiomeAlwaysWinter(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
+		banditChance = GOTEventSpawner.EventChance.NEVER;
+
+		topBlock = Blocks.snow;
 		fillerBlock = Blocks.ice;
+
+		preseter.setupFrostView();
+		preseter.setupFrostFlora();
+		preseter.setupFrostFauna();
+		preseter.setupFrostTrees(false);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
@@ -75,7 +86,27 @@ public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
 	}
 
 	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterAlwaysWinter;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 }

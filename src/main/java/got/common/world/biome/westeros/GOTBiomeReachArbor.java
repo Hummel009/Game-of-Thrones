@@ -15,7 +15,8 @@ import java.util.Random;
 public class GOTBiomeReachArbor extends GOTBiomeReach {
 	public GOTBiomeReachArbor(int i, boolean major) {
 		super(i, major);
-		setupStandardDomesticFauna();
+		preseter.setupPlainsFaunaDomesticOverride();
+
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.VINEYARD, 8.0f);
 	}
@@ -80,6 +81,11 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 				break;
 			}
 		}
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 
 	@Override

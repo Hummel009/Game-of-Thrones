@@ -12,6 +12,7 @@ public class GOTBiomeStoneCoast extends GOTBiomeNorth {
 	public GOTBiomeStoneCoast(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

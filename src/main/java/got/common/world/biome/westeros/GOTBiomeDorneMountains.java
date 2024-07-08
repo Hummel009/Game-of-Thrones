@@ -4,32 +4,26 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTWorldGenDoubleFlower;
+import got.common.world.map.GOTWaypoint;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class GOTBiomeDorneMountains extends GOTBiomeDorne implements GOTBiome.Mountains {
+public class GOTBiomeDorneMountains extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
 	public GOTBiomeDorneMountains(int i, boolean major) {
 		super(i, major);
-		setupStandardForestFauna();
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		decorator.setDoubleFlowersPerChunk(0);
-		decorator.setDoubleGrassPerChunk(1);
-		decorator.setFlowersPerChunk(1);
-		decorator.setGrassPerChunk(4);
-		decorator.setBiomeOreFactor(2.0f);
-		decorator.setBiomeGemFactor(2.0f);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
-		decorator.clearSettlements();
-		npcSpawnList.clear();
-		invasionSpawns.clearInvasions();
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 		enableRocky = true;
+
+		preseter.setupMountainsView();
+		preseter.setupMountainsFlora();
+		preseter.setupMountainsFauna();
+		preseter.setupStandardSouthernTrees(true);
 	}
 
 	@Override
@@ -68,6 +62,22 @@ public class GOTBiomeDorneMountains extends GOTBiomeDorne implements GOTBiome.Mo
 			blocks[index] = GOTBlocks.rock;
 			meta[index] = 4;
 		}
+	}
+
+	@Override
+	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
+		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
+		if (random.nextInt(5) == 0) {
+			doubleFlowerGen.setFlowerType(3);
+		} else {
+			doubleFlowerGen.setFlowerType(2);
+		}
+		return doubleFlowerGen;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DORNE;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
+import got.common.world.map.GOTBezierType;
 import net.minecraft.init.Blocks;
 
 public class GOTBiomeSothoryosTaiga extends GOTBiomeSothoryosBase {
@@ -11,7 +12,12 @@ public class GOTBiomeSothoryosTaiga extends GOTBiomeSothoryosBase {
 		preseter.setupTaigaView();
 		preseter.setupTaigaFlora();
 		preseter.setupTaigaFauna();
-		preseter.setupTaigaTrees();
+		preseter.setupTaigaTrees(false);
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
 	}
 
 	@Override

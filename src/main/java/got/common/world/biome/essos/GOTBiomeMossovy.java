@@ -3,6 +3,7 @@ package got.common.world.biome.essos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -32,5 +33,25 @@ public class GOTBiomeMossovy extends GOTBiomeEssosCold {
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
 		return GOTWaypoint.Region.MOSSOVY;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.25f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return true;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_DIRTY;
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 3;
 	}
 }

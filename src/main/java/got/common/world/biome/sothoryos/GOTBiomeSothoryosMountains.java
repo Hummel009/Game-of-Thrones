@@ -18,8 +18,7 @@ public class GOTBiomeSothoryosMountains extends GOTBiomeSothoryosBase implements
 		preseter.setupMountainsView();
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
-
-		setupDefaultTrees();
+		preseter.setupStandardSouthernTrees(true);
 	}
 
 	@Override

@@ -12,8 +12,10 @@ import java.util.Collection;
 public class GOTBiomeNorthTown extends GOTBiomeNorth {
 	public GOTBiomeNorthTown(int i, boolean major) {
 		super(i, major);
-		setupStandardDomesticFauna();
+		preseter.setupPlainsFaunaDomesticOverride();
+
 		npcSpawnList.clear();
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CIVILIAN, 10).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_GUARDIAN, 4).setSpawnChance(SPAWN));
@@ -31,6 +33,11 @@ public class GOTBiomeNorthTown extends GOTBiomeNorth {
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c4);
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 2;
 	}
 
 	@Override

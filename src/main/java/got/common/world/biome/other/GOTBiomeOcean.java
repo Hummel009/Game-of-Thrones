@@ -7,6 +7,7 @@ import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTWorldGenSeaBlock;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.entity.passive.EntitySquid;
@@ -84,5 +85,30 @@ public class GOTBiomeOcean extends GOTBiome {
 	@Override
 	public boolean getEnableRiver() {
 		return false;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return null;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 0;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.25f;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_DIRTY;
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 3;
 	}
 }

@@ -13,13 +13,22 @@ import got.common.world.structure.westeros.arryn.GOTStructureArrynWatchfort;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeArryn extends GOTBiomeWesteros {
+public class GOTBiomeArryn extends GOTBiomeWesterosBase {
 	public GOTBiomeArryn(int i, boolean major) {
 		super(i, major);
+		preseter.setupPlainsView();
+		preseter.setupPlainsFlora();
+		preseter.setupPlainsFauna();
+		preseter.setupStandardMiderateTrees();
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureArrynSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureArrynWatchfort(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_MILITARY, 10).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CONQUEST, 4).setSpawnChance(SPAWN));

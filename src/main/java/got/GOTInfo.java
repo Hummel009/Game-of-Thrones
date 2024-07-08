@@ -14,6 +14,7 @@ public class GOTInfo {
 		AUTHORS.add("Hummel009");
 		AUTHORS.add("Mon1tor");
 		AUTHORS.add("Octobrine");
+		AUTHORS.add("Elenath");
 		AUTHORS.add("安北都护府大都护-至高无上的Xiang SiMa");
 		AUTHORS.add("贾昆·赫加尔01");
 		AUTHORS.add("RoobimWu");
@@ -34,7 +35,6 @@ public class GOTInfo {
 		AUTHORS.add("Alqualindë");
 		AUTHORS.add("Jaehaerys");
 		AUTHORS.add("TIGASA");
-		AUTHORS.add("Alex.Tollar");
 		AUTHORS.add("Maglor");
 		AUTHORS.add("StalkerKir");
 		AUTHORS.add("Coolaga/GualaBoy");

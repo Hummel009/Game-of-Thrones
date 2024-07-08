@@ -54,6 +54,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	private static final Map<Kingdom, GOTChestContents> CHEST_CONTENTS = new EnumMap<>(Kingdom.class);
 	private static final Set<Kingdom> KINGDOMS_WITH_MAESTERS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.REACH, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS, Kingdom.NORTH);
 	private static final Set<Kingdom> KINGDOMS_WITH_SEPTONS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS);
+	private static final Set<Kingdom> KINGDOMS_WITH_SOUTHERN_TREES = EnumSet.of(Kingdom.DORNE, Kingdom.REACH, Kingdom.STORMLANDS);
 
 	static {
 		ARCHERS.put(Kingdom.ARRYN, GOTEntityArrynSoldierArcher.class);
@@ -285,51 +286,60 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 
 	protected static GOTTreeType getRandomNorthernTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.PINE);
 		treeList.add(GOTTreeType.SPRUCE);
 		treeList.add(GOTTreeType.SPRUCE_THIN);
-		treeList.add(GOTTreeType.LARCH);
 		treeList.add(GOTTreeType.FIR);
-		treeList.add(GOTTreeType.PINE);
+		treeList.add(GOTTreeType.LARCH);
+		treeList.add(GOTTreeType.ASPEN);
+		treeList.add(GOTTreeType.ASPEN_LARGE);
+		treeList.add(GOTTreeType.SPRUCE_MEGA);
+		treeList.add(GOTTreeType.SPRUCE_MEGA_THIN);
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
 	protected static GOTTreeType getRandomSouthernTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.ACACIA);
-		treeList.add(GOTTreeType.ALMOND);
 		treeList.add(GOTTreeType.CEDAR);
 		treeList.add(GOTTreeType.CEDAR_LARGE);
 		treeList.add(GOTTreeType.CYPRESS);
 		treeList.add(GOTTreeType.CYPRESS_LARGE);
-		treeList.add(GOTTreeType.DATE_PALM);
-		treeList.add(GOTTreeType.LEMON);
-		treeList.add(GOTTreeType.LIME);
+		treeList.add(GOTTreeType.BIRCH);
+		treeList.add(GOTTreeType.BIRCH_LARGE);
+		treeList.add(GOTTreeType.BIRCH_TALL);
+		treeList.add(GOTTreeType.BEECH);
+		treeList.add(GOTTreeType.BEECH_LARGE);
+		treeList.add(GOTTreeType.MAPLE);
+		treeList.add(GOTTreeType.MAPLE_LARGE);
 		treeList.add(GOTTreeType.OLIVE);
 		treeList.add(GOTTreeType.OLIVE_LARGE);
+		treeList.add(GOTTreeType.POMEGRANATE);
 		treeList.add(GOTTreeType.ORANGE);
-		treeList.add(GOTTreeType.PALM);
-		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.KANUKA);
+		treeList.add(GOTTreeType.LIME);
+		treeList.add(GOTTreeType.LEMON);
+		treeList.add(GOTTreeType.CHERRY);
+		treeList.add(GOTTreeType.ALMOND);
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
 	protected static GOTTreeType getRandomStandardTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.OAK);
-		treeList.add(GOTTreeType.OAK_TALLER);
 		treeList.add(GOTTreeType.OAK_LARGE);
+		treeList.add(GOTTreeType.OAK_TALL);
+		treeList.add(GOTTreeType.OAK_TALLER);
+		treeList.add(GOTTreeType.CHESTNUT);
+		treeList.add(GOTTreeType.CHESTNUT_LARGE);
 		treeList.add(GOTTreeType.BIRCH);
 		treeList.add(GOTTreeType.BIRCH_LARGE);
 		treeList.add(GOTTreeType.BIRCH_TALL);
 		treeList.add(GOTTreeType.BEECH);
 		treeList.add(GOTTreeType.BEECH_LARGE);
+		treeList.add(GOTTreeType.MAPLE);
+		treeList.add(GOTTreeType.MAPLE_LARGE);
 		treeList.add(GOTTreeType.APPLE);
 		treeList.add(GOTTreeType.PEAR);
 		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.OLIVE);
-		treeList.add(GOTTreeType.ALMOND);
-		treeList.add(GOTTreeType.CHESTNUT);
-		treeList.add(GOTTreeType.CHESTNUT_LARGE);
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
@@ -410,7 +420,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	protected boolean hasSouthernWood() {
-		return kingdom == Kingdom.DORNE;
+		return KINGDOMS_WITH_SOUTHERN_TREES.contains(kingdom);
 	}
 
 	public GOTStructureBase setGranite() {

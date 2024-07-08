@@ -53,6 +53,16 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 	}
 
 	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterYeen;
 	}

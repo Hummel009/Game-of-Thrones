@@ -6,6 +6,7 @@ import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.world.biome.GOTBiome;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -21,7 +22,6 @@ import java.util.Collection;
 public class GOTBiomeSummerIslands extends GOTBiome {
 	public GOTBiomeSummerIslands(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.COMMON;
 		banditEntityClass = GOTEntityDarkSkinBandit.class;
 
 		preseter.setupJungleView();
@@ -63,5 +63,35 @@ public class GOTBiomeSummerIslands extends GOTBiome {
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
 		return GOTWaypoint.Region.SUMMER;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.25f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return true;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_DIRTY;
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 3;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return null;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 0;
 	}
 }

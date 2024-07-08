@@ -1,7 +1,6 @@
 package got.common.world.feature;
 
 import got.common.database.GOTBlocks;
-import got.common.util.GOTCrashHandler;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -13,7 +12,6 @@ import java.util.Random;
 public class GOTWorldGenVolcanoCrater extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (!GOTStructureBase.isSurfaceStatic(world, i, j - 1, k) && world.getBlock(i, j - 1, k) != Blocks.stone) {
 			return false;
 		}

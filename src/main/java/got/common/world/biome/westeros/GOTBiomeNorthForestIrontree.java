@@ -2,12 +2,15 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTWaypoint;
 
-public class GOTBiomeNorthForestIrontree extends GOTBiomeNorthForest {
+public class GOTBiomeNorthForestIrontree extends GOTBiomeWesterosBase {
 	public GOTBiomeNorthForestIrontree(int i, boolean major) {
 		super(i, major);
-		decorator.clearTrees();
-		decorator.clearSettlements();
+		preseter.setupForestView();
+		preseter.setupForestFlora();
+		preseter.setupForestFauna();
+
 		decorator.addTree(GOTTreeType.REDWOOD, 10000);
 		decorator.addTree(GOTTreeType.REDWOOD_2, 10000);
 		decorator.addTree(GOTTreeType.REDWOOD_3, 5000);
@@ -18,5 +21,10 @@ public class GOTBiomeNorthForestIrontree extends GOTBiomeNorthForest {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterNorthForestIrontree;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORTH;
 	}
 }

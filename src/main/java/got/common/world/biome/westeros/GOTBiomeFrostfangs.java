@@ -1,29 +1,31 @@
 package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTBlocks;
-import got.common.entity.animal.GOTEntityShadowcat;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost implements GOTBiome.Mountains {
+public class GOTBiomeFrostfangs extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
 	public GOTBiomeFrostfangs(int i, boolean major) {
 		super(i, major);
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.MOUNTAIN, 1.0f);
+		banditChance = GOTEventSpawner.EventChance.NEVER;
+
+		topBlock = Blocks.snow;
 		fillerBlock = Blocks.packed_ice;
-		decorator.setBiomeOreFactor(2.0f);
-		decorator.setBiomeGemFactor(2.0f);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 100, 1, 2));
+
+		enableRocky = true;
+
+		preseter.setupFrostView();
+		preseter.setupFrostFlora();
+		preseter.setupFrostFauna();
+		preseter.setupFrostTrees(false);
 	}
 
 	@Override
@@ -62,7 +64,27 @@ public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost implements GOTBiom
 	}
 
 	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterFrostfangs;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 }

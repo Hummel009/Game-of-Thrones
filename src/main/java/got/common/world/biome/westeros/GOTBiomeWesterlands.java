@@ -3,7 +3,6 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
-import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -14,16 +13,24 @@ import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsWa
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeWesterlands extends GOTBiomeWesteros {
+public class GOTBiomeWesterlands extends GOTBiomeWesterosBase {
 	public GOTBiomeWesterlands(int i, boolean major) {
 		super(i, major);
-		decorator.addTree(GOTTreeType.ARAMANT, 5);
+		preseter.setupPlainsView();
+		preseter.setupPlainsFlora();
+		preseter.setupPlainsFauna();
+		preseter.setupStandardMiderateTrees();
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureWesterlandsSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureWesterlandsWatchfort(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.RIVERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.NORTH, GOTEventSpawner.EventChance.UNCOMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_MILITARY, 10).setSpawnChance(SPAWN));

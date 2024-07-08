@@ -12,8 +12,10 @@ import java.util.Collection;
 public class GOTBiomeArrynTown extends GOTBiomeArryn {
 	public GOTBiomeArrynTown(int i, boolean major) {
 		super(i, major);
-		setupStandardDomesticFauna();
+		preseter.setupPlainsFaunaDomesticOverride();
+
 		npcSpawnList.clear();
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CIVILIAN, 10).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_GUARDIAN, 4).setSpawnChance(SPAWN));
@@ -30,6 +32,16 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 	}
 
 	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
+	}
+
+	@Override
+	public int spawnCountMultiplier() {
+		return 2;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterArrynTown;
 	}
@@ -37,10 +49,5 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 	@Override
 	public boolean getEnableRiver() {
 		return false;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_PAVING;
 	}
 }

@@ -32,8 +32,9 @@ public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 		decorator.setDoubleGrassPerChunk(6);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 500);
-		decorator.addTree(GOTTreeType.SPRUCE_DEAD, 500);
 		decorator.addTree(GOTTreeType.BEECH_DEAD, 500);
+		decorator.addTree(GOTTreeType.SPRUCE_DEAD, 500);
+		decorator.addTree(GOTTreeType.BIRCH_DEAD, 500);
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SHRYKE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

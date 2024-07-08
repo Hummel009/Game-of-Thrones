@@ -4,7 +4,10 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.entity.animal.GOTEntityWalrus;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.block.Block;
@@ -17,16 +20,27 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
+public class GOTBiomeColdCoast extends GOTBiomeWesterosBase {
 	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
 	private static final NoiseGeneratorPerlin NOISE_GRAVEL = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
 	private static final NoiseGeneratorPerlin NOISE_ICE_GRAVEL = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
 	public GOTBiomeColdCoast(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 40, 1, 1));
+		banditChance = GOTEventSpawner.EventChance.NEVER;
+
+		topBlock = Blocks.snow;
+		fillerBlock = Blocks.snow;
+
+		preseter.setupFrostView();
+		preseter.setupFrostFlora();
+		preseter.setupFrostFauna();
+		preseter.setupFrostTrees(false);
+
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 60, 1, 1));
+
 		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f));
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
@@ -61,12 +75,27 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 	}
 
 	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterColdCoast;
 	}
 
 	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.2f;
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 }

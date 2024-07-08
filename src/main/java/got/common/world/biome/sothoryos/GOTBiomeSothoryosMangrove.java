@@ -4,6 +4,8 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
+import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 
@@ -16,10 +18,17 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosBase implements 
 		topBlock = GOTBlocks.mudGrass;
 		fillerBlock = GOTBlocks.mud;
 
-		preseter.setupMangroveView();
-		preseter.setupMangroveFlora();
-		preseter.setupMangroveFauna();
-		preseter.setupMangroveTrees();
+		preseter.setupJungleView();
+		preseter.setupJungleFlora();
+		preseter.setupJungleFauna();
+
+		variantChance = 1.0f;
+		biomeVariants.clear();
+		biomeVariants.add(GOTBiomeVariant.SWAMP_LOWLAND, 1.0f);
+
+		spawnableWaterCreatureList.clear();
+
+		decorator.addTree(GOTTreeType.MANGROVE, 500);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));

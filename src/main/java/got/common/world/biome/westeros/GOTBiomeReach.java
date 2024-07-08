@@ -3,8 +3,6 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -15,27 +13,22 @@ import got.common.world.structure.westeros.reach.GOTStructureReachWatchfort;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeReach extends GOTBiomeWesteros {
+public class GOTBiomeReach extends GOTBiomeWesterosBase {
 	public GOTBiomeReach(int i, boolean major) {
 		super(i, major);
-		biomeVariants.add(GOTBiomeVariant.FLOWERS, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
-		decorator.setCornPerChunk(4);
-		decorator.addTree(GOTTreeType.LEMON, 5);
-		decorator.addTree(GOTTreeType.ORANGE, 5);
-		decorator.addTree(GOTTreeType.LIME, 5);
-		decorator.addTree(GOTTreeType.OLIVE, 5);
-		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
-		decorator.setGenerateAgriculture(true);
-		decorator.setCornPerChunk(4);
+		preseter.setupAridPlainsView();
+		preseter.setupAridPlainsFlora();
+		preseter.setupAridPlainsFauna();
+		preseter.setupStandardSouthernTrees(false);
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureReachSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureReachWatchfort(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_MILITARY, 10).setSpawnChance(SPAWN));
