@@ -3,12 +3,12 @@ package got.common.world.biome.essos;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 
-public class GOTBiomeEssosForest extends GOTBiomeEssosBase {
-	public GOTBiomeEssosForest(int i, boolean major) {
+public class GOTBiomeEssosUnhabited extends GOTBiomeEssosBase {
+	public GOTBiomeEssosUnhabited(int i, boolean major) {
 		super(i, major);
-		preseter.setupForestView();
-		preseter.setupForestFlora();
-		preseter.setupForestFauna();
+		preseter.setupSouthernPlainsView(true);
+		preseter.setupSouthernPlainsFlora();
+		preseter.setupSouthernPlainsFauna(true);
 		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(false);

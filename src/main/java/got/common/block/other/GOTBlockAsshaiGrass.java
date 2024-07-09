@@ -25,7 +25,7 @@ public class GOTBlockAsshaiGrass extends BlockBush implements IShearable {
 
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
-		return j >= 0 && j < 256 && GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
+		return j >= 0 && j < 256 && GOTBiomeShadowLand.isBasaltSurface(world, i, j - 1, k);
 	}
 
 	@Override

@@ -1,8 +1,24 @@
 package got.common.world.biome.westeros;
 
-public class GOTBiomeNeckForest extends GOTBiomeNeck {
+import got.common.database.GOTAchievement;
+import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTWaypoint;
+
+public class GOTBiomeNeckForest extends GOTBiomeWesterosBase {
 	public GOTBiomeNeckForest(int i, boolean major) {
 		super(i, major);
+		preseter.setupForestView();
+		preseter.setupForestFlora();
+		preseter.setupForestFauna();
+
+		decorator.addTree(GOTTreeType.WILLOW, 90);
+		decorator.addTree(GOTTreeType.WILLOW_WATER, 10);
+
 		decorator.setTreesPerChunk(5);
+
+		setupRuinedStructures(false);
+
+		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
+		biomeAchievement = GOTAchievement.enterNeck;
 	}
 }

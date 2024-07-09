@@ -5,6 +5,7 @@ import got.common.entity.animal.*;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.westeros.GOTBiomeWesterosBase;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.feature.GOTWorldGenSand;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
@@ -17,10 +18,6 @@ public class GOTBiomePreseter {
 
 	public GOTBiomePreseter(GOTBiome biome) {
 		this.biome = biome;
-	}
-
-	public GOTBiome getBiome() {
-		return biome;
 	}
 
 	public void setupDesertView() {
@@ -49,21 +46,27 @@ public class GOTBiomePreseter {
 		biome.getDecorator().addTree(GOTTreeType.OAK_DESERT, 200);
 	}
 
-	public void setupDesertColdViewOverride() {
+	public void setupDesertColdView() {
+		biome.setVariantChance(0.1f);
+		biome.getBiomeVariants().clear();
+		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS, 1.0f);
 		biome.getDecorator().setGrassPerChunk(0);
+		biome.getDecorator().setDoubleGrassPerChunk(0);
 		biome.getDecorator().setCactiPerChunk(0);
 		biome.getDecorator().setDeadBushPerChunk(0);
 	}
 
-	public void setupDesertColdFloraOverride() {
+	public void setupDesertColdFlora() {
 		setupStandardColdFlora();
 	}
 
-	public void setupDesertColdFaunaOverride() {
+	public void setupDesertColdFauna() {
+		biome.getSpawnableGOTAmbientList().clear();
+		biome.getSpawnableWaterCreatureList().clear();
 		biome.getSpawnableCreatureList().clear();
 	}
 
-	public void setupDesertColdTreesOverride() {
+	public void setupDesertColdTrees() {
 		biome.getDecorator().clearTrees();
 		biome.getDecorator().addTree(GOTTreeType.OAK_DEAD, 800);
 	}
@@ -85,10 +88,6 @@ public class GOTBiomePreseter {
 	public void setupFrostFauna() {
 		removeAllEntities();
 		biome.addSpawnableCreature(GOTEntitySnowBear.class, 60, 1, 1);
-	}
-
-	public void setupFrostTrees(boolean fotinia) {
-		setupStandardColdTrees(fotinia);
 	}
 
 	public void setupTaigaView() {
@@ -115,10 +114,6 @@ public class GOTBiomePreseter {
 		biome.addSpawnableCreature(GOTEntityBear.class, 15, 1, 1);
 		biome.addSpawnableCreature(GOTEntityWoolyRhino.class, 10, 1, 1);
 		biome.addSpawnableCreature(GOTEntityMammoth.class, 10, 1, 1);
-	}
-
-	public void setupTaigaTrees(boolean fotinia) {
-		setupStandardColdTrees(fotinia);
 	}
 
 	public void setupSavannahView() {
@@ -191,6 +186,22 @@ public class GOTBiomePreseter {
 		biome.getDecorator().addTree(GOTTreeType.BANANA, 50);
 	}
 
+	public void setupMountainsView() {
+		biome.setVariantChance(0.3f);
+		biome.getBiomeVariants().clear();
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biome.getDecorator().setTreesPerChunk(3);
+		biome.getDecorator().setGrassPerChunk(6);
+		biome.getDecorator().setDoubleGrassPerChunk(1);
+		biome.getDecorator().setFlowersPerChunk(3);
+		biome.getDecorator().setDoubleFlowersPerChunk(1);
+		biome.getDecorator().setBiomeGemFactor(biome.getDecorator().getBiomeGemFactor() * 2.0f);
+		biome.getDecorator().setBiomeOreFactor(biome.getDecorator().getBiomeOreFactor() * 2.0f);
+		biome.getDecorator().addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
+		biome.getDecorator().addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
+	}
+
 	public void setupMountainsFlora() {
 		setupStandardColdFlora();
 	}
@@ -260,22 +271,6 @@ public class GOTBiomePreseter {
 		biome.addSpawnableCreature(GOTEntityBear.class, 10, 1, 1);
 	}
 
-	public void setupMountainsView() {
-		biome.setVariantChance(0.3f);
-		biome.getBiomeVariants().clear();
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		biome.getDecorator().setTreesPerChunk(3);
-		biome.getDecorator().setGrassPerChunk(6);
-		biome.getDecorator().setDoubleGrassPerChunk(1);
-		biome.getDecorator().setFlowersPerChunk(3);
-		biome.getDecorator().setDoubleFlowersPerChunk(1);
-		biome.getDecorator().setBiomeGemFactor(biome.getDecorator().getBiomeGemFactor() * 2.0f);
-		biome.getDecorator().setBiomeOreFactor(biome.getDecorator().getBiomeOreFactor() * 2.0f);
-		biome.getDecorator().addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
-		biome.getDecorator().addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
-	}
-
 	public void setupBushlandView() {
 		biome.setVariantChance(0.1f);
 		biome.getBiomeVariants().clear();
@@ -299,11 +294,7 @@ public class GOTBiomePreseter {
 		setupStandardExoticFauna();
 	}
 
-	public void setupBushlandTrees() {
-		setupSavannahTrees();
-	}
-
-	public void setupPlainsView() {
+	public void setupMideratePlainsView() {
 		biome.getBiomeVariants().clear();
 		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
 		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
@@ -320,7 +311,7 @@ public class GOTBiomePreseter {
 		biome.getDecorator().setDoubleFlowersPerChunk(1);
 	}
 
-	public void setupPlainsFlora() {
+	public void setupMideratePlainsFlora() {
 		biome.getFlowers().clear();
 		biome.addFlower(Blocks.red_flower, 4, 3);
 		biome.addFlower(Blocks.red_flower, 5, 3);
@@ -334,7 +325,7 @@ public class GOTBiomePreseter {
 		biome.addFlower(GOTBlocks.marigold, 0, 10);
 	}
 
-	public void setupPlainsFauna() {
+	public void setupMideratePlainsFauna() {
 		biome.getSpawnableCreatureList().clear();
 		biome.addSpawnableCreature(GOTEntityBoar.class, 15, 2, 3);
 		biome.addSpawnableCreature(GOTEntityBison.class, 10, 1, 2);
@@ -350,102 +341,7 @@ public class GOTBiomePreseter {
 		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 5, 2, 3);
 	}
 
-	public void setupPlainsFaunaDomesticOverride() {
-		biome.getSpawnableCreatureList().clear();
-		biome.addSpawnableCreature(EntityPig.class, 15, 2, 4);
-		biome.addSpawnableCreature(EntityCow.class, 10, 1, 2);
-
-		biome.addSpawnableCreature(GOTEntityRabbit.class, 15, 1, 2);
-
-		biome.addSpawnableCreature(GOTEntityHorse.class, 30, 1, 2);
-		biome.addSpawnableCreature(EntitySheep.class, 20, 1, 2);
-		biome.addSpawnableCreature(EntityChicken.class, 10, 1, 2);
-		biome.getSpawnableGOTAmbientList().clear();
-		biome.addSpawnableAmbient(GOTEntityButterfly.class, 50, 4, 4);
-		biome.addSpawnableAmbient(GOTEntityBird.class, 30, 2, 3);
-		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 5, 2, 3);
-	}
-
-	public void setupColdPlainsView() {
-		biome.getBiomeVariants().clear();
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_BEECH, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_PINE, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LARCH, 0.2f);
-		biome.getDecorator().setGrassPerChunk(10);
-		biome.getDecorator().setDoubleGrassPerChunk(6);
-		biome.getDecorator().setFlowersPerChunk(3);
-		biome.getDecorator().setDoubleFlowersPerChunk(1);
-	}
-
-	public void setupColdPlainsFlora() {
-		setupStandardColdFlora();
-	}
-
-	public void setupColdPlainsFauna() {
-		setupStandardWildFauna();
-		if (biome instanceof GOTBiomeWesterosBase) {
-			biome.addSpawnableCreature(GOTEntityBison.class, 20, 1, 2);
-		} else {
-			biome.addSpawnableCreature(GOTEntityWhiteBison.class, 20, 1, 2);
-		}
-	}
-
-	public void setupAridPlainsView() {
-		biome.getBiomeVariants().clear();
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FLOWERS, 1.0f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_BEECH, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_CEDAR, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_CYPRESS, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
-		biome.getDecorator().setGrassPerChunk(10);
-		biome.getDecorator().setDoubleGrassPerChunk(6);
-		biome.getDecorator().setFlowersPerChunk(3);
-		biome.getDecorator().setDoubleFlowersPerChunk(1);
-		biome.getDecorator().setCornPerChunk(4);
-		biome.getDecorator().setGenerateAgriculture(true);
-	}
-
-	public void setupAridPlainsFlora() {
-		setupPlainsFlora();
-	}
-
-	public void setupAridPlainsFauna() {
-		setupPlainsFauna();
-	}
-
-	public void setupStandardNorthernTrees() {
-		biome.getDecorator().clearTrees();
-		biome.getDecorator().addTree(GOTTreeType.PINE, 500);
-		biome.getDecorator().addTree(GOTTreeType.SPRUCE, 400);
-		biome.getDecorator().addTree(GOTTreeType.SPRUCE_THIN, 400);
-		biome.getDecorator().addTree(GOTTreeType.FIR, 350);
-		biome.getDecorator().addTree(GOTTreeType.LARCH, 300);
-		biome.getDecorator().addTree(GOTTreeType.ASPEN, 100);
-		biome.getDecorator().addTree(GOTTreeType.ASPEN_LARGE, 50);
-		biome.getDecorator().addTree(GOTTreeType.SPRUCE_MEGA, 20);
-		biome.getDecorator().addTree(GOTTreeType.SPRUCE_MEGA_THIN, 10);
-	}
-
-	public void setupStandardMiderateTrees() {
+	public void setupMiderateTrees() {
 		biome.getDecorator().clearTrees();
 		biome.getDecorator().addTree(GOTTreeType.OAK, 500);
 		biome.getDecorator().addTree(GOTTreeType.OAK_LARGE, 300);
@@ -471,7 +367,108 @@ public class GOTBiomePreseter {
 		biome.getDecorator().addTree(GOTTreeType.OAK_PARTY, 1);
 	}
 
-	public void setupStandardSouthernTrees(boolean exotic) {
+	public void setupDomesticFaunaOverride() {
+		biome.getSpawnableCreatureList().clear();
+		biome.addSpawnableCreature(EntityPig.class, 15, 2, 4);
+		biome.addSpawnableCreature(EntityCow.class, 10, 1, 2);
+
+		biome.addSpawnableCreature(GOTEntityRabbit.class, 15, 1, 2);
+
+		biome.addSpawnableCreature(GOTEntityHorse.class, 30, 1, 2);
+		biome.addSpawnableCreature(EntitySheep.class, 20, 1, 2);
+		biome.addSpawnableCreature(EntityChicken.class, 10, 1, 2);
+		biome.getSpawnableGOTAmbientList().clear();
+		biome.addSpawnableAmbient(GOTEntityButterfly.class, 50, 4, 4);
+		biome.addSpawnableAmbient(GOTEntityBird.class, 30, 2, 3);
+		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 5, 2, 3);
+	}
+
+	public void setupNorthernPlainsView() {
+		biome.getBiomeVariants().clear();
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_PINE, 0.2f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LARCH, 0.2f);
+		biome.getDecorator().setGrassPerChunk(10);
+		biome.getDecorator().setDoubleGrassPerChunk(6);
+		biome.getDecorator().setFlowersPerChunk(3);
+		biome.getDecorator().setDoubleFlowersPerChunk(1);
+	}
+
+	public void setupNorthernPlainsFlora() {
+		setupStandardColdFlora();
+	}
+
+	public void setupNorthernPlainsFauna() {
+		setupStandardWildFauna();
+		if (biome instanceof GOTBiomeWesterosBase) {
+			biome.addSpawnableCreature(GOTEntityBison.class, 20, 1, 2);
+		} else {
+			biome.addSpawnableCreature(GOTEntityWhiteBison.class, 20, 1, 2);
+		}
+	}
+
+	public void setupNorthernTrees(boolean ibbinia) {
+		biome.getDecorator().clearTrees();
+		biome.getDecorator().addTree(ibbinia ? GOTTreeType.IBBEN_PINE : GOTTreeType.PINE, 500);
+		biome.getDecorator().addTree(GOTTreeType.SPRUCE, 400);
+		biome.getDecorator().addTree(GOTTreeType.SPRUCE_THIN, 400);
+		biome.getDecorator().addTree(GOTTreeType.FIR, 350);
+		biome.getDecorator().addTree(GOTTreeType.LARCH, 300);
+		biome.getDecorator().addTree(GOTTreeType.ASPEN, 100);
+		biome.getDecorator().addTree(GOTTreeType.ASPEN_LARGE, 50);
+		biome.getDecorator().addTree(GOTTreeType.SPRUCE_MEGA, 20);
+		biome.getDecorator().addTree(GOTTreeType.SPRUCE_MEGA_THIN, 10);
+	}
+
+	public void setupSouthernPlainsView(boolean unhabited) {
+		biome.getBiomeVariants().clear();
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.HILLS_FOREST, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FLOWERS, 1.0f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_CEDAR, 0.2f);
+		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST_CYPRESS, 0.2f);
+		if (!unhabited) {
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
+			biome.getBiomeVariants().add(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
+		}
+		biome.getDecorator().setGrassPerChunk(10);
+		biome.getDecorator().setDoubleGrassPerChunk(6);
+		biome.getDecorator().setFlowersPerChunk(3);
+		biome.getDecorator().setDoubleFlowersPerChunk(1);
+		biome.getDecorator().setCornPerChunk(4);
+		biome.getDecorator().setGenerateAgriculture(true);
+		biome.getDecorator().setClayGen(new GOTWorldGenSand(GOTBlocks.redClay, 5, 1));
+		biome.getDecorator().addSoil(new WorldGenMinable(GOTBlocks.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
+	}
+
+	public void setupSouthernPlainsFlora() {
+		setupMideratePlainsFlora();
+	}
+
+	public void setupSouthernPlainsFauna(boolean exotic) {
+		if (exotic) {
+			setupStandardExoticFauna();
+		} else {
+			setupMideratePlainsFauna();
+		}
+	}
+
+	public void setupSouthernTrees(boolean exotic) {
 		biome.getDecorator().clearTrees();
 		biome.getDecorator().addTree(GOTTreeType.CEDAR, 500);
 		biome.getDecorator().addTree(GOTTreeType.CEDAR_LARGE, 300);
@@ -494,7 +491,7 @@ public class GOTBiomePreseter {
 		biome.getDecorator().addTree(GOTTreeType.ALMOND, 5);
 	}
 
-	private void setupStandardColdTrees(boolean fotinia) {
+	public void setupPolarTrees(boolean fotinia) {
 		biome.getDecorator().clearTrees();
 		biome.getDecorator().addTree(fotinia ? GOTTreeType.FOTINIA : GOTTreeType.PINE, 20);
 	}
@@ -533,14 +530,16 @@ public class GOTBiomePreseter {
 		biome.addSpawnableCreature(GOTEntityLion.class, 5, 1, 2);
 		biome.addSpawnableCreature(GOTEntityLioness.class, 5, 1, 2);
 		biome.addSpawnableCreature(GOTEntityRhino.class, 5, 1, 1);
-		biome.addSpawnableCreature(GOTEntityElephant.class, 5, 1, 1);
+		if (!(biome instanceof GOTBiomeWesterosBase)) {
+			biome.addSpawnableCreature(GOTEntityElephant.class, 5, 1, 1);
+		}
 		biome.getSpawnableGOTAmbientList().clear();
 		biome.addSpawnableAmbient(GOTEntityButterfly.class, 50, 4, 4);
 		biome.addSpawnableAmbient(GOTEntityBird.class, 30, 2, 3);
 		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 20, 2, 3);
 	}
 
-	private void removeAllEntities() {
+	public void removeAllEntities() {
 		biome.getSpawnableWaterCreatureList().clear();
 		biome.getSpawnableCaveCreatureList().clear();
 		biome.getSpawnableGOTAmbientList().clear();

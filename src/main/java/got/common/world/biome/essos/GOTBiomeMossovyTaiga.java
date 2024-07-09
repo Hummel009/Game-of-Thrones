@@ -2,33 +2,30 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeMossovyTaiga extends GOTBiomeMossovy {
+public class GOTBiomeMossovyTaiga extends GOTBiomeEssosBase {
 	public GOTBiomeMossovyTaiga(int i, boolean major) {
 		super(i, major);
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		decorator.setTreesPerChunk(10);
-		decorator.clearSettlements();
-		npcSpawnList.clear();
-		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(SPAWN * 3));
-		npcSpawnList.newFactionList(10).add(c0);
+		preseter.setupTaigaView();
+		preseter.setupTaigaFlora();
+		preseter.setupTaigaFauna();
+		preseter.setupNorthernTrees(true);
+
+		setupRuinedStructures(false);
+
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c1);
-		invasionSpawns.clearInvasions();
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterMossovyTaiga;
+		biomeWaypoints = GOTWaypoint.Region.MOSSOVY;
+		biomeAchievement = GOTAchievement.enterMossovyTaiga;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
 	}
 }

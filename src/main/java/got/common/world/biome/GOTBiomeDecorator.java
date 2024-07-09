@@ -19,6 +19,9 @@ import net.minecraft.world.gen.feature.*;
 import java.util.*;
 
 public class GOTBiomeDecorator {
+	private static final WorldGenCactus WORLD_GEN_CACTUS = new WorldGenCactus();
+	private static final WorldGenDeadBush WORLD_GEN_DEAD_BUSH = new WorldGenDeadBush(Blocks.deadbush);
+
 	private final Collection<GOTTreeType.WeightedTreeType> treeTypes = new HashSet<>();
 	private final Collection<GOTStructureBaseSettlement> settlements = new HashSet<>();
 	private final Collection<GOTStructureBaseSettlement> fixedSettlements = new HashSet<>();
@@ -29,7 +32,6 @@ public class GOTBiomeDecorator {
 	private final List<OreGenerant> biomeSoils = new ArrayList<>();
 
 	private final WorldGenerator sandGen = new GOTWorldGenSand(Blocks.sand, 7, 2);
-	private final WorldGenerator whiteSandGen = new GOTWorldGenSand(GOTBlocks.whiteSand, 7, 2);
 	private final WorldGenerator quagmireGen = new GOTWorldGenSand(GOTBlocks.quagmire, 7, 2);
 	private final WorldGenerator surfaceGravelGen = new GOTWorldGenSurfaceGravel();
 	private final WorldGenerator flowerGen = new GOTWorldGenBiomeFlowers();
@@ -38,7 +40,6 @@ public class GOTBiomeDecorator {
 	private final WorldGenerator reedGen = new GOTWorldGenReeds(GOTBlocks.reeds);
 	private final WorldGenerator dryReedGen = new GOTWorldGenReeds(GOTBlocks.driedReeds);
 	private final WorldGenerator cornGen = new GOTWorldGenCorn();
-	private final WorldGenerator waterlilyGen = new WorldGenWaterlily();
 	private final WorldGenerator cactusGen = new WorldGenCactus();
 
 	private final GOTBiome biome;
@@ -53,7 +54,6 @@ public class GOTBiomeDecorator {
 	private World worldObj;
 
 	private boolean generateAgriculture;
-	private boolean whiteSand;
 
 	private float biomeOreFactor = 1.0f;
 	private float biomeGemFactor = 0.5f;
@@ -69,8 +69,6 @@ public class GOTBiomeDecorator {
 	private int grassPerChunk = 1;
 	private int doubleGrassPerChunk;
 	private int deadBushPerChunk;
-	private int waterlilyPerChunk;
-	private int canePerChunk;
 	private int reedPerChunk = 1;
 	private int cornPerChunk;
 	private int cactiPerChunk;
@@ -99,6 +97,7 @@ public class GOTBiomeDecorator {
 		addOre(new WorldGenMinable(GOTBlocks.oreSulfur, 8), 2.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTBlocks.oreSaltpeter, 8), 2.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTBlocks.oreSalt, 12), 2.0f, 0, 64);
+		addGem(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 
 		/* Зарегулированные пропорциональные цены */
 		addOre(new WorldGenMinable(GOTBlocks.oreSilver, 4), 8.0f, 0, 32);
@@ -118,7 +117,7 @@ public class GOTBiomeDecorator {
 		fixedSettlements.add(settlement);
 	}
 
-	public void addGem(WorldGenMinable gen, float f, int min, int max) {
+	private void addGem(WorldGenMinable gen, float f, int min, int max) {
 		biomeGems.add(new OreGenerant(gen, f, min, max));
 	}
 
@@ -156,6 +155,7 @@ public class GOTBiomeDecorator {
 		settlements.addAll(fixedSettlements);
 	}
 
+	@SuppressWarnings("unused")
 	public void clearStructures() {
 		structures.clear();
 	}
@@ -206,11 +206,7 @@ public class GOTBiomeDecorator {
 		for (l2 = 0; l2 < sandPerChunk; ++l2) {
 			i = chunkX + rand.nextInt(16) + 8;
 			k = chunkZ + rand.nextInt(16) + 8;
-			WorldGenerator biomeSandGenerator = sandGen;
-			if (whiteSand) {
-				biomeSandGenerator = whiteSandGen;
-			}
-			biomeSandGenerator.generate(worldObj, rand, i, worldObj.getTopSolidOrLiquidBlock(i, k), k);
+			sandGen.generate(worldObj, rand, i, worldObj.getTopSolidOrLiquidBlock(i, k), k);
 		}
 		for (l2 = 0; l2 < clayPerChunk; ++l2) {
 			i = chunkX + rand.nextInt(16) + 8;
@@ -316,18 +312,6 @@ public class GOTBiomeDecorator {
 			int j10 = rand.nextInt(128);
 			int k13 = chunkZ + rand.nextInt(16) + 8;
 			new WorldGenDeadBush(Blocks.deadbush).generate(worldObj, rand, i2, j10, k13);
-		}
-		for (l7 = 0; l7 < waterlilyPerChunk; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			int k14 = chunkZ + rand.nextInt(16) + 8;
-			int j11 = rand.nextInt(128);
-			waterlilyGen.generate(worldObj, rand, i2, j11, k14);
-		}
-		for (l7 = 0; l7 < canePerChunk; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			j2 = rand.nextInt(128);
-			int k17 = chunkZ + rand.nextInt(16) + 8;
-			caneGen.generate(worldObj, rand, i2, j2, k17);
 		}
 		for (l7 = 0; l7 < 10; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
@@ -527,14 +511,6 @@ public class GOTBiomeDecorator {
 		this.doubleGrassPerChunk = doubleGrassPerChunk;
 	}
 
-	public boolean isWhiteSand() {
-		return whiteSand;
-	}
-
-	public void setWhiteSand(boolean whiteSand) {
-		this.whiteSand = whiteSand;
-	}
-
 	public Collection<Structure> getStructures() {
 		return structures;
 	}
@@ -567,16 +543,39 @@ public class GOTBiomeDecorator {
 		this.reedPerChunk = reedPerChunk;
 	}
 
-	public void setCanePerChunk(int canePerChunk) {
-		this.canePerChunk = canePerChunk;
-	}
-
-	public void setWaterlilyPerChunk(int waterlilyPerChunk) {
-		this.waterlilyPerChunk = waterlilyPerChunk;
-	}
-
 	public void setDeadBushPerChunk(int deadBushPerChunk) {
 		this.deadBushPerChunk = deadBushPerChunk;
+	}
+
+	public void decorateDesert(World world, Random random, int i, int k) {
+		decorate(world, random, i, k);
+		if (random.nextInt(8) == 0) {
+			int i12 = i + random.nextInt(16) + 8;
+			int k12 = k + random.nextInt(16) + 8;
+			int j1 = world.getHeightValue(i12, k12);
+			biome.getRandomWorldGenForGrass(random).generate(world, random, i12, j1, k12);
+		}
+		if (random.nextInt(100) == 0) {
+			int i12 = i + random.nextInt(16) + 8;
+			int k12 = k + random.nextInt(16) + 8;
+			int j1 = world.getHeightValue(i12, k12);
+			WORLD_GEN_CACTUS.generate(world, random, i12, j1, k12);
+		}
+		if (random.nextInt(20) == 0) {
+			int i12 = i + random.nextInt(16) + 8;
+			int k12 = k + random.nextInt(16) + 8;
+			int j1 = world.getHeightValue(i12, k12);
+			WORLD_GEN_DEAD_BUSH.generate(world, random, i12, j1, k12);
+		}
+		if (random.nextInt(500) == 0) {
+			int trees = 1 + random.nextInt(4);
+			for (int l = 0; l < trees; ++l) {
+				int i1 = i + random.nextInt(8) + 8;
+				int k1 = k + random.nextInt(8) + 8;
+				int j12 = world.getHeightValue(i1, k1);
+				genTree(world, random, i1, j12, k1);
+			}
+		}
 	}
 
 	public static class OreGenerant {

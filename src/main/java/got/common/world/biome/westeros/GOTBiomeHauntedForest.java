@@ -3,7 +3,6 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.entity.animal.GOTEntityDirewolf;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -18,14 +17,12 @@ import java.util.Collection;
 public class GOTBiomeHauntedForest extends GOTBiomeWesterosBase {
 	public GOTBiomeHauntedForest(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-
 		fillerBlock = Blocks.snow;
 
 		preseter.setupTaigaView();
 		preseter.setupTaigaFlora();
 		preseter.setupTaigaFauna();
-		preseter.setupTaigaTrees(false);
+		preseter.setupPolarTrees(false);
 
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDirewolf.class, 20, 1, 2));
 
@@ -47,20 +44,9 @@ public class GOTBiomeHauntedForest extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
-	}
 
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SNOWY;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterHauntedForest;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.BEYOND_WALL;
+		biomeWaypoints = GOTWaypoint.Region.BEYOND_WALL;
+		biomeAchievement = GOTAchievement.enterHauntedForest;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 }

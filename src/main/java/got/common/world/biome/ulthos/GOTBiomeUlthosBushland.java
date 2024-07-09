@@ -5,7 +5,6 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenBoulder;
-import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import net.minecraft.init.Blocks;
@@ -33,6 +32,8 @@ public class GOTBiomeUlthosBushland extends GOTBiomeUlthosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+
+		biomeAchievement = GOTAchievement.enterUlthos;
 	}
 
 	@Override
@@ -68,21 +69,5 @@ public class GOTBiomeUlthosBushland extends GOTBiomeUlthosBase {
 				}
 			}
 		}
-	}
-
-	@Override
-	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
-		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
-		if (random.nextInt(5) == 0) {
-			doubleFlowerGen.setFlowerType(3);
-		} else {
-			doubleFlowerGen.setFlowerType(2);
-		}
-		return doubleFlowerGen;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterUlthos;
 	}
 }

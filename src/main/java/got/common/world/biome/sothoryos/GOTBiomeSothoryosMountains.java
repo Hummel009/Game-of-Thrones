@@ -11,14 +11,16 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeSothoryosMountains extends GOTBiomeSothoryosBase implements GOTBiome.Mountains {
+
 	public GOTBiomeSothoryosMountains(int i, boolean major) {
 		super(i, major);
-		enableRocky = true;
-
 		preseter.setupMountainsView();
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
-		preseter.setupStandardSouthernTrees(true);
+		preseter.setupSouthernTrees(true);
+
+		biomeAchievement = GOTAchievement.enterSothoryosMountains;
+		enableRocky = true;
 	}
 
 	@Override
@@ -55,10 +57,5 @@ public class GOTBiomeSothoryosMountains extends GOTBiomeSothoryosBase implements
 				}
 			}
 		}
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSothoryosMountains;
 	}
 }

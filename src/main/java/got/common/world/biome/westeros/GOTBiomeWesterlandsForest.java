@@ -9,18 +9,11 @@ public class GOTBiomeWesterlandsForest extends GOTBiomeWesterosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupStandardMiderateTrees();
+		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterWesterlands;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.WESTERLANDS;
+		biomeWaypoints = GOTWaypoint.Region.WESTERLANDS;
+		biomeAchievement = GOTAchievement.enterWesterlands;
 	}
 }

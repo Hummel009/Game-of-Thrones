@@ -14,10 +14,10 @@ import java.util.Collection;
 public class GOTBiomeIronIslands extends GOTBiomeWesterosBase {
 	public GOTBiomeIronIslands(int i, boolean major) {
 		super(i, major);
-		preseter.setupPlainsView();
-		preseter.setupPlainsFlora();
-		preseter.setupPlainsFauna();
-		preseter.setupStandardNorthernTrees();
+		preseter.setupMideratePlainsView();
+		preseter.setupMideratePlainsFlora();
+		preseter.setupMideratePlainsFauna();
+		preseter.setupNorthernTrees(false);
 
 		setupRuinedStructures(false);
 
@@ -31,15 +31,8 @@ public class GOTBiomeIronIslands extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterIronIslands;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.IRONBORN;
+		biomeWaypoints = GOTWaypoint.Region.IRONBORN;
+		biomeAchievement = GOTAchievement.enterIronIslands;
 	}
 }

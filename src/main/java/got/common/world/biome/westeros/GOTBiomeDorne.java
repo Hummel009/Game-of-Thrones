@@ -5,7 +5,6 @@ import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
@@ -18,7 +17,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,12 +29,10 @@ public class GOTBiomeDorne extends GOTBiomeWesterosBase {
 
 	public GOTBiomeDorne(int i, boolean major) {
 		super(i, major);
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-
-		preseter.setupAridPlainsView();
-		preseter.setupAridPlainsFlora();
-		preseter.setupAridPlainsFauna();
-		preseter.setupStandardSouthernTrees(true);
+		preseter.setupSouthernPlainsView(false);
+		preseter.setupSouthernPlainsFlora();
+		preseter.setupSouthernPlainsFauna(true);
+		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(true);
 
@@ -59,6 +55,11 @@ public class GOTBiomeDorne extends GOTBiomeWesterosBase {
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN / 5));
 		npcSpawnList.newFactionList(2).add(c3);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+
+		biomeWaypoints = GOTWaypoint.Region.DORNE;
+		biomeAchievement = GOTAchievement.enterDorne;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
+		roadBlock = GOTBezierType.PATH_SANDY;
 	}
 
 	@Override
@@ -93,31 +94,5 @@ public class GOTBiomeDorne extends GOTBiomeWesterosBase {
 		topBlockMeta = topBlockMeta_pre;
 		fillerBlock = fillerBlock_pre;
 		fillerBlockMeta = fillerBlockMeta_pre;
-	}
-
-	@Override
-	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
-		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
-		if (random.nextInt(5) == 0) {
-			doubleFlowerGen.setFlowerType(3);
-		} else {
-			doubleFlowerGen.setFlowerType(2);
-		}
-		return doubleFlowerGen;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterDorne;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.DORNE;
 	}
 }

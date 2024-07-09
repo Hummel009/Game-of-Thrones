@@ -11,28 +11,30 @@ import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.essos.lys.GOTStructureLysFortress;
 import got.common.world.structure.essos.lys.GOTStructureLysSettlement;
-import got.common.world.structure.other.GOTStructureStoneRuin;
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
-public class GOTBiomeLys extends GOTBiomeEssos {
+public class GOTBiomeLys extends GOTBiomeEssosBase {
 	public GOTBiomeLys(int i, boolean major) {
 		super(i, major);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		preseter.setupSouthernPlainsView(false);
+		preseter.setupSouthernPlainsFlora();
+		preseter.setupSouthernPlainsFauna(true);
+		preseter.setupSouthernTrees(true);
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureLysSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureLysFortress(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.MYR, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LYS_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LYS_MILITARY, 10).setSpawnChance(SPAWN));
@@ -46,27 +48,14 @@ public class GOTBiomeLys extends GOTBiomeEssos {
 		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.TYROSH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
-		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
-		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+
+		biomeWaypoints = GOTWaypoint.Region.SOUTHERN_FREE_CITIES;
+		biomeAchievement = GOTAchievement.enterLys;
+		roadBlock = GOTBezierType.PATH_SANDY;
 	}
 
 	@Override
-	public boolean disableNoise() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterLys;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.SOUTHERN_FREE_CITIES;
+	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
+		generator.generateDirtSandRedSandNoise(world, random, blocks, meta, i, k, stoneNoise, height, variant);
 	}
 }

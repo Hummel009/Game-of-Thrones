@@ -1,12 +1,9 @@
 package got.common.world.biome.sothoryos;
 
-import got.client.sound.GOTMusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
-import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -19,11 +16,9 @@ import got.common.world.structure.sothoryos.summer.GOTStructureSummerSettlement;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeSummerIslands extends GOTBiome {
+public class GOTBiomeSummerIslands extends GOTBiomeSothoryosBase {
 	public GOTBiomeSummerIslands(int i, boolean major) {
 		super(i, major);
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-
 		preseter.setupJungleView();
 		preseter.setupJungleFlora();
 		preseter.setupJungleFauna();
@@ -48,50 +43,10 @@ public class GOTBiomeSummerIslands extends GOTBiome {
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(2).add(c2);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSummerIslands;
-	}
-
-	@Override
-	public GOTMusicRegion.Sub getBiomeMusic() {
-		return GOTMusicRegion.SOTHORYOS.getSubregion(biomeName);
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.SUMMER;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return true;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
-	}
-
-	@Override
-	public int spawnCountMultiplier() {
-		return 3;
-	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return null;
-	}
-
-	@Override
-	public int getWallTop() {
-		return 0;
+		biomeWaypoints = GOTWaypoint.Region.SUMMER;
+		biomeAchievement = GOTAchievement.enterSummerIslands;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
 	}
 }

@@ -16,10 +16,10 @@ import java.util.Collection;
 public class GOTBiomeNorth extends GOTBiomeWesterosBase {
 	public GOTBiomeNorth(int i, boolean major) {
 		super(i, major);
-		preseter.setupColdPlainsView();
-		preseter.setupColdPlainsFlora();
-		preseter.setupColdPlainsFauna();
-		preseter.setupStandardNorthernTrees();
+		preseter.setupNorthernPlainsView();
+		preseter.setupNorthernPlainsFlora();
+		preseter.setupNorthernPlainsFauna();
+		preseter.setupNorthernTrees(false);
 
 		setupRuinedStructures(false);
 
@@ -46,15 +46,8 @@ public class GOTBiomeNorth extends GOTBiomeWesterosBase {
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c4);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterNorth;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.NORTH;
+		biomeWaypoints = GOTWaypoint.Region.NORTH;
+		biomeAchievement = GOTAchievement.enterNorth;
 	}
 }

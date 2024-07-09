@@ -9,26 +9,21 @@ import got.common.world.map.GOTWaypoint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeBoneMountains extends GOTBiomeEssosPlains implements GOTBiome.Mountains {
+public class GOTBiomeBoneMountains extends GOTBiomeEssosBase implements GOTBiome.Mountains {
 	public GOTBiomeBoneMountains(int i, boolean major) {
 		super(i, major);
-		setupStandardForestFauna();
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		preseter.setupMountainsView();
+		preseter.setupMountainsFlora();
+		preseter.setupMountainsFauna();
+		preseter.setupSouthernTrees(false);
+
+		biomeWaypoints = GOTWaypoint.Region.ESSOS_SEPARATOR;
+		biomeAchievement = GOTAchievement.enterBoneMountains;
 		enableRocky = true;
-		decorator.setBiomeOreFactor(2.0f);
-		decorator.setBiomeGemFactor(2.0f);
-		decorator.setDoubleFlowersPerChunk(0);
-		decorator.setDoubleGrassPerChunk(1);
-		decorator.setFlowersPerChunk(1);
-		decorator.setGrassPerChunk(4);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
+		wallBlock = GOTBezierType.WALL_YI_TI;
 	}
 
 	@Override
@@ -67,20 +62,5 @@ public class GOTBiomeBoneMountains extends GOTBiomeEssosPlains implements GOTBio
 			blocks[index] = GOTBlocks.rock;
 			meta[index] = 3;
 		}
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterBoneMountains;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.ESSOS_SEPARATOR;
-	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YI_TI;
 	}
 }

@@ -37,7 +37,7 @@ public class GOTGenLayerBeach extends GOTGenLayer {
 					//noinspection StreamToLoop
 					if (IntStream.of(biome1, biome2, biome3, biome4).anyMatch(j -> j == targetBiome.biomeID)) {
 						if (!(biome instanceof GOTBiomeBeach)) {
-							newBiomeID = (biome.getDecorator().isWhiteSand() ? GOTBiome.beachWhite : nextInt(20) == 0 ? GOTBiome.beachGravel : GOTBiome.beach).biomeID;
+							newBiomeID = (nextInt(20) == 0 ? GOTBiome.beachGravel : GOTBiome.beach).biomeID;
 						}
 					}
 				}

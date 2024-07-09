@@ -16,10 +16,10 @@ import java.util.Collection;
 public class GOTBiomeWesterlands extends GOTBiomeWesterosBase {
 	public GOTBiomeWesterlands(int i, boolean major) {
 		super(i, major);
-		preseter.setupPlainsView();
-		preseter.setupPlainsFlora();
-		preseter.setupPlainsFauna();
-		preseter.setupStandardMiderateTrees();
+		preseter.setupMideratePlainsView();
+		preseter.setupMideratePlainsFlora();
+		preseter.setupMideratePlainsFauna();
+		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
 
@@ -50,15 +50,8 @@ public class GOTBiomeWesterlands extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterWesterlands;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.WESTERLANDS;
+		biomeWaypoints = GOTWaypoint.Region.WESTERLANDS;
+		biomeAchievement = GOTAchievement.enterWesterlands;
 	}
 }

@@ -9,18 +9,11 @@ public class GOTBiomeStormlandsForest extends GOTBiomeWesterosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupStandardSouthernTrees(true);
+		preseter.setupSouthernTrees(false);
 
 		setupRuinedStructures(false);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterReach;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.REACH;
+		biomeWaypoints = GOTWaypoint.Region.REACH;
+		biomeAchievement = GOTAchievement.enterReach;
 	}
 }

@@ -22,6 +22,9 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		decorator.setTreesPerChunk(2);
 
 		biomeColors.setFoggy(true);
+
+		biomeAchievement = GOTAchievement.enterYeen;
+		enableRiver = false;
 	}
 
 	@Override
@@ -50,20 +53,5 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		topBlockMeta = topBlockMeta_pre;
 		fillerBlock = fillerBlock_pre;
 		fillerBlockMeta = fillerBlockMeta_pre;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.1f;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterYeen;
 	}
 }

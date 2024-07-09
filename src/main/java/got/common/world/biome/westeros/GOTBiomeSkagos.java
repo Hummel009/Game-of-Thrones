@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.westeros.north.GOTStructureNorthSettlement;
 
@@ -13,10 +14,10 @@ import java.util.Collection;
 public class GOTBiomeSkagos extends GOTBiomeWesterosBase {
 	public GOTBiomeSkagos(int i, boolean major) {
 		super(i, major);
-		preseter.setupColdPlainsView();
-		preseter.setupColdPlainsFlora();
-		preseter.setupColdPlainsFauna();
-		preseter.setupStandardNorthernTrees();
+		preseter.setupNorthernPlainsView();
+		preseter.setupNorthernPlainsFlora();
+		preseter.setupNorthernPlainsFauna();
+		preseter.setupNorthernTrees(false);
 
 		setupRuinedStructures(false);
 
@@ -32,15 +33,9 @@ public class GOTBiomeSkagos extends GOTBiomeWesterosBase {
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSkagos;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.NORTH;
+		biomeWaypoints = GOTWaypoint.Region.NORTH;
+		biomeAchievement = GOTAchievement.enterSkagos;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 }

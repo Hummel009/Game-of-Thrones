@@ -27,15 +27,13 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosBase {
 
 	public GOTBiomeColdCoast(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-
 		topBlock = Blocks.snow;
 		fillerBlock = Blocks.snow;
 
 		preseter.setupFrostView();
 		preseter.setupFrostFlora();
 		preseter.setupFrostFauna();
-		preseter.setupFrostTrees(false);
+		preseter.setupPolarTrees(false);
 
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 60, 1, 1));
 
@@ -44,6 +42,13 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+
+		biomeWaypoints = GOTWaypoint.Region.BEYOND_WALL;
+		biomeAchievement = GOTAchievement.enterColdCoast;
+		enableRiver = false;
+		chanceToSpawnAnimals = 0.1f;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
+		roadBlock = GOTBezierType.PATH_SNOWY;
 	}
 
 	@Override
@@ -72,30 +77,5 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosBase {
 		topBlockMeta = topBlockMeta_pre;
 		fillerBlock = fillerBlock_pre;
 		fillerBlockMeta = fillerBlockMeta_pre;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SNOWY;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.1f;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterColdCoast;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 }

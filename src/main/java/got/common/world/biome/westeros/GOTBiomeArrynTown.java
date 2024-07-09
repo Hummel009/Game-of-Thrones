@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeArrynTown extends GOTBiomeArryn {
+
 	public GOTBiomeArrynTown(int i, boolean major) {
 		super(i, major);
-		preseter.setupPlainsFaunaDomesticOverride();
+		preseter.setupDomesticFaunaOverride();
 
 		npcSpawnList.clear();
 
@@ -29,25 +30,9 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
-	}
 
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_PAVING;
-	}
-
-	@Override
-	public int spawnCountMultiplier() {
-		return 2;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterArrynTown;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
+		biomeAchievement = GOTAchievement.enterArrynTown;
+		enableRiver = false;
+		roadBlock = GOTBezierType.PATH_PAVING;
 	}
 }

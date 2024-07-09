@@ -27,10 +27,10 @@ public class GOTBiomeDragonstone extends GOTBiomeWesterosBase {
 
 	public GOTBiomeDragonstone(int i, boolean major) {
 		super(i, major);
-		preseter.setupPlainsView();
-		preseter.setupPlainsFlora();
-		preseter.setupPlainsFauna();
-		preseter.setupStandardMiderateTrees();
+		preseter.setupMideratePlainsView();
+		preseter.setupMideratePlainsFlora();
+		preseter.setupMideratePlainsFauna();
+		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
 
@@ -56,6 +56,9 @@ public class GOTBiomeDragonstone extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
+
+		biomeWaypoints = GOTWaypoint.Region.CROWNLANDS;
+		biomeAchievement = GOTAchievement.enterDragonstone;
 	}
 
 	@Override
@@ -72,32 +75,6 @@ public class GOTBiomeDragonstone extends GOTBiomeWesterosBase {
 
 	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
-		Block topBlock_pre = topBlock;
-		int topBlockMeta_pre = topBlockMeta;
-		Block fillerBlock_pre = fillerBlock;
-		int fillerBlockMeta_pre = fillerBlockMeta;
-		double d1 = BIOME_TERRAIN_NOISE.func_151601_a(i * 0.07, k * 0.07);
-		double d2 = BIOME_TERRAIN_NOISE.func_151601_a(i * 0.4, k * 0.4);
-		if (d1 + d2 > 0.5) {
-			topBlock = Blocks.stone;
-			topBlockMeta = 0;
-			fillerBlock = topBlock;
-			fillerBlockMeta = topBlockMeta;
-		}
-		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
-		topBlock = topBlock_pre;
-		topBlockMeta = topBlockMeta_pre;
-		fillerBlock = fillerBlock_pre;
-		fillerBlockMeta = fillerBlockMeta_pre;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterDragonstone;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.CROWNLANDS;
+		generator.generateStoneNoise(world, random, blocks, meta, i, k, stoneNoise, height, variant);
 	}
 }

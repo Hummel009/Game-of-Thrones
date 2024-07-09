@@ -13,26 +13,11 @@ public class GOTBiomeSothoryosFrost extends GOTBiomeSothoryosBase {
 		preseter.setupFrostView();
 		preseter.setupFrostFlora();
 		preseter.setupFrostFauna();
-		preseter.setupFrostTrees(false);
-	}
+		preseter.setupPolarTrees(false);
 
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SNOWY;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.1f;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSothoryosFrost;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
+		biomeAchievement = GOTAchievement.enterSothoryosFrost;
+		enableRiver = false;
+		chanceToSpawnAnimals = 0.1f;
+		roadBlock = GOTBezierType.PATH_SNOWY;
 	}
 }

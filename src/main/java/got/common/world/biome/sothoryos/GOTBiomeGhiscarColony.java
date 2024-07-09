@@ -17,11 +17,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
+
 	public GOTBiomeGhiscarColony(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-
 		decorator.setTreesPerChunk(2);
 
 		decorator.addSettlement(new GOTStructureGhiscarSettlement(this, 1.0f).type(GOTStructureGhiscarSettlement.Type.COLONY, 5));
@@ -38,15 +36,10 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterGhiscarColony;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.GHISCAR_COLONY;
+		biomeWaypoints = GOTWaypoint.Region.GHISCAR_COLONY;
+		biomeAchievement = GOTAchievement.enterGhiscarColony;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
 	}
 }

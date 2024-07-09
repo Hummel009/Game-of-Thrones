@@ -17,11 +17,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeSummerColony extends GOTBiomeSothoryosSavannah {
+
 	public GOTBiomeSummerColony(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-
 		decorator.addSettlement(new GOTStructureSummerSettlement(this, 1.0f));
 
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
@@ -36,15 +34,10 @@ public class GOTBiomeSummerColony extends GOTBiomeSothoryosSavannah {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSummerColony;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.SUMMER_COLONY;
+		biomeWaypoints = GOTWaypoint.Region.SUMMER_COLONY;
+		biomeAchievement = GOTAchievement.enterSummerColony;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
 	}
 }

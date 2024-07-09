@@ -6,6 +6,6 @@ import net.minecraft.world.World;
 public class GOTBlockAsshaiPlant extends GOTBlockFlower {
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
-		return GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
+		return GOTBiomeShadowLand.isBasaltSurface(world, i, j - 1, k);
 	}
 }

@@ -11,8 +11,8 @@ import got.common.world.spawning.GOTSpawnListContainer;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeIfekevronForest extends GOTBiomeEssosBase {
-	public GOTBiomeIfekevronForest(int i, boolean major) {
+public class GOTBiomeYiTiTropicalForest extends GOTBiomeEssosBase {
+	public GOTBiomeYiTiTropicalForest(int i, boolean major) {
 		super(i, major);
 		preseter.setupJungleView();
 		preseter.setupForestFlora();
@@ -22,12 +22,12 @@ public class GOTBiomeIfekevronForest extends GOTBiomeEssosBase {
 		setupRuinedStructures(false);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(CONQUEST_SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 
-		biomeWaypoints = GOTWaypoint.Region.DOTHRAKI;
-		biomeAchievement = GOTAchievement.enterIfekevronForest;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		wallBlock = GOTBezierType.WALL_IBBEN;
+		biomeWaypoints = GOTWaypoint.Region.YI_TI;
+		biomeAchievement = GOTAchievement.enterYiTi;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
+		roadBlock = GOTBezierType.PATH_PAVING;
 	}
 }

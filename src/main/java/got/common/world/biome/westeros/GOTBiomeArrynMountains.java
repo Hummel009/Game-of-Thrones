@@ -5,7 +5,6 @@ import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTWaypoint;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -13,15 +12,17 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeArrynMountains extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
+
 	public GOTBiomeArrynMountains(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		enableRocky = true;
-
 		preseter.setupMountainsView();
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
-		preseter.setupStandardMiderateTrees();
+		preseter.setupMiderateTrees();
+
+		biomeWaypoints = GOTWaypoint.Region.ARRYN;
+		biomeAchievement = GOTAchievement.enterArrynMountains;
+		enableRocky = true;
 	}
 
 	@Override
@@ -57,15 +58,5 @@ public class GOTBiomeArrynMountains extends GOTBiomeWesterosBase implements GOTB
 				}
 			}
 		}
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterArrynMountains;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.ARRYN;
 	}
 }

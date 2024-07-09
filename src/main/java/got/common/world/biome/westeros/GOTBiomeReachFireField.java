@@ -9,9 +9,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTBiomeReachFireField extends GOTBiomeReach {
+
 	public GOTBiomeReachFireField(int i, boolean major) {
 		super(i, major);
-		preseter.setupPlainsFaunaDomesticOverride();
+		preseter.setupDomesticFaunaOverride();
 
 		biomeVariants.clear();
 
@@ -22,6 +23,10 @@ public class GOTBiomeReachFireField extends GOTBiomeReach {
 
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 80));
+
+		biomeAchievement = GOTAchievement.enterReachFireField;
+		enableRiver = false;
+		roadBlock = GOTBezierType.PATH_PAVING.setHasFlowers(true);
 	}
 
 	@Override
@@ -32,25 +37,5 @@ public class GOTBiomeReachFireField extends GOTBiomeReach {
 			return doubleFlowerGen;
 		}
 		return super.getRandomWorldGenForDoubleFlower(random);
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_PAVING.setHasFlowers(true);
-	}
-
-	@Override
-	public int spawnCountMultiplier() {
-		return 2;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterReachFireField;
 	}
 }

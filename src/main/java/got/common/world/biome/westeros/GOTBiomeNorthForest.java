@@ -9,18 +9,11 @@ public class GOTBiomeNorthForest extends GOTBiomeWesterosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupStandardNorthernTrees();
+		preseter.setupNorthernTrees(false);
 
 		setupRuinedStructures(false);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterNorth;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.NORTH;
+		biomeWaypoints = GOTWaypoint.Region.NORTH;
+		biomeAchievement = GOTAchievement.enterNorth;
 	}
 }

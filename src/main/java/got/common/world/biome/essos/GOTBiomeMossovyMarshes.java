@@ -3,36 +3,29 @@ package got.common.world.biome.essos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTWorldGenMarshLights;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 
 import java.util.Random;
 
-public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy implements GOTBiome.Marshes {
+public class GOTBiomeMossovyMarshes extends GOTBiomeEssosBase implements GOTBiome.Marshes {
+	private static final WorldGenFlowers WORLD_GEN_FLOWERS = new WorldGenFlowers(GOTBlocks.deadMarshPlant);
+	private static final GOTWorldGenMarshLights WORLD_GEN_MARSH_LIGHTS = new GOTWorldGenMarshLights();
+
 	public GOTBiomeMossovyMarshes(int i, boolean major) {
 		super(i, major);
-		setupMarshFauna();
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.SWAMP_LOWLAND, 1.0f);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		variantChance = 1.0f;
-		decorator.setSandPerChunk(0);
-		decorator.setQuagmirePerChunk(1);
-		decorator.setTreesPerChunk(0);
-		decorator.setLogsPerChunk(3);
-		decorator.setFlowersPerChunk(0);
-		decorator.setGrassPerChunk(8);
-		decorator.setDoubleGrassPerChunk(8);
-		decorator.setCanePerChunk(10);
-		decorator.setReedPerChunk(5);
-		decorator.clearSettlements();
-		decorator.clearStructures();
-		decorator.addTree(GOTTreeType.OAK_SWAMP, 100);
-		npcSpawnList.clear();
+		preseter.setupMarshesView();
+		preseter.setupMarshesFlora();
+		preseter.setupMarshesFauna();
+		preseter.setupNorthernTrees(false);
+
+		biomeWaypoints = GOTWaypoint.Region.MOSSOVY;
+		biomeAchievement = GOTAchievement.enterMossovyMarshes;
+		enableRiver = false;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
 	}
 
 	@Override
@@ -47,19 +40,14 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy implements GOTBiome.
 			i1 = i + random.nextInt(16) + 8;
 			k1 = k + random.nextInt(16) + 8;
 			j1 = random.nextInt(128);
-			new WorldGenFlowers(GOTBlocks.deadMarshPlant).generate(world, random, i1, j1, k1);
+			WORLD_GEN_FLOWERS.generate(world, random, i1, j1, k1);
 		}
 		for (l = 0; l < 4; ++l) {
 			i1 = i + random.nextInt(16) + 8;
 			k1 = k + random.nextInt(16) + 8;
 			for (j1 = 128; j1 > 0 && world.isAirBlock(i1, j1 - 1, k1); --j1) {
 			}
-			new GOTWorldGenMarshLights().generate(world, random, i1, j1, k1);
+			WORLD_GEN_MARSH_LIGHTS.generate(world, random, i1, j1, k1);
 		}
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterMossovyMarshes;
 	}
 }

@@ -2,6 +2,7 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 
@@ -13,16 +14,17 @@ public class GOTBiomeYiTiBorderZone extends GOTBiomeYiTi {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearSettlements();
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_CONQUEST, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_NHAI_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterYiTiBorderZone;
+		biomeAchievement = GOTAchievement.enterYiTiBorderZone;
+		enableRiver = false;
+		wallBlock = GOTBezierType.WALL_YI_TI;
+		roadBlock = GOTBezierType.PATH_PAVING;
 	}
 }

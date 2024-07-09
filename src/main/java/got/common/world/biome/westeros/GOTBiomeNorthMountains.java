@@ -4,23 +4,25 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.map.GOTWaypoint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class GOTBiomeNorthMountains extends GOTBiomeNorth implements GOTBiome.Mountains {
+public class GOTBiomeNorthMountains extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
+
 	public GOTBiomeNorthMountains(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		enableRocky = true;
-
 		preseter.setupMountainsView();
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
-		preseter.setupStandardNorthernTrees();
+		preseter.setupNorthernTrees(false);
+
+		biomeAchievement = GOTAchievement.enterNorthMountains;
+		biomeWaypoints = GOTWaypoint.Region.NORTH;
+		enableRocky = true;
 	}
 
 	@Override
@@ -56,10 +58,5 @@ public class GOTBiomeNorthMountains extends GOTBiomeNorth implements GOTBiome.Mo
 				}
 			}
 		}
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterNorthMountains;
 	}
 }

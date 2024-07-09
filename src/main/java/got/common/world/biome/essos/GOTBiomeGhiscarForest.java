@@ -1,15 +1,38 @@
 package got.common.world.biome.essos;
 
+import got.common.database.GOTAchievement;
+import got.common.database.GOTBlocks;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint;
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
 
-public class GOTBiomeGhiscarForest extends GOTBiomeGhiscar {
+import java.util.Random;
+
+public class GOTBiomeGhiscarForest extends GOTBiomeEssosBase {
 	public GOTBiomeGhiscarForest(int i, boolean major) {
 		super(i, major);
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.CLEARING, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.HILLS, 1.0f);
-		decorator.setTreesPerChunk(10);
-		npcSpawnList.clear();
-		invasionSpawns.clearInvasions();
+		preseter.setupForestView();
+		preseter.setupForestFlora();
+		preseter.setupForestFauna();
+		preseter.setupSouthernTrees(true);
+
+		setupRuinedStructures(true);
+
+		biomeWaypoints = GOTWaypoint.Region.GHISCAR;
+		biomeAchievement = GOTAchievement.enterGhiscar;
+		roadBlock = GOTBezierType.PATH_SANDY;
+	}
+
+	@Override
+	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
+		generator.generateDirtSandNoise(world, random, blocks, meta, i, k, stoneNoise, height, variant);
+	}
+
+	@Override
+	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
+		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
 	}
 }

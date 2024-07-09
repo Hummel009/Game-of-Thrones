@@ -3,14 +3,12 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTWorldGenDoubleFlower;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
@@ -21,14 +19,17 @@ public class GOTBiomeDorneForest extends GOTBiomeWesterosBase {
 
 	public GOTBiomeDorneForest(int i, boolean major) {
 		super(i, major);
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupStandardSouthernTrees(true);
+		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(true);
+
+		biomeWaypoints = GOTWaypoint.Region.DORNE;
+		biomeAchievement = GOTAchievement.enterDorne;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
+		roadBlock = GOTBezierType.PATH_SANDY;
 	}
 
 	@Override
@@ -63,31 +64,5 @@ public class GOTBiomeDorneForest extends GOTBiomeWesterosBase {
 		topBlockMeta = topBlockMeta_pre;
 		fillerBlock = fillerBlock_pre;
 		fillerBlockMeta = fillerBlockMeta_pre;
-	}
-
-	@Override
-	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
-		GOTWorldGenDoubleFlower doubleFlowerGen = new GOTWorldGenDoubleFlower();
-		if (random.nextInt(5) == 0) {
-			doubleFlowerGen.setFlowerType(3);
-		} else {
-			doubleFlowerGen.setFlowerType(2);
-		}
-		return doubleFlowerGen;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterDorne;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.DORNE;
 	}
 }

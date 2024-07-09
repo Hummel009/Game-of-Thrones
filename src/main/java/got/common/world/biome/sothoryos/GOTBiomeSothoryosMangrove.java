@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosBase implements GOTBiome.Marshes {
+
 	public GOTBiomeSothoryosMangrove(int i, boolean major) {
 		super(i, major);
 		topBlock = GOTBlocks.mudGrass;
@@ -33,10 +34,8 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosBase implements 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSothoryosMangrove;
+		biomeAchievement = GOTAchievement.enterSothoryosMangrove;
+		enableRiver = false;
 	}
 }

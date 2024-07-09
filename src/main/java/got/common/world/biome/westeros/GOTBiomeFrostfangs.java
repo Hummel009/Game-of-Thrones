@@ -15,17 +15,20 @@ import java.util.Random;
 public class GOTBiomeFrostfangs extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
 	public GOTBiomeFrostfangs(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-
 		topBlock = Blocks.snow;
 		fillerBlock = Blocks.packed_ice;
-
-		enableRocky = true;
 
 		preseter.setupFrostView();
 		preseter.setupFrostFlora();
 		preseter.setupFrostFauna();
-		preseter.setupFrostTrees(false);
+		preseter.setupPolarTrees(false);
+
+		biomeWaypoints = GOTWaypoint.Region.BEYOND_WALL;
+		biomeAchievement = GOTAchievement.enterFrostfangs;
+		enableRiver = false;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
+		roadBlock = GOTBezierType.PATH_SNOWY;
+		enableRocky = true;
 	}
 
 	@Override
@@ -58,30 +61,5 @@ public class GOTBiomeFrostfangs extends GOTBiomeWesterosBase implements GOTBiome
 				}
 			}
 		}
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SNOWY;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.1f;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterFrostfangs;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 }

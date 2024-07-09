@@ -4,7 +4,6 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -22,14 +21,12 @@ public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
 
 	public GOTBiomeThennLand(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-
 		fillerBlock = Blocks.snow;
 
 		preseter.setupTaigaView();
 		preseter.setupTaigaFlora();
 		preseter.setupTaigaFauna();
-		preseter.setupTaigaTrees(false);
+		preseter.setupPolarTrees(false);
 
 		decorator.setGrassPerChunk(10);
 		decorator.setDoubleGrassPerChunk(6);
@@ -44,6 +41,10 @@ public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+
+		biomeWaypoints = GOTWaypoint.Region.BEYOND_WALL;
+		biomeAchievement = GOTAchievement.enterThennLand;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override
@@ -65,25 +66,5 @@ public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
 		int k1 = k + random.nextInt(16) + 8;
 		j1 = world.getHeightValue(i1, k1);
 		WORLD_GEN_VOLCANO_CRATER.generate(world, random, i1, j1, k1);
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SNOWY;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterThennLand;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.BEYOND_WALL;
 	}
 }

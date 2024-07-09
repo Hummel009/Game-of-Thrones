@@ -3,7 +3,6 @@ package got.common.world.biome.sothoryos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
-import got.common.entity.other.GOTEntityLightSkinBandit;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -17,11 +16,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
+
 	public GOTBiomeQarthColony(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		banditEntityClass = GOTEntityLightSkinBandit.class;
-
 		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f).type(GOTStructureQarthSettlement.Type.FORT, 5));
 
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
@@ -36,15 +33,9 @@ public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterQarthColony;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.QARTH_COLONY;
+		biomeWaypoints = GOTWaypoint.Region.QARTH_COLONY;
+		biomeAchievement = GOTAchievement.enterQarthColony;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
 	}
 }

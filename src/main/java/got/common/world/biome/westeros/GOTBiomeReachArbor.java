@@ -4,6 +4,7 @@ import com.google.common.math.IntMath;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTBeziers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -13,12 +14,17 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeReachArbor extends GOTBiomeReach {
+
 	public GOTBiomeReachArbor(int i, boolean major) {
 		super(i, major);
-		preseter.setupPlainsFaunaDomesticOverride();
+		preseter.setupDomesticFaunaOverride();
 
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.VINEYARD, 8.0f);
+
+		biomeAchievement = GOTAchievement.enterReachArbor;
+		enableRiver = false;
+		roadBlock = GOTBezierType.PATH_PAVING;
 	}
 
 	@Override
@@ -81,15 +87,5 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 				break;
 			}
 		}
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterReachArbor;
 	}
 }

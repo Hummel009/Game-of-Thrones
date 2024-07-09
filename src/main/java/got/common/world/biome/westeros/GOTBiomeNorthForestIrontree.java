@@ -3,6 +3,7 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint;
+import got.common.world.spawning.GOTEventSpawner;
 
 public class GOTBiomeNorthForestIrontree extends GOTBiomeWesterosBase {
 	public GOTBiomeNorthForestIrontree(int i, boolean major) {
@@ -16,15 +17,10 @@ public class GOTBiomeNorthForestIrontree extends GOTBiomeWesterosBase {
 		decorator.addTree(GOTTreeType.REDWOOD_3, 5000);
 		decorator.addTree(GOTTreeType.REDWOOD_4, 5000);
 		decorator.addTree(GOTTreeType.REDWOOD_5, 2000);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterNorthForestIrontree;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.NORTH;
+		biomeWaypoints = GOTWaypoint.Region.NORTH;
+		biomeAchievement = GOTAchievement.enterNorthForestIrontree;
+		enableRiver = false;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 }

@@ -3,38 +3,36 @@ package got.common.world.biome.essos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
-import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisFortress;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisSettlement;
-import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GOTBiomeVolantis extends GOTBiomeEssos {
+public class GOTBiomeVolantis extends GOTBiomeEssosBase {
 	public GOTBiomeVolantis(int i, boolean major) {
 		super(i, major);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
-		biomeVariants.add(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		preseter.setupSouthernPlainsView(false);
+		preseter.setupSouthernPlainsFlora();
+		preseter.setupSouthernPlainsFauna(true);
+		preseter.setupSouthernTrees(true);
+
+		setupRuinedStructures(false);
+
 		decorator.addSettlement(new GOTStructureVolantisSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureVolantisFortress(false), 800);
+
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.LYS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.MYR, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.NORVOS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
+
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_MILITARY, 4).setSpawnChance(SPAWN));
@@ -54,17 +52,8 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		Collection<GOTSpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
-		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
-		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterVolantis;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.VOLANTIS;
+		biomeWaypoints = GOTWaypoint.Region.VOLANTIS;
+		biomeAchievement = GOTAchievement.enterVolantis;
 	}
 }

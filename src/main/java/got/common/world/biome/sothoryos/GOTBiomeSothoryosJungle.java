@@ -24,15 +24,8 @@ public class GOTBiomeSothoryosJungle extends GOTBiomeSothoryosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSothoryosJungle;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SOTHORYOS;
+		biomeAchievement = GOTAchievement.enterSothoryosJungle;
+		roadBlock = GOTBezierType.PATH_SOTHORYOS;
 	}
 }

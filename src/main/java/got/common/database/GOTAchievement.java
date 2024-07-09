@@ -138,7 +138,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterSummerColony;
 	public static GOTAchievement enterSummerIslands;
 	public static GOTAchievement enterThennLand;
-	public static GOTAchievement enterTropicalForest;
 	public static GOTAchievement enterTyrosh;
 	public static GOTAchievement enterUlthos;
 	public static GOTAchievement enterUlthosDesert;
@@ -152,7 +151,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterValyria;
 	public static GOTAchievement enterValyriaVolcano;
 	public static GOTAchievement enterVolantis;
-	public static GOTAchievement enterVolantisOrangeForest;
 	public static GOTAchievement enterWesterlands;
 	public static GOTAchievement enterWesterlandsTown;
 	public static GOTAchievement enterWesterosFrost;
@@ -853,7 +851,6 @@ public class GOTAchievement {
 		enterSummerColony = createBiomeAchievement(entId++, "ENTER_SUMMER_COLONY");
 		enterSummerIslands = createBiomeAchievement(entId++, "ENTER_SUMMER_ISLANDS");
 		enterThennLand = createBiomeAchievement(entId++, "ENTER_THENN_LAND");
-		enterTropicalForest = createBiomeAchievement(entId++, "ENTER_TROPICAL_FOREST");
 		enterTyrosh = createBiomeAchievement(entId++, "ENTER_TYROSH");
 		enterUlthos = createBiomeAchievement(entId++, "ENTER_ULTHOS");
 		enterUlthosDesert = createBiomeAchievement(entId++, "ENTER_ULTHOS_DESERT");
@@ -867,7 +864,6 @@ public class GOTAchievement {
 		enterValyria = createBiomeAchievement(entId++, "ENTER_VALYRIA");
 		enterValyriaVolcano = createBiomeAchievement(entId++, "ENTER_VALYRIA_VOLCANO");
 		enterVolantis = createBiomeAchievement(entId++, "ENTER_VOLANTIS");
-		enterVolantisOrangeForest = createBiomeAchievement(entId++, "ENTER_VOLANTIS_ORANGE_FOREST");
 		enterWesterlands = createBiomeAchievement(entId++, "ENTER_WESTERLANDS");
 		enterWesterlandsTown = createBiomeAchievement(entId++, "ENTER_WESTERLANDS_TOWN");
 		enterWesterosFrost = createBiomeAchievement(entId++, "ENTER_WESTEROS_FROST");

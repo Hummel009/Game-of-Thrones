@@ -39,7 +39,6 @@ public class GOTBiomeVariant {
 	public static final GOTBiomeVariant ORCHARD_PLUM = new GOTBiomeVariantOrchard(40, "orchard_plum").addTreeTypes(1.0f, GOTTreeType.PLUM, 100);
 
 	public static final GOTBiomeVariant ORCHARD_ALMOND = new GOTBiomeVariantOrchard(38, "orchard_almond").addTreeTypes(1.0f, GOTTreeType.ALMOND, 100);
-	public static final GOTBiomeVariant ORCHARD_DATE = new GOTBiomeVariantOrchard(45, "orchard_date").addTreeTypes(1.0f, GOTTreeType.DATE_PALM, 100);
 	public static final GOTBiomeVariant ORCHARD_LEMON = new GOTBiomeVariantOrchard(36, "orchard_lemon").addTreeTypes(1.0f, GOTTreeType.LEMON, 100);
 	public static final GOTBiomeVariant ORCHARD_LIME = new GOTBiomeVariantOrchard(37, "orchard_lime").addTreeTypes(1.0f, GOTTreeType.LIME, 100);
 	public static final GOTBiomeVariant ORCHARD_ORANGE = new GOTBiomeVariantOrchard(35, "orchard_orange").addTreeTypes(1.0f, GOTTreeType.ORANGE, 100);

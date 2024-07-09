@@ -1,25 +1,19 @@
 package got.common.world.biome.ulthos;
 
 import got.common.database.GOTAchievement;
+import got.common.world.map.GOTBezierType;
 
-public class GOTBiomeUlthosDesertCold extends GOTBiomeUlthosDesert {
+public class GOTBiomeUlthosDesertCold extends GOTBiomeUlthosBase {
 	public GOTBiomeUlthosDesertCold(int i, boolean major) {
 		super(i, major);
-		preseter.setupDesertColdViewOverride();
-		preseter.setupDesertColdFloraOverride();
-		preseter.setupDesertColdFaunaOverride();
-		preseter.setupDesertColdTreesOverride();
+		preseter.setupDesertColdView();
+		preseter.setupDesertColdFlora();
+		preseter.setupDesertColdFauna();
+		preseter.setupDesertColdTrees();
 
-		npcSpawnList.clear();
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterUlthosDesertCold;
-	}
-
-	@Override
-	protected boolean isColdDesert() {
-		return true;
+		biomeAchievement = GOTAchievement.enterUlthosDesertCold;
+		enableRiver = false;
+		chanceToSpawnAnimals = 0.1f;
+		roadBlock = GOTBezierType.PATH_SANDY;
 	}
 }

@@ -9,18 +9,11 @@ public class GOTBiomeRiverlandsForest extends GOTBiomeWesterosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupStandardMiderateTrees();
+		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterRiverlands;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.RIVERLANDS;
+		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
+		biomeAchievement = GOTAchievement.enterRiverlands;
 	}
 }

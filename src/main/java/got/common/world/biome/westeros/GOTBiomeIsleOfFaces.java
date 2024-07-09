@@ -13,8 +13,6 @@ import java.util.Random;
 public class GOTBiomeIsleOfFaces extends GOTBiomeWesterosBase {
 	public GOTBiomeIsleOfFaces(int i, boolean major) {
 		super(i, major);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
@@ -29,6 +27,11 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesterosBase {
 
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 80));
+
+		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
+		biomeAchievement = GOTAchievement.enterIsleOfFaces;
+		enableRiver = false;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override
@@ -39,20 +42,5 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesterosBase {
 			return doubleFlowerGen;
 		}
 		return super.getRandomWorldGenForDoubleFlower(random);
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterIsleOfFaces;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.RIVERLANDS;
 	}
 }

@@ -1,15 +1,11 @@
 package got.common.world.biome.other;
 
 import got.GOT;
-import got.client.sound.GOTMusicRegion;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTWorldGenSeaBlock;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -25,13 +21,13 @@ public class GOTBiomeOcean extends GOTBiome {
 
 	public GOTBiomeOcean(int i, boolean major) {
 		super(i, major);
-		setupStandardPlainsFauna();
 		spawnableWaterCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySquid.class, 4, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySeagull.class, 20, 4, 4));
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8), 4.0f, 0, 64);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, Blocks.sand), 0.5f, 56, 80);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, GOTBlocks.whiteSand), 0.5f, 56, 80);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+		biomeWaypoints = GOTWaypoint.Region.OCEAN;
+		enableRiver = false;
 	}
 
 	public static boolean isFrozen(int k) {
@@ -65,50 +61,5 @@ public class GOTBiomeOcean extends GOTBiome {
 				CORAL_GEN.generate(world, random, i1, j1, k1);
 			}
 		}
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return null;
-	}
-
-	@Override
-	public GOTMusicRegion.Sub getBiomeMusic() {
-		return GOTMusicRegion.OCEAN.getSubregion(biomeName);
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.OCEAN;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return null;
-	}
-
-	@Override
-	public int getWallTop() {
-		return 0;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
-	}
-
-	@Override
-	public int spawnCountMultiplier() {
-		return 3;
 	}
 }

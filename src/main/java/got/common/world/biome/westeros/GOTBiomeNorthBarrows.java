@@ -7,23 +7,16 @@ import got.common.world.structure.other.GOTStructureBarrow;
 public class GOTBiomeNorthBarrows extends GOTBiomeWesterosBase {
 	public GOTBiomeNorthBarrows(int i, boolean major) {
 		super(i, major);
-		preseter.setupColdPlainsView();
-		preseter.setupColdPlainsFlora();
-		preseter.setupColdPlainsFauna();
-		preseter.setupStandardNorthernTrees();
+		preseter.setupNorthernPlainsView();
+		preseter.setupNorthernPlainsFlora();
+		preseter.setupNorthernPlainsFauna();
+		preseter.setupNorthernTrees(false);
 
 		setupRuinedStructures(false);
 
 		decorator.addStructure(new GOTStructureBarrow(false), 20);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterNorthBarrows;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.NORTH;
+		biomeWaypoints = GOTWaypoint.Region.NORTH;
+		biomeAchievement = GOTAchievement.enterNorthBarrows;
 	}
 }

@@ -48,7 +48,7 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
-		return super.canBlockStay(world, i, j, k) || GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
+		return super.canBlockStay(world, i, j, k) || GOTBiomeShadowLand.isBasaltSurface(world, i, j - 1, k);
 	}
 
 	@Override

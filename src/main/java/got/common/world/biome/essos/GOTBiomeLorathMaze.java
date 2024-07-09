@@ -3,6 +3,8 @@ package got.common.world.biome.essos;
 import got.GOT;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTWaypoint;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -10,7 +12,7 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 import java.util.Random;
 
-public class GOTBiomeLorathMaze extends GOTBiomeLorath {
+public class GOTBiomeLorathMaze extends GOTBiomeEssosBase {
 	private static final NoiseGeneratorPerlin NOISE_PATHS_1 = new NoiseGeneratorPerlin(new Random(22L), 1);
 	private static final NoiseGeneratorPerlin NOISE_PATHS_2 = new NoiseGeneratorPerlin(new Random(11L), 1);
 
@@ -18,18 +20,14 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 		super(i, major);
 		topBlock = Blocks.stone;
 		fillerBlock = Blocks.stone;
-		biomeVariants.clear();
-		decorator.setTreesPerChunk(0);
-		decorator.clearSettlements();
-		invasionSpawns.clearInvasions();
-		npcSpawnList.clear();
-		spawnableCreatureList.clear();
-		spawnableGOTAmbientList.clear();
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterLorathMaze;
+		preseter.setupForestFlora();
+		preseter.setupMiderateTrees();
+
+		biomeWaypoints = GOTWaypoint.Region.LORATH;
+		biomeAchievement = GOTAchievement.enterLorathMaze;
+		enableRiver = false;
+		banditChance = GOTEventSpawner.EventChance.COMMON;
 	}
 
 	@Override

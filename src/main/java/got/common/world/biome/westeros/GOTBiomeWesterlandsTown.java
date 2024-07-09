@@ -2,7 +2,6 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
-import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 
@@ -10,9 +9,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
+
 	public GOTBiomeWesterlandsTown(int i, boolean major) {
 		super(i, major);
-		preseter.setupPlainsFaunaDomesticOverride();
+		preseter.setupDomesticFaunaOverride();
 
 		npcSpawnList.clear();
 
@@ -35,25 +35,8 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 		Collection<GOTSpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
-	}
 
-	@Override
-	public int spawnCountMultiplier() {
-		return 2;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterWesterlandsTown;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_PAVING;
+		biomeAchievement = GOTAchievement.enterWesterlandsTown;
+		enableRiver = false;
 	}
 }

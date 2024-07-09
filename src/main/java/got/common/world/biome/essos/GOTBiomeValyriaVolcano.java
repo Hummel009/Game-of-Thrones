@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
+import got.common.world.map.GOTBezierType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -11,10 +12,15 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import java.util.Random;
 
 public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
+	private static final GOTWorldGenVolcanoCrater VOLCANO_CRATER = new GOTWorldGenVolcanoCrater();
+
 	public GOTBiomeValyriaVolcano(int i, boolean major) {
 		super(i, major);
 		decorator.setTreesPerChunk(0);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreValyrian, 3), 2.0f, 0, 16);
+		biomeAchievement = GOTAchievement.enterValyriaVolcano;
+		enableRiver = false;
+		roadBlock = GOTBezierType.PATH_COBBLE;
 	}
 
 	@Override
@@ -34,16 +40,6 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		int i1 = i + random.nextInt(16) + 8;
 		int k1 = k + random.nextInt(16) + 8;
 		j1 = world.getHeightValue(i1, k1);
-		new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterValyriaVolcano;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
+		VOLCANO_CRATER.generate(world, random, i1, j1, k1);
 	}
 }

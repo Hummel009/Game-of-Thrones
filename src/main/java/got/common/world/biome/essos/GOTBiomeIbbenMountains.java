@@ -4,32 +4,24 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTWaypoint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class GOTBiomeIbbenMountains extends GOTBiomeIbben implements GOTBiome.Mountains {
+public class GOTBiomeIbbenMountains extends GOTBiomeEssosBase implements GOTBiome.Mountains {
 	public GOTBiomeIbbenMountains(int i, boolean major) {
 		super(i, major);
-		setupStandardForestFauna();
-		biomeVariants.clear();
-		biomeVariants.add(GOTBiomeVariant.FOREST, 1.0f);
-		biomeVariants.add(GOTBiomeVariant.FOREST_LIGHT, 1.0f);
+		preseter.setupMountainsView();
+		preseter.setupMountainsFlora();
+		preseter.setupMountainsFauna();
+		preseter.setupNorthernTrees(true);
+
+		biomeWaypoints = GOTWaypoint.Region.IBBEN;
+		biomeAchievement = GOTAchievement.enterIbbenMountains;
 		enableRocky = true;
-		decorator.setBiomeOreFactor(2.0f);
-		decorator.setBiomeGemFactor(2.0f);
-		decorator.setDoubleFlowersPerChunk(0);
-		decorator.setDoubleGrassPerChunk(1);
-		decorator.setFlowersPerChunk(1);
-		decorator.setGrassPerChunk(4);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
-		decorator.clearSettlements();
-		npcSpawnList.clear();
-		invasionSpawns.clearInvasions();
 	}
 
 	@Override
@@ -68,10 +60,5 @@ public class GOTBiomeIbbenMountains extends GOTBiomeIbben implements GOTBiome.Mo
 			blocks[index] = GOTBlocks.rock;
 			meta[index] = 2;
 		}
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterIbbenMountains;
 	}
 }

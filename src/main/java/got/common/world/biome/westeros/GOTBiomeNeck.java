@@ -6,12 +6,14 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeNeck extends GOTBiomeWesterosBase implements GOTBiome.Marshes {
+
 	public GOTBiomeNeck(int i, boolean major) {
 		super(i, major);
 		preseter.setupMarshesView();
@@ -24,20 +26,10 @@ public class GOTBiomeNeck extends GOTBiomeWesterosBase implements GOTBiome.Marsh
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-	}
 
-	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterNeck;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.RIVERLANDS;
+		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
+		biomeAchievement = GOTAchievement.enterNeck;
+		enableRiver = false;
+		banditChance = GOTEventSpawner.EventChance.NEVER;
 	}
 }

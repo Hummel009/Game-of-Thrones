@@ -9,18 +9,11 @@ public class GOTBiomeArrynForest extends GOTBiomeWesterosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupStandardMiderateTrees();
+		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
-	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterArryn;
-	}
-
-	@Override
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return GOTWaypoint.Region.ARRYN;
+		biomeWaypoints = GOTWaypoint.Region.ARRYN;
+		biomeAchievement = GOTAchievement.enterArryn;
 	}
 }
