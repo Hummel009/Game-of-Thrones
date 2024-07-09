@@ -41,7 +41,7 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosBase {
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(CONQUEST_SPAWN));
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(2).add(c2);
 
 		biomeWaypoints = GOTWaypoint.Region.SUMMER;

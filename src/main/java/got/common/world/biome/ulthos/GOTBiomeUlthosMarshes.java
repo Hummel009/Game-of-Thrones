@@ -23,7 +23,7 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosBase implements GOTBiom
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 250);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 
 		biomeAchievement = GOTAchievement.enterUlthosMarshes;

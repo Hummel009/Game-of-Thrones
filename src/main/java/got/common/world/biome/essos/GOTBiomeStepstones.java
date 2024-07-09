@@ -28,13 +28,13 @@ public class GOTBiomeStepstones extends GOTBiomeEssosBase {
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(5).add(c0);
+		npcSpawnList.newFactionList(4).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(5).add(c1);
+		npcSpawnList.newFactionList(4).add(c1);
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(CONQUEST_SPAWN));
-		npcSpawnList.newFactionList(10).add(c2);
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
+		npcSpawnList.newFactionList(2).add(c2);
 
 		biomeWaypoints = GOTWaypoint.Region.SOUTHERN_FREE_CITIES;
 		biomeAchievement = GOTAchievement.enterStepstones;

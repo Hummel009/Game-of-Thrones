@@ -52,7 +52,7 @@ public class GOTBiomeDorne extends GOTBiomeWesterosBase {
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
 		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
-		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN / 5));
+		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(2).add(c3);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 
