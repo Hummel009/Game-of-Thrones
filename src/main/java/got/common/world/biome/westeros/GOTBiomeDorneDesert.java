@@ -22,6 +22,9 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeDorneDesert extends GOTBiomeWesterosBase implements GOTBiome.Desert {
+	private static final WorldGenCactus WORLD_GEN_CACTUS = new WorldGenCactus();
+	private static final WorldGenDeadBush WORLD_GEN_DEAD_BUSH = new WorldGenDeadBush(Blocks.deadbush);
+
 	public GOTBiomeDorneDesert(int i, boolean major) {
 		super(i, major);
 		topBlock = Blocks.sand;
@@ -56,13 +59,13 @@ public class GOTBiomeDorneDesert extends GOTBiomeWesterosBase implements GOTBiom
 			i12 = i + random.nextInt(16) + 8;
 			k12 = k + random.nextInt(16) + 8;
 			j1 = world.getHeightValue(i12, k12);
-			new WorldGenCactus().generate(world, random, i12, j1, k12);
+			WORLD_GEN_CACTUS.generate(world, random, i12, j1, k12);
 		}
 		if (random.nextInt(20) == 0) {
 			i12 = i + random.nextInt(16) + 8;
 			k12 = k + random.nextInt(16) + 8;
 			j1 = world.getHeightValue(i12, k12);
-			new WorldGenDeadBush(Blocks.deadbush).generate(world, random, i12, j1, k12);
+			WORLD_GEN_DEAD_BUSH.generate(world, random, i12, j1, k12);
 		}
 		if (random.nextInt(500) == 0) {
 			int trees = 1 + random.nextInt(4);

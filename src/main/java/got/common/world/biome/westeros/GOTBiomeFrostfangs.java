@@ -40,26 +40,23 @@ public class GOTBiomeFrostfangs extends GOTBiomeWesterosBase implements GOTBiome
 				meta[index] = 0;
 			}
 			block = blocks[index];
-			if (block != Blocks.snow) {
-				continue;
-			}
-			if (random.nextInt(6) == 0) {
-				int h = 1 + random.nextInt(6);
-				for (int j1 = j; j1 > j - h && j1 > 0; --j1) {
-					int indexH = xzIndex * ySize + j1;
-					if (blocks[indexH] != Blocks.snow) {
-						continue;
+			if (block == Blocks.stone) {
+				if (random.nextInt(6) == 0) {
+					int h = 1 + random.nextInt(6);
+					for (int j1 = j; j1 > j - h && j1 > 0; --j1) {
+						int indexH = xzIndex * ySize + j1;
+						if (blocks[indexH] == Blocks.stone) {
+							blocks[indexH] = Blocks.packed_ice;
+							meta[indexH] = 0;
+						}
 					}
-					blocks[indexH] = Blocks.packed_ice;
-					meta[indexH] = 0;
+				} else {
+					if (random.nextInt(16) == 0) {
+						blocks[index] = Blocks.packed_ice;
+						meta[index] = 0;
+					}
 				}
-				continue;
 			}
-			if (random.nextInt(16) != 0) {
-				continue;
-			}
-			blocks[index] = Blocks.packed_ice;
-			meta[index] = 0;
 		}
 	}
 

@@ -18,6 +18,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
+	private static final GOTWorldGenVolcanoCrater WORLD_GEN_VOLCANO_CRATER = new GOTWorldGenVolcanoCrater();
+
 	public GOTBiomeThennLand(int i, boolean major) {
 		super(i, major);
 		banditChance = GOTEventSpawner.EventChance.NEVER;
@@ -27,7 +29,11 @@ public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
 		preseter.setupTaigaView();
 		preseter.setupTaigaFlora();
 		preseter.setupTaigaFauna();
-		preseter.setupTaigaTrees(true);
+		preseter.setupTaigaTrees(false);
+
+		decorator.setGrassPerChunk(10);
+		decorator.setDoubleGrassPerChunk(6);
+		decorator.setTreesPerChunk(0);
 
 		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f).type(GOTStructureWildlingSettlement.Type.THENN, 6));
 
@@ -58,7 +64,7 @@ public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
 		int i1 = i + random.nextInt(16) + 8;
 		int k1 = k + random.nextInt(16) + 8;
 		j1 = world.getHeightValue(i1, k1);
-		new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
+		WORLD_GEN_VOLCANO_CRATER.generate(world, random, i1, j1, k1);
 	}
 
 	@Override

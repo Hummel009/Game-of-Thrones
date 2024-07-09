@@ -22,6 +22,8 @@ public class GOTBiomeGiftOld extends GOTBiomeWesterosBase {
 
 		decorator.setDoubleFlowersPerChunk(0);
 
+		spawnableGOTAmbientList.clear();
+
 		setupRuinedStructures(false);
 
 		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);

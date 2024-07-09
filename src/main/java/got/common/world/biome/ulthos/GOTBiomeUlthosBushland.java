@@ -18,6 +18,7 @@ import java.util.Random;
 
 public class GOTBiomeUlthosBushland extends GOTBiomeUlthosBase {
 	private static final WorldGenerator BOULDER_GEN = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 3);
+	private static final GOTWorldGenBoulder TERMITE_GEN = new GOTWorldGenBoulder(GOTBlocks.termiteMound, 0, 1, 4);
 
 	public GOTBiomeUlthosBushland(int i, boolean major) {
 		super(i, major);
@@ -52,7 +53,7 @@ public class GOTBiomeUlthosBushland extends GOTBiomeUlthosBase {
 				int i1 = i + random.nextInt(16) + 8;
 				int k1 = k + random.nextInt(16) + 8;
 				int j1 = world.getHeightValue(i1, k1);
-				new GOTWorldGenBoulder(GOTBlocks.termiteMound, 0, 1, 4).generate(world, random, i1, j1, k1);
+				TERMITE_GEN.generate(world, random, i1, j1, k1);
 				for (int x = 0; x < 5; ++x) {
 					int k2 = k1 - random.nextInt(5) + random.nextInt(5);
 					int i2 = i1 - random.nextInt(5) + random.nextInt(5);

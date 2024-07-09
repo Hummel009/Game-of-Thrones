@@ -52,18 +52,18 @@ public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosBase {
 			k2 = k + random.nextInt(16) + 8;
 			if (random.nextInt(5) == 0) {
 				ICE_BOULDER_GEN_SMALL.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
-				continue;
+			} else {
+				SNOW_BOULDER_GEN_SMALL.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 			}
-			SNOW_BOULDER_GEN_SMALL.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 		}
 		for (l = 0; l < 20; ++l) {
 			i2 = i + random.nextInt(16) + 8;
 			k2 = k + random.nextInt(16) + 8;
 			if (random.nextInt(5) == 0) {
 				ICE_BOULDER_GEN_LARGE.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
-				continue;
+			} else {
+				SNOW_BOULDER_GEN_LARGE.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 			}
-			SNOW_BOULDER_GEN_LARGE.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 		}
 		for (l = 0; l < 10; ++l) {
 			Block block = Blocks.snow;

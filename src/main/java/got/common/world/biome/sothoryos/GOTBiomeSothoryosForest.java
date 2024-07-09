@@ -20,10 +20,12 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBase {
 
 	public GOTBiomeSothoryosForest(int i, boolean major) {
 		super(i, major);
-		preseter.setupForestView();
-		preseter.setupForestFlora();
-		preseter.setupForestFauna();
-		preseter.setupStandardSouthernTrees(true);
+		preseter.setupSavannahView();
+		preseter.setupSavannahFlora();
+		preseter.setupSavannahFauna();
+		preseter.setupSavannahTrees();
+
+		decorator.setTreesPerChunk(8);
 	}
 
 	@Override
@@ -36,11 +38,10 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBase {
 			int i1 = i + random.nextInt(16) + 8;
 			int j1 = random.nextInt(128);
 			int k1 = k + random.nextInt(16) + 8;
-			if (world.getHeightValue(i1, k1) <= 75) {
-				continue;
+			if (world.getHeightValue(i1, k1) > 75) {
+				WorldGenerator grassGen = getRandomWorldGenForGrass(random);
+				grassGen.generate(world, random, i1, j1, k1);
 			}
-			WorldGenerator grassGen = getRandomWorldGenForGrass(random);
-			grassGen.generate(world, random, i1, j1, k1);
 		}
 		int doubleGrasses = 4;
 		doubleGrasses = Math.round(doubleGrasses * variant.getGrassFactor());
@@ -48,11 +49,10 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBase {
 			int i1 = i + random.nextInt(16) + 8;
 			int j1 = random.nextInt(128);
 			int k1 = k + random.nextInt(16) + 8;
-			if (world.getHeightValue(i1, k1) <= 75) {
-				continue;
+			if (world.getHeightValue(i1, k1) > 75) {
+				WorldGenerator grassGen = getRandomWorldGenForDoubleGrass();
+				grassGen.generate(world, random, i1, j1, k1);
 			}
-			WorldGenerator grassGen = getRandomWorldGenForDoubleGrass();
-			grassGen.generate(world, random, i1, j1, k1);
 		}
 	}
 

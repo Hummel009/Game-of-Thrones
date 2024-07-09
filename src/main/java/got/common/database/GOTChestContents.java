@@ -186,7 +186,6 @@ public class GOTChestContents {
 		common.add(new WeightedRandomChestContent(new ItemStack(Items.fish, 1, 0), 1, 3, 100));
 		common.add(new WeightedRandomChestContent(new ItemStack(Items.fish, 1, 1), 1, 3, 100));
 		common.add(new WeightedRandomChestContent(new ItemStack(Items.fish, 1, 2), 1, 3, 100));
-		common.add(new WeightedRandomChestContent(new ItemStack(Items.fish, 1, 3), 1, 3, 100));
 		common.add(new WeightedRandomChestContent(new ItemStack(GOTItems.cornBread), 1, 3, 100));
 		common.add(new WeightedRandomChestContent(new ItemStack(Items.bread), 1, 3, 100));
 

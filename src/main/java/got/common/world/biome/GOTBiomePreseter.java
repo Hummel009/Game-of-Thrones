@@ -299,6 +299,10 @@ public class GOTBiomePreseter {
 		setupStandardExoticFauna();
 	}
 
+	public void setupBushlandTrees() {
+		setupSavannahTrees();
+	}
+
 	public void setupPlainsView() {
 		biome.getBiomeVariants().clear();
 		biome.getBiomeVariants().add(GOTBiomeVariant.FOREST, 1.0f);
@@ -452,8 +456,8 @@ public class GOTBiomePreseter {
 		biome.getDecorator().addTree(GOTTreeType.BIRCH, 200);
 		biome.getDecorator().addTree(GOTTreeType.BIRCH_LARGE, 100);
 		biome.getDecorator().addTree(GOTTreeType.BIRCH_TALL, 20);
-		biome.getDecorator().addTree(GOTTreeType.HOLLY, 200);
-		biome.getDecorator().addTree(GOTTreeType.HOLLY_LARGE, 100);
+		biome.getDecorator().addTree(GOTTreeType.BEECH, 200);
+		biome.getDecorator().addTree(GOTTreeType.BEECH_LARGE, 100);
 		biome.getDecorator().addTree(GOTTreeType.MAPLE, 150);
 		biome.getDecorator().addTree(GOTTreeType.MAPLE_LARGE, 75);
 		biome.getDecorator().addTree(GOTTreeType.ARAMANT, 100);
@@ -474,14 +478,11 @@ public class GOTBiomePreseter {
 		biome.getDecorator().addTree(GOTTreeType.CYPRESS, 250);
 		biome.getDecorator().addTree(GOTTreeType.CYPRESS_LARGE, 125);
 		if (exotic) {
-			biome.getDecorator().addTree(GOTTreeType.BIRCH, 200);
-			biome.getDecorator().addTree(GOTTreeType.BIRCH_LARGE, 100);
-			biome.getDecorator().addTree(GOTTreeType.BIRCH_TALL, 20);
-			biome.getDecorator().addTree(GOTTreeType.BEECH, 200);
-			biome.getDecorator().addTree(GOTTreeType.BEECH_LARGE, 100);
-		} else {
 			biome.getDecorator().addTree(GOTTreeType.DATE_PALM, 100);
 			biome.getDecorator().addTree(GOTTreeType.PALM, 50);
+		} else {
+			biome.getDecorator().addTree(GOTTreeType.HOLLY, 200);
+			biome.getDecorator().addTree(GOTTreeType.HOLLY_LARGE, 100);
 		}
 		biome.getDecorator().addTree(GOTTreeType.OLIVE, 100);
 		biome.getDecorator().addTree(GOTTreeType.OLIVE_LARGE, 50);

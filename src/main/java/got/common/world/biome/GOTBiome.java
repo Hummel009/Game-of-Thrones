@@ -352,7 +352,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		dorne = new GOTBiomeDorne(39, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaa753).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorne");
 		dorneDesert = new GOTBiomeDorneDesert(40, true).setClimateType(GOTClimateType.SUMMER).setColor(14074229).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorneDesert");
 		dorneForest = new GOTBiomeDorneForest(41, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6B7239).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorneForest");
-		dorneMesa = new GOTBiomeDorneMesa(42, true).setClimateType(GOTClimateType.SUMMER).setColor(0xDDD5AF).setMinMaxHeight(1.5f, 0.0f).setBiomeName("dorneMesa");
+		dorneMesa = new GOTBiomeDorneMesa(42, true).setClimateType(GOTClimateType.SUMMER).setColor(0xDDD5AF).setMinMaxHeight(1.5f, 0.05f).setBiomeName("dorneMesa");
 		dorneMountains = new GOTBiomeDorneMountains(43, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xD7E0AF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("dorneMountains");
 		dothrakiSea = new GOTBiomeDothrakiSea(44, true).setClimateType(GOTClimateType.SUMMER).setColor(10398278).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dothrakiSea");
 		dothrakiSeaForest = new GOTBiomeDothrakiSeaForest(45, true).setClimateType(GOTClimateType.SUMMER).setColor(0x637531).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dothrakiSeaForest");

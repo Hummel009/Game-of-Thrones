@@ -41,26 +41,23 @@ public class GOTBiomeDorneMountains extends GOTBiomeWesterosBase implements GOTB
 				meta[index] = 0;
 			}
 			block = blocks[index];
-			if (block != Blocks.stone) {
-				continue;
-			}
-			if (random.nextInt(6) == 0) {
-				int h = 1 + random.nextInt(6);
-				for (int j1 = j; j1 > j - h && j1 > 0; --j1) {
-					int indexH = xzIndex * ySize + j1;
-					if (blocks[indexH] != Blocks.stone) {
-						continue;
+			if (block == Blocks.stone) {
+				if (random.nextInt(6) == 0) {
+					int h = 1 + random.nextInt(6);
+					for (int j1 = j; j1 > j - h && j1 > 0; --j1) {
+						int indexH = xzIndex * ySize + j1;
+						if (blocks[indexH] == Blocks.stone) {
+							blocks[indexH] = GOTBlocks.rock;
+							meta[indexH] = 4;
+						}
 					}
-					blocks[indexH] = GOTBlocks.rock;
-					meta[indexH] = 4;
+				} else {
+					if (random.nextInt(16) == 0) {
+						blocks[index] = GOTBlocks.rock;
+						meta[index] = 4;
+					}
 				}
-				continue;
 			}
-			if (random.nextInt(16) != 0) {
-				continue;
-			}
-			blocks[index] = GOTBlocks.rock;
-			meta[index] = 4;
 		}
 	}
 

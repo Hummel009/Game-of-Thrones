@@ -26,7 +26,7 @@ public class GOTBiomeDorneForest extends GOTBiomeWesterosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupStandardSouthernTrees(false);
+		preseter.setupStandardSouthernTrees(true);
 
 		setupRuinedStructures(true);
 	}
