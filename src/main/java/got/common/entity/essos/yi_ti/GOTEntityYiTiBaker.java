@@ -12,11 +12,7 @@ public class GOTEntityYiTiBaker extends GOTEntityYiTiMan implements GOTTradeable
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiBaker(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

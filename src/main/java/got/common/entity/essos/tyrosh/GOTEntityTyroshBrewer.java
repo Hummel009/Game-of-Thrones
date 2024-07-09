@@ -12,11 +12,7 @@ public class GOTEntityTyroshBrewer extends GOTEntityTyroshMan implements GOTTrad
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTyroshBrewer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

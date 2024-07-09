@@ -761,7 +761,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		generator.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
 	}
 
-	public WorldGenerator getRandomWorldGenForDoubleGrass() {
+	public static WorldGenerator getRandomWorldGenForDoubleGrass() {
 		WorldGenDoublePlant generator = new WorldGenDoublePlant();
 		generator.func_150548_a(2);
 		return generator;

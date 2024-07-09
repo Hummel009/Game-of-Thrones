@@ -15,16 +15,8 @@ public class GOTEntityForleyPrester extends GOTEntityHumanBase implements GOTUni
 	public GOTEntityForleyPrester(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WESTERLANDS;
+		faction = GOTFaction.WESTERLANDS;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

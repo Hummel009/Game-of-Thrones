@@ -16,11 +16,7 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		shield = GOTShields.IRONBORN;
 		cape = GOTCapes.IRONBORN;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

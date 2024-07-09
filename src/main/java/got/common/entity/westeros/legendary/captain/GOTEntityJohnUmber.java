@@ -16,21 +16,9 @@ public class GOTEntityJohnUmber extends GOTEntityHumanBase implements GOTUnitTra
 	public GOTEntityJohnUmber(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killJohnUmber;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
+		faction = GOTFaction.NORTH;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killJohnUmber;
 	}
 
 	@Override

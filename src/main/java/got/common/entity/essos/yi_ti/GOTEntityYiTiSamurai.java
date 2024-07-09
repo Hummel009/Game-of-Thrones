@@ -16,11 +16,7 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiMan {
 		addTargetTasks(true);
 		shield = GOTShields.YI_TI_SAMURAI;
 		cape = GOTCapes.YI_TI_SAMURAI;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
+		alignmentBonus = 3.0f;
 	}
 
 	@Override

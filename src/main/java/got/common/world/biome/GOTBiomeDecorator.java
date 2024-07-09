@@ -304,7 +304,7 @@ public class GOTBiomeDecorator {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			int j9 = rand.nextInt(128);
 			int k12 = chunkZ + rand.nextInt(16) + 8;
-			WorldGenerator grassGen = biome.getRandomWorldGenForDoubleGrass();
+			WorldGenerator grassGen = GOTBiome.getRandomWorldGenForDoubleGrass();
 			grassGen.generate(worldObj, rand, i2, j9, k12);
 		}
 		for (l7 = 0; l7 < deadBushPerChunk; ++l7) {

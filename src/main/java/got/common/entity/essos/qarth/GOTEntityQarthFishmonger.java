@@ -12,11 +12,7 @@ public class GOTEntityQarthFishmonger extends GOTEntityQarthMan implements GOTTr
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthFishmonger(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

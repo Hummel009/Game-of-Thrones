@@ -12,11 +12,7 @@ public class GOTEntityDragonstoneBartender extends GOTEntityDragonstoneMan imple
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneBartender(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

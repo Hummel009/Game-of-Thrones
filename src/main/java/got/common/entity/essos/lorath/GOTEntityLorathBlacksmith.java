@@ -12,11 +12,7 @@ public class GOTEntityLorathBlacksmith extends GOTEntityLorathMan implements GOT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathBlacksmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -26,6 +26,9 @@ public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneTo
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		spawnsInDarkness = true;
+		faction = GOTFaction.HOSTILE;
+		alignmentBonus = 2.0f;
+		killAchievement = GOTAchievement.killWerewolf;
 	}
 
 	@Override
@@ -46,28 +49,13 @@ public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneTo
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public String getDeathSound() {
 		return "got:direwolf.death";
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HOSTILE;
-	}
-
-	@Override
 	public String getHurtSound() {
 		return "got:direwolf.hurt";
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killWerewolf;
 	}
 
 	@Override

@@ -15,26 +15,10 @@ public class GOTEntityHowlandReed extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.HOWLAND;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killHowlandReed;
+		faction = GOTFaction.NORTH;
+		miniQuestFactory = GOTMiniQuestFactory.HOWLAND;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killHowlandReed;
 	}
 
 	@Override

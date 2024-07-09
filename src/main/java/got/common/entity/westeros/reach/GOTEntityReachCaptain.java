@@ -15,11 +15,7 @@ public class GOTEntityReachCaptain extends GOTEntityReachMan implements GOTUnitT
 	public GOTEntityReachCaptain(World world) {
 		super(world);
 		cape = GOTCapes.REACH;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

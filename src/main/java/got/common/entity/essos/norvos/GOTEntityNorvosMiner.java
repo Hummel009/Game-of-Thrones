@@ -12,11 +12,7 @@ public class GOTEntityNorvosMiner extends GOTEntityNorvosMan implements GOTTrade
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorvosMiner(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

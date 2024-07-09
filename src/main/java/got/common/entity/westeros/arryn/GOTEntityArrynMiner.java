@@ -11,11 +11,7 @@ public class GOTEntityArrynMiner extends GOTEntityArrynMan implements GOTTradeab
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynMiner(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

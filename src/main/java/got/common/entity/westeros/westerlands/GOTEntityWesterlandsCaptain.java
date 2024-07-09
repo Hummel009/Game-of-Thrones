@@ -15,11 +15,7 @@ public class GOTEntityWesterlandsCaptain extends GOTEntityWesterlandsMan impleme
 	public GOTEntityWesterlandsCaptain(World world) {
 		super(world);
 		cape = GOTCapes.WESTERLANDS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

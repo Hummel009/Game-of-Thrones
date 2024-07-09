@@ -13,16 +13,12 @@ public class GOTEntityHarroldHardyng extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.ARRYN;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.honor, 1);
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.ARRYN;
 	}
 
 	@Override

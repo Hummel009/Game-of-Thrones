@@ -12,11 +12,7 @@ public class GOTEntityDragonstoneMason extends GOTEntityDragonstoneMan implement
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneMason(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -128,7 +128,7 @@ public class GOTModelBiped extends ModelBiped {
 			bipedRightArm.rotateAngleX += MathHelper.sin(f2 * 0.067f) * 0.05f;
 			bipedLeftArm.rotateAngleX -= MathHelper.sin(f2 * 0.067f) * 0.05f;
 		}
-		if (entity instanceof GOTEntityNPC && (npc = (GOTEntityNPC) entity).isDrunkard()) {
+		if (entity instanceof GOTEntityNPC && (npc = (GOTEntityNPC) entity).getFamilyInfo().isDrunk()) {
 			float f62 = f2 / 80.0f;
 			float f72 = (f2 + 40.0f) / 80.0f;
 			float f8 = MathHelper.sin(f62 * 6.2831855f) * 0.5f;

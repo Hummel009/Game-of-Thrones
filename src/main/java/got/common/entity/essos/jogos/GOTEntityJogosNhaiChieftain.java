@@ -14,11 +14,7 @@ public class GOTEntityJogosNhaiChieftain extends GOTEntityJogosNhaiMan implement
 		super(world);
 		addTargetTasks(false);
 		spawnRidingHorse = false;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

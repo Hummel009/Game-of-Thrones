@@ -17,6 +17,8 @@ public class GOTEntityJonosBracken extends GOTEntityHumanBase implements GOTUnit
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
+		faction = GOTFaction.RIVERLANDS;
+		alignmentBonus = 100.0f;
 	}
 
 	private void addTargetTasks() {
@@ -27,16 +29,6 @@ public class GOTEntityJonosBracken extends GOTEntityHumanBase implements GOTUnit
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.indomitable, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.RIVERLANDS;
 	}
 
 	@Override

@@ -11,11 +11,7 @@ public class GOTEntityGiftBlacksmith extends GOTEntityGiftMan implements GOTSmit
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGiftBlacksmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

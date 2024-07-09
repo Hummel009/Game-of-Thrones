@@ -11,11 +11,7 @@ public class GOTEntityNorthGoldsmith extends GOTEntityNorthMan implements GOTTra
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthGoldsmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

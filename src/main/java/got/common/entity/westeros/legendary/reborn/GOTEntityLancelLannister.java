@@ -17,16 +17,8 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	public GOTEntityLancelLannister(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
+		alignmentBonus = 100.0f;
+		faction = GOTFaction.CROWNLANDS;
 	}
 
 	@Override
@@ -67,11 +59,7 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public LancelLannisterReligious(World world) {
 			super(world);
-		}
-
-		@Override
-		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.killLancelLannister;
+			killAchievement = GOTAchievement.killLancelLannister;
 		}
 
 		@Override

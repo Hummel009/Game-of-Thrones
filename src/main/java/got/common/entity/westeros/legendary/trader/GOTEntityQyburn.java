@@ -15,26 +15,14 @@ public class GOTEntityQyburn extends GOTEntityHumanBase implements GOTTradeable 
 	public GOTEntityQyburn(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killQyburn;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
+		faction = GOTFaction.WESTERLANDS;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killQyburn;
 	}
 
 	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.MAESTER_SELLS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WESTERLANDS;
 	}
 
 	@Override

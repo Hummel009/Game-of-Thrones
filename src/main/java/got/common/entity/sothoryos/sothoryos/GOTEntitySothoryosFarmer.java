@@ -12,11 +12,7 @@ public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements G
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosFarmer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -25,6 +25,7 @@ public class GOTBiomeInvasionSpawns {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void clearInvasions() {
 		invasionsByChance.clear();
 		registeredInvasions.clear();

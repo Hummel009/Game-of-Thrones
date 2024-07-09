@@ -15,11 +15,7 @@ public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiMan implements GOTUni
 	public GOTEntityAsshaiCaptain(World world) {
 		super(world);
 		cape = GOTCapes.ASSHAI;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

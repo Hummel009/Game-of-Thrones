@@ -7,6 +7,7 @@ import got.GOT;
 import got.common.database.GOTGuiId;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTSmith;
+import got.common.entity.other.iface.GOTTradeCondition;
 import got.common.entity.other.iface.GOTTradeable;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -46,7 +47,7 @@ public class GOTPacketTraderInteract implements IMessage {
 			World world = entityplayer.worldObj;
 			Entity trader = world.getEntityByID(packet.traderID);
 			if (trader instanceof GOTTradeable) {
-				GOTTradeable tradeableTrader = (GOTTradeable) trader;
+				GOTTradeCondition tradeableTrader = (GOTTradeable) trader;
 				GOTEntityNPC livingTrader = (GOTEntityNPC) trader;
 				int action = packet.traderAction;
 				boolean closeScreen = false;

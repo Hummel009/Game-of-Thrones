@@ -18,26 +18,10 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.ELLARYA;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DORNE;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killEllaryaSand;
+		faction = GOTFaction.DORNE;
+		miniQuestFactory = GOTMiniQuestFactory.ELLARYA;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killEllaryaSand;
 	}
 
 	@Override

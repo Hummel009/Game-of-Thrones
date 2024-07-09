@@ -12,11 +12,7 @@ public class GOTEntityHillmanChieftain extends GOTEntityHillman implements GOTUn
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillmanChieftain(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

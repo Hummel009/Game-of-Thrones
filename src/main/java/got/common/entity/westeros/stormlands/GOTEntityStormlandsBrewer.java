@@ -11,11 +11,7 @@ public class GOTEntityStormlandsBrewer extends GOTEntityStormlandsMan implements
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStormlandsBrewer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

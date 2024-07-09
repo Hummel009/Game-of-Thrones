@@ -14,26 +14,14 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 		super(world);
 		setupLegendaryNPC(true);
 		cape = GOTCapes.CROWNLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killJanosSlynt;
+		faction = GOTFaction.CROWNLANDS;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killJanosSlynt;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		entityDropItem(new ItemStack(GOTItems.coin, 2, 2), 0.0f);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
 	}
 
 	@Override

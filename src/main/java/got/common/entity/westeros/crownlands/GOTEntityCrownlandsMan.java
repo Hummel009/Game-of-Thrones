@@ -18,6 +18,9 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements GOTBio
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrownlandsMan(World world) {
 		super(world);
+		faction = GOTFaction.CROWNLANDS;
+		miniQuestFactory = GOTMiniQuestFactory.CROWNLANDS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -37,21 +40,6 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements GOTBio
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.CROWNLANDS, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.CROWNLANDS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
 	}
 
 	@Override

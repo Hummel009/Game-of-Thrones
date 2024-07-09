@@ -18,26 +18,14 @@ public class GOTEntityMoqorro extends GOTEntityHumanBase implements GOTTradeable
 	public GOTEntityMoqorro(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killMoqorro;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
+		faction = GOTFaction.ASSHAI;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killMoqorro;
 	}
 
 	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.ALCHEMIST_SELLS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.ASSHAI;
 	}
 
 	@Override

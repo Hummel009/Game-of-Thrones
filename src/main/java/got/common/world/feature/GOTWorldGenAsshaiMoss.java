@@ -1,7 +1,7 @@
 package got.common.world.feature;
 
 import got.common.database.GOTBlocks;
-import got.common.world.biome.essos.GOTBiomeShadowMountains;
+import got.common.world.biome.essos.GOTBiomeShadowLand;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -34,7 +34,7 @@ public class GOTWorldGenAsshaiMoss extends WorldGenerator {
 				for (int k3 = k1; k3 <= k2; ++k3) {
 					double d10;
 					int j1 = world.getHeightValue(i3, k3);
-					if (j1 != j || d9 * d9 + (d10 = (k3 + 0.5 - d6) / (d8 / 2.0)) * d10 >= 1.0 || !GOTBiomeShadowMountains.isBasaltSurface(world, i3, j1 - 1, k3) || world.getBlockMetadata(i3, j1 - 1, k3) != 0 || !world.isAirBlock(i3, j1, k3)) {
+					if (j1 != j || d9 * d9 + (d10 = (k3 + 0.5 - d6) / (d8 / 2.0)) * d10 >= 1.0 || !GOTBiomeShadowLand.isBasaltSurface(world, i3, j1 - 1, k3) || world.getBlockMetadata(i3, j1 - 1, k3) != 0 || !world.isAirBlock(i3, j1, k3)) {
 						continue;
 					}
 					world.setBlock(i3, j1, k3, GOTBlocks.asshaiMoss, 0, 2);

@@ -14,21 +14,13 @@ public class GOTEntityHarmune extends GOTEntityHumanBase implements GOTTradeable
 	public GOTEntityHarmune(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
+		faction = GOTFaction.NIGHT_WATCH;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.MAESTER_SELLS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NIGHT_WATCH;
 	}
 
 	@Override

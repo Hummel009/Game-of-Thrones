@@ -11,11 +11,7 @@ public class GOTEntityWildlingWarrior extends GOTEntityWildling {
 	public GOTEntityWildlingWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

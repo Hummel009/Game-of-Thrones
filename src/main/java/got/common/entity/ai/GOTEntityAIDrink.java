@@ -26,7 +26,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 		if (item instanceof GOTItemMug) {
 			GOTItemMug drink = (GOTItemMug) item;
 			drink.applyToNPC(theEntity, itemstack);
-			if (drink.getAlcoholicity() > 0.0f && GOTEntityUtils.canSmokeDrink(theEntity) && !theEntity.isDrunkard() && rand.nextInt(3) == 0) {
+			if (drink.getAlcoholicity() > 0.0f && GOTEntityUtils.canSmokeDrink(theEntity) && !theEntity.getFamilyInfo().isDrunk() && rand.nextInt(3) == 0) {
 				double range = 12.0;
 				IEntitySelector selectNonEnemyBartenders = new EntitySelectorImpl(theEntity);
 				List<GOTBartender> nearbyBartenders = theEntity.worldObj.selectEntitiesWithinAABB(GOTBartender.class, theEntity.boundingBox.expand(range, range, range), selectNonEnemyBartenders);
@@ -51,7 +51,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 	@Override
 	public int getConsumeTime() {
 		int time = super.getConsumeTime();
-		if (theEntity.isDrunkard()) {
+		if (theEntity.getFamilyInfo().isDrunk()) {
 			time *= 1 + rand.nextInt(4);
 		}
 		return time;
@@ -59,7 +59,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 
 	@Override
 	public boolean shouldConsume() {
-		return theEntity.isDrunkard() && rand.nextInt(100) == 0 || super.shouldConsume();
+		return theEntity.getFamilyInfo().isDrunk() && rand.nextInt(100) == 0 || super.shouldConsume();
 	}
 
 	@Override

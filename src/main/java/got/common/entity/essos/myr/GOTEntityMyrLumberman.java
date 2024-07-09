@@ -12,11 +12,7 @@ public class GOTEntityMyrLumberman extends GOTEntityMyrMan implements GOTTradeab
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMyrLumberman(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

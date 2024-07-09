@@ -15,16 +15,8 @@ public class GOTEntityMaronVolmark extends GOTEntityHumanBase implements GOTUnit
 	public GOTEntityMaronVolmark(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.IRONBORN;
+		faction = GOTFaction.IRONBORN;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

@@ -14,26 +14,14 @@ public class GOTEntityJeorMormont extends GOTEntityHumanBase implements GOTUnitT
 		super(world);
 		setupLegendaryNPC(true);
 		cape = GOTCapes.NIGHT;
+		faction = GOTFaction.NIGHT_WATCH;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killJeorMormont;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.longclaw, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NIGHT_WATCH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killJeorMormont;
 	}
 
 	@Override

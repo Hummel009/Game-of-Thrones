@@ -27,6 +27,9 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 		addTargetTasks();
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.9f, 1.8f * 0.9f);
+		faction = GOTFaction.CROWNLANDS;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killJoffreyBaratheon;
 	}
 
 	private void addTargetTasks() {
@@ -53,21 +56,6 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.joffreyBaratheonCrossbow, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killJoffreyBaratheon;
 	}
 
 	@Override

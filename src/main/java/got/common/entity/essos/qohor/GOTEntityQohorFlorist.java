@@ -12,11 +12,7 @@ public class GOTEntityQohorFlorist extends GOTEntityQohorMan implements GOTTrade
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQohorFlorist(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

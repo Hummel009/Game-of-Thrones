@@ -13,11 +13,7 @@ public class GOTEntityJogosNhaiShaman extends GOTEntityJogosNhaiMan implements G
 		super(world);
 		addTargetTasks(false);
 		spawnRidingHorse = false;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

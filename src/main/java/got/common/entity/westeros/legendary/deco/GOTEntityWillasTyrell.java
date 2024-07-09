@@ -16,6 +16,9 @@ public class GOTEntityWillasTyrell extends GOTEntityHumanBase {
 	public GOTEntityWillasTyrell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.REACH;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killWillasTyrell;
 	}
 
 	@Override
@@ -27,21 +30,6 @@ public class GOTEntityWillasTyrell extends GOTEntityHumanBase {
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.05);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killWillasTyrell;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
 	}
 
 	@Override

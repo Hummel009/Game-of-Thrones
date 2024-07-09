@@ -63,7 +63,7 @@ public class GOTSpeech {
 	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, ICommandSender entityplayer, CharSequence location, CharSequence objective) {
 		String s = getRandomSpeech(speechBankName);
 		s = formatSpeech(s, entityplayer, location, objective);
-		if (entity.isDrunkard()) {
+		if (entity.getFamilyInfo().isDrunk()) {
 			float f = entity.getDrunkenSpeechFactor();
 			s = GOTDrunkenSpeech.getDrunkenSpeech(s, f);
 		}

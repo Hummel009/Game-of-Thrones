@@ -17,31 +17,15 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 	public GOTEntityRenlyBaratheon(World world) {
 		super(world);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.STORMLANDS;
+		miniQuestFactory = GOTMiniQuestFactory.RENLY;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killRenlyBaratheon;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.bloodOfTrueKings, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.RENLY;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.STORMLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killRenlyBaratheon;
 	}
 
 	@Override

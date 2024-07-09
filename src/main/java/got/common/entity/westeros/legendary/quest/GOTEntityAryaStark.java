@@ -16,31 +16,15 @@ public class GOTEntityAryaStark extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.75f, 1.8f * 0.75f);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killAryaStark;
+		faction = GOTFaction.NORTH;
+		miniQuestFactory = GOTMiniQuestFactory.ARYA;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killAryaStark;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.needle, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.ARYA;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
 	}
 
 	@Override

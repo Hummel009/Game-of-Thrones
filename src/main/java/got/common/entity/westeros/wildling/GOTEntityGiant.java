@@ -13,6 +13,9 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGiant(World world) {
 		super(world);
+		faction = GOTFaction.WILDLING;
+		alignmentBonus = 10.0f;
+		killAchievement = GOTAchievement.killGiant;
 	}
 
 	@Override
@@ -22,23 +25,8 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killGiant;
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.fur, 10);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 10.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WILDLING;
 	}
 
 	@Override

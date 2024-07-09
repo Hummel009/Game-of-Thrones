@@ -25,6 +25,9 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.
 		isImmuneToFire = true;
 		spawnsInDarkness = true;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		faction = GOTFaction.WHITE_WALKER;
+		alignmentBonus = 5.0f;
+		killAchievement = GOTAchievement.killIceSpider;
 	}
 
 	@Override
@@ -49,21 +52,6 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.
 		if (rand.nextFloat() <= 0.525f) {
 			dropItem(GOTItems.iceShard, rand.nextInt(2) + 1);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WHITE_WALKER;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killIceSpider;
 	}
 
 	@Override

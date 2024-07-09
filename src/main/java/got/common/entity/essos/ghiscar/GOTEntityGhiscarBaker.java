@@ -13,11 +13,7 @@ public class GOTEntityGhiscarBaker extends GOTEntityGhiscarMan implements GOTTra
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarBaker(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

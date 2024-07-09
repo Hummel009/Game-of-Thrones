@@ -17,26 +17,10 @@ public class GOTEntityDoranMartell extends GOTEntityHumanBase {
 	public GOTEntityDoranMartell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.DORAN;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DORNE;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killDoranMartell;
+		faction = GOTFaction.DORNE;
+		miniQuestFactory = GOTMiniQuestFactory.DORAN;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killDoranMartell;
 	}
 
 	@Override
@@ -45,11 +29,6 @@ public class GOTEntityDoranMartell extends GOTEntityHumanBase {
 			return "legendary/doran_friendly";
 		}
 		return GOTSpeech.HOSTILE;
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 10;
 	}
 
 	@Override

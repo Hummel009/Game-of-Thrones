@@ -15,16 +15,8 @@ public class GOTEntityEldonEstermont extends GOTEntityHumanBase implements GOTUn
 	public GOTEntityEldonEstermont(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.STORMLANDS;
+		faction = GOTFaction.STORMLANDS;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

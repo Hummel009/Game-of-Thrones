@@ -15,11 +15,7 @@ public class GOTEntityIronbornCaptain extends GOTEntityIronbornMan implements GO
 	public GOTEntityIronbornCaptain(World world) {
 		super(world);
 		cape = GOTCapes.IRONBORN;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

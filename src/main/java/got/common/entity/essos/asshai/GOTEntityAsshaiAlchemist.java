@@ -13,11 +13,7 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 	public GOTEntityAsshaiAlchemist(World world) {
 		super(world);
 		cape = GOTCapes.ASSHAI;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -11,11 +11,7 @@ public class GOTEntityThennBlacksmith extends GOTEntityThenn implements GOTSmith
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThennBlacksmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

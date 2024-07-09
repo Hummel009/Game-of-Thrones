@@ -18,21 +18,9 @@ public class GOTEntityYoungGriff extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.9f, 1.8f * 0.9f);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killYoungGriff;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.TYROSH;
+		faction = GOTFaction.TYROSH;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killYoungGriff;
 	}
 
 	@Override

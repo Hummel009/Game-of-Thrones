@@ -15,16 +15,8 @@ public class GOTEntityRodrikRyswell extends GOTEntityHumanBase implements GOTUni
 	public GOTEntityRodrikRyswell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
+		faction = GOTFaction.NORTH;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

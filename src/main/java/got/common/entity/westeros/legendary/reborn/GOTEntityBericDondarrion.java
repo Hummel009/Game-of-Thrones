@@ -18,15 +18,11 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.RIVERLANDS;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.RIVERLANDS;
 	}
 
 	@Override
@@ -151,21 +147,13 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife6(World world) {
 			super(world);
+			alignmentBonus = 200.0f;
+			killAchievement = GOTAchievement.killBericDondarrion;
 		}
 
 		@Override
 		public void dropFewItems(boolean flag, int i) {
 			dropItem(GOTItems.bericDondarrionSword, 1);
-		}
-
-		@Override
-		public float getAlignmentBonus() {
-			return 200.0f;
-		}
-
-		@Override
-		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.killBericDondarrion;
 		}
 	}
 }

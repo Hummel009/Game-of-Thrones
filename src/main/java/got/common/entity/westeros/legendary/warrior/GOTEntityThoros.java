@@ -15,21 +15,9 @@ public class GOTEntityThoros extends GOTEntityHumanBase {
 	public GOTEntityThoros(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.RIVERLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killThoros;
+		faction = GOTFaction.RIVERLANDS;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killThoros;
 	}
 
 	@Override
@@ -38,11 +26,6 @@ public class GOTEntityThoros extends GOTEntityHumanBase {
 			return "legendary/beric_friendly";
 		}
 		return "legendary/beric_hostile";
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 12;
 	}
 
 	@Override

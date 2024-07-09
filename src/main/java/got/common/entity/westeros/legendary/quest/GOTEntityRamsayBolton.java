@@ -17,21 +17,9 @@ public class GOTEntityRamsayBolton extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.RAMSAY;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killRamsayBolton;
+		faction = GOTFaction.NORTH;
+		miniQuestFactory = GOTMiniQuestFactory.RAMSAY;
+		killAchievement = GOTAchievement.killRamsayBolton;
 	}
 
 	@Override

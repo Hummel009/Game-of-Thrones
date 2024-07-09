@@ -16,11 +16,7 @@ public class GOTEntityMyrSoldier extends GOTEntityMyrMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		cape = GOTCapes.MYR;
 		shield = GOTShields.MYR;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

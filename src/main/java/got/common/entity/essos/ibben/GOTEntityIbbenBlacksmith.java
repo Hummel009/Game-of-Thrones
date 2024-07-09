@@ -11,11 +11,7 @@ public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTSm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenBlacksmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

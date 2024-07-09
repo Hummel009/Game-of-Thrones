@@ -12,11 +12,7 @@ public class GOTEntityIbbenMason extends GOTEntityIbbenMan implements GOTTradeab
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenMason(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

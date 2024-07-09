@@ -16,11 +16,8 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsMan {
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		shield = GOTShields.CROWNLANDS;
 		cape = GOTCapes.ROYALGUARD;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
+		alignmentBonus = 3.0f;
+		killAchievement = GOTAchievement.killKingsguard;
 	}
 
 	@Override
@@ -41,10 +38,5 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsMan {
 	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killKingsguard;
 	}
 }

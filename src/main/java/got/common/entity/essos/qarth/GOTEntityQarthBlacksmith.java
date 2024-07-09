@@ -12,11 +12,7 @@ public class GOTEntityQarthBlacksmith extends GOTEntityQarthMan implements GOTSm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthBlacksmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

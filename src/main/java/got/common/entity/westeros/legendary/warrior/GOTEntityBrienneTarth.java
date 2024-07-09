@@ -17,27 +17,15 @@ public class GOTEntityBrienneTarth extends GOTEntityHumanBase {
 	public GOTEntityBrienneTarth(World world) {
 		super(world);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.STORMLANDS;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killBrienneTarth;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.STORMLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBrienneTarth;
 	}
 
 	@Override

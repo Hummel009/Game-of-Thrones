@@ -19,16 +19,13 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	public GOTEntityAsshaiSpherebinder(World world) {
 		super(world);
 		isImmuneToFire = true;
+		alignmentBonus = 3.0f;
+		killAchievement = GOTAchievement.killAsshaiSpherebinder;
 	}
 
 	@Override
 	public EntityAIBase getAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 0.0, false);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
 	}
 
 	@Override
@@ -41,11 +38,6 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
 
 		return entityData;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killAsshaiSpherebinder;
 	}
 
 	@Override

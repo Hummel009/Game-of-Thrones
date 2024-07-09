@@ -10,11 +10,7 @@ public class GOTEntityCrownlandsLevyman extends GOTEntityCrownlandsMan {
 	public GOTEntityCrownlandsLevyman(World world) {
 		super(world);
 		addTargetTasks(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

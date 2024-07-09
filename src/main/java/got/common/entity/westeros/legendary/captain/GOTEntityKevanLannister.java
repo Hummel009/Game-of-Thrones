@@ -15,21 +15,9 @@ public class GOTEntityKevanLannister extends GOTEntityHumanBase implements GOTUn
 	public GOTEntityKevanLannister(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WESTERLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killKevanLannister;
+		faction = GOTFaction.WESTERLANDS;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killKevanLannister;
 	}
 
 	@Override

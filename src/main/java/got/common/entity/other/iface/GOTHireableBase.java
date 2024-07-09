@@ -6,11 +6,11 @@ import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
 
 public interface GOTHireableBase extends GOTTradeCondition {
+	static void onUnitTrade(EntityPlayer entityPlayer) {
+		GOTLevelData.getData(entityPlayer).addAchievement(GOTAchievement.trade);
+	}
+
 	GOTFaction getFaction();
 
 	String getNPCName();
-
-	default void onUnitTrade(EntityPlayer entityPlayer) {
-		GOTLevelData.getData(entityPlayer).addAchievement(GOTAchievement.trade);
-	}
 }

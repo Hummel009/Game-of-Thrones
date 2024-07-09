@@ -13,11 +13,7 @@ public class GOTEntityCrownlandsFarmer extends GOTEntityCrownlandsMan implements
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrownlandsFarmer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

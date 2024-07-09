@@ -14,31 +14,15 @@ public class GOTEntityBuGai extends GOTEntityHumanBase {
 	public GOTEntityBuGai(World world) {
 		super(world);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.YI_TI;
+		miniQuestFactory = GOTMiniQuestFactory.BUGAI;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killBuGai;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.katana, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.BUGAI;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.YI_TI;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBuGai;
 	}
 
 	@Override

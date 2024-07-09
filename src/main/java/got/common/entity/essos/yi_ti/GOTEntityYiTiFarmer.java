@@ -13,11 +13,7 @@ public class GOTEntityYiTiFarmer extends GOTEntityYiTiMan implements GOTFarmer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiFarmer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

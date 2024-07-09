@@ -11,6 +11,7 @@ public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySepton(World world) {
 		super(world);
+		killAchievement = GOTAchievement.killPriest;
 	}
 
 	@Override
@@ -21,11 +22,6 @@ public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable 
 	@Override
 	public GOTTradeEntries getBuysPool() {
 		return GOTTradeEntries.MAESTER_BUYS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killPriest;
 	}
 
 	@Override

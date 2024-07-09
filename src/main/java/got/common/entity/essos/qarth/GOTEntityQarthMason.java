@@ -13,11 +13,7 @@ public class GOTEntityQarthMason extends GOTEntityQarthMan implements GOTTradeab
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthMason(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -17,6 +17,9 @@ public class GOTEntityWightGiant extends GOTEntityGiantBase {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		spawnsInDarkness = true;
+		faction = GOTFaction.WHITE_WALKER;
+		alignmentBonus = 3.0f;
+		killAchievement = GOTAchievement.killWightGiant;
 	}
 
 	@Override
@@ -38,21 +41,6 @@ public class GOTEntityWightGiant extends GOTEntityGiantBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WHITE_WALKER;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killWightGiant;
 	}
 
 	@Override

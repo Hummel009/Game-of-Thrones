@@ -12,11 +12,7 @@ public class GOTEntityTyroshGoldsmith extends GOTEntityTyroshMan implements GOTT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTyroshGoldsmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

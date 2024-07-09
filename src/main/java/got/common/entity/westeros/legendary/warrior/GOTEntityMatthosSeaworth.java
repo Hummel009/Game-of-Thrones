@@ -13,16 +13,8 @@ public class GOTEntityMatthosSeaworth extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DRAGONSTONE;
+		faction = GOTFaction.DRAGONSTONE;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

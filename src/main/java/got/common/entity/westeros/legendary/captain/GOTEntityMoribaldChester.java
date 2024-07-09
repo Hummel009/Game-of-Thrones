@@ -15,21 +15,13 @@ public class GOTEntityMoribaldChester extends GOTEntityHumanBase implements GOTU
 	public GOTEntityMoribaldChester(World world) {
 		super(world);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.REACH;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.pruner, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
 	}
 
 	@Override

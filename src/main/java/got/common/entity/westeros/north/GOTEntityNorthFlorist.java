@@ -12,11 +12,7 @@ public class GOTEntityNorthFlorist extends GOTEntityNorthMan implements GOTTrade
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthFlorist(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

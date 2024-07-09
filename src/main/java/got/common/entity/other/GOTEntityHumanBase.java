@@ -53,6 +53,8 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 		if (canSmoke) {
 			tasks.addTask(6, new GOTEntityAISmoke(this, 8000));
 		}
+
+		killAchievement = isLegendaryNPC ? GOTAchievement.killLegendaryNPC : GOTAchievement.killNPC;
 	}
 
 	@Override
@@ -119,11 +121,6 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return isLegendaryNPC ? GOTAchievement.killLegendaryNPC : GOTAchievement.killNPC;
 	}
 
 	@Override

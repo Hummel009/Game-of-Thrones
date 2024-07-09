@@ -21,6 +21,8 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		cape = GOTCapes.NIGHT;
+		faction = GOTFaction.NIGHT_WATCH;
+		killAchievement = GOTAchievement.killBenjenStark;
 	}
 
 	@Override
@@ -35,26 +37,11 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NIGHT_WATCH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBenjenStark;
-	}
-
-	@Override
 	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/benjen_friendly";
 		}
 		return GOTSpeech.HOSTILE;
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 18;
 	}
 
 	@Override

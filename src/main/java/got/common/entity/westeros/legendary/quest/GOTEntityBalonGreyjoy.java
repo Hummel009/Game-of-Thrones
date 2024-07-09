@@ -20,31 +20,15 @@ public class GOTEntityBalonGreyjoy extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
+		faction = GOTFaction.IRONBORN;
+		miniQuestFactory = GOTMiniQuestFactory.BALON;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killBalonGreyjoy;
 	}
 
 	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityEuronGreyjoy.class, 0, true));
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.BALON;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.IRONBORN;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBalonGreyjoy;
 	}
 
 	@Override

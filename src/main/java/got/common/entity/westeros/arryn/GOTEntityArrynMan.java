@@ -18,6 +18,9 @@ public class GOTEntityArrynMan extends GOTEntityHumanBase implements GOTBiome.Im
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynMan(World world) {
 		super(world);
+		faction = GOTFaction.ARRYN;
+		miniQuestFactory = GOTMiniQuestFactory.ARRYN;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -37,21 +40,6 @@ public class GOTEntityArrynMan extends GOTEntityHumanBase implements GOTBiome.Im
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.ARRYN, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.ARRYN;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.ARRYN;
 	}
 
 	@Override

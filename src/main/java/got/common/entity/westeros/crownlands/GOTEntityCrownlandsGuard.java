@@ -13,11 +13,7 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsMan {
 		super(world);
 		shield = GOTShields.CROWNLANDS;
 		cape = GOTCapes.CROWNLANDS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

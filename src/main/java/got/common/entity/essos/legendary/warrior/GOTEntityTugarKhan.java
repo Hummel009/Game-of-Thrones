@@ -16,32 +16,15 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 1.3f, 1.8f * 1.3f);
+		faction = GOTFaction.JOGOS_NHAI;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killTugarKhan;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.JOGOS_NHAI;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killTugarKhan;
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 15;
 	}
 
 	@Override

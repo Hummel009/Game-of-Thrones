@@ -13,21 +13,13 @@ public class GOTEntityBericDayne extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.DORNE;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.dawn, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DORNE;
 	}
 
 	@Override

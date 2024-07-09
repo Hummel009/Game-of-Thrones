@@ -12,11 +12,7 @@ public class GOTEntityGhiscarBlacksmith extends GOTEntityGhiscarMan implements G
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarBlacksmith(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

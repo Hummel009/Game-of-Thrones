@@ -17,6 +17,9 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthMan(World world) {
 		super(world);
+		faction = GOTFaction.QARTH;
+		miniQuestFactory = GOTMiniQuestFactory.QARTH;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.QARTH, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.QARTH;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.QARTH;
 	}
 
 	@Override

@@ -18,26 +18,14 @@ public class GOTEntityRooseBolton extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
+		faction = GOTFaction.NORTH;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killRooseBolton;
 	}
 
 	private void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRobbStark.class, 0, true));
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killRooseBolton;
 	}
 
 	@Override

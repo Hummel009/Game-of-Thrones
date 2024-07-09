@@ -15,11 +15,7 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneMan impleme
 	public GOTEntityDragonstoneCaptain(World world) {
 		super(world);
 		cape = GOTCapes.DRAGONSTONE;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

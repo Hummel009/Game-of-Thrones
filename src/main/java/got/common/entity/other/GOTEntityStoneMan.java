@@ -29,6 +29,9 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
 		spawnsInDarkness = true;
+		faction = GOTFaction.HOSTILE;
+		alignmentBonus = 2.0f;
+		killAchievement = GOTAchievement.killStoneMan;
 	}
 
 	@Override
@@ -55,28 +58,13 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public String getDeathSound() {
 		return "mob.zombie.death";
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HOSTILE;
-	}
-
-	@Override
 	public String getHurtSound() {
 		return "mob.zombie.hurt";
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killStoneMan;
 	}
 
 	@Override

@@ -24,6 +24,9 @@ public class GOTEntityBranStark extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.75f, 1.8f * 0.75f);
+		faction = GOTFaction.NORTH;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killBranStark;
 	}
 
 	@Override
@@ -35,21 +38,6 @@ public class GOTEntityBranStark extends GOTEntityHumanBase {
 	@Override
 	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		GOTEntityUtils.setupComboAttackModeChange(this, mode, meleeAttackAI, rangedAttackAI);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBranStark;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
 	}
 
 	@Override

@@ -17,6 +17,9 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosMan(World world) {
 		super(world);
+		faction = GOTFaction.PENTOS;
+		miniQuestFactory = GOTMiniQuestFactory.PENTOS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.PENTOS, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.PENTOS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.PENTOS;
 	}
 
 	@Override

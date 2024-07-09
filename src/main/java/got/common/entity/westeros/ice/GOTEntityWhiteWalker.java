@@ -38,6 +38,9 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		spawnsInDarkness = true;
 		isImmuneToFire = true;
+		faction = GOTFaction.WHITE_WALKER;
+		alignmentBonus = 5.0f;
+		killAchievement = GOTAchievement.killWhiteWalker;
 	}
 
 	@Override
@@ -75,28 +78,13 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
 	public String getDeathSound() {
 		return "got:walker.death";
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WHITE_WALKER;
-	}
-
-	@Override
 	public String getHurtSound() {
 		return "got:walker.hurt";
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killWhiteWalker;
 	}
 
 	@Override

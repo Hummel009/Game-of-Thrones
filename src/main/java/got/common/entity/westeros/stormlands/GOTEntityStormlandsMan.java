@@ -17,6 +17,9 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStormlandsMan(World world) {
 		super(world);
+		faction = GOTFaction.STORMLANDS;
+		miniQuestFactory = GOTMiniQuestFactory.STORMLANDS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.STORMLANDS, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.STORMLANDS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.STORMLANDS;
 	}
 
 	@Override

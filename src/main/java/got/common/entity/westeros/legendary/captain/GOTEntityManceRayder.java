@@ -16,21 +16,9 @@ public class GOTEntityManceRayder extends GOTEntityHumanBase implements GOTUnitT
 	public GOTEntityManceRayder(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WILDLING;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killManceRayder;
+		faction = GOTFaction.WILDLING;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killManceRayder;
 	}
 
 	@Override

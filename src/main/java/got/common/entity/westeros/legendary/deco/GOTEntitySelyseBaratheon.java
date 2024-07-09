@@ -16,21 +16,9 @@ public class GOTEntitySelyseBaratheon extends GOTEntityHumanBase {
 	public GOTEntitySelyseBaratheon(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killSelyseBaratheon;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DRAGONSTONE;
+		faction = GOTFaction.DRAGONSTONE;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killSelyseBaratheon;
 	}
 
 	@Override

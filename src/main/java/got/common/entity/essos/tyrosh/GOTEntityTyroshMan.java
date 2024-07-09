@@ -17,6 +17,9 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTyroshMan(World world) {
 		super(world);
+		faction = GOTFaction.TYROSH;
+		miniQuestFactory = GOTMiniQuestFactory.TYROSH;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.TYROSH, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.TYROSH;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.TYROSH;
 	}
 
 	@Override

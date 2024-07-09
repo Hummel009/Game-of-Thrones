@@ -16,21 +16,9 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 	public GOTEntityKraznysMoNakloz(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.GHISCAR;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killKraznysMoNakloz;
+		faction = GOTFaction.GHISCAR;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killKraznysMoNakloz;
 	}
 
 	@Override

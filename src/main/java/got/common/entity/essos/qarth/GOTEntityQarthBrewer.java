@@ -12,11 +12,7 @@ public class GOTEntityQarthBrewer extends GOTEntityQarthMan implements GOTTradea
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthBrewer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

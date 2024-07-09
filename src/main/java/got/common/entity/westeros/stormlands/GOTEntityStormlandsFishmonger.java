@@ -12,11 +12,7 @@ public class GOTEntityStormlandsFishmonger extends GOTEntityStormlandsMan implem
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStormlandsFishmonger(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

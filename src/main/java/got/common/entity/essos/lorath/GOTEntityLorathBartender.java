@@ -13,11 +13,7 @@ public class GOTEntityLorathBartender extends GOTEntityLorathMan implements GOTB
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathBartender(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

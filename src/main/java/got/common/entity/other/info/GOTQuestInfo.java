@@ -74,7 +74,7 @@ public class GOTQuestInfo {
 	}
 
 	private boolean canGenerateQuests() {
-		return GOTConfig.allowMiniquests && !theNPC.isChild() && !theNPC.isDrunkard() && !theNPC.isTrader() && !theNPC.getHireableInfo().isActive();
+		return GOTConfig.allowMiniquests && !theNPC.isChild() && !theNPC.getFamilyInfo().isDrunk() && !theNPC.isTrader() && !theNPC.getHireableInfo().isActive();
 	}
 
 	private boolean canOfferQuestsTo(EntityPlayer entityplayer) {

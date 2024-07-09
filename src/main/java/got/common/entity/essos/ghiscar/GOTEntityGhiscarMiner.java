@@ -12,11 +12,7 @@ public class GOTEntityGhiscarMiner extends GOTEntityGhiscarMan implements GOTTra
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarMiner(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

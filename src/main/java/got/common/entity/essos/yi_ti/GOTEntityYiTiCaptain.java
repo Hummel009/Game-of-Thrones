@@ -15,11 +15,7 @@ public class GOTEntityYiTiCaptain extends GOTEntityYiTiMan implements GOTUnitTra
 	public GOTEntityYiTiCaptain(World world) {
 		super(world);
 		cape = GOTCapes.YI_TI;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

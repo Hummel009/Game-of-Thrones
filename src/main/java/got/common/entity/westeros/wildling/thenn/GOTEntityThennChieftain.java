@@ -12,11 +12,7 @@ public class GOTEntityThennChieftain extends GOTEntityThenn implements GOTUnitTr
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThennChieftain(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

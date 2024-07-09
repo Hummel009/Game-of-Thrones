@@ -16,11 +16,7 @@ public class GOTEntityLysSoldier extends GOTEntityLysMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		cape = GOTCapes.LYS;
 		shield = GOTShields.LYS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

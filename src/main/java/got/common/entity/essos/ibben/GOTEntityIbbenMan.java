@@ -16,6 +16,9 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenMan(World world) {
 		super(world);
+		faction = GOTFaction.IBBEN;
+		miniQuestFactory = GOTMiniQuestFactory.IBBEN;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -28,21 +31,6 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.IBBEN, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.IBBEN;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.IBBEN;
 	}
 
 	@Override

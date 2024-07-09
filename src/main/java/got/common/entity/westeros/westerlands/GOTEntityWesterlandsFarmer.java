@@ -13,11 +13,7 @@ public class GOTEntityWesterlandsFarmer extends GOTEntityWesterlandsMan implemen
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsFarmer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -15,21 +15,13 @@ public class GOTEntityArdrianCeltigar extends GOTEntityHumanBase implements GOTU
 	public GOTEntityArdrianCeltigar(World world) {
 		super(world);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.DRAGONSTONE;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.ardrianCeltigarAxe, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DRAGONSTONE;
 	}
 
 	@Override

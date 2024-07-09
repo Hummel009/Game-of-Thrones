@@ -14,6 +14,8 @@ public class GOTEntityHotPie extends GOTEntityHumanBase implements GOTTradeable 
 		super(world);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.9f, 1.8f * 0.9f);
+		faction = GOTFaction.RIVERLANDS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -22,18 +24,8 @@ public class GOTEntityHotPie extends GOTEntityHumanBase implements GOTTradeable 
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.BAKER_SELLS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.RIVERLANDS;
 	}
 
 	@Override

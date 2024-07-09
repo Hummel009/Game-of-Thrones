@@ -15,16 +15,8 @@ public class GOTEntityMathisRowan extends GOTEntityHumanBase implements GOTUnitT
 	public GOTEntityMathisRowan(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
+		faction = GOTFaction.REACH;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

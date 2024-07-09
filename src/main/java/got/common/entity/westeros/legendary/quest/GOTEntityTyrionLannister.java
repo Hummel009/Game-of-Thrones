@@ -18,32 +18,16 @@ public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		setSize(0.45f, 1.2f);
+		faction = GOTFaction.WESTERLANDS;
+		miniQuestFactory = GOTMiniQuestFactory.TYRION;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killTyrionLannister;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.handGold, 1);
 		dropItem(GOTItems.handSilver, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.TYRION;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WESTERLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killTyrionLannister;
 	}
 
 	@Override

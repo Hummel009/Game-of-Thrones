@@ -15,11 +15,7 @@ public class GOTEntityArrynCaptain extends GOTEntityArrynMan implements GOTUnitT
 	public GOTEntityArrynCaptain(World world) {
 		super(world);
 		cape = GOTCapes.ARRYN;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

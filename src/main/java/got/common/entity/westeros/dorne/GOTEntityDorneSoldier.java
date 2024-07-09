@@ -16,11 +16,7 @@ public class GOTEntityDorneSoldier extends GOTEntityDorneMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		shield = GOTShields.DORNE;
 		cape = GOTCapes.DORNE;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

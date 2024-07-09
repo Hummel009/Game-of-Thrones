@@ -16,6 +16,9 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements GOTBiome.Imm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillman(World world) {
 		super(world);
+		faction = GOTFaction.HILL_TRIBES;
+		miniQuestFactory = GOTMiniQuestFactory.HILL_TRIBES;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -28,21 +31,6 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements GOTBiome.Imm
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.HILLMEN, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.HILL_TRIBES;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HILL_TRIBES;
 	}
 
 	@Override

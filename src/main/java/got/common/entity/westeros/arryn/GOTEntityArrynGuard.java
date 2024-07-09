@@ -13,11 +13,7 @@ public class GOTEntityArrynGuard extends GOTEntityArrynMan {
 		super(world);
 		shield = GOTShields.ARRYNGUARD;
 		cape = GOTCapes.ARRYNGUARD;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

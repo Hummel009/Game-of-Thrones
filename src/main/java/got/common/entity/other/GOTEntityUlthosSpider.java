@@ -12,21 +12,9 @@ public class GOTEntityUlthosSpider extends GOTEntitySpiderBase implements GOTBio
 	public GOTEntityUlthosSpider(World world) {
 		super(world);
 		spawnsInDarkness = true;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.ULTHOS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killUlthosSpider;
+		faction = GOTFaction.ULTHOS;
+		alignmentBonus = 2.0f;
+		killAchievement = GOTAchievement.killUlthosSpider;
 	}
 
 	@Override

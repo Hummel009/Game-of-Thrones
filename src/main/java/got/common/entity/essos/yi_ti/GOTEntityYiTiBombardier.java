@@ -26,17 +26,13 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiMan {
 		cape = GOTCapes.YI_TI_BOMBARDIER;
 		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityBomb.class, 12.0f, 1.5, 2.0));
 		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);
+		alignmentBonus = 3.0f;
 	}
 
 	@Override
 	public EntityAIBase getAttackAI() {
 		tasks.addTask(2, new GOTEntityAIBombardierAttack(this, 1.4));
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
 	}
 
 	@Override

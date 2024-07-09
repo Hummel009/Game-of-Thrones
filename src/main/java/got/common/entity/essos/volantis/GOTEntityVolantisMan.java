@@ -17,6 +17,9 @@ public class GOTEntityVolantisMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisMan(World world) {
 		super(world);
+		faction = GOTFaction.VOLANTIS;
+		miniQuestFactory = GOTMiniQuestFactory.VOLANTIS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityVolantisMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.VOLANTIS, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.VOLANTIS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.VOLANTIS;
 	}
 
 	@Override

@@ -18,11 +18,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		shield = GOTShields.UNSULLIED;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killGreyWorm;
+		killAchievement = GOTAchievement.killGreyWorm;
 	}
 
 	@Override

@@ -12,11 +12,7 @@ public class GOTEntityIbbenCaptain extends GOTEntityIbbenMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenCaptain(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

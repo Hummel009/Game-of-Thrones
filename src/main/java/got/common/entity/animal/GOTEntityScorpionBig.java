@@ -38,6 +38,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		spawnsInDarkness = true;
+		faction = GOTFaction.HOSTILE;
 	}
 
 	@Override
@@ -103,11 +104,6 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 	@Override
 	public String getDeathSound() {
 		return "mob.spider.death";
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HOSTILE;
 	}
 
 	@Override

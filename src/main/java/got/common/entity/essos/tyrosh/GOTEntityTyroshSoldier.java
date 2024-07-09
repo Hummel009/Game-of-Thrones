@@ -16,11 +16,7 @@ public class GOTEntityTyroshSoldier extends GOTEntityTyroshMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		cape = GOTCapes.TYROSH;
 		shield = GOTShields.TYROSH;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

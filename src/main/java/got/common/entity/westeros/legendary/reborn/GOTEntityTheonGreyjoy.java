@@ -21,11 +21,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	public GOTEntityTheonGreyjoy(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
+		alignmentBonus = 300.0f;
 	}
 
 	@Override
@@ -38,21 +34,13 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		public TheonGreyjoyNormal(World world) {
 			super(world);
 			addTargetTasks();
+			faction = GOTFaction.IRONBORN;
+			killAchievement = GOTAchievement.killTheonGreyjoy;
 		}
 
 		protected void addTargetTasks() {
 			int target = addTargetTasks(true);
 			targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRamsayBolton.class, 0, true));
-		}
-
-		@Override
-		public GOTFaction getFaction() {
-			return GOTFaction.IRONBORN;
-		}
-
-		@Override
-		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.killTheonGreyjoy;
 		}
 
 		@Override
@@ -90,16 +78,12 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public TheonGreyjoyTormented(World world) {
 			super(world);
+			faction = GOTFaction.NORTH;
 		}
 
 		@Override
 		public EntityAIBase getAttackAI() {
 			return new EntityAIPanic(this, 1.4);
-		}
-
-		@Override
-		public GOTFaction getFaction() {
-			return GOTFaction.NORTH;
 		}
 
 		@Override

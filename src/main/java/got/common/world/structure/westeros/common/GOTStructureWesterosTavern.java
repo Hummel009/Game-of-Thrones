@@ -5,7 +5,6 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
 import got.common.entity.other.*;
-import got.common.entity.other.GOTEntityMercenary;
 import got.common.entity.westeros.legendary.mercenary.GOTEntityBronn;
 import got.common.entity.westeros.legendary.mercenary.GOTEntityVargoHoat;
 import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;

@@ -17,6 +17,9 @@ public class GOTEntityNorvosMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorvosMan(World world) {
 		super(world);
+		faction = GOTFaction.NORVOS;
+		miniQuestFactory = GOTMiniQuestFactory.NORVOS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityNorvosMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.NORVOS, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.NORVOS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORVOS;
 	}
 
 	@Override

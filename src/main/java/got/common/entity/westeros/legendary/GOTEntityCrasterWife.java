@@ -15,21 +15,13 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome
 	public GOTEntityCrasterWife(World world) {
 		super(world);
 		notAttackable = true;
+		alignmentBonus = 2.0f;
+		faction = GOTFaction.WILDLING;
 	}
 
 	@Override
 	public EntityAIBase getAttackAI() {
 		return new EntityAIPanic(this, 1.4);
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WILDLING;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
 	}
 
 	@Override

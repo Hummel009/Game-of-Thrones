@@ -16,26 +16,14 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 		super(world);
 		setupLegendaryNPC(true);
 		cape = GOTCapes.NIGHT;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
+		faction = GOTFaction.DRAGONSTONE;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killDavosSeaworth;
 	}
 
 	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.DAVOS_SELLS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DRAGONSTONE;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killDavosSeaworth;
 	}
 
 	@Override

@@ -11,11 +11,7 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthMan implements GOTTrade
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthWarlock(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

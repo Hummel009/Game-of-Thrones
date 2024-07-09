@@ -11,11 +11,7 @@ public class GOTEntityIronbornMiner extends GOTEntityIronbornMan implements GOTT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornMiner(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

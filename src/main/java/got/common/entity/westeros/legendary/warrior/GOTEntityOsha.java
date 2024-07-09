@@ -13,21 +13,9 @@ public class GOTEntityOsha extends GOTEntityHumanBase {
 	public GOTEntityOsha(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killOsha;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
+		faction = GOTFaction.NORTH;
+		alignmentBonus = 5.0f;
+		killAchievement = GOTAchievement.killOsha;
 	}
 
 	@Override

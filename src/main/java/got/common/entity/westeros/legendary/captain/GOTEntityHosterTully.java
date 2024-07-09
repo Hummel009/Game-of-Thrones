@@ -16,21 +16,9 @@ public class GOTEntityHosterTully extends GOTEntityHumanBase implements GOTUnitT
 	public GOTEntityHosterTully(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killHosterTully;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.RIVERLANDS;
+		faction = GOTFaction.RIVERLANDS;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killHosterTully;
 	}
 
 	@Override

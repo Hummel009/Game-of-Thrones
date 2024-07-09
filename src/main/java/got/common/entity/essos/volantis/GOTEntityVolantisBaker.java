@@ -13,11 +13,7 @@ public class GOTEntityVolantisBaker extends GOTEntityVolantisMan implements GOTT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisBaker(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

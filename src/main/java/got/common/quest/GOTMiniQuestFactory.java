@@ -65,7 +65,7 @@ public enum GOTMiniQuestFactory {
 	VARYS,
 	OBERYN,
 	STANNIS,
-	JONSNOW,
+	JON_SNOW,
 	RENLY,
 	KITRA,
 	BUGAI,
@@ -170,7 +170,7 @@ public enum GOTMiniQuestFactory {
 		CERSEI.addQuest(new GOTMiniQuestCollect.QFCollect<>("cersei").setCollectItem(new ItemStack(GOTBlocks.wildFireJar), 1, 10).setRewardFactor(0.0f).setIsLegendary());
 		RAMSAY.addQuest(new GOTMiniQuestCollect.QFCollect<>("ramsay").setCollectItem(new ItemStack(GOTItems.brandingIron), 1, 1).setRewardFactor(5.0f).setIsLegendary());
 		DAENERYS.addQuest(new GOTMiniQuestCollect.QFCollect<>("daenerys").setCollectItem(new ItemStack(Blocks.dragon_egg), 3, 3).setRewardFactor(100.0f).setIsLegendary());
-		JONSNOW.addQuest(new GOTMiniQuestCollect.QFCollect<>("jonsnow").setCollectItem(new ItemStack(GOTItems.valyrianSword), 1, 1).setHiring());
+		JON_SNOW.addQuest(new GOTMiniQuestCollect.QFCollect<>("jonsnow").setCollectItem(new ItemStack(GOTItems.valyrianSword), 1, 1).setHiring());
 		SANDOR.addQuest(new GOTMiniQuestCollect.QFCollect<>("sandor").setCollectItem(new ItemStack(Items.cooked_chicken), 1, 10).setHiring());
 		DORAN.addQuest(new GOTMiniQuestCollect.QFCollect<>("doran").setCollectItem(new ItemStack(GOTItems.mugPoppyMilk), 1, 10).setRewardFactor(5.0f).setIsLegendary());
 		ARYA.addQuest(new GOTMiniQuestCollect.QFCollect<>("arya").setCollectItem(new ItemStack(Items.wooden_sword), 1, 1).setHiring());

@@ -17,26 +17,10 @@ public class GOTEntityOlennaTyrell extends GOTEntityHumanBase {
 	public GOTEntityOlennaTyrell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killOlennaTyrell;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.OLENNA;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
+		faction = GOTFaction.REACH;
+		miniQuestFactory = GOTMiniQuestFactory.OLENNA;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killOlennaTyrell;
 	}
 
 	@Override

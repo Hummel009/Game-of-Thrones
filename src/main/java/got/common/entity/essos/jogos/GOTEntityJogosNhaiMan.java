@@ -21,6 +21,9 @@ public class GOTEntityJogosNhaiMan extends GOTEntityHumanBase implements GOTBiom
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
+		faction = GOTFaction.JOGOS_NHAI;
+		miniQuestFactory = GOTMiniQuestFactory.JOGOS_NHAI;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -38,21 +41,6 @@ public class GOTEntityJogosNhaiMan extends GOTEntityHumanBase implements GOTBiom
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.JOGOS_NHAI, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.JOGOS_NHAI;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.JOGOS_NHAI;
 	}
 
 	@Override

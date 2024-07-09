@@ -13,11 +13,7 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 		super(world);
 		addTargetTasks(true);
 		shield = GOTShields.HILLMEN;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -16,22 +16,14 @@ public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarMan {
 		addTargetTasks(true);
 		cape = GOTCapes.UNSULLIED;
 		shield = GOTShields.UNSULLIED;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
+		killAchievement = GOTAchievement.killUnsullied;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killUnsullied;
 	}
 
 	@Override

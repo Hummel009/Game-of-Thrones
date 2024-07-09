@@ -17,16 +17,8 @@ public class GOTEntityCotterPyke extends GOTEntityHumanBase implements GOTUnitTr
 		super(world);
 		setupLegendaryNPC(true);
 		cape = GOTCapes.NIGHT;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NIGHT_WATCH;
+		faction = GOTFaction.NIGHT_WATCH;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

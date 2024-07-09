@@ -16,11 +16,7 @@ public class GOTEntityWesterlandsSoldier extends GOTEntityWesterlandsMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		shield = GOTShields.WESTERLANDS;
 		cape = GOTCapes.WESTERLANDS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

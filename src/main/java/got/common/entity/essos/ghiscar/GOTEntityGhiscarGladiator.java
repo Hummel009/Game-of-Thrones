@@ -17,15 +17,12 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 		shield = GOTShields.GHISCAR;
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarGladiator.class, 0, true));
+		alignmentBonus = 0.0f;
+		killAchievement = GOTAchievement.killGhiscarGladiator;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
 	}
 
 	@Override
@@ -36,11 +33,6 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 		GOTEntityUtils.setupLeathermanArmorTurban(this, rand);
 
 		return entityData;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killGhiscarGladiator;
 	}
 
 	@Override

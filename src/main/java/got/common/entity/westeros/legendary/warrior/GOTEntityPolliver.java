@@ -13,16 +13,8 @@ public class GOTEntityPolliver extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 50.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WESTERLANDS;
+		faction = GOTFaction.WESTERLANDS;
+		alignmentBonus = 50.0f;
 	}
 
 	@Override

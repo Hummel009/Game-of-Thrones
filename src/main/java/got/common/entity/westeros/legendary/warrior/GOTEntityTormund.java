@@ -14,21 +14,9 @@ public class GOTEntityTormund extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WILDLING;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killTormund;
+		faction = GOTFaction.WILDLING;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killTormund;
 	}
 
 	@Override

@@ -18,6 +18,9 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.Imm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGiftMan(World world) {
 		super(world);
+		faction = GOTFaction.NIGHT_WATCH;
+		miniQuestFactory = GOTMiniQuestFactory.GIFT;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -37,21 +40,6 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements GOTBiome.Imm
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.GIFT, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.GIFT;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NIGHT_WATCH;
 	}
 
 	@Override

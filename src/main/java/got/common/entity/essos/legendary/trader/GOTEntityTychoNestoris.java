@@ -15,16 +15,9 @@ public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTra
 	public GOTEntityTychoNestoris(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killTychoNestoris;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
+		faction = GOTFaction.BRAAVOS;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killTychoNestoris;
 	}
 
 	@Override
@@ -33,18 +26,8 @@ public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTra
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.BRAAVOS;
-	}
-
-	@Override
 	public GOTTradeEntries getBuysPool() {
 		return GOTTradeEntries.GOLDSMITH_BUYS;
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 15;
 	}
 
 	@Override

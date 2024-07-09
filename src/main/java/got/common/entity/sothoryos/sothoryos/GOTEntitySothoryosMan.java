@@ -16,6 +16,9 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements GOTBiom
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosMan(World world) {
 		super(world);
+		faction = GOTFaction.SOTHORYOS;
+		miniQuestFactory = GOTMiniQuestFactory.SOTHORYOS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -28,21 +31,6 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements GOTBiom
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.SOTHORYOS, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.SOTHORYOS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.SOTHORYOS;
 	}
 
 	@Override

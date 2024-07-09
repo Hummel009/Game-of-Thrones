@@ -13,21 +13,9 @@ public class GOTEntityLorasTyrell extends GOTEntityHumanBase {
 	public GOTEntityLorasTyrell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.STORMLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killLorasTyrell;
+		faction = GOTFaction.STORMLANDS;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killLorasTyrell;
 	}
 
 	@Override

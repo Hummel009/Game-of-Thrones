@@ -22,6 +22,8 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	public GOTEntityMossovyWitcher(World world) {
 		super(world);
 		addTargetTasks(true);
+		alignmentBonus = 5.0f;
+		killAchievement = GOTAchievement.killMossovyWitcher;
 	}
 
 	@Override
@@ -45,16 +47,6 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
 		dropNPCCrossbowBolts(i);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killMossovyWitcher;
 	}
 
 	@Override

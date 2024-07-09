@@ -18,6 +18,9 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements GOTBiome
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornMan(World world) {
 		super(world);
+		faction = GOTFaction.IRONBORN;
+		miniQuestFactory = GOTMiniQuestFactory.IRONBORN;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -37,21 +40,6 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements GOTBiome
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.IRONBORN, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.IRONBORN;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.IRONBORN;
 	}
 
 	@Override

@@ -17,26 +17,10 @@ public class GOTEntityVarys extends GOTEntityHumanBase {
 	public GOTEntityVarys(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.VARYS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVarys;
+		faction = GOTFaction.CROWNLANDS;
+		miniQuestFactory = GOTMiniQuestFactory.VARYS;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killVarys;
 	}
 
 	@Override

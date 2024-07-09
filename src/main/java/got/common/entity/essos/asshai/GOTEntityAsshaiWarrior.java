@@ -15,11 +15,7 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 		addTargetTasks(true);
 		shield = GOTShields.ASSHAI;
 		cape = GOTCapes.ASSHAI;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

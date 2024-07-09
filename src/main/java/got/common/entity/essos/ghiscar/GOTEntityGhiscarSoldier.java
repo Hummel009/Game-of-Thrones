@@ -16,11 +16,7 @@ public class GOTEntityGhiscarSoldier extends GOTEntityGhiscarMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		cape = GOTCapes.GHISCAR;
 		shield = GOTShields.GHISCAR;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

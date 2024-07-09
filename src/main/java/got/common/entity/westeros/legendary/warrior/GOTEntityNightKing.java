@@ -34,6 +34,9 @@ public class GOTEntityNightKing extends GOTEntityNPC {
 		tasks.addTask(9, new EntityAILookIdle(this));
 		spawnsInDarkness = true;
 		isImmuneToFire = true;
+		faction = GOTFaction.WHITE_WALKER;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killNightKing;
 	}
 
 	private void addTargetTasks() {
@@ -74,28 +77,13 @@ public class GOTEntityNightKing extends GOTEntityNPC {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
 	public String getDeathSound() {
 		return "got:walker.death";
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WHITE_WALKER;
-	}
-
-	@Override
 	public String getHurtSound() {
 		return "got:walker.hurt";
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killNightKing;
 	}
 
 	@Override

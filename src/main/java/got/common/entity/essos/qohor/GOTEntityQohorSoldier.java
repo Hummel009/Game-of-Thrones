@@ -16,11 +16,7 @@ public class GOTEntityQohorSoldier extends GOTEntityQohorMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		cape = GOTCapes.QOHOR;
 		shield = GOTShields.QOHOR;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

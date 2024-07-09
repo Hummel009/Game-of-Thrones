@@ -12,11 +12,7 @@ public class GOTEntityQohorMiner extends GOTEntityQohorMan implements GOTTradeab
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQohorMiner(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

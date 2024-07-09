@@ -16,11 +16,7 @@ public class GOTEntityQarthSoldier extends GOTEntityQarthMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		cape = GOTCapes.QARTH;
 		shield = GOTShields.QARTH;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

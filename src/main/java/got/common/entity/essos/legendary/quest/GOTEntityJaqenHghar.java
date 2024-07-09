@@ -25,6 +25,9 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	public GOTEntityJaqenHghar(World world) {
 		super(world);
 		setupLegendaryNPC(false);
+		faction = GOTFaction.LORATH;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killJaqenHghar;
 	}
 
 	private boolean addMQOfferFor(EntityPlayer entityplayer) {
@@ -82,21 +85,6 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	private void doJaqenFX() {
 		playSound("random.pop", 2.0f, 0.5f + rand.nextFloat() * 0.5f);
 		worldObj.setEntityState(this, (byte) 16);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.LORATH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killJaqenHghar;
 	}
 
 	@Override

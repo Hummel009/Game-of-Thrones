@@ -16,26 +16,14 @@ public class GOTEntityRandyllTarly extends GOTEntityHumanBase implements GOTUnit
 	public GOTEntityRandyllTarly(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killRandyllTarly;
+		faction = GOTFaction.REACH;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killRandyllTarly;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.heartsbane, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
 	}
 
 	@Override

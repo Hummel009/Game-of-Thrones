@@ -13,11 +13,7 @@ public class GOTEntityLorathCaptain extends GOTEntityLorathMan implements GOTUni
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathCaptain(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

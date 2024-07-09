@@ -13,11 +13,7 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTFarm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosFarmer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

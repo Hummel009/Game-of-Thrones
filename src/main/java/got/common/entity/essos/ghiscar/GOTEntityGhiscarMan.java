@@ -17,6 +17,9 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarMan(World world) {
 		super(world);
+		faction = GOTFaction.GHISCAR;
+		miniQuestFactory = GOTMiniQuestFactory.GHISCAR;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.GHISCAR, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.GHISCAR;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.GHISCAR;
 	}
 
 	@Override

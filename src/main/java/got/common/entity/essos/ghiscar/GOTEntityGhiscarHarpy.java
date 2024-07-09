@@ -14,11 +14,7 @@ public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarMan {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		spawnsInDarkness = true;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killGhiscarHarpy;
+		killAchievement = GOTAchievement.killGhiscarHarpy;
 	}
 
 	@Override

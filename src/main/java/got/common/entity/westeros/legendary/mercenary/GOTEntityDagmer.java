@@ -15,16 +15,8 @@ public class GOTEntityDagmer extends GOTEntityHumanBase implements GOTMercenary 
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 10.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.IRONBORN;
+		faction = GOTFaction.IRONBORN;
+		alignmentBonus = 10.0f;
 	}
 
 	@Override

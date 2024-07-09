@@ -11,11 +11,7 @@ public class GOTEntityArrynBrewer extends GOTEntityArrynMan implements GOTTradea
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynBrewer(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

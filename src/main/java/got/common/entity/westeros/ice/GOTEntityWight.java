@@ -32,6 +32,9 @@ public class GOTEntityWight extends GOTEntityNPC implements GOTBiome.ImmuneToFro
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		spawnsInDarkness = true;
+		faction = GOTFaction.WHITE_WALKER;
+		alignmentBonus = 1.0f;
+		killAchievement = GOTAchievement.killWight;
 	}
 
 	@Override
@@ -66,28 +69,13 @@ public class GOTEntityWight extends GOTEntityNPC implements GOTBiome.ImmuneToFro
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
 	public String getDeathSound() {
 		return "mob.zombie.death";
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WHITE_WALKER;
-	}
-
-	@Override
 	public String getHurtSound() {
 		return "mob.zombie.hurt";
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killWight;
 	}
 
 	@Override

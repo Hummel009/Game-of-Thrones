@@ -16,21 +16,9 @@ public class GOTEntityGarlanTyrell extends GOTEntityHumanBase implements GOTUnit
 	public GOTEntityGarlanTyrell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killGarlanTyrell;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
+		faction = GOTFaction.REACH;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killGarlanTyrell;
 	}
 
 	@Override

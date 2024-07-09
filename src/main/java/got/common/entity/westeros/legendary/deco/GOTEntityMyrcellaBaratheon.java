@@ -13,26 +13,14 @@ public class GOTEntityMyrcellaBaratheon extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.9f, 1.8f * 0.9f);
+		faction = GOTFaction.CROWNLANDS;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killMyrcellaBaratheon;
 	}
 
 	@Override
 	public EntityAIBase getAttackAI() {
 		return new EntityAIPanic(this, 1.4);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killMyrcellaBaratheon;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
 	}
 
 	@Override

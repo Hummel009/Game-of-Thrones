@@ -13,11 +13,7 @@ public class GOTEntityTyroshCaptain extends GOTEntityTyroshMan implements GOTUni
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTyroshCaptain(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class GOTItemRobes extends GOTItemArmor {
 		this(GOTMaterial.ROBES, slot);
 	}
 
-	protected GOTItemRobes(ArmorMaterial material, int slot) {
+	private GOTItemRobes(ArmorMaterial material, int slot) {
 		super(material, slot);
 		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}

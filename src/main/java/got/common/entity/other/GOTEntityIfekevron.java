@@ -26,11 +26,9 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
 		spawnsInDarkness = true;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killIfekevron;
+		faction = GOTFaction.HOSTILE;
+		alignmentBonus = 2.0f;
+		killAchievement = GOTAchievement.killIfekevron;
 	}
 
 	@Override
@@ -46,18 +44,8 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public String getDeathSound() {
 		return "mob.zombie.death";
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HOSTILE;
 	}
 
 	@Override

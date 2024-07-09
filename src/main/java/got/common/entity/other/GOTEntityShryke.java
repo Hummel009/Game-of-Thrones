@@ -30,6 +30,9 @@ public class GOTEntityShryke extends GOTEntityNPC implements GOTBiome.ImmuneToFr
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
 		spawnsInDarkness = true;
+		faction = GOTFaction.HOSTILE;
+		alignmentBonus = 2.0f;
+		killAchievement = GOTAchievement.killShryke;
 	}
 
 	@Override
@@ -56,28 +59,13 @@ public class GOTEntityShryke extends GOTEntityNPC implements GOTBiome.ImmuneToFr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public String getDeathSound() {
 		return "got:crocodile.death";
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HOSTILE;
-	}
-
-	@Override
 	public String getHurtSound() {
 		return "got:crocodile.say";
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killShryke;
 	}
 
 	@Override

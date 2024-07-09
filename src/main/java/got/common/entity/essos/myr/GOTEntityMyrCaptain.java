@@ -13,11 +13,7 @@ public class GOTEntityMyrCaptain extends GOTEntityMyrMan implements GOTUnitTrade
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMyrCaptain(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

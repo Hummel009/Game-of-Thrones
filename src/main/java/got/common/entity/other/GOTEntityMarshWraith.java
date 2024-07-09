@@ -33,6 +33,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		tasks.addTask(3, new EntityAILookIdle(this));
 		ignoreFrustumCheck = true;
 		isImmuneToFire = true;
+		faction = GOTFaction.HOSTILE;
 	}
 
 	@Override
@@ -95,11 +96,6 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 	@Override
 	public String getDeathSound() {
 		return "got:wight.death";
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HOSTILE;
 	}
 
 	@Override

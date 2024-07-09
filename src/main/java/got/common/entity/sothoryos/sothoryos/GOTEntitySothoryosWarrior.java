@@ -13,11 +13,7 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 		super(world);
 		addTargetTasks(true);
 		shield = GOTShields.SOTHORYOS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

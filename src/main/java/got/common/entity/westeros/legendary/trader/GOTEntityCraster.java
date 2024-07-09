@@ -19,21 +19,13 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTSmith {
 		super(world);
 		setupLegendaryNPC(true);
 		notAttackable = true;
+		faction = GOTFaction.WILDLING;
+		killAchievement = GOTAchievement.killCraster;
 	}
 
 	@Override
 	public GOTTradeEntries getSellsPool() {
 		return GOTTradeEntries.BUTCHER_SELLS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WILDLING;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killCraster;
 	}
 
 	@Override

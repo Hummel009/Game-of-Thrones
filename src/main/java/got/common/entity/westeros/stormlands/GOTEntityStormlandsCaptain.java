@@ -15,11 +15,7 @@ public class GOTEntityStormlandsCaptain extends GOTEntityStormlandsMan implement
 	public GOTEntityStormlandsCaptain(World world) {
 		super(world);
 		cape = GOTCapes.STORMLANDS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

@@ -21,6 +21,9 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.RIVERLANDS;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killEdmureTully;
 	}
 
 	@Override
@@ -40,23 +43,8 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.RIVERLANDS;
-	}
-
-	@Override
 	public float getFireArrowChance() {
 		return 1.0f;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killEdmureTully;
 	}
 
 	@Override

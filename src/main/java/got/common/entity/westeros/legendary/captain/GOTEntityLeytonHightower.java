@@ -15,21 +15,13 @@ public class GOTEntityLeytonHightower extends GOTEntityHumanBase implements GOTU
 	public GOTEntityLeytonHightower(World world) {
 		super(world);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.REACH;
+		alignmentBonus = 200.0f;
 	}
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.vigilance, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
 	}
 
 	@Override

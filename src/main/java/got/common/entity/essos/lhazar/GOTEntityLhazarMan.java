@@ -16,6 +16,9 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements GOTBiome.I
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarMan(World world) {
 		super(world);
+		faction = GOTFaction.LHAZAR;
+		miniQuestFactory = GOTMiniQuestFactory.LHAZAR;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -28,21 +31,6 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements GOTBiome.I
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.LHAZAR, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.LHAZAR;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.LHAZAR;
 	}
 
 	@Override

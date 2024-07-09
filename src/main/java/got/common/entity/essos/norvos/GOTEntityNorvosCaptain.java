@@ -13,11 +13,7 @@ public class GOTEntityNorvosCaptain extends GOTEntityNorvosMan implements GOTUni
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorvosCaptain(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

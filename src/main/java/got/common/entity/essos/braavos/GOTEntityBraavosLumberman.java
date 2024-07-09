@@ -12,11 +12,7 @@ public class GOTEntityBraavosLumberman extends GOTEntityBraavosMan implements GO
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosLumberman(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

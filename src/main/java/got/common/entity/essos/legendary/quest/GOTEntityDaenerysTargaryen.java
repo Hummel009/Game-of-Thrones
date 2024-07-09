@@ -15,6 +15,10 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		isImmuneToFire = true;
+		faction = GOTFaction.DOTHRAKI;
+		miniQuestFactory = GOTMiniQuestFactory.DAENERYS;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killDaenerysTargaryen;
 	}
 
 	@Override
@@ -26,26 +30,6 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 
 		dropItem(GOTItems.bloodOfTrueKings, 1);
 		dropItem(GOTItems.blackArakh, 1);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.DAENERYS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DOTHRAKI;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killDaenerysTargaryen;
 	}
 
 	@Override

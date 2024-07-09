@@ -16,11 +16,7 @@ public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		shield = GOTShields.RIVERLANDS;
 		cape = GOTCapes.RIVERLANDS;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

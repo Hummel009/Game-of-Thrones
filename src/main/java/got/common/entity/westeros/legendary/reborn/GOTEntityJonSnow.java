@@ -20,11 +20,7 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		cape = GOTCapes.NIGHT;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
+		alignmentBonus = 300.0f;
 	}
 
 	@Override
@@ -47,16 +43,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		public JonSnowLife1(World world) {
 			super(world);
 			addTargetTasks(true);
-		}
-
-		@Override
-		public GOTMiniQuestFactory getMiniQuestFactory() {
-			return GOTMiniQuestFactory.JONSNOW;
-		}
-
-		@Override
-		public GOTFaction getFaction() {
-			return GOTFaction.NIGHT_WATCH;
+			faction = GOTFaction.NIGHT_WATCH;
+			miniQuestFactory = GOTMiniQuestFactory.JON_SNOW;
 		}
 
 		@Override
@@ -77,6 +65,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		public JonSnowLife2(World world) {
 			super(world);
 			addTargetTasks();
+			faction = GOTFaction.NORTH;
+			killAchievement = GOTAchievement.killJonSnow;
 		}
 
 		protected void addTargetTasks() {
@@ -85,16 +75,6 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 			targetTasks.addTask(target, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRamsayBolton.class, 0, true));
 			target++;
 			targetTasks.addTask(target, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRooseBolton.class, 0, true));
-		}
-
-		@Override
-		public GOTFaction getFaction() {
-			return GOTFaction.NORTH;
-		}
-
-		@Override
-		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.killJonSnow;
 		}
 	}
 }

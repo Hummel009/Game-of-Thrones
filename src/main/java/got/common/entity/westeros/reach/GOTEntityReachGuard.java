@@ -13,11 +13,7 @@ public class GOTEntityReachGuard extends GOTEntityReachMan {
 		super(world);
 		shield = GOTShields.REACHGUARD;
 		cape = GOTCapes.REACH;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

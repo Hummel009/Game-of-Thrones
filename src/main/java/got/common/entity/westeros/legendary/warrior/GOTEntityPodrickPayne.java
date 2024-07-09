@@ -13,21 +13,9 @@ public class GOTEntityPodrickPayne extends GOTEntityHumanBase {
 	public GOTEntityPodrickPayne(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killPodrickPayne;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
+		faction = GOTFaction.CROWNLANDS;
+		alignmentBonus = 100.0f;
+		killAchievement = GOTAchievement.killPodrickPayne;
 	}
 
 	@Override

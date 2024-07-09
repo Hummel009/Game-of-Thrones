@@ -15,6 +15,7 @@ public class GOTEntityGeroldDayne extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
+		faction = GOTFaction.DORNE;
 	}
 
 	private void addTargetTasks() {
@@ -25,11 +26,6 @@ public class GOTEntityGeroldDayne extends GOTEntityHumanBase {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.darkstar, 1);
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DORNE;
 	}
 
 	@Override

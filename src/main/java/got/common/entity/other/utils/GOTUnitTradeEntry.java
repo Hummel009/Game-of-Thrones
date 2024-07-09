@@ -138,7 +138,7 @@ public class GOTUnitTradeEntry {
 
 	public void hireUnit(EntityPlayer entityplayer, GOTHireableBase trader, String squadron) {
 		if (hasRequiredCostAndAlignment(entityplayer, trader)) {
-			trader.onUnitTrade(entityplayer);
+			GOTHireableBase.onUnitTrade(entityplayer);
 			int cost = getCost(entityplayer, trader);
 			GOTItemCoin.takeCoins(cost, entityplayer);
 			((GOTEntityNPC) trader).playTradeSound();

@@ -16,11 +16,7 @@ public class GOTEntityNorthSoldier extends GOTEntityNorthMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		shield = GOTShields.NORTH;
 		cape = GOTCapes.NORTH;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

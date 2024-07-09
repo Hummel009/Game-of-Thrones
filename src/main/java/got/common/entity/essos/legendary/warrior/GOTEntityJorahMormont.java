@@ -14,21 +14,9 @@ public class GOTEntityJorahMormont extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		setSize(0.6f, 1.8f);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DOTHRAKI;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killJorahMormont;
+		faction = GOTFaction.DOTHRAKI;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killJorahMormont;
 	}
 
 	@Override

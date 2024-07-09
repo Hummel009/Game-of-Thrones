@@ -16,11 +16,7 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiMan {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		shield = GOTShields.YI_TI;
 		cape = GOTCapes.YI_TI;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

@@ -16,6 +16,9 @@ public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.Immun
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThenn(World world) {
 		super(world);
+		faction = GOTFaction.WILDLING;
+		miniQuestFactory = GOTMiniQuestFactory.WILDLING;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -28,21 +31,6 @@ public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.Immun
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.BEYOND_WALL, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.WILDLING;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WILDLING;
 	}
 
 	@Override

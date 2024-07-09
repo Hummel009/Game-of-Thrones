@@ -20,6 +20,9 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 		tasks.addTask(0, new GOTEntityAIAsshaiArchmagUseStaff(this));
 		cape = GOTCapes.ASSHAI;
 		isImmuneToFire = true;
+		faction = GOTFaction.ASSHAI;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killAsshaiArchmag;
 	}
 
 	@Override
@@ -39,27 +42,12 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 		dataWatcher.addObject(17, (byte) 0);
 	}
 
-	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.ASSHAI;
-	}
-
 	public boolean getIsUsingStaff() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
 	public void setIsUsingStaff(boolean flag) {
 		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killAsshaiArchmag;
 	}
 
 	@Override

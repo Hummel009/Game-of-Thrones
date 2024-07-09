@@ -12,16 +12,12 @@ public class GOTEntityDothrakiShaman extends GOTEntityDothraki implements GOTTra
 	public GOTEntityDothrakiShaman(World world) {
 		super(world);
 		addTargetTasks(false);
+		alignmentBonus = 2.0f;
 	}
 
 	@Override
 	public boolean canDothrakiSkirmish() {
 		return false;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
 	}
 
 	@Override

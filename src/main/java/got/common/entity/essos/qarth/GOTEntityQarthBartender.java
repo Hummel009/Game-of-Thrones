@@ -13,11 +13,7 @@ public class GOTEntityQarthBartender extends GOTEntityQarthMan implements GOTBar
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthBartender(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
 	}
 
 	@Override

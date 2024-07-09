@@ -17,6 +17,9 @@ public class GOTEntityMyrMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMyrMan(World world) {
 		super(world);
+		faction = GOTFaction.MYR;
+		miniQuestFactory = GOTMiniQuestFactory.MYR;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -36,21 +39,6 @@ public class GOTEntityMyrMan extends GOTEntityHumanBase {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.MYR, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.MYR;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.MYR;
 	}
 
 	@Override

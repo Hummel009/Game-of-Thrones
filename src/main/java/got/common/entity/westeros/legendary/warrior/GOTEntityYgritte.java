@@ -24,6 +24,9 @@ public class GOTEntityYgritte extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.WILDLING;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killYgritte;
 	}
 
 	@Override
@@ -35,21 +38,6 @@ public class GOTEntityYgritte extends GOTEntityHumanBase {
 	@Override
 	public void onAttackModeChange(AttackMode mode, boolean mounted) {
 		GOTEntityUtils.setupComboAttackModeChange(this, mode, meleeAttackAI, rangedAttackAI);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WILDLING;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killYgritte;
 	}
 
 	@Override

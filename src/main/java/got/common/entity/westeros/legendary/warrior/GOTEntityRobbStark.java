@@ -17,6 +17,9 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
+		faction = GOTFaction.NORTH;
+		alignmentBonus = 500.0f;
+		killAchievement = GOTAchievement.killRobbStark;
 	}
 
 	@Override
@@ -25,31 +28,11 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 500.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.NORTH;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killRobbStark;
-	}
-
-	@Override
 	public String getSpeechBank(GOTEntityNPC npc, EntityPlayer entityPlayer) {
 		if (npc.isFriendly(entityPlayer)) {
 			return "legendary/robb_friendly";
 		}
 		return GOTSpeech.HOSTILE;
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 16;
 	}
 
 	@Override

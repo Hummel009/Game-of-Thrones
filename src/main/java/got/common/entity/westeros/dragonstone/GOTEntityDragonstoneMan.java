@@ -18,6 +18,9 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements GOTBi
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneMan(World world) {
 		super(world);
+		faction = GOTFaction.DRAGONSTONE;
+		miniQuestFactory = GOTMiniQuestFactory.DRAGONSTONE;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -37,21 +40,6 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements GOTBi
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.DRAGONSTONE, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.DRAGONSTONE;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DRAGONSTONE;
 	}
 
 	@Override

@@ -14,6 +14,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityProstitute(World world) {
 		super(world);
+		killAchievement = GOTAchievement.killProstitute;
 	}
 
 	@Override
@@ -21,11 +22,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		super.entityInit();
 		dataWatcher.addObject(18, (byte) 0);
 		setProstituteType(prostituteType);
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killProstitute;
 	}
 
 	public ProstituteType getProstituteType() {

@@ -14,21 +14,9 @@ public class GOTEntityVictarionGreyjoy extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 200.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.IRONBORN;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killVictarionGreyjoy;
+		faction = GOTFaction.IRONBORN;
+		alignmentBonus = 200.0f;
+		killAchievement = GOTAchievement.killVictarionGreyjoy;
 	}
 
 	@Override

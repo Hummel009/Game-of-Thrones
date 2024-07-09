@@ -30,6 +30,7 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		spawnsInDarkness = true;
+		faction = GOTFaction.HOSTILE;
 	}
 
 	@Override
@@ -109,11 +110,6 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 	@Override
 	public String getDeathSound() {
 		return "got:crocodile.death";
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.HOSTILE;
 	}
 
 	@Override

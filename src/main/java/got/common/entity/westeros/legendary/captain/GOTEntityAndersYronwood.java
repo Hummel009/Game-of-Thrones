@@ -15,16 +15,8 @@ public class GOTEntityAndersYronwood extends GOTEntityHumanBase implements GOTUn
 	public GOTEntityAndersYronwood(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.DORNE;
+		faction = GOTFaction.DORNE;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

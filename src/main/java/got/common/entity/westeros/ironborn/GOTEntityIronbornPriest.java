@@ -15,11 +15,8 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornPriest(World world) {
 		super(world);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
+		alignmentBonus = 2.0f;
+		killAchievement = GOTAchievement.killPriest;
 	}
 
 	@Override
@@ -45,10 +42,5 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 		npcItemsInv.setIdleItem(null);
 
 		return entityData;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killPriest;
 	}
 }

@@ -18,6 +18,9 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements GOTBi
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsMan(World world) {
 		super(world);
+		faction = GOTFaction.WESTERLANDS;
+		miniQuestFactory = GOTMiniQuestFactory.WESTERLANDS;
+		alignmentBonus = 1.0f;
 	}
 
 	@Override
@@ -37,21 +40,6 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements GOTBi
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.WESTERLANDS, 1, 2 + i);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
-	}
-
-	@Override
-	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return GOTMiniQuestFactory.WESTERLANDS;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.WESTERLANDS;
 	}
 
 	@Override

@@ -15,11 +15,7 @@ public class GOTEntityDorneCaptain extends GOTEntityDorneMan implements GOTUnitT
 	public GOTEntityDorneCaptain(World world) {
 		super(world);
 		cape = GOTCapes.DORNE;
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
+		alignmentBonus = 5.0f;
 	}
 
 	@Override

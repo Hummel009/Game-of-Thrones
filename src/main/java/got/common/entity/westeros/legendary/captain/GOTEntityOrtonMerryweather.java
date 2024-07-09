@@ -15,16 +15,8 @@ public class GOTEntityOrtonMerryweather extends GOTEntityHumanBase implements GO
 	public GOTEntityOrtonMerryweather(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 100.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
+		faction = GOTFaction.REACH;
+		alignmentBonus = 100.0f;
 	}
 
 	@Override

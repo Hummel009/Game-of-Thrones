@@ -14,21 +14,9 @@ public class GOTEntityBryndenTully extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 300.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.RIVERLANDS;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killBryndenTully;
+		faction = GOTFaction.RIVERLANDS;
+		alignmentBonus = 300.0f;
+		killAchievement = GOTAchievement.killBryndenTully;
 	}
 
 	@Override
