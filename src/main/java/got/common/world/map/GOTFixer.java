@@ -66,6 +66,7 @@ import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsSett
 import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsSettlement;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.*;
 
@@ -84,15 +85,20 @@ public class GOTFixer {
 		for (GOTWaypoint wp : forts) {
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}
-		GOTWorldGenPartyTrees worldGen = ((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions();
+		WorldGenerator weirwood = ((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions();
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WINTERFELL.info(-0.5, -0.1, Dir.WEST))) {
-			worldGen.generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
+			weirwood.generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
 		}
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE)) {
-			worldGen.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE.info(0, -0.2f))) {
+			weirwood.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k);
 		}
+		WorldGenerator $ = GOTTreeType.OAK_GIANT.create(false, random);
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.SPIDER.info(0, 0.9f))) {
+			$.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k);
+		}
+		WorldGenerator ship = new EuronShip();
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.EURON)) {
-			new EuronShip().generate(world, random, i, 55, k);
+			ship.generate(world, random, i, 55, k);
 		}
 	}
 

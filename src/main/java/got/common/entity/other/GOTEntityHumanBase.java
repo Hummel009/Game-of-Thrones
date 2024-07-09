@@ -130,7 +130,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 
 	@Override
 	public void onArtificalSpawn() {
-		if (canBeMarried && getClass() == familyInfo.getMarriageEntityClass() && rand.nextInt(7) == 0) {
+		if ((this instanceof GOTEntityProstitute || canBeMarried && getClass() == familyInfo.getMarriageEntityClass()) && rand.nextInt(7) == 0) {
 			familyInfo.setChild();
 		}
 	}

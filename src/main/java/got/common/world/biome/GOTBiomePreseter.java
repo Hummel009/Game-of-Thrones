@@ -219,7 +219,6 @@ public class GOTBiomePreseter {
 		biome.getDecorator().setTreesPerChunk(3);
 		biome.getDecorator().setSandPerChunk(0);
 		biome.getDecorator().setQuagmirePerChunk(1);
-		biome.getDecorator().setTreesPerChunk(0);
 		biome.getDecorator().setLogsPerChunk(2);
 		biome.getDecorator().setGrassPerChunk(6);
 		biome.getDecorator().setDoubleGrassPerChunk(6);

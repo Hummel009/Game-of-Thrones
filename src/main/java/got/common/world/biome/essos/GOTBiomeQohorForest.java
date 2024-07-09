@@ -10,13 +10,18 @@ public class GOTBiomeQohorForest extends GOTBiomeEssosBase {
 		preseter.setupForestView();
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
-		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
 
+		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CATALPA, 1000);
-		decorator.addTree(GOTTreeType.CATALPA_BOUGHS, 100);
+		decorator.addTree(GOTTreeType.CATALPA_BOUGHS, 250);
+		decorator.addTree(GOTTreeType.PINE, 400);
+		decorator.addTree(GOTTreeType.SPRUCE, 300);
+		decorator.addTree(GOTTreeType.FIR, 300);
+		decorator.addTree(GOTTreeType.DARK_OAK, 100);
 		decorator.addTree(GOTTreeType.CATALPA_PARTY, 1);
+		decorator.addTree(GOTTreeType.DARK_OAK_PARTY, 1);
 
 		biomeWaypoints = GOTWaypoint.Region.QOHOR;
 		biomeAchievement = GOTAchievement.enterQohor;

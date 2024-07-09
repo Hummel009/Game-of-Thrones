@@ -23,7 +23,6 @@ public class GOTBiomeLongSummerForest extends GOTBiomeEssosBase {
 		decorator.addTree(GOTTreeType.OAK, 250);
 		decorator.addTree(GOTTreeType.OAK_TALLER, 250);
 		decorator.addTree(GOTTreeType.OAK_PARTY, 5);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 1);
 
 		setupRuinedStructures(false);
 

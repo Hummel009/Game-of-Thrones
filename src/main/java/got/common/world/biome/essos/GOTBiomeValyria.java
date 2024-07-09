@@ -26,11 +26,10 @@ public class GOTBiomeValyria extends GOTBiomeEssosBase {
 		biomeVariants.add(GOTBiomeVariant.HILLS, 0.9f);
 
 		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.OAK_LARGE, 1000);
+		decorator.addTree(GOTTreeType.OAK_LARGE, 500);
 		decorator.addTree(GOTTreeType.OAK, 250);
-		decorator.addTree(GOTTreeType.OAK_TALLER, 250);
-		decorator.addTree(GOTTreeType.OAK_PARTY, 5);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 1);
+		decorator.addTree(GOTTreeType.OAK_TALLER, 200);
+		decorator.addTree(GOTTreeType.OAK_PARTY, 1);
 
 		decorator.setTreesPerChunk(6);
 
