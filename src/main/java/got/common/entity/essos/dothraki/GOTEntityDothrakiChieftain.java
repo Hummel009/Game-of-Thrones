@@ -13,6 +13,7 @@ public class GOTEntityDothrakiChieftain extends GOTEntityDothraki implements GOT
 	public GOTEntityDothrakiChieftain(World world) {
 		super(world);
 		addTargetTasks(false);
+		spawnRidingHorse = false;
 		alignmentBonus = 5.0f;
 	}
 

@@ -12,6 +12,7 @@ public class GOTEntityDothrakiShaman extends GOTEntityDothraki implements GOTTra
 	public GOTEntityDothrakiShaman(World world) {
 		super(world);
 		addTargetTasks(false);
+		spawnRidingHorse = false;
 		alignmentBonus = 2.0f;
 	}
 

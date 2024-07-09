@@ -51,6 +51,9 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.valyrianSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
+		npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.valyrianSword));
+		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeapon());
+
 		return entityData;
 	}
 

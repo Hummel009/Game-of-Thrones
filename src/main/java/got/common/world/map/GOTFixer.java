@@ -89,12 +89,8 @@ public class GOTFixer {
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WINTERFELL.info(-0.5, -0.1, Dir.WEST))) {
 			weirwood.generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
 		}
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE.info(0, -0.2f))) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE.info(0, -0.125f))) {
 			weirwood.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k);
-		}
-		WorldGenerator $ = GOTTreeType.OAK_GIANT.create(false, random);
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.SPIDER.info(0, 0.9f))) {
-			$.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k);
 		}
 		WorldGenerator ship = new EuronShip();
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.EURON)) {
@@ -1332,7 +1328,7 @@ public class GOTFixer {
 			}
 		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.SKYREACH.info(0, 0.5, Dir.SOUTH));
 
-		registerSpawner(new GOTStructureEmptySettlement() {
+		registerSpawner(new GOTStructureEmptySettlement(0) {
 			@Override
 			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
 				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
@@ -1515,7 +1511,7 @@ public class GOTFixer {
 			}
 		}.type(GOTStructureNorthSettlement.Type.TOWN, 6), GOTWaypoint.WHITE_HARBOUR.info(0.8, 0, Dir.EAST));
 
-		registerSpawner(new GOTStructureEmptySettlement() {
+		registerSpawner(new GOTStructureEmptySettlement(0) {
 			@Override
 			public Collection<SpawnInfo> getLegendaryNPCs(World world) {
 				Collection<SpawnInfo> spawnInfos = new ArrayList<>();
