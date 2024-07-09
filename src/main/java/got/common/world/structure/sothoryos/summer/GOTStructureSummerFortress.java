@@ -62,14 +62,29 @@ public class GOTStructureSummerFortress extends GOTStructureSummerBase {
 						continue;
 					}
 					if (j1 == 0) {
+						int randomGround;
 						if (i2 <= 11 && k2 <= 11) {
 							if (random.nextBoolean()) {
 								setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 							} else {
-								setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+								randomGround = random.nextInt(3);
+								if (randomGround == 0) {
+									setBlockAndMetadata(world, i1, 0, k1, Blocks.grass, 0);
+								} else if (randomGround == 1) {
+									setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+								} else {
+									setBlockAndMetadata(world, i1, 0, k1, Blocks.sand, 0);
+								}
 							}
 						} else {
-							setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+							randomGround = random.nextInt(3);
+							if (randomGround == 0) {
+								setBlockAndMetadata(world, i1, 0, k1, Blocks.grass, 0);
+							} else if (randomGround == 1) {
+								setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+							} else {
+								setBlockAndMetadata(world, i1, 0, k1, Blocks.sand, 0);
+							}
 						}
 					} else {
 						setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 0);
