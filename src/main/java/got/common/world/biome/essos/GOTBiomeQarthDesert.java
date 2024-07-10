@@ -53,6 +53,11 @@ public class GOTBiomeQarthDesert extends GOTBiomeEssosBase implements GOTBiome.D
 	}
 
 	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
 	public GOTEventSpawner.EventChance getBanditChance() {
 		return GOTEventSpawner.EventChance.NEVER;
 	}

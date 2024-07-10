@@ -8,6 +8,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.essos.qarth.GOTStructureQarthFortress;
 import got.common.world.structure.essos.qarth.GOTStructureQarthSettlement;
@@ -52,6 +53,21 @@ public class GOTBiomeQarth extends GOTBiomeEssosBase {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterQarth;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override
