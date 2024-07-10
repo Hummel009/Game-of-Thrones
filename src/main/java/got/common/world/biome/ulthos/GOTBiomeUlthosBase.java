@@ -9,16 +9,26 @@ import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public abstract class GOTBiomeUlthosBase extends GOTBiome {
-
 	protected GOTBiomeUlthosBase(int i, boolean major) {
 		super(i, major);
 		decorator.setBiomeGemFactor(3.0f);
 		decorator.setBiomeOreFactor(3.0f);
 		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.ULTHOS;
-		biomeMusic = GOTMusicRegion.ULTHOS.getSubregion(biomeName);
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ULTHOS;
+	}
+
+	@Override
+	public GOTMusicRegion.Sub getBiomeMusic() {
+		return GOTMusicRegion.ULTHOS.getSubregion(biomeName);
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 
 	protected void setupDefaultTrees() {

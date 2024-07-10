@@ -4,7 +4,6 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
-import got.common.world.map.GOTBezierType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -18,9 +17,16 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		super(i, major);
 		decorator.setTreesPerChunk(0);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreValyrian, 3), 2.0f, 0, 16);
-		biomeAchievement = GOTAchievement.enterValyriaVolcano;
-		enableRiver = false;
-		roadBlock = GOTBezierType.PATH_COBBLE;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterValyriaVolcano;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 
 	@Override

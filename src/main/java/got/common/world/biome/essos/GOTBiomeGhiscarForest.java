@@ -20,10 +20,21 @@ public class GOTBiomeGhiscarForest extends GOTBiomeEssosBase {
 		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(true);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.GHISCAR;
-		biomeAchievement = GOTAchievement.enterGhiscar;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.GHISCAR;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterGhiscar;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

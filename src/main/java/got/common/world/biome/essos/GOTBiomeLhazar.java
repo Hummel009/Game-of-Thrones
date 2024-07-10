@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -31,9 +32,20 @@ public class GOTBiomeLhazar extends GOTBiomeEssosBase {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.LHAZAR;
-		biomeAchievement = GOTAchievement.enterLhazar;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.LHAZAR;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterLhazar;
+	}
+
+	@Override
+	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
+		return GOTEntityDarkSkinBandit.class;
 	}
 }

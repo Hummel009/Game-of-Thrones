@@ -12,17 +12,27 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeNorthMountains extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
-
 	public GOTBiomeNorthMountains(int i, boolean major) {
 		super(i, major);
 		preseter.setupMountainsView();
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupNorthernTrees(false);
+	}
 
-		biomeAchievement = GOTAchievement.enterNorthMountains;
-		biomeWaypoints = GOTWaypoint.Region.NORTH;
-		enableRocky = true;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNorthMountains;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORTH;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
 	}
 
 	@Override

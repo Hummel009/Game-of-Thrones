@@ -17,10 +17,25 @@ public class GOTBiomeNorthForestIrontree extends GOTBiomeWesterosBase {
 		decorator.addTree(GOTTreeType.REDWOOD_3, 5000);
 		decorator.addTree(GOTTreeType.REDWOOD_4, 5000);
 		decorator.addTree(GOTTreeType.REDWOOD_5, 2000);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.NORTH;
-		biomeAchievement = GOTAchievement.enterNorthForestIrontree;
-		enableRiver = false;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORTH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNorthForestIrontree;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 }

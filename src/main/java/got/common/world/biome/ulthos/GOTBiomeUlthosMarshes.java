@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosBase implements GOTBiome.Marshes {
-
 	public GOTBiomeUlthosMarshes(int i, boolean major) {
 		super(i, major);
 		preseter.setupMarshesView();
@@ -25,8 +24,15 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosBase implements GOTBiom
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeAchievement = GOTAchievement.enterUlthosMarshes;
-		enableRiver = false;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterUlthosMarshes;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 }

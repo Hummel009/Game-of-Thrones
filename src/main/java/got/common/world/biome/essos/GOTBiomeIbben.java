@@ -38,9 +38,20 @@ public class GOTBiomeIbben extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.LORATH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.IBBEN;
-		biomeAchievement = GOTAchievement.enterIbben;
-		wallBlock = GOTBezierType.WALL_IBBEN;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IBBEN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIbben;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_IBBEN;
 	}
 }

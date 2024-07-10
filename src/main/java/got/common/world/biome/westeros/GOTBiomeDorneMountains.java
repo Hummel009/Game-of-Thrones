@@ -3,6 +3,7 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTWaypoint;
@@ -13,18 +14,32 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeDorneMountains extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
-
 	public GOTBiomeDorneMountains(int i, boolean major) {
 		super(i, major);
 		preseter.setupMountainsView();
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupSouthernTrees(true);
+	}
 
-		biomeAchievement = GOTAchievement.enterDorneMountains;
-		biomeWaypoints = GOTWaypoint.Region.DORNE;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-		enableRocky = true;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterDorneMountains;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DORNE;
+	}
+
+	@Override
+	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
+		return GOTEntityDarkSkinBandit.class;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
 	}
 
 	@Override

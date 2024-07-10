@@ -148,11 +148,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	public static class BericDondarrionLife6 extends GOTEntityBericDondarrion {
-		{
-		}
-
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public BericDondarrionLife6(World world) {

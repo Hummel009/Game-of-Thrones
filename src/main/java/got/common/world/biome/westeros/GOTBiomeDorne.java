@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
@@ -55,11 +56,26 @@ public class GOTBiomeDorne extends GOTBiomeWesterosBase {
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(5).add(c3);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.DORNE;
-		biomeAchievement = GOTAchievement.enterDorne;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DORNE;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterDorne;
+	}
+
+	@Override
+	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
+		return GOTEntityDarkSkinBandit.class;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

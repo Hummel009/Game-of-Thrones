@@ -42,10 +42,21 @@ public class GOTBiomeQarth extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(5).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.QARTH;
-		biomeAchievement = GOTAchievement.enterQarth;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.QARTH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterQarth;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

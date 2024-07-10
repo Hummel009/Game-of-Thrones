@@ -22,7 +22,10 @@ public class GOTBiomeUlthosTaiga extends GOTBiomeUlthosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_BLIZZARD, 10).setSpawnChance(CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeAchievement = GOTAchievement.enterUlthosTaiga;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterUlthosTaiga;
 	}
 }

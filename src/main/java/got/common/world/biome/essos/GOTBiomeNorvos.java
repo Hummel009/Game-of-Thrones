@@ -42,9 +42,16 @@ public class GOTBiomeNorvos extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.NORVOS;
-		biomeAchievement = GOTAchievement.enterNorvos;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORVOS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNorvos;
 	}
 
 	@Override

@@ -41,10 +41,21 @@ public class GOTBiomeThennLand extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.BEYOND_WALL;
-		biomeAchievement = GOTAchievement.enterThennLand;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.BEYOND_WALL;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterThennLand;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

@@ -11,7 +11,10 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBase {
 		preseter.setupSavannahTrees();
 
 		decorator.setTreesPerChunk(8);
+	}
 
-		biomeAchievement = GOTAchievement.enterSothoryosForest;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterSothoryosForest;
 	}
 }

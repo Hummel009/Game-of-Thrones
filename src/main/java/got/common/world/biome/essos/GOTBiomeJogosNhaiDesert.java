@@ -31,14 +31,41 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosBase implements GOTBio
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.ESSOS_SEPARATOR;
-		biomeAchievement = GOTAchievement.enterJogosNhaiDesert;
-		chanceToSpawnAnimals = 0.1f;
-		enableRiver = false;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		wallBlock = GOTBezierType.WALL_YI_TI;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ESSOS_SEPARATOR;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterJogosNhaiDesert;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_YI_TI;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

@@ -16,12 +16,35 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesterosBase {
 		preseter.setupFrostFlora();
 		preseter.setupFrostFauna();
 		preseter.setupPolarTrees(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.BEYOND_WALL;
-		biomeAchievement = GOTAchievement.enterWesterosFrost;
-		enableRiver = false;
-		chanceToSpawnAnimals = 0.1f;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		roadBlock = GOTBezierType.PATH_SNOWY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.BEYOND_WALL;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterWesterosFrost;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
 	}
 }

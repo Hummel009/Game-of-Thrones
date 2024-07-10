@@ -8,9 +8,21 @@ import got.common.world.structure.other.*;
 public abstract class GOTBiomeWesterosBase extends GOTBiome {
 	protected GOTBiomeWesterosBase(int i, boolean major) {
 		super(i, major);
-		biomeMusic = GOTMusicRegion.WESTEROS.getSubregion(biomeName);
-		wallBlock = GOTBezierType.WALL_ICE;
-		wallTop = 150;
+	}
+
+	@Override
+	public GOTMusicRegion.Sub getBiomeMusic() {
+		return GOTMusicRegion.WESTEROS.getSubregion(biomeName);
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_ICE;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 150;
 	}
 
 	protected void setupRuinedStructures(boolean sand) {

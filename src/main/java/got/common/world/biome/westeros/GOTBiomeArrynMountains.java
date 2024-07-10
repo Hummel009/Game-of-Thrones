@@ -12,17 +12,27 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeArrynMountains extends GOTBiomeWesterosBase implements GOTBiome.Mountains {
-
 	public GOTBiomeArrynMountains(int i, boolean major) {
 		super(i, major);
 		preseter.setupMountainsView();
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupMiderateTrees();
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.ARRYN;
-		biomeAchievement = GOTAchievement.enterArrynMountains;
-		enableRocky = true;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ARRYN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterArrynMountains;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
 	}
 
 	@Override

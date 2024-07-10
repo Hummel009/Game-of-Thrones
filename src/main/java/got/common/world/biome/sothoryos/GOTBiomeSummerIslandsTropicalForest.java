@@ -28,8 +28,15 @@ public class GOTBiomeSummerIslandsTropicalForest extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.SUMMER;
-		biomeAchievement = GOTAchievement.enterSummerIslands;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.SUMMER;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterSummerIslands;
 	}
 }

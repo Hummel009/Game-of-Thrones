@@ -265,21 +265,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 	protected GOTBiomeGenerator generator;
 	protected GOTBiomeInvasionSpawns invasionSpawns;
 	protected float variantChance = 0.4f;
-	protected int fillerBlockMeta;
 	protected int topBlockMeta;
-
-	protected Class<? extends GOTEntityNPC> banditEntityClass = GOTEntityLightSkinBandit.class;
-	protected GOTAchievement biomeAchievement;
-	protected GOTBezierType roadBlock = GOTBezierType.PATH_DIRTY;
-	protected GOTBezierType wallBlock = GOTBezierType.PATH_COBBLE;
-	protected GOTEventSpawner.EventChance banditChance = GOTEventSpawner.EventChance.COMMON;
-	protected GOTMusicRegion.Sub biomeMusic = GOTMusicRegion.OCEAN.getSubregion(biomeName);
-	protected GOTWaypoint.Region biomeWaypoints;
-	protected boolean enableRiver = true;
-	protected boolean enableRocky;
-	protected float chanceToSpawnAnimals = 0.25f;
-	protected int spawnCountMultiplier = 3;
-	protected int wallTop = 90;
+	protected int fillerBlockMeta;
 
 	private GOTClimateType climateType;
 	private float heightBaseParameter;
@@ -559,6 +546,17 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
+	public static WorldGenerator getRandomWorldGenForDoubleGrass() {
+		WorldGenDoublePlant generator = new WorldGenDoublePlant();
+		generator.func_150548_a(2);
+		return generator;
+	}
+
+	@SuppressWarnings("SameReturnValue")
+	public static int getSpawnCountMultiplier() {
+		return 3;
+	}
+
 	public List<SpawnListEntry> getSpawnableCreatureList() {
 		return spawnableCreatureList;
 	}
@@ -649,10 +647,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	@Override
 	public int getBiomeGrassColor(int i, int j, int k) {
 		return biomeColors.getGrass() != null ? biomeColors.getGrass().getRGB() : getBaseGrassColor(i, j, k);
-	}
-
-	public boolean isEnableRocky() {
-		return enableRocky;
 	}
 
 	public GOTBiomeVariantList getBiomeVariants() {
@@ -761,12 +755,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		generator.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
 	}
 
-	public static WorldGenerator getRandomWorldGenForDoubleGrass() {
-		WorldGenDoublePlant generator = new WorldGenDoublePlant();
-		generator.func_150548_a(2);
-		return generator;
-	}
-
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random) {
 		GrassBlockAndMeta obj = getRandomGrass(random);
@@ -857,49 +845,43 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return decorator;
 	}
 
-	public GOTMusicRegion.Sub getBiomeMusic() {
-		return biomeMusic;
-	}
-
-	public GOTWaypoint.Region getBiomeWaypoints() {
-		return biomeWaypoints;
+	public boolean isEnableRocky() {
+		return false;
 	}
 
 	public float getChanceToSpawnAnimals() {
-		return chanceToSpawnAnimals;
+		return 0.25f;
 	}
 
 	public boolean getEnableRiver() {
-		return enableRiver;
+		return true;
 	}
 
 	public GOTBezierType getRoadBlock() {
-		return roadBlock;
-	}
-
-	public int getSpawnCountMultiplier() {
-		return spawnCountMultiplier;
-	}
-
-	public GOTAchievement getBiomeAchievement() {
-		return biomeAchievement;
+		return GOTBezierType.PATH_DIRTY;
 	}
 
 	public GOTBezierType getWallBlock() {
-		return wallBlock;
+		return null;
 	}
 
 	public int getWallTop() {
-		return wallTop;
+		return 0;
 	}
 
 	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
-		return banditEntityClass;
+		return GOTEntityLightSkinBandit.class;
 	}
 
 	public GOTEventSpawner.EventChance getBanditChance() {
-		return banditChance;
+		return GOTEventSpawner.EventChance.COMMON;
 	}
+
+	public abstract GOTMusicRegion.Sub getBiomeMusic();
+
+	public abstract GOTWaypoint.Region getBiomeWaypoints();
+
+	public abstract GOTAchievement getBiomeAchievement();
 
 	public interface Mountains {
 		void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant);

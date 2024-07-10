@@ -4,7 +4,6 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
 import got.common.world.structure.essos.asshai.GOTStructureAsshaiAltar;
@@ -32,10 +31,16 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeAchievement = GOTAchievement.enterShadowTown;
-		enableRiver = false;
-		roadBlock = GOTBezierType.PATH_ASSHAI;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterShadowTown;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 
 	@Override

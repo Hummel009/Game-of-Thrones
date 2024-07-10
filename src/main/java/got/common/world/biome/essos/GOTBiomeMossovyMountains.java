@@ -20,10 +20,21 @@ public class GOTBiomeMossovyMountains extends GOTBiomeEssosBase implements GOTBi
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupNorthernTrees(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.MOSSOVY;
-		biomeAchievement = GOTAchievement.enterMossovyMountains;
-		enableRocky = true;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.MOSSOVY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterMossovyMountains;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
 	}
 
 	@Override

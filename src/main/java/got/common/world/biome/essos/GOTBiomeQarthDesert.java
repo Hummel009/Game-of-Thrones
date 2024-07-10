@@ -35,12 +35,31 @@ public class GOTBiomeQarthDesert extends GOTBiomeEssosBase implements GOTBiome.D
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.QARTH;
-		biomeAchievement = GOTAchievement.enterQarthDesert;
-		chanceToSpawnAnimals = 0.1f;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.QARTH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterQarthDesert;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

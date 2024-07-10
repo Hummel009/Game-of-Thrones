@@ -24,10 +24,25 @@ public class GOTBiomeUlthosFrost extends GOTBiomeUlthosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_BLIZZARD, 10).setSpawnChance(CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeAchievement = GOTAchievement.enterUlthosFrost;
-		enableRiver = false;
-		chanceToSpawnAnimals = 0.1f;
-		roadBlock = GOTBezierType.PATH_SNOWY;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterUlthosFrost;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SNOWY;
 	}
 }

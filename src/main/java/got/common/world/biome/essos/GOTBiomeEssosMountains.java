@@ -19,11 +19,26 @@ public class GOTBiomeEssosMountains extends GOTBiomeEssosBase implements GOTBiom
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupSouthernTrees(true);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.VALYRIA;
-		biomeAchievement = GOTAchievement.enterEssosMountains;
-		enableRocky = true;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VALYRIA;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterEssosMountains;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

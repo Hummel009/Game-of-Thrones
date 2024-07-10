@@ -41,9 +41,20 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssosBase {
 		npcSpawnList.newFactionList(0).add(c2);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.IBBEN_COLONY;
-		biomeAchievement = GOTAchievement.enterIbbenColony;
-		wallBlock = GOTBezierType.WALL_IBBEN;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IBBEN_COLONY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIbbenColony;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_IBBEN;
 	}
 }

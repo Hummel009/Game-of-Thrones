@@ -22,11 +22,30 @@ public class GOTBiomeYiTiMarshes extends GOTBiomeEssosBase implements GOTBiome.M
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.YI_TI;
-		biomeAchievement = GOTAchievement.enterYiTi;
-		enableRiver = false;
-		wallBlock = GOTBezierType.WALL_YI_TI;
-		roadBlock = GOTBezierType.PATH_PAVING;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.YI_TI;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterYiTi;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_YI_TI;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
 	}
 }

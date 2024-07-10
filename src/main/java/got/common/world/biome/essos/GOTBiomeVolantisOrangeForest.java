@@ -15,8 +15,15 @@ public class GOTBiomeVolantisOrangeForest extends GOTBiomeEssosBase {
 		setupRuinedStructures(false);
 
 		decorator.addTree(GOTTreeType.ORANGE, 1000);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.VOLANTIS;
-		biomeAchievement = GOTAchievement.enterVolantis;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VOLANTIS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterVolantis;
 	}
 }

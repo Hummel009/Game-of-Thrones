@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeNorthTown extends GOTBiomeNorth {
-
 	public GOTBiomeNorthTown(int i, boolean major) {
 		super(i, major);
 		preseter.setupDomesticFaunaOverride();
@@ -34,9 +33,20 @@ public class GOTBiomeNorthTown extends GOTBiomeNorth {
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c4);
+	}
 
-		biomeAchievement = GOTAchievement.enterNorthTown;
-		enableRiver = false;
-		roadBlock = GOTBezierType.PATH_PAVING;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNorthTown;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
 	}
 }

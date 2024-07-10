@@ -41,12 +41,31 @@ public class GOTBiomeDorneMesa extends GOTBiomeWesterosBase implements GOTBiome.
 		decorator.addSoil(new WorldGenMinable(GOTBlocks.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
+	}
 
-		biomeAchievement = GOTAchievement.enterDorneMesa;
-		biomeWaypoints = GOTWaypoint.Region.DORNE;
-		chanceToSpawnAnimals = 0.1f;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterDorneMesa;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DORNE;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

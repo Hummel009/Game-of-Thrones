@@ -52,8 +52,6 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	}
 
 	public static class GregorCleganeAlive extends GOTEntityGregorClegane {
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public GregorCleganeAlive(World world) {
@@ -119,11 +117,6 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	}
 
 	public static class GregorCleganeDead extends GOTEntityGregorClegane {
-		{
-		}
-
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public GregorCleganeDead(World world) {

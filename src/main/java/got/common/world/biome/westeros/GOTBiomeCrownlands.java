@@ -55,8 +55,15 @@ public class GOTBiomeCrownlands extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c7 = new ArrayList<>();
 		c7.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c7);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.CROWNLANDS;
-		biomeAchievement = GOTAchievement.enterCrownlands;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.CROWNLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterCrownlands;
 	}
 }

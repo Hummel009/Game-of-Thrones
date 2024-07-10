@@ -2,6 +2,7 @@ package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
@@ -25,11 +26,26 @@ public class GOTBiomeDorneForest extends GOTBiomeWesterosBase {
 		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(true);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.DORNE;
-		biomeAchievement = GOTAchievement.enterDorne;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DORNE;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterDorne;
+	}
+
+	@Override
+	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
+		return GOTEntityDarkSkinBandit.class;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

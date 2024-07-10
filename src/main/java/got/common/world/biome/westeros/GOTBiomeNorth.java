@@ -46,8 +46,15 @@ public class GOTBiomeNorth extends GOTBiomeWesterosBase {
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c4);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.NORTH;
-		biomeAchievement = GOTAchievement.enterNorth;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORTH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNorth;
 	}
 }

@@ -56,9 +56,16 @@ public class GOTBiomeDragonstone extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.CROWNLANDS;
-		biomeAchievement = GOTAchievement.enterDragonstone;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.CROWNLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterDragonstone;
 	}
 
 	@Override

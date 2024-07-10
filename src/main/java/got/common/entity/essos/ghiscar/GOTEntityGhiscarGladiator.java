@@ -11,14 +11,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
-	{
-		int target = addTargetTasks(true);
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarGladiator.class, 0, true));
-	}
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);
+		int target = addTargetTasks(true);
+		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarGladiator.class, 0, true));
 	}
 
 	@Override

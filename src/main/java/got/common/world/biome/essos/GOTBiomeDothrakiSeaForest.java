@@ -14,10 +14,25 @@ public class GOTBiomeDothrakiSeaForest extends GOTBiomeEssosBase {
 		preseter.setupSavannahTrees();
 
 		decorator.setTreesPerChunk(8);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.DOTHRAKI;
-		biomeAchievement = GOTAchievement.enterDothrakiSea;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		wallBlock = GOTBezierType.WALL_IBBEN;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DOTHRAKI;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterDothrakiSea;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_IBBEN;
 	}
 }

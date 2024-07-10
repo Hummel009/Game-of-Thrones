@@ -17,9 +17,16 @@ public class GOTBiomeNorvosForest extends GOTBiomeEssosBase {
 		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.NORVOS;
-		biomeAchievement = GOTAchievement.enterNorvos;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORVOS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNorvos;
 	}
 
 	@Override

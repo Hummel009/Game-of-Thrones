@@ -12,7 +12,10 @@ public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBase {
 		preseter.setupSavannahTrees();
 
 		decorator.addSettlement(new GOTStructureSothoryosSettlement(this, 1.0f));
+	}
 
-		biomeAchievement = GOTAchievement.enterSothoryosSavannah;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterSothoryosSavannah;
 	}
 }

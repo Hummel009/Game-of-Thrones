@@ -25,11 +25,26 @@ public class GOTBiomeLongSummerForest extends GOTBiomeEssosBase {
 		decorator.addTree(GOTTreeType.OAK_PARTY, 5);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.VALYRIA;
-		biomeAchievement = GOTAchievement.enterLongSummer;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		roadBlock = GOTBezierType.PATH_COBBLE;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VALYRIA;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterLongSummer;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_COBBLE;
 	}
 
 	@Override

@@ -19,15 +19,12 @@ import net.minecraft.world.World;
 
 public class GOTEntityYiTiBombardier extends GOTEntityYiTiMan {
 
-	{
-		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityBomb.class, 12.0f, 1.5, 2.0));
-		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);
-	}
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiBombardier(World world) {
 		super(world);
 		addTargetTasks(true);
+		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityBomb.class, 12.0f, 1.5, 2.0));
+		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);
 	}
 
 	@Override

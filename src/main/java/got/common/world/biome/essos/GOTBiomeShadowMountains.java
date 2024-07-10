@@ -5,7 +5,6 @@ import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenAsshaiMoss;
-import got.common.world.map.GOTBezierType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -29,10 +28,11 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand implements GOTBi
 		decorator.setBiomeOreFactor(decorator.getBiomeOreFactor() * 2.0f);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
+	}
 
-		biomeAchievement = GOTAchievement.enterShadowMountains;
-		wallBlock = GOTBezierType.WALL_YI_TI;
-		roadBlock = GOTBezierType.PATH_ASSHAI;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterShadowMountains;
 	}
 
 	@Override

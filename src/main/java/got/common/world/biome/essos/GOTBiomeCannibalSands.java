@@ -23,13 +23,36 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosBase implements GOTBiome
 		preseter.setupDesertFlora();
 		preseter.setupDesertFauna();
 		preseter.setupDesertTrees();
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.MOSSOVY;
-		biomeAchievement = GOTAchievement.enterCannibalSands;
-		chanceToSpawnAnimals = 0.1f;
-		enableRiver = false;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.MOSSOVY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterCannibalSands;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

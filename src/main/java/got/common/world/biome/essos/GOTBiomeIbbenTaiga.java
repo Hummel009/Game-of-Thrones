@@ -11,9 +11,20 @@ public class GOTBiomeIbbenTaiga extends GOTBiomeEssosBase {
 		preseter.setupTaigaFlora();
 		preseter.setupTaigaFauna();
 		preseter.setupNorthernTrees(true);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.IBBEN;
-		biomeAchievement = GOTAchievement.enterIbbenTaiga;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IBBEN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIbbenTaiga;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 }

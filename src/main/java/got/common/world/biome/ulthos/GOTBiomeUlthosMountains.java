@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeUlthosMountains extends GOTBiomeUlthosBase implements GOTBiome.Mountains {
-
 	public GOTBiomeUlthosMountains(int i, boolean major) {
 		super(i, major);
 		preseter.setupMountainsView();
@@ -22,9 +21,16 @@ public class GOTBiomeUlthosMountains extends GOTBiomeUlthosBase implements GOTBi
 		setupDefaultTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 1000);
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 250);
+	}
 
-		biomeAchievement = GOTAchievement.enterUlthosMountains;
-		enableRocky = true;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterUlthosMountains;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
 	}
 
 	@Override

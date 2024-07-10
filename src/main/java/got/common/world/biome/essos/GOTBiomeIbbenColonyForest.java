@@ -13,9 +13,20 @@ public class GOTBiomeIbbenColonyForest extends GOTBiomeEssosBase {
 		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.IBBEN_COLONY;
-		biomeAchievement = GOTAchievement.enterIbbenColony;
-		wallBlock = GOTBezierType.WALL_IBBEN;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IBBEN_COLONY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIbbenColony;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_IBBEN;
 	}
 }

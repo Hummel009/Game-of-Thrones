@@ -24,10 +24,25 @@ public class GOTBiomeIfekevronForest extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.DOTHRAKI;
-		biomeAchievement = GOTAchievement.enterIfekevronForest;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		wallBlock = GOTBezierType.WALL_IBBEN;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.DOTHRAKI;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIfekevronForest;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_IBBEN;
 	}
 }

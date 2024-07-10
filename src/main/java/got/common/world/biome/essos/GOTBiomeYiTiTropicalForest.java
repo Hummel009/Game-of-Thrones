@@ -5,7 +5,6 @@ import got.common.database.GOTSpawnList;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
-import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
 
 import java.util.ArrayList;
@@ -24,10 +23,20 @@ public class GOTBiomeYiTiTropicalForest extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.YI_TI;
-		biomeAchievement = GOTAchievement.enterYiTi;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		roadBlock = GOTBezierType.PATH_PAVING;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.YI_TI;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterYiTi;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
 	}
 }

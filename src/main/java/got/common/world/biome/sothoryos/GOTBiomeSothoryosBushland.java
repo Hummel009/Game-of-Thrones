@@ -34,8 +34,11 @@ public class GOTBiomeSothoryosBushland extends GOTBiomeSothoryosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.ULTHOS, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeAchievement = GOTAchievement.enterSothoryosBushland;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterSothoryosBushland;
 	}
 
 	@Override

@@ -42,10 +42,25 @@ public class GOTBiomeYiTi extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(5).add(c2);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.YI_TI;
-		biomeAchievement = GOTAchievement.enterYiTi;
-		wallBlock = GOTBezierType.WALL_YI_TI;
-		roadBlock = GOTBezierType.PATH_PAVING;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.YI_TI;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterYiTi;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_YI_TI;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
 	}
 }

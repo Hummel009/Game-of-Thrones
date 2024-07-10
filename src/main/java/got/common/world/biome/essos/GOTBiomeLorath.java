@@ -44,9 +44,16 @@ public class GOTBiomeLorath extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.LORATH;
-		biomeAchievement = GOTAchievement.enterLorath;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.LORATH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterLorath;
 	}
 
 	@Override

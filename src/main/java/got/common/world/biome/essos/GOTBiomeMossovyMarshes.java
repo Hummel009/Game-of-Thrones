@@ -21,11 +21,26 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeEssosBase implements GOTBiom
 		preseter.setupMarshesFlora();
 		preseter.setupMarshesFauna();
 		preseter.setupNorthernTrees(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.MOSSOVY;
-		biomeAchievement = GOTAchievement.enterMossovyMarshes;
-		enableRiver = false;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.MOSSOVY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterMossovyMarshes;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

@@ -17,9 +17,16 @@ public class GOTBiomeLorathForest extends GOTBiomeEssosBase {
 		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.LORATH;
-		biomeAchievement = GOTAchievement.enterLorath;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.LORATH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterLorath;
 	}
 
 	@Override

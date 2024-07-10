@@ -1,5 +1,6 @@
 package got.common.world.biome.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 
@@ -12,8 +13,20 @@ public class GOTBiomeEssosUnhabited extends GOTBiomeEssosBase {
 		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.VALYRIA;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VALYRIA;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return null;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 }

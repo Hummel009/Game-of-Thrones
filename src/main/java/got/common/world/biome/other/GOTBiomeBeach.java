@@ -15,6 +15,6 @@ public class GOTBiomeBeach extends GOTBiomeOcean {
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySeagull.class, 20, 4, 4));
-		enableRiver = false;
 	}
+
 }

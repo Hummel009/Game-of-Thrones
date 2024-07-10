@@ -27,11 +27,26 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesterosBase {
 
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 80));
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
-		biomeAchievement = GOTAchievement.enterIsleOfFaces;
-		enableRiver = false;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.RIVERLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIsleOfFaces;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

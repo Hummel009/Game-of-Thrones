@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
-
 	public GOTBiomeWesterlandsTown(int i, boolean major) {
 		super(i, major);
 		preseter.setupDomesticFaunaOverride();
@@ -35,8 +34,15 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 		Collection<GOTSpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
+	}
 
-		biomeAchievement = GOTAchievement.enterWesterlandsTown;
-		enableRiver = false;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterWesterlandsTown;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 }

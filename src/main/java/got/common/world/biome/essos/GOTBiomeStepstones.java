@@ -32,10 +32,21 @@ public class GOTBiomeStepstones extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(5).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.SOUTHERN_FREE_CITIES;
-		biomeAchievement = GOTAchievement.enterStepstones;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.SOUTHERN_FREE_CITIES;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterStepstones;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

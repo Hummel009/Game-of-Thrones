@@ -3,6 +3,7 @@ package got.common.world.biome.essos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;
@@ -26,11 +27,26 @@ public class GOTBiomeGhiscar extends GOTBiomeEssosBase {
 		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(true);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.GHISCAR;
-		biomeAchievement = GOTAchievement.enterGhiscar;
-		roadBlock = GOTBezierType.PATH_SANDY;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.GHISCAR;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterGhiscar;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
+	}
+
+	@Override
+	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
+		return GOTEntityDarkSkinBandit.class;
 	}
 
 	@Override

@@ -21,9 +21,20 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeEssosBase implements GOTBio
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.VOLANTIS;
-		biomeAchievement = GOTAchievement.enterVolantis;
-		enableRiver = false;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VOLANTIS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterVolantis;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 }

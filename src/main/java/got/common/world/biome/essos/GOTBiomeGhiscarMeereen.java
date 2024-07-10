@@ -19,8 +19,15 @@ public class GOTBiomeGhiscarMeereen extends GOTBiomeGhiscar {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_HARPY, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeAchievement = GOTAchievement.enterGhiscarMeereen;
-		enableRiver = false;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterGhiscarMeereen;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 }

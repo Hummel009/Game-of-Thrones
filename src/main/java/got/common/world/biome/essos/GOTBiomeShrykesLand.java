@@ -34,12 +34,31 @@ public class GOTBiomeShrykesLand extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SHRYKE, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.MOSSOVY;
-		biomeAchievement = GOTAchievement.enterShrykesLand;
-		chanceToSpawnAnimals = 0.1f;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		wallBlock = GOTBezierType.WALL_YI_TI;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.MOSSOVY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterShrykesLand;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_YI_TI;
 	}
 
 	@Override

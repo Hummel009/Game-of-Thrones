@@ -12,8 +12,15 @@ public class GOTBiomeVolantisForest extends GOTBiomeEssosBase {
 		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.VOLANTIS;
-		biomeAchievement = GOTAchievement.enterVolantis;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VOLANTIS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterVolantis;
 	}
 }

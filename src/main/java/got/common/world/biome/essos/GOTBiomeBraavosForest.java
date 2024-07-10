@@ -12,8 +12,15 @@ public class GOTBiomeBraavosForest extends GOTBiomeEssosBase {
 		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.BRAAVOS;
-		biomeAchievement = GOTAchievement.enterBraavos;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.BRAAVOS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterBraavos;
 	}
 }

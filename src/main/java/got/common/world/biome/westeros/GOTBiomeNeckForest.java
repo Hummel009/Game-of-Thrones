@@ -17,8 +17,15 @@ public class GOTBiomeNeckForest extends GOTBiomeWesterosBase {
 		decorator.setTreesPerChunk(5);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
-		biomeAchievement = GOTAchievement.enterNeck;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.RIVERLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNeck;
 	}
 }

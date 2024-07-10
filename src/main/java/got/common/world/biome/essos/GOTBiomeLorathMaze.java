@@ -23,11 +23,26 @@ public class GOTBiomeLorathMaze extends GOTBiomeEssosBase {
 
 		preseter.setupForestFlora();
 		preseter.setupMiderateTrees();
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.LORATH;
-		biomeAchievement = GOTAchievement.enterLorathMaze;
-		enableRiver = false;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.LORATH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterLorathMaze;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 
 	@Override

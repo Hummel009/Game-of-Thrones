@@ -64,8 +64,6 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	}
 
 	public static class LancelLannisterReligious extends GOTEntityLancelLannister {
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public LancelLannisterReligious(World world) {

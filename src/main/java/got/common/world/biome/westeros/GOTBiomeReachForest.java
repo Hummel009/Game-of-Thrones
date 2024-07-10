@@ -12,8 +12,15 @@ public class GOTBiomeReachForest extends GOTBiomeWesterosBase {
 		preseter.setupSouthernTrees(false);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.REACH;
-		biomeAchievement = GOTAchievement.enterReach;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.REACH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterReach;
 	}
 }

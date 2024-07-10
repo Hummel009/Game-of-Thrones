@@ -22,8 +22,15 @@ public class GOTBiomeQohorForest extends GOTBiomeEssosBase {
 		decorator.addTree(GOTTreeType.DARK_OAK, 100);
 		decorator.addTree(GOTTreeType.CATALPA_PARTY, 1);
 		decorator.addTree(GOTTreeType.DARK_OAK_PARTY, 1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.QOHOR;
-		biomeAchievement = GOTAchievement.enterQohor;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.QOHOR;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterQohor;
 	}
 }

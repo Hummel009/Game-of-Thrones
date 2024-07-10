@@ -15,8 +15,15 @@ public class GOTBiomeNorthBarrows extends GOTBiomeWesterosBase {
 		setupRuinedStructures(false);
 
 		decorator.addStructure(new GOTStructureBarrow(false), 20);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.NORTH;
-		biomeAchievement = GOTAchievement.enterNorthBarrows;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.NORTH;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNorthBarrows;
 	}
 }

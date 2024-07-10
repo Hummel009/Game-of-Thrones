@@ -31,8 +31,15 @@ public class GOTBiomeIronIslands extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.IRONBORN;
-		biomeAchievement = GOTAchievement.enterIronIslands;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IRONBORN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIronIslands;
 	}
 }

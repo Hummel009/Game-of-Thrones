@@ -12,8 +12,15 @@ public class GOTBiomeArrynForest extends GOTBiomeWesterosBase {
 		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.ARRYN;
-		biomeAchievement = GOTAchievement.enterArryn;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ARRYN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterArryn;
 	}
 }

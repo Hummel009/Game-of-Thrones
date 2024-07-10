@@ -47,11 +47,6 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	}
 
 	public static class JonSnowLife1 extends GOTEntityJonSnow {
-		{
-		}
-
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public JonSnowLife1(World world) {
@@ -83,11 +78,6 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	}
 
 	public static class JonSnowLife2 extends GOTEntityJonSnow {
-		{
-		}
-
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public JonSnowLife2(World world) {

@@ -28,8 +28,15 @@ public class GOTBiomeMossovy extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(5).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.MOSSOVY;
-		biomeAchievement = GOTAchievement.enterMossovy;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.MOSSOVY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterMossovy;
 	}
 }

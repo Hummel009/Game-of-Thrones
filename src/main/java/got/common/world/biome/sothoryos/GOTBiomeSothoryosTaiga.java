@@ -12,7 +12,10 @@ public class GOTBiomeSothoryosTaiga extends GOTBiomeSothoryosBase {
 		preseter.setupTaigaFlora();
 		preseter.setupTaigaFauna();
 		preseter.setupPolarTrees(false);
+	}
 
-		biomeAchievement = GOTAchievement.enterSothoryosTaiga;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterSothoryosTaiga;
 	}
 }

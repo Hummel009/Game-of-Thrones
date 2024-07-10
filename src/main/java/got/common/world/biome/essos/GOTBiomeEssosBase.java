@@ -7,7 +7,11 @@ import got.common.world.structure.other.*;
 public abstract class GOTBiomeEssosBase extends GOTBiome {
 	protected GOTBiomeEssosBase(int i, boolean major) {
 		super(i, major);
-		biomeMusic = GOTMusicRegion.ESSOS.getSubregion(biomeName);
+	}
+
+	@Override
+	public GOTMusicRegion.Sub getBiomeMusic() {
+		return GOTMusicRegion.ESSOS.getSubregion(biomeName);
 	}
 
 	protected void setupRuinedStructures(boolean sand) {

@@ -53,7 +53,6 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 		if (canSmoke) {
 			tasks.addTask(6, new GOTEntityAISmoke(this, 8000));
 		}
-
 	}
 
 	@Override

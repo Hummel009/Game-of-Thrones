@@ -1,7 +1,6 @@
 package got.common.entity.essos.golden;
 
 import got.common.database.GOTItems;
-import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -12,11 +11,6 @@ public class GOTEntityGoldenCompanyWarrior extends GOTEntityGoldenCompanyMan {
 	public GOTEntityGoldenCompanyWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
-	}
-
-	@Override
-	public GOTShields getShield() {
-		return GOTShields.GOLDEN_COMPANY;
 	}
 
 	@Override

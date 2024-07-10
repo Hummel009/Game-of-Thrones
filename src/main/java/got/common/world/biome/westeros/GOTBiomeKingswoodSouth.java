@@ -12,8 +12,15 @@ public class GOTBiomeKingswoodSouth extends GOTBiomeWesterosBase {
 		preseter.setupSouthernTrees(false);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.STORMLANDS;
-		biomeAchievement = GOTAchievement.enterKingswood;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.STORMLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterKingswood;
 	}
 }

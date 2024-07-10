@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeStoneCoast extends GOTBiomeNorth {
-
 	public GOTBiomeStoneCoast(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
@@ -31,8 +30,11 @@ public class GOTBiomeStoneCoast extends GOTBiomeNorth {
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
+	}
 
-		biomeAchievement = GOTAchievement.enterStoneCoast;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterStoneCoast;
 	}
 
 	@Override

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeNeck extends GOTBiomeWesterosBase implements GOTBiome.Marshes {
-
 	public GOTBiomeNeck(int i, boolean major) {
 		super(i, major);
 		preseter.setupMarshesView();
@@ -26,10 +25,25 @@ public class GOTBiomeNeck extends GOTBiomeWesterosBase implements GOTBiome.Marsh
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
-		biomeAchievement = GOTAchievement.enterNeck;
-		enableRiver = false;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.RIVERLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterNeck;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
 	}
 }

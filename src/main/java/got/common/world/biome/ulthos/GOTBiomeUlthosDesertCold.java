@@ -19,11 +19,26 @@ public class GOTBiomeUlthosDesertCold extends GOTBiomeUlthosBase {
 		preseter.setupDesertColdFlora();
 		preseter.setupDesertColdFauna();
 		preseter.setupDesertColdTrees();
+	}
 
-		biomeAchievement = GOTAchievement.enterUlthosDesertCold;
-		enableRiver = false;
-		chanceToSpawnAnimals = 0.1f;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterUlthosDesertCold;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 package got.common.world.biome.other;
 
 import got.GOT;
+import got.client.sound.GOTMusicRegion;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
@@ -26,12 +28,30 @@ public class GOTBiomeOcean extends GOTBiome {
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8), 4.0f, 0, 64);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, Blocks.sand), 0.5f, 56, 80);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, GOTBlocks.whiteSand), 0.5f, 56, 80);
-		biomeWaypoints = GOTWaypoint.Region.OCEAN;
-		enableRiver = false;
 	}
 
 	public static boolean isFrozen(int k) {
 		return k <= -35000 || k >= 500000;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.OCEAN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return null;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTMusicRegion.Sub getBiomeMusic() {
+		return GOTMusicRegion.OCEAN.getSubregion(biomeName);
 	}
 
 	@Override

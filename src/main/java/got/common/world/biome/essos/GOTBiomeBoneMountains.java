@@ -19,11 +19,26 @@ public class GOTBiomeBoneMountains extends GOTBiomeEssosBase implements GOTBiome
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupSouthernTrees(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.ESSOS_SEPARATOR;
-		biomeAchievement = GOTAchievement.enterBoneMountains;
-		enableRocky = true;
-		wallBlock = GOTBezierType.WALL_YI_TI;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ESSOS_SEPARATOR;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterBoneMountains;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_YI_TI;
 	}
 
 	@Override

@@ -19,8 +19,15 @@ public class GOTBiomeGhiscarAstapor extends GOTBiomeGhiscar {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_UNSULLIED, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeAchievement = GOTAchievement.enterGhiscarAstapor;
-		enableRiver = false;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterGhiscarAstapor;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 }

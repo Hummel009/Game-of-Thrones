@@ -14,10 +14,25 @@ public class GOTBiomeJogosNhaiForest extends GOTBiomeEssosBase {
 		preseter.setupSavannahTrees();
 
 		decorator.setTreesPerChunk(8);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.JOGOS_NHAI;
-		biomeAchievement = GOTAchievement.enterJogosNhai;
-		banditChance = GOTEventSpawner.EventChance.NEVER;
-		wallBlock = GOTBezierType.WALL_YI_TI;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.JOGOS_NHAI;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterJogosNhai;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_YI_TI;
 	}
 }

@@ -30,7 +30,10 @@ public class GOTBiomeUlthosRedForest extends GOTBiomeUlthosBase {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeAchievement = GOTAchievement.enterUlthosRedForest;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterUlthosRedForest;
 	}
 }

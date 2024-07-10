@@ -12,8 +12,15 @@ public class GOTBiomeCrownlandsForest extends GOTBiomeWesterosBase {
 		preseter.setupMiderateTrees();
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.CROWNLANDS;
-		biomeAchievement = GOTAchievement.enterCrownlands;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.CROWNLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterCrownlands;
 	}
 }

@@ -20,10 +20,21 @@ public class GOTBiomeDisputedLandsForest extends GOTBiomeEssosBase {
 		preseter.setupSouthernTrees(true);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.SOUTHERN_FREE_CITIES;
-		biomeAchievement = GOTAchievement.enterDisputedLands;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.SOUTHERN_FREE_CITIES;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterDisputedLands;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

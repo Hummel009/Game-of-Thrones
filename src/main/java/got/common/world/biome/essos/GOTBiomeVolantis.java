@@ -52,8 +52,15 @@ public class GOTBiomeVolantis extends GOTBiomeEssosBase {
 		Collection<GOTSpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.VOLANTIS;
-		biomeAchievement = GOTAchievement.enterVolantis;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.VOLANTIS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterVolantis;
 	}
 }

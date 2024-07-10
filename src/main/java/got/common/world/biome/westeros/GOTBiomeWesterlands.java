@@ -50,8 +50,15 @@ public class GOTBiomeWesterlands extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.WESTERLANDS;
-		biomeAchievement = GOTAchievement.enterWesterlands;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.WESTERLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterWesterlands;
 	}
 }

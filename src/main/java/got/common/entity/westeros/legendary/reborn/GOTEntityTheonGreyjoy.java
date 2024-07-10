@@ -34,11 +34,6 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	}
 
 	public static class TheonGreyjoyNormal extends GOTEntityTheonGreyjoy {
-		{
-		}
-
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public TheonGreyjoyNormal(World world) {
@@ -93,8 +88,6 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	}
 
 	public static class TheonGreyjoyTormented extends GOTEntityTheonGreyjoy {
-		{
-		}
 
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public TheonGreyjoyTormented(World world) {

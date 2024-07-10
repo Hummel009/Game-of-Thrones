@@ -28,8 +28,15 @@ public class GOTBiomeQohor extends GOTBiomeEssosBase {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_CONQUEST, 4).setSpawnChance(SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_MILITARY, 10).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.QOHOR;
-		biomeAchievement = GOTAchievement.enterQohor;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.QOHOR;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterQohor;
 	}
 }

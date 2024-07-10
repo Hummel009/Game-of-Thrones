@@ -14,17 +14,27 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBiomeReachArbor extends GOTBiomeReach {
-
 	public GOTBiomeReachArbor(int i, boolean major) {
 		super(i, major);
 		preseter.setupDomesticFaunaOverride();
 
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.VINEYARD, 8.0f);
+	}
 
-		biomeAchievement = GOTAchievement.enterReachArbor;
-		enableRiver = false;
-		roadBlock = GOTBezierType.PATH_PAVING;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterReachArbor;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
 	}
 
 	@Override

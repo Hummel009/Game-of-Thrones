@@ -12,9 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
-	{
-		isImmuneToFire = true;
-	}
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiArchmag(World world) {
@@ -22,6 +19,7 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		tasks.addTask(0, new GOTEntityAIAsshaiArchmagUseStaff(this));
+		isImmuneToFire = true;
 	}
 
 	@Override

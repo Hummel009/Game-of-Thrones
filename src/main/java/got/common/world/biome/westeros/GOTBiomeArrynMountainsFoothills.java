@@ -31,8 +31,15 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.ARRYN;
-		biomeAchievement = GOTAchievement.enterArrynMountainsFoothills;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ARRYN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterArrynMountainsFoothills;
 	}
 }

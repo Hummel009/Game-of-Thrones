@@ -582,7 +582,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
 		if (biome instanceof GOTBiome) {
-			return ((GOTBiome) biome).getSpawnCountMultiplier();
+			return GOTBiome.getSpawnCountMultiplier();
 		}
 		return 1;
 	}

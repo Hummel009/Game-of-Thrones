@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
-
 	public GOTBiomeGhiscarColony(int i, boolean major) {
 		super(i, major);
 		decorator.setTreesPerChunk(2);
@@ -36,10 +36,25 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.GHISCAR_COLONY;
-		biomeAchievement = GOTAchievement.enterGhiscarColony;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		banditEntityClass = GOTEntityDarkSkinBandit.class;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.GHISCAR_COLONY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterGhiscarColony;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.COMMON;
+	}
+
+	@Override
+	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
+		return GOTEntityDarkSkinBandit.class;
 	}
 }

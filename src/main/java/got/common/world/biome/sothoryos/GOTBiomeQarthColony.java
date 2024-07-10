@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
-
 	public GOTBiomeQarthColony(int i, boolean major) {
 		super(i, major);
 		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f).type(GOTStructureQarthSettlement.Type.FORT, 5));
@@ -33,9 +32,20 @@ public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.QARTH_COLONY;
-		biomeAchievement = GOTAchievement.enterQarthColony;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.QARTH_COLONY;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterQarthColony;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.COMMON;
 	}
 }

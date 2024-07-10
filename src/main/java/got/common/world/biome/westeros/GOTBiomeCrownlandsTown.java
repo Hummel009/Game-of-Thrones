@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
-
 	public GOTBiomeCrownlandsTown(int i, boolean major) {
 		super(i, major);
 		preseter.setupDomesticFaunaOverride();
@@ -43,10 +42,25 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 		Collection<GOTSpawnListContainer> c7 = new ArrayList<>();
 		c7.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c7);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.KINGS_LANDING;
-		biomeAchievement = GOTAchievement.enterCrownlandsTown;
-		enableRiver = false;
-		roadBlock = GOTBezierType.PATH_PAVING;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.KINGS_LANDING;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterCrownlandsTown;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_PAVING;
 	}
 }

@@ -43,8 +43,15 @@ public class GOTBiomeRiverlands extends GOTBiomeWesterosBase {
 		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.RIVERLANDS;
-		biomeAchievement = GOTAchievement.enterRiverlands;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.RIVERLANDS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterRiverlands;
 	}
 }

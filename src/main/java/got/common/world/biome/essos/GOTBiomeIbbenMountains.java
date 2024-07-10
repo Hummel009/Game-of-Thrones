@@ -18,10 +18,21 @@ public class GOTBiomeIbbenMountains extends GOTBiomeEssosBase implements GOTBiom
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupNorthernTrees(true);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.IBBEN;
-		biomeAchievement = GOTAchievement.enterIbbenMountains;
-		enableRocky = true;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IBBEN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIbbenMountains;
+	}
+
+	@Override
+	public boolean isEnableRocky() {
+		return true;
 	}
 
 	@Override

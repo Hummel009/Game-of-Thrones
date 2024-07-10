@@ -19,14 +19,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.ImmuneToFrost {
-	{
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-	}
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIceSpider(World world) {
 		super(world);
 		isImmuneToFire = true;
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
 	@Override

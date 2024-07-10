@@ -39,18 +39,41 @@ public class GOTBiomeShadowLand extends GOTBiomeEssosBase {
 		biomeColors.setClouds(new Color(0));
 		biomeColors.setFog(new Color(0));
 		biomeColors.setWater(new Color(0));
-
-		biomeWaypoints = GOTWaypoint.Region.ASSHAI;
-		biomeAchievement = GOTAchievement.enterShadowLand;
-		chanceToSpawnAnimals = 0.1f;
-		banditChance = GOTEventSpawner.EventChance.COMMON;
-		wallBlock = GOTBezierType.WALL_YI_TI;
-		roadBlock = GOTBezierType.PATH_ASSHAI;
 	}
 
 	public static boolean isBasaltSurface(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
 		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.basaltGravel;
+	}
+
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.ASSHAI;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterShadowLand;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.1f;
+	}
+
+	@Override
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return GOTEventSpawner.EventChance.NEVER;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WALL_YI_TI;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_ASSHAI;
 	}
 }

@@ -20,10 +20,21 @@ public class GOTBiomePentosForest extends GOTBiomeEssosBase {
 		preseter.setupSouthernTrees(false);
 
 		setupRuinedStructures(true);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.PENTOS;
-		biomeAchievement = GOTAchievement.enterPentos;
-		roadBlock = GOTBezierType.PATH_SANDY;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.PENTOS;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterPentos;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

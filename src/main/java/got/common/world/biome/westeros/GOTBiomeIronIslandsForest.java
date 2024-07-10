@@ -12,8 +12,15 @@ public class GOTBiomeIronIslandsForest extends GOTBiomeWesterosBase {
 		preseter.setupNorthernTrees(false);
 
 		setupRuinedStructures(false);
+	}
 
-		biomeWaypoints = GOTWaypoint.Region.IRONBORN;
-		biomeAchievement = GOTAchievement.enterIronIslands;
+	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.IRONBORN;
+	}
+
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterIronIslands;
 	}
 }

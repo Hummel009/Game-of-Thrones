@@ -22,9 +22,16 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		decorator.setTreesPerChunk(2);
 
 		biomeColors.setFoggy(true);
+	}
 
-		biomeAchievement = GOTAchievement.enterYeen;
-		enableRiver = false;
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterYeen;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 
 	@Override
