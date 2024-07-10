@@ -33,15 +33,15 @@ public class GOTBiomeYiTi extends GOTBiomeEssosBase {
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS_NHAI, GOTEventSpawner.EventChance.UNCOMMON);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_CONQUEST, 1).setSpawnChance(SPAWN));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_MILITARY, 9).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(8).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_CONQUEST, 1).setSpawnChance(SPAWN * 0.5));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_MILITARY, 9).setSpawnChance(SPAWN * 0.5));
+		npcSpawnList.newFactionList(5).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_NHAI_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(2).add(c2);
+		npcSpawnList.newFactionList(5).add(c2);
 
 		biomeWaypoints = GOTWaypoint.Region.YI_TI;
 		biomeAchievement = GOTAchievement.enterYiTi;

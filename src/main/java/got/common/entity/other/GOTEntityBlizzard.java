@@ -111,6 +111,9 @@ public class GOTEntityBlizzard extends GOTEntityNPC implements GOTBiome.ImmuneTo
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
+			if (liftSpawnRestrictions) {
+				return true;
+			}
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);

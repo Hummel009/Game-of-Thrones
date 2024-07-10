@@ -33,4 +33,9 @@ public class GOTSpawnListContainer {
 		spawnChance = i;
 		return this;
 	}
+
+	public GOTSpawnListContainer setSpawnChance(double d) {
+		spawnChance = (int) Math.ceil(d);
+		return this;
+	}
 }

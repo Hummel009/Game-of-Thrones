@@ -74,14 +74,6 @@ public class GOTEntityShryke extends GOTEntityNPC implements GOTBiome.ImmuneToFr
 	}
 
 	@Override
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		if (getHealth() < getMaxHealth() && ticksExisted % 20 == 0) {
-			heal(1.0f);
-		}
-	}
-
-	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(rand.nextBoolean());
 	}

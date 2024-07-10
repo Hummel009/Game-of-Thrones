@@ -4,12 +4,14 @@ import got.common.database.GOTAchievement;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.faction.GOTFaction;
 import got.common.item.weapon.GOTItemSword;
+import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityStoneMan extends GOTEntityNPC {
@@ -95,5 +97,19 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(rand.nextBoolean());
+	}
+
+	@Override
+	public boolean getCanSpawnHere() {
+		if (super.getCanSpawnHere()) {
+			if (liftSpawnRestrictions) {
+				return true;
+			}
+			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
+			int k = MathHelper.floor_double(posZ);
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
+		}
+		return false;
 	}
 }

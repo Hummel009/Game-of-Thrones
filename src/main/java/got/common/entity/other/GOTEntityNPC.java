@@ -80,9 +80,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private final List<GOTFaction> killBonusFactions = new ArrayList<>();
 	private final Set<Object> drops = new HashSet<>();
 
-	protected GOTCapes cape;
-	protected GOTShields shield;
-
 	protected GOTQuestInfo questInfo;
 	protected GOTFamilyInfo familyInfo;
 	protected GOTHireableInfo hireableInfo;
@@ -92,13 +89,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	protected boolean spawnRidingHorse;
 	protected boolean liftSpawnRestrictions;
 	protected boolean spawnsInDarkness;
-	protected boolean notAttackable;
-	protected boolean isLegendaryNPC;
-
-	protected float alignmentBonus;
-	protected GOTMiniQuestFactory miniQuestFactory;
-	protected GOTFaction faction = GOTFaction.UNALIGNED;
-	protected GOTAchievement killAchievement;
 
 	private AttackMode currentAttackMode = AttackMode.IDLE;
 	private GOTInventoryHiredReplacedItems hiredReplacedInv;
@@ -132,6 +122,14 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private int initHomeY;
 	private int initHomeZ;
 	private int nearbyBannerFactor;
+
+	protected GOTCapes cape;
+	protected GOTShields shield;
+	protected float alignmentBonus;
+	protected GOTMiniQuestFactory miniQuestFactory;
+	protected GOTFaction faction = GOTFaction.UNALIGNED;
+	protected GOTAchievement killAchievement;
+	protected boolean isLegendaryNPC;
 
 	protected GOTEntityNPC(World world) {
 		super(world);
@@ -1384,7 +1382,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isNotAttackable() {
-		return notAttackable;
+		return false;
 	}
 
 	public boolean isSpawnsInDarkness() {

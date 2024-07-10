@@ -36,12 +36,12 @@ public class GOTBiomeQarth extends GOTBiomeEssosBase {
 		decorator.addStructure(new GOTStructureQarthFortress(false), 800);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_CONQUEST, 4).setSpawnChance(SPAWN));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(8).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_CONQUEST, 4).setSpawnChance(SPAWN * 0.5));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(SPAWN * 0.5));
+		npcSpawnList.newFactionList(5).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(2).add(c1);
+		npcSpawnList.newFactionList(5).add(c1);
 
 		biomeWaypoints = GOTWaypoint.Region.QARTH;
 		biomeAchievement = GOTAchievement.enterQarth;
