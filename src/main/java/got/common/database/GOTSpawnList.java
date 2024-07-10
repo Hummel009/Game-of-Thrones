@@ -1,9 +1,5 @@
 package got.common.database;
 
-import got.common.entity.animal.*;
-import got.common.entity.other.GOTEntityIfekevron;
-import got.common.entity.other.GOTEntityShryke;
-import got.common.entity.other.GOTEntityStoneMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiSpherebinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
@@ -62,7 +58,6 @@ import got.common.entity.essos.yi_ti.*;
 import got.common.entity.other.GOTEntityBlizzard;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityUlthosSpider;
-import got.common.entity.other.GOTEntityWerewolf;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosBlowgunner;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosWarrior;
 import got.common.entity.sothoryos.summer.GOTEntitySummerSoldier;
@@ -128,11 +123,9 @@ public class GOTSpawnList {
 	public static final GOTSpawnList ASSHAI_MILITARY;
 	public static final GOTSpawnList BRAAVOS_CONQUEST;
 	public static final GOTSpawnList BRAAVOS_MILITARY;
-	public static final GOTSpawnList CROCODILE;
 	public static final GOTSpawnList CROWNLANDS_CIVILIAN;
 	public static final GOTSpawnList CROWNLANDS_GUARDIAN;
 	public static final GOTSpawnList CROWNLANDS_MILITARY;
-	public static final GOTSpawnList DESERT_SCORPION;
 	public static final GOTSpawnList DORNE_CONQUEST;
 	public static final GOTSpawnList DORNE_MILITARY;
 	public static final GOTSpawnList DRAGONSTONE_CONQUEST;
@@ -146,20 +139,16 @@ public class GOTSpawnList {
 	public static final GOTSpawnList HILL_TRIBES_MILITARY;
 	public static final GOTSpawnList IBBEN_CONQUEST;
 	public static final GOTSpawnList IBBEN_MILITARY;
-	public static final GOTSpawnList IFEKEVRON;
 	public static final GOTSpawnList IRONBORN_CONQUEST;
 	public static final GOTSpawnList IRONBORN_MILITARY;
 	public static final GOTSpawnList JOGOS_NHAI_MILITARY;
-	public static final GOTSpawnList JUNGLE_SCORPION;
 	public static final GOTSpawnList LHAZAR_CONQUEST;
 	public static final GOTSpawnList LHAZAR_MILITARY;
 	public static final GOTSpawnList LORATH_CONQUEST;
 	public static final GOTSpawnList LORATH_MILITARY;
 	public static final GOTSpawnList LYS_CONQUEST;
 	public static final GOTSpawnList LYS_MILITARY;
-	public static final GOTSpawnList MANTICORE;
 	public static final GOTSpawnList MOSSOVY_MILITARY;
-	public static final GOTSpawnList MOSSOVY_WEREWOLF;
 	public static final GOTSpawnList MYR_CONQUEST;
 	public static final GOTSpawnList MYR_MILITARY;
 	public static final GOTSpawnList NORTH_CIVILIAN;
@@ -179,18 +168,14 @@ public class GOTSpawnList {
 	public static final GOTSpawnList REACH_CONQUEST;
 	public static final GOTSpawnList REACH_GUARDIAN;
 	public static final GOTSpawnList REACH_MILITARY;
-	public static final GOTSpawnList RED_SCORPION;
 	public static final GOTSpawnList RIVERLANDS_CONQUEST;
 	public static final GOTSpawnList RIVERLANDS_MILITARY;
-	public static final GOTSpawnList SHRYKE;
 	public static final GOTSpawnList SOTHORYOS_MILITARY;
 	public static final GOTSpawnList STORMLANDS_CONQUEST;
 	public static final GOTSpawnList STORMLANDS_MILITARY;
 	public static final GOTSpawnList SUMMER_MILITARY;
 	public static final GOTSpawnList TYROSH_CONQUEST;
 	public static final GOTSpawnList TYROSH_MILITARY;
-	public static final GOTSpawnList ULTHOS;
-	public static final GOTSpawnList VALYRIA;
 	public static final GOTSpawnList VOLANTIS_CONQUEST;
 	public static final GOTSpawnList VOLANTIS_MILITARY;
 	public static final GOTSpawnList WALKERS_BLIZZARD;
@@ -203,9 +188,9 @@ public class GOTSpawnList {
 	public static final GOTSpawnList WILDING_GIANT;
 	public static final GOTSpawnList WILDING_MILITARY;
 	public static final GOTSpawnList WILDING_THENN;
-	public static final GOTSpawnList WYVERN;
 	public static final GOTSpawnList YI_TI_CONQUEST;
 	public static final GOTSpawnList YI_TI_MILITARY;
+	public static final GOTSpawnList ULTHOS;
 
 	static {
 		List<GOTSpawnEntry> arrynCivilian = new ArrayList<>();
@@ -242,10 +227,6 @@ public class GOTSpawnList {
 		braavosMilitary.add(new GOTSpawnEntry(GOTEntityBraavosLevymanArcher.class, 5, 1, 2));
 		BRAAVOS_MILITARY = new GOTSpawnList(braavosMilitary);
 
-		List<GOTSpawnEntry> crocodile = new ArrayList<>();
-		crocodile.add(new GOTSpawnEntry(GOTEntityCrocodile.class, 10, 1, 1));
-		CROCODILE = new GOTSpawnList(crocodile);
-
 		List<GOTSpawnEntry> crownlandsCivilian = new ArrayList<>();
 		crownlandsCivilian.add(new GOTSpawnEntry(GOTEntityCrownlandsMan.class, 10, 1, 2));
 		CROWNLANDS_CIVILIAN = new GOTSpawnList(crownlandsCivilian);
@@ -258,10 +239,6 @@ public class GOTSpawnList {
 		crownlandsMilitary.add(new GOTSpawnEntry(GOTEntityCrownlandsLevyman.class, 10, 1, 2));
 		crownlandsMilitary.add(new GOTSpawnEntry(GOTEntityCrownlandsLevymanArcher.class, 5, 1, 2));
 		CROWNLANDS_MILITARY = new GOTSpawnList(crownlandsMilitary);
-
-		List<GOTSpawnEntry> desertScorpion = new ArrayList<>();
-		desertScorpion.add(new GOTSpawnEntry(GOTEntityDesertScorpion.class, 10, 1, 1));
-		DESERT_SCORPION = new GOTSpawnList(desertScorpion);
 
 		List<GOTSpawnEntry> dorneConquest = new ArrayList<>();
 		dorneConquest.add(new GOTSpawnEntry(GOTEntityDorneSoldier.class, 10, 1, 2));
@@ -327,10 +304,6 @@ public class GOTSpawnList {
 		ibbenMilitary.add(new GOTSpawnEntry(GOTEntityIbbenLevymanArcher.class, 5, 1, 2));
 		IBBEN_MILITARY = new GOTSpawnList(ibbenMilitary);
 
-		List<GOTSpawnEntry> ifekevron = new ArrayList<>();
-		ifekevron.add(new GOTSpawnEntry(GOTEntityIfekevron.class, 10, 1, 2));
-		IFEKEVRON = new GOTSpawnList(ifekevron);
-
 		List<GOTSpawnEntry> ironbornConquest = new ArrayList<>();
 		ironbornConquest.add(new GOTSpawnEntry(GOTEntityIronbornSoldier.class, 10, 1, 2));
 		ironbornConquest.add(new GOTSpawnEntry(GOTEntityIronbornSoldierArcher.class, 5, 1, 2));
@@ -345,10 +318,6 @@ public class GOTSpawnList {
 		jogosNhaiMilitary.add(new GOTSpawnEntry(GOTEntityJogosNhaiArcher.class, 5, 1, 2));
 		jogosNhaiMilitary.add(new GOTSpawnEntry(GOTEntityJogosNhaiMan.class, 10, 1, 2));
 		JOGOS_NHAI_MILITARY = new GOTSpawnList(jogosNhaiMilitary);
-
-		List<GOTSpawnEntry> jungleScorpion = new ArrayList<>();
-		jungleScorpion.add(new GOTSpawnEntry(GOTEntityJungleScorpion.class, 10, 1, 1));
-		JUNGLE_SCORPION = new GOTSpawnList(jungleScorpion);
 
 		List<GOTSpawnEntry> lhazarConquest = new ArrayList<>();
 		lhazarConquest.add(new GOTSpawnEntry(GOTEntityLhazarSoldier.class, 10, 1, 2));
@@ -380,17 +349,9 @@ public class GOTSpawnList {
 		lysMilitary.add(new GOTSpawnEntry(GOTEntityLysLevymanArcher.class, 5, 1, 2));
 		LYS_MILITARY = new GOTSpawnList(lysMilitary);
 
-		List<GOTSpawnEntry> manticore = new ArrayList<>();
-		manticore.add(new GOTSpawnEntry(GOTEntityManticore.class, 10, 1, 1));
-		MANTICORE = new GOTSpawnList(manticore);
-
 		List<GOTSpawnEntry> mossovyMilitary = new ArrayList<>();
 		mossovyMilitary.add(new GOTSpawnEntry(GOTEntityMossovyWitcher.class, 10, 1, 1));
 		MOSSOVY_MILITARY = new GOTSpawnList(mossovyMilitary);
-
-		List<GOTSpawnEntry> mossovyWerewolf = new ArrayList<>();
-		mossovyWerewolf.add(new GOTSpawnEntry(GOTEntityWerewolf.class, 10, 1, 2));
-		MOSSOVY_WEREWOLF = new GOTSpawnList(mossovyWerewolf);
 
 		List<GOTSpawnEntry> myrConquest = new ArrayList<>();
 		myrConquest.add(new GOTSpawnEntry(GOTEntityMyrSoldier.class, 10, 1, 2));
@@ -485,10 +446,6 @@ public class GOTSpawnList {
 		reachMilitary.add(new GOTSpawnEntry(GOTEntityReachLevymanArcher.class, 5, 1, 2));
 		REACH_MILITARY = new GOTSpawnList(reachMilitary);
 
-		List<GOTSpawnEntry> redScorpion = new ArrayList<>();
-		redScorpion.add(new GOTSpawnEntry(GOTEntityRedScorpion.class, 10, 1, 1));
-		RED_SCORPION = new GOTSpawnList(redScorpion);
-
 		List<GOTSpawnEntry> riverlandsConquest = new ArrayList<>();
 		riverlandsConquest.add(new GOTSpawnEntry(GOTEntityRiverlandsSoldier.class, 10, 1, 2));
 		riverlandsConquest.add(new GOTSpawnEntry(GOTEntityRiverlandsSoldierArcher.class, 5, 1, 2));
@@ -498,10 +455,6 @@ public class GOTSpawnList {
 		riverlandsMilitary.add(new GOTSpawnEntry(GOTEntityRiverlandsLevyman.class, 10, 1, 2));
 		riverlandsMilitary.add(new GOTSpawnEntry(GOTEntityRiverlandsLevymanArcher.class, 5, 1, 2));
 		RIVERLANDS_MILITARY = new GOTSpawnList(riverlandsMilitary);
-
-		List<GOTSpawnEntry> shryke = new ArrayList<>();
-		shryke.add(new GOTSpawnEntry(GOTEntityShryke.class, 10, 1, 2));
-		SHRYKE = new GOTSpawnList(shryke);
 
 		List<GOTSpawnEntry> sothoryosMilitary = new ArrayList<>();
 		sothoryosMilitary.add(new GOTSpawnEntry(GOTEntitySothoryosBlowgunner.class, 5, 1, 2));
@@ -532,14 +485,6 @@ public class GOTSpawnList {
 		tyroshMilitary.add(new GOTSpawnEntry(GOTEntityTyroshLevyman.class, 10, 1, 2));
 		tyroshMilitary.add(new GOTSpawnEntry(GOTEntityTyroshLevymanArcher.class, 5, 1, 2));
 		TYROSH_MILITARY = new GOTSpawnList(tyroshMilitary);
-
-		List<GOTSpawnEntry> ulthos = new ArrayList<>();
-		ulthos.add(new GOTSpawnEntry(GOTEntityUlthosSpider.class, 10, 1, 2));
-		ULTHOS = new GOTSpawnList(ulthos);
-
-		List<GOTSpawnEntry> valyria = new ArrayList<>();
-		valyria.add(new GOTSpawnEntry(GOTEntityStoneMan.class, 10, 1, 2));
-		VALYRIA = new GOTSpawnList(valyria);
 
 		List<GOTSpawnEntry> volantisConquest = new ArrayList<>();
 		volantisConquest.add(new GOTSpawnEntry(GOTEntityVolantisSoldier.class, 10, 1, 2));
@@ -596,10 +541,6 @@ public class GOTSpawnList {
 		wildingThenn.add(new GOTSpawnEntry(GOTEntityThennWarrior.class, 10, 1, 2));
 		WILDING_THENN = new GOTSpawnList(wildingThenn);
 
-		List<GOTSpawnEntry> wyvern = new ArrayList<>();
-		wyvern.add(new GOTSpawnEntry(GOTEntityWyvern.class, 10, 1, 1));
-		WYVERN = new GOTSpawnList(wyvern);
-
 		List<GOTSpawnEntry> yiTiConquest = new ArrayList<>();
 		yiTiConquest.add(new GOTSpawnEntry(GOTEntityYiTiBombardier.class, 2, 1, 1));
 		yiTiConquest.add(new GOTSpawnEntry(GOTEntityYiTiSamurai.class, 3, 1, 2));
@@ -615,6 +556,10 @@ public class GOTSpawnList {
 		yiTiMilitary.add(new GOTSpawnEntry(GOTEntityYiTiSoldier.class, 10, 1, 2));
 		yiTiMilitary.add(new GOTSpawnEntry(GOTEntityYiTiSoldierCrossbower.class, 5, 1, 1));
 		YI_TI_MILITARY = new GOTSpawnList(yiTiMilitary);
+
+		List<GOTSpawnEntry> ulthos = new ArrayList<>();
+		ulthos.add(new GOTSpawnEntry(GOTEntityUlthosSpider.class, 10, 1, 2));
+		ULTHOS = new GOTSpawnList(ulthos);
 	}
 
 	private final List<GOTSpawnEntry> spawnEntries;

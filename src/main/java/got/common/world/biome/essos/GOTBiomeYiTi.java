@@ -3,6 +3,7 @@ package got.common.world.biome.essos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
+import got.common.entity.animal.GOTEntityManticore;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
@@ -26,6 +27,8 @@ public class GOTBiomeYiTi extends GOTBiomeEssosBase {
 		biomeVariants.add(GOTBiomeVariant.FOREST_LEMON, 0.2f);
 		biomeVariants.add(GOTBiomeVariant.FOREST_LIME, 0.2f);
 
+		addSpawnableMonster(GOTEntityManticore.class, 5, 1, 1);
+
 		setupRuinedStructures(false);
 
 		decorator.addSettlement(new GOTStructureYiTiSettlement(this, 1.0f));
@@ -33,15 +36,12 @@ public class GOTBiomeYiTi extends GOTBiomeEssosBase {
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS_NHAI, GOTEventSpawner.EventChance.UNCOMMON);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_CONQUEST, 1).setSpawnChance(SPAWN * 0.5));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_MILITARY, 9).setSpawnChance(SPAWN * 0.5));
-		npcSpawnList.newFactionList(5).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_CONQUEST, 1).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YI_TI_MILITARY, 9).setSpawnChance(SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_NHAI_MILITARY, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(5).add(c2);
 	}
 
 	@Override

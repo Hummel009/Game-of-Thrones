@@ -561,11 +561,19 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return spawnableCreatureList;
 	}
 
+	public List<SpawnListEntry> getSpawnableMonsterList() {
+		return spawnableMonsterList;
+	}
+
 	public void addSpawnableCreature(Class<? extends Entity> clazz, int weight, int min, int max) {
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(clazz, weight, min, max));
 	}
 
-	public void addSpawnableAmbient(Class<? extends Entity> clazz, int weight, int min, int max) {
+	public void addSpawnableMonster(Class<? extends Entity> clazz, int weight, int min, int max) {
+		spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(clazz, weight, min, max));
+	}
+
+	public void addSpawnableGOTAmbient(Class<? extends Entity> clazz, int weight, int min, int max) {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(clazz, weight, min, max));
 	}
 

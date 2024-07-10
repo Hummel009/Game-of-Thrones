@@ -3,6 +3,7 @@ package got.common.world.biome.westeros;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
+import got.common.entity.animal.GOTEntityRedScorpion;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -11,7 +12,6 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.spawning.GOTSpawnListContainer;
-import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneSettlement;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneWatchfort;
 import net.minecraft.block.Block;
@@ -35,6 +35,8 @@ public class GOTBiomeDorne extends GOTBiomeWesterosBase {
 		preseter.setupSouthernPlainsFauna(true);
 		preseter.setupSouthernTrees(true);
 
+		addSpawnableMonster(GOTEntityRedScorpion.class, 5, 1, 1);
+
 		setupRuinedStructures(true);
 
 		decorator.addSettlement(new GOTStructureDorneSettlement(this, 1.0f));
@@ -43,19 +45,15 @@ public class GOTBiomeDorne extends GOTBiomeWesterosBase {
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 4).setSpawnChance(SPAWN * 0.5));
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(SPAWN * 0.5));
-		npcSpawnList.newFactionList(5).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 4).setSpawnChance(SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-		Collection<GOTSpawnListContainer> c3 = new ArrayList<>();
-		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(5).add(c3);
-		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

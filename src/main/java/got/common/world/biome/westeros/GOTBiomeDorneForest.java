@@ -1,6 +1,7 @@
 package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
+import got.common.entity.animal.GOTEntityRedScorpion;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -24,6 +25,8 @@ public class GOTBiomeDorneForest extends GOTBiomeWesterosBase {
 		preseter.setupForestFlora();
 		preseter.setupForestFauna();
 		preseter.setupSouthernTrees(true);
+
+		addSpawnableMonster(GOTEntityRedScorpion.class, 5, 1, 1);
 
 		setupRuinedStructures(true);
 	}

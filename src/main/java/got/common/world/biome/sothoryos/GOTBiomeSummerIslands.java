@@ -3,6 +3,7 @@ package got.common.world.biome.sothoryos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
+import got.common.entity.animal.GOTEntityManticore;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.world.map.GOTWaypoint;
@@ -25,6 +26,8 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosBase {
 		preseter.setupJungleFauna();
 		preseter.setupJungleTrees();
 
+		addSpawnableMonster(GOTEntityManticore.class, 5, 1, 1);
+
 		decorator.setTreesPerChunk(2);
 
 		decorator.addSettlement(new GOTStructureSummerSettlement(this, 1.0f));
@@ -36,14 +39,11 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosBase {
 		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SUMMER_MILITARY, 4).setSpawnChance(SPAWN * 0.5));
-		npcSpawnList.newFactionList(5).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SUMMER_MILITARY, 4).setSpawnChance(SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		Collection<GOTSpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(5).add(c2);
 	}
 
 	@Override

@@ -35,9 +35,9 @@ public class GOTBiomePreseter {
 	}
 
 	public void setupDesertFauna() {
-		biome.getSpawnableCreatureList().clear();
+		removeAllEntities();
 		biome.addSpawnableCreature(GOTEntityCamel.class, 100, 1, 2);
-		biome.getSpawnableGOTAmbientList().clear();
+		biome.addSpawnableMonster(GOTEntityDesertScorpion.class, 5, 1, 1);
 	}
 
 	public void setupDesertTrees() {
@@ -173,8 +173,8 @@ public class GOTBiomePreseter {
 		biome.getSpawnableCreatureList().clear();
 		biome.addSpawnableCreature(GOTEntityFlamingo.class, 100, 2, 3);
 		biome.getSpawnableGOTAmbientList().clear();
-		biome.addSpawnableAmbient(GOTEntityButterfly.class, 60, 4, 4);
-		biome.addSpawnableAmbient(GOTEntityBird.class, 40, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityButterfly.class, 60, 4, 4);
+		biome.addSpawnableGOTAmbient(GOTEntityBird.class, 40, 2, 3);
 	}
 
 	public void setupJungleTrees() {
@@ -234,9 +234,10 @@ public class GOTBiomePreseter {
 
 	public void setupMarshesFauna() {
 		removeAllEntities();
-		biome.addSpawnableCreature(GOTEntityBeaver.class, 50, 1, 1);
-		biome.addSpawnableAmbient(GOTEntityMidges.class, 95, 4, 4);
-		biome.addSpawnableAmbient(GOTEntitySwan.class, 5, 1, 2);
+		biome.addSpawnableCreature(GOTEntityBeaver.class, 50, 1, 2);
+		biome.addSpawnableGOTAmbient(GOTEntityMidges.class, 100, 4, 4);
+		biome.addSpawnableGOTAmbient(GOTEntitySwan.class, 5, 1, 1);
+		biome.addSpawnableMonster(GOTEntityCrocodile.class, 5, 1, 1);
 	}
 
 	public void setupForestView() {
@@ -334,10 +335,11 @@ public class GOTBiomePreseter {
 		biome.addSpawnableCreature(GOTEntityHorse.class, 30, 1, 2);
 		biome.addSpawnableCreature(EntitySheep.class, 20, 1, 2);
 		biome.addSpawnableCreature(EntityChicken.class, 10, 1, 2);
+
 		biome.getSpawnableGOTAmbientList().clear();
-		biome.addSpawnableAmbient(GOTEntityButterfly.class, 50, 4, 4);
-		biome.addSpawnableAmbient(GOTEntityBird.class, 30, 2, 3);
-		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 5, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityButterfly.class, 50, 4, 4);
+		biome.addSpawnableGOTAmbient(GOTEntityBird.class, 30, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityGorcrow.class, 5, 2, 3);
 	}
 
 	public void setupMiderateTrees() {
@@ -376,10 +378,11 @@ public class GOTBiomePreseter {
 		biome.addSpawnableCreature(GOTEntityHorse.class, 30, 1, 2);
 		biome.addSpawnableCreature(EntitySheep.class, 20, 1, 2);
 		biome.addSpawnableCreature(EntityChicken.class, 10, 1, 2);
+
 		biome.getSpawnableGOTAmbientList().clear();
-		biome.addSpawnableAmbient(GOTEntityButterfly.class, 50, 4, 4);
-		biome.addSpawnableAmbient(GOTEntityBird.class, 30, 2, 3);
-		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 5, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityButterfly.class, 50, 4, 4);
+		biome.addSpawnableGOTAmbient(GOTEntityBird.class, 30, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityGorcrow.class, 5, 2, 3);
 	}
 
 	public void setupNorthernPlainsView() {
@@ -512,10 +515,11 @@ public class GOTBiomePreseter {
 		biome.getSpawnableCreatureList().clear();
 		biome.addSpawnableCreature(GOTEntityBoar.class, 20, 2, 3);
 		biome.addSpawnableCreature(GOTEntityRabbit.class, 20, 1, 2);
+
 		biome.getSpawnableGOTAmbientList().clear();
-		biome.addSpawnableAmbient(GOTEntityButterfly.class, 50, 4, 4);
-		biome.addSpawnableAmbient(GOTEntityBird.class, 30, 2, 3);
-		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 5, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityButterfly.class, 50, 4, 4);
+		biome.addSpawnableGOTAmbient(GOTEntityBird.class, 30, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityGorcrow.class, 5, 2, 3);
 	}
 
 	private void setupStandardExoticFauna() {
@@ -532,16 +536,18 @@ public class GOTBiomePreseter {
 		if (!(biome instanceof GOTBiomeWesterosBase)) {
 			biome.addSpawnableCreature(GOTEntityElephant.class, 5, 1, 1);
 		}
+
 		biome.getSpawnableGOTAmbientList().clear();
-		biome.addSpawnableAmbient(GOTEntityButterfly.class, 50, 4, 4);
-		biome.addSpawnableAmbient(GOTEntityBird.class, 30, 2, 3);
-		biome.addSpawnableAmbient(GOTEntityGorcrow.class, 20, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityButterfly.class, 50, 4, 4);
+		biome.addSpawnableGOTAmbient(GOTEntityBird.class, 30, 2, 3);
+		biome.addSpawnableGOTAmbient(GOTEntityGorcrow.class, 20, 2, 3);
 	}
 
 	public void removeAllEntities() {
+		biome.getSpawnableCreatureList().clear();
 		biome.getSpawnableWaterCreatureList().clear();
+		biome.getSpawnableMonsterList().clear();
 		biome.getSpawnableCaveCreatureList().clear();
 		biome.getSpawnableGOTAmbientList().clear();
-		biome.getSpawnableCreatureList().clear();
 	}
 }

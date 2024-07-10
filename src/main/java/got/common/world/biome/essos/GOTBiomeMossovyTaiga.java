@@ -1,14 +1,9 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTSpawnList;
+import got.common.entity.other.GOTEntityWerewolf;
 import got.common.world.map.GOTWaypoint;
-import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.spawning.GOTSpawnListContainer;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTBiomeMossovyTaiga extends GOTBiomeEssosBase {
 	public GOTBiomeMossovyTaiga(int i, boolean major) {
@@ -18,11 +13,9 @@ public class GOTBiomeMossovyTaiga extends GOTBiomeEssosBase {
 		preseter.setupTaigaFauna();
 		preseter.setupNorthernTrees(true);
 
-		setupRuinedStructures(false);
+		addSpawnableMonster(GOTEntityWerewolf.class, 5, 1, 1);
 
-		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(10).add(c1);
+		setupRuinedStructures(false);
 	}
 
 	@Override

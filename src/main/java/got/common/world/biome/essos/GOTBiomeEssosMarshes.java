@@ -18,10 +18,6 @@ public class GOTBiomeEssosMarshes extends GOTBiomeEssosBase implements GOTBiome.
 		preseter.setupMarshesFlora();
 		preseter.setupMarshesFauna();
 		preseter.setupSouthernTrees(true);
-
-		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

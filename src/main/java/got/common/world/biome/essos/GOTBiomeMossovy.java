@@ -2,6 +2,7 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
+import got.common.entity.other.GOTEntityWerewolf;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTSpawnListContainer;
@@ -18,16 +19,15 @@ public class GOTBiomeMossovy extends GOTBiomeEssosBase {
 		preseter.setupNorthernPlainsFauna();
 		preseter.setupNorthernTrees(false);
 
+		addSpawnableMonster(GOTEntityWerewolf.class, 5, 1, 1);
+
 		setupRuinedStructures(false);
 
 		decorator.addSettlement(new GOTStructureMossovySettlement(this, 1.0f));
 
 		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(SPAWN * 0.5));
-		npcSpawnList.newFactionList(5).add(c0);
-		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(5).add(c1);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

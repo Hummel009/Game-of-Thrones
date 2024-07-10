@@ -21,10 +21,6 @@ public class GOTBiomeNeck extends GOTBiomeWesterosBase implements GOTBiome.Marsh
 
 		decorator.addTree(GOTTreeType.WILLOW, 90);
 		decorator.addTree(GOTTreeType.WILLOW_WATER, 10);
-
-		Collection<GOTSpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(SPAWN));
-		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override
