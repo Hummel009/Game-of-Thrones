@@ -107,7 +107,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private boolean hurtOnlyByPlates = true;
 	private boolean initMask;
 	private boolean isConquestSpawning;
-	private boolean isTargetSeeker;
+	private boolean targetSeeker;
 	private boolean loadingFromNBT;
 	private boolean ridingMount;
 	private boolean setInitialHome;
@@ -168,7 +168,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		targetTasks.addTask(1, new GOTEntityAIHiringPlayerHurtByTarget(this));
 		targetTasks.addTask(2, new GOTEntityAIHiringPlayerHurtTarget(this));
 		targetTasks.addTask(3, new GOTEntityAINPCHurtByTarget(this, false));
-		isTargetSeeker = seekTargets;
+		targetSeeker = seekTargets;
 		if (seekTargets) {
 			return addTargetTasks(this, 4, c);
 		}
@@ -632,11 +632,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isCivilian() {
-		return !legendary && !isTargetSeeker && !(this instanceof GOTUnitTradeable) && !(this instanceof GOTMercenary);
+		return !legendary && !targetSeeker && !(this instanceof GOTUnitTradeable) && !(this instanceof GOTMercenary);
 	}
 
 	public boolean isTargetSeeker() {
-		return isTargetSeeker;
+		return targetSeeker;
 	}
 
 	public boolean isFriendly(EntityPlayer entityplayer) {
