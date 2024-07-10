@@ -29,9 +29,9 @@ public class GOTBiomeQarth extends GOTBiomeEssosBase {
 
 		preseter.setupDesertView();
 		preseter.setupDesertFlora();
-		preseter.setupDesertFauna();
 		preseter.setupDesertTrees();
 
+		preseter.removeAllEntities();
 		addSpawnableMonster(GOTEntityManticore.class, 5, 1, 1);
 
 		setupRuinedStructures(true);

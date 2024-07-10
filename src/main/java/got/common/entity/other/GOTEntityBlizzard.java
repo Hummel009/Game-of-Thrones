@@ -10,7 +10,6 @@ import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.utils.IceUtils;
 import got.common.faction.GOTFaction;
-import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -122,20 +121,6 @@ public class GOTEntityBlizzard extends GOTEntityNPC implements GOTBiome.ImmuneTo
 	@SideOnly(Side.CLIENT)
 	public int getBrightnessForRender(float f) {
 		return 15728880;
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
 	}
 
 	@Override

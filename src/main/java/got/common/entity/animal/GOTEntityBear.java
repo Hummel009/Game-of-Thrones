@@ -6,7 +6,6 @@ import got.common.database.GOTItems;
 import got.common.entity.GOTEntityRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTCrashHandler;
-import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.entity.*;
@@ -20,7 +19,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.WorldChunkManager;
 
 import java.util.List;
 import java.util.Locale;
@@ -147,15 +145,13 @@ public class GOTEntityBear extends EntityAnimal implements GOTBiome.ImmuneToFros
 
 	@Override
 	public boolean getCanSpawnHere() {
-		WorldChunkManager worldChunkMgr = worldObj.getWorldChunkManager();
-		if (worldChunkMgr instanceof GOTWorldChunkManager) {
+		if (super.getCanSpawnHere()) {
 			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
-			GOTBiomeVariant variant = ((GOTWorldChunkManager) worldChunkMgr).getBiomeVariantAt(i, k);
-			return super.getCanSpawnHere() && canWorldGenSpawnAt(biome, variant);
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
-		return super.getCanSpawnHere();
+		return false;
 	}
 
 	@Override

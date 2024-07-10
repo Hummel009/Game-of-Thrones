@@ -47,6 +47,7 @@ import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -454,7 +455,27 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return (!isSpawnsInDarkness() || liftSpawnRestrictions || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
+		boolean lightCondition = !isSpawnsInDarkness() || liftSpawnRestrictions || isValidLightLevelForDarkSpawn();
+		boolean isBannerProtectionLifted = liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false);
+		boolean isSpawnNotBlocked = isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this);
+
+		return lightCondition && isBannerProtectionLifted && isSpawnNotBlocked && getSpecialSpawnCondition() && super.getCanSpawnHere();
+	}
+
+	private boolean getSpecialSpawnCondition() {
+		if (this instanceof IMob) {
+			List<? extends Entity> nearbyEntities = worldObj.getEntitiesWithinAABB(getClass(), boundingBox.expand(64, 12, 64));
+			if (nearbyEntities.size() > 5) {
+				return false;
+			}
+		}
+		if (liftSpawnRestrictions) {
+			return true;
+		}
+		int i = MathHelper.floor_double(posX);
+		int j = MathHelper.floor_double(boundingBox.minY);
+		int k = MathHelper.floor_double(posZ);
+		return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 	}
 
 	@Override

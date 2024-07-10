@@ -10,7 +10,6 @@ import got.common.entity.ai.GOTEntityAIUntamedSpiderPanic;
 import got.common.entity.other.iface.GOTNPCMount;
 import got.common.entity.other.utils.GOTMountFunctions;
 import got.common.faction.GOTAlignmentValues;
-import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -357,20 +356,6 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 	@Override
 	public boolean canDespawn() {
 		return super.canDespawn() && !isNPCTamed();
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
 	}
 
 	@Override

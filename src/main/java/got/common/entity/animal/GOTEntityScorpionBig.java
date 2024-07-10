@@ -4,7 +4,6 @@ import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -13,16 +12,16 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest2;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBiome.ImmuneToHeat {
+public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBiome.ImmuneToHeat, IMob {
 	private float scorpionWidth = -1.0f;
 	private float scorpionHeight;
 
@@ -91,20 +90,6 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 	@Override
 	public void func_145780_a(int i, int j, int k, Block block) {
 		playSound("mob.spider.step", 0.15f, 1.0f);
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			if (liftSpawnRestrictions) {
-				return true;
-			}
-			int i = MathHelper.floor_double(posX);
-			int j = MathHelper.floor_double(boundingBox.minY);
-			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
-		}
-		return false;
 	}
 
 	@Override

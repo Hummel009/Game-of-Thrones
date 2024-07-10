@@ -78,14 +78,13 @@ public class GOTEntityReachSoldier extends GOTEntityReachMan {
 								}
 								guard.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
 								guard.setLiftSpawnRestrictions(true);
-								if (!guard.getCanSpawnHere()) {
-									continue;
+								if (guard.getCanSpawnHere()) {
+									guard.setLiftSpawnRestrictions(false);
+									world.spawnEntityInWorld(guard);
+									guard.setSpawnRidingHorse(false);
+									guard.onSpawnWithEgg(null);
+									continue block1;
 								}
-								guard.setLiftSpawnRestrictions(false);
-								world.spawnEntityInWorld(guard);
-								guard.setSpawnRidingHorse(false);
-								guard.onSpawnWithEgg(null);
-								continue block1;
 							}
 						}
 					}

@@ -26,7 +26,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.List;
 import java.util.UUID;
@@ -99,8 +98,7 @@ public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreatur
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
-			return biome.temperature != 0.0f && j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == biome.topBlock;
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
 		return false;
 	}

@@ -10,10 +10,11 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityShryke extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
+public class GOTEntityShryke extends GOTEntityNPC implements GOTBiome.ImmuneToFrost, IMob {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityShryke(World world) {
 		super(world);
