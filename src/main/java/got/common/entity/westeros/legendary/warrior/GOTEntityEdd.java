@@ -16,8 +16,16 @@ public class GOTEntityEdd extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NIGHT_WATCH;
-		alignmentBonus = 30.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NIGHT_WATCH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 30.0f;
 	}
 
 	@Override

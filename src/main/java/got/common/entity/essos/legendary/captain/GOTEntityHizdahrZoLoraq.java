@@ -16,9 +16,21 @@ public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTUn
 	public GOTEntityHizdahrZoLoraq(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.GHISCAR;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killHizdahrZoLoraq;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.GHISCAR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killHizdahrZoLoraq;
 	}
 
 	@Override

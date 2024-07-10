@@ -12,7 +12,11 @@ public class GOTEntityPentosButcher extends GOTEntityPentosMan implements GOTTra
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosButcher(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -19,8 +19,16 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	public GOTEntityJonSnow(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		cape = GOTCapes.NIGHT;
-		alignmentBonus = 300.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NIGHT;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
 	}
 
 	@Override
@@ -39,12 +47,26 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	}
 
 	public static class JonSnowLife1 extends GOTEntityJonSnow {
+		{
+		}
+
+		{
+		}
+
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public JonSnowLife1(World world) {
 			super(world);
 			addTargetTasks(true);
-			faction = GOTFaction.NIGHT_WATCH;
-			miniQuestFactory = GOTMiniQuestFactory.JON_SNOW;
+		}
+
+		@Override
+		public GOTFaction getFaction() {
+			return GOTFaction.NIGHT_WATCH;
+		}
+
+		@Override
+		public GOTMiniQuestFactory getMiniQuestFactory() {
+			return GOTMiniQuestFactory.JON_SNOW;
 		}
 
 		@Override
@@ -61,12 +83,26 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 	}
 
 	public static class JonSnowLife2 extends GOTEntityJonSnow {
+		{
+		}
+
+		{
+		}
+
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public JonSnowLife2(World world) {
 			super(world);
 			addTargetTasks();
-			faction = GOTFaction.NORTH;
-			killAchievement = GOTAchievement.killJonSnow;
+		}
+
+		@Override
+		public GOTFaction getFaction() {
+			return GOTFaction.NORTH;
+		}
+
+		@Override
+		public GOTAchievement getKillAchievement() {
+			return GOTAchievement.killJonSnow;
 		}
 
 		protected void addTargetTasks() {

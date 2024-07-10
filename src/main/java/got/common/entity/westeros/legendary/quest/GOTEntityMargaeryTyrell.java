@@ -14,10 +14,26 @@ public class GOTEntityMargaeryTyrell extends GOTEntityHumanBase {
 	public GOTEntityMargaeryTyrell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.REACH;
-		miniQuestFactory = GOTMiniQuestFactory.MARGAERY;
-		alignmentBonus = 300.0f;
-		killAchievement = GOTAchievement.killMargaeryTyrell;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.REACH;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.MARGAERY;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMargaeryTyrell;
 	}
 
 	@Override

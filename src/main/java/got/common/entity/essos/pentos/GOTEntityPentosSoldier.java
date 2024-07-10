@@ -14,9 +14,21 @@ public class GOTEntityPentosSoldier extends GOTEntityPentosMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.PENTOS;
-		shield = GOTShields.PENTOS;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.PENTOS;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.PENTOS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

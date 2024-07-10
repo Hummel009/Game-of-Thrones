@@ -12,8 +12,16 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	public GOTEntityGiftGuard(World world) {
 		super(world);
 		addTargetTasks(true);
-		cape = GOTCapes.NIGHT;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NIGHT;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

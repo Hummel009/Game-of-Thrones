@@ -17,9 +17,21 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStormlandsMan(World world) {
 		super(world);
-		faction = GOTFaction.STORMLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.STORMLANDS;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.STORMLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.STORMLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

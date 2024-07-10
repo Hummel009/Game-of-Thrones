@@ -13,9 +13,21 @@ public class GOTEntityShae extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(false);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 1.0f;
-		killAchievement = GOTAchievement.killShae;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killShae;
 	}
 
 	@Override

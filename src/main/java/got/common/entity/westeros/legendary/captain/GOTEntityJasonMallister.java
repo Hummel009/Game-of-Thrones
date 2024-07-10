@@ -15,8 +15,16 @@ public class GOTEntityJasonMallister extends GOTEntityHumanBase implements GOTUn
 	public GOTEntityJasonMallister(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.RIVERLANDS;
-		alignmentBonus = 100.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.RIVERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
 	}
 
 	@Override

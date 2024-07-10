@@ -47,7 +47,7 @@ public class GOTBlockSpawnerChest extends BlockChest {
 		if (!world.isRemote) {
 			entityliving.onSpawnWithEgg(null);
 			if (entityliving instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entityliving).setNPCPersistent(true);
+				((GOTEntityNPC) entityliving).setPersistent(true);
 			}
 			world.spawnEntityInWorld(entityliving);
 			world.playSoundAtEntity(entityliving, "got:wraith.spawn", 1.0f, 0.7f + world.rand.nextFloat() * 0.6f);

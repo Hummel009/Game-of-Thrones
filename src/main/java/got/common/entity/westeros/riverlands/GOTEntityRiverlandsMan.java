@@ -18,9 +18,21 @@ public class GOTEntityRiverlandsMan extends GOTEntityHumanBase implements GOTBio
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsMan(World world) {
 		super(world);
-		faction = GOTFaction.RIVERLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.RIVERLANDS;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.RIVERLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.RIVERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

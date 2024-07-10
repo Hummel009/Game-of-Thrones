@@ -228,7 +228,7 @@ public class GOTSpawnerNPCs {
 							world.spawnEntityInWorld(entity);
 							if (entity instanceof GOTEntityNPC) {
 								GOTEntityNPC npc = (GOTEntityNPC) entity;
-								npc.setNPCPersistent(false);
+								npc.setPersistent(false);
 								npc.setConquestSpawning(false);
 							}
 							if (!ForgeEventFactory.doSpecialSpawn(entity, world, f, f1, f2)) {

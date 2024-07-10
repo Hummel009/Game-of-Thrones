@@ -13,7 +13,11 @@ public class GOTEntityQohorCaptain extends GOTEntityQohorMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQohorCaptain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

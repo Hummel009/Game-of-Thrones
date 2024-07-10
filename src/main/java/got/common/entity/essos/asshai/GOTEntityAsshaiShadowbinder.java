@@ -13,8 +13,16 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 		super(world);
 		tasks.addTask(1, new GOTEntityAIAsshaiShadowbinderUseStaff(this));
 		isImmuneToFire = true;
-		alignmentBonus = 3.0f;
-		killAchievement = GOTAchievement.killAsshaiShadowbinder;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 3.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAsshaiShadowbinder;
 	}
 
 	@Override

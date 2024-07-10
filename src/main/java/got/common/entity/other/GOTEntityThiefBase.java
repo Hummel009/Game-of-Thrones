@@ -13,7 +13,11 @@ public abstract class GOTEntityThiefBase extends GOTEntityHumanBase implements G
 	protected GOTEntityThiefBase(World world) {
 		super(world);
 		questInfo.setOfferChance(1);
-		miniQuestFactory = GOTMiniQuestFactory.CRIMINAL;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.CRIMINAL;
 	}
 
 	@Override

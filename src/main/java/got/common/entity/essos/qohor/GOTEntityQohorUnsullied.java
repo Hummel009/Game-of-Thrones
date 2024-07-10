@@ -14,10 +14,26 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorMan {
 	public GOTEntityQohorUnsullied(World world) {
 		super(world);
 		addTargetTasks(true);
-		cape = GOTCapes.UNSULLIED;
-		shield = GOTShields.UNSULLIED;
-		alignmentBonus = 2.0f;
-		killAchievement = GOTAchievement.killUnsullied;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.UNSULLIED;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.UNSULLIED;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killUnsullied;
 	}
 
 	@Override

@@ -20,10 +20,26 @@ public class GOTEntityOberynMartell extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.DORNE;
-		miniQuestFactory = GOTMiniQuestFactory.OBERYN;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killOberynMartell;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DORNE;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.OBERYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killOberynMartell;
 	}
 
 	private void addTargetTasks() {

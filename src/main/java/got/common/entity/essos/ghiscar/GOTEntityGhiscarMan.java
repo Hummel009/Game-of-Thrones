@@ -17,9 +17,21 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarMan(World world) {
 		super(world);
-		faction = GOTFaction.GHISCAR;
-		miniQuestFactory = GOTMiniQuestFactory.GHISCAR;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.GHISCAR;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.GHISCAR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

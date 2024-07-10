@@ -12,7 +12,11 @@ public class GOTEntityGhiscarBrewer extends GOTEntityGhiscarMan implements GOTTr
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarBrewer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

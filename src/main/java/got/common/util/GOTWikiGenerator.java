@@ -1341,7 +1341,7 @@ public class GOTWikiGenerator {
 		Map<Class<? extends Entity>, String> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendary()) {
 				data.put(entityEntry.getKey(), TRUE);
 			}
 		}
@@ -1716,7 +1716,7 @@ public class GOTWikiGenerator {
 		Map<Class<? extends Entity>, Set<String>> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
-			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendary()) {
 				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
 
 				npc.dropFewItems(true, 999);
@@ -2230,7 +2230,7 @@ public class GOTWikiGenerator {
 			Entity entity = entityEntry.getValue();
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				if (npc.isLegendaryNPC()) {
+				if (npc.isLegendary()) {
 					data.computeIfAbsent(npc.getFaction(), s -> new TreeSet<>());
 					data.get(npc.getFaction()).add(getEntityLink(entityEntry.getKey()));
 				}
@@ -2460,7 +2460,7 @@ public class GOTWikiGenerator {
 			Entity entity = entityEntry.getValue();
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				if (!npc.isLegendaryNPC()) {
+				if (!npc.isLegendary()) {
 					data.computeIfAbsent(npc.getFaction(), s -> new TreeSet<>());
 					data.get(npc.getFaction()).add(getEntityLink(entityEntry.getKey()));
 				}

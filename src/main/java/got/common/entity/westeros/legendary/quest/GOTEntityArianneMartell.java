@@ -13,9 +13,21 @@ public class GOTEntityArianneMartell extends GOTEntityHumanBase {
 	public GOTEntityArianneMartell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.DORNE;
-		miniQuestFactory = GOTMiniQuestFactory.ARIANNE;
-		alignmentBonus = 500.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DORNE;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.ARIANNE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
 	}
 
 	@Override

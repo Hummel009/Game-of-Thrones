@@ -14,9 +14,21 @@ public class GOTEntityIlynPayne extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killIlynPayne;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killIlynPayne;
 	}
 
 	@Override

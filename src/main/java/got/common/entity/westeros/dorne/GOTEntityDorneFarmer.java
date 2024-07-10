@@ -13,7 +13,11 @@ public class GOTEntityDorneFarmer extends GOTEntityDorneMan implements GOTFarmer
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDorneFarmer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

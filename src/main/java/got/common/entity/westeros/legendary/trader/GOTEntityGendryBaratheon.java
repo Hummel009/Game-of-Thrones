@@ -15,8 +15,16 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTS
 	public GOTEntityGendryBaratheon(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		killAchievement = GOTAchievement.killGendryBaratheon;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killGendryBaratheon;
 	}
 
 	@Override

@@ -15,10 +15,26 @@ public class GOTEntityMerynTrant extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		cape = GOTCapes.ROYALGUARD;
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killMerynTrant;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ROYALGUARD;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMerynTrant;
 	}
 
 	@Override

@@ -12,7 +12,11 @@ public class GOTEntitySummerFishmonger extends GOTEntitySummerMan implements GOT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerFishmonger(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

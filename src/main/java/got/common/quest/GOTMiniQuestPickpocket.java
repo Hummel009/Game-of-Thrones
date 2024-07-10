@@ -238,7 +238,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 						if (otherNPC == npc) {
 							continue;
 						}
-						boolean civilian = otherNPC.isCivilianNPC();
+						boolean civilian = otherNPC.isCivilian();
 						double maxRange = civilian ? 8.0 : 16.0;
 						double dist = otherNPC.getDistanceToEntity(npc);
 						if (dist > maxRange || otherNPC.getAttackTarget() != null || !isEntityWatching(otherNPC, entityplayer)) {

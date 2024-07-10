@@ -81,7 +81,7 @@ public class GOTAsshaiStaffSelector {
 		if (attackerOwner != null) {
 			GOTPlayerData attackerOwnerData = GOTLevelData.getData(attackerOwner);
 			if (attackerOwnerData.getAlignment(targetFaction) < 0) {
-				if (!target.isCivilianNPC() || attacker.getFaction().isApprovesWarCrimes()) {
+				if (!target.isCivilian() || attacker.getFaction().isApprovesWarCrimes()) {
 					return true;
 				}
 			}

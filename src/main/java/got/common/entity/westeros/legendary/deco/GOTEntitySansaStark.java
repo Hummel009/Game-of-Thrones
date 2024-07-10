@@ -14,8 +14,16 @@ public class GOTEntitySansaStark extends GOTEntityHumanBase {
 	public GOTEntitySansaStark(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		killAchievement = GOTAchievement.killSansaStark;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killSansaStark;
 	}
 
 	@Override

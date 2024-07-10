@@ -17,9 +17,21 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTyroshMan(World world) {
 		super(world);
-		faction = GOTFaction.TYROSH;
-		miniQuestFactory = GOTMiniQuestFactory.TYROSH;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.TYROSH;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.TYROSH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

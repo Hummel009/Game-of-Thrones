@@ -33,9 +33,6 @@ public class GOTEntityReachSoldier extends GOTEntityReachMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		shield = GOTShields.REACH;
-		cape = GOTCapes.REACH;
-		alignmentBonus = 2.0f;
 	}
 
 	public static void defendGrapevines(EntityPlayer entityplayer, World world, int i, int j, int k) {
@@ -122,6 +119,21 @@ public class GOTEntityReachSoldier extends GOTEntityReachMan {
 				}
 			}
 		}
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.REACH;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.REACH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

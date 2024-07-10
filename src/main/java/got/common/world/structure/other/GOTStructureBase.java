@@ -1279,7 +1279,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		entity.setLocationAndAngles(i2 + 0.5, j1, k2 + 0.5, 0.0f, 0.0f);
 		entity.onSpawnWithEgg(null);
 		if (entity instanceof GOTEntityNPC) {
-			((GOTEntityNPC) entity).setNPCPersistent(true);
+			((GOTEntityNPC) entity).setPersistent(true);
 		}
 		world.spawnEntityInWorld(entity);
 	}
@@ -1298,7 +1298,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		entity.setLocationAndAngles(i2 + 0.5, j1, k2 + 0.5, 0.0f, 0.0f);
 		entity.onSpawnWithEgg(null);
 		if (entity instanceof GOTEntityNPC) {
-			((GOTEntityNPC) entity).setNPCPersistent(true);
+			((GOTEntityNPC) entity).setPersistent(true);
 		}
 		world.spawnEntityInWorld(entity);
 		entity.setHomeArea(i2, j1, k2, homeDistance);

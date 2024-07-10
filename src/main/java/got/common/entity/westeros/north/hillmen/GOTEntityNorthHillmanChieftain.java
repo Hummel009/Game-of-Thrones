@@ -13,7 +13,11 @@ public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillman implem
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthHillmanChieftain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

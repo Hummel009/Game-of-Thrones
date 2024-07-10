@@ -17,9 +17,21 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosMan(World world) {
 		super(world);
-		faction = GOTFaction.PENTOS;
-		miniQuestFactory = GOTMiniQuestFactory.PENTOS;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.PENTOS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.PENTOS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

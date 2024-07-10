@@ -11,7 +11,11 @@ public class GOTEntityDragonstoneButcher extends GOTEntityDragonstoneMan impleme
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneButcher(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

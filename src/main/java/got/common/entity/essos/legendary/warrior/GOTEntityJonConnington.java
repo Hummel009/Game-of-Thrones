@@ -13,7 +13,11 @@ public class GOTEntityJonConnington extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.TYROSH;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.TYROSH;
 	}
 
 	@Override

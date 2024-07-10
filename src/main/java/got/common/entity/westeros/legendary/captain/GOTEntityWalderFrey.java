@@ -19,9 +19,21 @@ public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTr
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.RIVERLANDS;
-		alignmentBonus = 300.0f;
-		killAchievement = GOTAchievement.killWalderFrey;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.RIVERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killWalderFrey;
 	}
 
 	private void addTargetTasks() {

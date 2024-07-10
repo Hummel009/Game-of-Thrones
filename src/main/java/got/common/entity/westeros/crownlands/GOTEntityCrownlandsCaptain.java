@@ -14,8 +14,16 @@ public class GOTEntityCrownlandsCaptain extends GOTEntityCrownlandsMan implement
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrownlandsCaptain(World world) {
 		super(world);
-		cape = GOTCapes.CROWNLANDS;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

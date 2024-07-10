@@ -16,9 +16,21 @@ public class GOTEntitySalladhorSaan extends GOTEntityHumanBase implements GOTUni
 	public GOTEntitySalladhorSaan(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.LYS;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killSalladhorSaan;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.LYS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killSalladhorSaan;
 	}
 
 	@Override

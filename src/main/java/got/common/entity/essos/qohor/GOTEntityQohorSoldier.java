@@ -14,9 +14,21 @@ public class GOTEntityQohorSoldier extends GOTEntityQohorMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.QOHOR;
-		shield = GOTShields.QOHOR;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.QOHOR;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.QOHOR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

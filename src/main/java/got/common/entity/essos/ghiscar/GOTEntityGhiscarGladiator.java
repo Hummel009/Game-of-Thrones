@@ -11,14 +11,29 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
+	{
+		int target = addTargetTasks(true);
+		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarGladiator.class, 0, true));
+	}
+
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);
-		shield = GOTShields.GHISCAR;
-		int target = addTargetTasks(true);
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarGladiator.class, 0, true));
-		alignmentBonus = 0.0f;
-		killAchievement = GOTAchievement.killGhiscarGladiator;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.GHISCAR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 0.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killGhiscarGladiator;
 	}
 
 	@Override

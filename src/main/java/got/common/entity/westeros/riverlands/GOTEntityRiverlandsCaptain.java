@@ -14,8 +14,16 @@ public class GOTEntityRiverlandsCaptain extends GOTEntityRiverlandsMan implement
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsCaptain(World world) {
 		super(world);
-		cape = GOTCapes.RIVERLANDS;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.RIVERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

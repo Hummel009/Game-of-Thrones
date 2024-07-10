@@ -85,7 +85,7 @@ public class GOTEventSpawner {
 				}
 				bandit.onSpawnWithEgg(null);
 				world.spawnEntityInWorld(bandit);
-				bandit.setNPCPersistent(false);
+				bandit.setPersistent(false);
 				banditsSpawned++;
 				if (banditsSpawned >= maxBandits) {
 					continue block0;

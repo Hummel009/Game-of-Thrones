@@ -12,7 +12,11 @@ public class GOTEntityDragonstoneBaker extends GOTEntityDragonstoneMan implement
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneBaker(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

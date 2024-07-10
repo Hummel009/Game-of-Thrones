@@ -12,7 +12,11 @@ public class GOTEntityGhiscarCaptain extends GOTEntityGhiscarMan implements GOTU
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarCaptain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

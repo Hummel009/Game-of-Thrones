@@ -13,9 +13,21 @@ public class GOTEntityMellario extends GOTEntityHumanBase {
 	public GOTEntityMellario(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NORVOS;
-		miniQuestFactory = GOTMiniQuestFactory.MELLARIO;
-		alignmentBonus = 300.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORVOS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.MELLARIO;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
 	}
 
 	@Override

@@ -13,7 +13,11 @@ public class GOTEntityIbbenFarmer extends GOTEntityIbbenMan implements GOTFarmer
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenFarmer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

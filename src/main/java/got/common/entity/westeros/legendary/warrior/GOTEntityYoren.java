@@ -15,9 +15,21 @@ public class GOTEntityYoren extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NIGHT_WATCH;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killYoren;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NIGHT_WATCH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killYoren;
 	}
 
 	private void addTargetTasks() {

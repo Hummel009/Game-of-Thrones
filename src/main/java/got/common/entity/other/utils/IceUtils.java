@@ -55,7 +55,6 @@ public class IceUtils {
 			} else {
 				GOTEntityNPC wight = new GOTEntityWight(world);
 				wight.copyLocationAndAnglesFrom(target);
-				wight.setCape(target.getCape());
 				wight.getFamilyInfo().setAge(target.getFamilyInfo().getAge());
 				wight.getFamilyInfo().setMale(target.getFamilyInfo().isMale());
 				wight.getNpcItemsInv().setMeleeWeapon(target.getNpcItemsInv().getMeleeWeapon());

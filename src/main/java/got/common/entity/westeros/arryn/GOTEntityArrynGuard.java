@@ -11,9 +11,21 @@ public class GOTEntityArrynGuard extends GOTEntityArrynMan {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynGuard(World world) {
 		super(world);
-		shield = GOTShields.ARRYNGUARD;
-		cape = GOTCapes.ARRYNGUARD;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.ARRYNGUARD;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ARRYNGUARD;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

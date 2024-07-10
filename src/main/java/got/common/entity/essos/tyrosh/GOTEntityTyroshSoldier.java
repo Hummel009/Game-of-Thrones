@@ -14,9 +14,21 @@ public class GOTEntityTyroshSoldier extends GOTEntityTyroshMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.TYROSH;
-		shield = GOTShields.TYROSH;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.TYROSH;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.TYROSH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

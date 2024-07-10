@@ -16,9 +16,21 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMossovyMan(World world) {
 		super(world);
-		faction = GOTFaction.MOSSOVY;
-		miniQuestFactory = GOTMiniQuestFactory.MOSSOVY;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.MOSSOVY;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.MOSSOVY;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

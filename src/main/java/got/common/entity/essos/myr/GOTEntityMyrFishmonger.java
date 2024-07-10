@@ -12,7 +12,11 @@ public class GOTEntityMyrFishmonger extends GOTEntityMyrMan implements GOTTradea
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMyrFishmonger(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

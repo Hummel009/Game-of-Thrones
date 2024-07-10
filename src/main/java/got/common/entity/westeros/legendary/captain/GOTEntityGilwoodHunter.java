@@ -15,8 +15,16 @@ public class GOTEntityGilwoodHunter extends GOTEntityHumanBase implements GOTUni
 	public GOTEntityGilwoodHunter(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.ARRYN;
-		alignmentBonus = 100.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ARRYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
 	}
 
 	@Override

@@ -12,7 +12,11 @@ public class GOTEntityRiverlandsLumberman extends GOTEntityRiverlandsMan impleme
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsLumberman(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

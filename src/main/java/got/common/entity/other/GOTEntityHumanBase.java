@@ -54,13 +54,17 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 			tasks.addTask(6, new GOTEntityAISmoke(this, 8000));
 		}
 
-		killAchievement = isLegendaryNPC ? GOTAchievement.killLegendaryNPC : GOTAchievement.killNPC;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return legendary ? GOTAchievement.killLegendaryNPC : GOTAchievement.killNPC;
 	}
 
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(isLegendaryNPC ? 30.0 : 20.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(legendary ? 30.0 : 20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
@@ -71,7 +75,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 
 	@Override
 	public int getTotalArmorValue() {
-		return isLegendaryNPC ? 15 : super.getTotalArmorValue();
+		return legendary ? 15 : super.getTotalArmorValue();
 	}
 
 	protected EntityAIBase getAttackAI() {

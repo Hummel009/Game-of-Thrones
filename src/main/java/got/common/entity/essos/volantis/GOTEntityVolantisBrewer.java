@@ -12,7 +12,11 @@ public class GOTEntityVolantisBrewer extends GOTEntityVolantisMan implements GOT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisBrewer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

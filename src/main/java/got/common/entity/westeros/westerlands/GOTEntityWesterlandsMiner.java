@@ -11,7 +11,11 @@ public class GOTEntityWesterlandsMiner extends GOTEntityWesterlandsMan implement
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsMiner(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

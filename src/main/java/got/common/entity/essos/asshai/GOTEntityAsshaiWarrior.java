@@ -13,9 +13,21 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 	public GOTEntityAsshaiWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
-		shield = GOTShields.ASSHAI;
-		cape = GOTCapes.ASSHAI;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.ASSHAI;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ASSHAI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

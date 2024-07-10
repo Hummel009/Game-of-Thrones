@@ -11,7 +11,11 @@ public class GOTEntityRedPriest extends GOTEntityHumanBase implements GOTTradeab
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRedPriest(World world) {
 		super(world);
-		killAchievement = GOTAchievement.killPriest;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killPriest;
 	}
 
 	@Override

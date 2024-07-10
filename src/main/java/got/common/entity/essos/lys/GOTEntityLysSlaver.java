@@ -13,7 +13,11 @@ public class GOTEntityLysSlaver extends GOTEntityLysMan implements GOTFarmer {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLysSlaver(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

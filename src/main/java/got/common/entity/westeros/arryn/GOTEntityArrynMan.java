@@ -18,9 +18,21 @@ public class GOTEntityArrynMan extends GOTEntityHumanBase implements GOTBiome.Im
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynMan(World world) {
 		super(world);
-		faction = GOTFaction.ARRYN;
-		miniQuestFactory = GOTMiniQuestFactory.ARRYN;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ARRYN;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.ARRYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

@@ -140,7 +140,7 @@ public class GOTFamilyInfo {
 				theEntity.setCurrentItemOrArmor(0, new ItemStack(GOTItems.goldRing));
 				ringGivingPlayer = entityplayer.getUniqueID();
 			}
-			theEntity.setNPCPersistent(true);
+			theEntity.setPersistent(true);
 			return true;
 		}
 		return false;

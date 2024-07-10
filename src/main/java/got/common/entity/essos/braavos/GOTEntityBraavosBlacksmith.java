@@ -12,7 +12,11 @@ public class GOTEntityBraavosBlacksmith extends GOTEntityBraavosMan implements G
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosBlacksmith(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -350,7 +350,6 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 		nbt.setShort("SpiderRideTime", (short) getSpiderClimbTime());
 	}
 
-
 	public void angerNPC() {
 		playSound(getHurtSound(), getSoundVolume(), getSoundPitch() * 1.5f);
 	}

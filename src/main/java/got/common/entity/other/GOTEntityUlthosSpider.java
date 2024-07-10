@@ -11,10 +11,26 @@ public class GOTEntityUlthosSpider extends GOTEntitySpiderBase implements GOTBio
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityUlthosSpider(World world) {
 		super(world);
-		spawnsInDarkness = true;
-		faction = GOTFaction.ULTHOS;
-		alignmentBonus = 2.0f;
-		killAchievement = GOTAchievement.killUlthosSpider;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ULTHOS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killUlthosSpider;
 	}
 
 	@Override

@@ -13,7 +13,11 @@ public class GOTEntityAuraneWaters extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.DRAGONSTONE;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DRAGONSTONE;
 	}
 
 	@Override

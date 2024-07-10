@@ -15,9 +15,21 @@ public class GOTEntityAmoryLorch extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.WESTERLANDS;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killAmoryLorch;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WESTERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAmoryLorch;
 	}
 
 	private void addTargetTasks() {

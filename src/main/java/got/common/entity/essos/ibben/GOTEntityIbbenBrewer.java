@@ -11,7 +11,11 @@ public class GOTEntityIbbenBrewer extends GOTEntityIbbenMan implements GOTTradea
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIbbenBrewer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

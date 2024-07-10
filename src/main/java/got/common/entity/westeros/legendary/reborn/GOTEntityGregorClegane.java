@@ -24,7 +24,11 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		addTargetTasks();
 		setupLegendaryNPC(true);
 		setSize(0.6f * 1.3f, 1.8f * 1.3f);
-		alignmentBonus = 300.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
 	}
 
 	private void addTargetTasks() {
@@ -48,10 +52,17 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	}
 
 	public static class GregorCleganeAlive extends GOTEntityGregorClegane {
+		{
+		}
+
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public GregorCleganeAlive(World world) {
 			super(world);
-			faction = GOTFaction.WESTERLANDS;
+		}
+
+		@Override
+		public GOTFaction getFaction() {
+			return GOTFaction.WESTERLANDS;
 		}
 
 		@Override
@@ -108,11 +119,25 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	}
 
 	public static class GregorCleganeDead extends GOTEntityGregorClegane {
+		{
+		}
+
+		{
+		}
+
 		@SuppressWarnings({"WeakerAccess", "unused"})
 		public GregorCleganeDead(World world) {
 			super(world);
-			faction = GOTFaction.CROWNLANDS;
-			killAchievement = GOTAchievement.killGregorClegane;
+		}
+
+		@Override
+		public GOTFaction getFaction() {
+			return GOTFaction.CROWNLANDS;
+		}
+
+		@Override
+		public GOTAchievement getKillAchievement() {
+			return GOTAchievement.killGregorClegane;
 		}
 
 		@Override

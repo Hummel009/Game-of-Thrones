@@ -18,8 +18,16 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTSmith {
 	public GOTEntityCraster(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.WILDLING;
-		killAchievement = GOTAchievement.killCraster;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WILDLING;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killCraster;
 	}
 
 	@Override

@@ -18,7 +18,11 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		killAchievement = GOTAchievement.killDaarioNaharis;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killDaarioNaharis;
 	}
 
 	@Override

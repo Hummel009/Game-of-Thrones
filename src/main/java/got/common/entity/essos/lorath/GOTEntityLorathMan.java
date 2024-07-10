@@ -17,9 +17,21 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLorathMan(World world) {
 		super(world);
-		faction = GOTFaction.LORATH;
-		miniQuestFactory = GOTMiniQuestFactory.LORATH;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.LORATH;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.LORATH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

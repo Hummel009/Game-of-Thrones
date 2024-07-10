@@ -16,6 +16,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityNightKing extends GOTEntityNPC {
+	{
+		isImmuneToFire = true;
+	}
+
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNightKing(World world) {
 		super(world);
@@ -32,11 +36,26 @@ public class GOTEntityNightKing extends GOTEntityNPC {
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		spawnsInDarkness = true;
-		isImmuneToFire = true;
-		faction = GOTFaction.WHITE_WALKER;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killNightKing;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WHITE_WALKER;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killNightKing;
 	}
 
 	private void addTargetTasks() {

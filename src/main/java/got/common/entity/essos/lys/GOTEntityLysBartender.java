@@ -13,7 +13,11 @@ public class GOTEntityLysBartender extends GOTEntityLysMan implements GOTBartend
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLysBartender(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

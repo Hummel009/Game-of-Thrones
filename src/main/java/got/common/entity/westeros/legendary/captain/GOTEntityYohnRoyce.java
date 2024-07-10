@@ -16,9 +16,21 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 	public GOTEntityYohnRoyce(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.ARRYN;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killYohnRoyce;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ARRYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killYohnRoyce;
 	}
 
 	@Override

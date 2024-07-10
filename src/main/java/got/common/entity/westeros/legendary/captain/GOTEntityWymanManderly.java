@@ -16,9 +16,21 @@ public class GOTEntityWymanManderly extends GOTEntityHumanBase implements GOTUni
 	public GOTEntityWymanManderly(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NORTH;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killWymanManderly;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killWymanManderly;
 	}
 
 	@Override

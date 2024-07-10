@@ -11,9 +11,21 @@ public class GOTEntityWesterlandsGuard extends GOTEntityWesterlandsMan {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsGuard(World world) {
 		super(world);
-		shield = GOTShields.WESTERLANDSGUARD;
-		cape = GOTCapes.WESTERLANDS;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.WESTERLANDSGUARD;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.WESTERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

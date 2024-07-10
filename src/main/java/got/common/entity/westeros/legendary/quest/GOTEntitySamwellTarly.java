@@ -16,10 +16,26 @@ public class GOTEntitySamwellTarly extends GOTEntityHumanBase {
 	public GOTEntitySamwellTarly(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NIGHT_WATCH;
-		miniQuestFactory = GOTMiniQuestFactory.SAMWELL;
-		alignmentBonus = 10.0f;
-		killAchievement = GOTAchievement.killSamwellTarly;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NIGHT_WATCH;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.SAMWELL;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 10.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killSamwellTarly;
 	}
 
 	@Override

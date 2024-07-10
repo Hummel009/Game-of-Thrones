@@ -14,8 +14,16 @@ public class GOTEntityDorneCaptain extends GOTEntityDorneMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDorneCaptain(World world) {
 		super(world);
-		cape = GOTCapes.DORNE;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.DORNE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

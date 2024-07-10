@@ -27,10 +27,26 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
-		spawnsInDarkness = true;
-		faction = GOTFaction.HOSTILE;
-		alignmentBonus = 2.0f;
-		killAchievement = GOTAchievement.killIfekevron;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.HOSTILE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killIfekevron;
 	}
 
 	@Override

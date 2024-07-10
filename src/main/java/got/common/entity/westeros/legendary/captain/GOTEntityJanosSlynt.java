@@ -13,10 +13,26 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 	public GOTEntityJanosSlynt(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		cape = GOTCapes.CROWNLANDS;
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 200.0f;
-		killAchievement = GOTAchievement.killJanosSlynt;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.CROWNLANDS;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 200.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killJanosSlynt;
 	}
 
 	@Override

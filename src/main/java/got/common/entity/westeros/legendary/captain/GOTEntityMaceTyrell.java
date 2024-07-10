@@ -16,9 +16,21 @@ public class GOTEntityMaceTyrell extends GOTEntityHumanBase implements GOTUnitTr
 	public GOTEntityMaceTyrell(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.REACH;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killMaceTyrell;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.REACH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMaceTyrell;
 	}
 
 	@Override

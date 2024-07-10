@@ -16,9 +16,21 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements GOTBiome.I
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerMan(World world) {
 		super(world);
-		faction = GOTFaction.SUMMER_ISLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.SUMMER_ISLANDS;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.SUMMER_ISLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.SUMMER_ISLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

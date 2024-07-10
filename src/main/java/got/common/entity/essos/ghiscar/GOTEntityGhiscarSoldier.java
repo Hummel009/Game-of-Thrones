@@ -14,9 +14,21 @@ public class GOTEntityGhiscarSoldier extends GOTEntityGhiscarMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.GHISCAR;
-		shield = GOTShields.GHISCAR;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.GHISCAR;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.GHISCAR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -16,9 +16,21 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements GOTBiome.I
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarMan(World world) {
 		super(world);
-		faction = GOTFaction.LHAZAR;
-		miniQuestFactory = GOTMiniQuestFactory.LHAZAR;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.LHAZAR;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.LHAZAR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

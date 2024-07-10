@@ -16,9 +16,21 @@ public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.Immun
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityThenn(World world) {
 		super(world);
-		faction = GOTFaction.WILDLING;
-		miniQuestFactory = GOTMiniQuestFactory.WILDLING;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WILDLING;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.WILDLING;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

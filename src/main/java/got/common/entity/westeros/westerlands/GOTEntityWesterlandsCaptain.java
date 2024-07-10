@@ -14,8 +14,16 @@ public class GOTEntityWesterlandsCaptain extends GOTEntityWesterlandsMan impleme
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsCaptain(World world) {
 		super(world);
-		cape = GOTCapes.WESTERLANDS;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.WESTERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

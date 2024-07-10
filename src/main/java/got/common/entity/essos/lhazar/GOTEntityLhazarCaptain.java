@@ -12,7 +12,11 @@ public class GOTEntityLhazarCaptain extends GOTEntityLhazarMan implements GOTUni
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarCaptain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

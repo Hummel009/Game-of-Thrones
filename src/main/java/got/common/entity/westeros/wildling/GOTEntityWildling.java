@@ -16,9 +16,21 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements GOTBiome.Im
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWildling(World world) {
 		super(world);
-		faction = GOTFaction.WILDLING;
-		miniQuestFactory = GOTMiniQuestFactory.WILDLING;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WILDLING;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.WILDLING;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

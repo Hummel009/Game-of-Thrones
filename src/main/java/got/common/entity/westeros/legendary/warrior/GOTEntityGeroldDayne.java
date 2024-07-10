@@ -15,7 +15,11 @@ public class GOTEntityGeroldDayne extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.DORNE;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DORNE;
 	}
 
 	private void addTargetTasks() {

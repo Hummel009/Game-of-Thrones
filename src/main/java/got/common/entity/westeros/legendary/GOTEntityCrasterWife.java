@@ -14,8 +14,16 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase implements GOTBiome
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrasterWife(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
-		faction = GOTFaction.WILDLING;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WILDLING;
 	}
 
 	@Override

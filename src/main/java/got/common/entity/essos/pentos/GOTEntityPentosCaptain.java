@@ -13,7 +13,11 @@ public class GOTEntityPentosCaptain extends GOTEntityPentosMan implements GOTUni
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityPentosCaptain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

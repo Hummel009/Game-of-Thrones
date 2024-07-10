@@ -11,9 +11,21 @@ public class GOTEntityNorthGuard extends GOTEntityNorthMan {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthGuard(World world) {
 		super(world);
-		shield = GOTShields.NORTHGUARD;
-		cape = GOTCapes.NORTHGUARD;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.NORTHGUARD;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NORTHGUARD;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

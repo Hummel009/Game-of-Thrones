@@ -15,8 +15,16 @@ public class GOTEntityAndrikTheUnsmilling extends GOTEntityHumanBase implements 
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.IRONBORN;
-		alignmentBonus = GOTUnitTradeEntries.SOLDIER_F * 5;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.IRONBORN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return GOTUnitTradeEntries.SOLDIER_F * 5;
 	}
 
 	@Override

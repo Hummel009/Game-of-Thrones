@@ -21,6 +21,10 @@ import net.minecraft.world.World;
 public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
 	private static final ItemStack[] WEAPONS = {new ItemStack(GOTItems.iceSword), new ItemStack(GOTItems.iceHeavySword), new ItemStack(GOTItems.iceSpear)};
 
+	{
+		isImmuneToFire = true;
+	}
+
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWhiteWalker(World world) {
 		super(world);
@@ -36,11 +40,26 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		spawnsInDarkness = true;
-		isImmuneToFire = true;
-		faction = GOTFaction.WHITE_WALKER;
-		alignmentBonus = 5.0f;
-		killAchievement = GOTAchievement.killWhiteWalker;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WHITE_WALKER;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killWhiteWalker;
 	}
 
 	@Override

@@ -12,7 +12,11 @@ public class GOTEntityVolantisMiner extends GOTEntityVolantisMan implements GOTT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisMiner(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

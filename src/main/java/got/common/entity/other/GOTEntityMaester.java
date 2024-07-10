@@ -13,7 +13,11 @@ public class GOTEntityMaester extends GOTEntityHumanBase implements GOTTradeable
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMaester(World world) {
 		super(world);
-		killAchievement = GOTAchievement.killMaester;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMaester;
 	}
 
 	@Override

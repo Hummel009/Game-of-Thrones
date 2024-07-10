@@ -12,17 +12,36 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
+	{
+		isImmuneToFire = true;
+	}
+
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiArchmag(World world) {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		tasks.addTask(0, new GOTEntityAIAsshaiArchmagUseStaff(this));
-		cape = GOTCapes.ASSHAI;
-		isImmuneToFire = true;
-		faction = GOTFaction.ASSHAI;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killAsshaiArchmag;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ASSHAI;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ASSHAI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAsshaiArchmag;
 	}
 
 	@Override

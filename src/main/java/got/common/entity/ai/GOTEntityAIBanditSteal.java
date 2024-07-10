@@ -137,7 +137,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		if (playerItem.stackSize <= 0) {
 			inv.setInventorySlotContents(slot, null);
 		}
-		theBanditAsNPC.setNPCPersistent(true);
+		theBanditAsNPC.setPersistent(true);
 		return true;
 	}
 

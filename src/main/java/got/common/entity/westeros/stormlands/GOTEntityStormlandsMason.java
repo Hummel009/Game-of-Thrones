@@ -12,7 +12,11 @@ public class GOTEntityStormlandsMason extends GOTEntityStormlandsMan implements 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStormlandsMason(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -17,9 +17,21 @@ public class GOTEntityTywinLannister extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.WESTERLANDS;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killTywinLannister;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WESTERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killTywinLannister;
 	}
 
 	@Override

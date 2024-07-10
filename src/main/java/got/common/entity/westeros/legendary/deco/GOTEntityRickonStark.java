@@ -13,9 +13,21 @@ public class GOTEntityRickonStark extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.65f, 1.8f * 0.65f);
-		faction = GOTFaction.NORTH;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killRickardKarstark;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killRickardKarstark;
 	}
 
 	@Override

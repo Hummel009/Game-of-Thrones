@@ -18,10 +18,26 @@ public class GOTEntityStannisBaratheon extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.DRAGONSTONE;
-		miniQuestFactory = GOTMiniQuestFactory.STANNIS;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killStannisBaratheon;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DRAGONSTONE;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.STANNIS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killStannisBaratheon;
 	}
 
 	@Override

@@ -14,8 +14,16 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthCaptain(World world) {
 		super(world);
-		cape = GOTCapes.NORTH;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

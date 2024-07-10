@@ -16,9 +16,21 @@ public class GOTEntityYaraGreyjoy extends GOTEntityHumanBase implements GOTUnitT
 	public GOTEntityYaraGreyjoy(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.IRONBORN;
-		alignmentBonus = 300.0f;
-		killAchievement = GOTAchievement.killYaraGreyjoy;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.IRONBORN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killYaraGreyjoy;
 	}
 
 	@Override

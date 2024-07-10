@@ -18,9 +18,21 @@ public class GOTEntityAeronGreyjoy extends GOTEntityHumanBase implements GOTTrad
 	public GOTEntityAeronGreyjoy(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.IRONBORN;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killAeronGreyjoy;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.IRONBORN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAeronGreyjoy;
 	}
 
 	@Override

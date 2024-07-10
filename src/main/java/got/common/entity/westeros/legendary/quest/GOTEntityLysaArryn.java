@@ -11,10 +11,26 @@ public class GOTEntityLysaArryn extends GOTEntityHumanBase {
 	public GOTEntityLysaArryn(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.ARRYN;
-		miniQuestFactory = GOTMiniQuestFactory.LYSA;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killLysaArryn;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ARRYN;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.LYSA;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killLysaArryn;
 	}
 
 	@Override

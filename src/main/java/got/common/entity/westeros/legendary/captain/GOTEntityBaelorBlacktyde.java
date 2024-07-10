@@ -15,8 +15,16 @@ public class GOTEntityBaelorBlacktyde extends GOTEntityHumanBase implements GOTU
 	public GOTEntityBaelorBlacktyde(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.IRONBORN;
-		alignmentBonus = 100.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.IRONBORN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
 	}
 
 	@Override

@@ -14,8 +14,16 @@ public class GOTEntityArrynCaptain extends GOTEntityArrynMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynCaptain(World world) {
 		super(world);
-		cape = GOTCapes.ARRYN;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ARRYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

@@ -18,9 +18,21 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements GOTBiome
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornMan(World world) {
 		super(world);
-		faction = GOTFaction.IRONBORN;
-		miniQuestFactory = GOTMiniQuestFactory.IRONBORN;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.IRONBORN;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.IRONBORN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

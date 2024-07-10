@@ -17,10 +17,26 @@ public class GOTEntityCatelynStark extends GOTEntityHumanBase {
 	public GOTEntityCatelynStark(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NORTH;
-		miniQuestFactory = GOTMiniQuestFactory.CATELYN;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killCatelynStark;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.CATELYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killCatelynStark;
 	}
 
 	@Override

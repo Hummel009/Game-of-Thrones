@@ -19,15 +19,34 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.ImmuneToFrost {
+	{
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+	}
+
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIceSpider(World world) {
 		super(world);
 		isImmuneToFire = true;
-		spawnsInDarkness = true;
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		faction = GOTFaction.WHITE_WALKER;
-		alignmentBonus = 5.0f;
-		killAchievement = GOTAchievement.killIceSpider;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WHITE_WALKER;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killIceSpider;
 	}
 
 	@Override

@@ -12,7 +12,11 @@ public class GOTEntityGoldenCompanyWarrior extends GOTEntityGoldenCompanyMan {
 	public GOTEntityGoldenCompanyWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
-		shield = GOTShields.GOLDEN_COMPANY;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.GOLDEN_COMPANY;
 	}
 
 	@Override

@@ -14,9 +14,21 @@ public class GOTEntityQarthSoldier extends GOTEntityQarthMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.QARTH;
-		shield = GOTShields.QARTH;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.QARTH;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.QARTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

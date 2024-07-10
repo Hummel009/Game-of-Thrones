@@ -14,9 +14,21 @@ public class GOTEntityNorvosSoldier extends GOTEntityNorvosMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.NORVOS;
-		shield = GOTShields.NORVOS;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NORVOS;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.NORVOS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

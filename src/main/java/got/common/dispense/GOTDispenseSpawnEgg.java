@@ -22,7 +22,7 @@ public class GOTDispenseSpawnEgg extends BehaviorDefaultDispenseItem {
 			((EntityLiving) entity).setCustomNameTag(itemstack.getDisplayName());
 		}
 		if (entity instanceof GOTEntityNPC) {
-			((GOTEntityNPC) entity).setNPCPersistent(true);
+			((GOTEntityNPC) entity).setPersistent(true);
 		}
 		itemstack.splitStack(1);
 		return itemstack;

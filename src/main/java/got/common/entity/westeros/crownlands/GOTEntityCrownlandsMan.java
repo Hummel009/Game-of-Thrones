@@ -18,9 +18,21 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements GOTBio
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityCrownlandsMan(World world) {
 		super(world);
-		faction = GOTFaction.CROWNLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.CROWNLANDS;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

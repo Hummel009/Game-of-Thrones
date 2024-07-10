@@ -18,9 +18,21 @@ public class GOTEntityDorneMan extends GOTEntityHumanBase implements GOTBiome.Im
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDorneMan(World world) {
 		super(world);
-		faction = GOTFaction.DORNE;
-		miniQuestFactory = GOTMiniQuestFactory.DORNE;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DORNE;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.DORNE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

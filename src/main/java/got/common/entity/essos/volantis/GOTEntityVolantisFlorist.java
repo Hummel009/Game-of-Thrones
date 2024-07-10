@@ -12,7 +12,11 @@ public class GOTEntityVolantisFlorist extends GOTEntityVolantisMan implements GO
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisFlorist(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

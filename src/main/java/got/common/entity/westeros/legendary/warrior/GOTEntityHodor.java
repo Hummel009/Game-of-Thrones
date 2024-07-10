@@ -15,9 +15,21 @@ public class GOTEntityHodor extends GOTEntityHumanBase {
 		addTargetTasks(false);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 1.3f, 1.8f * 1.3f);
-		faction = GOTFaction.NORTH;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killHodor;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killHodor;
 	}
 
 	@Override

@@ -15,9 +15,21 @@ public class GOTEntityHighSepton extends GOTEntityHumanBase implements GOTTradea
 	public GOTEntityHighSepton(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killHighSepton;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killHighSepton;
 	}
 
 	@Override

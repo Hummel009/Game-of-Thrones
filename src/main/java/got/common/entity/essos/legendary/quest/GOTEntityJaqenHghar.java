@@ -25,9 +25,21 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	public GOTEntityJaqenHghar(World world) {
 		super(world);
 		setupLegendaryNPC(false);
-		faction = GOTFaction.LORATH;
-		alignmentBonus = 300.0f;
-		killAchievement = GOTAchievement.killJaqenHghar;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.LORATH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killJaqenHghar;
 	}
 
 	private boolean addMQOfferFor(EntityPlayer entityplayer) {

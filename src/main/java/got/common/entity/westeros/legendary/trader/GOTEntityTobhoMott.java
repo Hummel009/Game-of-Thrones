@@ -15,9 +15,21 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTSmith {
 	public GOTEntityTobhoMott(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 10.0f;
-		killAchievement = GOTAchievement.killTobhoMott;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 10.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killTobhoMott;
 	}
 
 	@Override

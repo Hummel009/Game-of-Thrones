@@ -14,9 +14,21 @@ public class GOTEntityDorneSoldier extends GOTEntityDorneMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		shield = GOTShields.DORNE;
-		cape = GOTCapes.DORNE;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.DORNE;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.DORNE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -11,7 +11,11 @@ public class GOTEntityStormlandsGoldsmith extends GOTEntityStormlandsMan impleme
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityStormlandsGoldsmith(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

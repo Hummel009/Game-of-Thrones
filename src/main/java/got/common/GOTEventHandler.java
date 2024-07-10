@@ -892,7 +892,7 @@ public class GOTEventHandler {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
 					alignmentBonus = new GOTAlignmentValues.AlignmentBonus(npc.getAlignmentBonus(), npc.getEntityClassName());
 					alignmentBonus.setNeedsTranslation(true);
-					alignmentBonus.setCivilianKill(npc.isCivilianNPC());
+					alignmentBonus.setCivilianKill(npc.isCivilian());
 				}
 				if (alignmentBonus != null && alignmentBonus.getBonus() != 0.0F && (!creditHiredUnit || byNearbyUnit)) {
 					alignmentBonus.setKill(true);
@@ -1240,7 +1240,7 @@ public class GOTEventHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendaryNPC() || entity instanceof GOTBiome.ImmuneToFrost;
+			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendary() || entity instanceof GOTBiome.ImmuneToFrost;
 			boolean flag = !simplifySyntax;
 
 			if (entity instanceof EntityPlayer) {
@@ -1283,7 +1283,7 @@ public class GOTEventHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendaryNPC() || entity instanceof GOTBiome.ImmuneToHeat || entity.isImmuneToFire();
+			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendary() || entity instanceof GOTBiome.ImmuneToHeat || entity.isImmuneToFire();
 			boolean flag = !simplifySyntax;
 
 			if (entity instanceof EntityPlayer) {

@@ -12,7 +12,11 @@ public class GOTEntityWildlingChieftain extends GOTEntityWildling implements GOT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWildlingChieftain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

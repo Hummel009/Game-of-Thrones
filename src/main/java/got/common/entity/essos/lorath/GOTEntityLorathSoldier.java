@@ -14,9 +14,21 @@ public class GOTEntityLorathSoldier extends GOTEntityLorathMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.LORATH;
-		shield = GOTShields.LORATH;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.LORATH;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.LORATH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

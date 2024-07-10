@@ -14,9 +14,21 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		shield = GOTShields.ARRYN;
-		cape = GOTCapes.ARRYN;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.ARRYN;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ARRYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

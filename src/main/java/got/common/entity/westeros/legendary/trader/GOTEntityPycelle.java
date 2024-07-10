@@ -15,9 +15,21 @@ public class GOTEntityPycelle extends GOTEntityHumanBase implements GOTTradeable
 	public GOTEntityPycelle(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 200.0f;
-		killAchievement = GOTAchievement.killMaester;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 200.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMaester;
 	}
 
 	@Override

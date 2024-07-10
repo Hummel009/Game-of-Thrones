@@ -18,9 +18,21 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	public GOTEntityPetyrBaelish(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 300.0f;
-		killAchievement = GOTAchievement.killPetyrBaelish;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killPetyrBaelish;
 	}
 
 	@Override

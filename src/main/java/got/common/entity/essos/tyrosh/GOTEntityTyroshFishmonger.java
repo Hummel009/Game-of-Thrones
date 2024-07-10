@@ -12,7 +12,11 @@ public class GOTEntityTyroshFishmonger extends GOTEntityTyroshMan implements GOT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityTyroshFishmonger(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

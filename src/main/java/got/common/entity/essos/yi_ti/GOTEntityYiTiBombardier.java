@@ -18,15 +18,31 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiBombardier extends GOTEntityYiTiMan {
+
+	{
+		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityBomb.class, 12.0f, 1.5, 2.0));
+		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);
+	}
+
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiBombardier(World world) {
 		super(world);
 		addTargetTasks(true);
-		shield = GOTShields.YI_TI_BOMBARDIER;
-		cape = GOTCapes.YI_TI_BOMBARDIER;
-		tasks.addTask(1, new EntityAIAvoidEntity(this, GOTEntityBomb.class, 12.0f, 1.5, 2.0));
-		GOTEntityUtils.removeAITask(this, GOTEntityAISmoke.class);
-		alignmentBonus = 3.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.YI_TI_BOMBARDIER;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.YI_TI_BOMBARDIER;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 3.0f;
 	}
 
 	@Override

@@ -18,9 +18,21 @@ public class GOTEntityJaimeLannister extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.WESTERLANDS;
-		alignmentBonus = 300.0f;
-		killAchievement = GOTAchievement.killJaimeLannister;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WESTERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killJaimeLannister;
 	}
 
 	private void addTargetTasks() {

@@ -12,7 +12,11 @@ public class GOTEntityIronbornLumberman extends GOTEntityIronbornMan implements 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornLumberman(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

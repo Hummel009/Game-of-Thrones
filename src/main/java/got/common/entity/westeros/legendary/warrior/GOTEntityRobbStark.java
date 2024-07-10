@@ -17,9 +17,21 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NORTH;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killRobbStark;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killRobbStark;
 	}
 
 	@Override

@@ -14,8 +14,16 @@ public class GOTEntityIronbornCaptain extends GOTEntityIronbornMan implements GO
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityIronbornCaptain(World world) {
 		super(world);
-		cape = GOTCapes.IRONBORN;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.IRONBORN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

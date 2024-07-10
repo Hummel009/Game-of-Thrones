@@ -13,7 +13,11 @@ public class GOTEntityBraavosCaptain extends GOTEntityBraavosMan implements GOTU
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosCaptain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

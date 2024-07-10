@@ -11,9 +11,21 @@ public class GOTEntityReachGuard extends GOTEntityReachMan {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityReachGuard(World world) {
 		super(world);
-		shield = GOTShields.REACHGUARD;
-		cape = GOTCapes.REACH;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.REACHGUARD;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.REACH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

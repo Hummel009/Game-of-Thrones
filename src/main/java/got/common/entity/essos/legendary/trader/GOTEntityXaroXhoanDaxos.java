@@ -18,9 +18,21 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 	public GOTEntityXaroXhoanDaxos(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.QARTH;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killXaroXhoanDaxos;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.QARTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killXaroXhoanDaxos;
 	}
 
 	@Override

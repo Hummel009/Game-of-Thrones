@@ -15,7 +15,11 @@ public class GOTEntityBronn extends GOTEntityHumanBase implements GOTMercenary {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		killAchievement = GOTAchievement.killBronn;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killBronn;
 	}
 
 	@Override

@@ -14,9 +14,21 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		shield = GOTShields.IRONBORN;
-		cape = GOTCapes.IRONBORN;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.IRONBORN;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.IRONBORN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

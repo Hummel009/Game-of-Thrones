@@ -51,7 +51,7 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 		baby.getFamilyInfo().setFemaleParentID(femaleParent.getUniqueID());
 		baby.onSpawnWithEgg(null);
 		baby.setLocationAndAngles(theNPC.posX, theNPC.posY, theNPC.posZ, 0.0f, 0.0f);
-		baby.setNPCPersistent(true);
+		baby.setPersistent(true);
 		theWorld.spawnEntityInWorld(baby);
 		theNPC.getFamilyInfo().setMaxBreedingDelay();
 		theSpouse.getFamilyInfo().setMaxBreedingDelay();

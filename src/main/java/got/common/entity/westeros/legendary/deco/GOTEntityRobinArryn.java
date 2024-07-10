@@ -13,9 +13,21 @@ public class GOTEntityRobinArryn extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.75f, 1.8f * 0.75f);
-		faction = GOTFaction.ARRYN;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killRobinArryn;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ARRYN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killRobinArryn;
 	}
 
 	@Override

@@ -16,9 +16,21 @@ public class GOTEntityRickardKarstark extends GOTEntityHumanBase implements GOTU
 	public GOTEntityRickardKarstark(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NORTH;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killRickardKarstark;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killRickardKarstark;
 	}
 
 	@Override

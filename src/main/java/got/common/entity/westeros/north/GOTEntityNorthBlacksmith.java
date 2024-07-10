@@ -11,7 +11,11 @@ public class GOTEntityNorthBlacksmith extends GOTEntityNorthMan implements GOTSm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthBlacksmith(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

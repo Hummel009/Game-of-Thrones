@@ -16,9 +16,21 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements GOTBiom
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosMan(World world) {
 		super(world);
-		faction = GOTFaction.SOTHORYOS;
-		miniQuestFactory = GOTMiniQuestFactory.SOTHORYOS;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.SOTHORYOS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.SOTHORYOS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

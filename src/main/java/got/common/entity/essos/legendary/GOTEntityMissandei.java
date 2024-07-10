@@ -15,8 +15,16 @@ public class GOTEntityMissandei extends GOTEntityHumanBase {
 	public GOTEntityMissandei(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.GHISCAR;
-		killAchievement = GOTAchievement.killMissandei;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.GHISCAR;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMissandei;
 	}
 
 	@Override

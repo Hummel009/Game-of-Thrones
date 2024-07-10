@@ -11,7 +11,11 @@ public class GOTEntityRiverlandsButcher extends GOTEntityRiverlandsMan implement
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityRiverlandsButcher(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -27,7 +27,6 @@ public abstract class GOTEntityBanditBase extends GOTEntityHumanBase implements 
 		tasks.addTask(2, new GOTEntityAIBanditSteal(this, 1.2));
 		tasks.addTask(3, new GOTEntityAIBanditFlee(this, 1.0));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetBandit.class);
-		faction = GOTFaction.HOSTILE;
 	}
 
 	public static boolean canStealFromPlayerInv(EntityPlayer entityplayer) {
@@ -38,6 +37,11 @@ public abstract class GOTEntityBanditBase extends GOTEntityHumanBase implements 
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.HOSTILE;
 	}
 
 	@Override

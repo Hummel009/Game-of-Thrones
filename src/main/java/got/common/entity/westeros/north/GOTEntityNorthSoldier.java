@@ -14,9 +14,21 @@ public class GOTEntityNorthSoldier extends GOTEntityNorthMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		shield = GOTShields.NORTH;
-		cape = GOTCapes.NORTH;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.NORTH;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

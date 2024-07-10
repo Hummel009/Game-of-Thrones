@@ -14,6 +14,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneToFrost {
+	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWerewolf(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
@@ -27,10 +28,26 @@ public class GOTEntityWerewolf extends GOTEntityNPC implements GOTBiome.ImmuneTo
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		spawnsInDarkness = true;
-		faction = GOTFaction.HOSTILE;
-		alignmentBonus = 2.0f;
-		killAchievement = GOTAchievement.killWerewolf;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.HOSTILE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killWerewolf;
 	}
 
 	@Override

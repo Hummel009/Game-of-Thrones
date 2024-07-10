@@ -13,7 +13,11 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		killAchievement = GOTAchievement.killThreeEyedRaven;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killThreeEyedRaven;
 	}
 
 	@Override

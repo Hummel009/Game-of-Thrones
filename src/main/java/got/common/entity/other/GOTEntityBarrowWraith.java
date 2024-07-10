@@ -38,8 +38,16 @@ public class GOTEntityBarrowWraith extends GOTEntityNPC implements GOTBiome.Immu
 		tasks.addTask(7, new EntityAILookIdle(this));
 		addTargetTasks(true);
 		isImmuneToFire = true;
-		faction = GOTFaction.HOSTILE;
-		killAchievement = GOTAchievement.killBarrowWight;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.HOSTILE;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killBarrowWight;
 	}
 
 	@Override

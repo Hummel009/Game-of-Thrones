@@ -18,9 +18,21 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 	public GOTEntityIllyrioMopatis(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.PENTOS;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killIllyrioMopatis;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.PENTOS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killIllyrioMopatis;
 	}
 
 	@Override

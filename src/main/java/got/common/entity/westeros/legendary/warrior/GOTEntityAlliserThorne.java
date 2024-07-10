@@ -16,9 +16,21 @@ public class GOTEntityAlliserThorne extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NIGHT_WATCH;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killAlliserThorne;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NIGHT_WATCH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAlliserThorne;
 	}
 
 	@Override

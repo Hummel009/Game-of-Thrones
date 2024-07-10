@@ -31,7 +31,6 @@ public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToH
 		tasks.addTask(7, new EntityAILookIdle(this));
 	}
 
-
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		int j = 1 + rand.nextInt(4) + rand.nextInt(1 + i);

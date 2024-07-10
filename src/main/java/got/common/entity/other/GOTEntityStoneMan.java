@@ -2,8 +2,8 @@ package got.common.entity.other;
 
 import got.common.database.GOTAchievement;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.other.utils.StoneUtils;
 import got.common.faction.GOTFaction;
-import got.common.item.weapon.GOTItemSword;
 import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -30,10 +30,26 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
-		spawnsInDarkness = true;
-		faction = GOTFaction.HOSTILE;
-		alignmentBonus = 2.0f;
-		killAchievement = GOTAchievement.killStoneMan;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.HOSTILE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killStoneMan;
 	}
 
 	@Override
@@ -46,13 +62,7 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
-		if (super.attackEntityAsMob(entity)) {
-			if (entity instanceof EntityLivingBase) {
-				GOTItemSword.applyStandardWither((EntityLivingBase) entity);
-			}
-			return true;
-		}
-		return false;
+		return StoneUtils.attackWithWither(entity, super.attackEntityAsMob(entity));
 	}
 
 	@Override
@@ -77,21 +87,7 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	@Override
 	public void onKillEntity(EntityLivingBase entity) {
 		super.onKillEntity(entity);
-		if (entity instanceof GOTEntityHumanBase) {
-			GOTEntityHumanBase target = (GOTEntityHumanBase) entity;
-			GOTEntityStoneMan stoneMan = new GOTEntityStoneMan(worldObj);
-			stoneMan.setCape(target.getCape());
-			stoneMan.getFamilyInfo().setAge(target.getFamilyInfo().getAge());
-			stoneMan.getFamilyInfo().setMale(target.getFamilyInfo().isMale());
-			stoneMan.getNpcItemsInv().setMeleeWeapon(target.getNpcItemsInv().getMeleeWeapon());
-			stoneMan.getNpcItemsInv().setIdleItem(target.getNpcItemsInv().getMeleeWeapon());
-			stoneMan.setCurrentItemOrArmor(1, target.getEquipmentInSlot(1));
-			stoneMan.setCurrentItemOrArmor(2, target.getEquipmentInSlot(2));
-			stoneMan.setCurrentItemOrArmor(3, target.getEquipmentInSlot(3));
-			stoneMan.setCurrentItemOrArmor(4, target.getEquipmentInSlot(4));
-			worldObj.removeEntity(entity);
-			worldObj.spawnEntityInWorld(stoneMan);
-		}
+		StoneUtils.createNewStoneMan(entity, worldObj);
 	}
 
 	@Override

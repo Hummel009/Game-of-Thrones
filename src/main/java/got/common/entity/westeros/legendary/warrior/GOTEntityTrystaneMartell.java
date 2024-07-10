@@ -15,9 +15,21 @@ public class GOTEntityTrystaneMartell extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 0.9f, 1.8f * 0.9f);
-		faction = GOTFaction.DORNE;
-		alignmentBonus = 500.0f;
-		killAchievement = GOTAchievement.killTrystaneMartell;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DORNE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 500.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killTrystaneMartell;
 	}
 
 	@Override

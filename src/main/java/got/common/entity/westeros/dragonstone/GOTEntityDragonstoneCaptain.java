@@ -14,8 +14,16 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneMan impleme
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneCaptain(World world) {
 		super(world);
-		cape = GOTCapes.DRAGONSTONE;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.DRAGONSTONE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

@@ -15,9 +15,21 @@ public class GOTEntityAsshaiMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiMan(World world) {
 		super(world);
-		faction = GOTFaction.ASSHAI;
-		miniQuestFactory = GOTMiniQuestFactory.ASSHAI;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.ASSHAI;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.ASSHAI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

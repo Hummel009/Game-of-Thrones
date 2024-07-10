@@ -31,10 +31,26 @@ public class GOTEntityWight extends GOTEntityNPC implements GOTBiome.ImmuneToFro
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		spawnsInDarkness = true;
-		faction = GOTFaction.WHITE_WALKER;
-		alignmentBonus = 1.0f;
-		killAchievement = GOTAchievement.killWight;
+	}
+
+	@Override
+	public boolean isSpawnsInDarkness() {
+		return true;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WHITE_WALKER;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killWight;
 	}
 
 	@Override

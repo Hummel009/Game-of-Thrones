@@ -13,7 +13,11 @@ public class GOTEntitySummerFarmer extends GOTEntitySummerMan implements GOTFarm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySummerFarmer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

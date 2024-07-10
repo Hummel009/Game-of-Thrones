@@ -11,7 +11,11 @@ public class GOTEntityYiTiBrewer extends GOTEntityYiTiMan implements GOTTradeabl
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiBrewer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

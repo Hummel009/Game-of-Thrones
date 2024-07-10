@@ -15,10 +15,26 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 		super(world);
 		setupLegendaryNPC(true);
 		isImmuneToFire = true;
-		faction = GOTFaction.DRAGONSTONE;
-		miniQuestFactory = GOTMiniQuestFactory.MELISANDRA;
-		alignmentBonus = 300.0f;
-		killAchievement = GOTAchievement.killMelisandra;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DRAGONSTONE;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.MELISANDRA;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 300.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killMelisandra;
 	}
 
 	@Override

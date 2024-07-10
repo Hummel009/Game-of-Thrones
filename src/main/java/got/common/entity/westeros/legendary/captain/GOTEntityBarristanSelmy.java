@@ -16,10 +16,26 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		cape = GOTCapes.ROYALGUARD;
-		faction = GOTFaction.CROWNLANDS;
-		alignmentBonus = 200.0f;
-		killAchievement = GOTAchievement.killBarristanSelmy;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ROYALGUARD;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 200.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killBarristanSelmy;
 	}
 
 	private void addTargetTasks() {

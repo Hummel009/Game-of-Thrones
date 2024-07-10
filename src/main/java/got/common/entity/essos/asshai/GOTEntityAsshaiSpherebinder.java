@@ -19,8 +19,16 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	public GOTEntityAsshaiSpherebinder(World world) {
 		super(world);
 		isImmuneToFire = true;
-		alignmentBonus = 3.0f;
-		killAchievement = GOTAchievement.killAsshaiSpherebinder;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 3.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAsshaiSpherebinder;
 	}
 
 	@Override

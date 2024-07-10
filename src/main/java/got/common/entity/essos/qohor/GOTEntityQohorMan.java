@@ -17,9 +17,21 @@ public class GOTEntityQohorMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQohorMan(World world) {
 		super(world);
-		faction = GOTFaction.QOHOR;
-		miniQuestFactory = GOTMiniQuestFactory.QOHOR;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.QOHOR;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.QOHOR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

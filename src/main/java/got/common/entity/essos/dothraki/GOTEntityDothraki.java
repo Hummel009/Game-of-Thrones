@@ -29,9 +29,21 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements GOTBiome.Im
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAIDothrakiSkirmish(this, true));
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		faction = GOTFaction.DOTHRAKI;
-		miniQuestFactory = GOTMiniQuestFactory.DOTHRAKI;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DOTHRAKI;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.DOTHRAKI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	public boolean canDothrakiSkirmish() {

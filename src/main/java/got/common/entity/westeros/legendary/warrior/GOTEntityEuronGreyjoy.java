@@ -18,8 +18,16 @@ public class GOTEntityEuronGreyjoy extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.IRONBORN;
-		killAchievement = GOTAchievement.killEuronGreyjoy;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.IRONBORN;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killEuronGreyjoy;
 	}
 
 	private void addTargetTasks() {

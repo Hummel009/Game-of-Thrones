@@ -17,10 +17,26 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 	public GOTEntityCerseiLannister(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.CERSEI;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killCerseiLannister;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.CERSEI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killCerseiLannister;
 	}
 
 	@Override

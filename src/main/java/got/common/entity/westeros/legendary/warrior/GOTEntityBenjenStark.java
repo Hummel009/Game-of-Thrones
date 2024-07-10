@@ -20,9 +20,21 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
-		cape = GOTCapes.NIGHT;
-		faction = GOTFaction.NIGHT_WATCH;
-		killAchievement = GOTAchievement.killBenjenStark;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NIGHT;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NIGHT_WATCH;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killBenjenStark;
 	}
 
 	@Override

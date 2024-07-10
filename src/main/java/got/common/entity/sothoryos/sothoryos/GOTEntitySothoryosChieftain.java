@@ -12,7 +12,11 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosMan implement
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntitySothoryosChieftain(World world) {
 		super(world);
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

@@ -12,7 +12,11 @@ public class GOTEntityLhazarFishmonger extends GOTEntityLhazarMan implements GOT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLhazarFishmonger(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

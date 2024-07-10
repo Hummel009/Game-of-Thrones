@@ -15,7 +15,11 @@ public class GOTEntityHarryStrickland extends GOTEntityHumanBase implements GOTU
 	public GOTEntityHarryStrickland(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		killAchievement = GOTAchievement.killHarryStrickland;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killHarryStrickland;
 	}
 
 	@Override

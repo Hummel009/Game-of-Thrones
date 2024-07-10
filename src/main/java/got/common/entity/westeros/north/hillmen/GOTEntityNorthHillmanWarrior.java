@@ -10,7 +10,11 @@ public class GOTEntityNorthHillmanWarrior extends GOTEntityNorthHillman {
 	public GOTEntityNorthHillmanWarrior(World world) {
 		super(world);
 		addTargetTasks(true);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -14,10 +14,26 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsMan {
 	public GOTEntityKingsguard(World world) {
 		super(world);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		shield = GOTShields.CROWNLANDS;
-		cape = GOTCapes.ROYALGUARD;
-		alignmentBonus = 3.0f;
-		killAchievement = GOTAchievement.killKingsguard;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.CROWNLANDS;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ROYALGUARD;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 3.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killKingsguard;
 	}
 
 	@Override

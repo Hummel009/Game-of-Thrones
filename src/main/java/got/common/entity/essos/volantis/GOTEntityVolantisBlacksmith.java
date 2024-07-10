@@ -12,7 +12,11 @@ public class GOTEntityVolantisBlacksmith extends GOTEntityVolantisMan implements
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisBlacksmith(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

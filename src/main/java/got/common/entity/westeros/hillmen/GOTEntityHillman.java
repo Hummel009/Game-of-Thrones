@@ -16,9 +16,21 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements GOTBiome.Imm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityHillman(World world) {
 		super(world);
-		faction = GOTFaction.HILL_TRIBES;
-		miniQuestFactory = GOTMiniQuestFactory.HILL_TRIBES;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.HILL_TRIBES;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.HILL_TRIBES;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

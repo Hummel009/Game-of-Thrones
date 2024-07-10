@@ -210,7 +210,7 @@ public class GOTEntityNPCRespawner extends Entity {
 				String entityName = GOTEntityRegistry.getStringFromClass(entityClass);
 				GOTEntityNPC entity = (GOTEntityNPC) EntityList.createEntityByName(entityName, worldObj);
 				entity.setLocationAndAngles(spawnX + 0.5, spawnY, spawnZ + 0.5, rand.nextFloat() * 360.0f, 0.0f);
-				entity.setNPCPersistent(true);
+				entity.setPersistent(true);
 				entity.setLiftSpawnRestrictions(true);
 				if (!entity.getCanSpawnHere()) {
 					continue;

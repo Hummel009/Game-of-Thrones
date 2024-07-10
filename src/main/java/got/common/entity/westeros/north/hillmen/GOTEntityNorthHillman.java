@@ -18,9 +18,21 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements GOTBiom
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorthHillman(World world) {
 		super(world);
-		faction = GOTFaction.NORTH;
-		miniQuestFactory = GOTMiniQuestFactory.NORTH;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

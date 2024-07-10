@@ -13,7 +13,11 @@ public class GOTEntityBraavosFarmer extends GOTEntityBraavosMan implements GOTFa
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosFarmer(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

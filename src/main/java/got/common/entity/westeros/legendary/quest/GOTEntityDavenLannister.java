@@ -13,9 +13,21 @@ public class GOTEntityDavenLannister extends GOTEntityHumanBase {
 	public GOTEntityDavenLannister(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.WESTERLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.DAVEN;
-		alignmentBonus = 100.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WESTERLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.DAVEN;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
 	}
 
 	@Override

@@ -20,10 +20,26 @@ public class GOTEntitySandorClegane extends GOTEntityHumanBase {
 		super(world);
 		addTargetTasks();
 		setupLegendaryNPC(true);
-		faction = GOTFaction.CROWNLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.SANDOR;
-		alignmentBonus = 200.0f;
-		killAchievement = GOTAchievement.killSandorClegane;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.SANDOR;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 200.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killSandorClegane;
 	}
 
 	private void addTargetTasks() {

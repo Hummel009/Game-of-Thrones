@@ -86,9 +86,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	protected GOTTraderInfo traderInfo;
 	protected GOTInventoryNPCItems npcItemsInv;
 
-	protected boolean spawnRidingHorse;
 	protected boolean liftSpawnRestrictions;
-	protected boolean spawnsInDarkness;
+	protected boolean spawnRidingHorse;
+	protected boolean legendary;
 
 	private AttackMode currentAttackMode = AttackMode.IDLE;
 	private GOTInventoryHiredReplacedItems hiredReplacedInv;
@@ -96,13 +96,13 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private UUID invasionID;
 	private UUID prevAttackTarget;
 
-	private boolean isNPCPersistent;
+	private boolean isPersistent;
 	private boolean clientCombatStance;
 	private boolean clientIsEating;
 	private boolean liftBannerRestrictions;
 	private boolean addedBurningPanic;
 	private boolean combatStance;
-	private boolean enpouchNPCDrops;
+	private boolean enpouchDrops;
 	private boolean firstUpdatedAttackMode;
 	private boolean hurtOnlyByPlates = true;
 	private boolean initMask;
@@ -122,14 +122,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private int initHomeY;
 	private int initHomeZ;
 	private int nearbyBannerFactor;
-
-	protected GOTCapes cape;
-	protected GOTShields shield;
-	protected float alignmentBonus;
-	protected GOTMiniQuestFactory miniQuestFactory;
-	protected GOTFaction faction = GOTFaction.UNALIGNED;
-	protected GOTAchievement killAchievement;
-	protected boolean isLegendaryNPC;
 
 	protected GOTEntityNPC(World world) {
 		super(world);
@@ -274,7 +266,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean canDespawn() {
-		return !isNPCPersistent && !isLegendaryNPC && !hireableInfo.isActive() && !questInfo.anyActiveQuestPlayers();
+		return !isPersistent && !legendary && !hireableInfo.isActive() && !questInfo.anyActiveQuestPlayers();
 	}
 
 	@Override
@@ -289,7 +281,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public ItemStack createNPCPouchDrop() {
 		GOTFaction faction;
 		ItemStack pouch = new ItemStack(GOTItems.pouch, 1, GOTItemPouch.getRandomPouchSize(rand));
-		if (rand.nextBoolean() && (faction = this.faction) != null) {
+		if (rand.nextBoolean() && (faction = getFaction()) != null) {
 			GOTItemPouch.setPouchColor(pouch, faction.getFactionColor());
 		}
 		return pouch;
@@ -297,7 +289,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public EntityItem dropItem(Item item, int i) {
-		if (isLegendaryNPC) {
+		if (legendary) {
 			drops.add(item);
 		}
 		return super.dropItem(item, i);
@@ -321,7 +313,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		if (!isLegendaryNPC) {
+		if (!legendary) {
 			hiredReplacedInv.dropAllReplacedItems();
 			dropNPCEquipment(flag, i);
 
@@ -437,7 +429,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (liftSpawnRestrictions) {
 			return 1.0f;
 		}
-		if (!isConquestSpawning && spawnsInDarkness) {
+		if (!isConquestSpawning && isSpawnsInDarkness()) {
 			return 0.5f - worldObj.getLightBrightness(i, j, k);
 		}
 		return 0.0f;
@@ -462,7 +454,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return (!spawnsInDarkness || liftSpawnRestrictions || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
+		return (!isSpawnsInDarkness() || liftSpawnRestrictions || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere() && (liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this)));
 	}
 
 	@Override
@@ -519,8 +511,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			GOTBannerBearer bannerBearer = (GOTBannerBearer) this;
 			return new ItemStack(GOTItems.banner, 1, bannerBearer.getBannerType().getBannerID());
 		}
-		if (isTrader() && !isLegendaryNPC && !(this instanceof GOTMercenary)) {
-			boolean showCoin = shield == null || !clientCombatStance && hireableInfo.getHiringPlayerUUID() == null;
+		if (isTrader() && !legendary && !(this instanceof GOTMercenary)) {
+			boolean showCoin = getShield() == null || !clientCombatStance && hireableInfo.getHiringPlayerUUID() == null;
 			if (showCoin) {
 				return new ItemStack(GOTItems.coin);
 			}
@@ -585,7 +577,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public int getSpawnCountValue() {
-		if (isNPCPersistent || hireableInfo.isActive()) {
+		if (isPersistent || hireableInfo.isActive()) {
 			return 0;
 		}
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
@@ -639,8 +631,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return familyInfo.getAge() < 0;
 	}
 
-	public boolean isCivilianNPC() {
-		return !isLegendaryNPC && !isTargetSeeker && !(this instanceof GOTUnitTradeable) && !(this instanceof GOTMercenary);
+	public boolean isCivilian() {
+		return !legendary && !isTargetSeeker && !(this instanceof GOTUnitTradeable) && !(this instanceof GOTMercenary);
 	}
 
 	public boolean isTargetSeeker() {
@@ -652,11 +644,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isFriendlyAndAligned(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(faction) >= 0.0f && isFriendly(entityplayer);
+		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
 
 	public boolean isFriendlyAndStronglyAligned(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(faction) >= 50.0f && isFriendly(entityplayer);
+		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
 	}
 
 	@Override
@@ -666,8 +658,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return entityplayer != null && !GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(this, true).isEmpty() || super.isInRangeToRenderDist(dist);
 	}
 
-	public boolean isLegendaryNPC() {
-		return isLegendaryNPC;
+	public boolean isLegendary() {
+		return legendary;
 	}
 
 	public boolean isTrader() {
@@ -720,7 +712,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (applyOwnership && item != null && item.getItem() != null && item.getMaxStackSize() == 1) {
 			GOTItemOwnership.addPreviousOwner(item, getCommandSenderName());
 		}
-		if (enpouch && enpouchNPCDrops && item != null) {
+		if (enpouch && enpouchDrops && item != null) {
 			enpouchedDrops.add(item);
 			return null;
 		}
@@ -739,16 +731,16 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void onDeath(DamageSource damagesource) {
 		EntityPlayer entityplayer;
 		GOTEntityInvasionSpawner invasion;
-		enpouchNPCDrops = true;
+		enpouchDrops = true;
 		hireableInfo.onDeath();
 		super.onDeath(damagesource);
 		if (!worldObj.isRemote && recentlyHit > 0 && GOT.canDropLoot(worldObj) && rand.nextInt(60) == 0) {
 			ItemStack pouch = createNPCPouchDrop();
 			fillPouchFromListAndRetainUnfilled(pouch, enpouchedDrops);
-			enpouchNPCDrops = false;
+			enpouchDrops = false;
 			entityDropItem(pouch, 0.0f);
 		}
-		enpouchNPCDrops = false;
+		enpouchDrops = false;
 		dropItemList(enpouchedDrops, false);
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			entityplayer = (EntityPlayer) damagesource.getEntity();
@@ -758,11 +750,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			if (damagesource.getSourceOfDamage() instanceof GOTEntityPebble && ((GOTEntityPebble) damagesource.getSourceOfDamage()).isSling() && width * width * height > 5.0f) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killLargeMobWithSlingshot);
 			}
-			if (killAchievement != null) {
-				GOTLevelData.getData(entityplayer).addAchievement(killAchievement);
+			if (getKillAchievement() != null) {
+				GOTLevelData.getData(entityplayer).addAchievement(getKillAchievement());
 			}
 		}
-		if (!worldObj.isRemote && (this instanceof GOTTradeable || this instanceof GOTUnitTradeable) && !isLegendaryNPC) {
+		if (!worldObj.isRemote && (this instanceof GOTTradeable || this instanceof GOTUnitTradeable) && !legendary) {
 			GOTEntityTraderRespawn entity = new GOTEntityTraderRespawn(worldObj);
 			entity.setLocationAndAngles(posX, boundingBox.minY + height / 2.0f, posZ, 0.0f, 0.0f);
 			entity.copyTraderDataFrom(this);
@@ -820,7 +812,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		if (!worldObj.isRemote && !addedBurningPanic) {
 			GOTEntityUtils.removeAITask(this, GOTEntityAIBurningPanic.class);
-			if (!isLegendaryNPC) {
+			if (!legendary) {
 				tasks.addTask(0, new GOTEntityAIBurningPanic(this, 1.5));
 			}
 			addedBurningPanic = true;
@@ -968,7 +960,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			setHomeArea(x, y, z, r);
 		}
 		if (nbt.hasKey("NPCPersistent")) {
-			isNPCPersistent = nbt.getBoolean("NPCPersistent");
+			isPersistent = nbt.getBoolean("NPCPersistent");
 		}
 		hurtOnlyByPlates = nbt.getBoolean("HurtOnlyByPlates");
 		ridingMount = nbt.getBoolean("RidingHorse");
@@ -1092,7 +1084,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void setupLegendaryNPC(boolean legendaryQuest) {
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
-		isLegendaryNPC = true;
+		legendary = true;
 		spawnRidingHorse = false;
 		questInfo.setOfferChance(legendaryQuest ? 1 : 20000);
 		questInfo.setMinAlignment(legendaryQuest ? 100 : 0);
@@ -1258,7 +1250,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	private void updateNearbyBanners() {
-		if (faction == GOTFaction.UNALIGNED) {
+		if (getFaction() == GOTFaction.UNALIGNED) {
 			nearbyBannerFactor = 0;
 		} else {
 			double range = 16.0;
@@ -1280,7 +1272,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		nbt.setInteger("NPCHomeY", getHomePosition().posY);
 		nbt.setInteger("NPCHomeZ", getHomePosition().posZ);
 		nbt.setInteger("NPCHomeRadius", (int) func_110174_bM());
-		nbt.setBoolean("NPCPersistent", isNPCPersistent);
+		nbt.setBoolean("NPCPersistent", isPersistent);
 		nbt.setBoolean("HurtOnlyByPlates", hurtOnlyByPlates);
 		nbt.setBoolean("RidingHorse", ridingMount);
 		if (!killBonusFactions.isEmpty()) {
@@ -1302,15 +1294,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public GOTCapes getCape() {
-		return cape;
-	}
-
-	public void setCape(GOTCapes cape) {
-		this.cape = cape;
+		return null;
 	}
 
 	public GOTShields getShield() {
-		return shield;
+		return null;
 	}
 
 	public GOTQuestInfo getQuestInfo() {
@@ -1357,8 +1345,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		this.clientIsEating = clientIsEating;
 	}
 
-	public void setNPCPersistent(boolean NPCPersistent) {
-		isNPCPersistent = NPCPersistent;
+	public void setPersistent(boolean persistent) {
+		isPersistent = persistent;
 	}
 
 	public void setLiftBannerRestrictions(boolean liftBannerRestrictions) {
@@ -1386,23 +1374,23 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isSpawnsInDarkness() {
-		return spawnsInDarkness;
+		return false;
 	}
 
 	public GOTFaction getFaction() {
-		return faction;
+		return GOTFaction.UNALIGNED;
 	}
 
 	public GOTMiniQuestFactory getMiniQuestFactory() {
-		return miniQuestFactory;
+		return null;
 	}
 
 	public float getAlignmentBonus() {
-		return alignmentBonus;
+		return 0.0f;
 	}
 
 	public GOTAchievement getKillAchievement() {
-		return killAchievement;
+		return null;
 	}
 
 	public enum AttackMode {

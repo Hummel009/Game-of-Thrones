@@ -12,8 +12,16 @@ public class GOTEntitySummerSoldier extends GOTEntitySummerMan {
 	public GOTEntitySummerSoldier(World world) {
 		super(world);
 		addTargetTasks(true);
-		shield = GOTShields.SUMMER;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.SUMMER;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

@@ -14,9 +14,21 @@ public class GOTEntityStormlandsSoldier extends GOTEntityStormlandsMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		shield = GOTShields.STORMLANDS;
-		cape = GOTCapes.STORMLANDS;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.STORMLANDS;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.STORMLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

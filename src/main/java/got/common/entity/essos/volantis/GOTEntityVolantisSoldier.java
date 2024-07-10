@@ -14,9 +14,21 @@ public class GOTEntityVolantisSoldier extends GOTEntityVolantisMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.VOLANTIS;
-		shield = GOTShields.VOLANTIS;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.VOLANTIS;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.VOLANTIS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

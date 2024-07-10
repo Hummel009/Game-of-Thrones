@@ -14,9 +14,21 @@ public class GOTEntityBraavosSoldier extends GOTEntityBraavosMan {
 		super(world);
 		addTargetTasks(true);
 		spawnRidingHorse = rand.nextInt(10) == 0;
-		cape = GOTCapes.BRAAVOS;
-		shield = GOTShields.BRAAVOS;
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.BRAAVOS;
+	}
+
+	@Override
+	public GOTShields getShield() {
+		return GOTShields.BRAAVOS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

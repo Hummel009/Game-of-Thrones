@@ -17,9 +17,21 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiMan(World world) {
 		super(world);
-		faction = GOTFaction.YI_TI;
-		miniQuestFactory = GOTMiniQuestFactory.YI_TI;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.YI_TI;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.YI_TI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

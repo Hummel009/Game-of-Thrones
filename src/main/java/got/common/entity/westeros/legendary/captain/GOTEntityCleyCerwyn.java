@@ -15,8 +15,16 @@ public class GOTEntityCleyCerwyn extends GOTEntityHumanBase implements GOTUnitTr
 	public GOTEntityCleyCerwyn(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NORTH;
-		alignmentBonus = 100.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
 	}
 
 	@Override

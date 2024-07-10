@@ -11,7 +11,11 @@ public class GOTEntityArrynBlacksmith extends GOTEntityArrynMan implements GOTSm
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityArrynBlacksmith(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

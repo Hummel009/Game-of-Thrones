@@ -14,8 +14,16 @@ public class GOTEntityReachCaptain extends GOTEntityReachMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityReachCaptain(World world) {
 		super(world);
-		cape = GOTCapes.REACH;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.REACH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

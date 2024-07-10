@@ -14,8 +14,16 @@ public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiMan implements GOTUni
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiCaptain(World world) {
 		super(world);
-		cape = GOTCapes.ASSHAI;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.ASSHAI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

@@ -12,7 +12,11 @@ public class GOTEntityLysBlacksmith extends GOTEntityLysMan implements GOTSmith 
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLysBlacksmith(World world) {
 		super(world);
-		alignmentBonus = 2.0f;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
 	}
 
 	@Override

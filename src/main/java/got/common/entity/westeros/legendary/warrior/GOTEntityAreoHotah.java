@@ -15,9 +15,21 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 		addTargetTasks(true);
 		setupLegendaryNPC(true);
 		setSize(0.6f * 1.2f, 1.8f * 1.2f);
-		faction = GOTFaction.DORNE;
-		alignmentBonus = 100.0f;
-		killAchievement = GOTAchievement.killAreoHotah;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DORNE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killAreoHotah;
 	}
 
 	@Override

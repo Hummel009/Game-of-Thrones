@@ -18,9 +18,21 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements GOTBi
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityDragonstoneMan(World world) {
 		super(world);
-		faction = GOTFaction.DRAGONSTONE;
-		miniQuestFactory = GOTMiniQuestFactory.DRAGONSTONE;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DRAGONSTONE;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.DRAGONSTONE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

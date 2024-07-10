@@ -15,8 +15,16 @@ public class GOTEntityHarmenUller extends GOTEntityHumanBase implements GOTUnitT
 	public GOTEntityHarmenUller(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.DORNE;
-		alignmentBonus = 100.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.DORNE;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 100.0f;
 	}
 
 	@Override

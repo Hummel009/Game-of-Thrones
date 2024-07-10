@@ -18,9 +18,21 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements GOTBi
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWesterlandsMan(World world) {
 		super(world);
-		faction = GOTFaction.WESTERLANDS;
-		miniQuestFactory = GOTMiniQuestFactory.WESTERLANDS;
-		alignmentBonus = 1.0f;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.WESTERLANDS;
+	}
+
+	@Override
+	public GOTMiniQuestFactory getMiniQuestFactory() {
+		return GOTMiniQuestFactory.WESTERLANDS;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 1.0f;
 	}
 
 	@Override

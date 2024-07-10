@@ -14,8 +14,16 @@ public class GOTEntityYiTiCaptain extends GOTEntityYiTiMan implements GOTUnitTra
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiCaptain(World world) {
 		super(world);
-		cape = GOTCapes.YI_TI;
-		alignmentBonus = 5.0f;
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.YI_TI;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
 	}
 
 	@Override

@@ -15,9 +15,21 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 	public GOTEntityLuwin(World world) {
 		super(world);
 		setupLegendaryNPC(true);
-		faction = GOTFaction.NORTH;
-		alignmentBonus = 15.0f;
-		killAchievement = GOTAchievement.killLuwin;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.NORTH;
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 15.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killLuwin;
 	}
 
 	@Override
