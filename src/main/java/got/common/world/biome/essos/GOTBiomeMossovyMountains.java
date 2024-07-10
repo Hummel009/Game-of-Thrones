@@ -20,6 +20,8 @@ public class GOTBiomeMossovyMountains extends GOTBiomeEssosBase implements GOTBi
 		preseter.setupMountainsFlora();
 		preseter.setupMountainsFauna();
 		preseter.setupNorthernTrees(false);
+
+		decorator.setTreesPerChunk(0);
 	}
 
 	@Override

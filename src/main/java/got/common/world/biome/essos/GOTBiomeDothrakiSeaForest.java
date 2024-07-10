@@ -30,9 +30,4 @@ public class GOTBiomeDothrakiSeaForest extends GOTBiomeEssosBase {
 	public GOTEventSpawner.EventChance getBanditChance() {
 		return GOTEventSpawner.EventChance.NEVER;
 	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_IBBEN;
-	}
 }

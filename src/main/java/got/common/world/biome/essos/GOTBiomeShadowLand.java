@@ -68,11 +68,6 @@ public class GOTBiomeShadowLand extends GOTBiomeEssosBase {
 	}
 
 	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YI_TI;
-	}
-
-	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_ASSHAI;
 	}

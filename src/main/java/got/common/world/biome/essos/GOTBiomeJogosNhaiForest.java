@@ -1,7 +1,6 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTEventSpawner;
 
@@ -29,10 +28,5 @@ public class GOTBiomeJogosNhaiForest extends GOTBiomeEssosBase {
 	@Override
 	public GOTEventSpawner.EventChance getBanditChance() {
 		return GOTEventSpawner.EventChance.NEVER;
-	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YI_TI;
 	}
 }

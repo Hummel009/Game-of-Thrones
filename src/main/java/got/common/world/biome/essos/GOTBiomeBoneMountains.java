@@ -37,11 +37,6 @@ public class GOTBiomeBoneMountains extends GOTBiomeEssosBase implements GOTBiome
 	}
 
 	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YI_TI;
-	}
-
-	@Override
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 		int snowHeight = 150 - rockDepth;
 		int stoneHeight = snowHeight - 40;

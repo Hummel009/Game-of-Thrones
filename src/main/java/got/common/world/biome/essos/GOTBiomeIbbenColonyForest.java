@@ -24,9 +24,4 @@ public class GOTBiomeIbbenColonyForest extends GOTBiomeEssosBase {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterIbbenColony;
 	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_IBBEN;
-	}
 }

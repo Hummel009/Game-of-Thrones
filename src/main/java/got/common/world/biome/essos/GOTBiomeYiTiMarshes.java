@@ -30,11 +30,6 @@ public class GOTBiomeYiTiMarshes extends GOTBiomeEssosBase implements GOTBiome.M
 	}
 
 	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_YI_TI;
-	}
-
-	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_PAVING;
 	}

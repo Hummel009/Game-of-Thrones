@@ -465,7 +465,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	private boolean getSpecialSpawnCondition() {
 		if (this instanceof IMob) {
 			List<? extends Entity> nearbyEntities = worldObj.getEntitiesWithinAABB(getClass(), boundingBox.expand(64, 12, 64));
-			if (nearbyEntities.size() > 5) {
+			if (nearbyEntities.size() > 1) {
 				return false;
 			}
 		}

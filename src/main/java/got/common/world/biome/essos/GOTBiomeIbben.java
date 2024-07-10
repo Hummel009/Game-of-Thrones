@@ -49,9 +49,4 @@ public class GOTBiomeIbben extends GOTBiomeEssosBase {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterIbben;
 	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_IBBEN;
-	}
 }

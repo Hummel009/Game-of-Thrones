@@ -14,6 +14,11 @@ public abstract class GOTBiomeEssosBase extends GOTBiome {
 		return GOTMusicRegion.ESSOS.getSubregion(biomeName);
 	}
 
+	@Override
+	public int getWallTop() {
+		return 90;
+	}
+
 	protected void setupRuinedStructures(boolean sand) {
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
