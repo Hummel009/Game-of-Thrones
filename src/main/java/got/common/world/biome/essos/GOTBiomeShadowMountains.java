@@ -22,7 +22,7 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand implements GOTBi
 		biomeVariants.clear();
 		biomeVariants.add(GOTBiomeVariant.MOUNTAIN, 1.0f);
 
-		decorator.setGrassPerChunk(1);
+		decorator.setFlowersPerChunk(0);
 
 		decorator.setBiomeGemFactor(decorator.getBiomeGemFactor() * 2.0f);
 		decorator.setBiomeOreFactor(decorator.getBiomeOreFactor() * 2.0f);
