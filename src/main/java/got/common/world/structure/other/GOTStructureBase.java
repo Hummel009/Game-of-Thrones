@@ -145,7 +145,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				continue;
 			}
 			Block above = world.getBlock(i, j1 + 1, k);
-			return !above.getMaterial().isLiquid() && (block == biome.topBlock || block == biome.fillerBlock || block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTBlocks.dirtPath || block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == Blocks.sand || block == GOTBlocks.redClay || block == GOTBlocks.whiteSand || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel);
+			return !above.getMaterial().isLiquid() && (block == biome.topBlock || block == biome.fillerBlock || block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.cobblestone || block == Blocks.gravel || block == GOTBlocks.dirtPath || block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == Blocks.sand || block == GOTBlocks.redClay || block == GOTBlocks.whiteSand || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel);
 		}
 	}
 
