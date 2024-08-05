@@ -3,7 +3,6 @@ package got.common.world.biome.essos;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;

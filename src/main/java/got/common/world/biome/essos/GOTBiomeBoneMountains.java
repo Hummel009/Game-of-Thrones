@@ -4,7 +4,6 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
