@@ -79,7 +79,6 @@ public class GOTWikiGenerator {
 	private static final Iterable<Item> ITEMS = new ArrayList<>(GOTItems.CONTENT);
 	private static final Iterable<GOTUnitTradeEntries> UNIT_TRADE_ENTRIES = new ArrayList<>(GOTUnitTradeEntries.CONTENT);
 	private static final Iterable<Class<? extends Entity>> ENTITY_CLASSES = new HashSet<>(GOTEntityRegistry.CONTENT);
-	private static final Iterable<Class<? extends WorldGenerator>> STRUCTURE_CLASSES = new HashSet<>(GOTStructureRegistry.CONTENT);
 	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
 
 	private static final Collection<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
@@ -91,6 +90,7 @@ public class GOTWikiGenerator {
 	private static final Iterable<GOTShields> SHIELDS = EnumSet.allOf(GOTShields.class);
 
 	private static final Collection<String> MINERALS = new HashSet<>();
+	private static final Collection<Class<? extends WorldGenerator>> STRUCTURE_CLASSES = new HashSet<>();
 
 	private static final String BEGIN = "</title>\n<ns>10</ns>\n<revision>\n<text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text>\n</revision>\n</page>\n";
@@ -3036,6 +3036,12 @@ public class GOTWikiGenerator {
 	}
 
 	private static void searchForStructures(World world) {
+		for (GOTBiome biome : BIOMES) {
+			for (GOTBiomeDecorator.Structure structure : biome.getDecorator().getStructures()) {
+				STRUCTURE_CLASSES.add(structure.getStructureGen().getClass());
+			}
+		}
+
 		for (Class<? extends WorldGenerator> structureClass : STRUCTURE_CLASSES) {
 			WorldGenerator generator = null;
 			try {
