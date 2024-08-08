@@ -754,6 +754,8 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntitySothoryosSmith.class, id++, GOTFaction.SOTHORYOS);
 
 		GOTEntityRegistry.register(GOTEntitySummerMan.class, id++, GOTFaction.SUMMER_ISLANDS);
+		GOTEntityRegistry.register(GOTEntitySummerLevyman.class, id++, GOTFaction.SUMMER_ISLANDS);
+		GOTEntityRegistry.register(GOTEntitySummerLevymanArcher.class, id++, GOTFaction.SUMMER_ISLANDS);
 		GOTEntityRegistry.register(GOTEntitySummerSoldier.class, id++, GOTFaction.SUMMER_ISLANDS);
 		GOTEntityRegistry.register(GOTEntitySummerSoldierArcher.class, id++, GOTFaction.SUMMER_ISLANDS);
 		GOTEntityRegistry.register(GOTEntitySummerBannerBearer.class, id++, GOTFaction.SUMMER_ISLANDS);
