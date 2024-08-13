@@ -162,6 +162,7 @@ public class GOTWikiGenerator {
 	private GOTWikiGenerator() {
 	}
 
+	@SuppressWarnings("JoinDeclarationAndAssignmentJava")
 	public static void generate(Type type, World world, EntityPlayer entityPlayer) {
 		long time = System.nanoTime();
 
@@ -207,6 +208,7 @@ public class GOTWikiGenerator {
 					runnables.parallelStream().forEach(Runnable::run);
 
 					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
+					List<StringBuilder> results;
 
 					Set<String> existingPages = getExistingPages();
 					Collection<String> neededPages = new HashSet<>();
@@ -218,8 +220,14 @@ public class GOTWikiGenerator {
 					suppliers.add(() -> addPagesTrees(neededPages, existingPages));
 					suppliers.add(() -> addPagesStructures(neededPages, existingPages));
 
-					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
+					results = suppliers.parallelStream().map(Supplier::get).collect(Collectors.toList());
 					suppliers.clear();
+
+					for (StringBuilder stringBuilder : results) {
+						sb.append(stringBuilder);
+					}
+
+					results.clear();
 
 					markPagesForRemoval(neededPages, existingPages);
 
@@ -295,8 +303,14 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityUnitTradeable);
 					suppliers.add(() -> genTemplateEntityWaypoint(world));
 
-					suppliers.parallelStream().map(Supplier::get).forEach(sb::append);
+					results = suppliers.parallelStream().map(Supplier::get).collect(Collectors.toList());
 					suppliers.clear();
+
+					for (StringBuilder stringBuilder : results) {
+						sb.append(stringBuilder);
+					}
+
+					results.clear();
 
 					sb.append("</mediawiki>");
 
