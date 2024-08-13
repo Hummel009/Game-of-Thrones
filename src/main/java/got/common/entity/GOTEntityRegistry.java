@@ -62,6 +62,7 @@ public class GOTEntityRegistry {
 
 	public static void registerHidden(Class<? extends Entity> entityClass, int id) {
 		registerHidden(entityClass, id, 80, 3, true);
+		CONTENT.add(entityClass);
 	}
 
 	public static void registerHidden(Class<? extends Entity> entityClass, int id, int updateRange, int updateFreq, boolean sendVelocityUpdates) {
