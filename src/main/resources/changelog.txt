@@ -3,6 +3,7 @@ CHANGELOG
 >>BUILD 24.08.19
 * Fixed crash related to Summer Islands levymans
 * Improved wiki generator
+* Improved translations
 
 >>BUILD 24.07.10
 * New creative inventory items and blocks order

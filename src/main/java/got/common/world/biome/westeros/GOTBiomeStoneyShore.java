@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-public class GOTBiomeStoneCoast extends GOTBiomeNorth {
-	public GOTBiomeStoneCoast(int i, boolean major) {
+public class GOTBiomeStoneyShore extends GOTBiomeNorth {
+	public GOTBiomeStoneyShore(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 
@@ -34,7 +34,7 @@ public class GOTBiomeStoneCoast extends GOTBiomeNorth {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterStoneCoast;
+		return GOTAchievement.enterStoneyShore;
 	}
 
 	@Override

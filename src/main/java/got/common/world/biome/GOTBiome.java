@@ -82,7 +82,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome braavosHills;
 	public static GOTBiome cannibalSands;
 	public static GOTBiome cannibalSandsHills;
-	public static GOTBiome coldCoast;
+	public static GOTBiome frozenShore;
 	public static GOTBiome crownlands;
 	public static GOTBiome crownlandsForest;
 	public static GOTBiome crownlandsTown;
@@ -207,7 +207,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome sothoryosTaiga;
 	public static GOTBiome sothoryosTaigaEdge;
 	public static GOTBiome stepstones;
-	public static GOTBiome stoneCoast;
+	public static GOTBiome stoneyShore;
 	public static GOTBiome stormlands;
 	public static GOTBiome stormlandsForest;
 	public static GOTBiome stormlandsTarth;
@@ -339,7 +339,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		braavosHills = new GOTBiomeBraavos(30, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8E7E3B).setMinMaxHeight(0.1f, 1.0f).setBiomeName("braavosHills");
 		cannibalSands = new GOTBiomeCannibalSands(31, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCBC82).setMinMaxHeight(0.1f, 0.15f).setBiomeName("cannibalSands");
 		cannibalSandsHills = new GOTBiomeCannibalSands(32, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2A472).setMinMaxHeight(0.1f, 1.0f).setBiomeName("cannibalSandsHills");
-		coldCoast = new GOTBiomeColdCoast(33, true).setClimateType(GOTClimateType.WINTER).setColor(0xC0D6CC).setMinMaxHeight(0.1f, 0.15f).setBiomeName("coldCoast");
+		frozenShore = new GOTBiomeFrozenShore(33, true).setClimateType(GOTClimateType.WINTER).setColor(0xC0D6CC).setMinMaxHeight(0.1f, 0.15f).setBiomeName("frozenShore");
 		crownlands = new GOTBiomeCrownlands(34, true).setClimateType(GOTClimateType.NORMAL).setColor(0x81af57).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlands");
 		crownlandsForest = new GOTBiomeCrownlandsForest(35, true).setClimateType(GOTClimateType.NORMAL).setColor(0x507A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsForest");
 		crownlandsTown = new GOTBiomeCrownlandsTown(36, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9DC677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsTown");
@@ -453,7 +453,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		sothoryosTaiga = new GOTBiomeSothoryosTaiga(144, true).setClimateType(GOTClimateType.WINTER).setColor(0x737F5B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaiga");
 		sothoryosTaigaEdge = new GOTBiomeSothoryosTaigaEdge(145, true).setClimateType(GOTClimateType.WINTER).setColor(0xA3B481).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaigaEdge");
 		stepstones = new GOTBiomeStepstones(146, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BA37A).setMinMaxHeight(0.0f, 0.5f).setBiomeName("stepstones");
-		stoneCoast = new GOTBiomeStoneCoast(147, true).setClimateType(GOTClimateType.COLD).setColor(0x89A599).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stoneCoast");
+		stoneyShore = new GOTBiomeStoneyShore(147, true).setClimateType(GOTClimateType.COLD).setColor(0x89A599).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stoneyShore");
 		stormlands = new GOTBiomeStormlands(148, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
 		stormlandsForest = new GOTBiomeStormlandsForest(149, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsForest");
 		stormlandsTarth = new GOTBiomeStormlandsTarth(150, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");

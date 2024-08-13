@@ -724,7 +724,6 @@ entity.got.StormlandsMason.name≠Stormlands Mason
 entity.got.StormlandsMiner.name≠Stormlands Miner
 entity.got.StormlandsSoldier.name≠Stormlands Warrior
 entity.got.StormlandsSoldierArcher.name≠Stormlands Warrior Archer
-entity.got.SummerArcher.name≠Summer Islands Archer
 entity.got.SummerBaker.name≠Summer Islands Baker
 entity.got.SummerBannerBearer.name≠Summer Islands Banner Bearer
 entity.got.SummerBartender.name≠Summer Islands Bartender
@@ -738,13 +737,14 @@ entity.got.SummerFishmonger.name≠Summer Islands Fishmonger
 entity.got.SummerFlorist.name≠Summer Islands Florist
 entity.got.SummerGoldsmith.name≠Summer Islands Goldsmith
 entity.got.SummerHunter.name≠Summer Islands Hunter
+entity.got.SummerLevyman.name≠Summer Islands Levyman
+entity.got.SummerLevymanArcher.name≠Summer Islands Levyman Archer
 entity.got.SummerLumberman.name≠Summer Islands Lumberman
 entity.got.SummerMan.name≠Summer Islands Man
 entity.got.SummerMason.name≠Summer Islands Mason
 entity.got.SummerMiner.name≠Summer Islands Miner
 entity.got.SummerSoldier.name≠Summer Islands Warrior
 entity.got.SummerSoldierArcher.name≠Summer Islands Warrior Archer
-entity.got.SummerWarrior.name≠Summer Islands Warrior
 entity.got.Swan.name≠Swan
 entity.got.SymondTempleton.name≠Symond Templeton
 entity.got.Termite.name≠Termite
@@ -954,8 +954,8 @@ got.achievement.ENTER_BRAAVOS.desc=Braavos'u ziyaret edin
 got.achievement.ENTER_BRAAVOS.title=Siyah beyaz ev
 got.achievement.ENTER_CANNIBAL_SANDS.desc=Cannibal Sands'i ziyaret edin
 got.achievement.ENTER_CANNIBAL_SANDS.title=Ve nerede?
-got.achievement.ENTER_COLD_COAST.desc=Soğuk sahili ziyaret edin
-got.achievement.ENTER_COLD_COAST.title=Morslar ve insanlar
+got.achievement.ENTER_FROZEN_SHORE.desc=Soğuk sahili ziyaret edin
+got.achievement.ENTER_FROZEN_SHORE.title=Morslar ve insanlar
 got.achievement.ENTER_CROWNLANDS.desc=Taç Toprakları'i ziyaret edin
 got.achievement.ENTER_CROWNLANDS.title=Anlaşmazlık Elması
 got.achievement.ENTER_CROWNLANDS_TOWN.desc=King's Landing'i ziyaret edin
@@ -1108,8 +1108,8 @@ got.achievement.ENTER_SOTHORYOS_TAIGA.desc=Sothoryos tayga bölgesini ziyaret ed
 got.achievement.ENTER_SOTHORYOS_TAIGA.title=Yine mamutlar mı?
 got.achievement.ENTER_STEPSTONES.desc=Taş Adalar'ı ziyaret edin
 got.achievement.ENTER_STEPSTONES.title=Korsan genişliği
-got.achievement.ENTER_STONE_COAST.desc=Kaya Kıyısı'nı ziyaret edin
-got.achievement.ENTER_STONE_COAST.title=Tartışmalı elma
+got.achievement.ENTER_STONEY_SHORE.desc=Kaya Kıyısı'nı ziyaret edin
+got.achievement.ENTER_STONEY_SHORE.title=Tartışmalı elma
 got.achievement.ENTER_STORMLANDS.desc=Fırtına Toprakları'nı ziyaret edin
 got.achievement.ENTER_STORMLANDS.title=Öfke bizimki
 got.achievement.ENTER_STORMLANDS_TARTH.desc=Tarth'ı ziyaret edin
@@ -1578,7 +1578,7 @@ got.achievement.WEAR_FULL_BRAAVOS.desc=Tam Braavos takımını giyin
 got.achievement.WEAR_FULL_BRAAVOS.title=Braavos'un Muhafızı
 got.achievement.WEAR_FULL_BRONZE.desc=Tam bir bronz zırh seti giyin
 got.achievement.WEAR_FULL_BRONZE.title=Bakır + Kalay
-got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=Tam bronz zırh takımı giyin
+got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.desc=Tam bir bronz zincirli zırh seti giyin
 got.achievement.WEAR_FULL_BRONZE_CHAINMAIL.title=Güzel bir miktar tasarruf edildi
 got.achievement.WEAR_FULL_COPPER.desc=Tam bir bakır zırh seti giyin
 got.achievement.WEAR_FULL_COPPER.title=Korozyon
@@ -1610,8 +1610,12 @@ got.achievement.WEAR_FULL_HILLMEN.desc=Tam Tepe Kabileleri takımını giyin
 got.achievement.WEAR_FULL_HILLMEN.title=Ay Dağlarının Çılgınlığı
 got.achievement.WEAR_FULL_IBBEN.desc=Tam bir Ibben takımı giyin
 got.achievement.WEAR_FULL_IBBEN.title=Uyuyor gibi görünüyor...
+got.achievement.WEAR_FULL_IRON.desc=Tam bir demir zırh seti giyin
+got.achievement.WEAR_FULL_IRON.title=Varsayılan Standart
 got.achievement.WEAR_FULL_IRONBORN.desc=Tam Demir Adalar takımını giyin
 got.achievement.WEAR_FULL_IRONBORN.title=Demir Adalar Muhafızı
+got.achievement.WEAR_FULL_IRON_CHAINMAIL.desc=Tam bir demir zincirli zırh seti giyin
+got.achievement.WEAR_FULL_IRON_CHAINMAIL.title=Unutulmuş eski
 got.achievement.WEAR_FULL_JOGOS_NHAI.desc=Tam Jogos Nhai takımını giyin
 got.achievement.WEAR_FULL_JOGOS_NHAI.title=Doğu Ordası
 got.achievement.WEAR_FULL_KINGSGUARD.desc=Kralın Muhafızlarının tam takımını giyin
@@ -1713,7 +1717,6 @@ got.biome.braavosForest.name=Braavos Ormanı
 got.biome.braavosHills.name=Braavos Tepeleri
 got.biome.cannibalSands.name=Yamyam Kumları
 got.biome.cannibalSandsHills.name=Yamyam Kumları Tepeleri
-got.biome.coldCoast.name=Soğuk Sahil
 got.biome.crackclaw.name=Çatlak Pençe Noktası
 got.biome.crownlands.name=Taç Toprakları
 got.biome.crownlandsForest.name=Taç Toprakları Ormanı
@@ -1738,6 +1741,7 @@ got.biome.essosMarshes.name=Essos Bataklıkları
 got.biome.essosMountains.name=Essos Dağları
 got.biome.freeCities.name=Özgür Şehirler Toprakları
 got.biome.frostfangs.name=Buz Dişleri
+got.biome.frozenShore.name=Soğuk Sahil
 got.biome.ghiscar.name=Ghiscar Körfezi
 got.biome.ghiscarAstapor.name=Astapor
 got.biome.ghiscarColony.name=Ghiscar Kolonileri
@@ -1845,7 +1849,7 @@ got.biome.sothoryosSavannah.name=Sothoryos Savanası
 got.biome.sothoryosTaiga.name=Sothoryos Taygası
 got.biome.sothoryosTaigaEdge.name=Sothoryos Taygası Kenarı
 got.biome.stepstones.name=Adımlar
-got.biome.stoneCoast.name=Taşlı Kıyı
+got.biome.stoneyShore.name=Taşlı Kıyı
 got.biome.stormlands.name=Fırtına Toprakları
 got.biome.stormlandsForest.name=Fırtına Toprakları Ormanı
 got.biome.stormlandsTarth.name=Tarth

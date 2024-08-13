@@ -724,7 +724,6 @@ entity.got.StormlandsMason.name≠Stormlands Mason
 entity.got.StormlandsMiner.name≠Stormlands Miner
 entity.got.StormlandsSoldier.name≠Stormlands Warrior
 entity.got.StormlandsSoldierArcher.name≠Stormlands Warrior Archer
-entity.got.SummerArcher.name≠Summer Islands Archer
 entity.got.SummerBaker.name≠Summer Islands Baker
 entity.got.SummerBannerBearer.name≠Summer Islands Banner Bearer
 entity.got.SummerBartender.name≠Summer Islands Bartender
@@ -738,13 +737,14 @@ entity.got.SummerFishmonger.name≠Summer Islands Fishmonger
 entity.got.SummerFlorist.name≠Summer Islands Florist
 entity.got.SummerGoldsmith.name≠Summer Islands Goldsmith
 entity.got.SummerHunter.name≠Summer Islands Hunter
+entity.got.SummerLevyman.name≠Summer Islands Levyman
+entity.got.SummerLevymanArcher.name≠Summer Islands Levyman Archer
 entity.got.SummerLumberman.name≠Summer Islands Lumberman
 entity.got.SummerMan.name≠Summer Islands Man
 entity.got.SummerMason.name≠Summer Islands Mason
 entity.got.SummerMiner.name≠Summer Islands Miner
 entity.got.SummerSoldier.name≠Summer Islands Warrior
 entity.got.SummerSoldierArcher.name≠Summer Islands Warrior Archer
-entity.got.SummerWarrior.name≠Summer Islands Warrior
 entity.got.Swan.name≠Swan
 entity.got.SymondTempleton.name≠Symond Templeton
 entity.got.Termite.name≠Termite
@@ -954,8 +954,8 @@ got.achievement.ENTER_BRAAVOS.desc=Visitez Braavos
 got.achievement.ENTER_BRAAVOS.title=Maison en noir et blanc
 got.achievement.ENTER_CANNIBAL_SANDS.desc=Visitez les Sables des Cannibales
 got.achievement.ENTER_CANNIBAL_SANDS.title=Ne vous y attardez pas
-got.achievement.ENTER_COLD_COAST.desc=Visitez la Côte Froide
-got.achievement.ENTER_COLD_COAST.title=Les morses et les humains
+got.achievement.ENTER_FROZEN_SHORE.desc=Visitez la Côte Froide
+got.achievement.ENTER_FROZEN_SHORE.title=Les morses et les humains
 got.achievement.ENTER_CROWNLANDS.desc=Visitez les Terres de la Couronne
 got.achievement.ENTER_CROWNLANDS.title=Pomme de discorde
 got.achievement.ENTER_CROWNLANDS_TOWN.desc=Visitez les terres du roi
@@ -1108,8 +1108,8 @@ got.achievement.ENTER_SOTHORYOS_TAIGA.desc=Visitez la taïga de Sothoryos
 got.achievement.ENTER_SOTHORYOS_TAIGA.title=Encore des mammouths ?
 got.achievement.ENTER_STEPSTONES.desc=Visitez les Stepstones
 got.achievement.ENTER_STEPSTONES.title=Terre de pirates
-got.achievement.ENTER_STONE_COAST.desc=Visitez la Côte de Pierre
-got.achievement.ENTER_STONE_COAST.title=Pomme de discorde
+got.achievement.ENTER_STONEY_SHORE.desc=Visitez la Côte de Pierre
+got.achievement.ENTER_STONEY_SHORE.title=Pomme de discorde
 got.achievement.ENTER_STORMLANDS.desc=Visitez les Terres des Tempêtes
 got.achievement.ENTER_STORMLANDS.title=La nôtre est la fureur
 got.achievement.ENTER_STORMLANDS_TARTH.desc=Visitez Tarth
@@ -1610,8 +1610,12 @@ got.achievement.WEAR_FULL_HILLMEN.desc=Portez un ensemble complet de l'armure de
 got.achievement.WEAR_FULL_HILLMEN.title=La folie des montagnes de la Lune
 got.achievement.WEAR_FULL_IBBEN.desc=Portez un ensemble complet de vêtements de l'Ibben
 got.achievement.WEAR_FULL_IBBEN.title=Ça semble convenir...
+got.achievement.WEAR_FULL_IRON.desc=Portez un ensemble complet d'armure en fer
+got.achievement.WEAR_FULL_IRON.title=Standard par défaut
 got.achievement.WEAR_FULL_IRONBORN.desc=Portez un ensemble complet de l'armure des Hommes de Fer
 got.achievement.WEAR_FULL_IRONBORN.title=Garde des Îles de Fer
+got.achievement.WEAR_FULL_IRON_CHAINMAIL.desc=Portez un ensemble complet de cotte de mailles en fer
+got.achievement.WEAR_FULL_IRON_CHAINMAIL.title=Bien oublié autrefois
 got.achievement.WEAR_FULL_JOGOS_NHAI.desc=Portez un ensemble complet de vêtements Jogos Nhai
 got.achievement.WEAR_FULL_JOGOS_NHAI.title=Horde de l'Est
 got.achievement.WEAR_FULL_KINGSGUARD.desc=Portez un ensemble complet de l'armure de la Garde Royale
@@ -1713,7 +1717,6 @@ got.biome.braavosForest.name=Fôret de Braavos
 got.biome.braavosHills.name=Collines de Braavos
 got.biome.cannibalSands.name=Sables mouvants
 got.biome.cannibalSandsHills.name=Collines de sables mouvants
-got.biome.coldCoast.name=Côte froide
 got.biome.crackclaw.name=Le point
 got.biome.crownlands.name=Terres du roi
 got.biome.crownlandsForest.name=Fôret des terres du roi
@@ -1738,6 +1741,7 @@ got.biome.essosMarshes.name=Marais d'Essos
 got.biome.essosMountains.name=Montagnes d'Essos
 got.biome.freeCities.name=Terres des villes libres
 got.biome.frostfangs.name=Crocs de givre
+got.biome.frozenShore.name=Côte froide
 got.biome.ghiscar.name=Baie de Ghiscar
 got.biome.ghiscarAstapor.name=Astapor
 got.biome.ghiscarColony.name=Colonies ghiscariennes
@@ -1845,7 +1849,7 @@ got.biome.sothoryosSavannah.name=Savane de Sothoryos
 got.biome.sothoryosTaiga.name=Taïga de Sothoryos
 got.biome.sothoryosTaigaEdge.name=Lizière de la taiga d'Sothoryos
 got.biome.stepstones.name=Pas
-got.biome.stoneCoast.name=Côte de pierre
+got.biome.stoneyShore.name=Côte de pierre
 got.biome.stormlands.name=Terres de l'Orage
 got.biome.stormlandsForest.name=Fôret des terres de l'Orage
 got.biome.stormlandsTarth.name=Tarth

@@ -55,7 +55,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterBoneMountains;
 	public static GOTAchievement enterBraavos;
 	public static GOTAchievement enterCannibalSands;
-	public static GOTAchievement enterColdCoast;
+	public static GOTAchievement enterFrozenShore;
 	public static GOTAchievement enterCrownlands;
 	public static GOTAchievement enterCrownlandsTown;
 	public static GOTAchievement enterDisputedLands;
@@ -132,7 +132,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterSothoryosSavannah;
 	public static GOTAchievement enterSothoryosTaiga;
 	public static GOTAchievement enterStepstones;
-	public static GOTAchievement enterStoneCoast;
+	public static GOTAchievement enterStoneyShore;
 	public static GOTAchievement enterStormlands;
 	public static GOTAchievement enterStormlandsTarth;
 	public static GOTAchievement enterSummerColony;
@@ -769,7 +769,7 @@ public class GOTAchievement {
 		enterBoneMountains = createBiomeAchievement(entId++, "ENTER_BONE_MOUNTAINS");
 		enterBraavos = createBiomeAchievement(entId++, "ENTER_BRAAVOS");
 		enterCannibalSands = createBiomeAchievement(entId++, "ENTER_CANNIBAL_SANDS");
-		enterColdCoast = createBiomeAchievement(entId++, "ENTER_COLD_COAST");
+		enterFrozenShore = createBiomeAchievement(entId++, "ENTER_FROZEN_SHORE");
 		enterCrownlands = createBiomeAchievement(entId++, "ENTER_CROWNLANDS");
 		enterCrownlandsTown = createBiomeAchievement(entId++, "ENTER_CROWNLANDS_TOWN");
 		enterDisputedLands = createBiomeAchievement(entId++, "ENTER_DISPUTED_LANDS");
@@ -845,7 +845,7 @@ public class GOTAchievement {
 		enterSothoryosSavannah = createBiomeAchievement(entId++, "ENTER_SOTHORYOS_SAVANNAH");
 		enterSothoryosTaiga = createBiomeAchievement(entId++, "ENTER_SOTHORYOS_TAIGA");
 		enterStepstones = createBiomeAchievement(entId++, "ENTER_STEPSTONES");
-		enterStoneCoast = createBiomeAchievement(entId++, "ENTER_STONE_COAST");
+		enterStoneyShore = createBiomeAchievement(entId++, "ENTER_STONEY_SHORE");
 		enterStormlands = createBiomeAchievement(entId++, "ENTER_STORMLANDS");
 		enterStormlandsTarth = createBiomeAchievement(entId++, "ENTER_STORMLANDS_TARTH");
 		enterSummerColony = createBiomeAchievement(entId++, "ENTER_SUMMER_COLONY");

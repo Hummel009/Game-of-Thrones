@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-public class GOTBiomeColdCoast extends GOTBiomeWesterosBase {
+public class GOTBiomeFrozenShore extends GOTBiomeWesterosBase {
 	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
 	private static final NoiseGeneratorPerlin NOISE_GRAVEL = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
 	private static final NoiseGeneratorPerlin NOISE_ICE_GRAVEL = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
-	public GOTBiomeColdCoast(int i, boolean major) {
+	public GOTBiomeFrozenShore(int i, boolean major) {
 		super(i, major);
 		topBlock = Blocks.snow;
 		fillerBlock = Blocks.snow;
@@ -51,7 +51,7 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosBase {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterColdCoast;
+		return GOTAchievement.enterFrozenShore;
 	}
 
 	@Override
