@@ -927,8 +927,8 @@ public class GOTAchievement {
 		wearFullJogosNhai = createArmorAchievement(armorId++, GOTItems.jogosNhaiChestplate, "WEAR_FULL_JOGOS_NHAI");
 		wearFullMossovy = createArmorAchievement(armorId++, GOTItems.mossovyChestplate, "WEAR_FULL_MOSSOVY");
 		wearFullYiti = createArmorAchievement(armorId++, GOTItems.yiTiChestplate, "WEAR_FULL_YI_TI");
-		wearFullYitiBombardier = createArmorAchievement(armorId++, GOTItems.yiTiChestplateBombardier, "WEAR_FULL_YI_TI_BOMBARDIER");
-		wearFullYitiSamurai = createArmorAchievement(armorId++, GOTItems.yiTiChestplateSamurai, "WEAR_FULL_YI_TI_SAMURAI");
+		wearFullYitiBombardier = createArmorAchievement(armorId++, GOTItems.yiTiBombardierChestplate, "WEAR_FULL_YI_TI_BOMBARDIER");
+		wearFullYitiSamurai = createArmorAchievement(armorId++, GOTItems.yiTiSamuraiChestplate, "WEAR_FULL_YI_TI_SAMURAI");
 		wearFullAsshai = createArmorAchievement(armorId++, GOTItems.asshaiChestplate, "WEAR_FULL_ASSHAI");
 
 		wearFullSummer = createArmorAchievement(armorId++, GOTItems.summerChestplate, "WEAR_FULL_SUMMER");

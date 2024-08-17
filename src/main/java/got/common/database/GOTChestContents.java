@@ -7,6 +7,7 @@ import got.common.enchant.GOTEnchantmentHelper;
 import got.common.item.other.GOTItemModifierTemplate;
 import got.common.item.other.GOTItemMug;
 import got.common.item.other.GOTItemPouch;
+import got.common.item.weapon.GOTItemLingeringPotion;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -228,10 +229,13 @@ public class GOTChestContents {
 		asshai.add(new WeightedRandomChestContent(new ItemStack(GOTItems.firePot), 1, 1, 10));
 
 		asshai.add(new WeightedRandomChestContent(new ItemStack(GOTItems.bottlePoison), 1, 2, 5));
-		for (int i = 0; i <= 13; i++) {
+
+		List<Integer> ids = GOTItemLingeringPotion.getPotionsSubIds();
+		for (int i : ids) {
 			asshai.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lingeringPotion, 1, i), 1, 2, 5));
 			asshai.add(new WeightedRandomChestContent(new ItemStack(Items.potionitem, 1, i), 1, 2, 5));
 		}
+
 		ASSHAI = new GOTChestContents(4, 6, asshai).enablePouches().setLore(20, GOTLore.LoreCategory.ASSHAI);
 
 		Collection<WeightedRandomChestContent> dothraki = new ArrayList<>(common);
@@ -461,14 +465,14 @@ public class GOTChestContents {
 		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiChestplate), 1, 1, 25));
 		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiLeggings), 1, 1, 25));
 		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBoots), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiHelmetBombardier), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiChestplateBombardier), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiLeggingsBombardier), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBootsBombardier), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiHelmetSamurai), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiChestplateSamurai), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiLeggingsSamurai), 1, 1, 25));
-		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBootsSamurai), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBombardierHelmet), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBombardierChestplate), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBombardierLeggings), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiBombardierBoots), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiSamuraiHelmet), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiSamuraiChestplate), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiSamuraiLeggings), 1, 1, 25));
+		yiTi.add(new WeightedRandomChestContent(new ItemStack(GOTItems.yiTiSamuraiBoots), 1, 1, 25));
 		YI_TI = new GOTChestContents(4, 6, yiTi).enablePouches().setDrinkVessels(GOTFoods.DEFAULT_DRINK).setLore(20, GOTLore.LoreCategory.YI_TI);
 	}
 

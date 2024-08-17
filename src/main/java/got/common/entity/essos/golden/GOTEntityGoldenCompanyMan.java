@@ -13,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityGoldenCompanyMan extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	protected GOTEntityGoldenCompanyMan(World world) {
 		super(world);

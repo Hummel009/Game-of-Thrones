@@ -7,6 +7,7 @@ import got.common.entity.other.utils.GOTTradeEntry;
 import got.common.entity.other.utils.GOTTradeEntryBarrel;
 import got.common.entity.other.utils.GOTTradeSellResult;
 import got.common.item.other.GOTItemMug;
+import got.common.item.weapon.GOTItemLingeringPotion;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -556,10 +557,13 @@ public class GOTTradeEntries {
 
 		List<GOTTradeEntry> alchemistSells = new ArrayList<>();
 		alchemistSells.add(new GOTTradeEntry(new ItemStack(GOTItems.bottlePoison), 8));
-		for (int i = 0; i <= 13; i++) {
+
+		List<Integer> ids = GOTItemLingeringPotion.getPotionsSubIds();
+		for (int i : ids) {
 			alchemistSells.add(new GOTTradeEntry(new ItemStack(GOTItems.lingeringPotion, 1, i), 64));
 			alchemistSells.add(new GOTTradeEntry(new ItemStack(Items.potionitem, 1, i), 64));
 		}
+
 		ALCHEMIST_SELLS = new GOTTradeEntries(TradeType.SELLS, alchemistSells);
 
 		List<GOTTradeEntry> alchemistBuys = new ArrayList<>();

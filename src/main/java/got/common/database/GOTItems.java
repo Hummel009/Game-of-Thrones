@@ -61,6 +61,7 @@ public class GOTItems {
 	public static Item anonymousMask;
 	public static Item appleCrumble;
 	public static Item appleGreen;
+	public static Item ardrianCeltigarAxe;
 	public static Item armorStand;
 	public static Item arrowFire;
 	public static Item arrowPoisoned;
@@ -79,8 +80,6 @@ public class GOTItems {
 	public static Item asshaiLeggings;
 	public static Item asshaiMask;
 	public static Item asshaiShadowbinderStaff;
-	public static Item petyrBaelishBrooch;
-	public static Item petyrBaelishDagger;
 	public static Item banana;
 	public static Item bananaBread;
 	public static Item bananaCake;
@@ -141,7 +140,6 @@ public class GOTItems {
 	public static Item camelCooked;
 	public static Item camelRaw;
 	public static Item cargocart;
-	public static Item ardrianCeltigarAxe;
 	public static Item ceramicMug;
 	public static Item ceramicPlate;
 	public static Item cherry;
@@ -232,7 +230,6 @@ public class GOTItems {
 	public static Item flaxSeeds;
 	public static Item fur;
 	public static Item furBed;
-	public static Item lionFurBed;
 	public static Item furBoots;
 	public static Item furChestplate;
 	public static Item furHelmet;
@@ -256,11 +253,11 @@ public class GOTItems {
 	public static Item giftLeggings;
 	public static Item gingerbread;
 	public static Item giraffeRug;
-	public static Item gobletCopper;
 	public static Item gobletBronze;
+	public static Item gobletCopper;
 	public static Item gobletGold;
-	public static Item gobletValyrian;
 	public static Item gobletSilver;
+	public static Item gobletValyrian;
 	public static Item gobletWood;
 	public static Item goldBattleaxe;
 	public static Item goldChainmailBoots;
@@ -342,7 +339,6 @@ public class GOTItems {
 	public static Item kingsguardLeggings;
 	public static Item ladyForlorn;
 	public static Item lamentation;
-	public static Item tyrionLannisterBrooch;
 	public static Item leatherHat;
 	public static Item leek;
 	public static Item leekSoup;
@@ -360,6 +356,7 @@ public class GOTItems {
 	public static Item lionChestplate;
 	public static Item lionCooked;
 	public static Item lionFur;
+	public static Item lionFurBed;
 	public static Item lionHelmet;
 	public static Item lionLeggings;
 	public static Item lionRaw;
@@ -379,6 +376,7 @@ public class GOTItems {
 	public static Item marzipan;
 	public static Item marzipanChocolate;
 	public static Item melonSoup;
+	public static Item monfordVelaryonBrooch;
 	public static Item mossovyBoots;
 	public static Item mossovyChestplate;
 	public static Item mossovyLeggings;
@@ -485,6 +483,8 @@ public class GOTItems {
 	public static Item pentosChestplate;
 	public static Item pentosHelmet;
 	public static Item pentosLeggings;
+	public static Item petyrBaelishBrooch;
+	public static Item petyrBaelishDagger;
 	public static Item pipe;
 	public static Item pipeweed;
 	public static Item pipeweedLeaf;
@@ -539,8 +539,8 @@ public class GOTItems {
 	public static Item salt;
 	public static Item saltedFlesh;
 	public static Item saltpeter;
-	public static Item sandorCleganeSword;
 	public static Item sandorCleganeHelmet;
+	public static Item sandorCleganeSword;
 	public static Item sapphire;
 	public static Item sarbacane;
 	public static Item seedsGrapeRed;
@@ -594,6 +594,7 @@ public class GOTItems {
 	public static Item truth;
 	public static Item turnip;
 	public static Item turnipCooked;
+	public static Item tyrionLannisterBrooch;
 	public static Item tyroshBoots;
 	public static Item tyroshChestplate;
 	public static Item tyroshHelmet;
@@ -631,7 +632,6 @@ public class GOTItems {
 	public static Item valyrianSpear;
 	public static Item valyrianSword;
 	public static Item valyrianThrowingAxe;
-	public static Item monfordVelaryonBrooch;
 	public static Item vigilance;
 	public static Item volantisBoots;
 	public static Item volantisChestplate;
@@ -669,19 +669,19 @@ public class GOTItems {
 	public static Item woodThrowingAxe;
 	public static Item yam;
 	public static Item yamRoast;
+	public static Item yiTiBombardierBoots;
+	public static Item yiTiBombardierChestplate;
+	public static Item yiTiBombardierHelmet;
+	public static Item yiTiBombardierLeggings;
 	public static Item yiTiBoots;
-	public static Item yiTiBootsBombardier;
-	public static Item yiTiBootsSamurai;
 	public static Item yiTiChestplate;
-	public static Item yiTiChestplateBombardier;
-	public static Item yiTiChestplateSamurai;
 	public static Item yiTiHelmet;
-	public static Item yiTiHelmetBombardier;
 	public static Item yiTiHelmetCaptain;
-	public static Item yiTiHelmetSamurai;
 	public static Item yiTiLeggings;
-	public static Item yiTiLeggingsBombardier;
-	public static Item yiTiLeggingsSamurai;
+	public static Item yiTiSamuraiBoots;
+	public static Item yiTiSamuraiChestplate;
+	public static Item yiTiSamuraiHelmet;
+	public static Item yiTiSamuraiLeggings;
 	public static Item zebraCooked;
 	public static Item zebraRaw;
 
@@ -1335,18 +1335,18 @@ public class GOTItems {
 		yam = new ItemSeedFood(1, 0.4f, GOTBlocks.yamCrop, Blocks.farmland).setPotionEffect(Potion.hunger.id, 15, 0, 0.4f);
 		yamRoast = new GOTItemFood(6, 0.6f, false);
 		yiTiBoots = new GOTItemArmor(GOTMaterial.YI_TI, 3);
-		yiTiBootsBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 3);
-		yiTiBootsSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 3);
+		yiTiBombardierBoots = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 3);
+		yiTiSamuraiBoots = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 3);
 		yiTiChestplate = new GOTItemArmor(GOTMaterial.YI_TI, 1);
-		yiTiChestplateBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 1);
-		yiTiChestplateSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 1);
+		yiTiBombardierChestplate = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 1);
+		yiTiSamuraiChestplate = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 1);
 		yiTiHelmet = new GOTItemArmor(GOTMaterial.YI_TI, 0);
-		yiTiHelmetBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 0);
+		yiTiBombardierHelmet = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 0);
 		yiTiHelmetCaptain = new GOTItemArmor(GOTMaterial.YI_TI, 0, "helmet_captain");
-		yiTiHelmetSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "helmet");
+		yiTiSamuraiHelmet = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "helmet");
 		yiTiLeggings = new GOTItemArmor(GOTMaterial.YI_TI, 2);
-		yiTiLeggingsBombardier = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 2);
-		yiTiLeggingsSamurai = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 2);
+		yiTiBombardierLeggings = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 2);
+		yiTiSamuraiLeggings = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 2);
 		zebraCooked = new GOTItemFood(6, 0.6f, true);
 		zebraRaw = new GOTItemFood(2, 0.1f, true);
 	}
@@ -1765,17 +1765,17 @@ public class GOTItems {
 		register(yiTiLeggings, "yiTiLeggings");
 		register(yiTiBoots, "yiTiBoots");
 
-		register(yiTiHelmetBombardier, "yiTiHelmetBombardier");
-		register(yiTiChestplateBombardier, "yiTiChestplateBombardier");
-		register(yiTiLeggingsBombardier, "yiTiLeggingsBombardier");
-		register(yiTiBootsBombardier, "yiTiBootsBombardier");
-
-		register(yiTiHelmetSamurai, "yiTiHelmetSamurai");
-		register(yiTiChestplateSamurai, "yiTiChestplateSamurai");
-		register(yiTiLeggingsSamurai, "yiTiLeggingsSamurai");
-		register(yiTiBootsSamurai, "yiTiBootsSamurai");
-
 		register(yiTiHelmetCaptain, "yiTiHelmetCaptain");
+
+		register(yiTiBombardierHelmet, "yiTiBombardierHelmet");
+		register(yiTiBombardierChestplate, "yiTiBombardierChestplate");
+		register(yiTiBombardierLeggings, "yiTiBombardierLeggings");
+		register(yiTiBombardierBoots, "yiTiBombardierBoots");
+
+		register(yiTiSamuraiHelmet, "yiTiSamuraiHelmet");
+		register(yiTiSamuraiChestplate, "yiTiSamuraiChestplate");
+		register(yiTiSamuraiLeggings, "yiTiSamuraiLeggings");
+		register(yiTiSamuraiBoots, "yiTiSamuraiBoots");
 
 		register(asshaiHelmet, "asshaiHelmet");
 		register(asshaiChestplate, "asshaiChestplate");

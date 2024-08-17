@@ -1,5 +1,6 @@
 package got.common.entity.essos.braavos;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -13,6 +14,11 @@ public class GOTEntityBraavosCaptain extends GOTEntityBraavosMan implements GOTU
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityBraavosCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.BRAAVOS;
 	}
 
 	@Override
@@ -42,5 +48,10 @@ public class GOTEntityBraavosCaptain extends GOTEntityBraavosMan implements GOTU
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.braavosChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

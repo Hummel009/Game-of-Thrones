@@ -2,10 +2,10 @@ package got.common.world.structure.essos.asshai;
 
 import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
-import got.common.entity.other.GOTEntityRedPriest;
 import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
+import got.common.entity.other.GOTEntityRedPriest;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;

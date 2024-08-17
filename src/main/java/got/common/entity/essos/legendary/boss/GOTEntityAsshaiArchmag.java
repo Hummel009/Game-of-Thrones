@@ -12,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityAsshaiArchmag(World world) {
 		super(world);

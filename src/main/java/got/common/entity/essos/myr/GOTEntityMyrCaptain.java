@@ -1,5 +1,6 @@
 package got.common.entity.essos.myr;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -13,6 +14,11 @@ public class GOTEntityMyrCaptain extends GOTEntityMyrMan implements GOTUnitTrade
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityMyrCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.MYR;
 	}
 
 	@Override
@@ -42,5 +48,10 @@ public class GOTEntityMyrCaptain extends GOTEntityMyrMan implements GOTUnitTrade
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.myrChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

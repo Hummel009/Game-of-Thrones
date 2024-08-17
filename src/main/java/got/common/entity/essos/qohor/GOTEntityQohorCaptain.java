@@ -1,5 +1,6 @@
 package got.common.entity.essos.qohor;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -13,6 +14,11 @@ public class GOTEntityQohorCaptain extends GOTEntityQohorMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQohorCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.QOHOR;
 	}
 
 	@Override
@@ -42,5 +48,10 @@ public class GOTEntityQohorCaptain extends GOTEntityQohorMan implements GOTUnitT
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.qohorChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

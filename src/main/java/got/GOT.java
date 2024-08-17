@@ -1,10 +1,12 @@
 package got;
 
+import com.google.common.base.CaseFormat;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
+import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.*;
 import got.common.command.*;
 import got.common.database.GOTAchievement;
@@ -35,6 +37,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
@@ -354,14 +357,6 @@ public class GOT {
 
 	@Mod.EventHandler
 	@SuppressWarnings("MethodMayBeStatic")
-	public void onMissingMappings(FMLMissingMappingsEvent event) {
-		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
-			mapping.ignore();
-		}
-	}
-
-	@Mod.EventHandler
-	@SuppressWarnings("MethodMayBeStatic")
 	public void preInit(FMLPreInitializationEvent event) {
 		GOTLog.findLogger();
 
@@ -439,6 +434,32 @@ public class GOT {
 			event.registerServerCommand(element);
 		}
 		proxy.testReflection(world);
+	}
+
+	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
+	public void onMissingMappings(FMLMissingMappingsEvent event) {
+		Map<String, Item> renamed = new HashMap<>();
+		renamed.put("yiTiHelmetBombardier", GOTItems.yiTiBombardierHelmet);
+		renamed.put("yiTiChestplateBombardier", GOTItems.yiTiBombardierChestplate);
+		renamed.put("yiTiLeggingsBombardier", GOTItems.yiTiBombardierLeggings);
+		renamed.put("yiTiBootsBombardier", GOTItems.yiTiBombardierBoots);
+
+		renamed.put("yiTiHelmetSamurai", GOTItems.yiTiSamuraiHelmet);
+		renamed.put("yiTiChestplateSamurai", GOTItems.yiTiSamuraiChestplate);
+		renamed.put("yiTiLeggingsSamurai", GOTItems.yiTiSamuraiLeggings);
+		renamed.put("yiTiBootsSamurai", GOTItems.yiTiSamuraiBoots);
+
+		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+			if (mapping.type == GameRegistry.Type.ITEM) {
+				for (Map.Entry<String, Item> entry : renamed.entrySet()) {
+					if (mapping.name.contains(entry.getKey()) || mapping.name.contains(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, entry.getKey()))) {
+						mapping.remap(entry.getValue());
+						break;
+					}
+				}
+			}
+		}
 	}
 
 	private static class EntitySelectorImpl1 implements IEntitySelector {

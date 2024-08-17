@@ -42,4 +42,9 @@ public class GOTEntityLhazarCaptain extends GOTEntityLhazarMan implements GOTUni
 
 		return entityData;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

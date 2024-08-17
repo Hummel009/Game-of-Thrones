@@ -1,5 +1,6 @@
 package got.common.entity.essos.norvos;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -13,6 +14,11 @@ public class GOTEntityNorvosCaptain extends GOTEntityNorvosMan implements GOTUni
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNorvosCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.NORVOS;
 	}
 
 	@Override
@@ -42,5 +48,10 @@ public class GOTEntityNorvosCaptain extends GOTEntityNorvosMan implements GOTUni
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.norvosChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

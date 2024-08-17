@@ -1,5 +1,6 @@
 package got.common.entity.essos.qarth;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -13,6 +14,11 @@ public class GOTEntityQarthCaptain extends GOTEntityQarthMan implements GOTUnitT
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityQarthCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.QARTH;
 	}
 
 	@Override
@@ -42,5 +48,10 @@ public class GOTEntityQarthCaptain extends GOTEntityQarthMan implements GOTUnitT
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.qarthChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

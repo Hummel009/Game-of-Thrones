@@ -11,7 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);

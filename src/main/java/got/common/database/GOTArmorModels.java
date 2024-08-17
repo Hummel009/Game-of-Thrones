@@ -244,7 +244,7 @@ public class GOTArmorModels {
 			map.put(GOTItems.hillmenHelmet, new GOTModelHillmenHelmet(1.0f));
 			map.put(GOTItems.unsulliedHelmet, new GOTModelUnsulliedHelmet(1.0f));
 			map.put(GOTItems.westerlandsHelmet, new GOTModelWesterlandsHelmet(1.0f));
-			map.put(GOTItems.yiTiHelmetSamurai, new GOTModelYiTiHelmet(1.0f, false));
+			map.put(GOTItems.yiTiSamuraiHelmet, new GOTModelYiTiHelmet(1.0f, false));
 			map.put(GOTItems.yiTiHelmetCaptain, new GOTModelYiTiHelmet(1.0f, true));
 			map.put(GOTItems.gemsbokHelmet, new GOTModelGemsbokHelmet(1.0f));
 			map.put(GOTItems.sothoryosHelmetChieftain, new GOTModelDeerHelmet(1.0f));

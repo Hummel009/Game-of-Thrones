@@ -1,5 +1,6 @@
 package got.common.entity.essos.ghiscar;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -12,6 +13,11 @@ public class GOTEntityGhiscarCaptain extends GOTEntityGhiscarMan implements GOTU
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityGhiscarCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.GHISCAR;
 	}
 
 	@Override
@@ -41,5 +47,10 @@ public class GOTEntityGhiscarCaptain extends GOTEntityGhiscarMan implements GOTU
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ghiscarChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

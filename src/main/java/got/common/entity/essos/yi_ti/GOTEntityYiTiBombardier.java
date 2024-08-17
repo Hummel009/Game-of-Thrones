@@ -18,7 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiBombardier extends GOTEntityYiTiMan {
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityYiTiBombardier(World world) {
 		super(world);
@@ -96,14 +95,14 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiMan {
 		IEntityLivingData entityData = super.onSpawnWithEgg(data);
 
 		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuse));
-		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 10));
+		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 1));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBootsBombardier));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yiTiLeggingsBombardier));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yiTiChestplateBombardier));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yiTiHelmetBombardier));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBombardierBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yiTiBombardierLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yiTiBombardierChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yiTiBombardierHelmet));
 
 		return entityData;
 	}

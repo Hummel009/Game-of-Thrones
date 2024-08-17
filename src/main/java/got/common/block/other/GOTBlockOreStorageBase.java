@@ -15,10 +15,9 @@ import net.minecraft.world.IBlockAccess;
 import java.util.List;
 
 public abstract class GOTBlockOreStorageBase extends Block {
+	protected String[] oreStorageNames;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] oreStorageIcons;
-
-	protected String[] oreStorageNames;
 
 	protected GOTBlockOreStorageBase() {
 		super(Material.iron);

@@ -1,11 +1,23 @@
 CHANGELOG
 
 >>BUILD 24.08.19
-* Fixed crash related to Summer Islands levymans
 * Improved wiki generator
 * Improved translations
+* Improved all bar and bar gate textures
+* Improved 2 legendary sword textures
+* Improved capes', banners' & shields' textures
+
+* Fixed too good stats of yi ti bombardier
+* Fixed crash related to Summer Islands levymans
+* Fixed bug with traders' potion ids
+* Fixed bug with soldiers' and captains' capes
+* Fixed bug with captains' gender
+
+* Renamed a few item codenames (compatibility with older worlds exists)
 
 >>BUILD 24.07.10
+BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
+
 * New creative inventory items and blocks order
 * Reworked achievement system: hundreds of new achievements
 * Reworked all trade entries of all traders.

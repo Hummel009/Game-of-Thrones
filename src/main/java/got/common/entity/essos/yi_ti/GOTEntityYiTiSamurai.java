@@ -44,10 +44,10 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiMan {
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiBootsSamurai));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yiTiLeggingsSamurai));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yiTiChestplateSamurai));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yiTiHelmetSamurai));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yiTiSamuraiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yiTiSamuraiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yiTiSamuraiChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yiTiSamuraiHelmet));
 
 		return entityData;
 	}

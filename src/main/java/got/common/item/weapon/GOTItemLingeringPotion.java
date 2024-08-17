@@ -28,16 +28,64 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class GOTItemLingeringPotion extends ItemPotion {
+	private static final Map<List<PotionEffect>, Integer> EFFECTS = new LinkedHashMap<>();
+
 	@SideOnly(Side.CLIENT)
 	private IIcon bottle;
 
 	public GOTItemLingeringPotion() {
 		setCreativeTab(CreativeTabs.tabBrewing);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTRenderLingeringDispenser());
+	}
+
+	public static List<Integer> getPotionsSubIds() {
+		int j;
+
+		if (EFFECTS.isEmpty()) {
+			for (int i = 0; i <= 15; ++i) {
+				for (j = 0; j <= 1; ++j) {
+					int k;
+
+					if (j == 0) {
+						k = i | 8192;
+					} else {
+						k = i | 16384;
+					}
+
+					for (int l = 0; l <= 2; ++l) {
+						int i1 = k;
+
+						if (l != 0) {
+							if (l == 1) {
+								i1 = k | 32;
+							} else {
+								i1 = k | 64;
+							}
+						}
+
+						List<PotionEffect> list1 = PotionHelper.getPotionEffects(i1, false);
+
+						if (list1 != null && !list1.isEmpty()) {
+							EFFECTS.put(list1, i1);
+						}
+					}
+				}
+			}
+		}
+
+		List<Integer> potionsSubIds = new ArrayList<>();
+
+		for (Integer integer : EFFECTS.values()) {
+			j = integer;
+			potionsSubIds.add(j);
+		}
+
+		return potionsSubIds;
 	}
 
 	@Override

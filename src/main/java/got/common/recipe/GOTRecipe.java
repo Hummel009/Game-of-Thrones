@@ -627,18 +627,18 @@ public class GOTRecipe {
 		YI_TI.add(new ShapelessOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 15), new ItemStack(GOTBlocks.brick5, 1, 11), new ItemStack(GOTBlocks.chrysanthemum, 1, 1)));
 
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBoots), "X X", "X X", 'X', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBootsBombardier), "X X", "Y Y", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBootsSamurai), "Y Y", "X X", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBombardierBoots), "X X", "Y Y", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiSamuraiBoots), "Y Y", "X X", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiChestplateBombardier), "X X", "YXY", "XYX", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiChestplateSamurai), "X X", "XYX", "YXY", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBombardierChestplate), "X X", "YXY", "XYX", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiSamuraiChestplate), "X X", "XYX", "YXY", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmet), "XXX", "X X", 'X', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetBombardier), "XYX", "Y Y", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetSamurai), "YYY", "X X", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetCaptain), "XYX", 'X', GOTItems.whiteBisonHorn, 'Y', new ItemStack(GOTItems.yiTiHelmetSamurai, 1, 0)));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBombardierHelmet), "XYX", "Y Y", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiSamuraiHelmet), "YYY", "X X", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiHelmetCaptain), "XYX", 'X', GOTItems.whiteBisonHorn, 'Y', new ItemStack(GOTItems.yiTiSamuraiHelmet, 1, 0)));
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggingsBombardier), "XXX", "Y Y", "X X", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
-		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiLeggingsSamurai), "XXX", "X X", "Y Y", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiBombardierLeggings), "XXX", "Y Y", "X X", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
+		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.yiTiSamuraiLeggings), "XXX", "X X", "Y Y", 'X', GOTItems.alloySteelIngot, 'Y', "ingotIron"));
 
 		YI_TI.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.YI_TI.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 

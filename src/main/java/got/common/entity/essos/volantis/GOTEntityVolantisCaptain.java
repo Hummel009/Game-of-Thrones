@@ -1,5 +1,6 @@
 package got.common.entity.essos.volantis;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -13,6 +14,11 @@ public class GOTEntityVolantisCaptain extends GOTEntityVolantisMan implements GO
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityVolantisCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.VOLANTIS;
 	}
 
 	@Override
@@ -42,5 +48,10 @@ public class GOTEntityVolantisCaptain extends GOTEntityVolantisMan implements GO
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.volantisChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

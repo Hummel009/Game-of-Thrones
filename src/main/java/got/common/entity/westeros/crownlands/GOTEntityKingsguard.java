@@ -23,7 +23,7 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsMan {
 
 	@Override
 	public GOTCapes getCape() {
-		return GOTCapes.ROYALGUARD;
+		return GOTCapes.KINGSGUARD_1;
 	}
 
 	@Override

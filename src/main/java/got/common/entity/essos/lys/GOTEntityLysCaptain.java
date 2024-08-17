@@ -1,5 +1,6 @@
 package got.common.entity.essos.lys;
 
+import got.common.database.GOTCapes;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
@@ -13,6 +14,11 @@ public class GOTEntityLysCaptain extends GOTEntityLysMan implements GOTUnitTrade
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityLysCaptain(World world) {
 		super(world);
+	}
+
+	@Override
+	public GOTCapes getCape() {
+		return GOTCapes.LYS;
 	}
 
 	@Override
@@ -42,5 +48,10 @@ public class GOTEntityLysCaptain extends GOTEntityLysMan implements GOTUnitTrade
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.lysChestplate));
 
 		return entityData;
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
 	}
 }

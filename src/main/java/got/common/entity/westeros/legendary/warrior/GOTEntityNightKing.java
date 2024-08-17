@@ -16,7 +16,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityNightKing extends GOTEntityNPC {
-
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityNightKing(World world) {
 		super(world);
