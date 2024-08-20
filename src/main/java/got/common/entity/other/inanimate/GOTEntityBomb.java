@@ -30,12 +30,7 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 	}
 
 	private void explodeBomb() {
-		boolean doTerrainDamage = false;
-		if (droppedByPlayer) {
-			doTerrainDamage = true;
-		} else if (droppedByHiredUnit || droppedTargetingPlayer) {
-			doTerrainDamage = GOT.canGrief(worldObj);
-		}
+		boolean doTerrainDamage = droppedByPlayer || GOT.canGrief(worldObj);
 		int meta = getBombStrengthLevel();
 		int strength = GOTBlockBomb.getBombStrengthLevel(meta);
 		boolean fire = GOTBlockBomb.isFireBomb(meta);
