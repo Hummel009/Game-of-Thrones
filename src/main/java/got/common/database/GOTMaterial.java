@@ -149,6 +149,9 @@ public class GOTMaterial {
 		BRONZE_CHAINMAIL.customCraftingMaterial = GOTItems.bronzeIngot;
 		VALYRIAN.customCraftingMaterial = GOTItems.valyrianIngot;
 		VALYRIAN_CHAINMAIL.customCraftingMaterial = GOTItems.valyrianIngot;
+		GOLD_CHAINMAIL.customCraftingMaterial = Items.gold_ingot;
+		COPPER.customCraftingMaterial = GOTItems.copperIngot;
+		COPPER_CHAINMAIL.customCraftingMaterial = GOTItems.copperIngot;
 
 		DOTHRAKI.customCraftingMaterial = Item.getItemFromBlock(GOTBlocks.driedReeds);
 
@@ -166,6 +169,7 @@ public class GOTMaterial {
 		ICE_TOOL.setRepairItem(new ItemStack(GOTItems.iceShard));
 		OBSIDIAN_TOOL.setRepairItem(new ItemStack(GOTItems.obsidianShard));
 		VALYRIAN_TOOL.setRepairItem(new ItemStack(GOTItems.valyrianIngot));
+		COPPER_TOOL.setRepairItem(new ItemStack(GOTItems.copperIngot));
 
 		SAPPHIRE.setRepairItem(new ItemStack(GOTItems.sapphire));
 		RUBY.setRepairItem(new ItemStack(GOTItems.ruby));

@@ -7,6 +7,7 @@ CHANGELOG
 * Improved 2 legendary sword textures
 * Improved capes', banners' & shields' textures
 
+* Fixed bug with not repairable golden, wooden and copper items
 * Fixed too good stats of yi ti bombardier
 * Fixed crash related to Summer Islands levymans
 * Fixed bug with traders' potion ids

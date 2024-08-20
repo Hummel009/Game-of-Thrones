@@ -235,31 +235,44 @@ public class GOTContainerAnvil extends Container {
 
 	private float getTraderMaterialPrice(ItemStack inputItem) {
 		float materialPrice = 0.0f;
-		GOTTradeEntry[] sellTrades = theNPC.getTraderInfo().getSellTrades();
-		if (sellTrades != null) {
-			for (GOTTradeEntry trade : sellTrades) {
-				ItemStack tradeItem = trade.createTradeItem();
-				if (!isRepairMaterial(inputItem, tradeItem)) {
-					continue;
-				}
+		GOTTradeEntries sellsPool = theTrader.getSellsPool();
+		for (GOTTradeEntry trade : sellsPool.getTradeEntries()) {
+			ItemStack tradeItem = trade.createTradeItem();
+			if (isRepairMaterial(inputItem, tradeItem)) {
 				materialPrice = (float) trade.getCost() / trade.createTradeItem().stackSize;
 				break;
 			}
 		}
+
 		if (materialPrice <= 0.0f) {
-			GOTTradeEntries sellPool = theTrader.getBuysPool();
-			for (GOTTradeEntry trade : sellPool.getTradeEntries()) {
+			GOTTradeEntries buysPool = theTrader.getBuysPool();
+			for (GOTTradeEntry trade : buysPool.getTradeEntries()) {
 				ItemStack tradeItem = trade.createTradeItem();
-				if (!isRepairMaterial(inputItem, tradeItem)) {
-					continue;
+				if (isRepairMaterial(inputItem, tradeItem)) {
+					materialPrice = (float) trade.getCost() / trade.createTradeItem().stackSize;
+					break;
 				}
-				materialPrice = (float) trade.getCost() / trade.createTradeItem().stackSize;
-				break;
 			}
 		}
-		if (materialPrice <= 0.0f && isRepairMaterial(inputItem, new ItemStack(GOTItems.valyrianIngot)) && theTrader instanceof GOTEntityQohorBlacksmith) {
-			return 200.0f;
+
+		if (materialPrice <= 0.0f) {
+			if (isRepairMaterial(inputItem, new ItemStack(GOTItems.valyrianIngot)) && theTrader instanceof GOTEntityQohorBlacksmith) {
+				return GOTTradeEntries.VALYRIAN_INGOT;
+			}
+			if (isRepairMaterial(inputItem, new ItemStack(Items.gold_ingot))) {
+				return GOTTradeEntries.GOLD_INGOT;
+			}
+			if (isRepairMaterial(inputItem, new ItemStack(GOTItems.obsidianShard))) {
+				return 3.0f;
+			}
+			if (isRepairMaterial(inputItem, new ItemStack(Blocks.cobblestone))) {
+				return 2.0f;
+			}
+			if (isRepairMaterial(inputItem, new ItemStack(Blocks.planks))) {
+				return 1.0f;
+			}
 		}
+
 		return materialPrice;
 	}
 

@@ -63,8 +63,9 @@ public class GOTTradeEntries {
 	public static final GOTTradeEntries EMPTY_BUYS = new GOTTradeEntries(TradeType.BUYS, Collections.emptyList());
 
 	/* Зарегулированные пропорциональные цены */
-	private static final int VALYRIAN_INGOT = 512;
-	private static final int GOLD_INGOT = 128;
+	public static final int VALYRIAN_INGOT = 512;
+	public static final int GOLD_INGOT = 128;
+
 	private static final int SILVER_INGOT = 32;
 	private static final int DIAMOND = 128;
 	private static final int EMERALD = 96;
