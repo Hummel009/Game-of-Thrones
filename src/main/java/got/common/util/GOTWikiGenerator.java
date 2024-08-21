@@ -79,7 +79,7 @@ public class GOTWikiGenerator {
 	private static final Iterable<Item> ITEMS = new ArrayList<>(GOTItems.CONTENT);
 	private static final Iterable<GOTUnitTradeEntries> UNIT_TRADE_ENTRIES = new ArrayList<>(GOTUnitTradeEntries.CONTENT);
 	private static final Iterable<Class<? extends Entity>> ENTITY_CLASSES = new HashSet<>(GOTEntityRegistry.CONTENT);
-	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
+	private static final Iterable<GOTAchievement> ACHIEVEMENTS = new ArrayList<>(GOTAchievement.CONTENT);
 
 	private static final Collection<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
 
@@ -178,7 +178,6 @@ public class GOTWikiGenerator {
 
 				tableGens.add(GOTWikiGenerator::genTableShields);
 				tableGens.add(GOTWikiGenerator::genTableCapes);
-				tableGens.add(GOTWikiGenerator::genTableUnits);
 				tableGens.add(GOTWikiGenerator::genTableArmor);
 				tableGens.add(GOTWikiGenerator::genTableWeapons);
 				tableGens.add(GOTWikiGenerator::genTableFood);
@@ -331,7 +330,7 @@ public class GOTWikiGenerator {
 
 	@SuppressWarnings("StringBufferReplaceableByString")
 	private static void genTableAchievements(EntityPlayer entityPlayer) {
-		Collection<String> data = new TreeSet<>();
+		Collection<String> data = new ArrayList<>();
 
 		for (GOTAchievement achievement : ACHIEVEMENTS) {
 			if (!(achievement instanceof GOTAchievementRank)) {
@@ -360,7 +359,7 @@ public class GOTWikiGenerator {
 	}
 
 	private static void genTableArmor() {
-		Collection<String> data = new TreeSet<>();
+		Collection<String> data = new ArrayList<>();
 
 		for (Item item : ITEMS) {
 			if (item instanceof ItemArmor) {
@@ -403,7 +402,7 @@ public class GOTWikiGenerator {
 
 	@SuppressWarnings("StringBufferReplaceableByString")
 	private static void genTableCapes() {
-		Collection<String> data = new TreeSet<>();
+		Collection<String> data = new ArrayList<>();
 
 		for (GOTCapes cape : CAPES) {
 			StringBuilder sb = new StringBuilder();
@@ -470,7 +469,7 @@ public class GOTWikiGenerator {
 
 	@SuppressWarnings("StringBufferReplaceableByString")
 	private static void genTableShields() {
-		Collection<String> data = new TreeSet<>();
+		Collection<String> data = new ArrayList<>();
 
 		for (GOTShields shield : SHIELDS) {
 			StringBuilder sb = new StringBuilder();
@@ -491,54 +490,6 @@ public class GOTWikiGenerator {
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/shields.txt", UTF_8)) {
-			printWriter.write(sb.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	private static void genTableUnits() {
-		Collection<String> data = new TreeSet<>();
-
-		for (GOTUnitTradeEntries unitTradeEntries : UNIT_TRADE_ENTRIES) {
-			for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
-				StringBuilder sb = new StringBuilder();
-
-				sb.append(NL).append("| ");
-				sb.append(getEntityLink(entry.getEntityClass()));
-
-				if (entry.getMountClass() != null) {
-					sb.append(Lang.RIDER);
-				}
-
-				int cost = entry.getInitialCost();
-				int alignment = (int) entry.getAlignmentRequired();
-
-				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					sb.append(" || ").append("{{Coins|").append(cost * 2).append("}}");
-					sb.append(" || ").append("{{Coins|").append(cost).append("}}");
-					sb.append(" || ").append('+').append(alignment);
-					sb.append(" || ").append('-');
-				} else {
-					sb.append(" || ").append(N_A);
-					sb.append(" || ").append("{{Coins|").append(cost).append("}}");
-					sb.append(" || ").append('+').append(Math.max(alignment, 100));
-					sb.append(" || ").append('+');
-				}
-
-				sb.append(NL).append("|-");
-
-				data.add(sb.toString());
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		for (String datum : data) {
-			sb.append(datum);
-		}
-
-		try (PrintWriter printWriter = new PrintWriter("hummel/units.txt", UTF_8)) {
 			printWriter.write(sb.toString());
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -689,7 +689,6 @@ public class GOTItems {
 	}
 
 	private static void assignContent() {
-		aleHorn = new GOTItemVessel();
 		aleHornGold = new GOTItemVessel();
 		alloySteelAxe = new GOTItemAxe(GOTMaterial.ALLOY_STEEL_TOOL);
 		alloySteelBattleaxe = new GOTItemBattleaxe(GOTMaterial.ALLOY_STEEL_TOOL);
@@ -724,6 +723,7 @@ public class GOTItems {
 		anonymousMask = new GOTItemArmor(GOTMaterial.ANONYMOUS, 0).setCreativeTab(null);
 		appleCrumble = new GOTItemPlaceableFood(GOTBlocks.appleCrumble);
 		appleGreen = new GOTItemFood(4, 0.3f, false);
+		ardrianCeltigarAxe = new GOTItemLegendaryBattleaxe(GOTMaterial.VALYRIAN_TOOL);
 		armorStand = new GOTItemArmorStand();
 		arrowFire = new GOTItemArrowFire();
 		arrowPoisoned = new GOTItemArrowPoisoned();
@@ -742,8 +742,6 @@ public class GOTItems {
 		asshaiLeggings = new GOTItemArmor(GOTMaterial.ASSHAI, 2);
 		asshaiMask = new GOTItemArmor(GOTMaterial.ASSHAI, 0, "mask");
 		asshaiShadowbinderStaff = new GOTItemAsshaiShadowbinderStaff();
-		petyrBaelishBrooch = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "brooch_petyr_baelish").setCreativeTab(GOTCreativeTabs.TAB_STORY);
-		petyrBaelishDagger = new GOTItemLegendaryDagger(GOTMaterial.VALYRIAN_TOOL);
 		banana = new GOTItemHangingFruit(2, 0.5f, false, GOTBlocks.banana);
 		bananaBread = new GOTItemFood(5, 0.6f, false);
 		bananaCake = new GOTItemPlaceableFood(GOTBlocks.bananaCake);
@@ -804,7 +802,6 @@ public class GOTItems {
 		camelCooked = new GOTItemFood(6, 0.6f, true);
 		camelRaw = new GOTItemFood(2, 0.2f, true);
 		cargocart = new GOTItemCargocart();
-		ardrianCeltigarAxe = new GOTItemLegendaryBattleaxe(GOTMaterial.VALYRIAN_TOOL);
 		ceramicMug = new GOTItemVessel();
 		ceramicPlate = new GOTItemPlate(GOTBlocks.ceramicPlate);
 		cherry = new GOTItemFood(2, 0.2f, false);
@@ -897,7 +894,6 @@ public class GOTItems {
 		flaxSeeds = new GOTItemSeeds(GOTBlocks.flaxCrop, Blocks.farmland);
 		fur = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		furBed = new GOTItemBed(GOTBlocks.furBed);
-		lionFurBed = new GOTItemBed(GOTBlocks.lionFurBed);
 		furBoots = new GOTItemArmor(GOTMaterial.FUR, 3);
 		furChestplate = new GOTItemArmor(GOTMaterial.FUR, 1);
 		furHelmet = new GOTItemArmor(GOTMaterial.FUR, 0);
@@ -921,12 +917,12 @@ public class GOTItems {
 		giftLeggings = new GOTItemArmor(GOTMaterial.GIFT, 2);
 		gingerbread = new GOTItemFood(8, 1.0f, false);
 		giraffeRug = new GOTItemGiraffeRug();
-		gobletWood = new GOTItemVessel();
-		gobletCopper = new GOTItemVessel();
 		gobletBronze = new GOTItemVessel();
-		gobletSilver = new GOTItemVessel();
+		gobletCopper = new GOTItemVessel();
 		gobletGold = new GOTItemVessel();
+		gobletSilver = new GOTItemVessel();
 		gobletValyrian = new GOTItemVessel();
+		gobletWood = new GOTItemVessel();
 		goldBattleaxe = new GOTItemBattleaxe(Item.ToolMaterial.GOLD);
 		goldChainmailBoots = new GOTItemArmor(GOTMaterial.GOLD_CHAINMAIL, 3).setCreativeTab(CreativeTabs.tabCombat);
 		goldChainmailChestplate = new GOTItemArmor(GOTMaterial.GOLD_CHAINMAIL, 1).setCreativeTab(CreativeTabs.tabCombat);
@@ -1007,7 +1003,6 @@ public class GOTItems {
 		kingsguardLeggings = new GOTItemArmor(GOTMaterial.KINGSGUARD, 2);
 		ladyForlorn = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		lamentation = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
-		tyrionLannisterBrooch = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "brooch_tyrion_lannister").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		leatherHat = new GOTItemLeatherHat();
 		leek = new ItemSeedFood(2, 0.3f, GOTBlocks.leekCrop, Blocks.farmland).setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		leekSoup = new GOTItemStew(8, 0.8f, false);
@@ -1025,6 +1020,7 @@ public class GOTItems {
 		lionChestplate = new GOTItemArmor(GOTMaterial.LION, 1);
 		lionCooked = new GOTItemFood(8, 0.8f, true);
 		lionFur = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		lionFurBed = new GOTItemBed(GOTBlocks.lionFurBed);
 		lionHelmet = new GOTItemArmor(GOTMaterial.LION, 0, "helmet");
 		lionLeggings = new GOTItemArmor(GOTMaterial.LION, 2);
 		lionRaw = new GOTItemFood(3, 0.3f, true);
@@ -1044,6 +1040,7 @@ public class GOTItems {
 		marzipan = new GOTItemFood(6, 0.6f, false);
 		marzipanChocolate = new GOTItemFood(8, 0.8f, false);
 		melonSoup = new GOTItemStew(5, 0.5f, false);
+		monfordVelaryonBrooch = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "brooch_monford_velaryon").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		mossovyBoots = new GOTItemArmor(GOTMaterial.MOSSOVY, 3);
 		mossovyChestplate = new GOTItemArmor(GOTMaterial.MOSSOVY, 1);
 		mossovyLeggings = new GOTItemArmor(GOTMaterial.MOSSOVY, 2);
@@ -1150,6 +1147,8 @@ public class GOTItems {
 		pentosChestplate = new GOTItemArmor(GOTMaterial.PENTOS, 1);
 		pentosHelmet = new GOTItemArmor(GOTMaterial.PENTOS, 0);
 		pentosLeggings = new GOTItemArmor(GOTMaterial.PENTOS, 2);
+		petyrBaelishBrooch = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "brooch_petyr_baelish").setCreativeTab(GOTCreativeTabs.TAB_STORY);
+		petyrBaelishDagger = new GOTItemLegendaryDagger(GOTMaterial.VALYRIAN_TOOL);
 		pipe = new GOTItemPipe();
 		pipeweed = new Item().setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		pipeweedLeaf = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
@@ -1204,8 +1203,8 @@ public class GOTItems {
 		salt = new GOTItemSalt();
 		saltedFlesh = new GOTItemFood(6, 0.6f, true);
 		saltpeter = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		sandorCleganeSword = new GOTItemLegendaryLongsword(Item.ToolMaterial.IRON);
 		sandorCleganeHelmet = new GOTItemArmor(GOTMaterial.SPECIAL, 0, "helmet_sandor_clegane").setCreativeTab(GOTCreativeTabs.TAB_STORY);
+		sandorCleganeSword = new GOTItemLegendaryLongsword(Item.ToolMaterial.IRON);
 		sapphire = new GOTItemGemWithAnvilNameColor(EnumChatFormatting.BLUE);
 		sarbacane = new GOTItemSarbacane(Item.ToolMaterial.WOOD);
 		seedsGrapeRed = new GOTItemGrapeSeeds(GOTBlocks.grapevineRed);
@@ -1259,6 +1258,7 @@ public class GOTItems {
 		truth = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		turnip = new ItemSeedFood(2, 0.3f, GOTBlocks.turnipCrop, Blocks.farmland).setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		turnipCooked = new GOTItemFood(6, 0.6f, false);
+		tyrionLannisterBrooch = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "brooch_tyrion_lannister").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		tyroshBoots = new GOTItemArmor(GOTMaterial.TYROSH, 3);
 		tyroshChestplate = new GOTItemArmor(GOTMaterial.TYROSH, 1);
 		tyroshHelmet = new GOTItemArmor(GOTMaterial.TYROSH, 0);
@@ -1296,7 +1296,6 @@ public class GOTItems {
 		valyrianSpear = new GOTItemSpear(GOTMaterial.VALYRIAN_TOOL);
 		valyrianSword = new GOTItemSword(GOTMaterial.VALYRIAN_TOOL);
 		valyrianThrowingAxe = new GOTItemThrowingAxe(GOTMaterial.VALYRIAN_TOOL);
-		monfordVelaryonBrooch = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "brooch_monford_velaryon").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		vigilance = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		volantisBoots = new GOTItemArmor(GOTMaterial.VOLANTIS, 3);
 		volantisChestplate = new GOTItemArmor(GOTMaterial.VOLANTIS, 1);
@@ -1334,21 +1333,22 @@ public class GOTItems {
 		woodThrowingAxe = new GOTItemThrowingAxe(Item.ToolMaterial.WOOD);
 		yam = new ItemSeedFood(1, 0.4f, GOTBlocks.yamCrop, Blocks.farmland).setPotionEffect(Potion.hunger.id, 15, 0, 0.4f);
 		yamRoast = new GOTItemFood(6, 0.6f, false);
-		yiTiBoots = new GOTItemArmor(GOTMaterial.YI_TI, 3);
 		yiTiBombardierBoots = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 3);
-		yiTiSamuraiBoots = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 3);
-		yiTiChestplate = new GOTItemArmor(GOTMaterial.YI_TI, 1);
 		yiTiBombardierChestplate = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 1);
-		yiTiSamuraiChestplate = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 1);
-		yiTiHelmet = new GOTItemArmor(GOTMaterial.YI_TI, 0);
 		yiTiBombardierHelmet = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 0);
-		yiTiHelmetCaptain = new GOTItemArmor(GOTMaterial.YI_TI, 0, "helmet_captain");
-		yiTiSamuraiHelmet = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "helmet");
-		yiTiLeggings = new GOTItemArmor(GOTMaterial.YI_TI, 2);
 		yiTiBombardierLeggings = new GOTItemArmor(GOTMaterial.YI_TI_BOMBARDIER, 2);
+		yiTiBoots = new GOTItemArmor(GOTMaterial.YI_TI, 3);
+		yiTiChestplate = new GOTItemArmor(GOTMaterial.YI_TI, 1);
+		yiTiHelmet = new GOTItemArmor(GOTMaterial.YI_TI, 0);
+		yiTiHelmetCaptain = new GOTItemArmor(GOTMaterial.YI_TI, 0, "helmet_captain");
+		yiTiLeggings = new GOTItemArmor(GOTMaterial.YI_TI, 2);
+		yiTiSamuraiBoots = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 3);
+		yiTiSamuraiChestplate = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 1);
+		yiTiSamuraiHelmet = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 0, "helmet");
 		yiTiSamuraiLeggings = new GOTItemArmor(GOTMaterial.YI_TI_SAMURAI, 2);
 		zebraCooked = new GOTItemFood(6, 0.6f, true);
 		zebraRaw = new GOTItemFood(2, 0.1f, true);
+		aleHorn = new GOTItemVessel();
 	}
 
 	public static void preInit() {
