@@ -5,7 +5,7 @@ import got.common.database.GOTCreativeTabs;
 public class GOTItemLegendaryCrossbow extends GOTItemCrossbow {
 	public GOTItemLegendaryCrossbow() {
 		super(ToolMaterial.WOOD);
-		setMaxDamage(1500);
+		setMaxDamage((int) (getMaxDamage() * 1.1f));
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 }

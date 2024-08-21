@@ -27,6 +27,7 @@ import got.common.entity.westeros.legendary.warrior.*;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRank;
 import got.common.item.other.GOTItemBanner;
+import got.common.item.weapon.GOTItemSword;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.GOTBiomeDecorator;
 import got.common.world.biome.GOTClimateType;
@@ -525,13 +526,21 @@ public class GOTWikiGenerator {
 	}
 
 	private static void genTableWeapons() {
-		Collection<String> data = new TreeSet<>();
+		Collection<String> data = new ArrayList<>();
 
 		for (Item item : ITEMS) {
 			if (item instanceof ItemSword) {
 				StringBuilder sb = new StringBuilder();
 
-				float damage = GOTReflection.getDamageAmount(item);
+				float damage;
+
+				if (item instanceof GOTItemSword) {
+					GOTItemSword gotItemSword = (GOTItemSword) item;
+					damage = gotItemSword.getGotWeaponDamage();
+				} else {
+					damage = GOTReflection.getDamageAmount(item);
+				}
+
 				Item.ToolMaterial material = GOTReflection.getToolMaterial(item);
 
 				sb.append(NL).append("| ");
@@ -3173,7 +3182,7 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getSettlementName(Class<? extends GOTStructureBaseSettlement> clazz) {
-		return StatCollector.translateToLocal("got.structure." + clazz.getSimpleName().replace("GOT", "") + ".name");
+		return StatCollector.translateToLocal("got.db." + clazz.getSimpleName().replace("GOTStructure", "") + ".name");
 	}
 
 	private static String getTreePagename(GOTTreeType tree) {

@@ -6,8 +6,8 @@ import net.minecraft.item.Item;
 public class GOTItemLegendaryHammer extends GOTItemHammer {
 	public GOTItemLegendaryHammer(Item.ToolMaterial material) {
 		super(material);
-		setMaxDamage(1500);
-		gotWeaponDamage *= 1.5f;
+		setMaxDamage((int) (getMaxDamage() * 1.1f));
+		gotWeaponDamage *= 1.1f;
 		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 }

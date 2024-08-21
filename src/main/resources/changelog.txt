@@ -3,6 +3,7 @@ CHANGELOG
 >>BUILD 24.08.19
 * Improved wiki generator
 * Improved translations
+* Improved legendary weapon stats
 * Improved all bar and bar gate textures
 * Improved 2 legendary sword textures
 * Improved capes', banners' & shields' textures

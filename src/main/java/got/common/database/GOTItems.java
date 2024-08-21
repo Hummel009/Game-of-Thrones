@@ -751,9 +751,9 @@ public class GOTItems {
 		beaverCooked = new GOTItemFood(7, 0.4f, true);
 		beaverRaw = new GOTItemFood(2, 0.1f, true);
 		beaverTail = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		bericDondarrionSword = new GOTItemLegendarySword(Item.ToolMaterial.IRON, GOTItemSword.HitEffect.FIRE);
+		bericDondarrionSword = new GOTItemLegendarySword(GOTMaterial.ALLOY_STEEL_TOOL, GOTItemSword.HitEffect.FIRE);
 		berryPie = new GOTItemPlaceableFood(GOTBlocks.berryPie);
-		blackArakh = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
+		blackArakh = new GOTItemLegendarySword(GOTMaterial.ALLOY_STEEL_TOOL);
 		blackberry = new GOTItemBerry();
 		blackfyre = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		blacksmithHammer = new GOTItemHammer(Item.ToolMaterial.IRON);
@@ -864,7 +864,7 @@ public class GOTItems {
 		dart = new GOTItemDart();
 		dartPoisoned = new GOTItemDart().setPoisoned();
 		date = new GOTItemHangingFruit(2, 0.3f, false, GOTBlocks.date);
-		dawn = new GOTItemLegendarySword(Item.ToolMaterial.IRON).setIsGlowing();
+		dawn = new GOTItemLegendarySword(GOTMaterial.ALLOY_STEEL_TOOL).setIsGlowing();
 		deerCooked = new GOTItemFood(8, 0.8f, true);
 		deerRaw = new GOTItemFood(3, 0.3f, true);
 		diamond = new GOTItemGemWithAnvilNameColor(EnumChatFormatting.GRAY);
@@ -947,12 +947,12 @@ public class GOTItems {
 		goldenCompanyLeggings = new GOTItemArmor(GOTMaterial.GOLDEN_COMPANY, 2);
 		grapeRed = new GOTItemFood(2, 0.2f, false);
 		grapeWhite = new GOTItemFood(2, 0.2f, false);
-		gregorCleganeSword = new GOTItemLegendaryGreatsword(Item.ToolMaterial.IRON);
+		gregorCleganeSword = new GOTItemLegendaryGreatsword(GOTMaterial.ALLOY_STEEL_TOOL);
 		handGold = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "hand_gold").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		handSilver = new GOTItemArmor(GOTMaterial.SPECIAL, 1, "hand_silver").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		harpoon = new GOTItemSpear(Item.ToolMaterial.IRON);
 		harpy = new GOTItemArmor(GOTMaterial.GHISCAR, 0, "harpy");
-		hearteater = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
+		hearteater = new GOTItemLegendarySword(GOTMaterial.ALLOY_STEEL_TOOL);
 		heartsbane = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		hillmenBoots = new GOTItemArmor(GOTMaterial.HILLMEN, 3);
 		hillmenChestplate = new GOTItemArmor(GOTMaterial.HILLMEN, 1);
@@ -995,7 +995,7 @@ public class GOTItems {
 		jogosNhaiHelmet = new GOTItemArmor(GOTMaterial.JOGOS_NHAI, 0);
 		jogosNhaiLeggings = new GOTItemArmor(GOTMaterial.JOGOS_NHAI, 2);
 		justMaid = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
-		katana = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
+		katana = new GOTItemLegendarySword(GOTMaterial.ALLOY_STEEL_TOOL);
 		kebab = new GOTItemKebab(8, 0.8f, true);
 		kingsguardBoots = new GOTItemArmor(GOTMaterial.KINGSGUARD, 3);
 		kingsguardChestplate = new GOTItemArmor(GOTMaterial.KINGSGUARD, 1);
@@ -1101,7 +1101,7 @@ public class GOTItems {
 		myrHelmet = new GOTItemArmor(GOTMaterial.MYR, 0);
 		myrLeggings = new GOTItemArmor(GOTMaterial.MYR, 2);
 		mysteryWeb = new GOTItemMysteryWeb();
-		needle = new GOTItemLegendarySword(Item.ToolMaterial.IRON);
+		needle = new GOTItemLegendarySword(GOTMaterial.ALLOY_STEEL_TOOL);
 		nightKingSword = new GOTItemLegendarySword(GOTMaterial.ICE_TOOL);
 		nightfall = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		northBoots = new GOTItemArmor(GOTMaterial.NORTH, 3);
@@ -1192,7 +1192,7 @@ public class GOTItems {
 		riverlandsChestplate = new GOTItemArmor(GOTMaterial.RIVERLANDS, 1);
 		riverlandsHelmet = new GOTItemArmor(GOTMaterial.RIVERLANDS, 0);
 		riverlandsLeggings = new GOTItemArmor(GOTMaterial.RIVERLANDS, 2);
-		robertBaratheonHammer = new GOTItemLegendaryHammer(Item.ToolMaterial.IRON);
+		robertBaratheonHammer = new GOTItemLegendaryHammer(GOTMaterial.ALLOY_STEEL_TOOL);
 		robertBaratheonHelmet = new GOTItemArmor(GOTMaterial.SPECIAL, 0, "helmet_robert_baratheon").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		robesBoots = new GOTItemRobes(3);
 		robesChestplate = new GOTItemRobes(1);
@@ -1204,7 +1204,7 @@ public class GOTItems {
 		saltedFlesh = new GOTItemFood(6, 0.6f, true);
 		saltpeter = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		sandorCleganeHelmet = new GOTItemArmor(GOTMaterial.SPECIAL, 0, "helmet_sandor_clegane").setCreativeTab(GOTCreativeTabs.TAB_STORY);
-		sandorCleganeSword = new GOTItemLegendaryLongsword(Item.ToolMaterial.IRON);
+		sandorCleganeSword = new GOTItemLegendaryLongsword(GOTMaterial.ALLOY_STEEL_TOOL);
 		sapphire = new GOTItemGemWithAnvilNameColor(EnumChatFormatting.BLUE);
 		sarbacane = new GOTItemSarbacane(Item.ToolMaterial.WOOD);
 		seedsGrapeRed = new GOTItemGrapeSeeds(GOTBlocks.grapevineRed);
@@ -1245,7 +1245,7 @@ public class GOTItems {
 		summerChestplate = new GOTItemArmor(GOTMaterial.SUMMER, 1, "chestplate");
 		summerHelmet = new GOTItemArmor(GOTMaterial.SUMMER, 0);
 		summerLeggings = new GOTItemArmor(GOTMaterial.SUMMER, 2);
-		sunspear = new GOTItemLegendarySword(Item.ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
+		sunspear = new GOTItemLegendarySword(GOTMaterial.ALLOY_STEEL_TOOL, GOTItemSword.HitEffect.POISON);
 		targaryenBoots = new GOTItemArmor(GOTMaterial.TARGARYEN, 3).setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		targaryenChestplate = new GOTItemArmor(GOTMaterial.TARGARYEN, 1, "chestplate").setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		targaryenHelmet = new GOTItemArmor(GOTMaterial.TARGARYEN, 0, "helmet").setCreativeTab(GOTCreativeTabs.TAB_STORY);
