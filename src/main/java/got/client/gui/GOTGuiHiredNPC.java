@@ -41,12 +41,10 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 		s = theNPC.getEntityClassName();
 		fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 26, 3618615);
 		if (page == 0 && theNPC.getHireableInfo().hasHiringRequirements()) {
-			int x = guiLeft + 6;
 			int y = guiTop + 170;
 			s = StatCollector.translateToLocal("got.hiredNPC.commandReq");
-			fontRendererObj.drawString(s, x, y, 3618615);
+			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, y, 3618615);
 			y += fontRendererObj.FONT_HEIGHT;
-			x += 4;
 			int maxWidth = X_SIZE - 12 - 4;
 			GOTFaction fac = theNPC.getFaction();
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.getHireableInfo().getAlignmentRequiredToCommand());
@@ -58,7 +56,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 				requirementLines.addAll(fontRendererObj.listFormattedStringToWidth(pledgeReq, maxWidth));
 			}
 			for (String obj : requirementLines) {
-				fontRendererObj.drawString(obj, x, y, 3618615);
+				fontRendererObj.drawString(obj, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(obj) / 2, y, 3618615);
 				y += fontRendererObj.FONT_HEIGHT;
 			}
 		}
