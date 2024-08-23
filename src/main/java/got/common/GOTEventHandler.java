@@ -20,14 +20,15 @@ import got.common.database.*;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.enchant.GOTEnchantmentWeaponSpecial;
-import got.common.entity.animal.GOTEntityJungleScorpion;
 import got.common.entity.animal.GOTEntityZebra;
 import got.common.entity.dragon.GOTDragonLifeStage;
 import got.common.entity.dragon.GOTEntityDragon;
-import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
 import got.common.entity.essos.yi_ti.GOTEntityYiTiBombardier;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityMarshWraith;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityProstitute;
 import got.common.entity.other.iface.*;
 import got.common.entity.other.inanimate.*;
 import got.common.entity.other.utils.GOTPlateFallingInfo;
@@ -53,7 +54,6 @@ import got.common.world.GOTWorldType;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeGhiscarMeereen;
 import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
-import got.common.world.biome.essos.GOTBiomeShadowLand;
 import got.common.world.biome.essos.GOTBiomeValyria;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosHell;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
@@ -1190,64 +1190,42 @@ public class GOTEventHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && inWater && entity.ridingEntity == null && entity.ticksExisted % 10 == 0) {
-			boolean flag = entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase;
-			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
-				flag = false;
-			}
-			if (entity instanceof GOTEntityAsshaiMan || entity instanceof GOTEntityJungleScorpion || entity instanceof GOTEntityStoneMan) {
-				flag = false;
-			}
-			if (flag) {
+			boolean ignorePlayers = entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode;
+			boolean notIgnore = !ignorePlayers;
+
+			if (notIgnore) {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
-				if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeYeen) {
-					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
-					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
-				} else if (biome instanceof GOTBiomeValyria) {
+				if (biome instanceof GOTBiomeValyria) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
 					entity.addPotionEffect(new PotionEffect(Potion.wither.id, 600));
 				}
 			}
 		}
-		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 10 == 0) {
-			boolean flag = entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase;
-			if (entity instanceof EntityPlayer) {
-				EntityPlayer entityplayer = (EntityPlayer) entity;
-				if (entityplayer.capabilities.isCreativeMode) {
-					flag = false;
-				} else {
-					float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.SOTHORYOS);
-					if (alignment > 50.0F) {
-						flag = false;
-					}
-				}
-			}
-			if (GOT.getNPCFaction(entity).isGoodRelation(GOTFaction.SOTHORYOS)) {
-				flag = false;
-			}
-			if (flag) {
+		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
+			boolean ignorePlayers = entity instanceof EntityPlayer && (((EntityPlayer) entity).capabilities.isCreativeMode || GOTLevelData.getData((EntityPlayer) entity).getAlignment(GOTFaction.SOTHORYOS) >= 10.0F);
+			boolean ignoreMobs = entity instanceof GOTEntityHumanBase && ((GOTEntityNPC) entity).getFaction().isGoodRelation(GOTFaction.SOTHORYOS);
+			boolean notIgnore = (entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase) && !(ignorePlayers || ignoreMobs);
+
+			if (notIgnore) {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 				if (biome instanceof GOTBiomeSothoryosHell || biome instanceof GOTBiomeYeen) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
-					entity.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
 					entity.addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 				}
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendary() || entity instanceof GOTBiome.ImmuneToFrost;
-			boolean flag = !simplifySyntax;
+			boolean ignorePlayers = entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode;
+			boolean ignoreMobs = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendary() || entity instanceof GOTBiome.ImmuneToFrost;
+			boolean notIgnore = !(ignorePlayers || ignoreMobs);
 
-			if (entity instanceof EntityPlayer) {
-				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
-			}
-
-			if (flag) {
+			if (notIgnore) {
 				int i = MathHelper.floor_double(entity.posX);
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);
@@ -1283,14 +1261,11 @@ public class GOTEventHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean simplifySyntax = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendary() || entity instanceof GOTBiome.ImmuneToHeat || entity.isImmuneToFire();
-			boolean flag = !simplifySyntax;
+			boolean ignorePlayers = entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode;
+			boolean ignoreMobs = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isLegendary() || entity instanceof GOTBiome.ImmuneToHeat || entity.isImmuneToFire();
+			boolean notIgnore = !(ignorePlayers || ignoreMobs);
 
-			if (entity instanceof EntityPlayer) {
-				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
-			}
-
-			if (flag) {
+			if (notIgnore) {
 				int i = MathHelper.floor_double(entity.posX);
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);

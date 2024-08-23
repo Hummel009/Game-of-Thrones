@@ -1416,8 +1416,8 @@ public class GOTBlocks {
 		register(stairsSandstoneBrickRedCracked, "stairsSandstoneBrickRedCracked");
 		register(stairsSothoryosBrick, "stairsSothoryosBrick");
 		register(stairsSothoryosBrickCracked, "stairsSothoryosBrickCracked");
-		register(stairsSothoryosBrickGold, "stairsSothoryosBrickGold");
 		register(stairsSothoryosBrickMossy, "stairsSothoryosBrickMossy");
+		register(stairsSothoryosBrickGold, "stairsSothoryosBrickGold");
 		register(stairsSothoryosBrickObsidian, "stairsSothoryosBrickObsidian");
 		register(stairsYiTiBrick, "stairsYiTiBrick");
 		register(stairsYiTiBrickCracked, "stairsYiTiBrickCracked");
