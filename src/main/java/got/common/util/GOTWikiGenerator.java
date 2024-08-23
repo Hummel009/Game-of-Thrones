@@ -290,6 +290,7 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityNPC);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityOwners);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableAnimal);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityRideableNPC);
@@ -1764,6 +1765,34 @@ public class GOTWikiGenerator {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Mercenary");
+		sb.append(BEGIN);
+
+		appendDefault(sb, FALSE);
+
+		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
+			sb.append(NL).append("| ");
+			sb.append(getEntityPagename(entry.getKey())).append(" = ");
+
+			appendSection(sb, entry.getValue());
+		}
+
+		sb.append(END);
+
+		return sb;
+	}
+
+	private static StringBuilder genTemplateEntityNPC() {
+		Map<Class<? extends Entity>, String> data = new HashMap<>();
+
+		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
+			if (entityEntry.getValue() instanceof GOTEntityNPC) {
+				data.put(entityEntry.getKey(), TRUE);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-NPC");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
