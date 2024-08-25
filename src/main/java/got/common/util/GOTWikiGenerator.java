@@ -184,7 +184,6 @@ public class GOTWikiGenerator {
 				tableGens.add(GOTWikiGenerator::genTableWeapons);
 				tableGens.add(GOTWikiGenerator::genTableFood);
 				tableGens.add(() -> genTableAchievements(entityPlayer));
-				tableGens.add(() -> genTableWaypoints(entityPlayer));
 
 				tableGens.parallelStream().forEach(Runnable::run);
 
@@ -499,34 +498,6 @@ public class GOTWikiGenerator {
 		}
 
 		try (PrintWriter printWriter = new PrintWriter("hummel/shields.txt", UTF_8)) {
-			printWriter.write(sb.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("StringBufferReplaceableByString")
-	private static void genTableWaypoints(EntityPlayer entityPlayer) {
-		Collection<String> data = new TreeSet<>();
-
-		for (GOTWaypoint wp : WAYPOINTS) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.append(NL).append("| ");
-			sb.append(wp.getDisplayName());
-			sb.append(" || ").append(wp.getLoreText(entityPlayer));
-			sb.append(NL).append("|-");
-
-			data.add(sb.toString());
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		for (String datum : data) {
-			sb.append(datum);
-		}
-
-		try (PrintWriter printWriter = new PrintWriter("hummel/waypoints.txt", UTF_8)) {
 			printWriter.write(sb.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -1965,11 +1936,11 @@ public class GOTWikiGenerator {
 					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
 						sb.append("{{Bar Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
 						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append('+').append(alignment).append(' ').append(Lang.REPUTATION);
+						sb.append(alignment).append(' ').append(Lang.REPUTATION);
 					} else {
 						sb.append("N/A ").append(Lang.NO_PLEDGE).append(", ");
 						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append('+').append(Math.max(alignment, 100)).append(' ').append(Lang.REPUTATION);
+						sb.append(Math.max(alignment, 100)).append(' ').append(Lang.REPUTATION);
 					}
 
 					data.computeIfAbsent(entityEntry.getKey(), s -> new ArrayList<>());
