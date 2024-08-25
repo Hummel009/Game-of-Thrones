@@ -1470,9 +1470,9 @@ public class GOTWikiGenerator {
 				int alignment = (int) entry.getAlignmentRequired();
 
 				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					data.put(entry.getEntityClass(), "+" + alignment);
+					data.put(entry.getEntityClass(), String.valueOf(alignment));
 				} else {
-					data.put(entry.getEntityClass(), "+" + Math.max(alignment, 100));
+					data.put(entry.getEntityClass(), String.valueOf(Math.max(alignment, 100)));
 				}
 			}
 		}
@@ -1676,7 +1676,7 @@ public class GOTWikiGenerator {
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
-				data.put(entityEntry.getKey(), "+" + (int) npc.getAlignmentBonus());
+				data.put(entityEntry.getKey(), String.valueOf((int) npc.getAlignmentBonus()));
 			}
 		}
 
@@ -2482,7 +2482,7 @@ public class GOTWikiGenerator {
 					sb.append('/').append(femRank);
 				}
 
-				sb.append(" (+").append((int) faction.getPledgeAlignment()).append(')');
+				sb.append(" (").append((int) faction.getPledgeAlignment()).append(')');
 
 				data.put(faction, sb.toString());
 			}
@@ -2521,7 +2521,7 @@ public class GOTWikiGenerator {
 					sb.append('/').append(femRank);
 				}
 
-				sb.append(" (+").append((int) rank.getAlignment()).append(')');
+				sb.append(" (").append((int) rank.getAlignment()).append(')');
 
 				data.computeIfAbsent(faction, s -> new ArrayList<>());
 				data.get(faction).add(sb.toString());
