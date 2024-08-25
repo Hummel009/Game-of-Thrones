@@ -63,6 +63,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -363,6 +364,10 @@ public class GOTWikiGenerator {
 	private static void genTableArmor() {
 		Collection<String> data = new ArrayList<>();
 
+		DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+		symbols.setDecimalSeparator('.');
+		DecimalFormat decimalFormat = new DecimalFormat("#.#", symbols);
+
 		for (Item item : ITEMS) {
 			if (item instanceof ItemArmor) {
 				StringBuilder sb = new StringBuilder();
@@ -373,8 +378,8 @@ public class GOTWikiGenerator {
 				sb.append(NL).append("| ");
 				sb.append(getItemName(item));
 				sb.append(" || ").append(getItemFilename(item));
-				sb.append(" || ").append(item.getMaxDamage());
-				sb.append(" || ").append(damage);
+				sb.append(" || ").append(decimalFormat.format(item.getMaxDamage()));
+				sb.append(" || ").append("{{Bar Armor|").append(decimalFormat.format(damage)).append("}}");
 
 				sb.append(" || ");
 				if (material == null || material.customCraftingMaterial == null) {
@@ -435,7 +440,9 @@ public class GOTWikiGenerator {
 	private static void genTableFood() {
 		Collection<String> data = new TreeSet<>();
 
-		DecimalFormat decimalFormat = new DecimalFormat("#.##");
+		DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+		symbols.setDecimalSeparator('.');
+		DecimalFormat decimalFormat = new DecimalFormat("#.#", symbols);
 
 		for (Item item : ITEMS) {
 			if (item instanceof ItemFood) {
@@ -447,9 +454,9 @@ public class GOTWikiGenerator {
 				sb.append(NL).append("| ");
 				sb.append(getItemName(item));
 				sb.append(" || ").append(getItemFilename(item));
-				sb.append(" || ").append("{{Bar|bread|").append(decimalFormat.format(saturation * heal * 2)).append("}}");
-				sb.append(" || ").append("{{Bar|food|").append(heal).append("}}");
-				sb.append(" || ").append(item.getItemStackLimit());
+				sb.append(" || ").append("{{Bar Bread|").append(decimalFormat.format(saturation * heal * 2)).append("}}");
+				sb.append(" || ").append("{{Bar Food|").append(decimalFormat.format(heal)).append("}}");
+				sb.append(" || ").append(decimalFormat.format(item.getItemStackLimit()));
 				sb.append(NL).append("|-");
 
 				data.add(sb.toString());
@@ -529,6 +536,10 @@ public class GOTWikiGenerator {
 	private static void genTableWeapons() {
 		Collection<String> data = new ArrayList<>();
 
+		DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+		symbols.setDecimalSeparator('.');
+		DecimalFormat decimalFormat = new DecimalFormat("#.#", symbols);
+
 		for (Item item : ITEMS) {
 			if (item instanceof ItemSword) {
 				StringBuilder sb = new StringBuilder();
@@ -547,8 +558,8 @@ public class GOTWikiGenerator {
 				sb.append(NL).append("| ");
 				sb.append(getItemName(item));
 				sb.append(" || ").append(getItemFilename(item));
-				sb.append(" || ").append(item.getMaxDamage());
-				sb.append(" || ").append(damage);
+				sb.append(" || ").append(decimalFormat.format(item.getMaxDamage()));
+				sb.append(" || ").append("{{Bar Hearts|").append(decimalFormat.format(damage)).append("}}");
 
 				sb.append(" || ");
 				if (material == null || material.getRepairItemStack() == null) {
@@ -1290,7 +1301,7 @@ public class GOTWikiGenerator {
 
 				for (GOTTradeEntry entry : tradeable.getBuysPool().getTradeEntries()) {
 					data.computeIfAbsent(entityEntry.getKey(), s -> new TreeSet<>());
-					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}}");
+					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Bar Coins|" + entry.getCost() + "}}");
 				}
 			}
 		}
@@ -1491,7 +1502,7 @@ public class GOTWikiGenerator {
 				int cost = entry.getInitialCost();
 
 				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					data.put(entry.getEntityClass(), "{{Coins|" + cost * 2 + "}}");
+					data.put(entry.getEntityClass(), "{{Bar Coins|" + cost * 2 + "}}");
 				} else {
 					data.put(entry.getEntityClass(), N_A);
 				}
@@ -1522,7 +1533,7 @@ public class GOTWikiGenerator {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 				int cost = entry.getInitialCost();
 
-				data.put(entry.getEntityClass(), "{{Coins|" + cost + "}}");
+				data.put(entry.getEntityClass(), "{{Bar Coins|" + cost + "}}");
 			}
 		}
 
@@ -1907,7 +1918,7 @@ public class GOTWikiGenerator {
 
 				for (GOTTradeEntry entry : tradeable.getSellsPool().getTradeEntries()) {
 					data.computeIfAbsent(entityEntry.getKey(), s -> new TreeSet<>());
-					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Coins|" + entry.getCost() + "}}");
+					data.get(entityEntry.getKey()).add(entry.getTradeItem().getDisplayName() + ": {{Bar Coins|" + entry.getCost() + "}}");
 				}
 			}
 		}
@@ -1952,12 +1963,12 @@ public class GOTWikiGenerator {
 					int alignment = (int) entry.getAlignmentRequired();
 
 					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-						sb.append("{{Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
-						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
+						sb.append("{{Bar Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
+						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
 						sb.append('+').append(alignment).append(' ').append(Lang.REPUTATION);
 					} else {
 						sb.append("N/A ").append(Lang.NO_PLEDGE).append(", ");
-						sb.append("{{Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
+						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
 						sb.append('+').append(Math.max(alignment, 100)).append(' ').append(Lang.REPUTATION);
 					}
 
