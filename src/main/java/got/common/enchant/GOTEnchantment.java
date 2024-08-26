@@ -63,7 +63,7 @@ public abstract class GOTEnchantment {
 
 	private final List<GOTEnchantmentType> itemTypes;
 
-	protected String enchantName;
+	protected final String enchantName;
 	protected float valueModifier = 1.0F;
 	protected boolean bypassAnvilLimit;
 
