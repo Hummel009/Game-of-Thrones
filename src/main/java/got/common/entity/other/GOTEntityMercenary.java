@@ -37,4 +37,9 @@ public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercena
 
 		return entityData;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

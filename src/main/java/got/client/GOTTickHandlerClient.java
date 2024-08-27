@@ -1463,7 +1463,11 @@ public class GOTTickHandlerClient {
 		GOTRenderNorthernLights.render(mc, mc.theWorld, f);
 		mc.entityRenderer.enableLightmap(f);
 		RenderHelper.disableStandardItemLighting();
-		GOTClientFactory.getEffectRenderer().renderParticles(mc.renderViewEntity, f);
+		try {
+			GOTClientFactory.getEffectRenderer().renderParticles(mc.renderViewEntity, f);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		mc.entityRenderer.disableLightmap(f);
 		if (Minecraft.isGuiEnabled() && mc.entityRenderer.debugViewDirection == 0) {
 			mc.mcProfiler.startSection("gotSpeech");

@@ -697,11 +697,13 @@ public class GOTPlayerData {
 	}
 
 	public void cancelFastTravel() {
-		if (targetFTWaypoint != null) {
-			setTargetFTWaypoint(null);
-			EntityPlayer entityplayer = getPlayer();
-			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.motion"));
+		EntityPlayer entityplayer = getPlayer();
+		if (entityplayer != null) {
+			if (targetFTWaypoint != null && !entityplayer.capabilities.isCreativeMode) {
+				setTargetFTWaypoint(null);
+				if (!entityplayer.worldObj.isRemote) {
+					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.motion"));
+				}
 			}
 		}
 	}
@@ -1500,7 +1502,10 @@ public class GOTPlayerData {
 		}
 	}
 
-	public int getWaypointFTTime(GOTAbstractWaypoint wp, Entity entityplayer) {
+	public int getWaypointFTTime(GOTAbstractWaypoint wp, EntityPlayer entityplayer) {
+		if (entityplayer.capabilities.isCreativeMode) {
+			return 0;
+		}
 		int baseMin = GOTLevelData.getWaypointCooldownMin();
 		int baseMax = GOTLevelData.getWaypointCooldownMax();
 		int useCount = getWPUseCount(wp);
