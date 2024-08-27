@@ -216,7 +216,6 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -539,6 +538,7 @@ entity.got.NorvosSoldierArcher.name≠Norvos Warrior Archer
 entity.got.OberynMartell.name≠Oberyn Martell
 entity.got.OlennaTyrell.name≠Olenna Tyrell
 entity.got.OrtonMerryweather.name≠Orton Merryweather
+entity.got.Oryx.name≠Oryx
 entity.got.Osha.name≠Osha
 entity.got.PaxterRedwyne.name≠Paxter Redwyne
 entity.got.Pebble.name≠Pebble
@@ -954,8 +954,6 @@ got.achievement.ENTER_BRAAVOS.desc=Visitez Braavos
 got.achievement.ENTER_BRAAVOS.title=Maison en noir et blanc
 got.achievement.ENTER_CANNIBAL_SANDS.desc=Visitez les Sables des Cannibales
 got.achievement.ENTER_CANNIBAL_SANDS.title=Ne vous y attardez pas
-got.achievement.ENTER_FROZEN_SHORE.desc=Visitez la Côte Froide
-got.achievement.ENTER_FROZEN_SHORE.title=Les morses et les humains
 got.achievement.ENTER_CROWNLANDS.desc=Visitez les Terres de la Couronne
 got.achievement.ENTER_CROWNLANDS.title=Pomme de discorde
 got.achievement.ENTER_CROWNLANDS_TOWN.desc=Visitez les terres du roi
@@ -978,6 +976,8 @@ got.achievement.ENTER_ESSOS_MOUNTAINS.desc=Visitez les montagnes d'Essos
 got.achievement.ENTER_ESSOS_MOUNTAINS.title=Étendues de rhyolite
 got.achievement.ENTER_FROSTFANGS.desc=Visitez les Crocs de Glace
 got.achievement.ENTER_FROSTFANGS.title=Montagnes de glace et de pierre
+got.achievement.ENTER_FROZEN_SHORE.desc=Visitez la Côte Froide
+got.achievement.ENTER_FROZEN_SHORE.title=Les morses et les humains
 got.achievement.ENTER_GHISCAR.desc=Visitez Ghiscar
 got.achievement.ENTER_GHISCAR.title=Baie des esclaves
 got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Visitez Astapor
@@ -1594,8 +1594,6 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Portez un ensemble complet de l'armur
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Garde de Peyredragon
 got.achievement.WEAR_FULL_FUR.desc=Portez un ensemble complet d'armure en fourrure
 got.achievement.WEAR_FULL_FUR.title=Sauvage
-got.achievement.WEAR_FULL_ORYX.desc=Portez un ensemble complet d'armure en peau d'oryx
-got.achievement.WEAR_FULL_ORYX.title=Traditions de Lhazar
 got.achievement.WEAR_FULL_GHISCAR.desc=Portez un ensemble complet de l'armure de Ghiscar
 got.achievement.WEAR_FULL_GHISCAR.title=Garde de Ghiscar
 got.achievement.WEAR_FULL_GIFT.desc=Portez un ensemble complet de l'armure de la Garde de Nuit
@@ -1636,6 +1634,8 @@ got.achievement.WEAR_FULL_NORTHGUARD.desc=Portez un ensemble complet des vêteme
 got.achievement.WEAR_FULL_NORTHGUARD.title=Capitaine des gardes de Blancport
 got.achievement.WEAR_FULL_NORVOS.desc=Portez un ensemble complet des vêtements de Norvos
 got.achievement.WEAR_FULL_NORVOS.title=Garde de Norvos
+got.achievement.WEAR_FULL_ORYX.desc=Portez un ensemble complet d'armure en peau d'oryx
+got.achievement.WEAR_FULL_ORYX.title=Traditions de Lhazar
 got.achievement.WEAR_FULL_PENTOS.desc=Portez un ensemble complet des vêtements de Pentos
 got.achievement.WEAR_FULL_PENTOS.title=Garde de Pentos
 got.achievement.WEAR_FULL_QARTH.desc=Portez un ensemble complet des vêtements de Qarth
@@ -1908,6 +1908,7 @@ got.capes.DORNE.name=Cape de Dorne
 got.capes.DRAGONSTONE.name=Cape de Peyredragon
 got.capes.GHISCAR.name=Cape de Ghiscar
 got.capes.IRONBORN.name=Cape des Îles de Fer
+got.capes.KINGSGUARD_1.name=Cape de la garde royale
 got.capes.KINGSGUARD_2.name=Cape de Kingsguard
 got.capes.LORATH.name=Cape de Lorath
 got.capes.LYS.name=Cape de Lys
@@ -1921,7 +1922,6 @@ got.capes.QARTH.name=Cape de Qarth
 got.capes.QOHOR.name=Cape de Qohor
 got.capes.REACH.name=Cape de Reach
 got.capes.RIVERLANDS.name=Cape du Conflans
-got.capes.KINGSGUARD_1.name=Cape de la garde royale
 got.capes.STORMLANDS.name=Cape des Terres de l'Orage
 got.capes.TARGARYEN.desc=Pour les développeurs du Game of Thrones
 got.capes.TARGARYEN.name=Cape des Targaryen
@@ -5359,12 +5359,6 @@ item.got:fur_leggings.name=Jambières en fourrure
 item.got:fuse.name=Fusible
 item.got:gammon.name=Jambon fumé
 item.got:gate_gear.name=Engrenages de porte
-item.got:oryx_boots.name=Bottes en peau de oryx
-item.got:oryx_chestplate.name=Plastron en peau de oryx
-item.got:oryx_helmet.name=Casque en peau de oryx
-item.got:oryx_hide.name=Peau de oryx
-item.got:oryx_horn.name=Corne de oryx
-item.got:oryx_leggings.name=Jambières en peau de oryx
 item.got:ghiscar_boots.name=Bottes de Ghiscar
 item.got:ghiscar_chestplate.name=Plastron de Ghiscar
 item.got:ghiscar_helmet.name=Casque de Ghiscar
@@ -5597,6 +5591,12 @@ item.got:olive_bread.name=Pain à l'olive
 item.got:opal.name=Opale
 item.got:orange.name=Orange
 item.got:orphan_maker.name=Créateur d'orphelins
+item.got:oryx_boots.name=Bottes en peau de oryx
+item.got:oryx_chestplate.name=Plastron en peau de oryx
+item.got:oryx_helmet.name=Casque en peau de oryx
+item.got:oryx_hide.name=Peau de oryx
+item.got:oryx_horn.name=Corne de oryx
+item.got:oryx_leggings.name=Jambières en peau de oryx
 item.got:pancake.name=Crêpe
 item.got:pancake_maple_syrup.name=Crêpe au sirop d'érable
 item.got:party_hat.name=Chapeau de fête
@@ -5800,18 +5800,18 @@ item.got:wood_spear.name=Lance en bois
 item.got:wood_throwing_axe.name=Hache de lancer en bois
 item.got:yam.name=Igname
 item.got:yam_roast.name=Igname rôtie
-item.got:yi_ti_boots.name=Bottes de Yi Ti
 item.got:yi_ti_bombardier_boots.name=Bottes de bombardier de Yi Ti
-item.got:yi_ti_samurai_boots.name=Bottes de samouraï de Yi Ti
-item.got:yi_ti_chestplate.name=Plastron de Yi Ti
 item.got:yi_ti_bombardier_chestplate.name=Plastron de bombardier de Yi Ti
-item.got:yi_ti_samurai_chestplate.name=Plastron de samouraï de Yi Ti
-item.got:yi_ti_helmet.name=Casque de Yi Ti
 item.got:yi_ti_bombardier_helmet.name=Casque de bombardier de Yi Ti
-item.got:yi_ti_helmet_captain.name=Casque de capitaine de Yi Ti
-item.got:yi_ti_samurai_helmet.name=Casque de samouraï de Yi Ti
-item.got:yi_ti_leggings.name=Jambières de Yi Ti
 item.got:yi_ti_bombardier_leggings.name=Jambières de bombardier de Yi Ti
+item.got:yi_ti_boots.name=Bottes de Yi Ti
+item.got:yi_ti_chestplate.name=Plastron de Yi Ti
+item.got:yi_ti_helmet.name=Casque de Yi Ti
+item.got:yi_ti_helmet_captain.name=Casque de capitaine de Yi Ti
+item.got:yi_ti_leggings.name=Jambières de Yi Ti
+item.got:yi_ti_samurai_boots.name=Bottes de samouraï de Yi Ti
+item.got:yi_ti_samurai_chestplate.name=Plastron de samouraï de Yi Ti
+item.got:yi_ti_samurai_helmet.name=Casque de samouraï de Yi Ti
 item.got:yi_ti_samurai_leggings.name=Jambières de samouraï de Yi Ti
 item.got:zebra_cooked.name=Zèbre cuit
 item.got:zebra_raw.name=Zèbre cru

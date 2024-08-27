@@ -216,7 +216,6 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -539,6 +538,7 @@ entity.got.NorvosSoldierArcher.name≠Norvos Warrior Archer
 entity.got.OberynMartell.name≠Oberyn Martell
 entity.got.OlennaTyrell.name≠Olenna Tyrell
 entity.got.OrtonMerryweather.name≠Orton Merryweather
+entity.got.Oryx.name≠Oryx
 entity.got.Osha.name≠Osha
 entity.got.PaxterRedwyne.name≠Paxter Redwyne
 entity.got.Pebble.name≠Pebble
@@ -954,8 +954,6 @@ got.achievement.ENTER_BRAAVOS.desc=Odwiedź Braavos
 got.achievement.ENTER_BRAAVOS.title=Czarno-Biały Dom
 got.achievement.ENTER_CANNIBAL_SANDS.desc=Odwiedź Kanibalskie Piaski
 got.achievement.ENTER_CANNIBAL_SANDS.title=I Gdzie?
-got.achievement.ENTER_FROZEN_SHORE.desc=Odwiedź Zimne Wybrzeże
-got.achievement.ENTER_FROZEN_SHORE.title=Morsy i Ludzie
 got.achievement.ENTER_CROWNLANDS.desc=Odwiedź Królewskie Ziemie
 got.achievement.ENTER_CROWNLANDS.title=Jabłko Niezgody
 got.achievement.ENTER_CROWNLANDS_TOWN.desc=Odwiedź Królewską Przystań
@@ -978,6 +976,8 @@ got.achievement.ENTER_ESSOS_MOUNTAINS.desc=Odwiedź Góry Essos
 got.achievement.ENTER_ESSOS_MOUNTAINS.title=Ryolitowe Przestrzenie
 got.achievement.ENTER_FROSTFANGS.desc=Odwiedź Mroźne Kły
 got.achievement.ENTER_FROSTFANGS.title=Góry Lodu i Kamienia
+got.achievement.ENTER_FROZEN_SHORE.desc=Odwiedź Zimne Wybrzeże
+got.achievement.ENTER_FROZEN_SHORE.title=Morsy i Ludzie
 got.achievement.ENTER_GHISCAR.desc=Odwiedź Ghiscar
 got.achievement.ENTER_GHISCAR.title=Zatoka Niewolników
 got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Odwiedź Astapor
@@ -1594,8 +1594,6 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Załóż kompletną zbroję Smoczej S
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Strażnik Smoczej Skały
 got.achievement.WEAR_FULL_FUR.desc=Załóż pełną futrzaną zbroję
 got.achievement.WEAR_FULL_FUR.title=Dziki
-got.achievement.WEAR_FULL_ORYX.desc=Załóż kompletną zbroję ihazarski
-got.achievement.WEAR_FULL_ORYX.title=Tradycje lhazarskie
 got.achievement.WEAR_FULL_GHISCAR.desc=Załóż kompletną zbroję Ghiscar
 got.achievement.WEAR_FULL_GHISCAR.title=Strażnik Ghiscara
 got.achievement.WEAR_FULL_GIFT.desc=Załóż kompletną zbroję Nocnej Straży
@@ -1636,6 +1634,8 @@ got.achievement.WEAR_FULL_NORTHGUARD.desc=Załóż kompletną zbroję Straży Bi
 got.achievement.WEAR_FULL_NORTHGUARD.title=Dowódca Straży Białego Portu
 got.achievement.WEAR_FULL_NORVOS.desc=Załóż kompletną zbroję Norvos
 got.achievement.WEAR_FULL_NORVOS.title=Strażnik Norvos
+got.achievement.WEAR_FULL_ORYX.desc=Załóż kompletną zbroję ihazarski
+got.achievement.WEAR_FULL_ORYX.title=Tradycje lhazarskie
 got.achievement.WEAR_FULL_PENTOS.desc=Załóż kompletną zbroję Pentos
 got.achievement.WEAR_FULL_PENTOS.title=Strażnik Pentos
 got.achievement.WEAR_FULL_QARTH.desc=Załóż kompletną zbroję Qarth
@@ -1908,6 +1908,7 @@ got.capes.DORNE.name=Przylądek Dorne
 got.capes.DRAGONSTONE.name=Przylądek Smoczej Skały
 got.capes.GHISCAR.name=Przylądek Ghiscar
 got.capes.IRONBORN.name=Przylądek Żelaznych Wysp
+got.capes.KINGSGUARD_1.name=Przylądek Gwardii Królewskiej
 got.capes.KINGSGUARD_2.name=Przylądek Gwardii Królewskiej
 got.capes.LORATH.name=Przylądek Lorath
 got.capes.LYS.name=Przylądek Lys
@@ -1921,7 +1922,6 @@ got.capes.QARTH.name=Przylądek Qarth
 got.capes.QOHOR.name=Przylądek Qohor
 got.capes.REACH.name=Przylądek Reach
 got.capes.RIVERLANDS.name=Przylądek Dorzecza
-got.capes.KINGSGUARD_1.name=Przylądek Gwardii Królewskiej
 got.capes.STORMLANDS.name=Przylądek Krainy burzy
 got.capes.TARGARYEN.desc=Dla developerów modyfikacji Game of Thrones
 got.capes.TARGARYEN.name=Przylądek Targaryena
@@ -5359,12 +5359,6 @@ item.got:fur_leggings.name=Futrzane nogawice
 item.got:fuse.name=Zapalnik
 item.got:gammon.name=Szynka
 item.got:gate_gear.name=Mechanizm bramy
-item.got:oryx_boots.name=Buty ze skóry oryx
-item.got:oryx_chestplate.name=Napierśnik ze skóry oryx
-item.got:oryx_helmet.name=Hełm ze skóry oryx
-item.got:oryx_hide.name=Skóra oryx
-item.got:oryx_horn.name=Róg oryx
-item.got:oryx_leggings.name=Nogawice ze skóry oryx
 item.got:ghiscar_boots.name=Buty Ghiscari
 item.got:ghiscar_chestplate.name=Napierśnik Ghiscari
 item.got:ghiscar_helmet.name=Hełm Ghiscari
@@ -5597,6 +5591,12 @@ item.got:olive_bread.name=Chleb oliwkowy
 item.got:opal.name=Opal
 item.got:orange.name=Pomarańcza
 item.got:orphan_maker.name=Sierotkotwórca
+item.got:oryx_boots.name=Buty ze skóry oryx
+item.got:oryx_chestplate.name=Napierśnik ze skóry oryx
+item.got:oryx_helmet.name=Hełm ze skóry oryx
+item.got:oryx_hide.name=Skóra oryx
+item.got:oryx_horn.name=Róg oryx
+item.got:oryx_leggings.name=Nogawice ze skóry oryx
 item.got:pancake.name=Naleśnik
 item.got:pancake_maple_syrup.name=Naleśnik z syropem klonowym
 item.got:party_hat.name=Czapka imprezowa
@@ -5800,18 +5800,18 @@ item.got:wood_spear.name=Drewniana włócznia
 item.got:wood_throwing_axe.name=Drewniana topór do rzucania
 item.got:yam.name=Słodki ziemniak
 item.got:yam_roast.name=Pieczony słodki ziemniak
-item.got:yi_ti_boots.name=Buty Yi Ti
 item.got:yi_ti_bombardier_boots.name=Buty pograniczne Yi Ti
-item.got:yi_ti_samurai_boots.name=Buty samurajskie Yi Ti
-item.got:yi_ti_chestplate.name=Naplecznik Yi Ti
 item.got:yi_ti_bombardier_chestplate.name=Naplecznik pograniczny Yi Ti
-item.got:yi_ti_samurai_chestplate.name=Naplecznik samurajski Yi Ti
-item.got:yi_ti_helmet.name=Hełm Yi Ti
 item.got:yi_ti_bombardier_helmet.name=Hełm pograniczny Yi Ti
-item.got:yi_ti_helmet_captain.name=Hełm kapitana Yi Ti
-item.got:yi_ti_samurai_helmet.name=Hełm samurajski Yi Ti
-item.got:yi_ti_leggings.name=Nogawice Yi Ti
 item.got:yi_ti_bombardier_leggings.name=Nogawice pograniczne Yi Ti
+item.got:yi_ti_boots.name=Buty Yi Ti
+item.got:yi_ti_chestplate.name=Naplecznik Yi Ti
+item.got:yi_ti_helmet.name=Hełm Yi Ti
+item.got:yi_ti_helmet_captain.name=Hełm kapitana Yi Ti
+item.got:yi_ti_leggings.name=Nogawice Yi Ti
+item.got:yi_ti_samurai_boots.name=Buty samurajskie Yi Ti
+item.got:yi_ti_samurai_chestplate.name=Naplecznik samurajski Yi Ti
+item.got:yi_ti_samurai_helmet.name=Hełm samurajski Yi Ti
 item.got:yi_ti_samurai_leggings.name=Nogawice samurajskie Yi Ti
 item.got:zebra_cooked.name=Pieczona zebra
 item.got:zebra_raw.name=Surowa zebra

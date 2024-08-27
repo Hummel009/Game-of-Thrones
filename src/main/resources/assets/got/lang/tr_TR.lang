@@ -216,7 +216,6 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -539,6 +538,7 @@ entity.got.NorvosSoldierArcher.name≠Norvos Warrior Archer
 entity.got.OberynMartell.name≠Oberyn Martell
 entity.got.OlennaTyrell.name≠Olenna Tyrell
 entity.got.OrtonMerryweather.name≠Orton Merryweather
+entity.got.Oryx.name≠Oryx
 entity.got.Osha.name≠Osha
 entity.got.PaxterRedwyne.name≠Paxter Redwyne
 entity.got.Pebble.name≠Pebble
@@ -954,8 +954,6 @@ got.achievement.ENTER_BRAAVOS.desc=Braavos'u ziyaret edin
 got.achievement.ENTER_BRAAVOS.title=Siyah beyaz ev
 got.achievement.ENTER_CANNIBAL_SANDS.desc=Cannibal Sands'i ziyaret edin
 got.achievement.ENTER_CANNIBAL_SANDS.title=Ve nerede?
-got.achievement.ENTER_FROZEN_SHORE.desc=Soğuk sahili ziyaret edin
-got.achievement.ENTER_FROZEN_SHORE.title=Morslar ve insanlar
 got.achievement.ENTER_CROWNLANDS.desc=Taç Toprakları'i ziyaret edin
 got.achievement.ENTER_CROWNLANDS.title=Anlaşmazlık Elması
 got.achievement.ENTER_CROWNLANDS_TOWN.desc=King's Landing'i ziyaret edin
@@ -978,6 +976,8 @@ got.achievement.ENTER_ESSOS_MOUNTAINS.desc=Essos dağlarını ziyaret edin
 got.achievement.ENTER_ESSOS_MOUNTAINS.title=Riyolit genişler
 got.achievement.ENTER_FROSTFANGS.desc=Frost Fangs'ı ziyaret edin
 got.achievement.ENTER_FROSTFANGS.title=Buz ve taş dağlar
+got.achievement.ENTER_FROZEN_SHORE.desc=Soğuk sahili ziyaret edin
+got.achievement.ENTER_FROZEN_SHORE.title=Morslar ve insanlar
 got.achievement.ENTER_GHISCAR.desc=Ghiscar'ı ziyaret edin
 got.achievement.ENTER_GHISCAR.title=Köle Körfezi
 got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Astapor'u ziyaret et
@@ -1594,8 +1594,6 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Tam Dragonstone takımını giyin
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Ejderha Kayası Muhafızı
 got.achievement.WEAR_FULL_FUR.desc=Tam bir kürkzırh seti giyin
 got.achievement.WEAR_FULL_FUR.title=Yaban Hayatı
-got.achievement.WEAR_FULL_ORYX.desc=Tam bir Oryx seti giyin
-got.achievement.WEAR_FULL_ORYX.title=Lhazar Gelenekleri
 got.achievement.WEAR_FULL_GHISCAR.desc=Tam Ghiscar takımını giyin
 got.achievement.WEAR_FULL_GHISCAR.title=Ghiscar'ın Muhafızı
 got.achievement.WEAR_FULL_GIFT.desc=Tam Hediye Seti takımını giyin
@@ -1636,6 +1634,8 @@ got.achievement.WEAR_FULL_NORTHGUARD.desc=Kuzey Muhafız takım elbisesinin tama
 got.achievement.WEAR_FULL_NORTHGUARD.title=Beyaz Liman Muhafız Komutanı
 got.achievement.WEAR_FULL_NORVOS.desc=Norvos'un tam takım donanımını giyin
 got.achievement.WEAR_FULL_NORVOS.title=Norvos'un Muhafızı
+got.achievement.WEAR_FULL_ORYX.desc=Tam bir Oryx seti giyin
+got.achievement.WEAR_FULL_ORYX.title=Lhazar Gelenekleri
 got.achievement.WEAR_FULL_PENTOS.desc=Pentos'un tam takım donanımını giyin
 got.achievement.WEAR_FULL_PENTOS.title=Pentos'un Muhafızı
 got.achievement.WEAR_FULL_QARTH.desc=Qarth'ın tam takım donanımını giyin
@@ -1908,6 +1908,7 @@ got.capes.DORNE.name=Dorne Burnu
 got.capes.DRAGONSTONE.name=Ejderha Kayası Burnu
 got.capes.GHISCAR.name=Ghiskar Burnu
 got.capes.IRONBORN.name=Demir Adalar Burnu
+got.capes.KINGSGUARD_1.name=Kraliyet Muhafız Burnu
 got.capes.KINGSGUARD_2.name=Kral Muhafız Burnu
 got.capes.LORATH.name=Lorath Burnu
 got.capes.LYS.name=Lys Burnu
@@ -1921,7 +1922,6 @@ got.capes.QARTH.name=Qarth Burnu
 got.capes.QOHOR.name=Qohor Burnu
 got.capes.REACH.name=Menzil Burnu
 got.capes.RIVERLANDS.name=Nehir Toprakları Burnu
-got.capes.KINGSGUARD_1.name=Kraliyet Muhafız Burnu
 got.capes.STORMLANDS.name=Fırtına Toprakları Burnu
 got.capes.TARGARYEN.desc=Oyunun Tahtalar Oyunu Modu geliştiricileri için
 got.capes.TARGARYEN.name=Targaryen Burnu
@@ -5358,12 +5358,6 @@ item.got:fur_leggings.name=Kürk Pantolon
 item.got:fuse.name=Sigorta
 item.got:gammon.name=Tuzlanmış Domuz
 item.got:gate_gear.name=Kapı Dişlisi
-item.got:oryx_boots.name=Oryx Derisi Botları
-item.got:oryx_chestplate.name=Oryx Derisi Zırhı
-item.got:oryx_helmet.name=Oryx Derisi Başlığı
-item.got:oryx_hide.name=Oryx Derisi
-item.got:oryx_horn.name=Oryx Boynuzu
-item.got:oryx_leggings.name=Oryx Derisi Pantolonu
 item.got:ghiscar_boots.name=Ghiscar Botları
 item.got:ghiscar_chestplate.name=Ghiscar Zırhı
 item.got:ghiscar_helmet.name=Ghiscar Miğferi
@@ -5596,6 +5590,12 @@ item.got:olive_bread.name=Zeytinli Ekmek
 item.got:opal.name=Opal
 item.got:orange.name=Turunç
 item.got:orphan_maker.name=Yetim Yapıcı
+item.got:oryx_boots.name=Oryx Derisi Botları
+item.got:oryx_chestplate.name=Oryx Derisi Zırhı
+item.got:oryx_helmet.name=Oryx Derisi Başlığı
+item.got:oryx_hide.name=Oryx Derisi
+item.got:oryx_horn.name=Oryx Boynuzu
+item.got:oryx_leggings.name=Oryx Derisi Pantolonu
 item.got:pancake.name=Krep
 item.got:pancake_maple_syrup.name=Akçaağaç Şurubu'lu Krep
 item.got:party_hat.name=Parti Şapkası
@@ -5799,18 +5799,18 @@ item.got:wood_spear.name=Odun Mızrak
 item.got:wood_throwing_axe.name=Odun Fırlatma Baltası
 item.got:yam.name=Tatlı Patates
 item.got:yam_roast.name=Fırınlanmış Tatlı Patates
-item.got:yi_ti_boots.name=Yi Ti Çizmeleri
 item.got:yi_ti_bombardier_boots.name=Yi Ti Bombardıman Çizmeleri
-item.got:yi_ti_samurai_boots.name=Yi Ti Samurai Çizmeleri
-item.got:yi_ti_chestplate.name=Yi Ti Zırhı
 item.got:yi_ti_bombardier_chestplate.name=Yi Ti Bombardıman Zırhı
-item.got:yi_ti_samurai_chestplate.name=Yi Ti Samurai Zırhı
-item.got:yi_ti_helmet.name=Yi Ti Miğferi
 item.got:yi_ti_bombardier_helmet.name=Yi Ti Bombardıman Miğferi
-item.got:yi_ti_helmet_captain.name=Yi Ti Kaptan Miğferi
-item.got:yi_ti_samurai_helmet.name=Yi Ti Samurai Miğferi
-item.got:yi_ti_leggings.name=Yi Ti Pantolonu
 item.got:yi_ti_bombardier_leggings.name=Yi Ti Bombardıman Pantolonu
+item.got:yi_ti_boots.name=Yi Ti Çizmeleri
+item.got:yi_ti_chestplate.name=Yi Ti Zırhı
+item.got:yi_ti_helmet.name=Yi Ti Miğferi
+item.got:yi_ti_helmet_captain.name=Yi Ti Kaptan Miğferi
+item.got:yi_ti_leggings.name=Yi Ti Pantolonu
+item.got:yi_ti_samurai_boots.name=Yi Ti Samurai Çizmeleri
+item.got:yi_ti_samurai_chestplate.name=Yi Ti Samurai Zırhı
+item.got:yi_ti_samurai_helmet.name=Yi Ti Samurai Miğferi
 item.got:yi_ti_samurai_leggings.name=Yi Ti Samurai Pantolonu
 item.got:zebra_cooked.name=Pişmiş Zebra
 item.got:zebra_raw.name=Çiğ Zebra

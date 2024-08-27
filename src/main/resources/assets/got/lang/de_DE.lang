@@ -216,7 +216,6 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -539,6 +538,7 @@ entity.got.NorvosSoldierArcher.name≠Norvos Warrior Archer
 entity.got.OberynMartell.name≠Oberyn Martell
 entity.got.OlennaTyrell.name≠Olenna Tyrell
 entity.got.OrtonMerryweather.name≠Orton Merryweather
+entity.got.Oryx.name≠Oryx
 entity.got.Osha.name≠Osha
 entity.got.PaxterRedwyne.name≠Paxter Redwyne
 entity.got.Pebble.name≠Pebble
@@ -954,8 +954,6 @@ got.achievement.ENTER_BRAAVOS.desc=Besuche Braavos
 got.achievement.ENTER_BRAAVOS.title=Heimat der Gesichtslosen Männer
 got.achievement.ENTER_CANNIBAL_SANDS.desc=Besuche die Kannibalensande
 got.achievement.ENTER_CANNIBAL_SANDS.title=Eine Gegend zum Verlieben
-got.achievement.ENTER_FROZEN_SHORE.desc=Besuche die Eisige Küste
-got.achievement.ENTER_FROZEN_SHORE.title=Walrosse und Menschen. Und Walrossmenschen.
 got.achievement.ENTER_CROWNLANDS.desc=Besuche die Kronlande
 got.achievement.ENTER_CROWNLANDS.title=Apfel der Zwietracht
 got.achievement.ENTER_CROWNLANDS_TOWN.desc=Besuche Königsmund
@@ -978,6 +976,8 @@ got.achievement.ENTER_ESSOS_MOUNTAINS.desc=Besuche die Berge von Essos
 got.achievement.ENTER_ESSOS_MOUNTAINS.title=Ein Traum von Rhyolith
 got.achievement.ENTER_FROSTFANGS.desc=Besuche die Frostfänge
 got.achievement.ENTER_FROSTFANGS.title=Berge aus Schnee und Eis
+got.achievement.ENTER_FROZEN_SHORE.desc=Besuche die Eisige Küste
+got.achievement.ENTER_FROZEN_SHORE.title=Walrosse und Menschen. Und Walrossmenschen.
 got.achievement.ENTER_GHISCAR.desc=Besuche die Länder der Ghiscari
 got.achievement.ENTER_GHISCAR.title=Das Vermächtnis von Alt-Ghis
 got.achievement.ENTER_GHISCAR_ASTAPOR.desc=Besuche Astapor
@@ -1594,8 +1594,6 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Trage eine vollständige Rüstung von
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Wache von Drachenstein
 got.achievement.WEAR_FULL_FUR.desc=Trage eine vollständige Pelzrüstung!
 got.achievement.WEAR_FULL_FUR.title=Wildling
-got.achievement.WEAR_FULL_ORYX.desc=Trage eine vollständige Oryx-Rüstung!
-got.achievement.WEAR_FULL_ORYX.title=Traditionen der Lhazareen
 got.achievement.WEAR_FULL_GHISCAR.desc=Trage eine vollständige Ghiscari-Rüstung!
 got.achievement.WEAR_FULL_GHISCAR.title=Ghiscari-Wache
 got.achievement.WEAR_FULL_GIFT.desc=Trage eine vollständige Rüstung der Nachtwache!
@@ -1636,6 +1634,8 @@ got.achievement.WEAR_FULL_NORTHGUARD.desc=Trage eine vollständige Rüstung der 
 got.achievement.WEAR_FULL_NORTHGUARD.title=Wache von Weißwasserhafen
 got.achievement.WEAR_FULL_NORVOS.desc=Trage eine vollständige Rüstung von Norvos!
 got.achievement.WEAR_FULL_NORVOS.title=Wache von Norvos
+got.achievement.WEAR_FULL_ORYX.desc=Trage eine vollständige Oryx-Rüstung!
+got.achievement.WEAR_FULL_ORYX.title=Traditionen der Lhazareen
 got.achievement.WEAR_FULL_PENTOS.desc=Trage eine vollständige Rüstung von Pentos!
 got.achievement.WEAR_FULL_PENTOS.title=Wache von Pentos
 got.achievement.WEAR_FULL_QARTH.desc=Trage eine vollständige Rüstung von Qarth!
@@ -1908,6 +1908,7 @@ got.capes.DORNE.name=Umhang eines Kriegers von Dorne
 got.capes.DRAGONSTONE.name=Umhang einer Wache von Drachenstein
 got.capes.GHISCAR.name=Umhang einer Ghiscari-Wache
 got.capes.IRONBORN.name=Umhang eines Kriegers der Eiseninseln
+got.capes.KINGSGUARD_1.name=Umhang der Königswache
 got.capes.KINGSGUARD_2.name=Umhang der Königsgarde
 got.capes.LORATH.name=Umhang einer Wache von Lorath
 got.capes.LYS.name=Umhang einer Wache von Lys
@@ -1921,7 +1922,6 @@ got.capes.QARTH.name=Umhang einer Wache von Qarth
 got.capes.QOHOR.name=Umhang einer Wache von Qohor
 got.capes.REACH.name=Umhang eines Kriegers der Weite
 got.capes.RIVERLANDS.name=Umhang eines Kriegers der Flusslande
-got.capes.KINGSGUARD_1.name=Umhang der Königswache
 got.capes.STORMLANDS.name=Umhang eines Kriegers der Sturmlande
 got.capes.TARGARYEN.desc=Für Entwickler des GoT-Mods
 got.capes.TARGARYEN.name=Targaryen-Umhang
@@ -5359,12 +5359,6 @@ item.got:fur_leggings.name=Pelzhose
 item.got:fuse.name=Lunte
 item.got:gammon.name=Schinken
 item.got:gate_gear.name=Torgetriebe
-item.got:oryx_boots.name=Oryxhautstiefel
-item.got:oryx_chestplate.name=Oryxhautbrustpanzer
-item.got:oryx_helmet.name=Oryxhauthelm
-item.got:oryx_hide.name=Spießbockfell
-item.got:oryx_horn.name=Spießbockhorn
-item.got:oryx_leggings.name=Oryxhautbeinschutz
 item.got:ghiscar_boots.name=Ghiscars Stiefel
 item.got:ghiscar_chestplate.name=Ghiscars Brustpanzer
 item.got:ghiscar_helmet.name=Ghiscar Helm
@@ -5597,6 +5591,12 @@ item.got:olive_bread.name=Olivenbrot
 item.got:opal.name=Opal
 item.got:orange.name=Orange
 item.got:orphan_maker.name=Waisenmacher
+item.got:oryx_boots.name=Oryxhautstiefel
+item.got:oryx_chestplate.name=Oryxhautbrustpanzer
+item.got:oryx_helmet.name=Oryxhauthelm
+item.got:oryx_hide.name=Spießbockfell
+item.got:oryx_horn.name=Spießbockhorn
+item.got:oryx_leggings.name=Oryxhautbeinschutz
 item.got:pancake.name=Pfannkuchen
 item.got:pancake_maple_syrup.name=Pfannkuchen mit Ahornsirup
 item.got:party_hat.name=Festtagskrone
@@ -5800,18 +5800,18 @@ item.got:wood_spear.name=Holz-Speer
 item.got:wood_throwing_axe.name=Holz-Wurfaxt
 item.got:yam.name=Süßkartoffel
 item.got:yam_roast.name=Geröstete Süßkartoffel
-item.got:yi_ti_boots.name=Yi Ti Stiefel
 item.got:yi_ti_bombardier_boots.name=Bombenschützen-Stiefel der Yi Ti
-item.got:yi_ti_samurai_boots.name=Samurai-Stiefel der Yi Ti
-item.got:yi_ti_chestplate.name=Yi Ti Brustpanzer
 item.got:yi_ti_bombardier_chestplate.name=Bombenschützen-Brustpanzer der Yi Ti
-item.got:yi_ti_samurai_chestplate.name=Samurai-Brustpanzer der Yi Ti
-item.got:yi_ti_helmet.name=Yi Ti Helm
 item.got:yi_ti_bombardier_helmet.name=Bombenschützen-Helm der Yi Ti
-item.got:yi_ti_helmet_captain.name=Helm des Yi Ti Befehlshabers
-item.got:yi_ti_samurai_helmet.name=Samurai-Helm der Yi Ti
-item.got:yi_ti_leggings.name=Yi Ti Beinschutz
 item.got:yi_ti_bombardier_leggings.name=Bombenschützen-Beinschutz der Yi Ti
+item.got:yi_ti_boots.name=Yi Ti Stiefel
+item.got:yi_ti_chestplate.name=Yi Ti Brustpanzer
+item.got:yi_ti_helmet.name=Yi Ti Helm
+item.got:yi_ti_helmet_captain.name=Helm des Yi Ti Befehlshabers
+item.got:yi_ti_leggings.name=Yi Ti Beinschutz
+item.got:yi_ti_samurai_boots.name=Samurai-Stiefel der Yi Ti
+item.got:yi_ti_samurai_chestplate.name=Samurai-Brustpanzer der Yi Ti
+item.got:yi_ti_samurai_helmet.name=Samurai-Helm der Yi Ti
 item.got:yi_ti_samurai_leggings.name=Samurai-Beinschutz der Yi Ti
 item.got:zebra_cooked.name=Gebratenes Zebrafleisch
 item.got:zebra_raw.name=Rohes Zebrafleisch
