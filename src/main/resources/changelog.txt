@@ -1,6 +1,6 @@
 CHANGELOG
 
->>BUILD 24.08.19
+>>BUILD 24.08.29
 * Improved wiki generator
 * Improved translations
 * Improved legendary weapon stats
