@@ -388,7 +388,7 @@ public class GOTRender {
 		RENDERS.put(GOTEntityFirePot.class, new RenderSnowball(GOTItems.firePot));
 		RENDERS.put(GOTEntityFish.class, new GOTRenderFish());
 		RENDERS.put(GOTEntityFlamingo.class, new GOTRenderFlamingo());
-		RENDERS.put(GOTEntityGemsbok.class, new GOTRenderGemsbok());
+		RENDERS.put(GOTEntityOryx.class, new GOTRenderOryx());
 		RENDERS.put(GOTEntityGiant.class, new GOTRenderGiant("giant"));
 		RENDERS.put(GOTEntityGiraffe.class, new GOTRenderGiraffe());
 		RENDERS.put(GOTEntityGiraffeRug.class, new GOTRenderGiraffeRug());

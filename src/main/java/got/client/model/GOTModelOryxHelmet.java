@@ -2,8 +2,8 @@ package got.client.model;
 
 import net.minecraft.client.model.ModelRenderer;
 
-public class GOTModelGemsbokHelmet extends GOTModelBiped {
-	public GOTModelGemsbokHelmet(float f) {
+public class GOTModelOryxHelmet extends GOTModelBiped {
+	public GOTModelOryxHelmet(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.addBox(-4.0f, -8.0f, -4.0f, 8, 8, 8, f);

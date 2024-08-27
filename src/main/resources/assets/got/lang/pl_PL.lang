@@ -216,7 +216,7 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Gemsbok.name≠Gemsbok
+entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -1594,8 +1594,8 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Załóż kompletną zbroję Smoczej S
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Strażnik Smoczej Skały
 got.achievement.WEAR_FULL_FUR.desc=Załóż pełną futrzaną zbroję
 got.achievement.WEAR_FULL_FUR.title=Dziki
-got.achievement.WEAR_FULL_GEMSBOK.desc=Załóż kompletną zbroję ihazarski
-got.achievement.WEAR_FULL_GEMSBOK.title=Tradycje lhazarskie
+got.achievement.WEAR_FULL_ORYX.desc=Załóż kompletną zbroję ihazarski
+got.achievement.WEAR_FULL_ORYX.title=Tradycje lhazarskie
 got.achievement.WEAR_FULL_GHISCAR.desc=Załóż kompletną zbroję Ghiscar
 got.achievement.WEAR_FULL_GHISCAR.title=Strażnik Ghiscara
 got.achievement.WEAR_FULL_GIFT.desc=Załóż kompletną zbroję Nocnej Straży
@@ -5359,12 +5359,12 @@ item.got:fur_leggings.name=Futrzane nogawice
 item.got:fuse.name=Zapalnik
 item.got:gammon.name=Szynka
 item.got:gate_gear.name=Mechanizm bramy
-item.got:gemsbok_boots.name=Buty ze skóry gemsbok
-item.got:gemsbok_chestplate.name=Napierśnik ze skóry gemsbok
-item.got:gemsbok_helmet.name=Hełm ze skóry gemsbok
-item.got:gemsbok_hide.name=Skóra gemsbok
-item.got:gemsbok_horn.name=Róg gemsbok
-item.got:gemsbok_leggings.name=Nogawice ze skóry gemsbok
+item.got:oryx_boots.name=Buty ze skóry oryx
+item.got:oryx_chestplate.name=Napierśnik ze skóry oryx
+item.got:oryx_helmet.name=Hełm ze skóry oryx
+item.got:oryx_hide.name=Skóra oryx
+item.got:oryx_horn.name=Róg oryx
+item.got:oryx_leggings.name=Nogawice ze skóry oryx
 item.got:ghiscar_boots.name=Buty Ghiscari
 item.got:ghiscar_chestplate.name=Napierśnik Ghiscari
 item.got:ghiscar_helmet.name=Hełm Ghiscari

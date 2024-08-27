@@ -450,6 +450,13 @@ public class GOT {
 		renamed.put("yiTiLeggingsSamurai", GOTItems.yiTiSamuraiLeggings);
 		renamed.put("yiTiBootsSamurai", GOTItems.yiTiSamuraiBoots);
 
+		renamed.put("gemsbokHelmet", GOTItems.oryxHelmet);
+		renamed.put("gemsbokChestplate", GOTItems.oryxChestplate);
+		renamed.put("gemsbokLeggings", GOTItems.oryxLeggings);
+		renamed.put("gemsbokBoots", GOTItems.oryxBoots);
+		renamed.put("gemsbokHide", GOTItems.oryxHide);
+		renamed.put("gemsbokHorn", GOTItems.oryxHorn);
+
 		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
 			if (mapping.type == GameRegistry.Type.ITEM) {
 				for (Map.Entry<String, Item> entry : renamed.entrySet()) {

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public class GOTEntityWhiteOryx extends GOTEntityGemsbok implements GOTRandomSkinEntity {
+public class GOTEntityWhiteOryx extends GOTEntityOryx implements GOTRandomSkinEntity {
 	@SuppressWarnings({"WeakerAccess", "unused"})
 	public GOTEntityWhiteOryx(World world) {
 		super(world);
@@ -44,7 +44,7 @@ public class GOTEntityWhiteOryx extends GOTEntityGemsbok implements GOTRandomSki
 	}
 
 	@Override
-	public float getGemsbokSoundPitch() {
+	public float getOryxSoundPitch() {
 		return 0.9f;
 	}
 

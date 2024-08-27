@@ -1,18 +1,18 @@
 package got.client.render.animal;
 
-import got.client.model.GOTModelGemsbok;
-import got.common.entity.animal.GOTEntityGemsbok;
+import got.client.model.GOTModelOryx;
+import got.common.entity.animal.GOTEntityOryx;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class GOTRenderGemsbok extends RenderLiving {
-	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/gemsbok.png");
+public class GOTRenderOryx extends RenderLiving {
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/oryx.png");
 
-	public GOTRenderGemsbok() {
-		super(new GOTModelGemsbok(), 0.5f);
+	public GOTRenderOryx() {
+		super(new GOTModelOryx(), 0.5f);
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class GOTRenderGemsbok extends RenderLiving {
 	@Override
 	public void preRenderCallback(EntityLivingBase entity, float f) {
 		super.preRenderCallback(entity, f);
-		GOTEntityGemsbok animal = (GOTEntityGemsbok) entity;
+		GOTEntityOryx animal = (GOTEntityOryx) entity;
 		if (animal.isChild()) {
 			GL11.glScalef(0.5f, 0.5f, 0.5f);
 		} else {

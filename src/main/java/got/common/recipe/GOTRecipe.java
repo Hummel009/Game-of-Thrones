@@ -1311,7 +1311,7 @@ public class GOTRecipe {
 		addShapedRecipe(new ItemStack(GOTItems.boneChestplate), "X X", "XXX", "XXX", 'X', "bone");
 		addShapedRecipe(new ItemStack(GOTItems.boneHelmet), "XXX", "X X", 'X', "bone");
 		addShapedRecipe(new ItemStack(GOTItems.boneLeggings), "XXX", "X X", "X X", 'X', "bone");
-		addShapedRecipe(new ItemStack(GOTItems.brandingIron), "  X", " Y ", "X  ", 'X', "ingotIron", 'Y', GOTItems.gemsbokHide);
+		addShapedRecipe(new ItemStack(GOTItems.brandingIron), "  X", " Y ", "X  ", 'X', "ingotIron", 'Y', GOTItems.oryxHide);
 		addShapedRecipe(new ItemStack(GOTItems.brandingIron), "  X", " Y ", "X  ", 'X', "ingotIron", 'Y', Items.leather);
 		addShapedRecipe(new ItemStack(GOTItems.bronzeAxe), "XX", "XY", " Y", 'X', GOTItems.bronzeIngot, 'Y', "stickWood");
 		addShapedRecipe(new ItemStack(GOTItems.bronzeBattleaxe), "XXX", "XYX", " Y ", 'X', GOTItems.bronzeIngot, 'Y', "stickWood");
@@ -1382,10 +1382,10 @@ public class GOTRecipe {
 		addShapedRecipe(new ItemStack(GOTItems.furLeggings), "XXX", "X X", "X X", 'X', GOTItems.fur);
 		addShapedRecipe(new ItemStack(GOTItems.fuse, 2), "X", "Y", "Y", 'X', new ItemStack(Items.coal, 1, 32767), 'Y', "stickWood");
 		addShapedRecipe(new ItemStack(GOTItems.gateGear, 4), " X ", "XYX", " X ", 'X', "ingotIron", 'Y', "plankWood");
-		addShapedRecipe(new ItemStack(GOTItems.gemsbokBoots), "X X", "X X", 'X', GOTItems.gemsbokHide);
-		addShapedRecipe(new ItemStack(GOTItems.gemsbokChestplate), "X X", "XXX", "XXX", 'X', GOTItems.gemsbokHide);
-		addShapedRecipe(new ItemStack(GOTItems.gemsbokHelmet), "Y Y", "XXX", "X X", 'X', GOTItems.gemsbokHide, 'Y', GOTItems.gemsbokHorn);
-		addShapedRecipe(new ItemStack(GOTItems.gemsbokLeggings), "XXX", "X X", "X X", 'X', GOTItems.gemsbokHide);
+		addShapedRecipe(new ItemStack(GOTItems.oryxBoots), "X X", "X X", 'X', GOTItems.oryxHide);
+		addShapedRecipe(new ItemStack(GOTItems.oryxChestplate), "X X", "XXX", "XXX", 'X', GOTItems.oryxHide);
+		addShapedRecipe(new ItemStack(GOTItems.oryxHelmet), "Y Y", "XXX", "X X", 'X', GOTItems.oryxHide, 'Y', GOTItems.oryxHorn);
+		addShapedRecipe(new ItemStack(GOTItems.oryxLeggings), "XXX", "X X", "X X", 'X', GOTItems.oryxHide);
 		addShapedRecipe(new ItemStack(GOTItems.gobletValyrian, 2), "X X", " X ", " X ", 'X', GOTItems.valyrianIngot);
 		addShapedRecipe(new ItemStack(GOTItems.gobletBronze, 2), "X X", " X ", " X ", 'X', GOTItems.bronzeIngot);
 		addShapedRecipe(new ItemStack(GOTItems.gobletCopper, 2), "X X", " X ", " X ", 'X', GOTItems.copperIngot);
@@ -1487,7 +1487,7 @@ public class GOTRecipe {
 		addShapedRecipe(new ItemStack(GOTItems.valyrianThrowingAxe), " X ", " YX", "Y  ", 'X', GOTItems.valyrianIngot, 'Y', "stickWood");
 		addShapedRecipe(new ItemStack(GOTItems.waterskin, 2), " Y ", "X X", " X ", 'X', GOTItems.fur, 'Y', Items.string);
 		addShapedRecipe(new ItemStack(GOTItems.waterskin, 2), " Y ", "X X", " X ", 'X', GOTItems.lionFur, 'Y', Items.string);
-		addShapedRecipe(new ItemStack(GOTItems.waterskin, 2), " Y ", "X X", " X ", 'X', GOTItems.gemsbokHide, 'Y', Items.string);
+		addShapedRecipe(new ItemStack(GOTItems.waterskin, 2), " Y ", "X X", " X ", 'X', GOTItems.oryxHide, 'Y', Items.string);
 		addShapedRecipe(new ItemStack(GOTItems.waterskin, 2), " Y ", "X X", " X ", 'X', Items.leather, 'Y', Items.string);
 		addShapedRecipe(new ItemStack(GOTItems.wheel), "sss", "sps", "sss", 's', "stickWood", 'p', Blocks.planks);
 		addShapedRecipe(new ItemStack(GOTItems.whiteWalkersBoots), "X X", "X X", 'X', GOTItems.iceShard);
@@ -1513,12 +1513,12 @@ public class GOTRecipe {
 		addShapedRecipe(new ItemStack(Items.iron_ingot), "XXX", "XXX", "XXX", 'X', GOTItems.ironNugget);
 		addShapedRecipe(new ItemStack(Items.item_frame), "XXX", "XYX", "XXX", 'X', "stickWood", 'Y', GOTItems.lionFur);
 		addShapedRecipe(new ItemStack(Items.item_frame), "XXX", "XYX", "XXX", 'X', "stickWood", 'Y', GOTItems.fur);
-		addShapedRecipe(new ItemStack(Items.item_frame), "XXX", "XYX", "XXX", 'X', "stickWood", 'Y', GOTItems.gemsbokHide);
+		addShapedRecipe(new ItemStack(Items.item_frame), "XXX", "XYX", "XXX", 'X', "stickWood", 'Y', GOTItems.oryxHide);
 		addShapedRecipe(new ItemStack(Items.paper, 3), "XXX", 'X', GOTBlocks.cornStalk);
 		addShapedRecipe(new ItemStack(Items.paper, 3), "XXX", 'X', GOTBlocks.reeds);
 		addShapedRecipe(new ItemStack(Items.saddle), "XXX", "Y Y", 'X', GOTItems.fur, 'Y', "ingotIron");
 		addShapedRecipe(new ItemStack(Items.saddle), "XXX", "Y Y", 'X', GOTItems.lionFur, 'Y', "ingotIron");
-		addShapedRecipe(new ItemStack(Items.saddle), "XXX", "Y Y", 'X', GOTItems.gemsbokHide, 'Y', "ingotIron");
+		addShapedRecipe(new ItemStack(Items.saddle), "XXX", "Y Y", 'X', GOTItems.oryxHide, 'Y', "ingotIron");
 		addShapedRecipe(new ItemStack(Items.saddle), "XXX", "Y Y", 'X', Items.leather, 'Y', "ingotIron");
 		addShapedRecipe(new ItemStack(Items.wooden_door), "XX", "XX", "XX", 'X', new ItemStack(Blocks.planks, 1, 0));
 

@@ -70,7 +70,7 @@ public class GOTMaterial {
 	public static final ItemArmor.ArmorMaterial BONE = EnumHelper.addArmorMaterial("GOT_BONE", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial DOTHRAKI = EnumHelper.addArmorMaterial("GOT_DOTHRAKI", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial FUR = EnumHelper.addArmorMaterial("GOT_FUR", 10, new int[]{1, 3, 2, 1}, 15);
-	public static final ItemArmor.ArmorMaterial GEMSBOK = EnumHelper.addArmorMaterial("GOT_GEMSBOK", 10, new int[]{1, 3, 2, 1}, 15);
+	public static final ItemArmor.ArmorMaterial ORYX = EnumHelper.addArmorMaterial("GOT_ORYX", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial LION = EnumHelper.addArmorMaterial("GOT_LION", 10, new int[]{1, 3, 2, 1}, 15);
 	public static final ItemArmor.ArmorMaterial ROBES = EnumHelper.addArmorMaterial("GOT_ROBES", 10, new int[]{1, 3, 2, 1}, 15);
 
@@ -157,7 +157,7 @@ public class GOTMaterial {
 
 		BONE.customCraftingMaterial = Items.bone;
 		FUR.customCraftingMaterial = GOTItems.fur;
-		GEMSBOK.customCraftingMaterial = GOTItems.gemsbokHide;
+		ORYX.customCraftingMaterial = GOTItems.oryxHide;
 		LION.customCraftingMaterial = GOTItems.lionFur;
 
 		ANONYMOUS.customCraftingMaterial = Items.paper;

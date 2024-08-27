@@ -216,7 +216,7 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Gemsbok.name≠Gemsbok
+entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -1594,8 +1594,8 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Portez un ensemble complet de l'armur
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Garde de Peyredragon
 got.achievement.WEAR_FULL_FUR.desc=Portez un ensemble complet d'armure en fourrure
 got.achievement.WEAR_FULL_FUR.title=Sauvage
-got.achievement.WEAR_FULL_GEMSBOK.desc=Portez un ensemble complet d'armure en peau d'oryx
-got.achievement.WEAR_FULL_GEMSBOK.title=Traditions de Lhazar
+got.achievement.WEAR_FULL_ORYX.desc=Portez un ensemble complet d'armure en peau d'oryx
+got.achievement.WEAR_FULL_ORYX.title=Traditions de Lhazar
 got.achievement.WEAR_FULL_GHISCAR.desc=Portez un ensemble complet de l'armure de Ghiscar
 got.achievement.WEAR_FULL_GHISCAR.title=Garde de Ghiscar
 got.achievement.WEAR_FULL_GIFT.desc=Portez un ensemble complet de l'armure de la Garde de Nuit
@@ -5359,12 +5359,12 @@ item.got:fur_leggings.name=Jambières en fourrure
 item.got:fuse.name=Fusible
 item.got:gammon.name=Jambon fumé
 item.got:gate_gear.name=Engrenages de porte
-item.got:gemsbok_boots.name=Bottes en peau de gemsbok
-item.got:gemsbok_chestplate.name=Plastron en peau de gemsbok
-item.got:gemsbok_helmet.name=Casque en peau de gemsbok
-item.got:gemsbok_hide.name=Peau de gemsbok
-item.got:gemsbok_horn.name=Corne de gemsbok
-item.got:gemsbok_leggings.name=Jambières en peau de gemsbok
+item.got:oryx_boots.name=Bottes en peau de oryx
+item.got:oryx_chestplate.name=Plastron en peau de oryx
+item.got:oryx_helmet.name=Casque en peau de oryx
+item.got:oryx_hide.name=Peau de oryx
+item.got:oryx_horn.name=Corne de oryx
+item.got:oryx_leggings.name=Jambières en peau de oryx
 item.got:ghiscar_boots.name=Bottes de Ghiscar
 item.got:ghiscar_chestplate.name=Plastron de Ghiscar
 item.got:ghiscar_helmet.name=Casque de Ghiscar

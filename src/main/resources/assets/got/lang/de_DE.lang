@@ -216,7 +216,7 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Gemsbok.name≠Gemsbok
+entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -1594,8 +1594,8 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Trage eine vollständige Rüstung von
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Wache von Drachenstein
 got.achievement.WEAR_FULL_FUR.desc=Trage eine vollständige Pelzrüstung!
 got.achievement.WEAR_FULL_FUR.title=Wildling
-got.achievement.WEAR_FULL_GEMSBOK.desc=Trage eine vollständige Oryx-Rüstung!
-got.achievement.WEAR_FULL_GEMSBOK.title=Traditionen der Lhazareen
+got.achievement.WEAR_FULL_ORYX.desc=Trage eine vollständige Oryx-Rüstung!
+got.achievement.WEAR_FULL_ORYX.title=Traditionen der Lhazareen
 got.achievement.WEAR_FULL_GHISCAR.desc=Trage eine vollständige Ghiscari-Rüstung!
 got.achievement.WEAR_FULL_GHISCAR.title=Ghiscari-Wache
 got.achievement.WEAR_FULL_GIFT.desc=Trage eine vollständige Rüstung der Nachtwache!
@@ -5359,12 +5359,12 @@ item.got:fur_leggings.name=Pelzhose
 item.got:fuse.name=Lunte
 item.got:gammon.name=Schinken
 item.got:gate_gear.name=Torgetriebe
-item.got:gemsbok_boots.name=Oryxhautstiefel
-item.got:gemsbok_chestplate.name=Oryxhautbrustpanzer
-item.got:gemsbok_helmet.name=Oryxhauthelm
-item.got:gemsbok_hide.name=Spießbockfell
-item.got:gemsbok_horn.name=Spießbockhorn
-item.got:gemsbok_leggings.name=Oryxhautbeinschutz
+item.got:oryx_boots.name=Oryxhautstiefel
+item.got:oryx_chestplate.name=Oryxhautbrustpanzer
+item.got:oryx_helmet.name=Oryxhauthelm
+item.got:oryx_hide.name=Spießbockfell
+item.got:oryx_horn.name=Spießbockhorn
+item.got:oryx_leggings.name=Oryxhautbeinschutz
 item.got:ghiscar_boots.name=Ghiscars Stiefel
 item.got:ghiscar_chestplate.name=Ghiscars Brustpanzer
 item.got:ghiscar_helmet.name=Ghiscar Helm

@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-public class GOTModelGemsbok extends ModelBase {
+public class GOTModelOryx extends ModelBase {
 	private final ModelRenderer head = new ModelRenderer(this, 28, 0).setTextureSize(128, 64);
 	private final ModelRenderer tail;
 	private final ModelRenderer earLeft;
@@ -19,7 +19,7 @@ public class GOTModelGemsbok extends ModelBase {
 	private final ModelRenderer leftHorn;
 	private final ModelRenderer rightHorn;
 
-	public GOTModelGemsbok() {
+	public GOTModelOryx() {
 		head.addBox(-3.0f, -10.0f, -6.0f, 6, 7, 12);
 		head.setRotationPoint(0.0f, 4.0f, -9.0f);
 		tail = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);

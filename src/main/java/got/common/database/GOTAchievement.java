@@ -409,7 +409,7 @@ public class GOTAchievement {
 	public static GOTAchievement poisonMug;
 	public static GOTAchievement throwSlingIntoWater;
 	public static GOTAchievement throwConker;
-	public static GOTAchievement wearFullGemsbok;
+	public static GOTAchievement wearFullOryx;
 	public static GOTAchievement wearFullCopper;
 	public static GOTAchievement wearFullCopperChainmail;
 	public static GOTAchievement wearFullGold;
@@ -888,7 +888,7 @@ public class GOTAchievement {
 
 		wearFullBone = createArmorAchievement(armorId++, GOTItems.boneChestplate, "WEAR_FULL_BONE");
 		wearFullFur = createArmorAchievement(armorId++, GOTItems.furChestplate, "WEAR_FULL_FUR");
-		wearFullGemsbok = createArmorAchievement(armorId++, GOTItems.gemsbokChestplate, "WEAR_FULL_GEMSBOK");
+		wearFullOryx = createArmorAchievement(armorId++, GOTItems.oryxChestplate, "WEAR_FULL_ORYX");
 
 		wearFullGift = createArmorAchievement(armorId++, GOTItems.giftChestplate, "WEAR_FULL_GIFT");
 		wearFullNorth = createArmorAchievement(armorId++, GOTItems.northChestplate, "WEAR_FULL_NORTH");

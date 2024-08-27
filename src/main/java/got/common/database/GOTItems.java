@@ -237,12 +237,6 @@ public class GOTItems {
 	public static Item fuse;
 	public static Item gammon;
 	public static Item gateGear;
-	public static Item gemsbokBoots;
-	public static Item gemsbokChestplate;
-	public static Item gemsbokHelmet;
-	public static Item gemsbokHide;
-	public static Item gemsbokHorn;
-	public static Item gemsbokLeggings;
 	public static Item ghiscarBoots;
 	public static Item ghiscarChestplate;
 	public static Item ghiscarHelmet;
@@ -474,6 +468,12 @@ public class GOTItems {
 	public static Item opal;
 	public static Item orange;
 	public static Item orphanMaker;
+	public static Item oryxBoots;
+	public static Item oryxChestplate;
+	public static Item oryxHelmet;
+	public static Item oryxHide;
+	public static Item oryxHorn;
+	public static Item oryxLeggings;
 	public static Item pancake;
 	public static Item pastry;
 	public static Item pear;
@@ -901,12 +901,12 @@ public class GOTItems {
 		fuse = new GOTItemFuse();
 		gammon = new GOTItemFood(8, 0.8f, true);
 		gateGear = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		gemsbokBoots = new GOTItemArmor(GOTMaterial.GEMSBOK, 3);
-		gemsbokChestplate = new GOTItemArmor(GOTMaterial.GEMSBOK, 1);
-		gemsbokHelmet = new GOTItemArmor(GOTMaterial.GEMSBOK, 0);
-		gemsbokHide = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		gemsbokHorn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
-		gemsbokLeggings = new GOTItemArmor(GOTMaterial.GEMSBOK, 2);
+		oryxBoots = new GOTItemArmor(GOTMaterial.ORYX, 3);
+		oryxChestplate = new GOTItemArmor(GOTMaterial.ORYX, 1);
+		oryxHelmet = new GOTItemArmor(GOTMaterial.ORYX, 0);
+		oryxHide = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		oryxHorn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
+		oryxLeggings = new GOTItemArmor(GOTMaterial.ORYX, 2);
 		ghiscarBoots = new GOTItemArmor(GOTMaterial.GHISCAR, 3);
 		ghiscarChestplate = new GOTItemArmor(GOTMaterial.GHISCAR, 1);
 		ghiscarHelmet = new GOTItemArmor(GOTMaterial.GHISCAR, 0);
@@ -1587,10 +1587,10 @@ public class GOTItems {
 		register(lionLeggings, "lionLeggings");
 		register(lionBoots, "lionBoots");
 
-		register(gemsbokHelmet, "gemsbokHelmet");
-		register(gemsbokChestplate, "gemsbokChestplate");
-		register(gemsbokLeggings, "gemsbokLeggings");
-		register(gemsbokBoots, "gemsbokBoots");
+		register(oryxHelmet, "oryxHelmet");
+		register(oryxChestplate, "oryxChestplate");
+		register(oryxLeggings, "oryxLeggings");
+		register(oryxBoots, "oryxBoots");
 
 		register(giftHelmet, "giftHelmet");
 		register(giftChestplate, "giftChestplate");
@@ -2027,11 +2027,11 @@ public class GOTItems {
 
 		register(fur, "fur");
 		register(lionFur, "lionFur");
-		register(gemsbokHide, "gemsbokHide");
+		register(oryxHide, "oryxHide");
 		register(horn, "horn");
 		register(whiteBisonHorn, "whiteBisonHorn");
 		register(rhinoHorn, "rhinoHorn");
-		register(gemsbokHorn, "gemsbokHorn");
+		register(oryxHorn, "oryxHorn");
 		register(beaverTail, "beaverTail");
 
 		register(dye, "dye");

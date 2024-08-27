@@ -216,7 +216,7 @@ entity.got.Flamingo.name≠Flamingo
 entity.got.ForleyPrester.name≠Forley Prester
 entity.got.FranklynFowler.name≠Franklyn Fowler
 entity.got.GarlanTyrell.name≠Garlan Tyrell
-entity.got.Gemsbok.name≠Gemsbok
+entity.got.Oryx.name≠Oryx
 entity.got.GendryBaratheon.name≠Gendry Baratheon
 entity.got.GeroldDayne.name≠Gerold Dayne
 entity.got.GeroldGrafton.name≠Gerold Grafton
@@ -1594,8 +1594,8 @@ got.achievement.WEAR_FULL_DRAGONSTONE.desc=Tam Dragonstone takımını giyin
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Ejderha Kayası Muhafızı
 got.achievement.WEAR_FULL_FUR.desc=Tam bir kürkzırh seti giyin
 got.achievement.WEAR_FULL_FUR.title=Yaban Hayatı
-got.achievement.WEAR_FULL_GEMSBOK.desc=Tam bir Gemsbok seti giyin
-got.achievement.WEAR_FULL_GEMSBOK.title=Lhazar Gelenekleri
+got.achievement.WEAR_FULL_ORYX.desc=Tam bir Oryx seti giyin
+got.achievement.WEAR_FULL_ORYX.title=Lhazar Gelenekleri
 got.achievement.WEAR_FULL_GHISCAR.desc=Tam Ghiscar takımını giyin
 got.achievement.WEAR_FULL_GHISCAR.title=Ghiscar'ın Muhafızı
 got.achievement.WEAR_FULL_GIFT.desc=Tam Hediye Seti takımını giyin
@@ -5358,12 +5358,12 @@ item.got:fur_leggings.name=Kürk Pantolon
 item.got:fuse.name=Sigorta
 item.got:gammon.name=Tuzlanmış Domuz
 item.got:gate_gear.name=Kapı Dişlisi
-item.got:gemsbok_boots.name=Gemsbok Derisi Botları
-item.got:gemsbok_chestplate.name=Gemsbok Derisi Zırhı
-item.got:gemsbok_helmet.name=Gemsbok Derisi Başlığı
-item.got:gemsbok_hide.name=Gemsbok Derisi
-item.got:gemsbok_horn.name=Gemsbok Boynuzu
-item.got:gemsbok_leggings.name=Gemsbok Derisi Pantolonu
+item.got:oryx_boots.name=Oryx Derisi Botları
+item.got:oryx_chestplate.name=Oryx Derisi Zırhı
+item.got:oryx_helmet.name=Oryx Derisi Başlığı
+item.got:oryx_hide.name=Oryx Derisi
+item.got:oryx_horn.name=Oryx Boynuzu
+item.got:oryx_leggings.name=Oryx Derisi Pantolonu
 item.got:ghiscar_boots.name=Ghiscar Botları
 item.got:ghiscar_chestplate.name=Ghiscar Zırhı
 item.got:ghiscar_helmet.name=Ghiscar Miğferi

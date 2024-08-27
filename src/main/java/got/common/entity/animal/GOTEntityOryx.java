@@ -15,9 +15,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToHeat {
+public class GOTEntityOryx extends EntityAnimal implements GOTBiome.ImmuneToHeat {
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTEntityGemsbok(World world) {
+	public GOTEntityOryx(World world) {
 		super(world);
 		setSize(0.9f, 1.4f);
 		getNavigator().setAvoidsWater(true);
@@ -35,10 +35,10 @@ public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToH
 	public void dropFewItems(boolean flag, int i) {
 		int j = 1 + rand.nextInt(4) + rand.nextInt(1 + i);
 		for (int k = 0; k < j; ++k) {
-			dropItem(GOTItems.gemsbokHide, 1);
+			dropItem(GOTItems.oryxHide, 1);
 		}
 		if (rand.nextBoolean()) {
-			dropItem(GOTItems.gemsbokHorn, 1);
+			dropItem(GOTItems.oryxHorn, 1);
 		}
 	}
 
@@ -51,7 +51,7 @@ public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToH
 
 	@Override
 	public EntityAgeable createChild(EntityAgeable entity) {
-		return new GOTEntityGemsbok(worldObj);
+		return new GOTEntityOryx(worldObj);
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToH
 		return "got:deer.death";
 	}
 
-	protected float getGemsbokSoundPitch() {
+	protected float getOryxSoundPitch() {
 		return 0.8f;
 	}
 
@@ -91,7 +91,7 @@ public class GOTEntityGemsbok extends EntityAnimal implements GOTBiome.ImmuneToH
 
 	@Override
 	public float getSoundPitch() {
-		return super.getSoundPitch() * getGemsbokSoundPitch();
+		return super.getSoundPitch() * getOryxSoundPitch();
 	}
 
 	@Override

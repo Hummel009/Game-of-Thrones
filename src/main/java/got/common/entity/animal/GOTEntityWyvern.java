@@ -94,7 +94,7 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 					dropItem(GOTItems.zebraRaw, 1);
 					continue;
 				case 4:
-					dropItem(GOTItems.gemsbokHide, 1);
+					dropItem(GOTItems.oryxHide, 1);
 			}
 		}
 	}

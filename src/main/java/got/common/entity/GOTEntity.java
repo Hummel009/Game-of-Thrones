@@ -108,7 +108,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityElephant.class, id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityFish.class, id++, 7053203);
 		GOTEntityRegistry.register(GOTEntityFlamingo.class, id++, 16087966);
-		GOTEntityRegistry.register(GOTEntityGemsbok.class, id++, 11759423);
+		GOTEntityRegistry.register(GOTEntityOryx.class, id++, 11759423);
 		GOTEntityRegistry.register(GOTEntityGiraffe.class, id++, 13608551);
 		GOTEntityRegistry.register(GOTEntityGorcrow.class, id++, 928034);
 		GOTEntityRegistry.register(GOTEntityHorse.class, id++, 8601889);

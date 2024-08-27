@@ -525,7 +525,7 @@ public class GOTBiomePreseter {
 	private void setupStandardExoticFauna() {
 		biome.getSpawnableCreatureList().clear();
 		biome.addSpawnableCreature(GOTEntityZebra.class, 15, 1, 2);
-		biome.addSpawnableCreature(GOTEntityGemsbok.class, 15, 1, 2);
+		biome.addSpawnableCreature(GOTEntityOryx.class, 15, 1, 2);
 		biome.addSpawnableCreature(GOTEntityWhiteOryx.class, 15, 1, 2);
 		biome.addSpawnableCreature(GOTEntityDikDik.class, 15, 1, 2);
 		biome.addSpawnableCreature(GOTEntityGiraffe.class, 10, 1, 2);

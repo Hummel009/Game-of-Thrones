@@ -5,7 +5,7 @@ import got.common.entity.other.iface.GOTRandomSkinEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class GOTRenderWhiteOryx extends GOTRenderGemsbok {
+public class GOTRenderWhiteOryx extends GOTRenderOryx {
 	private static final GOTRandomSkins ORYX_TEXTURES = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/whiteOryx");
 
 	@Override
