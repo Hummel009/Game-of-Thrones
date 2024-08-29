@@ -24,8 +24,8 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 	public GOTStructureLhazarSettlement(GOTBiome biome, float f) {
 		super(biome);
 		spawnChance = f;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+		settlementChunkRadius = 7;
+		fixedSettlementChunkRadius = 7;
 	}
 
 	@Override

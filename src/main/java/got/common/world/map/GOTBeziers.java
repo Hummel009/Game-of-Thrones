@@ -303,122 +303,124 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.TIQUI, new double[]{3390, 2123}, new double[]{3432, 2160}, GOTWaypoint.MANJIN);
 
 		/* LINKERS */
-		registerLinker(GOTWaypoint.SEAGARD.info(-0.1, toWesterosCastle(-0.5)), false);
-		registerLinker(GOTWaypoint.SEAGARD.info(0, toWesterosTown(0.8)));
-		registerLinker(GOTWaypoint.APPLETON.info(-0.05, toWesterosCastle(-0.5)), false);
-		registerLinker(GOTWaypoint.APPLETON.info(0.1, toWesterosTown(1.1)), false);
-		registerLinker(GOTWaypoint.WINTERFELL.info(toWesterosCastle(-0.45), -0.05), true);
-		registerLinker(GOTWaypoint.CASTERLY_ROCK.info(toWesterosCastle(-0.4), 0));
-		registerLinker(GOTWaypoint.CRAKEHALL.info(toWesterosCastle(-0.45), 0));
-		registerLinker(GOTWaypoint.LANNISPORT.info(toWesterosTown(-0.8), 0));
-		registerLinker(GOTWaypoint.CASTLE_CERWYN.info(toWesterosCastle(-0.4), 0));
-		registerLinker(GOTWaypoint.DREADFORT.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.GOLDGRASS.info(0, toWesterosCastle(0.4)));
-		registerLinker(GOTWaypoint.KARHOLD.info(toWesterosCastle(0.35), 0));
-		registerLinker(GOTWaypoint.WHITE_HARBOUR.info(toWesterosTown(0.8), 0));
-		registerLinker(GOTWaypoint.TORRHENS_SQUARE.info(toWesterosCastle(-0.35), 0));
-		registerLinker(GOTWaypoint.RILLWATER_CROSSING.info(toWesterosCastle(-0.4), 0));
-		registerLinker(GOTWaypoint.RYSWELLS_CASTLE.info(toWesterosCastle(-0.45), 0.05), true);
-		registerLinker(GOTWaypoint.SALTPANS.info(toWesterosTown(0.8), 0));
-		registerLinker(GOTWaypoint.HARROWAY.info(-0.1, toWesterosTown(0.9)), false);
-		registerLinker(GOTWaypoint.STONE_HEDGE.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.ACORN_HALL.info(toWesterosCastle(-0.45), -0.1), true);
-		registerLinker(GOTWaypoint.WAYFARERS_REST.info(toWesterosCastle(-0.35), 0));
-		registerLinker(GOTWaypoint.RIVERRUN.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.STONEY_SEPT.info(toWesterosTown(-0.8), 0));
-		registerLinker(GOTWaypoint.BLOODY_GATE.info(0, toWesterosCastle(-0.5)));
-		registerLinker(GOTWaypoint.THE_EYRIE.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.GATE_OF_THE_MOON.info(toWesterosCastle(0.45), 0));
-		registerLinker(GOTWaypoint.HAYFORD.info(0.05, toWesterosCastle(-0.5)), false);
-		registerLinker(GOTWaypoint.ROOKS_REST.info(0, toWesterosCastle(-0.35)));
-		registerLinker(GOTWaypoint.ANTLERS.info(0.05, toWesterosCastle(-0.5)), false);
-		registerLinker(GOTWaypoint.STOKEWORTH.info(toWesterosCastle(-0.4), 0));
-		registerLinker(GOTWaypoint.ROSBY.info(toWesterosCastle(-0.45), -0.1), true);
-		registerLinker(GOTWaypoint.DUSKENDALE.info(-0.1, toWesterosTown(-0.9) - 0.2), false);
-		registerLinker(GOTWaypoint.KINGS_LANDING.info(1.6953125, 0));
-		registerLinker(GOTWaypoint.GOLDEN_TOOTH.info(-0.1, toWesterosCastle(-0.5)), false);
-		registerLinker(GOTWaypoint.SARSFIELD.info(-0.05, toWesterosCastle(-0.5)), false);
-		registerLinker(GOTWaypoint.OLD_OAK.info(0, toWesterosCastle(0.35)));
-		registerLinker(GOTWaypoint.RED_LAKE.info(0, toWesterosCastle(0.4)));
-		registerLinker(GOTWaypoint.COLDMOAT.info(0, toWesterosCastle(0.45)));
 		registerLinker(GOTWaypoint.BITTERBRIDGE.info(0, toWesterosCastle(0.4)));
-		registerLinker(GOTWaypoint.IVY_HALL.info(0, toWesterosCastle(0.35)));
-		registerLinker(GOTWaypoint.SUNHOUSE.info(0, toWesterosCastle(0.35)));
-		registerLinker(GOTWaypoint.RING.info(0, toWesterosCastle(-0.35)));
-		registerLinker(GOTWaypoint.TUMBLETON.info(0.1, toWesterosTown(-0.95)), false);
-		registerLinker(GOTWaypoint.WHITEGROVE.info(toWesterosCastle(-0.45), -0.05), true);
-		registerLinker(GOTWaypoint.GARNETGROVE.info(toWesterosCastle(-0.35), 0));
+		registerLinker(GOTWaypoint.BLACKHAVEN.info(toWesterosCastle(-0.4), 0));
+		registerLinker(GOTWaypoint.BLACKMONT.info(toWesterosCastle(0.35), 0));
+		registerLinker(GOTWaypoint.BLOODY_GATE.info(0, toWesterosCastle(-0.5)));
+		registerLinker(GOTWaypoint.CASTERLY_ROCK.info(toWesterosCastle(-0.4), 0));
+		registerLinker(GOTWaypoint.CASTLE_CERWYN.info(toWesterosCastle(-0.4), 0));
 		registerLinker(GOTWaypoint.DARKDELL.info(toWesterosCastle(-0.5), 0));
-		registerLinker(GOTWaypoint.HAMMERHAL.info(toWesterosCastle(0.45), -0.05), true);
+		registerLinker(GOTWaypoint.DREADFORT.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.FELWOOD.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.GARNETGROVE.info(toWesterosCastle(-0.35), 0));
+		registerLinker(GOTWaypoint.GOLDGRASS.info(0, toWesterosCastle(0.4)));
+		registerLinker(GOTWaypoint.GRANDVIEW.info(toWesterosCastle(-0.4), 0));
+		registerLinker(GOTWaypoint.HAYSTACK_HALL.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.HIGH_HERMITAGE.info(toWesterosCastle(0.4), 0));
 		registerLinker(GOTWaypoint.HOLYHALL.info(toWesterosCastle(0.4), 0));
-		registerLinker(GOTWaypoint.HIGHGARDEN.info(toWesterosCastle(0.45), 0));
+		registerLinker(GOTWaypoint.IVY_HALL.info(0, toWesterosCastle(0.35)));
+		registerLinker(GOTWaypoint.KARHOLD.info(toWesterosCastle(0.35), 0));
+		registerLinker(GOTWaypoint.KINGSGRAVE.info(toWesterosCastle(0.4), 0));
+		registerLinker(GOTWaypoint.KINGS_LANDING.info(1.6953125, 0));
+		registerLinker(GOTWaypoint.LANNISPORT.info(toWesterosTown(-0.8), 0));
+		registerLinker(GOTWaypoint.NIGHTSONG.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.OLD_OAK.info(0, toWesterosCastle(0.35)));
+		registerLinker(GOTWaypoint.PARCHMENTS.info(0, toWesterosCastle(-0.35)));
+		registerLinker(GOTWaypoint.PODDINGFIELD.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.RED_LAKE.info(0, toWesterosCastle(0.4)));
+		registerLinker(GOTWaypoint.RILLWATER_CROSSING.info(toWesterosCastle(-0.4), 0));
+		registerLinker(GOTWaypoint.RING.info(0, toWesterosCastle(-0.35)));
+		registerLinker(GOTWaypoint.RIVERRUN.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.ROOKS_REST.info(0, toWesterosCastle(-0.35)));
+		registerLinker(GOTWaypoint.SALTPANS.info(toWesterosTown(0.8), 0));
+		registerLinker(GOTWaypoint.SEAGARD.info(0, toWesterosTown(0.8)));
+		registerLinker(GOTWaypoint.SKYREACH.info(0, toWesterosCastle(0.35)));
 		registerLinker(GOTWaypoint.SMITHYTON.info(0, toWesterosTown(0.8)));
-		registerLinker(GOTWaypoint.OLDTOWN.info(toWesterosTown(-1.0), -0.2), true);
+		registerLinker(GOTWaypoint.STOKEWORTH.info(toWesterosCastle(-0.4), 0));
+		registerLinker(GOTWaypoint.STONEY_SEPT.info(toWesterosTown(-0.8), 0));
+		registerLinker(GOTWaypoint.STONE_HEDGE.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.STORMS_END.info(0, toWesterosCastle(0.5)));
+		registerLinker(GOTWaypoint.SUNHOUSE.info(0, toWesterosCastle(0.35)));
+		registerLinker(GOTWaypoint.THE_EYRIE.info(0, toWesterosCastle(-0.4)));
 		registerLinker(GOTWaypoint.THREE_TOWERS.info(-0.4, -0.4));
 		registerLinker(GOTWaypoint.THREE_TOWERS.info(-0.4, 0));
 		registerLinker(GOTWaypoint.THREE_TOWERS.info(-0.4, 0.4));
-		registerLinker(GOTWaypoint.GRANDVIEW.info(toWesterosCastle(-0.4), 0));
-		registerLinker(GOTWaypoint.BLACKHAVEN.info(toWesterosCastle(-0.4), 0));
-		registerLinker(GOTWaypoint.FELWOOD.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.HAYSTACK_HALL.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.GALLOWSGREY.info(-0.05, toWesterosCastle(-0.45)), false);
-		registerLinker(GOTWaypoint.PARCHMENTS.info(0, toWesterosCastle(-0.35)));
-		registerLinker(GOTWaypoint.BRONZEGATE.info(0.05, toWesterosCastle(-0.5)), false);
-		registerLinker(GOTWaypoint.PODDINGFIELD.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.HARVEST_HALL.info(0, toWesterosCastle(-0.45)));
-		registerLinker(GOTWaypoint.NIGHTSONG.info(0, toWesterosCastle(-0.4)));
-		registerLinker(GOTWaypoint.STORMS_END.info(0, toWesterosCastle(0.5)));
-		registerLinker(GOTWaypoint.SKYREACH.info(0, toWesterosCastle(0.35)));
-		registerLinker(GOTWaypoint.STARFALL.info(0.1, toWesterosCastle(0.5)), false);
-		registerLinker(GOTWaypoint.HIGH_HERMITAGE.info(toWesterosCastle(0.4), 0));
-		registerLinker(GOTWaypoint.BLACKMONT.info(toWesterosCastle(0.35), 0));
-		registerLinker(GOTWaypoint.KINGSGRAVE.info(toWesterosCastle(0.4), 0));
+		registerLinker(GOTWaypoint.TORRHENS_SQUARE.info(toWesterosCastle(-0.35), 0));
+		registerLinker(GOTWaypoint.WAYFARERS_REST.info(toWesterosCastle(-0.35), 0));
+		registerLinker(GOTWaypoint.WHITE_HARBOUR.info(toWesterosTown(0.8), 0));
 		registerLinker(GOTWaypoint.YRONWOOD.info(toWesterosCastle(0.35), 0));
-		registerLinker(GOTWaypoint.WYL.info(toWesterosCastle(-0.5), -0.1), true);
 
-		registerLinker(GOTWaypoint.ZAMETTAR.info(0, -0.125));
+		registerLinkerAuto(GOTWaypoint.ACORN_HALL.info(toWesterosCastle(-0.45), -0.05));
+		registerLinkerAuto(GOTWaypoint.ANTLERS.info(0.05, toWesterosCastle(-0.5)));
+		registerLinkerAuto(GOTWaypoint.APPLETON.info(-0.05, toWesterosCastle(-0.5)));
+		registerLinkerAuto(GOTWaypoint.APPLETON.info(0.1, toWesterosTown(1.1)));
+		registerLinkerAuto(GOTWaypoint.BRONZEGATE.info(0.05, toWesterosCastle(-0.5)));
+		registerLinkerAuto(GOTWaypoint.COLDMOAT.info(-0.05, toWesterosCastle(0.45)));
+		registerLinkerAuto(GOTWaypoint.CRAKEHALL.info(toWesterosCastle(-0.45), -0.05));
+		registerLinkerAuto(GOTWaypoint.DUSKENDALE.info(-0.1, toWesterosTown(-1.1)));
+		registerLinkerAuto(GOTWaypoint.GALLOWSGREY.info(-0.05, toWesterosCastle(-0.45)));
+		registerLinkerAuto(GOTWaypoint.GATE_OF_THE_MOON.info(toWesterosCastle(0.45), 0.05));
+		registerLinkerAuto(GOTWaypoint.GOLDEN_TOOTH.info(-0.1, toWesterosCastle(-0.45)));
+		registerLinkerAuto(GOTWaypoint.HAMMERHAL.info(toWesterosCastle(0.45), -0.05));
+		registerLinkerAuto(GOTWaypoint.HARROWAY.info(-0.1, toWesterosTown(0.9)));
+		registerLinkerAuto(GOTWaypoint.HARVEST_HALL.info(-0.05, toWesterosCastle(-0.45)));
+		registerLinkerAuto(GOTWaypoint.HAYFORD.info(0.05, toWesterosCastle(-0.5)));
+		registerLinkerAuto(GOTWaypoint.HIGHGARDEN.info(toWesterosCastle(0.45), 0.05));
+		registerLinkerAuto(GOTWaypoint.OLDTOWN.info(toWesterosTown(-1.0), -0.2));
+		registerLinkerAuto(GOTWaypoint.ROSBY.info(toWesterosCastle(-0.45), -0.1));
+		registerLinkerAuto(GOTWaypoint.RYSWELLS_CASTLE.info(toWesterosCastle(-0.45), 0.05));
+		registerLinkerAuto(GOTWaypoint.SARSFIELD.info(-0.1, toWesterosCastle(-0.45)));
+		registerLinkerAuto(GOTWaypoint.SEAGARD.info(-0.1, toWesterosCastle(-0.5)));
+		registerLinkerAuto(GOTWaypoint.STARFALL.info(0.1, toWesterosCastle(0.45)));
+		registerLinkerAuto(GOTWaypoint.TUMBLETON.info(0.1, toWesterosTown(-0.95)));
+		registerLinkerAuto(GOTWaypoint.WHITEGROVE.info(toWesterosCastle(-0.45), -0.05));
+		registerLinkerAuto(GOTWaypoint.WINTERFELL.info(toWesterosCastle(-0.45), -0.05));
+		registerLinkerAuto(GOTWaypoint.WYL.info(toWesterosCastle(-0.5), -0.05));
 
+		registerLinker(GOTWaypoint.ASTAPOR.info(toEssosTown(-0.5), 0));
 		registerLinker(GOTWaypoint.BRAAVOS.info(0, toEssosTown(-0.5)));
-		registerLinker(GOTWaypoint.NORVOS.info(0, toEssosTown(-0.5)));
 		registerLinker(GOTWaypoint.MANTARYS.info(0, toEssosTown(-0.5)));
-		registerLinker(GOTWaypoint.VOLON_THERYS.info(0, toEssosTown(0.5)));
-		registerLinker(GOTWaypoint.LITTLE_VALYRIA.info(0.26, toEssosTown(0.5) + 0.1));
-		registerLinker(GOTWaypoint.ANOGARIA.info(0.26, toEssosTown(0.5) + 0.1));
-		registerLinker(GOTWaypoint.BHORASH.info(0.26, toEssosTown(0.5) + 0.2));
-		registerLinker(GOTWaypoint.TOLOS.info(0, toEssosTown(0.5)));
 		registerLinker(GOTWaypoint.MEEREEN.info(0, toEssosTown(-0.5)));
+		registerLinker(GOTWaypoint.MYR.info(toEssosTown(-0.5), 0));
+		registerLinker(GOTWaypoint.NORVOS.info(0, toEssosTown(-0.5)));
+		registerLinker(GOTWaypoint.PENTOS.info(toEssosTown(-0.5), 0));
 		registerLinker(GOTWaypoint.PORT_YHOS.info(0, toEssosTown(0.5)));
 		registerLinker(GOTWaypoint.QARKASH.info(0, toEssosTown(0.5)));
 		registerLinker(GOTWaypoint.QARTH.info(0, toEssosTown(0.5)));
-		registerLinker(GOTWaypoint.VOLANTIS.info(-0.2, toEssosTown(0.5) + 0.1));
-		registerLinker(GOTWaypoint.PENTOS.info(toEssosTown(-0.5), 0));
-		registerLinker(GOTWaypoint.MYR.info(toEssosTown(-0.5), 0));
-		registerLinker(GOTWaypoint.QOHOR.info(toEssosTown(-0.5) - 0.1, 0));
 		registerLinker(GOTWaypoint.SELHORYS.info(toEssosTown(-0.5), 0));
-		registerLinker(GOTWaypoint.VALYSAR.info(toEssosTown(-0.5) - 0.1, 0.25));
+		registerLinker(GOTWaypoint.TOLOS.info(0, toEssosTown(0.5)));
+		registerLinker(GOTWaypoint.VOLON_THERYS.info(0, toEssosTown(0.5)));
 		registerLinker(GOTWaypoint.YUNKAI.info(toEssosTown(-0.5), 0));
-		registerLinker(GOTWaypoint.ASTAPOR.info(toEssosTown(-0.5), 0));
+		registerLinkerAuto(GOTWaypoint.QOHOR.info(toEssosTown(-0.6), -0.1));
+		registerLinkerAuto(GOTWaypoint.VOLANTIS.info(-0.2, toEssosTown(0.6)));
+		registerLinkerAutoInv(GOTWaypoint.ANOGARIA.info(0.3, toEssosTown(0.6)));
+		registerLinkerAutoInv(GOTWaypoint.BHORASH.info(0.3, toEssosTown(0.6)));
+		registerLinkerAutoInv(GOTWaypoint.LITTLE_VALYRIA.info(0.3, toEssosTown(0.6)));
+		registerLinkerAutoInv(GOTWaypoint.VALYSAR.info(toEssosTown(-0.6), 0.3));
 
-		registerLinker(GOTWaypoint.KOSRAK.info(1, 0));
-		registerLinker(GOTWaypoint.LHAZOSH.info(1, 0));
-		registerLinker(GOTWaypoint.HESH.info(1, 0));
-		registerLinker(GOTWaypoint.ASSHAI.info(0, toWesterosTown(0.9) - 0.1));
+		registerLinker(GOTWaypoint.KOSRAK.info(1.0, 0));
+		registerLinker(GOTWaypoint.LHAZOSH.info(1.0, 0));
+		registerLinker(GOTWaypoint.HESH.info(1.0, 0));
 
+		registerLinker(GOTWaypoint.ASABHAD.info(toYiTiTown(-0.9), 0));
+		registerLinker(GOTWaypoint.BAOJI.info(0, toYiTiTown(-0.9)));
+		registerLinker(GOTWaypoint.CHANGAN.info(toYiTiTown(0.9), 0));
+		registerLinker(GOTWaypoint.EIJIANG.info(0, toYiTiTown(0.9)));
+		registerLinker(GOTWaypoint.JINQI.info(toYiTiTown(-0.9), 0));
+		registerLinker(GOTWaypoint.LIZHAO.info(toYiTiTown(0.9), 0));
+		registerLinker(GOTWaypoint.SI_QO.info(toYiTiTown(0.9), 0));
+		registerLinker(GOTWaypoint.TIQUI.info(0, toYiTiTown(-0.9)));
 		registerLinker(GOTWaypoint.TRADER_TOWN.info(0, toYiTiTown(-1.0)));
-		registerLinker(GOTWaypoint.YIBIN.info(0, toYiTiTown(-1.0)));
 		registerLinker(GOTWaypoint.VAIBEI.info(0, toYiTiTown(-1.0)));
-		registerLinker(GOTWaypoint.BAOJI.info(0, toYiTiTown(-1.0)));
-		registerLinker(GOTWaypoint.EIJIANG.info(0, toYiTiTown(1.0)));
-		registerLinker(GOTWaypoint.YIN.info(0, toYiTiTown(1.0)));
-		registerLinker(GOTWaypoint.JINQI.info(toYiTiTown(-1.0), 0));
-		registerLinker(GOTWaypoint.ASABHAD.info(toYiTiTown(-1.0), 0));
-		registerLinker(GOTWaypoint.SI_QO.info(toYiTiTown(1.0), 0));
-		registerLinker(GOTWaypoint.YUNNAN.info(toYiTiTown(1.0), 0));
-		registerLinker(GOTWaypoint.MANJIN.info(toYiTiTown(1.0) + 0.1, -0.2));
-		registerLinker(GOTWaypoint.LIZHAO.info(toYiTiTown(1.0), 0));
-		registerLinker(GOTWaypoint.TIQUI.info(0, toYiTiTown(-1.0)));
-		registerLinker(GOTWaypoint.CHANGAN.info(toYiTiTown(1.0), 0));
-		registerLinker(GOTWaypoint.FU_NING.info(toYiTiTown(1.0) + 0.1, 0.1));
+		registerLinker(GOTWaypoint.YIBIN.info(0, toYiTiTown(-0.9)));
+		registerLinker(GOTWaypoint.YIN.info(0, toYiTiTown(0.9)));
+		registerLinker(GOTWaypoint.YUNNAN.info(toYiTiTown(0.9), 0));
+		registerLinkerAuto(GOTWaypoint.FU_NING.info(toYiTiTown(1.1), 0.1));
+		registerLinkerAuto(GOTWaypoint.MANJIN.info(toYiTiTown(1.1), -0.2));
+
+		registerLinker(GOTWaypoint.ASSHAI.info(0, toWesterosTown(0.8)));
+
+		registerLinker(GOTWaypoint.ZAMETTAR.info(0, -0.125));
 	}
 
 	private static void registerBezier(Type type, Object... waypoints) {
@@ -447,7 +449,7 @@ public class GOTBeziers {
 		registerBezier(Type.LINKER, to.getInstance(), to);
 	}
 
-	private static void registerLinker(GOTAbstractWaypoint to, boolean xAxis) {
+	private static void registerLinkerAutoInv(GOTAbstractWaypoint to) {
 		GOTWaypoint from = to.getInstance();
 		double fromX = from.getImgX();
 		double fromY = from.getImgY();
@@ -455,6 +457,27 @@ public class GOTBeziers {
 		double shiftY = to.getShiftY();
 		double toX = to.getImgX();
 		double toY = to.getImgY();
+		boolean xAxis = Math.abs(shiftX) <= Math.abs(shiftY);
+		if (xAxis) {
+			double halfway = Math.min(Math.abs(shiftX / 2.0), 0.1) * (fromX < toX ? -1 : 1);
+			registerBezier(Type.LINKER, from, from.info(shiftX + halfway, shiftY));
+			registerBezier(Type.LINKER, from.info(shiftX + halfway, shiftY), to);
+		} else {
+			double halfway = Math.min(Math.abs(shiftY / 2.0), 0.1) * (fromY < toY ? -1 : 1);
+			registerBezier(Type.LINKER, from, from.info(shiftX, shiftY + halfway));
+			registerBezier(Type.LINKER, from.info(shiftX, shiftY + halfway), to);
+		}
+	}
+
+	private static void registerLinkerAuto(GOTAbstractWaypoint to) {
+		GOTWaypoint from = to.getInstance();
+		double fromX = from.getImgX();
+		double fromY = from.getImgY();
+		double shiftX = to.getShiftX();
+		double shiftY = to.getShiftY();
+		double toX = to.getImgX();
+		double toY = to.getImgY();
+		boolean xAxis = Math.abs(shiftX) > Math.abs(shiftY);
 		if (xAxis) {
 			double halfway = Math.min(Math.abs(shiftX / 2.0), 0.1) * (fromX < toX ? -1 : 1);
 			registerBezier(Type.LINKER, from, from.info(shiftX + halfway, shiftY));

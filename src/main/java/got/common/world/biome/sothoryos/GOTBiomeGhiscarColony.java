@@ -5,6 +5,7 @@ import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.entity.other.GOTEntityDarkSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTEventSpawner;
@@ -36,6 +37,11 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		Collection<GOTSpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_DIRTY;
 	}
 
 	@Override
