@@ -25,8 +25,8 @@ public class GOTTeleporter extends Teleporter {
 		int i;
 		int j;
 		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
-			i = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getCoordX();
-			k = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getCoordZ();
+			i = GOTWaypoint.WINTERFELL.info(-0.45, -0.05).getCoordX();
+			k = GOTWaypoint.WINTERFELL.info(-0.45, -0.05).getCoordZ();
 			j = GOT.getTrueTopBlock(world, i, k);
 		} else {
 			i = GOTLevelData.getOverworldPortalX();

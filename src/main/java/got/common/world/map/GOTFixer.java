@@ -86,7 +86,7 @@ public class GOTFixer {
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}
 		WorldGenerator weirwood = ((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions();
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WINTERFELL.info(-0.5, -0.1, Dir.WEST))) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WINTERFELL.info(-0.45, -0.05, Dir.WEST))) {
 			weirwood.generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
 		}
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE.info(0, -0.125f))) {
@@ -122,8 +122,8 @@ public class GOTFixer {
 		wps.add(GOTWaypoint.BROWNHOLLOW);
 		wps.add(GOTWaypoint.DYRE_DEN);
 		wps.add(GOTWaypoint.STOKEWORTH.info(-0.4, 0, Dir.WEST));
-		wps.add(GOTWaypoint.HAYFORD.info(0.1, -0.5));
-		wps.add(GOTWaypoint.ROOKS_REST.info(0, -0.4));
+		wps.add(GOTWaypoint.HAYFORD.info(0.05, -0.5));
+		wps.add(GOTWaypoint.ROOKS_REST.info(0, -0.35));
 		wps.add(GOTWaypoint.ROSBY.info(-0.5, -0.1, Dir.WEST));
 
 		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.FORT, 3), wps);
@@ -141,7 +141,7 @@ public class GOTFixer {
 
 		registerLocation(new GOTStructureCrownlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureCrownlandsSettlement.Type.VILLAGE, 6), wps);
 
-		wps.add(GOTWaypoint.BLACKMONT.info(0.5, 0, Dir.EAST));
+		wps.add(GOTWaypoint.BLACKMONT.info(0.35, 0, Dir.EAST));
 		wps.add(GOTWaypoint.GHOST_HILL);
 		wps.add(GOTWaypoint.GODSGRACE);
 		wps.add(GOTWaypoint.THE_TOR);
@@ -150,8 +150,8 @@ public class GOTFixer {
 		wps.add(GOTWaypoint.SPOTTSWOOD);
 		wps.add(GOTWaypoint.LEMONWOOD);
 		wps.add(GOTWaypoint.SALT_SHORE);
-		wps.add(GOTWaypoint.KINGSGRAVE.info(0.5, 0, Dir.EAST));
-		wps.add(GOTWaypoint.WYL.info(-0.55, 0, Dir.WEST));
+		wps.add(GOTWaypoint.KINGSGRAVE.info(0.4, 0, Dir.EAST));
+		wps.add(GOTWaypoint.WYL.info(-0.5, -0.1, Dir.WEST));
 
 		registerLocation(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureDorneSettlement.Type.FORT, 3), wps);
 
@@ -366,25 +366,25 @@ public class GOTFixer {
 		wps.add(GOTWaypoint.BANDALLON);
 		wps.add(GOTWaypoint.GRASSY_VALE);
 		wps.add(GOTWaypoint.GRIMSTON);
-		wps.add(GOTWaypoint.HAMMERHAL.info(0.5, 0, Dir.EAST));
-		wps.add(GOTWaypoint.RED_LAKE.info(0, 0.45, Dir.SOUTH));
+		wps.add(GOTWaypoint.HAMMERHAL.info(0.45, -0.05, Dir.EAST));
+		wps.add(GOTWaypoint.RED_LAKE.info(0, 0.4, Dir.SOUTH));
 		wps.add(GOTWaypoint.SOUTHSHIELD);
 		wps.add(GOTWaypoint.UPLANDS);
-		wps.add(GOTWaypoint.HOLYHALL.info(0.45, 0, Dir.EAST));
+		wps.add(GOTWaypoint.HOLYHALL.info(0.4, 0, Dir.EAST));
 		wps.add(GOTWaypoint.HONEYHOLT);
-		wps.add(GOTWaypoint.IVY_HALL.info(0, 0.4, Dir.SOUTH));
+		wps.add(GOTWaypoint.IVY_HALL.info(0, 0.35, Dir.SOUTH));
 		wps.add(GOTWaypoint.NEW_BARREL);
 		wps.add(GOTWaypoint.BLACKCROWN);
 		wps.add(GOTWaypoint.CIDER_HALL);
 		wps.add(GOTWaypoint.COLDMOAT.info(0, 0.45, Dir.SOUTH));
 		wps.add(GOTWaypoint.DARKDELL.info(-0.5, 0, Dir.WEST));
 		wps.add(GOTWaypoint.DUNSTONBURY);
-		wps.add(GOTWaypoint.BITTERBRIDGE.info(0, 0.45, Dir.SOUTH));
-		wps.add(GOTWaypoint.GARNETGROVE.info(-0.5, 0, Dir.WEST));
+		wps.add(GOTWaypoint.BITTERBRIDGE.info(0, 0.4, Dir.SOUTH));
+		wps.add(GOTWaypoint.GARNETGROVE.info(-0.35, 0, Dir.WEST));
 		wps.add(GOTWaypoint.LORD_HEWETTS_TOWN);
-		wps.add(GOTWaypoint.OLD_OAK.info(0, 0.5, Dir.SOUTH));
-		wps.add(GOTWaypoint.SUNHOUSE.info(0, 0.5, Dir.SOUTH));
-		wps.add(GOTWaypoint.WHITEGROVE.info(-0.5, 0, Dir.WEST));
+		wps.add(GOTWaypoint.OLD_OAK.info(0, 0.35, Dir.SOUTH));
+		wps.add(GOTWaypoint.SUNHOUSE.info(0, 0.35, Dir.SOUTH));
+		wps.add(GOTWaypoint.WHITEGROVE.info(-0.45, -0.05, Dir.WEST));
 
 		registerLocation(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureReachSettlement.Type.FORT, 3), wps);
 
@@ -403,16 +403,16 @@ public class GOTFixer {
 		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.CROSSROADS, 2), wps);
 
 		wps.add(GOTWaypoint.DARRY);
-		wps.add(GOTWaypoint.WAYFARERS_REST.info(-0.4, 0, Dir.WEST));
+		wps.add(GOTWaypoint.WAYFARERS_REST.info(-0.35, 0, Dir.WEST));
 		wps.add(GOTWaypoint.ACORN_HALL.info(-0.45, -0.1, Dir.WEST));
 		wps.add(GOTWaypoint.ATRANTA);
 
 		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.FORT, 3), wps);
 
-		wps.add(GOTWaypoint.HARROWAY.info(0, 0.9, Dir.SOUTH));
+		wps.add(GOTWaypoint.HARROWAY.info(-0.1, 0.9, Dir.SOUTH));
 		wps.add(GOTWaypoint.MAIDENPOOL.info(0, 0.9, Dir.SOUTH));
-		wps.add(GOTWaypoint.SALTPANS.info(0.75, 0, Dir.EAST));
-		wps.add(GOTWaypoint.STONEY_SEPT.info(-0.75, 0, Dir.WEST));
+		wps.add(GOTWaypoint.SALTPANS.info(0.8, 0, Dir.EAST));
+		wps.add(GOTWaypoint.STONEY_SEPT.info(-0.8, 0, Dir.WEST));
 		wps.add(GOTWaypoint.SEAGARD.info(0, 0.8, Dir.SOUTH));
 
 		registerLocation(new GOTStructureRiverlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureRiverlandsSettlement.Type.TOWN, 6), wps);
@@ -469,9 +469,9 @@ public class GOTFixer {
 		wps.add(GOTWaypoint.HOGG_HALL.info(0.2, -0.2));
 		wps.add(GOTWaypoint.HOLLARD_CASTLE.info(0.2, 0));
 		wps.add(GOTWaypoint.OLDSTONES.info(0, 0.3));
-		wps.add(GOTWaypoint.SUMMERHALL.info(-0.3, 0));
+		wps.add(GOTWaypoint.SUMMERHALL.info(-0.2, -0.15));
 		wps.add(GOTWaypoint.TARBECK_HALL.info(0, 0.3));
-		wps.add(GOTWaypoint.TOWER_OF_JOY.info(-0.3, 0));
+		wps.add(GOTWaypoint.TOWER_OF_JOY.info(-0.2, -0.05));
 		wps.add(GOTWaypoint.WHISPERS.info(0, 0.3));
 		wps.add(GOTWaypoint.WHITEWALLS.info(0.2, -0.2));
 
@@ -507,25 +507,25 @@ public class GOTFixer {
 
 		wps.add(GOTWaypoint.CROWS_NEST);
 		wps.add(GOTWaypoint.GRIFFINS_ROOST);
-		wps.add(GOTWaypoint.BLACKHAVEN.info(-0.5, 0, Dir.WEST));
-		wps.add(GOTWaypoint.BRONZEGATE.info(0, -0.5));
+		wps.add(GOTWaypoint.BLACKHAVEN.info(-0.4, 0, Dir.WEST));
+		wps.add(GOTWaypoint.BRONZEGATE.info(0.05, -0.5));
 		wps.add(GOTWaypoint.DEAD_HEAD);
 		wps.add(GOTWaypoint.FAWNTOWN);
 		wps.add(GOTWaypoint.AMBERLY);
 		wps.add(GOTWaypoint.BLACK_HEART);
 		wps.add(GOTWaypoint.BROAD_ARCH);
-		wps.add(GOTWaypoint.PARCHMENTS.info(0, -0.5));
-		wps.add(GOTWaypoint.PODDINGFIELD.info(0, -0.5));
+		wps.add(GOTWaypoint.PARCHMENTS.info(0, -0.35));
+		wps.add(GOTWaypoint.PODDINGFIELD.info(0, -0.4));
 		wps.add(GOTWaypoint.RAIN_HOUSE);
 		wps.add(GOTWaypoint.SEAWORTH_CASTLE);
 		wps.add(GOTWaypoint.TUDBURY_HOLL);
-		wps.add(GOTWaypoint.GALLOWSGREY.info(0, -0.5));
-		wps.add(GOTWaypoint.GRANDVIEW.info(-0.5, 0, Dir.WEST));
-		wps.add(GOTWaypoint.HARVEST_HALL.info(0, -0.5));
-		wps.add(GOTWaypoint.HAYSTACK_HALL.info(0, -0.5));
+		wps.add(GOTWaypoint.GALLOWSGREY.info(-0.05, -0.45));
+		wps.add(GOTWaypoint.GRANDVIEW.info(-0.4, 0, Dir.WEST));
+		wps.add(GOTWaypoint.HARVEST_HALL.info(0, -0.45));
+		wps.add(GOTWaypoint.HAYSTACK_HALL.info(0, -0.4));
 		wps.add(GOTWaypoint.MISTWOOD);
-		wps.add(GOTWaypoint.FELWOOD.info(0, -0.5));
-		wps.add(GOTWaypoint.NIGHTSONG.info(0, -0.5));
+		wps.add(GOTWaypoint.FELWOOD.info(0, -0.4));
+		wps.add(GOTWaypoint.NIGHTSONG.info(0, -0.4));
 
 		registerLocation(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureStormlandsSettlement.Type.FORT, 3), wps);
 
@@ -564,9 +564,9 @@ public class GOTFixer {
 
 		registerLocation(new GOTStructureSummerSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureSummerSettlement.Type.VILLAGE, 5), wps);
 
-		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.5, -0.5, Dir.WEST));
-		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.5, 0, Dir.WEST));
-		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.5, 0.5, Dir.WEST));
+		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.4, -0.4, Dir.WEST));
+		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.4, 0, Dir.WEST));
+		wps.add(GOTWaypoint.THREE_TOWERS.info(-0.4, 0.4, Dir.WEST));
 		wps.add(GOTWaypoint.TOWER_OF_GLIMMERING);
 		wps.add(GOTWaypoint.BAELISH_KEEP);
 		wps.add(GOTWaypoint.RAMSEY_TOWER);
@@ -954,7 +954,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityWillasTyrell(world), -2, 2));
 				return spawnInfos;
 			}
-		}.type(GOTStructureReachSettlement.Type.HIGHGARDEN, 3), GOTWaypoint.HIGHGARDEN.info(0.5, 0, Dir.EAST));
+		}.type(GOTStructureReachSettlement.Type.HIGHGARDEN, 3), GOTWaypoint.HIGHGARDEN.info(0.45, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureDorneSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -963,7 +963,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityGeroldDayne(world), 2, -2));
 				return spawnInfos;
 			}
-		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.HIGH_HERMITAGE.info(0.5, 0, Dir.EAST));
+		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.HIGH_HERMITAGE.info(0.4, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureTower(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -1185,7 +1185,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityEbrose(world), 0, 5));
 				return spawnInfos;
 			}
-		}.type(GOTStructureReachSettlement.Type.TOWN, 6), GOTWaypoint.OLDTOWN.info(-1.1, 0, Dir.WEST));
+		}.type(GOTStructureReachSettlement.Type.TOWN, 6), GOTWaypoint.OLDTOWN.info(-1.0, -0.2, Dir.WEST));
 
 		registerSpawner(new GOTStructurePentosSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -1326,7 +1326,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityFranklynFowler(world), 0, 2));
 				return spawnInfos;
 			}
-		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.SKYREACH.info(0, 0.5, Dir.SOUTH));
+		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.SKYREACH.info(0, 0.35, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureEmptySettlement(0) {
 			@Override
@@ -1344,7 +1344,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityBericDayne(world), -2, 2));
 				return spawnInfos;
 			}
-		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.STARFALL.info(0, 0.6, Dir.SOUTH));
+		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.STARFALL.info(0.1, 0.5, Dir.SOUTH));
 
 		registerSpawner(new GOTStructureReachSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -1443,7 +1443,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityHelmanTallhart(world), 0, 2));
 				return spawnInfos;
 			}
-		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.TORRHENS_SQUARE.info(-0.4, 0, Dir.WEST));
+		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.TORRHENS_SQUARE.info(-0.35, 0, Dir.WEST));
 
 		registerSpawner(new GOTStructureTower(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -1509,7 +1509,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityWymanManderly(world), 0, 5));
 				return spawnInfos;
 			}
-		}.type(GOTStructureNorthSettlement.Type.TOWN, 6), GOTWaypoint.WHITE_HARBOUR.info(0.75, 0, Dir.EAST));
+		}.type(GOTStructureNorthSettlement.Type.TOWN, 6), GOTWaypoint.WHITE_HARBOUR.info(0.8, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureEmptySettlement(0) {
 			@Override
@@ -1533,7 +1533,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityOsha(world), 2, 0));
 				return spawnInfos;
 			}
-		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.WINTERFELL.info(-0.5, -0.1, Dir.WEST));
+		}.type(GOTStructureNorthSettlement.Type.FORT, 3), GOTWaypoint.WINTERFELL.info(-0.45, -0.05, Dir.WEST));
 
 		registerSpawner(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -1552,7 +1552,7 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityAndersYronwood(world), 0, 2));
 				return spawnInfos;
 			}
-		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.YRONWOOD.info(0.5, 0, Dir.EAST));
+		}.type(GOTStructureDorneSettlement.Type.FORT, 3), GOTWaypoint.YRONWOOD.info(0.35, 0, Dir.EAST));
 
 		registerSpawner(new GOTStructureGhiscarSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
