@@ -1,9 +1,9 @@
 ﻿
-got.waypoint.custom=%s (Своя)
-got.waypoint.custom.info=Открыта для братств: %s
-got.waypoint.custom.andMore=и %d далее
-got.waypoint.shared=%s (Своя, открытая)
-got.waypoint.shared.info=Открыта игроком %s для братств: %s
+got.wp.custom=%s (Своя)
+got.wp.custom.info=Открыта для братств: %s
+got.wp.custom.andMore=и %d далее
+got.wp.shared=%s (Своя, открытая)
+got.wp.shared.info=Открыта игроком %s для братств: %s
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)
 death.attack.got.frost=%1$s замёрз
 death.attack.got.plantHurt=%1$s был убит растением
@@ -4457,11 +4457,6 @@ got.wp.ZAMETTAR.info=Одна из колоний Гискара, впослед
 got.wp.ZAMETTAR=Заметтар
 got.wp.ZHENGUO.info=Главная крепость Великой итийской стены. По легенде, именно с этой крепости началось строительство стены.
 got.wp.ZHENGUO=Чжэнго
-got.wp.custom.andMore=и %d более
-got.wp.custom.info=Является путевой точкой братства "%d"
-got.wp.custom=%s (Своя)
-got.wp.shared.info=Доступна для %s
-got.wp.shared=%s (Общая)
 item.got.antiking=Убивает Короля Ночи
 item.got.antiwalker=Убивает белых ходоков
 item.got.antiwight=Убивает вихтов

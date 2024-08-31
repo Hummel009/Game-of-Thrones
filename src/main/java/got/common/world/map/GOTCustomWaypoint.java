@@ -164,7 +164,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public String getDisplayName() {
 		if (isShared()) {
-			return StatCollector.translateToLocalFormatted("got.waypoint.shared", customName);
+			return StatCollector.translateToLocalFormatted("got.wp.shared", customName);
 		}
 		return StatCollector.translateToLocalFormatted("got.wp.custom", customName);
 	}
@@ -216,7 +216,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 			if (ownShared) {
 				return StatCollector.translateToLocalFormatted("got.wp.custom.info", sharedFsNames.toString());
 			}
-			return StatCollector.translateToLocalFormatted("got.waypoint.shared.info", sharingPlayerName, sharedFsNames.toString());
+			return StatCollector.translateToLocalFormatted("got.wp.shared.info", sharingPlayerName, sharedFsNames.toString());
 		}
 		return null;
 	}

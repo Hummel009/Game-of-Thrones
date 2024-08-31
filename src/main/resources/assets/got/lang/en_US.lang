@@ -1,9 +1,9 @@
 ﻿
-got.waypoint.custom=%s (Custom)
-got.waypoint.custom.info=Shared with Fellowships: %s
-got.waypoint.custom.andMore=and %d more
-got.waypoint.shared=%s (Shared Custom)
-got.waypoint.shared.info=Shared by %s with Fellowships: %s
+got.wp.custom=%s (Custom)
+got.wp.custom.info=Shared with Fellowships: %s
+got.wp.custom.andMore=and %d more
+got.wp.shared=%s (Shared Custom)
+got.wp.shared.info=Shared by %s with Fellowships: %s
 attribute.name.generic.movementSpeedAir=Speed (Air)
 death.attack.got.frost=%1$s succumbed to the cold
 death.attack.got.plantHurt=%1$s was slain by a plant
@@ -4457,11 +4457,6 @@ got.wp.ZAMETTAR.info=One of the colonies of Giscard, later captured by Valyria. 
 got.wp.ZAMETTAR=Zamettar
 got.wp.ZHENGUO.info=The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
 got.wp.ZHENGUO=Zhenggo
-got.wp.custom.andMore=And %d more
-got.wp.custom.info=Is the waypoint of the brotherhood "%d"
-got.wp.custom=%s
-got.wp.shared.info=Available for %s
-got.wp.shared=%s
 item.got.antiking=Kills Night King
 item.got.antiwalker=Kills white walkers
 item.got.antiwight=Kills wights
