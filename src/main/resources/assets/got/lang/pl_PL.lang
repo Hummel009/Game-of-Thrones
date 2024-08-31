@@ -1,4 +1,9 @@
 ﻿
+got.waypoint.custom=%s (Własna)
+got.waypoint.custom.info=Otwarte dla bractw: %s
+got.waypoint.custom.andMore=i %d więcej
+got.waypoint.shared=%s (Własna, otwarta)
+got.waypoint.shared.info=Otwarte przez gracza %s dla bractw: %s
 attribute.name.generic.movementSpeedAir=Prędkość (powietrze)
 death.attack.got.frost=Gracz %1$s zamarzł
 death.attack.got.plantHurt=Gracz %1$s został zabity przez roślinę

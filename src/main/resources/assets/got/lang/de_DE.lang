@@ -1,4 +1,9 @@
 ﻿
+got.waypoint.custom=%s (Benutzerdefiniert)
+got.waypoint.custom.info=Gemeinsam mit Fellowships: %s
+got.waypoint.custom.andMore=und %d mehr
+got.waypoint.shared=%s (Gemeinsame Benutzerdefinition)
+got.waypoint.shared.info=Gemeinsam genutzt von %s mit Fellowships: %s
 attribute.name.generic.movementSpeedAir=Geschwindigkeit (Luft)
 death.attack.got.frost=%1$s ist erfroren
 death.attack.got.plantHurt=%1$s wurde von einer Pflanze getötet

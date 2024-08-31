@@ -1,4 +1,9 @@
 ﻿
+got.waypoint.custom=%s (Своя)
+got.waypoint.custom.info=Открыта для братств: %s
+got.waypoint.custom.andMore=и %d далее
+got.waypoint.shared=%s (Своя, открытая)
+got.waypoint.shared.info=Открыта игроком %s для братств: %s
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)
 death.attack.got.frost=%1$s замёрз
 death.attack.got.plantHurt=%1$s был убит растением

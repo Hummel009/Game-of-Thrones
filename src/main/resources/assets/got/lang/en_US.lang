@@ -1,4 +1,9 @@
 ﻿
+got.waypoint.custom=%s (Custom)
+got.waypoint.custom.info=Shared with Fellowships: %s
+got.waypoint.custom.andMore=and %d more
+got.waypoint.shared=%s (Shared Custom)
+got.waypoint.shared.info=Shared by %s with Fellowships: %s
 attribute.name.generic.movementSpeedAir=Speed (Air)
 death.attack.got.frost=%1$s succumbed to the cold
 death.attack.got.plantHurt=%1$s was slain by a plant

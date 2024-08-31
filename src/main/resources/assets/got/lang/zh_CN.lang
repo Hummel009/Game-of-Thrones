@@ -1,4 +1,9 @@
 ﻿
+got.waypoint.custom=%s (自己的)
+got.waypoint.custom.info=对兄弟会开放：%s
+got.waypoint.custom.andMore=还有 %d 更多
+got.waypoint.shared=%s（拥有，开放）
+got.waypoint.shared.info=玩家 %s 向兄弟会开放：%s
 attribute.name.generic.movementSpeedAir=速度(Air)
 death.attack.got.frost=%1$s冻结了
 death.attack.got.plantHurt=%1$s在花草上绊了一跤

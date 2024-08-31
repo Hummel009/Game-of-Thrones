@@ -1,4 +1,9 @@
 ﻿
+got.waypoint.custom=%s (Personnalisé)
+got.waypoint.custom.info=Partagé avec les bourses : %s
+got.waypoint.custom.andMore=et %d more
+got.waypoint.shared=%s (Personnalisé partagé)
+got.waypoint.shared.info=Partagé par %s avec les bourses : %s
 attribute.name.generic.movementSpeedAir=Vitesse (Air)
 death.attack.got.frost=%1$s a succombé au froid
 death.attack.got.plantHurt=%1$s a été tué(e) par une plante
