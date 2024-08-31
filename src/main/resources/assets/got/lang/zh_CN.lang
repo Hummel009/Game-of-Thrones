@@ -1,9 +1,4 @@
 ﻿
-got.wp.custom=%s (自己的)
-got.wp.custom.info=对兄弟会开放：%s
-got.wp.custom.andMore=还有 %d 更多
-got.wp.shared=%s（拥有，开放）
-got.wp.shared.info=玩家 %s 向兄弟会开放：%s
 attribute.name.generic.movementSpeedAir=速度(Air)
 death.attack.got.frost=%1$s冻结了
 death.attack.got.plantHurt=%1$s在花草上绊了一跤
@@ -4457,6 +4452,11 @@ got.wp.ZAMETTAR.info=夷门塔，是一座位于索斯罗斯北岸的被毁灭�
 got.wp.ZAMETTAR=夷门塔
 got.wp.ZHENGUO.info=夷地长城的最主要的关隘。据传说，正是这个关隘开始了长城的建设。
 got.wp.ZHENGUO=镇国
+got.wp.custom.andMore=还有 %d 更多
+got.wp.custom.info=对兄弟会开放：%s
+got.wp.custom=%s (自己的)
+got.wp.shared.info=玩家 %s 向兄弟会开放：%s
+got.wp.shared=%s（拥有，开放）
 item.got.antiking=杀死夜王
 item.got.antiwalker=杀死异鬼
 item.got.antiwight=杀戮巫师

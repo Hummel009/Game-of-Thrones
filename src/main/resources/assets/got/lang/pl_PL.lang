@@ -1,9 +1,4 @@
 ﻿
-got.wp.custom=%s (Własna)
-got.wp.custom.info=Otwarte dla bractw: %s
-got.wp.custom.andMore=i %d więcej
-got.wp.shared=%s (Własna, otwarta)
-got.wp.shared.info=Otwarte przez gracza %s dla bractw: %s
 attribute.name.generic.movementSpeedAir=Prędkość (powietrze)
 death.attack.got.frost=Gracz %1$s zamarzł
 death.attack.got.plantHurt=Gracz %1$s został zabity przez roślinę
@@ -4457,6 +4452,11 @@ got.wp.ZAMETTAR.info=Jedna z kolonii Giscard, później zajęta przez Valyrię. 
 got.wp.ZAMETTAR=Zamettar
 got.wp.ZHENGUO.info=Główna forteca Wielkiego Muru Yi Ti. Według legendy to od tej fortecy rozpoczęto budowę muru.
 got.wp.ZHENGUO=Zhenguo
+got.wp.custom.andMore=i %d więcej
+got.wp.custom.info=Otwarte dla bractw: %s
+got.wp.custom=%s (Własna)
+got.wp.shared.info=Otwarte przez gracza %s dla bractw: %s
+got.wp.shared=%s (Własna, otwarta)
 item.got.antiking=Zabija Króla Nocy
 item.got.antiwalker=Zabija białych wędrowców
 item.got.antiwight=Zabija upiorów

@@ -1,9 +1,4 @@
 ﻿
-got.wp.custom=%s (Personnalisé)
-got.wp.custom.info=Partagé avec les bourses : %s
-got.wp.custom.andMore=et %d more
-got.wp.shared=%s (Personnalisé partagé)
-got.wp.shared.info=Partagé par %s avec les bourses : %s
 attribute.name.generic.movementSpeedAir=Vitesse (Air)
 death.attack.got.frost=%1$s a succombé au froid
 death.attack.got.plantHurt=%1$s a été tué(e) par une plante
@@ -4457,6 +4452,11 @@ got.wp.ZAMETTAR.info=L'une des colonies de Giscard, Capeturée plus tard par Val
 got.wp.ZAMETTAR=Zamettar
 got.wp.ZHENGUO.info=La principale forteresse du Grand Mur de Yi Ti. Selon la légende, c'est à partir de cette forteresse que la construction du mur a commencé.
 got.wp.ZHENGUO=Zhenguo
+got.wp.custom.andMore=et %d more
+got.wp.custom.info=Partagé avec les bourses : %s
+got.wp.custom=%s (Personnalisé)
+got.wp.shared.info=Partagé par %s avec les bourses : %s
+got.wp.shared=%s (Personnalisé partagé)
 item.got.antiking=Tue le Roi de la Nuit
 item.got.antiwalker=Tue les marcheurs blancs
 item.got.antiwight=Tue les rôdeurs

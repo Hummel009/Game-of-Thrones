@@ -1,9 +1,4 @@
 ﻿
-got.wp.custom=%s (Özel)
-got.wp.custom.info=Fellowhips ile paylaşıldı: %s
-got.wp.custom.andMore=ve %d daha fazla
-got.wp.shared=%s (Paylaşılan Özel)
-got.wp.shared.info=Shared by %s with Fellowships: %s
 attribute.name.generic.movementSpeedAir=Hız (Hava)
 death.attack.got.frost=%1$s Donarak Hayata Veda Etti
 death.attack.got.plantHurt=%1$s Bitki Tarafından Şişlendi
@@ -4457,6 +4452,11 @@ got.wp.ZAMETTAR.info=Giscard kolonilerinden biri, daha sonra Valyria tarafından
 got.wp.ZAMETTAR=Zamettar
 got.wp.ZHENGUO.info=Büyük Yi Ti Duvarı'nın ana kalesi. Efsaneye göre, duvarın inşasına bu kaleden başlanmış.
 got.wp.ZHENGUO=Zhenguo
+got.wp.custom.andMore=ve %d daha fazla
+got.wp.custom.info=Fellowhips ile paylaşıldı: %s
+got.wp.custom=%s (Özel)
+got.wp.shared.info=Shared by %s with Fellowships: %s
+got.wp.shared=%s (Paylaşılan Özel)
 item.got.antiking=Gece Kralı'nı Öldürür
 item.got.antiwalker=Beyaz yürüyenleri öldürür
 item.got.antiwight=Wightları öldürür

@@ -1,9 +1,4 @@
 ﻿
-got.wp.custom=%s (Benutzerdefiniert)
-got.wp.custom.info=Gemeinsam mit Fellowships: %s
-got.wp.custom.andMore=und %d mehr
-got.wp.shared=%s (Gemeinsame Benutzerdefinition)
-got.wp.shared.info=Gemeinsam genutzt von %s mit Fellowships: %s
 attribute.name.generic.movementSpeedAir=Geschwindigkeit (Luft)
 death.attack.got.frost=%1$s ist erfroren
 death.attack.got.plantHurt=%1$s wurde von einer Pflanze getötet
@@ -4457,6 +4452,11 @@ got.wp.ZAMETTAR.info=Eine von Giscards Kolonien, die später von Valyria überno
 got.wp.ZAMETTAR=Zamettar
 got.wp.ZHENGUO.info=Die Hauptfestung der Großen Yi-Ti-Mauer. Der Legende nach begann der Bau der Mauer von dieser Festung aus.
 got.wp.ZHENGUO=Zhenggo
+got.wp.custom.andMore=und %d mehr
+got.wp.custom.info=Gemeinsam mit Fellowships: %s
+got.wp.custom=%s (Benutzerdefiniert)
+got.wp.shared.info=Gemeinsam genutzt von %s mit Fellowships: %s
+got.wp.shared=%s (Gemeinsame Benutzerdefinition)
 item.got.antiking=Tötet den Nachtkönig
 item.got.antiwalker=Tötet Weiße Wanderer
 item.got.antiwight=Tötet Widergänger
