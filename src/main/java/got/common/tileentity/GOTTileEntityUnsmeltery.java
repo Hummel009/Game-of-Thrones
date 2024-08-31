@@ -48,42 +48,42 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 0), new ItemStack(GOTItems.copperIngot));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.copperIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.copperBars), new ItemStack(GOTItems.copperIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 0), new ItemStack(GOTItems.copperIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.copperIngot));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.copperBars), new ItemStack(GOTItems.copperNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 0), new ItemStack(GOTItems.copperNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.copperNugget));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateCopperBars), new ItemStack(GOTItems.copperIngot));
 
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 1), new ItemStack(GOTItems.bronzeIngot));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.gobletBronze), new ItemStack(GOTItems.bronzeIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.bronzeBars), new ItemStack(GOTItems.bronzeIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 1), new ItemStack(GOTItems.bronzeIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTItems.bronzeIngot));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.bronzeBars), new ItemStack(GOTItems.bronzeNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 1), new ItemStack(GOTItems.bronzeNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTItems.bronzeNugget));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateBronzeBars), new ItemStack(GOTItems.bronzeIngot));
 
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 2), new ItemStack(Items.iron_ingot));
-		UNSMELT_CUSTOM.put(new ItemStack(Blocks.iron_bars), new ItemStack(Items.iron_ingot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 2), new ItemStack(Items.iron_ingot));
+		UNSMELT_CUSTOM.put(new ItemStack(Blocks.iron_bars), new ItemStack(GOTItems.ironNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 2), new ItemStack(GOTItems.ironNugget));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateIronBars), new ItemStack(Items.iron_ingot));
 
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 3), new ItemStack(GOTItems.silverIngot));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.silverIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.silverBars), new ItemStack(GOTItems.silverIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 3), new ItemStack(GOTItems.silverIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.silverIngot));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.silverBars), new ItemStack(GOTItems.silverNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 3), new ItemStack(GOTItems.silverNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.silverNugget));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateSilverBars), new ItemStack(GOTItems.silverIngot));
 
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 4), new ItemStack(Items.gold_ingot));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.gobletGold), new ItemStack(Items.gold_ingot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.goldBars), new ItemStack(Items.gold_ingot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 4), new ItemStack(Items.gold_ingot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.goldRing), new ItemStack(Items.gold_ingot));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.goldBars), new ItemStack(Items.gold_nugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 4), new ItemStack(Items.gold_nugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.goldRing), new ItemStack(Items.gold_nugget));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateGoldBars), new ItemStack(Items.gold_ingot));
 
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.birdCage, 1, 5), new ItemStack(GOTItems.valyrianIngot));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.gobletValyrian), new ItemStack(GOTItems.valyrianIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.valyrianBars), new ItemStack(GOTItems.valyrianIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 5), new ItemStack(GOTItems.valyrianIngot));
-		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.valyrianRing), new ItemStack(GOTItems.valyrianIngot));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.valyrianBars), new ItemStack(GOTItems.valyrianNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.chandelier, 1, 5), new ItemStack(GOTItems.valyrianNugget));
+		UNSMELT_CUSTOM.put(new ItemStack(GOTItems.valyrianRing), new ItemStack(GOTItems.valyrianNugget));
 		UNSMELT_CUSTOM.put(new ItemStack(GOTBlocks.gateValyrianBars), new ItemStack(GOTItems.valyrianIngot));
 	}
 
