@@ -1,5 +1,9 @@
 CHANGELOG
 
+>>BUILD 24.XX.YY
+* Improved translation of waypoints
+* Fixed bug with unsmeltery and rings, bars, chandeliers
+
 >>BUILD 24.08.29
 * Improved locations
 * Improved wiki generator
