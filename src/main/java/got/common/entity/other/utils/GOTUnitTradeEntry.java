@@ -78,12 +78,12 @@ public class GOTUnitTradeEntry {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		float reputation = pd.getReputation(fac);
 		boolean pledged = pd.isPledgedTo(fac);
-		float alignSurplus = Math.max(reputation - reputationRequired, 0.0f);
+		float repSurplus = Math.max(reputation - reputationRequired, 0.0f);
 		if (pledged) {
-			f = alignSurplus / 1500.0f;
+			f = repSurplus / 1500.0f;
 		} else {
 			cost *= 2.0f;
-			f = alignSurplus / 2000.0f;
+			f = repSurplus / 2000.0f;
 		}
 		f = MathHelper.clamp_float(f, 0.0f, 1.0f);
 		cost *= 1.0f - f * 0.5f;

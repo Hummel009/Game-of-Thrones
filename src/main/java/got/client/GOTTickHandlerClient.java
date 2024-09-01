@@ -198,21 +198,21 @@ public class GOTTickHandlerClient {
 		GOTFactionRank rank = faction.getRank(reputation);
 		boolean pledged = clientPD.isPledgedTo(faction);
 		GOTReputationTicker ticker = GOTReputationTicker.forFaction(faction);
-		float alignMin;
-		float alignMax;
+		float repMin;
+		float repMax;
 		GOTFactionRank rankMin;
 		GOTFactionRank rankMax;
 		if (rank.isDummyRank()) {
-			float firstRankAlign;
+			float firstRankRep;
 			GOTFactionRank firstRank = faction.getFirstRank();
 			if (firstRank != null && !firstRank.isDummyRank()) {
-				firstRankAlign = firstRank.getReputation();
+				firstRankRep = firstRank.getReputation();
 			} else {
-				firstRankAlign = 10.0F;
+				firstRankRep = 10.0F;
 			}
-			if (Math.abs(reputation) < firstRankAlign) {
-				alignMin = -firstRankAlign;
-				alignMax = firstRankAlign;
+			if (Math.abs(reputation) < firstRankRep) {
+				repMin = -firstRankRep;
+				repMax = firstRankRep;
 				rankMin = GOTFactionRank.RANK_ENEMY;
 				if (firstRank != null && !firstRank.isDummyRank()) {
 					rankMax = firstRank;
@@ -220,39 +220,39 @@ public class GOTTickHandlerClient {
 					rankMax = GOTFactionRank.RANK_NEUTRAL;
 				}
 			} else if (reputation < 0.0F) {
-				alignMax = -firstRankAlign;
-				alignMin = alignMax * 10.0F;
+				repMax = -firstRankRep;
+				repMin = repMax * 10.0F;
 				rankMin = rankMax = GOTFactionRank.RANK_ENEMY;
-				while (reputation <= alignMin) {
-					alignMax *= 10.0F;
-					alignMin = alignMax * 10.0F;
+				while (reputation <= repMin) {
+					repMax *= 10.0F;
+					repMin = repMax * 10.0F;
 				}
 			} else {
-				alignMin = firstRankAlign;
-				alignMax = alignMin * 10.0F;
+				repMin = firstRankRep;
+				repMax = repMin * 10.0F;
 				rankMin = rankMax = GOTFactionRank.RANK_NEUTRAL;
-				while (reputation >= alignMax) {
-					alignMin = alignMax;
-					alignMax = alignMin * 10.0F;
+				while (reputation >= repMax) {
+					repMin = repMax;
+					repMax = repMin * 10.0F;
 				}
 			}
 		} else {
-			alignMin = rank.getReputation();
+			repMin = rank.getReputation();
 			rankMin = rank;
 			GOTFactionRank nextRank = faction.getRankAbove(rank);
 			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
-				alignMax = nextRank.getReputation();
+				repMax = nextRank.getReputation();
 				rankMax = nextRank;
 			} else {
-				alignMax = rank.getReputation() * 10.0F;
+				repMax = rank.getReputation() * 10.0F;
 				rankMax = rank;
-				while (reputation >= alignMax) {
-					alignMin = alignMax;
-					alignMax = alignMin * 10.0F;
+				while (reputation >= repMax) {
+					repMin = repMax;
+					repMax = repMin * 10.0F;
 				}
 			}
 		}
-		float ringProgress = (reputation - alignMin) / (alignMax - alignMin);
+		float ringProgress = (reputation - repMin) / (repMax - repMin);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 		int barWidth = 232;
@@ -312,8 +312,8 @@ public class GOTTickHandlerClient {
 			String sMin = rankMin.getShortNameWithGender(clientPD);
 			String sMax = rankMax.getShortNameWithGender(clientPD);
 			if (renderLimitValues) {
-				sMin = StatCollector.translateToLocalFormatted("got.gui.factions.reputation.limits", sMin, GOTReputationValues.formatAlignForDisplay(alignMin));
-				sMax = StatCollector.translateToLocalFormatted("got.gui.factions.reputation.limits", sMax, GOTReputationValues.formatAlignForDisplay(alignMax));
+				sMin = StatCollector.translateToLocalFormatted("got.gui.factions.reputation.limits", sMin, GOTReputationValues.formatRepForDisplay(repMin));
+				sMax = StatCollector.translateToLocalFormatted("got.gui.factions.reputation.limits", sMax, GOTReputationValues.formatRepForDisplay(repMax));
 			}
 			int limitsX = barWidth / 2 - 6;
 			int xMin = Math.round(x - limitsX);
@@ -329,23 +329,23 @@ public class GOTTickHandlerClient {
 			drawReputationText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0F);
 		}
 		if (renderValue) {
-			String alignS;
-			float alignAlpha;
+			String repS;
+			float repAlpha;
 			int numericalTick = ticker.getNumericalTick();
 			if (numericalTick > 0) {
-				alignS = GOTReputationValues.formatAlignForDisplay(reputation);
-				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7F, 1.0F, 30.0F);
+				repS = GOTReputationValues.formatRepForDisplay(reputation);
+				repAlpha = GOTFunctions.triangleWave(numericalTick, 0.7F, 1.0F, 30.0F);
 				int fadeTick = 15;
 				if (numericalTick < fadeTick) {
-					alignAlpha *= (float) numericalTick / fadeTick;
+					repAlpha *= (float) numericalTick / fadeTick;
 				}
 			} else {
-				alignS = rank.getShortNameWithGender(clientPD);
-				alignAlpha = 1.0F;
+				repS = rank.getShortNameWithGender(clientPD);
+				repAlpha = 1.0F;
 			}
 			GL11.glEnable(3042);
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-			drawReputationText(fr, textX - fr.getStringWidth(alignS) / 2, textY + fr.FONT_HEIGHT + 3, alignS, alignAlpha);
+			drawReputationText(fr, textX - fr.getStringWidth(repS) / 2, textY + fr.FONT_HEIGHT + 3, repS, repAlpha);
 			GL11.glDisable(3042);
 		}
 	}

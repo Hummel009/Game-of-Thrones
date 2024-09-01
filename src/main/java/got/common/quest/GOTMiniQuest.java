@@ -147,7 +147,7 @@ public abstract class GOTMiniQuest {
 			reputation = Math.max(reputation, 1.0f);
 			GOTReputationValues.ReputationBonus bonus = GOTReputationValues.createMiniquestBonus(reputation);
 			GOTFaction rewardFaction = getReputationRewardFaction();
-			if (!questGroup.isNoAlignRewardForEnemy() || playerData.getReputation(rewardFaction) >= 0.0f) {
+			if (!questGroup.isNoRepRewardForEnemy() || playerData.getReputation(rewardFaction) >= 0.0f) {
 				GOTReputationBonusMap reputationMap = playerData.addReputation(entityplayer, bonus, rewardFaction, npc);
 				reputationRewarded = reputationMap.get(rewardFaction);
 			}
@@ -327,7 +327,7 @@ public abstract class GOTMiniQuest {
 		}
 		rewardFactor = nbt.hasKey("RewardFactor") ? nbt.getFloat("RewardFactor") : 1.0f;
 		willHire = nbt.getBoolean("WillHire");
-		hiringReputation = nbt.hasKey("HiringReputation") ? nbt.getInteger("HiringReputation") : nbt.getFloat("HiringAlignF");
+		hiringReputation = nbt.hasKey("HiringReputation") ? nbt.getInteger("HiringReputation") : nbt.getFloat("HiringRepF");
 		rewardItemTable.clear();
 		if (nbt.hasKey("RewardItemTable")) {
 			itemTags = nbt.getTagList("RewardItemTable", 10);
@@ -343,7 +343,7 @@ public abstract class GOTMiniQuest {
 		completed = nbt.getBoolean("Completed");
 		dateCompleted = nbt.getInteger("DateCompleted");
 		coinsRewarded = nbt.getShort("CoinReward");
-		reputationRewarded = nbt.hasKey("ReputationReward") ? nbt.getShort("ReputationReward") : nbt.getFloat("AlignRewardF");
+		reputationRewarded = nbt.hasKey("ReputationReward") ? nbt.getShort("ReputationReward") : nbt.getFloat("RepRewardF");
 		wasHired = nbt.getBoolean("WasHired");
 		itemsRewarded.clear();
 		if (nbt.hasKey("ItemRewards")) {
@@ -552,7 +552,7 @@ public abstract class GOTMiniQuest {
 		}
 		nbt.setFloat("RewardFactor", rewardFactor);
 		nbt.setBoolean("WillHire", willHire);
-		nbt.setFloat("HiringAlignF", hiringReputation);
+		nbt.setFloat("HiringRepF", hiringReputation);
 		if (!rewardItemTable.isEmpty()) {
 			itemTags = new NBTTagList();
 			for (ItemStack item : rewardItemTable) {
@@ -565,7 +565,7 @@ public abstract class GOTMiniQuest {
 		nbt.setBoolean("Completed", completed);
 		nbt.setInteger("DateCompleted", dateCompleted);
 		nbt.setShort("CoinReward", (short) coinsRewarded);
-		nbt.setFloat("AlignRewardF", reputationRewarded);
+		nbt.setFloat("RepRewardF", reputationRewarded);
 		nbt.setBoolean("WasHired", wasHired);
 		if (!itemsRewarded.isEmpty()) {
 			itemTags = new NBTTagList();

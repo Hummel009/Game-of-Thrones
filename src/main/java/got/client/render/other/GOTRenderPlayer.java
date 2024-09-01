@@ -101,10 +101,10 @@ public class GOTRenderPlayer {
 				GL11.glEnable(3042);
 				GL11.glBlendFunc(770, 771);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				String sAlign = GOTReputationValues.formatAlignForDisplay(reputation);
+				String sRep = GOTReputationValues.formatRepForDisplay(reputation);
 				MINECRAFT.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
-				GOTTickHandlerClient.drawTexturedModalRect(-MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -19.0, 0, 36, 16, 16);
-				GOTTickHandlerClient.drawReputationText(fr, 18 - MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -12, sAlign, 1.0f);
+				GOTTickHandlerClient.drawTexturedModalRect(-MathHelper.floor_double((fr.getStringWidth(sRep) + 18) / 2.0), -19.0, 0, 36, 16, 16);
+				GOTTickHandlerClient.drawReputationText(fr, 18 - MathHelper.floor_double((fr.getStringWidth(sRep) + 18) / 2.0), -12, sRep, 1.0f);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glDisable(3042);
 				GL11.glEnable(2929);

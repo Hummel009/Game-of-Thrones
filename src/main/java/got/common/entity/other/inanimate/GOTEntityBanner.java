@@ -387,7 +387,7 @@ public class GOTEntityBanner extends Entity {
 		if (nbt.hasKey("ReputationProtection")) {
 			setReputationProtection(nbt.getInteger("ReputationProtection"));
 		} else {
-			setReputationProtection(nbt.getFloat("AlignProtectF"));
+			setReputationProtection(nbt.getFloat("RepProtectF"));
 		}
 		int wlength = WHITELIST_DEFAULT;
 		if (nbt.hasKey("WhitelistLength")) {
@@ -611,7 +611,7 @@ public class GOTEntityBanner extends Entity {
 		nbt.setBoolean("StructureProtection", structureProtection);
 		nbt.setShort("CustomRange", (short) customRange);
 		nbt.setBoolean("SelfProtection", selfProtection);
-		nbt.setFloat("AlignProtectF", reputationProtection);
+		nbt.setFloat("RepProtectF", reputationProtection);
 		nbt.setInteger("WhitelistLength", allowedPlayers.length);
 		NBTTagList allowedPlayersTags = new NBTTagList();
 		for (int i = 0; i < allowedPlayers.length; ++i) {

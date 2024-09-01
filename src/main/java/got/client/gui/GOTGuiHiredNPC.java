@@ -47,9 +47,9 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			y += fontRendererObj.FONT_HEIGHT;
 			int maxWidth = X_SIZE - 12 - 4;
 			GOTFaction fac = theNPC.getFaction();
-			String alignS = GOTReputationValues.formatAlignForDisplay(theNPC.getHireableInfo().getReputationRequiredToCommand());
-			String alignReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.align", alignS, fac.factionName());
-			Collection<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
+			String repS = GOTReputationValues.formatRepForDisplay(theNPC.getHireableInfo().getReputationRequiredToCommand());
+			String repReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.rep", repS, fac.factionName());
+			Collection<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(repReq, maxWidth));
 			GOTUnitTradeEntry.PledgeType pledge = theNPC.getHireableInfo().getPledgeType();
 			String pledgeReq = pledge.getCommandReqText(fac);
 			if (pledgeReq != null) {

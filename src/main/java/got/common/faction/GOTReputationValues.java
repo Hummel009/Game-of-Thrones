@@ -28,11 +28,11 @@ public class GOTReputationValues {
 		return new ReputationBonus(reputation, "got.reputation.breakPledge");
 	}
 
-	public static String formatAlignForDisplay(float reputation) {
-		return formatAlignForDisplay(reputation, DECIMAL_FORMAT, true);
+	public static String formatRepForDisplay(float reputation) {
+		return formatRepForDisplay(reputation, DECIMAL_FORMAT, true);
 	}
 
-	private static String formatAlignForDisplay(float reputation, DecimalFormat dFormat, boolean prefixPlus) {
+	private static String formatRepForDisplay(float reputation, DecimalFormat dFormat, boolean prefixPlus) {
 		setupDecimalFormat(dFormat);
 		String s = dFormat.format(reputation);
 		if (prefixPlus && (s.isEmpty() || s.charAt(0) != '-')) {
@@ -42,16 +42,16 @@ public class GOTReputationValues {
 	}
 
 	public static String formatConqForDisplay(float conq, boolean prefixPlus) {
-		return formatAlignForDisplay(conq, CONQ_FORMAT, prefixPlus);
+		return formatRepForDisplay(conq, CONQ_FORMAT, prefixPlus);
 	}
 
 	public static void notifyReputationNotHighEnough(ICommandSender entityplayer, float reputationRequired, GOTFaction faction) {
-		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(reputationRequired));
-		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientReputation", componentAlignReq, faction.factionName()));
+		ChatComponentText componentRepReq = new ChatComponentText(formatRepForDisplay(reputationRequired));
+		componentRepReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientReputation", componentRepReq, faction.factionName()));
 	}
 
-	public static float parseDisplayedAlign(String reputationText) {
+	public static float parseDisplayedRep(String reputationText) {
 		String reputationText1 = reputationText;
 		DecimalFormat dFormat = DECIMAL_FORMAT;
 		setupDecimalFormat(dFormat);

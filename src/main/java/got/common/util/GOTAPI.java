@@ -412,7 +412,7 @@ public class GOTAPI {
 		factory.setQuestAchievement(null);
 		factory.getLoreCategories().clear();
 		factory.setReputationRewardOverride(null);
-		factory.setNoAlignRewardForEnemy(false);
+		factory.setNoRepRewardForEnemy(false);
 		factory.getQuestFactories().clear();
 	}
 

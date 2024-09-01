@@ -13,8 +13,8 @@ public class GOTReputationTicker {
 
 	private final GOTFaction theFac;
 
-	private float oldAlign;
-	private float newAlign;
+	private float oldRep;
+	private float newRep;
 
 	private int moveTick;
 	private int prevMoveTick;
@@ -42,26 +42,26 @@ public class GOTReputationTicker {
 
 	public float getInterpolatedReputation(float f) {
 		if (moveTick == 0) {
-			return oldAlign;
+			return oldRep;
 		}
 		float tickF = prevMoveTick + (moveTick - prevMoveTick) * f;
 		tickF /= 20.0f;
 		tickF = 1.0f - tickF;
-		return oldAlign + (newAlign - oldAlign) * tickF;
+		return oldRep + (newRep - oldRep) * tickF;
 	}
 
 	private void update(EntityPlayer entityplayer, boolean forceInstant) {
-		float curAlign = GOTLevelData.getData(entityplayer).getReputation(theFac);
+		float curRep = GOTLevelData.getData(entityplayer).getReputation(theFac);
 		if (forceInstant) {
-			oldAlign = newAlign = curAlign;
+			oldRep = newRep = curRep;
 			moveTick = 0;
 			prevMoveTick = 0;
 			flashTick = 0;
 			numericalTick = 0;
 		} else {
-			if (newAlign != curAlign) {
-				oldAlign = newAlign;
-				newAlign = curAlign;
+			if (newRep != curRep) {
+				oldRep = newRep;
+				newRep = curRep;
 				moveTick = 20;
 				flashTick = 30;
 				numericalTick = 200;
@@ -70,7 +70,7 @@ public class GOTReputationTicker {
 			if (moveTick > 0) {
 				--moveTick;
 				if (moveTick <= 0) {
-					oldAlign = newAlign;
+					oldRep = newRep;
 				}
 			}
 			if (flashTick > 0) {

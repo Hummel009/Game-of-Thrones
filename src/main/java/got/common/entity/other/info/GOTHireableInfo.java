@@ -410,7 +410,7 @@ public class GOTHireableInfo {
 				hiringPlayerUUID = UUID.fromString(savedUUID);
 			}
 			isActive = data.getBoolean("IsActive");
-			reputationRequiredToCommand = data.hasKey("ReputationRequired") ? data.getInteger("ReputationRequired") : data.getFloat("AlignReqF");
+			reputationRequiredToCommand = data.hasKey("ReputationRequired") ? data.getInteger("ReputationRequired") : data.getFloat("RepReqF");
 			if (data.hasKey("PledgeType")) {
 				byte pledgeID = data.getByte("PledgeType");
 				pledgeType = GOTUnitTradeEntry.PledgeType.forID(pledgeID);
@@ -593,7 +593,7 @@ public class GOTHireableInfo {
 		if (hiringPlayerUUID != null) {
 			data.setString("HiringPlayerUUID", hiringPlayerUUID.toString());
 		}
-		data.setFloat("AlignReqF", reputationRequiredToCommand);
+		data.setFloat("RepReqF", reputationRequiredToCommand);
 		data.setByte("PledgeType", (byte) pledgeType.getTypeID());
 		data.setBoolean("CanMove", canMove);
 		data.setBoolean("TeleportAutomatically", teleportAutomatically);

@@ -133,8 +133,8 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 		drawTexturedModalRect(reqX, reqY += reqGap, 0, 36, 16, 16);
 		float reputation = curTrade.getReputationRequired();
-		String alignS = GOTReputationValues.formatAlignForDisplay(reputation);
-		fontRendererObj.drawString(alignS, reqXText, reqY + reqYTextBelow, 4210752);
+		String repS = GOTReputationValues.formatRepForDisplay(reputation);
+		fontRendererObj.drawString(repS, reqXText, reqY + reqYTextBelow, 4210752);
 		if (curTrade.getPledgeType() != GOTUnitTradeEntry.PledgeType.NONE) {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);

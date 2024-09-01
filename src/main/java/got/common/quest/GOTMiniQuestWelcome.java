@@ -141,11 +141,11 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 8:
 				KeyBinding keyLeft = GOTKeyHandler.KEY_BINDING_REPUTATION_CYCLE_LEFT;
 				KeyBinding keyRight = GOTKeyHandler.KEY_BINDING_REPUTATION_CYCLE_RIGHT;
-				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.align", GameSettings.getKeyDisplayString(keyLeft.getKeyCode()), GameSettings.getKeyDisplayString(keyRight.getKeyCode()));
+				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.rep", GameSettings.getKeyDisplayString(keyLeft.getKeyCode()), GameSettings.getKeyDisplayString(keyRight.getKeyCode()));
 			case 9:
 				KeyBinding keyUp = GOTKeyHandler.KEY_BINDING_REPUTATION_GROUP_PREV;
 				KeyBinding keyDown = GOTKeyHandler.KEY_BINDING_REPUTATION_GROUP_NEXT;
-				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.alignRegions", GameSettings.getKeyDisplayString(keyUp.getKeyCode()), GameSettings.getKeyDisplayString(keyDown.getKeyCode()));
+				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.repRegions", GameSettings.getKeyDisplayString(keyUp.getKeyCode()), GameSettings.getKeyDisplayString(keyDown.getKeyCode()));
 			case 11:
 				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.factions", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
 			default:

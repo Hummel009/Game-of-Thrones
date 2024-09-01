@@ -93,7 +93,7 @@ public enum GOTMiniQuestFactory {
 	private final List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	private final String baseName;
 	private final GOTFaction faction;
-	private boolean noAlignRewardForEnemy;
+	private boolean noRepRewardForEnemy;
 	private GOTMiniQuestFactory baseSpeechGroup;
 	private GOTAchievement questAchievement;
 	private GOTFaction reputationRewardOverride;
@@ -454,12 +454,12 @@ public enum GOTMiniQuestFactory {
 		return loreCategories;
 	}
 
-	public boolean isNoAlignRewardForEnemy() {
-		return noAlignRewardForEnemy;
+	public boolean isNoRepRewardForEnemy() {
+		return noRepRewardForEnemy;
 	}
 
-	public void setNoAlignRewardForEnemy(boolean noAlignRewardForEnemy) {
-		this.noAlignRewardForEnemy = noAlignRewardForEnemy;
+	public void setNoRepRewardForEnemy(boolean noRepRewardForEnemy) {
+		this.noRepRewardForEnemy = noRepRewardForEnemy;
 	}
 
 	public Map<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest>>> getQuestFactories() {

@@ -93,8 +93,8 @@ public class GOTTitle {
 			case RANK:
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 				GOTFaction fac = titleRank.getFaction();
-				float align = pd.getReputation(fac);
-				if (align >= titleRank.getReputation()) {
+				float rep = pd.getReputation(fac);
+				if (rep >= titleRank.getReputation()) {
 					boolean requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
 					return !requirePledge || pd.isPledgedTo(fac);
 				}
@@ -113,12 +113,12 @@ public class GOTTitle {
 			case ACHIEVEMENT:
 				return titleAchievement.getDescription();
 			case RANK:
-				String alignS = GOTReputationValues.formatAlignForDisplay(titleRank.getReputation());
+				String repS = GOTReputationValues.formatRepForDisplay(titleRank.getReputation());
 				boolean requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
 				if (requirePledge) {
-					return StatCollector.translateToLocalFormatted("got.titles.unlock.reputation.pledge", titleRank.getFaction().factionName(), alignS);
+					return StatCollector.translateToLocalFormatted("got.titles.unlock.reputation.pledge", titleRank.getFaction().factionName(), repS);
 				}
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.reputation", titleRank.getFaction().factionName(), alignS);
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.reputation", titleRank.getFaction().factionName(), repS);
 			default:
 				return "If you can read this, something has gone hideously wrong";
 		}

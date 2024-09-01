@@ -218,9 +218,9 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 						String rewardText = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward", entityName);
 						pageText.add(rewardText);
 						if (quest.getReputationRewarded() != 0.0f) {
-							String alignS = GOTReputationValues.formatAlignForDisplay(quest.getReputationRewarded());
-							String rewardAlign = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.align", alignS, factionName);
-							pageText.add(rewardAlign);
+							String repS = GOTReputationValues.formatRepForDisplay(quest.getReputationRewarded());
+							String rewardRep = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.rep", repS, factionName);
+							pageText.add(rewardRep);
 						}
 						if (quest.getCoinsRewarded() != 0.0f) {
 							String rewardCoins = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.coins", quest.getCoinsRewarded());

@@ -24,8 +24,8 @@ public class GOTAchievementRank extends GOTAchievement {
 	@Override
 	public boolean canPlayerEarn(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		float align = pd.getReputation(theFac);
-		return !(align < 0.0f);
+		float rep = pd.getReputation(theFac);
+		return !(rep < 0.0f);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class GOTAchievementRank extends GOTAchievement {
 
 	@Override
 	public String getDescription() {
-		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTReputationValues.formatAlignForDisplay(theRank.getReputation()));
+		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTReputationValues.formatRepForDisplay(theRank.getReputation()));
 	}
 
 	@Override
@@ -54,8 +54,8 @@ public class GOTAchievementRank extends GOTAchievement {
 
 	public boolean isPlayerRequiredRank(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		float align = pd.getReputation(theFac);
-		float rankAlign = theRank.getReputation();
-		return align >= rankAlign;
+		float rep = pd.getReputation(theFac);
+		float rankRep = theRank.getReputation();
+		return rep >= rankRep;
 	}
 }

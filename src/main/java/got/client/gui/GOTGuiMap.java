@@ -638,12 +638,12 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 					GOTFaction pledgeFac = pd.getPledgeFaction();
 					GOTFactionRank needRank = query.getNeedRank();
-					String needAlign = GOTReputationValues.formatAlignForDisplay(needRank.getReputation());
+					String needRep = GOTReputationValues.formatRepForDisplay(needRank.getReputation());
 					String format = "";
 					if (query.getResult() == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
 					}
-					loadText = new StringBuilder(StatCollector.translateToLocalFormatted(format, pledgeFac.factionName(), needRank.getFullNameWithGender(pd), needAlign));
+					loadText = new StringBuilder(StatCollector.translateToLocalFormatted(format, pledgeFac.factionName(), needRank.getFullNameWithGender(pd), needRep));
 				}
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int stringWidth = 250;

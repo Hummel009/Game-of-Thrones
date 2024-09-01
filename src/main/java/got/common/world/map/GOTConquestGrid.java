@@ -51,13 +51,13 @@ public class GOTConquestGrid {
 			if (fac == pledged) {
 				return ConquestViewableQuery.canView();
 			}
-			float align = pd.getReputation(pledged);
+			float rep = pd.getReputation(pledged);
 			GOTFactionRank pledgeRank = pledged.getPledgeRank();
 			if (fac.isAlly(pledged) || fac.isBadRelation(pledged)) {
 				return ConquestViewableQuery.canView();
 			}
 			GOTFactionRank higherRank = pledged.getRankNAbove(pledgeRank, 2);
-			if (align >= higherRank.getReputation()) {
+			if (rep >= higherRank.getReputation()) {
 				return ConquestViewableQuery.canView();
 			}
 			return new ConquestViewableQuery(ConquestViewable.NEED_RANK, higherRank);
@@ -299,11 +299,11 @@ public class GOTConquestGrid {
 		}
 	}
 
-	public static float onConquestKill(EntityPlayer entityplayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float alignBonus) {
+	public static float onConquestKill(EntityPlayer entityplayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float repBonus) {
 		World world = entityplayer.worldObj;
 		if (!world.isRemote && conquestEnabled(world) && GOTLevelData.getData(entityplayer).getEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			GOTConquestZone centralZone = getZoneByEntityCoords(entityplayer);
-			float conqAmount = alignBonus * GOTLevelData.getConquestRate();
+			float conqAmount = repBonus * GOTLevelData.getConquestRate();
 			return doRadialConquest(world, centralZone, entityplayer, pledgeFaction, enemyFaction, conqAmount, conqAmount);
 		}
 		return 0.0f;

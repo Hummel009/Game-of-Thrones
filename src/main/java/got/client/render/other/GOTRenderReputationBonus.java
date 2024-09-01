@@ -102,9 +102,9 @@ public class GOTRenderReputationBonus extends Render {
 		return GOTClientProxy.REPUTATION_TEXTURE;
 	}
 
-	private void renderBonusText(GOTEntityReputationBonus reputationBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {
+	private void renderBonusText(GOTEntityReputationBonus reputationBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showRep, float rep, boolean showConquest, float alpha) {
 		FontRenderer fr = MINECRAFT.fontRenderer;
-		String strAlign = GOTReputationValues.formatAlignForDisplay(align);
+		String strRep = GOTReputationValues.formatRepForDisplay(rep);
 		String name = reputationBonus.getName();
 		float conq = reputationBonus.getConquestBonus();
 		GL11.glPushMatrix();
@@ -112,22 +112,22 @@ public class GOTRenderReputationBonus extends Render {
 		if (!isViewingFaction) {
 			float scale = 0.5f;
 			GL11.glScalef(scale, scale, 1.0f);
-			strAlign = strAlign + " (" + renderFaction.factionName() + "...)";
+			strRep = strRep + " (" + renderFaction.factionName() + "...)";
 		}
-		int x = -MathHelper.floor_double((fr.getStringWidth(strAlign) + 18) / 2.0);
+		int x = -MathHelper.floor_double((fr.getStringWidth(strRep) + 18) / 2.0);
 		int y = -12;
-		if (showAlign) {
+		if (showRep) {
 			bindEntityTexture(reputationBonus);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 			GOTTickHandlerClient.drawTexturedModalRect(x, y - 5, 0, 36, 16, 16);
-			GOTTickHandlerClient.drawReputationText(fr, x + 18, y, strAlign, alpha);
+			GOTTickHandlerClient.drawReputationText(fr, x + 18, y, strRep, alpha);
 			GOTTickHandlerClient.drawReputationText(fr, -MathHelper.floor_double(fr.getStringWidth(name) / 2.0), y += 14, name, alpha);
 		}
 		if (showConquest && conq != 0.0f) {
 			boolean negative = conq < 0.0f;
 			String strConq = GOTReputationValues.formatConqForDisplay(conq, true);
 			x = -MathHelper.floor_double((fr.getStringWidth(strConq) + 18) / 2.0);
-			if (showAlign) {
+			if (showRep) {
 				y += 16;
 			}
 			bindEntityTexture(reputationBonus);

@@ -537,10 +537,10 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		reputationField.setEnabled(reputationField.getVisible());
 		if (reputationField.getVisible() && !reputationField.isFocused()) {
 			float prevReputation = theBanner.getReputationProtection();
-			float reputation = GOTReputationValues.parseDisplayedAlign(reputationField.getText());
+			float reputation = GOTReputationValues.parseDisplayedRep(reputationField.getText());
 			reputation = MathHelper.clamp_float(reputation, GOTEntityBanner.REPUTATION_PROTECTION_MIN, GOTEntityBanner.REPUTATION_PROTECTION_MAX);
 			theBanner.setReputationProtection(reputation);
-			reputationField.setText(GOTReputationValues.formatAlignForDisplay(reputation));
+			reputationField.setText(GOTReputationValues.formatRepForDisplay(reputation));
 			if (reputation != prevReputation) {
 				sendBannerData(false);
 			}

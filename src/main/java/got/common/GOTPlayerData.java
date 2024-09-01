@@ -1700,7 +1700,7 @@ public class GOTPlayerData {
 				if (nbt.hasKey("Reputation")) {
 					reputation = nbt.getInteger("Reputation");
 				} else {
-					reputation = nbt.getFloat("AlignF");
+					reputation = nbt.getFloat("RepF");
 				}
 				reputations.put(faction, reputation);
 			}
@@ -2339,8 +2339,8 @@ public class GOTPlayerData {
 	public void revokePledgeFaction(EntityPlayer entityplayer, boolean intentional) {
 		GOTFaction wasPledge = pledgeFaction;
 		float pledgeLvl = wasPledge.getPledgeReputation();
-		float prevAlign = getReputation(wasPledge);
-		float diff = prevAlign - pledgeLvl;
+		float prevRep = getReputation(wasPledge);
+		float diff = prevRep - pledgeLvl;
 		float cd = diff / 5000.0F;
 		cd = MathHelper.clamp_float(cd, 0.0F, 1.0F);
 		int cdTicks = 36000;
@@ -2350,32 +2350,32 @@ public class GOTPlayerData {
 		setPledgeBreakCooldown(cdTicks);
 		World world = entityplayer.worldObj;
 		if (!world.isRemote) {
-			GOTFactionRank rank = wasPledge.getRank(prevAlign);
+			GOTFactionRank rank = wasPledge.getRank(prevRep);
 			GOTFactionRank rankBelow = wasPledge.getRankBelow(rank);
 			GOTFactionRank rankBelow2 = wasPledge.getRankBelow(rankBelow);
-			float newAlign = rankBelow2.getReputation();
-			newAlign = Math.max(newAlign, pledgeLvl / 2.0F);
-			float alignPenalty = newAlign - prevAlign;
-			if (alignPenalty < 0.0F) {
-				GOTReputationValues.ReputationBonus penalty = GOTReputationValues.createPledgePenalty(alignPenalty);
-				double alignX;
-				double alignY;
-				double alignZ;
+			float newRep = rankBelow2.getReputation();
+			newRep = Math.max(newRep, pledgeLvl / 2.0F);
+			float repPenalty = newRep - prevRep;
+			if (repPenalty < 0.0F) {
+				GOTReputationValues.ReputationBonus penalty = GOTReputationValues.createPledgePenalty(repPenalty);
+				double repX;
+				double repY;
+				double repZ;
 				double lookRange = 2.0D;
 				Vec3 posEye = Vec3.createVectorHelper(entityplayer.posX, entityplayer.boundingBox.minY + entityplayer.getEyeHeight(), entityplayer.posZ);
 				Vec3 look = entityplayer.getLook(1.0F);
 				Vec3 posSight = posEye.addVector(look.xCoord * lookRange, look.yCoord * lookRange, look.zCoord * lookRange);
 				MovingObjectPosition mop = world.rayTraceBlocks(posEye, posSight);
 				if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
-					alignX = mop.blockX + 0.5D;
-					alignY = mop.blockY + 0.5D;
-					alignZ = mop.blockZ + 0.5D;
+					repX = mop.blockX + 0.5D;
+					repY = mop.blockY + 0.5D;
+					repZ = mop.blockZ + 0.5D;
 				} else {
-					alignX = posSight.xCoord;
-					alignY = posSight.yCoord;
-					alignZ = posSight.zCoord;
+					repX = posSight.xCoord;
+					repY = posSight.yCoord;
+					repZ = posSight.zCoord;
 				}
-				addReputation(entityplayer, penalty, wasPledge, alignX, alignY, alignZ);
+				addReputation(entityplayer, penalty, wasPledge, repX, repY, repZ);
 			}
 			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0F, 1.0F);
 			ChatComponentTranslation chatComponentTranslation;
@@ -2456,7 +2456,7 @@ public class GOTPlayerData {
 			float reputation = entry.getValue();
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("Faction", faction.codeName());
-			nbt.setFloat("AlignF", reputation);
+			nbt.setFloat("RepF", reputation);
 			reputationTags.appendTag(nbt);
 		}
 		playerData.setTag("ReputationMap", reputationTags);

@@ -198,7 +198,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 					buttonPledge.visible = clientPD.getPledgeFaction() == null && currentFaction.isPlayableReputationFaction() && clientPD.getReputation(currentFaction) >= 0.0f;
 					buttonPledge.enabled = buttonPledge.visible && clientPD.hasPledgeReputation(currentFaction);
 					String desc1 = StatCollector.translateToLocal("got.gui.factions.pledge");
-					String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeReq", GOTReputationValues.formatAlignForDisplay(currentFaction.getPledgeReputation()));
+					String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeReq", GOTReputationValues.formatRepForDisplay(currentFaction.getPledgeReputation()));
 					buttonPledge.setDisplayLines(desc1, desc2);
 				}
 			} else {
@@ -323,7 +323,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 						}
 						String reputationInfo = StatCollector.translateToLocal("got.gui.factions.reputation");
 						fontRendererObj.drawString(reputationInfo, x, y, 8019267);
-						String reputationString = GOTReputationValues.formatAlignForDisplay(reputation);
+						String reputationString = GOTReputationValues.formatRepForDisplay(reputation);
 						GOTTickHandlerClient.drawReputationText(fontRendererObj, x + fontRendererObj.getStringWidth(reputationInfo) + 5, y, reputationString, 1.0f);
 						x = guiLeft + pageBorderLeft;
 						GOTFactionRank curRank = currentFaction.getRank(reputation);
@@ -373,15 +373,15 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 							} else if (listObj instanceof GOTFactionRank) {
 								GOTFactionRank rank = (GOTFactionRank) listObj;
 								String rankName1 = rank.getShortNameWithGender(clientPD);
-								String rankAlign = GOTReputationValues.formatAlignForDisplay(rank.getReputation());
+								String rankRep = GOTReputationValues.formatRepForDisplay(rank.getReputation());
 								if (rank == GOTFactionRank.RANK_ENEMY) {
-									rankAlign = "-";
+									rankRep = "-";
 								}
 								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.getReputation() > currentFaction.getPledgeReputation() && rank.getReputation() > currentFaction.getRankAbove(curRank1).getReputation();
 								if (hiddenRankName) {
 									rankName1 = StatCollector.translateToLocal("got.gui.factions.rank?");
 								}
-								s = StatCollector.translateToLocalFormatted("got.gui.factions.listRank", rankName1, rankAlign);
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.listRank", rankName1, rankRep);
 								if (rank == curRank1) {
 									GOTTickHandlerClient.drawReputationText(fontRendererObj, x, y, s, 1.0f);
 								} else {
