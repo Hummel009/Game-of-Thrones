@@ -3,6 +3,7 @@ CHANGELOG
 >>BUILD 24.XX.YY
 * Improved translation of waypoints
 * Fixed bug with unsmeltery and rings, bars, chandeliers
+* Fixed bug with Lhazar florists not appearing in the world
 
 >>BUILD 24.08.29
 * Improved locations

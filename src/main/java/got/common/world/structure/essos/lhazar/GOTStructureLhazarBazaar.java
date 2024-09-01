@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
-	private static final Class<? extends GOTStructureBase>[] STALLS = new Class[]{Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Miner.class, Goldsmith.class, Lumber.class, Blacksmith.class, Farmer.class};
+	private static final Class<? extends GOTStructureBase>[] STALLS = new Class[]{Florist.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Miner.class, Goldsmith.class, Lumber.class, Blacksmith.class, Farmer.class};
 
 	public GOTStructureLhazarBazaar(boolean flag) {
 		super(flag);
