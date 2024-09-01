@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredGui implements IMessage {
-	private GOTUnitTradeEntry.PledgeType pledgeType;
+	private GOTUnitTradeEntry.OathType oathType;
 	private boolean teleportAutomatically;
 	private boolean isActive;
 	private boolean canMove;
@@ -44,7 +44,7 @@ public class GOTPacketHiredGui implements IMessage {
 		mobKills = data.readInt();
 		xp = data.readInt();
 		reputationRequired = data.readFloat();
-		pledgeType = GOTUnitTradeEntry.PledgeType.forID(data.readByte());
+		oathType = GOTUnitTradeEntry.OathType.forID(data.readByte());
 		inCombat = data.readBoolean();
 		guardMode = data.readBoolean();
 		guardRange = data.readInt();
@@ -60,7 +60,7 @@ public class GOTPacketHiredGui implements IMessage {
 		data.writeInt(mobKills);
 		data.writeInt(xp);
 		data.writeFloat(reputationRequired);
-		data.writeByte(pledgeType.getTypeID());
+		data.writeByte(oathType.getTypeID());
 		data.writeBoolean(inCombat);
 		data.writeBoolean(guardMode);
 		data.writeInt(guardRange);
@@ -114,12 +114,12 @@ public class GOTPacketHiredGui implements IMessage {
 		this.reputationRequired = reputationRequired;
 	}
 
-	public GOTUnitTradeEntry.PledgeType getPledgeType() {
-		return pledgeType;
+	public GOTUnitTradeEntry.OathType getOathType() {
+		return oathType;
 	}
 
-	public void setPledgeType(GOTUnitTradeEntry.PledgeType pledgeType) {
-		this.pledgeType = pledgeType;
+	public void setOathType(GOTUnitTradeEntry.OathType oathType) {
+		this.oathType = oathType;
 	}
 
 	public boolean isInCombat() {

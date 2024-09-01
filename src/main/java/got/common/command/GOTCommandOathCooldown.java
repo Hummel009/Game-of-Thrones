@@ -10,7 +10,7 @@ import net.minecraft.server.MinecraftServer;
 import java.util.Collections;
 import java.util.List;
 
-public class GOTCommandPledgeCooldown extends CommandBase {
+public class GOTCommandOathCooldown extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 2) {
@@ -21,12 +21,12 @@ public class GOTCommandPledgeCooldown extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "pledgeCooldown";
+		return "oathCooldown";
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "got.command.pledgeCooldown.usage";
+		return "got.command.oathCooldown.usage";
 	}
 
 	@Override
@@ -49,8 +49,8 @@ public class GOTCommandPledgeCooldown extends CommandBase {
 			} else {
 				entityplayer = getCommandSenderAsPlayer(sender);
 			}
-			GOTLevelData.getData(entityplayer).setPledgeBreakCooldown(cd);
-			func_152373_a(sender, this, "got.command.pledgeCooldown.set", entityplayer.getCommandSenderName(), cd, GOTLevelData.getHMSTime_Ticks(cd));
+			GOTLevelData.getData(entityplayer).setOathBetrayCooldown(cd);
+			func_152373_a(sender, this, "got.command.oathCooldown.set", entityplayer.getCommandSenderName(), cd, GOTLevelData.getHMSTime_Ticks(cd));
 			return;
 		}
 		throw new WrongUsageException(getCommandUsage(sender));

@@ -36,7 +36,7 @@ public class GOTRenderReputationBonus extends Render {
 		GOTReputationBonusMap factionBonusMap = reputationBonus.getFactionBonusMap();
 		GOTFaction renderFaction = null;
 		boolean showConquest = false;
-		if (reputationBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction) || reputationBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
+		if (reputationBonus.getConquestBonus() > 0.0f && playerData.hasTakenOathTo(viewingFaction) || reputationBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.hasTakenOathTo(viewingFaction))) {
 			renderFaction = viewingFaction;
 			showConquest = true;
 		} else if (!factionBonusMap.isEmpty()) {

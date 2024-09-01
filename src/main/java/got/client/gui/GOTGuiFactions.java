@@ -12,7 +12,7 @@ import got.common.GOTPlayerData;
 import got.common.faction.*;
 import got.common.network.GOTPacketClientMQEvent;
 import got.common.network.GOTPacketHandler;
-import got.common.network.GOTPacketPledgeSet;
+import got.common.network.GOTPacketOathSet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.Tessellator;
@@ -68,17 +68,17 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 	private GuiButton buttonPageNext;
 	private GuiButton buttonFactionMap;
 
-	private GOTGuiButtonPledge buttonPledge;
-	private GOTGuiButtonPledge buttonPledgeConfirm;
-	private GOTGuiButtonPledge buttonPledgeRevoke;
+	private GOTGuiButtonOath buttonOath;
+	private GOTGuiButtonOath buttonOathConfirm;
+	private GOTGuiButtonOath buttonOathBetray;
 
 	private String otherPlayerName;
 
 	private boolean isScrolling;
 	private boolean wasMouseDown;
 	private boolean isOtherPlayer;
-	private boolean isPledging;
-	private boolean isUnpledging;
+	private boolean isTakingOath;
+	private boolean isBetrayingOath;
 
 	private float currentScroll;
 
@@ -100,8 +100,8 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		scrollPaneAlliesEnemies = new GOTGuiScrollPane(7, 7).setColors(5521198, 8019267);
 		scrollAlliesEnemiesX = 138;
 		isOtherPlayer = false;
-		isPledging = false;
-		isUnpledging = false;
+		isTakingOath = false;
+		isBetrayingOath = false;
 		mapDrawGui = new GOTGuiMap();
 	}
 
@@ -122,8 +122,8 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 					updateCurrentDimensionAndFaction();
 					setCurrentScrollFromFaction();
 					scrollPaneAlliesEnemies.resetScroll();
-					isPledging = false;
-					isUnpledging = false;
+					isTakingOath = false;
+					isBetrayingOath = false;
 				}
 			} else if (button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());
@@ -132,35 +132,35 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 				if (newPage != null) {
 					currentPage = newPage;
 					scrollPaneAlliesEnemies.resetScroll();
-					isPledging = false;
-					isUnpledging = false;
+					isTakingOath = false;
+					isBetrayingOath = false;
 				}
 			} else if (button == buttonPageNext) {
 				Page newPage = currentPage.next();
 				if (newPage != null) {
 					currentPage = newPage;
 					scrollPaneAlliesEnemies.resetScroll();
-					isPledging = false;
-					isUnpledging = false;
+					isTakingOath = false;
+					isBetrayingOath = false;
 				}
 			} else if (button == buttonFactionMap) {
 				GOTGuiMap factionGuiMap = new GOTGuiMap();
 				factionGuiMap.setControlZone(currentFaction);
 				mc.displayGuiScreen(factionGuiMap);
-			} else if (button == buttonPledge) {
-				if (GOTLevelData.getData(mc.thePlayer).isPledgedTo(currentFaction)) {
-					isUnpledging = true;
+			} else if (button == buttonOath) {
+				if (GOTLevelData.getData(mc.thePlayer).hasTakenOathTo(currentFaction)) {
+					isBetrayingOath = true;
 				} else {
-					isPledging = true;
+					isTakingOath = true;
 				}
-			} else if (button == buttonPledgeConfirm) {
-				IMessage packet = new GOTPacketPledgeSet(currentFaction);
+			} else if (button == buttonOathConfirm) {
+				IMessage packet = new GOTPacketOathSet(currentFaction);
 				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
-				isPledging = false;
-			} else if (button == buttonPledgeRevoke) {
-				IMessage packet = new GOTPacketPledgeSet(null);
+				isTakingOath = false;
+			} else if (button == buttonOathBetray) {
+				IMessage packet = new GOTPacketOathSet(null);
 				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
-				isUnpledging = false;
+				isBetrayingOath = false;
 				mc.displayGuiScreen(null);
 			} else {
 				super.actionPerformed(button);
@@ -178,7 +178,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		int stringWidth;
 		GOTPlayerData clientPD = GOTLevelData.getData(mc.thePlayer);
 		boolean mouseOverWarCrimes = false;
-		if (!isPledging && !isUnpledging) {
+		if (!isTakingOath && !isBetrayingOath) {
 			buttonPagePrev.enabled = currentPage.prev() != null;
 			buttonPageNext.enabled = currentPage.next() != null;
 			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableReputationFaction() && currentFaction.getFactionDimension() == GOTDimension.GAME_OF_THRONES;
@@ -188,46 +188,46 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 				buttonFactionMap.visible = false;
 			}
 			if (!isOtherPlayer && currentPage == Page.FRONT) {
-				if (clientPD.isPledgedTo(currentFaction)) {
-					buttonPledge.setBroken(buttonPledge.func_146115_a());
-					buttonPledge.enabled = true;
-					buttonPledge.visible = true;
-					buttonPledge.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.unpledge"));
+				if (clientPD.hasTakenOathTo(currentFaction)) {
+					buttonOath.setBroken(buttonOath.func_146115_a());
+					buttonOath.enabled = true;
+					buttonOath.visible = true;
+					buttonOath.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.oathBetray"));
 				} else {
-					buttonPledge.setBroken(false);
-					buttonPledge.visible = clientPD.getPledgeFaction() == null && currentFaction.isPlayableReputationFaction() && clientPD.getReputation(currentFaction) >= 0.0f;
-					buttonPledge.enabled = buttonPledge.visible && clientPD.hasPledgeReputation(currentFaction);
-					String desc1 = StatCollector.translateToLocal("got.gui.factions.pledge");
-					String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeReq", GOTReputationValues.formatRepForDisplay(currentFaction.getPledgeReputation()));
-					buttonPledge.setDisplayLines(desc1, desc2);
+					buttonOath.setBroken(false);
+					buttonOath.visible = clientPD.getOathFaction() == null && currentFaction.isPlayableReputationFaction() && clientPD.getReputation(currentFaction) >= 0.0f;
+					buttonOath.enabled = buttonOath.visible && clientPD.hasOathReputation(currentFaction);
+					String desc1 = StatCollector.translateToLocal("got.gui.factions.oath");
+					String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.oathReq", GOTReputationValues.formatRepForDisplay(currentFaction.getOathReputation()));
+					buttonOath.setDisplayLines(desc1, desc2);
 				}
 			} else {
-				buttonPledge.enabled = false;
-				buttonPledge.visible = false;
+				buttonOath.enabled = false;
+				buttonOath.visible = false;
 			}
-			buttonPledgeConfirm.enabled = false;
-			buttonPledgeConfirm.visible = false;
-			buttonPledgeRevoke.enabled = false;
-			buttonPledgeRevoke.visible = false;
+			buttonOathConfirm.enabled = false;
+			buttonOathConfirm.visible = false;
+			buttonOathBetray.enabled = false;
+			buttonOathBetray.visible = false;
 		} else {
 			buttonPagePrev.enabled = false;
 			buttonPageNext.enabled = false;
 			buttonFactionMap.enabled = false;
 			buttonFactionMap.visible = false;
-			buttonPledge.enabled = false;
-			buttonPledge.visible = false;
-			if (isPledging) {
-				buttonPledgeConfirm.visible = true;
-				buttonPledgeConfirm.enabled = clientPD.canMakeNewPledge() && clientPD.canPledgeTo(currentFaction);
-				buttonPledgeConfirm.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.pledge"));
-				buttonPledgeRevoke.enabled = false;
-				buttonPledgeRevoke.visible = false;
+			buttonOath.enabled = false;
+			buttonOath.visible = false;
+			if (isTakingOath) {
+				buttonOathConfirm.visible = true;
+				buttonOathConfirm.enabled = clientPD.canMakeNewOath() && clientPD.canTakeOathTo(currentFaction);
+				buttonOathConfirm.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.oath"));
+				buttonOathBetray.enabled = false;
+				buttonOathBetray.visible = false;
 			} else {
-				buttonPledgeConfirm.enabled = false;
-				buttonPledgeConfirm.visible = false;
-				buttonPledgeRevoke.enabled = true;
-				buttonPledgeRevoke.visible = true;
-				buttonPledgeRevoke.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.unpledge"));
+				buttonOathConfirm.enabled = false;
+				buttonOathConfirm.visible = false;
+				buttonOathBetray.enabled = true;
+				buttonOathBetray.visible = true;
+				buttonOathBetray.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.oathBetray"));
 			}
 		}
 		setupScrollBar(i, j);
@@ -294,7 +294,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 			int pageBorderLeft = 16;
 			x = guiLeft + pageBorderLeft;
 			y = guiTop + PAGE_Y + PAGE_BORDER_TOP;
-			if (!isPledging && !isUnpledging) {
+			if (!isTakingOath && !isBetrayingOath) {
 				int index;
 				switch (currentPage) {
 					case ALLIES:
@@ -343,7 +343,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.miniquests", factionData.getMiniQuestsCompleted());
 								fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
 								y += fontRendererObj.FONT_HEIGHT;
-								if (clientPD.isPledgedTo(currentFaction) && (conq = factionData.getConquestEarned()) != 0.0f) {
+								if (clientPD.hasTakenOathTo(currentFaction) && (conq = factionData.getConquestEarned()) != 0.0f) {
 									int conqInt = Math.round(conq);
 									s = StatCollector.translateToLocalFormatted("got.gui.factions.data.conquest", conqInt);
 									fontRendererObj.drawString(s, x, y, 8019267);
@@ -354,10 +354,10 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.npcsKilled", factionData.getNPCsKilled());
 								fontRendererObj.drawString(s, x, y, 8019267);
 							}
-							if (buttonPledge.visible && clientPD.isPledgedTo(currentFaction)) {
-								s = StatCollector.translateToLocal("got.gui.factions.pledged");
-								int px = buttonPledge.xPosition + buttonPledge.width + 8;
-								int py = buttonPledge.yPosition + buttonPledge.height / 2 - fontRendererObj.FONT_HEIGHT / 2;
+							if (buttonOath.visible && clientPD.hasTakenOathTo(currentFaction)) {
+								s = StatCollector.translateToLocal("got.gui.factions.oathFac");
+								int px = buttonOath.xPosition + buttonOath.width + 8;
+								int py = buttonOath.yPosition + buttonOath.height / 2 - fontRendererObj.FONT_HEIGHT / 2;
 								fontRendererObj.drawString(s, px, py, 16711680);
 							}
 						}
@@ -377,7 +377,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 								if (rank == GOTFactionRank.RANK_ENEMY) {
 									rankRep = "-";
 								}
-								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.getReputation() > currentFaction.getPledgeReputation() && rank.getReputation() > currentFaction.getRankAbove(curRank1).getReputation();
+								boolean hiddenRankName = !clientPD.hasTakenOathTo(currentFaction) && rank.getReputation() > currentFaction.getOathReputation() && rank.getReputation() > currentFaction.getRankAbove(curRank1).getReputation();
 								if (hiddenRankName) {
 									rankName1 = StatCollector.translateToLocal("got.gui.factions.rank?");
 								}
@@ -398,32 +398,32 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 			} else {
 				int stringWidth2 = PAGE_WIDTH - pageBorderLeft * 2;
 				Collection<String> displayLines = new ArrayList<>();
-				if (isPledging) {
-					if (clientPD.canMakeNewPledge()) {
-						if (clientPD.canPledgeTo(currentFaction)) {
-							String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeDesc1", currentFaction.factionName());
+				if (isTakingOath) {
+					if (clientPD.canMakeNewOath()) {
+						if (clientPD.canTakeOathTo(currentFaction)) {
+							String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.oathDesc1", currentFaction.factionName());
 							displayLines.addAll(fontRendererObj.listFormattedStringToWidth(desc2, stringWidth2));
 							displayLines.add("");
-							desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeDesc2");
+							desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.oathDesc2");
 							displayLines.addAll(fontRendererObj.listFormattedStringToWidth(desc2, stringWidth2));
 						}
 					} else {
-						GOTFaction brokenPledge = clientPD.getBrokenPledgeFaction();
-						String brokenPledgeName = brokenPledge == null ? StatCollector.translateToLocal("got.gui.factions.pledgeUnknown") : brokenPledge.factionName();
-						String desc3 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeBreakCooldown", currentFaction.factionName(), brokenPledgeName);
+						GOTFaction betrayedOath = clientPD.getBetrayedOathFaction();
+						String betrayedOathName = betrayedOath == null ? StatCollector.translateToLocal("got.gui.factions.oathUnknown") : betrayedOath.factionName();
+						String desc3 = StatCollector.translateToLocalFormatted("got.gui.factions.oathBetrayCooldown", currentFaction.factionName(), betrayedOathName);
 						displayLines.addAll(fontRendererObj.listFormattedStringToWidth(desc3, stringWidth2));
 						displayLines.add("");
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
 						drawTexturedModalRect(guiLeft + PAGE_WIDTH / 2 - 97, guiTop + PAGE_Y + 56, 0, 240, 194, 16);
-						float cdFrac = (float) clientPD.getPledgeBreakCooldown() / clientPD.getPledgeBreakCooldownStart();
+						float cdFrac = (float) clientPD.getOathBetrayCooldown() / clientPD.getOathBetrayCooldownStart();
 						drawTexturedModalRect(guiLeft + PAGE_WIDTH / 2 - 75, guiTop + PAGE_Y + 60, 22, 232, MathHelper.ceiling_float_int(cdFrac * 150.0f), 8);
 					}
 				} else {
-					String desc5 = StatCollector.translateToLocalFormatted("got.gui.factions.unpledgeDesc1", currentFaction.factionName());
+					String desc5 = StatCollector.translateToLocalFormatted("got.gui.factions.oathBetrayDesc1", currentFaction.factionName());
 					displayLines.addAll(fontRendererObj.listFormattedStringToWidth(desc5, stringWidth2));
 					displayLines.add("");
-					desc5 = StatCollector.translateToLocalFormatted("got.gui.factions.unpledgeDesc2");
+					desc5 = StatCollector.translateToLocalFormatted("got.gui.factions.oathBetrayDesc2");
 					displayLines.addAll(fontRendererObj.listFormattedStringToWidth(desc5, stringWidth2));
 				}
 				for (String line : displayLines) {
@@ -507,8 +507,8 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 				}
 				setCurrentScrollFromFaction();
 				scrollPaneAlliesEnemies.resetScroll();
-				isPledging = false;
-				isUnpledging = false;
+				isTakingOath = false;
+				isBetrayingOath = false;
 			}
 		}
 	}
@@ -528,13 +528,13 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		buttonList.add(buttonPageNext);
 		buttonFactionMap = new GOTGuiButtonFactionsMap(3, guiLeft + PAGE_MAP_X + PAGE_MAP_SIZE - 3 - 8, guiTop + PAGE_Y + PAGE_MAP_Y + 3);
 		buttonList.add(buttonFactionMap);
-		buttonPledge = new GOTGuiButtonPledge(this, 4, guiLeft + 14, guiTop + PAGE_Y + PAGE_HEIGHT - 42, "");
-		buttonList.add(buttonPledge);
-		buttonPledgeConfirm = new GOTGuiButtonPledge(this, 5, guiLeft + PAGE_WIDTH / 2 - 16, guiTop + PAGE_Y + PAGE_HEIGHT - 50, "");
-		buttonList.add(buttonPledgeConfirm);
-		buttonPledgeRevoke = new GOTGuiButtonPledge(this, 6, guiLeft + PAGE_WIDTH / 2 - 16, guiTop + PAGE_Y + PAGE_HEIGHT - 50, "");
-		buttonList.add(buttonPledgeRevoke);
-		buttonPledgeRevoke.setBroken(true);
+		buttonOath = new GOTGuiButtonOath(this, 4, guiLeft + 14, guiTop + PAGE_Y + PAGE_HEIGHT - 42, "");
+		buttonList.add(buttonOath);
+		buttonOathConfirm = new GOTGuiButtonOath(this, 5, guiLeft + PAGE_WIDTH / 2 - 16, guiTop + PAGE_Y + PAGE_HEIGHT - 50, "");
+		buttonList.add(buttonOathConfirm);
+		buttonOathBetray = new GOTGuiButtonOath(this, 6, guiLeft + PAGE_WIDTH / 2 - 16, guiTop + PAGE_Y + PAGE_HEIGHT - 50, "");
+		buttonList.add(buttonOathBetray);
+		buttonOathBetray.setBroken(true);
 		prevDimension = currentDimension = GOTDimension.GAME_OF_THRONES;
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 		prevRegion = currentRegion = currentFaction.getFactionRegion();
@@ -550,12 +550,12 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 	@Override
 	public void keyTyped(char c, int i) {
 		if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) {
-			if (isPledging) {
-				isPledging = false;
+			if (isTakingOath) {
+				isTakingOath = false;
 				return;
 			}
-			if (isUnpledging) {
-				isUnpledging = false;
+			if (isBetrayingOath) {
+				isBetrayingOath = false;
 				return;
 			}
 			if (isOtherPlayer) {
@@ -697,8 +697,8 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		if (changes) {
 			pd.setViewingFaction(currentFaction);
 			GOTClientProxy.sendClientInfoPacket(currentFaction, lastViewedRegions);
-			isPledging = false;
-			isUnpledging = false;
+			isTakingOath = false;
+			isBetrayingOath = false;
 		}
 	}
 
@@ -707,16 +707,16 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		super.updateScreen();
 		updateCurrentDimensionAndFaction();
 		GOTPlayerData playerData = GOTLevelData.getData(mc.thePlayer);
-		if (isPledging && !playerData.hasPledgeReputation(currentFaction)) {
-			isPledging = false;
+		if (isTakingOath && !playerData.hasOathReputation(currentFaction)) {
+			isTakingOath = false;
 		}
-		if (isUnpledging && !playerData.isPledgedTo(currentFaction)) {
-			isUnpledging = false;
+		if (isBetrayingOath && !playerData.hasTakenOathTo(currentFaction)) {
+			isBetrayingOath = false;
 		}
 	}
 
 	private boolean useFullPageTexture() {
-		return isPledging || isUnpledging || currentPage == Page.RANKS;
+		return isTakingOath || isBetrayingOath || currentPage == Page.RANKS;
 	}
 
 	private enum Page {

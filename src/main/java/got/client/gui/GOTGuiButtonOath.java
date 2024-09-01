@@ -8,14 +8,14 @@ import org.lwjgl.opengl.GL11;
 import java.util.Arrays;
 import java.util.List;
 
-public class GOTGuiButtonPledge extends GuiButton {
+public class GOTGuiButtonOath extends GuiButton {
 	private final GOTGuiFactions parentGUI;
 
 	private List<String> displayLines;
 
 	private boolean isBroken;
 
-	public GOTGuiButtonPledge(GOTGuiFactions gui, int i, int x, int y, String s) {
+	public GOTGuiButtonOath(GOTGuiFactions gui, int i, int x, int y, String s) {
 		super(i, x, y, 32, 32, s);
 		parentGUI = gui;
 	}

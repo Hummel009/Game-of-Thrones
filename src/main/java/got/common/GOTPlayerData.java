@@ -77,8 +77,8 @@ public class GOTPlayerData {
 	private final UUID playerUUID;
 
 	private GOTCapes cape;
-	private GOTFaction brokenPledgeFaction;
-	private GOTFaction pledgeFaction;
+	private GOTFaction betrayedOathFaction;
+	private GOTFaction oathFaction;
 	private GOTFaction viewingFaction;
 	private GOTShields shield;
 	private GOTWaypoint lastWaypoint;
@@ -118,9 +118,9 @@ public class GOTPlayerData {
 	private int dragonFireballSinceTick;
 	private int nextCwpID = 20000;
 	private int pdTick;
-	private int pledgeBreakCooldown;
-	private int pledgeBreakCooldownStart;
-	private int pledgeKillCooldown;
+	private int oathBetrayCooldown;
+	private int oathBetrayCooldownStart;
+	private int oathKillCooldown;
 	private int siegeActiveTime;
 	private int ticksUntilFT;
 	private int uuidToMountTime;
@@ -181,8 +181,8 @@ public class GOTPlayerData {
 		waypoint.removeSharedBrotherhood(fsID);
 	}
 
-	private static boolean doesFactionPreventPledge(GOTFaction pledgeFac, GOTFaction otherFac) {
-		return pledgeFac.isMortalEnemy(otherFac);
+	private static boolean doesFactionPreventOath(GOTFaction oathFac, GOTFaction otherFac) {
+		return oathFac.isMortalEnemy(otherFac);
 	}
 
 	private static <T extends EntityLiving> T fastTravelEntity(WorldServer world, T entity, int i, int j, int k) {
@@ -410,16 +410,16 @@ public class GOTPlayerData {
 							float reputation = getReputation(bonusFaction);
 							float factionBonus = Math.abs(bonus);
 							factionBonus *= mplier;
-							if (reputation >= bonusFaction.getPledgeReputation() && !isPledgedTo(bonusFaction)) {
+							if (reputation >= bonusFaction.getOathReputation() && !hasTakenOathTo(bonusFaction)) {
 								factionBonus *= 0.5F;
 							}
-							factionBonus = checkBonusForPledgeEnemyLimit(bonusFaction, factionBonus);
+							factionBonus = checkBonusForOathEnemyLimit(bonusFaction, factionBonus);
 							reputation += factionBonus;
 							setReputation(bonusFaction, reputation);
 							factionBonusMap.put(bonusFaction, factionBonus);
 						}
 					}
-					if (bonusFaction == pledgeFaction) {
+					if (bonusFaction == oathFaction) {
 						float conq = bonus;
 						if (source.isKillByHiredUnit()) {
 							conq *= 0.25F;
@@ -452,10 +452,10 @@ public class GOTPlayerData {
 		} else if (faction.isPlayableReputationFaction()) {
 			float reputation = getReputation(faction);
 			float factionBonus = bonus;
-			if (factionBonus > 0.0F && reputation >= faction.getPledgeReputation() && !isPledgedTo(faction)) {
+			if (factionBonus > 0.0F && reputation >= faction.getOathReputation() && !hasTakenOathTo(faction)) {
 				factionBonus *= 0.5F;
 			}
-			factionBonus = checkBonusForPledgeEnemyLimit(faction, factionBonus);
+			factionBonus = checkBonusForOathEnemyLimit(faction, factionBonus);
 			reputation += factionBonus;
 			setReputation(faction, reputation);
 			factionBonusMap.put(faction, factionBonus);
@@ -752,12 +752,12 @@ public class GOTPlayerData {
 		return false;
 	}
 
-	public boolean canMakeNewPledge() {
-		return pledgeBreakCooldown <= 0;
+	public boolean canMakeNewOath() {
+		return oathBetrayCooldown <= 0;
 	}
 
-	public boolean canPledgeTo(GOTFaction fac) {
-		return fac.isPlayableReputationFaction() && hasPledgeReputation(fac);
+	public boolean canTakeOathTo(GOTFaction fac) {
+		return fac.isPlayableReputationFaction() && hasOathReputation(fac);
 	}
 
 	private void checkReputationAchievements(GOTFaction faction) {
@@ -767,8 +767,8 @@ public class GOTPlayerData {
 		}
 	}
 
-	private float checkBonusForPledgeEnemyLimit(GOTFaction fac, float bonus) {
-		if (isPledgeEnemyReputationLimited(fac)) {
+	private float checkBonusForOathEnemyLimit(GOTFaction fac, float bonus) {
+		if (isOathEnemyReputationLimited(fac)) {
 			float reputation = getReputation(fac);
 			float limit = 0.0f;
 			if (reputation > limit) {
@@ -1031,12 +1031,12 @@ public class GOTPlayerData {
 		markDirty();
 	}
 
-	public GOTFaction getBrokenPledgeFaction() {
-		return brokenPledgeFaction;
+	public GOTFaction getBetrayedOathFaction() {
+		return betrayedOathFaction;
 	}
 
-	public void setBrokenPledgeFaction(GOTFaction f) {
-		brokenPledgeFaction = f;
+	public void setBetrayedOathFaction(GOTFaction f) {
+		betrayedOathFaction = f;
 		markDirty();
 	}
 
@@ -1330,77 +1330,77 @@ public class GOTPlayerData {
 		return playerUUID;
 	}
 
-	public int getPledgeBreakCooldown() {
-		return pledgeBreakCooldown;
+	public int getOathBetrayCooldown() {
+		return oathBetrayCooldown;
 	}
 
-	public void setPledgeBreakCooldown(int i) {
-		int preCD = pledgeBreakCooldown;
-		GOTFaction preBroken = brokenPledgeFaction;
-		pledgeBreakCooldown = Math.max(0, i);
-		boolean bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
-		if (pledgeBreakCooldown > pledgeBreakCooldownStart) {
-			setPledgeBreakCooldownStart(pledgeBreakCooldown);
+	public void setOathBetrayCooldown(int i) {
+		int preCD = oathBetrayCooldown;
+		GOTFaction preBetrayed = betrayedOathFaction;
+		oathBetrayCooldown = Math.max(0, i);
+		boolean bigChange = (oathBetrayCooldown == 0 || preCD == 0) && oathBetrayCooldown != preCD;
+		if (oathBetrayCooldown > oathBetrayCooldownStart) {
+			setOathBetrayCooldownStart(oathBetrayCooldown);
 			bigChange = true;
 		}
-		if (pledgeBreakCooldown <= 0 && preBroken != null) {
-			setPledgeBreakCooldownStart(0);
-			setBrokenPledgeFaction(null);
+		if (oathBetrayCooldown <= 0 && preBetrayed != null) {
+			setOathBetrayCooldownStart(0);
+			setBetrayedOathFaction(null);
 			bigChange = true;
 		}
 		if (bigChange || isTimerAutosaveTick()) {
 			markDirty();
 		}
-		if (bigChange || pledgeBreakCooldown % 5 == 0) {
+		if (bigChange || oathBetrayCooldown % 5 == 0) {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				IMessage packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
+				IMessage packet = new GOTPacketBetrayedOath(oathBetrayCooldown, oathBetrayCooldownStart, betrayedOathFaction);
 				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
-		if (pledgeBreakCooldown == 0 && preCD != pledgeBreakCooldown) {
+		if (oathBetrayCooldown == 0 && preCD != oathBetrayCooldown) {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				String brokenName;
-				if (preBroken == null) {
-					brokenName = StatCollector.translateToLocal("got.gui.factions.pledgeUnknown");
+				if (preBetrayed == null) {
+					brokenName = StatCollector.translateToLocal("got.gui.factions.oathUnknown");
 				} else {
-					brokenName = preBroken.factionName();
+					brokenName = preBetrayed.factionName();
 				}
-				IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeBreakCooldown", brokenName);
+				IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.oathBetrayCooldown", brokenName);
 				entityplayer.addChatMessage(chatComponentTranslation);
 			}
 		}
 	}
 
-	public int getPledgeBreakCooldownStart() {
-		return pledgeBreakCooldownStart;
+	public int getOathBetrayCooldownStart() {
+		return oathBetrayCooldownStart;
 	}
 
-	public void setPledgeBreakCooldownStart(int i) {
-		pledgeBreakCooldownStart = i;
+	public void setOathBetrayCooldownStart(int i) {
+		oathBetrayCooldownStart = i;
 		markDirty();
 	}
 
-	public GOTFaction getPledgeFaction() {
-		return pledgeFaction;
+	public GOTFaction getOathFaction() {
+		return oathFaction;
 	}
 
-	public void setPledgeFaction(GOTFaction fac) {
-		pledgeFaction = fac;
-		pledgeKillCooldown = 0;
+	public void setOathFaction(GOTFaction fac) {
+		oathFaction = fac;
+		oathKillCooldown = 0;
 		markDirty();
 		if (fac != null) {
 			checkReputationAchievements(fac);
-			addAchievement(GOTAchievement.pledgeService);
+			addAchievement(GOTAchievement.oathService);
 		}
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			if (fac != null) {
 				World world = entityplayer.worldObj;
-				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0F, 1.0F);
+				world.playSoundAtEntity(entityplayer, "got:event.oath", 1.0F, 1.0F);
 			}
-			IMessage packet = new GOTPacketPledge(fac);
+			IMessage packet = new GOTPacketOath(fac);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -1586,9 +1586,9 @@ public class GOTPlayerData {
 		return false;
 	}
 
-	public boolean hasPledgeReputation(GOTFaction fac) {
+	public boolean hasOathReputation(GOTFaction fac) {
 		float reputation = getReputation(fac);
-		return reputation >= fac.getPledgeReputation();
+		return reputation >= fac.getOathReputation();
 	}
 
 	public void hideOrUnhideSharedCustomWaypoint(GOTCustomWaypoint waypoint, boolean hide) {
@@ -1635,12 +1635,12 @@ public class GOTPlayerData {
 		return false;
 	}
 
-	public boolean isPledgedTo(GOTFaction fac) {
-		return pledgeFaction == fac;
+	public boolean hasTakenOathTo(GOTFaction fac) {
+		return oathFaction == fac;
 	}
 
-	private boolean isPledgeEnemyReputationLimited(GOTFaction fac) {
-		return pledgeFaction != null && doesFactionPreventPledge(pledgeFaction, fac);
+	private boolean isOathEnemyReputationLimited(GOTFaction fac) {
+		return oathFaction != null && doesFactionPreventOath(oathFaction, fac);
 	}
 
 	public boolean isSiegeActive() {
@@ -1742,16 +1742,16 @@ public class GOTPlayerData {
 				takenReputationRewards.add(faction);
 			}
 		}
-		pledgeFaction = null;
-		if (playerData.hasKey("PledgeFac")) {
-			pledgeFaction = GOTFaction.forName(playerData.getString("PledgeFac"));
+		oathFaction = null;
+		if (playerData.hasKey("OathFac")) {
+			oathFaction = GOTFaction.forName(playerData.getString("OathFac"));
 		}
-		pledgeKillCooldown = playerData.getInteger("PledgeKillCD");
-		pledgeBreakCooldown = playerData.getInteger("PledgeBreakCD");
-		pledgeBreakCooldownStart = playerData.getInteger("PledgeBreakCDStart");
-		brokenPledgeFaction = null;
-		if (playerData.hasKey("BrokenPledgeFac")) {
-			brokenPledgeFaction = GOTFaction.forName(playerData.getString("BrokenPledgeFac"));
+		oathKillCooldown = playerData.getInteger("OathKillCD");
+		oathBetrayCooldown = playerData.getInteger("OathBetrayCD");
+		oathBetrayCooldownStart = playerData.getInteger("OathBetrayCDStart");
+		betrayedOathFaction = null;
+		if (playerData.hasKey("BetrayedOathFac")) {
+			betrayedOathFaction = GOTFaction.forName(playerData.getString("BetrayedOathFac"));
 		}
 		hideOnMap = playerData.getBoolean("HideOnMap");
 		adminHideMap = playerData.getBoolean("AdminHideMap");
@@ -2014,13 +2014,13 @@ public class GOTPlayerData {
 		return needsSave;
 	}
 
-	public void onPledgeKill(EntityPlayer entityplayer) {
-		pledgeKillCooldown += 24000;
+	public void onOathKill(EntityPlayer entityplayer) {
+		oathKillCooldown += 24000;
 		markDirty();
-		if (pledgeKillCooldown > 24000) {
-			revokePledgeFaction(entityplayer, false);
-		} else if (pledgeFaction != null) {
-			IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeKillWarn", pledgeFaction.factionName());
+		if (oathKillCooldown > 24000) {
+			oathBetrayFaction(entityplayer, false);
+		} else if (oathFaction != null) {
+			IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.oathKillWarn", oathFaction.factionName());
 			entityplayer.addChatMessage(chatComponentTranslation);
 		}
 	}
@@ -2045,14 +2045,14 @@ public class GOTPlayerData {
 			entityplayer.addChatMessage(chatComponentTranslation);
 			setPlayerTitle(null);
 		}
-		if (pledgeKillCooldown > 0) {
-			pledgeKillCooldown--;
-			if (pledgeKillCooldown == 0 || isTimerAutosaveTick()) {
+		if (oathKillCooldown > 0) {
+			oathKillCooldown--;
+			if (oathKillCooldown == 0 || isTimerAutosaveTick()) {
 				markDirty();
 			}
 		}
-		if (pledgeBreakCooldown > 0) {
-			setPledgeBreakCooldown(pledgeBreakCooldown - 1);
+		if (oathBetrayCooldown > 0) {
+			setOathBetrayCooldown(oathBetrayCooldown - 1);
 		}
 		if (trackingMiniQuestID != null && getTrackingMiniQuest() == null) {
 			setTrackingMiniQuest(null);
@@ -2336,28 +2336,28 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void revokePledgeFaction(EntityPlayer entityplayer, boolean intentional) {
-		GOTFaction wasPledge = pledgeFaction;
-		float pledgeLvl = wasPledge.getPledgeReputation();
-		float prevRep = getReputation(wasPledge);
-		float diff = prevRep - pledgeLvl;
+	public void oathBetrayFaction(EntityPlayer entityplayer, boolean intentional) {
+		GOTFaction wasOath = oathFaction;
+		float oathLvl = wasOath.getOathReputation();
+		float prevRep = getReputation(wasOath);
+		float diff = prevRep - oathLvl;
 		float cd = diff / 5000.0F;
 		cd = MathHelper.clamp_float(cd, 0.0F, 1.0F);
 		int cdTicks = 36000;
 		cdTicks += Math.round(cd * 150.0F * 60.0F * 20.0F);
-		setPledgeFaction(null);
-		setBrokenPledgeFaction(wasPledge);
-		setPledgeBreakCooldown(cdTicks);
+		setOathFaction(null);
+		setBetrayedOathFaction(wasOath);
+		setOathBetrayCooldown(cdTicks);
 		World world = entityplayer.worldObj;
 		if (!world.isRemote) {
-			GOTFactionRank rank = wasPledge.getRank(prevRep);
-			GOTFactionRank rankBelow = wasPledge.getRankBelow(rank);
-			GOTFactionRank rankBelow2 = wasPledge.getRankBelow(rankBelow);
+			GOTFactionRank rank = wasOath.getRank(prevRep);
+			GOTFactionRank rankBelow = wasOath.getRankBelow(rank);
+			GOTFactionRank rankBelow2 = wasOath.getRankBelow(rankBelow);
 			float newRep = rankBelow2.getReputation();
-			newRep = Math.max(newRep, pledgeLvl / 2.0F);
+			newRep = Math.max(newRep, oathLvl / 2.0F);
 			float repPenalty = newRep - prevRep;
 			if (repPenalty < 0.0F) {
-				GOTReputationValues.ReputationBonus penalty = GOTReputationValues.createPledgePenalty(repPenalty);
+				GOTReputationValues.ReputationBonus penalty = GOTReputationValues.createOathPenalty(repPenalty);
 				double repX;
 				double repY;
 				double repZ;
@@ -2375,17 +2375,17 @@ public class GOTPlayerData {
 					repY = posSight.yCoord;
 					repZ = posSight.zCoord;
 				}
-				addReputation(entityplayer, penalty, wasPledge, repX, repY, repZ);
+				addReputation(entityplayer, penalty, wasOath, repX, repY, repZ);
 			}
-			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0F, 1.0F);
+			world.playSoundAtEntity(entityplayer, "got:event.oathBetray", 1.0F, 1.0F);
 			ChatComponentTranslation chatComponentTranslation;
 			if (intentional) {
-				chatComponentTranslation = new ChatComponentTranslation("got.chat.unpledge", wasPledge.factionName());
+				chatComponentTranslation = new ChatComponentTranslation("got.chat.oathBetray", wasOath.factionName());
 			} else {
-				chatComponentTranslation = new ChatComponentTranslation("got.chat.autoUnpledge", wasPledge.factionName());
+				chatComponentTranslation = new ChatComponentTranslation("got.chat.autoOathBetray", wasOath.factionName());
 			}
 			entityplayer.addChatMessage(chatComponentTranslation);
-			checkReputationAchievements(wasPledge);
+			checkReputationAchievements(wasOath);
 		}
 	}
 
@@ -2489,14 +2489,14 @@ public class GOTPlayerData {
 			takenRewardsTags.appendTag(nbt);
 		}
 		playerData.setTag("TakenReputationRewards", takenRewardsTags);
-		if (pledgeFaction != null) {
-			playerData.setString("PledgeFac", pledgeFaction.codeName());
+		if (oathFaction != null) {
+			playerData.setString("OathFac", oathFaction.codeName());
 		}
-		playerData.setInteger("PledgeKillCD", pledgeKillCooldown);
-		playerData.setInteger("PledgeBreakCD", pledgeBreakCooldown);
-		playerData.setInteger("PledgeBreakCDStart", pledgeBreakCooldownStart);
-		if (brokenPledgeFaction != null) {
-			playerData.setString("BrokenPledgeFac", brokenPledgeFaction.codeName());
+		playerData.setInteger("OathKillCD", oathKillCooldown);
+		playerData.setInteger("OathBetrayCD", oathBetrayCooldown);
+		playerData.setInteger("OathBetrayCDStart", oathBetrayCooldownStart);
+		if (betrayedOathFaction != null) {
+			playerData.setString("BetrayedOathFac", betrayedOathFaction.codeName());
 		}
 		playerData.setBoolean("HideOnMap", hideOnMap);
 		playerData.setBoolean("AdminHideMap", adminHideMap);
@@ -2806,8 +2806,8 @@ public class GOTPlayerData {
 			}
 			checkReputationAchievements(faction);
 		}
-		if (entityplayer != null && !entityplayer.worldObj.isRemote && pledgeFaction != null && !canPledgeTo(pledgeFaction)) {
-			revokePledgeFaction(entityplayer, false);
+		if (entityplayer != null && !entityplayer.worldObj.isRemote && oathFaction != null && !canTakeOathTo(oathFaction)) {
+			oathBetrayFaction(entityplayer, false);
 		}
 	}
 

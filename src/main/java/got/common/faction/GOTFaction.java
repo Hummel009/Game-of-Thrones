@@ -34,7 +34,7 @@ public enum GOTFaction {
 	private GOTDimension.DimensionRegion factionRegion;
 	private GOTDimension factionDimension;
 	private GOTMapRegion factionMapInfo;
-	private GOTFactionRank pledgeRank;
+	private GOTFactionRank oathRank;
 	private boolean allowPlayer;
 	private boolean hasFixedReputation;
 	private boolean approvesWarCrimes;
@@ -309,12 +309,12 @@ public enum GOTFaction {
 			if (fac != WHITE_WALKER && fac != NEUTRAL && fac != HOSTILE) {
 				fac.addRank(10.0f, "guest").makeTitle().makeAchievement();
 				fac.addRank(50.0f, "friend").makeTitle().makeAchievement();
-				fac.addRank(100.0f, "defender").setPledgeRank().makeTitle().makeAchievement();
+				fac.addRank(100.0f, "defender").setOathRank().makeTitle().makeAchievement();
 				fac.addRank(500.0f, "hero").makeTitle().makeAchievement();
 				fac.addRank(1000.0f, "leader").makeTitle().makeAchievement();
 			}
 		}
-		WHITE_WALKER.addSpecialRank(1000.0f, "king").setPledgeRank().makeTitle().makeAchievement();
+		WHITE_WALKER.addSpecialRank(1000.0f, "king").setOathRank().makeTitle().makeAchievement();
 	}
 
 	private GOTFactionRank addRank(float reputation, String name) {
@@ -490,25 +490,25 @@ public enum GOTFaction {
 		return list;
 	}
 
-	public float getPledgeReputation() {
-		if (pledgeRank != null) {
-			return pledgeRank.getReputation();
+	public float getOathReputation() {
+		if (oathRank != null) {
+			return oathRank.getReputation();
 		}
 		return 0.0f;
 	}
 
-	public GOTFactionRank getPledgeRank() {
-		return pledgeRank;
+	public GOTFactionRank getOathRank() {
+		return oathRank;
 	}
 
-	public void setPledgeRank(GOTFactionRank rank) {
+	public void setOathRank(GOTFactionRank rank) {
 		if (rank.getFaction() != this) {
 			throw new IllegalArgumentException("Incompatible faction!");
 		}
-		if (pledgeRank != null) {
-			throw new IllegalArgumentException("Faction already has a pledge rank!");
+		if (oathRank != null) {
+			throw new IllegalArgumentException("Faction already has a oath rank!");
 		}
-		pledgeRank = rank;
+		oathRank = rank;
 	}
 
 	public GOTFactionRank getRank(float reputation) {
