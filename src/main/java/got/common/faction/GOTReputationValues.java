@@ -24,8 +24,8 @@ public class GOTReputationValues {
 		return new ReputationBonus(reputation, "got.reputation.miniQuest");
 	}
 
-	public static ReputationBonus createPledgePenalty(float reputation) {
-		return new ReputationBonus(reputation, "got.reputation.breakPledge");
+	public static ReputationBonus createOathPenalty(float reputation) {
+		return new ReputationBonus(reputation, "got.reputation.breakOath");
 	}
 
 	public static String formatRepForDisplay(float reputation) {

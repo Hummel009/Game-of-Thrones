@@ -43,7 +43,7 @@ public class GOTHireableInfo {
 
 	private final GOTEntityNPC theEntity;
 
-	private GOTUnitTradeEntry.PledgeType pledgeType = GOTUnitTradeEntry.PledgeType.NONE;
+	private GOTUnitTradeEntry.OathType oathType = GOTUnitTradeEntry.OathType.NONE;
 	private Task hiredTask = Task.WARRIOR;
 
 	private GOTInventoryNPC hiredInventory;
@@ -218,14 +218,14 @@ public class GOTHireableInfo {
 
 	public void hireUnit(EntityPlayer entityplayer, boolean setLocation, GOTFaction hiringFaction, GOTUnitTradeEntry tradeEntry, String squadron, Entity mount) {
 		float reputation = tradeEntry.getReputationRequired();
-		GOTUnitTradeEntry.PledgeType pledge = tradeEntry.getPledgeType();
+		GOTUnitTradeEntry.OathType oath = tradeEntry.getOathType();
 		Task task = tradeEntry.getTask();
 		if (setLocation) {
 			theEntity.setLocationAndAngles(entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, entityplayer.rotationYaw + 180.0f, 0.0f);
 		}
 		isActive = true;
 		reputationRequiredToCommand = reputation;
-		pledgeType = pledge;
+		oathType = oath;
 		setHiringPlayer(entityplayer);
 		setTask(task);
 		setHiredSquadron(squadron);
@@ -376,7 +376,7 @@ public class GOTHireableInfo {
 				GOTFaction fac = theEntity.getFaction();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 				boolean canCommand = pd.getReputation(fac) >= reputationRequiredToCommand;
-				if (!pledgeType.canAcceptPlayer(entityplayer, fac)) {
+				if (!oathType.canAcceptPlayer(entityplayer, fac)) {
 					canCommand = false;
 				}
 				if (!canCommand) {
@@ -411,9 +411,9 @@ public class GOTHireableInfo {
 			}
 			isActive = data.getBoolean("IsActive");
 			reputationRequiredToCommand = data.hasKey("ReputationRequired") ? data.getInteger("ReputationRequired") : data.getFloat("RepReqF");
-			if (data.hasKey("PledgeType")) {
-				byte pledgeID = data.getByte("PledgeType");
-				pledgeType = GOTUnitTradeEntry.PledgeType.forID(pledgeID);
+			if (data.hasKey("OathType")) {
+				byte oathID = data.getByte("OathType");
+				oathType = GOTUnitTradeEntry.OathType.forID(oathID);
 			}
 			canMove = data.getBoolean("CanMove");
 			if (data.hasKey("TeleportAutomatically")) {
@@ -457,7 +457,7 @@ public class GOTHireableInfo {
 		mobKills = packet.getMobKills();
 		xp = packet.getXp();
 		reputationRequiredToCommand = packet.getReputationRequired();
-		pledgeType = packet.getPledgeType();
+		oathType = packet.getOathType();
 		inCombat = packet.isInCombat();
 		guardMode = packet.isGuardMode();
 		guardRange = packet.getGuardRange();
@@ -491,7 +491,7 @@ public class GOTHireableInfo {
 		packet.setMobKills(mobKills);
 		packet.setXp(xp);
 		packet.setReputationRequired(reputationRequiredToCommand);
-		packet.setPledgeType(pledgeType);
+		packet.setOathType(oathType);
 		packet.setInCombat(inCombat);
 		packet.setGuardMode(guardMode);
 		packet.setGuardRange(guardRange);
@@ -594,7 +594,7 @@ public class GOTHireableInfo {
 			data.setString("HiringPlayerUUID", hiringPlayerUUID.toString());
 		}
 		data.setFloat("RepReqF", reputationRequiredToCommand);
-		data.setByte("PledgeType", (byte) pledgeType.getTypeID());
+		data.setByte("OathType", (byte) oathType.getTypeID());
 		data.setBoolean("CanMove", canMove);
 		data.setBoolean("TeleportAutomatically", teleportAutomatically);
 		data.setInteger("MobKills", mobKills);
@@ -612,8 +612,8 @@ public class GOTHireableInfo {
 		nbt.setTag("HiredNPCInfo", data);
 	}
 
-	public GOTUnitTradeEntry.PledgeType getPledgeType() {
-		return pledgeType;
+	public GOTUnitTradeEntry.OathType getOathType() {
+		return oathType;
 	}
 
 	public Task getHiredTask() {

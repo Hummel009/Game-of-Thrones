@@ -151,8 +151,8 @@ public class GOTEntityInvasionSpawner extends Entity {
 				if (pd.getReputation(invasionFac) <= 0.0f) {
 					achievementPlayers.add(entityplayer);
 				}
-				GOTFaction pledged = pd.getPledgeFaction();
-				if (pledged == null || !pledged.isBadRelation(invasionFac)) {
+				GOTFaction oathFaction = pd.getOathFaction();
+				if (oathFaction == null || !oathFaction.isBadRelation(invasionFac)) {
 					continue;
 				}
 				conqRewardPlayers.add(entityplayer);
@@ -165,7 +165,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 				float boostPerPlayer = 50.0f / conqRewardPlayers.size();
 				for (EntityPlayer entityplayer : conqRewardPlayers) {
 					GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-					pd.givePureConquestBonus(entityplayer, pd.getPledgeFaction(), getInvasionType().getInvasionFaction(), boostPerPlayer, "got.reputation.invasionDefeat", posX, posY, posZ);
+					pd.givePureConquestBonus(entityplayer, pd.getOathFaction(), getInvasionType().getInvasionFaction(), boostPerPlayer, "got.reputation.invasionDefeat", posX, posY, posZ);
 				}
 			}
 		}

@@ -381,8 +381,8 @@ public class GOTUnitTradeEntries {
 		GHISCAR_UNSULLIED = new GOTUnitTradeEntries(50.0f, ghiscarUnsullied);
 
 		List<GOTUnitTradeEntry> gift = new ArrayList<>();
-		gift.add(new GOTUnitTradeEntry(GOTEntityGiftGuard.class, SOLDIER, SOLDIER_F).setPledgeExclusive());
-		gift.add(new GOTUnitTradeEntry(GOTEntityGiftBannerBearer.class, SOLDIER, SOLDIER_F).setPledgeExclusive());
+		gift.add(new GOTUnitTradeEntry(GOTEntityGiftGuard.class, SOLDIER, SOLDIER_F).setOathExclusive());
+		gift.add(new GOTUnitTradeEntry(GOTEntityGiftBannerBearer.class, SOLDIER, SOLDIER_F).setOathExclusive());
 		GIFT = new GOTUnitTradeEntries(50.0f, gift);
 
 		List<GOTUnitTradeEntry> crownlands = new ArrayList<>();
@@ -391,13 +391,13 @@ public class GOTUnitTradeEntries {
 		CROWNLANDS = new GOTUnitTradeEntries(50.0f, crownlands);
 
 		List<GOTUnitTradeEntry> kingsguard = new ArrayList<>();
-		kingsguard.add(new GOTUnitTradeEntry(GOTEntityKingsguard.class, SOLDIER * 2, SOLDIER_F * 2).setPledgeExclusive());
+		kingsguard.add(new GOTUnitTradeEntry(GOTEntityKingsguard.class, SOLDIER * 2, SOLDIER_F * 2).setOathExclusive());
 		KINGSGUARD = new GOTUnitTradeEntries(50.0f, kingsguard);
 
 		List<GOTUnitTradeEntry> asshai = new ArrayList<>();
 		asshai.add(new GOTUnitTradeEntry(GOTEntityAsshaiWarrior.class, SOLDIER, SOLDIER_F));
-		asshai.add(new GOTUnitTradeEntry(GOTEntityAsshaiSpherebinder.class, SOLDIER * 5, SOLDIER_F * 5).setPledgeExclusive());
-		asshai.add(new GOTUnitTradeEntry(GOTEntityAsshaiShadowbinder.class, SOLDIER * 5, SOLDIER_F * 5).setPledgeExclusive());
+		asshai.add(new GOTUnitTradeEntry(GOTEntityAsshaiSpherebinder.class, SOLDIER * 5, SOLDIER_F * 5).setOathExclusive());
+		asshai.add(new GOTUnitTradeEntry(GOTEntityAsshaiShadowbinder.class, SOLDIER * 5, SOLDIER_F * 5).setOathExclusive());
 		asshai.add(new GOTUnitTradeEntry(GOTEntityAsshaiBannerBearer.class, SOLDIER, SOLDIER_F));
 		ASSHAI = new GOTUnitTradeEntries(50.0f, asshai);
 
@@ -406,7 +406,7 @@ public class GOTUnitTradeEntries {
 		wildling.add(new GOTUnitTradeEntry(GOTEntityWildlingArcher.class, LEVYMANA, LEVYMANA_F));
 		wildling.add(new GOTUnitTradeEntry(GOTEntityWildlingAxeThrower.class, LEVYMANA, LEVYMANA_F));
 		wildling.add(new GOTUnitTradeEntry(GOTEntityWildlingBannerBearer.class, LEVYMAN, LEVYMAN_F));
-		wildling.add(new GOTUnitTradeEntry(GOTEntityGiant.class, LEVYMAN * 10, LEVYMAN_F * 10).setPledgeExclusive());
+		wildling.add(new GOTUnitTradeEntry(GOTEntityGiant.class, LEVYMAN * 10, LEVYMAN_F * 10).setOathExclusive());
 		WILDLING = new GOTUnitTradeEntries(50.0f, wildling);
 
 		List<GOTUnitTradeEntry> thenn = new ArrayList<>();
@@ -414,7 +414,7 @@ public class GOTUnitTradeEntries {
 		thenn.add(new GOTUnitTradeEntry(GOTEntityThennArcher.class, LEVYMANA, LEVYMANA_F));
 		thenn.add(new GOTUnitTradeEntry(GOTEntityThennAxeThrower.class, LEVYMANA, LEVYMANA_F));
 		thenn.add(new GOTUnitTradeEntry(GOTEntityThennBannerBearer.class, LEVYMAN, LEVYMAN_F));
-		thenn.add(new GOTUnitTradeEntry(GOTEntityGiant.class, LEVYMAN * 10, LEVYMAN_F * 10).setPledgeExclusive());
+		thenn.add(new GOTUnitTradeEntry(GOTEntityGiant.class, LEVYMAN * 10, LEVYMAN_F * 10).setOathExclusive());
 		THENN = new GOTUnitTradeEntries(50.0f, thenn);
 
 		List<GOTUnitTradeEntry> hillmen = new ArrayList<>();
@@ -422,7 +422,7 @@ public class GOTUnitTradeEntries {
 		hillmen.add(new GOTUnitTradeEntry(GOTEntityHillmanArcher.class, SOLDIERA, SOLDIERA_F));
 		hillmen.add(new GOTUnitTradeEntry(GOTEntityHillmanAxeThrower.class, SOLDIERA, SOLDIERA_F));
 		hillmen.add(new GOTUnitTradeEntry(GOTEntityHillmanBannerBearer.class, SOLDIER, SOLDIER_F));
-		hillmen.add(new GOTUnitTradeEntry(GOTEntityHillmanBerserker.class, SOLDIER * 2, SOLDIER_F * 2).setPledgeExclusive());
+		hillmen.add(new GOTUnitTradeEntry(GOTEntityHillmanBerserker.class, SOLDIER * 2, SOLDIER_F * 2).setOathExclusive());
 		HILLMEN = new GOTUnitTradeEntries(50.0f, hillmen);
 
 		List<GOTUnitTradeEntry> northHillmen = new ArrayList<>();
@@ -430,7 +430,7 @@ public class GOTUnitTradeEntries {
 		northHillmen.add(new GOTUnitTradeEntry(GOTEntityNorthHillmanArcher.class, LEVYMANA, LEVYMANA_F));
 		northHillmen.add(new GOTUnitTradeEntry(GOTEntityNorthHillmanAxeThrower.class, LEVYMANA, LEVYMANA_F));
 		northHillmen.add(new GOTUnitTradeEntry(GOTEntityNorthHillmanBannerBearer.class, LEVYMAN, LEVYMAN_F));
-		northHillmen.add(new GOTUnitTradeEntry(GOTEntityNorthHillmanWarrior.class, GOTEntityWoolyRhino.class, "Rider", LEVYMAN * 5, LEVYMAN_F * 5).setPledgeExclusive());
+		northHillmen.add(new GOTUnitTradeEntry(GOTEntityNorthHillmanWarrior.class, GOTEntityWoolyRhino.class, "Rider", LEVYMAN * 5, LEVYMAN_F * 5).setOathExclusive());
 		NORTH_HILLMEN = new GOTUnitTradeEntries(50.0f, northHillmen);
 
 		List<GOTUnitTradeEntry> jogosNhai = new ArrayList<>();
@@ -466,9 +466,9 @@ public class GOTUnitTradeEntries {
 		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiLevymanCrossbower.class, LEVYMANA, LEVYMANA_F));
 		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiSoldier.class, SOLDIER, SOLDIER_F));
 		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiSoldierCrossbower.class, SOLDIERA, SOLDIERA_F));
-		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiSamurai.class, SOLDIER * 2, SOLDIER_F * 2).setPledgeExclusive());
-		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiSamuraiFlamethrower.class, SOLDIERA * 2, SOLDIERA_F * 2).setPledgeExclusive());
-		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiBombardier.class, SOLDIER * 5, SOLDIER_F * 5).setPledgeExclusive());
+		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiSamurai.class, SOLDIER * 2, SOLDIER_F * 2).setOathExclusive());
+		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiSamuraiFlamethrower.class, SOLDIERA * 2, SOLDIERA_F * 2).setOathExclusive());
+		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiBombardier.class, SOLDIER * 5, SOLDIER_F * 5).setOathExclusive());
 		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiBannerBearer.class, SOLDIER, SOLDIER_F));
 		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiSoldier.class, GOTEntityHorse.class, "Rider", SOLDIERH, SOLDIERH_F).setMountArmor(GOTItems.ironHorseArmor));
 		yiTi.add(new GOTUnitTradeEntry(GOTEntityYiTiBannerBearer.class, GOTEntityHorse.class, "Rider", SOLDIERH, SOLDIERH_F).setMountArmor(GOTItems.ironHorseArmor));

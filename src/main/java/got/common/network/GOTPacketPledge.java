@@ -10,36 +10,36 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class GOTPacketPledge implements IMessage {
-	private GOTFaction pledgeFac;
+public class GOTPacketOath implements IMessage {
+	private GOTFaction oathFac;
 
 	@SuppressWarnings("unused")
-	public GOTPacketPledge() {
+	public GOTPacketOath() {
 	}
 
-	public GOTPacketPledge(GOTFaction f) {
-		pledgeFac = f;
+	public GOTPacketOath(GOTFaction f) {
+		oathFac = f;
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
 		byte facID = data.readByte();
-		pledgeFac = facID == -1 ? null : GOTFaction.forID(facID);
+		oathFac = facID == -1 ? null : GOTFaction.forID(facID);
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		int facID = pledgeFac == null ? -1 : pledgeFac.ordinal();
+		int facID = oathFac == null ? -1 : oathFac.ordinal();
 		data.writeByte(facID);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketPledge, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketOath, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketPledge packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketOath packet, MessageContext context) {
 			if (!GOT.proxy.isSingleplayer()) {
 				EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				pd.setPledgeFaction(packet.pledgeFac);
+				pd.setOathFaction(packet.oathFac);
 			}
 			return null;
 		}

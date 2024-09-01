@@ -32,7 +32,7 @@ public class GOTPacketHandler {
 		NETWORK_WRAPPER.registerMessage(GOTPacketBiomeVariantsWatch.Handler.class, GOTPacketBiomeVariantsWatch.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketBrandingIron.Handler.class, GOTPacketBrandingIron.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketBrewingButton.Handler.class, GOTPacketBrewingButton.class, id++, Side.SERVER);
-		NETWORK_WRAPPER.registerMessage(GOTPacketBrokenPledge.Handler.class, GOTPacketBrokenPledge.class, id++, Side.CLIENT);
+		NETWORK_WRAPPER.registerMessage(GOTPacketBrokenOath.Handler.class, GOTPacketBrokenOath.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketBuyUnit.Handler.class, GOTPacketBuyUnit.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketCWPProtectionMessage.Handler.class, GOTPacketCWPProtectionMessage.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketCWPSharedHide.Handler.class, GOTPacketCWPSharedHide.class, id++, Side.SERVER);
@@ -131,8 +131,8 @@ public class GOTPacketHandler {
 		NETWORK_WRAPPER.registerMessage(GOTPacketNPCSquadron.Handler.class, GOTPacketNPCSquadron.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketOpenSignEditor.Handler.class, GOTPacketOpenSignEditor.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketOptions.Handler.class, GOTPacketOptions.class, id++, Side.CLIENT);
-		NETWORK_WRAPPER.registerMessage(GOTPacketPledge.Handler.class, GOTPacketPledge.class, id++, Side.CLIENT);
-		NETWORK_WRAPPER.registerMessage(GOTPacketPledgeSet.Handler.class, GOTPacketPledgeSet.class, id++, Side.SERVER);
+		NETWORK_WRAPPER.registerMessage(GOTPacketOath.Handler.class, GOTPacketOath.class, id++, Side.CLIENT);
+		NETWORK_WRAPPER.registerMessage(GOTPacketOathSet.Handler.class, GOTPacketOathSet.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketPortalPos.Handler.class, GOTPacketPortalPos.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketRenameCWP.Handler.class, GOTPacketRenameCWP.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketRenameCWPClient.Handler.class, GOTPacketRenameCWPClient.class, id++, Side.CLIENT);

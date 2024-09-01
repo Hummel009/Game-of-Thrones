@@ -50,10 +50,10 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			String repS = GOTReputationValues.formatRepForDisplay(theNPC.getHireableInfo().getReputationRequiredToCommand());
 			String repReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.rep", repS, fac.factionName());
 			Collection<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(repReq, maxWidth));
-			GOTUnitTradeEntry.PledgeType pledge = theNPC.getHireableInfo().getPledgeType();
-			String pledgeReq = pledge.getCommandReqText(fac);
-			if (pledgeReq != null) {
-				requirementLines.addAll(fontRendererObj.listFormattedStringToWidth(pledgeReq, maxWidth));
+			GOTUnitTradeEntry.OathType oath = theNPC.getHireableInfo().getOathType();
+			String oathReq = oath.getCommandReqText(fac);
+			if (oathReq != null) {
+				requirementLines.addAll(fontRendererObj.listFormattedStringToWidth(oathReq, maxWidth));
 			}
 			for (String obj : requirementLines) {
 				fontRendererObj.drawString(obj, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(obj) / 2, y, 3618615);

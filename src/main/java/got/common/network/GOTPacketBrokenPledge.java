@@ -10,16 +10,16 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class GOTPacketBrokenPledge implements IMessage {
+public class GOTPacketBrokenOath implements IMessage {
 	private int cooldown;
 	private int cooldownStart;
 	private GOTFaction brokenFac;
 
 	@SuppressWarnings("unused")
-	public GOTPacketBrokenPledge() {
+	public GOTPacketBrokenOath() {
 	}
 
-	public GOTPacketBrokenPledge(int cd, int start, GOTFaction f) {
+	public GOTPacketBrokenOath(int cd, int start, GOTFaction f) {
 		cooldown = cd;
 		cooldownStart = start;
 		brokenFac = f;
@@ -46,14 +46,14 @@ public class GOTPacketBrokenPledge implements IMessage {
 		}
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketBrokenPledge, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketBrokenOath, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketBrokenPledge packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketBrokenOath packet, MessageContext context) {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			pd.setPledgeBreakCooldown(packet.cooldown);
-			pd.setPledgeBreakCooldownStart(packet.cooldownStart);
-			pd.setBrokenPledgeFaction(packet.brokenFac);
+			pd.setOathBreakCooldown(packet.cooldown);
+			pd.setOathBreakCooldownStart(packet.cooldownStart);
+			pd.setBrokenOathFaction(packet.brokenFac);
 			return null;
 		}
 	}

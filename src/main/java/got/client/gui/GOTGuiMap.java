@@ -632,18 +632,18 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					for (int l = 0; l < ellipsis; ++l) {
 						loadText.append('.');
 					}
-				} else if (query.getResult() == GOTConquestGrid.ConquestViewable.UNPLEDGED) {
-					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.noPledge"));
+				} else if (query.getResult() == GOTConquestGrid.ConquestViewable.NO_OATH) {
+					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.noOath"));
 				} else {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-					GOTFaction pledgeFac = pd.getPledgeFaction();
+					GOTFaction oathFac = pd.getOathFaction();
 					GOTFactionRank needRank = query.getNeedRank();
 					String needRep = GOTReputationValues.formatRepForDisplay(needRank.getReputation());
 					String format = "";
 					if (query.getResult() == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
 					}
-					loadText = new StringBuilder(StatCollector.translateToLocalFormatted(format, pledgeFac.factionName(), needRank.getFullNameWithGender(pd), needRep));
+					loadText = new StringBuilder(StatCollector.translateToLocalFormatted(format, oathFac.factionName(), needRank.getFullNameWithGender(pd), needRep));
 				}
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int stringWidth = 250;
@@ -684,7 +684,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					GOTWaypoint wp = (GOTWaypoint) selectedWaypoint;
 					notUnlocked = wp.isCompatibleReputation(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.region") : StatCollector.translateToLocal("got.gui.map.locked.enemy");
 				}
-				String conquestUnlock = pd.getPledgeFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getPledgeFaction().factionName());
+				String conquestUnlock = pd.getOathFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getOathFaction().factionName());
 				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_FAST_TRAVEL.getKeyCode()));
 				String ftMoreTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.moreTime", GOTLevelData.getHMSTime_Ticks(timeRemaining));
 				String ftWaitTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.waitTime", GOTLevelData.getHMSTime_Ticks(wpTimeThreshold));
@@ -1051,7 +1051,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		if (isConquestGrid) {
 			loadingConquestGrid = true;
 			setupMapDimensions();
-			conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getPledgeFaction();
+			conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getOathFaction();
 			if (conquestViewingFaction == null) {
 				conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 			}

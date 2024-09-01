@@ -46,23 +46,23 @@ public class GOTConquestGrid {
 
 	public static ConquestViewableQuery canPlayerViewConquest(EntityPlayer entityplayer, GOTFaction fac) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		GOTFaction pledged = pd.getPledgeFaction();
-		if (pledged != null) {
-			if (fac == pledged) {
+		GOTFaction oathFaction = pd.getOathFaction();
+		if (oathFaction != null) {
+			if (fac == oathFaction) {
 				return ConquestViewableQuery.canView();
 			}
-			float rep = pd.getReputation(pledged);
-			GOTFactionRank pledgeRank = pledged.getPledgeRank();
-			if (fac.isAlly(pledged) || fac.isBadRelation(pledged)) {
+			float rep = pd.getReputation(oathFaction);
+			GOTFactionRank oathRank = oathFaction.getOathRank();
+			if (fac.isAlly(oathFaction) || fac.isBadRelation(oathFaction)) {
 				return ConquestViewableQuery.canView();
 			}
-			GOTFactionRank higherRank = pledged.getRankNAbove(pledgeRank, 2);
+			GOTFactionRank higherRank = oathFaction.getRankNAbove(oathRank, 2);
 			if (rep >= higherRank.getReputation()) {
 				return ConquestViewableQuery.canView();
 			}
 			return new ConquestViewableQuery(ConquestViewable.NEED_RANK, higherRank);
 		}
-		return new ConquestViewableQuery(ConquestViewable.UNPLEDGED, null);
+		return new ConquestViewableQuery(ConquestViewable.NO_OATH, null);
 	}
 
 	private static void checkNotifyConquest(GOTConquestZone zone, EntityPlayer originPlayer, GOTFaction faction, float newConq, float prevConq, boolean isCleansing) {
@@ -70,12 +70,12 @@ public class GOTConquestGrid {
 			World world = originPlayer.worldObj;
 			List<EntityPlayer> players = world.playerEntities;
 			for (EntityPlayer player : players) {
-				GOTFaction pledgeFac;
+				GOTFaction oathFac;
 				GOTPlayerData pd = GOTLevelData.getData(player);
 				if (player.getDistanceSqToEntity(originPlayer) > 40000.0 || getZoneByEntityCoords(player) != zone) {
 					continue;
 				}
-				boolean playerApplicable = isCleansing ? (pledgeFac = pd.getPledgeFaction()) != null && pledgeFac.isBadRelation(faction) : pd.isPledgedTo(faction);
+				boolean playerApplicable = isCleansing ? (oathFac = pd.getOathFaction()) != null && oathFac.isBadRelation(faction) : pd.hasTakenOathTo(faction);
 				if (!playerApplicable) {
 					continue;
 				}
@@ -89,7 +89,7 @@ public class GOTConquestGrid {
 		return GOTConfig.enableConquest && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
 
-	public static float doRadialConquest(World world, GOTConquestZone centralZone, EntityPlayer killingPlayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float conqGain, float conqCleanse) {
+	public static float doRadialConquest(World world, GOTConquestZone centralZone, EntityPlayer killingPlayer, GOTFaction oathFaction, GOTFaction enemyFaction, float conqGain, float conqCleanse) {
 		if (!centralZone.isDummyZone()) {
 			float centralConqBonus = 0.0f;
 			for (int i1 = -3; i1 <= 3; ++i1) {
@@ -121,19 +121,19 @@ public class GOTConquestGrid {
 						}
 						doneEnemyCleansing = true;
 					}
-					if (doneEnemyCleansing || pledgeFaction == null) {
+					if (doneEnemyCleansing || oathFaction == null) {
 						continue;
 					}
-					float prevZoneConq = zone.getConquestStrength(pledgeFaction, world);
-					zone.addConquestStrength(pledgeFaction, conqGainHere, world);
-					float newZoneConq = zone.getConquestStrength(pledgeFaction, world);
+					float prevZoneConq = zone.getConquestStrength(oathFaction, world);
+					zone.addConquestStrength(oathFaction, conqGainHere, world);
+					float newZoneConq = zone.getConquestStrength(oathFaction, world);
 					if (zone == centralZone) {
 						centralConqBonus = newZoneConq - prevZoneConq;
 					}
 					if (killingPlayer == null) {
 						continue;
 					}
-					checkNotifyConquest(zone, killingPlayer, pledgeFaction, newZoneConq, prevZoneConq, false);
+					checkNotifyConquest(zone, killingPlayer, oathFaction, newZoneConq, prevZoneConq, false);
 				}
 			}
 			return centralConqBonus;
@@ -299,12 +299,12 @@ public class GOTConquestGrid {
 		}
 	}
 
-	public static float onConquestKill(EntityPlayer entityplayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float repBonus) {
+	public static float onConquestKill(EntityPlayer entityplayer, GOTFaction oathFaction, GOTFaction enemyFaction, float repBonus) {
 		World world = entityplayer.worldObj;
 		if (!world.isRemote && conquestEnabled(world) && GOTLevelData.getData(entityplayer).getEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			GOTConquestZone centralZone = getZoneByEntityCoords(entityplayer);
 			float conqAmount = repBonus * GOTLevelData.getConquestRate();
-			return doRadialConquest(world, centralZone, entityplayer, pledgeFaction, enemyFaction, conqAmount, conqAmount);
+			return doRadialConquest(world, centralZone, entityplayer, oathFaction, enemyFaction, conqAmount, conqAmount);
 		}
 		return 0.0f;
 	}
@@ -356,7 +356,7 @@ public class GOTConquestGrid {
 		IMessage pkt = new GOTPacketConquestGrid(fac, ZONE_MAP.values(), entityplayer.worldObj);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(pkt, entityplayer);
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		if (fac == pd.getPledgeFaction()) {
+		if (fac == pd.getOathFaction()) {
 			pd.addAchievement(GOTAchievement.factionConquest);
 		}
 	}
@@ -398,7 +398,7 @@ public class GOTConquestGrid {
 	}
 
 	public enum ConquestViewable {
-		UNPLEDGED, CAN_VIEW, NEED_RANK
+		NO_OATH, CAN_VIEW, NEED_RANK
 	}
 
 	public static class ConquestViewableQuery {

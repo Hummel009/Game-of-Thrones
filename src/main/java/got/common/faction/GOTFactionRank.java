@@ -109,16 +109,16 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return getDisplayName();
 	}
 
-	public boolean isAbovePledgeRank() {
-		return reputation > faction.getPledgeReputation();
+	public boolean isAboveOathRank() {
+		return reputation > faction.getOathReputation();
 	}
 
 	public boolean isDummyRank() {
 		return false;
 	}
 
-	public boolean isPledgeRank() {
-		return this == faction.getPledgeRank();
+	public boolean isOathRank() {
+		return this == faction.getOathRank();
 	}
 
 	public void makeAchievement() {
@@ -132,8 +132,8 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return this;
 	}
 
-	public GOTFactionRank setPledgeRank() {
-		faction.setPledgeRank(this);
+	public GOTFactionRank setOathRank() {
+		faction.setOathRank(this);
 		return this;
 	}
 
