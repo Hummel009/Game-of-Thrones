@@ -5,9 +5,9 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
+import got.common.faction.GOTFaction;
 import got.common.faction.GOTReputationBonusMap;
 import got.common.faction.GOTReputationValues;
-import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.StatCollector;
 

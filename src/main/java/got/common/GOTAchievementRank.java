@@ -2,9 +2,9 @@ package got.common;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRank;
+import got.common.faction.GOTReputationValues;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.HoverEvent;
 import net.minecraft.util.*;

@@ -151,14 +151,14 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @param enumName  - name of the new faction in enum.
-	 * @param color     - 0xHHEEXX. For the bar, banners, eggs, etc.
-	 * @param dim       - dimension.
-	 * @param region    - dimension region.
-	 * @param player    - playability (reputation gaining, ...).
-	 * @param registry  - allows entity registry (attack settings).
+	 * @param enumName   - name of the new faction in enum.
+	 * @param color      - 0xHHEEXX. For the bar, banners, eggs, etc.
+	 * @param dim        - dimension.
+	 * @param region     - dimension region.
+	 * @param player     - playability (reputation gaining, ...).
+	 * @param registry   - allows entity registry (attack settings).
 	 * @param reputation - fixed reputation.
-	 * @param mapInfo   - square of the map displayed on the faction page.
+	 * @param mapInfo    - square of the map displayed on the faction page.
 	 * @apiNote Creates new faction with lots of technical settings.
 	 * @deprecated Complex way, only for advanced developers.
 	 */

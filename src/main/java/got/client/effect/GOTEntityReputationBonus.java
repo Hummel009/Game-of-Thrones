@@ -1,7 +1,7 @@
 package got.client.effect;
 
-import got.common.faction.GOTReputationBonusMap;
 import got.common.faction.GOTFaction;
+import got.common.faction.GOTReputationBonusMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;

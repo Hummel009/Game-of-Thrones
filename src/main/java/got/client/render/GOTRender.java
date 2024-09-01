@@ -1,7 +1,7 @@
 package got.client.render;
 
-import got.client.effect.GOTEntityReputationBonus;
 import got.client.effect.GOTEntityDeadMarshFace;
+import got.client.effect.GOTEntityReputationBonus;
 import got.client.effect.GOTEntitySwordCommandMarker;
 import got.client.render.animal.*;
 import got.client.render.npc.*;
