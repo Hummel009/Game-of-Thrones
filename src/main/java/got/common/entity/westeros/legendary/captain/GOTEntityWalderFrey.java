@@ -27,7 +27,7 @@ public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 300.0f;
 	}
 

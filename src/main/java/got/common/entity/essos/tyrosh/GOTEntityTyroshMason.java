@@ -16,7 +16,7 @@ public class GOTEntityTyroshMason extends GOTEntityTyroshMan implements GOTTrade
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

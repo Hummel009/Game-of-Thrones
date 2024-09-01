@@ -16,7 +16,7 @@ public class GOTEntityLysSlaver extends GOTEntityLysMan implements GOTFarmer {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

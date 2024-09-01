@@ -4,7 +4,7 @@ import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.network.GOTPacketAlignmentSee;
+import got.common.network.GOTPacketReputationSee;
 import got.common.network.GOTPacketHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -16,7 +16,7 @@ import net.minecraft.server.MinecraftServer;
 import java.util.Collections;
 import java.util.List;
 
-public class GOTCommandAlignmentSee extends CommandBase {
+public class GOTCommandReputationSee extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -27,12 +27,12 @@ public class GOTCommandAlignmentSee extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "alignmentsee";
+		return "reputationsee";
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "got.command.alignmentsee.usage";
+		return "got.command.reputationsee.usage";
 	}
 
 	@Override
@@ -52,11 +52,11 @@ public class GOTCommandAlignmentSee extends CommandBase {
 			EntityPlayerMP entityplayer = MinecraftServer.getServer().getConfigurationManager().func_152612_a(username);
 			GameProfile profile = entityplayer != null ? entityplayer.getGameProfile() : MinecraftServer.getServer().func_152358_ax().func_152655_a(username);
 			if (profile == null || profile.getId() == null) {
-				throw new PlayerNotFoundException("got.command.alignmentsee.noPlayer", username);
+				throw new PlayerNotFoundException("got.command.reputationsee.noPlayer", username);
 			}
 			if (sender instanceof EntityPlayerMP) {
 				GOTPlayerData playerData = GOTLevelData.getData(profile.getId());
-				IMessage packet = new GOTPacketAlignmentSee(username, playerData);
+				IMessage packet = new GOTPacketReputationSee(username, playerData);
 				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) sender);
 				return;
 			}

@@ -24,7 +24,7 @@ public class GOTEntityHosterTully extends GOTEntityHumanBase implements GOTUnitT
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 500.0f;
 	}
 

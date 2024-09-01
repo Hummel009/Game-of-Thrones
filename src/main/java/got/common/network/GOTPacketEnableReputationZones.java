@@ -6,14 +6,14 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import io.netty.buffer.ByteBuf;
 
-public class GOTPacketEnableAlignmentZones implements IMessage {
+public class GOTPacketEnableReputationZones implements IMessage {
 	private boolean enable;
 
 	@SuppressWarnings("unused")
-	public GOTPacketEnableAlignmentZones() {
+	public GOTPacketEnableReputationZones() {
 	}
 
-	public GOTPacketEnableAlignmentZones(boolean flag) {
+	public GOTPacketEnableReputationZones(boolean flag) {
 		enable = flag;
 	}
 
@@ -27,10 +27,10 @@ public class GOTPacketEnableAlignmentZones implements IMessage {
 		data.writeBoolean(enable);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketEnableAlignmentZones, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketEnableReputationZones, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketEnableAlignmentZones packet, MessageContext context) {
-			GOTLevelData.setEnableAlignmentZones(packet.enable);
+		public IMessage onMessage(GOTPacketEnableReputationZones packet, MessageContext context) {
+			GOTLevelData.setEnableReputationZones(packet.enable);
 			return null;
 		}
 	}

@@ -46,8 +46,8 @@ public class GOTPacketSetOption implements IMessage {
 					pd.setEnableHiredDeathMessages(!flag);
 					break;
 				case 2:
-					flag = pd.getHideAlignment();
-					pd.setHideAlignment(!flag);
+					flag = pd.getHideReputation();
+					pd.setHideReputation(!flag);
 					break;
 				case 3:
 					flag = pd.getHideMapLocation();

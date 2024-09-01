@@ -15,7 +15,7 @@ public class GOTEntityIronbornFishmonger extends GOTEntityIronbornMan implements
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

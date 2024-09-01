@@ -24,7 +24,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 300.0f;
 	}
 

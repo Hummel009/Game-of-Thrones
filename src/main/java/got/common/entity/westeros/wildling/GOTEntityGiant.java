@@ -21,7 +21,7 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 10.0f;
 	}
 

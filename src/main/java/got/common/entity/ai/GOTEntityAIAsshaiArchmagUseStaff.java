@@ -45,7 +45,7 @@ public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
 			}
 			if (element instanceof EntityPlayer) {
 				EntityPlayer entityplayer = (EntityPlayer) element;
-				if (entityplayer.capabilities.isCreativeMode || GOTLevelData.getData(entityplayer).getAlignment(wizard.getFaction()) >= 0.0f && wizard.getAttackTarget() != entityplayer) {
+				if (entityplayer.capabilities.isCreativeMode || GOTLevelData.getData(entityplayer).getReputation(wizard.getFaction()) >= 0.0f && wizard.getAttackTarget() != entityplayer) {
 					continue;
 				}
 				++targets;

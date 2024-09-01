@@ -16,7 +16,7 @@ public class GOTEntityStormlandsFarmer extends GOTEntityStormlandsMan implements
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

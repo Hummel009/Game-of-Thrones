@@ -16,7 +16,7 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTFarm
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

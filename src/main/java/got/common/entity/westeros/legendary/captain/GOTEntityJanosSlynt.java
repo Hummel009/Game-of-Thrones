@@ -26,7 +26,7 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 200.0f;
 	}
 

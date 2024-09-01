@@ -29,7 +29,7 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 200.0f;
 	}
 

@@ -55,7 +55,7 @@ public class GOTLevelData {
 	private static int structuresBanned;
 	private static int waypointCooldownMax;
 	private static int waypointCooldownMin;
-	private static boolean enableAlignmentZones;
+	private static boolean enableReputationZones;
 	private static float conquestRate = 1.0f;
 	private static EnumDifficulty difficulty;
 	private static boolean difficultyLock;
@@ -244,7 +244,7 @@ public class GOTLevelData {
 			} else {
 				waypointCooldownMin = 60;
 			}
-			enableAlignmentZones = !levelData.hasKey("AlignmentZones") || levelData.getBoolean("AlignmentZones");
+			enableReputationZones = !levelData.hasKey("ReputationZones") || levelData.getBoolean("ReputationZones");
 			if (levelData.hasKey("ConqRate")) {
 				conquestRate = levelData.getFloat("ConqRate");
 			} else {
@@ -330,7 +330,7 @@ public class GOTLevelData {
 				levelData.setInteger("StructuresBanned", structuresBanned);
 				levelData.setInteger("WpCdMax", waypointCooldownMax);
 				levelData.setInteger("WpCdMin", waypointCooldownMin);
-				levelData.setBoolean("AlignmentZones", enableAlignmentZones);
+				levelData.setBoolean("ReputationZones", enableReputationZones);
 				levelData.setFloat("ConqRate", conquestRate);
 				if (difficulty != null) {
 					levelData.setInteger("SavedDifficulty", difficulty.getDifficultyId());
@@ -405,18 +405,18 @@ public class GOTLevelData {
 		CompressedStreamTools.writeCompressed(nbt, Files.newOutputStream(file.toPath()));
 	}
 
-	public static void sendAlignmentToAllPlayersInWorld(Entity entityplayer, World world) {
+	public static void sendReputationToAllPlayersInWorld(Entity entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			IMessage packet = new GOTPacketAlignment(entityplayer.getUniqueID());
+			IMessage packet = new GOTPacketReputation(entityplayer.getUniqueID());
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
-	public static void sendAllAlignmentsInWorldToPlayer(EntityPlayer entityplayer, World world) {
+	public static void sendAllReputationsInWorldToPlayer(EntityPlayer entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			IMessage packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
+			IMessage packet = new GOTPacketReputation(worldPlayer.getUniqueID());
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -456,7 +456,7 @@ public class GOTLevelData {
 		packet.setFtCooldownMin(waypointCooldownMin);
 		packet.setDifficulty(difficulty);
 		packet.setDifficultyLocked(difficultyLock);
-		packet.setAlignmentZones(enableAlignmentZones);
+		packet.setReputationZones(enableReputationZones);
 		packet.setFeastMode(GOTConfig.canAlwaysEat);
 		packet.setFellowshipCreation(GOTConfig.enableFellowshipCreation);
 		packet.setFellowshipMaxSize(GOTConfig.fellowshipMaxSize);
@@ -586,17 +586,17 @@ public class GOTLevelData {
 		markDirty();
 	}
 
-	public static boolean isEnableAlignmentZones() {
-		return enableAlignmentZones;
+	public static boolean isEnableReputationZones() {
+		return enableReputationZones;
 	}
 
-	public static void setEnableAlignmentZones(boolean flag) {
-		enableAlignmentZones = flag;
+	public static void setEnableReputationZones(boolean flag) {
+		enableReputationZones = flag;
 		markDirty();
 		if (!GOT.proxy.isClient()) {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (EntityPlayerMP entityplayer : players) {
-				IMessage packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
+				IMessage packet = new GOTPacketEnableReputationZones(enableReputationZones);
 				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 			}
 		}

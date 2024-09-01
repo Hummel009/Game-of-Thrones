@@ -20,14 +20,14 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	}
 
 	@Override
-	protected float getAlignmentBonus() {
+	protected float getReputationBonus() {
 		float f = collectTarget;
 		return Math.max(f * rewardFactor, 1.0f);
 	}
 
 	@Override
 	public int getCoinBonus() {
-		return Math.round(getAlignmentBonus() * 2.0f);
+		return Math.round(getReputationBonus() * 2.0f);
 	}
 
 	@Override

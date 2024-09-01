@@ -24,7 +24,7 @@ public class GOTEntityYaraGreyjoy extends GOTEntityHumanBase implements GOTUnitT
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 300.0f;
 	}
 

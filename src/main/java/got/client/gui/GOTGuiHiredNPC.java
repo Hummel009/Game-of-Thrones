@@ -3,7 +3,7 @@ package got.client.gui;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.utils.GOTUnitTradeEntry;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketHiredUnitCommand;
@@ -47,7 +47,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			y += fontRendererObj.FONT_HEIGHT;
 			int maxWidth = X_SIZE - 12 - 4;
 			GOTFaction fac = theNPC.getFaction();
-			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.getHireableInfo().getAlignmentRequiredToCommand());
+			String alignS = GOTReputationValues.formatAlignForDisplay(theNPC.getHireableInfo().getReputationRequiredToCommand());
 			String alignReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.align", alignS, fac.factionName());
 			Collection<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
 			GOTUnitTradeEntry.PledgeType pledge = theNPC.getHireableInfo().getPledgeType();

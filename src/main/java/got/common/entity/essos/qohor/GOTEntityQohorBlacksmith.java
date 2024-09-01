@@ -15,7 +15,7 @@ public class GOTEntityQohorBlacksmith extends GOTEntityQohorMan implements GOTSm
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

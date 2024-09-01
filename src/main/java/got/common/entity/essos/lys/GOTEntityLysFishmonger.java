@@ -15,7 +15,7 @@ public class GOTEntityLysFishmonger extends GOTEntityLysMan implements GOTTradea
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

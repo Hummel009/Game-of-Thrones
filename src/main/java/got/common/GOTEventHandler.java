@@ -33,7 +33,7 @@ import got.common.entity.other.iface.*;
 import got.common.entity.other.inanimate.*;
 import got.common.entity.other.utils.GOTPlateFallingInfo;
 import got.common.entity.westeros.reach.GOTEntityReachSoldier;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionBounties;
 import got.common.faction.GOTFactionRelations;
@@ -875,31 +875,31 @@ public class GOTEventHandler {
 			if (entityplayer != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				GOTFaction entityFaction = GOT.getNPCFaction(entity);
-				float prevAlignment = playerData.getAlignment(entityFaction);
+				float prevReputation = playerData.getReputation(entityFaction);
 				List<GOTFaction> forcedBonusFactions = null;
 				if (entity instanceof GOTEntityNPC) {
 					forcedBonusFactions = ((GOTEntityNPC) entity).getKillBonusFactions();
 				}
 				boolean wasSelfDefenceAgainstAlliedUnit = false;
-				if (!creditHiredUnit && prevAlignment > 0.0F && entity instanceof GOTEntityNPC) {
+				if (!creditHiredUnit && prevReputation > 0.0F && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
 					if (npc.getHireableInfo().isActive() && npc.getHireableInfo().isWasAttackCommanded()) {
 						wasSelfDefenceAgainstAlliedUnit = true;
 					}
 				}
-				GOTAlignmentValues.AlignmentBonus alignmentBonus = null;
+				GOTReputationValues.ReputationBonus reputationBonus = null;
 				if (!wasSelfDefenceAgainstAlliedUnit && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
-					alignmentBonus = new GOTAlignmentValues.AlignmentBonus(npc.getAlignmentBonus(), npc.getEntityClassName());
-					alignmentBonus.setNeedsTranslation(true);
-					alignmentBonus.setCivilianKill(npc.isCivilian());
+					reputationBonus = new GOTReputationValues.ReputationBonus(npc.getReputationBonus(), npc.getEntityClassName());
+					reputationBonus.setNeedsTranslation(true);
+					reputationBonus.setCivilianKill(npc.isCivilian());
 				}
-				if (alignmentBonus != null && alignmentBonus.getBonus() != 0.0F && (!creditHiredUnit || byNearbyUnit)) {
-					alignmentBonus.setKill(true);
+				if (reputationBonus != null && reputationBonus.getBonus() != 0.0F && (!creditHiredUnit || byNearbyUnit)) {
+					reputationBonus.setKill(true);
 					if (creditHiredUnit) {
-						alignmentBonus.setKillByHiredUnit(true);
+						reputationBonus.setKillByHiredUnit(true);
 					}
-					playerData.addAlignment(entityplayer, alignmentBonus, entityFaction, forcedBonusFactions, entity);
+					playerData.addReputation(entityplayer, reputationBonus, entityFaction, forcedBonusFactions, entity);
 				}
 				if (!creditHiredUnit) {
 					if (entityFaction.isAllowPlayer()) {
@@ -919,7 +919,7 @@ public class GOTEventHandler {
 							playerData.onPledgeKill(entityplayer);
 						}
 					}
-					float newAlignment = playerData.getAlignment(entityFaction);
+					float newReputation = playerData.getReputation(entityFaction);
 					if (!wasSelfDefenceAgainstAlliedUnit && !entityplayer.capabilities.isCreativeMode && entityFaction != GOTFaction.UNALIGNED) {
 						int sentSpeeches = 0;
 						int maxSpeeches = 5;
@@ -928,7 +928,7 @@ public class GOTEventHandler {
 						for (EntityLiving npc : nearbyAlliedNPCs) {
 							if (npc instanceof GOTEntityNPC) {
 								GOTEntityNPC gotNPC = (GOTEntityNPC) npc;
-								if (gotNPC.getHireableInfo().isActive() && newAlignment > 0.0F || gotNPC.getHireableInfo().isActive() && gotNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
+								if (gotNPC.getHireableInfo().isActive() && newReputation > 0.0F || gotNPC.getHireableInfo().isActive() && gotNPC.getHireableInfo().getHiringPlayer() == entityplayer) {
 									continue;
 								}
 							}
@@ -974,7 +974,7 @@ public class GOTEventHandler {
 				}
 			}
 			if (attackingPlayer != null) {
-				boolean isFoe = GOTLevelData.getData(attackingPlayer).getAlignment(GOT.getNPCFaction(entity)) < 0.0F;
+				boolean isFoe = GOTLevelData.getData(attackingPlayer).getReputation(GOT.getNPCFaction(entity)) < 0.0F;
 				if (isFoe && attackingHiredUnit == null) {
 					if (attackingPlayer.isPotionActive(Potion.confusion.id)) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killWhileDrunk);
@@ -1140,9 +1140,9 @@ public class GOTEventHandler {
 				bounders = 2 + world.rand.nextInt(i + 1);
 			} else if (entity instanceof EntityPlayer) {
 				EntityPlayer entityplayer = (EntityPlayer) entity;
-				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.GHISCAR);
-				if (!entityplayer.capabilities.isCreativeMode && alignment < 0.0F) {
-					f = -alignment;
+				float reputation = GOTLevelData.getData(entityplayer).getReputation(GOTFaction.GHISCAR);
+				if (!entityplayer.capabilities.isCreativeMode && reputation < 0.0F) {
+					f = -reputation;
 					int i = (int) (f / 50.0F);
 					bounders = 2 + world.rand.nextInt(i + 1);
 				}
@@ -1205,7 +1205,7 @@ public class GOTEventHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean ignorePlayers = entity instanceof EntityPlayer && (((EntityPlayer) entity).capabilities.isCreativeMode || GOTLevelData.getData((EntityPlayer) entity).getAlignment(GOTFaction.SOTHORYOS) >= 10.0F);
+			boolean ignorePlayers = entity instanceof EntityPlayer && (((EntityPlayer) entity).capabilities.isCreativeMode || GOTLevelData.getData((EntityPlayer) entity).getReputation(GOTFaction.SOTHORYOS) >= 10.0F);
 			boolean ignoreMobs = entity instanceof GOTEntityHumanBase && ((GOTEntityNPC) entity).getFaction().isGoodRelation(GOTFaction.SOTHORYOS);
 			boolean notIgnore = (entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase) && !(ignorePlayers || ignoreMobs);
 
@@ -1320,8 +1320,8 @@ public class GOTEventHandler {
 	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
 		EntityPlayer entityplayer = event.player;
 		if (!entityplayer.worldObj.isRemote) {
-			GOTLevelData.sendAlignmentToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
-			GOTLevelData.sendAllAlignmentsInWorldToPlayer(entityplayer, entityplayer.worldObj);
+			GOTLevelData.sendReputationToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
+			GOTLevelData.sendAllReputationsInWorldToPlayer(entityplayer, entityplayer.worldObj);
 			GOTLevelData.sendShieldToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
 			GOTLevelData.sendAllShieldsInWorldToPlayer(entityplayer, entityplayer.worldObj);
 			GOTLevelData.sendCapeToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
@@ -1365,8 +1365,8 @@ public class GOTEventHandler {
 			}
 			GOTLevelData.sendLoginPacket(entityplayermp);
 			GOTLevelData.sendPlayerData(entityplayermp);
-			GOTLevelData.sendAlignmentToAllPlayersInWorld(entityplayer, world);
-			GOTLevelData.sendAllAlignmentsInWorldToPlayer(entityplayer, world);
+			GOTLevelData.sendReputationToAllPlayersInWorld(entityplayer, world);
+			GOTLevelData.sendAllReputationsInWorldToPlayer(entityplayer, world);
 			GOTLevelData.sendShieldToAllPlayersInWorld(entityplayermp, world);
 			GOTLevelData.sendAllShieldsInWorldToPlayer(entityplayermp, world);
 			GOTLevelData.sendCapeToAllPlayersInWorld(entityplayermp, world);

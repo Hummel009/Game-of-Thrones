@@ -6,7 +6,7 @@ import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionBounties;
 import net.minecraft.command.ICommandSender;
@@ -28,7 +28,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	private UUID targetID;
 	private String targetName;
 	private boolean killed;
-	private float alignmentBonus;
+	private float reputationBonus;
 	private int coinBonus;
 	private boolean bountyClaimedByOther;
 	private boolean killedByBounty;
@@ -38,25 +38,25 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		super(pd);
 	}
 
-	private static GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
+	private static GOTFaction getPledgeOrHighestReputationFaction(EntityPlayer entityplayer, float min) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (pd.getPledgeFaction() != null) {
 			return pd.getPledgeFaction();
 		}
 		ArrayList<GOTFaction> highestFactions = new ArrayList<>();
-		float highestAlignment = min;
-		for (GOTFaction f : GOTFaction.getPlayableAlignmentFactions()) {
-			float alignment = pd.getAlignment(f);
-			if (alignment <= min) {
+		float highestReputation = min;
+		for (GOTFaction f : GOTFaction.getPlayableReputationFactions()) {
+			float reputation = pd.getReputation(f);
+			if (reputation <= min) {
 				continue;
 			}
-			if (alignment > highestAlignment) {
+			if (reputation > highestReputation) {
 				highestFactions.clear();
 				highestFactions.add(f);
-				highestAlignment = alignment;
+				highestReputation = reputation;
 				continue;
 			}
-			if (alignment != highestAlignment) {
+			if (reputation != highestReputation) {
 				continue;
 			}
 			highestFactions.add(f);
@@ -70,7 +70,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
-		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(entityFaction) >= 100.0f) {
+		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getReputation(entityFaction) >= 100.0f) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			List<GOTMiniQuest> active = pd.getActiveMiniQuests();
 			for (GOTMiniQuest quest : active) {
@@ -102,12 +102,12 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return alignmentBonus;
+	public float getReputationBonus() {
+		return reputationBonus;
 	}
 
-	protected void setAlignmentBonus(float alignmentBonus) {
-		this.alignmentBonus = alignmentBonus;
+	protected void setReputationBonus(float reputationBonus) {
+		this.reputationBonus = reputationBonus;
 	}
 
 	@Override
@@ -124,8 +124,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		return killed ? 1.0f : 0.0f;
 	}
 
-	private float getKilledAlignmentPenalty() {
-		return -alignmentBonus * 2.0f;
+	private float getKilledReputationPenalty() {
+		return -reputationBonus * 2.0f;
 	}
 
 	@Override
@@ -214,15 +214,15 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			killed = true;
 			GOTFactionBounties.forFaction(entityFaction).forPlayer(slainPlayer).recordBountyKilled();
 			playerData.updateMiniQuest(this);
-			GOTFaction highestFaction = getPledgeOrHighestAlignmentFaction(slainPlayer, 100.0f);
+			GOTFaction highestFaction = getPledgeOrHighestReputationFaction(slainPlayer, 100.0f);
 			if (highestFaction != null) {
-				float curAlignment = slainPlayerData.getAlignment(highestFaction);
-				float alignmentLoss = getKilledAlignmentPenalty();
-				if (curAlignment + alignmentLoss < 100.0f) {
-					alignmentLoss = -(curAlignment - 100.0f);
+				float curReputation = slainPlayerData.getReputation(highestFaction);
+				float reputationLoss = getKilledReputationPenalty();
+				if (curReputation + reputationLoss < 100.0f) {
+					reputationLoss = -(curReputation - 100.0f);
 				}
-				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.bountyKill");
-				slainPlayerData.addAlignment(slainPlayer, source, highestFaction, entityplayer);
+				GOTReputationValues.ReputationBonus source = new GOTReputationValues.ReputationBonus(reputationLoss, "got.reputation.bountyKill");
+				slainPlayerData.addReputation(slainPlayer, source, highestFaction, entityplayer);
 				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.bountyKilled1", entityplayer.getCommandSenderName(), entityFaction.factionName());
 				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.bountyKilled2", highestFaction.factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
@@ -246,20 +246,20 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		if (!killed && !isFailed() && killer.getUniqueID().equals(targetID)) {
 			GOTPlayerData pd;
 			GOTPlayerData killerData = GOTLevelData.getData(killer);
-			GOTFaction killerHighestFaction = getPledgeOrHighestAlignmentFaction(killer, 0.0f);
+			GOTFaction killerHighestFaction = getPledgeOrHighestReputationFaction(killer, 0.0f);
 			if (killerHighestFaction != null) {
-				float killerBonus = alignmentBonus;
-				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(killerBonus, "got.alignment.killedHunter");
-				killerData.addAlignment(killer, source, killerHighestFaction, entityplayer);
+				float killerBonus = reputationBonus;
+				GOTReputationValues.ReputationBonus source = new GOTReputationValues.ReputationBonus(killerBonus, "got.reputation.killedHunter");
+				killerData.addReputation(killer, source, killerHighestFaction, entityplayer);
 			}
-			float curAlignment = (pd = playerData).getAlignment(entityFaction);
-			if (curAlignment > 100.0f) {
-				float alignmentLoss = getKilledAlignmentPenalty();
-				if (curAlignment + alignmentLoss < 100.0f) {
-					alignmentLoss = -(curAlignment - 100.0f);
+			float curReputation = (pd = playerData).getReputation(entityFaction);
+			if (curReputation > 100.0f) {
+				float reputationLoss = getKilledReputationPenalty();
+				if (curReputation + reputationLoss < 100.0f) {
+					reputationLoss = -(curReputation - 100.0f);
 				}
-				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.killedByBounty");
-				pd.addAlignment(entityplayer, source, entityFaction, killer);
+				GOTReputationValues.ReputationBonus source = new GOTReputationValues.ReputationBonus(reputationLoss, "got.reputation.killedByBounty");
+				pd.addReputation(entityplayer, source, entityFaction, killer);
 				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.killedByBounty1", killer.getCommandSenderName());
 				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.killedByBounty2", entityFaction.factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
@@ -300,7 +300,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			targetName = nbt.getString("TargetName");
 		}
 		killed = nbt.getBoolean("Killed");
-		alignmentBonus = nbt.hasKey("Alignment") ? nbt.getInteger("Alignment") : nbt.getFloat("AlignF");
+		reputationBonus = nbt.hasKey("Reputation") ? nbt.getInteger("Reputation") : nbt.getFloat("AlignF");
 		coinBonus = nbt.getInteger("Coins");
 		bountyClaimedByOther = nbt.getBoolean("BountyClaimed");
 		killedByBounty = nbt.getBoolean("KilledBy");
@@ -327,7 +327,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			nbt.setString("TargetName", targetName);
 		}
 		nbt.setBoolean("Killed", killed);
-		nbt.setFloat("AlignF", alignmentBonus);
+		nbt.setFloat("AlignF", reputationBonus);
 		nbt.setInteger("Coins", coinBonus);
 		nbt.setBoolean("BountyClaimed", bountyClaimedByOther);
 		nbt.setBoolean("KilledBy", killedByBounty);
@@ -389,8 +389,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				return null;
 			}
 			GOTFactionBounties.PlayerData targetData = players.get(rand.nextInt(players.size()));
-			int alignment = (int) (float) targetData.getNumKills();
-			alignment = MathHelper.clamp_int(alignment, 1, 50);
+			int reputation = (int) (float) targetData.getNumKills();
+			reputation = MathHelper.clamp_int(reputation, 1, 50);
 			int coins = (int) (targetData.getNumKills() * 10.0f * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
 			coins = MathHelper.clamp_int(coins, 1, 1000);
 			quest.setTargetID(targetData.getPlayerID());
@@ -399,7 +399,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				username = quest.getTargetID().toString();
 			}
 			quest.setTargetName(username);
-			quest.setAlignmentBonus(alignment);
+			quest.setReputationBonus(reputation);
 			quest.setCoinBonus(coins);
 			return quest;
 		}

@@ -37,7 +37,7 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase implements GOTBiome.
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

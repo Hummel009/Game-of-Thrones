@@ -26,7 +26,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 	}
 
 	@Override
-	public float getMercAlignmentRequired() {
+	public float getMercReputationRequired() {
 		return 0.0f;
 	}
 

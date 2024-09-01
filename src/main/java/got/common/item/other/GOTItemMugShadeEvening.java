@@ -29,6 +29,6 @@ public class GOTItemMugShadeEvening extends GOTItemMug {
 
 	@Override
 	protected boolean shouldApplyPotionEffects(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.QARTH) > 0.0f;
+		return GOTLevelData.getData(entityplayer).getReputation(GOTFaction.QARTH) > 0.0f;
 	}
 }

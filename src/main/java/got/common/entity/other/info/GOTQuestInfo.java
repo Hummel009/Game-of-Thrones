@@ -46,12 +46,12 @@ public class GOTQuestInfo {
 	private int offerChance;
 	private int clientOfferColor;
 
-	private float minAlignment;
+	private float minReputation;
 
 	public GOTQuestInfo(GOTEntityNPC npc) {
 		theNPC = npc;
 		offerChance = 20000;
-		minAlignment = 0.0f;
+		minReputation = 0.0f;
 		bountyHelpPredicate = player -> theNPC.getRNG().nextInt(3) == 0;
 		bountyHelpConsumer = player -> true;
 		activeBountySelector = new GOTMiniQuestSelector.BountyActiveFaction(theNPC::getFaction);
@@ -79,8 +79,8 @@ public class GOTQuestInfo {
 
 	private boolean canOfferQuestsTo(EntityPlayer entityplayer) {
 		if (canGenerateQuests() && theNPC.isFriendlyAndAligned(entityplayer) && theNPC.getAttackTarget() == null) {
-			float alignment = GOTLevelData.getData(entityplayer).getAlignment(theNPC.getFaction());
-			return alignment >= minAlignment;
+			float reputation = GOTLevelData.getData(entityplayer).getReputation(theNPC.getFaction());
+			return reputation >= minReputation;
 		}
 		return false;
 	}
@@ -401,7 +401,7 @@ public class GOTQuestInfo {
 		return clientOfferColor;
 	}
 
-	public void setMinAlignment(float minAlignment) {
-		this.minAlignment = minAlignment;
+	public void setMinReputation(float minReputation) {
+		this.minReputation = minReputation;
 	}
 }

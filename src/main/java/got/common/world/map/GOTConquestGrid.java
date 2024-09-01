@@ -51,13 +51,13 @@ public class GOTConquestGrid {
 			if (fac == pledged) {
 				return ConquestViewableQuery.canView();
 			}
-			float align = pd.getAlignment(pledged);
+			float align = pd.getReputation(pledged);
 			GOTFactionRank pledgeRank = pledged.getPledgeRank();
 			if (fac.isAlly(pledged) || fac.isBadRelation(pledged)) {
 				return ConquestViewableQuery.canView();
 			}
 			GOTFactionRank higherRank = pledged.getRankNAbove(pledgeRank, 2);
-			if (align >= higherRank.getAlignment()) {
+			if (align >= higherRank.getReputation()) {
 				return ConquestViewableQuery.canView();
 			}
 			return new ConquestViewableQuery(ConquestViewable.NEED_RANK, higherRank);
@@ -178,7 +178,7 @@ public class GOTConquestGrid {
 				}
 			}
 			block2:
-			for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
+			for (GOTFaction fac : GOTFaction.getPlayableReputationFactions()) {
 				for (GOTBiome biome2 : includedBiomes) {
 					if (!biome2.getNPCSpawnList().isFactionPresent(world, fac)) {
 						continue;

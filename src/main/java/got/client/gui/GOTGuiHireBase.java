@@ -9,10 +9,10 @@ import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.iface.GOTHireableBase;
 import got.common.entity.other.utils.GOTUnitTradeEntry;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTContainerUnitTrade;
-import got.common.inventory.GOTSlotAlignmentReward;
+import got.common.inventory.GOTSlotReputationReward;
 import got.common.network.GOTPacketBuyUnit;
 import got.common.network.GOTPacketHandler;
 import net.minecraft.client.gui.GuiButton;
@@ -92,10 +92,10 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade.png");
 		mc.getTextureManager().bindTexture(guiTexture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		if (((GOTContainerUnitTrade) inventorySlots).getAlignmentRewardSlots() > 0) {
+		if (((GOTContainerUnitTrade) inventorySlots).getReputationRewardSlots() > 0) {
 			Slot slot = inventorySlots.getSlot(0);
 			drawTexturedModalRect(guiLeft + slot.xDisplayPosition - 3, guiTop + slot.yDisplayPosition - 3, xSize, 16, 22, 22);
-			if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < GOTSlotAlignmentReward.WARHORN_ALIGNMENT) {
+			if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getReputation(traderFaction) < GOTSlotReputationReward.WARHORN_REPUTATION) {
 				drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, xSize, 0, 16, 16);
 			}
 		}
@@ -130,14 +130,14 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		int cost = curTrade.getCost(mc.thePlayer, theUnitTrader);
 		fontRendererObj.drawString(String.valueOf(cost), reqXText, reqY + reqYTextBelow, 4210752);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+		mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 		drawTexturedModalRect(reqX, reqY += reqGap, 0, 36, 16, 16);
-		float alignment = curTrade.getAlignmentRequired();
-		String alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
+		float reputation = curTrade.getReputationRequired();
+		String alignS = GOTReputationValues.formatAlignForDisplay(reputation);
 		fontRendererObj.drawString(alignS, reqXText, reqY + reqYTextBelow, 4210752);
 		if (curTrade.getPledgeType() != GOTUnitTradeEntry.PledgeType.NONE) {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+			mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 			drawTexturedModalRect(reqX, reqY += reqGap, 0, 212, 16, 16);
 			String pledge = StatCollector.translateToLocal("got.container.unitTrade.pledge");
 			fontRendererObj.drawString(pledge, reqXText, reqY + reqYTextBelow, 4210752);
@@ -150,7 +150,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			}
 		}
-		if (((GOTContainerUnitTrade) inventorySlots).getAlignmentRewardSlots() > 0) {
+		if (((GOTContainerUnitTrade) inventorySlots).getReputationRewardSlots() > 0) {
 			Slot slot = inventorySlots.getSlot(0);
 			boolean hasRewardCost = slot.getHasStack();
 			if (hasRewardCost) {
@@ -159,10 +159,10 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.coin), 160, 100);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				cost = GOTSlotAlignmentReward.WARHORT_PRICE;
+				cost = GOTSlotReputationReward.WARHORT_PRICE;
 				fontRendererObj.drawString(String.valueOf(cost), 179, 104, 4210752);
-			} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < GOTSlotAlignmentReward.WARHORN_ALIGNMENT && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
-				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", GOTSlotAlignmentReward.WARHORN_ALIGNMENT), i - guiLeft, j - guiTop);
+			} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getReputation(traderFaction) < GOTSlotReputationReward.WARHORN_REPUTATION && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
+				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresReputation", GOTSlotReputationReward.WARHORN_REPUTATION), i - guiLeft, j - guiTop);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			}
@@ -256,7 +256,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	@Override
 	public void drawScreen(int i, int j, float f) {
 		buttonLeftUnit.enabled = currentTradeEntryIndex > 0;
-		buttonHire.enabled = currentTrade().hasRequiredCostAndAlignment(mc.thePlayer, theUnitTrader);
+		buttonHire.enabled = currentTrade().hasRequiredCostAndReputation(mc.thePlayer, theUnitTrader);
 		buttonRightUnit.enabled = currentTradeEntryIndex < trades.getTradeEntries().length - 1;
 		super.drawScreen(i, j, f);
 		screenXSize = i;

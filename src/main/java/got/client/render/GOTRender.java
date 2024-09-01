@@ -1,6 +1,6 @@
 package got.client.render;
 
-import got.client.effect.GOTEntityAlignmentBonus;
+import got.client.effect.GOTEntityReputationBonus;
 import got.client.effect.GOTEntityDeadMarshFace;
 import got.client.effect.GOTEntitySwordCommandMarker;
 import got.client.render.animal.*;
@@ -358,7 +358,7 @@ public class GOTRender {
 		RENDERS.put(GOTEntityQarthWarlock.class, new GOTRenderFactionNPCMonotexture("essos/pree"));
 		RENDERS.put(GOTEntityWhiteWalker.class, new GOTRenderFactionNPCMonotexture("westeros/ice/walker"));
 		RENDERS.put(EntityPotion.class, new RenderSnowball(Items.potionitem, 16384));
-		RENDERS.put(GOTEntityAlignmentBonus.class, new GOTRenderAlignmentBonus());
+		RENDERS.put(GOTEntityReputationBonus.class, new GOTRenderReputationBonus());
 		RENDERS.put(GOTEntityArrowPoisoned.class, new GOTRenderArrowPoisoned());
 		RENDERS.put(GOTEntityArrowFire.class, new GOTRenderArrowFire());
 		RENDERS.put(GOTEntityBison.class, new GOTRenderBison());

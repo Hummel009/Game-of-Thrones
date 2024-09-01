@@ -8,7 +8,7 @@ import net.minecraft.command.WrongUsageException;
 import java.util.Collections;
 import java.util.List;
 
-public class GOTCommandEnableAlignmentZones extends CommandBase {
+public class GOTCommandEnableReputationZones extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -19,12 +19,12 @@ public class GOTCommandEnableAlignmentZones extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "alignmentZones";
+		return "reputationZones";
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "got.command.alignmentZones.usage";
+		return "got.command.reputationZones.usage";
 	}
 
 	@Override
@@ -37,13 +37,13 @@ public class GOTCommandEnableAlignmentZones extends CommandBase {
 		if (args.length >= 1) {
 			String flag = args[0];
 			if ("enable".equals(flag)) {
-				GOTLevelData.setEnableAlignmentZones(true);
-				func_152373_a(sender, this, "got.command.alignmentZones.enable");
+				GOTLevelData.setEnableReputationZones(true);
+				func_152373_a(sender, this, "got.command.reputationZones.enable");
 				return;
 			}
 			if ("disable".equals(flag)) {
-				GOTLevelData.setEnableAlignmentZones(false);
-				func_152373_a(sender, this, "got.command.alignmentZones.disable");
+				GOTLevelData.setEnableReputationZones(false);
+				func_152373_a(sender, this, "got.command.reputationZones.disable");
 				return;
 			}
 		}

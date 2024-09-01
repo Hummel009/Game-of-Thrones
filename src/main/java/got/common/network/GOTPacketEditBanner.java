@@ -22,7 +22,7 @@ import java.util.List;
 public class GOTPacketEditBanner implements IMessage {
 	private boolean playerSpecificProtection;
 	private boolean selfProtection;
-	private float alignmentProtection;
+	private float reputationProtection;
 	private int whitelistLength;
 	private int defaultPerms;
 	private int bannerID;
@@ -43,7 +43,7 @@ public class GOTPacketEditBanner implements IMessage {
 		bannerID = data.readInt();
 		playerSpecificProtection = data.readBoolean();
 		selfProtection = data.readBoolean();
-		alignmentProtection = data.readFloat();
+		reputationProtection = data.readFloat();
 		whitelistLength = data.readShort();
 		boolean sendWhitelist = data.readBoolean();
 		if (sendWhitelist) {
@@ -69,7 +69,7 @@ public class GOTPacketEditBanner implements IMessage {
 		data.writeInt(bannerID);
 		data.writeBoolean(playerSpecificProtection);
 		data.writeBoolean(selfProtection);
-		data.writeFloat(alignmentProtection);
+		data.writeFloat(reputationProtection);
 		data.writeShort(whitelistLength);
 		boolean sendWhitelist = whitelistSlots != null;
 		data.writeBoolean(sendWhitelist);
@@ -108,8 +108,8 @@ public class GOTPacketEditBanner implements IMessage {
 		this.whitelistLength = whitelistLength;
 	}
 
-	public void setAlignmentProtection(float alignmentProtection) {
-		this.alignmentProtection = alignmentProtection;
+	public void setReputationProtection(float reputationProtection) {
+		this.reputationProtection = reputationProtection;
 	}
 
 	public void setSelfProtection(boolean selfProtection) {
@@ -130,7 +130,7 @@ public class GOTPacketEditBanner implements IMessage {
 			if (bEntity instanceof GOTEntityBanner && (banner = (GOTEntityBanner) bEntity).canPlayerEditBanner(entityplayer)) {
 				banner.setPlayerSpecificProtection(packet.playerSpecificProtection);
 				banner.setSelfProtection(packet.selfProtection);
-				banner.setAlignmentProtection(packet.alignmentProtection);
+				banner.setReputationProtection(packet.reputationProtection);
 				banner.resizeWhitelist(packet.whitelistLength);
 				if (packet.whitelistSlots != null) {
 					for (int index = 0; index < packet.whitelistSlots.length; ++index) {

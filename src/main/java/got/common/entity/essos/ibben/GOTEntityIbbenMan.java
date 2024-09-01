@@ -29,7 +29,7 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements GOTBiome.Im
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

@@ -11,7 +11,7 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 	private final GOTMercenary theMerc;
 
 	private GOTMercenaryTradeEntry(GOTMercenary merc) {
-		super((Class<? extends Entity>) merc.getClass(), merc.getMercBaseCost(), merc.getMercAlignmentRequired());
+		super((Class<? extends Entity>) merc.getClass(), merc.getMercBaseCost(), merc.getMercReputationRequired());
 		theMerc = merc;
 	}
 
@@ -25,7 +25,7 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 	}
 
 	@Override
-	public boolean hasRequiredCostAndAlignment(EntityPlayer entityplayer, GOTHireableBase trader) {
-		return !((GOTEntityNPC) theMerc).getHireableInfo().isActive() && super.hasRequiredCostAndAlignment(entityplayer, trader);
+	public boolean hasRequiredCostAndReputation(EntityPlayer entityplayer, GOTHireableBase trader) {
+		return !((GOTEntityNPC) theMerc).getHireableInfo().isActive() && super.hasRequiredCostAndReputation(entityplayer, trader);
 	}
 }

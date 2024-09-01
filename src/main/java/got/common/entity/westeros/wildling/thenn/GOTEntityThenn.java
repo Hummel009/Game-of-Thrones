@@ -29,7 +29,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase implements GOTBiome.Immun
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

@@ -44,7 +44,7 @@ public class GOTEntityWight extends GOTEntityNPC implements GOTBiome.ImmuneToFro
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

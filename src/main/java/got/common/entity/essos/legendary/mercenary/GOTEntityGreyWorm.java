@@ -44,7 +44,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 	}
 
 	@Override
-	public float getMercAlignmentRequired() {
+	public float getMercReputationRequired() {
 		return 0.0f;
 	}
 

@@ -59,7 +59,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 	private final int scrollAlliesEnemiesX;
 
 	private List<Object> currentAlliesEnemies;
-	private Map<GOTFaction, Float> playerAlignmentMap;
+	private Map<GOTFaction, Float> playerReputationMap;
 
 	private GOTFaction currentFaction;
 
@@ -181,7 +181,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		if (!isPledging && !isUnpledging) {
 			buttonPagePrev.enabled = currentPage.prev() != null;
 			buttonPageNext.enabled = currentPage.next() != null;
-			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableAlignmentFaction() && currentFaction.getFactionDimension() == GOTDimension.GAME_OF_THRONES;
+			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableReputationFaction() && currentFaction.getFactionDimension() == GOTDimension.GAME_OF_THRONES;
 			buttonFactionMap.visible = buttonFactionMap.enabled;
 			if (!GOTFaction.controlZonesEnabled(mc.theWorld)) {
 				buttonFactionMap.enabled = false;
@@ -195,10 +195,10 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 					buttonPledge.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.unpledge"));
 				} else {
 					buttonPledge.setBroken(false);
-					buttonPledge.visible = clientPD.getPledgeFaction() == null && currentFaction.isPlayableAlignmentFaction() && clientPD.getAlignment(currentFaction) >= 0.0f;
-					buttonPledge.enabled = buttonPledge.visible && clientPD.hasPledgeAlignment(currentFaction);
+					buttonPledge.visible = clientPD.getPledgeFaction() == null && currentFaction.isPlayableReputationFaction() && clientPD.getReputation(currentFaction) >= 0.0f;
+					buttonPledge.enabled = buttonPledge.visible && clientPD.hasPledgeReputation(currentFaction);
 					String desc1 = StatCollector.translateToLocal("got.gui.factions.pledge");
-					String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeReq", GOTAlignmentValues.formatAlignForDisplay(currentFaction.getPledgeAlignment()));
+					String desc2 = StatCollector.translateToLocalFormatted("got.gui.factions.pledgeReq", GOTReputationValues.formatAlignForDisplay(currentFaction.getPledgeReputation()));
 					buttonPledge.setDisplayLines(desc1, desc2);
 				}
 			} else {
@@ -250,10 +250,10 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 			buttonRegions.visible = false;
 		}
 		if (currentFaction != null) {
-			float alignment = isOtherPlayer && playerAlignmentMap != null ? playerAlignmentMap.get(currentFaction) : clientPD.getAlignment(currentFaction);
+			float reputation = isOtherPlayer && playerReputationMap != null ? playerReputationMap.get(currentFaction) : clientPD.getReputation(currentFaction);
 			int x = guiLeft + sizeX / 2;
 			int y = guiTop;
-			GOTTickHandlerClient.renderAlignmentBar(alignment, currentFaction, x, y, true, false, true, true);
+			GOTTickHandlerClient.renderReputationBar(reputation, currentFaction, x, y, true, false, true, true);
 			String s = currentFaction.factionSubtitle();
 			drawCenteredString(s, x, y + fontRendererObj.FONT_HEIGHT + 22, 16777215);
 			if (!useFullPageTexture()) {
@@ -321,18 +321,18 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 							fontRendererObj.drawString(s, x, y, 8019267);
 							y += fontRendererObj.FONT_HEIGHT * 2;
 						}
-						String alignmentInfo = StatCollector.translateToLocal("got.gui.factions.alignment");
-						fontRendererObj.drawString(alignmentInfo, x, y, 8019267);
-						String alignmentString = GOTAlignmentValues.formatAlignForDisplay(alignment);
-						GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x + fontRendererObj.getStringWidth(alignmentInfo) + 5, y, alignmentString, 1.0f);
+						String reputationInfo = StatCollector.translateToLocal("got.gui.factions.reputation");
+						fontRendererObj.drawString(reputationInfo, x, y, 8019267);
+						String reputationString = GOTReputationValues.formatAlignForDisplay(reputation);
+						GOTTickHandlerClient.drawReputationText(fontRendererObj, x + fontRendererObj.getStringWidth(reputationInfo) + 5, y, reputationString, 1.0f);
 						x = guiLeft + pageBorderLeft;
-						GOTFactionRank curRank = currentFaction.getRank(alignment);
+						GOTFactionRank curRank = currentFaction.getRank(reputation);
 						String rankName = curRank.getFullNameWithGender(clientPD);
 						fontRendererObj.drawString(rankName, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
 						y += fontRendererObj.FONT_HEIGHT * 2;
 						if (!isOtherPlayer) {
 							GOTFactionData factionData = clientPD.getFactionData(currentFaction);
-							if (alignment >= 0.0f) {
+							if (reputation >= 0.0f) {
 								float conq;
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.enemiesKilled", factionData.getEnemiesKilled());
 								fontRendererObj.drawString(s, x, y, 8019267);
@@ -350,7 +350,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 									y += fontRendererObj.FONT_HEIGHT;
 								}
 							}
-							if (alignment <= 0.0f) {
+							if (reputation <= 0.0f) {
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.npcsKilled", factionData.getNPCsKilled());
 								fontRendererObj.drawString(s, x, y, 8019267);
 							}
@@ -373,17 +373,17 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 							} else if (listObj instanceof GOTFactionRank) {
 								GOTFactionRank rank = (GOTFactionRank) listObj;
 								String rankName1 = rank.getShortNameWithGender(clientPD);
-								String rankAlign = GOTAlignmentValues.formatAlignForDisplay(rank.getAlignment());
+								String rankAlign = GOTReputationValues.formatAlignForDisplay(rank.getReputation());
 								if (rank == GOTFactionRank.RANK_ENEMY) {
 									rankAlign = "-";
 								}
-								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.getAlignment() > currentFaction.getPledgeAlignment() && rank.getAlignment() > currentFaction.getRankAbove(curRank1).getAlignment();
+								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.getReputation() > currentFaction.getPledgeReputation() && rank.getReputation() > currentFaction.getRankAbove(curRank1).getReputation();
 								if (hiddenRankName) {
 									rankName1 = StatCollector.translateToLocal("got.gui.factions.rank?");
 								}
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.listRank", rankName1, rankAlign);
 								if (rank == curRank1) {
-									GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x, y, s, 1.0f);
+									GOTTickHandlerClient.drawReputationText(fontRendererObj, x, y, s, 1.0f);
 								} else {
 									fontRendererObj.drawString(s, x, y, 8019267);
 								}
@@ -570,10 +570,10 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		currentScroll = (float) currentFactionIndex / (currentFactionList.size() - 1);
 	}
 
-	public void setOtherPlayer(String name, Map<GOTFaction, Float> alignments) {
+	public void setOtherPlayer(String name, Map<GOTFaction, Float> reputations) {
 		isOtherPlayer = true;
 		otherPlayerName = name;
-		playerAlignmentMap = alignments;
+		playerReputationMap = reputations;
 	}
 
 	private void setupScrollBar(int i, int j) {
@@ -633,7 +633,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 				case RANKS:
 					currentAlliesEnemies = new ArrayList<>();
 					currentAlliesEnemies.add(StatCollector.translateToLocal("got.gui.factions.rankHeader"));
-					if (GOTLevelData.getData(mc.thePlayer).getAlignment(currentFaction) <= 0.0f) {
+					if (GOTLevelData.getData(mc.thePlayer).getReputation(currentFaction) <= 0.0f) {
 						currentAlliesEnemies.add(GOTFactionRank.RANK_ENEMY);
 					}
 					GOTFactionRank rank = GOTFactionRank.RANK_NEUTRAL;
@@ -707,7 +707,7 @@ public class GOTGuiFactions extends GOTGuiMenuBase {
 		super.updateScreen();
 		updateCurrentDimensionAndFaction();
 		GOTPlayerData playerData = GOTLevelData.getData(mc.thePlayer);
-		if (isPledging && !playerData.hasPledgeAlignment(currentFaction)) {
+		if (isPledging && !playerData.hasPledgeReputation(currentFaction)) {
 			isPledging = false;
 		}
 		if (isUnpledging && !playerData.isPledgedTo(currentFaction)) {

@@ -15,20 +15,20 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	protected final String name;
 
 	private final GOTFaction faction;
-	private final float alignment;
+	private final float reputation;
 
 	private GOTAchievementRank rankAchievement;
 	private boolean addFacName = true;
 
 	public GOTFactionRank(GOTFaction f, float al, String s) {
 		faction = f;
-		alignment = al;
+		reputation = al;
 		name = s;
 	}
 
 	public GOTFactionRank(GOTFaction f, float al, String s, Boolean add) {
 		faction = f;
-		alignment = al;
+		reputation = al;
 		name = s;
 		addFacName = add;
 	}
@@ -38,10 +38,10 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		if (faction != other.faction) {
 			throw new IllegalArgumentException("Cannot compare two ranks from different factions!");
 		}
-		float al1 = alignment;
-		float al2 = other.alignment;
+		float al1 = reputation;
+		float al2 = other.reputation;
 		if (al1 == al2) {
-			throw new IllegalArgumentException("Two ranks cannot have the same alignment value!");
+			throw new IllegalArgumentException("Two ranks cannot have the same reputation value!");
 		}
 		return -Float.compare(al1, al2);
 	}
@@ -110,7 +110,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public boolean isAbovePledgeRank() {
-		return alignment > faction.getPledgeAlignment();
+		return reputation > faction.getPledgeReputation();
 	}
 
 	public boolean isDummyRank() {
@@ -141,8 +141,8 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return addFacName;
 	}
 
-	public float getAlignment() {
-		return alignment;
+	public float getReputation() {
+		return reputation;
 	}
 
 	public GOTFaction getFaction() {

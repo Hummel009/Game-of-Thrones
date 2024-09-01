@@ -25,7 +25,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 
@@ -63,7 +63,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	}
 
 	@Override
-	public float getMercAlignmentRequired() {
+	public float getMercReputationRequired() {
 		return GOTUnitTradeEntries.SOLDIER_F * 5;
 	}
 

@@ -145,7 +145,7 @@ public class GOT {
 				return false;
 			}
 			if (!isPlayerDirected) {
-				return (!(target instanceof EntityPlayer) || !(GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f) || attacker.getAttackTarget() == target) && (!(target.riddenByEntity instanceof EntityPlayer) || GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) < 0.0f || attacker.getAttackTarget() == target || attacker.getAttackTarget() == target.riddenByEntity);
+				return (!(target instanceof EntityPlayer) || !(GOTLevelData.getData((EntityPlayer) target).getReputation(attackerFaction) >= 0.0f) || attacker.getAttackTarget() == target) && (!(target.riddenByEntity instanceof EntityPlayer) || GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getReputation(attackerFaction) < 0.0f || attacker.getAttackTarget() == target || attacker.getAttackTarget() == target.riddenByEntity);
 			}
 		}
 		return true;
@@ -198,7 +198,7 @@ public class GOT {
 					}
 				}
 			}
-			if (targetNPC instanceof EntityLiving && ((EntityLiving) targetNPC).getAttackTarget() != attacker && GOTLevelData.getData(attacker).getAlignment(targetNPCFaction) > 0.0f) {
+			if (targetNPC instanceof EntityLiving && ((EntityLiving) targetNPC).getAttackTarget() != attacker && GOTLevelData.getData(attacker).getReputation(targetNPCFaction) > 0.0f) {
 				friendlyFire = true;
 			}
 		}
@@ -404,16 +404,16 @@ public class GOT {
 		command.add(new GOTCommandTimeVanilla());
 		command.add(new GOTCommandMessageFixed());
 		command.add(new GOTCommandTime());
-		command.add(new GOTCommandAlignment());
+		command.add(new GOTCommandReputation());
 		command.add(new GOTCommandSummon());
 		command.add(new GOTCommandFastTravelClock());
 		command.add(new GOTCommandWaypointCooldown());
 		command.add(new GOTCommandDate());
 		command.add(new GOTCommandWaypoints());
-		command.add(new GOTCommandAlignmentSee());
+		command.add(new GOTCommandReputationSee());
 		command.add(new GOTCommandFellowship());
 		command.add(new GOTCommandFellowshipMessage());
-		command.add(new GOTCommandEnableAlignmentZones());
+		command.add(new GOTCommandEnableReputationZones());
 		command.add(new GOTCommandEnchant());
 		command.add(new GOTCommandSpawnDamping());
 		command.add(new GOTCommandFactionRelations());

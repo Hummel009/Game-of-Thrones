@@ -15,7 +15,7 @@ public class GOTEntityArrynBartender extends GOTEntityArrynMan implements GOTBar
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

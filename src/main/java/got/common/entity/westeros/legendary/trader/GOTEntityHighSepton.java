@@ -23,7 +23,7 @@ public class GOTEntityHighSepton extends GOTEntityHumanBase implements GOTTradea
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 100.0f;
 	}
 

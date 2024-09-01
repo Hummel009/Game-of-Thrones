@@ -665,11 +665,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isFriendlyAndAligned(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+		return GOTLevelData.getData(entityplayer).getReputation(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
 
 	public boolean isFriendlyAndStronglyAligned(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
+		return GOTLevelData.getData(entityplayer).getReputation(getFaction()) >= 50.0f && isFriendly(entityplayer);
 	}
 
 	@Override
@@ -1108,7 +1108,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		legendary = true;
 		spawnRidingHorse = false;
 		questInfo.setOfferChance(legendaryQuest ? 1 : 20000);
-		questInfo.setMinAlignment(legendaryQuest ? 100 : 0);
+		questInfo.setMinReputation(legendaryQuest ? 100 : 0);
 	}
 
 	public void setRidingHorse(boolean flag) {
@@ -1406,7 +1406,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return null;
 	}
 
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 0.0f;
 	}
 

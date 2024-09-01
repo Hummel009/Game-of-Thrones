@@ -2,7 +2,7 @@ package got.common.faction;
 
 import java.util.*;
 
-public class GOTAlignmentBonusMap implements Map<GOTFaction, Float> {
+public class GOTReputationBonusMap implements Map<GOTFaction, Float> {
 	private final Map<GOTFaction, Float> bonusMap = new EnumMap<>(GOTFaction.class);
 
 	public Set<GOTFaction> getChangedFactions() {

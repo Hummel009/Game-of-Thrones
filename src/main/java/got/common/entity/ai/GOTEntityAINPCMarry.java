@@ -4,7 +4,7 @@ import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,12 +49,12 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 		theSpouse.spawnHearts();
 		EntityPlayer ringPlayer = theNPC.getFamilyInfo().getRingGivingPlayer();
 		if (ringPlayer != null) {
-			GOTLevelData.getData(ringPlayer).addAlignment(ringPlayer, GOTAlignmentValues.MARRIAGE_BONUS, theNPC.getFaction(), theNPC);
+			GOTLevelData.getData(ringPlayer).addReputation(ringPlayer, GOTReputationValues.MARRIAGE_BONUS, theNPC.getFaction(), theNPC);
 
 		}
 		EntityPlayer ringPlayerSpouse = theSpouse.getFamilyInfo().getRingGivingPlayer();
 		if (ringPlayerSpouse != null) {
-			GOTLevelData.getData(ringPlayerSpouse).addAlignment(ringPlayerSpouse, GOTAlignmentValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
+			GOTLevelData.getData(ringPlayerSpouse).addReputation(ringPlayerSpouse, GOTReputationValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
 			GOTLevelData.getData(ringPlayer).addAchievement(GOTAchievement.marry);
 		}
 		theWorld.spawnEntityInWorld(new EntityXPOrb(theWorld, theNPC.posX, theNPC.posY, theNPC.posZ, theNPC.getRNG().nextInt(8) + 2));

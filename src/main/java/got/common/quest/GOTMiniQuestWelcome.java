@@ -80,7 +80,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 0.0f;
 	}
 
@@ -139,12 +139,12 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			case 5:
 				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.map", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
 			case 8:
-				KeyBinding keyLeft = GOTKeyHandler.KEY_BINDING_ALIGNMENT_CYCLE_LEFT;
-				KeyBinding keyRight = GOTKeyHandler.KEY_BINDING_ALIGNMENT_CYCLE_RIGHT;
+				KeyBinding keyLeft = GOTKeyHandler.KEY_BINDING_REPUTATION_CYCLE_LEFT;
+				KeyBinding keyRight = GOTKeyHandler.KEY_BINDING_REPUTATION_CYCLE_RIGHT;
 				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.align", GameSettings.getKeyDisplayString(keyLeft.getKeyCode()), GameSettings.getKeyDisplayString(keyRight.getKeyCode()));
 			case 9:
-				KeyBinding keyUp = GOTKeyHandler.KEY_BINDING_ALIGNMENT_GROUP_PREV;
-				KeyBinding keyDown = GOTKeyHandler.KEY_BINDING_ALIGNMENT_GROUP_NEXT;
+				KeyBinding keyUp = GOTKeyHandler.KEY_BINDING_REPUTATION_GROUP_PREV;
+				KeyBinding keyDown = GOTKeyHandler.KEY_BINDING_REPUTATION_GROUP_NEXT;
 				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.alignRegions", GameSettings.getKeyDisplayString(keyUp.getKeyCode()), GameSettings.getKeyDisplayString(keyDown.getKeyCode()));
 			case 11:
 				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.factions", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
@@ -181,14 +181,14 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 				}
 				break;
 			case 8:
-				if (event instanceof GOTMiniQuestEvent.CycleAlignment) {
+				if (event instanceof GOTMiniQuestEvent.CycleReputation) {
 					stage = 9;
 					playerData.updateMiniQuest(this);
 					updateJaqenHghar();
 				}
 				break;
 			case 9:
-				if (event instanceof GOTMiniQuestEvent.CycleAlignmentRegion) {
+				if (event instanceof GOTMiniQuestEvent.CycleReputationRegion) {
 					stage = 10;
 					playerData.updateMiniQuest(this);
 					updateJaqenHghar();

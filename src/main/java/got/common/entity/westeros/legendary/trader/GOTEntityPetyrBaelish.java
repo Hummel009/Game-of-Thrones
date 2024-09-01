@@ -26,7 +26,7 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 300.0f;
 	}
 

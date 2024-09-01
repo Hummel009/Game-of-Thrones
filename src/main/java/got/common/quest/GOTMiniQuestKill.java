@@ -20,7 +20,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return killTarget * rewardFactor;
 	}
 

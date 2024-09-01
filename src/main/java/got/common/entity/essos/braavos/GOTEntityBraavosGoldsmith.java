@@ -15,7 +15,7 @@ public class GOTEntityBraavosGoldsmith extends GOTEntityBraavosMan implements GO
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

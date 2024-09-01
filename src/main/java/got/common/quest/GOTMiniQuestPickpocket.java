@@ -12,7 +12,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.utils.GOTEntityUtils;
 import got.common.entity.other.utils.GOTUnitTradeEntry;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.item.other.GOTItemCoin;
 import got.common.item.other.GOTItemLeatherHat;
 import got.common.item.other.GOTItemModifierTemplate;
@@ -138,7 +138,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			npc.dropItemList(dropItems, true);
 		}
 		if (willHire) {
-			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringAlignment);
+			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringReputation);
 			tradeEntry.setTask(GOTHireableInfo.Task.WARRIOR);
 			npc.getHireableInfo().hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
 			wasHired = true;
@@ -156,7 +156,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public int getCoinBonus() {
-		return Math.round(getAlignmentBonus() * 5.0f);
+		return Math.round(getReputationBonus() * 5.0f);
 	}
 
 	@Override
@@ -260,7 +260,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					}
 				}
 				if (anyoneNoticed) {
-					GOTLevelData.getData(entityplayer).addAlignment(entityplayer, GOTAlignmentValues.PICKPOCKET_PENALTY, npc.getFaction(), npc);
+					GOTLevelData.getData(entityplayer).addReputation(entityplayer, GOTReputationValues.PICKPOCKET_PENALTY, npc.getFaction(), npc);
 				}
 				return true;
 			}

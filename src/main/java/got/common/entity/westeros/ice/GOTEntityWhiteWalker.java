@@ -50,7 +50,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC implements GOTBiome.Immun
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

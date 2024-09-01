@@ -75,7 +75,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 			drawTexturedModalRect(x + barEdge, 10, iconWidth + barEdge, barHeight, meterWidth, barHeight);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, 10, iconWidth, 0, barWidth, barHeight);
-			GOTTickHandlerClient.drawAlignmentText(fr, x + barWidth / 2 - fr.getStringWidth(progress) / 2, 10 + barHeight - barHeight / 2 - fr.FONT_HEIGHT / 2, progress, 1.0f);
+			GOTTickHandlerClient.drawReputationText(fr, x + barWidth / 2 - fr.getStringWidth(progress) / 2, 10 + barHeight - barHeight / 2 - fr.FONT_HEIGHT / 2, progress, 1.0f);
 			fr.drawSplitString(objective, x, 10 + barHeight + gap, barWidth, 16777215);
 			GL11.glDisable(3042);
 			GL11.glDisable(3008);

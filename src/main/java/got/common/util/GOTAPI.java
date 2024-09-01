@@ -69,7 +69,7 @@ public class GOTAPI {
 	 * @param faction  - cape belongs to this faction.
 	 * @apiNote Creates new faction cape.
 	 */
-	public static GOTCapes addAlignmentCape(String enumName, GOTFaction faction) {
+	public static GOTCapes addReputationCape(String enumName, GOTFaction faction) {
 		Class<GOTFaction>[] classArr = new Class[]{GOTFaction.class};
 		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTCapes.class, enumName, classArr, args);
@@ -80,7 +80,7 @@ public class GOTAPI {
 	 * @param faction  - shield belongs to this faction.
 	 * @apiNote Creates new faction shield.
 	 */
-	public static GOTShields addAlignmentShield(String enumName, GOTFaction faction) {
+	public static GOTShields addReputationShield(String enumName, GOTFaction faction) {
 		Class<GOTFaction>[] classArr = new Class[]{GOTFaction.class};
 		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTShields.class, enumName, classArr, args);
@@ -157,15 +157,15 @@ public class GOTAPI {
 	 * @param region    - dimension region.
 	 * @param player    - playability (reputation gaining, ...).
 	 * @param registry  - allows entity registry (attack settings).
-	 * @param alignment - fixed alignment.
+	 * @param reputation - fixed reputation.
 	 * @param mapInfo   - square of the map displayed on the faction page.
 	 * @apiNote Creates new faction with lots of technical settings.
 	 * @deprecated Complex way, only for advanced developers.
 	 */
 	@Deprecated
-	public static GOTFaction addFaction(String enumName, int color, GOTDimension dim, GOTDimension.DimensionRegion region, boolean player, boolean registry, int alignment, GOTMapRegion mapInfo) {
+	public static GOTFaction addFaction(String enumName, int color, GOTDimension dim, GOTDimension.DimensionRegion region, boolean player, boolean registry, int reputation, GOTMapRegion mapInfo) {
 		Class<?>[] classArr = {Integer.TYPE, GOTDimension.class, GOTDimension.DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
-		Object[] args = {color, dim, region, player, registry, alignment, mapInfo};
+		Object[] args = {color, dim, region, player, registry, reputation, mapInfo};
 		return EnumHelper.addEnum(GOTFaction.class, enumName, classArr, args);
 	}
 
@@ -411,7 +411,7 @@ public class GOTAPI {
 		factory.setBaseSpeechGroup(null);
 		factory.setQuestAchievement(null);
 		factory.getLoreCategories().clear();
-		factory.setAlignmentRewardOverride(null);
+		factory.setReputationRewardOverride(null);
 		factory.setNoAlignRewardForEnemy(false);
 		factory.getQuestFactories().clear();
 	}
@@ -553,7 +553,7 @@ public class GOTAPI {
 
 	private static void removeFaction(GOTFaction faction) {
 		faction.setAllowPlayer(false);
-		faction.setFixedAlignment(0);
+		faction.setFixedReputation(0);
 		if (faction.getFactionDimension() != null) {
 			faction.getFactionDimension().getFactionList().remove(faction);
 		}

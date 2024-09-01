@@ -15,7 +15,7 @@ public class GOTEntityLysMiner extends GOTEntityLysMan implements GOTTradeable {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

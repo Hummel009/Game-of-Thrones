@@ -5,20 +5,20 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.faction.GOTAlignmentBonusMap;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationBonusMap;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.StatCollector;
 
 import java.util.Map;
 
-public class GOTPacketAlignmentBonus implements IMessage {
-	private GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
+public class GOTPacketReputationBonus implements IMessage {
+	private GOTReputationBonusMap factionBonusMap = new GOTReputationBonusMap();
 	private GOTFaction mainFaction;
 	private String name;
 
-	private float prevMainAlignment;
+	private float prevMainReputation;
 	private float conquestBonus;
 	private double posX;
 	private double posY;
@@ -28,12 +28,12 @@ public class GOTPacketAlignmentBonus implements IMessage {
 	private boolean isHiredKill;
 
 	@SuppressWarnings("unused")
-	public GOTPacketAlignmentBonus() {
+	public GOTPacketReputationBonus() {
 	}
 
-	public GOTPacketAlignmentBonus(GOTFaction f, float pre, GOTAlignmentBonusMap fMap, float conqBonus, double x, double y, double z, GOTAlignmentValues.AlignmentBonus source) {
+	public GOTPacketReputationBonus(GOTFaction f, float pre, GOTReputationBonusMap fMap, float conqBonus, double x, double y, double z, GOTReputationValues.ReputationBonus source) {
 		mainFaction = f;
-		prevMainAlignment = pre;
+		prevMainReputation = pre;
 		factionBonusMap = fMap;
 		conquestBonus = conqBonus;
 		posX = x;
@@ -48,7 +48,7 @@ public class GOTPacketAlignmentBonus implements IMessage {
 	@Override
 	public void fromBytes(ByteBuf data) {
 		mainFaction = GOTFaction.forID(data.readByte());
-		prevMainAlignment = data.readFloat();
+		prevMainReputation = data.readFloat();
 		byte factionID;
 		while ((factionID = data.readByte()) >= 0) {
 			GOTFaction faction = GOTFaction.forID(factionID);
@@ -69,7 +69,7 @@ public class GOTPacketAlignmentBonus implements IMessage {
 	@Override
 	public void toBytes(ByteBuf data) {
 		data.writeByte(mainFaction.ordinal());
-		data.writeFloat(prevMainAlignment);
+		data.writeFloat(prevMainReputation);
 		if (!factionBonusMap.isEmpty()) {
 			for (Map.Entry<GOTFaction, Float> e : factionBonusMap.entrySet()) {
 				GOTFaction faction = e.getKey();
@@ -91,14 +91,14 @@ public class GOTPacketAlignmentBonus implements IMessage {
 		data.writeBoolean(isHiredKill);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketAlignmentBonus, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketReputationBonus, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketAlignmentBonus packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketReputationBonus packet, MessageContext context) {
 			String name = packet.name;
 			if (packet.needsTranslation) {
 				name = StatCollector.translateToLocal(name);
 			}
-			GOT.proxy.spawnAlignmentBonus(packet.mainFaction, packet.prevMainAlignment, packet.factionBonusMap, name, packet.conquestBonus, packet.posX, packet.posY, packet.posZ);
+			GOT.proxy.spawnReputationBonus(packet.mainFaction, packet.prevMainReputation, packet.factionBonusMap, name, packet.conquestBonus, packet.posX, packet.posY, packet.posZ);
 			return null;
 		}
 	}

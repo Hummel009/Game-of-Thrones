@@ -2,11 +2,11 @@ package got.client.render.other;
 
 import got.client.GOTClientProxy;
 import got.client.GOTTickHandlerClient;
-import got.client.effect.GOTEntityAlignmentBonus;
+import got.client.effect.GOTEntityReputationBonus;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.faction.GOTAlignmentBonusMap;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationBonusMap;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -19,10 +19,10 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Map;
 
-public class GOTRenderAlignmentBonus extends Render {
+public class GOTRenderReputationBonus extends Render {
 	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
-	public GOTRenderAlignmentBonus() {
+	public GOTRenderReputationBonus() {
 		shadowSize = 0.0f;
 	}
 
@@ -31,39 +31,39 @@ public class GOTRenderAlignmentBonus extends Render {
 		EntityClientPlayerMP entityplayer = MINECRAFT.thePlayer;
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		GOTFaction viewingFaction = playerData.getViewingFaction();
-		GOTEntityAlignmentBonus alignmentBonus = (GOTEntityAlignmentBonus) entity;
-		GOTFaction mainFaction = alignmentBonus.getMainFaction();
-		GOTAlignmentBonusMap factionBonusMap = alignmentBonus.getFactionBonusMap();
+		GOTEntityReputationBonus reputationBonus = (GOTEntityReputationBonus) entity;
+		GOTFaction mainFaction = reputationBonus.getMainFaction();
+		GOTReputationBonusMap factionBonusMap = reputationBonus.getFactionBonusMap();
 		GOTFaction renderFaction = null;
 		boolean showConquest = false;
-		if (alignmentBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction) || alignmentBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
+		if (reputationBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction) || reputationBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
 			renderFaction = viewingFaction;
 			showConquest = true;
 		} else if (!factionBonusMap.isEmpty()) {
 			if (factionBonusMap.containsKey(viewingFaction)) {
 				renderFaction = viewingFaction;
-			} else if (factionBonusMap.size() == 1 && mainFaction.isPlayableAlignmentFaction() || mainFaction.isPlayableAlignmentFaction() && alignmentBonus.getPrevMainAlignment() >= 0.0f && factionBonusMap.get(mainFaction) < 0.0f) {
+			} else if (factionBonusMap.size() == 1 && mainFaction.isPlayableReputationFaction() || mainFaction.isPlayableReputationFaction() && reputationBonus.getPrevMainReputation() >= 0.0f && factionBonusMap.get(mainFaction) < 0.0f) {
 				renderFaction = mainFaction;
 			} else {
-				float alignment;
+				float reputation;
 				for (Map.Entry<GOTFaction, Float> entry : factionBonusMap.entrySet()) {
 					GOTFaction faction = entry.getKey();
-					if (faction.isPlayableAlignmentFaction() && entry.getValue() > 0.0f) {
-						alignment = playerData.getAlignment(faction);
-						if (renderFaction == null || alignment > playerData.getAlignment(renderFaction)) {
+					if (faction.isPlayableReputationFaction() && entry.getValue() > 0.0f) {
+						reputation = playerData.getReputation(faction);
+						if (renderFaction == null || reputation > playerData.getReputation(renderFaction)) {
 							renderFaction = faction;
 						}
 					}
 				}
 				if (renderFaction == null) {
-					if (mainFaction.isPlayableAlignmentFaction() && factionBonusMap.get(mainFaction) < 0.0f) {
+					if (mainFaction.isPlayableReputationFaction() && factionBonusMap.get(mainFaction) < 0.0f) {
 						renderFaction = mainFaction;
 					} else {
 						for (Map.Entry<GOTFaction, Float> entry : factionBonusMap.entrySet()) {
 							GOTFaction faction = entry.getKey();
-							if (faction.isPlayableAlignmentFaction() && entry.getValue() < 0.0f) {
-								alignment = playerData.getAlignment(faction);
-								if (renderFaction == null || alignment > playerData.getAlignment(renderFaction)) {
+							if (faction.isPlayableReputationFaction() && entry.getValue() < 0.0f) {
+								reputation = playerData.getReputation(faction);
+								if (renderFaction == null || reputation > playerData.getReputation(renderFaction)) {
 									renderFaction = faction;
 								}
 							}
@@ -85,9 +85,9 @@ public class GOTRenderAlignmentBonus extends Render {
 			GL11.glDisable(2929);
 			GL11.glEnable(3042);
 			GL11.glBlendFunc(770, 771);
-			int age = alignmentBonus.getParticleAge();
+			int age = reputationBonus.getParticleAge();
 			float alpha = age < 60 ? 1.0f : (80 - age) / 20.0f;
-			renderBonusText(alignmentBonus, viewingFaction, renderFaction, !factionBonusMap.isEmpty(), renderBonus, showConquest, alpha);
+			renderBonusText(reputationBonus, viewingFaction, renderFaction, !factionBonusMap.isEmpty(), renderBonus, showConquest, alpha);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glDisable(3042);
 			GL11.glEnable(2929);
@@ -99,14 +99,14 @@ public class GOTRenderAlignmentBonus extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return GOTClientProxy.ALIGNMENT_TEXTURE;
+		return GOTClientProxy.REPUTATION_TEXTURE;
 	}
 
-	private void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {
+	private void renderBonusText(GOTEntityReputationBonus reputationBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {
 		FontRenderer fr = MINECRAFT.fontRenderer;
-		String strAlign = GOTAlignmentValues.formatAlignForDisplay(align);
-		String name = alignmentBonus.getName();
-		float conq = alignmentBonus.getConquestBonus();
+		String strAlign = GOTReputationValues.formatAlignForDisplay(align);
+		String name = reputationBonus.getName();
+		float conq = reputationBonus.getConquestBonus();
 		GL11.glPushMatrix();
 		boolean isViewingFaction = renderFaction == viewingFaction;
 		if (!isViewingFaction) {
@@ -117,20 +117,20 @@ public class GOTRenderAlignmentBonus extends Render {
 		int x = -MathHelper.floor_double((fr.getStringWidth(strAlign) + 18) / 2.0);
 		int y = -12;
 		if (showAlign) {
-			bindEntityTexture(alignmentBonus);
+			bindEntityTexture(reputationBonus);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 			GOTTickHandlerClient.drawTexturedModalRect(x, y - 5, 0, 36, 16, 16);
-			GOTTickHandlerClient.drawAlignmentText(fr, x + 18, y, strAlign, alpha);
-			GOTTickHandlerClient.drawAlignmentText(fr, -MathHelper.floor_double(fr.getStringWidth(name) / 2.0), y += 14, name, alpha);
+			GOTTickHandlerClient.drawReputationText(fr, x + 18, y, strAlign, alpha);
+			GOTTickHandlerClient.drawReputationText(fr, -MathHelper.floor_double(fr.getStringWidth(name) / 2.0), y += 14, name, alpha);
 		}
 		if (showConquest && conq != 0.0f) {
 			boolean negative = conq < 0.0f;
-			String strConq = GOTAlignmentValues.formatConqForDisplay(conq, true);
+			String strConq = GOTReputationValues.formatConqForDisplay(conq, true);
 			x = -MathHelper.floor_double((fr.getStringWidth(strConq) + 18) / 2.0);
 			if (showAlign) {
 				y += 16;
 			}
-			bindEntityTexture(alignmentBonus);
+			bindEntityTexture(reputationBonus);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 			GOTTickHandlerClient.drawTexturedModalRect(x, y - 5, negative ? 16 : 0, 228, 16, 16);
 			GOTTickHandlerClient.drawConquestText(fr, x + 18, y, strConq, negative, alpha);

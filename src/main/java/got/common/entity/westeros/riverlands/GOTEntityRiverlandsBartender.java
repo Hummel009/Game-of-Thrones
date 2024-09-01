@@ -15,7 +15,7 @@ public class GOTEntityRiverlandsBartender extends GOTEntityRiverlandsMan impleme
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

@@ -23,7 +23,7 @@ public class GOTEntityBronn extends GOTEntityHumanBase implements GOTMercenary {
 	}
 
 	@Override
-	public float getMercAlignmentRequired() {
+	public float getMercReputationRequired() {
 		return 0.0f;
 	}
 

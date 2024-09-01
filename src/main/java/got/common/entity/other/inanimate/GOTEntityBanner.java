@@ -32,8 +32,8 @@ import net.minecraft.world.WorldServer;
 import java.util.*;
 
 public class GOTEntityBanner extends Entity {
-	public static final float ALIGNMENT_PROTECTION_MIN = 1.0f;
-	public static final float ALIGNMENT_PROTECTION_MAX = 10000.0f;
+	public static final float REPUTATION_PROTECTION_MIN = 1.0f;
+	public static final float REPUTATION_PROTECTION_MAX = 10000.0f;
 	public static final int WHITELIST_MIN = 1;
 	public static final int WHITELIST_MAX = 4000;
 
@@ -50,7 +50,7 @@ public class GOTEntityBanner extends Entity {
 	private boolean selfProtection = true;
 	private boolean clientside_playerHasPermission;
 
-	private float alignmentProtection = ALIGNMENT_PROTECTION_MIN;
+	private float reputationProtection = REPUTATION_PROTECTION_MIN;
 	private int customRange;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
@@ -130,12 +130,12 @@ public class GOTEntityBanner extends Entity {
 		dataWatcher.addObject(18, (short) 0);
 	}
 
-	public float getAlignmentProtection() {
-		return alignmentProtection;
+	public float getReputationProtection() {
+		return reputationProtection;
 	}
 
-	public void setAlignmentProtection(float f) {
-		alignmentProtection = MathHelper.clamp_float(f, ALIGNMENT_PROTECTION_MIN, ALIGNMENT_PROTECTION_MAX);
+	public void setReputationProtection(float f) {
+		reputationProtection = MathHelper.clamp_float(f, REPUTATION_PROTECTION_MIN, REPUTATION_PROTECTION_MAX);
 		if (!worldObj.isRemote) {
 			updateForAllWatchers(worldObj);
 		}
@@ -244,8 +244,8 @@ public class GOTEntityBanner extends Entity {
 			if (hasDefaultPermission(perm)) {
 				return true;
 			}
-			float alignment = GOTLevelData.getData(entityplayer).getAlignment(getBannerType().getFaction());
-			return alignment >= alignmentProtection;
+			float reputation = GOTLevelData.getData(entityplayer).getReputation(getBannerType().getFaction());
+			return reputation >= reputationProtection;
 		}
 		return false;
 	}
@@ -384,10 +384,10 @@ public class GOTEntityBanner extends Entity {
 		customRange = nbt.getShort("CustomRange");
 		customRange = MathHelper.clamp_int(customRange, 0, 64);
 		selfProtection = !nbt.hasKey("SelfProtection") || nbt.getBoolean("SelfProtection");
-		if (nbt.hasKey("AlignmentProtection")) {
-			setAlignmentProtection(nbt.getInteger("AlignmentProtection"));
+		if (nbt.hasKey("ReputationProtection")) {
+			setReputationProtection(nbt.getInteger("ReputationProtection"));
 		} else {
-			setAlignmentProtection(nbt.getFloat("AlignProtectF"));
+			setReputationProtection(nbt.getFloat("AlignProtectF"));
 		}
 		int wlength = WHITELIST_DEFAULT;
 		if (nbt.hasKey("WhitelistLength")) {
@@ -486,7 +486,7 @@ public class GOTEntityBanner extends Entity {
 		packet.setSelfProtection(selfProtection);
 		packet.setStructureProtection(structureProtection);
 		packet.setCustomRange(customRange);
-		packet.setAlignmentProtection(alignmentProtection);
+		packet.setReputationProtection(reputationProtection);
 		packet.setWhitelistLength(getWhitelistLength());
 		int maxSendIndex = sendWhitelist ? allowedPlayers.length : 1;
 		String[] whitelistSlots = new String[maxSendIndex];
@@ -611,7 +611,7 @@ public class GOTEntityBanner extends Entity {
 		nbt.setBoolean("StructureProtection", structureProtection);
 		nbt.setShort("CustomRange", (short) customRange);
 		nbt.setBoolean("SelfProtection", selfProtection);
-		nbt.setFloat("AlignProtectF", alignmentProtection);
+		nbt.setFloat("AlignProtectF", reputationProtection);
 		nbt.setInteger("WhitelistLength", allowedPlayers.length);
 		NBTTagList allowedPlayersTags = new NBTTagList();
 		for (int i = 0; i < allowedPlayers.length; ++i) {

@@ -8,8 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class GOTAlignmentTicker {
-	private static final Map<GOTFaction, GOTAlignmentTicker> ALL_FACTION_TICKERS = new EnumMap<>(GOTFaction.class);
+public class GOTReputationTicker {
+	private static final Map<GOTFaction, GOTReputationTicker> ALL_FACTION_TICKERS = new EnumMap<>(GOTFaction.class);
 
 	private final GOTFaction theFac;
 
@@ -21,13 +21,13 @@ public class GOTAlignmentTicker {
 	private int flashTick;
 	private int numericalTick;
 
-	private GOTAlignmentTicker(GOTFaction f) {
+	private GOTReputationTicker(GOTFaction f) {
 		theFac = f;
 	}
 
-	public static GOTAlignmentTicker forFaction(GOTFaction fac) {
+	public static GOTReputationTicker forFaction(GOTFaction fac) {
 		if (!ALL_FACTION_TICKERS.containsKey(fac)) {
-			ALL_FACTION_TICKERS.put(fac, new GOTAlignmentTicker(fac));
+			ALL_FACTION_TICKERS.put(fac, new GOTReputationTicker(fac));
 		}
 		return ALL_FACTION_TICKERS.get(fac);
 	}
@@ -40,7 +40,7 @@ public class GOTAlignmentTicker {
 		}
 	}
 
-	public float getInterpolatedAlignment(float f) {
+	public float getInterpolatedReputation(float f) {
 		if (moveTick == 0) {
 			return oldAlign;
 		}
@@ -51,7 +51,7 @@ public class GOTAlignmentTicker {
 	}
 
 	private void update(EntityPlayer entityplayer, boolean forceInstant) {
-		float curAlign = GOTLevelData.getData(entityplayer).getAlignment(theFac);
+		float curAlign = GOTLevelData.getData(entityplayer).getReputation(theFac);
 		if (forceInstant) {
 			oldAlign = newAlign = curAlign;
 			moveTick = 0;

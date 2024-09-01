@@ -16,7 +16,7 @@ public class GOTEntityBraavosFarmer extends GOTEntityBraavosMan implements GOTFa
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

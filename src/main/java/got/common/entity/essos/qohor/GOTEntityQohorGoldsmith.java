@@ -15,7 +15,7 @@ public class GOTEntityQohorGoldsmith extends GOTEntityQohorMan implements GOTTra
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

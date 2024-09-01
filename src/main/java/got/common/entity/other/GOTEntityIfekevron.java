@@ -39,7 +39,7 @@ public class GOTEntityIfekevron extends GOTEntityNPC implements IMob {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

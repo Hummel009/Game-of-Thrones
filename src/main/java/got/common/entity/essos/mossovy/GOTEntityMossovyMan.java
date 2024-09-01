@@ -29,7 +29,7 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements GOTBiome.
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

@@ -31,7 +31,7 @@ public class GOTEntityRiverlandsMan extends GOTEntityHumanBase implements GOTBio
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

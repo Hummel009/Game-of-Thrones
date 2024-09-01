@@ -15,7 +15,7 @@ public class GOTEntityBraavosFishmonger extends GOTEntityBraavosMan implements G
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

@@ -23,7 +23,7 @@ public class GOTEntitySelwynTarth extends GOTEntityHumanBase implements GOTUnitT
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 100.0f;
 	}
 

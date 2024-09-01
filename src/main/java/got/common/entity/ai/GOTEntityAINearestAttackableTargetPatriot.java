@@ -17,8 +17,8 @@ public class GOTEntityAINearestAttackableTargetPatriot extends GOTEntityAINeares
 	}
 
 	@Override
-	public boolean isPlayerSuitableAlignmentTarget(EntityPlayer entityplayer) {
-		float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOT.getNPCFaction(taskOwner));
-		return alignment < 50.0f;
+	public boolean isPlayerSuitableReputationTarget(EntityPlayer entityplayer) {
+		float reputation = GOTLevelData.getData(entityplayer).getReputation(GOT.getNPCFaction(taskOwner));
+		return reputation < 50.0f;
 	}
 }

@@ -15,7 +15,7 @@ public class GOTEntityArrynFishmonger extends GOTEntityArrynMan implements GOTTr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

@@ -20,7 +20,7 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

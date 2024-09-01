@@ -23,7 +23,7 @@ public class GOTEntityTychoNestoris extends GOTEntityHumanBase implements GOTTra
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 300.0f;
 	}
 

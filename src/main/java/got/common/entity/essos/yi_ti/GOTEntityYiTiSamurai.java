@@ -27,7 +27,7 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiMan {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 3.0f;
 	}
 

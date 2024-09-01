@@ -38,7 +38,7 @@ public class GOTCommandConquest extends CommandBase {
 		}
 		//noinspection StreamToLoop
 		if (args.length == 2 && Stream.of("set", "add", "radial").anyMatch(s -> s.equals(args[0]))) {
-			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
+			List<String> list = GOTFaction.getPlayableReputationFactionNames();
 			return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
 		return Collections.emptyList();

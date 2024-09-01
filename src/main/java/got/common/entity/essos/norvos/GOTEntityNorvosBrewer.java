@@ -15,7 +15,7 @@ public class GOTEntityNorvosBrewer extends GOTEntityNorvosMan implements GOTTrad
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

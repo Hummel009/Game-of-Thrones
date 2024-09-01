@@ -2,7 +2,7 @@ package got.common;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRank;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +14,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	private final GOTFaction theFac;
 
 	public GOTAchievementRank(GOTFactionRank rank) {
-		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.getFaction().codeName() + '_' + rank.getAlignment());
+		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "reputation_" + rank.getFaction().codeName() + '_' + rank.getReputation());
 		theRank = rank;
 		theFac = theRank.getFaction();
 		isSpecial = true;
@@ -24,7 +24,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	@Override
 	public boolean canPlayerEarn(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		float align = pd.getAlignment(theFac);
+		float align = pd.getReputation(theFac);
 		return !(align < 0.0f);
 	}
 
@@ -39,7 +39,7 @@ public class GOTAchievementRank extends GOTAchievement {
 
 	@Override
 	public String getDescription() {
-		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTAlignmentValues.formatAlignForDisplay(theRank.getAlignment()));
+		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTReputationValues.formatAlignForDisplay(theRank.getReputation()));
 	}
 
 	@Override
@@ -54,8 +54,8 @@ public class GOTAchievementRank extends GOTAchievement {
 
 	public boolean isPlayerRequiredRank(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		float align = pd.getAlignment(theFac);
-		float rankAlign = theRank.getAlignment();
+		float align = pd.getReputation(theFac);
+		float rankAlign = theRank.getReputation();
 		return align >= rankAlign;
 	}
 }

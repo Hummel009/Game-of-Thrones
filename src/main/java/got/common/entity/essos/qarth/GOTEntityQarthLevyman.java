@@ -13,7 +13,7 @@ public class GOTEntityQarthLevyman extends GOTEntityQarthMan {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

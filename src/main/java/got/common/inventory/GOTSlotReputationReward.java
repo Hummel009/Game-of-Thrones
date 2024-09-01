@@ -10,26 +10,26 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
-public class GOTSlotAlignmentReward extends GOTSlotProtected {
+public class GOTSlotReputationReward extends GOTSlotProtected {
 	public static final int WARHORT_PRICE = 500;
-	public static final int WARHORN_ALIGNMENT = 500;
+	public static final int WARHORN_REPUTATION = 500;
 
 	private final GOTContainerUnitTrade theContainer;
 	private final GOTHireableBase theTrader;
 	private final GOTEntityNPC theLivingTrader;
-	private final ItemStack alignmentReward;
+	private final ItemStack reputationReward;
 
-	public GOTSlotAlignmentReward(GOTContainerUnitTrade container, IInventory inv, int i, int j, int k, GOTHireableBase entity, ItemStack item) {
+	public GOTSlotReputationReward(GOTContainerUnitTrade container, IInventory inv, int i, int j, int k, GOTHireableBase entity, ItemStack item) {
 		super(inv, i, j, k);
 		theContainer = container;
 		theTrader = entity;
 		theLivingTrader = (GOTEntityNPC) theTrader;
-		alignmentReward = item.copy();
+		reputationReward = item.copy();
 	}
 
 	@Override
 	public boolean canTakeStack(EntityPlayer entityplayer) {
-		if (GOTLevelData.getData(entityplayer).getAlignment(theTrader.getFaction()) < WARHORN_ALIGNMENT) {
+		if (GOTLevelData.getData(entityplayer).getReputation(theTrader.getFaction()) < WARHORN_REPUTATION) {
 			return false;
 		}
 		int coins = GOTItemCoin.getInventoryValue(entityplayer, false);
@@ -46,7 +46,7 @@ public class GOTSlotAlignmentReward extends GOTSlotProtected {
 		}
 		super.onPickupFromSlot(entityplayer, itemstack);
 		if (!entityplayer.worldObj.isRemote) {
-			ItemStack reward = alignmentReward.copy();
+			ItemStack reward = reputationReward.copy();
 			putStack(reward);
 			((EntityPlayerMP) entityplayer).sendContainerToPlayer(theContainer);
 		}

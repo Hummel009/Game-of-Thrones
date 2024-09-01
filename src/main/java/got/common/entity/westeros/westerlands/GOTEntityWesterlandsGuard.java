@@ -24,7 +24,7 @@ public class GOTEntityWesterlandsGuard extends GOTEntityWesterlandsMan {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

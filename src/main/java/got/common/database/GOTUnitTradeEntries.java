@@ -592,15 +592,15 @@ public class GOTUnitTradeEntries {
 	private final GOTUnitTradeEntry[] tradeEntries;
 
 	@SuppressWarnings("WeakerAccess")
-	public GOTUnitTradeEntries(float baseAlignment, List<GOTUnitTradeEntry> list) {
+	public GOTUnitTradeEntries(float baseReputation, List<GOTUnitTradeEntry> list) {
 		GOTUnitTradeEntry[] arr = new GOTUnitTradeEntry[list.size()];
 		arr = list.toArray(arr);
 		for (GOTUnitTradeEntry trade : tradeEntries = arr) {
-			trade.setAlignmentRequired(trade.getAlignmentRequired() + baseAlignment);
-			if (trade.getAlignmentRequired() >= 0.0f) {
+			trade.setReputationRequired(trade.getReputationRequired() + baseReputation);
+			if (trade.getReputationRequired() >= 0.0f) {
 				continue;
 			}
-			throw new IllegalArgumentException("Units cannot require negative alignment!");
+			throw new IllegalArgumentException("Units cannot require negative reputation!");
 		}
 		CONTENT.add(this);
 	}

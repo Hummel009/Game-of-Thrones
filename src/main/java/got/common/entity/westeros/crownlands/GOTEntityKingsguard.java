@@ -27,7 +27,7 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsMan {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 3.0f;
 	}
 

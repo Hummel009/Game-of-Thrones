@@ -14,7 +14,7 @@ public class GOTEntityYiTiGoldsmith extends GOTEntityYiTiMan implements GOTTrade
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

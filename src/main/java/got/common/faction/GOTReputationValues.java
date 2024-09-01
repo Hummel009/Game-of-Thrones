@@ -8,33 +8,33 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 
-public class GOTAlignmentValues {
-	public static final AlignmentBonus MARRIAGE_BONUS = new AlignmentBonus(5.0f, "got.alignment.marriage");
-	public static final AlignmentBonus VINEYARD_STEAL_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.vineyardSteal");
-	public static final AlignmentBonus PICKPOCKET_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.pickpocket");
+public class GOTReputationValues {
+	public static final ReputationBonus MARRIAGE_BONUS = new ReputationBonus(5.0f, "got.reputation.marriage");
+	public static final ReputationBonus VINEYARD_STEAL_PENALTY = new ReputationBonus(-1.0f, "got.reputation.vineyardSteal");
+	public static final ReputationBonus PICKPOCKET_PENALTY = new ReputationBonus(-1.0f, "got.reputation.pickpocket");
 
 	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat(",##0.0");
 	private static final DecimalFormat CONQ_FORMAT = new DecimalFormat(",##0.00");
 	private static final DecimalFormatSymbols ALIGN_FORMAT_SYMBOLS = new DecimalFormatSymbols();
 
-	private GOTAlignmentValues() {
+	private GOTReputationValues() {
 	}
 
-	public static AlignmentBonus createMiniquestBonus(float alignment) {
-		return new AlignmentBonus(alignment, "got.alignment.miniQuest");
+	public static ReputationBonus createMiniquestBonus(float reputation) {
+		return new ReputationBonus(reputation, "got.reputation.miniQuest");
 	}
 
-	public static AlignmentBonus createPledgePenalty(float alignment) {
-		return new AlignmentBonus(alignment, "got.alignment.breakPledge");
+	public static ReputationBonus createPledgePenalty(float reputation) {
+		return new ReputationBonus(reputation, "got.reputation.breakPledge");
 	}
 
-	public static String formatAlignForDisplay(float alignment) {
-		return formatAlignForDisplay(alignment, DECIMAL_FORMAT, true);
+	public static String formatAlignForDisplay(float reputation) {
+		return formatAlignForDisplay(reputation, DECIMAL_FORMAT, true);
 	}
 
-	private static String formatAlignForDisplay(float alignment, DecimalFormat dFormat, boolean prefixPlus) {
+	private static String formatAlignForDisplay(float reputation, DecimalFormat dFormat, boolean prefixPlus) {
 		setupDecimalFormat(dFormat);
-		String s = dFormat.format(alignment);
+		String s = dFormat.format(reputation);
 		if (prefixPlus && (s.isEmpty() || s.charAt(0) != '-')) {
 			return '+' + s;
 		}
@@ -45,23 +45,23 @@ public class GOTAlignmentValues {
 		return formatAlignForDisplay(conq, CONQ_FORMAT, prefixPlus);
 	}
 
-	public static void notifyAlignmentNotHighEnough(ICommandSender entityplayer, float alignmentRequired, GOTFaction faction) {
-		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(alignmentRequired));
+	public static void notifyReputationNotHighEnough(ICommandSender entityplayer, float reputationRequired, GOTFaction faction) {
+		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(reputationRequired));
 		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment", componentAlignReq, faction.factionName()));
+		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientReputation", componentAlignReq, faction.factionName()));
 	}
 
-	public static float parseDisplayedAlign(String alignmentText) {
-		String alignmentText1 = alignmentText;
+	public static float parseDisplayedAlign(String reputationText) {
+		String reputationText1 = reputationText;
 		DecimalFormat dFormat = DECIMAL_FORMAT;
 		setupDecimalFormat(dFormat);
-		if (!alignmentText1.isEmpty() && alignmentText1.charAt(0) == '+') {
-			alignmentText1 = alignmentText1.substring("+".length());
+		if (!reputationText1.isEmpty() && reputationText1.charAt(0) == '+') {
+			reputationText1 = reputationText1.substring("+".length());
 		}
 		try {
-			return dFormat.parse(alignmentText1).floatValue();
+			return dFormat.parse(reputationText1).floatValue();
 		} catch (ParseException e) {
-			GOTLog.getLogger().error("Could not parse alignment value from display string {}", alignmentText1);
+			GOTLog.getLogger().error("Could not parse reputation value from display string {}", reputationText1);
 			e.printStackTrace();
 			return 0.0f;
 		}
@@ -71,11 +71,11 @@ public class GOTAlignmentValues {
 		String groupSeparator;
 		char decimalSeparatorChar = '.';
 		char groupSeparatorChar = ',';
-		String decimalSeparator = StatCollector.translateToLocal("got.alignment.decimal_separator_char");
+		String decimalSeparator = StatCollector.translateToLocal("got.reputation.decimal_separator_char");
 		if (decimalSeparator.length() == 1) {
 			decimalSeparatorChar = decimalSeparator.charAt(0);
 		}
-		if ((groupSeparator = StatCollector.translateToLocal("got.alignment.group_separator_char")).length() == 1) {
+		if ((groupSeparator = StatCollector.translateToLocal("got.reputation.group_separator_char")).length() == 1) {
 			groupSeparatorChar = groupSeparator.charAt(0);
 		}
 		ALIGN_FORMAT_SYMBOLS.setDecimalSeparator(decimalSeparatorChar);
@@ -83,7 +83,7 @@ public class GOTAlignmentValues {
 		dFormat.setDecimalFormatSymbols(ALIGN_FORMAT_SYMBOLS);
 	}
 
-	public static class AlignmentBonus {
+	public static class ReputationBonus {
 		private final float bonus;
 		private final String name;
 
@@ -92,15 +92,15 @@ public class GOTAlignmentValues {
 		private boolean killByHiredUnit;
 		private boolean isCivilianKill;
 
-		public AlignmentBonus(float f, String s) {
+		public ReputationBonus(float f, String s) {
 			bonus = f;
 			name = s;
 		}
 
-		public static float scalePenalty(float penalty, float alignment) {
+		public static float scalePenalty(float penalty, float reputation) {
 			float penalty1 = penalty;
-			if (alignment > 0.0f && penalty1 < 0.0f) {
-				float factor = alignment / 50.0f;
+			if (reputation > 0.0f && penalty1 < 0.0f) {
+				float factor = reputation / 50.0f;
 				factor = MathHelper.clamp_float(factor, 1.0f, 20.0f);
 				penalty1 *= factor;
 			}

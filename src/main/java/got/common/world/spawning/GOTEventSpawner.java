@@ -181,7 +181,7 @@ public class GOTEventSpawner {
 		@Override
 		public boolean isEntityApplicable(Entity entity) {
 			EntityPlayer entityplayer = (EntityPlayer) entity;
-			return entity instanceof EntityPlayer && entityplayer.isEntityAlive() && !entityplayer.capabilities.isCreativeMode && GOTLevelData.getData(entityplayer).getAlignment(invasionType.getInvasionFaction()) < 0.0f;
+			return entity instanceof EntityPlayer && entityplayer.isEntityAlive() && !entityplayer.capabilities.isCreativeMode && GOTLevelData.getData(entityplayer).getReputation(invasionType.getInvasionFaction()) < 0.0f;
 		}
 	}
 }

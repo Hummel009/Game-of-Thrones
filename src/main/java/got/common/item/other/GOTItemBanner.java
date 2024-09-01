@@ -10,7 +10,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTCreativeTabs;
 import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.inanimate.GOTEntityBannerWall;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -159,9 +159,9 @@ public class GOTItemBanner extends Item {
 				int protectRange;
 				if (GOTConfig.allowBannerProtection && !entityplayer.capabilities.isCreativeMode && (protectRange = GOTBannerProtection.getProtectionRange(block, meta)) > 0) {
 					GOTFaction faction = bannerType.getFaction();
-					if (GOTLevelData.getData(entityplayer).getAlignment(faction) < 1.0f) {
+					if (GOTLevelData.getData(entityplayer).getReputation(faction) < 1.0f) {
 						if (!world.isRemote) {
-							GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, 1.0f, faction);
+							GOTReputationValues.notifyReputationNotHighEnough(entityplayer, 1.0f, faction);
 						}
 						return false;
 					}

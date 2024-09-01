@@ -21,7 +21,7 @@ public enum GOTShields {
 	private final ResourceLocation shieldTexture;
 	private final UUID[] exclusiveUUIDs;
 
-	private GOTFaction alignmentFaction;
+	private GOTFaction reputationFaction;
 	private boolean isHidden;
 
 	GOTShields() {
@@ -33,8 +33,8 @@ public enum GOTShields {
 	}
 
 	GOTShields(GOTFaction faction) {
-		this(ShieldType.ALIGNMENT, false, new ArrayList<>());
-		alignmentFaction = faction;
+		this(ShieldType.REPUTATION, false, new ArrayList<>());
+		reputationFaction = faction;
 	}
 
 	GOTShields(ShieldType type, boolean hidden, List<String> players) {
@@ -69,8 +69,8 @@ public enum GOTShields {
 	}
 
 	public boolean canPlayerWear(EntityPlayer entityplayer) {
-		if (shieldType == ShieldType.ALIGNMENT) {
-			return GOTLevelData.getData(entityplayer).getAlignment(alignmentFaction) >= 100.0f;
+		if (shieldType == ShieldType.REPUTATION) {
+			return GOTLevelData.getData(entityplayer).getReputation(reputationFaction) >= 100.0f;
 		}
 		if (this == ACHIEVEMENT_BRONZE) {
 			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 75;
@@ -102,7 +102,7 @@ public enum GOTShields {
 	}
 
 	public String getShieldDesc() {
-		if (shieldType == ShieldType.ALIGNMENT) {
+		if (shieldType == ShieldType.REPUTATION) {
 			return StatCollector.translateToLocal("got.attribute.desc");
 		}
 		return StatCollector.translateToLocal("got.shields." + name() + ".desc");
@@ -116,8 +116,8 @@ public enum GOTShields {
 		isHidden = hidden;
 	}
 
-	public GOTFaction getAlignmentFaction() {
-		return alignmentFaction;
+	public GOTFaction getReputationFaction() {
+		return reputationFaction;
 	}
 
 	public ShieldType getShieldType() {
@@ -133,7 +133,7 @@ public enum GOTShields {
 	}
 
 	public enum ShieldType {
-		ALIGNMENT, ACHIEVABLE, EXCLUSIVE;
+		REPUTATION, ACHIEVABLE, EXCLUSIVE;
 
 		private final List<GOTShields> shields = new ArrayList<>();
 

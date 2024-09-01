@@ -29,7 +29,7 @@ public class GOTEntityCotterPyke extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 100.0f;
 	}
 

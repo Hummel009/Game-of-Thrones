@@ -22,7 +22,7 @@ public class GOTEntityHotPie extends GOTEntityHumanBase implements GOTTradeable 
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

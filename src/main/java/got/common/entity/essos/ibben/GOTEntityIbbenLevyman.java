@@ -13,7 +13,7 @@ public class GOTEntityIbbenLevyman extends GOTEntityIbbenMan {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

@@ -29,7 +29,7 @@ public class GOTEntityWightGiant extends GOTEntityGiantBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 3.0f;
 	}
 

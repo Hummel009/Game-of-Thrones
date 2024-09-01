@@ -3,7 +3,7 @@ package got.client.gui;
 import got.client.GOTClientProxy;
 import got.client.GOTTickHandlerClient;
 import got.common.database.GOTAchievement;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -174,14 +174,14 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		@Override
 		public void renderIcon(int x, int y) {
-			MINECRAFT.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+			MINECRAFT.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, isCleansing ? 16 : 0, 228, 16, 16);
 		}
 
 		@Override
 		public void renderText(int x, int y) {
-			String conqS = GOTAlignmentValues.formatConqForDisplay(conqValue, false);
+			String conqS = GOTReputationValues.formatConqForDisplay(conqValue, false);
 			GOTTickHandlerClient.drawConquestText(MINECRAFT.fontRenderer, x + 1, y, conqS, isCleansing, 1.0f);
 			MINECRAFT.fontRenderer.drawString(StatCollector.translateToLocal("got.gui.map.conquest.notif"), x + MINECRAFT.fontRenderer.getStringWidth(conqS + ' ') + 2, y, 8019267);
 			MINECRAFT.fontRenderer.drawString(EnumChatFormatting.ITALIC + conqFac.factionName(), x, y + 11, 9666921);

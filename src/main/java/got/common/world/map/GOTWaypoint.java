@@ -669,7 +669,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	public boolean hasPlayerUnlocked(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (pd.isFTRegionUnlocked(regions)) {
-			if (isCompatibleAlignment(entityplayer)) {
+			if (isCompatibleReputation(entityplayer)) {
 				return true;
 			}
 			if (isConquestUnlockable(entityplayer)) {
@@ -687,12 +687,12 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		return new GOTWaypointInfo(this, shiftX, shiftY, direction.ordinal());
 	}
 
-	public boolean isCompatibleAlignment(EntityPlayer entityplayer) {
+	public boolean isCompatibleReputation(EntityPlayer entityplayer) {
 		if (faction == GOTFaction.UNALIGNED) {
 			return true;
 		}
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		return pd.getAlignment(faction) >= 0.0f;
+		return pd.getReputation(faction) >= 0.0f;
 	}
 
 	private boolean isConquered(EntityPlayer entityplayer) {
@@ -721,7 +721,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	private boolean isUnlockedByConquest(EntityPlayer entityplayer) {
-		return !isCompatibleAlignment(entityplayer) && isConquestUnlockable(entityplayer) && isConquered(entityplayer);
+		return !isCompatibleReputation(entityplayer) && isConquestUnlockable(entityplayer) && isConquered(entityplayer);
 	}
 
 	@SuppressWarnings("InnerClassFieldHidesOuterClassField")

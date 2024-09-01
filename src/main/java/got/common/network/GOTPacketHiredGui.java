@@ -19,7 +19,7 @@ public class GOTPacketHiredGui implements IMessage {
 	private boolean openGui;
 	private boolean inCombat;
 	private boolean guardMode;
-	private float alignmentRequired;
+	private float reputationRequired;
 	private int guardRange;
 	private int entityID;
 	private int mobKills;
@@ -43,7 +43,7 @@ public class GOTPacketHiredGui implements IMessage {
 		teleportAutomatically = data.readBoolean();
 		mobKills = data.readInt();
 		xp = data.readInt();
-		alignmentRequired = data.readFloat();
+		reputationRequired = data.readFloat();
 		pledgeType = GOTUnitTradeEntry.PledgeType.forID(data.readByte());
 		inCombat = data.readBoolean();
 		guardMode = data.readBoolean();
@@ -59,7 +59,7 @@ public class GOTPacketHiredGui implements IMessage {
 		data.writeBoolean(teleportAutomatically);
 		data.writeInt(mobKills);
 		data.writeInt(xp);
-		data.writeFloat(alignmentRequired);
+		data.writeFloat(reputationRequired);
 		data.writeByte(pledgeType.getTypeID());
 		data.writeBoolean(inCombat);
 		data.writeBoolean(guardMode);
@@ -106,12 +106,12 @@ public class GOTPacketHiredGui implements IMessage {
 		this.xp = xp;
 	}
 
-	public float getAlignmentRequired() {
-		return alignmentRequired;
+	public float getReputationRequired() {
+		return reputationRequired;
 	}
 
-	public void setAlignmentRequired(float alignmentRequired) {
-		this.alignmentRequired = alignmentRequired;
+	public void setReputationRequired(float reputationRequired) {
+		this.reputationRequired = reputationRequired;
 	}
 
 	public GOTUnitTradeEntry.PledgeType getPledgeType() {

@@ -29,7 +29,7 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements GOTBiome.I
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

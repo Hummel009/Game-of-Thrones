@@ -32,13 +32,13 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 			if (entityplayer.capabilities.isCreativeMode) {
 				return false;
 			}
-			float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.ASSHAI);
+			float reputation = GOTLevelData.getData(entityplayer).getReputation(GOTFaction.ASSHAI);
 			float max = 100.0f;
-			if (alignment >= max) {
+			if (reputation >= max) {
 				return false;
 			}
-			if (alignment > 0.0f) {
-				float f = alignment / max;
+			if (reputation > 0.0f) {
+				float f = reputation / max;
 				f = 1.0f - f;
 				return entity.getRNG().nextFloat() < f;
 			}

@@ -11,7 +11,7 @@ import net.minecraft.world.EnumDifficulty;
 public class GOTPacketLogin implements IMessage {
 	private EnumDifficulty difficulty;
 	private boolean difficultyLocked;
-	private boolean alignmentZones;
+	private boolean reputationZones;
 	private boolean feastMode;
 	private boolean fellowshipCreation;
 	private boolean enchanting;
@@ -36,7 +36,7 @@ public class GOTPacketLogin implements IMessage {
 		byte diff = data.readByte();
 		difficulty = diff >= 0 ? EnumDifficulty.getDifficultyEnum(diff) : null;
 		difficultyLocked = data.readBoolean();
-		alignmentZones = data.readBoolean();
+		reputationZones = data.readBoolean();
 		feastMode = data.readBoolean();
 		fellowshipCreation = data.readBoolean();
 		fellowshipMaxSize = data.readInt();
@@ -57,7 +57,7 @@ public class GOTPacketLogin implements IMessage {
 		int diff = difficulty == null ? -1 : difficulty.getDifficultyId();
 		data.writeByte(diff);
 		data.writeBoolean(difficultyLocked);
-		data.writeBoolean(alignmentZones);
+		data.writeBoolean(reputationZones);
 		data.writeBoolean(feastMode);
 		data.writeBoolean(fellowshipCreation);
 		data.writeInt(fellowshipMaxSize);
@@ -96,8 +96,8 @@ public class GOTPacketLogin implements IMessage {
 		this.difficultyLocked = difficultyLocked;
 	}
 
-	public void setAlignmentZones(boolean alignmentZones) {
-		this.alignmentZones = alignmentZones;
+	public void setReputationZones(boolean reputationZones) {
+		this.reputationZones = reputationZones;
 	}
 
 	public void setFeastMode(boolean feastMode) {
@@ -146,7 +146,7 @@ public class GOTPacketLogin implements IMessage {
 				GOTLevelData.setSavedDifficulty(null);
 			}
 			GOTLevelData.setDifficultyLocked(packet.difficultyLocked);
-			GOTLevelData.setEnableAlignmentZones(packet.alignmentZones);
+			GOTLevelData.setEnableReputationZones(packet.reputationZones);
 			GOTLevelData.setClientSideThisServerFeastMode(packet.feastMode);
 			GOTLevelData.setClientSideThisServerFellowshipCreation(packet.fellowshipCreation);
 			GOTLevelData.setClientSideThisServerFellowshipMaxSize(packet.fellowshipMaxSize);

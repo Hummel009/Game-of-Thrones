@@ -24,7 +24,7 @@ public class GOTEntityMaceTyrell extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 500.0f;
 	}
 

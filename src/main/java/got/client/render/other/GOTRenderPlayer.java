@@ -8,7 +8,7 @@ import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTCapes;
 import got.common.database.GOTShields;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.fellowship.GOTFellowshipClient;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
@@ -30,9 +30,9 @@ public class GOTRenderPlayer {
 	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 	private static final RenderManager RENDER_MANAGER = RenderManager.instance;
 
-	private static boolean shouldRenderAlignment(EntityPlayer entityplayer) {
-		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
-			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
+	private static boolean shouldRenderReputation(EntityPlayer entityplayer) {
+		if (GOTConfig.displayReputationAboveHead && shouldRenderPlayerHUD(entityplayer)) {
+			if (GOTLevelData.getData(entityplayer).getHideReputation()) {
 				UUID playerUuid = entityplayer.getUniqueID();
 				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
 				for (GOTFellowshipClient fs : fellowships) {
@@ -78,10 +78,10 @@ public class GOTRenderPlayer {
 		float fr1 = f1 - (float) d1;
 		float fr2 = f2 - (float) d2;
 		float yOffset = entityplayer.isPlayerSleeping() ? -1.5f : 0.0f;
-		if (shouldRenderAlignment(entityplayer) && (MINECRAFT.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment)) {
+		if (shouldRenderReputation(entityplayer) && (MINECRAFT.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowReputation)) {
 			GOTPlayerData clientPD = GOTLevelData.getData(MINECRAFT.thePlayer);
 			GOTPlayerData otherPD = GOTLevelData.getData(entityplayer);
-			float alignment = otherPD.getAlignment(clientPD.getViewingFaction());
+			float reputation = otherPD.getReputation(clientPD.getViewingFaction());
 			double dist = entityplayer.getDistanceSqToEntity(RENDER_MANAGER.livingPlayer);
 			float range = RendererLivingEntity.NAME_TAG_RANGE;
 			if (dist < range * range) {
@@ -101,10 +101,10 @@ public class GOTRenderPlayer {
 				GL11.glEnable(3042);
 				GL11.glBlendFunc(770, 771);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				String sAlign = GOTAlignmentValues.formatAlignForDisplay(alignment);
-				MINECRAFT.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+				String sAlign = GOTReputationValues.formatAlignForDisplay(reputation);
+				MINECRAFT.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 				GOTTickHandlerClient.drawTexturedModalRect(-MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -19.0, 0, 36, 16, 16);
-				GOTTickHandlerClient.drawAlignmentText(fr, 18 - MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -12, sAlign, 1.0f);
+				GOTTickHandlerClient.drawReputationText(fr, 18 - MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -12, sAlign, 1.0f);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glDisable(3042);
 				GL11.glEnable(2929);

@@ -14,7 +14,7 @@ public class GOTEntityIbbenBartender extends GOTEntityIbbenMan implements GOTTra
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

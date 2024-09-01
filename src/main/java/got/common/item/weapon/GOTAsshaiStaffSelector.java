@@ -80,7 +80,7 @@ public class GOTAsshaiStaffSelector {
 		EntityPlayer attackerOwner = ((GOTEntityNPC) attacker).getHireableInfo().getHiringPlayer();
 		if (attackerOwner != null) {
 			GOTPlayerData attackerOwnerData = GOTLevelData.getData(attackerOwner);
-			if (attackerOwnerData.getAlignment(targetFaction) < 0) {
+			if (attackerOwnerData.getReputation(targetFaction) < 0) {
 				if (!target.isCivilian() || attacker.getFaction().isApprovesWarCrimes()) {
 					return true;
 				}
@@ -105,7 +105,7 @@ public class GOTAsshaiStaffSelector {
 		}
 		GOTPlayerData targetData = GOTLevelData.getData(target);
 		GOTFaction attackerFaction = attacker.getFaction();
-		if (targetData.getAlignment(attackerFaction) < 0) {
+		if (targetData.getReputation(attackerFaction) < 0) {
 			return true;
 		}
 		return false;

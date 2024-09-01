@@ -96,7 +96,7 @@ public enum GOTMiniQuestFactory {
 	private boolean noAlignRewardForEnemy;
 	private GOTMiniQuestFactory baseSpeechGroup;
 	private GOTAchievement questAchievement;
-	private GOTFaction alignmentRewardOverride;
+	private GOTFaction reputationRewardOverride;
 
 	GOTMiniQuestFactory() {
 		faction = GOTFaction.UNALIGNED;
@@ -394,9 +394,9 @@ public enum GOTMiniQuestFactory {
 		questFactories.computeIfAbsent(registryClass, k -> new ArrayList<>()).add(factory);
 	}
 
-	public GOTFaction checkAlignmentRewardFaction(GOTFaction fac) {
-		if (alignmentRewardOverride != null) {
-			return alignmentRewardOverride;
+	public GOTFaction checkReputationRewardFaction(GOTFaction fac) {
+		if (reputationRewardOverride != null) {
+			return reputationRewardOverride;
 		}
 		return fac;
 	}
@@ -470,7 +470,7 @@ public enum GOTMiniQuestFactory {
 		this.questAchievement = questAchievement;
 	}
 
-	public void setAlignmentRewardOverride(GOTFaction alignmentRewardOverride) {
-		this.alignmentRewardOverride = alignmentRewardOverride;
+	public void setReputationRewardOverride(GOTFaction reputationRewardOverride) {
+		this.reputationRewardOverride = reputationRewardOverride;
 	}
 }

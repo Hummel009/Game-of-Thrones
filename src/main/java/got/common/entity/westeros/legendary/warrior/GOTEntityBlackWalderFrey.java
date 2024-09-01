@@ -21,7 +21,7 @@ public class GOTEntityBlackWalderFrey extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 100.0f;
 	}
 

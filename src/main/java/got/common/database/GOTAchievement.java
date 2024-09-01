@@ -973,13 +973,13 @@ public class GOTAchievement {
 	}
 
 	public boolean canPlayerEarn(EntityPlayer entityplayer) {
-		float alignment;
+		float reputation;
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		if (!allyFactions.isEmpty()) {
 			boolean anyAllies = false;
 			for (GOTFaction f : allyFactions) {
-				alignment = playerData.getAlignment(f);
-				if (alignment < 0.0f) {
+				reputation = playerData.getReputation(f);
+				if (reputation < 0.0f) {
 					continue;
 				}
 				anyAllies = true;

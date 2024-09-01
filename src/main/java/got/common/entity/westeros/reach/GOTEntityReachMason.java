@@ -15,7 +15,7 @@ public class GOTEntityReachMason extends GOTEntityReachMan implements GOTTradeab
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

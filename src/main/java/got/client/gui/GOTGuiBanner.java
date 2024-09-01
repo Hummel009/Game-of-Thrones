@@ -5,7 +5,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTBannerProtection;
 import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.utils.GOTBannerWhitelistEntry;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.fellowship.GOTFellowshipProfile;
 import got.common.network.GOTPacketBannerRequestInvalidName;
 import got.common.network.GOTPacketEditBanner;
@@ -41,7 +41,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	private GOTBannerProtection.Permission mouseOverPermission;
 	private GOTGuiButtonBanner buttonSelfProtection;
 	private GOTGuiButtonBanner buttonDefaultPermissions;
-	private GuiTextField alignmentField;
+	private GuiTextField reputationField;
 	private GuiButton buttonMode;
 	private GuiButton buttonAddSlot;
 	private GuiButton buttonRemoveSlot;
@@ -142,8 +142,8 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		permissionsMouseoverY = -1;
 		mouseOverPermission = null;
 		setupScrollBar(i, j);
-		alignmentField.setVisible(false);
-		alignmentField.setEnabled(false);
+		reputationField.setVisible(false);
+		reputationField.setEnabled(false);
 		for (GuiTextField textBox : allowedPlayers) {
 			textBox.setVisible(false);
 			textBox.setEnabled(false);
@@ -207,15 +207,15 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			buttonMode.displayString = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.faction");
 			s = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.protectionMode.faction.desc.1");
 			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46, 4210752);
-			s = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.protectionMode.faction.desc.2", theBanner.getAlignmentProtection(), theBanner.getBannerType().getFaction().factionName());
+			s = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.protectionMode.faction.desc.2", theBanner.getReputationProtection(), theBanner.getBannerType().getFaction().factionName());
 			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT, 4210752);
 			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.faction.desc.3");
 			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT * 2, 4210752);
-			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.faction.alignment");
-			fontRendererObj.drawString(s, alignmentField.xPosition, alignmentField.yPosition - fontRendererObj.FONT_HEIGHT - 3, 4210752);
-			alignmentField.setVisible(true);
-			alignmentField.setEnabled(true);
-			alignmentField.drawTextBox();
+			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.faction.reputation");
+			fontRendererObj.drawString(s, reputationField.xPosition, reputationField.yPosition - fontRendererObj.FONT_HEIGHT - 3, 4210752);
+			reputationField.setVisible(true);
+			reputationField.setEnabled(true);
+			reputationField.drawTextBox();
 		}
 		if (permissionsOpenIndex >= 0) {
 			int windowX = guiLeft + X_SIZE + PERM_WINDOW_BORDER;
@@ -308,9 +308,9 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		buttonDefaultPermissions = new GOTGuiButtonBanner(2, guiLeft + X_SIZE / 2 + 8, guiTop + 224, 200, 134);
 		buttonList.add(buttonDefaultPermissions);
 		buttonDefaultPermissions.setActivated(true);
-		alignmentField = new GuiTextField(fontRendererObj, guiLeft + X_SIZE / 2 - 70, guiTop + 100, 130, 18);
-		alignmentField.setText(String.valueOf(theBanner.getAlignmentProtection()));
-		alignmentField.setEnabled(false);
+		reputationField = new GuiTextField(fontRendererObj, guiLeft + X_SIZE / 2 - 70, guiTop + 100, 130, 18);
+		reputationField.setText(String.valueOf(theBanner.getReputationProtection()));
+		reputationField.setEnabled(false);
 		refreshWhitelist();
 		for (int i = 0; i < allowedPlayers.length; ++i) {
 			String name;
@@ -330,7 +330,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 
 	@Override
 	public void keyTyped(char c, int i) {
-		if (alignmentField.getVisible() && alignmentField.textboxKeyTyped(c, i)) {
+		if (reputationField.getVisible() && reputationField.textboxKeyTyped(c, i)) {
 			return;
 		}
 		for (int l = 1; l < allowedPlayers.length; ++l) {
@@ -359,8 +359,8 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	public void mouseClicked(int i, int j, int k) {
 		int dx;
 		super.mouseClicked(i, j, k);
-		if (alignmentField.getVisible()) {
-			alignmentField.mouseClicked(i, j, k);
+		if (reputationField.getVisible()) {
+			reputationField.mouseClicked(i, j, k);
 		}
 		for (int l = 1; l < allowedPlayers.length; ++l) {
 			GuiTextField textBox = allowedPlayers[l];
@@ -468,7 +468,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		GOTPacketEditBanner packet = new GOTPacketEditBanner(theBanner);
 		packet.setPlayerSpecificProtection(theBanner.isPlayerSpecificProtection());
 		packet.setSelfProtection(theBanner.isSelfProtection());
-		packet.setAlignmentProtection(theBanner.getAlignmentProtection());
+		packet.setReputationProtection(theBanner.getReputationProtection());
 		packet.setWhitelistLength(theBanner.getWhitelistLength());
 		if (sendWhitelist) {
 			String[] whitelistSlots = new String[allowedPlayers.length];
@@ -532,16 +532,16 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		buttonAddSlot.visible = buttonRemoveSlot.visible = theBanner.isPlayerSpecificProtection();
 		buttonAddSlot.enabled = theBanner.getWhitelistLength() < GOTEntityBanner.WHITELIST_MAX;
 		buttonRemoveSlot.enabled = theBanner.getWhitelistLength() > GOTEntityBanner.WHITELIST_MIN;
-		alignmentField.updateCursorCounter();
-		alignmentField.setVisible(!theBanner.isPlayerSpecificProtection());
-		alignmentField.setEnabled(alignmentField.getVisible());
-		if (alignmentField.getVisible() && !alignmentField.isFocused()) {
-			float prevAlignment = theBanner.getAlignmentProtection();
-			float alignment = GOTAlignmentValues.parseDisplayedAlign(alignmentField.getText());
-			alignment = MathHelper.clamp_float(alignment, GOTEntityBanner.ALIGNMENT_PROTECTION_MIN, GOTEntityBanner.ALIGNMENT_PROTECTION_MAX);
-			theBanner.setAlignmentProtection(alignment);
-			alignmentField.setText(GOTAlignmentValues.formatAlignForDisplay(alignment));
-			if (alignment != prevAlignment) {
+		reputationField.updateCursorCounter();
+		reputationField.setVisible(!theBanner.isPlayerSpecificProtection());
+		reputationField.setEnabled(reputationField.getVisible());
+		if (reputationField.getVisible() && !reputationField.isFocused()) {
+			float prevReputation = theBanner.getReputationProtection();
+			float reputation = GOTReputationValues.parseDisplayedAlign(reputationField.getText());
+			reputation = MathHelper.clamp_float(reputation, GOTEntityBanner.REPUTATION_PROTECTION_MIN, GOTEntityBanner.REPUTATION_PROTECTION_MAX);
+			theBanner.setReputationProtection(reputation);
+			reputationField.setText(GOTReputationValues.formatAlignForDisplay(reputation));
+			if (reputation != prevReputation) {
 				sendBannerData(false);
 			}
 		}

@@ -34,7 +34,7 @@ public class GOTEntityJogosNhaiMan extends GOTEntityHumanBase implements GOTBiom
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

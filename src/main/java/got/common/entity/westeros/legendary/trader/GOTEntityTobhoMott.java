@@ -23,7 +23,7 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTSmith {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 10.0f;
 	}
 

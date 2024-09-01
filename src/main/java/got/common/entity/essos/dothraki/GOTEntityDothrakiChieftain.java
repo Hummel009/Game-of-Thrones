@@ -17,7 +17,7 @@ public class GOTEntityDothrakiChieftain extends GOTEntityDothraki implements GOT
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

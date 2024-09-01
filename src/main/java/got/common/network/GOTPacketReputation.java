@@ -13,24 +13,24 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class GOTPacketAlignment implements IMessage {
-	private final Map<GOTFaction, Float> alignmentMap = new EnumMap<>(GOTFaction.class);
+public class GOTPacketReputation implements IMessage {
+	private final Map<GOTFaction, Float> reputationMap = new EnumMap<>(GOTFaction.class);
 
 	private UUID player;
-	private boolean hideAlignment;
+	private boolean hideReputation;
 
 	@SuppressWarnings("unused")
-	public GOTPacketAlignment() {
+	public GOTPacketReputation() {
 	}
 
-	public GOTPacketAlignment(UUID uuid) {
+	public GOTPacketReputation(UUID uuid) {
 		player = uuid;
 		GOTPlayerData pd = GOTLevelData.getData(player);
 		for (GOTFaction f : GOTFaction.values()) {
-			float al = pd.getAlignment(f);
-			alignmentMap.put(f, al);
+			float al = pd.getReputation(f);
+			reputationMap.put(f, al);
 		}
-		hideAlignment = pd.getHideAlignment();
+		hideReputation = pd.getHideReputation();
 	}
 
 	@Override
@@ -39,37 +39,37 @@ public class GOTPacketAlignment implements IMessage {
 		byte factionID;
 		while ((factionID = data.readByte()) >= 0) {
 			GOTFaction f = GOTFaction.forID(factionID);
-			float alignment = data.readFloat();
-			alignmentMap.put(f, alignment);
+			float reputation = data.readFloat();
+			reputationMap.put(f, reputation);
 		}
-		hideAlignment = data.readBoolean();
+		hideReputation = data.readBoolean();
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
 		data.writeLong(player.getMostSignificantBits());
 		data.writeLong(player.getLeastSignificantBits());
-		for (Map.Entry<GOTFaction, Float> entry : alignmentMap.entrySet()) {
+		for (Map.Entry<GOTFaction, Float> entry : reputationMap.entrySet()) {
 			GOTFaction f = entry.getKey();
-			float alignment = entry.getValue();
+			float reputation = entry.getValue();
 			data.writeByte(f.ordinal());
-			data.writeFloat(alignment);
+			data.writeFloat(reputation);
 		}
 		data.writeByte(-1);
-		data.writeBoolean(hideAlignment);
+		data.writeBoolean(hideReputation);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketAlignment, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketReputation, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketAlignment packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketReputation packet, MessageContext context) {
 			if (!GOT.proxy.isSingleplayer()) {
 				GOTPlayerData pd = GOTLevelData.getData(packet.player);
-				for (Map.Entry<GOTFaction, Float> entry : packet.alignmentMap.entrySet()) {
+				for (Map.Entry<GOTFaction, Float> entry : packet.reputationMap.entrySet()) {
 					GOTFaction f = entry.getKey();
-					float alignment = entry.getValue();
-					pd.setAlignment(f, alignment);
+					float reputation = entry.getValue();
+					pd.setReputation(f, reputation);
 				}
-				pd.setHideAlignment(packet.hideAlignment);
+				pd.setHideReputation(packet.hideReputation);
 			}
 			return null;
 		}

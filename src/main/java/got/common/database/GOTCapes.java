@@ -20,7 +20,7 @@ public enum GOTCapes {
 	private final ResourceLocation capeTexture;
 	private final UUID[] exclusiveUUIDs;
 
-	private GOTFaction alignmentFaction;
+	private GOTFaction reputationFaction;
 	private boolean isHidden;
 
 	GOTCapes(boolean hidden, List<String> players) {
@@ -28,8 +28,8 @@ public enum GOTCapes {
 	}
 
 	GOTCapes(GOTFaction faction) {
-		this(CapeType.ALIGNMENT, false, new ArrayList<>());
-		alignmentFaction = faction;
+		this(CapeType.REPUTATION, false, new ArrayList<>());
+		reputationFaction = faction;
 	}
 
 	GOTCapes(CapeType type, boolean hidden, List<String> players) {
@@ -64,8 +64,8 @@ public enum GOTCapes {
 	}
 
 	public boolean canPlayerWear(EntityPlayer entityplayer) {
-		if (capeType == CapeType.ALIGNMENT) {
-			return GOTLevelData.getData(entityplayer).getAlignment(alignmentFaction) >= 100.0f;
+		if (capeType == CapeType.REPUTATION) {
+			return GOTLevelData.getData(entityplayer).getReputation(reputationFaction) >= 100.0f;
 		}
 		if (capeType == CapeType.EXCLUSIVE) {
 			for (UUID uuid : exclusiveUUIDs) {
@@ -79,7 +79,7 @@ public enum GOTCapes {
 	}
 
 	public String getCapeDesc() {
-		if (capeType == CapeType.ALIGNMENT) {
+		if (capeType == CapeType.REPUTATION) {
 			return StatCollector.translateToLocal("got.attribute.desc");
 		}
 		return StatCollector.translateToLocal("got.capes." + name() + ".desc");
@@ -93,8 +93,8 @@ public enum GOTCapes {
 		isHidden = hidden;
 	}
 
-	public GOTFaction getAlignmentFaction() {
-		return alignmentFaction;
+	public GOTFaction getReputationFaction() {
+		return reputationFaction;
 	}
 
 	public CapeType getCapeType() {
@@ -110,7 +110,7 @@ public enum GOTCapes {
 	}
 
 	public enum CapeType {
-		ALIGNMENT, EXCLUSIVE;
+		REPUTATION, EXCLUSIVE;
 
 		private final List<GOTCapes> capes = new ArrayList<>();
 

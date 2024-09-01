@@ -62,7 +62,7 @@ public class GOTHireableInfo {
 	private boolean targetFromCommandSword;
 	private boolean wasAttackCommanded;
 
-	private float alignmentRequiredToCommand;
+	private float reputationRequiredToCommand;
 
 	private int mobKills;
 	private int xp;
@@ -213,23 +213,23 @@ public class GOTHireableInfo {
 	}
 
 	public boolean hasHiringRequirements() {
-		return theEntity.getFaction().isPlayableAlignmentFaction() && alignmentRequiredToCommand >= 0.0f;
+		return theEntity.getFaction().isPlayableReputationFaction() && reputationRequiredToCommand >= 0.0f;
 	}
 
 	public void hireUnit(EntityPlayer entityplayer, boolean setLocation, GOTFaction hiringFaction, GOTUnitTradeEntry tradeEntry, String squadron, Entity mount) {
-		float alignment = tradeEntry.getAlignmentRequired();
+		float reputation = tradeEntry.getReputationRequired();
 		GOTUnitTradeEntry.PledgeType pledge = tradeEntry.getPledgeType();
 		Task task = tradeEntry.getTask();
 		if (setLocation) {
 			theEntity.setLocationAndAngles(entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, entityplayer.rotationYaw + 180.0f, 0.0f);
 		}
 		isActive = true;
-		alignmentRequiredToCommand = alignment;
+		reputationRequiredToCommand = reputation;
 		pledgeType = pledge;
 		setHiringPlayer(entityplayer);
 		setTask(task);
 		setHiredSquadron(squadron);
-		if (hiringFaction != null && hiringFaction.isPlayableAlignmentFaction()) {
+		if (hiringFaction != null && hiringFaction.isPlayableReputationFaction()) {
 			GOTLevelData.getData(entityplayer).getFactionData(hiringFaction).addHire();
 		}
 		if (mount != null) {
@@ -297,7 +297,7 @@ public class GOTHireableInfo {
 				int addXP = 0;
 				GOTFaction unitFaction = theEntity.getFaction();
 				if (target instanceof EntityPlayer) {
-					wasEnemy = GOTLevelData.getData((EntityPlayer) target).getAlignment(unitFaction) < 0.0f;
+					wasEnemy = GOTLevelData.getData((EntityPlayer) target).getReputation(unitFaction) < 0.0f;
 				} else {
 					GOTFaction targetFaction = GOT.getNPCFaction(target);
 					if (targetFaction.isBadRelation(unitFaction) || unitFaction == GOTFaction.UNALIGNED && targetFaction != GOTFaction.UNALIGNED) {
@@ -375,7 +375,7 @@ public class GOTHireableInfo {
 			if (hasHiringRequirements() && isActive && (entityplayer = getHiringPlayer()) != null) {
 				GOTFaction fac = theEntity.getFaction();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				boolean canCommand = pd.getAlignment(fac) >= alignmentRequiredToCommand;
+				boolean canCommand = pd.getReputation(fac) >= reputationRequiredToCommand;
 				if (!pledgeType.canAcceptPlayer(entityplayer, fac)) {
 					canCommand = false;
 				}
@@ -410,7 +410,7 @@ public class GOTHireableInfo {
 				hiringPlayerUUID = UUID.fromString(savedUUID);
 			}
 			isActive = data.getBoolean("IsActive");
-			alignmentRequiredToCommand = data.hasKey("AlignmentRequired") ? data.getInteger("AlignmentRequired") : data.getFloat("AlignReqF");
+			reputationRequiredToCommand = data.hasKey("ReputationRequired") ? data.getInteger("ReputationRequired") : data.getFloat("AlignReqF");
 			if (data.hasKey("PledgeType")) {
 				byte pledgeID = data.getByte("PledgeType");
 				pledgeType = GOTUnitTradeEntry.PledgeType.forID(pledgeID);
@@ -456,7 +456,7 @@ public class GOTHireableInfo {
 		teleportAutomatically = packet.isTeleportAutomatically();
 		mobKills = packet.getMobKills();
 		xp = packet.getXp();
-		alignmentRequiredToCommand = packet.getAlignmentRequired();
+		reputationRequiredToCommand = packet.getReputationRequired();
 		pledgeType = packet.getPledgeType();
 		inCombat = packet.isInCombat();
 		guardMode = packet.isGuardMode();
@@ -490,7 +490,7 @@ public class GOTHireableInfo {
 		packet.setTeleportAutomatically(teleportAutomatically);
 		packet.setMobKills(mobKills);
 		packet.setXp(xp);
-		packet.setAlignmentRequired(alignmentRequiredToCommand);
+		packet.setReputationRequired(reputationRequiredToCommand);
 		packet.setPledgeType(pledgeType);
 		packet.setInCombat(inCombat);
 		packet.setGuardMode(guardMode);
@@ -593,7 +593,7 @@ public class GOTHireableInfo {
 		if (hiringPlayerUUID != null) {
 			data.setString("HiringPlayerUUID", hiringPlayerUUID.toString());
 		}
-		data.setFloat("AlignReqF", alignmentRequiredToCommand);
+		data.setFloat("AlignReqF", reputationRequiredToCommand);
 		data.setByte("PledgeType", (byte) pledgeType.getTypeID());
 		data.setBoolean("CanMove", canMove);
 		data.setBoolean("TeleportAutomatically", teleportAutomatically);
@@ -652,8 +652,8 @@ public class GOTHireableInfo {
 		this.wasAttackCommanded = wasAttackCommanded;
 	}
 
-	public float getAlignmentRequiredToCommand() {
-		return alignmentRequiredToCommand;
+	public float getReputationRequiredToCommand() {
+		return reputationRequiredToCommand;
 	}
 
 	public int getMobKills() {

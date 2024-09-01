@@ -15,7 +15,7 @@ public class GOTEntityQarthFishmonger extends GOTEntityQarthMan implements GOTTr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

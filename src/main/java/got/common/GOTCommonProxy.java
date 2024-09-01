@@ -6,7 +6,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityBanner;
-import got.common.faction.GOTAlignmentBonusMap;
+import got.common.faction.GOTReputationBonusMap;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketFellowshipAcceptInviteResult;
 import got.common.network.GOTPacketMenuPrompt;
@@ -39,7 +39,7 @@ public class GOTCommonProxy {
 	public void clientReceiveSpeech(GOTEntityNPC npc, String speech) {
 	}
 
-	public void displayAlignmentSee(String username, Map<GOTFaction, Float> alignments) {
+	public void displayReputationSee(String username, Map<GOTFaction, Float> reputations) {
 	}
 
 	public void displayBannerGui(GOTEntityBanner banner) {
@@ -277,7 +277,7 @@ public class GOTCommonProxy {
 	public void showFrostOverlay() {
 	}
 
-	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, float conquestBonus, double posX, double posY, double posZ) {
+	public void spawnReputationBonus(GOTFaction faction, float prevMainReputation, GOTReputationBonusMap factionBonusMap, String name, float conquestBonus, double posX, double posY, double posZ) {
 	}
 
 	public void spawnParticle(String type, double d, double d1, double d2, double d3, double d4, double d5) {

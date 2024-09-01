@@ -22,7 +22,7 @@ public class GOTEntityIronbornCaptain extends GOTEntityIronbornMan implements GO
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

@@ -14,7 +14,7 @@ public class GOTEntityCrownlandsButcher extends GOTEntityCrownlandsMan implement
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

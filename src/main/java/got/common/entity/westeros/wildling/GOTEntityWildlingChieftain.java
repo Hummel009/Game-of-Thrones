@@ -15,7 +15,7 @@ public class GOTEntityWildlingChieftain extends GOTEntityWildling implements GOT
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

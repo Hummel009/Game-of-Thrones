@@ -46,7 +46,7 @@ public class GOTEntityNightKing extends GOTEntityNPC {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 500.0f;
 	}
 

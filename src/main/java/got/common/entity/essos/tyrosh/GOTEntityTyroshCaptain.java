@@ -22,7 +22,7 @@ public class GOTEntityTyroshCaptain extends GOTEntityTyroshMan implements GOTUni
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

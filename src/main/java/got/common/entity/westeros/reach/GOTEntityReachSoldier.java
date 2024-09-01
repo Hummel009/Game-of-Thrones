@@ -6,7 +6,7 @@ import got.common.database.GOTCapes;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.other.utils.GOTWeaponSetFactory;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldChunkManager;
@@ -40,10 +40,10 @@ public class GOTEntityReachSoldier extends GOTEntityReachMan {
 			BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 			GOTBiomeVariant variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
 			if (biome instanceof GOTBiomeReachArbor && variant == GOTBiomeVariant.VINEYARD) {
-				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.REACH);
-				boolean evil = alignment < 0.0f;
+				float reputation = GOTLevelData.getData(entityplayer).getReputation(GOTFaction.REACH);
+				boolean evil = reputation < 0.0f;
 				float limit = 2000.0f;
-				float chance = (limit - alignment) / limit;
+				float chance = (limit - reputation) / limit;
 				chance = Math.max(chance, 0.0f);
 				chance = Math.min(chance, 1.0f);
 				chance *= chance;
@@ -113,8 +113,8 @@ public class GOTEntityReachSoldier extends GOTEntityReachMan {
 					guard.sendSpeechBank(entityplayer, "reach/soldier/hostile");
 					anyAlert = true;
 				}
-				if (anyAlert && alignment >= 0.0f) {
-					GOTLevelData.getData(entityplayer).addAlignment(entityplayer, GOTAlignmentValues.VINEYARD_STEAL_PENALTY, GOTFaction.REACH, i + 0.5, j + 0.5, k + 0.5);
+				if (anyAlert && reputation >= 0.0f) {
+					GOTLevelData.getData(entityplayer).addReputation(entityplayer, GOTReputationValues.VINEYARD_STEAL_PENALTY, GOTFaction.REACH, i + 0.5, j + 0.5, k + 0.5);
 				}
 			}
 		}
@@ -131,7 +131,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachMan {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

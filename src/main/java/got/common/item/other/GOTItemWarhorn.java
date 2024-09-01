@@ -9,9 +9,9 @@ import got.common.database.GOTInvasions;
 import got.common.database.GOTItems;
 import got.common.entity.other.inanimate.GOTEntityInvasionSpawner;
 import got.common.entity.other.inanimate.GOTEntityNPCRespawner;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
-import got.common.inventory.GOTSlotAlignmentReward;
+import got.common.inventory.GOTSlotReputationReward;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -71,8 +71,8 @@ public class GOTItemWarhorn extends Item {
 	private static boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
 		GOTInvasions invasionType = getInvasionType(itemstack);
 		GOTFaction invasionFaction = invasionType.getInvasionFaction();
-		float alignmentRequired = GOTSlotAlignmentReward.WARHORN_ALIGNMENT;
-		if (GOTLevelData.getData(entityplayer).getAlignment(invasionFaction) >= alignmentRequired) {
+		float reputationRequired = GOTSlotReputationReward.WARHORN_REPUTATION;
+		if (GOTLevelData.getData(entityplayer).getReputation(invasionFaction) >= reputationRequired) {
 			boolean blocked = GOTBannerProtection.isProtected(world, entityplayer, GOTBannerProtection.forFaction(invasionFaction), false);
 			if (GOTEntityNPCRespawner.isSpawnBlocked(entityplayer, invasionFaction)) {
 				blocked = true;
@@ -86,7 +86,7 @@ public class GOTItemWarhorn extends Item {
 			return true;
 		}
 		if (sendMessage && !world.isRemote) {
-			GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, alignmentRequired, invasionType.getInvasionFaction());
+			GOTReputationValues.notifyReputationNotHighEnough(entityplayer, reputationRequired, invasionType.getInvasionFaction());
 		}
 		return false;
 	}

@@ -20,7 +20,7 @@ import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.inanimate.GOTEntityInvasionSpawner;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.utils.GOTInvasionStatus;
-import got.common.faction.GOTAlignmentBonusMap;
+import got.common.faction.GOTReputationBonusMap;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketClientInfo;
 import got.common.network.GOTPacketFellowshipAcceptInviteResult;
@@ -62,7 +62,7 @@ import java.util.UUID;
 
 public class GOTClientProxy extends GOTCommonProxy {
 	public static final ResourceLocation ENCHANTMENT_TEXTURE = new ResourceLocation("textures/misc/enchanted_item_glint.png");
-	public static final ResourceLocation ALIGNMENT_TEXTURE = new ResourceLocation("got:textures/gui/alignment.png");
+	public static final ResourceLocation REPUTATION_TEXTURE = new ResourceLocation("got:textures/gui/reputation.png");
 	public static final ResourceLocation PARTICLES_TEXTURE = new ResourceLocation("got:textures/misc/particles.png");
 	public static final ResourceLocation PARTICLES_2_TEXTURE = new ResourceLocation("got:textures/misc/particles2.png");
 
@@ -177,9 +177,9 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void displayAlignmentSee(String username, Map<GOTFaction, Float> alignments) {
+	public void displayReputationSee(String username, Map<GOTFaction, Float> reputations) {
 		GOTGuiFactions gui = new GOTGuiFactions();
-		gui.setOtherPlayer(username, alignments);
+		gui.setOtherPlayer(username, reputations);
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.displayGuiScreen(gui);
 	}
@@ -648,10 +648,10 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, float conquestBonus, double posX, double posY, double posZ) {
+	public void spawnReputationBonus(GOTFaction faction, float prevMainReputation, GOTReputationBonusMap factionBonusMap, String name, float conquestBonus, double posX, double posY, double posZ) {
 		World world = getClientWorld();
 		if (world != null) {
-			GOTEntityAlignmentBonus entity = new GOTEntityAlignmentBonus(world, posX, posY, posZ, name, faction, prevMainAlignment, factionBonusMap, conquestBonus);
+			GOTEntityReputationBonus entity = new GOTEntityReputationBonus(world, posX, posY, posZ, name, faction, prevMainReputation, factionBonusMap, conquestBonus);
 			world.spawnEntityInWorld(entity);
 		}
 	}

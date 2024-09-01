@@ -42,13 +42,13 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		this(entity, cls, chance, checkSight, false, selector);
 	}
 
-	protected boolean isPlayerSuitableAlignmentTarget(EntityPlayer entityplayer) {
-		float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOT.getNPCFaction(taskOwner));
-		return alignment < 0.0f;
+	protected boolean isPlayerSuitableReputationTarget(EntityPlayer entityplayer) {
+		float reputation = GOTLevelData.getData(entityplayer).getReputation(GOT.getNPCFaction(taskOwner));
+		return reputation < 0.0f;
 	}
 
 	protected boolean isPlayerSuitableTarget(EntityPlayer entityplayer) {
-		return isPlayerSuitableAlignmentTarget(entityplayer);
+		return isPlayerSuitableReputationTarget(entityplayer);
 	}
 
 	@Override

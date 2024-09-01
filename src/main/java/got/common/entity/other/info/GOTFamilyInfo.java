@@ -129,7 +129,7 @@ public class GOTFamilyInfo {
 			return false;
 		}
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		if (itemstack != null && itemstack.getItem() == GOTItems.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 50.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
+		if (itemstack != null && itemstack.getItem() == GOTItems.goldRing && GOTLevelData.getData(entityplayer).getReputation(theEntity.getFaction()) >= 50.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 				if (itemstack.stackSize <= 0) {

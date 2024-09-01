@@ -16,7 +16,7 @@ public class GOTEntityVargoHoat extends GOTEntityHumanBase implements GOTMercena
 	}
 
 	@Override
-	public float getMercAlignmentRequired() {
+	public float getMercReputationRequired() {
 		return 0.0f;
 	}
 

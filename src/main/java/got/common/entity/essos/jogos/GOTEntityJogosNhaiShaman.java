@@ -16,7 +16,7 @@ public class GOTEntityJogosNhaiShaman extends GOTEntityJogosNhaiMan implements G
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

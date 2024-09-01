@@ -9,7 +9,7 @@ import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.entity.ai.GOTEntityAIUntamedSpiderPanic;
 import got.common.entity.other.iface.GOTNPCMount;
 import got.common.entity.other.utils.GOTMountFunctions;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -225,10 +225,10 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 			return true;
 		}
 		if (canRideSpider() && getAttackTarget() != entityplayer) {
-			boolean hasRequiredAlignment = GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f;
-			boolean notifyNotEnoughAlignment = false;
+			boolean hasRequiredReputation = GOTLevelData.getData(entityplayer).getReputation(getFaction()) >= 50.0f;
+			boolean notifyNotEnoughReputation = false;
 			if (itemstack != null && GOT.isOreNameEqual(itemstack, "bone") && isNPCTamed() && getHealth() < getMaxHealth()) {
-				if (hasRequiredAlignment) {
+				if (hasRequiredReputation) {
 					if (!entityplayer.capabilities.isCreativeMode) {
 						--itemstack.stackSize;
 						if (itemstack.stackSize == 0) {
@@ -239,22 +239,22 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 					playSound(getLivingSound(), getSoundVolume(), getSoundPitch() * 1.5f);
 					return true;
 				}
-				notifyNotEnoughAlignment = true;
+				notifyNotEnoughReputation = true;
 			}
-			if (!notifyNotEnoughAlignment && riddenByEntity == null) {
+			if (!notifyNotEnoughReputation && riddenByEntity == null) {
 				if (itemstack != null && itemstack.interactWithEntity(entityplayer, this)) {
 					return true;
 				}
-				if (hasRequiredAlignment) {
+				if (hasRequiredReputation) {
 					entityplayer.mountEntity(this);
 					setAttackTarget(null);
 					getNavigator().clearPathEntity();
 					return true;
 				}
-				notifyNotEnoughAlignment = true;
+				notifyNotEnoughReputation = true;
 			}
-			if (notifyNotEnoughAlignment) {
-				GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, 50.0f, getFaction());
+			if (notifyNotEnoughReputation) {
+				GOTReputationValues.notifyReputationNotHighEnough(entityplayer, 50.0f, getFaction());
 				return true;
 			}
 		}
@@ -308,7 +308,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPC implements GOTNPC
 				setSpiderClimbing(isCollidedHorizontally);
 			}
 		}
-		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) riddenByEntity).getAlignment(getFaction()) < 50.0f) {
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) riddenByEntity).getReputation(getFaction()) < 50.0f) {
 			riddenByEntity.mountEntity(null);
 		}
 	}

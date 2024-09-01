@@ -14,7 +14,7 @@ public class GOTEntityIbbenMiner extends GOTEntityIbbenMan implements GOTTradeab
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

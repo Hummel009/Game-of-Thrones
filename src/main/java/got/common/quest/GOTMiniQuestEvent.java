@@ -1,10 +1,10 @@
 package got.common.quest;
 
 public interface GOTMiniQuestEvent {
-	class CycleAlignment implements GOTMiniQuestEvent {
+	class CycleReputation implements GOTMiniQuestEvent {
 	}
 
-	class CycleAlignmentRegion implements GOTMiniQuestEvent {
+	class CycleReputationRegion implements GOTMiniQuestEvent {
 	}
 
 	class OpenRedBook implements GOTMiniQuestEvent {

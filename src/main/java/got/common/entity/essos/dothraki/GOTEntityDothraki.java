@@ -42,7 +42,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements GOTBiome.Im
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 1.0f;
 	}
 

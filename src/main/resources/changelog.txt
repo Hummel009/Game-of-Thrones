@@ -49,7 +49,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 
 * Improved asshai staffs' target selectors
 * Improved wiki-generator
-* Improved blizzards' drop, AI and alignment bonus
+* Improved blizzards' drop, AI and reputation bonus
 * Improved mob selector for smoking, drinking, being robbed and being married.
 * Improved sound and volume of a few animals
 * Improved fixed structures system (more clear, optimized and stable)
@@ -64,7 +64,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Improved unit prices
 * Improved beech door texture
 * Improved midges and butterflies: they can't spawn in winter now
-* Improved balance of +alignment values for killing
+* Improved balance of +reputation values for killing
 * Improved biome visit achievements and achievement shields: now require more biomes and achievements.
 * Improved warhorn price
 * Improved ulthos & sothoryos conquest: more biomes to conquer
@@ -397,7 +397,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 + Added strict title rules, as in the LOTR
 + Added min Y limit for waypoint creation, as in the LOTR
 + Added fellowship creation settings, as in the LOTR
-+ Returned alignment zones feature
++ Returned reputation zones feature
 
 * Improved font pack, now with support of extended Latin & Cyrillic alphabets.
 + Improved cold weapon, some bugs and strange stats can be fixed.
@@ -781,7 +781,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 
 >>BUILD 21.03.02
 * REPLACED SOME BRICK & ARMOR TEXTURES DUE TO COPYRIGHT ISSUE
-* Reduced and systematized legendary mobs' alignment points
+* Reduced and systematized legendary mobs' reputation points
 + Added burning arrows (can be crafted like poisoned arrow but sulfur instead of poison)
 
 + Added Harras Harlaw
@@ -903,7 +903,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Fixed bug with towers
 * Fixed bug with workbenches
 * Fixed crash with barrow wraiths
-* Fixed bug with gaining alignment after pledge
+* Fixed bug with gaining reputation after pledge
 * Fixed bug with Summer Islands Table in Dothraki & Jogos Structures
 * Updated commander's banner method and added simplified banner registry
 - Removed Commander's methods that are getting non-public fields through Reflection helper. Use direct coding, as in the original Mod code
@@ -947,7 +947,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 + Added Silence
 + Added Red Castle
 + Added new waypoint
-* Improved Legendary Quest Mechanic: now they are given by characters immediately after reaching +100 alignment. Also, legendary quest can be taken only one time.
+* Improved Legendary Quest Mechanic: now they are given by characters immediately after reaching +100 reputation. Also, legendary quest can be taken only one time.
 * Improved Loras's, Jorah's AI
 * Improved AI NPC follow NPC
 * Improved & optimized rendering system
@@ -1048,7 +1048,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Fixed Mammoths, Elephants, Rhinos attack speed
 * Fixed Sar-mell waypoint
 * Fixed Shields' GUI translations
-* Fixed bug with Hill-Tribes alignment
+* Fixed bug with Hill-Tribes reputation
 * Fixed bugs with crafting recipes
 * Fixed flicking names of Yi Ti
 * Fixed stone debris in all hills
@@ -1446,7 +1446,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 + Added Night King's table
 + Added Oberyn's House
 + Added Sons of the Harpy
-* Fixed alignment zones
+* Fixed reputation zones
 * Fixed mountains
 * Fixed spawning
 * Improved Land of the Shadow biome

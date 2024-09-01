@@ -15,7 +15,7 @@ public class GOTEntityHillmanChieftain extends GOTEntityHillman implements GOTUn
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

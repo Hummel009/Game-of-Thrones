@@ -1,21 +1,21 @@
 package got.client.effect;
 
-import got.common.faction.GOTAlignmentBonusMap;
+import got.common.faction.GOTReputationBonusMap;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class GOTEntityAlignmentBonus extends Entity {
+public class GOTEntityReputationBonus extends Entity {
 	private final String name;
-	private final GOTAlignmentBonusMap factionBonusMap;
+	private final GOTReputationBonusMap factionBonusMap;
 	private final GOTFaction mainFaction;
-	private final float prevMainAlignment;
+	private final float prevMainReputation;
 	private final float conquestBonus;
 	private int particleAge;
 	private int particleMaxAge;
 
-	public GOTEntityAlignmentBonus(World world, double d, double d1, double d2, String s, GOTFaction f, float pre, GOTAlignmentBonusMap fMap, float conqBonus) {
+	public GOTEntityReputationBonus(World world, double d, double d1, double d2, String s, GOTFaction f, float pre, GOTReputationBonusMap fMap, float conqBonus) {
 		super(world);
 		setSize(0.5f, 0.5f);
 		yOffset = height / 2.0f;
@@ -23,7 +23,7 @@ public class GOTEntityAlignmentBonus extends Entity {
 		particleAge = 0;
 		name = s;
 		mainFaction = f;
-		prevMainAlignment = pre;
+		prevMainReputation = pre;
 		factionBonusMap = fMap;
 		conquestBonus = conqBonus;
 		calcMaxAge();
@@ -89,11 +89,11 @@ public class GOTEntityAlignmentBonus extends Entity {
 		return mainFaction;
 	}
 
-	public float getPrevMainAlignment() {
-		return prevMainAlignment;
+	public float getPrevMainReputation() {
+		return prevMainReputation;
 	}
 
-	public GOTAlignmentBonusMap getFactionBonusMap() {
+	public GOTReputationBonusMap getFactionBonusMap() {
 		return factionBonusMap;
 	}
 

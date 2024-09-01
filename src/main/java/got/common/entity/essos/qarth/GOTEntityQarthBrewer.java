@@ -15,7 +15,7 @@ public class GOTEntityQarthBrewer extends GOTEntityQarthMan implements GOTTradea
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

@@ -23,7 +23,7 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 15.0f;
 	}
 

@@ -21,7 +21,7 @@ public class GOTConfig {
 	public static boolean allowBountyQuests;
 	public static boolean allowMiniquests;
 	public static boolean allowSelfProtectingBanners;
-	public static boolean alwaysShowAlignment;
+	public static boolean alwaysShowReputation;
 	public static boolean bladeGlow;
 	public static boolean canAlwaysEat;
 	public static boolean changedHunger;
@@ -29,7 +29,7 @@ public class GOTConfig {
 	public static boolean compassExtraInfo;
 	public static boolean customMainMenu;
 	public static boolean cwpLog;
-	public static boolean displayAlignmentAboveHead;
+	public static boolean displayReputationAboveHead;
 	public static boolean displayCoinCounts;
 	public static boolean displayMusicTrack;
 	public static boolean dropMutton;
@@ -75,8 +75,8 @@ public class GOTConfig {
 	public static int kwrMaxRespawn;
 	public static int kwrMinRespawn;
 	public static int kwrWorldRespawnThreshold;
-	public static int alignmentXOffset;
-	public static int alignmentYOffset;
+	public static int reputationXOffset;
+	public static int reputationYOffset;
 	public static int bannerWarningCooldown;
 	public static int cloudRange;
 	public static int customWaypointMinY;
@@ -176,16 +176,16 @@ public class GOTConfig {
 		preventTraderKidnap = config.get(CATEGORY_GAMEPLAY, "Prevent trader transport range", 0, "Prevent transport of structure-bound traders beyond this distance outside their initial home range (0 = disabled)").getInt();
 		removeDiamondArmorRecipes = config.get(CATEGORY_GAMEPLAY, "Remove diamond armour recipes", false).getBoolean();
 		removeGoldenAppleRecipes = config.get(CATEGORY_GAMEPLAY, "Remove Golden Apple recipes", true).getBoolean();
-		strictFactionTitleRequirements = config.get(CATEGORY_GAMEPLAY, "Strict faction title requirements", false, "Require a pledge to bear faction titles of alignment level equal to the faction's pledge level - not just those titles higher than pledge level").getBoolean();
+		strictFactionTitleRequirements = config.get(CATEGORY_GAMEPLAY, "Strict faction title requirements", false, "Require a pledge to bear faction titles of reputation level equal to the faction's pledge level - not just those titles higher than pledge level").getBoolean();
 		walkerFireDamage = config.get(CATEGORY_GAMEPLAY, "Enable walkers fire damage", false).getBoolean();
 
-		alignmentXOffset = config.get(CATEGORY_GUI, "Alignment x-offset", 0, "Configure the x-position of the alignment bar on-screen. Negative values move it left, positive values right").getInt();
-		alignmentYOffset = config.get(CATEGORY_GUI, "Alignment y-offset", 0, "Configure the y-position of the alignment bar on-screen. Negative values move it up, positive values down").getInt();
-		alwaysShowAlignment = config.get(CATEGORY_GUI, "Always show alignment", false, "If set to false, the alignment bar will only be shown in Middle-earth. If set to true, it will be shown in all dimensions").getBoolean();
+		reputationXOffset = config.get(CATEGORY_GUI, "Reputation x-offset", 0, "Configure the x-position of the reputation bar on-screen. Negative values move it left, positive values right").getInt();
+		reputationYOffset = config.get(CATEGORY_GUI, "Reputation y-offset", 0, "Configure the y-position of the reputation bar on-screen. Negative values move it up, positive values down").getInt();
+		alwaysShowReputation = config.get(CATEGORY_GUI, "Always show reputation", false, "If set to false, the reputation bar will only be shown in Middle-earth. If set to true, it will be shown in all dimensions").getBoolean();
 		bladeGlow = config.get(CATEGORY_GUI, "Animated sword glow", true).getBoolean();
 		compassExtraInfo = config.get(CATEGORY_GUI, "On-screen Compass Extra Info", true, "Display co-ordinates and biome below compass").getBoolean();
 		customMainMenu = config.get(CATEGORY_GUI, "Custom main menu", true, "Use the mod's custom main menu screen").getBoolean();
-		displayAlignmentAboveHead = config.get(CATEGORY_GUI, "Display alignment above head", true, "Enable or disable the rendering of other players' alignment values above their heads").getBoolean();
+		displayReputationAboveHead = config.get(CATEGORY_GUI, "Display reputation above head", true, "Enable or disable the rendering of other players' reputation values above their heads").getBoolean();
 		displayCoinCounts = config.get(CATEGORY_GUI, "Inventory coin counts", true).getBoolean();
 		enableOnscreenCompass = config.get(CATEGORY_GUI, "On-screen Compass", true).getBoolean();
 		enableQuestTracker = config.get(CATEGORY_GUI, "Enable quest tracker", true).getBoolean();

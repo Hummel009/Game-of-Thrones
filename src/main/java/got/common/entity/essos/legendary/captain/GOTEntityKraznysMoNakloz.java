@@ -24,7 +24,7 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 500.0f;
 	}
 

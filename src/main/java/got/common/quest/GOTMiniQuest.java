@@ -11,8 +11,8 @@ import got.common.database.GOTSpeech;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.entity.other.utils.GOTUnitTradeEntry;
-import got.common.faction.GOTAlignmentBonusMap;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationBonusMap;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemCoin;
 import got.common.item.other.GOTItemModifierTemplate;
@@ -73,7 +73,7 @@ public abstract class GOTMiniQuest {
 	protected boolean wasHired;
 	protected boolean willHire;
 	protected float rewardFactor = 1.0f;
-	protected float hiringAlignment;
+	protected float hiringReputation;
 	protected int dateCompleted;
 	protected int coinsRewarded;
 
@@ -82,7 +82,7 @@ public abstract class GOTMiniQuest {
 	private UUID questUUID;
 
 	private boolean entityDead;
-	private float alignmentRewarded;
+	private float reputationRewarded;
 	private int questColor;
 	private int dateGiven;
 
@@ -124,7 +124,7 @@ public abstract class GOTMiniQuest {
 	}
 
 	public boolean anyRewardsGiven() {
-		return alignmentRewarded > 0.0f || coinsRewarded > 0 || !itemsRewarded.isEmpty();
+		return reputationRewarded > 0.0f || coinsRewarded > 0 || !itemsRewarded.isEmpty();
 	}
 
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
@@ -141,15 +141,15 @@ public abstract class GOTMiniQuest {
 		dateCompleted = GOTDate.AegonCalendar.getCurrentDay();
 		Random rand = npc.getRNG();
 		List<ItemStack> dropItems = new ArrayList<>();
-		float alignment = getAlignmentBonus();
-		if (alignment != 0.0f) {
-			alignment *= MathHelper.randomFloatClamp(rand, 0.75f, 1.25f);
-			alignment = Math.max(alignment, 1.0f);
-			GOTAlignmentValues.AlignmentBonus bonus = GOTAlignmentValues.createMiniquestBonus(alignment);
-			GOTFaction rewardFaction = getAlignmentRewardFaction();
-			if (!questGroup.isNoAlignRewardForEnemy() || playerData.getAlignment(rewardFaction) >= 0.0f) {
-				GOTAlignmentBonusMap alignmentMap = playerData.addAlignment(entityplayer, bonus, rewardFaction, npc);
-				alignmentRewarded = alignmentMap.get(rewardFaction);
+		float reputation = getReputationBonus();
+		if (reputation != 0.0f) {
+			reputation *= MathHelper.randomFloatClamp(rand, 0.75f, 1.25f);
+			reputation = Math.max(reputation, 1.0f);
+			GOTReputationValues.ReputationBonus bonus = GOTReputationValues.createMiniquestBonus(reputation);
+			GOTFaction rewardFaction = getReputationRewardFaction();
+			if (!questGroup.isNoAlignRewardForEnemy() || playerData.getReputation(rewardFaction) >= 0.0f) {
+				GOTReputationBonusMap reputationMap = playerData.addReputation(entityplayer, bonus, rewardFaction, npc);
+				reputationRewarded = reputationMap.get(rewardFaction);
 			}
 		}
 		int coins = getCoinBonus();
@@ -207,7 +207,7 @@ public abstract class GOTMiniQuest {
 			npc.dropItemList(dropItems, true);
 		}
 		if (willHire) {
-			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringAlignment);
+			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringReputation);
 			tradeEntry.setTask(GOTHireableInfo.Task.WARRIOR);
 			npc.getHireableInfo().hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
 			wasHired = true;
@@ -223,10 +223,10 @@ public abstract class GOTMiniQuest {
 		}
 	}
 
-	protected abstract float getAlignmentBonus();
+	protected abstract float getReputationBonus();
 
-	private GOTFaction getAlignmentRewardFaction() {
-		return questGroup.checkAlignmentRewardFaction(entityFaction);
+	private GOTFaction getReputationRewardFaction() {
+		return questGroup.checkReputationRewardFaction(entityFaction);
 	}
 
 	protected abstract int getCoinBonus();
@@ -234,7 +234,7 @@ public abstract class GOTMiniQuest {
 	public abstract float getCompletionFactor();
 
 	public String getFactionSubtitle() {
-		if (entityFaction.isPlayableAlignmentFaction()) {
+		if (entityFaction.isPlayableReputationFaction()) {
 			return entityFaction.factionName();
 		}
 		return "";
@@ -327,7 +327,7 @@ public abstract class GOTMiniQuest {
 		}
 		rewardFactor = nbt.hasKey("RewardFactor") ? nbt.getFloat("RewardFactor") : 1.0f;
 		willHire = nbt.getBoolean("WillHire");
-		hiringAlignment = nbt.hasKey("HiringAlignment") ? nbt.getInteger("HiringAlignment") : nbt.getFloat("HiringAlignF");
+		hiringReputation = nbt.hasKey("HiringReputation") ? nbt.getInteger("HiringReputation") : nbt.getFloat("HiringAlignF");
 		rewardItemTable.clear();
 		if (nbt.hasKey("RewardItemTable")) {
 			itemTags = nbt.getTagList("RewardItemTable", 10);
@@ -343,7 +343,7 @@ public abstract class GOTMiniQuest {
 		completed = nbt.getBoolean("Completed");
 		dateCompleted = nbt.getInteger("DateCompleted");
 		coinsRewarded = nbt.getShort("CoinReward");
-		alignmentRewarded = nbt.hasKey("AlignmentReward") ? nbt.getShort("AlignmentReward") : nbt.getFloat("AlignRewardF");
+		reputationRewarded = nbt.hasKey("ReputationReward") ? nbt.getShort("ReputationReward") : nbt.getFloat("AlignRewardF");
 		wasHired = nbt.getBoolean("WasHired");
 		itemsRewarded.clear();
 		if (nbt.hasKey("ItemRewards")) {
@@ -465,8 +465,8 @@ public abstract class GOTMiniQuest {
 		return quoteComplete;
 	}
 
-	public float getAlignmentRewarded() {
-		return alignmentRewarded;
+	public float getReputationRewarded() {
+		return reputationRewarded;
 	}
 
 	public int getCoinsRewarded() {
@@ -552,7 +552,7 @@ public abstract class GOTMiniQuest {
 		}
 		nbt.setFloat("RewardFactor", rewardFactor);
 		nbt.setBoolean("WillHire", willHire);
-		nbt.setFloat("HiringAlignF", hiringAlignment);
+		nbt.setFloat("HiringAlignF", hiringReputation);
 		if (!rewardItemTable.isEmpty()) {
 			itemTags = new NBTTagList();
 			for (ItemStack item : rewardItemTable) {
@@ -565,7 +565,7 @@ public abstract class GOTMiniQuest {
 		nbt.setBoolean("Completed", completed);
 		nbt.setInteger("DateCompleted", dateCompleted);
 		nbt.setShort("CoinReward", (short) coinsRewarded);
-		nbt.setFloat("AlignRewardF", alignmentRewarded);
+		nbt.setFloat("AlignRewardF", reputationRewarded);
 		nbt.setBoolean("WasHired", wasHired);
 		if (!itemsRewarded.isEmpty()) {
 			itemTags = new NBTTagList();
@@ -608,7 +608,7 @@ public abstract class GOTMiniQuest {
 		protected boolean willHire;
 		protected boolean isLegendary;
 		protected float rewardFactor = 1.0f;
-		protected float hiringAlignment;
+		protected float hiringReputation;
 
 		protected QuestFactoryBase(String name) {
 			questName = name;
@@ -631,7 +631,7 @@ public abstract class GOTMiniQuest {
 				quest.setNPCInfo(npc);
 				quest.rewardFactor = rewardFactor;
 				quest.willHire = willHire;
-				quest.hiringAlignment = hiringAlignment;
+				quest.hiringReputation = hiringReputation;
 				return quest;
 			}
 			return null;
@@ -645,7 +645,7 @@ public abstract class GOTMiniQuest {
 
 		public QuestFactoryBase<Q> setHiring() {
 			willHire = true;
-			hiringAlignment = 100.0F;
+			hiringReputation = 100.0F;
 			return this;
 		}
 

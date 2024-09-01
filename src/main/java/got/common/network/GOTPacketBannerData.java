@@ -23,7 +23,7 @@ public class GOTPacketBannerData implements IMessage {
 	private boolean structureProtection;
 	private boolean thisPlayerHasPermission;
 	private boolean openGui;
-	private float alignmentProtection;
+	private float reputationProtection;
 	private int customRange;
 	private int whitelistLength;
 	private int defaultPerms;
@@ -49,7 +49,7 @@ public class GOTPacketBannerData implements IMessage {
 		selfProtection = data.readBoolean();
 		structureProtection = data.readBoolean();
 		customRange = data.readShort();
-		alignmentProtection = data.readFloat();
+		reputationProtection = data.readFloat();
 		whitelistLength = data.readShort();
 		whitelistSlots = new String[data.readShort()];
 		whitelistPerms = new int[whitelistSlots.length];
@@ -76,7 +76,7 @@ public class GOTPacketBannerData implements IMessage {
 		data.writeBoolean(selfProtection);
 		data.writeBoolean(structureProtection);
 		data.writeShort(customRange);
-		data.writeFloat(alignmentProtection);
+		data.writeFloat(reputationProtection);
 		data.writeShort(whitelistLength);
 		data.writeShort(whitelistSlots.length);
 		for (int index = 0; index < whitelistSlots.length; ++index) {
@@ -112,8 +112,8 @@ public class GOTPacketBannerData implements IMessage {
 		this.customRange = customRange;
 	}
 
-	public void setAlignmentProtection(float alignmentProtection) {
-		this.alignmentProtection = alignmentProtection;
+	public void setReputationProtection(float reputationProtection) {
+		this.reputationProtection = reputationProtection;
 	}
 
 	public void setWhitelistLength(int whitelistLength) {
@@ -147,7 +147,7 @@ public class GOTPacketBannerData implements IMessage {
 				banner.setSelfProtection(packet.selfProtection);
 				banner.setStructureProtection(packet.structureProtection);
 				banner.setCustomRange(packet.customRange);
-				banner.setAlignmentProtection(packet.alignmentProtection);
+				banner.setReputationProtection(packet.reputationProtection);
 				banner.resizeWhitelist(packet.whitelistLength);
 				for (int index = 0; index < packet.whitelistSlots.length; ++index) {
 					String username = packet.whitelistSlots[index];

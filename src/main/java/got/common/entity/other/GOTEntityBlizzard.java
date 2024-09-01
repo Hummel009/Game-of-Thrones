@@ -52,7 +52,7 @@ public class GOTEntityBlizzard extends GOTEntityNPC implements GOTBiome.ImmuneTo
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

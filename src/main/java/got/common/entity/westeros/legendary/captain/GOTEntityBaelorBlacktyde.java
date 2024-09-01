@@ -23,7 +23,7 @@ public class GOTEntityBaelorBlacktyde extends GOTEntityHumanBase implements GOTU
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 100.0f;
 	}
 

@@ -116,7 +116,7 @@ public class GOTTickHandlerClient {
 	private ItemStack lastHighlightedItemstack;
 	private String highlightedItemstackName;
 
-	private boolean firstAlignmentRender = true;
+	private boolean firstReputationRender = true;
 	private boolean wasShowingBannerRepossessMessage;
 	private boolean addedClientPoisonEffect;
 	private boolean cancelItemHighlight;
@@ -129,12 +129,12 @@ public class GOTTickHandlerClient {
 
 	private int mistTick;
 	private int prevMistTick;
-	private int alignmentXBase;
-	private int alignmentYBase;
-	private int alignmentXCurrent;
-	private int alignmentYCurrent;
-	private int alignmentXPrev;
-	private int alignmentYPrev;
+	private int reputationXBase;
+	private int reputationYBase;
+	private int reputationXCurrent;
+	private int reputationYCurrent;
+	private int reputationXPrev;
+	private int reputationYPrev;
 	private int bannerRepossessDisplayTick;
 	private int frostTick;
 	private int burnTick;
@@ -149,7 +149,7 @@ public class GOTTickHandlerClient {
 	private GOTTickHandlerClient() {
 	}
 
-	public static void drawAlignmentText(FontRenderer f, int x, int y, String s, float alphaF) {
+	public static void drawReputationText(FontRenderer f, int x, int y, String s, float alphaF) {
 		drawBorderedText(f, x, y, s, 16772620, alphaF);
 	}
 
@@ -191,13 +191,13 @@ public class GOTTickHandlerClient {
 		return BossStatus.bossName != null && BossStatus.statusBarTime > 0;
 	}
 
-	public static void renderAlignmentBar(float alignment, GOTFaction faction, float x, float y, boolean renderFacName, boolean renderValue, boolean renderLimits, boolean renderLimitValues) {
+	public static void renderReputationBar(float reputation, GOTFaction faction, float x, float y, boolean renderFacName, boolean renderValue, boolean renderLimits, boolean renderLimitValues) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityClientPlayerMP = mc.thePlayer;
 		GOTPlayerData clientPD = GOTLevelData.getData(entityClientPlayerMP);
-		GOTFactionRank rank = faction.getRank(alignment);
+		GOTFactionRank rank = faction.getRank(reputation);
 		boolean pledged = clientPD.isPledgedTo(faction);
-		GOTAlignmentTicker ticker = GOTAlignmentTicker.forFaction(faction);
+		GOTReputationTicker ticker = GOTReputationTicker.forFaction(faction);
 		float alignMin;
 		float alignMax;
 		GOTFactionRank rankMin;
@@ -206,11 +206,11 @@ public class GOTTickHandlerClient {
 			float firstRankAlign;
 			GOTFactionRank firstRank = faction.getFirstRank();
 			if (firstRank != null && !firstRank.isDummyRank()) {
-				firstRankAlign = firstRank.getAlignment();
+				firstRankAlign = firstRank.getReputation();
 			} else {
 				firstRankAlign = 10.0F;
 			}
-			if (Math.abs(alignment) < firstRankAlign) {
+			if (Math.abs(reputation) < firstRankAlign) {
 				alignMin = -firstRankAlign;
 				alignMax = firstRankAlign;
 				rankMin = GOTFactionRank.RANK_ENEMY;
@@ -219,11 +219,11 @@ public class GOTTickHandlerClient {
 				} else {
 					rankMax = GOTFactionRank.RANK_NEUTRAL;
 				}
-			} else if (alignment < 0.0F) {
+			} else if (reputation < 0.0F) {
 				alignMax = -firstRankAlign;
 				alignMin = alignMax * 10.0F;
 				rankMin = rankMax = GOTFactionRank.RANK_ENEMY;
-				while (alignment <= alignMin) {
+				while (reputation <= alignMin) {
 					alignMax *= 10.0F;
 					alignMin = alignMax * 10.0F;
 				}
@@ -231,30 +231,30 @@ public class GOTTickHandlerClient {
 				alignMin = firstRankAlign;
 				alignMax = alignMin * 10.0F;
 				rankMin = rankMax = GOTFactionRank.RANK_NEUTRAL;
-				while (alignment >= alignMax) {
+				while (reputation >= alignMax) {
 					alignMin = alignMax;
 					alignMax = alignMin * 10.0F;
 				}
 			}
 		} else {
-			alignMin = rank.getAlignment();
+			alignMin = rank.getReputation();
 			rankMin = rank;
 			GOTFactionRank nextRank = faction.getRankAbove(rank);
 			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
-				alignMax = nextRank.getAlignment();
+				alignMax = nextRank.getReputation();
 				rankMax = nextRank;
 			} else {
-				alignMax = rank.getAlignment() * 10.0F;
+				alignMax = rank.getReputation() * 10.0F;
 				rankMax = rank;
-				while (alignment >= alignMax) {
+				while (reputation >= alignMax) {
 					alignMin = alignMax;
 					alignMax = alignMin * 10.0F;
 				}
 			}
 		}
-		float ringProgress = (alignment - alignMin) / (alignMax - alignMin);
+		float ringProgress = (reputation - alignMin) / (alignMax - alignMin);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+		mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 		int barWidth = 232;
 		int barHeight = 14;
 		int activeBarWidth = 220;
@@ -273,14 +273,14 @@ public class GOTTickHandlerClient {
 		} else {
 			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 36, ringSize, ringSize);
 		}
-		if (faction.isPlayableAlignmentFaction()) {
+		if (faction.isPlayableReputationFaction()) {
 			float alpha;
 			boolean definedZone;
 			if (faction.inControlZone(entityClientPlayerMP)) {
 				alpha = 1.0F;
 				definedZone = faction.inDefinedControlZone(entityClientPlayerMP);
 			} else {
-				alpha = faction.getControlZoneAlignmentMultiplier(entityClientPlayerMP);
+				alpha = faction.getControlZoneReputationMultiplier(entityClientPlayerMP);
 				definedZone = true;
 			}
 			if (alpha > 0.0F) {
@@ -312,28 +312,28 @@ public class GOTTickHandlerClient {
 			String sMin = rankMin.getShortNameWithGender(clientPD);
 			String sMax = rankMax.getShortNameWithGender(clientPD);
 			if (renderLimitValues) {
-				sMin = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMin, GOTAlignmentValues.formatAlignForDisplay(alignMin));
-				sMax = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMax, GOTAlignmentValues.formatAlignForDisplay(alignMax));
+				sMin = StatCollector.translateToLocalFormatted("got.gui.factions.reputation.limits", sMin, GOTReputationValues.formatAlignForDisplay(alignMin));
+				sMax = StatCollector.translateToLocalFormatted("got.gui.factions.reputation.limits", sMax, GOTReputationValues.formatAlignForDisplay(alignMax));
 			}
 			int limitsX = barWidth / 2 - 6;
 			int xMin = Math.round(x - limitsX);
 			int xMax = Math.round(x + limitsX);
 			GL11.glPushMatrix();
 			GL11.glScalef(0.5F, 0.5F, 0.5F);
-			drawAlignmentText(fr, xMin * 2 - fr.getStringWidth(sMin) / 2, textY * 2, sMin, 1.0F);
-			drawAlignmentText(fr, xMax * 2 - fr.getStringWidth(sMax) / 2, textY * 2, sMax, 1.0F);
+			drawReputationText(fr, xMin * 2 - fr.getStringWidth(sMin) / 2, textY * 2, sMin, 1.0F);
+			drawReputationText(fr, xMax * 2 - fr.getStringWidth(sMax) / 2, textY * 2, sMax, 1.0F);
 			GL11.glPopMatrix();
 		}
 		if (renderFacName) {
 			String name = faction.factionName();
-			drawAlignmentText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0F);
+			drawReputationText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0F);
 		}
 		if (renderValue) {
 			String alignS;
 			float alignAlpha;
 			int numericalTick = ticker.getNumericalTick();
 			if (numericalTick > 0) {
-				alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
+				alignS = GOTReputationValues.formatAlignForDisplay(reputation);
 				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7F, 1.0F, 30.0F);
 				int fadeTick = 15;
 				if (numericalTick < fadeTick) {
@@ -345,7 +345,7 @@ public class GOTTickHandlerClient {
 			}
 			GL11.glEnable(3042);
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-			drawAlignmentText(fr, textX - fr.getStringWidth(alignS) / 2, textY + fr.FONT_HEIGHT + 3, alignS, alignAlpha);
+			drawReputationText(fr, textX - fr.getStringWidth(alignS) / 2, textY + fr.FONT_HEIGHT + 3, alignS, alignAlpha);
 			GL11.glDisable(3042);
 		}
 	}
@@ -778,7 +778,7 @@ public class GOTTickHandlerClient {
 				}
 				if (!isGamePaused(minecraft)) {
 					GOTClientFactory.getMiniquestTracker().update(entityplayer);
-					GOTAlignmentTicker.updateAll(entityplayer, false);
+					GOTReputationTicker.updateAll(entityplayer, false);
 					WATCHED_INVASION.tick();
 					if (GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer)) {
 						boolean showBannerRespossessMessage = GOTItemBanner.isHoldingBannerWithExistingProtection(entityplayer);
@@ -957,7 +957,7 @@ public class GOTTickHandlerClient {
 					GOTGuiMenu.resetLastMenuScreen();
 					GOTGuiMap.clearPlayerLocations();
 					GOTCloudRenderer.resetClouds();
-					firstAlignmentRender = true;
+					firstReputationRender = true;
 					WATCHED_INVASION.clear();
 				}
 				lastGuiOpen = guiscreen;
@@ -1069,7 +1069,7 @@ public class GOTTickHandlerClient {
 				if (isBossActive()) {
 					barY += 20;
 				}
-				mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+				mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 				guiIngame.drawTexturedModalRect(barX, barY, 64, 64, barWidth, barHeight);
 				if (remainingWidth > 0) {
 					float[] rgb = WATCHED_INVASION.getRGB();
@@ -1317,18 +1317,18 @@ public class GOTTickHandlerClient {
 		}
 		if (event.phase == TickEvent.Phase.END) {
 			if (entityplayer != null && worldClient != null) {
-				if ((worldClient.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment) && Minecraft.isGuiEnabled()) {
-					alignmentXPrev = alignmentXCurrent;
-					alignmentYPrev = alignmentYCurrent;
-					alignmentXCurrent = alignmentXBase;
-					int yMove = (int) ((alignmentYBase + 20) / 10.0F);
-					boolean alignmentOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
-					if (alignmentOnscreen) {
-						alignmentYCurrent = Math.min(alignmentYCurrent + yMove, alignmentYBase);
+				if ((worldClient.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowReputation) && Minecraft.isGuiEnabled()) {
+					reputationXPrev = reputationXCurrent;
+					reputationYPrev = reputationYCurrent;
+					reputationXCurrent = reputationXBase;
+					int yMove = (int) ((reputationYBase + 20) / 10.0F);
+					boolean reputationOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
+					if (reputationOnscreen) {
+						reputationYCurrent = Math.min(reputationYCurrent + yMove, reputationYBase);
 					} else {
-						alignmentYCurrent = Math.max(alignmentYCurrent - yMove, -20);
+						reputationYCurrent = Math.max(reputationYCurrent - yMove, -20);
 					}
-					renderAlignment(minecraft, renderTick);
+					renderReputation(minecraft, renderTick);
 					if (GOTConfig.enableOnscreenCompass && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
 						GL11.glPushMatrix();
 						ScaledResolution resolution = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
@@ -1484,31 +1484,31 @@ public class GOTTickHandlerClient {
 		}
 	}
 
-	private void renderAlignment(Minecraft mc, float f) {
+	private void renderReputation(Minecraft mc, float f) {
 		EntityClientPlayerMP entityClientPlayerMP = mc.thePlayer;
 		GOTPlayerData pd = GOTLevelData.getData(entityClientPlayerMP);
 		GOTFaction viewingFac = pd.getViewingFaction();
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int width = resolution.getScaledWidth();
-		alignmentXBase = width / 2 + GOTConfig.alignmentXOffset;
-		alignmentYBase = 4 + GOTConfig.alignmentYOffset;
+		reputationXBase = width / 2 + GOTConfig.reputationXOffset;
+		reputationYBase = 4 + GOTConfig.reputationYOffset;
 		if (isBossActive()) {
-			alignmentYBase += 20;
+			reputationYBase += 20;
 		}
 		if (WATCHED_INVASION.isActive()) {
-			alignmentYBase += 20;
+			reputationYBase += 20;
 		}
-		if (firstAlignmentRender) {
-			GOTAlignmentTicker.updateAll(entityClientPlayerMP, true);
-			alignmentXPrev = alignmentXCurrent = alignmentXBase;
-			alignmentYPrev = alignmentYCurrent = -20;
-			firstAlignmentRender = false;
+		if (firstReputationRender) {
+			GOTReputationTicker.updateAll(entityClientPlayerMP, true);
+			reputationXPrev = reputationXCurrent = reputationXBase;
+			reputationYPrev = reputationYCurrent = -20;
+			firstReputationRender = false;
 		}
-		float alignmentXF = alignmentXPrev + (alignmentXCurrent - alignmentXPrev) * f;
-		float alignmentYF = alignmentYPrev + (alignmentYCurrent - alignmentYPrev) * f;
-		boolean text = alignmentYCurrent == alignmentYBase;
-		float alignment = GOTAlignmentTicker.forFaction(viewingFac).getInterpolatedAlignment(f);
-		renderAlignmentBar(alignment, viewingFac, alignmentXF, alignmentYF, text, text, text, false);
+		float reputationXF = reputationXPrev + (reputationXCurrent - reputationXPrev) * f;
+		float reputationYF = reputationYPrev + (reputationYCurrent - reputationYPrev) * f;
+		boolean text = reputationYCurrent == reputationYBase;
+		float reputation = GOTReputationTicker.forFaction(viewingFac).getInterpolatedReputation(f);
+		renderReputationBar(reputation, viewingFac, reputationXF, reputationYF, text, text, text, false);
 	}
 
 	public void updateDate() {

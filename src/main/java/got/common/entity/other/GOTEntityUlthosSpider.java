@@ -24,7 +24,7 @@ public class GOTEntityUlthosSpider extends GOTEntitySpiderBase implements GOTBio
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

@@ -278,7 +278,7 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityFaction);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityFarmhand);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityHireAlignment);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHireReputation);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePrice);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePricePledge);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHireable);
@@ -286,7 +286,7 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFrost);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToHeat);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityKillAchievement);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityKillAlignment);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityKillReputation);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityLegendaryDrop);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMarriage);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityMercenary);
@@ -1433,24 +1433,24 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateEntityHireAlignment() {
+	private static StringBuilder genTemplateEntityHireReputation() {
 		Map<Class<? extends Entity>, String> data = new HashMap<>();
 
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				int alignment = (int) entry.getAlignmentRequired();
+				int reputation = (int) entry.getReputationRequired();
 
 				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
-					data.put(entry.getEntityClass(), String.valueOf(alignment));
+					data.put(entry.getEntityClass(), String.valueOf(reputation));
 				} else {
-					data.put(entry.getEntityClass(), String.valueOf(Math.max(alignment, 100)));
+					data.put(entry.getEntityClass(), String.valueOf(Math.max(reputation, 100)));
 				}
 			}
 		}
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HireAlignment");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HireReputation");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1641,19 +1641,19 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateEntityKillAlignment() {
+	private static StringBuilder genTemplateEntityKillReputation() {
 		Map<Class<? extends Entity>, String> data = new HashMap<>();
 
 		for (Map.Entry<Class<? extends Entity>, Entity> entityEntry : ENTITY_CLASS_TO_ENTITY.entrySet()) {
 			if (entityEntry.getValue() instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entityEntry.getValue();
-				data.put(entityEntry.getKey(), String.valueOf((int) npc.getAlignmentBonus()));
+				data.put(entityEntry.getKey(), String.valueOf((int) npc.getReputationBonus()));
 			}
 		}
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-KillAlignment");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-KillReputation");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1931,16 +1931,16 @@ public class GOTWikiGenerator {
 					sb.append(": ");
 
 					int cost = entry.getInitialCost();
-					int alignment = (int) entry.getAlignmentRequired();
+					int reputation = (int) entry.getReputationRequired();
 
 					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
 						sb.append("{{Bar Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
 						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append(alignment).append(' ').append(Lang.REPUTATION);
+						sb.append(reputation).append(' ').append(Lang.REPUTATION);
 					} else {
 						sb.append("N/A ").append(Lang.NO_PLEDGE).append(", ");
 						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
-						sb.append(Math.max(alignment, 100)).append(' ').append(Lang.REPUTATION);
+						sb.append(Math.max(reputation, 100)).append(' ').append(Lang.REPUTATION);
 					}
 
 					data.computeIfAbsent(entityEntry.getKey(), s -> new ArrayList<>());
@@ -2453,7 +2453,7 @@ public class GOTWikiGenerator {
 					sb.append('/').append(femRank);
 				}
 
-				sb.append(" (").append((int) faction.getPledgeAlignment()).append(')');
+				sb.append(" (").append((int) faction.getPledgeReputation()).append(')');
 
 				data.put(faction, sb.toString());
 			}
@@ -2492,7 +2492,7 @@ public class GOTWikiGenerator {
 					sb.append('/').append(femRank);
 				}
 
-				sb.append(" (").append((int) rank.getAlignment()).append(')');
+				sb.append(" (").append((int) rank.getReputation()).append(')');
 
 				data.computeIfAbsent(faction, s -> new ArrayList<>());
 				data.get(faction).add(sb.toString());
@@ -2558,14 +2558,14 @@ public class GOTWikiGenerator {
 			sb.append(NL).append("&lt;table class=\"wikitable shields-capes\"&gt;");
 
 			for (GOTShields shield : SHIELDS) {
-				if (shield.getAlignmentFaction() == faction) {
+				if (shield.getReputationFaction() == faction) {
 					save = true;
 					sb.append(NL + "&lt;tr&gt;&lt;td&gt;").append(shield.getShieldName()).append("&lt;/td&gt;&lt;td&gt;").append(shield.getShieldDesc()).append("&lt;/td&gt;&lt;td&gt;").append(getShieldFilename(shield)).append("&lt;/td&gt;&lt;/tr&gt;");
 				}
 			}
 
 			for (GOTCapes cape : CAPES) {
-				if (cape.getAlignmentFaction() == faction) {
+				if (cape.getReputationFaction() == faction) {
 					save = true;
 					sb.append(NL + "&lt;tr&gt;&lt;td&gt;").append(cape.getCapeName()).append("&lt;/td&gt;&lt;td&gt;").append(cape.getCapeDesc()).append("&lt;/td&gt;&lt;td&gt;").append(getCapeFilename(cape)).append("&lt;/td&gt;&lt;/tr&gt;");
 				}

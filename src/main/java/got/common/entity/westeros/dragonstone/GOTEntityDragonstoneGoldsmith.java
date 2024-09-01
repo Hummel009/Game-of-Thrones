@@ -14,7 +14,7 @@ public class GOTEntityDragonstoneGoldsmith extends GOTEntityDragonstoneMan imple
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

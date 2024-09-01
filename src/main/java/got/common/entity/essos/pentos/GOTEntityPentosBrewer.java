@@ -15,7 +15,7 @@ public class GOTEntityPentosBrewer extends GOTEntityPentosMan implements GOTTrad
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

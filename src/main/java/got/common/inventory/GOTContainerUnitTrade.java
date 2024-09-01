@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class GOTContainerUnitTrade extends Container {
 	private final GOTHireableBase theUnitTrader;
 	private final GOTEntityNPC theLivingTrader;
-	private final int alignmentRewardSlots;
+	private final int reputationRewardSlots;
 
 	public GOTContainerUnitTrade(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		int i;
@@ -30,12 +30,12 @@ public class GOTContainerUnitTrade extends Container {
 			reward = invasionType == null ? null : invasionType.createWarhorn();
 		}
 		boolean hasReward = reward != null;
-		alignmentRewardSlots = hasReward ? 1 : 0;
-		IInventory alignmentRewardInv = new InventoryBasic("specialItem", false, alignmentRewardSlots);
+		reputationRewardSlots = hasReward ? 1 : 0;
+		IInventory reputationRewardInv = new InventoryBasic("specialItem", false, reputationRewardSlots);
 		if (hasReward) {
-			addSlotToContainer(new GOTSlotAlignmentReward(this, alignmentRewardInv, 0, 174, 78, theUnitTrader, reward.copy()));
-			if (!world.isRemote && GOTLevelData.getData(entityplayer).getAlignment(traderFaction) >= GOTSlotAlignmentReward.WARHORN_ALIGNMENT) {
-				alignmentRewardInv.setInventorySlotContents(0, reward.copy());
+			addSlotToContainer(new GOTSlotReputationReward(this, reputationRewardInv, 0, 174, 78, theUnitTrader, reward.copy()));
+			if (!world.isRemote && GOTLevelData.getData(entityplayer).getReputation(traderFaction) >= GOTSlotReputationReward.WARHORN_REPUTATION) {
+				reputationRewardInv.setInventorySlotContents(0, reward.copy());
 			}
 		}
 		for (i = 0; i < 3; ++i) {
@@ -60,7 +60,7 @@ public class GOTContainerUnitTrade extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			if (i < alignmentRewardSlots ? !mergeItemStack(itemstack1, alignmentRewardSlots, 36 + alignmentRewardSlots, true) : i < 27 + alignmentRewardSlots ? !mergeItemStack(itemstack1, 27 + alignmentRewardSlots, 36 + alignmentRewardSlots, false) : !mergeItemStack(itemstack1, alignmentRewardSlots, 27 + alignmentRewardSlots, false)) {
+			if (i < reputationRewardSlots ? !mergeItemStack(itemstack1, reputationRewardSlots, 36 + reputationRewardSlots, true) : i < 27 + reputationRewardSlots ? !mergeItemStack(itemstack1, 27 + reputationRewardSlots, 36 + reputationRewardSlots, false) : !mergeItemStack(itemstack1, reputationRewardSlots, 27 + reputationRewardSlots, false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {
@@ -84,7 +84,7 @@ public class GOTContainerUnitTrade extends Container {
 		return theLivingTrader;
 	}
 
-	public int getAlignmentRewardSlots() {
-		return alignmentRewardSlots;
+	public int getReputationRewardSlots() {
+		return reputationRewardSlots;
 	}
 }

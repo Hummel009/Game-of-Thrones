@@ -14,7 +14,7 @@ public class GOTEntityReachBlacksmith extends GOTEntityReachMan implements GOTSm
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

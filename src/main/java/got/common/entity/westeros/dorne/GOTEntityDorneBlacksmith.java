@@ -14,7 +14,7 @@ public class GOTEntityDorneBlacksmith extends GOTEntityDorneMan implements GOTSm
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

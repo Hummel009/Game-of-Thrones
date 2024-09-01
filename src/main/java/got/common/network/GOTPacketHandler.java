@@ -14,14 +14,14 @@ public class GOTPacketHandler {
 	@SuppressWarnings({"UnusedAssignment", "ValueOfIncrementOrDecrementUsed"})
 	public static void preInit() {
 		int id = 0;
-		NETWORK_WRAPPER.registerMessage(GOTPacketEnableAlignmentZones.Handler.class, GOTPacketEnableAlignmentZones.class, id++, Side.CLIENT);
+		NETWORK_WRAPPER.registerMessage(GOTPacketEnableReputationZones.Handler.class, GOTPacketEnableReputationZones.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketFellowshipInvitePlayer.Handler.class, GOTPacketFellowshipInvitePlayer.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketFellowshipAcceptInviteResult.Handler.class, GOTPacketFellowshipAcceptInviteResult.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketAchievement.Handler.class, GOTPacketAchievement.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketAchievementRemove.Handler.class, GOTPacketAchievementRemove.class, id++, Side.CLIENT);
-		NETWORK_WRAPPER.registerMessage(GOTPacketAlignment.Handler.class, GOTPacketAlignment.class, id++, Side.CLIENT);
-		NETWORK_WRAPPER.registerMessage(GOTPacketAlignmentBonus.Handler.class, GOTPacketAlignmentBonus.class, id++, Side.CLIENT);
-		NETWORK_WRAPPER.registerMessage(GOTPacketAlignmentSee.Handler.class, GOTPacketAlignmentSee.class, id++, Side.CLIENT);
+		NETWORK_WRAPPER.registerMessage(GOTPacketReputation.Handler.class, GOTPacketReputation.class, id++, Side.CLIENT);
+		NETWORK_WRAPPER.registerMessage(GOTPacketReputationBonus.Handler.class, GOTPacketReputationBonus.class, id++, Side.CLIENT);
+		NETWORK_WRAPPER.registerMessage(GOTPacketReputationSee.Handler.class, GOTPacketReputationSee.class, id++, Side.CLIENT);
 		NETWORK_WRAPPER.registerMessage(GOTPacketAnvilEngraveOwner.Handler.class, GOTPacketAnvilEngraveOwner.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketAnvilReforge.Handler.class, GOTPacketAnvilReforge.class, id++, Side.SERVER);
 		NETWORK_WRAPPER.registerMessage(GOTPacketAnvilRename.Handler.class, GOTPacketAnvilRename.class, id++, Side.SERVER);

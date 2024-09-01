@@ -15,7 +15,7 @@ public class GOTEntityLhazarCaptain extends GOTEntityLhazarMan implements GOTUni
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 5.0f;
 	}
 

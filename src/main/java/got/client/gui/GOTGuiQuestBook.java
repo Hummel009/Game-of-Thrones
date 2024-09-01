@@ -7,7 +7,7 @@ import got.common.GOTDate;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTSpeech;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.network.GOTPacketDeleteMiniquest;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMiniquestTrack;
@@ -217,8 +217,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 						pageText.add("");
 						String rewardText = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward", entityName);
 						pageText.add(rewardText);
-						if (quest.getAlignmentRewarded() != 0.0f) {
-							String alignS = GOTAlignmentValues.formatAlignForDisplay(quest.getAlignmentRewarded());
+						if (quest.getReputationRewarded() != 0.0f) {
+							String alignS = GOTReputationValues.formatAlignForDisplay(quest.getReputationRewarded());
 							String rewardAlign = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.align", alignS, factionName);
 							pageText.add(rewardAlign);
 						}

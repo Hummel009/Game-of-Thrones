@@ -16,7 +16,7 @@ public class GOTEntityLorathBaker extends GOTEntityLorathMan implements GOTTrade
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

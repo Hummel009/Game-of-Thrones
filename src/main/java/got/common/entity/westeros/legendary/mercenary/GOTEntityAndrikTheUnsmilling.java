@@ -23,12 +23,12 @@ public class GOTEntityAndrikTheUnsmilling extends GOTEntityHumanBase implements 
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return GOTUnitTradeEntries.SOLDIER_F * 5;
 	}
 
 	@Override
-	public float getMercAlignmentRequired() {
+	public float getMercReputationRequired() {
 		return GOTUnitTradeEntries.SOLDIER_F;
 	}
 

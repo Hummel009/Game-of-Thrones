@@ -16,7 +16,7 @@ public class GOTEntityGhiscarMason extends GOTEntityGhiscarMan implements GOTTra
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

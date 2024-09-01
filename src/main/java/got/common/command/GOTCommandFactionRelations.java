@@ -17,7 +17,7 @@ public class GOTCommandFactionRelations extends CommandBase {
 				return getListOfStringsMatchingLastWord(args, "set", "reset");
 			case 2:
 			case 3: {
-				List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
+				List<String> list = GOTFaction.getPlayableReputationFactionNames();
 				return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 			}
 			case 4:
@@ -50,11 +50,11 @@ public class GOTCommandFactionRelations extends CommandBase {
 				if (args.length >= 4) {
 					GOTFaction fac1 = GOTFaction.forName(args[1]);
 					if (fac1 == null) {
-						throw new WrongUsageException("got.command.alignment.noFaction", args[1]);
+						throw new WrongUsageException("got.command.reputation.noFaction", args[1]);
 					}
 					GOTFaction fac2 = GOTFaction.forName(args[2]);
 					if (fac2 == null) {
-						throw new WrongUsageException("got.command.alignment.noFaction", args[2]);
+						throw new WrongUsageException("got.command.reputation.noFaction", args[2]);
 					}
 					GOTFactionRelations.Relation relation = GOTFactionRelations.Relation.forName(args[3]);
 					if (relation == null) {

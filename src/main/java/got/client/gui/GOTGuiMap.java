@@ -13,7 +13,7 @@ import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTItems;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTControlZone;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRank;
@@ -545,7 +545,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 						drawFloatRect(minX - 2.0f, maxY + 1.0f, maxX + 2.0f, maxY + 2.0f, -4521984);
 						drawFloatRect(minX - 2.0f, minY - 1.0f, minX - 1.0f, maxY + 1.0f, -4521984);
 						drawFloatRect(maxX + 1.0f, minY - 1.0f, maxX + 2.0f, maxY + 1.0f, -4521984);
-						String tooltip = GOTAlignmentValues.formatConqForDisplay(mouseOverStr, false);
+						String tooltip = GOTReputationValues.formatConqForDisplay(mouseOverStr, false);
 						String subtip = null;
 						if (mouseOverEffect == GOTConquestGrid.ConquestEffective.ALLY_BOOST) {
 							subtip = StatCollector.translateToLocalFormatted("got.gui.map.conquest.allyBoost", conquestViewingFaction.factionName());
@@ -574,7 +574,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 						rectY = Math.min(rectY, mapYMax - mapBorder2 - rectHeight);
 						GL11.glTranslatef(0.0f, 0.0f, 300.0f);
 						drawFancyRect(rectX, rectY, rectX + rectWidth, rectY + rectHeight);
-						mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+						mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						drawTexturedModalRect(rectX + border, rectY + border, 0, 228, iconSize, iconSize);
 						mc.fontRenderer.drawString(tooltip, rectX + iconSize + border * 2, rectY + border + (iconSize - strHeight) / 2, 16777215);
@@ -638,7 +638,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 					GOTFaction pledgeFac = pd.getPledgeFaction();
 					GOTFactionRank needRank = query.getNeedRank();
-					String needAlign = GOTAlignmentValues.formatAlignForDisplay(needRank.getAlignment());
+					String needAlign = GOTReputationValues.formatAlignForDisplay(needRank.getReputation());
 					String format = "";
 					if (query.getResult() == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
@@ -682,7 +682,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					}
 				} else {
 					GOTWaypoint wp = (GOTWaypoint) selectedWaypoint;
-					notUnlocked = wp.isCompatibleAlignment(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.region") : StatCollector.translateToLocal("got.gui.map.locked.enemy");
+					notUnlocked = wp.isCompatibleReputation(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.region") : StatCollector.translateToLocal("got.gui.map.locked.enemy");
 				}
 				String conquestUnlock = pd.getPledgeFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getPledgeFaction().factionName());
 				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_FAST_TRAVEL.getKeyCode()));
@@ -779,7 +779,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 			s = StatCollector.translateToLocalFormatted("got.gui.map.conquest.title", conquestViewingFaction.factionName());
 			x = mapXMin + mapWidth / 2;
 			y = mapYMin - 14;
-			GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x - fontRendererObj.getStringWidth(s) / 2, y, s, 1.0f);
+			GOTTickHandlerClient.drawReputationText(fontRendererObj, x - fontRendererObj.getStringWidth(s) / 2, y, s, 1.0f);
 			if (!loadingConquestGrid) {
 				int keyBorder = 8;
 				int keyWidth = 24;
@@ -789,7 +789,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 				float guiScale = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight).getScaleFactor();
 				float labelScale = guiScale <= 2.0f ? guiScale : guiScale - 1.0f;
 				float labelScaleRel = labelScale / guiScale;
-				mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+				mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				drawTexturedModalRect(mapXMax - keyBorder - iconSize, mapYMax - keyBorder - iconSize, 0, 228, iconSize, iconSize);
 				for (int pass = 0; pass <= 1; ++pass) {
@@ -804,7 +804,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 							int color = 0xBB0000 | Math.round(frac * 255.0f) << 24;
 							drawRect(x0, y0, x1, y1, color);
 						} else if (l % 2 == 0) {
-							String keyLabel = GOTAlignmentValues.formatConqForDisplay(strFrac, false);
+							String keyLabel = GOTReputationValues.formatConqForDisplay(strFrac, false);
 							int strX = (int) ((x0 + (float) keyWidth / 2) / labelScaleRel);
 							int strY = (int) ((y0 + (float) keyHeight / 2) / labelScaleRel) - fontRendererObj.FONT_HEIGHT / 2;
 							GL11.glPushMatrix();
@@ -854,10 +854,10 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 			s = StatCollector.translateToLocalFormatted("got.gui.map.controlZones", controlZoneFaction.factionName());
 			x = mapXMin + mapWidth / 2;
 			y = mapYMin + 20;
-			GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x - fontRendererObj.getStringWidth(s) / 2, y, s, 1.0f);
+			GOTTickHandlerClient.drawReputationText(fontRendererObj, x - fontRendererObj.getStringWidth(s) / 2, y, s, 1.0f);
 			if (!GOTFaction.controlZonesEnabled(mc.theWorld)) {
 				s = StatCollector.translateToLocal("got.gui.map.controlZonesDisabled");
-				GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x - fontRendererObj.getStringWidth(s) / 2, mapYMin + mapHeight / 2, s, 1.0f);
+				GOTTickHandlerClient.drawReputationText(fontRendererObj, x - fontRendererObj.getStringWidth(s) / 2, mapYMin + mapHeight / 2, s, 1.0f);
 			}
 		}
 		boolean buttonVisible = buttonOverlayFunction.visible;

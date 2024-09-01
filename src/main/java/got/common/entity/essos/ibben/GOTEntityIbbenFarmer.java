@@ -16,7 +16,7 @@ public class GOTEntityIbbenFarmer extends GOTEntityIbbenMan implements GOTFarmer
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

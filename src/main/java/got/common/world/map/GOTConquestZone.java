@@ -24,7 +24,7 @@ public class GOTConquestZone {
 	public GOTConquestZone(int i, int k) {
 		gridX = i;
 		gridZ = k;
-		if (allPlayableFacs == null && (allPlayableFacs = GOTFaction.getPlayableAlignmentFactions()).size() >= 62) {
+		if (allPlayableFacs == null && (allPlayableFacs = GOTFaction.getPlayableReputationFactions()).size() >= 62) {
 			throw new RuntimeException("Too many factions! Need to upgrade GOTConquestZone data format.");
 		}
 		conquestStrengths = new float[allPlayableFacs.size()];
@@ -107,7 +107,7 @@ public class GOTConquestZone {
 	}
 
 	public float getConquestStrengthRaw(GOTFaction fac) {
-		if (!fac.isPlayableAlignmentFaction()) {
+		if (!fac.isPlayableReputationFaction()) {
 			return 0.0f;
 		}
 		int index = allPlayableFacs.indexOf(fac);
@@ -158,7 +158,7 @@ public class GOTConquestZone {
 
 	public void setConquestStrengthRaw(GOTFaction fac, float str) {
 		float str1 = str;
-		if (!fac.isPlayableAlignmentFaction()) {
+		if (!fac.isPlayableReputationFaction()) {
 			return;
 		}
 		if (str1 < 0.0f) {

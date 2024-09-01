@@ -15,7 +15,7 @@ public class GOTEntityTyroshButcher extends GOTEntityTyroshMan implements GOTTra
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

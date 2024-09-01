@@ -34,21 +34,21 @@ public class GOTUnitTradeEntry {
 	private String name;
 	private String extraInfo;
 
-	private float alignmentRequired;
+	private float reputationRequired;
 	private float mountArmorChance;
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTUnitTradeEntry(Class<? extends Entity> c, Class<? extends Entity> c1, String s, int cost, float alignment) {
-		this(c, cost, alignment);
+	public GOTUnitTradeEntry(Class<? extends Entity> c, Class<? extends Entity> c1, String s, int cost, float reputation) {
+		this(c, cost, reputation);
 		mountClass = c1;
 		name = s;
 	}
 
 	@SuppressWarnings({"WeakerAccess", "unused"})
-	public GOTUnitTradeEntry(Class<? extends Entity> c, int cost, float alignment) {
+	public GOTUnitTradeEntry(Class<? extends Entity> c, int cost, float reputation) {
 		entityClass = c;
 		initialCost = cost;
-		alignmentRequired = alignment;
+		reputationRequired = reputation;
 		if (GOTBannerBearer.class.isAssignableFrom(entityClass)) {
 			extraInfo = "Banner";
 		}
@@ -76,9 +76,9 @@ public class GOTUnitTradeEntry {
 		float cost = initialCost;
 		GOTFaction fac = trader.getFaction();
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		float alignment = pd.getAlignment(fac);
+		float reputation = pd.getReputation(fac);
 		boolean pledged = pd.isPledgedTo(fac);
-		float alignSurplus = Math.max(alignment - alignmentRequired, 0.0f);
+		float alignSurplus = Math.max(reputation - reputationRequired, 0.0f);
 		if (pledged) {
 			f = alignSurplus / 1500.0f;
 		} else {
@@ -123,7 +123,7 @@ public class GOTUnitTradeEntry {
 		return extraInfo != null;
 	}
 
-	public boolean hasRequiredCostAndAlignment(EntityPlayer entityplayer, GOTHireableBase trader) {
+	public boolean hasRequiredCostAndReputation(EntityPlayer entityplayer, GOTHireableBase trader) {
 		int coins = GOTItemCoin.getInventoryValue(entityplayer, false);
 		if (coins < getCost(entityplayer, trader)) {
 			return false;
@@ -132,12 +132,12 @@ public class GOTUnitTradeEntry {
 		if (!pledgeType.canAcceptPlayer(entityplayer, fac)) {
 			return false;
 		}
-		float alignment = GOTLevelData.getData(entityplayer).getAlignment(fac);
-		return alignment >= alignmentRequired;
+		float reputation = GOTLevelData.getData(entityplayer).getReputation(fac);
+		return reputation >= reputationRequired;
 	}
 
 	public void hireUnit(EntityPlayer entityplayer, GOTHireableBase trader, String squadron) {
-		if (hasRequiredCostAndAlignment(entityplayer, trader)) {
+		if (hasRequiredCostAndReputation(entityplayer, trader)) {
 			GOTHireableBase.onUnitTrade(entityplayer);
 			int cost = getCost(entityplayer, trader);
 			GOTItemCoin.takeCoins(cost, entityplayer);
@@ -183,12 +183,12 @@ public class GOTUnitTradeEntry {
 		return initialCost;
 	}
 
-	public float getAlignmentRequired() {
-		return alignmentRequired;
+	public float getReputationRequired() {
+		return reputationRequired;
 	}
 
-	public void setAlignmentRequired(float alignmentRequired) {
-		this.alignmentRequired = alignmentRequired;
+	public void setReputationRequired(float reputationRequired) {
+		this.reputationRequired = reputationRequired;
 	}
 
 	public GOTHireableInfo.Task getTask() {

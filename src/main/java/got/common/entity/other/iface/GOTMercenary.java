@@ -1,7 +1,7 @@
 package got.common.entity.other.iface;
 
 public interface GOTMercenary extends GOTHireableBase {
-	float getMercAlignmentRequired();
+	float getMercReputationRequired();
 
 	int getMercBaseCost();
 }

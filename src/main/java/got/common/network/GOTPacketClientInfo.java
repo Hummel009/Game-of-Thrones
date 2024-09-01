@@ -85,10 +85,10 @@ public class GOTPacketClientInfo implements IMessage {
 				GOTFaction newFac = packet.viewingFaction;
 				pd.setViewingFaction(newFac);
 				if (prevFac != newFac && prevFac.getFactionRegion() == newFac.getFactionRegion()) {
-					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleAlignment());
+					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleReputation());
 				}
 				if (prevFac.getFactionRegion() != newFac.getFactionRegion()) {
-					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleAlignmentRegion());
+					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleReputationRegion());
 				}
 			}
 			Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap = packet.changedRegionMap;

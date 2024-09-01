@@ -15,7 +15,7 @@ public class GOTEntityGhiscarFishmonger extends GOTEntityGhiscarMan implements G
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

@@ -4,7 +4,7 @@ import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRank;
 import io.netty.buffer.ByteBuf;
@@ -93,8 +93,8 @@ public class GOTTitle {
 			case RANK:
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 				GOTFaction fac = titleRank.getFaction();
-				float align = pd.getAlignment(fac);
-				if (align >= titleRank.getAlignment()) {
+				float align = pd.getReputation(fac);
+				if (align >= titleRank.getReputation()) {
 					boolean requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
 					return !requirePledge || pd.isPledgedTo(fac);
 				}
@@ -113,12 +113,12 @@ public class GOTTitle {
 			case ACHIEVEMENT:
 				return titleAchievement.getDescription();
 			case RANK:
-				String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.getAlignment());
+				String alignS = GOTReputationValues.formatAlignForDisplay(titleRank.getReputation());
 				boolean requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
 				if (requirePledge) {
-					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.getFaction().factionName(), alignS);
+					return StatCollector.translateToLocalFormatted("got.titles.unlock.reputation.pledge", titleRank.getFaction().factionName(), alignS);
 				}
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.getFaction().factionName(), alignS);
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.reputation", titleRank.getFaction().factionName(), alignS);
 			default:
 				return "If you can read this, something has gone hideously wrong";
 		}

@@ -14,7 +14,7 @@ public class GOTEntityWildlingWarrior extends GOTEntityWildling {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

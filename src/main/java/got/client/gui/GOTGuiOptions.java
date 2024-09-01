@@ -14,7 +14,7 @@ import java.util.List;
 public class GOTGuiOptions extends GOTGuiMenuBase {
 	private GOTGuiButtonOptions buttonFriendlyFire;
 	private GOTGuiButtonOptions buttonHiredDeathMessages;
-	private GOTGuiButtonOptions buttonAlignment;
+	private GOTGuiButtonOptions buttonReputation;
 	private GOTGuiButtonOptions buttonMapLocation;
 	private GOTGuiButtonOptions buttonConquest;
 	private GOTGuiButtonOptions buttonFeminineRank;
@@ -42,7 +42,7 @@ public class GOTGuiOptions extends GOTGuiMenuBase {
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		buttonFriendlyFire.setState(pd.getFriendlyFire());
 		buttonHiredDeathMessages.setState(pd.getEnableHiredDeathMessages());
-		buttonAlignment.setState(!pd.getHideAlignment());
+		buttonReputation.setState(!pd.getHideReputation());
 		buttonMapLocation.setState(!pd.getHideMapLocation());
 		buttonConquest.setState(pd.getEnableConquestKills());
 		buttonFeminineRank.setState(pd.getFeminineRanks());
@@ -64,8 +64,8 @@ public class GOTGuiOptions extends GOTGuiMenuBase {
 		buttonList.add(buttonFriendlyFire);
 		buttonHiredDeathMessages = new GOTGuiButtonOptions(1, buttonX, buttonY + 24, 200, 20, "got.gui.options.hiredDeathMessages");
 		buttonList.add(buttonHiredDeathMessages);
-		buttonAlignment = new GOTGuiButtonOptions(2, buttonX, buttonY + 48, 200, 20, "got.gui.options.showAlignment");
-		buttonList.add(buttonAlignment);
+		buttonReputation = new GOTGuiButtonOptions(2, buttonX, buttonY + 48, 200, 20, "got.gui.options.showReputation");
+		buttonList.add(buttonReputation);
 		buttonMapLocation = new GOTGuiButtonOptions(3, buttonX, buttonY + 72, 200, 20, "got.gui.options.showMapLocation");
 		buttonList.add(buttonMapLocation);
 		buttonConquest = new GOTGuiButtonOptions(5, buttonX, buttonY + 96, 200, 20, "got.gui.options.conquest");

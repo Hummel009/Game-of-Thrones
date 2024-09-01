@@ -14,7 +14,7 @@ public class GOTEntityDorneBrewer extends GOTEntityDorneMan implements GOTTradea
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

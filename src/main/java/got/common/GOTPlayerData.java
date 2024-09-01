@@ -63,14 +63,14 @@ public class GOTPlayerData {
 	private final List<UUID> fellowshipIDs = new ArrayList<>();
 
 	private final Map<GOTDimension.DimensionRegion, GOTFaction> prevRegionFactions = new EnumMap<>(GOTDimension.DimensionRegion.class);
-	private final Map<GOTFaction, Float> alignments = new EnumMap<>(GOTFaction.class);
+	private final Map<GOTFaction, Float> reputations = new EnumMap<>(GOTFaction.class);
 	private final Map<GOTFaction, GOTFactionData> factionDataMap = new EnumMap<>(GOTFaction.class);
 	private final Map<GOTGuiMessageTypes, Boolean> sentMessageTypes = new EnumMap<>(GOTGuiMessageTypes.class);
 	private final Map<GOTWaypoint, Integer> wpUseCounts = new EnumMap<>(GOTWaypoint.class);
 	private final Map<CWPSharedKey, Integer> cwpSharedUseCounts = new HashMap<>();
 	private final Map<Integer, Integer> cwpUseCounts = new HashMap<>();
 
-	private final Set<GOTFaction> takenAlignmentRewards = EnumSet.noneOf(GOTFaction.class);
+	private final Set<GOTFaction> takenReputationRewards = EnumSet.noneOf(GOTFaction.class);
 	private final Set<GOTWaypoint.Region> unlockedFTRegions = EnumSet.noneOf(GOTWaypoint.Region.class);
 
 	private final GOTPlayerQuestData questData = new GOTPlayerQuestData(this);
@@ -98,7 +98,7 @@ public class GOTPlayerData {
 	private boolean conquestKills = true;
 	private boolean feminineRanks;
 	private boolean friendlyFire;
-	private boolean hideAlignment;
+	private boolean hideReputation;
 	private boolean hideOnMap;
 	private boolean hiredDeathMessages = true;
 	private boolean needsSave;
@@ -390,32 +390,32 @@ public class GOTPlayerData {
 		}
 	}
 
-	private GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
+	private GOTReputationBonusMap addReputation(EntityPlayer entityplayer, GOTReputationValues.ReputationBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
 		float bonus = source.getBonus();
-		GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
-		float prevMainAlignment = getAlignment(faction);
+		GOTReputationBonusMap factionBonusMap = new GOTReputationBonusMap();
+		float prevMainReputation = getReputation(faction);
 		float conquestBonus = 0.0F;
 		if (source.isKill()) {
 			List<GOTFaction> killBonuses = faction.getBonusesForKilling();
 			for (GOTFaction bonusFaction : killBonuses) {
-				if (bonusFaction.isPlayableAlignmentFaction() && (bonusFaction.isApprovesWarCrimes() || !source.isCivilianKill())) {
+				if (bonusFaction.isPlayableReputationFaction() && (bonusFaction.isApprovesWarCrimes() || !source.isCivilianKill())) {
 					if (!source.isKillByHiredUnit()) {
 						float mplier;
 						if (forcedBonusFactions != null && forcedBonusFactions.contains(bonusFaction)) {
 							mplier = 1.0F;
 						} else {
-							mplier = bonusFaction.getControlZoneAlignmentMultiplier(entityplayer);
+							mplier = bonusFaction.getControlZoneReputationMultiplier(entityplayer);
 						}
 						if (mplier > 0.0F) {
-							float alignment = getAlignment(bonusFaction);
+							float reputation = getReputation(bonusFaction);
 							float factionBonus = Math.abs(bonus);
 							factionBonus *= mplier;
-							if (alignment >= bonusFaction.getPledgeAlignment() && !isPledgedTo(bonusFaction)) {
+							if (reputation >= bonusFaction.getPledgeReputation() && !isPledgedTo(bonusFaction)) {
 								factionBonus *= 0.5F;
 							}
 							factionBonus = checkBonusForPledgeEnemyLimit(bonusFaction, factionBonus);
-							alignment += factionBonus;
-							setAlignment(bonusFaction, alignment);
+							reputation += factionBonus;
+							setReputation(bonusFaction, reputation);
 							factionBonusMap.put(bonusFaction, factionBonus);
 						}
 					}
@@ -431,57 +431,57 @@ public class GOTPlayerData {
 			}
 			List<GOTFaction> killPenalties = faction.getPenaltiesForKilling();
 			for (GOTFaction penaltyFaction : killPenalties) {
-				if (penaltyFaction.isPlayableAlignmentFaction() && !source.isKillByHiredUnit()) {
+				if (penaltyFaction.isPlayableReputationFaction() && !source.isKillByHiredUnit()) {
 					float mplier;
 					if (penaltyFaction == faction) {
 						mplier = 1.0F;
 					} else {
-						mplier = penaltyFaction.getControlZoneAlignmentMultiplier(entityplayer);
+						mplier = penaltyFaction.getControlZoneReputationMultiplier(entityplayer);
 					}
 					if (mplier > 0.0F) {
-						float alignment = getAlignment(penaltyFaction);
+						float reputation = getReputation(penaltyFaction);
 						float factionPenalty = -Math.abs(bonus);
 						factionPenalty *= mplier;
-						factionPenalty = GOTAlignmentValues.AlignmentBonus.scalePenalty(factionPenalty, alignment);
-						alignment += factionPenalty;
-						setAlignment(penaltyFaction, alignment);
+						factionPenalty = GOTReputationValues.ReputationBonus.scalePenalty(factionPenalty, reputation);
+						reputation += factionPenalty;
+						setReputation(penaltyFaction, reputation);
 						factionBonusMap.put(penaltyFaction, factionPenalty);
 					}
 				}
 			}
-		} else if (faction.isPlayableAlignmentFaction()) {
-			float alignment = getAlignment(faction);
+		} else if (faction.isPlayableReputationFaction()) {
+			float reputation = getReputation(faction);
 			float factionBonus = bonus;
-			if (factionBonus > 0.0F && alignment >= faction.getPledgeAlignment() && !isPledgedTo(faction)) {
+			if (factionBonus > 0.0F && reputation >= faction.getPledgeReputation() && !isPledgedTo(faction)) {
 				factionBonus *= 0.5F;
 			}
 			factionBonus = checkBonusForPledgeEnemyLimit(faction, factionBonus);
-			alignment += factionBonus;
-			setAlignment(faction, alignment);
+			reputation += factionBonus;
+			setReputation(faction, reputation);
 			factionBonusMap.put(faction, factionBonus);
 		}
 		if (!factionBonusMap.isEmpty() || conquestBonus != 0.0F) {
-			sendAlignmentBonusPacket(source, faction, prevMainAlignment, factionBonusMap, conquestBonus, posX, posY, posZ);
+			sendReputationBonusPacket(source, faction, prevMainReputation, factionBonusMap, conquestBonus, posX, posY, posZ);
 		}
 		return factionBonusMap;
 	}
 
-	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, Entity entity) {
-		return addAlignment(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7D, entity.posZ);
+	public GOTReputationBonusMap addReputation(EntityPlayer entityplayer, GOTReputationValues.ReputationBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, Entity entity) {
+		return addReputation(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7D, entity.posZ);
 	}
 
-	public void addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, double posX, double posY, double posZ) {
-		addAlignment(entityplayer, source, faction, null, posX, posY, posZ);
+	public void addReputation(EntityPlayer entityplayer, GOTReputationValues.ReputationBonus source, GOTFaction faction, double posX, double posY, double posZ) {
+		addReputation(entityplayer, source, faction, null, posX, posY, posZ);
 	}
 
-	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Entity entity) {
-		return addAlignment(entityplayer, source, faction, null, entity);
+	public GOTReputationBonusMap addReputation(EntityPlayer entityplayer, GOTReputationValues.ReputationBonus source, GOTFaction faction, Entity entity) {
+		return addReputation(entityplayer, source, faction, null, entity);
 	}
 
-	public void addAlignmentFromCommand(GOTFaction faction, float add) {
-		float alignment = getAlignment(faction);
-		alignment += add;
-		setAlignment(faction, alignment);
+	public void addReputationFromCommand(GOTFaction faction, float add) {
+		float reputation = getReputation(faction);
+		reputation += add;
+		setReputation(faction, reputation);
 	}
 
 	public void addCompletedBountyQuest() {
@@ -757,25 +757,25 @@ public class GOTPlayerData {
 	}
 
 	public boolean canPledgeTo(GOTFaction fac) {
-		return fac.isPlayableAlignmentFaction() && hasPledgeAlignment(fac);
+		return fac.isPlayableReputationFaction() && hasPledgeReputation(fac);
 	}
 
-	private void checkAlignmentAchievements(GOTFaction faction) {
+	private void checkReputationAchievements(GOTFaction faction) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			faction.checkAlignmentAchievements(entityplayer);
+			faction.checkReputationAchievements(entityplayer);
 		}
 	}
 
 	private float checkBonusForPledgeEnemyLimit(GOTFaction fac, float bonus) {
-		if (isPledgeEnemyAlignmentLimited(fac)) {
-			float alignment = getAlignment(fac);
+		if (isPledgeEnemyReputationLimited(fac)) {
+			float reputation = getReputation(fac);
 			float limit = 0.0f;
-			if (alignment > limit) {
+			if (reputation > limit) {
 				return 0.0f;
 			}
-			if (alignment + bonus > limit) {
-				return limit - alignment;
+			if (reputation + bonus > limit) {
+				return limit - reputation;
 			}
 		}
 		return bonus;
@@ -1004,13 +1004,13 @@ public class GOTPlayerData {
 		}
 	}
 
-	public float getAlignment(GOTFaction faction) {
-		if (faction.isHasFixedAlignment()) {
-			return faction.getFixedAlignment();
+	public float getReputation(GOTFaction faction) {
+		if (faction.isHasFixedReputation()) {
+			return faction.getFixedReputation();
 		}
-		Float alignment = alignments.get(faction);
-		if (alignment != null) {
-			return alignment;
+		Float reputation = reputations.get(faction);
+		if (reputation != null) {
+			return reputation;
 		}
 		return 0.0F;
 	}
@@ -1202,16 +1202,16 @@ public class GOTPlayerData {
 		sendOptionsPacket(0, flag);
 	}
 
-	public boolean getHideAlignment() {
-		return hideAlignment;
+	public boolean getHideReputation() {
+		return hideReputation;
 	}
 
-	public void setHideAlignment(boolean flag) {
-		hideAlignment = flag;
+	public void setHideReputation(boolean flag) {
+		hideReputation = flag;
 		markDirty();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTLevelData.sendAlignmentToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
+			GOTLevelData.sendReputationToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
 		}
 	}
 
@@ -1391,7 +1391,7 @@ public class GOTPlayerData {
 		pledgeKillCooldown = 0;
 		markDirty();
 		if (fac != null) {
-			checkAlignmentAchievements(fac);
+			checkReputationAchievements(fac);
 			addAchievement(GOTAchievement.pledgeService);
 		}
 		EntityPlayer entityplayer = getPlayer();
@@ -1542,8 +1542,8 @@ public class GOTPlayerData {
 		float conq1 = GOTConquestGrid.onConquestKill(entityplayer, bonusFac, enemyFac, conq);
 		getFactionData(bonusFac).addConquest(Math.abs(conq1));
 		if (conq1 != 0.0F) {
-			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0F, title);
-			IMessage packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq1, posX, posY, posZ, source);
+			GOTReputationValues.ReputationBonus source = new GOTReputationValues.ReputationBonus(0.0F, title);
+			IMessage packet = new GOTPacketReputationBonus(bonusFac, getReputation(bonusFac), new GOTReputationBonusMap(), conq1, posX, posY, posZ, source);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -1586,9 +1586,9 @@ public class GOTPlayerData {
 		return false;
 	}
 
-	public boolean hasPledgeAlignment(GOTFaction fac) {
-		float alignment = getAlignment(fac);
-		return alignment >= fac.getPledgeAlignment();
+	public boolean hasPledgeReputation(GOTFaction fac) {
+		float reputation = getReputation(fac);
+		return reputation >= fac.getPledgeReputation();
 	}
 
 	public void hideOrUnhideSharedCustomWaypoint(GOTCustomWaypoint waypoint, boolean hide) {
@@ -1639,7 +1639,7 @@ public class GOTPlayerData {
 		return pledgeFaction == fac;
 	}
 
-	private boolean isPledgeEnemyAlignmentLimited(GOTFaction fac) {
+	private boolean isPledgeEnemyReputationLimited(GOTFaction fac) {
 		return pledgeFaction != null && doesFactionPreventPledge(pledgeFaction, fac);
 	}
 
@@ -1690,19 +1690,19 @@ public class GOTPlayerData {
 	}
 
 	public void load(NBTTagCompound playerData) {
-		alignments.clear();
-		NBTTagList alignmentTags = playerData.getTagList("AlignmentMap", 10);
-		for (int i = 0; i < alignmentTags.tagCount(); i++) {
-			NBTTagCompound nbt = alignmentTags.getCompoundTagAt(i);
+		reputations.clear();
+		NBTTagList reputationTags = playerData.getTagList("ReputationMap", 10);
+		for (int i = 0; i < reputationTags.tagCount(); i++) {
+			NBTTagCompound nbt = reputationTags.getCompoundTagAt(i);
 			GOTFaction faction = GOTFaction.forName(nbt.getString("Faction"));
 			if (faction != null) {
-				float alignment;
-				if (nbt.hasKey("Alignment")) {
-					alignment = nbt.getInteger("Alignment");
+				float reputation;
+				if (nbt.hasKey("Reputation")) {
+					reputation = nbt.getInteger("Reputation");
 				} else {
-					alignment = nbt.getFloat("AlignF");
+					reputation = nbt.getFloat("AlignF");
 				}
-				alignments.put(faction, alignment);
+				reputations.put(faction, reputation);
 			}
 		}
 		factionDataMap.clear();
@@ -1732,14 +1732,14 @@ public class GOTPlayerData {
 				prevRegionFactions.put(region, faction);
 			}
 		}
-		hideAlignment = playerData.getBoolean("HideAlignment");
-		takenAlignmentRewards.clear();
-		NBTTagList takenRewardsTags = playerData.getTagList("TakenAlignmentRewards", 10);
+		hideReputation = playerData.getBoolean("HideReputation");
+		takenReputationRewards.clear();
+		NBTTagList takenRewardsTags = playerData.getTagList("TakenReputationRewards", 10);
 		for (int m = 0; m < takenRewardsTags.tagCount(); m++) {
 			NBTTagCompound nbt = takenRewardsTags.getCompoundTagAt(m);
 			GOTFaction faction = GOTFaction.forName(nbt.getString("Faction"));
 			if (faction != null) {
-				takenAlignmentRewards.add(faction);
+				takenReputationRewards.add(faction);
 			}
 		}
 		pledgeFaction = null;
@@ -2338,8 +2338,8 @@ public class GOTPlayerData {
 
 	public void revokePledgeFaction(EntityPlayer entityplayer, boolean intentional) {
 		GOTFaction wasPledge = pledgeFaction;
-		float pledgeLvl = wasPledge.getPledgeAlignment();
-		float prevAlign = getAlignment(wasPledge);
+		float pledgeLvl = wasPledge.getPledgeReputation();
+		float prevAlign = getReputation(wasPledge);
 		float diff = prevAlign - pledgeLvl;
 		float cd = diff / 5000.0F;
 		cd = MathHelper.clamp_float(cd, 0.0F, 1.0F);
@@ -2353,11 +2353,11 @@ public class GOTPlayerData {
 			GOTFactionRank rank = wasPledge.getRank(prevAlign);
 			GOTFactionRank rankBelow = wasPledge.getRankBelow(rank);
 			GOTFactionRank rankBelow2 = wasPledge.getRankBelow(rankBelow);
-			float newAlign = rankBelow2.getAlignment();
+			float newAlign = rankBelow2.getReputation();
 			newAlign = Math.max(newAlign, pledgeLvl / 2.0F);
 			float alignPenalty = newAlign - prevAlign;
 			if (alignPenalty < 0.0F) {
-				GOTAlignmentValues.AlignmentBonus penalty = GOTAlignmentValues.createPledgePenalty(alignPenalty);
+				GOTReputationValues.ReputationBonus penalty = GOTReputationValues.createPledgePenalty(alignPenalty);
 				double alignX;
 				double alignY;
 				double alignZ;
@@ -2375,7 +2375,7 @@ public class GOTPlayerData {
 					alignY = posSight.yCoord;
 					alignZ = posSight.zCoord;
 				}
-				addAlignment(entityplayer, penalty, wasPledge, alignX, alignY, alignZ);
+				addReputation(entityplayer, penalty, wasPledge, alignX, alignY, alignZ);
 			}
 			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0F, 1.0F);
 			ChatComponentTranslation chatComponentTranslation;
@@ -2385,7 +2385,7 @@ public class GOTPlayerData {
 				chatComponentTranslation = new ChatComponentTranslation("got.chat.autoUnpledge", wasPledge.factionName());
 			}
 			entityplayer.addChatMessage(chatComponentTranslation);
-			checkAlignmentAchievements(wasPledge);
+			checkReputationAchievements(wasPledge);
 		}
 	}
 
@@ -2450,16 +2450,16 @@ public class GOTPlayerData {
 	}
 
 	public void save(NBTTagCompound playerData) {
-		NBTTagList alignmentTags = new NBTTagList();
-		for (Map.Entry<GOTFaction, Float> entry : alignments.entrySet()) {
+		NBTTagList reputationTags = new NBTTagList();
+		for (Map.Entry<GOTFaction, Float> entry : reputations.entrySet()) {
 			GOTFaction faction = entry.getKey();
-			float alignment = entry.getValue();
+			float reputation = entry.getValue();
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("Faction", faction.codeName());
-			nbt.setFloat("AlignF", alignment);
-			alignmentTags.appendTag(nbt);
+			nbt.setFloat("AlignF", reputation);
+			reputationTags.appendTag(nbt);
 		}
-		playerData.setTag("AlignmentMap", alignmentTags);
+		playerData.setTag("ReputationMap", reputationTags);
 		NBTTagList factionDataTags = new NBTTagList();
 		for (Map.Entry<GOTFaction, GOTFactionData> entry : factionDataMap.entrySet()) {
 			GOTFaction faction = entry.getKey();
@@ -2481,14 +2481,14 @@ public class GOTPlayerData {
 			prevRegionFactionTags.appendTag(nbt);
 		}
 		playerData.setTag("PrevRegionFactions", prevRegionFactionTags);
-		playerData.setBoolean("HideAlignment", hideAlignment);
+		playerData.setBoolean("HideReputation", hideReputation);
 		NBTTagList takenRewardsTags = new NBTTagList();
-		for (GOTFaction faction : takenAlignmentRewards) {
+		for (GOTFaction faction : takenReputationRewards) {
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("Faction", faction.codeName());
 			takenRewardsTags.appendTag(nbt);
 		}
-		playerData.setTag("TakenAlignmentRewards", takenRewardsTags);
+		playerData.setTag("TakenReputationRewards", takenRewardsTags);
 		if (pledgeFaction != null) {
 			playerData.setString("PledgeFac", pledgeFaction.codeName());
 		}
@@ -2687,10 +2687,10 @@ public class GOTPlayerData {
 		return ret;
 	}
 
-	private void sendAlignmentBonusPacket(GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionMap, float conqBonus, double posX, double posY, double posZ) {
+	private void sendReputationBonusPacket(GOTReputationValues.ReputationBonus source, GOTFaction faction, float prevMainReputation, GOTReputationBonusMap factionMap, float conqBonus, double posX, double posY, double posZ) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null) {
-			IMessage packet = new GOTPacketAlignmentBonus(faction, prevMainAlignment, factionMap, conqBonus, posX, posY, posZ, source);
+			IMessage packet = new GOTPacketReputationBonus(faction, prevMainReputation, factionMap, conqBonus, posX, posY, posZ, source);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2796,23 +2796,23 @@ public class GOTPlayerData {
 		addSharedCustomWaypointsFromAllFellowships();
 	}
 
-	public void setAlignment(GOTFaction faction, float alignment) {
+	public void setReputation(GOTFaction faction, float reputation) {
 		EntityPlayer entityplayer = getPlayer();
-		if (faction.isPlayableAlignmentFaction()) {
-			alignments.put(faction, alignment);
+		if (faction.isPlayableReputationFaction()) {
+			reputations.put(faction, reputation);
 			markDirty();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTLevelData.sendAlignmentToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
+				GOTLevelData.sendReputationToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
 			}
-			checkAlignmentAchievements(faction);
+			checkReputationAchievements(faction);
 		}
 		if (entityplayer != null && !entityplayer.worldObj.isRemote && pledgeFaction != null && !canPledgeTo(pledgeFaction)) {
 			revokePledgeFaction(entityplayer, false);
 		}
 	}
 
-	public void setAlignmentFromCommand(GOTFaction faction, float set) {
-		setAlignment(faction, set);
+	public void setReputationFromCommand(GOTFaction faction, float set) {
+		setReputation(faction, set);
 	}
 
 	public void setDeathPoint(int i, int j, int k) {

@@ -23,7 +23,7 @@ public class GOTEntityPycelle extends GOTEntityHumanBase implements GOTTradeable
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 200.0f;
 	}
 

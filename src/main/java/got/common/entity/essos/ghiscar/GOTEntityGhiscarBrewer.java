@@ -15,7 +15,7 @@ public class GOTEntityGhiscarBrewer extends GOTEntityGhiscarMan implements GOTTr
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	public float getReputationBonus() {
 		return 2.0f;
 	}
 

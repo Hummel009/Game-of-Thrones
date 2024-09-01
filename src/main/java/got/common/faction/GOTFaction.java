@@ -36,12 +36,12 @@ public enum GOTFaction {
 	private GOTMapRegion factionMapInfo;
 	private GOTFactionRank pledgeRank;
 	private boolean allowPlayer;
-	private boolean hasFixedAlignment;
+	private boolean hasFixedReputation;
 	private boolean approvesWarCrimes;
-	private int fixedAlignment;
+	private int fixedReputation;
 
-	GOTFaction(boolean registry, int alignment) {
-		this(0, null, null, false, registry, alignment, null);
+	GOTFaction(boolean registry, int reputation) {
+		this(0, null, null, false, registry, reputation, null);
 	}
 
 	GOTFaction(int color, GOTDimension.DimensionRegion region, GOTMapRegion mapInfo) {
@@ -52,7 +52,7 @@ public enum GOTFaction {
 		this(color, dim, region, true, true, Integer.MIN_VALUE, mapInfo);
 	}
 
-	GOTFaction(int color, GOTDimension dim, GOTDimension.DimensionRegion region, boolean player, boolean registry, int alignment, GOTMapRegion mapInfo) {
+	GOTFaction(int color, GOTDimension dim, GOTDimension.DimensionRegion region, boolean player, boolean registry, int reputation, GOTMapRegion mapInfo) {
 		allowPlayer = player;
 		eggColor = color;
 		allowEntityRegistry = registry;
@@ -68,8 +68,8 @@ public enum GOTFaction {
 				throw new IllegalArgumentException("Faction dimension region must agree with faction dimension!");
 			}
 		}
-		if (alignment != Integer.MIN_VALUE) {
-			setFixedAlignment(alignment);
+		if (reputation != Integer.MIN_VALUE) {
+			setFixedReputation(reputation);
 		}
 		if (mapInfo != null) {
 			factionMapInfo = mapInfo;
@@ -77,7 +77,7 @@ public enum GOTFaction {
 	}
 
 	public static boolean controlZonesEnabled(World world) {
-		return GOTLevelData.isEnableAlignmentZones() && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return GOTLevelData.isEnableReputationZones() && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
 
 	public static GOTFaction forID(int ID) {
@@ -98,8 +98,8 @@ public enum GOTFaction {
 		return null;
 	}
 
-	public static List<String> getPlayableAlignmentFactionNames() {
-		List<GOTFaction> factions = getPlayableAlignmentFactions();
+	public static List<String> getPlayableReputationFactionNames() {
+		List<GOTFaction> factions = getPlayableReputationFactions();
 		List<String> names = new ArrayList<>();
 		for (GOTFaction f : factions) {
 			names.add(f.codeName());
@@ -107,10 +107,10 @@ public enum GOTFaction {
 		return names;
 	}
 
-	public static List<GOTFaction> getPlayableAlignmentFactions() {
+	public static List<GOTFaction> getPlayableReputationFactions() {
 		List<GOTFaction> factions = new ArrayList<>();
 		for (GOTFaction f : values()) {
-			if (f.isPlayableAlignmentFaction()) {
+			if (f.isPlayableReputationFaction()) {
 				factions.add(f);
 			}
 		}
@@ -317,15 +317,15 @@ public enum GOTFaction {
 		WHITE_WALKER.addSpecialRank(1000.0f, "king").setPledgeRank().makeTitle().makeAchievement();
 	}
 
-	private GOTFactionRank addRank(float alignment, String name) {
-		GOTFactionRank rank = new GOTFactionRank(this, alignment, name);
+	private GOTFactionRank addRank(float reputation, String name) {
+		GOTFactionRank rank = new GOTFactionRank(this, reputation, name);
 		ranksSortedDescending.add(rank);
 		Collections.sort(ranksSortedDescending);
 		return rank;
 	}
 
-	private GOTFactionRank addSpecialRank(float alignment, String name) {
-		GOTFactionRank rank = new GOTFactionRank(this, alignment, name, false);
+	private GOTFactionRank addSpecialRank(float reputation, String name) {
+		GOTFactionRank rank = new GOTFactionRank(this, reputation, name, false);
 		ranksSortedDescending.add(rank);
 		Collections.sort(ranksSortedDescending);
 		return rank;
@@ -358,7 +358,7 @@ public enum GOTFaction {
 		return new int[]{xMin, xMax, zMin, zMax};
 	}
 
-	public void checkAlignmentAchievements(EntityPlayer entityplayer) {
+	public void checkReputationAchievements(EntityPlayer entityplayer) {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		for (GOTFactionRank rank : ranksSortedDescending) {
 			GOTAchievementRank rankAch = rank.getRankAchievement();
@@ -413,7 +413,7 @@ public enum GOTFaction {
 	public List<GOTFaction> getConquestBoostRelations() {
 		List<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
-			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != GOTFactionRelations.Relation.ALLY) {
+			if (f == this || !f.isPlayableReputationFaction() || GOTFactionRelations.getRelations(this, f) != GOTFactionRelations.Relation.ALLY) {
 				continue;
 			}
 			list.add(f);
@@ -421,7 +421,7 @@ public enum GOTFaction {
 		return list;
 	}
 
-	public float getControlZoneAlignmentMultiplier(EntityPlayer entityplayer) {
+	public float getControlZoneReputationMultiplier(EntityPlayer entityplayer) {
 		int reducedRange;
 		double dist;
 		if (inControlZone(entityplayer)) {
@@ -470,7 +470,7 @@ public enum GOTFaction {
 	public List<GOTFaction> getOthersOfRelation(GOTFactionRelations.Relation rel) {
 		List<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
-			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
+			if (f == this || !f.isPlayableReputationFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
 				continue;
 			}
 			list.add(f);
@@ -490,9 +490,9 @@ public enum GOTFaction {
 		return list;
 	}
 
-	public float getPledgeAlignment() {
+	public float getPledgeReputation() {
 		if (pledgeRank != null) {
-			return pledgeRank.getAlignment();
+			return pledgeRank.getReputation();
 		}
 		return 0.0f;
 	}
@@ -511,22 +511,22 @@ public enum GOTFaction {
 		pledgeRank = rank;
 	}
 
-	public GOTFactionRank getRank(float alignment) {
+	public GOTFactionRank getRank(float reputation) {
 		for (GOTFactionRank rank : ranksSortedDescending) {
-			if (rank.isDummyRank() || alignment < rank.getAlignment()) {
+			if (rank.isDummyRank() || reputation < rank.getReputation()) {
 				continue;
 			}
 			return rank;
 		}
-		if (alignment >= 0.0f) {
+		if (reputation >= 0.0f) {
 			return GOTFactionRank.RANK_NEUTRAL;
 		}
 		return GOTFactionRank.RANK_ENEMY;
 	}
 
 	public GOTFactionRank getRank(GOTPlayerData pd) {
-		float alignment = pd.getAlignment(this);
-		return getRank(alignment);
+		float reputation = pd.getReputation(this);
+		return getRank(reputation);
 	}
 
 	public GOTFactionRank getRankAbove(GOTFactionRank curRank) {
@@ -629,8 +629,8 @@ public enum GOTFaction {
 		return GOTFactionRelations.getRelations(this, other) == GOTFactionRelations.Relation.NEUTRAL;
 	}
 
-	public boolean isPlayableAlignmentFaction() {
-		return allowPlayer && !hasFixedAlignment;
+	public boolean isPlayableReputationFaction() {
+		return allowPlayer && !hasFixedReputation;
 	}
 
 	private boolean matchesName(String name) {
@@ -641,13 +641,13 @@ public enum GOTFaction {
 		return "got.faction." + codeName() + ".name";
 	}
 
-	public int getFixedAlignment() {
-		return fixedAlignment;
+	public int getFixedReputation() {
+		return fixedReputation;
 	}
 
-	public void setFixedAlignment(int alignment) {
-		hasFixedAlignment = true;
-		fixedAlignment = alignment;
+	public void setFixedReputation(int reputation) {
+		hasFixedReputation = true;
+		fixedReputation = reputation;
 	}
 
 	public GOTDimension getFactionDimension() {
@@ -682,8 +682,8 @@ public enum GOTFaction {
 		return factionMapInfo;
 	}
 
-	public boolean isHasFixedAlignment() {
-		return hasFixedAlignment;
+	public boolean isHasFixedReputation() {
+		return hasFixedReputation;
 	}
 
 	public int getEggColor() {
