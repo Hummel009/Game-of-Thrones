@@ -172,9 +172,9 @@ public class GOT {
 		}
 		Entity targetNPC = null;
 		GOTFaction targetNPCFaction;
-		if (target instanceof GOTEntityGoldenCompanyMan && getNPCFaction(target) == GOTFaction.UNALIGNED || getNPCFaction(target) != GOTFaction.UNALIGNED) {
+		if (target instanceof GOTEntityGoldenCompanyMan && getNPCFaction(target) == GOTFaction.NEUTRAL || getNPCFaction(target) != GOTFaction.NEUTRAL) {
 			targetNPC = target;
-		} else if (getNPCFaction(target.riddenByEntity) != GOTFaction.UNALIGNED) {
+		} else if (getNPCFaction(target.riddenByEntity) != GOTFaction.NEUTRAL) {
 			targetNPC = target.riddenByEntity;
 		}
 		if (targetNPC != null) {
@@ -269,13 +269,13 @@ public class GOT {
 
 	public static GOTFaction getNPCFaction(Entity entity) {
 		if (entity == null) {
-			return GOTFaction.UNALIGNED;
+			return GOTFaction.NEUTRAL;
 		}
 		if (entity instanceof GOTEntityNPC) {
 			return ((GOTEntityNPC) entity).getFaction();
 		}
 		EntityList.getEntityString(entity);
-		return GOTFaction.UNALIGNED;
+		return GOTFaction.NEUTRAL;
 	}
 
 	public static int getTrueTopBlock(World world, int i, int k) {

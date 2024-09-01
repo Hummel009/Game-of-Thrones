@@ -300,7 +300,7 @@ public class GOTHireableInfo {
 					wasEnemy = GOTLevelData.getData((EntityPlayer) target).getReputation(unitFaction) < 0.0f;
 				} else {
 					GOTFaction targetFaction = GOT.getNPCFaction(target);
-					if (targetFaction.isBadRelation(unitFaction) || unitFaction == GOTFaction.UNALIGNED && targetFaction != GOTFaction.UNALIGNED) {
+					if (targetFaction.isBadRelation(unitFaction) || unitFaction == GOTFaction.NEUTRAL && targetFaction != GOTFaction.NEUTRAL) {
 						wasEnemy = true;
 						addXP = 1;
 					}

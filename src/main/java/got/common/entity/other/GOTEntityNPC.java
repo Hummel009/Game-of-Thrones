@@ -1271,7 +1271,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	private void updateNearbyBanners() {
-		if (getFaction() == GOTFaction.UNALIGNED) {
+		if (getFaction() == GOTFaction.NEUTRAL) {
 			nearbyBannerFactor = 0;
 		} else {
 			double range = 16.0;
@@ -1399,7 +1399,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
+		return GOTFaction.NEUTRAL;
 	}
 
 	public GOTMiniQuestFactory getMiniQuestFactory() {

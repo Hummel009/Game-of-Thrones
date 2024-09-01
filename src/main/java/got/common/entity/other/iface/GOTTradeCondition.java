@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public interface GOTTradeCondition {
 	default boolean getTradeCondition(GOTEntityNPC npc, EntityPlayer entityPlayer) {
-		if (npc.getFaction() == GOTFaction.UNALIGNED) {
+		if (npc.getFaction() == GOTFaction.NEUTRAL) {
 			return npc.isFriendly(entityPlayer);
 		}
 		if (npc instanceof GOTHireableBase && !(npc instanceof GOTFarmer)) {

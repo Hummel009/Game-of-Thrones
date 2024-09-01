@@ -21,7 +21,7 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 
 	@Override
 	public boolean isEntityApplicable(Entity target) {
-		if ((ownerFaction == GOTFaction.WHITE_WALKER || ownerFaction == GOTFaction.HOSTILE) && target instanceof GOTEntityNPC && GOT.getNPCFaction(target) == GOTFaction.UNALIGNED) {
+		if ((ownerFaction == GOTFaction.WHITE_WALKER || ownerFaction == GOTFaction.HOSTILE) && target instanceof GOTEntityNPC && GOT.getNPCFaction(target) == GOTFaction.NEUTRAL) {
 			return true;
 		}
 		if (ownerFaction == GOTFaction.HOSTILE && (target.getClass().isAssignableFrom(owner.getClass()) || owner.getClass().isAssignableFrom(target.getClass()))) {

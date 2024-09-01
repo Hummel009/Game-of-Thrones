@@ -711,7 +711,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Fixed bug with rhyolite slabs
 * Fixed bug with fort walls.
 * Fixed bug with guide screen text about sword and fire.
-* Fixed bug with unaligned Gerold Dayne.
+* Fixed bug with neutral Gerold Dayne.
 * Fixed bug with achievements.
 * Fixed bug with pouch.
 * Fixed bug with generation of clay

@@ -36,7 +36,7 @@ public class GOTFactionRelations {
 	}
 
 	public static Relation getRelations(GOTFaction f1, GOTFaction f2) {
-		if (f1 == GOTFaction.UNALIGNED || f2 == GOTFaction.UNALIGNED) {
+		if (f1 == GOTFaction.NEUTRAL || f2 == GOTFaction.NEUTRAL) {
 			return Relation.NEUTRAL;
 		}
 		if (f1 == GOTFaction.HOSTILE || f2 == GOTFaction.HOSTILE) {
@@ -144,8 +144,8 @@ public class GOTFactionRelations {
 	}
 
 	private static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation, boolean isDefault) {
-		if (f1 == GOTFaction.UNALIGNED || f2 == GOTFaction.UNALIGNED) {
-			throw new IllegalArgumentException("Cannot alter UNALIGNED!");
+		if (f1 == GOTFaction.NEUTRAL || f2 == GOTFaction.NEUTRAL) {
+			throw new IllegalArgumentException("Cannot alter NEUTRAL!");
 		}
 		if (f1 == GOTFaction.HOSTILE || f2 == GOTFaction.HOSTILE) {
 			throw new IllegalArgumentException("Cannot alter HOSTILE!");

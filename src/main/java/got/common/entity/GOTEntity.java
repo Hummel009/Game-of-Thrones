@@ -951,12 +951,12 @@ public class GOTEntity {
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityBuGai.class, id++, GOTFaction.YI_TI);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityAsshaiArchmag.class, id++, GOTFaction.ASSHAI);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityMoqorro.class, id++, GOTFaction.ASSHAI);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityBronn.class, id++, GOTFaction.UNALIGNED);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityDaarioNaharis.class, id++, GOTFaction.UNALIGNED);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityGreyWorm.class, id++, GOTFaction.UNALIGNED);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityHarryStrickland.class, id++, GOTFaction.UNALIGNED);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityThreeEyedRaven.class, id++, GOTFaction.UNALIGNED);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityVargoHoat.class, id++, GOTFaction.UNALIGNED);
+		GOTEntityRegistry.registerLegendaryNPC(GOTEntityBronn.class, id++, GOTFaction.NEUTRAL);
+		GOTEntityRegistry.registerLegendaryNPC(GOTEntityDaarioNaharis.class, id++, GOTFaction.NEUTRAL);
+		GOTEntityRegistry.registerLegendaryNPC(GOTEntityGreyWorm.class, id++, GOTFaction.NEUTRAL);
+		GOTEntityRegistry.registerLegendaryNPC(GOTEntityHarryStrickland.class, id++, GOTFaction.NEUTRAL);
+		GOTEntityRegistry.registerLegendaryNPC(GOTEntityThreeEyedRaven.class, id++, GOTFaction.NEUTRAL);
+		GOTEntityRegistry.registerLegendaryNPC(GOTEntityVargoHoat.class, id++, GOTFaction.NEUTRAL);
 		GOTEntityRegistry.registerHidden(GOTEntityBericDondarrion.BericDondarrionLife2.class, id++);
 		GOTEntityRegistry.registerHidden(GOTEntityBericDondarrion.BericDondarrionLife3.class, id++);
 		GOTEntityRegistry.registerHidden(GOTEntityBericDondarrion.BericDondarrionLife4.class, id++);

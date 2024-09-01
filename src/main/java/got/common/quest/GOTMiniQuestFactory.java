@@ -25,7 +25,7 @@ import net.minecraft.item.ItemStack;
 import java.util.*;
 
 public enum GOTMiniQuestFactory {
-	CRIMINAL(GOTFaction.UNALIGNED),
+	CRIMINAL(GOTFaction.NEUTRAL),
 	IBBEN(GOTFaction.IBBEN),
 	SUMMER_ISLANDS(GOTFaction.SUMMER_ISLANDS),
 	SOTHORYOS(GOTFaction.SOTHORYOS),
@@ -99,7 +99,7 @@ public enum GOTMiniQuestFactory {
 	private GOTFaction reputationRewardOverride;
 
 	GOTMiniQuestFactory() {
-		faction = GOTFaction.UNALIGNED;
+		faction = GOTFaction.NEUTRAL;
 		baseName = "legendary";
 		setAchievement(GOTAchievement.doMiniquestLegendary);
 	}
@@ -179,11 +179,11 @@ public enum GOTMiniQuestFactory {
 		CRIMINAL.addQuest(new GOTMiniQuestPickpocket.QFPickpocket<>("criminal").setPickpocketNumber(1, 9).setIsLegendary());
 
 		for (GOTMiniQuestFactory factory : values()) {
-			if (factory.faction != GOTFaction.UNALIGNED) {
+			if (factory.faction != GOTFaction.NEUTRAL) {
 				factory.addQuest(new GOTMiniQuestBounty.QFBounty<>());
 
 				for (GOTFaction potentialEnemy : GOTFaction.values()) {
-					if (factory.faction != potentialEnemy && factory.faction.isBadRelation(potentialEnemy) && factory.faction != GOTFaction.WHITE_WALKER && factory.faction != GOTFaction.HOSTILE && potentialEnemy != GOTFaction.WHITE_WALKER && potentialEnemy != GOTFaction.HOSTILE && potentialEnemy != GOTFaction.UNALIGNED) {
+					if (factory.faction != potentialEnemy && factory.faction.isBadRelation(potentialEnemy) && factory.faction != GOTFaction.WHITE_WALKER && factory.faction != GOTFaction.HOSTILE && potentialEnemy != GOTFaction.WHITE_WALKER && potentialEnemy != GOTFaction.HOSTILE && potentialEnemy != GOTFaction.NEUTRAL) {
 						factory.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(potentialEnemy, 10, 30));
 						factory.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(potentialEnemy, 30, 50));
 						factory.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(potentialEnemy, 50, 70));

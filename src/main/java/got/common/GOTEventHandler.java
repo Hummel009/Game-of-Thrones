@@ -920,7 +920,7 @@ public class GOTEventHandler {
 						}
 					}
 					float newReputation = playerData.getReputation(entityFaction);
-					if (!wasSelfDefenceAgainstAlliedUnit && !entityplayer.capabilities.isCreativeMode && entityFaction != GOTFaction.UNALIGNED) {
+					if (!wasSelfDefenceAgainstAlliedUnit && !entityplayer.capabilities.isCreativeMode && entityFaction != GOTFaction.NEUTRAL) {
 						int sentSpeeches = 0;
 						int maxSpeeches = 5;
 						double range = 8.0D;
