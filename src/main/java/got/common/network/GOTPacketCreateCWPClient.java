@@ -23,7 +23,7 @@ public class GOTPacketCreateCWPClient implements IMessage {
 	private int zCoord;
 	private int cwpID;
 	private String name;
-	private List<UUID> sharedFellowshipIDs;
+	private List<UUID> sharedBrotherhoodIDs;
 	private UUID sharingPlayer;
 	private String sharingPlayerName;
 	private boolean sharedUnlocked;
@@ -41,7 +41,7 @@ public class GOTPacketCreateCWPClient implements IMessage {
 		zCoord = zc;
 		cwpID = id;
 		name = s;
-		sharedFellowshipIDs = fsIDs;
+		sharedBrotherhoodIDs = fsIDs;
 	}
 
 	@Override
@@ -54,13 +54,13 @@ public class GOTPacketCreateCWPClient implements IMessage {
 		cwpID = data.readInt();
 		short nameLength = data.readShort();
 		name = data.readBytes(nameLength).toString(Charsets.UTF_8);
-		sharedFellowshipIDs = new ArrayList<>();
-		boolean sharedFellowships = data.readBoolean();
-		if (sharedFellowships) {
+		sharedBrotherhoodIDs = new ArrayList<>();
+		boolean sharedBrotherhoods = data.readBoolean();
+		if (sharedBrotherhoods) {
 			int sharedLength = data.readShort();
 			for (int l = 0; l < sharedLength; ++l) {
 				UUID fsID = new UUID(data.readLong(), data.readLong());
-				sharedFellowshipIDs.add(fsID);
+				sharedBrotherhoodIDs.add(fsID);
 			}
 		}
 		if (data.readBoolean()) {
@@ -91,11 +91,11 @@ public class GOTPacketCreateCWPClient implements IMessage {
 		byte[] nameBytes = name.getBytes(Charsets.UTF_8);
 		data.writeShort(nameBytes.length);
 		data.writeBytes(nameBytes);
-		boolean sharedFellowships = sharedFellowshipIDs != null;
-		data.writeBoolean(sharedFellowships);
-		if (sharedFellowships) {
-			data.writeShort(sharedFellowshipIDs.size());
-			for (UUID fsID : sharedFellowshipIDs) {
+		boolean sharedBrotherhoods = sharedBrotherhoodIDs != null;
+		data.writeBoolean(sharedBrotherhoods);
+		if (sharedBrotherhoods) {
+			data.writeShort(sharedBrotherhoodIDs.size());
+			for (UUID fsID : sharedBrotherhoodIDs) {
 				data.writeLong(fsID.getMostSignificantBits());
 				data.writeLong(fsID.getLeastSignificantBits());
 			}
@@ -119,8 +119,8 @@ public class GOTPacketCreateCWPClient implements IMessage {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTCustomWaypoint cwp = new GOTCustomWaypoint(packet.name, packet.mapX, packet.mapY, packet.xCoord, packet.yCoord, packet.zCoord, packet.cwpID);
-			if (packet.sharedFellowshipIDs != null) {
-				cwp.setSharedFellowshipIDs(packet.sharedFellowshipIDs);
+			if (packet.sharedBrotherhoodIDs != null) {
+				cwp.setSharedBrotherhoodIDs(packet.sharedBrotherhoodIDs);
 			}
 			if (packet.sharingPlayer != null) {
 				if (!GOT.proxy.isSingleplayer()) {

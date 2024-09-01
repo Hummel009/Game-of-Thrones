@@ -6,19 +6,19 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.fellowship.GOTFellowship;
-import got.common.fellowship.GOTFellowshipClient;
+import got.common.brotherhood.GOTBrotherhood;
+import got.common.brotherhood.GOTBrotherhoodClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public class GOTPacketFellowshipRename extends GOTPacketFellowshipDo {
+public class GOTPacketBrotherhoodRename extends GOTPacketBrotherhoodDo {
 	private String newName;
 
 	@SuppressWarnings("unused")
-	public GOTPacketFellowshipRename() {
+	public GOTPacketBrotherhoodRename() {
 	}
 
-	public GOTPacketFellowshipRename(GOTFellowshipClient fs, String name) {
+	public GOTPacketBrotherhoodRename(GOTBrotherhoodClient fs, String name) {
 		super(fs);
 		newName = name;
 	}
@@ -39,14 +39,14 @@ public class GOTPacketFellowshipRename extends GOTPacketFellowshipDo {
 		data.writeBytes(nameBytes);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketFellowshipRename, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketBrotherhoodRename, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketFellowshipRename packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketBrotherhoodRename packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTFellowship fellowship = packet.getActiveFellowship();
-			if (fellowship != null) {
+			GOTBrotherhood brotherhood = packet.getActiveBrotherhood();
+			if (brotherhood != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-				playerData.renameFellowship(fellowship, packet.newName);
+				playerData.renameBrotherhood(brotherhood, packet.newName);
 			}
 			return null;
 		}

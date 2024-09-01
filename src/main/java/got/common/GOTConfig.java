@@ -38,7 +38,7 @@ public class GOTConfig {
 	public static boolean enableConquest;
 	public static boolean enableDothrakiSkirmish;
 	public static boolean enableFastTravel;
-	public static boolean enableFellowshipCreation;
+	public static boolean enableBrotherhoodCreation;
 	public static boolean enableFrostfangsMist;
 	public static boolean enableGOTSky;
 	public static boolean enableInvasions;
@@ -80,7 +80,7 @@ public class GOTConfig {
 	public static int bannerWarningCooldown;
 	public static int cloudRange;
 	public static int customWaypointMinY;
-	public static int fellowshipMaxSize;
+	public static int brotherhoodMaxSize;
 	public static int forceMapLocations;
 	public static int gridScale;
 	public static int dragonFireballCooldown;
@@ -111,11 +111,11 @@ public class GOTConfig {
 		return GOTLevelData.getClientSideThisServerCustomWaypointMinY();
 	}
 
-	public static int getFellowshipMaxSize(World world) {
+	public static int getBrotherhoodMaxSize(World world) {
 		if (!world.isRemote) {
-			return fellowshipMaxSize;
+			return brotherhoodMaxSize;
 		}
-		return GOTLevelData.getClientSideThisServerFellowshipMaxSize();
+		return GOTLevelData.getClientSideThisServerBrotherhoodMaxSize();
 	}
 
 	public static boolean isEnchantingEnabled(World world) {
@@ -125,11 +125,11 @@ public class GOTConfig {
 		return GOTLevelData.isClientSideThisServerEnchanting();
 	}
 
-	public static boolean isFellowshipCreationEnabled(World world) {
+	public static boolean isBrotherhoodCreationEnabled(World world) {
 		if (!world.isRemote) {
-			return enableFellowshipCreation;
+			return enableBrotherhoodCreation;
 		}
-		return GOTLevelData.isClientSideThisServerFellowshipCreation();
+		return GOTLevelData.isClientSideThisServerBrotherhoodCreation();
 	}
 
 	public static boolean isGOTEnchantingEnabled(World world) {
@@ -156,14 +156,14 @@ public class GOTConfig {
 		enableConquest = config.get(CATEGORY_GAMEPLAY, "Enable Conquest", true).getBoolean();
 		enableDothrakiSkirmish = config.get(CATEGORY_GAMEPLAY, "Enable Dothraki Skirmishes", true).getBoolean();
 		enableFastTravel = config.get(CATEGORY_GAMEPLAY, "Enable Fast Travel", true).getBoolean();
-		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
+		enableBrotherhoodCreation = config.get(CATEGORY_GAMEPLAY, "Enable Brotherhood creation", true, "If disabled, admins can still create Brotherhoods using the command").getBoolean();
 		enableInvasions = config.get(CATEGORY_GAMEPLAY, "Enable Invasions", true).getBoolean();
 		enableTitles = config.get(CATEGORY_GAMEPLAY, "Enable Titles", true).getBoolean();
 		enableVillagerTrading = config.get(CATEGORY_GAMEPLAY, "Enable Villager trading", true, "Intended for servers. Enable or disable vanilla villager trading").getBoolean();
 		enchantingAutoRemoveVanilla = config.get(CATEGORY_GAMEPLAY, "Enchanting: Auto-remove vanilla enchants", false, "Intended for servers. If enabled, enchantments will be automatically removed from items").getBoolean();
 		enchantingGOT = config.get(CATEGORY_GAMEPLAY, "Enchanting: GOT System", true, "Enable the GOT enchanting system: if disabled, prevents newly crafted items, loot chest items, etc. from having modifiers applied, but does not affect existing modified items").getBoolean();
 		enchantingVanilla = config.get(CATEGORY_GAMEPLAY, "Enchanting: Vanilla System", false, "Enable the vanilla enchanting system: if disabled, prevents players from enchanting items, but does not affect existing enchanted items").getBoolean();
-		fellowshipMaxSize = config.get(CATEGORY_GAMEPLAY, "Fellowship maximum size", -1, "Maximum player count for Fellowships. Negative = no limit").getInt();
+		brotherhoodMaxSize = config.get(CATEGORY_GAMEPLAY, "Brotherhood maximum size", -1, "Maximum player count for Brotherhoods. Negative = no limit").getInt();
 		forceMapLocations = config.get(CATEGORY_GAMEPLAY, "Force Hide/Show Map Locations", 0, "Force hide or show players' map locations. 0 = per-player (default), 1 = force hide, 2 = force show").getInt();
 		generateMapFeatures = config.get(CATEGORY_GAMEPLAY, "Generate map features", true).getBoolean();
 		gridScale = config.get(CATEGORY_GAMEPLAY, "Grid of the world for generating villages", 12, "Smaller integer = greater chance of spawn, but the chance of intersection is growing too.").getInt();
@@ -216,7 +216,7 @@ public class GOTConfig {
 		musicIntervalMenuMax = config.get(CATEGORY_MISC, "Menu Music Interval: Max.", 20, "Maximum time (seconds) between GOT menu music tracks").getInt();
 		musicIntervalMenuMin = config.get(CATEGORY_MISC, "Menu Music Interval: Min.", 10, "Minimum time (seconds) between GOT menu music tracks").getInt();
 		musicIntervalMin = config.get(CATEGORY_MISC, "Music Interval: Min.", 30, "Minimum time (seconds) between GOT music tracks").getInt();
-		playerDataClearingInterval = config.get(CATEGORY_MISC, "Playerdata clearing interval", 600, "Tick interval between clearing offline LOTR-playerdata from the cache. Offline players' data is typically loaded to serve features like fellowships and their shared custom waypoints. Higher values may reduce server lag, as data will have to be reloaded from disk less often, but will result in higher RAM usage to some extent").getInt();
+		playerDataClearingInterval = config.get(CATEGORY_MISC, "Playerdata clearing interval", 600, "Tick interval between clearing offline LOTR-playerdata from the cache. Offline players' data is typically loaded to serve features like brotherhoods and their shared custom waypoints. Higher values may reduce server lag, as data will have to be reloaded from disk less often, but will result in higher RAM usage to some extent").getInt();
 		preventMessageExploit = config.get(CATEGORY_MISC, "Fix /msg exploit", true, "Disable usage of @a, @r, etc. in the /msg command, to prevent exploiting it as a player locator").getBoolean();
 
 		if (GOTModChecker.isCauldronServer()) {

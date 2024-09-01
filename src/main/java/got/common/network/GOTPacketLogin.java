@@ -13,7 +13,7 @@ public class GOTPacketLogin implements IMessage {
 	private boolean difficultyLocked;
 	private boolean reputationZones;
 	private boolean feastMode;
-	private boolean fellowshipCreation;
+	private boolean brotherhoodCreation;
 	private boolean enchanting;
 	private boolean enchantingGOT;
 	private boolean strictFactionTitleRequirements;
@@ -23,7 +23,7 @@ public class GOTPacketLogin implements IMessage {
 	private int swordPortalZ;
 	private int ftCooldownMax;
 	private int ftCooldownMin;
-	private int fellowshipMaxSize;
+	private int brotherhoodMaxSize;
 	private int customWaypointMinY;
 
 	@Override
@@ -38,8 +38,8 @@ public class GOTPacketLogin implements IMessage {
 		difficultyLocked = data.readBoolean();
 		reputationZones = data.readBoolean();
 		feastMode = data.readBoolean();
-		fellowshipCreation = data.readBoolean();
-		fellowshipMaxSize = data.readInt();
+		brotherhoodCreation = data.readBoolean();
+		brotherhoodMaxSize = data.readInt();
 		enchanting = data.readBoolean();
 		enchantingGOT = data.readBoolean();
 		strictFactionTitleRequirements = data.readBoolean();
@@ -59,8 +59,8 @@ public class GOTPacketLogin implements IMessage {
 		data.writeBoolean(difficultyLocked);
 		data.writeBoolean(reputationZones);
 		data.writeBoolean(feastMode);
-		data.writeBoolean(fellowshipCreation);
-		data.writeInt(fellowshipMaxSize);
+		data.writeBoolean(brotherhoodCreation);
+		data.writeInt(brotherhoodMaxSize);
 		data.writeBoolean(enchanting);
 		data.writeBoolean(enchantingGOT);
 		data.writeBoolean(strictFactionTitleRequirements);
@@ -104,12 +104,12 @@ public class GOTPacketLogin implements IMessage {
 		this.feastMode = feastMode;
 	}
 
-	public void setFellowshipCreation(boolean fellowshipCreation) {
-		this.fellowshipCreation = fellowshipCreation;
+	public void setBrotherhoodCreation(boolean brotherhoodCreation) {
+		this.brotherhoodCreation = brotherhoodCreation;
 	}
 
-	public void setFellowshipMaxSize(int fellowshipMaxSize) {
-		this.fellowshipMaxSize = fellowshipMaxSize;
+	public void setBrotherhoodMaxSize(int brotherhoodMaxSize) {
+		this.brotherhoodMaxSize = brotherhoodMaxSize;
 	}
 
 	public void setEnchanting(boolean enchanting) {
@@ -148,8 +148,8 @@ public class GOTPacketLogin implements IMessage {
 			GOTLevelData.setDifficultyLocked(packet.difficultyLocked);
 			GOTLevelData.setEnableReputationZones(packet.reputationZones);
 			GOTLevelData.setClientSideThisServerFeastMode(packet.feastMode);
-			GOTLevelData.setClientSideThisServerFellowshipCreation(packet.fellowshipCreation);
-			GOTLevelData.setClientSideThisServerFellowshipMaxSize(packet.fellowshipMaxSize);
+			GOTLevelData.setClientSideThisServerBrotherhoodCreation(packet.brotherhoodCreation);
+			GOTLevelData.setClientSideThisServerBrotherhoodMaxSize(packet.brotherhoodMaxSize);
 			GOTLevelData.setClientSideThisServerEnchanting(packet.enchanting);
 			GOTLevelData.setClientSideThisServerEnchantingGOT(packet.enchantingGOT);
 			GOTLevelData.setClientSideThisServerStrictFactionTitleRequirements(packet.strictFactionTitleRequirements);

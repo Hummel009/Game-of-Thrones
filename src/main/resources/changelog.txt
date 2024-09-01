@@ -396,7 +396,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
 + Added strict title rules, as in the LOTR
 + Added min Y limit for waypoint creation, as in the LOTR
-+ Added fellowship creation settings, as in the LOTR
++ Added brotherhood creation settings, as in the LOTR
 + Returned reputation zones feature
 
 * Improved font pack, now with support of extended Latin & Cyrillic alphabets.
@@ -435,7 +435,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 + Added fixed castles in mountain biomes
 + Added Asshai Shield
 + Added feminized ranks
-+ Added a config option for maximum fellowship size
++ Added a config option for maximum brotherhood size
 + Added a config option to tune how often the mod clears the playerdata cache for offline players' data
 + Added new fixed locations, ruines in general. Now 99% of waypoints have fixed structure.
 + Added not-legendary longsword and greatsword
@@ -450,8 +450,8 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Improved village spawning
 * Improved Petyr Baelish's brothel and Tobho Mott's smithy
 * Improved Red Castle
-* Improved fellowships GUI to be compatible with big UI scale
-* Improved fellowship invitation mechanics
+* Improved brotherhoods GUI to be compatible with big UI scale
+* Improved brotherhood invitation mechanics
 * Improved all translations
 * Improved iron bank texture (prod. Hummel009)
 * Improved tool & weapon stats
@@ -460,7 +460,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Improved view of some too elite unrealistic shields
 
 * Optimized and recoded all the westeros structures
-* Optimized the performance penalty from loading large fellowships upon player login
+* Optimized the performance penalty from loading large brotherhoods upon player login
 * Optimized NPCs checking for players with their miniquests
 * Optimized rendering code
 
@@ -470,8 +470,8 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Fixed bug with goldsmithes in westeros
 * Fixed bug with essos children not spawning in houses
 * Fixed bug with villages in the villages
-* Fixed bug with unremovable fellowship users after changing their nickname
-* Fixed bug with joining disbanded fellowships
+* Fixed bug with unremovable brotherhood users after changing their nickname
+* Fixed bug with joining disbanded brotherhoods
 * Fixed bug with not protected food near banner
 * Fixed bug with farmers
 * Fixed crash in Stepstones
@@ -853,7 +853,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Improved thenn berserker appearance
 * Optimized Mod Loading
 * Optimized Recipes code
-* Optimized Fellowships mechanic (especially for servers)
+* Optimized Brotherhoods mechanic (especially for servers)
 * Renamed Black Andesite blocks into Westeros Basalt (rus)
 - Removed Night Watch's bow
 
@@ -1012,7 +1012,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Improved world generator
 * Improved Commander Library
 * Improved Faction code
-* Improved Fellowships', Factions', Shields' and Options' GUI (symmetry)
+* Improved Brotherhoods', Factions', Shields' and Options' GUI (symmetry)
 * Improved cape texture
 * Improved gold, silver & valyrian ore generating
 * Improved mod architecture

@@ -1,7 +1,7 @@
 package got.common.tileentity;
 
-import got.common.fellowship.GOTFellowship;
-import got.common.fellowship.GOTFellowshipData;
+import got.common.brotherhood.GOTBrotherhood;
+import got.common.brotherhood.GOTBrotherhoodData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -30,7 +30,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 	private int unlitCounter;
 	private long stateChangeTime = -1L;
 	private String beaconName;
-	private UUID beaconFellowshipID;
+	private UUID beaconBrotherhoodID;
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -58,7 +58,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 		updateLight();
 		stateChangeTime = worldObj.getTotalWorldTime();
 		if (wasLit && !isLit) {
-			sendFellowshipMessage(false);
+			sendBrotherhoodMessage(false);
 		}
 	}
 
@@ -77,12 +77,12 @@ public class GOTTileEntityBeacon extends TileEntity {
 		unlitCounter = nbt.getByte("UnlitCounter");
 		stateChangeTime = nbt.getLong("StateChangeTime");
 		beaconName = nbt.hasKey("BeaconName") ? nbt.getString("BeaconName") : null;
-		beaconFellowshipID = nbt.hasKey("BeaconFellowship") ? UUID.fromString(nbt.getString("BeaconFellowship")) : null;
+		beaconBrotherhoodID = nbt.hasKey("BeaconBrotherhood") ? UUID.fromString(nbt.getString("BeaconBrotherhood")) : null;
 	}
 
-	private void sendFellowshipMessage(boolean lit) {
-		GOTFellowship fs;
-		if (beaconFellowshipID != null && (fs = GOTFellowshipData.getFellowship(beaconFellowshipID)) != null && !fs.isDisbanded()) {
+	private void sendBrotherhoodMessage(boolean lit) {
+		GOTBrotherhood fs;
+		if (beaconBrotherhoodID != null && (fs = GOTBrotherhoodData.getBrotherhood(beaconBrotherhoodID)) != null && !fs.isDisbanded()) {
 			String beaconMessageName = beaconName;
 			if (StringUtils.isBlank(beaconMessageName)) {
 				beaconMessageName = fs.getName();
@@ -107,7 +107,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 				++litCounter;
 				if (litCounter == 100) {
 					updateLight();
-					sendFellowshipMessage(true);
+					sendBrotherhoodMessage(true);
 				}
 			}
 			if (!isLit && unlitCounter < 100) {
@@ -192,8 +192,8 @@ public class GOTTileEntityBeacon extends TileEntity {
 		if (beaconName != null) {
 			nbt.setString("BeaconName", beaconName);
 		}
-		if (beaconFellowshipID != null) {
-			nbt.setString("BeaconFellowship", beaconFellowshipID.toString());
+		if (beaconBrotherhoodID != null) {
+			nbt.setString("BeaconBrotherhood", beaconBrotherhoodID.toString());
 		}
 	}
 }

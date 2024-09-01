@@ -14,7 +14,7 @@ public class GOTGuiButtonFsInvites extends GuiButton {
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
 			FontRenderer fontrenderer = mc.fontRenderer;
-			mc.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
+			mc.getTextureManager().bindTexture(GOTGuiBrotherhoods.ICONS_TEXTURES);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			drawTexturedModalRect(xPosition, yPosition, 80, field_146123_n ? height : 0, width, height);

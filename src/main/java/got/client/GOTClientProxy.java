@@ -23,7 +23,7 @@ import got.common.entity.other.utils.GOTInvasionStatus;
 import got.common.faction.GOTReputationBonusMap;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketClientInfo;
-import got.common.network.GOTPacketFellowshipAcceptInviteResult;
+import got.common.network.GOTPacketBrotherhoodAcceptInviteResult;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMenuPrompt;
 import got.common.quest.GOTMiniQuest;
@@ -192,11 +192,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void displayFellowshipAcceptInvitationResult(UUID fellowshipID, String name, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult result) {
+	public void displayBrotherhoodAcceptInvitationResult(UUID brotherhoodID, String name, GOTPacketBrotherhoodAcceptInviteResult.AcceptInviteResult result) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = mc.currentScreen;
-		if (gui instanceof GOTGuiFellowships) {
-			((GOTGuiFellowships) gui).displayAcceptInvitationResult(fellowshipID, name, result);
+		if (gui instanceof GOTGuiBrotherhoods) {
+			((GOTGuiBrotherhoods) gui).displayAcceptInvitationResult(brotherhoodID, name, result);
 		}
 	}
 
@@ -567,8 +567,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void queueFellowshipNotification(IChatComponent message) {
-		GOTClientFactory.getNotificationDisplay().queueFellowshipNotification(message);
+	public void queueBrotherhoodNotification(IChatComponent message) {
+		GOTClientFactory.getNotificationDisplay().queueBrotherhoodNotification(message);
 	}
 
 	@Override

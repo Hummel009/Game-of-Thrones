@@ -17,7 +17,7 @@ import got.common.faction.GOTReputationValues;
 import got.common.faction.GOTControlZone;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRank;
-import got.common.fellowship.GOTFellowshipClient;
+import got.common.brotherhood.GOTBrotherhoodClient;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.world.biome.GOTBiome;
@@ -106,8 +106,8 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	private GOTFaction controlZoneFaction;
 
 	private GOTAbstractWaypoint selectedWaypoint;
-	private GOTFellowshipClient mouseOverRemoveSharedFellowship;
-	private GOTGuiFellowships fellowshipDrawGUI;
+	private GOTBrotherhoodClient mouseOverRemoveSharedBrotherhood;
+	private GOTGuiBrotherhoods brotherhoodDrawGUI;
 	private GuiTextField nameWPTextField;
 	private GuiButton buttonConquestRegions;
 	private GuiButton buttonOverlayFunction;
@@ -271,7 +271,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					closeOverlay();
 				} else if (sharingWaypoint) {
 					openOverlayShareNew();
-				} else if (sharingWaypointNew && isExistingUnsharedFellowshipName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint)) {
+				} else if (sharingWaypointNew && isExistingUnsharedBrotherhoodName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint)) {
 					String fsName = nameWPTextField.getText();
 					IMessage packet = new GOTPacketShareCWP(selectedWaypoint, fsName, true);
 					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
@@ -890,11 +890,11 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 				}
 				stringY += mc.fontRenderer.FONT_HEIGHT;
 				if (sharingWaypoint) {
-					fellowshipDrawGUI.clearMouseOverFellowship();
-					mouseOverRemoveSharedFellowship = null;
+					brotherhoodDrawGUI.clearMouseOverBrotherhood();
+					mouseOverRemoveSharedBrotherhood = null;
 					int iconWidth = 8;
 					int iconGap = 8;
-					int fullWidth = fellowshipDrawGUI.getSizeX() + iconGap + iconWidth;
+					int fullWidth = brotherhoodDrawGUI.getSizeX() + iconGap + iconWidth;
 					int fsX = mapXMin + mapWidth / 2 - fullWidth / 2;
 					int fsY = stringY;
 					scrollPaneWPShares.setPaneX0(fsX);
@@ -905,19 +905,19 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					int[] sharesMinMax = scrollPaneWPShares.getMinMaxIndices(displayedWPShareList, displayedWPShares);
 					for (int index = sharesMinMax[0]; index <= sharesMinMax[1]; ++index) {
 						UUID fsID = displayedWPShareList.get(index);
-						GOTFellowshipClient fs = GOTLevelData.getData(mc.thePlayer).getClientFellowshipByID(fsID);
+						GOTBrotherhoodClient fs = GOTLevelData.getData(mc.thePlayer).getClientBrotherhoodByID(fsID);
 						if (fs != null) {
-							fellowshipDrawGUI.drawFellowshipEntry(fs, fsX, fsY, i, j, false, fullWidth);
-							int iconRemoveX = fsX + fellowshipDrawGUI.getSizeX() + iconGap;
+							brotherhoodDrawGUI.drawBrotherhoodEntry(fs, fsX, fsY, i, j, false, fullWidth);
+							int iconRemoveX = fsX + brotherhoodDrawGUI.getSizeX() + iconGap;
 							int iconRemoveY = fsY;
 							boolean mouseOverRemove = false;
-							if (fs == fellowshipDrawGUI.getMouseOverFellowship()) {
+							if (fs == brotherhoodDrawGUI.getMouseOverBrotherhood()) {
 								mouseOverRemove = i >= iconRemoveX && i <= iconRemoveX + iconWidth && j >= iconRemoveY && j <= iconRemoveY + iconWidth;
 								if (mouseOverRemove) {
-									mouseOverRemoveSharedFellowship = fs;
+									mouseOverRemoveSharedBrotherhood = fs;
 								}
 							}
-							mc.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
+							mc.getTextureManager().bindTexture(GOTGuiBrotherhoods.ICONS_TEXTURES);
 							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 							drawTexturedModalRect(iconRemoveX, iconRemoveY, 8, 16 + (mouseOverRemove ? 0 : iconWidth), iconWidth, iconWidth);
 							fsY = stringY += mc.fontRenderer.FONT_HEIGHT + 5;
@@ -934,7 +934,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 					GL11.glTranslatef(0.0f, 0.0f, zLevel);
 					nameWPTextField.drawTextBox();
 					GL11.glPopMatrix();
-					if (sharingWaypointNew && isFellowshipAlreadyShared(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint)) {
+					if (sharingWaypointNew && isBrotherhoodAlreadyShared(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint)) {
 						String alreadyShared = StatCollector.translateToLocal("got.gui.map.customWaypoint.shareNew.already");
 						int sx = nameWPTextField.xPosition + nameWPTextField.width + 6;
 						int sy = nameWPTextField.yPosition + nameWPTextField.height / 2 - fontRendererObj.FONT_HEIGHT / 2;
@@ -946,7 +946,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 				if (buttonOverlayFunction.visible) {
 					buttonOverlayFunction.enabled = !creatingWaypointNew && !renamingWaypoint || isValidWaypointName(nameWPTextField.getText());
 					if (sharingWaypointNew) {
-						buttonOverlayFunction.enabled = isExistingUnsharedFellowshipName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint);
+						buttonOverlayFunction.enabled = isExistingUnsharedBrotherhoodName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint);
 					}
 					buttonOverlayFunction.xPosition = stringX - buttonOverlayFunction.width / 2;
 					buttonOverlayFunction.yPosition = stringY;
@@ -960,9 +960,9 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		}
 	}
 
-	private GOTFellowshipClient getFellowshipByName(String name) {
+	private GOTBrotherhoodClient getBrotherhoodByName(String name) {
 		String fsName = StringUtils.strip(name);
-		return GOTLevelData.getData(mc.thePlayer).getClientFellowshipByName(fsName);
+		return GOTLevelData.getData(mc.thePlayer).getClientBrotherhoodByName(fsName);
 	}
 
 	private void handleMapKeyboardMovement() {
@@ -1095,26 +1095,26 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		buttonOverlayFunction.enabled = false;
 		buttonList.add(buttonOverlayFunction);
 		nameWPTextField = new GuiTextField(fontRendererObj, mapXMin + mapWidth / 2 - 80, mapYMin + 50, 160, 20);
-		fellowshipDrawGUI = new GOTGuiFellowships();
-		fellowshipDrawGUI.setWorldAndResolution(mc, width, height);
+		brotherhoodDrawGUI = new GOTGuiBrotherhoods();
+		brotherhoodDrawGUI.setWorldAndResolution(mc, width, height);
 		if (mc.currentScreen == this) {
 			IMessage packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.MAP);
 			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 
-	private boolean isExistingFellowshipName(String name) {
-		GOTFellowshipClient fs = getFellowshipByName(name);
+	private boolean isExistingBrotherhoodName(String name) {
+		GOTBrotherhoodClient fs = getBrotherhoodByName(name);
 		return fs != null;
 	}
 
-	private boolean isExistingUnsharedFellowshipName(String name, GOTCustomWaypoint waypoint) {
-		GOTFellowshipClient fs = getFellowshipByName(name);
-		return fs != null && !waypoint.hasSharedFellowship(fs.getFellowshipID());
+	private boolean isExistingUnsharedBrotherhoodName(String name, GOTCustomWaypoint waypoint) {
+		GOTBrotherhoodClient fs = getBrotherhoodByName(name);
+		return fs != null && !waypoint.hasSharedBrotherhood(fs.getBrotherhoodID());
 	}
 
-	private boolean isFellowshipAlreadyShared(String name, GOTCustomWaypoint waypoint) {
-		return isExistingFellowshipName(name) && !isExistingUnsharedFellowshipName(name, waypoint);
+	private boolean isBrotherhoodAlreadyShared(String name, GOTCustomWaypoint waypoint) {
+		return isExistingBrotherhoodName(name) && !isExistingUnsharedBrotherhoodName(name, waypoint);
 	}
 
 	private boolean isGameOfThrones() {
@@ -1176,8 +1176,8 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 		if (hasOverlay && (creatingWaypointNew || renamingWaypoint || sharingWaypointNew)) {
 			nameWPTextField.mouseClicked(i, j, k);
 		}
-		if (hasOverlay && k == 0 && sharingWaypoint && mouseOverRemoveSharedFellowship != null) {
-			String fsName = mouseOverRemoveSharedFellowship.getName();
+		if (hasOverlay && k == 0 && sharingWaypoint && mouseOverRemoveSharedBrotherhood != null) {
+			String fsName = mouseOverRemoveSharedBrotherhood.getName();
 			packet = new GOTPacketShareCWP(selectedWaypoint, fsName, false);
 			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			return;
@@ -2122,7 +2122,7 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	private void setupScrollBars(int i, int j) {
 		int maxDisplayedWPShares = fullscreen ? 8 : 5;
 		if (selectedWaypoint != null && hasOverlay && sharingWaypoint) {
-			displayedWPShareList = ((GOTCustomWaypoint) selectedWaypoint).getSharedFellowshipIDs();
+			displayedWPShareList = ((GOTCustomWaypoint) selectedWaypoint).getSharedBrotherhoodIDs();
 			displayedWPShares = displayedWPShareList.size();
 			scrollPaneWPShares.setHasScrollBar(false);
 			if (displayedWPShares > maxDisplayedWPShares) {

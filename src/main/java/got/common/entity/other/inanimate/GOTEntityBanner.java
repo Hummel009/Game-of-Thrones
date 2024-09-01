@@ -6,9 +6,9 @@ import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTItems;
 import got.common.entity.other.utils.GOTBannerWhitelistEntry;
-import got.common.fellowship.GOTFellowship;
-import got.common.fellowship.GOTFellowshipClient;
-import got.common.fellowship.GOTFellowshipProfile;
+import got.common.brotherhood.GOTBrotherhood;
+import got.common.brotherhood.GOTBrotherhoodClient;
+import got.common.brotherhood.GOTBrotherhoodProfile;
 import got.common.item.other.GOTItemBanner;
 import got.common.network.GOTPacketBannerData;
 import got.common.network.GOTPacketHandler;
@@ -180,11 +180,11 @@ public class GOTEntityBanner extends Entity {
 		return getBannerItem();
 	}
 
-	public GOTFellowship getPlacersFellowshipByName(String fsName) {
+	public GOTBrotherhood getPlacersBrotherhoodByName(String fsName) {
 		UUID ownerID;
 		GameProfile owner = getPlacingPlayer();
 		if (owner != null && (ownerID = owner.getId()) != null) {
-			return GOTLevelData.getData(ownerID).getFellowshipByName(fsName);
+			return GOTLevelData.getData(ownerID).getBrotherhoodByName(fsName);
 		}
 		return null;
 	}
@@ -279,17 +279,17 @@ public class GOTEntityBanner extends Entity {
 					}
 					GameProfile profile = entry.getProfile();
 					boolean playerMatch = false;
-					if (profile instanceof GOTFellowshipProfile) {
+					if (profile instanceof GOTBrotherhoodProfile) {
 						Object fs;
-						GOTFellowshipProfile fsPro = (GOTFellowshipProfile) profile;
+						GOTBrotherhoodProfile fsPro = (GOTBrotherhoodProfile) profile;
 						if (worldObj.isRemote) {
-							fs = fsPro.getFellowshipClient();
-							if (fs != null && ((GOTFellowshipClient) fs).containsPlayer(playerID)) {
+							fs = fsPro.getBrotherhoodClient();
+							if (fs != null && ((GOTBrotherhoodClient) fs).containsPlayer(playerID)) {
 								playerMatch = true;
 							}
 						} else {
-							fs = fsPro.getFellowship();
-							if (fs != null && ((GOTFellowship) fs).containsPlayer(playerID)) {
+							fs = fsPro.getBrotherhood();
+							if (fs != null && ((GOTBrotherhood) fs).containsPlayer(playerID)) {
 								playerMatch = true;
 							}
 						}
@@ -332,7 +332,7 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	private boolean isValidFellowship(GOTFellowship fs) {
+	private boolean isValidBrotherhood(GOTBrotherhood fs) {
 		GameProfile owner = getPlacingPlayer();
 		return fs != null && !fs.isDisbanded() && owner != null && owner.getId() != null && fs.containsPlayer(owner.getId());
 	}
@@ -403,15 +403,15 @@ public class GOTEntityBanner extends Entity {
 				continue;
 			}
 			GameProfile profile = null;
-			boolean isFellowship = playerData.getBoolean("Fellowship");
-			if (isFellowship) {
+			boolean isBrotherhood = playerData.getBoolean("Brotherhood");
+			if (isBrotherhood) {
 				UUID fsID;
-				if (playerData.hasKey("FellowshipID")) {
-					String fellowshipIDString = playerData.getString("FellowshipID");
-					fsID = UUID.fromString(fellowshipIDString);
-					GOTFellowshipProfile fellowshipProfile = new GOTFellowshipProfile(fsID, "");
-					if (fellowshipProfile.getFellowship() != null) {
-						profile = fellowshipProfile;
+				if (playerData.hasKey("BrotherhoodID")) {
+					String brotherhoodIDString = playerData.getString("BrotherhoodID");
+					fsID = UUID.fromString(brotherhoodIDString);
+					GOTBrotherhoodProfile brotherhoodProfile = new GOTBrotherhoodProfile(fsID, "");
+					if (brotherhoodProfile.getBrotherhood() != null) {
+						profile = brotherhoodProfile;
 					}
 				}
 			} else if (playerData.hasKey("Profile")) {
@@ -440,7 +440,7 @@ public class GOTEntityBanner extends Entity {
 			}
 			entry.setFullPerms();
 		}
-		validateWhitelistedFellowships();
+		validateWhitelistedBrotherhoods();
 		defaultPermissions.clear();
 		if (nbt.hasKey("DefaultPerms")) {
 			NBTTagList permTags = nbt.getTagList("DefaultPerms", 8);
@@ -502,11 +502,11 @@ public class GOTEntityBanner extends Entity {
 				whitelistSlots[index] = null;
 				continue;
 			}
-			if (profile instanceof GOTFellowshipProfile) {
-				GOTFellowshipProfile fsProfile = (GOTFellowshipProfile) profile;
-				GOTFellowship fs = fsProfile.getFellowship();
-				if (isValidFellowship(fs)) {
-					whitelistSlots[index] = GOTFellowshipProfile.addFellowshipCode(fs.getName());
+			if (profile instanceof GOTBrotherhoodProfile) {
+				GOTBrotherhoodProfile fsProfile = (GOTBrotherhoodProfile) profile;
+				GOTBrotherhood fs = fsProfile.getBrotherhood();
+				if (isValidBrotherhood(fs)) {
+					whitelistSlots[index] = GOTBrotherhoodProfile.addBrotherhoodCode(fs.getName());
 				}
 			} else {
 				String username;
@@ -555,20 +555,20 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	private void validateWhitelistedFellowships() {
+	private void validateWhitelistedBrotherhoods() {
 		getPlacingPlayer();
 		for (int i = 0; i < allowedPlayers.length; ++i) {
 			GameProfile profile = getWhitelistedPlayer(i);
-			if (!(profile instanceof GOTFellowshipProfile) || isValidFellowship(((GOTFellowshipProfile) profile).getFellowship())) {
+			if (!(profile instanceof GOTBrotherhoodProfile) || isValidBrotherhood(((GOTBrotherhoodProfile) profile).getBrotherhood())) {
 				continue;
 			}
 			allowedPlayers[i] = null;
 		}
 	}
 
-	public void whitelistFellowship(int index, GOTFellowship fs, Iterable<GOTBannerProtection.Permission> perms) {
-		if (isValidFellowship(fs)) {
-			whitelistPlayer(index, new GOTFellowshipProfile(fs.getFellowshipID(), ""), perms);
+	public void whitelistBrotherhood(int index, GOTBrotherhood fs, Iterable<GOTBannerProtection.Permission> perms) {
+		if (isValidBrotherhood(fs)) {
+			whitelistPlayer(index, new GOTBrotherhoodProfile(fs.getBrotherhoodID(), ""), perms);
 		}
 	}
 
@@ -622,12 +622,12 @@ public class GOTEntityBanner extends Entity {
 			}
 			NBTTagCompound playerData = new NBTTagCompound();
 			playerData.setInteger("Index", i);
-			boolean isFellowship = profile instanceof GOTFellowshipProfile;
-			playerData.setBoolean("Fellowship", isFellowship);
-			if (isFellowship) {
-				GOTFellowship fs = ((GOTFellowshipProfile) profile).getFellowship();
+			boolean isBrotherhood = profile instanceof GOTBrotherhoodProfile;
+			playerData.setBoolean("Brotherhood", isBrotherhood);
+			if (isBrotherhood) {
+				GOTBrotherhood fs = ((GOTBrotherhoodProfile) profile).getBrotherhood();
 				if (fs != null) {
-					playerData.setString("FellowshipID", fs.getFellowshipID().toString());
+					playerData.setString("BrotherhoodID", fs.getBrotherhoodID().toString());
 				}
 			} else {
 				NBTTagCompound profileData = new NBTTagCompound();

@@ -6,8 +6,8 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.entity.other.inanimate.GOTEntityBanner;
-import got.common.fellowship.GOTFellowship;
-import got.common.fellowship.GOTFellowshipProfile;
+import got.common.brotherhood.GOTBrotherhood;
+import got.common.brotherhood.GOTBrotherhoodProfile;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -56,10 +56,10 @@ public class GOTPacketBannerRequestInvalidName implements IMessage {
 				GOTEntityBanner banner = (GOTEntityBanner) bEntity;
 				String username = packet.username;
 				boolean valid = false;
-				if (GOTFellowshipProfile.hasFellowshipCode(username)) {
-					String fsName = GOTFellowshipProfile.stripFellowshipCode(username);
-					GOTFellowship fellowship = banner.getPlacersFellowshipByName(fsName);
-					if (fellowship != null) {
+				if (GOTBrotherhoodProfile.hasBrotherhoodCode(username)) {
+					String fsName = GOTBrotherhoodProfile.stripBrotherhoodCode(username);
+					GOTBrotherhood brotherhood = banner.getPlacersBrotherhoodByName(fsName);
+					if (brotherhood != null) {
 						valid = true;
 					}
 				} else {

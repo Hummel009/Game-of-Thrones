@@ -9,37 +9,37 @@ import got.common.GOTPlayerData;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public class GOTPacketFellowshipCreate implements IMessage {
-	private String fellowshipName;
+public class GOTPacketBrotherhoodCreate implements IMessage {
+	private String brotherhoodName;
 
 	@SuppressWarnings("unused")
-	public GOTPacketFellowshipCreate() {
+	public GOTPacketBrotherhoodCreate() {
 	}
 
-	public GOTPacketFellowshipCreate(String name) {
-		fellowshipName = name;
+	public GOTPacketBrotherhoodCreate(String name) {
+		brotherhoodName = name;
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
 		byte nameLength = data.readByte();
 		ByteBuf nameBytes = data.readBytes(nameLength);
-		fellowshipName = nameBytes.toString(Charsets.UTF_8);
+		brotherhoodName = nameBytes.toString(Charsets.UTF_8);
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		byte[] nameBytes = fellowshipName.getBytes(Charsets.UTF_8);
+		byte[] nameBytes = brotherhoodName.getBytes(Charsets.UTF_8);
 		data.writeByte(nameBytes.length);
 		data.writeBytes(nameBytes);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketFellowshipCreate, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketBrotherhoodCreate, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketFellowshipCreate packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketBrotherhoodCreate packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-			playerData.createFellowship(packet.fellowshipName, true);
+			playerData.createBrotherhood(packet.brotherhoodName, true);
 			return null;
 		}
 	}

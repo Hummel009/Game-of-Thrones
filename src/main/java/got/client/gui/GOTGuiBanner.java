@@ -6,7 +6,7 @@ import got.common.GOTBannerProtection;
 import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.utils.GOTBannerWhitelistEntry;
 import got.common.faction.GOTReputationValues;
-import got.common.fellowship.GOTFellowshipProfile;
+import got.common.brotherhood.GOTBrotherhoodProfile;
 import got.common.network.GOTPacketBannerRequestInvalidName;
 import got.common.network.GOTPacketEditBanner;
 import got.common.network.GOTPacketHandler;
@@ -160,7 +160,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46, 4210752);
 			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.playerSpecific.desc.2");
 			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT, 4210752);
-			s = GOTFellowshipProfile.getFellowshipCodeHint();
+			s = GOTBrotherhoodProfile.getBrotherhoodCodeHint();
 			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 206, 4210752);
 			int start = Math.round(currentScroll * (allowedPlayers.length - 6));
 			int end = start + 6 - 1;
@@ -221,11 +221,11 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			int windowX = guiLeft + X_SIZE + PERM_WINDOW_BORDER;
 			windowY = permissionsOpenY;
 			String username = allowedPlayers[permissionsOpenIndex].getText();
-			boolean isFellowship = GOTFellowshipProfile.hasFellowshipCode(username);
-			if (isFellowship) {
-				username = GOTFellowshipProfile.stripFellowshipCode(username);
+			boolean isBrotherhood = GOTBrotherhoodProfile.hasBrotherhoodCode(username);
+			if (isBrotherhood) {
+				username = GOTBrotherhoodProfile.stripBrotherhoodCode(username);
 			}
-			String boxTitle = StatCollector.translateToLocal(isFellowship ? "got.gui.bannerEdit.perms.fellowship" : "got.gui.bannerEdit.perms.player");
+			String boxTitle = StatCollector.translateToLocal(isBrotherhood ? "got.gui.bannerEdit.perms.brotherhood" : "got.gui.bannerEdit.perms.player");
 			String boxSubtitle = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.perms.name", username);
 			Function<GOTBannerProtection.Permission, Boolean> getEnabled = p -> theBanner.getWhitelistEntry(permissionsOpenIndex).isPermissionEnabled(p);
 			drawPermissionsWindow(i, j, windowX, windowY, boxTitle, boxSubtitle, getEnabled, true);
@@ -258,8 +258,8 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		if (permissionsMouseoverIndex >= 0) {
 			float z = zLevel;
 			String username = allowedPlayers[permissionsMouseoverIndex].getText();
-			boolean isFellowship = GOTFellowshipProfile.hasFellowshipCode(username);
-			String tooltip = StatCollector.translateToLocal(isFellowship ? "got.gui.bannerEdit.perms.fellowship" : "got.gui.bannerEdit.perms.player");
+			boolean isBrotherhood = GOTBrotherhoodProfile.hasBrotherhoodCode(username);
+			String tooltip = StatCollector.translateToLocal(isBrotherhood ? "got.gui.bannerEdit.perms.brotherhood" : "got.gui.bannerEdit.perms.player");
 			drawCreativeTabHoveringText(tooltip, i, j);
 			GL11.glDisable(2896);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -559,12 +559,12 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		if (StringUtils.isBlank(username)) {
 			theBanner.whitelistPlayer(index, null);
 		} else {
-			if (GOTFellowshipProfile.hasFellowshipCode(username)) {
-				String fsName = GOTFellowshipProfile.stripFellowshipCode(username);
+			if (GOTBrotherhoodProfile.hasBrotherhoodCode(username)) {
+				String fsName = GOTBrotherhoodProfile.stripBrotherhoodCode(username);
 				if (StringUtils.isBlank(fsName)) {
 					theBanner.whitelistPlayer(index, null);
 				} else {
-					theBanner.whitelistPlayer(index, new GOTFellowshipProfile(null, fsName));
+					theBanner.whitelistPlayer(index, new GOTBrotherhoodProfile(null, fsName));
 				}
 			} else {
 				theBanner.whitelistPlayer(index, new GameProfile(null, username));

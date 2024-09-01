@@ -9,7 +9,7 @@ import got.GOT;
 import got.common.GOTBannerProtection;
 import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.utils.GOTBannerWhitelistEntry;
-import got.common.fellowship.GOTFellowshipProfile;
+import got.common.brotherhood.GOTBrotherhoodProfile;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.StringUtils;
@@ -153,9 +153,9 @@ public class GOTPacketBannerData implements IMessage {
 					String username = packet.whitelistSlots[index];
 					if (StringUtils.isNullOrEmpty(username)) {
 						banner.whitelistPlayer(index, null);
-					} else if (GOTFellowshipProfile.hasFellowshipCode(username)) {
-						String fsName = GOTFellowshipProfile.stripFellowshipCode(username);
-						GOTFellowshipProfile profile = new GOTFellowshipProfile(null, fsName);
+					} else if (GOTBrotherhoodProfile.hasBrotherhoodCode(username)) {
+						String fsName = GOTBrotherhoodProfile.stripBrotherhoodCode(username);
+						GOTBrotherhoodProfile profile = new GOTBrotherhoodProfile(null, fsName);
 						banner.whitelistPlayer(index, profile);
 					} else {
 						GameProfile profile = new GameProfile(null, username);

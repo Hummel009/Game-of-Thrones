@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.fellowship.GOTFellowship;
+import got.common.brotherhood.GOTBrotherhood;
 import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
@@ -47,15 +47,15 @@ public class GOTPacketShareCWP implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketShareCWP, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketShareCWP packet, MessageContext context) {
-			GOTFellowship fellowship;
+			GOTBrotherhood brotherhood;
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTCustomWaypoint cwp = pd.getCustomWaypointByID(packet.wpID);
-			if (cwp != null && (fellowship = pd.getFellowshipByName(packet.fsName)) != null) {
+			if (cwp != null && (brotherhood = pd.getBrotherhoodByName(packet.fsName)) != null) {
 				if (packet.adding) {
-					pd.customWaypointAddSharedFellowship(cwp, fellowship);
+					pd.customWaypointAddSharedBrotherhood(cwp, brotherhood);
 				} else {
-					pd.customWaypointRemoveSharedFellowship(cwp, fellowship);
+					pd.customWaypointRemoveSharedBrotherhood(cwp, brotherhood);
 				}
 			}
 			return null;
