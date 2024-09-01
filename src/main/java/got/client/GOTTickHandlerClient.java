@@ -196,7 +196,7 @@ public class GOTTickHandlerClient {
 		EntityClientPlayerMP entityClientPlayerMP = mc.thePlayer;
 		GOTPlayerData clientPD = GOTLevelData.getData(entityClientPlayerMP);
 		GOTFactionRank rank = faction.getRank(reputation);
-		boolean takenOath = clientPD.hasTakenOathTo(faction);
+		boolean pledged = clientPD.isPledgedTo(faction);
 		GOTReputationTicker ticker = GOTReputationTicker.forFaction(faction);
 		float repMin;
 		float repMax;
@@ -268,7 +268,7 @@ public class GOTTickHandlerClient {
 		float ringX = x - (float) ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0F;
 		float ringY = y + (float) barHeight / 2 - (float) ringSize / 2;
 		int flashTick = ticker.getFlashTick();
-		if (takenOath) {
+		if (pledged) {
 			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 212, ringSize, ringSize);
 		} else {
 			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 36, ringSize, ringSize);

@@ -417,7 +417,7 @@ public class GOT {
 		command.add(new GOTCommandEnchant());
 		command.add(new GOTCommandSpawnDamping());
 		command.add(new GOTCommandFactionRelations());
-		command.add(new GOTCommandOathCooldown());
+		command.add(new GOTCommandPledgeCooldown());
 		command.add(new GOTCommandConquest());
 		command.add(new GOTCommandStrScan());
 		command.add(new GOTCommandDragon());

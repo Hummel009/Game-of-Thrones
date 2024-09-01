@@ -372,7 +372,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Changed werewolf stats
 * Changed relation between Reach and Westerlands//Crownlands
 * Changed armor stats
-* Changed oath betrayal sound to amogus impostor sound
+* Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
 * Changed standard wight armor (for egg)
 
@@ -895,7 +895,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Fixed bug with asshai towers
 * Fixed bug with asshai torches
 * Fixed bug with double slabs
-* Fixed bug with Oath sound
+* Fixed bug with Pledge sound
 * Fixed bug with whore names
 * Fixed bug with sounds
 * Fixed bug with chat commands
@@ -904,7 +904,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Fixed bug with towers
 * Fixed bug with workbenches
 * Fixed crash with barrow wraiths
-* Fixed bug with gaining reputation after oath
+* Fixed bug with gaining reputation after pledge
 * Fixed bug with Summer Islands Table in Dothraki & Jogos Structures
 * Updated commander's banner method and added simplified banner registry
 - Removed Commander's methods that are getting non-public fields through Reflection helper. Use direct coding, as in the original Mod code
@@ -986,7 +986,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 + Added Tywin Lannister (spawns at Casterly Rock) with drop: his armor, Oathkeeper & Widow Wail.
 + Added Alloy Forge recipe: Oathkeeper + Widow Wail = Ice
 * Fixed bug with map
-* Fixed bug with oath
+* Fixed bug with pledge
 * Fixed bug with horse armor rendering
 * Fixed bug with roads in Crownlands
 * Fixed bug with FT GUI
@@ -1236,7 +1236,7 @@ BREAKING CHANGES. NOT COMPATIBLE WITH WORLDS, CREATED WITH VER. <24.X
 * Improved Loras Tyrell
 * Improved speechbanks
 * Improved item, block, faction codenames
-* Improved Faction/Oath mechanic
+* Improved Faction/Pledge mechanic
 * Improved russian, english, chinese translations
 * Improved chest contents and loot
 * Improved biomes

@@ -135,17 +135,17 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		float reputation = curTrade.getReputationRequired();
 		String repS = GOTReputationValues.formatRepForDisplay(reputation);
 		fontRendererObj.drawString(repS, reqXText, reqY + reqYTextBelow, 4210752);
-		if (curTrade.getOathType() != GOTUnitTradeEntry.OathType.NONE) {
+		if (curTrade.getPledgeType() != GOTUnitTradeEntry.PledgeType.NONE) {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			mc.getTextureManager().bindTexture(GOTClientProxy.REPUTATION_TEXTURE);
 			drawTexturedModalRect(reqX, reqY += reqGap, 0, 212, 16, 16);
-			String oath = StatCollector.translateToLocal("got.container.unitTrade.oath");
-			fontRendererObj.drawString(oath, reqXText, reqY + reqYTextBelow, 4210752);
+			String pledge = StatCollector.translateToLocal("got.container.unitTrade.pledge");
+			fontRendererObj.drawString(pledge, reqXText, reqY + reqYTextBelow, 4210752);
 			int i2 = i - guiLeft - reqX;
 			int j2 = j - guiTop - reqY;
 			if (i2 >= 0 && i2 < 16 && j2 >= 0 && j2 < 16) {
-				String oathDesc = curTrade.getOathType().getCommandReqText(traderFaction);
-				drawCreativeTabHoveringText(oathDesc, i - guiLeft, j - guiTop);
+				String pledgeDesc = curTrade.getPledgeType().getCommandReqText(traderFaction);
+				drawCreativeTabHoveringText(pledgeDesc, i - guiLeft, j - guiTop);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			}

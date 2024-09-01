@@ -914,9 +914,9 @@ public class GOTEventHandler {
 								GOTFactionBounties.forFaction(entityFaction).forPlayer(entityplayer).recordNewKill();
 							}
 						}
-						GOTFaction oathFac = playerData.getOathFaction();
-						if (oathFac != null && (oathFac == entityFaction || oathFac.isAlly(entityFaction))) {
-							playerData.onOathKill(entityplayer);
+						GOTFaction pledgeFac = playerData.getPledgeFaction();
+						if (pledgeFac != null && (pledgeFac == entityFaction || pledgeFac.isAlly(entityFaction))) {
+							playerData.onPledgeKill(entityplayer);
 						}
 					}
 					float newReputation = playerData.getReputation(entityFaction);

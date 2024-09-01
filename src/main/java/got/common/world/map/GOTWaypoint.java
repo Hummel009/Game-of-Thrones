@@ -699,16 +699,16 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		World world = entityplayer.worldObj;
 		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(coordX, coordZ);
-		GOTFaction oathFac = pd.getOathFaction();
-		return oathFac != null && zone.getConquestStrength(oathFac, world) >= 500.0f;
+		GOTFaction pledgeFac = pd.getPledgeFaction();
+		return pledgeFac != null && zone.getConquestStrength(pledgeFac, world) >= 500.0f;
 	}
 
 	public boolean isConquestUnlockable(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		World world = entityplayer.worldObj;
 		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(coordX, coordZ);
-		GOTFaction oathFac = pd.getOathFaction();
-		return oathFac != null && oathFac.isBadRelation(faction) && GOTConquestGrid.getConquestEffectIn(world, zone, oathFac) == GOTConquestGrid.ConquestEffective.EFFECTIVE;
+		GOTFaction pledgeFac = pd.getPledgeFaction();
+		return pledgeFac != null && pledgeFac.isBadRelation(faction) && GOTConquestGrid.getConquestEffectIn(world, zone, pledgeFac) == GOTConquestGrid.ConquestEffective.EFFECTIVE;
 	}
 
 	@Override

@@ -313,7 +313,7 @@ public class GOTAchievement {
 	public static GOTAchievement killYoungGriff;
 	public static GOTAchievement marry;
 	public static GOTAchievement pickpocket;
-	public static GOTAchievement oathService;
+	public static GOTAchievement pledgeService;
 	public static GOTAchievement reforge;
 	public static GOTAchievement rideCamel;
 	public static GOTAchievement rideDragon;
@@ -573,7 +573,7 @@ public class GOTAchievement {
 		hireGoldenCompany = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldenCompanyHelmet, "HIRE_GOLDEN_COMPANY");
 		marry = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldRing, "MARRY");
 		pickpocket = new GOTAchievement(Category.GENERAL, genId++, GOTItems.silverRing, "PICKPOCKET");
-		oathService = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "OATH_SERVICE");
+		pledgeService = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "PLEDGE_SERVICE");
 		reforge = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "REFORGE");
 		stealArborGrapes = new GOTAchievement(Category.GENERAL, genId++, GOTItems.grapeRed, "STEAL_ARBOR_GRAPES");
 		trade = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "TRADE");

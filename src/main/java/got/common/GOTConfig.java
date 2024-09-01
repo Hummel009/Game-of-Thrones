@@ -176,7 +176,7 @@ public class GOTConfig {
 		preventTraderKidnap = config.get(CATEGORY_GAMEPLAY, "Prevent trader transport range", 0, "Prevent transport of structure-bound traders beyond this distance outside their initial home range (0 = disabled)").getInt();
 		removeDiamondArmorRecipes = config.get(CATEGORY_GAMEPLAY, "Remove diamond armour recipes", false).getBoolean();
 		removeGoldenAppleRecipes = config.get(CATEGORY_GAMEPLAY, "Remove Golden Apple recipes", true).getBoolean();
-		strictFactionTitleRequirements = config.get(CATEGORY_GAMEPLAY, "Strict faction title requirements", false, "Require a oath to bear faction titles of reputation level equal to the faction's oath level - not just those titles higher than oath level").getBoolean();
+		strictFactionTitleRequirements = config.get(CATEGORY_GAMEPLAY, "Strict faction title requirements", false, "Require a pledge to bear faction titles of reputation level equal to the faction's pledge level - not just those titles higher than pledge level").getBoolean();
 		walkerFireDamage = config.get(CATEGORY_GAMEPLAY, "Enable walkers fire damage", false).getBoolean();
 
 		reputationXOffset = config.get(CATEGORY_GUI, "Reputation x-offset", 0, "Configure the x-position of the reputation bar on-screen. Negative values move it left, positive values right").getInt();

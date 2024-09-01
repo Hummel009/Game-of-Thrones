@@ -263,7 +263,7 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateFactionInvasionBiomes);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionNPCs);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionName);
-					suppliers.add(GOTWikiGenerator::genTemplateFactionOathRank);
+					suppliers.add(GOTWikiGenerator::genTemplateFactionPledgeRank);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionRanks);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionRegion);
 					suppliers.add(GOTWikiGenerator::genTemplateFactionShieldsCapes);
@@ -280,7 +280,7 @@ public class GOTWikiGenerator {
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHealth);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHireReputation);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePrice);
-					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePriceOath);
+					suppliers.add(GOTWikiGenerator::genTemplateEntityHirePricePledge);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityHireable);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFire);
 					suppliers.add(GOTWikiGenerator::genTemplateEntityImmuneToFrost);
@@ -1440,7 +1440,7 @@ public class GOTWikiGenerator {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 				int reputation = (int) entry.getReputationRequired();
 
-				if (entry.getOathType() == GOTUnitTradeEntry.OathType.NONE) {
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
 					data.put(entry.getEntityClass(), String.valueOf(reputation));
 				} else {
 					data.put(entry.getEntityClass(), String.valueOf(Math.max(reputation, 100)));
@@ -1472,7 +1472,7 @@ public class GOTWikiGenerator {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 				int cost = entry.getInitialCost();
 
-				if (entry.getOathType() == GOTUnitTradeEntry.OathType.NONE) {
+				if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
 					data.put(entry.getEntityClass(), "{{Bar Coins|" + cost * 2 + "}}");
 				} else {
 					data.put(entry.getEntityClass(), N_A);
@@ -1497,7 +1497,7 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateEntityHirePriceOath() {
+	private static StringBuilder genTemplateEntityHirePricePledge() {
 		Map<Class<? extends Entity>, String> data = new HashMap<>();
 
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
@@ -1510,7 +1510,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HirePriceOath");
+		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HirePricePledge");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1933,13 +1933,13 @@ public class GOTWikiGenerator {
 					int cost = entry.getInitialCost();
 					int reputation = (int) entry.getReputationRequired();
 
-					if (entry.getOathType() == GOTUnitTradeEntry.OathType.NONE) {
-						sb.append("{{Bar Coins|").append(cost * 2).append("}} ").append(Lang.NO_OATH).append(", ");
-						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_OATH).append("; ");
+					if (entry.getPledgeType() == GOTUnitTradeEntry.PledgeType.NONE) {
+						sb.append("{{Bar Coins|").append(cost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", ");
+						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
 						sb.append(reputation).append(' ').append(Lang.REPUTATION);
 					} else {
-						sb.append("N/A ").append(Lang.NO_OATH).append(", ");
-						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_OATH).append("; ");
+						sb.append("N/A ").append(Lang.NO_PLEDGE).append(", ");
+						sb.append("{{Bar Coins|").append(cost).append("}} ").append(Lang.NEED_PLEDGE).append("; ");
 						sb.append(Math.max(reputation, 100)).append(' ').append(Lang.REPUTATION);
 					}
 
@@ -2437,11 +2437,11 @@ public class GOTWikiGenerator {
 		return sb;
 	}
 
-	private static StringBuilder genTemplateFactionOathRank() {
+	private static StringBuilder genTemplateFactionPledgeRank() {
 		Map<GOTFaction, String> data = new EnumMap<>(GOTFaction.class);
 
 		for (GOTFaction faction : FACTIONS) {
-			GOTFactionRank rank = faction.getOathRank();
+			GOTFactionRank rank = faction.getPledgeRank();
 
 			if (rank != null) {
 				StringBuilder sb = new StringBuilder();
@@ -2453,7 +2453,7 @@ public class GOTWikiGenerator {
 					sb.append('/').append(femRank);
 				}
 
-				sb.append(" (").append((int) faction.getOathReputation()).append(')');
+				sb.append(" (").append((int) faction.getPledgeReputation()).append(')');
 
 				data.put(faction, sb.toString());
 			}
@@ -2461,7 +2461,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-OathRank");
+		sb.append(TITLE).append(TEMPLATE).append("DB Faction-PledgeRank");
 		sb.append(BEGIN);
 
 		appendDefault(sb, N_A);
@@ -3221,7 +3221,7 @@ public class GOTWikiGenerator {
 	}
 
 	public enum Lang {
-		BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST_FACTIONS, BIOME_HAS_INVASION_FACTIONS, BIOME_HAS_MINERALS, BIOME_HAS_NPCS, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_VARIANTS, BIOME_HAS_WAYPOINTS, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST_FACTIONS, BIOME_NO_INVASION_FACTIONS, BIOME_NO_MINERALS, BIOME_NO_NPCS, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_NULL, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, ENTITY_CONQUEST, ENTITY_CONQUEST_INVASION, ENTITY_HAS_BIOMES, ENTITY_HAS_BUYS_POOL, ENTITY_HAS_LEGENDARY_DROP, ENTITY_HAS_OWNERS, ENTITY_HAS_SELLS_UNIT_POOL, ENTITY_INVASION, ENTITY_NO_BIOMES, ENTITY_NO_BUYS_POOL, ENTITY_NO_LEGENDARY_DROP, ENTITY_NO_OWNERS, ENTITY_NO_SELLS_UNIT_POOL, FACTION_HAS_BANNERS, FACTION_HAS_CHARACTERS, FACTION_HAS_CONQUEST_BIOMES, FACTION_HAS_INVASION_BIOMES, FACTION_HAS_NPCS, FACTION_HAS_RANKS, FACTION_HAS_SPAWN_BIOMES, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_ATTRIBUTES, FACTION_NO_BANNERS, FACTION_NO_CHARACTERS, FACTION_NO_CONQUEST_BIOMES, FACTION_NO_INVASION_BIOMES, FACTION_NO_NPCS, FACTION_NO_RANKS, FACTION_NO_SPAWN_BIOMES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, MINERAL_HAS_BIOMES, MINERAL_NO_BIOMES, NEED_OATH, NO_OATH, PAGE_BIOME, PAGE_ENTITY, PAGE_FACTION, REPUTATION, RIDER, SEASON_AUTUMN, SEASON_SPRING, SEASON_SUMMER, SEASON_WINTER, STRUCTURE_HAS_BIOMES, STRUCTURE_HAS_ENTITIES, STRUCTURE_NO_BIOMES, STRUCTURE_NO_ENTITIES, TREE_HAS_BIOMES, TREE_NO_BIOMES, FACTION_NO_ENEMIES, FACTION_NO_FRIENDS, FACTION_HAS_ATTRIBUTES, ENTITY_HAS_SELLS_POOL, ENTITY_NO_SELLS_POOL;
+		BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST_FACTIONS, BIOME_HAS_INVASION_FACTIONS, BIOME_HAS_MINERALS, BIOME_HAS_NPCS, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_VARIANTS, BIOME_HAS_WAYPOINTS, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST_FACTIONS, BIOME_NO_INVASION_FACTIONS, BIOME_NO_MINERALS, BIOME_NO_NPCS, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_NULL, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, ENTITY_CONQUEST, ENTITY_CONQUEST_INVASION, ENTITY_HAS_BIOMES, ENTITY_HAS_BUYS_POOL, ENTITY_HAS_LEGENDARY_DROP, ENTITY_HAS_OWNERS, ENTITY_HAS_SELLS_UNIT_POOL, ENTITY_INVASION, ENTITY_NO_BIOMES, ENTITY_NO_BUYS_POOL, ENTITY_NO_LEGENDARY_DROP, ENTITY_NO_OWNERS, ENTITY_NO_SELLS_UNIT_POOL, FACTION_HAS_BANNERS, FACTION_HAS_CHARACTERS, FACTION_HAS_CONQUEST_BIOMES, FACTION_HAS_INVASION_BIOMES, FACTION_HAS_NPCS, FACTION_HAS_RANKS, FACTION_HAS_SPAWN_BIOMES, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_ATTRIBUTES, FACTION_NO_BANNERS, FACTION_NO_CHARACTERS, FACTION_NO_CONQUEST_BIOMES, FACTION_NO_INVASION_BIOMES, FACTION_NO_NPCS, FACTION_NO_RANKS, FACTION_NO_SPAWN_BIOMES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, MINERAL_HAS_BIOMES, MINERAL_NO_BIOMES, NEED_PLEDGE, NO_PLEDGE, PAGE_BIOME, PAGE_ENTITY, PAGE_FACTION, REPUTATION, RIDER, SEASON_AUTUMN, SEASON_SPRING, SEASON_SUMMER, SEASON_WINTER, STRUCTURE_HAS_BIOMES, STRUCTURE_HAS_ENTITIES, STRUCTURE_NO_BIOMES, STRUCTURE_NO_ENTITIES, TREE_HAS_BIOMES, TREE_NO_BIOMES, FACTION_NO_ENEMIES, FACTION_NO_FRIENDS, FACTION_HAS_ATTRIBUTES, ENTITY_HAS_SELLS_POOL, ENTITY_NO_SELLS_POOL;
 
 		@Override
 		public String toString() {

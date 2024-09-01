@@ -38,10 +38,10 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		super(pd);
 	}
 
-	private static GOTFaction getOathOrHighestReputationFaction(EntityPlayer entityplayer, float min) {
+	private static GOTFaction getPledgeOrHighestReputationFaction(EntityPlayer entityplayer, float min) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		if (pd.getOathFaction() != null) {
-			return pd.getOathFaction();
+		if (pd.getPledgeFaction() != null) {
+			return pd.getPledgeFaction();
 		}
 		ArrayList<GOTFaction> highestFactions = new ArrayList<>();
 		float highestReputation = min;
@@ -214,7 +214,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			killed = true;
 			GOTFactionBounties.forFaction(entityFaction).forPlayer(slainPlayer).recordBountyKilled();
 			playerData.updateMiniQuest(this);
-			GOTFaction highestFaction = getOathOrHighestReputationFaction(slainPlayer, 100.0f);
+			GOTFaction highestFaction = getPledgeOrHighestReputationFaction(slainPlayer, 100.0f);
 			if (highestFaction != null) {
 				float curReputation = slainPlayerData.getReputation(highestFaction);
 				float reputationLoss = getKilledReputationPenalty();
@@ -246,7 +246,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		if (!killed && !isFailed() && killer.getUniqueID().equals(targetID)) {
 			GOTPlayerData pd;
 			GOTPlayerData killerData = GOTLevelData.getData(killer);
-			GOTFaction killerHighestFaction = getOathOrHighestReputationFaction(killer, 0.0f);
+			GOTFaction killerHighestFaction = getPledgeOrHighestReputationFaction(killer, 0.0f);
 			if (killerHighestFaction != null) {
 				float killerBonus = reputationBonus;
 				GOTReputationValues.ReputationBonus source = new GOTReputationValues.ReputationBonus(killerBonus, "got.reputation.killedHunter");

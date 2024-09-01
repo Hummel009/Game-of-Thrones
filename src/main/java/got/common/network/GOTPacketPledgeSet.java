@@ -9,39 +9,39 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public class GOTPacketOathSet implements IMessage {
-	private GOTFaction oathFac;
+public class GOTPacketPledgeSet implements IMessage {
+	private GOTFaction pledgeFac;
 
 	@SuppressWarnings("unused")
-	public GOTPacketOathSet() {
+	public GOTPacketPledgeSet() {
 	}
 
-	public GOTPacketOathSet(GOTFaction f) {
-		oathFac = f;
+	public GOTPacketPledgeSet(GOTFaction f) {
+		pledgeFac = f;
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
 		byte facID = data.readByte();
-		oathFac = facID == -1 ? null : GOTFaction.forID(facID);
+		pledgeFac = facID == -1 ? null : GOTFaction.forID(facID);
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		int facID = oathFac == null ? -1 : oathFac.ordinal();
+		int facID = pledgeFac == null ? -1 : pledgeFac.ordinal();
 		data.writeByte(facID);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketOathSet, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketPledgeSet, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketOathSet packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketPledgeSet packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			GOTFaction fac = packet.oathFac;
+			GOTFaction fac = packet.pledgeFac;
 			if (fac == null) {
-				pd.oathBetrayFaction(entityplayer, true);
-			} else if (pd.canTakeOathTo(fac) && pd.canMakeNewOath()) {
-				pd.setOathFaction(fac);
+				pd.revokePledgeFaction(entityplayer, true);
+			} else if (pd.canPledgeTo(fac) && pd.canMakeNewPledge()) {
+				pd.setPledgeFaction(fac);
 			}
 			return null;
 		}

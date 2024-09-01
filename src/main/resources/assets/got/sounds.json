@@ -292,10 +292,10 @@
 			"event/fastTravel"
 		]
 	},
-	"event.oath": {
+	"event.pledge": {
 		"category": "player",
 		"sounds": [
-			"event/oath"
+			"event/pledge"
 		]
 	},
 	"event.trade": {
@@ -307,10 +307,10 @@
 			"event/trade4"
 		]
 	},
-	"event.oathBetray": {
+	"event.unpledge": {
 		"category": "player",
 		"sounds": [
-			"event/oathBetray"
+			"event/unpledge"
 		]
 	},
 	"flamingo.death": {

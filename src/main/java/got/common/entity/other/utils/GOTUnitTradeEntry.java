@@ -27,7 +27,7 @@ public class GOTUnitTradeEntry {
 	private Class<? extends Entity> mountClass;
 
 	private GOTHireableInfo.Task task = GOTHireableInfo.Task.WARRIOR;
-	private OathType oathType = OathType.NONE;
+	private PledgeType pledgeType = PledgeType.NONE;
 
 	private Item mountArmor;
 
@@ -77,9 +77,9 @@ public class GOTUnitTradeEntry {
 		GOTFaction fac = trader.getFaction();
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		float reputation = pd.getReputation(fac);
-		boolean takenOath = pd.hasTakenOathTo(fac);
+		boolean pledged = pd.isPledgedTo(fac);
 		float repSurplus = Math.max(reputation - reputationRequired, 0.0f);
-		if (takenOath) {
+		if (pledged) {
 			f = repSurplus / 1500.0f;
 		} else {
 			cost *= 2.0f;
@@ -102,12 +102,12 @@ public class GOTUnitTradeEntry {
 		return entity;
 	}
 
-	public OathType getOathType() {
-		return oathType;
+	public PledgeType getPledgeType() {
+		return pledgeType;
 	}
 
-	private GOTUnitTradeEntry setOathType(OathType t) {
-		oathType = t;
+	private GOTUnitTradeEntry setPledgeType(PledgeType t) {
+		pledgeType = t;
 		return this;
 	}
 
@@ -129,7 +129,7 @@ public class GOTUnitTradeEntry {
 			return false;
 		}
 		GOTFaction fac = trader.getFaction();
-		if (!oathType.canAcceptPlayer(entityplayer, fac)) {
+		if (!pledgeType.canAcceptPlayer(entityplayer, fac)) {
 			return false;
 		}
 		float reputation = GOTLevelData.getData(entityplayer).getReputation(fac);
@@ -167,8 +167,8 @@ public class GOTUnitTradeEntry {
 		return this;
 	}
 
-	public GOTUnitTradeEntry setOathExclusive() {
-		return setOathType(OathType.FACTION);
+	public GOTUnitTradeEntry setPledgeExclusive() {
+		return setPledgeType(PledgeType.FACTION);
 	}
 
 	public Class<? extends Entity> getEntityClass() {
@@ -204,17 +204,17 @@ public class GOTUnitTradeEntry {
 		return setMountArmor(item, 1.0f);
 	}
 
-	public enum OathType {
+	public enum PledgeType {
 		NONE(0), FACTION(1);
 
 		private final int typeID;
 
-		OathType(int i) {
+		PledgeType(int i) {
 			typeID = i;
 		}
 
-		public static OathType forID(int i) {
-			for (OathType t : values()) {
+		public static PledgeType forID(int i) {
+			for (PledgeType t : values()) {
 				if (t.typeID != i) {
 					continue;
 				}
@@ -225,14 +225,14 @@ public class GOTUnitTradeEntry {
 
 		public boolean canAcceptPlayer(EntityPlayer entityplayer, GOTFaction fac) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			return this == NONE || this == FACTION && pd.hasTakenOathTo(fac);
+			return this == NONE || this == FACTION && pd.isPledgedTo(fac);
 		}
 
 		public String getCommandReqText(GOTFaction fac) {
 			if (this == NONE) {
 				return null;
 			}
-			return StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.oath." + name(), fac.factionName());
+			return StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.pledge." + name(), fac.factionName());
 		}
 
 		public int getTypeID() {
