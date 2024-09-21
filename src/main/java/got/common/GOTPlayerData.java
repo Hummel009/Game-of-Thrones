@@ -4,13 +4,13 @@ import com.google.common.collect.ImmutableList;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
-import got.common.brotherhood.*;
 import got.common.command.GOTCommandAdminHideMap;
 import got.common.database.*;
 import got.common.entity.dragon.GOTEntityDragon;
 import got.common.entity.essos.golden.GOTEntityGoldenCompanyMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.*;
+import got.common.fellowship.*;
 import got.common.item.other.GOTItemArmor;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
@@ -51,16 +51,16 @@ public class GOTPlayerData {
 	private final Collection<GOTFaction> bountiesPlaced = new ArrayList<>();
 	private final Collection<CWPSharedKey> cwpSharedHidden = new HashSet<>();
 	private final Collection<CWPSharedKey> cwpSharedUnlocked = new HashSet<>();
-	private final Collection<GOTBrotherhoodInvite> brotherhoodInvites = new ArrayList<>();
+	private final Collection<GOTFellowshipInvite> fellowshipInvites = new ArrayList<>();
 
 	private final List<GOTMiniQuest> miniQuests = new ArrayList<>();
 	private final List<GOTMiniQuest> miniQuestsCompleted = new ArrayList<>();
 	private final List<GOTAchievement> achievements = new ArrayList<>();
 	private final List<GOTCustomWaypoint> customWaypoints = new ArrayList<>();
 	private final List<GOTCustomWaypoint> customWaypointsShared = new ArrayList<>();
-	private final List<GOTBrotherhoodClient> brotherhoodInvitesClient = new ArrayList<>();
-	private final List<GOTBrotherhoodClient> brotherhoodsClient = new ArrayList<>();
-	private final List<UUID> brotherhoodIDs = new ArrayList<>();
+	private final List<GOTFellowshipClient> fellowshipInvitesClient = new ArrayList<>();
+	private final List<GOTFellowshipClient> fellowshipsClient = new ArrayList<>();
+	private final List<UUID> fellowshipIDs = new ArrayList<>();
 
 	private final Map<GOTDimension.DimensionRegion, GOTFaction> prevRegionFactions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 	private final Map<GOTFaction, Float> reputations = new EnumMap<>(GOTFaction.class);
@@ -88,7 +88,7 @@ public class GOTPlayerData {
 
 	private ChunkCoordinates deathPoint;
 	private GOTTitle.PlayerTitle playerTitle;
-	private UUID chatBoundBrotherhoodID;
+	private UUID chatBoundFellowshipID;
 	private UUID trackingMiniQuestID;
 	private UUID uuidToMount;
 
@@ -173,12 +173,12 @@ public class GOTPlayerData {
 		return MinecraftServer.getServer() != null && MinecraftServer.getServer().getTickCounter() % 200 == 0;
 	}
 
-	public static void customWaypointAddSharedBrotherhoodClient(GOTCustomWaypoint waypoint, GOTBrotherhoodClient fs) {
-		waypoint.addSharedBrotherhood(fs.getBrotherhoodID());
+	public static void customWaypointAddSharedFellowshipClient(GOTCustomWaypoint waypoint, GOTFellowshipClient fs) {
+		waypoint.addSharedFellowship(fs.getFellowshipID());
 	}
 
-	public static void customWaypointRemoveSharedBrotherhoodClient(GOTCustomWaypoint waypoint, UUID fsID) {
-		waypoint.removeSharedBrotherhood(fsID);
+	public static void customWaypointRemoveSharedFellowshipClient(GOTCustomWaypoint waypoint, UUID fsID) {
+		waypoint.removeSharedFellowship(fsID);
 	}
 
 	private static boolean doesFactionPreventOath(GOTFaction oathFac, GOTFaction otherFac) {
@@ -286,8 +286,8 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void setChatBoundBrotherhoodID(UUID fsID) {
-		chatBoundBrotherhoodID = fsID;
+	public void setChatBoundFellowshipID(UUID fsID) {
+		chatBoundFellowshipID = fsID;
 		markDirty();
 	}
 
@@ -300,11 +300,11 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void acceptBrotherhoodInvite(GOTBrotherhood fs, boolean respectSizeLimit) {
-		UUID fsID = fs.getBrotherhoodID();
-		GOTBrotherhoodInvite existingInvite = null;
-		for (GOTBrotherhoodInvite invite : brotherhoodInvites) {
-			if (invite.getBrotherhoodID().equals(fsID)) {
+	public void acceptFellowshipInvite(GOTFellowship fs, boolean respectSizeLimit) {
+		UUID fsID = fs.getFellowshipID();
+		GOTFellowshipInvite existingInvite = null;
+		for (GOTFellowshipInvite invite : fellowshipInvites) {
+			if (invite.getFellowshipID().equals(fsID)) {
 				existingInvite = invite;
 				break;
 			}
@@ -312,26 +312,26 @@ public class GOTPlayerData {
 		if (existingInvite != null) {
 			EntityPlayer entityplayer = getPlayer();
 			if (fs.isDisbanded()) {
-				rejectBrotherhoodInvite(fs);
+				rejectFellowshipInvite(fs);
 				if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-					IMessage resultPacket = new GOTPacketBrotherhoodAcceptInviteResult(fs, GOTPacketBrotherhoodAcceptInviteResult.AcceptInviteResult.DISBANDED);
+					IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.DISBANDED);
 					GOTPacketHandler.NETWORK_WRAPPER.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 				}
 			} else {
-				int limit = GOTConfig.brotherhoodMaxSize;
+				int limit = GOTConfig.fellowshipMaxSize;
 				if (respectSizeLimit && limit >= 0 && fs.getPlayerCount() >= limit) {
-					rejectBrotherhoodInvite(fs);
+					rejectFellowshipInvite(fs);
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-						IMessage resultPacket = new GOTPacketBrotherhoodAcceptInviteResult(fs, GOTPacketBrotherhoodAcceptInviteResult.AcceptInviteResult.TOO_LARGE);
+						IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.TOO_LARGE);
 						GOTPacketHandler.NETWORK_WRAPPER.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 					}
 				} else {
 					fs.addMember(playerUUID);
-					brotherhoodInvites.remove(existingInvite);
+					fellowshipInvites.remove(existingInvite);
 					markDirty();
-					sendBrotherhoodInviteRemovePacket(fs);
+					sendFellowshipInviteRemovePacket(fs);
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-						IMessage resultPacket = new GOTPacketBrotherhoodAcceptInviteResult(fs, GOTPacketBrotherhoodAcceptInviteResult.AcceptInviteResult.JOINED);
+						IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED);
 						GOTPacketHandler.NETWORK_WRAPPER.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 						UUID inviterID = existingInvite.getInviterID();
 						if (inviterID == null) {
@@ -339,7 +339,7 @@ public class GOTPlayerData {
 						}
 						EntityPlayer inviter = getOtherPlayer(inviterID);
 						if (inviter != null) {
-							GOTBrotherhood.sendNotification(inviter, "got.gui.brotherhoods.notifyAccept", entityplayer.getCommandSenderName());
+							GOTFellowship.sendNotification(inviter, "got.gui.fellowships.notifyAccept", entityplayer.getCommandSenderName());
 						}
 					}
 				}
@@ -499,7 +499,7 @@ public class GOTPlayerData {
 			GOTCustomWaypointLogger.logCreate(entityplayer, waypoint);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
-		List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedBrotherhoods();
+		List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
 		for (UUID sharedPlayerUUID : sharedPlayers) {
 			EntityPlayer sharedPlayer = getOtherPlayer(sharedPlayerUUID);
 			if (sharedPlayer != null && !sharedPlayer.worldObj.isRemote) {
@@ -512,34 +512,34 @@ public class GOTPlayerData {
 		customWaypoints.add(waypoint);
 	}
 
-	public void addBrotherhood(GOTBrotherhood fs) {
+	public void addFellowship(GOTFellowship fs) {
 		if (fs.containsPlayer(playerUUID)) {
-			UUID fsID = fs.getBrotherhoodID();
-			if (!brotherhoodIDs.contains(fsID)) {
-				brotherhoodIDs.add(fsID);
+			UUID fsID = fs.getFellowshipID();
+			if (!fellowshipIDs.contains(fsID)) {
+				fellowshipIDs.add(fsID);
 				markDirty();
-				sendBrotherhoodPacket(fs);
-				addSharedCustomWaypointsFromAllIn(fs.getBrotherhoodID());
+				sendFellowshipPacket(fs);
+				addSharedCustomWaypointsFromAllIn(fs.getFellowshipID());
 			}
 		}
 	}
 
-	private void addBrotherhoodInvite(GOTBrotherhood fs, UUID inviterUUID, String inviterUsername) {
-		UUID fsID = fs.getBrotherhoodID();
+	private void addFellowshipInvite(GOTFellowship fs, UUID inviterUUID, String inviterUsername) {
+		UUID fsID = fs.getFellowshipID();
 		boolean hasInviteAlready = false;
-		for (GOTBrotherhoodInvite invite : brotherhoodInvites) {
-			if (invite.getBrotherhoodID().equals(fsID)) {
+		for (GOTFellowshipInvite invite : fellowshipInvites) {
+			if (invite.getFellowshipID().equals(fsID)) {
 				hasInviteAlready = true;
 				break;
 			}
 		}
 		if (!hasInviteAlready) {
-			brotherhoodInvites.add(new GOTBrotherhoodInvite(fsID, inviterUUID));
+			fellowshipInvites.add(new GOTFellowshipInvite(fsID, inviterUUID));
 			markDirty();
-			sendBrotherhoodInvitePacket(fs);
+			sendFellowshipInvitePacket(fs);
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTBrotherhood.sendNotification(entityplayer, "got.gui.brotherhoods.notifyInvite", inviterUsername);
+				GOTFellowship.sendNotification(entityplayer, "got.gui.fellowships.notifyInvite", inviterUsername);
 			}
 		}
 	}
@@ -554,11 +554,11 @@ public class GOTPlayerData {
 		markDirty();
 	}
 
-	public void addOrUpdateClientBrotherhood(GOTBrotherhoodClient fs) {
-		UUID fsID = fs.getBrotherhoodID();
-		GOTBrotherhoodClient inList = null;
-		for (GOTBrotherhoodClient fsInList : brotherhoodsClient) {
-			if (fsInList.getBrotherhoodID().equals(fsID)) {
+	public void addOrUpdateClientFellowship(GOTFellowshipClient fs) {
+		UUID fsID = fs.getFellowshipID();
+		GOTFellowshipClient inList = null;
+		for (GOTFellowshipClient fsInList : fellowshipsClient) {
+			if (fsInList.getFellowshipID().equals(fsID)) {
 				inList = fsInList;
 				break;
 			}
@@ -566,15 +566,15 @@ public class GOTPlayerData {
 		if (inList != null) {
 			inList.updateDataFrom(fs);
 		} else {
-			brotherhoodsClient.add(fs);
+			fellowshipsClient.add(fs);
 		}
 	}
 
-	public void addOrUpdateClientBrotherhoodInvite(GOTBrotherhoodClient fs) {
-		UUID fsID = fs.getBrotherhoodID();
-		GOTBrotherhoodClient inList = null;
-		for (GOTBrotherhoodClient fsInList : brotherhoodInvitesClient) {
-			if (fsInList.getBrotherhoodID().equals(fsID)) {
+	public void addOrUpdateClientFellowshipInvite(GOTFellowshipClient fs) {
+		UUID fsID = fs.getFellowshipID();
+		GOTFellowshipClient inList = null;
+		for (GOTFellowshipClient fsInList : fellowshipInvitesClient) {
+			if (fsInList.getFellowshipID().equals(fsID)) {
 				inList = fsInList;
 				break;
 			}
@@ -582,7 +582,7 @@ public class GOTPlayerData {
 		if (inList != null) {
 			inList.updateDataFrom(fs);
 		} else {
-			brotherhoodInvitesClient.add(fs);
+			fellowshipInvitesClient.add(fs);
 		}
 	}
 
@@ -618,13 +618,13 @@ public class GOTPlayerData {
 		}
 	}
 
-	private void addSharedCustomWaypointsFrom(UUID onlyOneBrotherhoodID, Iterable<UUID> checkSpecificPlayers) {
-		List<UUID> checkBrotherhoodIDs;
-		if (onlyOneBrotherhoodID != null) {
-			checkBrotherhoodIDs = new ArrayList<>();
-			checkBrotherhoodIDs.add(onlyOneBrotherhoodID);
+	private void addSharedCustomWaypointsFrom(UUID onlyOneFellowshipID, Iterable<UUID> checkSpecificPlayers) {
+		List<UUID> checkFellowshipIDs;
+		if (onlyOneFellowshipID != null) {
+			checkFellowshipIDs = new ArrayList<>();
+			checkFellowshipIDs.add(onlyOneFellowshipID);
 		} else {
-			checkBrotherhoodIDs = brotherhoodIDs;
+			checkFellowshipIDs = fellowshipIDs;
 		}
 		Collection<UUID> checkFellowPlayerIDs = new ArrayList<>();
 		if (checkSpecificPlayers != null) {
@@ -634,8 +634,8 @@ public class GOTPlayerData {
 				}
 			}
 		} else {
-			for (UUID fsID : checkBrotherhoodIDs) {
-				GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+			for (UUID fsID : checkFellowshipIDs) {
+				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 				if (fs != null) {
 					Set<UUID> playerIDs = fs.getWaypointSharerUUIDs();
 					for (UUID player : playerIDs) {
@@ -649,32 +649,32 @@ public class GOTPlayerData {
 		for (UUID player : checkFellowPlayerIDs) {
 			GOTPlayerData pd = GOTLevelData.getData(player);
 			for (GOTCustomWaypoint waypoint : pd.customWaypoints) {
-				boolean inSharedBrotherhood = false;
-				for (UUID fsID : checkBrotherhoodIDs) {
-					if (waypoint.hasSharedBrotherhood(fsID)) {
-						inSharedBrotherhood = true;
+				boolean inSharedFellowship = false;
+				for (UUID fsID : checkFellowshipIDs) {
+					if (waypoint.hasSharedFellowship(fsID)) {
+						inSharedFellowship = true;
 						break;
 					}
 				}
-				if (inSharedBrotherhood) {
+				if (inSharedFellowship) {
 					addOrUpdateSharedCustomWaypoint(waypoint.createCopyOfShared(player));
 				}
 			}
 		}
 	}
 
-	private void addSharedCustomWaypointsFromAllBrotherhoods() {
+	private void addSharedCustomWaypointsFromAllFellowships() {
 		addSharedCustomWaypointsFrom(null, null);
 	}
 
-	private void addSharedCustomWaypointsFromAllIn(UUID onlyOneBrotherhoodID) {
-		addSharedCustomWaypointsFrom(onlyOneBrotherhoodID, null);
+	private void addSharedCustomWaypointsFromAllIn(UUID onlyOneFellowshipID) {
+		addSharedCustomWaypointsFrom(onlyOneFellowshipID, null);
 	}
 
-	public boolean anyMatchingBrotherhoodNames(String name, boolean client) {
+	public boolean anyMatchingFellowshipNames(String name, boolean client) {
 		String name1 = StringUtils.strip(name).toLowerCase(Locale.ROOT);
 		if (client) {
-			for (GOTBrotherhoodClient fs : brotherhoodsClient) {
+			for (GOTFellowshipClient fs : fellowshipsClient) {
 				String otherName = fs.getName();
 				otherName = StringUtils.strip(otherName).toLowerCase(Locale.ROOT);
 				if (name1.equals(otherName)) {
@@ -682,8 +682,8 @@ public class GOTPlayerData {
 				}
 			}
 		} else {
-			for (UUID fsID : brotherhoodIDs) {
-				GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+			for (UUID fsID : fellowshipIDs) {
+				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 				if (fs != null) {
 					String otherName = fs.getName();
 					otherName = StringUtils.strip(otherName).toLowerCase(Locale.ROOT);
@@ -708,11 +708,11 @@ public class GOTPlayerData {
 		}
 	}
 
-	public boolean canCreateBrotherhoods(boolean client) {
-		int max = getMaxLeadingBrotherhoods();
+	public boolean canCreateFellowships(boolean client) {
+		int max = getMaxLeadingFellowships();
 		int leading = 0;
 		if (client) {
-			for (GOTBrotherhoodClient fs : brotherhoodsClient) {
+			for (GOTFellowshipClient fs : fellowshipsClient) {
 				if (fs.isOwned()) {
 					leading++;
 					if (leading >= max) {
@@ -721,8 +721,8 @@ public class GOTPlayerData {
 				}
 			}
 		} else {
-			for (UUID fsID : brotherhoodIDs) {
-				GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+			for (UUID fsID : fellowshipIDs) {
+				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 				if (fs != null && fs.isOwner(playerUUID)) {
 					leading++;
 					if (leading >= max) {
@@ -788,7 +788,7 @@ public class GOTPlayerData {
 			if (checkSpecificPlayers == null || checkSpecificPlayers.contains(waypointSharingPlayer)) {
 				GOTCustomWaypoint wpOriginal = GOTLevelData.getData(waypointSharingPlayer).getCustomWaypointByID(waypoint.getID());
 				if (wpOriginal != null) {
-					List<UUID> sharedFellowPlayers = wpOriginal.getPlayersInAllSharedBrotherhoods();
+					List<UUID> sharedFellowPlayers = wpOriginal.getPlayersInAllSharedFellowships();
 					if (!sharedFellowPlayers.contains(playerUUID)) {
 						removes.add(waypoint);
 					}
@@ -800,12 +800,12 @@ public class GOTPlayerData {
 		}
 	}
 
-	private void checkCustomWaypointsSharedFromBrotherhoods() {
+	private void checkCustomWaypointsSharedFromFellowships() {
 		checkCustomWaypointsSharedBy(null);
 	}
 
-	private void checkIfStillWaypointSharerForBrotherhood(GOTBrotherhood fs) {
-		if (!hasAnyWaypointsSharedToBrotherhood(fs)) {
+	private void checkIfStillWaypointSharerForFellowship(GOTFellowship fs) {
+		if (!hasAnyWaypointsSharedToFellowship(fs)) {
 			fs.markIsWaypointSharer(playerUUID, false);
 		}
 	}
@@ -827,24 +827,24 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void createBrotherhood(String name, boolean normalCreation) {
-		if (normalCreation && (!GOTConfig.enableBrotherhoodCreation || !canCreateBrotherhoods(false))) {
+	public void createFellowship(String name, boolean normalCreation) {
+		if (normalCreation && (!GOTConfig.enableFellowshipCreation || !canCreateFellowships(false))) {
 			return;
 		}
-		if (!anyMatchingBrotherhoodNames(name, false)) {
-			GOTBrotherhood brotherhood = new GOTBrotherhood(playerUUID, name);
-			brotherhood.createAndRegister();
+		if (!anyMatchingFellowshipNames(name, false)) {
+			GOTFellowship fellowship = new GOTFellowship(playerUUID, name);
+			fellowship.createAndRegister();
 		}
 	}
 
-	public void customWaypointAddSharedBrotherhood(GOTCustomWaypoint waypoint, GOTBrotherhood fs) {
-		UUID fsID = fs.getBrotherhoodID();
-		waypoint.addSharedBrotherhood(fsID);
+	public void customWaypointAddSharedFellowship(GOTCustomWaypoint waypoint, GOTFellowship fs) {
+		UUID fsID = fs.getFellowshipID();
+		waypoint.addSharedFellowship(fsID);
 		markDirty();
 		fs.markIsWaypointSharer(playerUUID, true);
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketShareCWPClient packet = waypoint.getClientAddBrotherhoodPacket(fsID);
+			GOTPacketShareCWPClient packet = waypoint.getClientAddFellowshipPacket(fsID);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
@@ -855,14 +855,14 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void customWaypointRemoveSharedBrotherhood(GOTCustomWaypoint waypoint, GOTBrotherhood fs) {
-		UUID fsID = fs.getBrotherhoodID();
-		waypoint.removeSharedBrotherhood(fsID);
+	public void customWaypointRemoveSharedFellowship(GOTCustomWaypoint waypoint, GOTFellowship fs) {
+		UUID fsID = fs.getFellowshipID();
+		waypoint.removeSharedFellowship(fsID);
 		markDirty();
-		checkIfStillWaypointSharerForBrotherhood(fs);
+		checkIfStillWaypointSharerForFellowship(fs);
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketShareCWPClient packet = waypoint.getClientRemoveBrotherhoodPacket(fsID);
+			GOTPacketShareCWPClient packet = waypoint.getClientRemoveFellowshipPacket(fsID);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
@@ -875,15 +875,15 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void disbandBrotherhood(GOTBrotherhood fs, String disbanderUsername) {
+	public void disbandFellowship(GOTFellowship fs, String disbanderUsername) {
 		if (fs.isOwner(playerUUID)) {
 			Iterable<UUID> memberUUIDs = new ArrayList<>(fs.getMemberUUIDs());
 			fs.setDisbandedAndRemoveAllMembers();
-			removeBrotherhood(fs);
+			removeFellowship(fs);
 			for (UUID memberID : memberUUIDs) {
 				EntityPlayer member = getOtherPlayer(memberID);
 				if (member != null && !member.worldObj.isRemote) {
-					GOTBrotherhood.sendNotification(member, "got.gui.brotherhoods.notifyDisband", disbanderUsername);
+					GOTFellowship.sendNotification(member, "got.gui.fellowships.notifyDisband", disbanderUsername);
 				}
 			}
 		}
@@ -1049,28 +1049,28 @@ public class GOTPlayerData {
 		markDirty();
 	}
 
-	public GOTBrotherhood getChatBoundBrotherhood() {
-		if (chatBoundBrotherhoodID != null) {
-			return GOTBrotherhoodData.getActiveBrotherhood(chatBoundBrotherhoodID);
+	public GOTFellowship getChatBoundFellowship() {
+		if (chatBoundFellowshipID != null) {
+			return GOTFellowshipData.getActiveFellowship(chatBoundFellowshipID);
 		}
 		return null;
 	}
 
-	public void setChatBoundBrotherhood(GOTBrotherhood fs) {
-		setChatBoundBrotherhoodID(fs.getBrotherhoodID());
+	public void setChatBoundFellowship(GOTFellowship fs) {
+		setChatBoundFellowshipID(fs.getFellowshipID());
 	}
 
-	public GOTBrotherhoodClient getClientBrotherhoodByID(UUID fsID) {
-		for (GOTBrotherhoodClient fs : brotherhoodsClient) {
-			if (fs.getBrotherhoodID().equals(fsID)) {
+	public GOTFellowshipClient getClientFellowshipByID(UUID fsID) {
+		for (GOTFellowshipClient fs : fellowshipsClient) {
+			if (fs.getFellowshipID().equals(fsID)) {
 				return fs;
 			}
 		}
 		return null;
 	}
 
-	public GOTBrotherhoodClient getClientBrotherhoodByName(String fsName) {
-		for (GOTBrotherhoodClient fs : brotherhoodsClient) {
+	public GOTFellowshipClient getClientFellowshipByName(String fsName) {
+		for (GOTFellowshipClient fs : fellowshipsClient) {
 			if (fs.getName().equalsIgnoreCase(fsName)) {
 				return fs;
 			}
@@ -1078,12 +1078,12 @@ public class GOTPlayerData {
 		return null;
 	}
 
-	public List<GOTBrotherhoodClient> getClientBrotherhoodInvites() {
-		return brotherhoodInvitesClient;
+	public List<GOTFellowshipClient> getClientFellowshipInvites() {
+		return fellowshipInvitesClient;
 	}
 
-	public List<GOTBrotherhoodClient> getClientBrotherhoods() {
-		return brotherhoodsClient;
+	public List<GOTFellowshipClient> getClientFellowships() {
+		return fellowshipsClient;
 	}
 
 	public int getCompletedBountyQuests() {
@@ -1157,9 +1157,9 @@ public class GOTPlayerData {
 		return factionDataMap.computeIfAbsent(faction, k -> new GOTFactionData(this, faction));
 	}
 
-	public GOTBrotherhood getBrotherhoodByName(String fsName) {
-		for (UUID fsID : brotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+	public GOTFellowship getFellowshipByName(String fsName) {
+		for (UUID fsID : fellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.getName().equalsIgnoreCase(fsName)) {
 				return fs;
 			}
@@ -1167,19 +1167,19 @@ public class GOTPlayerData {
 		return null;
 	}
 
-	public List<UUID> getBrotherhoodIDs() {
-		return brotherhoodIDs;
+	public List<UUID> getFellowshipIDs() {
+		return fellowshipIDs;
 	}
 
-	public List<GOTBrotherhood> getBrotherhoods() {
-		List<GOTBrotherhood> brotherhoods = new ArrayList<>();
-		for (UUID fsID : brotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+	public List<GOTFellowship> getFellowships() {
+		List<GOTFellowship> fellowships = new ArrayList<>();
+		for (UUID fsID : fellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null) {
-				brotherhoods.add(fs);
+				fellowships.add(fs);
 			}
 		}
-		return brotherhoods;
+		return fellowships;
 	}
 
 	public boolean getFeminineRanks() {
@@ -1238,7 +1238,7 @@ public class GOTPlayerData {
 		return 5 + achievements / 5;
 	}
 
-	private int getMaxLeadingBrotherhoods() {
+	private int getMaxLeadingFellowships() {
 		int achievements = getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size();
 		return 1 + achievements / 20;
 	}
@@ -1318,10 +1318,10 @@ public class GOTPlayerData {
 			IMessage packet = new GOTPacketTitle(playerTitle);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
-		for (UUID fsID : brotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+		for (UUID fsID : fellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null) {
-				fs.updateForAllMembers(new BrotherhoodUpdateType.UpdatePlayerTitle(playerUUID, playerTitle));
+				fs.updateForAllMembers(new FellowshipUpdateType.UpdatePlayerTitle(playerUUID, playerTitle));
 			}
 		}
 	}
@@ -1577,9 +1577,9 @@ public class GOTPlayerData {
 		return hasActiveOrCompleteMQType(GOTMiniQuestWelcome.class);
 	}
 
-	public boolean hasAnyWaypointsSharedToBrotherhood(GOTBrotherhood fs) {
+	public boolean hasAnyWaypointsSharedToFellowship(GOTFellowship fs) {
 		for (GOTCustomWaypoint waypoint : customWaypoints) {
-			if (waypoint.hasSharedBrotherhood(fs)) {
+			if (waypoint.hasSharedFellowship(fs)) {
 				return true;
 			}
 		}
@@ -1620,9 +1620,9 @@ public class GOTPlayerData {
 		setWPUseCount(wp, getWPUseCount(wp) + 1);
 	}
 
-	public void invitePlayerToBrotherhood(GOTBrotherhood fs, UUID invitedPlayerUUID, String inviterUsername) {
+	public void invitePlayerToFellowship(GOTFellowship fs, UUID invitedPlayerUUID, String inviterUsername) {
 		if (fs.isOwner(playerUUID) || fs.isAdmin(playerUUID)) {
-			GOTLevelData.getData(invitedPlayerUUID).addBrotherhoodInvite(fs, playerUUID, inviterUsername);
+			GOTLevelData.getData(invitedPlayerUUID).addFellowshipInvite(fs, playerUUID, inviterUsername);
 		}
 	}
 
@@ -1651,26 +1651,26 @@ public class GOTPlayerData {
 		siegeActiveTime = Math.max(siegeActiveTime, duration);
 	}
 
-	public void leaveBrotherhood(GOTBrotherhood fs) {
+	public void leaveFellowship(GOTFellowship fs) {
 		if (!fs.isOwner(playerUUID)) {
 			fs.removeMember(playerUUID);
-			if (brotherhoodIDs.contains(fs.getBrotherhoodID())) {
-				removeBrotherhood(fs);
+			if (fellowshipIDs.contains(fs.getFellowshipID())) {
+				removeFellowship(fs);
 			}
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				EntityPlayer owner = getOtherPlayer(fs.getOwner());
 				if (owner != null) {
-					GOTBrotherhood.sendNotification(owner, "got.gui.brotherhoods.notifyLeave", entityplayer.getCommandSenderName());
+					GOTFellowship.sendNotification(owner, "got.gui.fellowships.notifyLeave", entityplayer.getCommandSenderName());
 				}
 			}
 		}
 	}
 
-	public List<String> listAllBrotherhoodNames() {
+	public List<String> listAllFellowshipNames() {
 		List<String> list = new ArrayList<>();
-		for (UUID fsID : brotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+		for (UUID fsID : fellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.containsPlayer(playerUUID)) {
 				list.add(fs.getName());
 			}
@@ -1678,10 +1678,10 @@ public class GOTPlayerData {
 		return list;
 	}
 
-	public List<String> listAllLeadingBrotherhoodNames() {
+	public List<String> listAllLeadingFellowshipNames() {
 		List<String> list = new ArrayList<>();
-		for (UUID fsID : brotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+		for (UUID fsID : fellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.isOwner(playerUUID)) {
 				list.add(fs.getName());
 			}
@@ -1954,27 +1954,27 @@ public class GOTPlayerData {
 		if (playerData.hasKey("NextCWPID")) {
 			nextCwpID = playerData.getInteger("NextCWPID");
 		}
-		brotherhoodIDs.clear();
-		NBTTagList brotherhoodTags = playerData.getTagList("Brotherhoods", 10);
-		for (int i12 = 0; i12 < brotherhoodTags.tagCount(); i12++) {
-			NBTTagCompound nbt = brotherhoodTags.getCompoundTagAt(i12);
+		fellowshipIDs.clear();
+		NBTTagList fellowshipTags = playerData.getTagList("Fellowships", 10);
+		for (int i12 = 0; i12 < fellowshipTags.tagCount(); i12++) {
+			NBTTagCompound nbt = fellowshipTags.getCompoundTagAt(i12);
 			UUID fsID = UUID.fromString(nbt.getString("ID"));
-			brotherhoodIDs.add(fsID);
+			fellowshipIDs.add(fsID);
 		}
-		brotherhoodInvites.clear();
-		NBTTagList brotherhoodInviteTags = playerData.getTagList("BrotherhoodInvites", 10);
-		for (int i13 = 0; i13 < brotherhoodInviteTags.tagCount(); i13++) {
-			NBTTagCompound nbt = brotherhoodInviteTags.getCompoundTagAt(i13);
+		fellowshipInvites.clear();
+		NBTTagList fellowshipInviteTags = playerData.getTagList("FellowshipInvites", 10);
+		for (int i13 = 0; i13 < fellowshipInviteTags.tagCount(); i13++) {
+			NBTTagCompound nbt = fellowshipInviteTags.getCompoundTagAt(i13);
 			UUID fsID = UUID.fromString(nbt.getString("ID"));
 			UUID inviterID = null;
 			if (nbt.hasKey("InviterID")) {
 				inviterID = UUID.fromString(nbt.getString("InviterID"));
 			}
-			brotherhoodInvites.add(new GOTBrotherhoodInvite(fsID, inviterID));
+			fellowshipInvites.add(new GOTFellowshipInvite(fsID, inviterID));
 		}
-		chatBoundBrotherhoodID = null;
-		if (playerData.hasKey("ChatBoundBrotherhood")) {
-			chatBoundBrotherhoodID = UUID.fromString(playerData.getString("ChatBoundBrotherhood"));
+		chatBoundFellowshipID = null;
+		if (playerData.hasKey("ChatBoundFellowship")) {
+			chatBoundFellowshipID = UUID.fromString(playerData.getString("ChatBoundFellowship"));
 		}
 		structuresBanned = playerData.getBoolean("StructuresBanned");
 		teleportedKW = playerData.getBoolean("TeleportedKW");
@@ -2148,19 +2148,19 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void rejectBrotherhoodInvite(GOTBrotherhood fs) {
-		UUID fsID = fs.getBrotherhoodID();
-		GOTBrotherhoodInvite existingInvite = null;
-		for (GOTBrotherhoodInvite invite : brotherhoodInvites) {
-			if (invite.getBrotherhoodID().equals(fsID)) {
+	public void rejectFellowshipInvite(GOTFellowship fs) {
+		UUID fsID = fs.getFellowshipID();
+		GOTFellowshipInvite existingInvite = null;
+		for (GOTFellowshipInvite invite : fellowshipInvites) {
+			if (invite.getFellowshipID().equals(fsID)) {
 				existingInvite = invite;
 				break;
 			}
 		}
 		if (existingInvite != null) {
-			brotherhoodInvites.remove(existingInvite);
+			fellowshipInvites.remove(existingInvite);
 			markDirty();
-			sendBrotherhoodInviteRemovePacket(fs);
+			sendFellowshipInviteRemovePacket(fs);
 		}
 	}
 
@@ -2177,39 +2177,39 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void removeClientBrotherhood(UUID fsID) {
-		GOTBrotherhoodClient inList = null;
-		for (GOTBrotherhoodClient fsInList : brotherhoodsClient) {
-			if (fsInList.getBrotherhoodID().equals(fsID)) {
+	public void removeClientFellowship(UUID fsID) {
+		GOTFellowshipClient inList = null;
+		for (GOTFellowshipClient fsInList : fellowshipsClient) {
+			if (fsInList.getFellowshipID().equals(fsID)) {
 				inList = fsInList;
 				break;
 			}
 		}
 		if (inList != null) {
-			brotherhoodsClient.remove(inList);
+			fellowshipsClient.remove(inList);
 		}
 	}
 
-	public void removeClientBrotherhoodInvite(UUID fsID) {
-		GOTBrotherhoodClient inList = null;
-		for (GOTBrotherhoodClient fsInList : brotherhoodInvitesClient) {
-			if (fsInList.getBrotherhoodID().equals(fsID)) {
+	public void removeClientFellowshipInvite(UUID fsID) {
+		GOTFellowshipClient inList = null;
+		for (GOTFellowshipClient fsInList : fellowshipInvitesClient) {
+			if (fsInList.getFellowshipID().equals(fsID)) {
 				inList = fsInList;
 				break;
 			}
 		}
 		if (inList != null) {
-			brotherhoodInvitesClient.remove(inList);
+			fellowshipInvitesClient.remove(inList);
 		}
 	}
 
 	public void removeCustomWaypoint(GOTCustomWaypoint waypoint) {
 		if (customWaypoints.remove(waypoint)) {
 			markDirty();
-			for (UUID fsID : waypoint.getSharedBrotherhoodIDs()) {
-				GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+			for (UUID fsID : waypoint.getSharedFellowshipIDs()) {
+				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 				if (fs != null) {
-					checkIfStillWaypointSharerForBrotherhood(fs);
+					checkIfStillWaypointSharerForFellowship(fs);
 				}
 			}
 			EntityPlayer entityplayer = getPlayer();
@@ -2219,7 +2219,7 @@ public class GOTPlayerData {
 				GOTCustomWaypointLogger.logDelete(entityplayer, waypoint);
 			}
 			GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
-			List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedBrotherhoods();
+			List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
 			for (UUID sharedPlayerUUID : sharedPlayers) {
 				EntityPlayer sharedPlayer = getOtherPlayer(sharedPlayerUUID);
 				if (sharedPlayer != null && !sharedPlayer.worldObj.isRemote) {
@@ -2233,15 +2233,15 @@ public class GOTPlayerData {
 		customWaypoints.remove(waypoint);
 	}
 
-	public void removeBrotherhood(GOTBrotherhood fs) {
+	public void removeFellowship(GOTFellowship fs) {
 		if (fs.isDisbanded() || !fs.containsPlayer(playerUUID)) {
-			UUID fsID = fs.getBrotherhoodID();
-			if (brotherhoodIDs.contains(fsID)) {
-				brotherhoodIDs.remove(fsID);
+			UUID fsID = fs.getFellowshipID();
+			if (fellowshipIDs.contains(fsID)) {
+				fellowshipIDs.remove(fsID);
 				markDirty();
-				sendBrotherhoodRemovePacket(fs);
-				unshareBrotherhoodFromOwnCustomWaypoints(fs);
-				checkCustomWaypointsSharedFromBrotherhoods();
+				sendFellowshipRemovePacket(fs);
+				unshareFellowshipFromOwnCustomWaypoints(fs);
+				checkCustomWaypointsSharedFromFellowships();
 			}
 		}
 	}
@@ -2265,12 +2265,12 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void removePlayerFromBrotherhood(GOTBrotherhood fs, UUID player, String removerUsername) {
+	public void removePlayerFromFellowship(GOTFellowship fs, UUID player, String removerUsername) {
 		if (fs.isOwner(playerUUID) || fs.isAdmin(playerUUID)) {
 			fs.removeMember(player);
 			EntityPlayer removed = getOtherPlayer(player);
 			if (removed != null && !removed.worldObj.isRemote) {
-				GOTBrotherhood.sendNotification(removed, "got.gui.brotherhoods.notifyRemove", removerUsername);
+				GOTFellowship.sendNotification(removed, "got.gui.fellowships.notifyRemove", removerUsername);
 			}
 		}
 	}
@@ -2308,7 +2308,7 @@ public class GOTPlayerData {
 			GOTCustomWaypointLogger.logRename(entityplayer, waypoint);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
-		List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedBrotherhoods();
+		List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
 		for (UUID sharedPlayerUUID : sharedPlayers) {
 			EntityPlayer sharedPlayer = getOtherPlayer(sharedPlayerUUID);
 			if (sharedPlayer != null && !sharedPlayer.worldObj.isRemote) {
@@ -2317,7 +2317,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void renameBrotherhood(GOTBrotherhood fs, String name) {
+	public void renameFellowship(GOTFellowship fs, String name) {
 		if (fs.isOwner(playerUUID)) {
 			fs.setName(name);
 		}
@@ -2640,25 +2640,25 @@ public class GOTPlayerData {
 		}
 		playerData.setTag("CWPSharedUses", cwpSharedUseTags);
 		playerData.setInteger("NextCWPID", nextCwpID);
-		NBTTagList brotherhoodTags = new NBTTagList();
-		for (UUID fsID : brotherhoodIDs) {
+		NBTTagList fellowshipTags = new NBTTagList();
+		for (UUID fsID : fellowshipIDs) {
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("ID", fsID.toString());
-			brotherhoodTags.appendTag(nbt);
+			fellowshipTags.appendTag(nbt);
 		}
-		playerData.setTag("Brotherhoods", brotherhoodTags);
-		NBTTagList brotherhoodInviteTags = new NBTTagList();
-		for (GOTBrotherhoodInvite invite : brotherhoodInvites) {
+		playerData.setTag("Fellowships", fellowshipTags);
+		NBTTagList fellowshipInviteTags = new NBTTagList();
+		for (GOTFellowshipInvite invite : fellowshipInvites) {
 			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("ID", invite.getBrotherhoodID().toString());
+			nbt.setString("ID", invite.getFellowshipID().toString());
 			if (invite.getInviterID() != null) {
 				nbt.setString("InviterID", invite.getInviterID().toString());
 			}
-			brotherhoodInviteTags.appendTag(nbt);
+			fellowshipInviteTags.appendTag(nbt);
 		}
-		playerData.setTag("BrotherhoodInvites", brotherhoodInviteTags);
-		if (chatBoundBrotherhoodID != null) {
-			playerData.setString("ChatBoundBrotherhood", chatBoundBrotherhoodID.toString());
+		playerData.setTag("FellowshipInvites", fellowshipInviteTags);
+		if (chatBoundFellowshipID != null) {
+			playerData.setString("ChatBoundFellowship", chatBoundFellowshipID.toString());
 		}
 		playerData.setBoolean("StructuresBanned", structuresBanned);
 		playerData.setBoolean("TeleportedKW", teleportedKW);
@@ -2695,34 +2695,34 @@ public class GOTPlayerData {
 		}
 	}
 
-	private void sendBrotherhoodInvitePacket(GOTBrotherhood fs) {
+	private void sendFellowshipInvitePacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			IMessage packet = new GOTPacketBrotherhood(this, fs, true);
+			IMessage packet = new GOTPacketFellowship(this, fs, true);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
-	private void sendBrotherhoodInviteRemovePacket(GOTBrotherhood fs) {
+	private void sendFellowshipInviteRemovePacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			IMessage packet = new GOTPacketBrotherhoodRemove(fs, true);
+			IMessage packet = new GOTPacketFellowshipRemove(fs, true);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
-	private void sendBrotherhoodPacket(GOTBrotherhood fs) {
+	private void sendFellowshipPacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			IMessage packet = new GOTPacketBrotherhood(this, fs, false);
+			IMessage packet = new GOTPacketFellowship(this, fs, false);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
-	private void sendBrotherhoodRemovePacket(GOTBrotherhood fs) {
+	private void sendFellowshipRemovePacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			IMessage packet = new GOTPacketBrotherhoodRemove(fs, false);
+			IMessage packet = new GOTPacketFellowshipRemove(fs, false);
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2755,8 +2755,8 @@ public class GOTPlayerData {
 		nbt.removeTag("MiniQuests");
 		nbt.removeTag("MiniQuestsCompleted");
 		nbt.removeTag("CustomWaypoints");
-		nbt.removeTag("Brotherhoods");
-		nbt.removeTag("BrotherhoodInvites");
+		nbt.removeTag("Fellowships");
+		nbt.removeTag("FellowshipInvites");
 		IMessage packet = new GOTPacketLoginPlayerData(nbt);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 		for (GOTAchievement achievement : achievements) {
@@ -2772,28 +2772,28 @@ public class GOTPlayerData {
 			GOTPacketCreateCWPClient cwpPacket = waypoint.getClientPacket();
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(cwpPacket, entityplayer);
 		}
-		for (UUID fsID : brotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+		for (UUID fsID : fellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null) {
-				sendBrotherhoodPacket(fs);
+				sendFellowshipPacket(fs);
 				fs.doRetroactiveWaypointSharerCheckIfNeeded();
-				checkIfStillWaypointSharerForBrotherhood(fs);
+				checkIfStillWaypointSharerForFellowship(fs);
 			}
 		}
-		Collection<GOTBrotherhoodInvite> staleBrotherhoodInvites = new HashSet<>();
-		for (GOTBrotherhoodInvite invite : brotherhoodInvites) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getBrotherhood(invite.getBrotherhoodID());
+		Collection<GOTFellowshipInvite> staleFellowshipInvites = new HashSet<>();
+		for (GOTFellowshipInvite invite : fellowshipInvites) {
+			GOTFellowship fs = GOTFellowshipData.getFellowship(invite.getFellowshipID());
 			if (fs != null) {
-				sendBrotherhoodInvitePacket(fs);
+				sendFellowshipInvitePacket(fs);
 				continue;
 			}
-			staleBrotherhoodInvites.add(invite);
+			staleFellowshipInvites.add(invite);
 		}
-		if (!staleBrotherhoodInvites.isEmpty()) {
-			brotherhoodInvites.removeAll(staleBrotherhoodInvites);
+		if (!staleFellowshipInvites.isEmpty()) {
+			fellowshipInvites.removeAll(staleFellowshipInvites);
 			markDirty();
 		}
-		addSharedCustomWaypointsFromAllBrotherhoods();
+		addSharedCustomWaypointsFromAllFellowships();
 	}
 
 	public void setReputation(GOTFaction faction, float reputation) {
@@ -2820,39 +2820,39 @@ public class GOTPlayerData {
 		markDirty();
 	}
 
-	public void setBrotherhoodAdmin(GOTBrotherhood fs, UUID player, boolean flag, String granterUsername) {
+	public void setFellowshipAdmin(GOTFellowship fs, UUID player, boolean flag, String granterUsername) {
 		if (fs.isOwner(playerUUID)) {
 			fs.setAdmin(player, flag);
 			EntityPlayer subjectPlayer = getOtherPlayer(player);
 			if (subjectPlayer != null && !subjectPlayer.worldObj.isRemote) {
 				if (flag) {
-					GOTBrotherhood.sendNotification(subjectPlayer, "got.gui.brotherhoods.notifyOp", granterUsername);
+					GOTFellowship.sendNotification(subjectPlayer, "got.gui.fellowships.notifyOp", granterUsername);
 				} else {
-					GOTBrotherhood.sendNotification(subjectPlayer, "got.gui.brotherhoods.notifyDeop", granterUsername);
+					GOTFellowship.sendNotification(subjectPlayer, "got.gui.fellowships.notifyDeop", granterUsername);
 				}
 			}
 		}
 	}
 
-	public void setBrotherhoodIcon(GOTBrotherhood fs, ItemStack itemstack) {
+	public void setFellowshipIcon(GOTFellowship fs, ItemStack itemstack) {
 		if (fs.isOwner(playerUUID) || fs.isAdmin(playerUUID)) {
 			fs.setIcon(itemstack);
 		}
 	}
 
-	public void setBrotherhoodPreventHiredFF(GOTBrotherhood fs, boolean prevent) {
+	public void setFellowshipPreventHiredFF(GOTFellowship fs, boolean prevent) {
 		if (fs.isOwner(playerUUID) || fs.isAdmin(playerUUID)) {
 			fs.setPreventHiredFriendlyFire(prevent);
 		}
 	}
 
-	public void setBrotherhoodPreventPVP(GOTBrotherhood fs, boolean prevent) {
+	public void setFellowshipPreventPVP(GOTFellowship fs, boolean prevent) {
 		if (fs.isOwner(playerUUID) || fs.isAdmin(playerUUID)) {
 			fs.setPreventPVP(prevent);
 		}
 	}
 
-	public void setBrotherhoodShowMapLocations(GOTBrotherhood fs, boolean show) {
+	public void setFellowshipShowMapLocations(GOTFellowship fs, boolean show) {
 		if (fs.isOwner(playerUUID)) {
 			fs.setShowMapLocations(show);
 		}
@@ -2945,12 +2945,12 @@ public class GOTPlayerData {
 		return showWaypoints;
 	}
 
-	public void transferBrotherhood(GOTBrotherhood fs, UUID player, String prevOwnerUsername) {
+	public void transferFellowship(GOTFellowship fs, UUID player, String prevOwnerUsername) {
 		if (fs.isOwner(playerUUID)) {
 			fs.setOwner(player);
 			EntityPlayer newOwner = getOtherPlayer(player);
 			if (newOwner != null && !newOwner.worldObj.isRemote) {
-				GOTBrotherhood.sendNotification(newOwner, "got.gui.brotherhoods.notifyTransfer", prevOwnerUsername);
+				GOTFellowship.sendNotification(newOwner, "got.gui.fellowships.notifyTransfer", prevOwnerUsername);
 			}
 		}
 	}
@@ -2999,10 +2999,10 @@ public class GOTPlayerData {
 		}
 	}
 
-	private void unshareBrotherhoodFromOwnCustomWaypoints(GOTBrotherhood fs) {
+	private void unshareFellowshipFromOwnCustomWaypoints(GOTFellowship fs) {
 		for (GOTCustomWaypoint waypoint : customWaypoints) {
-			if (waypoint.hasSharedBrotherhood(fs)) {
-				customWaypointRemoveSharedBrotherhood(waypoint, fs);
+			if (waypoint.hasSharedFellowship(fs)) {
+				customWaypointRemoveSharedFellowship(waypoint, fs);
 			}
 		}
 	}
@@ -3036,19 +3036,19 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void updateBrotherhood(GOTBrotherhood fs, BrotherhoodUpdateType updateType) {
+	public void updateFellowship(GOTFellowship fs, FellowshipUpdateType updateType) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			IMessage updatePacket = updateType.createUpdatePacket(this, fs);
 			if (updatePacket != null) {
 				GOTPacketHandler.NETWORK_WRAPPER.sendTo(updatePacket, (EntityPlayerMP) entityplayer);
 			} else {
-				GOTLog.getLogger().error("No associated packet for brotherhood update type {}", updateType.getClass().getName());
+				GOTLog.getLogger().error("No associated packet for fellowship update type {}", updateType.getClass().getName());
 			}
 		}
 		List<UUID> playersToCheckSharedWaypointsFrom = updateType.getPlayersToCheckSharedWaypointsFrom(fs);
 		if (playersToCheckSharedWaypointsFrom != null && !playersToCheckSharedWaypointsFrom.isEmpty()) {
-			addSharedCustomWaypointsFrom(fs.getBrotherhoodID(), playersToCheckSharedWaypointsFrom);
+			addSharedCustomWaypointsFrom(fs.getFellowshipID(), playersToCheckSharedWaypointsFrom);
 			checkCustomWaypointsSharedBy(playersToCheckSharedWaypointsFrom);
 		}
 	}

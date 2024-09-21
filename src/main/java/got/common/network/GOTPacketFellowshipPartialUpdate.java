@@ -9,9 +9,9 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodClient;
 import got.common.database.GOTTitle;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import got.common.util.GOTLog;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,31 +22,31 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 import java.util.UUID;
 
-public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
-	private UUID brotherhoodID;
+public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
+	private UUID fellowshipID;
 
-	protected GOTPacketBrotherhoodPartialUpdate() {
+	protected GOTPacketFellowshipPartialUpdate() {
 	}
 
-	protected GOTPacketBrotherhoodPartialUpdate(GOTBrotherhood fs) {
-		brotherhoodID = fs.getBrotherhoodID();
+	protected GOTPacketFellowshipPartialUpdate(GOTFellowship fs) {
+		fellowshipID = fs.getFellowshipID();
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
-		brotherhoodID = new UUID(data.readLong(), data.readLong());
+		fellowshipID = new UUID(data.readLong(), data.readLong());
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		data.writeLong(brotherhoodID.getMostSignificantBits());
-		data.writeLong(brotherhoodID.getLeastSignificantBits());
+		data.writeLong(fellowshipID.getMostSignificantBits());
+		data.writeLong(fellowshipID.getLeastSignificantBits());
 	}
 
-	protected abstract void updateClient(GOTBrotherhoodClient var1);
+	protected abstract void updateClient(GOTFellowshipClient var1);
 
-	protected UUID getBrotherhoodID() {
-		return brotherhoodID;
+	protected UUID getFellowshipID() {
+		return fellowshipID;
 	}
 
 	public static class AddMember extends OnePlayerUpdate {
@@ -56,7 +56,7 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		public AddMember() {
 		}
 
-		public AddMember(GOTBrotherhood fs, UUID member) {
+		public AddMember(GOTFellowship fs, UUID member) {
 			super(fs, member);
 			playerTitle = GOTLevelData.getData(member).getPlayerTitle();
 		}
@@ -74,24 +74,24 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.addMember(playerProfile, playerTitle);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.addMember(playerProfile, playerTitle);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<AddMember> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<AddMember> {
 		}
 	}
 
-	public static class ChangeIcon extends GOTPacketBrotherhoodPartialUpdate {
-		private ItemStack brotherhoodIcon;
+	public static class ChangeIcon extends GOTPacketFellowshipPartialUpdate {
+		private ItemStack fellowshipIcon;
 
 		@SuppressWarnings("unused")
 		public ChangeIcon() {
 		}
 
-		public ChangeIcon(GOTBrotherhood fs) {
+		public ChangeIcon(GOTFellowship fs) {
 			super(fs);
-			brotherhoodIcon = fs.getIcon();
+			fellowshipIcon = fs.getIcon();
 		}
 
 		@Override
@@ -101,72 +101,72 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 			try {
 				iconData = new PacketBuffer(data).readNBTTagCompoundFromBuffer();
 			} catch (IOException e) {
-				FMLLog.severe("Hummel009: Error reading brotherhood icon data");
+				FMLLog.severe("Hummel009: Error reading fellowship icon data");
 				e.printStackTrace();
 			}
-			brotherhoodIcon = ItemStack.loadItemStackFromNBT(iconData);
+			fellowshipIcon = ItemStack.loadItemStackFromNBT(iconData);
 		}
 
 		@Override
 		public void toBytes(ByteBuf data) {
 			super.toBytes(data);
 			NBTTagCompound iconData = new NBTTagCompound();
-			if (brotherhoodIcon != null) {
-				brotherhoodIcon.writeToNBT(iconData);
+			if (fellowshipIcon != null) {
+				fellowshipIcon.writeToNBT(iconData);
 			}
 			try {
 				new PacketBuffer(data).writeNBTTagCompoundToBuffer(iconData);
 			} catch (IOException e) {
-				FMLLog.severe("Hummel009: Error writing brotherhood icon data");
+				FMLLog.severe("Hummel009: Error writing fellowship icon data");
 				e.printStackTrace();
 			}
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.setIcon(brotherhoodIcon);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.setIcon(fellowshipIcon);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<ChangeIcon> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<ChangeIcon> {
 		}
 	}
 
-	private abstract static class Handler<P extends GOTPacketBrotherhoodPartialUpdate> implements IMessageHandler<P, IMessage> {
+	private abstract static class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
 		@Override
 		public IMessage onMessage(P packet, MessageContext context) {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			GOTBrotherhoodClient brotherhood = pd.getClientBrotherhoodByID(packet.getBrotherhoodID());
-			if (brotherhood != null) {
-				packet.updateClient(brotherhood);
+			GOTFellowshipClient fellowship = pd.getClientFellowshipByID(packet.getFellowshipID());
+			if (fellowship != null) {
+				packet.updateClient(fellowship);
 			} else {
-				GOTLog.getLogger().warn("Client couldn't find brotherhood for ID {}", packet.getBrotherhoodID());
+				GOTLog.getLogger().warn("Client couldn't find fellowship for ID {}", packet.getFellowshipID());
 			}
 			return null;
 		}
 	}
 
-	private abstract static class OnePlayerUpdate extends GOTPacketBrotherhoodPartialUpdate {
+	private abstract static class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
 		protected GameProfile playerProfile;
 
 		protected OnePlayerUpdate() {
 		}
 
-		protected OnePlayerUpdate(GOTBrotherhood fs, UUID player) {
+		protected OnePlayerUpdate(GOTFellowship fs, UUID player) {
 			super(fs);
-			playerProfile = GOTPacketBrotherhood.getPlayerProfileWithUsername(player);
+			playerProfile = GOTPacketFellowship.getPlayerProfileWithUsername(player);
 		}
 
 		@Override
 		public void fromBytes(ByteBuf data) {
 			super.fromBytes(data);
-			playerProfile = GOTPacketBrotherhood.readPlayerUuidAndUsername(data);
+			playerProfile = GOTPacketFellowship.readPlayerUuidAndUsername(data);
 		}
 
 		@Override
 		public void toBytes(ByteBuf data) {
 			super.toBytes(data);
-			GOTPacketBrotherhood.writePlayerUuidAndUsername(data, playerProfile);
+			GOTPacketFellowship.writePlayerUuidAndUsername(data, playerProfile);
 		}
 	}
 
@@ -177,7 +177,7 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		public RemoveAdmin() {
 		}
 
-		public RemoveAdmin(GOTBrotherhood fs, UUID admin, boolean adminned) {
+		public RemoveAdmin(GOTFellowship fs, UUID admin, boolean adminned) {
 			super(fs, admin);
 			isAdminned = adminned;
 		}
@@ -195,11 +195,11 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.removeAdmin(playerProfile.getId(), isAdminned);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.removeAdmin(playerProfile.getId(), isAdminned);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<RemoveAdmin> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<RemoveAdmin> {
 		}
 	}
 
@@ -208,28 +208,28 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		public RemoveMember() {
 		}
 
-		public RemoveMember(GOTBrotherhood fs, UUID member) {
+		public RemoveMember(GOTFellowship fs, UUID member) {
 			super(fs, member);
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.removeMember(playerProfile);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.removeMember(playerProfile);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<RemoveMember> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<RemoveMember> {
 		}
 	}
 
-	public static class Rename extends GOTPacketBrotherhoodPartialUpdate {
-		private String brotherhoodName;
+	public static class Rename extends GOTPacketFellowshipPartialUpdate {
+		private String fellowshipName;
 
 		public Rename() {
 		}
 
-		public Rename(GOTBrotherhood fs) {
+		public Rename(GOTFellowship fs) {
 			super(fs);
-			brotherhoodName = fs.getName();
+			fellowshipName = fs.getName();
 		}
 
 		@Override
@@ -237,23 +237,23 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 			super.fromBytes(data);
 			byte fsNameLength = data.readByte();
 			ByteBuf fsNameBytes = data.readBytes(fsNameLength);
-			brotherhoodName = fsNameBytes.toString(Charsets.UTF_8);
+			fellowshipName = fsNameBytes.toString(Charsets.UTF_8);
 		}
 
 		@Override
 		public void toBytes(ByteBuf data) {
 			super.toBytes(data);
-			byte[] fsNameBytes = brotherhoodName.getBytes(Charsets.UTF_8);
+			byte[] fsNameBytes = fellowshipName.getBytes(Charsets.UTF_8);
 			data.writeByte(fsNameBytes.length);
 			data.writeBytes(fsNameBytes);
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.setName(brotherhoodName);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.setName(fellowshipName);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<Rename> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<Rename> {
 		}
 	}
 
@@ -264,7 +264,7 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		public SetAdmin() {
 		}
 
-		public SetAdmin(GOTBrotherhood fs, UUID admin, boolean adminned) {
+		public SetAdmin(GOTFellowship fs, UUID admin, boolean adminned) {
 			super(fs, admin);
 			isAdminned = adminned;
 		}
@@ -282,11 +282,11 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.setAdmin(playerProfile.getId(), isAdminned);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.setAdmin(playerProfile.getId(), isAdminned);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<SetAdmin> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<SetAdmin> {
 		}
 	}
 
@@ -297,7 +297,7 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		public SetOwner() {
 		}
 
-		public SetOwner(GOTBrotherhood fs, UUID owner, boolean owned) {
+		public SetOwner(GOTFellowship fs, UUID owner, boolean owned) {
 			super(fs, owner);
 			isOwned = owned;
 		}
@@ -315,22 +315,22 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.setOwner(playerProfile, isOwned);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.setOwner(playerProfile, isOwned);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<SetOwner> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<SetOwner> {
 		}
 	}
 
-	public static class ToggleHiredFriendlyFire extends GOTPacketBrotherhoodPartialUpdate {
+	public static class ToggleHiredFriendlyFire extends GOTPacketFellowshipPartialUpdate {
 		private boolean preventHiredFF;
 
 		@SuppressWarnings("unused")
 		public ToggleHiredFriendlyFire() {
 		}
 
-		public ToggleHiredFriendlyFire(GOTBrotherhood fs) {
+		public ToggleHiredFriendlyFire(GOTFellowship fs) {
 			super(fs);
 			preventHiredFF = fs.getPreventHiredFriendlyFire();
 		}
@@ -348,22 +348,22 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.setPreventHiredFriendlyFire(preventHiredFF);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.setPreventHiredFriendlyFire(preventHiredFF);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<ToggleHiredFriendlyFire> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<ToggleHiredFriendlyFire> {
 		}
 	}
 
-	public static class TogglePvp extends GOTPacketBrotherhoodPartialUpdate {
+	public static class TogglePvp extends GOTPacketFellowshipPartialUpdate {
 		private boolean preventPVP;
 
 		@SuppressWarnings("unused")
 		public TogglePvp() {
 		}
 
-		public TogglePvp(GOTBrotherhood fs) {
+		public TogglePvp(GOTFellowship fs) {
 			super(fs);
 			preventPVP = fs.getPreventPVP();
 		}
@@ -381,22 +381,22 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.setPreventPVP(preventPVP);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.setPreventPVP(preventPVP);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<TogglePvp> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<TogglePvp> {
 		}
 	}
 
-	public static class ToggleShowMap extends GOTPacketBrotherhoodPartialUpdate {
+	public static class ToggleShowMap extends GOTPacketFellowshipPartialUpdate {
 		private boolean showMapLocations;
 
 		@SuppressWarnings("unused")
 		public ToggleShowMap() {
 		}
 
-		public ToggleShowMap(GOTBrotherhood fs) {
+		public ToggleShowMap(GOTFellowship fs) {
 			super(fs);
 			showMapLocations = fs.getShowMapLocations();
 		}
@@ -414,11 +414,11 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.setShowMapLocations(showMapLocations);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.setShowMapLocations(showMapLocations);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<ToggleShowMap> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<ToggleShowMap> {
 		}
 	}
 
@@ -429,7 +429,7 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		public UpdatePlayerTitle() {
 		}
 
-		public UpdatePlayerTitle(GOTBrotherhood fs, UUID player, GOTTitle.PlayerTitle title) {
+		public UpdatePlayerTitle(GOTFellowship fs, UUID player, GOTTitle.PlayerTitle title) {
 			super(fs, player);
 			playerTitle = title;
 		}
@@ -447,11 +447,11 @@ public abstract class GOTPacketBrotherhoodPartialUpdate implements IMessage {
 		}
 
 		@Override
-		public void updateClient(GOTBrotherhoodClient brotherhood) {
-			brotherhood.updatePlayerTitle(playerProfile.getId(), playerTitle);
+		public void updateClient(GOTFellowshipClient fellowship) {
+			fellowship.updatePlayerTitle(playerProfile.getId(), playerTitle);
 		}
 
-		public static class Handler extends GOTPacketBrotherhoodPartialUpdate.Handler<UpdatePlayerTitle> {
+		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<UpdatePlayerTitle> {
 		}
 	}
 }

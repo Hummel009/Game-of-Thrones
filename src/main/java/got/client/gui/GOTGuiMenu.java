@@ -84,7 +84,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 		buttonList.add(new GOTGuiButtonMenu(3, 0, 0, GOTGuiMap.class, StatCollector.translateToLocal("got.gui.map"), 50));
 		buttonList.add(new GOTGuiButtonMenu(4, 0, 0, GOTGuiFactions.class, StatCollector.translateToLocal("got.gui.factions"), 33));
 		buttonList.add(new GOTGuiButtonMenu(8, 0, 0, GOTGuiLanguages.class, StatCollector.translateToLocal("got.gui.languages"), 20));
-		buttonList.add(new GOTGuiButtonMenu(6, 0, 0, GOTGuiBrotherhoods.class, StatCollector.translateToLocal("got.gui.brotherhoods"), 25));
+		buttonList.add(new GOTGuiButtonMenu(6, 0, 0, GOTGuiFellowships.class, StatCollector.translateToLocal("got.gui.fellowships"), 25));
 		buttonList.add(new GOTGuiButtonMenu(7, 0, 0, GOTGuiTitles.class, StatCollector.translateToLocal("got.gui.titles"), 20));
 		buttonList.add(new GOTGuiButtonMenu(5, 0, 0, GOTGuiShields.class, StatCollector.translateToLocal("got.gui.atribute"), 31));
 		buttonList.add(new GOTGuiButtonMenu(1, 0, 0, GOTGuiOptions.class, StatCollector.translateToLocal("got.gui.options"), 24));

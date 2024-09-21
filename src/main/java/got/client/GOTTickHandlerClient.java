@@ -18,7 +18,6 @@ import got.client.sound.GOTMusicTicker;
 import got.client.sound.GOTMusicTrack;
 import got.common.*;
 import got.common.block.leaves.GOTBlockLeavesBase;
-import got.common.brotherhood.GOTBrotherhoodData;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
@@ -30,6 +29,7 @@ import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.entity.other.utils.GOTInvasionStatus;
 import got.common.entity.other.utils.GOTMountFunctions;
 import got.common.faction.*;
+import got.common.fellowship.GOTFellowshipData;
 import got.common.item.GOTMaterialFinder;
 import got.common.item.GOTPoisonedDrinks;
 import got.common.item.GOTWeaponStats;
@@ -947,7 +947,7 @@ public class GOTTickHandlerClient {
 				if (guiscreen instanceof GuiMainMenu && !(lastGuiOpen instanceof GuiMainMenu)) {
 					GOTLevelData.setNeedsLoad(true);
 					GOTTime.setNeedsLoad(true);
-					GOTBrotherhoodData.setNeedsLoad(true);
+					GOTFellowshipData.setNeedsLoad(true);
 					GOTFactionBounties.setNeedsLoad(true);
 					GOTFactionRelations.setNeedsLoad(true);
 					GOTDate.resetWorldTimeInMenu();

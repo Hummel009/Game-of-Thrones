@@ -3,8 +3,8 @@ package got.common.world.map;
 import com.google.common.io.Files;
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTConfig;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodData;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipData;
 import got.common.util.GOTLog;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.DimensionManager;
@@ -39,14 +39,14 @@ public class GOTCustomWaypointLogger {
 			LocalDateTime date = LocalDateTime.now();
 			StringBuilder logLine = new StringBuilder(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", MONTH_DATE_FORMAT.format(date), TIME_FORMAT.format(date), function, entityplayer.getCommandSenderName(), entityplayer.getPersistentID(), cwp.getCodeName(), cwp.getCoordX(), cwp.getCoordYSaved(), cwp.getCoordZ(), cwp.isShared(), cwp.isShared() ? cwp.getSharingPlayerName() : "N/A", cwp.isShared() ? cwp.getSharingPlayerID() : "N/A"));
 			if (cwp.isShared()) {
-				List<UUID> fsIDs = cwp.getSharedBrotherhoodIDs();
+				List<UUID> fsIDs = cwp.getSharedFellowshipIDs();
 				for (UUID id : fsIDs) {
-					GOTBrotherhood brotherhood = GOTBrotherhoodData.getActiveBrotherhood(id);
-					if (brotherhood == null || !brotherhood.containsPlayer(entityplayer.getUniqueID())) {
+					GOTFellowship fellowship = GOTFellowshipData.getActiveFellowship(id);
+					if (fellowship == null || !fellowship.containsPlayer(entityplayer.getUniqueID())) {
 						continue;
 					}
 					logLine.append(',');
-					logLine.append(brotherhood.getName());
+					logLine.append(fellowship.getName());
 				}
 			}
 			if (!(dupeLogDir = new File(DimensionManager.getCurrentSaveRootDirectory(), "got_cwp_logs")).exists()) {
@@ -56,7 +56,7 @@ public class GOTCustomWaypointLogger {
 				}
 			}
 			if (!(logFile = new File(dupeLogDir, DATE_FORMAT.format(date) + ".csv")).exists()) {
-				Files.append("date,time,function,username,UUID,wp_name,x,y,z,shared,sharer_name,sharer_UUID,common_brotherhoods" + System.lineSeparator(), logFile, CHARSET);
+				Files.append("date,time,function,username,UUID,wp_name,x,y,z,shared,sharer_name,sharer_UUID,common_fellowships" + System.lineSeparator(), logFile, CHARSET);
 			}
 			Files.append(logLine.append(System.lineSeparator()).toString(), logFile, CHARSET);
 		} catch (IOException e) {

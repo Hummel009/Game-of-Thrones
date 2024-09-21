@@ -8,7 +8,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.*;
-import got.common.brotherhood.GOTBrotherhood;
 import got.common.command.*;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
@@ -19,6 +18,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.entity.other.info.GOTHireableInfo;
 import got.common.faction.GOTFaction;
+import got.common.fellowship.GOTFellowship;
 import got.common.item.other.GOTItemBanner;
 import got.common.util.GOTLog;
 import got.common.util.GOTReflection;
@@ -161,8 +161,8 @@ public class GOT {
 		if (target instanceof EntityPlayer && target != attacker) {
 			EntityPlayer targetPlayer = (EntityPlayer) target;
 			if (!playerData.isSiegeActive()) {
-				List<GOTBrotherhood> brotherhoods = playerData.getBrotherhoods();
-				for (GOTBrotherhood fs : brotherhoods) {
+				List<GOTFellowship> fellowships = playerData.getFellowships();
+				for (GOTFellowship fs : fellowships) {
 					if (!fs.getPreventPVP() || !fs.containsPlayer(targetPlayer.getUniqueID())) {
 						continue;
 					}
@@ -188,8 +188,8 @@ public class GOT {
 					}
 					if (targetgotNPC.getAttackTarget() != attacker && !playerData.isSiegeActive()) {
 						UUID hiringPlayerID = hiredInfo.getHiringPlayerUUID();
-						List<GOTBrotherhood> brotherhoods = playerData.getBrotherhoods();
-						for (GOTBrotherhood fs : brotherhoods) {
+						List<GOTFellowship> fellowships = playerData.getFellowships();
+						for (GOTFellowship fs : fellowships) {
 							if (!fs.getPreventHiredFriendlyFire() || !fs.containsPlayer(hiringPlayerID)) {
 								continue;
 							}
@@ -411,8 +411,8 @@ public class GOT {
 		command.add(new GOTCommandDate());
 		command.add(new GOTCommandWaypoints());
 		command.add(new GOTCommandReputationSee());
-		command.add(new GOTCommandBrotherhood());
-		command.add(new GOTCommandBrotherhoodMessage());
+		command.add(new GOTCommandFellowship());
+		command.add(new GOTCommandFellowshipMessage());
 		command.add(new GOTCommandEnableReputationZones());
 		command.add(new GOTCommandEnchant());
 		command.add(new GOTCommandSpawnDamping());

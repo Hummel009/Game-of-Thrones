@@ -4,10 +4,10 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
-import got.common.brotherhood.GOTBrotherhoodData;
 import got.common.entity.other.inanimate.GOTEntityPortal;
 import got.common.faction.GOTFactionBounties;
 import got.common.faction.GOTFactionRelations;
+import got.common.fellowship.GOTFellowshipData;
 import got.common.item.other.GOTItemStructureSpawner;
 import got.common.util.GOTReflection;
 import got.common.world.GOTTeleporter;
@@ -127,8 +127,8 @@ public class GOTTickHandlerServer {
 			if (GOTTime.isNeedsLoad()) {
 				GOTTime.load();
 			}
-			if (GOTBrotherhoodData.isNeedsLoad()) {
-				GOTBrotherhoodData.loadAll();
+			if (GOTFellowshipData.isNeedsLoad()) {
+				GOTFellowshipData.loadAll();
 			}
 			if (GOTFactionBounties.isNeedsLoad()) {
 				GOTFactionBounties.loadAll();
@@ -158,8 +158,8 @@ public class GOTTickHandlerServer {
 				if (GOTLevelData.anyDataNeedsSave()) {
 					GOTLevelData.save();
 				}
-				if (GOTBrotherhoodData.anyDataNeedsSave()) {
-					GOTBrotherhoodData.saveAll();
+				if (GOTFellowshipData.anyDataNeedsSave()) {
+					GOTFellowshipData.saveAll();
 				}
 				GOTFactionBounties.updateAll();
 				if (GOTFactionBounties.anyDataNeedsSave()) {
@@ -173,7 +173,7 @@ public class GOTTickHandlerServer {
 				}
 				if (world.getTotalWorldTime() % 600L == 0L) {
 					GOTLevelData.save();
-					GOTBrotherhoodData.saveAll();
+					GOTFellowshipData.saveAll();
 					GOTFactionBounties.saveAll();
 					GOTFactionRelations.save();
 				}

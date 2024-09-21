@@ -17,7 +17,7 @@ public class GOTGuiButtonFsOption extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(GOTGuiBrotherhoods.ICONS_TEXTURES);
+			mc.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			drawTexturedModalRect(xPosition, yPosition, iconU, iconV + (field_146123_n ? height : 0), width, height);

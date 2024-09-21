@@ -3,7 +3,7 @@ package got.common.command;
 import com.mojang.authlib.GameProfile;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
+import got.common.fellowship.GOTFellowship;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.PlayerNotFoundException;
@@ -19,8 +19,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
-public class GOTCommandBrotherhood extends CommandBase {
-	public static String[] fixArgsForBrotherhood(String[] args, int startIndex, boolean autocompleting) {
+public class GOTCommandFellowship extends CommandBase {
+	public static String[] fixArgsForFellowship(String[] args, int startIndex, boolean autocompleting) {
 		if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
 			int endIndex = startIndex;
 			boolean foundEnd = false;
@@ -33,7 +33,7 @@ public class GOTCommandBrotherhood extends CommandBase {
 					if (autocompleting) {
 						break;
 					}
-					throw new WrongUsageException("got.command.brotherhood.edit.nameError");
+					throw new WrongUsageException("got.command.fellowship.edit.nameError");
 				}
 				++endIndex;
 			}
@@ -55,16 +55,16 @@ public class GOTCommandBrotherhood extends CommandBase {
 			return argsNew;
 		}
 		if (!autocompleting) {
-			throw new WrongUsageException("got.command.brotherhood.edit.nameError");
+			throw new WrongUsageException("got.command.fellowship.edit.nameError");
 		}
 		return args;
 	}
 
-	public static List<String> listBrotherhoodsMatchingLastWord(String[] argsFixed, String[] argsOriginal, int fsNameIndex, GOTPlayerData playerData, boolean leadingOnly) {
+	public static List<String> listFellowshipsMatchingLastWord(String[] argsFixed, String[] argsOriginal, int fsNameIndex, GOTPlayerData playerData, boolean leadingOnly) {
 		String fsName = argsFixed[fsNameIndex];
-		List<String> allBrotherhoodNames = leadingOnly ? playerData.listAllLeadingBrotherhoodNames() : playerData.listAllBrotherhoodNames();
+		List<String> allFellowshipNames = leadingOnly ? playerData.listAllLeadingFellowshipNames() : playerData.listAllFellowshipNames();
 		ArrayList<String> autocompletes = new ArrayList<>();
-		for (String nextFsName : allBrotherhoodNames) {
+		for (String nextFsName : allFellowshipNames) {
 			String autocompFsName = '"' + nextFsName + '"';
 			if (!autocompFsName.toLowerCase(Locale.ROOT).startsWith(fsName.toLowerCase(Locale.ROOT))) {
 				continue;
@@ -112,34 +112,34 @@ public class GOTCommandBrotherhood extends CommandBase {
 			}
 			if ("option".equals(function)) {
 				String[] argsOriginal = Arrays.copyOf(args1, args1.length);
-				String ownerName = (args1 = fixArgsForBrotherhood(args1, 2, true))[1];
+				String ownerName = (args1 = fixArgsForFellowship(args1, 2, true))[1];
 				UUID ownerID = getPlayerIDByName(sender, ownerName);
 				if (ownerID != null) {
-					GOTBrotherhood brotherhood;
+					GOTFellowship fellowship;
 					GOTPlayerData playerData = GOTLevelData.getData(ownerID);
 					String fsName = args1[2];
 					if (args1.length == 3) {
-						return listBrotherhoodsMatchingLastWord(args1, argsOriginal, 2, playerData, true);
+						return listFellowshipsMatchingLastWord(args1, argsOriginal, 2, playerData, true);
 					}
-					if (fsName != null && (brotherhood = playerData.getBrotherhoodByName(fsName)) != null) {
+					if (fsName != null && (fellowship = playerData.getFellowshipByName(fsName)) != null) {
 						if (args1.length == 4) {
 							return getListOfStringsMatchingLastWord(args1, "invite", "add", "remove", "transfer", "op", "deop", "disband", "rename", "icon", "pvp", "hired-ff", "map-show");
 						}
 						String option = args1[3];
 						if ("invite".equals(option) || "add".equals(option)) {
-							ArrayList<String> notInBrotherhoodNames = new ArrayList<>();
+							ArrayList<String> notInFellowshipNames = new ArrayList<>();
 							for (GameProfile playerProfile : MinecraftServer.getServer().getConfigurationManager().func_152600_g()) {
 								UUID playerID = playerProfile.getId();
-								if (brotherhood.containsPlayer(playerID)) {
+								if (fellowship.containsPlayer(playerID)) {
 									continue;
 								}
-								notInBrotherhoodNames.add(playerProfile.getName());
+								notInFellowshipNames.add(playerProfile.getName());
 							}
-							return getListOfStringsMatchingLastWord(args1, notInBrotherhoodNames.toArray(new String[0]));
+							return getListOfStringsMatchingLastWord(args1, notInFellowshipNames.toArray(new String[0]));
 						}
 						if ("remove".equals(option) || "transfer".equals(option)) {
 							ArrayList<String> memberNames = new ArrayList<>();
-							for (UUID playerID : brotherhood.getMemberUUIDs()) {
+							for (UUID playerID : fellowship.getMemberUUIDs()) {
 								GameProfile playerProfile = MinecraftServer.getServer().func_152358_ax().func_152652_a(playerID);
 								if (playerProfile == null || playerProfile.getName() == null) {
 									continue;
@@ -150,9 +150,9 @@ public class GOTCommandBrotherhood extends CommandBase {
 						}
 						if ("op".equals(option)) {
 							ArrayList<String> notAdminNames = new ArrayList<>();
-							for (UUID playerID : brotherhood.getMemberUUIDs()) {
+							for (UUID playerID : fellowship.getMemberUUIDs()) {
 								GameProfile playerProfile;
-								if (brotherhood.isAdmin(playerID) || (playerProfile = MinecraftServer.getServer().func_152358_ax().func_152652_a(playerID)) == null || playerProfile.getName() == null) {
+								if (fellowship.isAdmin(playerID) || (playerProfile = MinecraftServer.getServer().func_152358_ax().func_152652_a(playerID)) == null || playerProfile.getName() == null) {
 									continue;
 								}
 								notAdminNames.add(playerProfile.getName());
@@ -161,9 +161,9 @@ public class GOTCommandBrotherhood extends CommandBase {
 						}
 						if ("deop".equals(option)) {
 							ArrayList<String> adminNames = new ArrayList<>();
-							for (UUID playerID : brotherhood.getMemberUUIDs()) {
+							for (UUID playerID : fellowship.getMemberUUIDs()) {
 								GameProfile playerProfile;
-								if (!brotherhood.isAdmin(playerID) || (playerProfile = MinecraftServer.getServer().func_152358_ax().func_152652_a(playerID)) == null || playerProfile.getName() == null) {
+								if (!fellowship.isAdmin(playerID) || (playerProfile = MinecraftServer.getServer().func_152358_ax().func_152652_a(playerID)) == null || playerProfile.getName() == null) {
 									continue;
 								}
 								adminNames.add(playerProfile.getName());
@@ -185,12 +185,12 @@ public class GOTCommandBrotherhood extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "brotherhood";
+		return "fellowship";
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "got.command.brotherhood.usage";
+		return "got.command.fellowship.usage";
 	}
 
 	@Override
@@ -208,46 +208,46 @@ public class GOTCommandBrotherhood extends CommandBase {
 	public void processCommand(ICommandSender sender, String[] args) {
 		String[] args1 = args;
 		if (args1.length >= 3 && "create".equals(args1[0])) {
-			args1 = fixArgsForBrotherhood(args1, 2, false);
+			args1 = fixArgsForFellowship(args1, 2, false);
 			String playerName = args1[1];
 			String fsName = args1[2];
 			if (fsName == null) {
-				throw new WrongUsageException("got.command.brotherhood.edit.notFound", playerName, null);
+				throw new WrongUsageException("got.command.fellowship.edit.notFound", playerName, null);
 			}
 			UUID playerID = getPlayerIDByName(sender, playerName);
 			if (playerID != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(playerID);
-				GOTBrotherhood brotherhood = playerData.getBrotherhoodByName(fsName);
-				if (brotherhood == null) {
-					playerData.createBrotherhood(fsName, false);
-					func_152373_a(sender, this, "got.command.brotherhood.create", playerName, fsName);
+				GOTFellowship fellowship = playerData.getFellowshipByName(fsName);
+				if (fellowship == null) {
+					playerData.createFellowship(fsName, false);
+					func_152373_a(sender, this, "got.command.fellowship.create", playerName, fsName);
 					return;
 				}
-				throw new WrongUsageException("got.command.brotherhood.create.exists", playerName, fsName);
+				throw new WrongUsageException("got.command.fellowship.create.exists", playerName, fsName);
 			}
 			throw new PlayerNotFoundException();
 		}
 		if ("option".equals(args1[0])) {
-			args1 = fixArgsForBrotherhood(args1, 2, false);
+			args1 = fixArgsForFellowship(args1, 2, false);
 			if (args1.length < 4) {
 				throw new PlayerNotFoundException();
 			}
 			String ownerName = args1[1];
 			String fsName = args1[2];
 			if (fsName == null) {
-				throw new WrongUsageException("got.command.brotherhood.edit.notFound", ownerName, null);
+				throw new WrongUsageException("got.command.fellowship.edit.notFound", ownerName, null);
 			}
 			String option = args1[3];
 			UUID ownerID = getPlayerIDByName(sender, ownerName);
 			if (ownerID != null) {
 				GOTPlayerData ownerData = GOTLevelData.getData(ownerID);
-				GOTBrotherhood brotherhood = ownerData.getBrotherhoodByName(fsName);
-				if (brotherhood == null || !brotherhood.isOwner(ownerID)) {
-					throw new WrongUsageException("got.command.brotherhood.edit.notFound", ownerName, fsName);
+				GOTFellowship fellowship = ownerData.getFellowshipByName(fsName);
+				if (fellowship == null || !fellowship.isOwner(ownerID)) {
+					throw new WrongUsageException("got.command.fellowship.edit.notFound", ownerName, fsName);
 				}
 				if ("disband".equals(option)) {
-					ownerData.disbandBrotherhood(brotherhood, ownerName);
-					func_152373_a(sender, this, "got.command.brotherhood.disband", ownerName, fsName);
+					ownerData.disbandFellowship(fellowship, ownerName);
+					func_152373_a(sender, this, "got.command.fellowship.disband", ownerName, fsName);
 					return;
 				}
 				if ("rename".equals(option)) {
@@ -258,7 +258,7 @@ public class GOTCommandBrotherhood extends CommandBase {
 						while (args1[endIndex].isEmpty() || args1[endIndex].charAt(args1[endIndex].length() - 1) != '\"') {
 							endIndex++;
 							if (endIndex >= args1.length) {
-								throw new WrongUsageException("got.command.brotherhood.rename.error");
+								throw new WrongUsageException("got.command.fellowship.rename.error");
 							}
 						}
 						for (int i = startIndex; i <= endIndex; i++) {
@@ -270,38 +270,38 @@ public class GOTCommandBrotherhood extends CommandBase {
 						newName = new StringBuilder(newName.toString().replace("\"", ""));
 					}
 					if (!StringUtils.isBlank(newName.toString())) {
-						ownerData.renameBrotherhood(brotherhood, newName.toString());
-						func_152373_a(sender, this, "got.command.brotherhood.rename", ownerName, fsName, newName.toString());
+						ownerData.renameFellowship(fellowship, newName.toString());
+						func_152373_a(sender, this, "got.command.fellowship.rename", ownerName, fsName, newName.toString());
 						return;
 					}
-					throw new WrongUsageException("got.command.brotherhood.rename.error");
+					throw new WrongUsageException("got.command.fellowship.rename.error");
 				}
 				if ("icon".equals(option)) {
 					String iconData = func_147178_a(sender, args1, 4).getUnformattedText();
 					if ("clear".equals(iconData)) {
-						ownerData.setBrotherhoodIcon(brotherhood, null);
-						func_152373_a(sender, this, "got.command.brotherhood.icon", ownerName, fsName, "[none]");
+						ownerData.setFellowshipIcon(fellowship, null);
+						func_152373_a(sender, this, "got.command.fellowship.icon", ownerName, fsName, "[none]");
 						return;
 					}
 					ItemStack itemstack;
 					try {
 						NBTBase nbt = JsonToNBT.func_150315_a(iconData);
 						if (!(nbt instanceof NBTTagCompound)) {
-							func_152373_a(sender, this, "got.command.brotherhood.icon.tagError", "Not a valid tag");
+							func_152373_a(sender, this, "got.command.fellowship.icon.tagError", "Not a valid tag");
 							return;
 						}
 						NBTTagCompound compound = (NBTTagCompound) nbt;
 						itemstack = ItemStack.loadItemStackFromNBT(compound);
 					} catch (NBTException nbtexception) {
-						func_152373_a(sender, this, "got.command.brotherhood.icon.tagError", nbtexception.getMessage());
+						func_152373_a(sender, this, "got.command.fellowship.icon.tagError", nbtexception.getMessage());
 						return;
 					}
 					if (itemstack != null) {
-						ownerData.setBrotherhoodIcon(brotherhood, itemstack);
-						func_152373_a(sender, this, "got.command.brotherhood.icon", ownerName, fsName, itemstack.getDisplayName());
+						ownerData.setFellowshipIcon(fellowship, itemstack);
+						func_152373_a(sender, this, "got.command.fellowship.icon", ownerName, fsName, itemstack.getDisplayName());
 						return;
 					}
-					func_152373_a(sender, this, "got.command.brotherhood.icon.tagError", "No item");
+					func_152373_a(sender, this, "got.command.fellowship.icon.tagError", "No item");
 					return;
 				}
 				if ("pvp".equals(option) || "hired-ff".equals(option)) {
@@ -315,19 +315,19 @@ public class GOTCommandBrotherhood extends CommandBase {
 						throw new WrongUsageException(getCommandUsage(sender));
 					}
 					if ("pvp".equals(option)) {
-						ownerData.setBrotherhoodPreventPVP(brotherhood, prevent);
+						ownerData.setFellowshipPreventPVP(fellowship, prevent);
 						if (prevent) {
-							func_152373_a(sender, this, "got.command.brotherhood.pvp.prevent", ownerName, fsName);
+							func_152373_a(sender, this, "got.command.fellowship.pvp.prevent", ownerName, fsName);
 						} else {
-							func_152373_a(sender, this, "got.command.brotherhood.pvp.allow", ownerName, fsName);
+							func_152373_a(sender, this, "got.command.fellowship.pvp.allow", ownerName, fsName);
 						}
 						return;
 					}
-					ownerData.setBrotherhoodPreventHiredFF(brotherhood, prevent);
+					ownerData.setFellowshipPreventHiredFF(fellowship, prevent);
 					if (prevent) {
-						func_152373_a(sender, this, "got.command.brotherhood.hiredFF.prevent", ownerName, fsName);
+						func_152373_a(sender, this, "got.command.fellowship.hiredFF.prevent", ownerName, fsName);
 					} else {
-						func_152373_a(sender, this, "got.command.brotherhood.hiredFF.allow", ownerName, fsName);
+						func_152373_a(sender, this, "got.command.fellowship.hiredFF.allow", ownerName, fsName);
 					}
 					return;
 				}
@@ -341,11 +341,11 @@ public class GOTCommandBrotherhood extends CommandBase {
 					} else {
 						throw new WrongUsageException(getCommandUsage(sender));
 					}
-					ownerData.setBrotherhoodShowMapLocations(brotherhood, show);
+					ownerData.setFellowshipShowMapLocations(fellowship, show);
 					if (show) {
-						func_152373_a(sender, this, "got.command.brotherhood.mapShow.on", ownerName, fsName);
+						func_152373_a(sender, this, "got.command.fellowship.mapShow.on", ownerName, fsName);
 					} else {
-						func_152373_a(sender, this, "got.command.brotherhood.mapShow.off", ownerName, fsName);
+						func_152373_a(sender, this, "got.command.fellowship.mapShow.off", ownerName, fsName);
 					}
 					return;
 				}
@@ -356,59 +356,59 @@ public class GOTCommandBrotherhood extends CommandBase {
 				}
 				GOTPlayerData playerData = GOTLevelData.getData(playerID);
 				if ("invite".equals(option)) {
-					if (!brotherhood.containsPlayer(playerID)) {
-						ownerData.invitePlayerToBrotherhood(brotherhood, playerID, ownerName);
-						func_152373_a(sender, this, "got.command.brotherhood.invite", ownerName, fsName, playerName);
+					if (!fellowship.containsPlayer(playerID)) {
+						ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
+						func_152373_a(sender, this, "got.command.fellowship.invite", ownerName, fsName, playerName);
 						return;
 					}
-					throw new WrongUsageException("got.command.brotherhood.edit.alreadyIn", ownerName, fsName, playerName);
+					throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
 				}
 				if ("add".equals(option)) {
-					if (!brotherhood.containsPlayer(playerID)) {
-						ownerData.invitePlayerToBrotherhood(brotherhood, playerID, ownerName);
-						playerData.acceptBrotherhoodInvite(brotherhood, false);
-						func_152373_a(sender, this, "got.command.brotherhood.add", ownerName, fsName, playerName);
+					if (!fellowship.containsPlayer(playerID)) {
+						ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
+						playerData.acceptFellowshipInvite(fellowship, false);
+						func_152373_a(sender, this, "got.command.fellowship.add", ownerName, fsName, playerName);
 						return;
 					}
-					throw new WrongUsageException("got.command.brotherhood.edit.alreadyIn", ownerName, fsName, playerName);
+					throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
 				}
 				if ("remove".equals(option)) {
-					if (brotherhood.hasMember(playerID)) {
-						ownerData.removePlayerFromBrotherhood(brotherhood, playerID, ownerName);
-						func_152373_a(sender, this, "got.command.brotherhood.remove", ownerName, fsName, playerName);
+					if (fellowship.hasMember(playerID)) {
+						ownerData.removePlayerFromFellowship(fellowship, playerID, ownerName);
+						func_152373_a(sender, this, "got.command.fellowship.remove", ownerName, fsName, playerName);
 						return;
 					}
-					throw new WrongUsageException("got.command.brotherhood.edit.notMember", ownerName, fsName, playerName);
+					throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
 				}
 				if ("transfer".equals(option)) {
-					if (brotherhood.hasMember(playerID)) {
-						ownerData.transferBrotherhood(brotherhood, playerID, ownerName);
-						func_152373_a(sender, this, "got.command.brotherhood.transfer", ownerName, fsName, playerName);
+					if (fellowship.hasMember(playerID)) {
+						ownerData.transferFellowship(fellowship, playerID, ownerName);
+						func_152373_a(sender, this, "got.command.fellowship.transfer", ownerName, fsName, playerName);
 						return;
 					}
-					throw new WrongUsageException("got.command.brotherhood.edit.notMember", ownerName, fsName, playerName);
+					throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
 				}
 				if ("op".equals(option)) {
-					if (brotherhood.hasMember(playerID)) {
-						if (!brotherhood.isAdmin(playerID)) {
-							ownerData.setBrotherhoodAdmin(brotherhood, playerID, true, ownerName);
-							func_152373_a(sender, this, "got.command.brotherhood.op", ownerName, fsName, playerName);
+					if (fellowship.hasMember(playerID)) {
+						if (!fellowship.isAdmin(playerID)) {
+							ownerData.setFellowshipAdmin(fellowship, playerID, true, ownerName);
+							func_152373_a(sender, this, "got.command.fellowship.op", ownerName, fsName, playerName);
 							return;
 						}
-						throw new WrongUsageException("got.command.brotherhood.edit.alreadyOp", ownerName, fsName, playerName);
+						throw new WrongUsageException("got.command.fellowship.edit.alreadyOp", ownerName, fsName, playerName);
 					}
-					throw new WrongUsageException("got.command.brotherhood.edit.notMember", ownerName, fsName, playerName);
+					throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
 				}
 				if ("deop".equals(option)) {
-					if (brotherhood.hasMember(playerID)) {
-						if (brotherhood.isAdmin(playerID)) {
-							ownerData.setBrotherhoodAdmin(brotherhood, playerID, false, ownerName);
-							func_152373_a(sender, this, "got.command.brotherhood.deop", ownerName, fsName, playerName);
+					if (fellowship.hasMember(playerID)) {
+						if (fellowship.isAdmin(playerID)) {
+							ownerData.setFellowshipAdmin(fellowship, playerID, false, ownerName);
+							func_152373_a(sender, this, "got.command.fellowship.deop", ownerName, fsName, playerName);
 							return;
 						}
-						throw new WrongUsageException("got.command.brotherhood.edit.notOp", ownerName, fsName, playerName);
+						throw new WrongUsageException("got.command.fellowship.edit.notOp", ownerName, fsName, playerName);
 					}
-					throw new WrongUsageException("got.command.brotherhood.edit.notMember", ownerName, fsName, playerName);
+					throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
 				}
 			}
 		}

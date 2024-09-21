@@ -6,10 +6,10 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTBannerProtection;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodProfile;
 import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.entity.other.utils.GOTBannerWhitelistEntry;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipProfile;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -144,13 +144,13 @@ public class GOTPacketEditBanner implements IMessage {
 							continue;
 						}
 						List<GOTBannerProtection.Permission> decodedPerms = GOTBannerWhitelistEntry.static_decodePermBitFlags(perms);
-						if (GOTBrotherhoodProfile.hasBrotherhoodCode(username)) {
-							String fsName = GOTBrotherhoodProfile.stripBrotherhoodCode(username);
-							GOTBrotherhood brotherhood = banner.getPlacersBrotherhoodByName(fsName);
-							if (brotherhood == null) {
+						if (GOTFellowshipProfile.hasFellowshipCode(username)) {
+							String fsName = GOTFellowshipProfile.stripFellowshipCode(username);
+							GOTFellowship fellowship = banner.getPlacersFellowshipByName(fsName);
+							if (fellowship == null) {
 								continue;
 							}
-							banner.whitelistBrotherhood(index, brotherhood, decodedPerms);
+							banner.whitelistFellowship(index, fellowship, decodedPerms);
 							continue;
 						}
 						GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(username);

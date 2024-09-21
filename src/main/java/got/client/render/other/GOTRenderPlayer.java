@@ -6,10 +6,10 @@ import got.client.GOTTickHandlerClient;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhoodClient;
 import got.common.database.GOTCapes;
 import got.common.database.GOTShields;
 import got.common.faction.GOTReputationValues;
+import got.common.fellowship.GOTFellowshipClient;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -34,8 +34,8 @@ public class GOTRenderPlayer {
 		if (GOTConfig.displayReputationAboveHead && shouldRenderPlayerHUD(entityplayer)) {
 			if (GOTLevelData.getData(entityplayer).getHideReputation()) {
 				UUID playerUuid = entityplayer.getUniqueID();
-				List<GOTBrotherhoodClient> brotherhoods = GOTLevelData.getData(MINECRAFT.thePlayer).getClientBrotherhoods();
-				for (GOTBrotherhoodClient fs : brotherhoods) {
+				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
+				for (GOTFellowshipClient fs : fellowships) {
 					if (fs.containsPlayer(playerUuid)) {
 						return true;
 					}
@@ -49,8 +49,8 @@ public class GOTRenderPlayer {
 
 	private static boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
-			List<GOTBrotherhoodClient> brotherhoods = GOTLevelData.getData(MINECRAFT.thePlayer).getClientBrotherhoods();
-			for (GOTBrotherhoodClient fs : brotherhoods) {
+			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MINECRAFT.thePlayer).getClientFellowships();
+			for (GOTFellowshipClient fs : fellowships) {
 				if (fs.containsPlayer(entityplayer.getUniqueID())) {
 					return true;
 				}

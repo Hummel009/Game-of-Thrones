@@ -5,19 +5,19 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodClient;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public class GOTPacketBrotherhoodRespondInvite extends GOTPacketBrotherhoodDo {
+public class GOTPacketFellowshipRespondInvite extends GOTPacketFellowshipDo {
 	private boolean accept;
 
 	@SuppressWarnings("unused")
-	public GOTPacketBrotherhoodRespondInvite() {
+	public GOTPacketFellowshipRespondInvite() {
 	}
 
-	public GOTPacketBrotherhoodRespondInvite(GOTBrotherhoodClient fs, boolean accepts) {
+	public GOTPacketFellowshipRespondInvite(GOTFellowshipClient fs, boolean accepts) {
 		super(fs);
 		accept = accepts;
 	}
@@ -34,20 +34,20 @@ public class GOTPacketBrotherhoodRespondInvite extends GOTPacketBrotherhoodDo {
 		data.writeBoolean(accept);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketBrotherhoodRespondInvite, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketFellowshipRespondInvite, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketBrotherhoodRespondInvite packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketFellowshipRespondInvite packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-			GOTBrotherhood brotherhood = packet.getActiveOrDisbandedBrotherhood();
-			if (brotherhood != null) {
+			GOTFellowship fellowship = packet.getActiveOrDisbandedFellowship();
+			if (fellowship != null) {
 				if (packet.accept) {
-					playerData.acceptBrotherhoodInvite(brotherhood, true);
+					playerData.acceptFellowshipInvite(fellowship, true);
 				} else {
-					playerData.rejectBrotherhoodInvite(brotherhood);
+					playerData.rejectFellowshipInvite(fellowship);
 				}
 			} else {
-				IMessage resultPacket = new GOTPacketBrotherhoodAcceptInviteResult(GOTPacketBrotherhoodAcceptInviteResult.AcceptInviteResult.NONEXISTENT);
+				IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.NONEXISTENT);
 				GOTPacketHandler.NETWORK_WRAPPER.sendTo(resultPacket, entityplayer);
 			}
 			return null;

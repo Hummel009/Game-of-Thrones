@@ -60,10 +60,8 @@ public abstract class GOTEnchantment {
 	public static final GOTEnchantment FIRE = new GOTEnchantmentWeaponSpecial("fire").setEnchantWeight(0).setApplyToProjectile(true);
 	public static final GOTEnchantment CHILL = new GOTEnchantmentWeaponSpecial("chill").setEnchantWeight(0).setApplyToProjectile(true);
 	public static final GOTEnchantment HEADHUNTING = new GOTEnchantmentWeaponSpecial("headhunting").setCompatibleOtherSpecial(true).setEnchantWeight(0).setApplyToProjectile(true);
-
-	private final List<GOTEnchantmentType> itemTypes;
-
 	protected final String enchantName;
+	private final List<GOTEnchantmentType> itemTypes;
 	protected float valueModifier = 1.0F;
 	protected boolean bypassAnvilLimit;
 

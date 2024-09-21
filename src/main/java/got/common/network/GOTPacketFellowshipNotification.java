@@ -8,14 +8,14 @@ import got.GOT;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.IChatComponent;
 
-public class GOTPacketBrotherhoodNotification implements IMessage {
+public class GOTPacketFellowshipNotification implements IMessage {
 	private IChatComponent message;
 
 	@SuppressWarnings("unused")
-	public GOTPacketBrotherhoodNotification() {
+	public GOTPacketFellowshipNotification() {
 	}
 
-	public GOTPacketBrotherhoodNotification(IChatComponent c) {
+	public GOTPacketFellowshipNotification(IChatComponent c) {
 		message = c;
 	}
 
@@ -35,10 +35,10 @@ public class GOTPacketBrotherhoodNotification implements IMessage {
 		data.writeBytes(srlBytes);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketBrotherhoodNotification, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketFellowshipNotification, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketBrotherhoodNotification packet, MessageContext context) {
-			GOT.proxy.queueBrotherhoodNotification(packet.message);
+		public IMessage onMessage(GOTPacketFellowshipNotification packet, MessageContext context) {
+			GOT.proxy.queueFellowshipNotification(packet.message);
 			return null;
 		}
 	}

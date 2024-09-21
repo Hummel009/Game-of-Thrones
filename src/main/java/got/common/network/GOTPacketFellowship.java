@@ -9,9 +9,9 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodClient;
 import got.common.database.GOTTitle;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -24,14 +24,14 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 import java.util.*;
 
-public class GOTPacketBrotherhood implements IMessage {
+public class GOTPacketFellowship implements IMessage {
 	private final List<GameProfile> members = new ArrayList<>();
 	private final Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
 	private final Set<UUID> adminUuids = new HashSet<>();
 
-	private UUID brotherhoodID;
-	private String brotherhoodName;
-	private ItemStack brotherhoodIcon;
+	private UUID fellowshipID;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
 	private GameProfile owner;
 
 	private boolean isInvite;
@@ -42,14 +42,14 @@ public class GOTPacketBrotherhood implements IMessage {
 	private boolean showMapLocations;
 
 	@SuppressWarnings("unused")
-	public GOTPacketBrotherhood() {
+	public GOTPacketFellowship() {
 	}
 
-	public GOTPacketBrotherhood(GOTPlayerData playerData, GOTBrotherhood fs, boolean invite) {
-		brotherhoodID = fs.getBrotherhoodID();
+	public GOTPacketFellowship(GOTPlayerData playerData, GOTFellowship fs, boolean invite) {
+		fellowshipID = fs.getFellowshipID();
 		isInvite = invite;
-		brotherhoodName = fs.getName();
-		brotherhoodIcon = fs.getIcon();
+		fellowshipName = fs.getName();
+		fellowshipIcon = fs.getIcon();
 		UUID thisPlayer = playerData.getPlayerUUID();
 		isOwned = fs.isOwner(thisPlayer);
 		isAdminned = fs.isAdmin(thisPlayer);
@@ -111,19 +111,19 @@ public class GOTPacketBrotherhood implements IMessage {
 
 	@Override
 	public void fromBytes(ByteBuf data) {
-		brotherhoodID = new UUID(data.readLong(), data.readLong());
+		fellowshipID = new UUID(data.readLong(), data.readLong());
 		isInvite = data.readBoolean();
 		byte fsNameLength = data.readByte();
 		ByteBuf fsNameBytes = data.readBytes(fsNameLength);
-		brotherhoodName = fsNameBytes.toString(Charsets.UTF_8);
+		fellowshipName = fsNameBytes.toString(Charsets.UTF_8);
 		NBTTagCompound iconData = new NBTTagCompound();
 		try {
 			iconData = new PacketBuffer(data).readNBTTagCompoundFromBuffer();
 		} catch (IOException e) {
-			FMLLog.severe("Hummel009: Error reading brotherhood icon data");
+			FMLLog.severe("Hummel009: Error reading fellowship icon data");
 			e.printStackTrace();
 		}
-		brotherhoodIcon = ItemStack.loadItemStackFromNBT(iconData);
+		fellowshipIcon = ItemStack.loadItemStackFromNBT(iconData);
 		isOwned = data.readBoolean();
 		isAdminned = data.readBoolean();
 		owner = readPlayerUuidAndUsername(data);
@@ -157,20 +157,20 @@ public class GOTPacketBrotherhood implements IMessage {
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		data.writeLong(brotherhoodID.getMostSignificantBits());
-		data.writeLong(brotherhoodID.getLeastSignificantBits());
+		data.writeLong(fellowshipID.getMostSignificantBits());
+		data.writeLong(fellowshipID.getLeastSignificantBits());
 		data.writeBoolean(isInvite);
-		byte[] fsNameBytes = brotherhoodName.getBytes(Charsets.UTF_8);
+		byte[] fsNameBytes = fellowshipName.getBytes(Charsets.UTF_8);
 		data.writeByte(fsNameBytes.length);
 		data.writeBytes(fsNameBytes);
 		NBTTagCompound iconData = new NBTTagCompound();
-		if (brotherhoodIcon != null) {
-			brotherhoodIcon.writeToNBT(iconData);
+		if (fellowshipIcon != null) {
+			fellowshipIcon.writeToNBT(iconData);
 		}
 		try {
 			new PacketBuffer(data).writeNBTTagCompoundToBuffer(iconData);
 		} catch (IOException e) {
-			FMLLog.severe("Hummel009: Error writing brotherhood icon data");
+			FMLLog.severe("Hummel009: Error writing fellowship icon data");
 			e.printStackTrace();
 		}
 		data.writeBoolean(isOwned);
@@ -191,21 +191,21 @@ public class GOTPacketBrotherhood implements IMessage {
 		data.writeBoolean(showMapLocations);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketBrotherhood, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketFellowship, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketBrotherhood packet, MessageContext context) {
-			GOTBrotherhoodClient brotherhood = new GOTBrotherhoodClient(packet.brotherhoodID, packet.brotherhoodName, packet.isOwned, packet.isAdminned, packet.owner, packet.members);
-			brotherhood.setTitles(packet.titleMap);
-			brotherhood.setAdmins(packet.adminUuids);
-			brotherhood.setIcon(packet.brotherhoodIcon);
-			brotherhood.setPreventPVP(packet.preventPVP);
-			brotherhood.setPreventHiredFriendlyFire(packet.preventHiredFF);
-			brotherhood.setShowMapLocations(packet.showMapLocations);
+		public IMessage onMessage(GOTPacketFellowship packet, MessageContext context) {
+			GOTFellowshipClient fellowship = new GOTFellowshipClient(packet.fellowshipID, packet.fellowshipName, packet.isOwned, packet.isAdminned, packet.owner, packet.members);
+			fellowship.setTitles(packet.titleMap);
+			fellowship.setAdmins(packet.adminUuids);
+			fellowship.setIcon(packet.fellowshipIcon);
+			fellowship.setPreventPVP(packet.preventPVP);
+			fellowship.setPreventHiredFriendlyFire(packet.preventHiredFF);
+			fellowship.setShowMapLocations(packet.showMapLocations);
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			if (packet.isInvite) {
-				GOTLevelData.getData(entityplayer).addOrUpdateClientBrotherhoodInvite(brotherhood);
+				GOTLevelData.getData(entityplayer).addOrUpdateClientFellowshipInvite(fellowship);
 			} else {
-				GOTLevelData.getData(entityplayer).addOrUpdateClientBrotherhood(brotherhood);
+				GOTLevelData.getData(entityplayer).addOrUpdateClientFellowship(fellowship);
 			}
 			return null;
 		}

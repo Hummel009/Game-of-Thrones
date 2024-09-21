@@ -1,4 +1,4 @@
-package got.common.brotherhood;
+package got.common.fellowship;
 
 import com.mojang.authlib.GameProfile;
 import got.common.database.GOTTitle;
@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 
 import java.util.*;
 
-public class GOTBrotherhoodClient {
-	private final UUID brotherhoodID;
+public class GOTFellowshipClient {
+	private final UUID fellowshipID;
 
 	private List<UUID> memberUUIDs = new ArrayList<>();
 	private Map<UUID, String> usernameMap = new HashMap<>();
@@ -15,8 +15,8 @@ public class GOTBrotherhoodClient {
 	private Set<UUID> adminUUIDs = new HashSet<>();
 
 	private UUID ownerUUID;
-	private String brotherhoodName;
-	private ItemStack brotherhoodIcon;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
 
 	private boolean isOwned;
 	private boolean isAdminned;
@@ -24,9 +24,9 @@ public class GOTBrotherhoodClient {
 	private boolean preventHiredFF;
 	private boolean showMapLocations;
 
-	public GOTBrotherhoodClient(UUID id, String name, boolean owned, boolean admin, GameProfile owner, Iterable<GameProfile> members) {
-		brotherhoodID = id;
-		brotherhoodName = name;
+	public GOTFellowshipClient(UUID id, String name, boolean owned, boolean admin, GameProfile owner, Iterable<GameProfile> members) {
+		fellowshipID = id;
+		fellowshipName = name;
 		isOwned = owned;
 		isAdminned = admin;
 		ownerUUID = owner.getId();
@@ -65,16 +65,16 @@ public class GOTBrotherhoodClient {
 		return allPlayers;
 	}
 
-	public UUID getBrotherhoodID() {
-		return brotherhoodID;
+	public UUID getFellowshipID() {
+		return fellowshipID;
 	}
 
 	public ItemStack getIcon() {
-		return brotherhoodIcon;
+		return fellowshipIcon;
 	}
 
 	public void setIcon(ItemStack itemstack) {
-		brotherhoodIcon = itemstack;
+		fellowshipIcon = itemstack;
 	}
 
 	public List<GameProfile> getMemberProfiles() {
@@ -86,11 +86,11 @@ public class GOTBrotherhoodClient {
 	}
 
 	public String getName() {
-		return brotherhoodName;
+		return fellowshipName;
 	}
 
 	public void setName(String name) {
-		brotherhoodName = name;
+		fellowshipName = name;
 	}
 
 	public GameProfile getOwnerProfile() {
@@ -211,9 +211,9 @@ public class GOTBrotherhoodClient {
 		titleMap = titles;
 	}
 
-	public void updateDataFrom(GOTBrotherhoodClient other) {
-		brotherhoodName = other.brotherhoodName;
-		brotherhoodIcon = other.brotherhoodIcon;
+	public void updateDataFrom(GOTFellowshipClient other) {
+		fellowshipName = other.fellowshipName;
+		fellowshipIcon = other.fellowshipIcon;
 		isOwned = other.isOwned;
 		isAdminned = other.isAdminned;
 		ownerUUID = other.ownerUUID;

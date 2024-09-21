@@ -5,22 +5,22 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodClient;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 import java.util.UUID;
 
-public class GOTPacketBrotherhoodDoPlayer extends GOTPacketBrotherhoodDo {
+public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 	private UUID subjectUuid;
 	private PlayerFunction function;
 
 	@SuppressWarnings("unused")
-	public GOTPacketBrotherhoodDoPlayer() {
+	public GOTPacketFellowshipDoPlayer() {
 	}
 
-	public GOTPacketBrotherhoodDoPlayer(GOTBrotherhoodClient fs, UUID subject, PlayerFunction f) {
+	public GOTPacketFellowshipDoPlayer(GOTFellowshipClient fs, UUID subject, PlayerFunction f) {
 		super(fs);
 		subjectUuid = subject;
 		function = f;
@@ -45,27 +45,27 @@ public class GOTPacketBrotherhoodDoPlayer extends GOTPacketBrotherhoodDo {
 		REMOVE, TRANSFER, OP, DEOP
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketBrotherhoodDoPlayer, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketFellowshipDoPlayer, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketBrotherhoodDoPlayer packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketFellowshipDoPlayer packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			String playerName = entityplayer.getCommandSenderName();
-			GOTBrotherhood brotherhood = packet.getActiveBrotherhood();
+			GOTFellowship fellowship = packet.getActiveFellowship();
 			UUID subjectPlayer = packet.subjectUuid;
-			if (brotherhood != null && subjectPlayer != null) {
+			if (fellowship != null && subjectPlayer != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				switch (packet.function) {
 					case DEOP:
-						playerData.setBrotherhoodAdmin(brotherhood, subjectPlayer, false, playerName);
+						playerData.setFellowshipAdmin(fellowship, subjectPlayer, false, playerName);
 						break;
 					case OP:
-						playerData.setBrotherhoodAdmin(brotherhood, subjectPlayer, true, playerName);
+						playerData.setFellowshipAdmin(fellowship, subjectPlayer, true, playerName);
 						break;
 					case REMOVE:
-						playerData.removePlayerFromBrotherhood(brotherhood, subjectPlayer, playerName);
+						playerData.removePlayerFromFellowship(fellowship, subjectPlayer, playerName);
 						break;
 					case TRANSFER:
-						playerData.transferBrotherhood(brotherhood, subjectPlayer, playerName);
+						playerData.transferFellowship(fellowship, subjectPlayer, playerName);
 						break;
 				}
 			}

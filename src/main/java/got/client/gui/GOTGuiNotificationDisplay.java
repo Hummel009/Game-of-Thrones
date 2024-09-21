@@ -41,8 +41,8 @@ public class GOTGuiNotificationDisplay extends Gui {
 		notifications.add(new NotificationConquest(fac, conq, cleansing));
 	}
 
-	public void queueBrotherhoodNotification(IChatComponent message) {
-		notifications.add(new NotificationBrotherhood(message));
+	public void queueFellowshipNotification(IChatComponent message) {
+		notifications.add(new NotificationFellowship(message));
 	}
 
 	public void updateWindow() {
@@ -188,17 +188,17 @@ public class GOTGuiNotificationDisplay extends Gui {
 		}
 	}
 
-	private class NotificationBrotherhood extends Notification {
+	private class NotificationFellowship extends Notification {
 		private final IChatComponent message;
 
-		private NotificationBrotherhood(IChatComponent msg) {
+		private NotificationFellowship(IChatComponent msg) {
 			message = msg;
 			durationMs = 6000;
 		}
 
 		@Override
 		public void renderIcon(int x, int y) {
-			MINECRAFT.getTextureManager().bindTexture(GOTGuiBrotherhoods.ICONS_TEXTURES);
+			MINECRAFT.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, 80, 0, 16, 16);
 		}

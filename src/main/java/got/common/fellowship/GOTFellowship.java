@@ -1,8 +1,8 @@
-package got.common.brotherhood;
+package got.common.fellowship;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
-import got.common.network.GOTPacketBrotherhoodNotification;
+import got.common.network.GOTPacketFellowshipNotification;
 import got.common.network.GOTPacketHandler;
 import got.common.util.GOTLog;
 import net.minecraft.command.ICommandSender;
@@ -24,15 +24,15 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
-public class GOTBrotherhood {
+public class GOTFellowship {
 	private final List<UUID> memberUUIDs = new ArrayList<>();
 	private final Collection<UUID> adminUUIDs = new HashSet<>();
 	private final Set<UUID> waypointSharerUUIDs = new HashSet<>();
 
 	private UUID ownerUUID;
-	private UUID brotherhoodUUID;
-	private String brotherhoodName;
-	private ItemStack brotherhoodIcon;
+	private UUID fellowshipUUID;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
 
 	private boolean needsSave;
 	private boolean disbanded;
@@ -41,33 +41,33 @@ public class GOTBrotherhood {
 	private boolean showMapLocations = true;
 	private boolean doneRetroactiveWaypointSharerCheck = true;
 
-	public GOTBrotherhood(UUID fsID) {
-		brotherhoodUUID = fsID;
+	public GOTFellowship(UUID fsID) {
+		fellowshipUUID = fsID;
 	}
 
-	public GOTBrotherhood(UUID owner, String name) {
+	public GOTFellowship(UUID owner, String name) {
 		this();
 		ownerUUID = owner;
-		brotherhoodName = name;
+		fellowshipName = name;
 	}
 
-	private GOTBrotherhood() {
-		brotherhoodUUID = UUID.randomUUID();
+	private GOTFellowship() {
+		fellowshipUUID = UUID.randomUUID();
 	}
 
 	public static void sendNotification(ICommandSender entityplayer, String key, Object... args) {
 		ChatComponentTranslation message = new ChatComponentTranslation(key, args);
 		message.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(message);
-		IMessage packet = new GOTPacketBrotherhoodNotification(message);
+		IMessage packet = new GOTPacketFellowshipNotification(message);
 		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public void addMember(UUID player) {
 		if (!isOwner(player) && !memberUUIDs.contains(player)) {
 			memberUUIDs.add(player);
-			GOTLevelData.getData(player).addBrotherhood(this);
-			updateForAllMembers(new BrotherhoodUpdateType.AddMember(player));
+			GOTLevelData.getData(player).addFellowship(this);
+			updateForAllMembers(new FellowshipUpdateType.AddMember(player));
 			markDirty();
 		}
 	}
@@ -77,9 +77,9 @@ public class GOTBrotherhood {
 	}
 
 	public void createAndRegister() {
-		GOTBrotherhoodData.addBrotherhood(this);
-		GOTLevelData.getData(ownerUUID).addBrotherhood(this);
-		updateForAllMembers(new BrotherhoodUpdateType.Full());
+		GOTFellowshipData.addFellowship(this);
+		GOTLevelData.getData(ownerUUID).addFellowship(this);
+		updateForAllMembers(new FellowshipUpdateType.Full());
 		markDirty();
 	}
 
@@ -89,12 +89,12 @@ public class GOTBrotherhood {
 			if (!disbanded) {
 				List<UUID> allPlayersSafe = getAllPlayerUUIDs();
 				for (UUID player : allPlayersSafe) {
-					if (!GOTLevelData.getData(player).hasAnyWaypointsSharedToBrotherhood(this)) {
+					if (!GOTLevelData.getData(player).hasAnyWaypointsSharedToFellowship(this)) {
 						continue;
 					}
 					waypointSharerUUIDs.add(player);
 				}
-				GOTLog.getLogger().info("Brotherhood {} did retroactive waypoint sharer check and found {} out of {} players", brotherhoodName, waypointSharerUUIDs.size(), allPlayersSafe.size());
+				GOTLog.getLogger().info("Fellowship {} did retroactive waypoint sharer check and found {} out of {} players", fellowshipName, waypointSharerUUIDs.size(), allPlayersSafe.size());
 			}
 			doneRetroactiveWaypointSharerCheck = true;
 			markDirty();
@@ -108,17 +108,17 @@ public class GOTBrotherhood {
 		return list;
 	}
 
-	public UUID getBrotherhoodID() {
-		return brotherhoodUUID;
+	public UUID getFellowshipID() {
+		return fellowshipUUID;
 	}
 
 	public ItemStack getIcon() {
-		return brotherhoodIcon;
+		return fellowshipIcon;
 	}
 
 	public void setIcon(ItemStack itemstack) {
-		brotherhoodIcon = itemstack;
-		updateForAllMembers(new BrotherhoodUpdateType.ChangeIcon());
+		fellowshipIcon = itemstack;
+		updateForAllMembers(new FellowshipUpdateType.ChangeIcon());
 		markDirty();
 	}
 
@@ -127,12 +127,12 @@ public class GOTBrotherhood {
 	}
 
 	public String getName() {
-		return brotherhoodName;
+		return fellowshipName;
 	}
 
 	public void setName(String name) {
-		brotherhoodName = name;
-		updateForAllMembers(new BrotherhoodUpdateType.Rename());
+		fellowshipName = name;
+		updateForAllMembers(new FellowshipUpdateType.Rename());
 		markDirty();
 	}
 
@@ -148,8 +148,8 @@ public class GOTBrotherhood {
 		ownerUUID = owner;
 		memberUUIDs.remove(owner);
 		adminUUIDs.remove(owner);
-		GOTLevelData.getData(ownerUUID).addBrotherhood(this);
-		updateForAllMembers(new BrotherhoodUpdateType.SetOwner(ownerUUID));
+		GOTLevelData.getData(ownerUUID).addFellowship(this);
+		updateForAllMembers(new FellowshipUpdateType.SetOwner(ownerUUID));
 		markDirty();
 	}
 
@@ -163,7 +163,7 @@ public class GOTBrotherhood {
 
 	public void setPreventHiredFriendlyFire(boolean flag) {
 		preventHiredFF = flag;
-		updateForAllMembers(new BrotherhoodUpdateType.ToggleHiredFriendlyFire());
+		updateForAllMembers(new FellowshipUpdateType.ToggleHiredFriendlyFire());
 		markDirty();
 	}
 
@@ -173,7 +173,7 @@ public class GOTBrotherhood {
 
 	public void setPreventPVP(boolean flag) {
 		preventPVP = flag;
-		updateForAllMembers(new BrotherhoodUpdateType.TogglePvp());
+		updateForAllMembers(new FellowshipUpdateType.TogglePvp());
 		markDirty();
 	}
 
@@ -183,7 +183,7 @@ public class GOTBrotherhood {
 
 	public void setShowMapLocations(boolean flag) {
 		showMapLocations = flag;
-		updateForAllMembers(new BrotherhoodUpdateType.ToggleShowMapLocations());
+		updateForAllMembers(new FellowshipUpdateType.ToggleShowMapLocations());
 		markDirty();
 	}
 
@@ -233,11 +233,11 @@ public class GOTBrotherhood {
 			}
 		}
 		if (fsData.hasKey("Name")) {
-			brotherhoodName = fsData.getString("Name");
+			fellowshipName = fsData.getString("Name");
 		}
 		if (fsData.hasKey("Icon")) {
 			NBTTagCompound itemData = fsData.getCompoundTag("Icon");
-			brotherhoodIcon = ItemStack.loadItemStackFromNBT(itemData);
+			fellowshipIcon = ItemStack.loadItemStackFromNBT(itemData);
 		}
 		if (fsData.hasKey("PreventPVP")) {
 			preventPVP = fsData.getBoolean("PreventPVP");
@@ -277,8 +277,8 @@ public class GOTBrotherhood {
 			memberUUIDs.remove(player);
 			adminUUIDs.remove(player);
 			waypointSharerUUIDs.remove(player);
-			GOTLevelData.getData(player).removeBrotherhood(this);
-			updateForAllMembers(new BrotherhoodUpdateType.RemoveMember(player));
+			GOTLevelData.getData(player).removeFellowship(this);
+			updateForAllMembers(new FellowshipUpdateType.RemoveMember(player));
 			markDirty();
 		}
 	}
@@ -303,12 +303,12 @@ public class GOTBrotherhood {
 			waypointSharerTags.appendTag(new NBTTagString(waypointSharer.toString()));
 		}
 		fsData.setTag("WaypointSharers", waypointSharerTags);
-		if (brotherhoodName != null) {
-			fsData.setString("Name", brotherhoodName);
+		if (fellowshipName != null) {
+			fsData.setString("Name", fellowshipName);
 		}
-		if (brotherhoodIcon != null) {
+		if (fellowshipIcon != null) {
 			NBTTagCompound itemData = new NBTTagCompound();
-			brotherhoodIcon.writeToNBT(itemData);
+			fellowshipIcon.writeToNBT(itemData);
 			fsData.setTag("Icon", itemData);
 		}
 		fsData.setBoolean("PreventPVP", preventPVP);
@@ -318,7 +318,7 @@ public class GOTBrotherhood {
 		needsSave = false;
 	}
 
-	public void sendBrotherhoodMessage(EntityPlayerMP sender, String message) {
+	public void sendFellowshipMessage(EntityPlayerMP sender, String message) {
 		String message1 = message;
 		if (sender.func_147096_v() == EntityPlayer.EnumChatVisibility.HIDDEN) {
 			ChatComponentTranslation msgCannotSend = new ChatComponentTranslation("chat.cannotSend");
@@ -337,7 +337,7 @@ public class GOTBrotherhood {
 				sender.playerNetServerHandler.kickPlayerFromServer("Illegal characters in chat");
 				return;
 			}
-			ClickEvent fMsgClickEvent = new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/fmsg \"" + brotherhoodName + "\" ");
+			ClickEvent fMsgClickEvent = new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/fmsg \"" + fellowshipName + "\" ");
 			IChatComponent msgComponent = ForgeHooks.newChatWithLinks(message1);
 			msgComponent.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			IChatComponent senderComponent = sender.func_145748_c_();
@@ -348,7 +348,7 @@ public class GOTBrotherhood {
 				return;
 			}
 			chatComponent.appendSibling(msgComponent);
-			ChatComponentTranslation fsComponent = new ChatComponentTranslation("got.command.fmsg.fsPrefix", brotherhoodName);
+			ChatComponentTranslation fsComponent = new ChatComponentTranslation("got.command.fmsg.fsPrefix", fellowshipName);
 			fsComponent.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			fsComponent.getChatStyle().setChatClickEvent(fMsgClickEvent);
 			ChatComponentTranslation fullChatComponent = new ChatComponentTranslation("%s %s", fsComponent, chatComponent);
@@ -368,11 +368,11 @@ public class GOTBrotherhood {
 		if (memberUUIDs.contains(player)) {
 			if (flag && !adminUUIDs.contains(player)) {
 				adminUUIDs.add(player);
-				updateForAllMembers(new BrotherhoodUpdateType.SetAdmin(player));
+				updateForAllMembers(new FellowshipUpdateType.SetAdmin(player));
 				markDirty();
 			} else if (!flag && adminUUIDs.contains(player)) {
 				adminUUIDs.remove(player);
-				updateForAllMembers(new BrotherhoodUpdateType.RemoveAdmin(player));
+				updateForAllMembers(new FellowshipUpdateType.RemoveAdmin(player));
 				markDirty();
 			}
 		}
@@ -387,15 +387,15 @@ public class GOTBrotherhood {
 		}
 	}
 
-	public void updateForAllMembers(BrotherhoodUpdateType updateType) {
+	public void updateForAllMembers(FellowshipUpdateType updateType) {
 		for (UUID player : getAllPlayerUUIDs()) {
-			GOTLevelData.getData(player).updateBrotherhood(this, updateType);
+			GOTLevelData.getData(player).updateFellowship(this, updateType);
 		}
 	}
 
 	private void validate() {
-		if (brotherhoodUUID == null) {
-			brotherhoodUUID = UUID.randomUUID();
+		if (fellowshipUUID == null) {
+			fellowshipUUID = UUID.randomUUID();
 		}
 		if (ownerUUID == null) {
 			ownerUUID = UUID.randomUUID();

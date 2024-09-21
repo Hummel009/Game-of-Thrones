@@ -3,9 +3,9 @@ package got.common.world.map;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodClient;
-import got.common.brotherhood.GOTBrotherhoodData;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
+import got.common.fellowship.GOTFellowshipData;
 import got.common.network.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -30,7 +30,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	private final int ID;
 	private String customName;
 	private int yCoord;
-	private List<UUID> sharedBrotherhoodIDs = new ArrayList<>();
+	private List<UUID> sharedFellowshipIDs = new ArrayList<>();
 	private UUID sharingPlayer;
 	private String sharingPlayerName;
 	private boolean sharedUnlocked;
@@ -68,15 +68,15 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		int yCoord = nbt.hasKey("YCoord") ? nbt.getInteger("YCoord") : -1;
 		int ID = nbt.getInteger("ID");
 		GOTCustomWaypoint cwp = new GOTCustomWaypoint(name, x, y, xCoord, yCoord, zCoord, ID);
-		cwp.sharedBrotherhoodIDs.clear();
-		if (nbt.hasKey("SharedBrotherhoods")) {
-			NBTTagList sharedBrotherhoodTags = nbt.getTagList("SharedBrotherhoods", 8);
-			for (int i = 0; i < sharedBrotherhoodTags.tagCount(); ++i) {
-				UUID fsID = UUID.fromString(sharedBrotherhoodTags.getStringTagAt(i));
-				cwp.sharedBrotherhoodIDs.add(fsID);
+		cwp.sharedFellowshipIDs.clear();
+		if (nbt.hasKey("SharedFellowships")) {
+			NBTTagList sharedFellowshipTags = nbt.getTagList("SharedFellowships", 8);
+			for (int i = 0; i < sharedFellowshipTags.tagCount(); ++i) {
+				UUID fsID = UUID.fromString(sharedFellowshipTags.getStringTagAt(i));
+				cwp.sharedFellowshipIDs.add(fsID);
 			}
 		}
-		cwp.validateBrotherhoodIDs(pd);
+		cwp.validateFellowshipIDs(pd);
 		return cwp;
 	}
 
@@ -95,9 +95,9 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return below.getMaterial().blocksMovement() && !block.isNormalCube(world, i, j, k) && !above.isNormalCube(world, i, j + 1, k) && !block.getMaterial().isLiquid() && block.getMaterial() != Material.fire && !above.getMaterial().isLiquid() && above.getMaterial() != Material.fire;
 	}
 
-	public void addSharedBrotherhood(UUID fsID) {
-		if (!sharedBrotherhoodIDs.contains(fsID)) {
-			sharedBrotherhoodIDs.add(fsID);
+	public void addSharedFellowship(UUID fsID) {
+		if (!sharedFellowshipIDs.contains(fsID)) {
+			sharedFellowshipIDs.add(fsID);
 		}
 	}
 
@@ -112,11 +112,11 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	public GOTCustomWaypoint createCopyOfShared(UUID sharer) {
 		GOTCustomWaypoint copy = new GOTCustomWaypoint(customName, mapX, mapY, xCoord, yCoord, zCoord, ID);
 		copy.setSharingPlayerID(sharer);
-		copy.sharedBrotherhoodIDs = new ArrayList<>(sharedBrotherhoodIDs);
+		copy.sharedFellowshipIDs = new ArrayList<>(sharedFellowshipIDs);
 		return copy;
 	}
 
-	public GOTPacketShareCWPClient getClientAddBrotherhoodPacket(UUID fsID) {
+	public GOTPacketShareCWPClient getClientAddFellowshipPacket(UUID fsID) {
 		return new GOTPacketShareCWPClient(ID, fsID, true);
 	}
 
@@ -129,14 +129,14 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public GOTPacketCreateCWPClient getClientPacket() {
-		return new GOTPacketCreateCWPClient(mapX, mapY, xCoord, yCoord, zCoord, ID, customName, sharedBrotherhoodIDs);
+		return new GOTPacketCreateCWPClient(mapX, mapY, xCoord, yCoord, zCoord, ID, customName, sharedFellowshipIDs);
 	}
 
 	public GOTPacketCreateCWPClient getClientPacketShared() {
-		return new GOTPacketCreateCWPClient(mapX, mapY, xCoord, yCoord, zCoord, ID, customName, sharedBrotherhoodIDs).setSharingPlayer(sharingPlayer, sharingPlayerName, sharedUnlocked, sharedHidden);
+		return new GOTPacketCreateCWPClient(mapX, mapY, xCoord, yCoord, zCoord, ID, customName, sharedFellowshipIDs).setSharingPlayer(sharingPlayer, sharingPlayerName, sharedUnlocked, sharedHidden);
 	}
 
-	public GOTPacketShareCWPClient getClientRemoveBrotherhoodPacket(UUID fsID) {
+	public GOTPacketShareCWPClient getClientRemoveFellowshipPacket(UUID fsID) {
 		return new GOTPacketShareCWPClient(ID, fsID, false);
 	}
 
@@ -190,15 +190,15 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 
 	@Override
 	public String getLoreText(EntityPlayer entityplayer) {
-		boolean ownShared = !isShared() && !sharedBrotherhoodIDs.isEmpty();
+		boolean ownShared = !isShared() && !sharedFellowshipIDs.isEmpty();
 		boolean shared = isShared() && sharingPlayerName != null;
 		if (ownShared || shared) {
-			int numShared = sharedBrotherhoodIDs.size();
+			int numShared = sharedFellowshipIDs.size();
 			int numShown = 0;
 			Collection<String> fsNames = new ArrayList<>();
-			for (int i = 0; i < 3 && i < sharedBrotherhoodIDs.size(); ++i) {
-				UUID fsID = sharedBrotherhoodIDs.get(i);
-				GOTBrotherhoodClient fs = GOTLevelData.getData(entityplayer).getClientBrotherhoodByID(fsID);
+			for (int i = 0; i < 3 && i < sharedFellowshipIDs.size(); ++i) {
+				UUID fsID = sharedFellowshipIDs.get(i);
+				GOTFellowshipClient fs = GOTLevelData.getData(entityplayer).getClientFellowshipByID(fsID);
 				if (fs == null) {
 					continue;
 				}
@@ -221,10 +221,10 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return null;
 	}
 
-	public List<UUID> getPlayersInAllSharedBrotherhoods() {
+	public List<UUID> getPlayersInAllSharedFellowships() {
 		List<UUID> allPlayers = new ArrayList<>();
-		for (UUID fsID : sharedBrotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+		for (UUID fsID : sharedFellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null) {
 				List<UUID> fsPlayers = fs.getAllPlayerUUIDs();
 				for (UUID player : fsPlayers) {
@@ -243,12 +243,12 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return 0;
 	}
 
-	public List<UUID> getSharedBrotherhoodIDs() {
-		return sharedBrotherhoodIDs;
+	public List<UUID> getSharedFellowshipIDs() {
+		return sharedFellowshipIDs;
 	}
 
-	public void setSharedBrotherhoodIDs(List<UUID> fsIDs) {
-		sharedBrotherhoodIDs = fsIDs;
+	public void setSharedFellowshipIDs(List<UUID> fsIDs) {
+		sharedFellowshipIDs = fsIDs;
 	}
 
 	public UUID getSharingPlayerID() {
@@ -259,7 +259,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		UUID prev = sharingPlayer;
 		sharingPlayer = id;
 		if (MinecraftServer.getServer() != null && (prev == null || !prev.equals(sharingPlayer))) {
-			sharingPlayerName = GOTPacketBrotherhood.getPlayerProfileWithUsername(sharingPlayer).getName();
+			sharingPlayerName = GOTPacketFellowship.getPlayerProfileWithUsername(sharingPlayer).getName();
 		}
 	}
 
@@ -352,12 +352,12 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return !isShared() || sharedUnlocked;
 	}
 
-	public boolean hasSharedBrotherhood(GOTBrotherhood fs) {
-		return hasSharedBrotherhood(fs.getBrotherhoodID());
+	public boolean hasSharedFellowship(GOTFellowship fs) {
+		return hasSharedFellowship(fs.getFellowshipID());
 	}
 
-	public boolean hasSharedBrotherhood(UUID fsID) {
-		return sharedBrotherhoodIDs.contains(fsID);
+	public boolean hasSharedFellowship(UUID fsID) {
+		return sharedFellowshipIDs.contains(fsID);
 	}
 
 	@Override
@@ -381,8 +381,8 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return sharedUnlocked;
 	}
 
-	public void removeSharedBrotherhood(UUID fsID) {
-		sharedBrotherhoodIDs.remove(fsID);
+	public void removeSharedFellowship(UUID fsID) {
+		sharedFellowshipIDs.remove(fsID);
 	}
 
 	public void rename(String newName) {
@@ -393,17 +393,17 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		sharedUnlocked = true;
 	}
 
-	private void validateBrotherhoodIDs(GOTPlayerData ownerData) {
+	private void validateFellowshipIDs(GOTPlayerData ownerData) {
 		UUID ownerUUID = ownerData.getPlayerUUID();
 		Collection<UUID> removeIDs = new HashSet<>();
-		for (UUID fsID : sharedBrotherhoodIDs) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+		for (UUID fsID : sharedFellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.containsPlayer(ownerUUID)) {
 				continue;
 			}
 			removeIDs.add(fsID);
 		}
-		sharedBrotherhoodIDs.removeAll(removeIDs);
+		sharedFellowshipIDs.removeAll(removeIDs);
 	}
 
 	public void writeToNBT(NBTTagCompound nbt, GOTPlayerData pd) {
@@ -414,14 +414,14 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		nbt.setInteger("YCoord", yCoord);
 		nbt.setInteger("ZCoord", zCoord);
 		nbt.setInteger("ID", ID);
-		validateBrotherhoodIDs(pd);
-		if (!sharedBrotherhoodIDs.isEmpty()) {
-			NBTTagList sharedBrotherhoodTags = new NBTTagList();
-			for (UUID fsID : sharedBrotherhoodIDs) {
+		validateFellowshipIDs(pd);
+		if (!sharedFellowshipIDs.isEmpty()) {
+			NBTTagList sharedFellowshipTags = new NBTTagList();
+			for (UUID fsID : sharedFellowshipIDs) {
 				NBTTagString tag = new NBTTagString(fsID.toString());
-				sharedBrotherhoodTags.appendTag(tag);
+				sharedFellowshipTags.appendTag(tag);
 			}
-			nbt.setTag("SharedBrotherhoods", sharedBrotherhoodTags);
+			nbt.setTag("SharedFellowships", sharedFellowshipTags);
 		}
 	}
 }

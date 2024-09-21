@@ -5,19 +5,19 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodClient;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public class GOTPacketBrotherhoodToggle extends GOTPacketBrotherhoodDo {
+public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 	private ToggleFunction function;
 
 	@SuppressWarnings("unused")
-	public GOTPacketBrotherhoodToggle() {
+	public GOTPacketFellowshipToggle() {
 	}
 
-	public GOTPacketBrotherhoodToggle(GOTBrotherhoodClient fs, ToggleFunction f) {
+	public GOTPacketFellowshipToggle(GOTFellowshipClient fs, ToggleFunction f) {
 		super(fs);
 		function = f;
 	}
@@ -39,22 +39,22 @@ public class GOTPacketBrotherhoodToggle extends GOTPacketBrotherhoodDo {
 
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketBrotherhoodToggle, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketFellowshipToggle, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketBrotherhoodToggle packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketFellowshipToggle packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTBrotherhood brotherhood = packet.getActiveBrotherhood();
-			if (brotherhood != null) {
+			GOTFellowship fellowship = packet.getActiveFellowship();
+			if (fellowship != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				if (packet.function == ToggleFunction.PVP) {
-					boolean current = brotherhood.getPreventPVP();
-					playerData.setBrotherhoodPreventPVP(brotherhood, !current);
+					boolean current = fellowship.getPreventPVP();
+					playerData.setFellowshipPreventPVP(fellowship, !current);
 				} else if (packet.function == ToggleFunction.HIRED_FF) {
-					boolean current = brotherhood.getPreventHiredFriendlyFire();
-					playerData.setBrotherhoodPreventHiredFF(brotherhood, !current);
+					boolean current = fellowship.getPreventHiredFriendlyFire();
+					playerData.setFellowshipPreventHiredFF(fellowship, !current);
 				} else if (packet.function == ToggleFunction.MAP_SHOW) {
-					boolean current = brotherhood.getShowMapLocations();
-					playerData.setBrotherhoodShowMapLocations(brotherhood, !current);
+					boolean current = fellowship.getShowMapLocations();
+					playerData.setFellowshipShowMapLocations(fellowship, !current);
 				}
 			}
 			return null;

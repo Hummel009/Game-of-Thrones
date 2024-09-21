@@ -5,17 +5,17 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodClient;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public class GOTPacketBrotherhoodLeave extends GOTPacketBrotherhoodDo {
+public class GOTPacketFellowshipLeave extends GOTPacketFellowshipDo {
 	@SuppressWarnings("unused")
-	public GOTPacketBrotherhoodLeave() {
+	public GOTPacketFellowshipLeave() {
 	}
 
-	public GOTPacketBrotherhoodLeave(GOTBrotherhoodClient fs) {
+	public GOTPacketFellowshipLeave(GOTFellowshipClient fs) {
 		super(fs);
 	}
 
@@ -29,14 +29,14 @@ public class GOTPacketBrotherhoodLeave extends GOTPacketBrotherhoodDo {
 		super.toBytes(data);
 	}
 
-	public static class Handler implements IMessageHandler<GOTPacketBrotherhoodLeave, IMessage> {
+	public static class Handler implements IMessageHandler<GOTPacketFellowshipLeave, IMessage> {
 		@Override
-		public IMessage onMessage(GOTPacketBrotherhoodLeave packet, MessageContext context) {
+		public IMessage onMessage(GOTPacketFellowshipLeave packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTBrotherhood brotherhood = packet.getActiveBrotherhood();
-			if (brotherhood != null) {
+			GOTFellowship fellowship = packet.getActiveFellowship();
+			if (fellowship != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-				playerData.leaveBrotherhood(brotherhood);
+				playerData.leaveFellowship(fellowship);
 			}
 			return null;
 		}

@@ -8,7 +8,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.inanimate.GOTEntityBanner;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTReputationBonusMap;
-import got.common.network.GOTPacketBrotherhoodAcceptInviteResult;
+import got.common.network.GOTPacketFellowshipAcceptInviteResult;
 import got.common.network.GOTPacketMenuPrompt;
 import got.common.quest.GOTMiniQuest;
 import got.common.util.GOTReflection;
@@ -45,7 +45,7 @@ public class GOTCommonProxy {
 	public void displayBannerGui(GOTEntityBanner banner) {
 	}
 
-	public void displayBrotherhoodAcceptInvitationResult(UUID brotherhoodID, String name, GOTPacketBrotherhoodAcceptInviteResult.AcceptInviteResult result) {
+	public void displayFellowshipAcceptInvitationResult(UUID fellowshipID, String name, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult result) {
 	}
 
 	public void displayFTScreen(GOTAbstractWaypoint waypoint, int startX, int startZ) {
@@ -241,7 +241,7 @@ public class GOTCommonProxy {
 	public void queueConquestNotification(GOTFaction fac, float conq, boolean isCleansing) {
 	}
 
-	public void queueBrotherhoodNotification(IChatComponent message) {
+	public void queueFellowshipNotification(IChatComponent message) {
 	}
 
 	public void receiveConquestGrid(GOTFaction conqFac, List<GOTConquestZone> allZones) {

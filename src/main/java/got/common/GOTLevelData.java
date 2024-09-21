@@ -4,9 +4,9 @@ import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
-import got.common.brotherhood.GOTBrotherhood;
-import got.common.brotherhood.GOTBrotherhoodData;
 import got.common.database.GOTTitle;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipData;
 import got.common.network.*;
 import got.common.util.GOTLog;
 import net.minecraft.entity.Entity;
@@ -43,8 +43,8 @@ public class GOTLevelData {
 	private static int gameOfThronesPortalY;
 	private static int gameOfThronesPortalZ;
 	private static boolean clientSideThisServerFeastMode;
-	private static boolean clientSideThisServerBrotherhoodCreation;
-	private static int clientSideThisServerBrotherhoodMaxSize;
+	private static boolean clientSideThisServerFellowshipCreation;
+	private static int clientSideThisServerFellowshipMaxSize;
 	private static boolean clientSideThisServerEnchanting;
 	private static boolean clientSideThisServerEnchantingGOT;
 	private static boolean clientSideThisServerStrictFactionTitleRequirements;
@@ -458,8 +458,8 @@ public class GOTLevelData {
 		packet.setDifficultyLocked(difficultyLock);
 		packet.setReputationZones(enableReputationZones);
 		packet.setFeastMode(GOTConfig.canAlwaysEat);
-		packet.setBrotherhoodCreation(GOTConfig.enableBrotherhoodCreation);
-		packet.setBrotherhoodMaxSize(GOTConfig.brotherhoodMaxSize);
+		packet.setFellowshipCreation(GOTConfig.enableFellowshipCreation);
+		packet.setFellowshipMaxSize(GOTConfig.fellowshipMaxSize);
 		packet.setEnchanting(GOTConfig.enchantingVanilla);
 		packet.setEnchantingGOT(GOTConfig.enchantingGOT);
 		packet.setStrictFactionTitleRequirements(GOTConfig.strictFactionTitleRequirements);
@@ -482,11 +482,11 @@ public class GOTLevelData {
 		boolean isOp = MinecraftServer.getServer().getConfigurationManager().func_152596_g(sendPlayer.getGameProfile());
 		boolean creative = sendPlayer.capabilities.isCreativeMode;
 		GOTPlayerData playerData = getData(sendPlayer);
-		Collection<GOTBrotherhood> brotherhoodsMapShow = new ArrayList<>();
-		for (UUID fsID : playerData.getBrotherhoodIDs()) {
-			GOTBrotherhood fs = GOTBrotherhoodData.getActiveBrotherhood(fsID);
+		Collection<GOTFellowship> fellowshipsMapShow = new ArrayList<>();
+		for (UUID fsID : playerData.getFellowshipIDs()) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.getShowMapLocations()) {
-				brotherhoodsMapShow.add(fs);
+				fellowshipsMapShow.add(fs);
 			}
 		}
 		List<EntityPlayer> players = world.playerEntities;
@@ -502,7 +502,7 @@ public class GOTLevelData {
 					if (isOp && creative) {
 						show = true;
 					} else if (!playerData.isSiegeActive()) {
-						for (GOTBrotherhood fs : brotherhoodsMapShow) {
+						for (GOTFellowship fs : fellowshipsMapShow) {
 							if (fs.containsPlayer(otherPlayer.getUniqueID())) {
 								show = true;
 								break;
@@ -646,20 +646,20 @@ public class GOTLevelData {
 		GOTLevelData.clientSideThisServerFeastMode = clientSideThisServerFeastMode;
 	}
 
-	public static boolean isClientSideThisServerBrotherhoodCreation() {
-		return clientSideThisServerBrotherhoodCreation;
+	public static boolean isClientSideThisServerFellowshipCreation() {
+		return clientSideThisServerFellowshipCreation;
 	}
 
-	public static void setClientSideThisServerBrotherhoodCreation(boolean clientSideThisServerBrotherhoodCreation) {
-		GOTLevelData.clientSideThisServerBrotherhoodCreation = clientSideThisServerBrotherhoodCreation;
+	public static void setClientSideThisServerFellowshipCreation(boolean clientSideThisServerFellowshipCreation) {
+		GOTLevelData.clientSideThisServerFellowshipCreation = clientSideThisServerFellowshipCreation;
 	}
 
-	public static int getClientSideThisServerBrotherhoodMaxSize() {
-		return clientSideThisServerBrotherhoodMaxSize;
+	public static int getClientSideThisServerFellowshipMaxSize() {
+		return clientSideThisServerFellowshipMaxSize;
 	}
 
-	public static void setClientSideThisServerBrotherhoodMaxSize(int clientSideThisServerBrotherhoodMaxSize) {
-		GOTLevelData.clientSideThisServerBrotherhoodMaxSize = clientSideThisServerBrotherhoodMaxSize;
+	public static void setClientSideThisServerFellowshipMaxSize(int clientSideThisServerFellowshipMaxSize) {
+		GOTLevelData.clientSideThisServerFellowshipMaxSize = clientSideThisServerFellowshipMaxSize;
 	}
 
 	public static boolean isClientSideThisServerEnchanting() {
