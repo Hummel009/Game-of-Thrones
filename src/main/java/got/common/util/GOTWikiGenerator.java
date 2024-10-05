@@ -69,6 +69,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@SuppressWarnings("ConstantValue")
 public class GOTWikiGenerator {
 	private static final Map<Class<? extends Entity>, Entity> ENTITY_CLASS_TO_ENTITY = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> ENTITY_CLASS_TO_WP = new HashMap<>();
@@ -106,6 +107,9 @@ public class GOTWikiGenerator {
 	private static final String TRUE = "True";
 	private static final String FALSE = "False";
 	private static final String N_A = "N/A";
+
+	private static final String NAMESPACE = "";
+	private static final String NAMESPACE_NAME = "";
 
 	static {
 		BIOMES.remove(GOTBiome.ocean1);
@@ -164,7 +168,7 @@ public class GOTWikiGenerator {
 	private GOTWikiGenerator() {
 	}
 
-	@SuppressWarnings("JoinDeclarationAndAssignmentJava")
+	@SuppressWarnings({"JoinDeclarationAndAssignmentJava", "StreamToLoop"})
 	public static void generate(Type type, World world, EntityPlayer entityPlayer) {
 		long time = System.nanoTime();
 
@@ -205,7 +209,7 @@ public class GOTWikiGenerator {
 					runnables.add(() -> searchForEntities(world));
 					runnables.add(() -> searchForStructures(world));
 
-					runnables.parallelStream().forEach(Runnable::run);
+					runnables.forEach(Runnable::run);
 
 					Collection<Supplier<StringBuilder>> suppliers = new HashSet<>();
 					List<StringBuilder> results;
@@ -220,7 +224,7 @@ public class GOTWikiGenerator {
 					suppliers.add(() -> addPagesTrees(neededPages, existingPages));
 					suppliers.add(() -> addPagesStructures(neededPages, existingPages));
 
-					results = suppliers.parallelStream().map(Supplier::get).collect(Collectors.toList());
+					results = suppliers.stream().map(Supplier::get).collect(Collectors.toList());
 					suppliers.clear();
 
 					for (StringBuilder stringBuilder : results) {
@@ -576,7 +580,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Animals");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Animals");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_ANIMALS.toString());
@@ -603,7 +607,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Bandits");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Bandits");
 		sb.append(BEGIN);
 
 		appendDefault(sb, "UNKNOWN");
@@ -653,7 +657,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Climate");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Climate");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.CLIMATE_NULL.toString());
@@ -693,7 +697,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-ConquestFactions");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-ConquestFactions");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_CONQUEST_FACTIONS.toString());
@@ -730,7 +734,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-InvasionFactions");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-InvasionFactions");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_INVASION_FACTIONS.toString());
@@ -776,7 +780,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Minerals");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Minerals");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_MINERALS.toString());
@@ -805,7 +809,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Music");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Music");
 		sb.append(BEGIN);
 
 		appendDefault(sb, N_A);
@@ -831,7 +835,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Name");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Name");
 		sb.append(BEGIN);
 
 		appendDefault(sb, "UNKNOWN");
@@ -866,7 +870,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-NPCs");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-NPCs");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_NPCS.toString());
@@ -914,7 +918,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Rainfall");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Rainfall");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
@@ -948,7 +952,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Structures");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Structures");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_STRUCTURES.toString());
@@ -996,7 +1000,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Temperature");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Temperature");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTBiome, String> entry : data.entrySet()) {
@@ -1042,7 +1046,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Trees");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Trees");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_TREES.toString());
@@ -1072,7 +1076,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Variants");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Variants");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_VARIANTS.toString());
@@ -1103,7 +1107,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-VisitAchievement");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-VisitAchievement");
 		sb.append(BEGIN);
 
 		appendDefault(sb, N_A);
@@ -1136,7 +1140,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Biome-Waypoints");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBBiome-Waypoints");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.BIOME_NO_WAYPOINTS.toString());
@@ -1165,7 +1169,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-BannerBearer");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-BannerBearer");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1245,7 +1249,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Biomes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Biomes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.ENTITY_NO_BIOMES.toString());
@@ -1279,7 +1283,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-BuysPool");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-BuysPool");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.ENTITY_NO_BUYS_POOL.toString());
@@ -1308,7 +1312,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Character");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Character");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1337,7 +1341,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Faction");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Faction");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1363,7 +1367,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Farmhand");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Farmhand");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1390,7 +1394,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Health");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Health");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1416,7 +1420,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Hireable");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Hireable");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1450,7 +1454,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HireReputation");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-HireReputation");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1482,7 +1486,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HirePrice");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-HirePrice");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1510,7 +1514,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-HirePriceOath");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-HirePriceOath");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1536,7 +1540,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToFire");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-ImmuneToFire");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1564,7 +1568,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToFrost");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-ImmuneToFrost");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1592,7 +1596,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-ImmuneToHeat");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-ImmuneToHeat");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1624,7 +1628,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-KillAchievement");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-KillAchievement");
 		sb.append(BEGIN);
 
 		appendDefault(sb, N_A);
@@ -1653,7 +1657,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-KillReputation");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-KillReputation");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -1689,7 +1693,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-LegendaryDrop");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-LegendaryDrop");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.ENTITY_NO_LEGENDARY_DROP.toString());
@@ -1718,7 +1722,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Marriage");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Marriage");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1746,7 +1750,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Mercenary");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Mercenary");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1774,7 +1778,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-NPC");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-NPC");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1806,7 +1810,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append("DB Entity-Owners");
+		sb.append(TITLE).append(NAMESPACE_NAME).append("DBEntity-Owners");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.ENTITY_NO_OWNERS.toString());
@@ -1835,7 +1839,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-RideableAnimal");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-RideableAnimal");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1863,7 +1867,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-RideableNPC");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-RideableNPC");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -1896,7 +1900,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-SellsPool");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-SellsPool");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.ENTITY_NO_SELLS_POOL.toString());
@@ -1951,7 +1955,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-SellsUnitPool");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-SellsUnitPool");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.ENTITY_NO_SELLS_UNIT_POOL.toString());
@@ -1980,7 +1984,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Smith");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Smith");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -2008,7 +2012,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-SpawnsInDarkness");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-SpawnsInDarkness");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -2036,7 +2040,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-TargetSeeker");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-TargetSeeker");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -2064,7 +2068,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Tradeable");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Tradeable");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -2092,7 +2096,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-UnitTradeable");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-UnitTradeable");
 		sb.append(BEGIN);
 
 		appendDefault(sb, FALSE);
@@ -2126,7 +2130,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Entity-Waypoint");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBEntity-Waypoint");
 		sb.append(BEGIN);
 
 		for (Map.Entry<Class<? extends Entity>, String> entry : data.entrySet()) {
@@ -2153,7 +2157,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Banners");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Banners");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_BANNERS.toString());
@@ -2187,7 +2191,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Characters");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Characters");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_CHARACTERS.toString());
@@ -2214,7 +2218,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Codename");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Codename");
 		sb.append(BEGIN);
 
 		for (Map.Entry<GOTFaction, String> entry : data.entrySet()) {
@@ -2252,7 +2256,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-ConquestBiomes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-ConquestBiomes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_CONQUEST_BIOMES.toString());
@@ -2289,7 +2293,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Enemies");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Enemies");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_ENEMIES.toString());
@@ -2324,7 +2328,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Friends");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Friends");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_FRIENDS.toString());
@@ -2359,7 +2363,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-InvasionBiomes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-InvasionBiomes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_INVASION_BIOMES.toString());
@@ -2386,7 +2390,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Name");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Name");
 		sb.append(BEGIN);
 
 		appendDefault(sb, "UNKNOWN");
@@ -2419,7 +2423,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-NPCs");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-NPCs");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_NPCS.toString());
@@ -2461,7 +2465,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-OathRank");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-OathRank");
 		sb.append(BEGIN);
 
 		appendDefault(sb, N_A);
@@ -2501,7 +2505,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Ranks");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Ranks");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_RANKS.toString());
@@ -2530,7 +2534,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Region");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Region");
 		sb.append(BEGIN);
 
 		appendDefault(sb, N_A);
@@ -2580,7 +2584,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-ShieldsCapes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-ShieldsCapes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_ATTRIBUTES.toString());
@@ -2621,7 +2625,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-SpawnBiomes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-SpawnBiomes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_SPAWN_BIOMES.toString());
@@ -2650,7 +2654,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-WarCrimes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-WarCrimes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_HAS_WAR_CRIMES.toString());
@@ -2677,7 +2681,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Faction-Waypoints");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBFaction-Waypoints");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.FACTION_NO_WAYPOINTS.toString());
@@ -2723,7 +2727,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Mineral-Biomes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBMineral-Biomes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.MINERAL_NO_BIOMES.toString());
@@ -2753,7 +2757,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Biomes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBStructure-Biomes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.STRUCTURE_NO_BIOMES.toString());
@@ -2789,7 +2793,7 @@ public class GOTWikiGenerator {
 			}
 		}
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Structure-Entities");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBStructure-Entities");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.STRUCTURE_NO_ENTITIES.toString());
@@ -2838,7 +2842,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(TEMPLATE).append("DB Tree-Biomes");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DBTree-Biomes");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.TREE_NO_BIOMES.toString());
@@ -2861,10 +2865,10 @@ public class GOTWikiGenerator {
 
 		for (GOTBiome biome : BIOMES) {
 			String pageName = getBiomePagename(biome);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				sb.append(TITLE_SINGLE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{Статья Биом}}").append(PAGE_RIGHT);
+			neededPages.add(NAMESPACE + pageName);
+			if (!existingPages.contains(NAMESPACE + pageName)) {
+				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Биом}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2876,10 +2880,10 @@ public class GOTWikiGenerator {
 
 		for (Class<? extends Entity> entityClass : ENTITY_CLASSES) {
 			String pageName = getEntityPagename(entityClass);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				sb.append(TITLE_SINGLE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{Статья Моб}}").append(PAGE_RIGHT);
+			neededPages.add(NAMESPACE + pageName);
+			if (!existingPages.contains(NAMESPACE + pageName)) {
+				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Моб}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2891,10 +2895,10 @@ public class GOTWikiGenerator {
 
 		for (GOTFaction faction : FACTIONS) {
 			String pageName = getFactionPagename(faction);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				sb.append(TITLE_SINGLE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{Статья Фракция}}").append(PAGE_RIGHT);
+			neededPages.add(NAMESPACE + pageName);
+			if (!existingPages.contains(NAMESPACE + pageName)) {
+				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Фракция}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2905,10 +2909,10 @@ public class GOTWikiGenerator {
 		StringBuilder sb = new StringBuilder();
 
 		for (String pageName : MINERALS) {
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				sb.append(TITLE_SINGLE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{Статья Ископаемое}}").append(PAGE_RIGHT);
+			neededPages.add(NAMESPACE + pageName);
+			if (!existingPages.contains(NAMESPACE + pageName)) {
+				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Ископаемое}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2920,10 +2924,10 @@ public class GOTWikiGenerator {
 
 		for (Class<? extends WorldGenerator> strClass : STRUCTURE_CLASSES) {
 			String pageName = getStructurePagename(strClass);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				sb.append(TITLE_SINGLE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{Статья Структура}}").append(PAGE_RIGHT);
+			neededPages.add(NAMESPACE + pageName);
+			if (!existingPages.contains(NAMESPACE + pageName)) {
+				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Структура}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2935,10 +2939,10 @@ public class GOTWikiGenerator {
 
 		for (GOTTreeType tree : TREES) {
 			String pageName = getTreePagename(tree);
-			neededPages.add(pageName);
-			if (!existingPages.contains(pageName)) {
-				sb.append(TITLE_SINGLE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{Статья Дерево}}").append(PAGE_RIGHT);
+			neededPages.add(NAMESPACE + pageName);
+			if (!existingPages.contains(NAMESPACE + pageName)) {
+				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Дерево}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -3094,12 +3098,15 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getBiomeLink(GOTBiome biome) {
-		String biomeName = getBiomeName(biome);
-		String biomePagename = getBiomePagename(biome);
-		if (biomeName.equals(biomePagename)) {
-			return "[[" + biomeName + "]]";
+		String name = getBiomeName(biome);
+		String pagename = getBiomePagename(biome);
+		if (name.equals(pagename)) {
+			if (NAMESPACE.isEmpty()) {
+				return "[[" + name + "]]";
+			}
+			return "[[" + NAMESPACE + name + '|' + name + "]]";
 		}
-		return "[[" + biomePagename + '|' + biomeName + "]]";
+		return "[[" + NAMESPACE + pagename + '|' + name + "]]";
 	}
 
 	private static String getBiomeName(GOTBiome biome) {
@@ -3115,11 +3122,19 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getMineralLink(Block block, int meta) {
-		return "[[" + StatCollector.translateToLocal(block.getUnlocalizedName() + '.' + meta + ".name") + "]]";
+		String name = StatCollector.translateToLocal(block.getUnlocalizedName() + '.' + meta + ".name");
+		if (NAMESPACE.isEmpty()) {
+			return "[[" + name + "]]";
+		}
+		return "[[" + NAMESPACE + name + '|' + name + "]]";
 	}
 
 	private static String getMineralLink(Block block) {
-		return "[[" + StatCollector.translateToLocal(block.getUnlocalizedName() + ".name") + "]]";
+		String name = StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
+		if (NAMESPACE.isEmpty()) {
+			return "[[" + name + "]]";
+		}
+		return "[[" + NAMESPACE + name + '|' + name + "]]";
 	}
 
 	private static String getMineralName(Block block, int meta) {
@@ -3135,16 +3150,19 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getEntityLink(Class<? extends Entity> entityClass) {
-		String entityName = getEntityName(entityClass);
-		if (entityName.contains("null")) {
+		String name = getEntityName(entityClass);
+		if (name.contains("null")) {
 			return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
 		}
 
-		String entityPagename = getEntityPagename(entityClass);
-		if (entityName.equals(entityPagename)) {
-			return "[[" + entityPagename + "]]";
+		String pagename = getEntityPagename(entityClass);
+		if (name.equals(pagename)) {
+			if (NAMESPACE.isEmpty()) {
+				return "[[" + name + "]]";
+			}
+			return "[[" + NAMESPACE + name + '|' + name + "]]";
 		}
-		return "[[" + entityPagename + '|' + entityName + "]]";
+		return "[[" + NAMESPACE + pagename + '|' + name + "]]";
 	}
 
 	private static String getEntityName(Class<? extends Entity> entityClass) {
@@ -3156,12 +3174,15 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getFactionLink(GOTFaction fac) {
-		String facName = getFactionName(fac);
-		String facPagename = getFactionPagename(fac);
-		if (facName.equals(facPagename)) {
-			return "[[" + facPagename + "]]";
+		String name = getFactionName(fac);
+		String pagename = getFactionPagename(fac);
+		if (name.equals(pagename)) {
+			if (NAMESPACE.isEmpty()) {
+				return "[[" + name + "]]";
+			}
+			return "[[" + NAMESPACE + name + '|' + name + "]]";
 		}
-		return "[[" + facPagename + '|' + facName + "]]";
+		return "[[" + NAMESPACE + pagename + '|' + name + "]]";
 	}
 
 	private static String getFactionName(GOTFaction fac) {
@@ -3185,7 +3206,11 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getStructureLink(Class<? extends WorldGenerator> structureClass) {
-		return "[[" + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name") + "]]";
+		String name = StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.CLASS_TO_NAME_MAPPING.get(structureClass) + ".name");
+		if (NAMESPACE.isEmpty()) {
+			return "[[" + name + "]]";
+		}
+		return "[[" + NAMESPACE + name + '|' + name + "]]";
 	}
 
 	private static String getStructurePagename(Class<? extends WorldGenerator> structureClass) {
@@ -3201,7 +3226,11 @@ public class GOTWikiGenerator {
 	}
 
 	private static String getTreeLink(GOTTreeType tree) {
-		return "[[" + StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name") + "]]";
+		String name = StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name");
+		if (NAMESPACE.isEmpty()) {
+			return "[[" + name + "]]";
+		}
+		return "[[" + NAMESPACE + name + '|' + name + "]]";
 	}
 
 	private static void appendSection(StringBuilder sb, Collection<String> section) {
