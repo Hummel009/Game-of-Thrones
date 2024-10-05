@@ -2868,7 +2868,7 @@ public class GOTWikiGenerator {
 			neededPages.add(NAMESPACE + pageName);
 			if (!existingPages.contains(NAMESPACE + pageName)) {
 				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Биом}}").append(PAGE_RIGHT);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Биом}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2883,7 +2883,7 @@ public class GOTWikiGenerator {
 			neededPages.add(NAMESPACE + pageName);
 			if (!existingPages.contains(NAMESPACE + pageName)) {
 				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Моб}}").append(PAGE_RIGHT);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Моб}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2898,7 +2898,7 @@ public class GOTWikiGenerator {
 			neededPages.add(NAMESPACE + pageName);
 			if (!existingPages.contains(NAMESPACE + pageName)) {
 				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Фракция}}").append(PAGE_RIGHT);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Фракция}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2912,7 +2912,7 @@ public class GOTWikiGenerator {
 			neededPages.add(NAMESPACE + pageName);
 			if (!existingPages.contains(NAMESPACE + pageName)) {
 				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Ископаемое}}").append(PAGE_RIGHT);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Ископаемое}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2927,7 +2927,7 @@ public class GOTWikiGenerator {
 			neededPages.add(NAMESPACE + pageName);
 			if (!existingPages.contains(NAMESPACE + pageName)) {
 				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Структура}}").append(PAGE_RIGHT);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Структура}}").append(PAGE_RIGHT);
 			}
 		}
 
@@ -2942,7 +2942,7 @@ public class GOTWikiGenerator {
 			neededPages.add(NAMESPACE + pageName);
 			if (!existingPages.contains(NAMESPACE + pageName)) {
 				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append(" Статья Дерево}}").append(PAGE_RIGHT);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Дерево}}").append(PAGE_RIGHT);
 			}
 		}
 
