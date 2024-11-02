@@ -27,12 +27,18 @@ tasks {
 	register("copyForgeUnpacked") {
 		doLast {
 			val userHome = System.getProperty("user.home")
-			val gradleUserHome = System.getenv("GRADLE_USER_HOME") ?: "$userHome/.gradle"
-			val sourceDir = File("$gradleUserHome/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10")
-			val targetDir =
-				File("$userHome/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10")
-			targetDir.mkdirs()
-			sourceDir.copyRecursively(targetDir, overwrite = true)
+			val gradleUserHome = System.getenv("GRADLE_USER_HOME")
+
+			if (gradleUserHome != null) {
+				val path1 = "$gradleUserHome/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10"
+				val path2 = "$userHome/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10"
+				if (path1 != path2) {
+					val sourceDir = File(path1)
+					val targetDir = File(path2)
+					targetDir.mkdirs()
+					sourceDir.copyRecursively(targetDir, overwrite = true)
+				}
+			}
 		}
 	}
 	jar {
