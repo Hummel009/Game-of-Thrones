@@ -32,7 +32,7 @@ tasks {
 			val targetDir =
 				File("$userHome/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10")
 			targetDir.mkdirs()
-			sourceDir.copyRecursively(targetDir, overwrite = false)
+			sourceDir.copyRecursively(targetDir, overwrite = true)
 		}
 	}
 	jar {
