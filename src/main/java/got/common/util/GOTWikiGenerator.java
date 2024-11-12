@@ -1442,12 +1442,14 @@ public class GOTWikiGenerator {
 
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				int reputation = (int) entry.getReputationRequired();
+				if (entry.getMountClass() == null) {
+					int reputation = (int) entry.getReputationRequired();
 
-				if (entry.getOathType() == GOTUnitTradeEntry.OathType.NONE) {
-					data.put(entry.getEntityClass(), String.valueOf(reputation));
-				} else {
-					data.put(entry.getEntityClass(), String.valueOf(Math.max(reputation, 100)));
+					if (entry.getOathType() == GOTUnitTradeEntry.OathType.NONE) {
+						data.put(entry.getEntityClass(), String.valueOf(reputation));
+					} else {
+						data.put(entry.getEntityClass(), String.valueOf(Math.max(reputation, 100)));
+					}
 				}
 			}
 		}
@@ -1474,12 +1476,14 @@ public class GOTWikiGenerator {
 
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				int cost = entry.getInitialCost();
+				if (entry.getMountClass() == null) {
+					int cost = entry.getInitialCost();
 
-				if (entry.getOathType() == GOTUnitTradeEntry.OathType.NONE) {
-					data.put(entry.getEntityClass(), "{{Bar Coins|" + cost * 2 + "}}");
-				} else {
-					data.put(entry.getEntityClass(), N_A);
+					if (entry.getOathType() == GOTUnitTradeEntry.OathType.NONE) {
+						data.put(entry.getEntityClass(), "{{Bar Coins|" + cost * 2 + "}}");
+					} else {
+						data.put(entry.getEntityClass(), N_A);
+					}
 				}
 			}
 		}
@@ -1506,9 +1510,11 @@ public class GOTWikiGenerator {
 
 		for (GOTUnitTradeEntries entries : UNIT_TRADE_ENTRIES) {
 			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
-				int cost = entry.getInitialCost();
+				if (entry.getMountClass() == null) {
+					int cost = entry.getInitialCost();
 
-				data.put(entry.getEntityClass(), "{{Bar Coins|" + cost + "}}");
+					data.put(entry.getEntityClass(), "{{Bar Coins|" + cost + "}}");
+				}
 			}
 		}
 
