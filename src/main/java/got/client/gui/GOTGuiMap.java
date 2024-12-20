@@ -736,8 +736,8 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 				float biomePosZ = posY + (j - mapYMin - (float) mapHeight / 2) / zoomScale;
 				int biomePosX_int = MathHelper.floor_double(biomePosX);
 				GOTBiome biome = GOTGenLayerWorld.getBiomeOrOcean(biomePosX_int, MathHelper.floor_double(biomePosZ));
-				mouseXCoord = Math.round((biomePosX - GOTGenLayerWorld.ORIGIN_X) * GOTGenLayerWorld.SCALE);
-				mouseZCoord = Math.round((biomePosZ - GOTGenLayerWorld.ORIGIN_Z) * GOTGenLayerWorld.SCALE);
+				mouseXCoord = Math.round((biomePosX - GOTGenLayerWorld.ORIGIN_X) * GOTGenLayerWorld.BLOCKS_PER_PIXEL);
+				mouseZCoord = Math.round((biomePosZ - GOTGenLayerWorld.ORIGIN_Z) * GOTGenLayerWorld.BLOCKS_PER_PIXEL);
 				String biomeName = biome.getBiomeDisplayName();
 				String coords = StatCollector.translateToLocalFormatted("got.gui.map.coords", mouseXCoord, mouseZCoord);
 				String teleport = StatCollector.translateToLocalFormatted("got.gui.map.tp", GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_MAP_TELEPORT.getKeyCode()));
@@ -1074,18 +1074,18 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 			int zMax = zoneBorders[3];
 			float x = (xMin + xMax) / 2.0f;
 			float z = (zMin + zMax) / 2.0f;
-			posX = x / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_X;
-			posY = z / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_Z;
+			posX = x / GOTGenLayerWorld.BLOCKS_PER_PIXEL + GOTGenLayerWorld.ORIGIN_X;
+			posY = z / GOTGenLayerWorld.BLOCKS_PER_PIXEL + GOTGenLayerWorld.ORIGIN_Z;
 			int zoneWidth = xMax - xMin;
 			int zoneHeight = zMax - zMin;
-			double mapZoneWidth = (double) zoneWidth / GOTGenLayerWorld.SCALE;
-			double mapZoneHeight = (double) zoneHeight / GOTGenLayerWorld.SCALE;
+			double mapZoneWidth = (double) zoneWidth / GOTGenLayerWorld.BLOCKS_PER_PIXEL;
+			double mapZoneHeight = (double) zoneHeight / GOTGenLayerWorld.BLOCKS_PER_PIXEL;
 			int zoomPowerWidth = MathHelper.floor_double(Math.log(mapWidth / mapZoneWidth) / Math.log(2.0));
 			int zoomPowerHeight = MathHelper.floor_double(Math.log(mapHeight / mapZoneHeight) / Math.log(2.0));
 			prevZoomPower = zoomPower = Math.min(zoomPowerWidth, zoomPowerHeight);
 		} else if (mc.thePlayer != null) {
-			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_X;
-			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_Z;
+			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.BLOCKS_PER_PIXEL) + GOTGenLayerWorld.ORIGIN_X;
+			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.BLOCKS_PER_PIXEL) + GOTGenLayerWorld.ORIGIN_Z;
 		}
 		prevPosX = posX;
 		prevPosY = posY;
@@ -2160,8 +2160,8 @@ public class GOTGuiMap extends GOTGuiMenuBaseReturn {
 	}
 
 	private float[] transformCoords(float x, float z) {
-		float x1 = x / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_X;
-		float z1 = z / GOTGenLayerWorld.SCALE + GOTGenLayerWorld.ORIGIN_Z;
+		float x1 = x / GOTGenLayerWorld.BLOCKS_PER_PIXEL + GOTGenLayerWorld.ORIGIN_X;
+		float z1 = z / GOTGenLayerWorld.BLOCKS_PER_PIXEL + GOTGenLayerWorld.ORIGIN_Z;
 		return transformMapCoords(x1, z1);
 	}
 

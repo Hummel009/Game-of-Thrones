@@ -18,8 +18,8 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		GL11.glDisable(2896);
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) d + 0.5f, (float) d1 + 1.1f, (float) d2 + 0.5f);
-		float posX = Math.round(viewerX / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_X;
-		float posY = Math.round(viewerZ / GOTGenLayerWorld.SCALE) + GOTGenLayerWorld.ORIGIN_Z;
+		float posX = Math.round(viewerX / GOTGenLayerWorld.BLOCKS_PER_PIXEL) + GOTGenLayerWorld.ORIGIN_X;
+		float posY = Math.round(viewerZ / GOTGenLayerWorld.BLOCKS_PER_PIXEL) + GOTGenLayerWorld.ORIGIN_Z;
 		int viewportWidth = 400;
 		viewportWidth = (int) Math.round(viewportWidth * Math.pow(2.0, zoomExp));
 		double radius = 0.9;

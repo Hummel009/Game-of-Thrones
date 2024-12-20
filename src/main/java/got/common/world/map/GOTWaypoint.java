@@ -526,15 +526,15 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static int mapToWorldR(double r) {
-		return (int) Math.round(r * GOTGenLayerWorld.SCALE);
+		return (int) Math.round(r * GOTGenLayerWorld.BLOCKS_PER_PIXEL);
 	}
 
 	public static int mapToWorldX(double x) {
-		return (int) Math.round((x - GOTGenLayerWorld.ORIGIN_X + 0.5) * GOTGenLayerWorld.SCALE);
+		return (int) Math.round((x - GOTGenLayerWorld.ORIGIN_X + 0.5) * GOTGenLayerWorld.BLOCKS_PER_PIXEL);
 	}
 
 	public static int mapToWorldZ(double z) {
-		return (int) Math.round((z - GOTGenLayerWorld.ORIGIN_Z + 0.5) * GOTGenLayerWorld.SCALE);
+		return (int) Math.round((z - GOTGenLayerWorld.ORIGIN_Z + 0.5) * GOTGenLayerWorld.BLOCKS_PER_PIXEL);
 	}
 
 	public static Region regionForID(int id) {
@@ -568,15 +568,15 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static int worldToMapR(double r) {
-		return (int) Math.round(r / GOTGenLayerWorld.SCALE);
+		return (int) Math.round(r / GOTGenLayerWorld.BLOCKS_PER_PIXEL);
 	}
 
 	public static int worldToMapX(double x) {
-		return (int) Math.round(x / GOTGenLayerWorld.SCALE - 0.5 + GOTGenLayerWorld.ORIGIN_X);
+		return (int) Math.round(x / GOTGenLayerWorld.BLOCKS_PER_PIXEL - 0.5 + GOTGenLayerWorld.ORIGIN_X);
 	}
 
 	public static int worldToMapZ(double z) {
-		return (int) Math.round(z / GOTGenLayerWorld.SCALE - 0.5 + GOTGenLayerWorld.ORIGIN_Z);
+		return (int) Math.round(z / GOTGenLayerWorld.BLOCKS_PER_PIXEL - 0.5 + GOTGenLayerWorld.ORIGIN_Z);
 	}
 
 	@Override

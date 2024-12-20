@@ -376,12 +376,12 @@ public class GOTConquestGrid {
 	}
 
 	private static int worldToGridX(int i) {
-		int mapX = i >> 7;
+		int mapX = i >> GOTGenLayerWorld.POWER;
 		return mapX + GOTGenLayerWorld.ORIGIN_X >> 3;
 	}
 
 	private static int worldToGridZ(int k) {
-		int mapZ = k >> 7;
+		int mapZ = k >> GOTGenLayerWorld.POWER;
 		return mapZ + GOTGenLayerWorld.ORIGIN_Z >> 3;
 	}
 
