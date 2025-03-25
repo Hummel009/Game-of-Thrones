@@ -2904,7 +2904,7 @@ public class GOTWikiGenerator {
 			neededPages.add(NAMESPACE + pageName);
 			if (!existingPages.contains(NAMESPACE + pageName)) {
 				sb.append(TITLE_SINGLE).append(NAMESPACE).append(pageName);
-				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Фракция}}").append(PAGE_RIGHT);
+				sb.append(PAGE_LEFT).append("{{").append(NAMESPACE_NAME).append("Статья Формация}}").append(PAGE_RIGHT);
 			}
 		}
 
