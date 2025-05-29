@@ -5,21 +5,11 @@
 [![Button Rinth]][Rinth]
 [![Button Wiki]][Wiki]
 
-<br>
-
-</div>
-
-<div align = "center">
-
 Game of Thrones mod for Minecraft 1.7.10 is a global mod that turns Minecraft into an RPG.
 New continents and countries, hundreds of new biomes, blocks, items, and achievements await you.
 Explore, fight, trade, and complete quests. Change this world!
 
-<br>
-
 ![Logo]
-
-<br>
 
 </div>
 
