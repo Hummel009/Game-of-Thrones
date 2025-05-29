@@ -1,11 +1,5 @@
 <div align = "center">
 
-<br>
-
-![Logo]
-
-<br>
-
 [![Badge License]][License]
 [![Button Curse]][Curse]
 [![Button Rinth]][Rinth]
@@ -21,6 +15,12 @@ Game of Thrones mod for Minecraft 1.7.10 is a global mod that turns Minecraft in
 New continents and countries, hundreds of new biomes, blocks, items, and achievements await you.
 Explore, fight, trade, and complete quests. Change this world!
 
+<br>
+
+![Logo]
+
+<br>
+
 </div>
 
 <!----------------------------------------------------------------------------->
@@ -31,7 +31,7 @@ Explore, fight, trade, and complete quests. Change this world!
 
 [Rinth]: https://modrinth.com/mod/gotminecraftmod
 
-[Logo]: src/main/resources/assets/got/textures/logo.png
+[Logo]: game-of-thrones.jpg
 
 [Wiki]: https://gotminecraftmod.fandom.com/ru
 
