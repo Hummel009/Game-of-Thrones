@@ -2,14 +2,14 @@
 
 <br>
 
+![Logo]
+
+<br>
+
 [![Badge License]][License]
 [![Button Curse]][Curse]
 [![Button Rinth]][Rinth]
 [![Button Wiki]][Wiki]
-
-<br>
-
-![Logo]
 
 <br>
 
@@ -40,6 +40,6 @@
 
 [Button Curse]: https://img.shields.io/badge/Download-f16436.svg?style=for-the-badge&logoColor=white&logo=CurseForge
 
-[Button Rinth]: https://img.shields.io/badge/Download-f16436.svg?style=for-the-badge&logoColor=white&logo=Modrinth
+[Button Rinth]: https://img.shields.io/badge/Download-f16436.svg?style=for-the-badge&color=green&logoColor=white&logo=Modrinth
 
 [Button Wiki]: https://img.shields.io/badge/Wiki-FA005A.svg?style=for-the-badge&logoColor=white&logo=Fandom
