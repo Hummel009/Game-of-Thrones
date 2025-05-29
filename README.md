@@ -21,7 +21,7 @@ Explore, fight, trade, and complete quests. Change this world!
 
 [Rinth]: https://modrinth.com/mod/gotminecraftmod
 
-[Logo]: game-of-thrones.jpg
+[Logo]: readme.jpg
 
 [Wiki]: https://gotminecraftmod.fandom.com/ru
 
