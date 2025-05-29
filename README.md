@@ -17,9 +17,9 @@
 
 <div align = "center">
 
-Мод «Игра престолов» для Minecraft 1.7.10 – глобальное дополнение, которое превращает Minecraft в RPG c открытым миром. Вас
-ждут новые континенты и государства, сотни новых биомов, блоков, предметов и достижений. Исследуйте, сражайтесь, торгуйте
-и выполняйте задания. Измените этот мир!
+Game of Thrones mod for Minecraft 1.7.10 is a global add-on that turns Minecraft into an open-world RPG.
+New continents and countries, hundreds of new biomes, blocks, items, and achievements await you.
+Explore, fight, trade, and complete quests. Change this world!
 
 </div>
 
