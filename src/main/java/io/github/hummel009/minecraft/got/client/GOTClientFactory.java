@@ -68,6 +68,7 @@ public class GOTClientFactory {
 		itemRendererManager.onResourceManagerReload(resourceManager);
 		((IReloadableResourceManager) resourceManager).registerReloadListener(itemRendererManager);
 		forgeBus.register(itemRendererManager);
+
 		armorModels = GOTArmorModels.INSTANCE;
 		forgeBus.register(armorModels);
 	}

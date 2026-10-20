@@ -8,6 +8,9 @@ import java.awt.*;
 public enum GOTClimateType {
 	WINTER(false), COLD(false), COLD_AZ(true), SUMMER(false), SUMMER_AZ(true), NORMAL(false), NORMAL_AZ(true);
 
+	private static GOTDate.Season lastAppliedSeasonServer;
+	private static GOTDate.Season lastAppliedSeasonClient;
+
 	private final boolean altitudeZone;
 
 	GOTClimateType(boolean zone) {
@@ -15,6 +18,12 @@ public enum GOTClimateType {
 	}
 
 	public static void performSeasonalChangesClientSide() {
+		GOTDate.Season current = GOTDate.AegonCalendar.getSeason();
+		if (current == lastAppliedSeasonServer) {
+			return;
+		}
+		lastAppliedSeasonServer = current;
+
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
 			if (biome != null && biome.getClimateType() != null) {
 				GOTClimateType climateType = biome.getClimateType();
@@ -135,6 +144,12 @@ public enum GOTClimateType {
 	}
 
 	public static void performSeasonalChangesServerSide() {
+		GOTDate.Season current = GOTDate.AegonCalendar.getSeason();
+		if (current == lastAppliedSeasonClient) {
+			return;
+		}
+		lastAppliedSeasonClient = current;
+
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.getBiomeList()) {
 			if (biome != null && biome.getClimateType() != null) {
 				GOTClimateType climateType = biome.getClimateType();

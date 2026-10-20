@@ -218,9 +218,10 @@ public class GOTBiomeGenerator {
 				}
 			}
 		}
+		int bedrockDepth = random.nextInt(5);
 		for (int j = ySize - 1; j >= 0; --j) {
 			int index = xzIndex * ySize + j;
-			if (j <= random.nextInt(5)) {
+			if (j <= bedrockDepth) {
 				blocks[index] = Blocks.bedrock;
 			} else {
 				Block block = blocks[index];

@@ -20,19 +20,20 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.ForgeEventFactory;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class GOTEventSpawner {
-	private static final Set<ChunkCoordIntPair> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
+	private static final Collection<Long> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
+
+	private static long[] shuffleBuffer = new long[0];
 
 	private GOTEventSpawner() {
 	}
@@ -40,24 +41,28 @@ public class GOTEventSpawner {
 	public static void performSpawning(World world) {
 		if (world.getTotalWorldTime() % 20L == 0L) {
 			GOTSpawnerNPCs.getSpawnableChunksWithPlayerInRange(world, ELIGIBLE_SPAWN_CHUNKS, 32);
-			List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(ELIGIBLE_SPAWN_CHUNKS);
-			spawnBandits(world, shuffled);
+			if (shuffleBuffer.length < ELIGIBLE_SPAWN_CHUNKS.size()) {
+				shuffleBuffer = new long[ELIGIBLE_SPAWN_CHUNKS.size()];
+			}
+			int shuffledSize = GOTSpawnerNPCs.shuffleInto(shuffleBuffer, ELIGIBLE_SPAWN_CHUNKS, world.rand);
+			spawnBandits(world, shuffledSize);
 			if (GOTConfig.enableInvasions) {
-				spawnInvasions(world, shuffled);
+				spawnInvasions(world, shuffledSize);
 			}
 		}
 		GOTJaqenHgharTracker.performSpawning(world);
 	}
 
-	private static void spawnBandits(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
+	private static void spawnBandits(World world, int shuffledSize) {
 		Random rand = world.rand;
 		block0:
-		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+		for (int si = 0; si < shuffledSize; ++si) {
+			long chunkKey = shuffleBuffer[si];
 			int i;
 			BiomeGenBase biome;
 			int k;
 			int range;
-			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
+			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkKey);
 			if (chunkposition == null || !((biome = GOTCrashHandler.getBiomeGenForCoords(world, i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
 				continue;
 			}
@@ -94,18 +99,20 @@ public class GOTEventSpawner {
 		}
 	}
 
-	private static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
+	private static void spawnInvasions(World world, int shuffledSize) {
 		Random rand = world.rand;
 		block0:
-		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+		for (int si = 0; si < shuffledSize; ++si) {
+			long chunkKey = shuffleBuffer[si];
 			int i;
 			BiomeGenBase biome;
 			int k;
-			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
+			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkKey);
 			if (chunkposition == null || !((biome = GOTCrashHandler.getBiomeGenForCoords(world, i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
 				continue;
 			}
 			GOTBiomeInvasionSpawns invasionSpawns = ((GOTBiome) biome).getInvasionSpawns();
+			boolean lunarBoost = !world.isDaytime() && GOTWorldProvider.isLunarEclipse();
 			for (EventChance invChance : EventChance.values()) {
 				int range;
 				List<GOTInvasions> invList = invasionSpawns.getInvasionsForChance(invChance);
@@ -114,7 +121,7 @@ public class GOTEventSpawner {
 				}
 				GOTInvasions invasionType = invList.get(rand.nextInt(invList.size()));
 				double chance = invChance.getChancesPerSecondPerChunk()[16];
-				if (!world.isDaytime() && GOTWorldProvider.isLunarEclipse()) {
+				if (lunarBoost) {
 					chance *= 5.0;
 				}
 				if (rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), new EntitySelectorImpl(invasionType)).isEmpty()) {
@@ -151,8 +158,8 @@ public class GOTEventSpawner {
 		EventChance(float prob, int s) {
 			double chancePerSecond = getChance(prob, s);
 			chancesPerSecondPerChunk = new double[64];
-			for (int i = 0; i < getChancesPerSecondPerChunk().length; ++i) {
-				getChancesPerSecondPerChunk()[i] = getChance(chancePerSecond, i);
+			for (int i = 0; i < chancesPerSecondPerChunk.length; ++i) {
+				chancesPerSecondPerChunk[i] = getChance(chancePerSecond, i);
 			}
 		}
 

@@ -669,11 +669,13 @@ public class GOTBeziers {
 	}
 
 	public static class BezierPointDatabase {
+		private static final int BUCKET_SHIFT = 5;
+
 		private final Map<Pair<Integer, Integer>, List<BezierPoint>> pointMap = new HashMap<>();
 
 		private void add(BezierPoint point) {
-			int x = (int) Math.round(point.getX() / 1000.0);
-			int z = (int) Math.round(point.getZ() / 1000.0);
+			int x = (int) Math.floor(point.getX()) >> BUCKET_SHIFT;
+			int z = (int) Math.floor(point.getZ()) >> BUCKET_SHIFT;
 			int overlap = 1;
 			for (int i = -overlap; i <= overlap; ++i) {
 				for (int k = -overlap; k <= overlap; ++k) {
@@ -697,8 +699,8 @@ public class GOTBeziers {
 		}
 
 		private List<BezierPoint> getPointsForCoords(int x, int z) {
-			int x1 = x / 1000;
-			int z1 = z / 1000;
+			int x1 = x >> BUCKET_SHIFT;
+			int z1 = z >> BUCKET_SHIFT;
 			return getBezierList(x1, z1, false);
 		}
 	}

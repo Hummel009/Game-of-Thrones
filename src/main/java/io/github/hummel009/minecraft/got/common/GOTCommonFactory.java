@@ -1,7 +1,6 @@
 package io.github.hummel009.minecraft.got.common;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -42,7 +41,7 @@ public class GOTCommonFactory {
 		return eventHandler;
 	}
 
-	public static IFuelHandler getFuelHandler() {
+	public static GOTFuelHandler getFuelHandler() {
 		return fuelHandler;
 	}
 

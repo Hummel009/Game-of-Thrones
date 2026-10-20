@@ -82,19 +82,26 @@ public class GOTFixer {
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
 		GOTWaypoint[] forts = {GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5};
+		int centerX = i + 8;
+		int centerZ = k + 8;
 		for (GOTWaypoint wp : forts) {
+			int dx = centerX - wp.getCoordX();
+			int dz = centerZ - wp.getCoordZ();
+			if (dx * dx + dz * dz > 160 * 160) {
+				continue;
+			}
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}
-		WorldGenerator weirwood = ((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions();
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WINTERFELL.info(-0.45, -0.05, Dir.WEST))) {
+			WorldGenerator weirwood = ((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions();
 			weirwood.generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
 		}
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE.info(0, -0.125f))) {
+			WorldGenerator weirwood = ((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions();
 			weirwood.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k);
 		}
-		WorldGenerator ship = new EuronShip();
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.EURON)) {
-			ship.generate(world, random, i, 55, k);
+			new EuronShip().generate(world, random, i, 55, k);
 		}
 	}
 

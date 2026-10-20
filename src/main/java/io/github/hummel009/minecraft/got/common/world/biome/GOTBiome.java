@@ -50,8 +50,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.EnumHelper;
 
 import java.awt.*;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 
 @SuppressWarnings({"WeakerAccess", "PublicField", "unused"})
 public abstract class GOTBiome extends BiomeGenBase {
@@ -252,6 +252,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTiMarshes;
 	public static GOTBiome yiTiTropicalForest;
 	public static GOTBiome yiTiBorderZone;
+
+	private static int lastWaterColorK = Integer.MIN_VALUE;
 
 	protected final List<SpawnListEntry> spawnableGOTAmbientList = new ArrayList<>();
 	protected final GOTBiomeVariantList biomeVariants = new GOTBiomeVariantList();
@@ -494,6 +496,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public static void updateWaterColor(int k) {
+		if (k == lastWaterColorK) {
+			return;
+		}
+		lastWaterColorK = k;
+
 		float waterLimitNorth = -25000;
 		float waterLimitCenter = 240000;
 		float waterLimitSouth = 453000;

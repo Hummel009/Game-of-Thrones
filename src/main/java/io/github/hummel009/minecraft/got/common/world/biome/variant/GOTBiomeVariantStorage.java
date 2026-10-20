@@ -8,18 +8,24 @@ import io.github.hummel009.minecraft.got.common.network.GOTPacketBiomeVariantsWa
 import io.github.hummel009.minecraft.got.common.network.GOTPacketHandler;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
 
-import java.util.*;
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class GOTBiomeVariantStorage {
-	private static final Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> CHUNK_VARIANT_MAP = new EnumMap<>(GOTDimension.class);
-	private static final Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> CHUNK_VARIANT_MAP_CLIENT = new EnumMap<>(GOTDimension.class);
+	private static final Map<GOTDimension, Map<Long, byte[]>> CHUNK_VARIANT_MAP = new EnumMap<>(GOTDimension.class);
+	private static final Map<GOTDimension, Map<Long, byte[]>> CHUNK_VARIANT_MAP_CLIENT = new EnumMap<>(GOTDimension.class);
 
 	private GOTBiomeVariantStorage() {
+	}
+
+	private static long packKey(int chunkX, int chunkZ) {
+		return (long) chunkX << 32 | chunkZ & 0xFFFFFFFFL;
 	}
 
 	public static void clearAllVariants(World world) {
@@ -27,26 +33,22 @@ public class GOTBiomeVariantStorage {
 		FMLLog.info("Unloading GOT biome variants in %s", GOTDimension.GAME_OF_THRONES.getDimensionName());
 	}
 
-	public static void clearChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
-		getDimensionChunkMap(world).remove(chunk);
+	public static void clearChunkBiomeVariants(World world, int chunkX, int chunkZ) {
+		getDimensionChunkMap(world).remove(packKey(chunkX, chunkZ));
 	}
 
 	public static byte[] getChunkBiomeVariants(World world, Chunk chunk) {
-		return getChunkBiomeVariants(world, getChunkKey(chunk));
+		return getChunkBiomeVariants(world, chunk.xPosition, chunk.zPosition);
 	}
 
-	private static byte[] getChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
-		return getDimensionChunkMap(world).get(chunk);
+	private static byte[] getChunkBiomeVariants(World world, int chunkX, int chunkZ) {
+		return getDimensionChunkMap(world).get(packKey(chunkX, chunkZ));
 	}
 
-	private static ChunkCoordIntPair getChunkKey(Chunk chunk) {
-		return new ChunkCoordIntPair(chunk.xPosition, chunk.zPosition);
-	}
-
-	private static Map<ChunkCoordIntPair, byte[]> getDimensionChunkMap(World world) {
+	private static Map<Long, byte[]> getDimensionChunkMap(World world) {
 		GOTDimension dim;
-		Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> sourcemap = world.isRemote ? CHUNK_VARIANT_MAP_CLIENT : CHUNK_VARIANT_MAP;
-		Map<ChunkCoordIntPair, byte[]> map = sourcemap.get(dim = GOTDimension.GAME_OF_THRONES);
+		Map<GOTDimension, Map<Long, byte[]>> sourcemap = world.isRemote ? CHUNK_VARIANT_MAP_CLIENT : CHUNK_VARIANT_MAP;
+		Map<Long, byte[]> map = sourcemap.get(dim = GOTDimension.GAME_OF_THRONES);
 		if (map == null) {
 			map = new HashMap<>();
 			sourcemap.put(dim, map);
@@ -55,8 +57,7 @@ public class GOTBiomeVariantStorage {
 	}
 
 	public static int getSize(World world) {
-		Map<ChunkCoordIntPair, byte[]> map = getDimensionChunkMap(world);
-		return map.size();
+		return getDimensionChunkMap(world).size();
 	}
 
 	public static void loadChunkVariants(World world, Chunk chunk, NBTTagCompound data) {
@@ -67,17 +68,16 @@ public class GOTBiomeVariantStorage {
 	}
 
 	public static void performCleanup(WorldServer world) {
-		Map<ChunkCoordIntPair, byte[]> dimensionMap = getDimensionChunkMap(world);
-		System.nanoTime();
-		Collection<ChunkCoordIntPair> removalChunks = new ArrayList<>();
-		for (ChunkCoordIntPair chunk : dimensionMap.keySet()) {
-			if (world.theChunkProviderServer.chunkExists(chunk.chunkXPos, chunk.chunkZPos)) {
+		Map<Long, byte[]> dimensionMap = getDimensionChunkMap(world);
+		Iterator<Map.Entry<Long, byte[]>> iterator = dimensionMap.entrySet().iterator();
+		while (iterator.hasNext()) {
+			long key = iterator.next().getKey();
+			int chunkX = (int) (key >> 32);
+			int chunkZ = (int) key;
+			if (world.theChunkProviderServer.chunkExists(chunkX, chunkZ)) {
 				continue;
 			}
-			removalChunks.add(chunk);
-		}
-		for (ChunkCoordIntPair chunk : removalChunks) {
-			dimensionMap.remove(chunk);
+			iterator.remove();
 		}
 	}
 
@@ -108,10 +108,10 @@ public class GOTBiomeVariantStorage {
 	}
 
 	public static void setChunkBiomeVariants(World world, Chunk chunk, byte[] variants) {
-		setChunkBiomeVariants(world, getChunkKey(chunk), variants);
+		setChunkBiomeVariants(world, chunk.xPosition, chunk.zPosition, variants);
 	}
 
-	public static void setChunkBiomeVariants(World world, ChunkCoordIntPair chunk, byte[] variants) {
-		getDimensionChunkMap(world).put(chunk, variants);
+	public static void setChunkBiomeVariants(World world, int chunkX, int chunkZ, byte[] variants) {
+		getDimensionChunkMap(world).put(packKey(chunkX, chunkZ), variants);
 	}
 }

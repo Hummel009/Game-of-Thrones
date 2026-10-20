@@ -8,14 +8,37 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenRavine;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class GOTMapGenRavine extends MapGenRavine {
 	private final float[] ravineNoise = new float[1024];
 
+	private final Map<Long, BiomeGenBase[]> biomeCache = new HashMap<>();
+
+	private BiomeGenBase getBiomeAt(int worldX, int worldZ) {
+		int chunkX = worldX >> 4;
+		int chunkZ = worldZ >> 4;
+		long key = (long) chunkX << 32 | chunkZ & 0xFFFFFFFFL;
+		BiomeGenBase[] arr = biomeCache.get(key);
+		if (arr == null) {
+			arr = new BiomeGenBase[256];
+			int baseX = chunkX << 4;
+			int baseZ = chunkZ << 4;
+			for (int dx = 0; dx < 16; ++dx) {
+				for (int dz = 0; dz < 16; ++dz) {
+					arr[dx + dz * 16] = GOTCrashHandler.getBiomeGenForCoords(worldObj, baseX + dx, baseZ + dz);
+				}
+			}
+			biomeCache.put(key, arr);
+		}
+		return arr[(worldX & 0xF) + (worldZ & 0xF) * 16];
+	}
+
 	@Override
 	public void digBlock(Block[] data, int index, int i, int j, int k, int chunkX, int chunkZ, boolean topBlock) {
-		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + chunkX * 16, k + chunkZ * 16);
+		BiomeGenBase biome = getBiomeAt(i + chunkX * 16, k + chunkZ * 16);
 		Block top = biome.topBlock;
 		Block filler = biome.fillerBlock;
 		Block block = data[index];
@@ -33,7 +56,7 @@ public class GOTMapGenRavine extends MapGenRavine {
 
 	@Override
 	public void func_151538_a(World world, int i, int k, int chunkX, int chunkZ, Block[] blocks) {
-		GOTCrashHandler.getBiomeGenForCoords(worldObj, chunkX * 16, chunkZ * 16);
+		biomeCache.clear();
 		if (rand.nextBoolean()) {
 			super.func_151538_a(world, i, k, chunkX, chunkZ, blocks);
 		}
@@ -139,13 +162,24 @@ public class GOTMapGenRavine extends MapGenRavine {
 								if (d12 * d12 + d13 * d13 >= 1.0) {
 									continue;
 								}
+								BiomeGenBase biome = getBiomeAt(i1 + chunkX * 16, k1 + chunkZ * 16);
 								for (int j1 = yMax - 1; j1 >= yMin; --j1) {
 									double d14 = (j1 + 0.5 - d15) / d7;
 									if ((d12 * d12 + d13 * d13) * ravineNoise[j1] + d14 * d14 / 6.0 < 1.0) {
-										if (isTopBlock(blocks, blockIndex, i1, k1, chunkX, chunkZ)) {
+										if (blocks[blockIndex] == biome.topBlock) {
 											topBlock = true;
 										}
-										digBlock(blocks, blockIndex, i1, j1, k1, chunkX, chunkZ, topBlock);
+										Block block = blocks[blockIndex];
+										if (GOTMapGenCaves.isTerrainBlock(block, biome)) {
+											if (j1 < 10) {
+												blocks[blockIndex] = Blocks.flowing_lava;
+											} else {
+												blocks[blockIndex] = Blocks.air;
+												if (topBlock && blocks[blockIndex - 1] == biome.fillerBlock) {
+													blocks[blockIndex - 1] = biome.topBlock;
+												}
+											}
+										}
 									}
 									--blockIndex;
 								}
@@ -159,10 +193,5 @@ public class GOTMapGenRavine extends MapGenRavine {
 			}
 			++intPar11;
 		}
-	}
-
-	private boolean isTopBlock(Block[] data, int index, int i, int k, int chunkX, int chunkZ) {
-		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + chunkX * 16, k + chunkZ * 16);
-		return data[index] == biome.topBlock;
 	}
 }

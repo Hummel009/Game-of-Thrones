@@ -199,18 +199,42 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 			variants1 = new GOTBiomeVariant[xSize * zSize];
 		}
 		GOTGenLayer[] sourceGenLayers = isChunkGeneration ? chunkGenLayers : worldLayers;
-		int LAYER_VARIANTS_LARGE = 1;
-		GOTGenLayer variantsLarge = sourceGenLayers[LAYER_VARIANTS_LARGE];
-		int LAYER_VARIANTS_SMALL = 2;
-		GOTGenLayer variantsSmall = sourceGenLayers[LAYER_VARIANTS_SMALL];
-		int LAYER_VARIANTS_LAKES = 3;
-		GOTGenLayer variantsLakes = sourceGenLayers[LAYER_VARIANTS_LAKES];
-		int LAYER_VARIANTS_RIVERS = 4;
-		GOTGenLayer variantsRivers = sourceGenLayers[LAYER_VARIANTS_RIVERS];
+		GOTGenLayer variantsLarge = sourceGenLayers[1];
+		GOTGenLayer variantsSmall = sourceGenLayers[2];
+		GOTGenLayer variantsLakes = sourceGenLayers[3];
+		GOTGenLayer variantsRivers = sourceGenLayers[4];
 		int[] variantsLargeInts = variantsLarge.getInts(worldObj, i, k, xSize, zSize);
 		int[] variantsSmallInts = variantsSmall.getInts(worldObj, i, k, xSize, zSize);
 		int[] variantsLakesInts = variantsLakes.getInts(worldObj, i, k, xSize, zSize);
 		int[] variantsRiversInts = variantsRivers.getInts(worldObj, i, k, xSize, zSize);
+
+		byte[] precomputedFlags = null;
+		if (isChunkGeneration) {
+			precomputedFlags = new byte[xSize * zSize];
+			for (int k1 = 0; k1 < zSize; ++k1) {
+				for (int i1 = 0; i1 < xSize; ++i1) {
+					int index = i1 + k1 * xSize;
+					int xPos = i + i1 << 2;
+					int zPos = k + k1 << 2;
+					byte flags = 0;
+					if (GOTFixedStructures.hasMapFeatures(worldObj)) {
+						boolean[] mtnStr = GOTFixedStructures.isMountainOrStructureNear(worldObj, xPos, zPos);
+						if (mtnStr[0]) {
+							flags |= 1;
+						}
+						if (mtnStr[1]) {
+							flags |= 2;
+						}
+					}
+					GOTBiome biome = (GOTBiome) biomes[index];
+					if (biome.getDecorator().anyFixedSettlementsAt(worldObj, xPos, zPos)) {
+						flags |= 4;
+					}
+					precomputedFlags[index] = flags;
+				}
+			}
+		}
+
 		for (int k1 = 0; k1 < zSize; ++k1) {
 			for (int i1 = 0; i1 < xSize; ++i1) {
 				int riverCode;
@@ -219,14 +243,20 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 				GOTBiomeVariant variant = GOTBiomeVariant.STANDARD;
 				int xPos = i + i1;
 				int zPos = k + k1;
+				boolean mountainNear;
+				boolean structureNear;
+				boolean fixedSettlementNear;
 				if (isChunkGeneration) {
-					xPos <<= 2;
-					zPos <<= 2;
+					byte flags = precomputedFlags[index];
+					mountainNear = (flags & 1) != 0;
+					structureNear = (flags & 2) != 0;
+					fixedSettlementNear = (flags & 4) != 0;
+				} else {
+					boolean[] mtnStr = GOTFixedStructures.isMountainOrStructureNear(worldObj, xPos, zPos);
+					mountainNear = mtnStr[0];
+					structureNear = mtnStr[1];
+					fixedSettlementNear = biome.getDecorator().anyFixedSettlementsAt(worldObj, xPos, zPos);
 				}
-				boolean[] flags = GOTFixedStructures.isMountainOrStructureNear(worldObj, xPos, zPos);
-				boolean mountainNear = flags[0];
-				boolean structureNear = flags[1];
-				boolean fixedSettlementNear = biome.getDecorator().anyFixedSettlementsAt(worldObj, xPos, zPos);
 				if (fixedSettlementNear) {
 					variant = GOTBiomeVariant.STEPPE;
 				} else {

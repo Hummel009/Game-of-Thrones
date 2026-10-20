@@ -32,6 +32,8 @@ import net.minecraftforge.common.ForgeModContainer;
 public class GOTWorldProvider extends WorldProvider {
 	public static final int MOON_PHASES = 8;
 
+	private static final int COLOR_SAMPLE_STEP = 4;
+
 	@SideOnly(Side.CLIENT)
 	private IRenderHandler gotSkyRenderer;
 
@@ -151,8 +153,8 @@ public class GOTWorldProvider extends WorldProvider {
 			distance = ranges[settings.renderDistanceChunks];
 		}
 		int l = 0;
-		for (int i1 = -distance; i1 <= distance; ++i1) {
-			for (int k1 = -distance; k1 <= distance; ++k1) {
+		for (int i1 = -distance; i1 <= distance; i1 += COLOR_SAMPLE_STEP) {
+			for (int k1 = -distance; k1 <= distance; k1 += COLOR_SAMPLE_STEP) {
 				Vec3 tempClouds = Vec3.createVectorHelper(clouds.xCoord, clouds.yCoord, clouds.zCoord);
 				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + i1, k + k1);
 				if (biome instanceof GOTBiome) {
@@ -233,8 +235,8 @@ public class GOTWorldProvider extends WorldProvider {
 			distance = ranges[settings.renderDistanceChunks];
 		}
 		int l = 0;
-		for (int i1 = -distance; i1 <= distance; ++i1) {
-			for (int k1 = -distance; k1 <= distance; ++k1) {
+		for (int i1 = -distance; i1 <= distance; i1 += COLOR_SAMPLE_STEP) {
+			for (int k1 = -distance; k1 <= distance; k1 += COLOR_SAMPLE_STEP) {
 				Vec3 tempFog = Vec3.createVectorHelper(fog.xCoord, fog.yCoord, fog.zCoord);
 				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + i1, k + k1);
 				if (biome instanceof GOTBiome) {
@@ -306,8 +308,8 @@ public class GOTWorldProvider extends WorldProvider {
 			distance = ranges[settings.renderDistanceChunks];
 		}
 		int l = 0;
-		for (int i1 = -distance; i1 <= distance; ++i1) {
-			for (int k1 = -distance; k1 <= distance; ++k1) {
+		for (int i1 = -distance; i1 <= distance; i1 += COLOR_SAMPLE_STEP) {
+			for (int k1 = -distance; k1 <= distance; k1 += COLOR_SAMPLE_STEP) {
 				float thisFogStart;
 				float thisFogEnd;
 				boolean foggy = doesXZShowFog(i + i1, k + k1);

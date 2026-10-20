@@ -1,15 +1,15 @@
 package io.github.hummel009.minecraft.got.common.world.structure.other;
 
-import net.minecraft.world.ChunkCoordIntPair;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class GOTSettlementPositionCache {
-	private final Map<ChunkCoordIntPair, LocationInfo> cacheMap = new HashMap<>();
+	private static final int MAX_SIZE = 20000;
 
-	private static ChunkCoordIntPair getChunkKey(int chunkX, int chunkZ) {
-		return new ChunkCoordIntPair(chunkX, chunkZ);
+	private final Map<Long, LocationInfo> cacheMap = new HashMap<>();
+
+	private static long key(int chunkX, int chunkZ) {
+		return (long) chunkX << 32 | chunkZ & 0xFFFFFFFFL;
 	}
 
 	private void clearCache() {
@@ -17,14 +17,14 @@ public class GOTSettlementPositionCache {
 	}
 
 	public LocationInfo getLocationAt(int chunkX, int chunkZ) {
-		return cacheMap.get(getChunkKey(chunkX, chunkZ));
+		return cacheMap.get(key(chunkX, chunkZ));
 	}
 
 	public LocationInfo markResult(int chunkX, int chunkZ, LocationInfo result) {
-		if (cacheMap.size() >= 20000) {
+		if (cacheMap.size() >= MAX_SIZE) {
 			clearCache();
 		}
-		cacheMap.put(getChunkKey(chunkX, chunkZ), result);
+		cacheMap.put(key(chunkX, chunkZ), result);
 		return result;
 	}
 }

@@ -7,7 +7,6 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import io.github.hummel009.minecraft.got.GOT;
 import io.github.hummel009.minecraft.got.common.world.biome.variant.GOTBiomeVariantStorage;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 
 public class GOTPacketBiomeVariantsWatch implements IMessage {
@@ -48,7 +47,7 @@ public class GOTPacketBiomeVariantsWatch implements IMessage {
 			int chunkZ;
 			World world = GOT.proxy.getClientWorld();
 			if (world.blockExists((chunkX = packet.chunkX) << 4, 0, (chunkZ = packet.chunkZ) << 4)) {
-				GOTBiomeVariantStorage.setChunkBiomeVariants(world, new ChunkCoordIntPair(chunkX, chunkZ), packet.variants);
+				GOTBiomeVariantStorage.setChunkBiomeVariants(world, chunkX, chunkZ, packet.variants);
 			} else {
 				FMLLog.severe("Client received GOT biome variant data for nonexistent chunk at %d, %d", chunkX << 4, chunkZ << 4);
 			}

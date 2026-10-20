@@ -460,11 +460,36 @@ public class GOTTickHandlerClient {
 	}
 
 	private static void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
-		world.theProfiler.startSection("gotEnvironmentFX");
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
 		int k = MathHelper.floor_double(entityplayer.posZ);
-		byte range = 16;
+
+		int range = 16;
+		BiomeGenBase centerBiome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
+		boolean yeenNear = centerBiome instanceof GOTBiomeYeen;
+		boolean shadowNear = centerBiome instanceof GOTBiomeShadowLand;
+		boolean marshesNear = centerBiome instanceof GOTBiomeMossovyMarshes;
+		if (!yeenNear && !shadowNear && !marshesNear) {
+			int[][] offsets = {{range, 0}, {-range, 0}, {0, range}, {0, -range}};
+			for (int[] off : offsets) {
+				BiomeGenBase b = GOTCrashHandler.getBiomeGenForCoords(world, i + off[0], k + off[1]);
+				if (b instanceof GOTBiomeYeen) {
+					yeenNear = true;
+				} else if (b instanceof GOTBiomeShadowLand) {
+					shadowNear = true;
+				} else if (b instanceof GOTBiomeMossovyMarshes) {
+					marshesNear = true;
+				}
+				if (yeenNear && shadowNear && marshesNear) {
+					break;
+				}
+			}
+		}
+		if (!yeenNear && !shadowNear && !marshesNear) {
+			return;
+		}
+
+		world.theProfiler.startSection("gotEnvironmentFX");
 		for (int l = 0; l < 1000; l++) {
 			int i1 = i + world.rand.nextInt(range) - world.rand.nextInt(range);
 			int j1 = j + world.rand.nextInt(range) - world.rand.nextInt(range);

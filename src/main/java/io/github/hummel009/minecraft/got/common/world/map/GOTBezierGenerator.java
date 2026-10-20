@@ -1,11 +1,9 @@
 package io.github.hummel009.minecraft.got.common.world.map;
 
 import com.google.common.math.IntMath;
-import io.github.hummel009.minecraft.got.GOT;
 import io.github.hummel009.minecraft.got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.Random;
@@ -14,22 +12,18 @@ public class GOTBezierGenerator {
 	private GOTBezierGenerator() {
 	}
 
-	public static boolean generateBezier(World world, Random rand, int i, int k, GOTBiome biome, Block[] blocks, byte[] metadata, double[] heightNoise) {
+	public static boolean generateBezier(Random rand, int i, int k, GOTBiome biome, Block[] blocks, byte[] metadata, double[] heightNoise, boolean wallAt, boolean roadAt, boolean linkerAt, boolean adjRoad5, boolean adjRoad7Outer, GOTBezierType roadType) {
 		int chunkX = i & 0xF;
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		GOTBezierType roadType = biome.getRoadBlock();
 		GOTBezierType.BridgeType bridgeType = GOTBezierType.BridgeType.DEFAULT;
 		GOTBezierType wallType = biome.getWallBlock();
 		int wallTop = biome.getWallTop();
-		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
 
-		boolean wallAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.WALL);
 		if (wallAt) {
 			int index;
-			int j;
-			for (j = wallTop; j > 62; --j) {
+			for (int j = wallTop; j > 62; --j) {
 				index = xzIndex * ySize + j;
 				boolean isTop = j == wallTop;
 				GOTBezierType.BezierBlock wallblock = wallType.getBlock(rand, biome, isTop, false);
@@ -38,8 +32,6 @@ public class GOTBezierGenerator {
 			}
 			return true;
 		}
-		boolean roadAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD);
-		boolean linkerAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.LINKER) && !disableLocations;
 		if (roadAt || linkerAt) {
 			int index;
 			int j;
@@ -155,9 +147,8 @@ public class GOTBezierGenerator {
 			}
 			return true;
 		}
-		if (roadType.hasFlowers()) {
+		if (adjRoad5 || adjRoad7Outer) {
 			int index;
-			int i1;
 			int roadTop = 0;
 			for (int j = ySize - 1; j > 0; --j) {
 				index = xzIndex * ySize + j;
@@ -168,38 +159,15 @@ public class GOTBezierGenerator {
 				roadTop = j;
 				break;
 			}
-			boolean adjRoad = false;
-			block5:
-			for (i1 = -2; i1 <= 2; ++i1) {
-				for (int k1 = -2; k1 <= 2; ++k1) {
-					if (i1 == 0 && k1 == 0 || !GOTBeziers.isBezierAt(i + i1, k + k1, GOTBeziers.Type.ROAD)) {
-						continue;
-					}
-					adjRoad = true;
-					break block5;
-				}
-			}
-			if (adjRoad) {
+			if (adjRoad5) {
 				index = xzIndex * ySize + roadTop + 1;
 				BiomeGenBase.FlowerEntry flower = biome.getRandomFlower(rand);
 				blocks[index] = flower.block;
 				metadata[index] = (byte) flower.metadata;
 			} else {
-				block7:
-				for (i1 = -3; i1 <= 3; ++i1) {
-					for (int k1 = -3; k1 <= 3; ++k1) {
-						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTBeziers.isBezierAt(i + i1, k + k1, GOTBeziers.Type.ROAD)) {
-							continue;
-						}
-						adjRoad = true;
-						break block7;
-					}
-				}
-				if (adjRoad) {
-					index = xzIndex * ySize + roadTop + 1;
-					blocks[index] = Blocks.leaves;
-					metadata[index] = 4;
-				}
+				index = xzIndex * ySize + roadTop + 1;
+				blocks[index] = Blocks.leaves;
+				metadata[index] = 4;
 			}
 			return true;
 		}

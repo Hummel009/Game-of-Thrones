@@ -426,7 +426,6 @@ public class GOTLevelData {
 		for (EntityPlayer worldPlayer : players) {
 			IMessage packet = new GOTPacketCape(worldPlayer.getUniqueID());
 			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
-			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 

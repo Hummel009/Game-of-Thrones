@@ -30,14 +30,26 @@ import java.util.*;
 
 public class GOTConquestGrid {
 	private static final int MAP_GRID_SCALE = IntMath.pow(2, 3);
-	private static final Map<GridCoordPair, GOTConquestZone> ZONE_MAP = new HashMap<>();
+	private static final Map<Long, GOTConquestZone> ZONE_MAP = new HashMap<>();
 	private static final GOTConquestZone DUMMY_ZONE = new GOTConquestZone(-999, -999).setDummyZone();
-	private static final Collection<GridCoordPair> DIRTY_ZONES = new HashSet<>();
-	private static final Map<GridCoordPair, List<GOTFaction>> CACHED_ZONE_FACTIONS = new HashMap<>();
+	private static final Collection<Long> DIRTY_ZONES = new HashSet<>();
+	private static final Map<Long, List<GOTFaction>> CACHED_ZONE_FACTIONS = new HashMap<>();
 
 	private static boolean needsLoad = true;
 
 	private GOTConquestGrid() {
+	}
+
+	private static long packKey(int gridX, int gridZ) {
+		return (long) gridX << 32 | gridZ & 0xFFFFFFFFL;
+	}
+
+	private static int unpackX(long key) {
+		return (int) (key >> 32);
+	}
+
+	private static int unpackZ(long key) {
+		return (int) key;
 	}
 
 	public static boolean anyChangedZones() {
@@ -153,11 +165,11 @@ public class GOTConquestGrid {
 	}
 
 	public static ConquestEffective getConquestEffectIn(World world, GOTConquestZone zone, GOTFaction theFaction) {
-		GridCoordPair gridCoords;
+		long gridKey = packKey(zone.getGridX(), zone.getGridZ());
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			GOTGenLayerWorld.tryLoadBiomeImage();
 		}
-		List<GOTFaction> cachedFacs = CACHED_ZONE_FACTIONS.get(gridCoords = GridCoordPair.forZone(zone));
+		List<GOTFaction> cachedFacs = CACHED_ZONE_FACTIONS.get(gridKey);
 		if (cachedFacs == null) {
 			GOTBiome biome;
 			cachedFacs = new ArrayList<>();
@@ -187,7 +199,7 @@ public class GOTConquestGrid {
 					continue block2;
 				}
 			}
-			CACHED_ZONE_FACTIONS.put(gridCoords, cachedFacs);
+			CACHED_ZONE_FACTIONS.put(gridKey, cachedFacs);
 		}
 		if (cachedFacs.contains(theFaction)) {
 			return ConquestEffective.EFFECTIVE;
@@ -219,7 +231,7 @@ public class GOTConquestGrid {
 		if (i < 0 || i >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.getImageWidth() / MAP_GRID_SCALE) || k < 0 || k >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.getImageHeight() / MAP_GRID_SCALE)) {
 			return DUMMY_ZONE;
 		}
-		GridCoordPair key = new GridCoordPair(i, k);
+		long key = packKey(i, k);
 		GOTConquestZone zone = ZONE_MAP.get(key);
 		if (zone == null) {
 			File zoneDat = getZoneDat(key);
@@ -239,12 +251,11 @@ public class GOTConquestGrid {
 	}
 
 	private static File getZoneDat(GOTConquestZone zone) {
-		GridCoordPair key = GridCoordPair.forZone(zone);
-		return getZoneDat(key);
+		return getZoneDat(packKey(zone.getGridX(), zone.getGridZ()));
 	}
 
-	private static File getZoneDat(GridCoordPair key) {
-		return new File(getConquestDir(), key.getGridX() + "." + key.getGridZ() + ".dat");
+	private static File getZoneDat(long key) {
+		return new File(getConquestDir(), unpackX(key) + "." + unpackZ(key) + ".dat");
 	}
 
 	private static int gridToMapCoord(int i) {
@@ -262,7 +273,7 @@ public class GOTConquestGrid {
 					if (zoneDat.isDirectory() || !zoneDat.getName().endsWith(".dat") || (zone = loadZoneFromFile(zoneDat)) == null) {
 						continue;
 					}
-					GridCoordPair key = GridCoordPair.forZone(zone);
+					long key = packKey(zone.getGridX(), zone.getGridZ());
 					ZONE_MAP.put(key, zone);
 				}
 			}
@@ -293,7 +304,7 @@ public class GOTConquestGrid {
 	}
 
 	public static void markZoneDirty(GOTConquestZone zone) {
-		GridCoordPair key = GridCoordPair.forZone(zone);
+		long key = packKey(zone.getGridX(), zone.getGridZ());
 		if (ZONE_MAP.containsKey(key)) {
 			DIRTY_ZONES.add(key);
 		}
@@ -311,8 +322,8 @@ public class GOTConquestGrid {
 
 	public static void saveChangedZones() {
 		try {
-			Collection<GridCoordPair> removes = new HashSet<>();
-			for (GridCoordPair key : DIRTY_ZONES) {
+			Collection<Long> removes = new HashSet<>();
+			for (Long key : DIRTY_ZONES) {
 				GOTConquestZone zone = ZONE_MAP.get(key);
 				if (zone == null) {
 					continue;
@@ -324,7 +335,7 @@ public class GOTConquestGrid {
 				removes.add(key);
 			}
 			DIRTY_ZONES.clear();
-			for (GridCoordPair key : removes) {
+			for (Long key : removes) {
 				ZONE_MAP.remove(key);
 			}
 		} catch (Exception e) {
@@ -420,47 +431,6 @@ public class GOTConquestGrid {
 
 		public ConquestViewable getResult() {
 			return result;
-		}
-	}
-
-	private static class GridCoordPair {
-		private final int gridX;
-		private final int gridZ;
-
-		private GridCoordPair(int i, int k) {
-			gridX = i;
-			gridZ = k;
-		}
-
-		private static GridCoordPair forZone(GOTConquestZone zone) {
-			return new GridCoordPair(zone.getGridX(), zone.getGridZ());
-		}
-
-		@Override
-		public boolean equals(Object other) {
-			if (this == other) {
-				return true;
-			}
-			if (!(other instanceof GridCoordPair)) {
-				return false;
-			}
-			GridCoordPair otherPair = (GridCoordPair) other;
-			return gridX == otherPair.gridX && gridZ == otherPair.gridZ;
-		}
-
-		@Override
-		public int hashCode() {
-			int i = 1664525 * gridX + 1013904223;
-			int j = 1664525 * (gridZ ^ 0xDEADBEEF) + 1013904223;
-			return i ^ j;
-		}
-
-		private int getGridX() {
-			return gridX;
-		}
-
-		private int getGridZ() {
-			return gridZ;
 		}
 	}
 }

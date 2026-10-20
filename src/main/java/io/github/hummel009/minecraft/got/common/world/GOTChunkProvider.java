@@ -1,5 +1,6 @@
 package io.github.hummel009.minecraft.got.common.world;
 
+import io.github.hummel009.minecraft.got.GOT;
 import io.github.hummel009.minecraft.got.common.util.GOTCrashHandler;
 import io.github.hummel009.minecraft.got.common.world.biome.GOTBiome;
 import io.github.hummel009.minecraft.got.common.world.biome.variant.GOTBiomeVariant;
@@ -24,10 +25,15 @@ import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenStructure;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GOTChunkProvider implements IChunkProvider {
+	private static final WorldGenLakes WATER_LAKE_GEN = new WorldGenLakes(Blocks.water);
+	private static final WorldGenLakes LAVA_LAKE_GEN = new WorldGenLakes(Blocks.lava);
+
+	private static final ThreadLocal<Block[]> BLOCKS_POOL = ThreadLocal.withInitial(() -> new Block[65536]);
+	private static final ThreadLocal<byte[]> METADATA_POOL = ThreadLocal.withInitial(() -> new byte[65536]);
+
 	private final MapGenStructure ghiscarPyramid = new GOTStructureGhiscarPyramidMapgen();
 	private final MapGenStructure sothoryosPyramid = new GOTStructureGhiscarPyramidMapgen();
 	private final GOTMapGenCaves caveGenerator = new GOTMapGenCaves();
@@ -57,7 +63,6 @@ public class GOTChunkProvider implements IChunkProvider {
 	private double[] noise6;
 	private double[] stoneNoise = new double[256];
 	private double[] heightNoise;
-	private double[] blockHeightNoiseArray;
 
 	public GOTChunkProvider(World world, long seed) {
 		worldObj = world;
@@ -93,7 +98,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		return null;
 	}
 
-	private void generateTerrain(int i, int j, Block[] blocks) {
+	private double[] generateTerrain(int i, int j, Block[] blocks) {
 		GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
 		int byte0 = 4;
 		int byte1 = 32;
@@ -103,7 +108,10 @@ public class GOTChunkProvider implements IChunkProvider {
 		biomesForGeneration = chunkManager.getBiomesForGeneration(biomesForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth);
 		variantsForGeneration = chunkManager.getVariantsChunkGen(variantsForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth, biomesForGeneration);
 		heightNoise = initializeHeightNoise(heightNoise, i * byte0, 0, j * byte0, k, byte3, l);
-		blockHeightNoiseArray = new double[blocks.length];
+
+		boolean hasMapFeatures = GOTFixedStructures.hasMapFeatures(worldObj);
+		double[] blockHeightNoiseArray = hasMapFeatures ? new double[blocks.length] : null;
+
 		for (int i1 = 0; i1 < byte0; ++i1) {
 			for (int j1 = 0; j1 < byte0; ++j1) {
 				for (int k1 = 0; k1 < byte1; ++k1) {
@@ -127,9 +135,11 @@ public class GOTChunkProvider implements IChunkProvider {
 							double d14 = 0.25;
 							double d15 = (d11 - d10) * d14;
 							for (int k2 = 0; k2 < 4; ++k2) {
-								double blockHeightNoise;
 								int blockIndex = j2 + k2 * 256;
-								blockHeightNoiseArray[blockIndex] = blockHeightNoise = d10 + d15 * k2;
+								double blockHeightNoise = d10 + d15 * k2;
+								if (blockHeightNoiseArray != null) {
+									blockHeightNoiseArray[blockIndex] = blockHeightNoise;
+								}
 								blocks[blockIndex] = blockHeightNoise > 0.0 ? Blocks.stone : k1 * 8 + l1 <= 62 ? Blocks.water : Blocks.air;
 							}
 							d10 += d12;
@@ -143,6 +153,7 @@ public class GOTChunkProvider implements IChunkProvider {
 				}
 			}
 		}
+		return blockHeightNoiseArray;
 	}
 
 	@Override
@@ -322,71 +333,75 @@ public class GOTChunkProvider implements IChunkProvider {
 		int k1;
 		int i1;
 		BlockFalling.fallInstantly = true;
-		int k = i * 16;
-		int l = j * 16;
-		GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, k + 16, l + 16);
-		GOTBiomeVariant variant = ((GOTWorldChunkManager) worldObj.getWorldChunkManager()).getBiomeVariantAt(k + 16, l + 16);
-		rand.setSeed(worldObj.getSeed());
-		long l1 = rand.nextLong() / 2L * 2L + 1L;
-		long l2 = rand.nextLong() / 2L * 2L + 1L;
-		rand.setSeed(i * l1 + j * l2 ^ worldObj.getSeed());
-		ghiscarPyramid.generateStructuresInChunk(worldObj, rand, i, j);
-		sothoryosPyramid.generateStructuresInChunk(worldObj, rand, i, j);
-		if (rand.nextInt(4) == 0) {
-			i1 = k + rand.nextInt(16) + 8;
-			j1 = rand.nextInt(128);
-			k1 = l + rand.nextInt(16) + 8;
-			if (j1 < 60) {
-				new WorldGenLakes(Blocks.water).generate(worldObj, rand, i1, j1, k1);
-			}
-		}
-		if (rand.nextInt(8) == 0) {
-			i1 = k + rand.nextInt(16) + 8;
-			j1 = rand.nextInt(rand.nextInt(120) + 8);
-			k1 = l + rand.nextInt(16) + 8;
-			if (j1 < 60) {
-				new WorldGenLakes(Blocks.lava).generate(worldObj, rand, i1, j1, k1);
-			}
-		}
-		biome.decorate(worldObj, rand, k, l);
-		if (biome.getChanceToSpawnAnimals() <= 1.0f) {
-			if (rand.nextFloat() < biome.getChanceToSpawnAnimals()) {
-				GOTSpawnerAnimals.worldGenSpawnAnimals(worldObj, biome, variant, k + 8, l + 8, rand);
-			}
-		} else {
-			int spawns = MathHelper.floor_double(biome.getChanceToSpawnAnimals());
-			for (int i12 = 0; i12 < spawns; ++i12) {
-				GOTSpawnerAnimals.worldGenSpawnAnimals(worldObj, biome, variant, k + 8, l + 8, rand);
-			}
-		}
-		k += 8;
-		l += 8;
-		for (i1 = 0; i1 < 16; ++i1) {
-			for (int k12 = 0; k12 < 16; ++k12) {
-				int j12 = worldObj.getPrecipitationHeight(k + i1, l + k12);
-				if (worldObj.isBlockFreezable(i1 + k, j12 - 1, k12 + l)) {
-					worldObj.setBlock(i1 + k, j12 - 1, k12 + l, Blocks.ice, 0, 2);
+		try {
+			int k = i * 16;
+			int l = j * 16;
+			GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, k + 16, l + 16);
+			GOTBiomeVariant variant = ((GOTWorldChunkManager) worldObj.getWorldChunkManager()).getBiomeVariantAt(k + 16, l + 16);
+			rand.setSeed(worldObj.getSeed());
+			long l1 = rand.nextLong() / 2L * 2L + 1L;
+			long l2 = rand.nextLong() / 2L * 2L + 1L;
+			rand.setSeed(i * l1 + j * l2 ^ worldObj.getSeed());
+			ghiscarPyramid.generateStructuresInChunk(worldObj, rand, i, j);
+			sothoryosPyramid.generateStructuresInChunk(worldObj, rand, i, j);
+			if (rand.nextInt(4) == 0) {
+				i1 = k + rand.nextInt(16) + 8;
+				j1 = rand.nextInt(128);
+				k1 = l + rand.nextInt(16) + 8;
+				if (j1 < 60) {
+					WATER_LAKE_GEN.generate(worldObj, rand, i1, j1, k1);
 				}
-				if (!worldObj.func_147478_e(i1 + k, j12, k12 + l, true)) {
-					continue;
-				}
-				worldObj.setBlock(i1 + k, j12, k12 + l, Blocks.snow_layer, 0, 2);
 			}
+			if (rand.nextInt(8) == 0) {
+				i1 = k + rand.nextInt(16) + 8;
+				j1 = rand.nextInt(rand.nextInt(120) + 8);
+				k1 = l + rand.nextInt(16) + 8;
+				if (j1 < 60) {
+					LAVA_LAKE_GEN.generate(worldObj, rand, i1, j1, k1);
+				}
+			}
+			biome.decorate(worldObj, rand, k, l);
+			if (biome.getChanceToSpawnAnimals() <= 1.0f) {
+				if (rand.nextFloat() < biome.getChanceToSpawnAnimals()) {
+					GOTSpawnerAnimals.worldGenSpawnAnimals(worldObj, biome, variant, k + 8, l + 8, rand);
+				}
+			} else {
+				int spawns = MathHelper.floor_double(biome.getChanceToSpawnAnimals());
+				for (int i12 = 0; i12 < spawns; ++i12) {
+					GOTSpawnerAnimals.worldGenSpawnAnimals(worldObj, biome, variant, k + 8, l + 8, rand);
+				}
+			}
+			k += 8;
+			l += 8;
+			for (i1 = 0; i1 < 16; ++i1) {
+				for (int k12 = 0; k12 < 16; ++k12) {
+					int j12 = worldObj.getPrecipitationHeight(k + i1, l + k12);
+					if (worldObj.isBlockFreezable(i1 + k, j12 - 1, k12 + l)) {
+						worldObj.setBlock(i1 + k, j12 - 1, k12 + l, Blocks.ice, 0, 2);
+					}
+					if (!worldObj.func_147478_e(i1 + k, j12, k12 + l, true)) {
+						continue;
+					}
+					worldObj.setBlock(i1 + k, j12, k12 + l, Blocks.snow_layer, 0, 2);
+				}
+			}
+		} finally {
+			BlockFalling.fallInstantly = false;
 		}
-		BlockFalling.fallInstantly = false;
 	}
 
 	@Override
 	public Chunk provideChunk(int i, int k) {
 		rand.setSeed(i * 341873128712L + k * 132897987541L);
 		GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
-		Block[] blocks = new Block[65536];
-		byte[] metadata = new byte[65536];
+		Block[] blocks = BLOCKS_POOL.get();
+		byte[] metadata = METADATA_POOL.get();
+		Arrays.fill(metadata, (byte) 0);
 		ChunkFlags chunkFlags = new ChunkFlags();
-		generateTerrain(i, k, blocks);
+		double[] blockHeightNoiseArray = generateTerrain(i, k, blocks);
 		biomesForGeneration = chunkManager.loadBlockGeneratorData(biomesForGeneration, i * 16, k * 16, 16, 16);
 		variantsForGeneration = chunkManager.getBiomeVariants(variantsForGeneration, i * 16, k * 16, 16, 16);
-		replaceBlocksForBiome(i, k, blocks, metadata, biomesForGeneration, variantsForGeneration, chunkFlags);
+		replaceBlocksForBiome(i, k, blocks, metadata, biomesForGeneration, variantsForGeneration, chunkFlags, blockHeightNoiseArray);
 		caveGenerator.setChunkFlags(chunkFlags);
 		caveGenerator.func_151539_a(this, worldObj, i, k, blocks);
 		ravineGenerator.func_151539_a(this, worldObj, i, k, blocks);
@@ -431,10 +446,49 @@ public class GOTChunkProvider implements IChunkProvider {
 		sothoryosPyramid.func_151539_a(this, worldObj, i, k, null);
 	}
 
-	private void replaceBlocksForBiome(int i, int k, Block[] blocks, byte[] metadata, BiomeGenBase[] biomeArray, GOTBiomeVariant[] variantArray, ChunkFlags chunkFlags) {
+	private void replaceBlocksForBiome(int i, int k, Block[] blocks, byte[] metadata, BiomeGenBase[] biomeArray, GOTBiomeVariant[] variantArray, ChunkFlags chunkFlags, double[] blockHeightNoiseArray) {
 		double d = 0.03125;
 		stoneNoise = stoneNoiseGen.generateNoiseOctaves(stoneNoise, i * 16, k * 16, 0, 16, 16, 1, d * 2.0, d * 2.0, d * 2.0);
 		int ySize = blocks.length / 256;
+		boolean hasMapFeatures = GOTFixedStructures.hasMapFeatures(worldObj);
+		boolean disableLocations = worldObj.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
+
+		boolean[] wallGrid = null;
+		boolean[] linkerGrid = null;
+		boolean[][] roadGrid = null;
+		Map<GOTBiome, GOTBezierType> roadTypeCache = null;
+		int pad = 0;
+		if (hasMapFeatures) {
+			int baseX = i * 16;
+			int baseZ = k * 16;
+			roadTypeCache = new HashMap<>();
+			boolean anyHasFlowers = false;
+			for (int xz = 0; xz < 256; ++xz) {
+				GOTBiome b = (GOTBiome) biomeArray[xz];
+				GOTBezierType rt = roadTypeCache.computeIfAbsent(b, GOTBiome::getRoadBlock);
+				if (rt.hasFlowers()) {
+					anyHasFlowers = true;
+					break;
+				}
+			}
+			pad = anyHasFlowers ? 3 : 0;
+			int gridSize = 16 + pad * 2;
+			roadGrid = new boolean[gridSize][gridSize];
+			for (int dx = -pad; dx < 16 + pad; ++dx) {
+				for (int dz = -pad; dz < 16 + pad; ++dz) {
+					roadGrid[dx + pad][dz + pad] = GOTBeziers.isBezierAt(baseX + dx, baseZ + dz, GOTBeziers.Type.ROAD);
+				}
+			}
+			wallGrid = new boolean[256];
+			linkerGrid = new boolean[256];
+			for (int xz = 0; xz < 256; ++xz) {
+				int x = baseX + (xz >> 4);
+				int z = baseZ + (xz & 0xF);
+				wallGrid[xz] = GOTBeziers.isBezierAt(x, z, GOTBeziers.Type.WALL);
+				linkerGrid[xz] = !disableLocations && GOTBeziers.isBezierAt(x, z, GOTBeziers.Type.LINKER);
+			}
+		}
+
 		for (int i1 = 0; i1 < 16; ++i1) {
 			for (int k1 = 0; k1 < 16; ++k1) {
 				int index;
@@ -455,10 +509,49 @@ public class GOTChunkProvider implements IChunkProvider {
 					break;
 				}
 				biome.generateBiomeTerrain(worldObj, rand, blocks, metadata, x, z, stoneNoise[xzIndex], height, variant);
-				if (!GOTFixedStructures.hasMapFeatures(worldObj)) {
+				if (!hasMapFeatures) {
 					continue;
 				}
-				chunkFlags.getBezierFlags()[xzIndex] = GOTBezierGenerator.generateBezier(worldObj, rand, x, z, biome, blocks, metadata, blockHeightNoiseArray);
+
+				boolean wallAt = wallGrid[xzIndex];
+				boolean linkerAt = linkerGrid[xzIndex];
+				boolean roadAt = roadGrid[i1 + pad][k1 + pad];
+				GOTBezierType roadType = roadTypeCache.computeIfAbsent(biome, GOTBiome::getRoadBlock);
+
+				if (wallAt || roadAt || linkerAt) {
+					chunkFlags.getBezierFlags()[xzIndex] = GOTBezierGenerator.generateBezier(rand, x, z, biome, blocks, metadata, blockHeightNoiseArray, wallAt, roadAt, linkerAt, false, false, roadType);
+				} else if (roadType.hasFlowers()) {
+					boolean adjRoad5 = false;
+					boolean adjRoad7Outer = false;
+					search5:
+					for (int dx = -2; dx <= 2; ++dx) {
+						for (int dz = -2; dz <= 2; ++dz) {
+							if (dx == 0 && dz == 0) {
+								continue;
+							}
+							if (roadGrid[i1 + pad + dx][k1 + pad + dz]) {
+								adjRoad5 = true;
+								break search5;
+							}
+						}
+					}
+					if (!adjRoad5) {
+						search7:
+						for (int dx = -3; dx <= 3; ++dx) {
+							for (int dz = -3; dz <= 3; ++dz) {
+								if (Math.abs(dx) <= 2 && Math.abs(dz) <= 2) {
+									continue;
+								}
+								if (roadGrid[i1 + pad + dx][k1 + pad + dz]) {
+									adjRoad7Outer = true;
+									break search7;
+								}
+							}
+						}
+					}
+					chunkFlags.getBezierFlags()[xzIndex] = !adjRoad5 && !adjRoad7Outer || GOTBezierGenerator.generateBezier(rand, x, z, biome, blocks, metadata, blockHeightNoiseArray, false, false, false, adjRoad5, adjRoad7Outer, roadType);
+				}
+
 				int lavaHeight = GOTMountains.getLavaHeight(x, z);
 				if (lavaHeight <= 0) {
 					continue;

@@ -11,13 +11,36 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenBase;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class GOTMapGenCaves extends MapGenBase {
+	private final Map<Long, BiomeGenBase[]> biomeCache = new HashMap<>();
+
 	private GOTChunkProvider.ChunkFlags chunkFlags;
 
 	public static boolean isTerrainBlock(Block block, BiomeGenBase biome) {
 		return block == biome.topBlock || block == biome.fillerBlock || block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTBlocks.whiteSand || block == Blocks.gravel || block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == GOTBlocks.dirtPath || block == Blocks.stone || block == GOTBlocks.rock || block == Blocks.sandstone || block == GOTBlocks.redSandstone || block == GOTBlocks.whiteSandstone || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
+	}
+
+	private BiomeGenBase getBiomeAt(int worldX, int worldZ) {
+		int chunkX = worldX >> 4;
+		int chunkZ = worldZ >> 4;
+		long key = (long) chunkX << 32 | chunkZ & 0xFFFFFFFFL;
+		BiomeGenBase[] arr = biomeCache.get(key);
+		if (arr == null) {
+			arr = new BiomeGenBase[256];
+			int baseX = chunkX << 4;
+			int baseZ = chunkZ << 4;
+			for (int dx = 0; dx < 16; ++dx) {
+				for (int dz = 0; dz < 16; ++dz) {
+					arr[dx + dz * 16] = GOTCrashHandler.getBiomeGenForCoords(worldObj, baseX + dx, baseZ + dz);
+				}
+			}
+			biomeCache.put(key, arr);
+		}
+		return arr[(worldX & 0xF) + (worldZ & 0xF) * 16];
 	}
 
 	private void digBlock(Block[] blockArray, int index, int xzIndex, int j, GOTBiome biome, boolean cutSurface) {
@@ -77,6 +100,7 @@ public class GOTMapGenCaves extends MapGenBase {
 
 	@Override
 	public void func_151538_a(World world, int i, int k, int chunkX, int chunkZ, Block[] blocks) {
+		biomeCache.clear();
 		int caves = rand.nextInt(rand.nextInt(rand.nextInt(40) + 1) + 1);
 		if (rand.nextInt(10) != 0) {
 			caves = 0;
@@ -199,10 +223,13 @@ public class GOTMapGenCaves extends MapGenBase {
 								if (var59 * var59 + var46 * var46 >= 1.0) {
 									continue;
 								}
+								GOTBiome biome = null;
 								for (int var50 = var57; var50 <= var38 - 1; ++var50) {
 									double var51 = (var50 + 0.5 - par81) / var31;
 									if (var51 > -0.7 && var59 * var59 + var51 * var51 + var46 * var46 < 1.0) {
-										GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, var42 + par3 * 16, var45 + par4 * 16);
+										if (biome == null) {
+											biome = (GOTBiome) getBiomeAt(var42 + par3 * 16, var45 + par4 * 16);
+										}
 										digBlock(blockArray, blockIndex, xzIndex, var50, biome, cutSurface);
 									}
 									++blockIndex;

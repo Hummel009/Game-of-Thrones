@@ -20,6 +20,8 @@ import java.util.*;
 public abstract class GOTStructureBaseSettlement {
 	private static final Random SETTLEMENT_RAND = new Random();
 
+	private static final Collection<GOTStructureBaseSettlement> ALL_FIXED_SETTLEMENTS = new ArrayList<>();
+
 	private final Collection<LocationInfo> fixedLocations = new ArrayList<>();
 	private final List<BiomeGenBase> spawnBiomes;
 
@@ -145,10 +147,30 @@ public abstract class GOTStructureBaseSettlement {
 		return -1;
 	}
 
+	private static boolean anyFixedSettlementNear(World world, int chunkX, int chunkZ, int ownRadius) {
+		if (!hasFixedSettlements(world)) {
+			return false;
+		}
+		for (GOTStructureBaseSettlement s : ALL_FIXED_SETTLEMENTS) {
+			int radius = Math.max(ownRadius, s.fixedSettlementChunkRadius);
+			for (LocationInfo loc : s.fixedLocations) {
+				int locCX = loc.getPosX() >> 4;
+				int locCZ = loc.getPosZ() >> 4;
+				if (Math.abs(chunkX - locCX) <= radius && Math.abs(chunkZ - locCZ) <= radius) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public void affix(Iterable<GOTAbstractWaypoint> wps) {
 		for (GOTAbstractWaypoint wp : wps) {
 			LocationInfo loc = new LocationInfo(wp.getCoordX(), wp.getCoordZ(), wp.getRotation()).setFixedLocation();
 			fixedLocations.add(loc);
+		}
+		if (!fixedLocations.isEmpty()) {
+			ALL_FIXED_SETTLEMENTS.add(this);
 		}
 	}
 
@@ -199,26 +221,58 @@ public abstract class GOTStructureBaseSettlement {
 	private List<AbstractInstance> getNearbySettlements(World world, int chunkX, int chunkZ) {
 		List<AbstractInstance> settlements = new ArrayList<>();
 		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
-		for (int i = chunkX - checkRange; i <= chunkX + checkRange; ++i) {
-			for (int k = chunkZ - checkRange; k <= chunkZ + checkRange; ++k) {
-				int centreZ;
-				int centreX;
-				LocationInfo loc = isSettlementCentre(world, i, k);
-				if (!loc.isPresent()) {
+
+		if (hasFixedSettlements(world)) {
+			for (LocationInfo loc : fixedLocations) {
+				int locChunkX = loc.getPosX() >> 4;
+				int locChunkZ = loc.getPosZ() >> 4;
+				if (Math.abs(chunkX - locChunkX) > checkRange || Math.abs(chunkZ - locChunkZ) > checkRange) {
 					continue;
 				}
-				if (loc.isFixedLocation()) {
-					centreX = loc.getPosX();
-					centreZ = loc.getPosZ();
-				} else {
-					centreX = (i << 4) + 8;
-					centreZ = (k << 4) + 8;
-				}
+				int centreX = loc.getPosX();
+				int centreZ = loc.getPosZ();
 				seedSettlementRand(world, centreX, centreZ);
 				AbstractInstance instance = createAndSetupSettlementInstance(world, centreX, centreZ, SETTLEMENT_RAND, loc);
 				settlements.add(instance);
 			}
 		}
+
+		if (spawnChance > 0.0f) {
+			int gridScale = GOTConfig.gridScale;
+			int minChunkX = chunkX - checkRange;
+			int maxChunkX = chunkX + checkRange;
+			int minChunkZ = chunkZ - checkRange;
+			int maxChunkZ = chunkZ + checkRange;
+
+			int minGX = Math.floorDiv(minChunkX - 1, gridScale) - 1;
+			int maxGX = Math.floorDiv(maxChunkX + 1, gridScale) + 1;
+			int minGZ = Math.floorDiv(minChunkZ - 1, gridScale) - 1;
+			int maxGZ = Math.floorDiv(maxChunkZ + 1, gridScale) + 1;
+
+			for (int gx = minGX; gx <= maxGX; ++gx) {
+				for (int gz = minGZ; gz <= maxGZ; ++gz) {
+					seedSettlementRand(world, gx, gz);
+					int candidateX = gx * gridScale + MathHelper.getRandomIntegerInRange(SETTLEMENT_RAND, -1, 1);
+					int candidateZ = gz * gridScale + MathHelper.getRandomIntegerInRange(SETTLEMENT_RAND, -1, 1);
+					if (candidateX < minChunkX || candidateX > maxChunkX) {
+						continue;
+					}
+					if (candidateZ < minChunkZ || candidateZ > maxChunkZ) {
+						continue;
+					}
+					LocationInfo loc = isSettlementCentre(world, candidateX, candidateZ);
+					if (!loc.isPresent() || loc.isFixedLocation()) {
+						continue;
+					}
+					int centreX = (candidateX << 4) + 8;
+					int centreZ = (candidateZ << 4) + 8;
+					seedSettlementRand(world, centreX, centreZ);
+					AbstractInstance instance = createAndSetupSettlementInstance(world, centreX, centreZ, SETTLEMENT_RAND, loc);
+					settlements.add(instance);
+				}
+			}
+		}
+
 		return settlements;
 	}
 
@@ -249,6 +303,9 @@ public abstract class GOTStructureBaseSettlement {
 				return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 			}
 		}
+		if (anyFixedSettlementNear(world, chunkX, chunkZ, Math.max(settlementChunkRadius, fixedSettlementChunkRadius))) {
+			return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
+		}
 		int gridScale = GOTConfig.gridScale;
 		int i2 = MathHelper.floor_double((double) chunkX / gridScale);
 		int k2 = MathHelper.floor_double((double) chunkZ / gridScale);
@@ -268,7 +325,7 @@ public abstract class GOTStructureBaseSettlement {
 				double SQRT2 = 1.4142135623730951;
 				int diagRange = (int) Math.round((settlementRange + 8) * SQRT2);
 				boolean isRoadNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.ROAD) >= 0.0f;
-				boolean isWallNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.LINKER) >= 0.0f;
+				boolean isWallNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.WALL) >= 0.0f;
 				boolean isLinkerNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.LINKER) >= 0.0f;
 				boolean anythingNear = isRoadNear || isWallNear || isLinkerNear;
 				if (!anythingNear) {
@@ -309,8 +366,10 @@ public abstract class GOTStructureBaseSettlement {
 
 		private final Collection<StructureInfo> structures = new ArrayList<>();
 		private final Random random;
-
 		protected int rotationMode;
+		private int lastSeedX = Integer.MIN_VALUE;
+		private int lastSeedZ = Integer.MIN_VALUE;
+		private long lastSeed;
 
 		protected AbstractInstance(World world, int i, int k, Random random, LocationInfo locationInfo, Collection<GOTFixer.SpawnInfo> spawnInfos) {
 			this.world = world;
@@ -415,10 +474,18 @@ public abstract class GOTStructureBaseSettlement {
 		protected void setupSettlementStructures() {
 			setupSettlementSeed();
 			structures.clear();
+			lastSeedX = Integer.MIN_VALUE;
+			lastSeedZ = Integer.MIN_VALUE;
 			addSettlementStructures(random);
 		}
 
 		protected void setupWorldPositionSeed(int i, int k) {
+			if (i == lastSeedX && k == lastSeedZ) {
+				random.setSeed(lastSeed);
+				return;
+			}
+			lastSeedX = i;
+			lastSeedZ = k;
 			setupSettlementSeed();
 			int[] coords = getRelativeCoords(i, k);
 			int i1 = coords[0];
@@ -426,6 +493,7 @@ public abstract class GOTStructureBaseSettlement {
 			long seed1 = random.nextLong();
 			long seed2 = random.nextLong();
 			long seed = i1 * seed1 + k1 * seed2 ^ world.getWorldInfo().getSeed();
+			lastSeed = seed;
 			random.setSeed(seed);
 		}
 

@@ -12,16 +12,21 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.world.*;
+import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.SpawnerAnimals;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.*;
 
 public class GOTSpawnerAnimals {
-	private static final Set<ChunkCoordIntPair> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
+	private static final Collection<Long> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
 	private static final Map<Integer, Integer> TICKS_SINCE_CYCLE = new HashMap<>();
 	private static final Map<Integer, DimInfo> DIM_INFOS = new HashMap<>();
+
+	private static long[] shuffleBuffer = new long[0];
 
 	private GOTSpawnerAnimals() {
 	}
@@ -74,10 +79,14 @@ public class GOTSpawnerAnimals {
 							typeInfo.setBlockedCycles(typeInfo.getBlockedCycles() - 1);
 						} else {
 							int newlySpawned = 0;
-							List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(ELIGIBLE_SPAWN_CHUNKS);
+							if (shuffleBuffer.length < ELIGIBLE_SPAWN_CHUNKS.size()) {
+								shuffleBuffer = new long[ELIGIBLE_SPAWN_CHUNKS.size()];
+							}
+							int shuffledSize = GOTSpawnerNPCs.shuffleInto(shuffleBuffer, ELIGIBLE_SPAWN_CHUNKS, world.rand);
 							label97:
-							for (ChunkCoordIntPair chunkCoords : shuffled) {
-								ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
+							for (int si = 0; si < shuffledSize; ++si) {
+								long chunkKey = shuffleBuffer[si];
+								ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkKey);
 								if (chunkposition != null) {
 									int i = chunkposition.chunkPosX;
 									int j = chunkposition.chunkPosY;

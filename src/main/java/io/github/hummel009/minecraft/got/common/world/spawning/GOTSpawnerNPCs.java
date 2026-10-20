@@ -5,7 +5,6 @@ import io.github.hummel009.minecraft.got.common.GOTConfig;
 import io.github.hummel009.minecraft.got.common.GOTSpawnDamping;
 import io.github.hummel009.minecraft.got.common.entity.other.GOTEntityNPC;
 import io.github.hummel009.minecraft.got.common.util.GOTCrashHandler;
-import io.github.hummel009.minecraft.got.common.world.GOTWorldChunkManager;
 import io.github.hummel009.minecraft.got.common.world.GOTWorldProvider;
 import io.github.hummel009.minecraft.got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
@@ -19,7 +18,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -30,10 +28,46 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.*;
 
 public class GOTSpawnerNPCs {
-	private static final Set<ChunkCoordIntPair> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
+	private static final Collection<Long> ELIGIBLE_SPAWN_CHUNKS = new HashSet<>();
 	private static final Map<Integer, Integer> TICKS_SINCE_CYCLE = new HashMap<>();
 
+	private static long[] shuffleBuffer = new long[0];
+
 	private GOTSpawnerNPCs() {
+	}
+
+	private static long packChunk(int cx, int cz) {
+		return (long) cx << 32 | cz & 0xFFFFFFFFL;
+	}
+
+	private static int unpackX(long key) {
+		return (int) (key >> 32);
+	}
+
+	private static int unpackZ(long key) {
+		return (int) key;
+	}
+
+	public static int shuffleInto(long[] buffer, Iterable<Long> set, Random rand) {
+		int idx = 0;
+		for (long l : set) {
+			buffer[idx] = l;
+			idx++;
+		}
+		for (int i = idx - 1; i > 0; --i) {
+			int j = rand.nextInt(i + 1);
+			long tmp = buffer[i];
+			buffer[i] = buffer[j];
+			buffer[j] = tmp;
+		}
+		return idx;
+	}
+
+	private static long[] ensureShuffleBuffer(int needed) {
+		if (shuffleBuffer.length < needed) {
+			shuffleBuffer = new long[needed];
+		}
+		return shuffleBuffer;
 	}
 
 	private static boolean canNPCSpawnAtLocation(IBlockAccess world, int i, int j, int k) {
@@ -41,7 +75,6 @@ public class GOTSpawnerNPCs {
 			return false;
 		}
 		Block block = world.getBlock(i, j - 1, k);
-		world.getBlockMetadata(i, j - 1, k);
 		boolean spawnBlock = block.canCreatureSpawn(EnumCreatureType.monster, world, i, j - 1, k);
 		return spawnBlock && block != Blocks.bedrock && !world.getBlock(i, j, k).isNormalCube() && !world.getBlock(i, j, k).getMaterial().isLiquid() && !world.getBlock(i, j + 1, k).isNormalCube();
 	}
@@ -63,9 +96,9 @@ public class GOTSpawnerNPCs {
 		return count;
 	}
 
-	public static ChunkPosition getRandomSpawningPointInChunk(World world, ChunkCoordIntPair chunkCoords) {
-		int i = chunkCoords.chunkXPos;
-		int k = chunkCoords.chunkZPos;
+	public static ChunkPosition getRandomSpawningPointInChunk(World world, long key) {
+		int i = unpackX(key);
+		int k = unpackZ(key);
 		return getRandomSpawningPointInChunk(world, i, k);
 	}
 
@@ -85,8 +118,6 @@ public class GOTSpawnerNPCs {
 		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (biome instanceof GOTBiome && world.provider instanceof GOTWorldProvider) {
 			GOTBiome gotbiome = (GOTBiome) biome;
-			GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) world.provider.worldChunkMgr;
-			worldChunkMgr.getBiomeVariantAt(i, k);
 			spawnlist = gotbiome.getNPCSpawnList();
 		}
 		if (spawnlist != null) {
@@ -95,7 +126,7 @@ public class GOTSpawnerNPCs {
 		return null;
 	}
 
-	public static void getSpawnableChunks(World world, Collection<ChunkCoordIntPair> set) {
+	public static void getSpawnableChunks(World world, Collection<Long> set) {
 		set.clear();
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer entityplayer : players) {
@@ -103,14 +134,13 @@ public class GOTSpawnerNPCs {
 			int k = MathHelper.floor_double(entityplayer.posZ / 16.0);
 			for (int i1 = -7; i1 <= 7; ++i1) {
 				for (int k1 = -7; k1 <= 7; ++k1) {
-					ChunkCoordIntPair chunkcoordintpair = new ChunkCoordIntPair(i + i1, k + k1);
-					set.add(chunkcoordintpair);
+					set.add(packChunk(i + i1, k + k1));
 				}
 			}
 		}
 	}
 
-	public static void getSpawnableChunksWithPlayerInRange(World world, Collection<ChunkCoordIntPair> set, int range) {
+	public static void getSpawnableChunksWithPlayerInRange(World world, Collection<Long> set, int range) {
 		getSpawnableChunks(world, set);
 		Collection<EntityPlayer> validPlayers = new ArrayList<>();
 		List<EntityPlayer> players = world.playerEntities;
@@ -121,10 +151,12 @@ public class GOTSpawnerNPCs {
 			validPlayers.add(entityplayer);
 		}
 		int height = world.getHeight();
-		Collection<ChunkCoordIntPair> removes = new HashSet<>();
-		for (ChunkCoordIntPair chunkCoords : set) {
-			int i = chunkCoords.getCenterXPos();
-			int k = chunkCoords.getCenterZPosition();
+		Collection<Long> removes = new HashSet<>();
+		for (long key : set) {
+			int cx = unpackX(key);
+			int cz = unpackZ(key);
+			int i = (cx << 4) + 8;
+			int k = (cz << 4) + 8;
 			AxisAlignedBB playerCheckBox = AxisAlignedBB.getBoundingBox(i - range, 0.0, k - range, i + range, height, k + range);
 			boolean anyPlayers = false;
 			for (EntityPlayer entityplayer : validPlayers) {
@@ -137,7 +169,7 @@ public class GOTSpawnerNPCs {
 			if (anyPlayers) {
 				continue;
 			}
-			removes.add(chunkCoords);
+			removes.add(key);
 		}
 		set.removeAll(removes);
 	}
@@ -166,12 +198,14 @@ public class GOTSpawnerNPCs {
 			int cycles = Math.max(1, interval);
 			block2:
 			for (int c = 0; c < cycles; ++c) {
-				List<ChunkCoordIntPair> shuffled = shuffle(ELIGIBLE_SPAWN_CHUNKS);
-				for (ChunkCoordIntPair chunkCoords : shuffled) {
+				long[] buf = ensureShuffleBuffer(ELIGIBLE_SPAWN_CHUNKS.size());
+				int shuffledSize = shuffleInto(buf, ELIGIBLE_SPAWN_CHUNKS, world.rand);
+				for (int si = 0; si < shuffledSize; ++si) {
+					long chunkKey = buf[si];
 					int i;
 					int j;
 					int k;
-					ChunkPosition chunkposition = getRandomSpawningPointInChunk(world, chunkCoords);
+					ChunkPosition chunkposition = getRandomSpawningPointInChunk(world, chunkKey);
 					if (chunkposition == null || world.getBlock(i = chunkposition.chunkPosX, j = chunkposition.chunkPosY, k = chunkposition.chunkPosZ).isNormalCube() || world.getBlock(i, j, k).getMaterial() != Material.air) {
 						continue;
 					}
@@ -246,11 +280,5 @@ public class GOTSpawnerNPCs {
 				}
 			}
 		}
-	}
-
-	public static List<ChunkCoordIntPair> shuffle(Set<ChunkCoordIntPair> set) {
-		List<ChunkCoordIntPair> list = new ArrayList<>(set);
-		Collections.shuffle(list);
-		return list;
 	}
 }

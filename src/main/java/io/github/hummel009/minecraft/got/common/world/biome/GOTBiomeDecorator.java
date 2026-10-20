@@ -22,12 +22,17 @@ public class GOTBiomeDecorator {
 	private static final WorldGenCactus WORLD_GEN_CACTUS = new WorldGenCactus();
 	private static final WorldGenDeadBush WORLD_GEN_DEAD_BUSH = new WorldGenDeadBush(Blocks.deadbush);
 
+	private static final GOTWorldGenFallenLeaves FALLEN_LEAVES = new GOTWorldGenFallenLeaves();
+	private static final GOTWorldGenBushes BUSHES = new GOTWorldGenBushes();
+
 	private final Collection<GOTTreeType.WeightedTreeType> treeTypes = new HashSet<>();
 	private final Collection<GOTStructureBaseSettlement> settlements = new HashSet<>();
 	private final Collection<GOTStructureBaseSettlement> fixedSettlements = new HashSet<>();
 	private final Collection<OreGenerant> biomeOres = new HashSet<>();
 	private final Collection<OreGenerant> biomeGems = new HashSet<>();
 	private final Collection<Structure> structures = new HashSet<>();
+
+	private final Map<Long, Boolean> fixedSettlementCache = new HashMap<>();
 
 	private final List<OreGenerant> biomeSoils = new ArrayList<>();
 
@@ -99,7 +104,6 @@ public class GOTBiomeDecorator {
 		addOre(new WorldGenMinable(GOTBlocks.oreSalt, 12), 2.0f, 0, 64);
 		addGem(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 
-		/* Зарегулированные пропорциональные цены */
 		addOre(new WorldGenMinable(GOTBlocks.oreSilver, 4), 8.0f, 0, 32);
 		addOre(new WorldGenMinable(Blocks.gold_ore, 4), 2.0f, 0, 32);
 		addGem(new WorldGenMinable(GOTBlocks.oreGem, 5, 4, Blocks.stone), 2.0f, 0, 32);
@@ -115,6 +119,7 @@ public class GOTBiomeDecorator {
 	public void addFixedSettlement(GOTStructureBaseSettlement settlement) {
 		settlements.add(settlement);
 		fixedSettlements.add(settlement);
+		fixedSettlementCache.clear();
 	}
 
 	private void addGem(WorldGenMinable gen, float f, int min, int max) {
@@ -142,17 +147,29 @@ public class GOTBiomeDecorator {
 	}
 
 	public boolean anyFixedSettlementsAt(World world, int i, int k) {
+		long key = (long) (i >> 4) << 32 | k >> 4 & 0xFFFFFFFFL;
+		Boolean cached = fixedSettlementCache.get(key);
+		if (cached != null) {
+			return cached;
+		}
+		boolean result = false;
 		for (GOTStructureBaseSettlement settlement : fixedSettlements) {
 			if (settlement.anyFixedSettlementsAt(world, i, k)) {
-				return true;
+				result = true;
+				break;
 			}
 		}
-		return false;
+		if (fixedSettlementCache.size() > 65536) {
+			fixedSettlementCache.clear();
+		}
+		fixedSettlementCache.put(key, result);
+		return result;
 	}
 
 	public void clearSettlements() {
 		settlements.clear();
 		settlements.addAll(fixedSettlements);
+		fixedSettlementCache.clear();
 	}
 
 	@SuppressWarnings("unused")
@@ -255,7 +272,7 @@ public class GOTBiomeDecorator {
 			while (l3 < fallenLeaves) {
 				i5 = chunkX + rand.nextInt(16) + 8;
 				k4 = chunkZ + rand.nextInt(16) + 8;
-				new GOTWorldGenFallenLeaves().generate(worldObj, rand, i5, worldObj.getTopSolidOrLiquidBlock(i5, k4), k4);
+				FALLEN_LEAVES.generate(worldObj, rand, i5, worldObj.getTopSolidOrLiquidBlock(i5, k4), k4);
 				++l3;
 			}
 			float bushes = trees / 3.0f;
@@ -263,7 +280,7 @@ public class GOTBiomeDecorator {
 			while (l3 < bushes) {
 				i5 = chunkX + rand.nextInt(16) + 8;
 				k4 = chunkZ + rand.nextInt(16) + 8;
-				new GOTWorldGenBushes().generate(worldObj, rand, i5, worldObj.getTopSolidOrLiquidBlock(i5, k4), k4);
+				BUSHES.generate(worldObj, rand, i5, worldObj.getTopSolidOrLiquidBlock(i5, k4), k4);
 				++l3;
 			}
 		}
