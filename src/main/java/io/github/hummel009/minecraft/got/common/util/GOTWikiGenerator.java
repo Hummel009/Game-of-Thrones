@@ -1816,7 +1816,7 @@ public class GOTWikiGenerator {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(TITLE).append(NAMESPACE_NAME).append("DB Entity-Owners");
+		sb.append(TITLE).append(TEMPLATE).append(NAMESPACE_NAME).append("DB Entity-Owners");
 		sb.append(BEGIN);
 
 		appendDefault(sb, Lang.ENTITY_NO_OWNERS.toString());
@@ -2581,7 +2581,7 @@ public class GOTWikiGenerator {
 				}
 			}
 
-			sb.append(NL).append("&lt;table&gt;");
+			sb.append(NL).append("&lt;/table&gt;");
 
 			if (save) {
 				data.put(faction, sb.toString());
